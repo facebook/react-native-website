@@ -1,0 +1,170 @@
+---
+id: debugging
+title: Debugging
+---
+
+## Accessing the In-App Developer Menu
+
+You can access the developer menu by shaking your device or by selecting "Shake Gesture" inside the Hardware menu in the iOS Simulator. You can also use the `⌘D` keyboard shortcut when your app is running in the iOS Simulator, or `⌘M` when running in an Android emulator on Mac OS and `Ctrl+M` on Windows and Linux. Alternatively for Android, you can run the command `adb shell input keyevent 82` to open the dev menu (82 being the Menu key code).
+
+![](/docs/assets/DeveloperMenu.png)
+
+> The Developer Menu is disabled in release (production) builds.
+
+## Enabling Fast Refresh
+
+Fast Refresh is a React Native feature that allows you to get near-instant feedback for changes in your React components. While debugging, it can help to have [Fast Refresh](fast-refresh.md) enabled. Fast Refresh is enabled by default, and you can toggle "Enable Fast Refresh" in the React Native developer menu. When enabled, most of your edits should be visible within a second or two.
+
+## Enabling Keyboard Shortcuts
+
+React Native supports a few keyboard shortcuts in the iOS Simulator. They are described below. To enable them, open the Hardware menu, select Keyboard, and make sure that "Connect Hardware Keyboard" is checked.
+
+## In-app Errors and Warnings
+
+Errors and warnings are displayed inside your app in development builds.
+
+### Errors
+
+In-app errors are displayed in a full screen alert with a red background inside your app. This screen is known as a RedBox. You can use `console.error()` to manually trigger one.
+
+### Warnings
+
+Warnings will be displayed on screen with a yellow background. These alerts are known as YellowBoxes. Click on the alerts to show more information or to dismiss them.
+
+As with a RedBox, you can use `console.warn()` to trigger a YellowBox.
+
+YellowBoxes can be disabled during development by using `console.disableYellowBox = true;`. Specific warnings can be ignored programmatically by setting an array of prefixes that should be ignored:
+
+```jsx
+import { YellowBox } from 'react-native';
+YellowBox.ignoreWarnings(['Warning: ...']);
+```
+
+In CI/Xcode, YellowBoxes can also be disabled by setting the `IS_TESTING` environment variable.
+
+> RedBoxes and YellowBoxes are automatically disabled in release (production) builds.
+
+## Chrome Developer Tools
+
+To debug the JavaScript code in Chrome, select "Debug JS Remotely" from the Developer Menu. This will open a new tab at [http://localhost:8081/debugger-ui](http://localhost:8081/debugger-ui).
+
+Select `Tools → Developer Tools` from the Chrome Menu to open the [Developer Tools](https://developer.chrome.com/devtools). You may also access the DevTools using keyboard shortcuts (`⌘⌥I` on macOS, `Ctrl` `Shift` `I` on Windows). You may also want to enable [Pause On Caught Exceptions](http://stackoverflow.com/questions/2233339/javascript-is-there-a-way-to-get-chrome-to-break-on-all-errors/17324511#17324511) for a better debugging experience.
+
+> Note: the React Developer Tools Chrome extension does not work with React Native, but you can use its standalone version instead. Read [this section](debugging.md#react-developer-tools) to learn how.
+
+### Debugging using a custom JavaScript debugger
+
+To use a custom JavaScript debugger in place of Chrome Developer Tools, set the `REACT_DEBUGGER` environment variable to a command that will start your custom debugger. You can then select "Debug JS Remotely" from the Developer Menu to start debugging.
+
+The debugger will receive a list of all project roots, separated by a space. For example, if you set `REACT_DEBUGGER="node /path/to/launchDebugger.js --port 2345 --type ReactNative"`, then the command `node /path/to/launchDebugger.js --port 2345 --type ReactNative /path/to/reactNative/app` will be used to start your debugger.
+
+> Custom debugger commands executed this way should be short-lived processes, and they shouldn't produce more than 200 kilobytes of output.
+
+## Safari Developer Tools
+
+You can use Safari to debug the iOS version of your app without having to enable "Debug JS Remotely".
+
+- Enable Develop menu in Safari: `Preferences → Advanced → Select "Show Develop menu in menu bar"`
+- Select your app's JSContext: `Develop → Simulator → JSContext`
+- Safari's Web Inspector should open which has a Console and a Debugger
+
+However, there are some disadvantages:
+
+1. No sourcemaps when debugging
+2. Every time the app is reloaded (using live reload, or by manually reloading), a new JSContext is created. Choosing "Automatically Show Web Inspectors for JSContexts" saves you from having to select the latest JSContext manually.
+
+## React Developer Tools
+
+You can use [the standalone version of React Developer Tools](https://github.com/facebook/react/tree/master/packages/react-devtools) to debug the React component hierarchy. To use it, install the `react-devtools` package globally:
+
+```
+npm install -g react-devtools
+```
+
+Now run `react-devtools` from the terminal to launch the standalone DevTools app:
+
+```
+react-devtools
+```
+
+![React DevTools](/docs/assets/ReactDevTools.png)
+
+It should connect to your simulator within a few seconds.
+
+> Note: if you prefer to avoid global installations, you can add `react-devtools` as a project dependency. Add the `react-devtools` package to your project using `npm install --save-dev react-devtools`, then add `"react-devtools": "react-devtools"` to the `scripts` section in your `package.json`, and then run `npm run react-devtools` from your project folder to open the DevTools.
+
+### Integration with React Native Inspector
+
+Open the in-app developer menu and choose "Toggle Inspector". It will bring up an overlay that lets you tap on any UI element and see information about it:
+
+![React Native Inspector](/docs/assets/Inspector.gif)
+
+However, when `react-devtools` is running, Inspector will enter a collapsed mode, and instead use the DevTools as primary UI. In this mode, clicking on something in the simulator will bring up the relevant components in the DevTools:
+
+![React DevTools Inspector Integration](/docs/assets/ReactDevToolsInspector.gif)
+
+You can choose "Toggle Inspector" in the same menu to exit this mode.
+
+### Inspecting Component Instances
+
+When debugging JavaScript in Chrome, you can inspect the props and state of the React components in the browser console.
+
+First, follow the instructions for debugging in Chrome to open the Chrome console.
+
+Make sure that the dropdown in the top left corner of the Chrome console says `debuggerWorker.js`. **This step is essential.**
+
+Then select a React component in React DevTools. There is a search box at the top that helps you find one by name. As soon as you select it, it will be available as `$r` in the Chrome console, letting you inspect its props, state, and instance properties.
+
+![React DevTools Chrome Console Integration](/docs/assets/ReactDevToolsDollarR.gif)
+
+## Performance Monitor
+
+You can enable a performance overlay to help you debug performance problems by selecting "Perf Monitor" in the Developer Menu.
+
+<hr style={{marginTop: 25, marginBottom: 25}} />
+
+# Debugging in Ejected Apps
+
+<div className="banner-crna-ejected" style={{marginTop: 25}}>
+  <h3>Projects with Native Code Only</h3>
+  <p>
+    The remainder of this guide only applies to projects made with <code>react-native init</code>
+    or to those made with <code>expo init</code> or Create React Native App which have since ejected. For
+    more information about ejecting, please see
+    the <a href="https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md" target="_blank">guide</a> on
+    the Create React Native App repository.
+  </p>
+</div>
+
+## Accessing console logs
+
+You can display the console logs for an iOS or Android app by using the following commands in a terminal while the app is running:
+
+```
+$ react-native log-ios
+$ react-native log-android
+```
+
+You may also access these through `Debug → Open System Log...` in the iOS Simulator or by running `adb logcat *:S ReactNative:V ReactNativeJS:V` in a terminal while an Android app is running on a device or emulator.
+
+> If you're using Create React Native App or Expo CLI, console logs already appear in the same terminal output as the bundler.
+
+## Debugging on a device with Chrome Developer Tools
+
+> If you're using Create React Native App or Expo CLI, this is configured for you already.
+
+On iOS devices, open the file [`RCTWebSocketExecutor.m`](https://github.com/facebook/react-native/blob/master/Libraries/WebSocket/RCTWebSocketExecutor.m) and change "localhost" to the IP address of your computer, then select "Debug JS Remotely" from the Developer Menu.
+
+On Android 5.0+ devices connected via USB, you can use the [`adb` command line tool](http://developer.android.com/tools/help/adb.html) to setup port forwarding from the device to your computer:
+
+`adb reverse tcp:8081 tcp:8081`
+
+<!-- alex ignore host-hostess -->
+
+Alternatively, select "Dev Settings" from the Developer Menu, then update the "Debug server host for device" setting to match the IP address of your computer.
+
+> If you run into any issues, it may be possible that one of your Chrome extensions is interacting in unexpected ways with the debugger. Try disabling all of your extensions and re-enabling them one-by-one until you find the problematic extension.
+
+## Debugging native code
+
+When working with native code, such as when writing native modules, you can launch the app from Android Studio or Xcode and take advantage of the native debugging features (setting up breakpoints, etc.) as you would in case of building a standard native app.

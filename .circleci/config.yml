@@ -1,106 +1,78 @@
-aliases:
-  # Caches
-  - &restore-yarn-cache
-    keys:
-      - v1-yarn-{{ .Branch }}-{{ checksum "website/yarn.lock" }}
-      # Fallback in case checksum fails
-      - v1-yarn-{{ .Branch }}-
+version: 2.1
 
-  - &save-yarn-cache
-    paths:
-      - website/node_modules
-      - ~/.cache/yarn
-    key: v1-yarn-{{ .Branch }}-{{ checksum "website/yarn.lock" }}
+# -------------------------
+#        EXECUTORS
+# -------------------------
+executors:
+  node:
+    docker:
+      - image: circleci/node:lts
 
-  # Filters
-  - &filter-only-master
-    branches:
-      only:
-        - master
-
-defaults: &defaults
-  working_directory: ~/react-native-website
-  docker:
-    - image: circleci/node:8
-
-version: 2
-jobs:
-  # Checkout and run yarn
-  checkout_code:
-    <<: *defaults
+# -------------------------
+#        COMMANDS
+# -------------------------
+commands:
+  restore_cache_checkout:
     steps:
-      - checkout
+      - restore_cache:
+          key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
 
-      - restore-cache: *restore-yarn-cache
+  run_yarn:
+    steps:
+      - restore_cache:
+          keys:
+            - v1-yarn-{{ .Branch }}
       - run:
           name: Yarn Install
-          command: |
-            cd website
-            yarn install --no-progress --non-interactive --cache-folder ~/.cache/yarn
-      - save-cache: *save-yarn-cache
+          command: yarn install --no-progress --non-interactive --cache-folder ~/.cache/yarn
+      - save_cache:
+          paths:
+            - node_modules
+            - ~/.cache/yarn
+          key: v1-yarn-{{ .Branch }}
 
-      - persist_to_workspace:
-          root: .
-          paths: .
+# -------------------------
+#        JOBS
+# -------------------------
+jobs:
+  # --------------------------------------------------
+  # JOB: setup
+  # Checks out the repo, and persists to cache.
+  # --------------------------------------------------
+  setup:
+    executor: node
+    working_directory: ~/react-native-website
+    steps:
+      - checkout
+      - save_cache:
+          key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
+          paths:
+            - ~/react-native-website
 
-  # Tests website
-  test_website:
-    <<: *defaults
+  # --------------------------------------------------
+  # JOB: lint
+  # Lint the docs.
+  # --------------------------------------------------
+  lint:
+    executor: node
     working_directory: ~/react-native-website/website
     steps:
-      - attach_workspace:
-          at: ~/react-native-website
-      - run: yarn ci-check
-      - run: yarn test
-      - run:
-          name: Check for missing index.html (build errors)
-          command: |
-            if [ ! -f build/react-native/index.html ]; then
-              exit 1;
-            fi
+      - restore_cache_checkout
+      - run_yarn
+      - run: yarn lint
+      - run: yarn lint:versioned
+      - run: yarn language:lint
 
-  # Deploys website
-  deploy_website:
-    <<: *defaults
-    working_directory: ~/react-native-website/website
-    steps:
-      - attach_workspace:
-          at: ~/react-native-website
-      - run:
-          name: Install Dependencies
-          command: sudo apt install rsync
-      - run:
-          name: Build and Deploy Static Website
-          command: |
-            if [[ $CIRCLE_PROJECT_USERNAME == "facebook" && -z $CI_PULL_REQUEST && -z $CIRCLE_PR_USERNAME ]]; then
-              git config --global user.email "reactjs-bot@users.noreply.github.com"
-              git config --global user.name "Website Deployment Script"
-              echo "machine github.com login reactjs-bot password $GITHUB_TOKEN" > ~/.netrc
-              echo "Deploying website..."
-              GIT_USER=reactjs-bot CIRCLE_PROJECT_REPONAME=react-native yarn run publish-gh-pages
-            else
-              echo "Skipping deploy."
-            fi
-
+# -------------------------
+#        WORKFLOWS
+# -------------------------
 workflows:
-  version: 2
-
   # Tests run on master and on forks
   tests:
     jobs:
-      - checkout_code
+      - setup
 
-      # Test website
-      - test_website:
+      # Run lints
+      - lint:
           requires:
-            - checkout_code
-
-  # If we are on master, deploy docs
-  deploy:
-    jobs:
-      - checkout_code:
-          filters: *filter-only-master
-
-      - deploy_website:
-          requires:
-            - checkout_code
+            - setup

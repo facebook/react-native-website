@@ -1,4 +1,21 @@
 [build]
-  base    = "website"
-  publish = "website/build/react-native"
-  command = "sed -i -e \"s|const baseUrl .*|const baseUrl = '/';|g\" siteConfig.js && yarn install && node netlify-reduce-versions && yarn build"
+  base    = ""
+  publish = "website/build"
+  command = "yarn && cd website && yarn build"
+
+[context.production.environment]
+  NODE_VERSION = "14.16.0"
+  NODE_OPTIONS = "--max_old_space_size=4096"
+
+[context.deploy-preview.environment]
+  NODE_VERSION = "14.16.0"
+  NODE_OPTIONS = "--max_old_space_size=4096"
+  PREVIEW_DEPLOY = "true"
+
+[[plugins]]
+  package = "netlify-plugin-cache"
+  [plugins.inputs]
+    paths = [
+      "website/node_modules/.cache",
+    ]
+

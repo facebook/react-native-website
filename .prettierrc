@@ -8,19 +8,28 @@
         "jsxBracketSameLine": true,
         "printWidth": 80,
         "singleQuote": true,
-        "trailingComma": "es5"
+        "trailingComma": "es5",
+        "endOfLine": "auto"
       }
     },
     {
       "files": "*.md",
       "options": {
         "arrowParens": "always",
-        "bracketSpacing": false,
+        "bracketSpacing": true,
         "jsxBracketSameLine": true,
-        "printWidth": 80,
-        "proseWrap": "never",
+        "printWidth": 66,
+        "proseWrap": "preserve",
         "singleQuote": true,
-        "trailingComma": "all"
+        "trailingComma": "none",
+        "endOfLine": "auto"
+      }
+    },
+    {
+      "files": ["*.scss", "*.css"],
+      "options": {
+        "printWidth": 80,
+        "endOfLine": "auto"
       }
     }
   ]

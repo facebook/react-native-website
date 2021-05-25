@@ -1,11 +1,11 @@
 ---
-title: React Native Monthly #1
+title: 'React Native Monthly #1'
 author: Tomislav Tenodi
 authorTitle: Product Manager at Shoutem
-authorURL: https://github.com/tenodi
-authorImageURL: https://pbs.twimg.com/profile_images/877237660225609729/bKFDwfAq.jpg
+authorURL: 'https://github.com/tenodi'
+authorImageURL: 'https://pbs.twimg.com/profile_images/877237660225609729/bKFDwfAq.jpg'
 authorTwitter: TomislavTenodi
-category: engineering
+tags: [engineering]
 ---
 
 At [Shoutem](https://shoutem.github.io/), we've been fortunate enough to work with React Native from its very beginnings. We decided we wanted to be part of the amazing community from day one. Soon enough, we realized it's almost impossible to keep up with the pace the community was growing and improving. That's why we decided to organize a monthly meeting where all major React Native contributors can briefly present what their efforts and plans are.
@@ -52,9 +52,9 @@ As teams' plans might be of interest to a broader audience, we'll be sharing the
 ### Expo
 
 - Working on making it possible to install npm modules in [Snack](https://snack.expo.io/), will be useful for libraries to add examples to documentation.
-- Working with [Krzysztof](https://github.com/kmagiera) and other people at [Software Mansion](https://github.com/softwaremansion) on a JSC update on Android and a gesture handling library.
+- Working with [Krzysztof](https://github.com/kmagiera) and other people at [Software Mansion](https://github.com/software-mansion) on a JSC update on Android and a gesture handling library.
 - [Adam Miskiewicz](https://github.com/skevy) is transitioning his focus towards [react-navigation](https://github.com/react-community/react-navigation).
-- [Create React Native App](https://github.com/react-community/create-react-native-app) is in the [Getting Started guide](https://facebook.github.io/react-native/getting-started.md) in the docs. Expo wants to encourage library authors to explain clearly whether their lib works with CRNA or not, and if so, explain how to set it up.
+- [Create React Native App](https://github.com/react-community/create-react-native-app) is in the [Getting Started guide](/docs/getting-started) in the docs. Expo wants to encourage library authors to explain clearly whether their lib works with CRNA or not, and if so, explain how to set it up.
 
 ### Facebook
 
