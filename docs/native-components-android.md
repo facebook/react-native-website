@@ -311,10 +311,10 @@ public class MyFragment extends Fragment {
   /**
    * Setup layout
    */
-  public void setupLayout(ViewGroup view) {
+  public void setupLayout(View view) {
     Choreographer.getInstance().postFrameCallback(new Choreographer.FrameCallback() {
       @Override
-      public void doFrame(long l) {
+      public void doFrame(long frameTimeNanos) {
         manuallyLayoutChildren(view);
         view.getViewTreeObserver().dispatchOnGlobalLayout();
         Choreographer.getInstance().postFrameCallback(this);
@@ -325,15 +325,16 @@ public class MyFragment extends Fragment {
   /**
    * Layout all children properly
    */
-  public void manuallyLayoutChildren(ViewGroup view) {
-    for (int i = 0; i < view.getChildCount(); i++) {
-      View child = view.getChildAt(i);
+  public void manuallyLayoutChildren(View view) {
+      // propWidth and propHeight coming from react-native props
+      int width = propWidth;
+      int height = propHeight;
 
-      child.measure(
-              View.MeasureSpec.makeMeasureSpec(view.getMeasuredWidth(), View.MeasureSpec.EXACTLY),
-              View.MeasureSpec.makeMeasureSpec(view.getMeasuredHeight(), View.MeasureSpec.EXACTLY));
-      child.layout(0, 0, child.getMeasuredWidth(), child.getMeasuredHeight());
-    }
+      view.measure(
+              View.MeasureSpec.makeMeasureSpec(width, View.MeasureSpec.EXACTLY),
+              View.MeasureSpec.makeMeasureSpec(height, View.MeasureSpec.EXACTLY));
+
+      view.layout(0, 0, width, height);
   }
 ```
 
