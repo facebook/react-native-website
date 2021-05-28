@@ -223,7 +223,7 @@ You can render this component multiple times and in multiple places without repe
 
 ```SnackPlayer name=Multiple%20Components
 import React from 'react';
-import { Text, TextInput, View } from 'react-native';
+import { Text, View } from 'react-native';
 
 const Cat = () => {
   return (
