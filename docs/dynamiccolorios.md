@@ -12,7 +12,7 @@ DynamicColorIOS({
   light: color,
   dark: color,
   highContrastLight: color, // (optional) will fallback to "dark" if not provided
-  highContrastDark: color, // (optional) will fallback to "light" if not provided
+  highContrastDark: color // (optional) will fallback to "light" if not provided
 });
 ```
 
@@ -46,11 +46,10 @@ const customDynamicTextColor = DynamicColorIOS({
   light: 'midnightblue'
 });
 
-
 const customContrastDynamicTextColor = DynamicColorIOS({
   dark: 'darkgray',
   light: 'lightgray',
   highContrastDark: 'black',
-  highContrastLight: 'white',
+  highContrastLight: 'white'
 });
 ```
