@@ -121,7 +121,7 @@ function DocItem(props) {
                   <h1 className={styles.docTitle}>{title}</h1>
                 </header>
               )}
-              <SponsorHeader />
+              {/* <SponsorHeader /> */}
               <div className="markdown">
                 <DocContent />
               </div>
