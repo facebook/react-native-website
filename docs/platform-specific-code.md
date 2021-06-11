@@ -84,7 +84,7 @@ if (Platform.Version === 25) {
 }
 ```
 
-***Pro tip***: this is the Android API version not the OS version. To find a mapping please refer to: [Android Version History](https://en.wikipedia.org/wiki/Android_version_history)
+**Pro·tip**: this is the Android API version not the OS version. To find a mapping please refer to: [Android Version History](https://en.wikipedia.org/wiki/Android_version_history)
 
 ### Detecting the iOS version
 
