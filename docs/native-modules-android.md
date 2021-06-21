@@ -392,7 +392,7 @@ There are two approaches to error handling with callbacks. The first is to follo
 
 ```java
 @ReactMethod
-public void createCalendarEvent(String name, String location, Callback myFailureCallback, Callback callBack) {
+public void createCalendarEvent(String name, String location, Callback callBack) {
     Integer eventId = ...
     callBack.invoke(null, eventId);
 }
