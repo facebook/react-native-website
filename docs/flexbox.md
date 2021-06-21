@@ -859,7 +859,7 @@ const FlexWrapLayout = () => {
     <PreviewLayout
       label="flexWrap"
       selectedValue={flexWrap}
-      values={["wrap", "no-wrap"]}
+      values={["wrap", "nowrap"]}
       setSelectedValue={setFlexWrap}>
       <View
         style={[styles.box, { backgroundColor: "orangered" }]}
