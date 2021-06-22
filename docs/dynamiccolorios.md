@@ -11,8 +11,8 @@ The `DynamicColorIOS` function is a platform color type specific to iOS.
 DynamicColorIOS({
   light: color,
   dark: color,
-  highContrastLight: color, // (optional) will fallback to "dark" if not provided
-  highContrastDark: color // (optional) will fallback to "light" if not provided
+  highContrastLight: color, // (optional) will fallback to "light" if not provided
+  highContrastDark: color // (optional) will fallback to "dark" if not provided
 });
 ```
 
