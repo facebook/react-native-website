@@ -8,14 +8,17 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import con
 The `DynamicColorIOS` function is a platform color type specific to iOS.
 
 ```jsx
-DynamicColorIOS({ light: color, dark: color });
+DynamicColorIOS({
+  light: color,
+  dark: color,
+  highContrastLight: color, // (optional) will fallback to "light" if not provided
+  highContrastDark: color // (optional) will fallback to "dark" if not provided
+});
 ```
 
-`DynamicColorIOS` takes a single argument as an object with two keys: `dark` and `light`. These correspond to the colors you want to use for "light mode" and "dark mode" on iOS.
+`DynamicColorIOS` takes a single argument as an object with two mandatory keys: `dark` and `light`, and two optional keys `highContrastLight` and `highContrastDark`. These correspond to the colors you want to use for "light mode" and "dark mode" on iOS, and when high contrast accessibility mode is enabled, high contrast version of them.
 
-> In the future, more keys might become available for different user preferences, like high contrast.
-
-At runtime, the system will choose which of the two colors to display depending on the current system appearance settings. Dynamic colors are useful for branding colors or other app specific colors that still respond automatically to system setting changes.
+At runtime, the system will choose which of the colors to display depending on the current system appearance and accessibility settings. Dynamic colors are useful for branding colors or other app specific colors that still respond automatically to system setting changes.
 
 #### Developer notes
 
@@ -41,5 +44,12 @@ import { DynamicColorIOS } from 'react-native';
 const customDynamicTextColor = DynamicColorIOS({
   dark: 'lightskyblue',
   light: 'midnightblue'
+});
+
+const customContrastDynamicTextColor = DynamicColorIOS({
+  dark: 'darkgray',
+  light: 'lightgray',
+  highContrastDark: 'black',
+  highContrastLight: 'white'
 });
 ```
