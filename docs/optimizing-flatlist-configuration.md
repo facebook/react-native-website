@@ -45,6 +45,37 @@ It is a `VirtualizedList` prop that can be passed through `FlatList`. This contr
 
 **Cons:** More items per batch means longer periods of JavaScript execution potentially blocking other event processing, like presses, hurting responsiveness.
 
+
+### Using a FlatList inside a FlatList:
+
+This will help you to make your app more user friendly and easy to use. It can be also used for making different rows inside a parent FlatList.
+
+Change the `renderItem` part and inside it add one more FlatList which will result in FlatList inside a Flatlist like:
+
+```jsx
+
+<View>
+  <FlatList
+    keyExtractor={(item, index) => index}
+    data={ // ...FlatListData }
+    renderItem={({ item }) => (
+      <View>
+          <FlatList
+            keyExtractor={(item2, index) => index}
+            data={ // ...FlatListData2 }
+            renderItem={({ item2 }) => (
+              <View>
+                ...
+              </View>
+            )}
+          />
+      </View>
+    )}
+  />
+</View>
+
+```
+
 ### updateCellsBatchingPeriod
 
 | Type   | Default |
@@ -121,7 +152,7 @@ You can also use a `key` prop in your item component.
 
 ### Avoid anonymous function on renderItem
 
-Move out the `renderItem` function to the outside of render function, so it won't recreate itself each time render function called.
+ function to the outside of render function, so it won't recreate itself each time render function called.
 
 ```jsx
 renderItem = ({ item }) => (<View key={item.key}><Text>{item.title}</Text></View>);
