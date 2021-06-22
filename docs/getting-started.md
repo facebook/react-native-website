@@ -52,7 +52,7 @@ npm start # you can also use: expo start
 <TabItem value="yarn">
 
 ```shell
-expo init AwesomeProject
+expo init AwesomeProject //You will be asked to choose a template, use arrow keys and select one. For now, you can go with "blank"
 
 cd AwesomeProject
 yarn start # you can also use: expo start
