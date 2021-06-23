@@ -11,9 +11,9 @@ React Native provides a unified way of managing images and other media assets in
 <Image source={require('./my-icon.png')} />
 ```
 
-The image name is resolved the same way JS modules are resolved. In the example above, the bundler will look for `my-icon.png` in the same folder as the component that requires it. Also, if you have `my-icon.ios.png` and `my-icon.android.png`, the bundler will pick the correct file for the platform.
+The image name is resolved the same way JS modules are resolved. In the example above, the bundler will look for `my-icon.png` in the same folder as the component that requires it.
 
-You can also use the `@2x` and `@3x` suffixes to provide images for different screen densities. If you have the following file structure:
+You can use the `@2x` and `@3x` suffixes to provide images for different screen densities. If you have the following file structure:
 
 ```
 .
