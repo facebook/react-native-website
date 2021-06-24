@@ -5,7 +5,7 @@ title: Text Style Props
 
 ### Example
 
-```SnackPlayer name=TextStyleProps
+```SnackPlayer name=TextStyleProps&supportedPlatforms=ios,android
 import React, { useState } from "react";
 import { FlatList, Platform, ScrollView, Slider, StatusBar, StyleSheet, Switch, Text, TouchableWithoutFeedback, View } from "react-native";
 
