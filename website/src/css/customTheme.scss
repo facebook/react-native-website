@@ -756,16 +756,9 @@ html[data-theme="dark"] div[class^="tableOfContents"] {
     }
   }
 
-  small {
-    display: none;
-  }
-
-  .row {
+  .lastUpdated {
     font-size: 13px;
-  }
-
-  a {
-    font-size: 15px;
+    text-align: right;
   }
 
   time,
@@ -832,6 +825,10 @@ html[data-theme="dark"] div[class^="tableOfContents"] {
     font-size: 14px;
     padding: 8px 0 0;
     min-height: 30px;
+
+    a:hover svg {
+      color: var(--brand);
+    }
   }
 
   .footer__title {
