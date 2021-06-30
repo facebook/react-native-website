@@ -41,14 +41,14 @@
     ]
   },
   "dependencies": {
-    "@docusaurus/core": "^2.0.0-beta.0",
-    "@docusaurus/plugin-pwa": "^2.0.0-beta.0",
-    "@docusaurus/preset-classic": "^2.0.0-beta.0",
-    "docusaurus-plugin-sass": "^0.2.0",
+    "@docusaurus/core": "^2.0.0-beta.3",
+    "@docusaurus/plugin-pwa": "^2.0.0-beta.3",
+    "@docusaurus/preset-classic": "^2.0.0-beta.3",
+    "docusaurus-plugin-sass": "^0.2.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-github-btn": "^1.2.0",
-    "sass": "^1.34.0"
+    "sass": "^1.35.1"
   },
   "devDependencies": {
     "alex": "^9.1.0",
