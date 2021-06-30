@@ -163,14 +163,12 @@ import {
   View
 } from 'react-native';
 
-class HelloWorld extends React.Component {
-  render() {
+const HelloWorld = () => {
     return (
       <View style={styles.container}>
         <Text style={styles.hello}>Hello, World</Text>
       </View>
     );
-  }
 }
 var styles = StyleSheet.create({
   container: {

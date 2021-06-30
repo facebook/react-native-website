@@ -213,9 +213,8 @@ import {
   View
 } from 'react-native';
 
-class RNHighScores extends React.Component {
-  render() {
-    var contents = this.props['scores'].map((score) => (
+const RNHighScores = (props) => {
+    const contents = props['scores'].map((score) => (
       <Text key={score.name}>
         {score.name}:{score.value}
         {'\n'}
@@ -229,7 +228,6 @@ class RNHighScores extends React.Component {
         <Text style={styles.scores}>{contents}</Text>
       </View>
     );
-  }
 }
 
 const styles = StyleSheet.create({
