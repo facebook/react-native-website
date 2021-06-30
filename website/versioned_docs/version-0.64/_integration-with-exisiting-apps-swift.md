@@ -180,21 +180,21 @@ import {
 } from 'react-native';
 
 const RNHighScores = (props) => {
-    const contents = props['scores'].map((score) => (
-      <Text key={score.name}>
-        {score.name}:{score.value}
-        {'\n'}
+  const contents = props['scores'].map((score) => (
+    <Text key={score.name}>
+      {score.name}:{score.value}
+      {'\n'}
+    </Text>
+  ));
+  return (
+    <View style={styles.container}>
+      <Text style={styles.highScoresTitle}>
+        2048 High Scores!
       </Text>
-    ));
-    return (
-      <View style={styles.container}>
-        <Text style={styles.highScoresTitle}>
-          2048 High Scores!
-        </Text>
-        <Text style={styles.scores}>{contents}</Text>
-      </View>
-    );
-}
+      <Text style={styles.scores}>{contents}</Text>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
