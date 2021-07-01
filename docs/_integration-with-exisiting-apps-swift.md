@@ -179,8 +179,8 @@ import {
   View
 } from 'react-native';
 
-const RNHighScores = (props) => {
-  const contents = props['scores'].map((score) => (
+const RNHighScores = ({ scores }) => {
+  const contents = scores.map((score) => (
     <Text key={score.name}>
       {score.name}:{score.value}
       {'\n'}
