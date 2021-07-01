@@ -70,6 +70,10 @@ html[data-theme="dark"] {
   }
 }
 
+main[class^='docMainContainer'] > .container {
+  padding-top: 2rem !important;
+}
+
 @media (max-width: 1416px) {
   .main-wrapper {
     max-width: 100%;
@@ -371,7 +375,7 @@ html[data-theme="dark"] .community-page {
 
 /* Version warning */
 
-div[class*="docItemWrapper"] .row .col {
+div[class*="docs-wrapper"] .row .col {
   > .alert--warning {
     background-color: rgba(100, 215, 255, 0.3);
   }
@@ -505,6 +509,10 @@ html[data-theme="dark"] .avatar__name a {
     }
   }
 
+  .navbar__items div[class^='searchBox'] {
+    padding-left: 14px;
+  }
+
   .navbar-github-link {
     &:after {
       transition: opacity 0.2s;
@@ -596,7 +604,7 @@ html[data-theme="dark"] .navbar-sidebar {
 
 /* Sidebar */
 
-div[class^="docSidebarContainer"] {
+aside[class^="docSidebarContainer"] {
   margin-right: 16px;
 
   --doc-sidebar-width: 266px;
@@ -606,7 +614,7 @@ div[class^="docSidebarContainer"] {
 }
 
 @media only screen and (min-width: 997px) {
-  div[class^="docSidebarContainer"] {
+  aside[class^="docSidebarContainer"] {
     .menu {
       padding: 12px;
     }
@@ -614,7 +622,7 @@ div[class^="docSidebarContainer"] {
 }
 
 @media only screen and (max-width: 996px) {
-  div[class^="docSidebarContainer"] {
+  aside[class^="docSidebarContainer"] {
     width: 0 !important;
     min-width: 0 !important;
     margin-right: 0;
@@ -632,6 +640,7 @@ div[class^="docSidebarContainer"] {
 
   .menu__list {
     .menu__link {
+      line-height: 20px;
       font-size: 13px;
       padding: 3px 12px;
       font-weight: normal;
@@ -652,7 +661,7 @@ div[class^="docSidebarContainer"] {
 
     &:after {
       background-size: 1.66rem 1.66rem;
-      margin-right: 6px;
+      margin-right: -6px;
       margin-top: -1px;
     }
   }
@@ -747,8 +756,9 @@ html[data-theme="dark"] div[class^="tableOfContents"] {
     }
   }
 
-  small {
+  .lastUpdated {
     font-size: 13px;
+    text-align: right;
   }
 
   time,
@@ -815,6 +825,10 @@ html[data-theme="dark"] div[class^="tableOfContents"] {
     font-size: 14px;
     padding: 8px 0 0;
     min-height: 30px;
+
+    a:hover svg {
+      color: var(--brand);
+    }
   }
 
   .footer__title {
@@ -842,6 +856,12 @@ html[data-theme="dark"] div[class^="tableOfContents"] {
   img[class^="themedImage"] {
     display: initial !important;
     height: 54px;
+  }
+
+  svg[class^="iconExternalLink"] {
+    color: var(--subtle);
+    right: -1px;
+    width: 9px;
   }
 }
 

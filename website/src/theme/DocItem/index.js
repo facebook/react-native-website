@@ -83,11 +83,11 @@ function DocItem(props) {
             </article>
             <DocsRating label={unversionedId} />
             {(editUrl || lastUpdatedAt || lastUpdatedBy) && (
-              <div className="docMetadata margin-vert--xl">
-                <div className="row">
-                  <div className="col">
-                    {editUrl && <EditThisPage editUrl={editUrl} />}
-                  </div>
+              <div className="docMetadata margin-vert--xl row">
+                <div className="col">
+                  {editUrl && <EditThisPage editUrl={editUrl} />}
+                </div>
+                <div className="col lastUpdated">
                   {lastUpdatedAt && (
                     <LastUpdated
                       lastUpdatedAt={lastUpdatedAt}
