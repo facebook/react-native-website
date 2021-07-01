@@ -17,7 +17,7 @@
   --ifm-menu-link-padding-horizontal: 0;
   --ifm-toc-padding-vertical: 6px;
   --ifm-toc-link-color: var(--ifm-color-emphasis-700);
-  --ifm-code-font-size: 85%;
+  --ifm-code-font-size: 90%;
   --ifm-code-border-radius: 3px;
   --ifm-blockquote-color: var(--ifm-font-color-base);
   --ifm-table-head-color: var(--subtle);
@@ -111,8 +111,8 @@ hr {
 .markdown {
   code {
     border-color: transparent;
-    line-height: 1.2;
     vertical-align: initial;
+    font-size: var(--ifm-code-font-size) !important;
   }
 
   blockquote {
