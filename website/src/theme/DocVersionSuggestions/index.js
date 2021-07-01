@@ -73,8 +73,8 @@ function LatestVersionSuggestionLabel({versionLabel, to, onClick}) {
   );
 }
 
-const getVersionMainDoc = (version) =>
-  version.docs.find((doc) => doc.id === version.mainDocId);
+const getVersionMainDoc = version =>
+  version.docs.find(doc => doc.id === version.mainDocId);
 
 function DocVersionSuggestions() {
   const {
