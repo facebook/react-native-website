@@ -59,7 +59,6 @@ function DocItem(props) {
           image,
         }}
       />
-
       <div className="row">
         <div
           className={clsx('col', {
@@ -84,11 +83,10 @@ function DocItem(props) {
               </div>
               <DocsRating label={unversionedId} />
               {(editUrl || lastUpdatedAt || lastUpdatedBy) && (
-                <footer className="row docusaurus-mt-lg">
+                <footer className="docMetadata row docusaurus-mt-lg">
                   <div className="col">
                     {editUrl && <EditThisPage editUrl={editUrl} />}
                   </div>
-
                   <div className={clsx('col', styles.lastUpdated)}>
                     {(lastUpdatedAt || lastUpdatedBy) && (
                       <LastUpdated

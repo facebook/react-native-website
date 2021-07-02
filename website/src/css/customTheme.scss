@@ -34,6 +34,7 @@
   --ifm-pagination-nav-color-hover: var(--ifm-color-emphasis-300);
   --ifm-navbar-sidebar-width: 66%;
   --doc-sidebar-width: 100%;
+  --ifm-table-border-width: 0.005rem;
 }
 
 html[data-theme="light"] {
@@ -154,6 +155,7 @@ hr {
 
     thead tr {
       background-color: var(--divider);
+      border: 0;
     }
 
     tr th {
@@ -1360,7 +1362,7 @@ html[data-theme="dark"] .component {
   padding: 16px 30px 16px 40px;
   min-height: 66px;
   margin-top: 42px;
-  margin-left: -40px;
+  margin-left: -32px;
   background-color: rgba(100, 215, 255, 0.3);
   text-align: center;
   color: #057594;
