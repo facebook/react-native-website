@@ -38,6 +38,7 @@ function DocItem(props) {
     lastUpdatedAt,
     formattedLastUpdatedAt,
     lastUpdatedBy,
+    unversionedId,
   } = metadata;
   const {pluginId} = useActivePlugin({
     failfast: true,
