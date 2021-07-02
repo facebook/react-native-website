@@ -16,6 +16,8 @@ import clsx from 'clsx';
 import styles from './styles.module.css';
 import {useActivePlugin, useActiveVersion, useVersions} from '@theme/hooks/useDocs';
 
+import DocsRating from '../../../core/DocsRating';
+
 function DocItem(props) {
   const {content: DocContent, versionMetadata} = props;
   const {metadata, frontMatter} = DocContent;
@@ -75,6 +77,7 @@ function DocItem(props) {
                 {shouldAddTitle && <MainHeading>{title}</MainHeading>}
                 <DocContent />
               </div>
+              <DocsRating label={unversionedId} />
               {(editUrl || lastUpdatedAt || lastUpdatedBy) && (
                 <footer className="row docusaurus-mt-lg">
                   <div className="col">
