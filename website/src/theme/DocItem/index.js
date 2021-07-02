@@ -14,7 +14,11 @@ import EditThisPage from '@theme/EditThisPage';
 import {MainHeading} from '@theme/Heading';
 import clsx from 'clsx';
 import styles from './styles.module.css';
-import {useActivePlugin, useActiveVersion, useVersions} from '@theme/hooks/useDocs';
+import {
+  useActivePlugin,
+  useActiveVersion,
+  useVersions,
+} from '@theme/hooks/useDocs';
 
 import DocsRating from '../../../core/DocsRating';
 
