@@ -1,6 +1,6 @@
 ---
 id: switch
-title: Switch
+title: Switch     
 ---
 
 Renders a boolean input.
