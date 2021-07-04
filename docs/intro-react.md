@@ -253,7 +253,7 @@ You can put as many cats in your cafe as you like. Each `<Cat>` renders a unique
 
 ## Props
 
-**Props** is short for “properties.” Props let you customize React components. For example, here you pass each `<Cat>` a different `name` for `Cat` to render:
+**Props** is short for “properties”. Props let you customize React components. For example, here you pass each `<Cat>` a different `name` for `Cat` to render:
 
 ```SnackPlayer name=Multiple%20Props
 import React from 'react';
