@@ -133,7 +133,8 @@ module.exports = {
   themeConfig: {
     prism: {
       defaultLanguage: 'jsx',
-      theme: require('./core/PrismTheme'),
+      theme: require('prism-react-renderer/themes/github'),
+      darkTheme: require('prism-react-renderer/themes/dracula'),
       additionalLanguages: [
         'java',
         'kotlin',
