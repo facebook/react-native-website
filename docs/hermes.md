@@ -11,7 +11,7 @@ title: Using Hermes
 
 First, ensure you're using at least version 0.60.4 of React Native.
 
-If you have an existing app based on an earlier version of React Native, you will have to upgrade it first. See [Upgrading to new React Native Versions](/docs/upgrading) for how to do this. Make especially sure that all changes to `android/app/build.gradle` have been applied, as detailed by the [React Native upgrade helper](https://react-native-community.github.io/upgrade-helper/?from=0.59.0). After upgrading the app, make sure everything works before trying to switch to Hermes.
+If you have an existing app based on an earlier version of React Native, you will have to upgrade it first. See [Upgrading to new React Native Versions](/docs/upgrading) for how to do this. After upgrading the app, make sure everything works before trying to switch to Hermes.
 
 > ## Note for RN compatibility.
 >
@@ -71,7 +71,7 @@ Since React Native 0.64, Hermes also runs on iOS. To enable Hermes for iOS, edit
    )
 ```
 
-Next, install the Hermes pod:
+Next, install the Hermes pods:
 
 ```shell
 $ cd ios && pod install
@@ -99,6 +99,12 @@ To see the benefits of Hermes, try making a release build/deployment of your app
 
 ```shell
 $ npx react-native run-android --variant release
+```
+
+or for iOS:
+
+```shell
+$ npx react-native run-ios --configuration Release
 ```
 
 This will compile JavaScript to bytecode during build time which will improve your app's startup speed on device.
