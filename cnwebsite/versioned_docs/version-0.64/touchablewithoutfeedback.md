@@ -213,6 +213,8 @@ Invoked when the item receives focus.
 
 ### `onLongPress`
 
+触摸时间超过500ms调用
+
 | 类型     | 必需 |
 | -------- | ---- |
 | function | 否   |
