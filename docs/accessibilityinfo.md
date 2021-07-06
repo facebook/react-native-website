@@ -186,6 +186,23 @@ Post a string to be announced by the screen reader.
 
 ---
 
+### `getRecommendedTimeoutMillis()` <div class="label android">Android</div>
+
+```jsx
+static getRecommendedTimeoutMillis(originalTimeout)
+```
+
+Gets the timeout in millisecond that the user needs.  
+This value is set in "Time to take action (Accessibility timeout)" of "Accessibility" settings.
+
+**Parameters:**
+
+| Name                                                             | Type   | Description                                                                           |
+| ---------------------------------------------------------------- | ------ | ------------------------------------------------------------------------------------- |
+| originalTimeout <div class="label basic required">Required</div> | number | The timeout to return if "Accessibility timeout" is not set. Specify in milliseconds. |
+
+---
+
 ### `isBoldTextEnabled()` <div class="label ios">iOS</div>
 
 ```jsx

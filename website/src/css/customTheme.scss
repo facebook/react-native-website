@@ -7,7 +7,7 @@
   --deepdark: #20232a;
   --light: #373940;
   --text: #1a1a1a;
-  --subtle: #7a7a7a;
+  --subtle: #767676;
   --divider: #ececec;
   --tintColor: #f7f7f7;
   --rn-note-background: rgba(255, 229, 100, 0.25);
@@ -17,7 +17,7 @@
   --ifm-menu-link-padding-horizontal: 0;
   --ifm-toc-padding-vertical: 6px;
   --ifm-toc-link-color: var(--ifm-color-emphasis-700);
-  --ifm-code-font-size: 85%;
+  --ifm-code-font-size: 90%;
   --ifm-code-border-radius: 3px;
   --ifm-blockquote-color: var(--ifm-font-color-base);
   --ifm-table-head-color: var(--subtle);
@@ -34,6 +34,7 @@
   --ifm-pagination-nav-color-hover: var(--ifm-color-emphasis-300);
   --ifm-navbar-sidebar-width: 66%;
   --doc-sidebar-width: 100%;
+  --ifm-table-border-width: 0.005rem;
 }
 
 html[data-theme="light"] {
@@ -46,13 +47,16 @@ html[data-theme="dark"] {
   --ifm-toc-border-color: var(--dark);
   --ifm-color-emphasis-300: var(--dark);
   --ifm-hr-border-color: var(--dark);
-  --docsearch-searchbox-background: var(--ifm-background-color);
-  --docsearch-modal-background: var(--deepdark);
-  --docsearch-footer-background: var(--dark);
-  --docsearch-key-gradient: var(--deepdark);
-  --docsearch-key-shadow: inset 0 -2px 0 0 var(--light),
+
+  *[class^="DocSearch"] {
+    --docsearch-searchbox-background: var(--ifm-background-color);
+    --docsearch-modal-background: var(--deepdark);
+    --docsearch-footer-background: var(--dark);
+    --docsearch-key-gradient: var(--deepdark);
+    --docsearch-key-shadow: inset 0 -2px 0 0 var(--light),
     inset 0 0 1px 1px var(--light), 0 1px 2px 1px var(--ifm-table-border-color);
-  --docsearch-container-background: rgba(0, 0, 0, 0.6);
+    --docsearch-container-background: rgba(0, 0, 0, 0.6);
+  }
 }
 
 /* Content */
@@ -65,6 +69,10 @@ html[data-theme="dark"] {
   h1[class^="docTitle"] {
     font-size: 2.8rem;
   }
+}
+
+main[class^='docMainContainer'] > .container {
+  padding-top: 2rem !important;
 }
 
 @media (max-width: 1416px) {
@@ -102,6 +110,12 @@ hr {
 }
 
 .markdown {
+  code {
+    border-color: transparent;
+    vertical-align: initial;
+    font-size: var(--ifm-code-font-size) !important;
+  }
+
   blockquote {
     background-color: var(--rn-note-background);
     border-left: 8px solid var(--ifm-color-warning);
@@ -124,6 +138,8 @@ hr {
       background-color: transparent;
       font-size: 90%;
       padding: 0 6px;
+      top: -1px;
+      position: relative;
     }
   }
 
@@ -139,6 +155,7 @@ hr {
 
     thead tr {
       background-color: var(--divider);
+      border: 0;
     }
 
     tr th {
@@ -360,7 +377,7 @@ html[data-theme="dark"] .community-page {
 
 /* Version warning */
 
-div[class*="docItemWrapper"] .row .col {
+div[class*="docs-wrapper"] .row .col {
   > .alert--warning {
     background-color: rgba(100, 215, 255, 0.3);
   }
@@ -494,6 +511,10 @@ html[data-theme="dark"] .avatar__name a {
     }
   }
 
+  .navbar__items div[class^='searchBox'] {
+    padding-left: 14px;
+  }
+
   .navbar-github-link {
     &:after {
       transition: opacity 0.2s;
@@ -527,6 +548,7 @@ html[data-theme="dark"] .avatar__name a {
 
 .navbar-sidebar {
   background: var(--divider);
+  max-width: 400px;
 
   .navbar-sidebar__brand {
     background-color: var(--deepdark);
@@ -575,16 +597,26 @@ html[data-theme="dark"] .navbar-sidebar {
   }
 }
 
+@media (max-width: 480px) {
+  .navbar-sidebar {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
 /* Sidebar */
 
-div[class^="docSidebarContainer"] {
-  width: 266px;
-  min-width: 266px;
+aside[class^="docSidebarContainer"] {
   margin-right: 16px;
+
+  --doc-sidebar-width: 266px;
+  @media only screen and (max-width: 1120px) {
+    --doc-sidebar-width: 240px;
+  }
 }
 
 @media only screen and (min-width: 997px) {
-  div[class^="docSidebarContainer"] {
+  aside[class^="docSidebarContainer"] {
     .menu {
       padding: 12px;
     }
@@ -592,7 +624,7 @@ div[class^="docSidebarContainer"] {
 }
 
 @media only screen and (max-width: 996px) {
-  div[class^="docSidebarContainer"] {
+  aside[class^="docSidebarContainer"] {
     width: 0 !important;
     min-width: 0 !important;
     margin-right: 0;
@@ -610,6 +642,7 @@ div[class^="docSidebarContainer"] {
 
   .menu__list {
     .menu__link {
+      line-height: 20px;
       font-size: 13px;
       padding: 3px 12px;
       font-weight: normal;
@@ -631,6 +664,7 @@ div[class^="docSidebarContainer"] {
     &:after {
       background-size: 1.66rem 1.66rem;
       margin-right: -6px;
+      margin-top: -1px;
     }
   }
 
@@ -654,13 +688,6 @@ div[class^="docSidebarContainer"] {
 
 html[data-theme="dark"] .menu {
   @extend %scrollbar-style-dark;
-}
-
-@media only screen and (max-width: 1120px) {
-  div[class^="docSidebarContainer"] {
-    width: 240px;
-    min-width: 240px;
-  }
 }
 
 /* TOC */
@@ -692,6 +719,7 @@ div[class^="tableOfContents"] {
     code {
       background: none;
       padding: 0;
+      border: 0;
     }
   }
 
@@ -730,8 +758,9 @@ html[data-theme="dark"] div[class^="tableOfContents"] {
     }
   }
 
-  small {
+  .lastUpdated {
     font-size: 13px;
+    text-align: right;
   }
 
   time,
@@ -790,7 +819,7 @@ html[data-theme="dark"] div[class^="tableOfContents"] {
   }
 
   .text--center {
-    color: #7f848f;
+    color: #858a96;
     font-size: 13px;
   }
 
@@ -798,10 +827,14 @@ html[data-theme="dark"] div[class^="tableOfContents"] {
     font-size: 14px;
     padding: 8px 0 0;
     min-height: 30px;
+
+    a:hover svg {
+      color: var(--brand);
+    }
   }
 
   .footer__title {
-    color: #7f848f;
+    color: #858a96;
     font-size: 14px;
     font-weight: 500;
     margin: 0 0 8px;
@@ -825,6 +858,12 @@ html[data-theme="dark"] div[class^="tableOfContents"] {
   img[class^="themedImage"] {
     display: initial !important;
     height: 54px;
+  }
+
+  svg[class^="iconExternalLink"] {
+    color: var(--subtle);
+    right: -1px;
+    width: 9px;
   }
 }
 
@@ -1323,10 +1362,10 @@ html[data-theme="dark"] .component {
   padding: 16px 30px 16px 40px;
   min-height: 66px;
   margin-top: 42px;
-  margin-left: -40px;
+  margin-left: -32px;
   background-color: rgba(100, 215, 255, 0.3);
   text-align: center;
-  color: #0780ab;
+  color: #057594;
   line-height: 32px;
   font-weight: 500;
   border-radius: 0 var(--ifm-global-radius) var(--ifm-global-radius) 0;

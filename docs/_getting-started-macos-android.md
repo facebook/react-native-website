@@ -64,6 +64,13 @@ Next, select the "SDK Tools" tab and check the box next to "Show Package Details
 
 Finally, click "Apply" to download and install the Android SDK and related build tools.
 
+You can also run the following command after setting ANDROID_HOME.
+
+```shell
+sdkmanager "platforms;android-29" "system-images;android-29;default;x86_64" "system-images;android-29;google_apis;x86"
+sdkmanager "cmdline-tools;latest" "build-tools;29.0.2"
+```
+
 <h4>3. Configure the ANDROID_HOME environment variable</h4>
 
 The React Native tools require some environment variables to be set up in order to build apps with native code.
@@ -150,7 +157,7 @@ npx react-native start
 
 > If you use the Yarn package manager, you can use `yarn` instead of `npx` when running React Native commands inside an existing project.
 
-> If you're familiar with web development, Metro is a lot like webpack—for React Native apps. Unlike Kotlin or Java, JavaScript isn't compiled—and neither is React Native. Bundling isn't the same as compiling, but it can help improve startup performance and translate some platform-specific JavaScript into more JavaScript.
+> If you're familiar with web development, Metro is a lot like webpack—for React Native apps. Unlike Kotlin or Java, JavaScript isn't compiled—and neither is React Native. Bundling isn't the same as compiling, but it can help improve startup performance and translate some platform-specific JavaScript into more widely supported JavaScript.
 
 <h3>Step 2: Start your application</h3>
 

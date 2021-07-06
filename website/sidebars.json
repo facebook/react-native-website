@@ -86,6 +86,7 @@
       "pixelratio",
       "platform",
       "platformcolor",
+      "roottag",
       "share",
       "stylesheet",
       "systrace",

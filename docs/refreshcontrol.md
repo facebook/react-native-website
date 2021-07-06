@@ -119,7 +119,7 @@ The background color of the refresh indicator.
 
 ---
 
-### `progressViewOffset` <div class="label android">Android</div>
+### `progressViewOffset`
 
 Progress view top offset.
 

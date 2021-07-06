@@ -11,3 +11,11 @@
   NODE_VERSION = "14.16.0"
   NODE_OPTIONS = "--max_old_space_size=4096"
   PREVIEW_DEPLOY = "true"
+
+[[plugins]]
+  package = "netlify-plugin-cache"
+  [plugins.inputs]
+    paths = [
+      "website/node_modules/.cache",
+    ]
+
