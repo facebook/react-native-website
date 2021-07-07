@@ -19,7 +19,7 @@ const image = { uri: "https://reactjs.org/logo-og.png" };
 
 const App = () => (
   <View style={styles.container}>
-    <ImageBackground source={image} style={styles.image}>
+    <ImageBackground source={image} resizeMode="cover" style={styles.image}>
       <Text style={styles.text}>Inside</Text>
     </ImageBackground>
   </View>
@@ -28,19 +28,18 @@ const App = () => (
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: "column"
   },
   image: {
     flex: 1,
-    resizeMode: "cover",
     justifyContent: "center"
   },
   text: {
     color: "white",
     fontSize: 42,
+    lineHeight: 84,
     fontWeight: "bold",
     textAlign: "center",
-    backgroundColor: "#000000a0"
+    backgroundColor: "#000000c0"
   }
 });
 
@@ -65,6 +64,8 @@ Inherits [Image Props](image.md#props).
 | ----------------------------------- |
 | [Image Style](image-style-props.md) |
 
+---
+
 ### `imageRef`
 
 Allows to set a reference to the inner `Image` component
@@ -72,6 +73,8 @@ Allows to set a reference to the inner `Image` component
 | Type                                                  |
 | ----------------------------------------------------- |
 | [Ref](https://reactjs.org/docs/refs-and-the-dom.html) |
+
+---
 
 ### `style`
 
