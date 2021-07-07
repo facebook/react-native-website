@@ -112,6 +112,16 @@ Controls whether iOS should automatically adjust the content inset for scroll vi
 
 ---
 
+### `automaticallyAdjustsScrollIndicatorInsets` <div class="label ios">iOS</div>
+
+Controls whether iOS should automatically adjust the scroll indicator insets. See Apple's [documentation on the property](https://developer.apple.com/documentation/uikit/uiscrollview/3198043-automaticallyadjustsscrollindica).
+
+| Type | Default |
+| ---- | ------- |
+| bool | `true`  |
+
+---
+
 ### `bounces` <div class="label ios">iOS</div>
 
 When true, the scroll view bounces when it reaches the end of the content if the content is larger than the scroll view along the axis of the scroll direction. When `false`, it disables all bouncing even if the `alwaysBounce*` props are `true`.
