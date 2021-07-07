@@ -173,7 +173,7 @@ function TwoColumns({columnOne, columnTwo, reverse}) {
 function ScreenRect({className, fill, stroke}) {
   return (
     <rect
-      className={`screen ${className}`}
+      className={`screen ${className || ''}`}
       rx="3%"
       width="180"
       height="300"
