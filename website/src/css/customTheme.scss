@@ -54,7 +54,8 @@ html[data-theme="dark"] {
     --docsearch-footer-background: var(--dark);
     --docsearch-key-gradient: var(--deepdark);
     --docsearch-key-shadow: inset 0 -2px 0 0 var(--light),
-    inset 0 0 1px 1px var(--light), 0 1px 2px 1px var(--ifm-table-border-color);
+      inset 0 0 1px 1px var(--light),
+      0 1px 2px 1px var(--ifm-table-border-color);
     --docsearch-container-background: rgba(0, 0, 0, 0.6);
   }
 }
@@ -71,7 +72,7 @@ html[data-theme="dark"] {
   }
 }
 
-main[class^='docMainContainer'] > .container {
+main[class^="docMainContainer"] > .container {
   padding-top: 2rem !important;
 }
 
@@ -511,7 +512,7 @@ html[data-theme="dark"] .avatar__name a {
     }
   }
 
-  .navbar__items div[class^='searchBox'] {
+  .navbar__items div[class^="searchBox"] {
     padding-left: 14px;
   }
 
@@ -1120,6 +1121,19 @@ td .color-box {
     }
   }
 
+  &.js {
+    background: #fcdc00;
+    color: #000;
+
+    &:before {
+      border-right-color: #fcdc00;
+    }
+
+    &:after {
+      background: #000;
+    }
+  }
+
   &.ios {
     background: #222;
 
@@ -1206,6 +1220,7 @@ td .label {
 
     &.ios,
     &.android,
+    &.js,
     &.tv {
       margin-left: 8px;
     }
