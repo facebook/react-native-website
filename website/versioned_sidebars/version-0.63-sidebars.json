@@ -289,6 +289,17 @@
           "id": "version-0.63/app-extensions"
         }
       ]
+    },
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "CI/CD",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-0.63/ci-cd"
+        }
+      ]
     }
   ],
   "version-0.63/api": [
