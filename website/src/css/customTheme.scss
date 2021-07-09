@@ -195,6 +195,25 @@ hr {
     .widerColumn {
       width: 180px;
     }
+
+    .table-heading {
+      font-weight: var(--ifm-table-head-font-weight);
+      border-bottom: 2px solid var(--ifm-table-border-color);
+    }
+
+    div[class^="codeBlockContainer"] {
+      &, & pre {
+        margin-bottom: 0;
+      }
+
+      pre code {
+        padding: 12px 16px;
+      }
+
+      button {
+        display: none;
+      }
+    }
   }
 
   figure {
@@ -1121,19 +1140,6 @@ td .color-box {
     }
   }
 
-  &.js {
-    background: #fcdc00;
-    color: #000;
-
-    &:before {
-      border-right-color: #fcdc00;
-    }
-
-    &:after {
-      background: #000;
-    }
-  }
-
   &.ios {
     background: #222;
 
@@ -1220,7 +1226,6 @@ td .label {
 
     &.ios,
     &.android,
-    &.js,
     &.tv {
       margin-left: 8px;
     }
