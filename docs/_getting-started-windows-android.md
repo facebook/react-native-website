@@ -49,7 +49,7 @@ Android Studio installs the latest Android SDK by default. Building a React Nati
 
 To do that, open Android Studio, click on "Configure" button and select "SDK Manager".
 
-![Android Studio AVD Manager](/website/static/img/AndroidAVDConfiguration.png)
+![Android Studio AVD Manager](/docs/assets/GettingStartedAndroidStudioAVD.png)
 
 > The SDK Manager can also be found within the Android Studio "Preferences" dialog, under **Appearance & Behavior** → **System Settings** → **Android SDK**.
 
