@@ -203,7 +203,7 @@ export default App;
 
 ### `aspectRatio`
 
-Aspect ratio controls the size of the undefined dimension of a node. Aspect ratio is a non-standard property only available in React Native and not CSS.
+Aspect ratio controls the size of the undefined dimension of a node. See https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio for more details.
 
 - On a node with a set width/height, aspect ratio controls the size of the unset dimension
 - On a node with a set flex basis, aspect ratio controls the size of the node in the cross axis if unset
