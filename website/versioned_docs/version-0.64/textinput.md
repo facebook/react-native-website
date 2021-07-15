@@ -115,7 +115,7 @@ Specifies whether fonts should scale to respect Text Size accessibility settings
 
 ### `autoCapitalize`
 
-Tells `TextInput` to automatically capitalize certain characters. This property is not supported by some keyboard types such as `name-phone-pad`.
+Determines at what times the on-screen keyboard's Shift key is automatically pressed. This property is not supported by some keyboard types such as `name-phone-pad`.
 
 - `characters`: all characters.
 - `words`: first letter of each word.

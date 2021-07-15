@@ -19,3 +19,7 @@
       "website/node_modules/.cache",
     ]
 
+[[headers]]
+  for = "/movies.json"
+    [headers.values]
+    Access-Control-Allow-Origin = "*"
