@@ -61,10 +61,10 @@ You can also use the `async` / `await` syntax in a React Native app:
 ```jsx
 const getMoviesFromApiAsync = async () => {
   try {
-    let response = await fetch(
+    const response = await fetch(
       'https://reactnative.dev/movies.json'
     );
-    let json = await response.json();
+    const json = await response.json();
     return json.movies;
   } catch (error) {
     console.error(error);
@@ -85,12 +85,20 @@ export default App = () => {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
 
+  const getMovies = async () => {
+     try {
+      const response = await fetch('https://reactnative.dev/movies.json');
+      const json = await response.json();
+      setData(json.movies);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  }
+
   useEffect(() => {
-    fetch('https://reactnative.dev/movies.json')
-      .then((response) => response.json())
-      .then((json) => setData(json.movies))
-      .catch((error) => console.error(error))
-      .finally(() => setLoading(false));
+    getMovies();
   }, []);
 
   return (
@@ -126,16 +134,20 @@ export default class App extends Component {
     };
   }
 
+  async getMovies() {
+    try {
+      const response = await fetch('https://reactnative.dev/movies.json');
+      const json = await response.json();
+      this.setState({ data: json.movies });
+    } catch (error) {
+      console.log(error);
+    } finally {
+      this.setState({ isLoading: false });
+    }
+  }
+
   componentDidMount() {
-    fetch('https://reactnative.dev/movies.json')
-      .then((response) => response.json())
-      .then((json) => {
-        this.setState({ data: json.movies });
-      })
-      .catch((error) => console.error(error))
-      .finally(() => {
-        this.setState({ isLoading: false });
-      });
+    this.getMovies();
   }
 
   render() {
