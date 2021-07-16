@@ -138,6 +138,30 @@ Text to display for blindness accessibility features.
 
 ---
 
+### `accessibilityActions`
+
+Accessibility actions allow an assistive technology to programmatically invoke the actions of a component. The `accessibilityActions` property should contain a list of action objects. Each action object should contain the field name and label.
+
+See the [Accessibility guide](accessibility.md#accessibility-actions) for more information.
+
+| Type  | Required |
+| ----- | -------- |
+| array | No       |
+
+---
+
+### `onAccessibilityAction`
+
+Invoked when the user performs the accessibility actions. The only argument to this function is an event containing the name of the action to perform.
+
+See the [Accessibility guide](accessibility.md#accessibility-actions) for more information.
+
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
+
+---
+
 ### `color`
 
 Color of the text (iOS), or background color of the button (Android).
