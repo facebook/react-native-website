@@ -1,11 +1,11 @@
 ---
-title: idx: The Existential Function
+title: 'idx: The Existential Function'
 author: Timothy Yung
 authorTitle: Engineering Manager at Facebook
-authorURL: https://github.com/yungsters
-authorImageURL: https://pbs.twimg.com/profile_images/1592444107/image.jpg
+authorURL: 'https://github.com/yungsters'
+authorImageURL: 'https://pbs.twimg.com/profile_images/1592444107/image.jpg'
 authorTwitter: yungsters
-category: engineering
+tags: [engineering]
 ---
 
 At Facebook, we often need to access deeply nested values in data structures fetched with GraphQL. On the way to accessing these deeply nested values, it is common for one or more intermediate fields to be nullable. These intermediate fields may be null for a variety of reasons, from failed privacy checks to the mere fact that null happens to be the most flexible way to represent non-fatal errors.

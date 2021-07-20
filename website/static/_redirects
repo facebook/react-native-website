@@ -1,0 +1,14 @@
+# Redirects from what the browser requests to what we serve
+
+# Renamed pages
+/docs/android-setup             /docs/getting-started
+/docs/building-for-apple-tv     /docs/building-for-tv
+/docs/building-from-source      https://github.com/facebook/react-native/wiki/Building-from-source
+/docs/contributing              https://github.com/facebook/react-native/blob/master/CONTRIBUTING.md
+/docs/maintainers               https://github.com/facebook/react-native/wiki/
+/docs/publishing-forks          https://github.com/facebook/react-native/wiki/Building-from-source#publish-your-own-version-of-react-native
+/docs/testing                   https://github.com/facebook/react-native/wiki/Tests
+/docs/understanding-cli         https://github.com/react-native-community/cli#react-native-cli
+
+# Changed blog post dates
+/blog/2021/03/11/version-0.64   /blog/2021/03/12/version-0.64

@@ -1,23 +1,17 @@
 ---
-id: version-0.60-pickerios
+id: pickerios
 title: PickerIOS
-original_id: pickerios
 ---
 
-### Props
-
-- [View props...](view.md#props)
-
-* [`itemStyle`](pickerios.md#itemstyle)
-* [`onValueChange`](pickerios.md#onvaluechange)
-* [`onChange`](pickerios.md#onChange)
-* [`selectedValue`](pickerios.md#selectedvalue)
+> **Deprecated.** Use [Picker](picker.md) instead.
 
 ---
 
 # Reference
 
 ## Props
+
+Inherits [View Props](view.md#props).
 
 ### `itemStyle`
 

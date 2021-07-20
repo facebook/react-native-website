@@ -2,13 +2,13 @@
 title: React Native Open Source Update March 2019
 author: Christoph Nakazawa
 authorTitle: Engineer at Facebook
-authorURL: https://twitter.com/cpojer
-authorImageURL: https://avatars2.githubusercontent.com/u/13352?s=460&v=4
+authorURL: 'https://twitter.com/cpojer'
+authorImageURL: 'https://avatars2.githubusercontent.com/u/13352?s=460&v=4'
 authorTwitter: cpojer
-category: announcements
+tags: [announcement]
 ---
 
-We announced our [React Native Open Source roadmap](https://facebook.github.io/react-native/blog/2018/11/01/oss-roadmap) in Q4 2018 after deciding to invest more in the React Native open source community.
+We announced our [React Native Open Source roadmap](/blog/2018/11/01/oss-roadmap) in Q4 2018 after deciding to invest more in the React Native open source community.
 
 For our first milestone, we focused on identifying and improving the most visible aspects of our community. Our goals were to reduce outstanding pull requests, reduce the project's surface area, identify leading user problems, and establish guidelines for community management.
 
