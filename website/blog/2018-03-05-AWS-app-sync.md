@@ -2,10 +2,10 @@
 title: Using AWS with React Native
 author: Richard Threlkeld
 authorTitle: Senior Technical Product Manager at AWS Mobile
-authorURL: https://twitter.com/undef_obj
-authorImageURL: https://pbs.twimg.com/profile_images/811239086581227520/APX1eZwF_400x400.jpg
+authorURL: 'https://twitter.com/undef_obj'
+authorImageURL: 'https://pbs.twimg.com/profile_images/811239086581227520/APX1eZwF_400x400.jpg'
 authorTwitter: undef_obj
-category: engineering
+tags: [engineering]
 ---
 
 AWS is well known in the technology industry as a provider of cloud services. These include compute, storage, and database technologies, as well as fully managed serverless offerings. The AWS Mobile team has been working closely with customers and members of the JavaScript ecosystem to make cloud-connected mobile and web applications more secure, scalable, and easier to develop and deploy. We began with a [complete starter kit](https://github.com/awslabs/aws-mobile-react-native-starter), but have a few more recent developments.
@@ -51,7 +51,7 @@ npm install --global awsmobile-cli
 awsmobile configure
 ```
 
-Another example of encoded best practices that is specific to the mobile ecosystem is password security. The default `Auth` category implementation leverages Amazon Cognito user pools for user registration and sign-in. This service implements [Secure Remote Password protocol](http://srp.stanford.edu) as a way of protecting users during authentication attempts. If you're inclined to read through the [mathematics of the protocol](http://srp.stanford.edu/ndss.html#SECTION00032200000000000000), you'll notice that you must use a large prime number when calculating the password verifier over a primitive root to generate a Group. In React Native environments, [JIT is disabled](https://facebook.github.io/react-native/docs/javascript-environment.html). This makes BigInteger calculations for security operations such as this less performant. To account for this, we've released native bridges in Android and iOS that you can link inside your project:
+Another example of encoded best practices that is specific to the mobile ecosystem is password security. The default `Auth` category implementation leverages Amazon Cognito user pools for user registration and sign-in. This service implements [Secure Remote Password protocol](http://srp.stanford.edu) as a way of protecting users during authentication attempts. If you're inclined to read through the [mathematics of the protocol](http://srp.stanford.edu/ndss.html#SECTION00032200000000000000), you'll notice that you must use a large prime number when calculating the password verifier over a primitive root to generate a Group. In React Native environments, [JIT is disabled](/docs/javascript-environment). This makes BigInteger calculations for security operations such as this less performant. To account for this, we've released native bridges in Android and iOS that you can link inside your project:
 
 ```
 npm install --save aws-amplify-react-native
@@ -100,7 +100,7 @@ For a deep dive into the philosophy and to see a full demo, check out the video 
 
 Shortly after the launch of AWS Amplify, we also released [AWS AppSync](https://aws.amazon.com/appsync/). This is a fully managed GraphQL service that has both offline and real-time capabilities. Although you can use GraphQL in different client programming languages (including native Android and iOS), it's quite popular among React Native developers. This is because the data model fits nicely into a unidirectional data flow and component hierarchy.
 
-AWS AppSync enables you to connect to resources in your own AWS account, meaning you own and control your data. This is done by using data sources, and the service supports [Amazon DynamoDB](https://aws.amazon.com/dynamodb/), [Amazon Elasticsearch](https://aws.amazon.com/elasticsearch-service/), and [AWS Lambda](https://aws.amazon.com/lambda/). This enables you to combine functionality (such as NoSQL and full-text search) in a single GraphQL API as a schema. This enables you to mix and match data sources. The AppSync service can also [provision from a schema](https://docs.aws.amazon.com/appsync/latest/devguide/provision-from-schema.html), so if you aren't familair with AWS services, you can write GraphQL SDL, click a button, and you're automatically up and running.
+AWS AppSync enables you to connect to resources in your own AWS account, meaning you own and control your data. This is done by using data sources, and the service supports [Amazon DynamoDB](https://aws.amazon.com/dynamodb/), [Amazon Elasticsearch](https://aws.amazon.com/elasticsearch-service/), and [AWS Lambda](https://aws.amazon.com/lambda/). This enables you to combine functionality (such as NoSQL and full-text search) in a single GraphQL API as a schema. This enables you to mix and match data sources. The AppSync service can also [provision from a schema](https://docs.aws.amazon.com/appsync/latest/devguide/provision-from-schema.html), so if you aren't familiar with AWS services, you can write GraphQL SDL, click a button, and you're automatically up and running.
 
 The real-time functionality in AWS AppSync is controlled via [GraphQL subscriptions with a well-known, event-based pattern](http://graphql.org/blog/subscriptions-in-graphql-and-relay/). Because subscriptions in AWS AppSync are [controlled on the schema](https://docs.aws.amazon.com/appsync/latest/devguide/real-time-data.html) with a GraphQL directive, and a schema can use any data source, this means you can trigger notifications from database operations with Amazon DynamoDB and Amazon Elasticsearch Service, or from other parts of your infrastructure with AWS Lambda.
 
@@ -166,7 +166,13 @@ The example above shows a query with the sample app schema provisioned by AppSyn
 
 You can see a deep dive of the [client technology behind this and a React Native demo in this video](https://www.youtube.com/watch?v=FtkVlIal_m0).
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/FtkVlIal_m0?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube-nocookie.com/embed/FtkVlIal_m0?rel=0"
+  frameborder="0"
+  allow="autoplay; encrypted-media"
+  allowfullscreen></iframe>
 
 ## Feedback
 

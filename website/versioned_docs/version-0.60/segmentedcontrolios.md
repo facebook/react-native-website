@@ -1,10 +1,9 @@
 ---
-id: version-0.60-segmentedcontrolios
+id: segmentedcontrolios
 title: SegmentedControlIOS
-original_id: segmentedcontrolios
 ---
 
-> **Deprecated.** Use [@react-native-community/react-native-segmented-control](https://github.com/react-native-community/react-native-segmented-control) instead.
+> **Deprecated.** Use [@react-native-community/segmented-control](https://github.com/react-native-segmented-control/segmented-control) instead.
 
 Uses `SegmentedControlIOS` to render a UISegmentedControl iOS.
 
@@ -14,17 +13,39 @@ The selected index can be changed on the fly by assigning the selectedIndex prop
 
 ## Example
 
-```jsx
-<SegmentedControlIOS
-  values={['One', 'Two']}
-  selectedIndex={this.state.selectedIndex}
-  onChange={(event) => {
-    this.setState({selectedIndex: event.nativeEvent.selectedSegmentIndex});
-  }}
-/>
-```
+```SnackPlayer name=SegmentedControlIOS%20Example&supportedPlatforms=ios
+import React, { useState } from "react";
+import { SegmentedControlIOS, StyleSheet, Text, View } from "react-native";
 
-<center><img src="/react-native/docs/assets/SegmentedControlIOS/example.gif" width="360"></img></center>
+export default App = () => {
+  const [index, setIndex] = useState(0);
+  return (
+    <View style={styles.container}>
+      <SegmentedControlIOS
+        values={['One', 'Two']}
+        selectedIndex={index}
+        onChange={(event) => {
+          setIndex(event.nativeEvent.selectedSegmentIndex);
+        }}
+      />
+      <Text style={styles.text}>
+        Selected index: {index}
+      </Text>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 24,
+    justifyContent: "center"
+  },
+  text: {
+    marginTop: 24
+  }
+});
+```
 
 ---
 
@@ -42,8 +63,6 @@ If false the user won't be able to interact with the control. Default value is t
 | ---- | -------- |
 | bool | No       |
 
-<center><img src="/react-native/docs/assets/SegmentedControlIOS/enabled.png" width="360"></img></center>
-
 ---
 
 ### `momentary`
@@ -53,8 +72,6 @@ If true, then selecting a segment won't persist visually. The `onValueChange` ca
 | Type | Required |
 | ---- | -------- |
 | bool | No       |
-
-<center><img src="/react-native/docs/assets/SegmentedControlIOS/momentary.gif" width="360"></img></center>
 
 ---
 
@@ -95,8 +112,6 @@ Accent color of the control.
 | Type   | Required |
 | ------ | -------- |
 | string | No       |
-
-<center><img src="/react-native/docs/assets/SegmentedControlIOS/tintColor.png" width="360"></img></center>
 
 ---
 

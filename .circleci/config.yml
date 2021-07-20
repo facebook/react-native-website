@@ -4,9 +4,9 @@ version: 2.1
 #        EXECUTORS
 # -------------------------
 executors:
-  node8:
+  node:
     docker:
-      - image: circleci/node:8
+      - image: circleci/node:lts
 
 # -------------------------
 #        COMMANDS
@@ -40,7 +40,7 @@ jobs:
   # Checks out the repo, and persists to cache.
   # --------------------------------------------------
   setup:
-    executor: node8
+    executor: node
     working_directory: ~/react-native-website
     steps:
       - checkout
@@ -50,58 +50,18 @@ jobs:
             - ~/react-native-website
 
   # --------------------------------------------------
-  # JOB: test
-  # Test that the website can be built.
-  # --------------------------------------------------
-  test:
-    executor: node8
-    working_directory: ~/react-native-website/website
-    steps:
-      - restore_cache_checkout
-      - run_yarn
-      - run: yarn ci-check
-      - run: yarn test
-      - run:
-          name: Check for missing index.html (build errors)
-          command: |
-            if [ ! -f build/react-native/index.html ]; then
-              exit 1;
-            fi
-  # --------------------------------------------------
   # JOB: lint
   # Lint the docs.
   # --------------------------------------------------
-  language_lint:
-    executor: node8
+  lint:
+    executor: node
     working_directory: ~/react-native-website/website
     steps:
       - restore_cache_checkout
       - run_yarn
       - run: yarn lint
-
-  # --------------------------------------------------
-  # JOB: deploy_website
-  # Deploy website to GitHub Pages in core RN repo.
-  # --------------------------------------------------
-  deploy_website:
-    executor: node8
-    working_directory: ~/react-native-website/website
-    steps:
-      - restore_cache_checkout
-      - run_yarn
-      - run: sudo apt install rsync
-      - run:
-          name: Build and Deploy Static Website
-          command: |
-            if [[ $CIRCLE_PROJECT_USERNAME == "facebook" && -z $CI_PULL_REQUEST && -z $CIRCLE_PR_USERNAME ]]; then
-              git config --global user.email "reactjs-bot@users.noreply.github.com"
-              git config --global user.name "Website Deployment Script"
-              echo "machine github.com login reactjs-bot password $GITHUB_TOKEN" > ~/.netrc
-              echo "Deploying website..."
-              GIT_USER=reactjs-bot CIRCLE_PROJECT_REPONAME=react-native yarn run publish-gh-pages
-            else
-              echo "Skipping deploy."
-            fi
+      - run: yarn lint:versioned
+      - run: yarn language:lint
 
 # -------------------------
 #        WORKFLOWS
@@ -112,25 +72,7 @@ workflows:
     jobs:
       - setup
 
-      # Run tests
-      - test:
-          requires:
-            - setup
-
       # Run lints
-      - language_lint:
-          requires:
-            - setup
-
-  # If we are on master, deploy docs
-  deploy:
-    jobs:
-      - setup:
-          filters:
-            branches:
-              only:
-                - master
-
-      - deploy_website:
+      - lint:
           requires:
             - setup

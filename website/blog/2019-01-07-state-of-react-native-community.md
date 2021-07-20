@@ -2,10 +2,10 @@
 title: The State of the React Native Community in 2018
 author: Lorenzo Sciandra
 authorTitle: Core Maintainer & React Native Developer
-authorURL: https://github.com/kelset
-authorImageURL: https://avatars2.githubusercontent.com/u/16104054?s=460&v=4
+authorURL: 'https://github.com/kelset'
+authorImageURL: 'https://avatars2.githubusercontent.com/u/16104054?s=460&v=4'
 authorTwitter: kelset
-category: announcements
+tags: [announcement]
 ---
 
 In 2018 the React Native Community made a number of changes to the way we develop and communicate about React Native. We believe that a few years from now we will look back and see that this shift was a turning point for React Native.

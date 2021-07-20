@@ -1,7 +1,6 @@
 ---
-id: version-0.60-timepickerandroid
+id: timepickerandroid
 title: TimePickerAndroid
-original_id: timepickerandroid
 ---
 
 Opens the standard Android time picker dialog.
@@ -12,15 +11,15 @@ Opens the standard Android time picker dialog.
 
 ```jsx
 try {
-  const {action, hour, minute} = await TimePickerAndroid.open({
+  const { action, hour, minute } = await TimePickerAndroid.open({
     hour: 14,
     minute: 0,
-    is24Hour: false, // Will display '2 PM'
+    is24Hour: false // Will display '2 PM'
   });
   if (action !== TimePickerAndroid.dismissedAction) {
     // Selected hour (0-23), minute (0-59)
   }
-} catch ({code, message}) {
+} catch ({ code, message }) {
   console.warn('Cannot open time picker', message);
 }
 ```

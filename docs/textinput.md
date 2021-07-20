@@ -8,31 +8,51 @@ A foundational component for inputting text into the app via a keyboard. Props p
 The most basic use case is to plop down a `TextInput` and subscribe to the `onChangeText` events to read the user input. There are also other events, such as `onSubmitEditing` and `onFocus` that can be subscribed to. A minimal example:
 
 ```SnackPlayer name=TextInput
-import React, { Component } from 'react';
-import { TextInput } from 'react-native';
+import React from "react";
+import { SafeAreaView, StyleSheet, TextInput } from "react-native";
 
-export default function UselessTextInput() {
-  const [value, onChangeText] = React.useState('Useless Placeholder');
+const UselessTextInput = () => {
+  const [text, onChangeText] = React.useState("Useless Text");
+  const [number, onChangeNumber] = React.useState(null);
 
   return (
-    <TextInput
-      style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
-      onChangeText={text => onChangeText(text)}
-      value={value}
-    />
+    <SafeAreaView>
+      <TextInput
+        style={styles.input}
+        onChangeText={onChangeText}
+        value={text}
+      />
+      <TextInput
+        style={styles.input}
+        onChangeText={onChangeNumber}
+        value={number}
+        placeholder="useless placeholder"
+        keyboardType="numeric"
+      />
+    </SafeAreaView>
   );
-}
+};
+
+const styles = StyleSheet.create({
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+  },
+});
+
+export default UselessTextInput;
 ```
 
 Two methods exposed via the native element are .focus() and .blur() that will focus or blur the TextInput programmatically.
 
-Note that some props are only available with `multiline={true/false}`. Additionally, border styles that apply to only one side of the element (e.g., `borderBottomColor`, `borderLeftWidth`, etc.) will not be applied if `multiline=false`. To achieve the same effect, you can wrap your `TextInput` in a `View`:
+Note that some props are only available with `multiline={true/false}`. Additionally, border styles that apply to only one side of the element (e.g., `borderBottomColor`, `borderLeftWidth`, etc.) will not be applied if `multiline=true`. To achieve the same effect, you can wrap your `TextInput` in a `View`:
 
 ```SnackPlayer name=TextInput
-import React, { Component } from 'react';
+import React from 'react';
 import { View, TextInput } from 'react-native';
 
-function UselessTextInput(props) {
+const UselessTextInput = (props) => {
   return (
     <TextInput
       {...props} // Inherit any props passed to it; e.g., multiline, numberOfLines below
@@ -42,7 +62,7 @@ function UselessTextInput(props) {
   );
 }
 
-export default function UselessTextInputMultiline() {
+const UselessTextInputMultiline = () => {
   const [value, onChangeText] = React.useState('Useless Multiline Placeholder');
 
   // If you type something in the text box that is a color, the background will change to that
@@ -63,11 +83,13 @@ export default function UselessTextInputMultiline() {
     </View>
   );
 }
+
+export default UselessTextInputMultiline;
 ```
 
-`TextInput` has by default a border at the bottom of its view. This border has its padding set by the background image provided by the system, and it cannot be changed. Solutions to avoid this is to either not set height explicitly, case in which the system will take care of displaying the border in the correct position, or to not display the border by setting `underlineColorAndroid` to transparent.
+`TextInput` has by default a border at the bottom of its view. This border has its padding set by the background image provided by the system, and it cannot be changed. Solutions to avoid this are to either not set height explicitly, in which case the system will take care of displaying the border in the correct position, or to not display the border by setting `underlineColorAndroid` to transparent.
 
-Note that on Android performing text selection in input can change app's activity `windowSoftInputMode` param to `adjustResize`. This may cause issues with components that have position: 'absolute' while keyboard is active. To avoid this behavior either specify `windowSoftInputMode` in AndroidManifest.xml ( https://developer.android.com/guide/topics/manifest/activity-element.html ) or control this param programmatically with native code.
+Note that on Android performing text selection in an input can change the app's activity `windowSoftInputMode` param to `adjustResize`. This may cause issues with components that have position: 'absolute' while the keyboard is active. To avoid this behavior either specify `windowSoftInputMode` in AndroidManifest.xml ( https://developer.android.com/guide/topics/manifest/activity-element.html ) or control this param programmatically with native code.
 
 ---
 
@@ -75,7 +97,11 @@ Note that on Android performing text selection in input can change app's activit
 
 ## Props
 
+### [View Props](view.md#props)
+
 Inherits [View Props](view.md#props).
+
+---
 
 ### `allowFontScaling`
 
@@ -89,7 +115,7 @@ Specifies whether fonts should scale to respect Text Size accessibility settings
 
 ### `autoCapitalize`
 
-Can tell `TextInput` to automatically capitalize certain characters. This property is not supported by some keyboard types such as `name-phone-pad`.
+Tells `TextInput` to automatically capitalize certain characters. This property is not supported by some keyboard types such as `name-phone-pad`.
 
 - `characters`: all characters.
 - `words`: first letter of each word.
@@ -261,7 +287,7 @@ If `true`, the keyboard disables the return key when there is no text and automa
 
 ### `importantForAutofill`
 
-Say the system whether the individual fields in your app should be included in a view structure for autofill purposes on Android API Level 26+, possible values are `auto`, `no`, `noExcludeDescendants`, `yes`, `yesExcludeDescendants`. The default value is `auto`.
+Tells the operating system whether the individual fields in your app should be included in a view structure for autofill purposes on Android API Level 26+. Possible values are `auto`, `no`, `noExcludeDescendants`, `yes`, and `yesExcludeDescendants`. The default value is `auto`.
 
 - `auto`: Let the Android System use its heuristics to determine if the view is important for autofill.
 - `no`: This view isn't important for autofill.
@@ -407,6 +433,8 @@ Sets the number of lines for a `TextInput`. Use it with multiline set to `true` 
 
 Callback that is called when the text input is blurred.
 
+> Note: If you are attempting to access the `text` value from `nativeEvent` keep in mind that the resulting value you get can be `undefined` which can cause unintended errors. If you are trying to find the last value of TextInput, you can use the [`onEndEditing`](textinput#onEndEditing) event, which is fired upon completion of editing.
+
 | Type     | Required |
 | -------- | -------- |
 | function | No       |
@@ -455,13 +483,33 @@ Callback that is called when text input ends.
 
 ---
 
+### `onPressIn`
+
+Callback that is called when a touch is engaged.
+
+| Type                     | Required |
+| ------------------------ | -------- |
+| [PressEvent](pressevent) | No       |
+
+---
+
+### `onPressOut`
+
+Callback that is called when a touch is released.
+
+| Type                     | Required |
+| ------------------------ | -------- |
+| [PressEvent](pressevent) | No       |
+
+---
+
 ### `onFocus`
 
 Callback that is called when the text input is focused. This is called with `{ nativeEvent: { target } }`.
 
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type                                 | Required |
+| ------------------------------------ | -------- |
+| ([LayoutEvent](layoutevent)) => void | No       |
 
 ---
 
@@ -477,7 +525,7 @@ Callback that is called when a key is pressed. This will be called with `{ nativ
 
 ### `onLayout`
 
-Invoked on mount and layout changes with `{ nativeEvent: {layout: {x, y, width, height}, target } }`.
+Invoked on mount and on layout changes.
 
 | Type     | Required |
 | -------- | -------- |
@@ -507,21 +555,13 @@ Callback that is called when the text input selection is changed. This will be c
 
 ### `onSubmitEditing`
 
-Callback that is called when the text input's submit button is pressed with the argument `{nativeEvent: {text, eventCount, target}}`. Invalid if `multiline={true}` is specified.
+Callback that is called when the text input's submit button is pressed with the argument `{nativeEvent: {text, eventCount, target}}`.
 
 | Type     | Required |
 | -------- | -------- |
 | function | No       |
 
----
-
-### `onTextInput`
-
-Callback that is called on new text input with the argument `{ nativeEvent: { text, previousText, range: { start, end } } }`. This prop requires `multiline={true}` to be set.
-
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+Note that on iOS this method isn't called when using `keyboardType="phone-pad"`.
 
 ---
 
@@ -643,24 +683,6 @@ The highlight and cursor color of the text input.
 
 ---
 
-### `selectionState`
-
-An instance of `DocumentSelectionState`, this is some state that is responsible for maintaining selection information for a document.
-
-Some functionality that can be performed with this instance is:
-
-- `blur()`
-- `focus()`
-- `update()`
-
-> You can reference `DocumentSelectionState` in [`vendor/document/selection/DocumentSelectionState.js`](https://github.com/facebook/react-native/blob/master/Libraries/vendor/document/selection/DocumentSelectionState.js)
-
-| Type                   | Required | Platform |
-| ---------------------- | -------- | -------- |
-| DocumentSelectionState | No       | iOS      |
-
----
-
 ### `selectTextOnFocus`
 
 If `true`, all text will automatically be selected on focus.
@@ -675,9 +697,9 @@ If `true`, all text will automatically be selected on focus.
 
 When `false`, it will prevent the soft keyboard from showing when the field is focused. The default value is `true`.
 
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | Android  |
+| Type | Required |
+| ---- | -------- |
+| bool | No       |
 
 ---
 
@@ -688,6 +710,22 @@ If `false`, disables spell-check style (i.e. red underlines). The default value 
 | Type | Required | Platform |
 | ---- | -------- | -------- |
 | bool | No       | iOS      |
+
+---
+
+### `textAlign`
+
+Align the input text to the left, center, or right sides of the input field.
+
+Possible values for `textAlign` are:
+
+- `left`
+- `center`
+- `right`
+
+| Type                            | Required |
+| ------------------------------- | -------- |
+| enum('left', 'center', 'right') | No       |
 
 ---
 
@@ -738,6 +776,21 @@ Possible values for `textContentType` are:
 
 ---
 
+### `passwordRules`
+
+When using `textContentType` as `newPassword` on iOS we can let the OS know the minimum requirements of the password so that it can generate one that will satisfy them. In order to create a valid string for `PasswordRules` take a look to the [Apple Docs](https://developer.apple.com/password-rules/).
+
+> If passwords generation dialog doesn't appear please make sure that:
+>
+> - AutoFill is enabled: **Settings** → **Passwords & Accounts** → toggle "On" the **AutoFill Passwords**,
+> - iCloud Keychain is used: **Settings** → **Apple ID** → **iCloud** → **Keychain** → toggle "On" the **iCloud Keychain**.
+
+| Type   | Required | Platform |
+| ------ | -------- | -------- |
+| string | No       | iOS      |
+
+---
+
 ### `style`
 
 Note that not all Text styles are supported, an incomplete list of what is not supported includes:
@@ -771,7 +824,9 @@ Set text break strategy on Android API Level 23+, possible values are `simple`, 
 | ----------------------------------------- | -------- | -------- |
 | enum('simple', 'highQuality', 'balanced') | No       | Android  |
 
-## <!-- alex enable simple -->
+<!-- alex enable simple -->
+
+---
 
 ### `underlineColorAndroid`
 

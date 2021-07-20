@@ -1,11 +1,11 @@
 ---
-title: React Native Monthly #5
+title: 'React Native Monthly #5'
 author: Tomislav Tenodi
 authorTitle: Founder at Speck
-authorURL: https://github.com/tenodi
-authorImageURL: https://pbs.twimg.com/profile_images/877237660225609729/bKFDwfAq.jpg
+authorURL: 'https://github.com/tenodi'
+authorImageURL: 'https://pbs.twimg.com/profile_images/877237660225609729/bKFDwfAq.jpg'
 authorTwitter: TomislavTenodi
-category: engineering
+tags: [engineering]
 ---
 
 The React Native monthly meeting continues! Let's see what our teams are up to.

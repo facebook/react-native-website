@@ -1,7 +1,6 @@
 ---
-id: version-0.60-pushnotificationios
+id: pushnotificationios
 title: PushNotificationIOS
-original_id: pushnotificationios
 ---
 
 > **Deprecated.** Use [@react-native-community/push-notification-ios](https://github.com/react-native-community/react-native-push-notification-ios) instead.
