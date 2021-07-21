@@ -154,9 +154,9 @@ Example: `const {height, width} = Dimensions.get('window');`
 
 **Parameters:**
 
-| Name | Type   | Required | Description                                                                                  |
-| ---- | ------ | -------- | -------------------------------------------------------------------------------------------- |
-| dim  | string | Yes      | Name of dimension as defined when calling `set`. @returns {Object?} Value for the dimension. |
+| Name                                                               | Type   | Description                                                                                  |
+| ------------------------------------------------------------------ | ------ | -------------------------------------------------------------------------------------------- |
+| dim <div className="label basic required two-lines">Required</div> | string | Name of dimension as defined when calling `set`. @returns {Object?} Value for the dimension. |
 
 > For Android the `window` dimension will exclude the size used by the `status bar` (if not translucent) and `bottom navigation bar`
 
@@ -182,6 +182,6 @@ This should only be called from native code by sending the didUpdateDimensions e
 
 **Parameters:**
 
-| Name | Type   | Required | Description                              |
-| ---- | ------ | -------- | ---------------------------------------- |
-| dims | object | Yes      | string-keyed object of dimensions to set |
+| Name                                                      | Type   | Description                              |
+| --------------------------------------------------------- | ------ | ---------------------------------------- |
+| dims <div className="label basic required">Required</div> | object | string-keyed object of dimensions to set |
