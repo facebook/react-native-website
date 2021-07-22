@@ -20,7 +20,7 @@ module.exports = {
         'https://widget.surveymonkey.com/collect/website/js/tRaiETqnLgj758hTBazgd8ryO5qrZo8Exadq9qmt1wtm4_2FdZGEAKHDFEt_2BBlwwM4.js',
       defer: true,
     },
-    {src: 'https://snack.expo.io/embed.js', defer: true},
+    {src: 'https://snack.expo.dev/embed.js', defer: true},
   ],
   favicon: 'img/favicon.ico',
   titleDelimiter: '·',
