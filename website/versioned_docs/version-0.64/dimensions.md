@@ -195,7 +195,9 @@ This should only be called from native code by sending the didUpdateDimensions e
 
 **Properties:**
 
-| Name   | Type                                            | Description                                    |
-| ------ | ----------------------------------------------- | ---------------------------------------------- |
-| window | [addEventListener](dimensions#addeventlistener) | Defines Size of the visible Application window |
-| screen | [addEventListener](dimensions#addeventlistener) | Size of the device's screen                    |
+| Name      | Type   |
+| --------- | ------ |
+| width     | number |
+| height    | number |
+| scale     | number |
+| fontScale | number |
