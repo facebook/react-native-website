@@ -184,3 +184,18 @@ This should only be called from native code by sending the didUpdateDimensions e
 | Name                                                      | Type   | Description                              |
 | --------------------------------------------------------- | ------ | ---------------------------------------- |
 | dims <div className="label basic required">Required</div> | object | string-keyed object of dimensions to set |
+
+---
+
+### DimensionsValue
+
+| Type   |
+| ------ |
+| object |
+
+**Properties:**
+
+| Name   | Type                                            | Description                                    |
+| ------ | ----------------------------------------------- | ---------------------------------------------- |
+| window | [addEventListener](dimensions#addeventlistener) | Defines Size of the visible Application window |
+| screen | [addEventListener](dimensions#addeventlistener) | Size of the device's screen                    |
