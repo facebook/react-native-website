@@ -44,9 +44,7 @@ const App = () => {
         setDimensions({ window, screen });
       }
     );
-    return () => {
-      subscription.remove();
-    };
+    return () => subscription?.remove();
   });
 
   return (
