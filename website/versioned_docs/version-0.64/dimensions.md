@@ -172,8 +172,8 @@ Example: `const {height, width} = Dimensions.get('window');`
 
 **Parameters:**
 
-| Name                                                               | Type   | Description                                                                                  |
-| ------------------------------------------------------------------ | ------ | -------------------------------------------------------------------------------------------- |
+| Name                                                               | Type   | Description                                                                       |
+| ------------------------------------------------------------------ | ------ | --------------------------------------------------------------------------------- |
 | dim <div className="label basic required two-lines">Required</div> | string | Name of dimension as defined when calling `set`. Returns value for the dimension. |
 
 > For Android the `window` dimension will exclude the size used by the `status bar` (if not translucent) and `bottom navigation bar`
@@ -200,8 +200,8 @@ This should only be called from native code by sending the `didUpdateDimensions`
 
 **Parameters:**
 
-| Name                                                      | Type   | Description                              |
-| --------------------------------------------------------- | ------ | ---------------------------------------- |
+| Name                                                      | Type   | Description                               |
+| --------------------------------------------------------- | ------ | ----------------------------------------- |
 | dims <div className="label basic required">Required</div> | object | String-keyed object of dimensions to set. |
 
 ---
@@ -212,10 +212,10 @@ This should only be called from native code by sending the `didUpdateDimensions`
 
 **Properties:**
 
-| Name   | Type                                        | Description                                    |
-| ------ | ------------------------------------------- | ---------------------------------------------- |
+| Name   | Type                                        | Description                             |
+| ------ | ------------------------------------------- | --------------------------------------- |
 | window | [DisplayMetrics](dimensions#displaymetrics) | Size of the visible Application window. |
-| screen | [DisplayMetrics](dimensions#displaymetrics) | Size of the device's screen.                    |
+| screen | [DisplayMetrics](dimensions#displaymetrics) | Size of the device's screen.            |
 
 ### DisplayMetrics
 
