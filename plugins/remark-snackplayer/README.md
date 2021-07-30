@@ -1,6 +1,6 @@
 <h1 align="center">Remark SnackPlayer</h1>
 
-<p align="center">Remark plugin to embed <a href="https://snack.expo.io/">Expo Snack's</a> using Code Blocks</p>
+<p align="center">Remark plugin to embed <a href="https://snack.expo.dev/">Expo Snack's</a> using Code Blocks</p>
 
 ## Usage
 

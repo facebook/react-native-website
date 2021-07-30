@@ -50,7 +50,7 @@ export default (() => {
 
   // Reset snack iframes on theme changes to sync theme
   // Hacky, but no better solution for now
-  // see https://github.com/expo/snack-web/blob/master/src/client/components/EmbedCode.tsx#L60
+  // see https://github.com/expo/snack/blob/main/website/src/client/components/EmbedCode.tsx#L61
   const setupThemeSynchronization = () => {
     new MutationObserver((mutations, observer) => {
       if ('ExpoSnack' in window) {
