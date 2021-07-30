@@ -41,7 +41,7 @@ Take a look at the [Fetch Request docs](https://developer.mozilla.org/en-US/docs
 
 The above examples show how you can make a request. In many cases, you will want to do something with the response.
 
-Networking is an inherently asynchronous operation. Fetch methods will return a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) that makes it straightforward to write code that works in an asynchronous manner:
+Networking is an inherently asynchronous operation. Fetch method will return a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) that makes it straightforward to write code that works in an asynchronous manner:
 
 ```jsx
 const getMoviesFromApi = () => {
