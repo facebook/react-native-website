@@ -38,6 +38,7 @@ const styles = StyleSheet.create({
     height: 40,
     margin: 12,
     borderWidth: 1,
+    padding: 10,
   },
 });
 
@@ -79,6 +80,7 @@ const UselessTextInputMultiline = () => {
         numberOfLines={4}
         onChangeText={text => onChangeText(text)}
         value={value}
+        style={{padding: 10}}
       />
     </View>
   );
@@ -107,9 +109,9 @@ Inherits [View Props](view.md#props).
 
 Specifies whether fonts should scale to respect Text Size accessibility settings. The default is `true`.
 
-| Type | Required |
-| ---- | -------- |
-| bool | No       |
+| Type |
+| ---- |
+| bool |
 
 ---
 
@@ -122,13 +124,13 @@ Tells `TextInput` to automatically capitalize certain characters. This property 
 - `sentences`: first letter of each sentence (_default_).
 - `none`: don't auto capitalize anything.
 
-| Type                                             | Required |
-| ------------------------------------------------ | -------- |
-| enum('none', 'sentences', 'words', 'characters') | No       |
+| Type                                             |
+| ------------------------------------------------ |
+| enum('none', 'sentences', 'words', 'characters') |
 
 ---
 
-### `autoCompleteType`
+### `autoCompleteType` <div class="label android">Android</div>
 
 Specifies autocomplete hints for the system, so it can provide autofill. On Android, the system will always attempt to offer autofill by using heuristics to identify the type of content. To disable autocomplete, set `autoCompleteType` to `off`.
 
@@ -148,9 +150,9 @@ Possible values for `autoCompleteType` are:
 - `cc-exp-month`
 - `cc-exp-year`
 
-| Type                                                                                                                                                         | Required | Platform |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- | -------- |
-| enum('off', 'username', 'password', 'email', 'name', 'tel', 'street-address', 'postal-code', 'cc-number', 'cc-csc', 'cc-exp', 'cc-exp-month', 'cc-exp-year') | No       | Android  |
+| Type                                                                                                                                                         |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| enum('off', 'username', 'password', 'email', 'name', 'tel', 'street-address', 'postal-code', 'cc-number', 'cc-csc', 'cc-exp', 'cc-exp-month', 'cc-exp-year') |
 
 ---
 
@@ -158,19 +160,19 @@ Possible values for `autoCompleteType` are:
 
 If `false`, disables auto-correct. The default value is `true`.
 
-| Type | Required |
-| ---- | -------- |
-| bool | No       |
+| Type |
+| ---- |
+| bool |
 
 ---
 
 ### `autoFocus`
 
-If `true`, focuses the input on `componentDidMount`. The default value is `false`.
+If `true`, focuses the input on `componentDidMount` or `useEffect`. The default value is `false`.
 
-| Type | Required |
-| ---- | -------- |
-| bool | No       |
+| Type |
+| ---- |
+| bool |
 
 ---
 
@@ -178,9 +180,9 @@ If `true`, focuses the input on `componentDidMount`. The default value is `false
 
 If `true`, the text field will blur when submitted. The default value is true for single-line fields and false for multiline fields. Note that for multiline fields, setting `blurOnSubmit` to `true` means that pressing return will blur the field and trigger the `onSubmitEditing` event instead of inserting a newline into the field.
 
-| Type | Required |
-| ---- | -------- |
-| bool | No       |
+| Type |
+| ---- |
+| bool |
 
 ---
 
@@ -188,29 +190,29 @@ If `true`, the text field will blur when submitted. The default value is true fo
 
 If `true`, caret is hidden. The default value is `false`.
 
-| Type | Required |
-| ---- | -------- |
-| bool | No       |
+| Type |
+| ---- |
+| bool |
 
 ---
 
-### `clearButtonMode`
+### `clearButtonMode` <div class="label ios">iOS</div>
 
 When the clear button should appear on the right side of the text view. This property is supported only for single-line TextInput component. The default value is `never`.
 
-| Type                                                       | Required | Platform |
-| ---------------------------------------------------------- | -------- | -------- |
-| enum('never', 'while-editing', 'unless-editing', 'always') | No       | iOS      |
+| Type                                                       |
+| ---------------------------------------------------------- |
+| enum('never', 'while-editing', 'unless-editing', 'always') |
 
 ---
 
-### `clearTextOnFocus`
+### `clearTextOnFocus` <div class="label ios">iOS</div>
 
 If `true`, clears the text field automatically when editing begins.
 
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | iOS      |
+| Type |
+| ---- |
+| bool |
 
 ---
 
@@ -218,13 +220,13 @@ If `true`, clears the text field automatically when editing begins.
 
 If `true`, context menu is hidden. The default value is `false`.
 
-| Type | Required |
-| ---- | -------- |
-| bool | No       |
+| Type |
+| ---- |
+| bool |
 
 ---
 
-### `dataDetectorTypes`
+### `dataDetectorTypes` <div class="label ios">iOS</div>
 
 Determines the types of data converted to clickable URLs in the text input. Only valid if `multiline={true}` and `editable={false}`. By default no data types are detected.
 
@@ -239,9 +241,9 @@ Possible values for `dataDetectorTypes` are:
 - `'none'`
 - `'all'`
 
-| Type                                                                                                                                                     | Required | Platform |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
-| enum('phoneNumber', 'link', 'address', 'calendarEvent', 'none', 'all'), ,array of enum('phoneNumber', 'link', 'address', 'calendarEvent', 'none', 'all') | No       | iOS      |
+| Type                                                                                                                                                     |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| enum('phoneNumber', 'link', 'address', 'calendarEvent', 'none', 'all'), ,array of enum('phoneNumber', 'link', 'address', 'calendarEvent', 'none', 'all') |
 
 ---
 
@@ -249,19 +251,19 @@ Possible values for `dataDetectorTypes` are:
 
 Provides an initial value that will change when the user starts typing. Useful for use-cases where you do not want to deal with listening to events and updating the value prop to keep the controlled state in sync.
 
-| Type   | Required |
-| ------ | -------- |
-| string | No       |
+| Type   |
+| ------ |
+| string |
 
 ---
 
-### `disableFullscreenUI`
+### `disableFullscreenUI` <div class="label android">Android</div>
 
 When `false`, if there is a small amount of space available around a text input (e.g. landscape orientation on a phone), the OS may choose to have the user edit the text inside of a full screen text input mode. When `true`, this feature is disabled and users will always edit the text directly inside of the text input. Defaults to `false`.
 
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | Android  |
+| Type |
+| ---- |
+| bool |
 
 ---
 
@@ -269,23 +271,23 @@ When `false`, if there is a small amount of space available around a text input 
 
 If `false`, text is not editable. The default value is `true`.
 
-| Type | Required |
-| ---- | -------- |
-| bool | No       |
+| Type |
+| ---- |
+| bool |
 
 ---
 
-### `enablesReturnKeyAutomatically`
+### `enablesReturnKeyAutomatically` <div class="label ios">iOS</div>
 
 If `true`, the keyboard disables the return key when there is no text and automatically enables it when there is text. The default value is `false`.
 
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | iOS      |
+| Type |
+| ---- |
+| bool |
 
 ---
 
-### `importantForAutofill`
+### `importantForAutofill` <div class="label android">Android</div>
 
 Tells the operating system whether the individual fields in your app should be included in a view structure for autofill purposes on Android API Level 26+. Possible values are `auto`, `no`, `noExcludeDescendants`, `yes`, and `yesExcludeDescendants`. The default value is `auto`.
 
@@ -295,13 +297,13 @@ Tells the operating system whether the individual fields in your app should be i
 - `yes`: This view is important for autofill.
 - `yesExcludeDescendants`: This view is important for autofill, but its children aren't important for autofill.
 
-| Type                                                                       | Required | Platform |
-| -------------------------------------------------------------------------- | -------- | -------- |
-| enum('auto', 'no', 'noExcludeDescendants', 'yes', 'yesExcludeDescendants') | No       | Android  |
+| Type                                                                       |
+| -------------------------------------------------------------------------- |
+| enum('auto', 'no', 'noExcludeDescendants', 'yes', 'yesExcludeDescendants') |
 
 ---
 
-### `inlineImageLeft`
+### `inlineImageLeft` <div class="label android">Android</div>
 
 If defined, the provided image resource will be rendered on the left. The image resource must be inside `/android/app/src/main/res/drawable` and referenced like
 
@@ -311,39 +313,39 @@ If defined, the provided image resource will be rendered on the left. The image 
 />
 ```
 
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| string | No       | Android  |
+| Type   |
+| ------ |
+| string |
 
 ---
 
-### `inlineImagePadding`
+### `inlineImagePadding` <div class="label android">Android</div>
 
 Padding between the inline image, if any, and the text input itself.
 
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| number | No       | Android  |
+| Type   |
+| ------ |
+| number |
 
 ---
 
-### `inputAccessoryViewID`
+### `inputAccessoryViewID` <div class="label ios">iOS</div>
 
 An optional identifier which links a custom [InputAccessoryView](inputaccessoryview.md) to this text input. The InputAccessoryView is rendered above the keyboard when this text input is focused.
 
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| string | No       | iOS      |
+| Type   |
+| ------ |
+| string |
 
 ---
 
-### `keyboardAppearance`
+### `keyboardAppearance` <div class="label ios">iOS</div>
 
 Determines the color of the keyboard.
 
-| Type                             | Required | Platform |
-| -------------------------------- | -------- | -------- |
-| enum('default', 'light', 'dark') | No       | iOS      |
+| Type                             |
+| -------------------------------- |
+| enum('default', 'light', 'dark') |
 
 ---
 
@@ -379,9 +381,9 @@ The following values work on Android only:
 
 - `visible-password`
 
-| Type                                                                                                                                                                                                    | Required |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| enum('default', 'email-address', 'numeric', 'phone-pad', 'ascii-capable', 'numbers-and-punctuation', 'url', 'number-pad', 'name-phone-pad', 'decimal-pad', 'twitter', 'web-search', 'visible-password') | No       |
+| Type                                                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| enum('default', 'email-address', 'numeric', 'phone-pad', 'ascii-capable', 'numbers-and-punctuation', 'url', 'number-pad', 'name-phone-pad', 'decimal-pad', 'twitter', 'web-search', 'visible-password') |
 
 ---
 
@@ -393,9 +395,9 @@ Specifies largest possible scale a font can reach when `allowFontScaling` is ena
 - `0`: no max, ignore parent/global default
 - `>= 1`: sets the `maxFontSizeMultiplier` of this node to this value
 
-| Type   | Required |
-| ------ | -------- |
-| number | No       |
+| Type   |
+| ------ |
+| number |
 
 ---
 
@@ -403,9 +405,9 @@ Specifies largest possible scale a font can reach when `allowFontScaling` is ena
 
 Limits the maximum number of characters that can be entered. Use this instead of implementing the logic in JS to avoid flicker.
 
-| Type   | Required |
-| ------ | -------- |
-| number | No       |
+| Type   |
+| ------ |
+| number |
 
 ---
 
@@ -413,19 +415,19 @@ Limits the maximum number of characters that can be entered. Use this instead of
 
 If `true`, the text input can be multiple lines. The default value is `false`. It is important to note that this aligns the text to the top on iOS, and centers it on Android. Use with `textAlignVertical` set to `top` for the same behavior in both platforms.
 
-| Type | Required |
-| ---- | -------- |
-| bool | No       |
+| Type |
+| ---- |
+| bool |
 
 ---
 
-### `numberOfLines`
+### `numberOfLines` <div class="label android">Android</div>
 
 Sets the number of lines for a `TextInput`. Use it with multiline set to `true` to be able to fill the lines.
 
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| number | No       | Android  |
+| Type   |
+| ------ |
+| number |
 
 ---
 
@@ -433,11 +435,11 @@ Sets the number of lines for a `TextInput`. Use it with multiline set to `true` 
 
 Callback that is called when the text input is blurred.
 
-> Note: If you are attempting to access the `text` value from `nativeEvent` keep in mind that the resulting value you get can be `undefined` which can cause unintended errors. If you are trying to find the last value of TextInput, you can use the [`onEndEditing`](textinput#onEndEditing) event, which is fired upon completion of editing.
+> Note: If you are attempting to access the `text` value from `nativeEvent` keep in mind that the resulting value you get can be `undefined` which can cause unintended errors. If you are trying to find the last value of TextInput, you can use the [`onEndEditing`](textinput#onendediting) event, which is fired upon completion of editing.
 
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type     |
+| -------- |
+| function |
 
 ---
 
@@ -445,9 +447,9 @@ Callback that is called when the text input is blurred.
 
 Callback that is called when the text input's text changes. This will be called with `{ nativeEvent: { eventCount, target, text} }`
 
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type     |
+| -------- |
+| function |
 
 ---
 
@@ -455,9 +457,9 @@ Callback that is called when the text input's text changes. This will be called 
 
 Callback that is called when the text input's text changes. Changed text is passed as a single string argument to the callback handler.
 
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type     |
+| -------- |
+| function |
 
 ---
 
@@ -467,9 +469,9 @@ Callback that is called when the text input's content size changes. This will be
 
 Only called for multiline text inputs.
 
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type     |
+| -------- |
+| function |
 
 ---
 
@@ -477,9 +479,9 @@ Only called for multiline text inputs.
 
 Callback that is called when text input ends.
 
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type     |
+| -------- |
+| function |
 
 ---
 
@@ -487,9 +489,9 @@ Callback that is called when text input ends.
 
 Callback that is called when a touch is engaged.
 
-| Type                     | Required |
-| ------------------------ | -------- |
-| [PressEvent](pressevent) | No       |
+| Type                     |
+| ------------------------ |
+| [PressEvent](pressevent) |
 
 ---
 
@@ -497,9 +499,9 @@ Callback that is called when a touch is engaged.
 
 Callback that is called when a touch is released.
 
-| Type                     | Required |
-| ------------------------ | -------- |
-| [PressEvent](pressevent) | No       |
+| Type                     |
+| ------------------------ |
+| [PressEvent](pressevent) |
 
 ---
 
@@ -507,9 +509,9 @@ Callback that is called when a touch is released.
 
 Callback that is called when the text input is focused. This is called with `{ nativeEvent: { target } }`.
 
-| Type                                 | Required |
-| ------------------------------------ | -------- |
-| ([LayoutEvent](layoutevent)) => void | No       |
+| Type                                 |
+| ------------------------------------ |
+| ([LayoutEvent](layoutevent)) => void |
 
 ---
 
@@ -517,9 +519,9 @@ Callback that is called when the text input is focused. This is called with `{ n
 
 Callback that is called when a key is pressed. This will be called with `{ nativeEvent: { key: keyValue } }` where `keyValue` is `'Enter'` or `'Backspace'` for respective keys and the typed-in character otherwise including `' '` for space. Fires before `onChange` callbacks. Note: on Android only the inputs from soft keyboard are handled, not the hardware keyboard inputs.
 
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type     |
+| -------- |
+| function |
 
 ---
 
@@ -527,9 +529,9 @@ Callback that is called when a key is pressed. This will be called with `{ nativ
 
 Invoked on mount and on layout changes.
 
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type     |
+| -------- |
+| function |
 
 ---
 
@@ -537,9 +539,9 @@ Invoked on mount and on layout changes.
 
 Invoked on content scroll with `{ nativeEvent: { contentOffset: { x, y } } }`. May also contain other properties from ScrollEvent but on Android contentSize is not provided for performance reasons.
 
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type     |
+| -------- |
+| function |
 
 ---
 
@@ -547,9 +549,9 @@ Invoked on content scroll with `{ nativeEvent: { contentOffset: { x, y } } }`. M
 
 Callback that is called when the text input selection is changed. This will be called with `{ nativeEvent: { selection: { start, end } } }`. This prop requires `multiline={true}` to be set.
 
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type     |
+| -------- |
+| function |
 
 ---
 
@@ -557,9 +559,9 @@ Callback that is called when the text input selection is changed. This will be c
 
 Callback that is called when the text input's submit button is pressed with the argument `{nativeEvent: {text, eventCount, target}}`.
 
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type     |
+| -------- |
+| function |
 
 Note that on iOS this method isn't called when using `keyboardType="phone-pad"`.
 
@@ -569,9 +571,9 @@ Note that on iOS this method isn't called when using `keyboardType="phone-pad"`.
 
 The string that will be rendered before text input has been entered.
 
-| Type   | Required |
-| ------ | -------- |
-| string | No       |
+| Type   |
+| ------ |
+| string |
 
 ---
 
@@ -579,19 +581,19 @@ The string that will be rendered before text input has been entered.
 
 The text color of the placeholder string.
 
-| Type               | Required |
-| ------------------ | -------- |
-| [color](colors.md) | No       |
+| Type               |
+| ------------------ |
+| [color](colors.md) |
 
 ---
 
-### `returnKeyLabel`
+### `returnKeyLabel` <div class="label android">Android</div>
 
 Sets the return key to the label. Use it instead of `returnKeyType`.
 
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| string | No       | Android  |
+| Type   |
+| ------ |
+| string |
 
 ---
 
@@ -627,29 +629,27 @@ The following values work on iOS only:
 - `route`
 - `yahoo`
 
-| Type                                                                                                                              | Required |
-| --------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| enum('done', 'go', 'next', 'search', 'send', 'none', 'previous', 'default', 'emergency-call', 'google', 'join', 'route', 'yahoo') | No       |
+| Type                                                                                                                              |
+| --------------------------------------------------------------------------------------------------------------------------------- |
+| enum('done', 'go', 'next', 'search', 'send', 'none', 'previous', 'default', 'emergency-call', 'google', 'join', 'route', 'yahoo') |
 
-### `rejectResponderTermination`
-
-_iOS Only_
+### `rejectResponderTermination` <div class="label ios">iOS</div>
 
 If `true`, allows TextInput to pass touch events to the parent component. This allows components such as SwipeableListView to be swipeable from the TextInput on iOS, as is the case on Android by default. If `false`, TextInput always asks to handle the input (except when disabled). The default value is `true`.
 
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | iOS      |
+| Type |
+| ---- |
+| bool |
 
 ---
 
-### `scrollEnabled`
+### `scrollEnabled` <div class="label ios">iOS</div>
 
 If `false`, scrolling of the text view will be disabled. The default value is `true`. Only works with `multiline={true}`.
 
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | iOS      |
+| Type |
+| ---- |
+| bool |
 
 ---
 
@@ -657,9 +657,9 @@ If `false`, scrolling of the text view will be disabled. The default value is `t
 
 If `true`, the text input obscures the text entered so that sensitive text like passwords stay secure. The default value is `false`. Does not work with `multiline={true}`.
 
-| Type | Required |
-| ---- | -------- |
-| bool | No       |
+| Type |
+| ---- |
+| bool |
 
 ---
 
@@ -667,9 +667,9 @@ If `true`, the text input obscures the text entered so that sensitive text like 
 
 The start and end of the text input's selection. Set start and end to the same value to position the cursor.
 
-| Type                                | Required |
-| ----------------------------------- | -------- |
-| object: {start: number,end: number} | No       |
+| Type                                |
+| ----------------------------------- |
+| object: {start: number,end: number} |
 
 ---
 
@@ -677,9 +677,9 @@ The start and end of the text input's selection. Set start and end to the same v
 
 The highlight and cursor color of the text input.
 
-| Type               | Required |
-| ------------------ | -------- |
-| [color](colors.md) | No       |
+| Type               |
+| ------------------ |
+| [color](colors.md) |
 
 ---
 
@@ -687,9 +687,9 @@ The highlight and cursor color of the text input.
 
 If `true`, all text will automatically be selected on focus.
 
-| Type | Required |
-| ---- | -------- |
-| bool | No       |
+| Type |
+| ---- |
+| bool |
 
 ---
 
@@ -697,19 +697,19 @@ If `true`, all text will automatically be selected on focus.
 
 When `false`, it will prevent the soft keyboard from showing when the field is focused. The default value is `true`.
 
-| Type | Required |
-| ---- | -------- |
-| bool | No       |
+| Type |
+| ---- |
+| bool |
 
 ---
 
-### `spellCheck`
+### `spellCheck` <div class="label ios">iOS</div>
 
 If `false`, disables spell-check style (i.e. red underlines). The default value is inherited from `autoCorrect`.
 
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | iOS      |
+| Type |
+| ---- |
+| bool |
 
 ---
 
@@ -723,13 +723,13 @@ Possible values for `textAlign` are:
 - `center`
 - `right`
 
-| Type                            | Required |
-| ------------------------------- | -------- |
-| enum('left', 'center', 'right') | No       |
+| Type                            |
+| ------------------------------- |
+| enum('left', 'center', 'right') |
 
 ---
 
-### `textContentType`
+### `textContentType` <div class="label ios">iOS</div>
 
 Give the keyboard and the system information about the expected semantic meaning for the content that users enter.
 
@@ -770,13 +770,13 @@ Possible values for `textContentType` are:
 - `newPassword`
 - `oneTimeCode`
 
-| Type                                                                                                                                                                                                                                                                                                                                                                                                       | Required | Platform |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
-| enum('none', 'URL', 'addressCity', 'addressCityAndState', 'addressState', 'countryName', 'creditCardNumber', 'emailAddress', 'familyName', 'fullStreetAddress', 'givenName', 'jobTitle', 'location', 'middleName', 'name', 'namePrefix', 'nameSuffix', 'nickname', 'organizationName', 'postalCode', 'streetAddressLine1', 'streetAddressLine2', 'sublocality', 'telephoneNumber', 'username', 'password') | No       | iOS      |
+| Type                                                                                                                                                                                                                                                                                                                                                                                                       |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| enum('none', 'URL', 'addressCity', 'addressCityAndState', 'addressState', 'countryName', 'creditCardNumber', 'emailAddress', 'familyName', 'fullStreetAddress', 'givenName', 'jobTitle', 'location', 'middleName', 'name', 'namePrefix', 'nameSuffix', 'nickname', 'organizationName', 'postalCode', 'streetAddressLine1', 'streetAddressLine2', 'sublocality', 'telephoneNumber', 'username', 'password') |
 
 ---
 
-### `passwordRules`
+### `passwordRules` <div class="label ios">iOS</div>
 
 When using `textContentType` as `newPassword` on iOS we can let the OS know the minimum requirements of the password so that it can generate one that will satisfy them. In order to create a valid string for `PasswordRules` take a look to the [Apple Docs](https://developer.apple.com/password-rules/).
 
@@ -785,9 +785,9 @@ When using `textContentType` as `newPassword` on iOS we can let the OS know the 
 > - AutoFill is enabled: **Settings** → **Passwords & Accounts** → toggle "On" the **AutoFill Passwords**,
 > - iCloud Keychain is used: **Settings** → **Apple ID** → **iCloud** → **Keychain** → toggle "On" the **iCloud Keychain**.
 
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| string | No       | iOS      |
+| Type   |
+| ------ |
+| string |
 
 ---
 
@@ -808,33 +808,33 @@ see [Issue#7070](https://github.com/facebook/react-native/issues/7070) for more 
 
 [Styles](style.md)
 
-| Type                  | Required |
-| --------------------- | -------- |
-| [Text](text.md#style) | No       |
+| Type                  |
+| --------------------- |
+| [Text](text.md#style) |
 
 ---
 
-### `textBreakStrategy`
+### `textBreakStrategy` <div class="label android">Android</div>
 
 <!-- alex disable simple -->
 
 Set text break strategy on Android API Level 23+, possible values are `simple`, `highQuality`, `balanced` The default value is `simple`.
 
-| Type                                      | Required | Platform |
-| ----------------------------------------- | -------- | -------- |
-| enum('simple', 'highQuality', 'balanced') | No       | Android  |
+| Type                                      |
+| ----------------------------------------- |
+| enum('simple', 'highQuality', 'balanced') |
 
 <!-- alex enable simple -->
 
 ---
 
-### `underlineColorAndroid`
+### `underlineColorAndroid` <div class="label android">Android</div>
 
 The color of the `TextInput` underline.
 
-| Type               | Required | Platform |
-| ------------------ | -------- | -------- |
-| [color](colors.md) | No       | Android  |
+| Type               |
+| ------------------ |
+| [color](colors.md) |
 
 ---
 
@@ -842,9 +842,9 @@ The color of the `TextInput` underline.
 
 The value to show for the text input. `TextInput` is a controlled component, which means the native value will be forced to match this value prop if provided. For most uses, this works great, but in some cases this may cause flickering - one common cause is preventing edits by keeping value the same. In addition to setting the same value, either set `editable={false}`, or set/update `maxLength` to prevent unwanted edits without flicker.
 
-| Type   | Required |
-| ------ | -------- |
-| string | No       |
+| Type   |
+| ------ |
+| string |
 
 ## Methods
 
