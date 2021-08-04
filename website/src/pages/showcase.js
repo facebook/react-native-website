@@ -99,7 +99,7 @@ const Showcase = () => {
         </a>
         <p>
           A curated list of{' '}
-          <a href="https://github.com/ReactNativeNews/React-Native-Apps">
+          <a href="https://github.com/ReactNativeNews/React-Native-Apps/">
             open source React Native apps
           </a>{' '}
           is also being kept by <a href="https://infinite.red/">Infinite Red</a>
