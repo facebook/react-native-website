@@ -7,7 +7,7 @@ Mobile apps are rarely made up of a single screen. Managing the presentation of,
 
 This guide covers the various navigation components available in React Native. If you are getting started with navigation, you will probably want to use [React Navigation](navigation.md#react-navigation). React Navigation provides a straightforward navigation solution, with the ability to present common stack navigation and tabbed navigation patterns on both Android and iOS.
 
-If you'd like to achieve a native look and feel on both Android and iOS, or you're integrating React Native into an app that already manages navigation natively, the following library provides native navigation on both platforms: [react-native-navigation](https://github.com/wix/react-native-navigation).
+If you're integrating React Native into an app that already manages navigation natively, or looking for an alternative to React Navigation, the following library provides native navigation on both platforms: [react-native-navigation](https://github.com/wix/react-native-navigation).
 
 ## React Navigation
 
@@ -18,7 +18,7 @@ The community solution to navigation is a standalone library that allows develop
 First, you need to install them in your project:
 
 ```shell
-npm install @react-navigation/native @react-navigation/stack
+npm install @react-navigation/native @react-navigation/native-stack
 ```
 
 Next, install the required peer dependencies. You need to run different commands depending on whether your project is an Expo managed project or a bare React Native project.
@@ -26,13 +26,13 @@ Next, install the required peer dependencies. You need to run different commands
 - If you have an Expo managed project, install the dependencies with `expo`:
 
   ```shell
-  expo install react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view
+  expo install react-native-screens react-native-safe-area-context
   ```
 
 - If you have a bare React Native project, install the dependencies with `npm`:
 
   ```shell
-  npm install react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view
+  npm install react-native-screens react-native-safe-area-context
   ```
 
   For iOS with bare React Native project, make sure you have [Cocoapods](https://cocoapods.org/) installed. Then install the pods to complete the installation:
@@ -45,16 +45,9 @@ Next, install the required peer dependencies. You need to run different commands
 
 > Note: You might get warnings related to peer dependencies after installation. They are usually caused by incorrect version ranges specified in some packages. You can safely ignore most warnings as long as your app builds.
 
-To finalize installation of `react-native-gesture-handler`, add the following at the **top** (make sure it's at the top and there's nothing else before it) of your entry file, such as `index.js` or `App.js`:
-
-```js
-import 'react-native-gesture-handler';
-```
-
 Now, you need to wrap the whole app in `NavigationContainer`. Usually you'd do this in your entry file, such as `index.js` or `App.js`:
 
 ```jsx
-import 'react-native-gesture-handler';
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 
@@ -78,9 +71,9 @@ Now you can create an app with a home screen and a profile screen:
 ```jsx
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-const Stack = createStackNavigator();
+const Stack = createNativeStackNavigator();
 
 const MyStack = () => {
   return (
@@ -120,7 +113,7 @@ const ProfileScreen = ({ navigation, route }) => {
 };
 ```
 
-The views in the stack navigator use native components and the [`Animated`](animated.md) library to deliver 60fps animations that are run on the native thread. Plus, the animations and gestures can be customized.
+This `native-stack` navigator uses the native APIs: `UINavigationController` on iOS and `Fragment` on Android so that navigation built with `createNativeStackNavigator` will behave the same and have the same performance characteristics as apps built natively on top of those APIs.
 
 React Navigation also has packages for different kind of navigators such as tabs and drawer. You can use them to implement various patterns in your app.
 
