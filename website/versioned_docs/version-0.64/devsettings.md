@@ -21,10 +21,10 @@ Add a custom menu item to the developer menu.
 
 **Parameters:**
 
-| Name                                                           | Type     |
-| -------------------------------------------------------------- | -------- |
-| title <div className="label basic required">Required</div>     | string   |
-| component <div className="label basic required">Required</div> | function |
+| Name                                                         | Type     |
+| ------------------------------------------------------------ | -------- |
+| title <div className="label basic required">Required</div>   | string   |
+| handler <div className="label basic required">Required</div> | function |
 
 **Example:**
 
