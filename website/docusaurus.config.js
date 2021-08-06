@@ -48,7 +48,7 @@ module.exports = {
           editCurrentVersion: true,
           onlyIncludeVersions:
             process.env.PREVIEW_DEPLOY === 'true'
-              ? ['current', ...versions.slice(0, 2)]
+              ? ['current', ...versions.slice(0, 3)]
               : undefined,
         },
         blog: {
