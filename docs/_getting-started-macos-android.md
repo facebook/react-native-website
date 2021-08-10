@@ -85,9 +85,19 @@ export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 ```
 
+Add the following lines instead to your `~/.config/fish/config.fish` if you are using `fish`:
+
+```shell
+set -x ANDROID_HOME $HOME/Library/Android/sdk
+fish_add_path $ANDROID_HOME/emulator
+fish_add_path $ANDROID_HOME/tools
+fish_add_path $ANDROID_HOME/tools/bin
+fish_add_path $ANDROID_HOME/platform-tools
+```
+
 > `.bash_profile` is specific to `bash`. If you're using another shell, you will need to edit the appropriate shell-specific config file.
 
-Type `source $HOME/.bash_profile` for `bash` or `source $HOME/.zprofile` to load the config into your current shell. Verify that ANDROID_HOME has been set by running `echo $ANDROID_HOME` and the appropriate directories have been added to your path by running `echo $PATH`.
+Type `source $HOME/.bash_profile` for `bash`, `source $HOME/.zprofile` for `zsh`, or `source ~/.config/fish/config.fish` for `fish` to load the config into your current shell. Verify that ANDROID_HOME has been set by running `echo $ANDROID_HOME` and the appropriate directories have been added to your path by running `echo $PATH`.
 
 > Please make sure you use the correct Android SDK path. You can find the actual location of the SDK in the Android Studio "Preferences" dialog, under **Appearance & Behavior** → **System Settings** → **Android SDK**.
 
