@@ -88,7 +88,7 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 Add the following lines instead to your `~/.config/fish/config.fish` if you are using `fish`:
 
 ```shell
-set -x ANDROID_HOME $HOME/Library/Android/sdk
+set -gx ANDROID_HOME $HOME/Library/Android/sdk
 fish_add_path $ANDROID_HOME/emulator
 fish_add_path $ANDROID_HOME/tools
 fish_add_path $ANDROID_HOME/tools/bin
