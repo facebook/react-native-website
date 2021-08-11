@@ -161,9 +161,9 @@ Inherits [TouchableWithoutFeedback Props](touchablewithoutfeedback.md#props).
 
 Determines what the opacity of the wrapped view should be when touch is active. The value should be between 0 and 1. Defaults to 0.85. Requires `underlayColor` to be set.
 
-| Type   | Required |
-| ------ | -------- |
-| number | No       |
+| Type   |
+| ------ |
+| number |
 
 ---
 
@@ -171,9 +171,9 @@ Determines what the opacity of the wrapped view should be when touch is active. 
 
 Called immediately after the underlay is hidden.
 
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type     |
+| -------- |
+| function |
 
 ---
 
@@ -181,17 +181,17 @@ Called immediately after the underlay is hidden.
 
 Called immediately after the underlay is shown.
 
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type     |
+| -------- |
+| function |
 
 ---
 
 ### `style`
 
-| Type       | Required |
-| ---------- | -------- |
-| View.style | No       |
+| Type       |
+| ---------- |
+| View.style |
 
 ---
 
@@ -199,69 +199,69 @@ Called immediately after the underlay is shown.
 
 The color of the underlay that will show through when the touch is active.
 
-| Type               | Required |
-| ------------------ | -------- |
-| [color](colors.md) | No       |
+| Type               |
+| ------------------ |
+| [color](colors.md) |
 
 ---
 
-### `hasTVPreferredFocus`
+### `hasTVPreferredFocus` <div class="label ios">iOS</div>
 
 _(Apple TV only)_ TV preferred focus (see documentation for the View component).
 
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | iOS      |
+| Type |
+| ---- |
+| bool |
 
 ---
 
-### `nextFocusDown`
+### `nextFocusDown` <div class="label android">Android</div>
 
 TV next focus down (see documentation for the View component).
 
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| number | No       | Android  |
+| Type   |
+| ------ |
+| number |
 
 ---
 
-### `nextFocusForward`
+### `nextFocusForward` <div class="label android">Android</div>
 
 TV next focus forward (see documentation for the View component).
 
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| number | No       | Android  |
+| Type   |
+| ------ |
+| number |
 
 ---
 
-### `nextFocusLeft`
+### `nextFocusLeft` <div class="label android">Android</div>
 
 TV next focus left (see documentation for the View component).
 
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| number | No       | Android  |
+| Type   |
+| ------ |
+| number |
 
 ---
 
-### `nextFocusRight`
+### `nextFocusRight` <div class="label android">Android</div>
 
 TV next focus right (see documentation for the View component).
 
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| number | No       | Android  |
+| Type   |
+| ------ |
+| number |
 
 ---
 
-### `nextFocusUp`
+### `nextFocusUp` <div class="label android">Android</div>
 
 TV next focus up (see documentation for the View component).
 
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| number | No       | Android  |
+| Type   |
+| ------ |
+| number |
 
 ---
 
@@ -269,6 +269,6 @@ TV next focus up (see documentation for the View component).
 
 Handy for snapshot tests.
 
-| Type | Required |
-| ---- | -------- |
-| bool | No       |
+| Type |
+| ---- |
+| bool |

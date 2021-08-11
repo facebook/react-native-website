@@ -86,9 +86,9 @@ Does this view want to become responder on the start of a touch?
 
 `View.props.onStartShouldSetResponder: (event) => [true | false]`, where `event` is a [PressEvent](pressevent).
 
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type     |
+| -------- |
+| function |
 
 ---
 
@@ -96,9 +96,9 @@ Does this view want to become responder on the start of a touch?
 
 When `true`, indicates that the view is an accessibility element. By default, all the touchable elements are accessible.
 
-| Type | Required |
-| ---- | -------- |
-| bool | No       |
+| Type |
+| ---- |
+| bool |
 
 ---
 
@@ -106,9 +106,9 @@ When `true`, indicates that the view is an accessibility element. By default, al
 
 Overrides the text that's read by the screen reader when the user interacts with the element. By default, the label is constructed by traversing all the children and accumulating all the `Text` nodes separated by space.
 
-| Type   | Required |
-| ------ | -------- |
-| string | No       |
+| Type   |
+| ------ |
+| string |
 
 ---
 
@@ -116,9 +116,9 @@ Overrides the text that's read by the screen reader when the user interacts with
 
 An accessibility hint helps users understand what will happen when they perform an action on the accessibility element when that result is not clear from the accessibility label.
 
-| Type   | Required |
-| ------ | -------- |
-| string | No       |
+| Type   |
+| ------ |
+| string |
 
 ---
 
@@ -156,9 +156,9 @@ An accessibility hint helps users understand what will happen when they perform 
 - `'timer'` - Used to represent a timer.
 - `'toolbar'` - Used to represent a tool bar (a container of action buttons or components).
 
-| Type   | Required |
-| ------ | -------- |
-| string | No       |
+| Type   |
+| ------ |
+| string |
 
 ---
 
@@ -168,9 +168,9 @@ Describes the current state of a component to the user of an assistive technolog
 
 See the [Accessibility guide](accessibility.md#accessibilitystate-ios-android) for more information.
 
-| Type                                                                                           | Required |
-| ---------------------------------------------------------------------------------------------- | -------- |
-| object: {disabled: bool, selected: bool, checked: bool or 'mixed', busy: bool, expanded: bool} | No       |
+| Type                                                                                           |
+| ---------------------------------------------------------------------------------------------- |
+| object: {disabled: bool, selected: bool, checked: bool or 'mixed', busy: bool, expanded: bool} |
 
 ---
 
@@ -180,9 +180,9 @@ Represents the current value of a component. It can be a textual description of 
 
 See the [Accessibility guide](accessibility.md#accessibilityvalue-ios-android) for more information.
 
-| Type                                                          | Required |
-| ------------------------------------------------------------- | -------- |
-| object: {min: number, max: number, now: number, text: string} | No       |
+| Type                                                          |
+| ------------------------------------------------------------- |
+| object: {min: number, max: number, now: number, text: string} |
 
 ---
 
@@ -192,9 +192,9 @@ Accessibility actions allow an assistive technology to programmatically invoke t
 
 See the [Accessibility guide](accessibility.md#accessibility-actions) for more information.
 
-| Type  | Required |
-| ----- | -------- |
-| array | No       |
+| Type  |
+| ----- |
+| array |
 
 ---
 
@@ -204,9 +204,9 @@ Invoked when the user performs the accessibility actions. The only argument to t
 
 See the [Accessibility guide](accessibility.md#accessibility-actions) for more information.
 
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type     |
+| -------- |
+| function |
 
 ---
 
@@ -214,69 +214,69 @@ See the [Accessibility guide](accessibility.md#accessibility-actions) for more i
 
 When `accessible` is true, the system will try to invoke this function when the user performs accessibility tap gesture.
 
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type     |
+| -------- |
+| function |
 
 ---
 
-### `onMagicTap`
+### `onMagicTap` <div class="label ios">iOS</div>
 
 When `accessible` is `true`, the system will invoke this function when the user performs the magic tap gesture.
 
-| Type     | Required | Platform |
-| -------- | -------- | -------- |
-| function | No       | iOS      |
+| Type     |
+| -------- |
+| function |
 
 ---
 
-### `onAccessibilityEscape`
+### `onAccessibilityEscape` <div class="label ios">iOS</div>
 
 When `accessible` is `true`, the system will invoke this function when the user performs the escape gesture.
 
-| Type     | Required | Platform |
-| -------- | -------- | -------- |
-| function | No       | iOS      |
+| Type     |
+| -------- |
+| function |
 
 ---
 
-### `accessibilityViewIsModal`
+### `accessibilityViewIsModal` <div class="label ios">iOS</div>
 
 A value indicating whether VoiceOver should ignore the elements within views that are siblings of the receiver. Default is `false`.
 
 See the [Accessibility guide](accessibility.md#accessibilityviewismodal-ios) for more information.
 
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | iOS      |
+| Type |
+| ---- |
+| bool |
 
 ---
 
-### `accessibilityElementsHidden`
+### `accessibilityElementsHidden` <div class="label ios">iOS</div>
 
 A value indicating whether the accessibility elements contained within this accessibility element are hidden. Default is `false`.
 
 See the [Accessibility guide](accessibility.md#accessibilityelementshidden-ios) for more information.
 
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | iOS      |
+| Type |
+| ---- |
+| bool |
 
 ---
 
-### `accessibilityIgnoresInvertColors`
+### `accessibilityIgnoresInvertColors` <div class="label ios">iOS</div>
 
 A value indicating this view should or should not be inverted when color inversion is turned on. A value of `true` will tell the view to not be inverted even if color inversion is turned on.
 
 See the [Accessibility guide](accessibility.md#accessibilityignoresinvertcolors) for more information.
 
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | iOS      |
+| Type |
+| ---- |
+| bool |
 
 ---
 
-### `accessibilityLiveRegion`
+### `accessibilityLiveRegion` <div class="label android">Android</div>
 
 Indicates to accessibility services whether the user should be notified when this view changes. Works for Android API >= 19 only. Possible values:
 
@@ -286,13 +286,13 @@ Indicates to accessibility services whether the user should be notified when thi
 
 See the [Android `View` docs](http://developer.android.com/reference/android/view/View.html#attr_android:accessibilityLiveRegion) for reference.
 
-| Type                                | Required | Platform |
-| ----------------------------------- | -------- | -------- |
-| enum('none', 'polite', 'assertive') | No       | Android  |
+| Type                                |
+| ----------------------------------- |
+| enum('none', 'polite', 'assertive') |
 
 ---
 
-### `importantForAccessibility`
+### `importantForAccessibility` <div class="label android">Android</div>
 
 Controls how view is important for accessibility which is if it fires accessibility events and if it is reported to accessibility services that query the screen. Works for Android only.
 
@@ -305,9 +305,9 @@ Possible values:
 
 See the [Android `importantForAccessibility` docs](http://developer.android.com/reference/android/R.attr.html#importantForAccessibility) for reference.
 
-| Type                                             | Required | Platform |
-| ------------------------------------------------ | -------- | -------- |
-| enum('auto', 'yes', 'no', 'no-hide-descendants') | No       | Android  |
+| Type                                             |
+| ------------------------------------------------ |
+| enum('auto', 'yes', 'no', 'no-hide-descendants') |
 
 ---
 
@@ -319,9 +319,9 @@ For example, if a touchable view has a height of 20 the touchable height can be 
 
 > The touch area never extends past the parent view bounds and the Z-index of sibling views always takes precedence if a touch hits two overlapping views.
 
-| Type                                                               | Required |
-| ------------------------------------------------------------------ | -------- |
-| object: {top: number, left: number, bottom: number, right: number} | No       |
+| Type                                                               |
+| ------------------------------------------------------------------ |
+| object: {top: number, left: number, bottom: number, right: number} |
 
 ---
 
@@ -331,9 +331,9 @@ Used to locate this view from native classes.
 
 > This disables the 'layout-only view removal' optimization for this view!
 
-| Type   | Required |
-| ------ | -------- |
-| string | No       |
+| Type   |
+| ------ |
+| string |
 
 ---
 
@@ -343,9 +343,9 @@ Invoked on mount and on layout changes.
 
 This event is fired immediately once the layout has been calculated, but the new layout may not yet be reflected on the screen at the time the event is received, especially if a layout animation is in progress.
 
-| Type                                 | Required |
-| ------------------------------------ | -------- |
-| ([LayoutEvent](layoutevent)) => void | No       |
+| Type                                 |
+| ------------------------------------ |
+| ([LayoutEvent](layoutevent)) => void |
 
 ---
 
@@ -355,9 +355,9 @@ Does this view want to "claim" touch responsiveness? This is called for every to
 
 `View.props.onMoveShouldSetResponder: (event) => [true | false]`, where `event` is a [PressEvent](pressevent).
 
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type     |
+| -------- |
+| function |
 
 ---
 
@@ -367,9 +367,9 @@ If a parent `View` wants to prevent a child `View` from becoming responder on a 
 
 `View.props.onMoveShouldSetResponderCapture: (event) => [true | false]`, where `event` is a [PressEvent](pressevent).
 
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type     |
+| -------- |
+| function |
 
 ---
 
@@ -379,9 +379,9 @@ The View is now responding for touch events. This is the time to highlight and s
 
 `View.props.onResponderGrant: (event) => {}`, where `event` is a [PressEvent](pressevent).
 
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type     |
+| -------- |
+| function |
 
 ---
 
@@ -391,9 +391,9 @@ The user is moving their finger.
 
 `View.props.onResponderMove: (event) => {}`, where `event` is a [PressEvent](pressevent).
 
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type     |
+| -------- |
+| function |
 
 ---
 
@@ -403,9 +403,9 @@ Another responder is already active and will not release it to that `View` askin
 
 `View.props.onResponderReject: (event) => {}`, where `event` is a [PressEvent](pressevent).
 
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type     |
+| -------- |
+| function |
 
 ---
 
@@ -415,9 +415,9 @@ Fired at the end of the touch.
 
 `View.props.onResponderRelease: (event) => {}`, where `event` is a [PressEvent](pressevent).
 
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type     |
+| -------- |
+| function |
 
 ---
 
@@ -427,9 +427,9 @@ The responder has been taken from the `View`. Might be taken by other views afte
 
 `View.props.onResponderTerminate: (event) => {}`, where `event` is a [PressEvent](pressevent).
 
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type     |
+| -------- |
+| function |
 
 ---
 
@@ -439,9 +439,9 @@ Some other `View` wants to become responder and is asking this `View` to release
 
 `View.props.onResponderTerminationRequest: (event) => {}`, where `event` is a [PressEvent](pressevent).
 
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type     |
+| -------- |
+| function |
 
 ---
 
@@ -451,9 +451,9 @@ If a parent `View` wants to prevent a child `View` from becoming responder on a 
 
 `View.props.onStartShouldSetResponderCapture: (event) => [true | false]`, where `event` is a [PressEvent](pressevent).
 
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type     |
+| -------- |
+| function |
 
 ---
 
@@ -487,9 +487,9 @@ Controls whether the `View` can be the target of touch events.
 
 > Since `pointerEvents` does not affect layout/appearance, and we are already deviating from the spec by adding additional modes, we opt to not include `pointerEvents` on `style`. On some platforms, we would need to implement it as a `className` anyways. Using `style` or not is an implementation detail of the platform.
 
-| Type                                         | Required |
-| -------------------------------------------- | -------- |
-| enum('box-none', 'none', 'box-only', 'auto') | No       |
+| Type                                         |
+| -------------------------------------------- |
+| enum('box-none', 'none', 'box-only', 'auto') |
 
 ---
 
@@ -497,17 +497,17 @@ Controls whether the `View` can be the target of touch events.
 
 This is a reserved performance property exposed by `RCTView` and is useful for scrolling content when there are many subviews, most of which are offscreen. For this property to be effective, it must be applied to a view that contains many subviews that extend outside its bound. The subviews must also have `overflow: hidden`, as should the containing view (or one of its superviews).
 
-| Type | Required |
-| ---- | -------- |
-| bool | No       |
+| Type |
+| ---- |
+| bool |
 
 ---
 
 ### `style`
 
-| Type                              | Required |
-| --------------------------------- | -------- |
-| [View Style](view-style-props.md) | No       |
+| Type                              |
+| --------------------------------- |
+| [View Style](view-style-props.md) |
 
 ---
 
@@ -517,19 +517,19 @@ Used to locate this view in end-to-end tests.
 
 > This disables the 'layout-only view removal' optimization for this view!
 
-| Type   | Required |
-| ------ | -------- |
-| string | No       |
+| Type   |
+| ------ |
+| string |
 
 ---
 
-### `collapsable`
+### `collapsable` <div class="label android">Android</div>
 
 Views that are only used to layout their children or otherwise don't draw anything may be automatically removed from the native hierarchy as an optimization. Set this property to `false` to disable this optimization and ensure that this `View` exists in the native view hierarchy.
 
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | Android  |
+| Type |
+| ---- |
+| bool |
 
 ---
 
@@ -539,25 +539,25 @@ Whether this `View` needs to rendered offscreen and composited with an alpha in 
 
 Rendering offscreen to preserve correct alpha behavior is extremely expensive and hard to debug for non-native developers, which is why it is not turned on by default. If you do need to enable this property for an animation, consider combining it with renderToHardwareTextureAndroid if the view **contents** are static (i.e. it doesn't need to be redrawn each frame). If that property is enabled, this View will be rendered off-screen once, saved in a hardware texture, and then composited onto the screen with an alpha each frame without having to switch rendering targets on the GPU.
 
-| Type | Required |
-| ---- | -------- |
-| bool | No       |
+| Type |
+| ---- |
+| bool |
 
 ---
 
-### `renderToHardwareTextureAndroid`
+### `renderToHardwareTextureAndroid` <div class="label android">Android</div>
 
 Whether this `View` should render itself (and all of its children) into a single hardware texture on the GPU.
 
 On Android, this is useful for animations and interactions that only modify opacity, rotation, translation, and/or scale: in those cases, the view doesn't have to be redrawn and display lists don't need to be re-executed. The texture can be re-used and re-composited with different parameters. The downside is that this can use up limited video memory, so this prop should be set back to false at the end of the interaction/animation.
 
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | Android  |
+| Type |
+| ---- |
+| bool |
 
 ---
 
-### `shouldRasterizeIOS`
+### `shouldRasterizeIOS` <div class="label ios">iOS</div>
 
 Whether this `View` should be rendered as a bitmap before compositing.
 
@@ -565,66 +565,66 @@ On iOS, this is useful for animations and interactions that do not modify this c
 
 Rasterization incurs an off-screen drawing pass and the bitmap consumes memory. Test and measure when using this property.
 
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | iOS      |
+| Type |
+| ---- |
+| bool |
 
 ---
 
-### `nextFocusDown`
+### `nextFocusDown` <div class="label android">Android</div>
 
 Designates the next view to receive focus when the user navigates down. See the [Android documentation](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusDown).
 
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| number | No       | Android  |
+| Type   |
+| ------ |
+| number |
 
 ---
 
-### `nextFocusForward`
+### `nextFocusForward` <div class="label android">Android</div>
 
 Designates the next view to receive focus when the user navigates forward. See the [Android documentation](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusForward).
 
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| number | No       | Android  |
+| Type   |
+| ------ |
+| number |
 
 ---
 
-### `nextFocusLeft`
+### `nextFocusLeft` <div class="label android">Android</div>
 
 Designates the next view to receive focus when the user navigates left. See the [Android documentation](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusLeft).
 
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| number | No       | Android  |
+| Type   |
+| ------ |
+| number |
 
 ---
 
-### `nextFocusRight`
+### `nextFocusRight` <div class="label android">Android</div>
 
 Designates the next view to receive focus when the user navigates right. See the [Android documentation](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusRight).
 
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| number | No       | Android  |
+| Type   |
+| ------ |
+| number |
 
 ---
 
-### `nextFocusUp`
+### `nextFocusUp` <div class="label android">Android</div>
 
 Designates the next view to receive focus when the user navigates up. See the [Android documentation](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusUp).
 
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| number | No       | Android  |
+| Type   |
+| ------ |
+| number |
 
 ---
 
-### `focusable`
+### `focusable` <div class="label android">Android</div>
 
 Whether this `View` should be focusable with a non-touch input device, eg. receive focus with a hardware keyboard.
 
-| Type    | Required | Platform |
-| ------- | -------- | -------- |
-| boolean | No       | Android  |
+| Type    |
+| ------- |
+| boolean |
