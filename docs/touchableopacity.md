@@ -133,9 +133,9 @@ Inherits [TouchableWithoutFeedback Props](touchablewithoutfeedback.md#props).
 
 ### `style`
 
-| Type       |
-| ---------- |
-| View.style |
+| Type                           |
+| ------------------------------ |
+| [View.style](view-style-props) |
 
 ---
 
