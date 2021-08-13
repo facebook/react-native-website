@@ -496,7 +496,7 @@ function GetStarted() {
   return (
     <Section className="GetStarted" background="dark">
       <div className="content">
-        <Heading text="Give it a try" />
+        <Heading text="Give it a try!" />
         <ol className="steps">
           <li>
             <p>Run this</p>
