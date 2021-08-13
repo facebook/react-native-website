@@ -74,9 +74,9 @@ Inherits [TouchableWithoutFeedback Props](touchablewithoutfeedback.md#props).
 
 Determines the type of background drawable that's going to be used to display feedback. It takes an object with `type` property and extra data depending on the `type`. It's recommended to use one of the static methods to generate that dictionary.
 
-| Type               | Required |
-| ------------------ | -------- |
-| backgroundPropType | No       |
+| Type               |
+| ------------------ |
+| backgroundPropType |
 
 ---
 
@@ -86,69 +86,69 @@ Set to true to add the ripple effect to the foreground of the view, instead of t
 
 Check TouchableNativeFeedback.canUseNativeForeground() first, as this is only available on Android 6.0 and above. If you try to use this on older versions you will get a warning and fallback to background.
 
-| Type | Required |
-| ---- | -------- |
-| bool | No       |
+| Type |
+| ---- |
+| bool |
 
 ---
 
-### `hasTVPreferredFocus`
+### `hasTVPreferredFocus` <div class="label android">Android</div>
 
 TV preferred focus (see documentation for the View component).
 
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | Android  |
+| Type |
+| ---- |
+| bool |
 
 ---
 
-### `nextFocusDown`
+### `nextFocusDown` <div class="label android">Android</div>
 
 TV next focus down (see documentation for the View component).
 
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| number | No       | Android  |
+| Type   |
+| ------ |
+| number |
 
 ---
 
-### `nextFocusForward`
+### `nextFocusForward` <div class="label android">Android</div>
 
 TV next focus forward (see documentation for the View component).
 
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| number | No       | Android  |
+| Type   |
+| ------ |
+| number |
 
 ---
 
-### `nextFocusLeft`
+### `nextFocusLeft` <div class="label android">Android</div>
 
 TV next focus left (see documentation for the View component).
 
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| number | No       | Android  |
+| Type   |
+| ------ |
+| number |
 
 ---
 
-### `nextFocusRight`
+### `nextFocusRight` <div class="label android">Android</div>
 
 TV next focus right (see documentation for the View component).
 
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| number | No       | Android  |
+| Type   |
+| ------ |
+| number |
 
 ---
 
-### `nextFocusUp`
+### `nextFocusUp` <div class="label android">Android</div>
 
 TV next focus up (see documentation for the View component).
 
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| number | No       | Android  |
+| Type   |
+| ------ |
+| number |
 
 ## Methods
 

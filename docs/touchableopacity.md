@@ -133,9 +133,9 @@ Inherits [TouchableWithoutFeedback Props](touchablewithoutfeedback.md#props).
 
 ### `style`
 
-| Type       | Required |
-| ---------- | -------- |
-| View.style | No       |
+| Type                           |
+| ------------------------------ |
+| [View.style](view-style-props) |
 
 ---
 
@@ -143,13 +143,13 @@ Inherits [TouchableWithoutFeedback Props](touchablewithoutfeedback.md#props).
 
 Determines what the opacity of the wrapped view should be when touch is active. Defaults to `0.2`.
 
-| Type   | Required |
-| ------ | -------- |
-| number | No       |
+| Type   |
+| ------ |
+| number |
 
 ---
 
-### `tvParallaxProperties`
+### `tvParallaxProperties` <div class="label android">Android</div>
 
 _(Apple TV only)_ Object with properties to control Apple TV parallax effects.
 
@@ -162,66 +162,66 @@ _(Apple TV only)_ Object with properties to control Apple TV parallax effects.
 - `pressDuration`: Defaults to `0.3`.
 - `pressDelay`: Defaults to `0.0`.
 
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| object | No       | iOS      |
+| Type   |
+| ------ |
+| object |
 
 ---
 
-### `hasTVPreferredFocus`
+### `hasTVPreferredFocus` <div class="label ios">iOS</div>
 
 _(Apple TV only)_ TV preferred focus (see documentation for the View component).
 
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | iOS      |
+| Type |
+| ---- |
+| bool |
 
 ---
 
-### `nextFocusDown`
+### `nextFocusDown` <div class="label android">Android</div>
 
 TV next focus down (see documentation for the View component).
 
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| number | No       | Android  |
+| Type   |
+| ------ |
+| number |
 
 ---
 
-### `nextFocusForward`
+### `nextFocusForward` <div class="label android">Android</div>
 
 TV next focus forward (see documentation for the View component).
 
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| number | No       | Android  |
+| Type   |
+| ------ |
+| number |
 
 ---
 
-### `nextFocusLeft`
+### `nextFocusLeft` <div class="label android">Android</div>
 
 TV next focus left (see documentation for the View component).
 
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| number | No       | Android  |
+| Type   |
+| ------ |
+| number |
 
 ---
 
-### `nextFocusRight`
+### `nextFocusRight` <div class="label android">Android</div>
 
 TV next focus right (see documentation for the View component).
 
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| number | No       | Android  |
+| Type   |
+| ------ |
+| number |
 
 ---
 
-### `nextFocusUp`
+### `nextFocusUp` <div class="label android">Android</div>
 
 TV next focus up (see documentation for the View component).
 
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| number | No       | Android  |
+| Type   |
+| ------ |
+| number |
