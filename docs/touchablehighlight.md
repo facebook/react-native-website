@@ -52,7 +52,7 @@ const TouchableHighlightExample = () => {
       </TouchableHighlight>
       <View style={styles.countContainer}>
         <Text style={styles.countText}>
-          {count ? count : null}
+          {count || null}
         </Text>
       </View>
     </View>
