@@ -202,7 +202,8 @@ hr {
     }
 
     div[class^="codeBlockContainer"] {
-      &, & pre {
+      &,
+      & pre {
         margin-bottom: 0;
       }
 
