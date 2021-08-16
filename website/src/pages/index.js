@@ -147,6 +147,21 @@ function GitHubStarButton() {
   );
 }
 
+function Banner() {
+  return (
+    <div className="announcement">
+      <div className="announcement-inner">
+        We want to hear from you!{' '}
+        <a
+          href="https://surveys.savanta.com/survey/selfserve/21e3/210643?list=2"
+          target="_blank">
+          Take our 2021 Community Survey!
+        </a>
+      </div>
+    </div>
+  );
+}
+
 function Section({
   element = 'section',
   children,
@@ -244,6 +259,7 @@ function LogoAnimation() {
 function HeaderHero() {
   return (
     <Section background="dark" className="HeaderHero">
+      <Banner />
       <div className="socialLinks">
         <TwitterButton />
         <GitHubStarButton />
