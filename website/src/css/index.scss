@@ -306,29 +306,6 @@
   }
 }
 
-.HeaderHero .announcement {
-  background-color: #20232a;
-  color: #fff;
-  font-weight: bold;
-  font-size: 24px;
-  padding: 10px 0 28px;
-  margin: -10px auto 28px;
-  text-align: center;
-}
-
-.HeaderHero .announcement-inner {
-  margin: 0 auto;
-  max-width: 768px;
-}
-
-.HeaderHero .announcement-inner a {
-  text-decoration: underline;
-}
-
-.HeaderHero .announcement-inner a:hover {
-  color: var(--brand);
-}
-
 .HeaderHero .TwoColumns {
   align-items: center;
 }
@@ -394,12 +371,6 @@
 
   .HeaderHero .socialLinks {
     margin-top: -2rem;
-  }
-
-  .HeaderHero .announcement {
-    font-size: 20px;
-    margin: -2rem auto 3rem;
-    padding: 0.5rem 0 3.5rem;
   }
 }
 
