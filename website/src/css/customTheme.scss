@@ -559,7 +559,7 @@ html[data-theme="dark"] .avatar__name a {
     display: flex;
     width: calc(100% + 40px);
     height: 4px;
-    margin-top: -4px;
+    margin-top: -3px;
     margin-left: -20px;
     margin-right: -20px;
     position: relative;
@@ -936,6 +936,10 @@ article header h2 a {
   --docusaurus-announcement-bar-height: auto !important;
 }
 
+div[class^="announcementBar"][role="banner"] {
+  border-bottom-color: var(--deepdark);
+}
+
 div[class^="announcementBarContent"] {
   line-height: 40px;
   font-size: 20px;
@@ -948,7 +952,7 @@ div[class^="announcementBarContent"] {
     color: var(--brand) !important;
 
     &:hover {
-      color: #fff !important;
+      color: var(--ifm-color-primary) !important;
     }
   }
 }
