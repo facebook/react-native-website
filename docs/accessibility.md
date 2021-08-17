@@ -123,6 +123,7 @@ In the above example method `addOne` changes the state variable `count`. As soon
 - **tablist** Used to represent a list of tabs.
 - **text** Used when the element should be treated as static text that cannot change.
 - **timer** Used to represent a timer.
+- **togglebutton** Used to represent a toggle button. Should be used with accessibilityState checked to indicate if the button is toggled on or off.
 - **toolbar** Used to represent a tool bar (a container of action buttons or components).
 
 ### `accessibilityState`

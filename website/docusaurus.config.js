@@ -20,7 +20,7 @@ module.exports = {
         'https://widget.surveymonkey.com/collect/website/js/tRaiETqnLgj758hTBazgd8ryO5qrZo8Exadq9qmt1wtm4_2FdZGEAKHDFEt_2BBlwwM4.js',
       defer: true,
     },
-    {src: 'https://snack.expo.io/embed.js', defer: true},
+    {src: 'https://snack.expo.dev/embed.js', defer: true},
   ],
   favicon: 'img/favicon.ico',
   titleDelimiter: '·',
@@ -48,7 +48,7 @@ module.exports = {
           editCurrentVersion: true,
           onlyIncludeVersions:
             process.env.PREVIEW_DEPLOY === 'true'
-              ? ['current', ...versions.slice(0, 2)]
+              ? ['current', ...versions.slice(0, 3)]
               : undefined,
         },
         blog: {
@@ -131,6 +131,14 @@ module.exports = {
     ],
   ],
   themeConfig: {
+    announcementBar: {
+      id: 'survey-2021-announcement', // Any value that will identify this message.
+      content:
+        'We want to hear from you! <a href="https://surveys.savanta.com/survey/selfserve/21e3/210643?list=2" target="_blank" rel="noopener noreferrer">Take the 2021 React Community Survey!</a>',
+      backgroundColor: '#20232a', // Defaults to `#fff`.
+      textColor: '#fff', // Defaults to `#000`.
+      isCloseable: true, // Defaults to `true`.
+    },
     prism: {
       defaultLanguage: 'jsx',
       theme: require('./core/PrismTheme'),
