@@ -3,15 +3,17 @@ id: out-of-tree-platforms
 title: Out-of-Tree Platforms
 ---
 
-React Native is not only for Android and iOS - there are community-supported projects that bring it to other platforms, such as:
+React Native is not only for Android and iOS devices - there are partners-supported and community-supported projects that bring it to other platforms, such as:
 
-- [React Native Windows](https://github.com/Microsoft/react-native-windows) - React Native support for targeting Microsoft's Universal Windows Platform (UWP).
+__From Partners__
+- [React Native Windows](https://github.com/microsoft/react-native-windows) - React Native library for targeting Microsoft's Universal Windows Platform (UWP).
 - [React Native macOS](https://github.com/microsoft/react-native-macos) - React Native fork targeting macOS and Cocoa.
-- [React Native Turbolinks](https://github.com/lazaronixon/react-native-turbolinks) - React Native adapter for building hybrid apps with Turbolinks 5.
-- [React Native Desktop](https://github.com/status-im/react-native-desktop) - A project aiming to bring React Native to the Desktop with Qt's QML. A fork of [React Native Ubuntu](https://github.com/CanonicalLtd/react-native/), which is no longer maintained.
-- [React Native tvOS](https://github.com/react-native-community/react-native-tvos) - adaptation of React Native for Apple tvOS
-- [alita](https://github.com/areslabs/alita) - An experimental, comprehensive port of React Native to mini-program(微信小程序).
-- [Valence Native](https://github.com/valence-native/valence-native) - A wrapper for React Native, using Qt to target Linux, MacOS, and Windows forked from [Proton native](https://github.com/kusti8/proton-native) which is no longer maintained.
+
+__From Community__
+- [React Native Web](https://github.com/necolas/react-native-web) - React Native on the web using React DOM.
+- [React Native tvOS](https://github.com/react-native-tvos/react-native-tvos) - React Native fork targeting Apple TV and Android TV devices.
+- [alita](https://github.com/areslabs/alita) - An experimental, comprehensive port of React Native to mini-program (微信小程序).
+- [Valence Native](https://github.com/valence-native/valence-native) - A wrapper for React Native, using Qt to target Linux, macOS, and Windows. Forked from [Proton Native](https://github.com/kusti8/proton-native) which is no longer maintained.
 
 ## Creating your own React Native platform
 
