@@ -20,7 +20,7 @@ import { Text, StyleSheet } from "react-native";
 
 const TextInANest = () => {
   const [titleText, setTitleText] = useState("Bird's Nest");
-  const bodyText = useState("This is not really a bird nest.");
+  const bodyText = "This is not really a bird nest.";
 
   const onPressTitle = () => {
     setTitleText("Bird's Nest [pressed]");
