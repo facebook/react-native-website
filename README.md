@@ -26,10 +26,10 @@ If you are looking for the source code of the [React Native Archive website](htt
 
 1.  `cd react-native-website` to go into the project root.
 1.  `yarn` to install the website's workspace dependencies.
-1.  `cd website` to go into the website portion of the project.
 
 ### Running locally
 
+1.  `cd website` to go into the website portion of the project.
 1.  `yarn start` to start the development server _(powered by [Docusaurus](https://v2.docusaurus.io))_.
 1.  `open http://localhost:3000/` to open the site in your favorite browser.
 
@@ -142,7 +142,7 @@ If possible, test any visual changes in all latest versions of the following bro
 
 ### Push it
 
-1.  Run `yarn prettier` to ensure your changes are consistent with other files in the repo.
+1.  Run `yarn prettier` in `./website` directory to ensure your changes are consistent with other files in the repo.
 1.  `git add -A && git commit -m "My message"` to stage and commit your changes.
     > replace `My message` with a commit message, such as `Fixed header logo on Android`
 1.  `git push my-fork-name the-name-of-my-branch`
