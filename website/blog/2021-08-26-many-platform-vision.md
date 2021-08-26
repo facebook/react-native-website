@@ -85,7 +85,7 @@ Although most of the development for VR will still be internal, we hope to share
 React and Relay power the Oculus Home and many other virtual reality experiences.
 </div>
 
-When we reflect back on how the industry has adopted React, there has always been an appetite in the community for React on more platforms. Even before we announced React Native to the community, Netflix had already been crafting Gibbon, their custom renderer for building TV experiences with React. And before Facebook started building Messenger for desktop, [Microsoft was already using React to build native desktop experiences in Office and Windows 10](https://fb.workplace.com/groups/rn.fyi/permalink/3077341442314450/).
+When we reflect back on how the industry has adopted React, there has always been an appetite in the community for React on more platforms. Even before we announced React Native to the community, Netflix had already been crafting Gibbon, their custom renderer for building TV experiences with React. And before Facebook started building Messenger for desktop, [Microsoft was already using React to build native desktop experiences in Office and Windows 10](https://www.youtube.com/watch?v=IUMWFExtDSg&t=382s).
 
 ## Summary
 
