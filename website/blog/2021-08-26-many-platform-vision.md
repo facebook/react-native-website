@@ -56,7 +56,7 @@ In addition to domain-specific engineers and meetups and conferences, each platf
 ![Screenshot of the Facebook.com website](/blog/assets/many-platform-vision-facebook-website.png)
 
 <div class="text--center text--italic margin-bottom--lg">
-React and Relay powers the [Facebook.com](http://facebook.com/) website.
+React and Relay powers the <a href="http://facebook.com/">Facebook.com</a> website.
 </div>
 
 ## Expanding to New Platforms
