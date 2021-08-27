@@ -662,6 +662,7 @@ aside[class^="docSidebarContainer"] {
 
 .menu__list {
   margin-bottom: 10px;
+  transition: none !important;
 
   .menu__list-item {
     margin-bottom: 2px;
@@ -697,7 +698,7 @@ aside[class^="docSidebarContainer"] {
     }
   }
 
-  .menu__link--active.active {
+  .menu__link--active:not(.menu__link--sublist) {
     border-left-width: 4px;
     border-left-style: solid;
     border-left-color: var(--ifm-menu-color-active) !important;
