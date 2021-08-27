@@ -457,9 +457,16 @@ html[data-theme="dark"] .avatar__name a {
       user-select: none;
     }
 
-    &.dropdown a {
-      font-weight: 400;
-      font-size: 14px;
+    &.dropdown {
+      a {
+        font-weight: 400;
+        font-size: 14px;
+      }
+      ul {
+        /* Control navbar dropdown alignment */
+        top: calc(100% + 0px);
+        left: 0;
+      }
     }
   }
 
