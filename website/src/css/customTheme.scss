@@ -576,15 +576,26 @@ html[data-theme="dark"] .avatar__name a {
 }
 
 .navbar-sidebar {
-  background: var(--divider);
-  max-width: 400px;
+  /*
+  Config has themeConfig.navbar.style === "dark"
+  But the navbar sidebar should still support light theme, so we "revert" some CSS vars to not enforce dark mode
+   */
+  --ifm-navbar-background-color: var(--divider);
+  --ifm-menu-color: var(--ifm-color-gray-700);
+
+  @media (max-width: 480px) {
+    --ifm-navbar-sidebar-width: 100%;
+  }
+  @media (min-width: 481px) {
+    --ifm-navbar-sidebar-width: 480px;
+  }
 
   .navbar-sidebar__brand {
     background-color: var(--deepdark);
   }
 
   .navbar-sidebar__items {
-    padding: 12px;
+    /* padding: 12px; */
 
     .menu__list-item a {
       padding: 6px 12px 8px;
@@ -623,13 +634,6 @@ html[data-theme="dark"] .navbar-sidebar {
     .DocSearch-Button-Placeholder {
       display: none;
     }
-  }
-}
-
-@media (max-width: 480px) {
-  .navbar-sidebar {
-    width: 100%;
-    max-width: 100%;
   }
 }
 
