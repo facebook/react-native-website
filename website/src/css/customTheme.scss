@@ -575,14 +575,18 @@ html[data-theme="dark"] .avatar__name a {
   }
 }
 
-.navbar-sidebar {
-  /*
-  Config has themeConfig.navbar.style === "dark"
-  But the navbar sidebar should still support light theme, so we "revert" some CSS vars to not enforce dark mode
-   */
+/*
+Config has themeConfig.navbar.style === "dark"
+But the navbar sidebar should still support light theme
+So we need to "revert" some CSS vars to not enforce dark mode
+ */
+.navbar--dark {
+  --ifm-menu-link-sublist-icon-filter: inherit; /* reset to non-dark value */
+  --ifm-menu-color: inherit;
   --ifm-navbar-background-color: var(--divider);
-  --ifm-menu-color: var(--ifm-color-gray-700);
+}
 
+.navbar-sidebar {
   @media (max-width: 480px) {
     --ifm-navbar-sidebar-width: 100%;
   }
