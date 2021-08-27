@@ -580,6 +580,7 @@ html[data-theme="dark"] .avatar__name a {
     padding: 12px;
 
     .menu__list-item a {
+      color: var(--ifm-color-emphasis-700);
       padding: 6px 12px 8px;
     }
   }
@@ -630,8 +631,21 @@ html[data-theme="dark"] .navbar-sidebar {
 
 aside[class^="docSidebarContainer"] {
   margin-right: 16px;
-
   --doc-sidebar-width: 266px;
+
+  .menu__list .menu__link--sublist {
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    padding: 5px 12px !important;
+    color: var(--subtle) !important;
+
+    &:after {
+      background-size: 1.66rem 1.66rem;
+      margin-right: -6px;
+      margin-top: -1px;
+    }
+  }
+
   @media only screen and (max-width: 1120px) {
     --doc-sidebar-width: 240px;
   }
@@ -677,19 +691,6 @@ aside[class^="docSidebarContainer"] {
     }
   }
 
-  .menu__link--sublist {
-    font-size: 15px !important;
-    font-weight: 700 !important;
-    padding: 5px 12px !important;
-    color: var(--subtle) !important;
-
-    &:after {
-      background-size: 1.66rem 1.66rem;
-      margin-right: -6px;
-      margin-top: -1px;
-    }
-  }
-
   .menu__link--active.active {
     border-left-width: 4px;
     border-left-style: solid;
@@ -706,6 +707,12 @@ aside[class^="docSidebarContainer"] {
 .menu--responsive .menu__button {
   right: 1.3rem;
   bottom: 1.3rem;
+}
+
+html[data-theme="light"] .menu {
+  .menu__link--sublist:after {
+    filter: hue-rotate(45deg);
+  }
 }
 
 html[data-theme="dark"] .menu {
