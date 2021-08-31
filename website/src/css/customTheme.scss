@@ -399,9 +399,14 @@ html[data-theme="dark"] .community-page {
 
 /* Version warning */
 
-div[class*="docs-wrapper"] .row .col {
-  > .alert--warning {
-    background-color: rgba(100, 215, 255, 0.3);
+.theme-doc-version-banner.alert--warning {
+  background-color: rgba(100, 215, 255, 0.3);
+  border-style: none;
+  color: var(--ifm-font-color-base);
+  a {
+    color: var(--ifm-font-color-base) !important;
+    text-decoration: underline !important;
+    text-decoration-thickness: 1px !important;
   }
 }
 
