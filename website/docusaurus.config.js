@@ -1,6 +1,8 @@
 const users = require('./showcase.json');
 const versions = require('./versions.json');
 
+const lastVersion = versions[0];
+
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 (module.exports = {
   title: 'React Native',
@@ -51,6 +53,11 @@ const versions = require('./versions.json');
             process.env.PREVIEW_DEPLOY === 'true'
               ? ['current', ...versions.slice(0, 3)]
               : undefined,
+          versions: {
+            [lastVersion]: {
+              badge: false, // Do not show version badge for last RN version
+            },
+          },
         },
         blog: {
           path: 'blog',
