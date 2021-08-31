@@ -792,9 +792,9 @@ html[data-theme="dark"] div[class^="tableOfContents"] {
   @extend %scrollbar-style-dark;
 }
 
-/* Docs Metadata */
+/* Doc Item footer metadata */
 
-.docMetadata {
+.theme-doc-footer {
   margin-top: 40px !important;
   margin-bottom: 16px !important;
   font-size: 15px;
@@ -818,20 +818,20 @@ html[data-theme="dark"] div[class^="tableOfContents"] {
     font-weight: 600;
   }
 
-  .docMetadata-updated {
+  .theme-last-updated {
     line-height: 18px;
   }
 }
 
 @media only screen and (min-width: 540px) and (max-width: 996px) {
-  .docMetadata .col {
+  .theme-doc-footer .col {
     flex-basis: 50% !important;
     max-width: 50% !important;
   }
 }
 
 @media only screen and (max-width: 539px) {
-  .docMetadata .col {
+  .theme-doc-footer .col {
     text-align: center;
 
     &:first-child {
