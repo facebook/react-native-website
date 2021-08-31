@@ -32,9 +32,14 @@
   --ifm-alert-border-radius: 0;
   --ifm-alert-color: var(--ifm-font-color-base);
   --ifm-pagination-nav-color-hover: var(--ifm-color-emphasis-300);
-  --ifm-navbar-sidebar-width: 66%;
   --doc-sidebar-width: 100%;
   --ifm-table-border-width: 0.005rem;
+
+  --ifm-navbar-sidebar-width: 100%;
+
+  @media (min-width: 360px) {
+    --ifm-navbar-sidebar-width: 360px;
+  }
 }
 
 html[data-theme="light"] {
@@ -592,13 +597,6 @@ So we need to "revert" some CSS vars to not enforce dark mode
 }
 
 .navbar-sidebar {
-  @media (max-width: 480px) {
-    --ifm-navbar-sidebar-width: 100%;
-  }
-  @media (min-width: 481px) {
-    --ifm-navbar-sidebar-width: 480px;
-  }
-
   .navbar-sidebar__brand {
     background-color: var(--deepdark);
   }
