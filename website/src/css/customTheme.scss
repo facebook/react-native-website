@@ -966,6 +966,12 @@ article header h2 a {
 
 div[class^="announcementBar"][role="banner"] {
   border-bottom-color: var(--deepdark);
+
+  button.close {
+    svg {
+      fill: white;
+    }
+  }
 }
 
 div[class^="announcementBarContent"] {
