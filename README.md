@@ -142,7 +142,7 @@ If possible, test any visual changes in all latest versions of the following bro
 
 ### Push it
 
-1.  Run `yarn prettier` in `./website` directory to ensure your changes are consistent with other files in the repo.
+1.  Run `yarn prettier` and `yarn language:lint` in `./website` directory to ensure your changes are consistent with other files in the repo.
 1.  `git add -A && git commit -m "My message"` to stage and commit your changes.
     > replace `My message` with a commit message, such as `Fixed header logo on Android`
 1.  `git push my-fork-name the-name-of-my-branch`
