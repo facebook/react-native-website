@@ -1,6 +1,13 @@
 {
   "plugins": ["prettier"],
   "extends": ["plugin:mdx/recommended", "plugin:prettier/recommended"],
+  "overrides": [
+    {
+      "files": ["*.yaml", "*.yml"],
+      "plugins": ["yaml"],
+      "extends": ["plugin:yaml/recommended"]
+    }
+  ],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true,
