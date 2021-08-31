@@ -342,6 +342,7 @@ html[data-theme="dark"] article .badge {
 .homepage {
   div[class^="codeBlockContainer"] {
     margin-bottom: 0;
+    overflow: visible;
 
     .prism-code {
       font-size: 90%;
