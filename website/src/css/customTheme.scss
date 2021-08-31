@@ -653,6 +653,10 @@ aside[class^="docSidebarContainer"] {
   margin-right: 16px;
   --doc-sidebar-width: 266px;
 
+  .thin-scrollbar {
+    @extend %scrollbar-style;
+  }
+
   .menu__list .menu__link--sublist {
     font-size: 15px !important;
     font-weight: 700 !important;
