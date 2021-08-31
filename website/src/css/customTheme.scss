@@ -734,12 +734,6 @@ aside[class^="docSidebarContainer"] {
   bottom: 1.3rem;
 }
 
-html[data-theme="light"] .menu {
-  .menu__link--sublist:after {
-    filter: hue-rotate(45deg);
-  }
-}
-
 html[data-theme="dark"] .menu {
   @extend %scrollbar-style-dark;
 }
