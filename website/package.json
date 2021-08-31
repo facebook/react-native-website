@@ -41,9 +41,9 @@
     ]
   },
   "dependencies": {
-    "@docusaurus/core": "0.0.0-3969",
-    "@docusaurus/plugin-pwa": "0.0.0-3969",
-    "@docusaurus/preset-classic": "0.0.0-3969",
+    "@docusaurus/core": "0.0.0-3972",
+    "@docusaurus/plugin-pwa": "0.0.0-3972",
+    "@docusaurus/preset-classic": "0.0.0-3972",
     "docusaurus-plugin-sass": "^0.2.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -51,6 +51,7 @@
     "sass": "^1.35.1"
   },
   "devDependencies": {
+    "@docusaurus/types": "0.0.0-3972",
     "alex": "^9.1.0",
     "fs-extra": "^9.1.0",
     "glob": "^7.1.6",
