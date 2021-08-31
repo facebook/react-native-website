@@ -12,6 +12,7 @@ const lastVersion = versions[0];
   url: 'https://reactnative.dev',
   baseUrl: '/',
   clientModules: [require.resolve('./snackPlayerInitializer.js')],
+  trailingSlash: false, // because trailing slashes can break some existing relative links
   scripts: [
     {
       src:
@@ -81,7 +82,6 @@ const lastVersion = versions[0];
   ],
   plugins: [
     'docusaurus-plugin-sass',
-    './sitePlugin',
     [
       '@docusaurus/plugin-pwa',
       {
