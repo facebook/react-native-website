@@ -24,8 +24,9 @@
     "prettier": "yarn format:source && yarn format:markdown && yarn format:style",
     "lint": "eslint ../docs/** blog/** core/** src/**/*.{js,md}",
     "lint:versioned": "eslint versioned_docs/**",
-    "language:lint": "cd ../ && alex .",
-    "language:lint:versioned": "cd ../ && alex",
+    "language:lint": "cd ../ && alex",
+    "language:lint:versioned": "cd ../ && alex .",
+    "ci:lint": "yarn lint && yarn lint:versioned && yarn language:lint:versioned",
     "pwa:generate": "npx pwa-asset-generator ./static/img/header_logo.svg ./static/img/pwa --background #20232a --icon-only -opaque true --maskable true --type png"
   },
   "browserslist": {
