@@ -604,7 +604,11 @@ So we need to "revert" some CSS vars to not enforce dark mode
   }
 
   .navbar-sidebar__items {
-    /* padding: 12px; */
+    > .navbar-sidebar__item.menu {
+      > ul.menu__list {
+        margin: 4px;
+      }
+    }
 
     .menu__list-item a {
       color: var(--ifm-color-emphasis-700);
