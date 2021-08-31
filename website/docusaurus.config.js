@@ -1,7 +1,8 @@
 const users = require('./showcase.json');
 const versions = require('./versions.json');
 
-module.exports = {
+/** @type {import('@docusaurus/types').DocusaurusConfig} */
+(module.exports = {
   title: 'React Native',
   tagline: 'A framework for building native apps using React',
   organizationName: 'facebook',
@@ -323,4 +324,4 @@ module.exports = {
       {name: 'twitter:site', content: '@reactnative'},
     ],
   },
-};
+});
