@@ -716,7 +716,7 @@ aside[class^="docSidebarContainer"] {
     }
   }
 
-  .menu__link--active:not(.menu__link--sublist) {
+  .theme-doc-sidebar-item-link .menu__link--active {
     border-left-width: 4px;
     border-left-style: solid;
     border-left-color: var(--ifm-menu-color-active) !important;
