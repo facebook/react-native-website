@@ -252,16 +252,16 @@ const lastVersion = versions[0];
             },
             {
               label: 'Ask Questions on Stack Overflow',
-              to: 'https://stackoverflow.com/questions/tagged/react-native',
+              href: 'https://stackoverflow.com/questions/tagged/react-native',
             },
             {
               label: 'Contributor Guide',
-              to:
+              href:
                 'https://github.com/facebook/react-native/blob/master/CONTRIBUTING.md',
             },
             {
               label: 'DEV Community',
-              to: 'https://dev.to/t/reactnative',
+              href: 'https://dev.to/t/reactnative',
             },
           ],
         },
@@ -291,7 +291,7 @@ const lastVersion = versions[0];
             },
             {
               label: 'Privacy Policy',
-              to: 'https://opensource.facebook.com/legal/privacy',
+              href: 'https://opensource.facebook.com/legal/privacy',
             },
             {
               label: 'Terms of Service',
