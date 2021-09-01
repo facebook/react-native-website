@@ -1099,7 +1099,7 @@ const BoxInfo = ({
       <Text
         style={{
           color: "#fff",
-          fontWeight: 500,
+          fontWeight: "500",
           textAlign: "center",
         }}
       >
