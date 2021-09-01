@@ -23,14 +23,14 @@ The release date of iOS 15 hasn’t been announced yet, but based on previous iO
 
 <h4>QuickType Bar</h4>
 
-The way to disable _QuickType_ bar in _[TextInput](https://reactnative.dev/docs/textinput)_ has changed. _QuickType_ bar is the bar above keyboard with three suggested words. In case your UI needs to have the bar hidden, setting [autoCorrect](https://reactnative.dev/docs/textinput#autocorrect) to false no longer disables _QuickType_ bar in iOS 15 like earlier versions. In order to hide the _QuickType_ bar, you need to also set [spellCheck](https://reactnative.dev/docs/textinput#spellcheck-ios) to false. This will disable spell check, the red underlines, in your _TextInput_. Disabling QuickType bar with spell check enabled is no longer an option.
+The way to disable _QuickType_ bar in _[TextInput](/docs/textinput)_ has changed. _QuickType_ bar is the bar above keyboard with three suggested words. In case your UI needs to have the bar hidden, setting [autoCorrect](/docs/textinput#autocorrect) to false no longer disables _QuickType_ bar in iOS 15 like earlier versions. In order to hide the _QuickType_ bar, you need to also set [spellCheck](/docs/textinput#spellcheck-ios) to false. This will disable spell check, the red underlines, in your _TextInput_. Disabling QuickType bar with spell check enabled is no longer an option.
 
 <div class="text--center text--italic margin-bottom--lg">
 	<img src="/blog/assets/ios-15-quicktype-bar.png" alt="Screenshot of QuickType bar" />
 	<p>QuickType bar with three suggested words</p>
 </div>
 
-To disable QuickType bar in iOS 15, set prop [spellCheck](https://reactnative.dev/docs/textinput#spellcheck-ios) and [autoCorrect](https://reactnative.dev/docs/textinput#autocorrect) to false.
+To disable QuickType bar in iOS 15, set prop [spellCheck](/docs/textinput#spellcheck-ios) and [autoCorrect](/docs/textinput#autocorrect) to false.
 
 ```jsx
 <TextInput
@@ -64,7 +64,7 @@ Android 12 will be released this autumn and it introduces some changes which can
 
 <h4>Overscroll Effect</h4>
 
-Android 12 introduces new [overscroll effect](https://developer.android.com/about/versions/12/overscroll) which affects all scroll containers. As React Native scroll views are based on the native views, we recommend to check your scrollable containers to ensure the effect is applied correctly. You can opt-out from it by setting [`overScrollMode`](https://reactnative.dev/docs/scrollview#overscrollmode-android) prop to `never`.
+Android 12 introduces new [overscroll effect](https://developer.android.com/about/versions/12/overscroll) which affects all scroll containers. As React Native scroll views are based on the native views, we recommend to check your scrollable containers to ensure the effect is applied correctly. You can opt-out from it by setting [`overScrollMode`](/docs/scrollview#overscrollmode-android) prop to `never`.
 
 <h4>Permission Updates</h4>
 
