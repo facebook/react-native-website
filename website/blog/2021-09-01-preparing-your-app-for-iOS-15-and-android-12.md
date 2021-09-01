@@ -23,14 +23,14 @@ The release date of iOS 15 hasn’t been announced yet, but based on previous iO
 
 <h4>QuickType Bar</h4>
 
-The way to disable _QuickType_ bar in _[TextInput](/docs/textinput)_ has changed. _QuickType_ bar is the bar above keyboard with three suggested words. In case your UI needs to have the bar hidden, setting [autoCorrect](/docs/textinput#autocorrect) to false no longer disables _QuickType_ bar in iOS 15 like earlier versions. In order to hide the _QuickType_ bar, you need to also set [spellCheck](/docs/textinput#spellcheck-ios) to false. This will disable spell check, the red underlines, in your _TextInput_. Disabling QuickType bar with spell check enabled is no longer an option.
+The way to disable _QuickType_ bar in _[TextInput](/docs/textinput)_ has changed. _QuickType_ bar is the bar above keyboard with three suggested words. In case your UI needs to have the bar hidden, setting [autoCorrect](/docs/textinput#autocorrect) to `false` no longer disables _QuickType_ bar in iOS 15 like earlier versions. In order to hide the _QuickType_ bar, you need to also set [spellCheck](/docs/textinput#spellcheck-ios) to `false`. This will disable spell check, the red underlines, in your _TextInput_. Disabling QuickType bar with spell check enabled is no longer an option.
 
 <div class="text--center text--italic margin-bottom--lg">
 	<img src="/blog/assets/ios-15-quicktype-bar.png" alt="Screenshot of QuickType bar" />
 	<p>QuickType bar with three suggested words</p>
 </div>
 
-To disable QuickType bar in iOS 15, set prop [spellCheck](/docs/textinput#spellcheck-ios) and [autoCorrect](/docs/textinput#autocorrect) to false.
+To disable QuickType bar in iOS 15, set prop [spellCheck](/docs/textinput#spellcheck-ios) and [autoCorrect](/docs/textinput#autocorrect) to `false`.
 
 ```jsx
 <TextInput
