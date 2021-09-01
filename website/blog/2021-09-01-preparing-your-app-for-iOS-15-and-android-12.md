@@ -5,7 +5,7 @@ authorTitle: Software Engineer on React Native
 authorURL: https://twitter.com/SamuelSusla
 authorImageURL: https://avatars.githubusercontent.com/u/1733610?v=4
 authorTwitter: SamuelSusla
-tags: [announcement]
+tags: [engineering]
 date: 2021-09-01
 ---
 
