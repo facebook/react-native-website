@@ -1,7 +1,10 @@
 const users = require('./showcase.json');
 const versions = require('./versions.json');
 
-module.exports = {
+const lastVersion = versions[0];
+
+/** @type {import('@docusaurus/types').DocusaurusConfig} */
+(module.exports = {
   title: 'React Native',
   tagline: 'A framework for building native apps using React',
   organizationName: 'facebook',
@@ -9,6 +12,7 @@ module.exports = {
   url: 'https://reactnative.dev',
   baseUrl: '/',
   clientModules: [require.resolve('./snackPlayerInitializer.js')],
+  trailingSlash: false, // because trailing slashes can break some existing relative links
   scripts: [
     {
       src:
@@ -36,7 +40,8 @@ module.exports = {
   presets: [
     [
       '@docusaurus/preset-classic',
-      {
+      /** @type {import('@docusaurus/preset-classic').Options} */
+      ({
         docs: {
           showLastUpdateAuthor: false,
           showLastUpdateTime: true,
@@ -50,6 +55,11 @@ module.exports = {
             process.env.PREVIEW_DEPLOY === 'true'
               ? ['current', ...versions.slice(0, 3)]
               : undefined,
+          versions: {
+            [lastVersion]: {
+              badge: false, // Do not show version badge for last RN version
+            },
+          },
         },
         blog: {
           path: 'blog',
@@ -68,12 +78,11 @@ module.exports = {
             require.resolve('./src/css/versions.scss'),
           ],
         },
-      },
+      }),
     ],
   ],
   plugins: [
     'docusaurus-plugin-sass',
-    './sitePlugin',
     [
       '@docusaurus/plugin-pwa',
       {
@@ -130,197 +139,199 @@ module.exports = {
       },
     ],
   ],
-  themeConfig: {
-    announcementBar: {
-      id: 'survey-2021-announcement',
-      content:
-        'We want to hear from you! <a href="https://surveys.savanta.com/survey/selfserve/21e3/210643?list=2" target="_blank" rel="noopener noreferrer">Take the 2021 React Community Survey!</a>',
-      backgroundColor: '#20232a', // var(--deepdark)
-      textColor: '#fff',
-      isCloseable: true,
-    },
-    prism: {
-      defaultLanguage: 'jsx',
-      theme: require('./core/PrismTheme'),
-      additionalLanguages: [
-        'java',
-        'kotlin',
-        'objectivec',
-        'swift',
-        'groovy',
-        'ruby',
+  themeConfig:
+    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
+    ({
+      announcementBar: {
+        id: 'survey-2021-announcement',
+        content:
+          'We want to hear from you! <a href="https://surveys.savanta.com/survey/selfserve/21e3/210643?list=2" target="_blank" rel="noopener noreferrer">Take the 2021 React Community Survey!</a>',
+        backgroundColor: '#20232a', // var(--deepdark)
+        textColor: '#fff',
+        isCloseable: true,
+      },
+      prism: {
+        defaultLanguage: 'jsx',
+        theme: require('./core/PrismTheme'),
+        additionalLanguages: [
+          'java',
+          'kotlin',
+          'objectivec',
+          'swift',
+          'groovy',
+          'ruby',
+        ],
+      },
+      navbar: {
+        title: 'React Native',
+        logo: {
+          src: 'img/header_logo.svg',
+          alt: 'React Native',
+        },
+        style: 'dark',
+        items: [
+          {
+            label: 'Docs',
+            type: 'doc',
+            docId: 'getting-started',
+            position: 'right',
+          },
+          {
+            label: 'Components',
+            type: 'doc',
+            docId: 'components-and-apis',
+            position: 'right',
+          },
+          {
+            label: 'API',
+            type: 'doc',
+            docId: 'accessibilityinfo',
+            position: 'right',
+          },
+          {
+            to: '/help',
+            label: 'Community',
+            position: 'right',
+          },
+          {
+            to: '/blog',
+            label: 'Blog',
+            position: 'right',
+          },
+          {
+            type: 'docsVersionDropdown',
+            position: 'left',
+            dropdownActiveClassDisabled: true,
+            dropdownItemsAfter: [
+              {
+                to: '/versions',
+                label: 'All versions',
+              },
+            ],
+          },
+          {
+            href: 'https://github.com/facebook/react-native',
+            'aria-label': 'GitHub repository',
+            position: 'right',
+            className: 'navbar-github-link',
+          },
+        ],
+      },
+      image: 'img/logo-og.png',
+      footer: {
+        style: 'dark',
+        links: [
+          {
+            title: 'Docs',
+            items: [
+              {
+                label: 'Getting Started',
+                to: 'docs/getting-started',
+              },
+              {
+                label: 'Tutorial',
+                to: 'docs/tutorial',
+              },
+              {
+                label: 'Components and APIs',
+                to: 'docs/components-and-apis',
+              },
+              {
+                label: 'More Resources',
+                to: 'docs/more-resources',
+              },
+            ],
+          },
+          {
+            title: 'Community',
+            items: [
+              {
+                label: 'The React Native Community',
+                to: 'help',
+              },
+              {
+                label: "Who's using React Native?",
+                to: 'showcase',
+              },
+              {
+                label: 'Ask Questions on Stack Overflow',
+                href: 'https://stackoverflow.com/questions/tagged/react-native',
+              },
+              {
+                label: 'Contributor Guide',
+                href:
+                  'https://github.com/facebook/react-native/blob/master/CONTRIBUTING.md',
+              },
+              {
+                label: 'DEV Community',
+                href: 'https://dev.to/t/reactnative',
+              },
+            ],
+          },
+          {
+            title: 'Find us',
+            items: [
+              {
+                label: 'Blog',
+                to: 'blog',
+              },
+              {
+                label: 'Twitter',
+                href: 'https://twitter.com/reactnative',
+              },
+              {
+                label: 'GitHub',
+                href: 'https://github.com/facebook/react-native',
+              },
+            ],
+          },
+          {
+            title: 'More',
+            items: [
+              {
+                label: 'React',
+                href: 'https://reactjs.org/',
+              },
+              {
+                label: 'Privacy Policy',
+                href: 'https://opensource.facebook.com/legal/privacy',
+              },
+              {
+                label: 'Terms of Service',
+                href: 'https://opensource.facebook.com/legal/terms',
+              },
+            ],
+          },
+        ],
+        logo: {
+          alt: 'Facebook Open Source Logo',
+          src: 'img/oss_logo.png',
+          href: 'https://opensource.facebook.com',
+        },
+        copyright: `Copyright © ${new Date().getFullYear()} Facebook, Inc.`,
+      },
+      algolia: {
+        apiKey: '2c98749b4a1e588efec53b2acec13025',
+        indexName: 'react-native-v2',
+        contextualSearch: true,
+      },
+      googleAnalytics: {
+        trackingID: 'UA-41298772-2',
+      },
+      gtag: {
+        trackingID: 'UA-41298772-2',
+      },
+      metadatas: [
+        {
+          property: 'og:image',
+          content: 'https://reactnative.dev/img/logo-og.png',
+        },
+        {name: 'twitter:card', content: 'summary_large_image'},
+        {
+          name: 'twitter:image',
+          content: 'https://reactnative.dev/img/logo-og.png',
+        },
+        {name: 'twitter:site', content: '@reactnative'},
       ],
-    },
-    navbar: {
-      title: 'React Native',
-      logo: {
-        src: 'img/header_logo.svg',
-        alt: 'React Native',
-      },
-      style: 'dark',
-      items: [
-        {
-          label: 'Docs',
-          type: 'doc',
-          docId: 'getting-started',
-          position: 'right',
-        },
-        {
-          label: 'Components',
-          type: 'doc',
-          docId: 'components-and-apis',
-          position: 'right',
-        },
-        {
-          label: 'API',
-          type: 'doc',
-          docId: 'accessibilityinfo',
-          position: 'right',
-        },
-        {
-          to: '/help',
-          label: 'Community',
-          position: 'right',
-        },
-        {
-          to: '/blog',
-          label: 'Blog',
-          position: 'right',
-        },
-        {
-          type: 'docsVersionDropdown',
-          position: 'left',
-          dropdownActiveClassDisabled: true,
-          dropdownItemsAfter: [
-            {
-              to: '/versions',
-              label: 'All versions',
-            },
-          ],
-        },
-        {
-          href: 'https://github.com/facebook/react-native',
-          'aria-label': 'GitHub repository',
-          position: 'right',
-          className: 'navbar-github-link',
-        },
-      ],
-    },
-    image: 'img/logo-og.png',
-    footer: {
-      style: 'dark',
-      links: [
-        {
-          title: 'Docs',
-          items: [
-            {
-              label: 'Getting Started',
-              to: 'docs/getting-started',
-            },
-            {
-              label: 'Tutorial',
-              to: 'docs/tutorial',
-            },
-            {
-              label: 'Components and APIs',
-              to: 'docs/components-and-apis',
-            },
-            {
-              label: 'More Resources',
-              to: 'docs/more-resources',
-            },
-          ],
-        },
-        {
-          title: 'Community',
-          items: [
-            {
-              label: 'The React Native Community',
-              to: 'help',
-            },
-            {
-              label: "Who's using React Native?",
-              to: 'showcase',
-            },
-            {
-              label: 'Ask Questions on Stack Overflow',
-              to: 'https://stackoverflow.com/questions/tagged/react-native',
-            },
-            {
-              label: 'Contributor Guide',
-              to:
-                'https://github.com/facebook/react-native/blob/master/CONTRIBUTING.md',
-            },
-            {
-              label: 'DEV Community',
-              to: 'https://dev.to/t/reactnative',
-            },
-          ],
-        },
-        {
-          title: 'Find us',
-          items: [
-            {
-              label: 'Blog',
-              to: 'blog',
-            },
-            {
-              label: 'Twitter',
-              href: 'https://twitter.com/reactnative',
-            },
-            {
-              label: 'GitHub',
-              href: 'https://github.com/facebook/react-native',
-            },
-          ],
-        },
-        {
-          title: 'More',
-          items: [
-            {
-              label: 'React',
-              href: 'https://reactjs.org/',
-            },
-            {
-              label: 'Privacy Policy',
-              to: 'https://opensource.facebook.com/legal/privacy',
-            },
-            {
-              label: 'Terms of Service',
-              href: 'https://opensource.facebook.com/legal/terms',
-            },
-          ],
-        },
-      ],
-      logo: {
-        alt: 'Facebook Open Source Logo',
-        src: 'img/oss_logo.png',
-        href: 'https://opensource.facebook.com',
-      },
-      copyright: `Copyright © ${new Date().getFullYear()} Facebook, Inc.`,
-    },
-    algolia: {
-      apiKey: '2c98749b4a1e588efec53b2acec13025',
-      indexName: 'react-native-v2',
-      contextualSearch: true,
-    },
-    googleAnalytics: {
-      trackingID: 'UA-41298772-2',
-    },
-    gtag: {
-      trackingID: 'UA-41298772-2',
-    },
-    metadatas: [
-      {
-        property: 'og:image',
-        content: 'https://reactnative.dev/img/logo-og.png',
-      },
-      {name: 'twitter:card', content: 'summary_large_image'},
-      {
-        name: 'twitter:image',
-        content: 'https://reactnative.dev/img/logo-og.png',
-      },
-      {name: 'twitter:site', content: '@reactnative'},
-    ],
-  },
-};
+    }),
+});

@@ -11,13 +11,13 @@ date: 2021-08-30
 
 We recently shared [React Native’s Many Platform Vision](https://reactnative.dev/blog/2021/08/26/many-platform-vision) for how expanding React to other platforms improves the framework for everyone else. We’ve been making significant progress on this vision over the last couple years by partnering with Microsoft on React Native for Windows and macOS, and Oculus on React Native in VR.
 
-![Screenshot of the Messenger app on macOS](/blog/assets/many-platform-vision-messenger-desktop.png)
+![Screenshot of the Messenger app on macOS](./2021-08-26-many-platform-vision/many-platform-vision-messenger-desktop.png)
 
 <div class="text--center text--italic margin-bottom--lg">
 React Native powers Video Calling in Messenger for Windows and macOS.
 </div>
 
-![Screenshot of Oculus Home in virtual reality](/blog/assets/many-platform-vision-oculus-home.png)
+![Screenshot of Oculus Home in virtual reality](./2021-08-26-many-platform-vision/many-platform-vision-oculus-home.png)
 
 <div class="text--center text--italic margin-bottom--lg">
 React and Relay power the Oculus Home and many other virtual reality experiences.

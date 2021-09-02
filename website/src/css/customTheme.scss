@@ -32,9 +32,13 @@
   --ifm-alert-border-radius: 0;
   --ifm-alert-color: var(--ifm-font-color-base);
   --ifm-pagination-nav-color-hover: var(--ifm-color-emphasis-300);
-  --ifm-navbar-sidebar-width: 66%;
   --doc-sidebar-width: 100%;
   --ifm-table-border-width: 0.005rem;
+
+  --ifm-navbar-sidebar-width: 100%;
+  @media (min-width: 340px) {
+    --ifm-navbar-sidebar-width: 340px;
+  }
 }
 
 html[data-theme="light"] {
@@ -338,6 +342,7 @@ html[data-theme="dark"] article .badge {
 .homepage {
   div[class^="codeBlockContainer"] {
     margin-bottom: 0;
+    overflow: visible;
 
     .prism-code {
       font-size: 90%;
@@ -399,9 +404,15 @@ html[data-theme="dark"] .community-page {
 
 /* Version warning */
 
-div[class*="docs-wrapper"] .row .col {
-  > .alert--warning {
-    background-color: rgba(100, 215, 255, 0.3);
+.theme-doc-version-banner.alert--warning {
+  background-color: rgba(100, 215, 255, 0.3);
+  border-style: none;
+  color: var(--ifm-font-color-base);
+  box-shadow: none;
+  a {
+    color: var(--ifm-font-color-base) !important;
+    text-decoration: underline !important;
+    text-decoration-thickness: 1px !important;
   }
 }
 
@@ -457,9 +468,16 @@ html[data-theme="dark"] .avatar__name a {
       user-select: none;
     }
 
-    &.dropdown a {
-      font-weight: 400;
-      font-size: 14px;
+    &.dropdown {
+      a {
+        font-weight: 400;
+        font-size: 14px;
+      }
+      ul {
+        /* Control navbar dropdown alignment */
+        top: calc(100% + 0px);
+        left: 0;
+      }
     }
   }
 
@@ -568,16 +586,28 @@ html[data-theme="dark"] .avatar__name a {
   }
 }
 
-.navbar-sidebar {
-  background: var(--divider);
-  max-width: 400px;
+/*
+Config has themeConfig.navbar.style === "dark"
+But the navbar sidebar should still support light theme
+So we need to "revert" some CSS vars to not enforce dark mode
+ */
+.navbar--dark {
+  --ifm-menu-link-sublist-icon-filter: inherit; /* reset to non-dark value */
+  --ifm-menu-color: inherit;
+  --ifm-navbar-background-color: var(--divider);
+}
 
+.navbar-sidebar {
   .navbar-sidebar__brand {
     background-color: var(--deepdark);
   }
 
   .navbar-sidebar__items {
-    padding: 12px;
+    > .navbar-sidebar__item.menu {
+      > ul.menu__list {
+        margin: 4px;
+      }
+    }
 
     .menu__list-item a {
       color: var(--ifm-color-emphasis-700);
@@ -620,18 +650,15 @@ html[data-theme="dark"] .navbar-sidebar {
   }
 }
 
-@media (max-width: 480px) {
-  .navbar-sidebar {
-    width: 100%;
-    max-width: 100%;
-  }
-}
-
 /* Sidebar */
 
 aside[class^="docSidebarContainer"] {
   margin-right: 16px;
   --doc-sidebar-width: 266px;
+
+  .thin-scrollbar {
+    @extend %scrollbar-style;
+  }
 
   .menu__list .menu__link--sublist {
     font-size: 15px !important;
@@ -669,6 +696,7 @@ aside[class^="docSidebarContainer"] {
 
 .menu__list {
   margin-bottom: 10px;
+  transition: none !important;
 
   .menu__list-item {
     margin-bottom: 2px;
@@ -691,7 +719,7 @@ aside[class^="docSidebarContainer"] {
     }
   }
 
-  .menu__link--active.active {
+  .theme-doc-sidebar-item-link .menu__link--active {
     border-left-width: 4px;
     border-left-style: solid;
     border-left-color: var(--ifm-menu-color-active) !important;
@@ -707,12 +735,6 @@ aside[class^="docSidebarContainer"] {
 .menu--responsive .menu__button {
   right: 1.3rem;
   bottom: 1.3rem;
-}
-
-html[data-theme="light"] .menu {
-  .menu__link--sublist:after {
-    filter: hue-rotate(45deg);
-  }
 }
 
 html[data-theme="dark"] .menu {
@@ -771,9 +793,9 @@ html[data-theme="dark"] div[class^="tableOfContents"] {
   @extend %scrollbar-style-dark;
 }
 
-/* Docs Metadata */
+/* Doc Item footer metadata */
 
-.docMetadata {
+.theme-doc-footer {
   margin-top: 40px !important;
   margin-bottom: 16px !important;
   font-size: 15px;
@@ -797,20 +819,20 @@ html[data-theme="dark"] div[class^="tableOfContents"] {
     font-weight: 600;
   }
 
-  .docMetadata-updated {
+  .theme-last-updated {
     line-height: 18px;
   }
 }
 
 @media only screen and (min-width: 540px) and (max-width: 996px) {
-  .docMetadata .col {
+  .theme-doc-footer .col {
     flex-basis: 50% !important;
     max-width: 50% !important;
   }
 }
 
 @media only screen and (max-width: 539px) {
-  .docMetadata .col {
+  .theme-doc-footer .col {
     text-align: center;
 
     &:first-child {
@@ -945,6 +967,12 @@ article header h2 a {
 
 div[class^="announcementBar"][role="banner"] {
   border-bottom-color: var(--deepdark);
+
+  button.close {
+    svg {
+      fill: white;
+    }
+  }
 }
 
 div[class^="announcementBarContent"] {
