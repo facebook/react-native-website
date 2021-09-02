@@ -1268,7 +1268,7 @@ const PreviewLayout = ({
   setWidthType,
   setHeightType,
 }) => (
-  <View style={{ flex: 1, padding: 10 }}>
+  <SafeAreaView style={{ flex: 1, padding: 10 }}>
     <View style={styles.row}>
       <Text style={styles.label}>width </Text>
       {widthValues.map((value) => (
@@ -1314,7 +1314,7 @@ const PreviewLayout = ({
       ))}
     </View>
     {children}
-  </View>
+  </SafeAreaView>
 );
 
 const styles = StyleSheet.create({
