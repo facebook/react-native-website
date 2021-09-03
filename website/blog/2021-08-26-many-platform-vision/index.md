@@ -7,6 +7,8 @@ date: 2021-08-26
 
 React Native has been very successful at raising the bar for mobile development, both at Facebook and elsewhere in the industry. As we interact with computers in new ways and as new devices are invented, we want React Native to be there for everyone. Although React Native was originally created to build mobile apps, we believe that focusing on many platforms and building to each platform’s strengths and constraints has a symbiotic effect. We have seen huge benefits when we extended this technology to desktop and virtual reality, and we're excited to share what this means for the future of React Native.
 
+<!--truncate-->
+
 ## Respecting the Platform
 
 Our first guiding principle is [to match the expectations people have for each platform](https://reactnative.dev/blog/2020/07/17/react-native-principles#native-experience). Android users expect accessible apps using TalkBack. Navigation should work the way it does in other Android apps. A button should look and feel the way buttons look and feel on Android. It should not look and feel like an iOS button. Although we seek to offer a consistent cross-platform developer experience, we resist the temptation to sacrifice users’ expectations.
