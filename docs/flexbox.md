@@ -417,7 +417,7 @@ export default JustifyContentBasics;
 
 ## Align Items
 
-[`alignItems`](layout-props#alignitems) describes how to align children along the cross axis of their container. Align items is very similar to `justifyContent` but instead of applying to the main axis, `alignItems` applies to the cross axis.
+[`alignItems`](layout-props#alignitems) describes how to align children along the cross axis of their container. It is very similar to `justifyContent` but instead of applying to the main axis, `alignItems` applies to the cross axis.
 
 - `stretch` (**default value**) Stretch children of a container to match the `height` of the container's cross axis.
 
