@@ -15,6 +15,8 @@ Hello everyone!
 
 With new mobile OS versions releasing late this year, we recommend preparing your React Native apps beforehand to avoid regressions when the releases become generally available.
 
+<!--truncate-->
+
 ## iOS 15
 
 The release date of iOS 15 hasn’t been announced yet, but based on previous iOS releases, it will likely be around September 16th. Please also account for App Store review time if any changes are required to prepare your app for iOS 15.
