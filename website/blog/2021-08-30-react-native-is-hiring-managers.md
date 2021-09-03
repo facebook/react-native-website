@@ -1,10 +1,6 @@
 ---
 title: React Native Is Hiring Managers, To Expand Beyond Mobile
-author: Eli White
-authorTitle: Engineering Manager on React Native
-authorURL: https://twitter.com/Eli_White
-authorImageURL: https://avatars.githubusercontent.com/u/249164?v=4
-authorTwitter: Eli_White
+authors: [Eli_White]
 tags: [hiring]
 date: 2021-08-30
 ---

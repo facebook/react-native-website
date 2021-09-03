@@ -1,6 +1,6 @@
 ---
 title: React Native's Many Platform Vision
-authors: [yungsters, lunaleaps]
+authors: [abernathyca, Eli_White, lunaleaps, yungsters]
 tags: [announcement]
 date: 2021-08-26
 ---
