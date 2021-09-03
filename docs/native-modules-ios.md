@@ -125,7 +125,7 @@ return [[UIDevice currentDevice] name];
 }
 ```
 
-The return type of this method must be of object type (id) and should be serializable to JSON. This means that the hook can only return nil or JSON values (e.g. NSNumber, NSString, NSArray, NSDictionary).
+The return type of this method must be of object type (`id`) and should be serializable to JSON. This means that the hook can only return nil or JSON values (e.g. `NSNumber`, `NSString`, `NSArray`, `NSDictionary`).
 
 At the moment, we do not recommend using synchronous methods, since calling methods synchronously can have strong performance penalties and introduce threading-related bugs to your native modules. Additionally, please note that if you choose to use `RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD`, your app can no longer use the Google Chrome debugger. This is because synchronous methods require the JS VM to share memory with the app. For the Google Chrome debugger, React Native runs inside the JS VM in Google Chrome, and communicates asynchronously with the mobile devices via WebSockets.
 
