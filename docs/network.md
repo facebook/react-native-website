@@ -11,7 +11,7 @@ Many mobile apps need to load resources from a remote URL. You may want to make 
 
 React Native provides the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) for your networking needs. Fetch will seem familiar if you have used `XMLHttpRequest` or other networking APIs before. You may refer to MDN's guide on [Using Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) for additional information.
 
-#### Making requests
+### Making requests
 
 In order to fetch content from an arbitrary URL, you can pass the URL to fetch:
 
@@ -37,7 +37,7 @@ fetch('https://mywebsite.com/endpoint/', {
 
 Take a look at the [Fetch Request docs](https://developer.mozilla.org/en-US/docs/Web/API/Request) for a full list of properties.
 
-#### Handling the response
+### Handling the response
 
 The above examples show how you can make a request. In many cases, you will want to do something with the response.
 
@@ -177,7 +177,7 @@ export default class App extends Component {
 
 > On Android, as of API Level 28, clear text traffic is also blocked by default. This behaviour can be overridden by setting [`android:usesCleartextTraffic`](https://developer.android.com/guide/topics/manifest/application-element#usesCleartextTraffic) in the app manifest file.
 
-### Using Other Networking Libraries
+## Using Other Networking Libraries
 
 The [XMLHttpRequest API](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) is built into React Native. This means that you can use third party libraries such as [frisbee](https://github.com/niftylettuce/frisbee) or [axios](https://github.com/mzabriskie/axios) that depend on it, or you can use the XMLHttpRequest API directly if you prefer.
 
