@@ -121,7 +121,7 @@ You can use the `RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD` to create a synchronous
 ```objectivec
 RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD(getName)
 {
-return [[UIDevice currentDevice] name];
+  return [[UIDevice currentDevice] name];
 }
 ```
 
