@@ -273,7 +273,7 @@ For iOS, you can also write native module methods with any argument type that is
 
 ### Exporting Constants
 
-A native module can export constants by overriding the native method `constantsToExport()`. Below `constantsToExport()` is overriden, and returns a Dictionary that contains a default event name property you can access in JavaScript like so:
+A native module can export constants by overriding the native method `- constantsToExport`. Below `- constantsToExport` is overriden, and returns a Dictionary that contains a default event name property you can access in JavaScript like so:
 
 ```objectivec
 - (NSDictionary *)constantsToExport
@@ -289,11 +289,11 @@ const { DEFAULT_EVENT_NAME } = CalendarModule.getConstants();
 console.log(DEFAULT_EVENT_NAME);
 ```
 
-Technically, it is possible to access constants exported in `constantsToExport()` directly off the `NativeModule` object. This will no longer be supported with TurboModules, so we encourage the community to switch to the above approach to avoid necessary migration down the line.
+Technically, it is possible to access constants exported in `- constantsToExport` directly off the `NativeModule` object. This will no longer be supported with TurboModules, so we encourage the community to switch to the above approach to avoid necessary migration down the line.
 
-> Note that the constants are exported only at initialization time, so if you change `constantsToExport()` values at runtime it won't affect the JavaScript environment.
+> Note that the constants are exported only at initialization time, so if you change `- constantsToExport` values at runtime it won't affect the JavaScript environment.
 
-For iOS, if you override `constantsToExport()` then you should also implement `+ requiresMainQueueSetup` to let React Native know if your module needs to be initialized on the main thread, before any JavaScript code executes. Otherwise you will see a warning that in the future your module may be initialized on a background thread unless you explicitly opt out with `+ requiresMainQueueSetup:`. If your module does not require access to UIKit, then you should respond to `+ requiresMainQueueSetup` with NO.
+For iOS, if you override `- constantsToExport` then you should also implement `+ requiresMainQueueSetup` to let React Native know if your module needs to be initialized on the main thread, before any JavaScript code executes. Otherwise you will see a warning that in the future your module may be initialized on a background thread unless you explicitly opt out with `+ requiresMainQueueSetup:`. If your module does not require access to UIKit, then you should respond to `+ requiresMainQueueSetup` with NO.
 
 ### Callbacks
 
