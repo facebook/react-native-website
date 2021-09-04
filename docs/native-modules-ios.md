@@ -313,7 +313,7 @@ You can then invoke the callback in your native function, providing whatever res
 > It is important to highlight that the callback is not invoked immediately after the native function completes—remember the communication is asynchronous.
 
 ```objectivec
-RCT_EXPORT_METHOD(createCalendarEvent:(NSString *)title location:(NSString *)location callback: (RCTResponseSenderBlock)callback)
+RCT_EXPORT_METHOD(createCalendarEvent:(NSString *)title location:(NSString *)location callback:(RCTResponseSenderBlock)callback)
 {
  NSInteger eventId = ...
  callback(@[@(eventId)]);
