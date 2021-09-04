@@ -293,7 +293,7 @@ Technically, it is possible to access constants exported in `constantsToExport()
 
 > Note that the constants are exported only at initialization time, so if you change `constantsToExport()` values at runtime it won't affect the JavaScript environment.
 
-For iOS, if you override `constantsToExport()` then you should also implement `+ requiresMainQueueSetup` to let React Native know if your module needs to be initialized on the main thread, before any JavaScript code executes. Otherwise you will see a warning that in the future your module may be initialized on a background thread unless you explicitly opt out with `+ requiresMainQueueSetup:`. If your module does not require access to UIKit, then you should respond to `+ requiresMainQueueSetup` with NO.
+For iOS, if you override `constantsToExport()` then you should also implement `+ requiresMainQueueSetup:` to let React Native know if your module needs to be initialized on the main thread, before any JavaScript code executes. Otherwise you will see a warning that in the future your module may be initialized on a background thread unless you explicitly opt out with `+ requiresMainQueueSetup:`. If your module does not require access to UIKit, then you should respond to `+ requiresMainQueueSetup:` with NO.
 
 ### Callbacks
 
