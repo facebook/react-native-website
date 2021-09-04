@@ -269,7 +269,7 @@ When a native module method is invoked in JavaScript, React Native converts the 
 > - Number -> CGFloat
 > - Number -> float
 
-For iOS, you can also write native module methods with any argument type that is supported by the `RCTConvert` class (see [RCTConvert](https://github.com/facebook/react-native/blob/master/React/Base/RCTConvert.h) for details about what is supported). The RCTConvert helper functions all accept a JSON value as input and map it to a native Objective-C type or class.
+For iOS, you can also write native module methods with any argument type that is supported by the `RCTConvert` class (see [RCTConvert](https://github.com/facebook/react-native/blob/master/React/Base/RCTConvert.h) for details about what is supported). The `RCTConvert` helper functions all accept a JSON value as input and map it to a native Objective-C type or class.
 
 ### Exporting Constants
 
