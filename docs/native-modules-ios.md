@@ -203,7 +203,7 @@ At this point you have created an iOS native module and invoked a method on it f
 
 Importing your native module by pulling it off of `NativeModules` like above is a bit clunky.
 
-To save consumers of your native module from needing to do that each time they want to access your native module, you can create a JavaScript wrapper for the module. Create a new JavaScript file named NativeCalendarModule.js with the following content:
+To save consumers of your native module from needing to do that each time they want to access your native module, you can create a JavaScript wrapper for the module. Create a new JavaScript file named `NativeCalendarModule.js` with the following content:
 
 ```jsx
 /**
