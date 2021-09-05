@@ -121,11 +121,11 @@ You can use the `RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD` to create a synchronous
 ```objectivec
 RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD(getName)
 {
-return [[UIDevice currentDevice] name];
+  return [[UIDevice currentDevice] name];
 }
 ```
 
-The return type of this method must be of object type (id) and should be serializable to JSON. This means that the hook can only return nil or JSON values (e.g. NSNumber, NSString, NSArray, NSDictionary).
+The return type of this method must be of object type (`id`) and should be serializable to JSON. This means that the hook can only return nil or JSON values (e.g. `NSNumber`, `NSString`, `NSArray`, `NSDictionary`).
 
 At the moment, we do not recommend using synchronous methods, since calling methods synchronously can have strong performance penalties and introduce threading-related bugs to your native modules. Additionally, please note that if you choose to use `RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD`, your app can no longer use the Google Chrome debugger. This is because synchronous methods require the JS VM to share memory with the app. For the Google Chrome debugger, React Native runs inside the JS VM in Google Chrome, and communicates asynchronously with the mobile devices via WebSockets.
 
@@ -203,7 +203,7 @@ At this point you have created an iOS native module and invoked a method on it f
 
 Importing your native module by pulling it off of `NativeModules` like above is a bit clunky.
 
-To save consumers of your native module from needing to do that each time they want to access your native module, you can create a JavaScript wrapper for the module. Create a new JavaScript file named NativeCalendarModule.js with the following content:
+To save consumers of your native module from needing to do that each time they want to access your native module, you can create a JavaScript wrapper for the module. Create a new JavaScript file named `NativeCalendarModule.js` with the following content:
 
 ```jsx
 /**
@@ -269,11 +269,11 @@ When a native module method is invoked in JavaScript, React Native converts the 
 > - Number -> CGFloat
 > - Number -> float
 
-For iOS, you can also write native module methods with any argument type that is supported by the `RCTConvert` class (see [RCTConvert](https://github.com/facebook/react-native/blob/master/React/Base/RCTConvert.h) for details about what is supported). The RCTConvert helper functions all accept a JSON value as input and map it to a native Objective-C type or class.
+For iOS, you can also write native module methods with any argument type that is supported by the `RCTConvert` class (see [RCTConvert](https://github.com/facebook/react-native/blob/master/React/Base/RCTConvert.h) for details about what is supported). The `RCTConvert` helper functions all accept a JSON value as input and map it to a native Objective-C type or class.
 
 ### Exporting Constants
 
-A native module can export constants by overriding the native method `constantsToExport()`. Below `constantsToExport()` is overriden, and returns a Dictionary that contains a default event name property you can access in JavaScript like so:
+A native module can export constants by overriding the native method `- constantsToExport`. Below `- constantsToExport` is overriden, and returns a Dictionary that contains a default event name property you can access in JavaScript like so:
 
 ```objectivec
 - (NSDictionary *)constantsToExport
@@ -289,17 +289,17 @@ const { DEFAULT_EVENT_NAME } = CalendarModule.getConstants();
 console.log(DEFAULT_EVENT_NAME);
 ```
 
-Technically, it is possible to access constants exported in `constantsToExport()` directly off the `NativeModule` object. This will no longer be supported with TurboModules, so we encourage the community to switch to the above approach to avoid necessary migration down the line.
+Technically, it is possible to access constants exported in `- constantsToExport` directly off the `NativeModule` object. This will no longer be supported with TurboModules, so we encourage the community to switch to the above approach to avoid necessary migration down the line.
 
-> Note that the constants are exported only at initialization time, so if you change `constantsToExport()` values at runtime it won't affect the JavaScript environment.
+> Note that the constants are exported only at initialization time, so if you change `- constantsToExport` values at runtime it won't affect the JavaScript environment.
 
-For iOS, if you override `constantsToExport()` then you should also implement `+ requiresMainQueueSetup` to let React Native know if your module needs to be initialized on the main thread, before any JavaScript code executes. Otherwise you will see a warning that in the future your module may be initialized on a background thread unless you explicitly opt out with `+ requiresMainQueueSetup:`. If your module does not require access to UIKit, then you should respond to `+ requiresMainQueueSetup` with NO.
+For iOS, if you override `- constantsToExport` then you should also implement `+ requiresMainQueueSetup:` to let React Native know if your module needs to be initialized on the main thread, before any JavaScript code executes. Otherwise you will see a warning that in the future your module may be initialized on a background thread unless you explicitly opt out with `+ requiresMainQueueSetup:`. If your module does not require access to UIKit, then you should respond to `+ requiresMainQueueSetup:` with NO.
 
 ### Callbacks
 
 Native modules also support a unique kind of argument - a callback. Callbacks are used to pass data from Objective-C to JavaScript for asynchronous methods. They can also be used to asynchronously execute JS from the native side.
 
-For iOS, callbacks are implemented using the type `RCTResponseSenderBlock`. Below the callback parameter `myCallBack` is added to the `createCalendarEventMethod()`:
+For iOS, callbacks are implemented using the type `RCTResponseSenderBlock`. Below the callback parameter `myCallBack` is added to the `createCalendarEvent()` Method:
 
 ```objectivec
 RCT_EXPORT_METHOD(createCalendarEvent:(NSString *)title
@@ -313,7 +313,7 @@ You can then invoke the callback in your native function, providing whatever res
 > It is important to highlight that the callback is not invoked immediately after the native function completes—remember the communication is asynchronous.
 
 ```objectivec
-RCT_EXPORT_METHOD(createCalendarEvent:(NSString *)title location:(NSString *)location callback: (RCTResponseSenderBlock)callback)
+RCT_EXPORT_METHOD(createCalendarEvent:(NSString *)title location:(NSString *)location callback:(RCTResponseSenderBlock)callback)
 {
  NSInteger eventId = ...
  callback(@[@(eventId)]);
@@ -326,7 +326,7 @@ RCT_EXPORT_METHOD(createCalendarEvent:(NSString *)title location:(NSString *)loc
 This method could then be accessed in JavaScript using the following:
 
 ```jsx
-const onSubmit = () => {
+const onPress = () => {
   CalendarModule.createCalendarEvent(
     'Party',
     '04-12-2020',
@@ -337,12 +337,12 @@ const onSubmit = () => {
 };
 ```
 
-A native module is supposed to invoke its callback only once. It can, however, store the callback and invoke it later. This pattern is often used to wrap iOS APIs that require delegates— see [`RCTAlertManager`](https://github.com/facebook/react-native/blob/3a11f0536ea65b87dc0f006665f16a87cfa14b5e/React/CoreModules/RCTAlertManager.mm) for an example. If the callback is never invoked, some memory is leaked.
+A native module is supposed to invoke its callback only once. It can, however, store the callback and invoke it later. This pattern is often used to wrap iOS APIs that require delegates— see [`RCTAlertManager`](https://github.com/facebook/react-native/blob/main/React/CoreModules/RCTAlertManager.mm) for an example. If the callback is never invoked, some memory is leaked.
 
 There are two approaches to error handling with callbacks. The first is to follow Node’s convention and treat the first argument passed to the callback array as an error object.
 
 ```objectivec
-RCT_EXPORT_METHOD(createCalendarEventCallback:(NSString *)title location:(NSString *)location callback: (RCTResponseSenderBlock)callback)
+RCT_EXPORT_METHOD(createCalendarEventCallback:(NSString *)title location:(NSString *)location callback:(RCTResponseSenderBlock)callback)
 {
   NSNumber *eventId = [NSNumber numberWithInt:123];
   callback(@[[NSNull null], eventId]);
@@ -371,8 +371,8 @@ Another option is to use two separate callbacks: onFailure and onSuccess.
 ```objectivec
 RCT_EXPORT_METHOD(createCalendarEventCallback:(NSString *)title
                   location:(NSString *)location
-                  errorCallback: (RCTResponseSenderBlock)errorCallback
-                  successCallback: (RCTResponseSenderBlock)successCallback)
+                  errorCallback:(RCTResponseSenderBlock)errorCallback
+                  successCallback:(RCTResponseSenderBlock)successCallback)
 {
   @try {
     NSNumber *eventId = [NSNumber numberWithInt:123];
@@ -402,7 +402,7 @@ const onPress = () => {
 };
 ```
 
-If you want to pass error-like objects to JavaScript, use `RCTMakeError` from [`RCTUtils.h.`](https://github.com/facebook/react-native/blob/master/React/Base/RCTUtils.h) Right now this only passes an Error-shaped dictionary to JavaScript, but React Native aims to automatically generate real JavaScript Error objects in the future. You can also provide a `RCTResponseErrorBlock` argument, which is used for error callbacks and accepts an `NSError \* object`. Please note that this argument type will not be supported with TurboModules.
+If you want to pass error-like objects to JavaScript, use `RCTMakeError` from [`RCTUtils.h.`](https://github.com/facebook/react-native/blob/main/React/Base/RCTUtils.h) Right now this only passes an Error-shaped dictionary to JavaScript, but React Native aims to automatically generate real JavaScript Error objects in the future. You can also provide a `RCTResponseErrorBlock` argument, which is used for error callbacks and accepts an `NSError \* object`. Please note that this argument type will not be supported with TurboModules.
 
 ### Promises
 
@@ -429,7 +429,7 @@ RCT_EXPORT_METHOD(createCalendarEvent:(NSString *)title
 The JavaScript counterpart of this method returns a Promise. This means you can use the `await` keyword within an async function to call it and wait for its result:
 
 ```jsx
-const onSubmit = async () => {
+const onPress = async () => {
   try {
     const eventId = await CalendarModule.createCalendarEvent(
       'Party',
@@ -444,39 +444,41 @@ const onSubmit = async () => {
 
 ### Sending Events to JavaScript
 
-Native modules can signal events to JavaScript without being invoked directly. For example, you might want to signal to JavaScript a reminder that a calendar event from the native iOS calendar app will occur soon. The preferred way to do this is to subclass `RCTEventEmitter`, implement `supportedEvents` and call self `sendEventWithName`:
+Native modules can signal events to JavaScript without being invoked directly. For example, you might want to signal to JavaScript a reminder that a calendar event from the native iOS calendar app will occur soon. The preferred way to do this is to subclass `RCTEventEmitter`, implement `supportedEvents` and call `[self sendEventWithName:body:]`.
 
-Update your header class to import `RCTEventEmitter` and subclass `RCTEventEmitter`:
+Add subclass `CalendarManager` that inherits from `RCTEventEmitter`.
 
 ```objectivec
-//  CalendarModule.h
+//  CalendarManager.h
 
-#import <React/RCTBridgeModule.h>
 #import <React/RCTEventEmitter.h>
 
-@interface CalendarModule : RCTEventEmitter <RCTBridgeModule>
+@interface CalendarManager : RCTEventEmitter
 @end
-
 ```
-
-JavaScript code can subscribe to these events by creating a new `NativeEventEmitter` instance around your module.
 
 You will receive a warning if you expend resources unnecessarily by emitting an event while there are no listeners. To avoid this, and to optimize your module's workload (e.g. by unsubscribing from upstream notifications or pausing background tasks), you can override `startObserving` and `stopObserving` in your `RCTEventEmitter` subclass.
 
 ```objectivec
 @implementation CalendarManager
 {
-  bool hasListeners;
+  BOOL hasListeners;
+}
+
+RCT_EXPORT_MODULE();
+
+- (NSArray<NSString *> *)supportedEvents {
+    return @[@"EventReminder"];
 }
 
 // Will be called when this module's first listener is added.
--(void)startObserving {
+- (void)startObserving {
     hasListeners = YES;
     // Set up any upstream listeners or background tasks as necessary
 }
 
 // Will be called when this module's last listener is removed, or on dealloc.
--(void)stopObserving {
+- (void)stopObserving {
     hasListeners = NO;
     // Remove upstream listeners, stop unnecessary background tasks
 }
@@ -488,12 +490,29 @@ You will receive a warning if you expend resources unnecessarily by emitting an 
     [self sendEventWithName:@"EventReminder" body:@{@"name": eventName}];
   }
 }
+@end
+```
 
+JavaScript code can subscribe to these events by creating a new `NativeEventEmitter` instance around your module.
+
+```jsx
+import { NativeEventEmitter, NativeModules } from 'react-native';
+const { CalendarManager } = NativeModules;
+
+const calendarManagerEmitter = new NativeEventEmitter(CalendarManager);
+
+const subscription = calendarManagerEmitter.addListener(
+  'EventReminder',
+  (reminder) => console.log(reminder.name)
+);
+// ...
+// Don't forget to unsubscribe, which is usually implemented in the componentWillUnmount lifecycle method.
+subscription.remove();
 ```
 
 ### Threading
 
-Unless the native module provides its own method queue, it shouldn't make any assumptions about what thread it's being called on. Currently, if a native module doesn't provide a method queue, React Native will create a separate GCD queue for it and invoke its methods there. Please note that this is an implementation detail and might change. If you want to explicitly provide a method queue for a native module, override the `(dispatch_queue_t) methodQueue` method in the native module. For example, if it needs to use a main-thread-only iOS API, it should specify this via:
+Unless the native module provides its own method queue, it shouldn't make any assumptions about what thread it's being called on. Currently, if a native module doesn't provide a method queue, React Native will create a separate GCD queue for it and invoke its methods there. Please note that this is an implementation detail and might change. If you want to explicitly provide a method queue for a native module, override the `- (dispatch_queue_t)methodQueue` method in the native module. For example, if it needs to use a main-thread-only iOS API, it should specify this via:
 
 ```objectivec
 - (dispatch_queue_t)methodQueue
@@ -598,6 +617,6 @@ You can also use `RCT_EXTERN_REMAP_MODULE` and `_RCT_EXTERN_REMAP_METHOD` to alt
 
 ### Reserved Method Names
 
-#### invalidate()
+#### invalidate
 
-Native modules can conform to the [RCTInvalidating](https://github.com/facebook/react-native/blob/0.62-stable/React/Base/RCTInvalidating.h) protocol on iOS by implementing the `invalidate()` method. This method [can be invoked](https://github.com/facebook/react-native/blob/0.62-stable/ReactCommon/turbomodule/core/platform/ios/RCTTurboModuleManager.mm#L456) when the native bridge is invalidated (ie: on devmode reload). Please use this mechanism as necessary to do the required cleanup for your native module.
+Native modules can conform to the [RCTInvalidating](https://github.com/facebook/react-native/blob/0.62-stable/React/Base/RCTInvalidating.h) protocol on iOS by implementing the `- (void)invalidate` method. This method [can be invoked](https://github.com/facebook/react-native/blob/0.62-stable/ReactCommon/turbomodule/core/platform/ios/RCTTurboModuleManager.mm#L456) when the native bridge is invalidated (ie: on devmode reload). Please use this mechanism as necessary to do the required cleanup for your native module.
