@@ -1,13 +1,29 @@
-yungsters:
-  name: Timothy Yung
-  title: React Native at Facebook
-  url: https://github.com/yungsters
-  image_url: https://github.com/yungsters.png
-  twitter: yungsters
+abernathyca:
+  name: Christine Abernathy
+  title: Developer Advocate at Facebook
+  url: https://twitter.com/abernathyca
+  image_url: https://github.com/caabernathy.png
+
+Eli_White:
+  name: Eli White
+  title: Engineering Manager at Facebook
+  url: https://twitter.com/Eli_White
+  image_url: https://github.com/TheSavior.png
 
 lunaleaps:
   name: Luna Wei
-  title: Engineer at Facebook
-  url: https://github.com/lunaleaps
+  title: Software Engineer at Facebook
+  url: https://twitter.com/lunaleaps
   image_url: https://github.com/lunaleaps.png
-  twitter: lunaleaps
+
+SamuelSusla:
+  name: Samuel Susla
+  title: Software Engineer at Facebook
+  url: https://twitter.com/SamuelSusla
+  image_url: https://github.com/sammy-SC.png
+
+yungsters:
+  name: Timothy Yung
+  title: Software Engineer at Facebook
+  url: https://twitter.com/yungsters
+  image_url: https://github.com/yungsters.png
