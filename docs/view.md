@@ -591,8 +591,8 @@ Rasterization incurs an off-screen drawing pass and the bitmap consumes memory. 
 
 ### `style`
 
-| Type                              |
-| --------------------------------- |
+| Type                           |
+| ------------------------------ |
 | [View Style](view-style-props) |
 
 ---
