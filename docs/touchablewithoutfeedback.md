@@ -281,9 +281,9 @@ Invoked when the item receives focus.
 
 Invoked on mount and on layout changes.
 
-| Type                                 |
-| ------------------------------------ |
-| ([LayoutEvent](layoutevent)) => void |
+| Type                                                  |
+| ----------------------------------------------------- |
+| ({ nativeEvent: [LayoutEvent](layoutevent) }) => void |
 
 ---
 

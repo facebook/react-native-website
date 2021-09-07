@@ -113,113 +113,113 @@ export default App;
 
 If true, doesn't play Android system sound on press.
 
-| Type    | Required | Default |
-| ------- | -------- | ------- |
-| boolean | No       | `false` |
+| Type    | Default |
+| ------- | ------- |
+| boolean | `false` |
 
 ### `android_ripple` <div class="label android">Android</div>
 
 Enables the Android ripple effect and configures its properties.
 
-| Type                                   | Required |
-| -------------------------------------- | -------- |
-| [RippleConfig](pressable#rippleconfig) | No       |
+| Type                                   |
+| -------------------------------------- |
+| [RippleConfig](pressable#rippleconfig) |
 
 ### `children`
 
 Either children or a function that receives a boolean reflecting whether the component is currently pressed.
 
-| Type                     | Required |
-| ------------------------ | -------- |
-| [React Node](react-node) | No       |
+| Type                     |
+| ------------------------ |
+| [React Node](react-node) |
 
 ### `unstable_pressDelay`
 
 Duration (in milliseconds) to wait after press down before calling `onPressIn`.
 
-| Type   | Required |
-| ------ | -------- |
-| number | No       |
+| Type   |
+| ------ |
+| number |
 
 ### `delayLongPress`
 
 Duration (in milliseconds) from `onPressIn` before `onLongPress` is called.
 
-| Type   | Required | Default |
-| ------ | -------- | ------- |
-| number | No       | `500`   |
+| Type   | Default |
+| ------ | ------- |
+| number | `500`   |
 
 ### `disabled`
 
 Whether the press behavior is disabled.
 
-| Type    | Required | Default |
-| ------- | -------- | ------- |
-| boolean | No       | `false` |
+| Type    | Default |
+| ------- | ------- |
+| boolean | `false` |
 
 ### `hitSlop`
 
 Sets additional distance outside of element in which a press can be detected.
 
-| Type                   | Required |
-| ---------------------- | -------- |
-| [Rect](rect) or number | No       |
+| Type                   |
+| ---------------------- |
+| [Rect](rect) or number |
 
 ### `onLongPress`
 
 Called if the time after `onPressIn` lasts longer than 500 milliseconds. This time period can be customized with [`delayLongPress`](#delaylongpress).
 
-| Type                     | Required |
-| ------------------------ | -------- |
-| [PressEvent](pressevent) | No       |
+| Type                                                |
+| --------------------------------------------------- |
+| ({ nativeEvent: [PressEvent](pressevent) }) => void |
 
 ### `onPress`
 
 Called after `onPressOut`.
 
-| Type                     | Required |
-| ------------------------ | -------- |
-| [PressEvent](pressevent) | No       |
+| Type                                                |
+| --------------------------------------------------- |
+| ({ nativeEvent: [PressEvent](pressevent) }) => void |
 
 ### `onPressIn`
 
 Called immediately when a touch is engaged, before `onPressOut` and `onPress`.
 
-| Type                     | Required |
-| ------------------------ | -------- |
-| [PressEvent](pressevent) | No       |
+| Type                                                |
+| --------------------------------------------------- |
+| ({ nativeEvent: [PressEvent](pressevent) }) => void |
 
 ### `onPressOut`
 
 Called when a touch is released.
 
-| Type                     | Required |
-| ------------------------ | -------- |
-| [PressEvent](pressevent) | No       |
+| Type                                                |
+| --------------------------------------------------- |
+| ({ nativeEvent: [PressEvent](pressevent) }) => void |
 
 ### `pressRetentionOffset`
 
 Additional distance outside of this view in which a touch is considered a press before `onPressOut` is triggered.
 
-| Type                   | Required | Default                                        |
-| ---------------------- | -------- | ---------------------------------------------- |
-| [Rect](rect) or number | No       | `{ bottom: 30, left: 20, right: 20, top: 20 }` |
+| Type                   | Default                                        |
+| ---------------------- | ---------------------------------------------- |
+| [Rect](rect) or number | `{ bottom: 30, left: 20, right: 20, top: 20 }` |
 
 ### `style`
 
 Either view styles or a function that receives a boolean reflecting whether the component is currently pressed and returns view styles.
 
-| Type                           | Required |
-| ------------------------------ | -------- |
-| [View Style](view-style-props) | No       |
+| Type                           |
+| ------------------------------ |
+| [View Style](view-style-props) |
 
 ### `testOnly_pressed`
 
 Used only for documentation or testing (e.g. snapshot testing).
 
-| Type    | Required | Default |
-| ------- | -------- | ------- |
-| boolean | No       | `false` |
+| Type    | Default |
+| ------- | ------- |
+| boolean | `false` |
 
 ## Type Definitions
 
