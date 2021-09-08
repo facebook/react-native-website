@@ -83,9 +83,9 @@ export default TouchableWithoutFeedbackExample;
 
 ### `accessibilityIgnoresInvertColors`
 
-| Type    | Required |
-| ------- | -------- |
-| Boolean | No       |
+| Type    |
+| ------- |
+| Boolean |
 
 ---
 
@@ -93,9 +93,9 @@ export default TouchableWithoutFeedbackExample;
 
 When `true`, indicates that the view is an accessibility element. By default, all the touchable elements are accessible.
 
-| Type | Required |
-| ---- | -------- |
-| bool | No       |
+| Type |
+| ---- |
+| bool |
 
 ---
 
@@ -103,9 +103,9 @@ When `true`, indicates that the view is an accessibility element. By default, al
 
 Overrides the text that's read by the screen reader when the user interacts with the element. By default, the label is constructed by traversing all the children and accumulating all the `Text` nodes separated by space.
 
-| Type   | Required |
-| ------ | -------- |
-| string | No       |
+| Type   |
+| ------ |
+| string |
 
 ---
 
@@ -113,9 +113,9 @@ Overrides the text that's read by the screen reader when the user interacts with
 
 An accessibility hint helps users understand what will happen when they perform an action on the accessibility element when that result is not clear from the accessibility label.
 
-| Type   | Required |
-| ------ | -------- |
-| string | No       |
+| Type   |
+| ------ |
+| string |
 
 ---
 
@@ -153,9 +153,9 @@ An accessibility hint helps users understand what will happen when they perform 
 - `'timer'` - Used to represent a timer.
 - `'toolbar'` - Used to represent a tool bar (a container of action buttons or components).
 
-| Type   | Required |
-| ------ | -------- |
-| string | No       |
+| Type   |
+| ------ |
+| string |
 
 ---
 
@@ -165,9 +165,9 @@ Describes the current state of a component to the user of an assistive technolog
 
 See the [Accessibility guide](accessibility.md#accessibilitystate-ios-android) for more information.
 
-| Type                                                                                           | Required |
-| ---------------------------------------------------------------------------------------------- | -------- |
-| object: {disabled: bool, selected: bool, checked: bool or 'mixed', busy: bool, expanded: bool} | No       |
+| Type                                                                                           |
+| ---------------------------------------------------------------------------------------------- |
+| object: {disabled: bool, selected: bool, checked: bool or 'mixed', busy: bool, expanded: bool} |
 
 ---
 
@@ -177,9 +177,9 @@ Accessibility actions allow an assistive technology to programmatically invoke t
 
 See the [Accessibility guide](accessibility.md#accessibility-actions) for more information.
 
-| Type  | Required |
-| ----- | -------- |
-| array | No       |
+| Type  |
+| ----- |
+| array |
 
 ---
 
@@ -189,9 +189,9 @@ Invoked when the user performs the accessibility actions. The only argument to t
 
 See the [Accessibility guide](accessibility.md#accessibility-actions) for more information.
 
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type     |
+| -------- |
+| function |
 
 ---
 
@@ -201,9 +201,9 @@ Represents the current value of a component. It can be a textual description of 
 
 See the [Accessibility guide](accessibility.md#accessibilityvalue-ios-android) for more information.
 
-| Type                                                          | Required |
-| ------------------------------------------------------------- | -------- |
-| object: {min: number, max: number, now: number, text: string} | No       |
+| Type                                                          |
+| ------------------------------------------------------------- |
+| object: {min: number, max: number, now: number, text: string} |
 
 ---
 
@@ -211,9 +211,9 @@ See the [Accessibility guide](accessibility.md#accessibilityvalue-ios-android) f
 
 Duration (in milliseconds) from `onPressIn` before `onLongPress` is called.
 
-| Type   | Required |
-| ------ | -------- |
-| number | No       |
+| Type   |
+| ------ |
+| number |
 
 ---
 
@@ -221,9 +221,9 @@ Duration (in milliseconds) from `onPressIn` before `onLongPress` is called.
 
 Duration (in milliseconds), from the start of the touch, before `onPressIn` is called.
 
-| Type   | Required |
-| ------ | -------- |
-| number | No       |
+| Type   |
+| ------ |
+| number |
 
 ---
 
@@ -231,9 +231,9 @@ Duration (in milliseconds), from the start of the touch, before `onPressIn` is c
 
 Duration (in milliseconds), from the release of the touch, before `onPressOut` is called.
 
-| Type   | Required |
-| ------ | -------- |
-| number | No       |
+| Type   |
+| ------ |
+| number |
 
 ---
 
@@ -241,9 +241,9 @@ Duration (in milliseconds), from the release of the touch, before `onPressOut` i
 
 If true, disable all interactions for this component.
 
-| Type | Required |
-| ---- | -------- |
-| bool | No       |
+| Type |
+| ---- |
+| bool |
 
 ---
 
@@ -253,17 +253,17 @@ This defines how far your touch can start away from the button. This is added to
 
 > The touch area never extends past the parent view bounds and the Z-index of sibling views always takes precedence if a touch hits two overlapping views.
 
-| Type                   | Required |
-| ---------------------- | -------- |
-| [Rect](rect) or number | No       |
+| Type                   |
+| ---------------------- |
+| [Rect](rect) or number |
 
 ### `onBlur`
 
 Invoked when the item loses focus.
 
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type     |
+| -------- |
+| function |
 
 ---
 
@@ -271,9 +271,9 @@ Invoked when the item loses focus.
 
 Invoked when the item receives focus.
 
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type     |
+| -------- |
+| function |
 
 ---
 
@@ -281,9 +281,9 @@ Invoked when the item receives focus.
 
 Invoked on mount and on layout changes.
 
-| Type                                 | Required |
-| ------------------------------------ | -------- |
-| ([LayoutEvent](layoutevent)) => void | No       |
+| Type                                                  |
+| ----------------------------------------------------- |
+| ({ nativeEvent: [LayoutEvent](layoutevent) }) => void |
 
 ---
 
@@ -291,9 +291,9 @@ Invoked on mount and on layout changes.
 
 Called if the time after `onPressIn` lasts longer than 370 milliseconds. This time period can be customized with [`delayLongPress`](#delaylongpress).
 
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type     |
+| -------- |
+| function |
 
 ---
 
@@ -301,9 +301,9 @@ Called if the time after `onPressIn` lasts longer than 370 milliseconds. This ti
 
 Called when the touch is released, but not if cancelled (e.g. by a scroll that steals the responder lock). The first function argument is an event in form of [PressEvent](pressevent).
 
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type     |
+| -------- |
+| function |
 
 ---
 
@@ -311,9 +311,9 @@ Called when the touch is released, but not if cancelled (e.g. by a scroll that s
 
 Called as soon as the touchable element is pressed and invoked even before onPress. This can be useful when making network requests. The first function argument is an event in form of [PressEvent](pressevent).
 
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type     |
+| -------- |
+| function |
 
 ---
 
@@ -321,9 +321,9 @@ Called as soon as the touchable element is pressed and invoked even before onPre
 
 Called as soon as the touch is released even before onPress. The first function argument is an event in form of [PressEvent](pressevent).
 
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type     |
+| -------- |
+| function |
 
 ---
 
@@ -331,17 +331,17 @@ Called as soon as the touch is released even before onPress. The first function 
 
 When the scroll view is disabled, this defines how far your touch may move off of the button, before deactivating the button. Once deactivated, try moving it back and you'll see that the button is once again reactivated! Move it back and forth several times while the scroll view is disabled. Ensure you pass in a constant to reduce memory allocations.
 
-| Type                   | Required |
-| ---------------------- | -------- |
-| [Rect](rect) or number | No       |
+| Type                   |
+| ---------------------- |
+| [Rect](rect) or number |
 
 ---
 
 ### `nativeID`
 
-| Type   | Required |
-| ------ | -------- |
-| string | No       |
+| Type   |
+| ------ |
+| string |
 
 ---
 
@@ -349,16 +349,16 @@ When the scroll view is disabled, this defines how far your touch may move off o
 
 Used to locate this view in end-to-end tests.
 
-| Type   | Required |
-| ------ | -------- |
-| string | No       |
+| Type   |
+| ------ |
+| string |
 
 ---
 
-### `touchSoundDisabled`
+### `touchSoundDisabled` <div class="label android">Android</div>
 
 If true, doesn't play a system sound on touch.
 
-| Type    | Required | Platform |
-| ------- | -------- | -------- |
-| Boolean | No       | Android  |
+| Type    |
+| ------- |
+| Boolean |

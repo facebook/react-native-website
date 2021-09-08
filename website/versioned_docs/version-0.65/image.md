@@ -293,9 +293,9 @@ Similarly to `source`, this property represents the resource used to render the 
 
 Invoked on load error.
 
-| Type                                           |
-| ---------------------------------------------- |
-| function(`{ nativeEvent: { error } }`) => void |
+| Type                                   |
+| -------------------------------------- |
+| (`{ nativeEvent: { error } }`) => void |
 
 ---
 
@@ -303,9 +303,9 @@ Invoked on load error.
 
 Invoked on mount and on layout changes.
 
-| Type                                         |
-| -------------------------------------------- |
-| function([LayoutEvent](layoutevent)) => void |
+| Type                                                  |
+| ----------------------------------------------------- |
+| ({ nativeEvent: [LayoutEvent](layoutevent) }) => void |
 
 ---
 
@@ -313,9 +313,9 @@ Invoked on mount and on layout changes.
 
 Invoked when load completes successfully.
 
-| Type                                                     |
-| -------------------------------------------------------- |
-| function([ImageLoadEvent](image#imageloadevent)) => void |
+| Type                                             |
+| ------------------------------------------------ |
+| ([ImageLoadEvent](image#imageloadevent)) => void |
 
 ---
 
@@ -323,9 +323,9 @@ Invoked when load completes successfully.
 
 Invoked when load either succeeds or fails.
 
-| Type               |
-| ------------------ |
-| function() => void |
+| Type       |
+| ---------- |
+| () => void |
 
 ---
 
@@ -335,9 +335,9 @@ Invoked on load start.
 
 **Example:** `onLoadStart={() => this.setState({loading: true})}`
 
-| Type               |
-| ------------------ |
-| function() => void |
+| Type       |
+| ---------- |
+| () => void |
 
 ---
 
@@ -345,9 +345,9 @@ Invoked on load start.
 
 Invoked when a partial load of the image is complete. The definition of what constitutes a "partial load" is loader specific though this is meant for progressive JPEG loads.
 
-| Type               |
-| ------------------ |
-| function() => void |
+| Type       |
+| ---------- |
+| () => void |
 
 ---
 
@@ -355,9 +355,9 @@ Invoked when a partial load of the image is complete. The definition of what con
 
 Invoked on download progress.
 
-| Type                                                   |
-| ------------------------------------------------------ |
-| function(`{ nativeEvent: { loaded, total } }`) => void |
+| Type                                           |
+| ---------------------------------------------- |
+| (`{ nativeEvent: { loaded, total } }`) => void |
 
 ---
 

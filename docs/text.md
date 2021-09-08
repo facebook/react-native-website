@@ -455,9 +455,9 @@ This prop is commonly used with `ellipsizeMode`.
 
 Invoked on mount and on layout changes.
 
-| Type                                 |
-| ------------------------------------ |
-| ([LayoutEvent](layoutevent)) => void |
+| Type                                                  |
+| ----------------------------------------------------- |
+| ({ nativeEvent: [LayoutEvent](layoutevent) }) => void |
 
 ---
 
@@ -465,9 +465,9 @@ Invoked on mount and on layout changes.
 
 This function is called on long press.
 
-| Type                               |
-| ---------------------------------- |
-| ([PressEvent](pressevent)) => void |
+| Type                                                |
+| --------------------------------------------------- |
+| ({ nativeEvent: [PressEvent](pressevent) }) => void |
 
 ---
 
@@ -475,9 +475,9 @@ This function is called on long press.
 
 Does this view want to "claim" touch responsiveness? This is called for every touch move on the `View` when it is not the responder.
 
-| Type                                  |
-| ------------------------------------- |
-| ([PressEvent](pressevent)) => boolean |
+| Type                                                   |
+| ------------------------------------------------------ |
+| ({ nativeEvent: [PressEvent](pressevent) }) => boolean |
 
 ---
 
@@ -485,9 +485,9 @@ Does this view want to "claim" touch responsiveness? This is called for every to
 
 This function is called on press.
 
-| Type                               |
-| ---------------------------------- |
-| ([PressEvent](pressevent)) => void |
+| Type                                                |
+| --------------------------------------------------- |
+| ({ nativeEvent: [PressEvent](pressevent) }) => void |
 
 ---
 
@@ -495,9 +495,9 @@ This function is called on press.
 
 The View is now responding to touch events. This is the time to highlight and show the user what is happening.
 
-| Type                               |
-| ---------------------------------- |
-| ([PressEvent](pressevent)) => void |
+| Type                                                |
+| --------------------------------------------------- |
+| ({ nativeEvent: [PressEvent](pressevent) }) => void |
 
 ---
 
@@ -505,9 +505,9 @@ The View is now responding to touch events. This is the time to highlight and sh
 
 The user is moving their finger.
 
-| Type                               |
-| ---------------------------------- |
-| ([PressEvent](pressevent)) => void |
+| Type                                                |
+| --------------------------------------------------- |
+| ({ nativeEvent: [PressEvent](pressevent) }) => void |
 
 ---
 
@@ -515,9 +515,9 @@ The user is moving their finger.
 
 Fired at the end of the touch.
 
-| Type                               |
-| ---------------------------------- |
-| ([PressEvent](pressevent)) => void |
+| Type                                                |
+| --------------------------------------------------- |
+| ({ nativeEvent: [PressEvent](pressevent) }) => void |
 
 ---
 
@@ -525,9 +525,9 @@ Fired at the end of the touch.
 
 The responder has been taken from the `View`. Might be taken by other views after a call to `onResponderTerminationRequest`, or might be taken by the OS without asking (e.g., happens with control center/ notification center on iOS)
 
-| Type                               |
-| ---------------------------------- |
-| ([PressEvent](pressevent)) => void |
+| Type                                                |
+| --------------------------------------------------- |
+| ({ nativeEvent: [PressEvent](pressevent) }) => void |
 
 ---
 
@@ -535,9 +535,9 @@ The responder has been taken from the `View`. Might be taken by other views afte
 
 Some other `View` wants to become a responder and is asking this `View` to release its responder. Returning `true` allows its release.
 
-| Type                                  |
-| ------------------------------------- |
-| ([PressEvent](pressevent)) => boolean |
+| Type                                                   |
+| ------------------------------------------------------ |
+| ({ nativeEvent: [PressEvent](pressevent) }) => boolean |
 
 ---
 
@@ -545,9 +545,9 @@ Some other `View` wants to become a responder and is asking this `View` to relea
 
 If a parent `View` wants to prevent a child `View` from becoming a responder on a touch start, it should have this handler which returns `true`.
 
-| Type                                  |
-| ------------------------------------- |
-| ([PressEvent](pressevent)) => boolean |
+| Type                                                   |
+| ------------------------------------------------------ |
+| ({ nativeEvent: [PressEvent](pressevent) }) => boolean |
 
 ---
 

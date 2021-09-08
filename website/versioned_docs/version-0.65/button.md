@@ -112,9 +112,9 @@ export default App;
 
 Handler to be called when the user taps the button.
 
-| Type                               |
-| ---------------------------------- |
-| function([PressEvent](pressevent)) |
+| Type                                        |
+| ------------------------------------------- |
+| ({ nativeEvent: [PressEvent](pressevent) }) |
 
 ---
 
