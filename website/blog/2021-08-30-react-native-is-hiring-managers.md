@@ -2,7 +2,6 @@
 title: React Native Is Hiring Managers, To Expand Beyond Mobile
 authors: [Eli_White]
 tags: [hiring]
-date: 2021-08-30
 ---
 
 We recently shared [React Native’s Many Platform Vision](https://reactnative.dev/blog/2021/08/26/many-platform-vision) for how expanding React to other platforms improves the framework for everyone else. We’ve been making significant progress on this vision over the last couple years by partnering with Microsoft on React Native for Windows and macOS, and Oculus on React Native in VR.
