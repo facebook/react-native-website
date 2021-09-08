@@ -36,9 +36,9 @@ and add the following to it:
 ```objectivec
 //  RCTCalendarModule.h
 #import <React/RCTBridgeModule.h>
+
 @interface RCTCalendarModule : NSObject <RCTBridgeModule>
 @end
-
 ```
 
 You can use any name that fits the native module you are building. Name the class `RCTCalendarModule` since you are creating a calendar native module. Since ObjC does not have language-level support for namespaces like Java or C++, convention is to prepend the class name with a substring. This could be an abbreviation of your application name or your infra name. RCT, in this example, refers to React.
@@ -57,7 +57,6 @@ Next up, let’s start implementing the native module. Create the corresponding 
 RCT_EXPORT_MODULE();
 
 @end
-
 ```
 
 ### Module Name
@@ -299,7 +298,7 @@ For iOS, if you override `- constantsToExport` then you should also implement `+
 
 Native modules also support a unique kind of argument - a callback. Callbacks are used to pass data from Objective-C to JavaScript for asynchronous methods. They can also be used to asynchronously execute JS from the native side.
 
-For iOS, callbacks are implemented using the type `RCTResponseSenderBlock`. Below the callback parameter `myCallBack` is added to the `createCalendarEvent()` Method:
+For iOS, callbacks are implemented using the type `RCTResponseSenderBlock`. Below the callback parameter `myCallBack` is added to the `createCalendarEvent()` method:
 
 ```objectivec
 RCT_EXPORT_METHOD(createCalendarEvent:(NSString *)title
@@ -505,10 +504,9 @@ const subscription = calendarManagerEmitter.addListener(
   'EventReminder',
   (reminder) => console.log(reminder.name)
 );
-// ...
-// Don't forget to unsubscribe, which is usually implemented in the componentWillUnmount lifecycle method.
-subscription.remove();
 ```
+
+> Don't forget to unsubscribe with `subscription.remove()` , which is usually implemented in lifecycle method.
 
 ### Threading
 
