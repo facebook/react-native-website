@@ -24,11 +24,12 @@ We believe that React Native enables developers to meet users’ expectations wh
 
 Specific device hardware or user expectations impose unique constraints and requirements. As an example, memory is typically more constrained on Android and VR headsets than on iOS, macOS, and Windows. As another example, users expect mobile apps to start up almost instantaneously, but they are less frustrated when desktop apps take longer to start up. **We have found that by approaching these problems with React Native, we can more easily borrow lessons learned and code written for one platform, and apply them to other platforms.**
 
-![Screenshot of Facebook Dating on mobile](./many-platform-vision-facebook-dating.png)
-
-<div class="text--center text--italic margin-bottom--lg">
-React Native and Relay power over 1000 Facebook surfaces on Android and iOS.
-</div>
+<figure>
+  <img src="/blog/assets/many-platform-vision-facebook-dating.png" alt="Screenshot of Facebook Dating on mobile" />
+  <figcaption>
+    React Native and Relay power over 1000 Facebook surfaces on Android and iOS.
+  </figcaption>
+</figure>
 
 For example, React Native relies on an optimization known as “view flattening” which is critical for reducing memory usage on Android. We never built this optimization for iOS because it does not bear the same memory constraints. Over the past few years as we built our new cross-platform renderer, we had to reimplement “view flattening”. But this time, it was written in C++ instead of platform-specific Java. Trying out this same optimization on iOS was now only a matter of flipping a switch. In the production Facebook app, we observed that this improved performance on iOS! We likely never would have built this for iOS, but our investment on Android was able to benefit our investment on iOS.
 
@@ -50,11 +51,12 @@ In addition to domain-specific engineers and meetups and conferences, each platf
 
 **We believe that competition leads to better outcomes for everyone in the long run.** By studying what makes other players on each platform great, we can learn lessons that may apply to other platforms. For example, the race to simplify complex websites influenced the development of React and gave React Native a head start to offer a declarative framework for mobile apps. The demand for faster iteration cycles and build times for the web also led to the development of Fast Refresh which significantly benefited React Native. Similarly, performance optimizations in our internal mobile frameworks — especially around data fetching and parallelization — challenged us to improve React Native in a way that has also influenced React when we built the new [Facebook.com](http://facebook.com/) website.
 
-![Screenshot of the Facebook.com website](./many-platform-vision-facebook-website.png)
-
-<div class="text--center text--italic margin-bottom--lg">
-React and Relay powers the <a href="http://facebook.com/">Facebook.com</a> website.
-</div>
+<figure>
+  <img src="/blog/assets/many-platform-vision-facebook-website.png" alt="Screenshot of the Facebook.com website" />
+  <figcaption>
+    React and Relay powers the <a href="http://facebook.com/">Facebook.com</a> website.
+  </figcaption>
+</figure>
 
 ## Expanding to New Platforms
 
@@ -64,11 +66,12 @@ React and React Native are at a turning point. React has [started the road to a 
 
 Building for desktop has been very exciting for us. We have taken what we know about building mobile experiences and applied them to desktop with eyes wide open. We’ve expanded our horizons with multiple child windows, menu bars, system trays, and more. As we continue collaborating on new desktop Messenger features, we expect to find opportunities that influence how we build on web and mobile. If you want to stay up to date, our desktop collaboration work is taking place [on GitHub](https://github.com/microsoft/react-native-windows).
 
-![Screenshot of the Messenger app on macOS](./many-platform-vision-messenger-desktop.png)
-
-<div class="text--center text--italic margin-bottom--lg">
-React Native powers Video Calling in Messenger for Windows and macOS.
-</div>
+<figure>
+  <img src="/blog/assets/many-platform-vision-messenger-desktop.png" alt="Screenshot of the Messenger app on macOS" />
+  <figcaption>
+    React Native powers Video Calling in Messenger for Windows and macOS.
+  </figcaption>
+</figure>
 
 **We are also partnering more closely with [Facebook Reality Labs](https://tech.fb.com/ar-vr/) to understand how React is uniquely positioned to deliver virtual reality experiences on Oculus.** Building experiences in VR with React Native will be particularly interesting because of tighter memory constraints and user sensitivity to interaction latency.
 
@@ -76,11 +79,12 @@ Similar to how we approach React Native for mobile, we will be validating our te
 
 Although most of the development for VR will still be internal, we hope to share more as soon as we can. We also anticipate that improvements to React Native for VR will surface in open source. For example, we anticipate that projects to reduce memory usage for VR use cases will also reduce memory usage for React Native on mobile and desktop experiences.
 
-![Screenshot of Oculus Home in virtual reality](./many-platform-vision-oculus-home.png)
-
-<div class="text--center text--italic margin-bottom--lg">
-React and Relay power the Oculus Home and many other virtual reality experiences.
-</div>
+<figure>
+  <img src="/blog/assets/many-platform-vision-oculus-home.png" alt="Screenshot of Oculus Home in virtual reality" />
+  <figcaption>
+    React and Relay power the Oculus Home and many other virtual reality experiences.
+  </figcaption>
+</figure>
 
 When we reflect back on how the industry has adopted React, there has always been an appetite in the community for React on more platforms. Even before we announced React Native to the community, Netflix had already been crafting Gibbon, their custom renderer for building TV experiences with React. And before Facebook started building Messenger for desktop, [Microsoft was already using React to build native desktop experiences in Office and Windows 10](https://www.youtube.com/watch?v=IUMWFExtDSg&t=382s).
 
