@@ -2,7 +2,6 @@
 title: React Native's Many Platform Vision
 authors: [abernathyca, Eli_White, lunaleaps, yungsters]
 tags: [announcement]
-date: 2021-08-26
 ---
 
 React Native has been very successful at raising the bar for mobile development, both at Facebook and elsewhere in the industry. As we interact with computers in new ways and as new devices are invented, we want React Native to be there for everyone. Although React Native was originally created to build mobile apps, we believe that focusing on many platforms and building to each platform’s strengths and constraints has a symbiotic effect. We have seen huge benefits when we extended this technology to desktop and virtual reality, and we're excited to share what this means for the future of React Native.

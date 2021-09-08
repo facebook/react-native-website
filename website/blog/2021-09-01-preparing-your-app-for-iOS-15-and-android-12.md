@@ -2,7 +2,6 @@
 title: Preparing Your App for iOS 15 and Android 12
 authors: [SamuelSusla]
 tags: [engineering]
-date: 2021-09-01
 ---
 
 # Preparing Your App for iOS 15 and Android 12
