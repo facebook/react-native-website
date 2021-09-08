@@ -3,18 +3,18 @@ id: out-of-tree-platforms
 title: Out-of-Tree Platforms
 ---
 
-React Native is not only for Android and iOS devices - there are partners-supported and community-supported projects that bring it to other platforms, such as:
+React Native is not only for Android and iOS devices - our partners and the community maintain projects that bring React Native to other platforms, such as:
 
 **From Partners**
 
-- [React Native Windows](https://github.com/microsoft/react-native-windows) - React Native library for targeting Microsoft's Universal Windows Platform (UWP).
-- [React Native macOS](https://github.com/microsoft/react-native-macos) - React Native fork targeting macOS and Cocoa.
+- [React Native macOS](https://github.com/microsoft/react-native-macos) - React Native for macOS and Cocoa.
+- [React Native Windows](https://github.com/microsoft/react-native-windows) - React Native for Microsoft's Universal Windows Platform (UWP).
 
 **From Community**
 
-- [React Native Web](https://github.com/necolas/react-native-web) - React Native on the web using React DOM.
-- [React Native tvOS](https://github.com/react-native-tvos/react-native-tvos) - React Native fork targeting Apple TV and Android TV devices.
 - [alita](https://github.com/areslabs/alita) - An experimental, comprehensive port of React Native to mini-program (微信小程序).
+- [React Native tvOS](https://github.com/react-native-tvos/react-native-tvos) - React Native for Apple TV and Android TV devices.
+- [React Native Web](https://github.com/necolas/react-native-web) - React Native on the web using React DOM.
 - [Valence Native](https://github.com/valence-native/valence-native) - A wrapper for React Native, using Qt to target Linux, macOS, and Windows. Forked from [Proton Native](https://github.com/kusti8/proton-native) which is no longer maintained.
 
 ## Creating your own React Native platform
