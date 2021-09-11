@@ -318,10 +318,11 @@ The `Promise` will reject on Android if it was impossible to check if the URL ca
 > - If your app is linked against an earlier version of iOS but is running in iOS 9.0 or later, you can call this method up to 50 times. After reaching that limit, subsequent calls always return false. If the user reinstalls or upgrades the app, iOS resets the limit.
 >
 > As of iOS 9, your app also needs to provide the `LSApplicationQueriesSchemes` key inside `Info.plist` or `canOpenURL()` will always return `false`.
-  
+
 > When targetting Android 11 (SDK 30) you must specifiy the intents for the schemes you which to handle in `AndroidManifext.xml`. A list of common intents can be found [here](https://developer.android.com/guide/components/intents-common).
 >
 > For example to handle `https` schemes the following will need to add:
+>
 > ```
 > <manifest ...>
 >     <queries>
@@ -330,7 +331,7 @@ The `Promise` will reject on Android if it was impossible to check if the URL ca
 >             <data android:scheme="http"/>
 >         </intent>
 >     <queries>
-> </manifest> 
+> </manifest>
 > ```
 
 ---
