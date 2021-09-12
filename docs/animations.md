@@ -260,7 +260,6 @@ const App = () => {
       <View style={styles.scrollContainer}>
         <ScrollView
           horizontal={true}
-          style={styles.scrollViewStyle}
           pagingEnabled
           showsHorizontalScrollIndicator={false}
           onScroll={Animated.event([
@@ -412,7 +411,6 @@ export default class App extends Component {
         <View style={styles.scrollContainer}>
           <ScrollView
             horizontal={true}
-            style={styles.scrollViewStyle}
             pagingEnabled
             showsHorizontalScrollIndicator={false}
             onScroll={Animated.event([
