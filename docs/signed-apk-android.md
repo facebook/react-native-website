@@ -43,6 +43,8 @@ MYAPP_UPLOAD_KEY_PASSWORD=*****
 
 These are going to be global Gradle variables, which we can later use in our Gradle config to sign our app.
 
+> Note about using git: Saving the above Gradle variables in `~/.gradle/gradle.properties` instead of `android/gradle.properties` prevents them from being checked in to git. You may have to create the `~/.gradle/gradle.properties` file in your user's home directory before you can add the variables.
+
 > Note about security: If you are not keen on storing your passwords in plaintext, and you are running macOS, you can also [store your credentials in the Keychain Access app](https://pilloxa.gitlab.io/posts/safer-passwords-in-gradle/). Then you can skip the two last rows in `~/.gradle/gradle.properties`.
 
 ## Adding signing config to your app's Gradle config
