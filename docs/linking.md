@@ -321,7 +321,7 @@ The `Promise` will reject on Android if it was impossible to check if the URL ca
 
 > When targeting Android 11 (SDK 30) you must specify the intents for the schemes you which to handle in `AndroidManifext.xml`. A list of common intents can be found [here](https://developer.android.com/guide/components/intents-common).
 >
-> For example to handle `https` schemes the following will need to add:
+> For example to handle `https` schemes the following needs to be added to your manifest:
 >
 > ```
 > <manifest ...>
