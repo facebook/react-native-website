@@ -9,7 +9,7 @@ import Layout from '@theme/Layout';
 import CodeBlock from '@theme/CodeBlock';
 
 import CrossPlatformSVG from '../../static/img/homepage/cross-platform.svg';
-import {setupDissectionAnimation} from './animations/_dissectionAnimation';
+//import {setupDissectionAnimation} from './animations/_dissectionAnimation';
 import {setupHeaderAnimations} from './animations/_headerAnimation';
 
 const textContent = {
@@ -60,9 +60,9 @@ const WelcomeScreen = () => (
 );
   `,
   forEveryone: `
-React Native lets you create truly native apps and doesn't compromise your users' experiences.
-It provides a core set of platform agnostic native components like <code>View</code>, <code>Text</code>, and <code>Image</code>
-that map directly to the platform’s native UI building blocks.
+  O React Native permite que você crie aplicativos verdadeiramente nativos e não compromete a experiência dos usuários.
+  Ele fornece um conjunto básico de componentes nativos independentes de plataforma, como <code> View </code>, <code> Text </code> e <code> Image </code>
+  que mapeiam diretamente para os blocos de construção de IU nativos da plataforma.
   `,
   crossPlatform: `
 React components wrap existing native code and interact with native APIs via
@@ -254,7 +254,7 @@ function HeaderHero() {
         columnTwo={
           <>
             <h1 className="title">React Native</h1>
-            <p className="tagline">Learn once, write&nbsp;anywhere.</p>
+            <p className="tagline">Learn once, write&nbsp;.</p>
             <div className="buttons">
               <HomeCallToAction />
             </div>
@@ -307,21 +307,11 @@ function NativeDevelopment() {
         reverse
         columnOne={
           <TextColumn
-            title="Native Development For Everyone"
+            title="Desenvolvimento Nativos para todos"
             text={textContent.forEveryone}
           />
         }
-        columnTwo={
-          <div className="dissection">
-            {[0, 1, 2, 3].map(i => (
-              <img
-                alt=""
-                key={i}
-                src={useBaseUrl(`img/homepage/dissection/${i}.png`)}
-              />
-            ))}
-          </div>
-        }
+        columnTwo={<LogoAnimation />}
       />
     </Section>
   );
@@ -516,7 +506,7 @@ function GetStarted() {
 
 const useHomePageAnimations = () => {
   useEffect(() => setupHeaderAnimations(), []);
-  useEffect(() => setupDissectionAnimation(), []);
+  //  useEffect(() => setupDissectionAnimation(), []);
 };
 
 const Index = () => {
@@ -536,15 +526,20 @@ const Index = () => {
           content="React Native · Learn once, write anywhere"
         />
       </Head>
-      <HeaderHero />
+      {/*}   <HeaderHero /> 
       <NativeApps />
-      <NativeCode />
+      <NativeCode />*/}
+
       <NativeDevelopment />
+
+      {/*
       <CrossPlatform />
+
       <FastRefresh />
       <Talks />
       <Community />
       <GetStarted />
+*/}
     </Layout>
   );
 };

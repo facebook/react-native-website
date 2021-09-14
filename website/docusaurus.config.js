@@ -160,12 +160,6 @@ module.exports = {
       style: 'dark',
       items: [
         {
-          label: 'Docs',
-          type: 'doc',
-          docId: 'getting-started',
-          position: 'right',
-        },
-        {
           label: 'Components',
           type: 'doc',
           docId: 'components-and-apis',
@@ -177,127 +171,14 @@ module.exports = {
           docId: 'accessibilityinfo',
           position: 'right',
         },
-        {
-          to: '/help',
-          label: 'Community',
-          position: 'right',
-        },
-        {
-          to: '/blog',
-          label: 'Blog',
-          position: 'right',
-        },
-        {
-          type: 'docsVersionDropdown',
-          position: 'left',
-          dropdownActiveClassDisabled: true,
-          dropdownItemsAfter: [
-            {
-              to: '/versions',
-              label: 'All versions',
-            },
-          ],
-        },
-        {
-          href: 'https://github.com/facebook/react-native',
-          'aria-label': 'GitHub repository',
-          position: 'right',
-          className: 'navbar-github-link',
-        },
       ],
     },
     image: 'img/logo-og.png',
     footer: {
       style: 'dark',
-      links: [
-        {
-          title: 'Docs',
-          items: [
-            {
-              label: 'Getting Started',
-              to: 'docs/getting-started',
-            },
-            {
-              label: 'Tutorial',
-              to: 'docs/tutorial',
-            },
-            {
-              label: 'Components and APIs',
-              to: 'docs/components-and-apis',
-            },
-            {
-              label: 'More Resources',
-              to: 'docs/more-resources',
-            },
-          ],
-        },
-        {
-          title: 'Community',
-          items: [
-            {
-              label: 'The React Native Community',
-              to: 'help',
-            },
-            {
-              label: "Who's using React Native?",
-              to: 'showcase',
-            },
-            {
-              label: 'Ask Questions on Stack Overflow',
-              to: 'https://stackoverflow.com/questions/tagged/react-native',
-            },
-            {
-              label: 'Contributor Guide',
-              to:
-                'https://github.com/facebook/react-native/blob/master/CONTRIBUTING.md',
-            },
-            {
-              label: 'DEV Community',
-              to: 'https://dev.to/t/reactnative',
-            },
-          ],
-        },
-        {
-          title: 'Find us',
-          items: [
-            {
-              label: 'Blog',
-              to: 'blog',
-            },
-            {
-              label: 'Twitter',
-              href: 'https://twitter.com/reactnative',
-            },
-            {
-              label: 'GitHub',
-              href: 'https://github.com/facebook/react-native',
-            },
-          ],
-        },
-        {
-          title: 'More',
-          items: [
-            {
-              label: 'React',
-              href: 'https://reactjs.org/',
-            },
-            {
-              label: 'Privacy Policy',
-              to: 'https://opensource.facebook.com/legal/privacy',
-            },
-            {
-              label: 'Terms of Service',
-              href: 'https://opensource.facebook.com/legal/terms',
-            },
-          ],
-        },
-      ],
-      logo: {
-        alt: 'Facebook Open Source Logo',
-        src: 'img/oss_logo.png',
-        href: 'https://opensource.facebook.com',
-      },
-      copyright: `Copyright © ${new Date().getFullYear()} Facebook, Inc.`,
+      links: [],
+      logo: {},
+      copyright: `-`,
     },
     algolia: {
       apiKey: '2c98749b4a1e588efec53b2acec13025',
