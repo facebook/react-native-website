@@ -303,7 +303,7 @@ Determine whether or not an installed app can handle a given URL.
 
 The method returns a `Promise` object. When it is determined whether or not the given URL can be handled, the promise is resolved and the first parameter is whether or not it can be opened.
 
-The `Promise` will reject on Android if it was impossible to check if the URL can be opened, and on iOS if you didn't add the specific scheme in the `LSApplicationQueriesSchemes` key inside `Info.plist` (see bellow).
+The `Promise` will reject on Android if it was impossible to check if the URL can be opened or when targetting Android 11 (SDK 30) if you didn't specify the relevant intent queries in `AndroidManifest.xml`. Similarly on iOS, the promise will reject if you didn't add the specific scheme in the `LSApplicationQueriesSchemes` key inside `Info.plist` (see bellow).
 
 **Parameters:**
 
@@ -318,6 +318,21 @@ The `Promise` will reject on Android if it was impossible to check if the URL ca
 > - If your app is linked against an earlier version of iOS but is running in iOS 9.0 or later, you can call this method up to 50 times. After reaching that limit, subsequent calls always return false. If the user reinstalls or upgrades the app, iOS resets the limit.
 >
 > As of iOS 9, your app also needs to provide the `LSApplicationQueriesSchemes` key inside `Info.plist` or `canOpenURL()` will always return `false`.
+
+> When targeting Android 11 (SDK 30) you must specify the intents for the schemes you which to handle in `AndroidManifext.xml`. A list of common intents can be found [here](https://developer.android.com/guide/components/intents-common).
+>
+> For example to handle `https` schemes the following needs to be added to your manifest:
+>
+> ```
+> <manifest ...>
+>     <queries>
+>         <intent>
+>             <action android:name="android.intent.action.VIEW" />
+>             <data android:scheme="https"/>
+>         </intent>
+>     <queries>
+> </manifest>
+> ```
 
 ---
 
