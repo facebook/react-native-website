@@ -161,6 +161,16 @@ If the rounded border is not visible, try applying `overflow: 'hidden'` as well.
 
 ---
 
+### `cornerSmoothing` <div class="label ios">iOS</div>
+
+On iOS 13+, it is possible to change the corner curve to have a smoother behavior.
+
+| Type |
+| ---- |
+| bool |
+
+---
+
 ### `borderRightColor`
 
 | Type               |
