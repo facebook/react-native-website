@@ -198,6 +198,18 @@ In order to integrate existing Native UI elements to your React Native app, you 
 `MyFragment.java`
 
 ```java
+// replace with your package
+package com.mypackage;
+
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.fragment.app.Fragment;
+
+// replace with your view's import
+import com.mypackage.CustomView;
+
 public class MyFragment extends Fragment {
     CustomView customView;
 
@@ -243,7 +255,28 @@ public class MyFragment extends Fragment {
 `MyViewManager.java`
 
 ```java
- public class MyViewManager extends ViewGroupManager<FrameLayout> {
+// replace with your package
+package com.mypackage;
+
+import android.view.Choreographer;
+import android.view.View;
+import android.widget.FrameLayout;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentActivity;
+
+import com.facebook.react.bridge.ReactApplicationContext;
+import com.facebook.react.bridge.ReadableArray;
+import com.facebook.react.common.MapBuilder;
+import com.facebook.react.uimanager.annotations.ReactProp;
+import com.facebook.react.uimanager.annotations.ReactPropGroup;
+import com.facebook.react.uimanager.ViewGroupManager;
+import com.facebook.react.uimanager.ThemedReactContext;
+
+import java.util.Map;
+
+public class MyViewManager extends ViewGroupManager<FrameLayout> {
 
   public static final String REACT_CLASS = "MyViewManager";
   public final int COMMAND_CREATE = 1;
@@ -297,8 +330,8 @@ public class MyFragment extends Fragment {
    * Replace your React Native view with a custom fragment
    */
   public void createFragment(FrameLayout root, int reactNativeViewId) {
-    View parentView = (ViewGroup) root.findViewById(reactNativeViewId).getParent();
-    setupLayout((ViewGroup) parentView);
+    ViewGroup parentView = (ViewGroup) root.findViewById(reactNativeViewId).getParent();
+    setupLayout(parentView);
 
     final MyFragment myFragment = new MyFragment();
     FragmentActivity activity = (FragmentActivity) reactContext.getCurrentActivity();
@@ -308,9 +341,6 @@ public class MyFragment extends Fragment {
             .commit();
   }
 
-  /**
-   * Setup layout
-   */
   public void setupLayout(View view) {
     Choreographer.getInstance().postFrameCallback(new Choreographer.FrameCallback() {
       @Override
@@ -343,6 +373,16 @@ public class MyFragment extends Fragment {
 `MyPackage.java`
 
 ```java
+// replace with your package
+package com.mypackage;
+
+import com.facebook.react.ReactPackage;
+import com.facebook.react.bridge.ReactApplicationContext;
+import com.facebook.react.uimanager.ViewManager;
+
+import java.util.Arrays;
+import java.util.List;
+
 public class MyPackage implements ReactPackage {
 
    @Override
