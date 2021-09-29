@@ -142,14 +142,6 @@ const lastVersion = versions[0];
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      announcementBar: {
-        id: 'survey-2021-announcement',
-        content:
-          'We want to hear from you! <a href="https://surveys.savanta.com/survey/selfserve/21e3/210643?list=2" target="_blank" rel="noopener noreferrer">Take the 2021 React Community Survey!</a>',
-        backgroundColor: '#20232a', // var(--deepdark)
-        textColor: '#fff',
-        isCloseable: true,
-      },
       prism: {
         defaultLanguage: 'jsx',
         theme: require('./core/PrismTheme'),
