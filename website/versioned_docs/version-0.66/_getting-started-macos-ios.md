@@ -109,7 +109,7 @@ You should see your new app running in the iOS Simulator shortly.
 
 `npx react-native run-ios` is one way to run your app. You can also run it directly from within Xcode.
 
-> If you can't get this to work, see the [Troubleshooting](troubleshooting.md#content) page.
+> If you can't get this to work, see the [Troubleshooting](troubleshooting.md) page.
 
 ### Running on a device
 
