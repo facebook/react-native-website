@@ -25,7 +25,7 @@ We recommend installing JDK using [Homebrew](http://brew.sh/). Run the following
 brew install --cask adoptopenjdk/openjdk/adoptopenjdk11
 ```
 
-If you have already installed JDK on your system, make sure it is JDK 8 or newer.
+If you have already installed JDK on your system, make sure it is JDK 11 or newer.
 
 <h3>Android development environment</h3>
 
