@@ -689,7 +689,7 @@ Use in conjunction with `snapToOffsets`. By default, the beginning of the list c
 
 ### `stickyHeaderHiddenOnScroll`
 
-When true, Sticky header is hidden when scrolling down, and dock at the top when scrolling up.
+When set to `true`, sticky header will be hidden when scrolling down the list, and it will dock at the top of the list when scrolling up.
 
 | Type | Default |
 | ---- | ------- |
