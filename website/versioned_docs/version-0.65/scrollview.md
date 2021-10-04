@@ -683,7 +683,7 @@ When true, Sticky header is hidden when scrolling down, and dock at the top when
 
 | Type | Default |
 | ---- | ------- |
-| bool | `false`  |
+| bool | `false` |
 
 ---
 
