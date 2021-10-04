@@ -82,7 +82,7 @@ They say a picture is worth 1,000 words. How many words is an interactive visual
 
 Alrighty. Now that we know what we are building and how the animation works, we can get down to the code — the reason you are really here.
 
-The main piece of this puzzle is [MaskedViewIOS](/docs/0.63/maskedviewios), a core React Native component.
+The main piece of this puzzle is [MaskedViewIOS](https://reactnative.dev/docs/0.63/maskedviewios), a core React Native component.
 
 ```jsx
 import { MaskedViewIOS } from 'react-native';
