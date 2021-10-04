@@ -53,7 +53,7 @@ const lastVersion = versions[0];
           editCurrentVersion: true,
           onlyIncludeVersions:
             process.env.PREVIEW_DEPLOY === 'true'
-              ? ['current', ...versions.slice(0, 3)]
+              ? ['current', ...versions.slice(0, 2)]
               : undefined,
           versions: {
             [lastVersion]: {
