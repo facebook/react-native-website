@@ -518,12 +518,12 @@ private void sendEvent(ReactContext reactContext,
 }
 @ReactMethod
 public void addListener(String eventName) {
- // Keep: Required for RN built in Event Emitter Calls.
+  // Set up any upstream listeners or background tasks as necessary
 }
 
 @ReactMethod
 public void removeListeners(Integer count) {
- // Keep: Required for RN built in Event Emitter Calls.
+  // Remove upstream listeners, stop unnecessary background tasks
 }
 ...
 WritableMap params = Arguments.createMap();
