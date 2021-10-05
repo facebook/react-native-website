@@ -687,6 +687,16 @@ Use in conjunction with `snapToOffsets`. By default, the beginning of the list c
 
 ---
 
+### `stickyHeaderHiddenOnScroll`
+
+When set to `true`, sticky header will be hidden when scrolling down the list, and it will dock at the top of the list when scrolling up.
+
+| Type | Default |
+| ---- | ------- |
+| bool | `false` |
+
+---
+
 ### `stickyHeaderIndices`
 
 An array of child indices determining which children get docked to the top of the screen when scrolling. For example, passing `stickyHeaderIndices={[0]}` will cause the first child to be fixed to the top of the scroll view. You can also use like [x,y,z] to make multiple items sticky when they are at the top. This property is not supported in conjunction with `horizontal={true}`.
