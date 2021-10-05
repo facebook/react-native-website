@@ -13,7 +13,8 @@ This is a controlled component that requires an `onValueChange` callback that up
 
 ```SnackPlayer name=CheckBox%20Component%20Example&supportedPlatforms=android,web
 import React, { useState } from "react";
-import { CheckBox, Text, StyleSheet, View } from "react-native";
+import { Text, StyleSheet, View } from "react-native";
+import CheckBox from '@react-native-community/checkbox';
 
 const App = () => {
   const [isSelected, setSelection] = useState(false);
