@@ -398,3 +398,4 @@ You have built a great app using React Native, and you are now itching to releas
 
 </TabItem>
 </Tabs>
+If you have any inquiry, don't hesitate to ask, there are many intellectuals from React Native that will help you
