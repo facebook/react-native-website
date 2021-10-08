@@ -95,6 +95,8 @@ A `HermesInternal` global variable will be available in JavaScript that can be u
 const isHermes = () => !!global.HermesInternal;
 ```
 
+> If you are using a non-standard way of loading the JS bundle, it is possible that the `HermesInternal` variable is available but you aren't using the highly optimised pre-compiled bytecode. Confirm that you are using the `.hbc` file and also benchmark the before/after as detailed below.
+
 To see the benefits of Hermes, try making a release build/deployment of your app to compare. For example:
 
 ```shell
