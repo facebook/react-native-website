@@ -89,7 +89,7 @@ If you've recently created a new app from scratch, you should see if Hermes is e
 
 ![Where to find JS engine status in AwesomeProject](/docs/assets/HermesApp.jpg)
 
-A `HermesInternal` global variable will be available in JavaScript that can be used to verify that Hermes is in use*:
+A `HermesInternal` global variable will be available in JavaScript that can be used to verify that Hermes is in use:
 
 ```jsx
 const isHermes = () => !!global.HermesInternal;
