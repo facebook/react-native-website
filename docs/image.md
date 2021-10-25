@@ -184,7 +184,7 @@ export default DisplayAnImageWithStyle;
 
 When building your own native code, GIF and WebP are not supported by default on Android.
 
-You will need to add some optional modules in `android/app/build.gradle`, depending on the needs of your app.
+You will need to add some optional modules in `android/app/build.gradle`, depending on the needs of your app. 
 
 ```groovy
 dependencies {
@@ -202,6 +202,8 @@ dependencies {
   implementation 'com.facebook.fresco:webpsupport:2.5.0'
 }
 ```
+
+> Note: the version listed above may not be updated in time. Please check [`ReactAndroid/gradle.properties`](https://github.com/facebook/react-native/blob/0.66-stable/ReactAndroid/gradle.properties) in the main repo to see which fresco version is being used in a specific tagged version.
 
 ---
 
