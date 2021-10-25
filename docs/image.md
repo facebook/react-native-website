@@ -184,7 +184,7 @@ export default DisplayAnImageWithStyle;
 
 When building your own native code, GIF and WebP are not supported by default on Android.
 
-You will need to add some optional modules in `android/app/build.gradle`, depending on the needs of your app. 
+You will need to add some optional modules in `android/app/build.gradle`, depending on the needs of your app.
 
 ```groovy
 dependencies {
