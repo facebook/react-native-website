@@ -9,7 +9,7 @@ With that in mind we exposed many of these features as independent static librar
 
 For most of the libs it will be as quick as dragging two files, sometimes a third step will be necessary, but no more than that.
 
-_All the libraries we ship with React Native live on the `Libraries` folder in the root of the repository. Some of them are pure JavaScript, and you only need to `require` it. Other libraries also rely on some native code, in that case you'll have to add these files to your app, otherwise the app will throw an error as soon as you try to use the library._
+_All the libraries we ship with React Native live in the `Libraries` folder in the root of the repository. Some of them are pure JavaScript, and you only need to `require` it. Other libraries also rely on some native code, in that case you'll have to add these files to your app, otherwise the app will throw an error as soon as you try to use the library._
 
 ## Here are the few steps to link your libraries that contain native code
 
