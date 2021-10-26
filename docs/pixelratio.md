@@ -31,7 +31,7 @@ In React Native, everything in JavaScript and within the layout engine works wit
 
 ```SnackPlayer name=PixelRatio%20Example
 import React from "react";
-import { Image, PixelRatio, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
+import { Image, PixelRatio, ScrollView, StyleSheet, Text, View } from "react-native";
 
 const size = 50;
 const cat = {
@@ -73,9 +73,7 @@ const App = () => (
 
 const styles = StyleSheet.create({
   scrollContainer: {
-    flext: 1,
-    marginTop: "2em",
-    justifyContent: "center",
+    flex: 1,
   },
   container: {
     justifyContent: "center",
