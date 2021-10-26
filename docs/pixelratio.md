@@ -73,8 +73,7 @@ const App = () => (
 
 const styles = StyleSheet.create({
   scrollContainer: {
-    flext: 1,
-    marginTop: "2em",
+    flex: 1,
     justifyContent: "center",
   },
   container: {
