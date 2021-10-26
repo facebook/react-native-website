@@ -8,6 +8,11 @@ Since [we announced Hermes in 2019](https://engineering.fb.com/2019/07/12/androi
 
 <!--truncate-->
 
+<!-- alex ignore host -->
+<!-- alex ignore just -->
+<!-- alex ignore fellowship -->
+<!-- alex ignore White -->
+
 ## Optimizing for React Native
 
 Hermes’s defining feature is how it performs compilation work ahead-of-time, meaning that React Native apps with Hermes enabled ship with precompiled optimized bytecode instead of plain JavaScript source. This drastically reduces the amount of work needed to start up your product for users. Measurements from both Facebook and community apps have suggested that enabling Hermes often cut a product’s TTI (or [Time-To-Interactive](https://web.dev/interactive/)) metric by nearly half.
@@ -28,7 +33,7 @@ Startup time of applications is critical to the success of many apps, and we are
 
 In addition to startup performance, we identified memory footprint as an opportunity for improvement in React Native apps especially for [virtual reality.](https://reactnative.dev/blog/2021/08/26/many-platform-vision#expanding-to-new-platforms) Thanks to the low-level control we have as a JavaScript engine, we were able to deliver rounds of memory optimizations by squeezing bits and bytes out:
 
-1. Previously, all JavaScript values were represented as 64-bit NaN-boxing encoded tagged values to easily represent floating point doubles and pointers on 64-bit architecture. However, this is wasteful in practice because most numbers are small integers (SMI) and JavaScript heap of client-side applications is not expected to be larger than 4GiB generally. To address this, we introduced a new 32-bit encoding in which SMI and pointers are encoded in 29 bits (because pointers are 8-byte aligned, we can assume the bottom 3 bits are always zero), and the rest of JS numbers are boxed onto the heap. **This reduced the JavaScript heap size by ~30%.**
+1. Previously, all JavaScript values were represented as 64-bit NaN-boxing encoded tagged values to represent floating point doubles and pointers on 64-bit architecture. However, this is wasteful in practice because most numbers are small integers (SMI) and JavaScript heap of client-side applications is not expected to be larger than 4GiB generally. To address this, we introduced a new 32-bit encoding in which SMI and pointers are encoded in 29 bits (because pointers are 8-byte aligned, we can assume the bottom 3 bits are always zero), and the rest of JS numbers are boxed onto the heap. **This reduced the JavaScript heap size by ~30%.**
 2. Different kinds of JavaScript objects are represented as different kinds of GC-managed cells in the JavaScript heap. By aggressively optimizing the memory layout of headers for those cells, **we are able to reduce memory usage by another ~15%**.
 
 One of our key decisions with Hermes was to not implement a [just-in-time (JIT) compiler](https://en.wikipedia.org/wiki/Just-in-time_compilation) because we believe that for most React Native apps, the additional warm-up costs and extra footprints on binary and memory would not actually be worthwhile. For years, we invested a lot of effort in optimizing interpreter performance and compiler optimizations to make Hermes’s throughput competitive with other engines for React Native workloads. We are continuing to focus on improving throughput by identifying performance bottlenecks from everywhere (interpreter dispatch loop, stack layout, object model, GC, etc.). Expect some more numbers in upcoming releases!
