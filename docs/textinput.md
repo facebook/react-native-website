@@ -571,7 +571,7 @@ Invoked on content scroll. May also contain other properties from `ScrollEvent` 
 
 ### `onSelectionChange`
 
-Callback that is called when the text input selection is changed. This prop requires `multiline={true}` to be set.
+Callback that is called when the text input selection is changed.
 
 | Type                                                       |
 | ---------------------------------------------------------- |

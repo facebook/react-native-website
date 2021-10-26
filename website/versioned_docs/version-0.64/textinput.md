@@ -547,7 +547,7 @@ Invoked on content scroll with `{ nativeEvent: { contentOffset: { x, y } } }`. M
 
 ### `onSelectionChange`
 
-Callback that is called when the text input selection is changed. This will be called with `{ nativeEvent: { selection: { start, end } } }`. This prop requires `multiline={true}` to be set.
+Callback that is called when the text input selection is changed. This will be called with `{ nativeEvent: { selection: { start, end } } }`.
 
 | Type     |
 | -------- |
