@@ -73,7 +73,7 @@ We acknowledge there are still blockers that prevent parts of the community from
 
 In summary, our vision is to make Hermes ready to be the default JavaScript engine across all React Native platforms. We’ve already started working towards it, and we want to hear from all of you about this direction.
 
-It’s extremely important for us to prepare the ecosystem for a smooth adoption. We encourage you to try out Hermes, and file issues on our [Github repository](https://github.com/facebook/hermes) for any feedbacks, questions, feature requests and incompatibilities.
+It’s extremely important for us to prepare the ecosystem for a smooth adoption. We encourage you to try out Hermes, and file issues on our [GitHub repository](https://github.com/facebook/hermes) for any feedbacks, questions, feature requests and incompatibilities.
 
 ## Thanks
 
