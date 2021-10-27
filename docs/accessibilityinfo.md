@@ -203,6 +203,16 @@ This value is set in "Time to take action (Accessibility timeout)" of "Accessibi
 
 ---
 
+### `isAccessibilityServiceEnabled()` <div class="label android">Android</div>
+
+```jsx
+static isAccessibilityServiceEnabled()
+```
+
+Query whether any accessibility service is enabled. This is used mainly for checking if third-party assistive technologies are enabled.
+
+---
+
 ### `isBoldTextEnabled()` <div class="label ios">iOS</div>
 
 ```jsx
