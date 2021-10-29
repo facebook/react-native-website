@@ -207,10 +207,10 @@ This value is set in "Time to take action (Accessibility timeout)" of "Accessibi
 ### `isAccessibilityServiceEnabled()` <div class="label android">Android</div>
 
 ```jsx
-static isAccessibilityServiceEnabled()
+static isAccessibilityServiceEnabled(): Promise<boolean>
 ```
 
-Check the status of TalkBack like [isScreenReaderEnabled](#isscreenreaderenabled), and also check if Android features like "Select to Speak" and third-party apps that use accessibility services are enabled. Returns a promise which resolves to a boolean. The result is `true` when some accessibility services is enabled and `false` otherwise.
+Check whether any accessibility service is enabled. This includes TalkBack but also any third-party accessibility app that may be installed. To only check whether TalkBack is enabled, use [isScreenReaderEnabled](#isscreenreaderenabled). Returns a promise which resolves to a boolean. The result is `true` when some accessibility services is enabled and `false` otherwise.
 
 > **Note**: Please use [isScreenReaderEnabled](#isscreenreaderenabled) if you only want to check the status of TalkBack.
 
