@@ -142,7 +142,7 @@ export default App;
 
 ## iOS
 
-On iOS you can specify any number of buttons. Each button can optionally specify a style, available options are represented by the [AlertButtonStyle](#alertbuttonstyle-ios) enum.
+On iOS you can specify any number of buttons. Each button can optionally specify a style or be emphasized, available options are represented by the [AlertButtonStyle](#alertbuttonstyle-ios) enum and the `isPreferred` field on [Buttons](alert#buttons).
 
 ## Android
 
@@ -284,7 +284,7 @@ An iOS Alert type.
 
 ### Buttons
 
-Array of objects containg Alert buttons configuration.
+Array of objects containing Alert buttons configuration.
 
 | Type             |
 | ---------------- |
@@ -292,11 +292,12 @@ Array of objects containg Alert buttons configuration.
 
 **Objects properties:**
 
-| Name                                   | Type                                           | Description                                             |
-| -------------------------------------- | ---------------------------------------------- | ------------------------------------------------------- |
-| text                                   | string                                         | Button label.                                           |
-| onPress                                | function                                       | Callback function when button is pressed.               |
-| style <div class="label ios">iOS</div> | [AlertButtonStyle](alert#alertbuttonstyle-ios) | Button style, on Android this property will be ignored. |
+| Name                                         | Type                                           | Description                                                                    |
+| -------------------------------------------- | ---------------------------------------------- | ------------------------------------------------------------------------------ |
+| text                                         | string                                         | Button label.                                                                  |
+| onPress                                      | function                                       | Callback function when button is pressed.                                      |
+| style <div class="label ios">iOS</div>       | [AlertButtonStyle](alert#alertbuttonstyle-ios) | Button style, on Android this property will be ignored.                        |
+| isPreferred <div class="label ios">iOS</div> | boolean                                        | Whether button should be emphasized, on Android this property will be ignored. |
 
 ---
 
