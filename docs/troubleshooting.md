@@ -109,4 +109,8 @@ Issue caused by the number of directories [inotify](https://github.com/guard/lis
 echo fs.inotify.max_user_watches=582222 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 ```
 
+### Error: spawnSync ./gradlew EACCES
+
+if you run into issue where running `npm run android` on mac throws the above error, try to run `sudo chmod 755 android/gradlew` command to make gradlew files into executable. Which help code to give a run. 
+
 [metro]: https://facebook.github.io/metro/
