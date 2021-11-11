@@ -173,7 +173,8 @@ If everything is set up correctly, you should see your new app running in your A
 
 `npx react-native run-android` is one way to run your app - you can also run it directly from within Android Studio.
 
-> If you are getting `Error: spawnSync ./gradlew EACCES`. run `sudo chmod 755 android/gradlew` to makes gradlew files into executable. Which help code to give a run. 
+> If you are getting `Error: spawnSync ./gradlew EACCES`. run `sudo chmod 755 android/gradlew` to makes gradlew files into executable. Which help code to give a run
+ 
 > If you can't get this to work, see the [Troubleshooting](troubleshooting.md) page.
 
 <h3>Modifying your app</h3>
