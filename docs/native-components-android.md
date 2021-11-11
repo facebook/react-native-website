@@ -195,7 +195,7 @@ In order to integrate existing Native UI elements to your React Native app, you 
 
 ## 1. Create an example custom view
 
-which extends `FrameLayout` (the content of this view can be any view that you'd like to render)
+First, let's create a `CustomView` class which extends `FrameLayout` (the content of this view can be any view that you'd like to render)
 
 `CustomView.java`
 
