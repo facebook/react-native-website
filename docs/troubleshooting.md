@@ -111,6 +111,6 @@ echo fs.inotify.max_user_watches=582222 | sudo tee -a /etc/sysctl.conf && sudo s
 
 ### Error: spawnSync ./gradlew EACCES
 
-if you run into issue where running `npm run android` on mac throws the above error, try to run `sudo chmod 755 android/gradlew` command to make gradlew files into executable.
+If you run into issue where running `npm run android` on mac throws the above error, try to run `sudo chmod +x android/gradlew` command to make gradlew files into executable.
 
 [metro]: https://facebook.github.io/metro/
