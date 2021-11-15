@@ -497,7 +497,7 @@ And you set individual values inside the state object by passing an object with 
 />
 ```
 
-> Do not change your component's state directly by assigning it a new value with `this.state.hunger = false`. Calling `this.setState()` allows React to track changes made to state that trigger rerendering. Setting state directly can break your app's reactivity!
+> Do not change your component's state directly by assigning it a new value with `this.state.isHungry = false`. Calling `this.setState()` allows React to track changes made to state that trigger rerendering. Setting state directly can break your app's reactivity!
 
 When `this.state.isHungry` is false, the `Button`’s `disabled` prop is set to `true` and its `title` also changes:
 
