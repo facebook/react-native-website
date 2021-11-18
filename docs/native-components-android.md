@@ -193,7 +193,39 @@ var RCTMyCustomView = requireNativeComponent(`RCTMyCustomView`);
 
 In order to integrate existing Native UI elements to your React Native app, you might need to use Android Fragments to give you a more granular control over your native component than returning a `View` from your `ViewManager`. You will need this if you want to add custom logic that is tied to your view with the help of [lifecycle methods](https://developer.android.com/guide/fragments/lifecycle), such as `onViewCreated`, `onPause`, `onResume`. The following steps will show you how to do it:
 
-## 1. Create a `Fragment`
+## 1. Create an example custom view
+
+First, let's create a `CustomView` class which extends `FrameLayout` (the content of this view can be any view that you'd like to render)
+
+`CustomView.java`
+
+```java
+package com.mypackage;
+
+import android.content.Context;
+import android.graphics.Color;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+
+public class CustomView extends FrameLayout {
+  public CustomView(@NonNull Context context) {
+    super(context);
+    // set padding and background color
+    this.setPadding(16,16,16,16);
+    this.setBackgroundColor(Color.parseColor("#5FD3F3"));
+
+    // add default text view
+    TextView text = new TextView(context);
+    text.setText("Welcome to Android Fragments with React Native.");
+    this.addView(text);
+  }
+}
+```
+
+## 2. Create a `Fragment`
 
 `MyFragment.java`
 
@@ -216,7 +248,7 @@ public class MyFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
         super.onCreateView(inflater, parent, savedInstanceState);
-        customView = new CustomView();
+        customView = new CustomView(this.getContext());
         return customView; // this CustomView could be any view that you want to render
     }
 
@@ -250,7 +282,7 @@ public class MyFragment extends Fragment {
 }
 ```
 
-## 2. Create the `ViewManager` subclass
+## 3. Create the `ViewManager` subclass
 
 `MyViewManager.java`
 
@@ -280,6 +312,8 @@ public class MyViewManager extends ViewGroupManager<FrameLayout> {
 
   public static final String REACT_CLASS = "MyViewManager";
   public final int COMMAND_CREATE = 1;
+  private int propWidth;
+  private int propHeight;
 
   ReactApplicationContext reactContext;
 
@@ -326,11 +360,22 @@ public class MyViewManager extends ViewGroupManager<FrameLayout> {
     }
   }
 
+  @ReactPropGroup(names = {"width", "height"}, customType = "Style")
+  public void setStyle(FrameLayout view, int index, Integer value) {
+    if (index == 0) {
+      propWidth = value;
+    }
+
+    if (index == 1) {
+      propHeight = value;
+    }
+  }
+
   /**
    * Replace your React Native view with a custom fragment
    */
   public void createFragment(FrameLayout root, int reactNativeViewId) {
-    ViewGroup parentView = (ViewGroup) root.findViewById(reactNativeViewId).getParent();
+    ViewGroup parentView = (ViewGroup) root.findViewById(reactNativeViewId);
     setupLayout(parentView);
 
     final MyFragment myFragment = new MyFragment();
@@ -368,7 +413,7 @@ public class MyViewManager extends ViewGroupManager<FrameLayout> {
   }
 ```
 
-## 3. Register the `ViewManager`
+## 4. Register the `ViewManager`
 
 `MyPackage.java`
 
@@ -395,7 +440,7 @@ public class MyPackage implements ReactPackage {
 }
 ```
 
-## 4. Register the `Package`
+## 5. Register the `Package`
 
 `MainApplication.java`
 
@@ -409,7 +454,7 @@ public class MyPackage implements ReactPackage {
     }
 ```
 
-## 5. Implement the JavaScript module
+## 6. Implement the JavaScript module
 
 I. `MyViewManager.jsx`
 
@@ -436,7 +481,7 @@ const createFragment = (viewId) =>
     [viewId]
   );
 
-export const MyView = ({ style }) => {
+export const MyView = () => {
   const ref = useRef(null);
 
   useEffect(() => {
@@ -447,9 +492,10 @@ export const MyView = ({ style }) => {
   return (
     <MyViewManager
       style={{
-        ...(style || {}),
-        height: style && style.height !== undefined ? style.height || '100%',
-        width: style && style.width !== undefined ? style.width || '100%'
+        // converts dpi to px, provide desired height
+        height: PixelRatio.getPixelSizeForLayoutSize(200),
+        // converts dpi to px, provide desired width
+        width: PixelRatio.getPixelSizeForLayoutSize(200)
       }}
       ref={ref}
     />
