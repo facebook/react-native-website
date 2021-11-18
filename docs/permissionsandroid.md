@@ -174,6 +174,11 @@ Available as constants under `PermissionsAndroid.PERMISSIONS`:
 - `BLUETOOTH_SCAN`: 'android.permission.BLUETOOTH_SCAN'
 - `BLUETOOTH_ADVERTISE`: 'android.permission.BLUETOOTH_ADVERTISE'
 - `ACCESS_MEDIA_LOCATION`: 'android.permission.ACCESS_MEDIA_LOCATION'
+- `ACCEPT_HANDOVER`: 'android.permission.ACCEPT_HANDOVER'
+- `ACTIVITY_RECOGNITION`: 'android.permission.ACTIVITY_RECOGNITION'
+- `ANSWER_PHONE_CALLS`: 'android.permission.ANSWER_PHONE_CALLS'
+- `READ_PHONE_NUMBERS`: 'android.permission.READ_PHONE_NUMBERS'
+- `UWB_RANGING`: 'android.permission.UWB_RANGING'
 
 ### Result strings for requesting permissions
 
