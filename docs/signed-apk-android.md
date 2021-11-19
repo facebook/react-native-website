@@ -9,9 +9,9 @@ Android requires that all apps be digitally signed with a certificate before the
 
 You can generate a private signing key using `keytool`. On Windows `keytool` must be run from `C:\Program Files\Java\jdkx.x.x_x\bin`.
 
-    keytool -genkeypair -v -storetype PKCS12 -keystore my-upload-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000
+    keytool -genkeypair -v -storetype PKCS12 -keystore my-upload-key.jks -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000
 
-This command prompts you for passwords for the keystore and key and for the Distinguished Name fields for your key. It then generates the keystore as a file called `my-upload-key.keystore`.
+This command prompts you for passwords for the keystore and key and for the Distinguished Name fields for your key. It then generates the keystore as a file called `my-upload-key.jks`.
 
 The keystore contains a single key, valid for 10000 days. The alias is a name that you will use later when signing your app, so remember to take note of the alias.
 
@@ -25,7 +25,7 @@ It will output the directory of the JDK, which will look something like this:
 
 Navigate to that directory by using the command `cd /your/jdk/path` and use the keytool command with sudo permission as shown below.
 
-    sudo keytool -genkey -v -keystore my-upload-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000
+    sudo keytool -genkey -v -keystore my-upload-key.jks -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000
 
 > Note: Remember to keep the keystore file private. In case you've lost upload key or it's been compromised you should [follow these instructions](https://support.google.com/googleplay/android-developer/answer/7384423#reset).
 
@@ -35,7 +35,7 @@ Navigate to that directory by using the command `cd /your/jdk/path` and use the 
 2. Edit the file `~/.gradle/gradle.properties` or `android/gradle.properties`, and add the following (replace `*****` with the correct keystore password, alias and key password),
 
 ```
-MYAPP_UPLOAD_STORE_FILE=my-upload-key.keystore
+MYAPP_UPLOAD_STORE_FILE=my-upload-key.jks
 MYAPP_UPLOAD_KEY_ALIAS=my-key-alias
 MYAPP_UPLOAD_STORE_PASSWORD=*****
 MYAPP_UPLOAD_KEY_PASSWORD=*****
