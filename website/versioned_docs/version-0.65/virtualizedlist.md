@@ -586,7 +586,6 @@ Valid `params` keys are:
 
 - 'animated' (boolean) - Whether the list should do an animation while scrolling. Defaults to `true`.
 
-
 ---
 
 ### `scrollToIndex()`
