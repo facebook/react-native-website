@@ -571,12 +571,20 @@ hasMore () => boolean;
 ### `scrollToEnd()`
 
 ```jsx
-scrollToEnd((params: object));
-
-Valid `params` consist of:
-
-- 'animated' (boolean). Optional default is true.
+scrollToEnd(([options]: { animated: boolean }));
 ```
+
+Scrolls to the end of the content. May be janky without `getItemLayout` prop.
+
+**Parameters:**
+
+| Name   | Type   |
+| ------ | ------ |
+| params | object |
+
+Valid `params` keys are:
+
+- 'animated' (boolean) - Whether the list should do an animation while scrolling. Defaults to `true`.
 
 ---
 
