@@ -13,7 +13,7 @@ App Transport Security is a security feature introduced in iOS 9 that rejects al
 
 You should re-enable ATS prior to building your app for production by removing the `localhost` entry from the `NSExceptionDomains` dictionary and setting `NSAllowsArbitraryLoads` to `false` in your `Info.plist` file in the `ios/` folder. You can also re-enable ATS from within Xcode by opening your target properties under the Info pane and editing the App Transport Security Settings entry.
 
-> If your application needs to access HTTP resources on production, see [this post](http://ste.vn/2015/06/10/configuring-app-transport-security-ios-9-osx-10-11/) to learn how to configure ATS on your project.
+> If your application needs to access HTTP resources on production, learn how to configure ATS on your project.
 
 ### 2. Configure release scheme
 
