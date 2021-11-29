@@ -117,8 +117,8 @@ The `showcase.json` file contains the list of users that are highlighted in the 
 
 ### Create a branch
 
-1.  `git checkout master` from any folder in your local `react-native-website` repository.
-1.  `git pull origin master` to ensure you have the latest main code.
+1.  `git checkout main` from any folder in your local `react-native-website` repository.
+1.  `git pull origin main` to ensure you have the latest main code.
 1.  `git checkout -b the-name-of-my-branch` to create a branch.
     > replace `the-name-of-my-branch` with a suitable name, such as `update-animations-page`
 
