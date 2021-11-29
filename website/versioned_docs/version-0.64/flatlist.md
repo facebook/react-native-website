@@ -610,7 +610,7 @@ Tells the list an interaction has occurred, which should trigger viewability cal
 ### `scrollToEnd()`
 
 ```jsx
-scrollToEnd(params);
+scrollToEnd(([options]: { animated: boolean }));
 ```
 
 Scrolls to the end of the content. May be janky without `getItemLayout` prop.

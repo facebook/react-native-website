@@ -40,37 +40,6 @@ There are a few performance operations designed to make ListView scroll smoothly
 
 - Rate-limited row rendering - By default, only one row is rendered per event-loop (customizable with the `pageSize` prop). This breaks up the work into smaller chunks to reduce the chance of dropping frames while rendering rows.
 
-### Props
-
-- [ScrollView props...](scrollview.md#props)
-
-* [`dataSource`](listview.md#datasource)
-* [`initialListSize`](listview.md#initiallistsize)
-* [`onEndReachedThreshold`](listview.md#onendreachedthreshold)
-* [`pageSize`](listview.md#pagesize)
-* [`renderRow`](listview.md#renderrow)
-* [`renderScrollComponent`](listview.md#renderscrollcomponent)
-* [`scrollRenderAheadDistance`](listview.md#scrollrenderaheaddistance)
-* [`stickyHeaderIndices`](listview.md#stickyheaderindices)
-* [`enableEmptySections`](listview.md#enableemptysections)
-* [`renderHeader`](listview.md#renderheader)
-* [`onEndReached`](listview.md#onendreached)
-* [`stickySectionHeadersEnabled`](listview.md#stickysectionheadersenabled)
-* [`renderSectionHeader`](listview.md#rendersectionheader)
-* [`renderSeparator`](listview.md#renderseparator)
-* [`onChangeVisibleRows`](listview.md#onchangevisiblerows)
-* [`removeClippedSubviews`](listview.md#removeclippedsubviews)
-* [`renderFooter`](listview.md#renderfooter)
-
-### Methods
-
-- [`getMetrics`](listview.md#getmetrics)
-- [`scrollTo`](listview.md#scrollto)
-- [`scrollToEnd`](listview.md#scrolltoend)
-- [`flashScrollIndicators`](listview.md#flashscrollindicators)
-
----
-
 # Reference
 
 ## Props
@@ -280,14 +249,12 @@ See `ScrollView#scrollTo`.
 ### `scrollToEnd()`
 
 ```jsx
-scrollToEnd(([options]: object));
+scrollToEnd(([options]: { animated: boolean }));
 ```
 
 If this is a vertical ListView scrolls to the bottom. If this is a horizontal ListView scrolls to the right.
 
 Use `scrollToEnd({animated: true})` for smooth animated scrolling, `scrollToEnd({animated: false})` for immediate scrolling. If no options are passed, `animated` defaults to true.
-
-See `ScrollView#scrollToEnd`.
 
 ---
 

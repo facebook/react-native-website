@@ -449,8 +449,20 @@ Set this when offset is needed for the loading indicator to show correctly.
 ### `scrollToEnd()`
 
 ```jsx
-scrollToEnd(([params]: object));
+scrollToEnd(([options]: { animated: boolean }));
 ```
+
+Scrolls to the end of the content. May be janky without `getItemLayout` prop.
+
+**Parameters:**
+
+| Name   | Type   |
+| ------ | ------ |
+| params | object |
+
+Valid `params` keys are:
+
+- 'animated' (boolean) - Whether the list should do an animation while scrolling. Defaults to `true`.
 
 ---
 
