@@ -178,9 +178,9 @@ This is a convenience wrapper around [`<VirtualizedList>`](virtualizedlist.md), 
 
 ## Props
 
-### [ScrollView Props](scrollview.md#props)
+### [VirtualizedList Props](virtualizedlist.md#props)
 
-Inherits [ScrollView Props](scrollview.md#props).
+Inherits [VirtualizedList Props](virtualizedlist.md#props).
 
 ---
 
