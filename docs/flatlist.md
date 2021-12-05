@@ -249,7 +249,7 @@ Rendered in between each item, but not at the top or bottom. By default, `highli
 
 | Type      |
 | --------- |
-| component |
+| function  |
 
 ---
 
