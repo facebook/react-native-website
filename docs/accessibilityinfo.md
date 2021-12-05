@@ -179,17 +179,27 @@ Add an event handler. Supported events:
 ### `announceForAccessibility()`
 
 ```jsx
-static announceForAccessibility(announcement, queue)
+static announceForAccessibility(announcement)
 ```
 
-Post a string to be announced by the screen reader. By default the announcement will interrupt any existing speech, but on iOS it can be queued behind existing speech by setting the optional property `queue` to `true`.
+Post a string to be announced by the screen reader.
+
+---
+
+### `announceForAccessibilityWithOptions()`
+
+```jsx
+static announceForAccessibilityWithOptions(announcement, options)
+```
+
+Post a string to be announced by the screen reader with modification options. By default announcements will interrupt any existing speech, but on iOS they can be queued behind existing speech by setting `queue` to `true` in the options object.
 
 **Parameters:**
 
-| Name                                                          | Type    | Description                                                       |
-| ------------------------------------------------------------- | ------- | ----------------------------------------------------------------- |
-| announcement <div class="label basic required">Required</div> | string  | The string to be announced                                        |
-| queue <div class="label ios">iOS</div>                        | boolean | Queue the announcement behind existing speech (defaults to false) |
+| Name                                                          | Type   | Description                                                                              |
+| ------------------------------------------------------------- | ------ | ---------------------------------------------------------------------------------------- |
+| announcement <div class="label basic required">Required</div> | string | The string to be announced                                                               |
+| options <div class="label basic required">Required</div>      | object | `queue` - queue the announcement behind existing speech <div class="label ios">iOS</div> |
 
 ---
 
