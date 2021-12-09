@@ -56,6 +56,7 @@
       "native-components-ios",
       "direct-manipulation"
     ],
+    "The New Architecture": ["new-architecture-playbook"],
     "Guides (Android)": ["headless-js-android", "signed-apk-android"],
     "Guides (iOS)": [
       "linking-libraries-ios",
