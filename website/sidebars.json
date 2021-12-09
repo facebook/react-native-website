@@ -80,6 +80,7 @@
       "native-components-ios",
       "direct-manipulation"
     ],
+    "The New Architecture": ["new-architecture-playbook"],
     "Android and iOS guides": [
       {
         "type": "category",
