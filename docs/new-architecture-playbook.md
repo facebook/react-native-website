@@ -1174,7 +1174,7 @@ The content of those files should be the following:
 
 Please note that the `kJavaDescriptor` should be adapted to follow the package name you picked for your project.
 
-```c++
+```cpp
 #include <memory>
 #include <string>
 
@@ -1215,7 +1215,7 @@ private:
 
 ##### MyApplicationTurboModuleManagerDelegate.cpp
 
-```c++
+```cpp
 #include "MyApplicationTurboModuleManagerDelegate.h"
 #include "MyApplicationModuleProvider.h"
 
@@ -1252,7 +1252,7 @@ bool MyApplicationTurboModuleManagerDelegate::canCreateTurboModule(std::string n
 
 ##### MyApplicationModuleProvider.h
 
-```c++
+```cpp
 #pragma once
 
 #include <memory>
@@ -1276,7 +1276,7 @@ This is the C++ generated file that is created by the codegen.
 
 Here you can also specify more than one provider, should you have more than one TurboModule. Specifically in this example we look for a TurboModule from `samplelibrary` (the one we specified) and we fallback to the `rncore` Module Provider (containing all the Core modules).
 
-```c++
+```cpp
 #include "MyApplicationModuleProvider.h"
 
 #include <rncore.h>
@@ -1300,7 +1300,7 @@ std::shared_ptr<TurboModule> MyApplicationModuleProvider(const std::string modul
 
 ##### OnLoad.cpp
 
-```c++
+```cpp
 #include <fbjni/fbjni.h>
 #include "MyApplicationTurboModuleManagerDelegate.h"
 
@@ -1797,7 +1797,7 @@ It’s now time to provide an implementation for your `MyComponentsRegistry` in 
 The file should be placed inside the `src/main/jni` folder.
 Please note that the `kJavaDescriptor` should be adapted to follow the package name you picked for your project.
 
-```c++
+```cpp
 #pragma once
 
 #include <ComponentFactory.h>
@@ -1839,7 +1839,7 @@ class MyComponentsRegistry
 
 The file should be placed inside the `src/main/jni` folder alongside `MyComponentsRegistry.h
 
-```c++
+```cpp
 #include "MyComponentsRegistry.h"
 
 #include <CoreComponentsRegistry.h>
@@ -1908,7 +1908,7 @@ void MyComponentsRegistry::registerNatives() {
 
 If you followed the TurboModule instructions, you should have a `OnLoad.cpp` file inside the `src/main/jni` folder. There you should add a line to load the `MyComponentsRegistry` class:
 
-```c++
+```cpp
 #include <fbjni/fbjni.h>
 #include "MyApplicationTurboModuleManagerDelegate.h"
 
