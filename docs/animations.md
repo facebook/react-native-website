@@ -722,7 +722,7 @@ While using transform styles such as `rotateY`, `rotateX`, and others ensure the
 
 The RNTester app has various examples of `Animated` in use:
 
-- [AnimatedGratuitousApp](https://github.com/facebook/react-native/tree/master/packages/rn-tester/js/examples/Animated/AnimatedGratuitousApp)
+- [AnimatedGratuitousApp]()
 - [NativeAnimationsExample](https://github.com/facebook/react-native/blob/master/packages/rn-tester/js/examples/NativeAnimation/NativeAnimationsExample.js)
 
 ## `LayoutAnimation` API
