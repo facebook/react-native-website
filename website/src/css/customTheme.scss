@@ -660,8 +660,8 @@ aside[class^="docSidebarContainer"] {
     @extend %scrollbar-style;
   }
 
-  .menu__list .menu__link--sublist {
-    font-size: 15px !important;
+  .menu__list .menu__link--sublist, a[class*="menuLinkText"] {
+    font-size: 16px !important;
     font-weight: 700 !important;
     padding: 5px 12px !important;
     color: var(--subtle) !important;
@@ -671,6 +671,15 @@ aside[class^="docSidebarContainer"] {
       margin-right: -6px;
       margin-top: -1px;
     }
+  }
+
+  .menu__list .menu__list .menu__link--sublist, a[class*="menuLinkText"] {
+    font-weight: 600 !important;
+    font-size: 15px !important;
+  }
+
+  .menu__list-item .menu__list-item .menu__list-item {
+    padding-left: 8px;
   }
 
   @media only screen and (max-width: 1120px) {
