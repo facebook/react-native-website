@@ -1,6 +1,6 @@
 ---
 id: new-architecture-library-android
-title: Enabling in Android Library 
+title: Enabling in Android Library
 ---
 
 Once you have defined the JavaScript specs for your native modules as part of the [prerequisites](new-architecture-library-intro) and followed the Android/Gradle setup, you are now ready to migrate your library to the new architecture. Here are the steps you can follow to accomplish this.

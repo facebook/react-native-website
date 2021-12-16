@@ -238,7 +238,7 @@ if (this._scrollView == null || viewRef == null) {
 
 this._scrollView.measure((x, y, width, height) => {
   viewRef.measureLayout(this._scrollView, successCallback);
-})
+});
 ```
 
 `findNodeHandle` can be called with any component as an argument, but the new `.measure*` can only be called on native refs. If the ref originally passed into `findNodeHandle` is not a native ref to start with, use the strategies above in _getting a HostComponent_ to find the native ref.
