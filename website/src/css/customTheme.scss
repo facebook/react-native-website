@@ -1542,6 +1542,9 @@ html[data-theme="dark"] .docsRating {
     }
 
     div[class^="sidebar"] {
+      margin-left: 0;
+      margin-right: -16px;
+
       h3 {
         font-size: 16px;
         margin-bottom: 0;
@@ -1568,7 +1571,7 @@ html[data-theme="dark"] .docsRating {
 
   .container .row .col.col--7 {
     --ifm-col-width: calc(15 / 24 * 100%);
-    padding: 24px 16px 24px 20px;
+    padding: 24px 16px 24px 32px;
 
     &:last-child {
       --ifm-col-width: calc(18 / 24 * 100%);
