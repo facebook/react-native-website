@@ -157,18 +157,18 @@ Received when the user is not actively interacting with the app. Useful in situa
 ### `addEventListener()`
 
 ```jsx
-addEventListener(type, listener);
+addEventListener(eventType, listener);
 ```
 
-Sets up a function that will be called whenever the specified event type on AppState occurs.  `type` can be one of `blur`, `change`, `focus` or `memoryWarning`.
-Returns the `EventSubscription`.
+Sets up a function that will be called whenever the specified event type on AppState occurs. Valid values for `eventType` are
+[listed above](https://reactnative.dev/docs/appstate#events).  Returns the `EventSubscription`.
 
 ---
 
 ### `removeEventListener()`
 
 ```jsx
-removeEventListener(type, listener);
+removeEventListener(eventType, listener);
 ```
 
 > **Deprecated.** Use the `remove()` method on the `EventSubscription` returned by [`addEventListener()`](#addeventlistener).
