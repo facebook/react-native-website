@@ -26,4 +26,4 @@ The playbook is divided into three sections:
   - Enabling the New Renderer (Fabric) in your App
     - [Android](new-architecture-app-rendered-android)
     - [iOS](new-architecture-app-rendered-ios)
-- **Appendix**
+- [**Appendix**](new-architecture-appendix)

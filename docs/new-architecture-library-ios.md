@@ -42,12 +42,11 @@ end
 
 > Note: Currently, the Folly version used here must match the Folly version used by React Native. A version mismatch here may lead to errors when running `pod install`. If CocoaPods flags an issue with your Folly version, then you may have a version mismatch. Check which version is used by the core modules Podspecs (e.g. FBReactNativeSpec.podspec), and try running `pod install` again after editing your podspec with the correct Folly version.
 
-### Enable codegen in your package.json
+### Enable codegen in your `package.json`
 
 At this point, you are now ready to enable code-gen support in your library. In your library’s package.json add the following:
 
-```json
-// in package.json
+```json title="package.json"
 // Please note that this format is subject to change.
 "codegenConfig": {
   "libraries": [
@@ -99,4 +98,4 @@ RCT_EXPORT_METHOD(getString:(NSString *)string
 }
 ```
 
-For an existing native module, you will likely already have one or more instances of `[RCT_EXPORT_METHOD](https://reactnative.dev/docs/native-modules-ios#export-a-native-method-to-javascript)`. To migrate to the new architecture, you’ll need to make sure the method signature makes use of the structs provided by the codegen output.
+For an existing native module, you will likely already have one or more instances of [`RCT_EXPORT_METHOD`](native-modules-ios#export-a-native-method-to-javascript). To migrate to the new architecture, you’ll need to make sure the method signature makes use of the structs provided by the codegen output.

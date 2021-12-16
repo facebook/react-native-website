@@ -110,7 +110,7 @@ dependencies {
 
 Hermes is an open-source JavaScript engine optimized for React Native. We highly recommend using Hermes in your application. With Hermes enabled, you will be able to use the JavaScript debugger in Flipper to directly debug your JavaScript code.
 
-Please [follow the instructions on the React Native website](https://reactnative.dev/docs/hermes) in order to enable Hermes in your application.
+Please [follow the instructions on the React Native website](hermes) in order to enable Hermes in your application.
 
 > iOS: If you opt out of using Hermes, you will need to replace `HermesExecutorFactory` with `JSCExecutorFactory` in any examples used throughout the rest of this playbook.
 
