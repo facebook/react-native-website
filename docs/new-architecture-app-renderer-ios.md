@@ -56,9 +56,7 @@ $ ~/yourproject/**/ios; pod install
 
 The way to render your app with Fabric depends on your setup. Here is an example of how you can enable Fabric in your app with the RN_FABRIC_ENABLED compiler flag to enable/disable. Refer[RN-Tester’s AppDelegate](https://github.com/facebook/react-native/blob/main/packages/rn-tester/RNTester/AppDelegate.mm) as an example.
 
-```objc
-// AppDelegate.mm
-
+```objc title="AppDelegate.mm"
 #ifdef RN_FABRIC_ENABLED
 #import <React/RCTFabricSurfaceHostingProxyRootView.h>
 #import <React/RCTSurfacePresenter.h>
@@ -100,8 +98,7 @@ The way to render your app with Fabric depends on your setup. Here is an example
 
 This will trigger the codegen that will run at the metro building time.
 
-```javascript
-// babel.config.js
+```javascript title="babel.config.js"
 module.exports = {
   presets: ['module:metro-react-native-babel-preset'],
   plugins: [

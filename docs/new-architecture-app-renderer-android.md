@@ -125,9 +125,8 @@ export default (codegenNativeComponent<NativeProps>(
 
 4. **[Flow users]** Make sure your native component has Flow types for its props, since the JS codegen uses these types to generate the type-safe native implementation of the component. The codegen generates C++ classes during the build time, which guarantees that the native implementation is always up-to-date with its JS interface. Use [these c++ compatible types](https://github.com/facebook/react-native/blob/main/Libraries/Types/CodegenTypes.js#L28-L30).
 
-```javascript
-// RNTMyNativeViewNativeComponent.js
-import type {Int32} from 'react-native/Libraries/Types/CodegenTypes';;
+```javascript title="RNTMyNativeViewNativeComponent.js"
+import type {Int32} from 'react-native/Libraries/Types/CodegenTypes';
 import codegenNativeComponent from 'react-native/Libraries/Utilities/codegenNativeComponent';
 import type {HostComponent} from 'react-native';
 import type {ViewProps} from 'react-native/Libraries/Components/View/ViewPropTypes';
@@ -303,7 +302,7 @@ It’s now time to provide an implementation for your `MyComponentsRegistry` in 
 The file should be placed inside the `src/main/jni` folder.
 Please note that the `kJavaDescriptor` should be adapted to follow the package name you picked for your project.
 
-```cpp
+```cpp title="MyComponentsRegistry.h"
 #pragma once
 
 #include <ComponentFactory.h>
@@ -345,7 +344,7 @@ class MyComponentsRegistry
 
 The file should be placed inside the `src/main/jni` folder alongside `MyComponentsRegistry.h
 
-```cpp
+```cpp title="MyComponentsRegistry.cpp"
 #include "MyComponentsRegistry.h"
 
 #include <CoreComponentsRegistry.h>
@@ -414,7 +413,7 @@ void MyComponentsRegistry::registerNatives() {
 
 If you followed the TurboModule instructions, you should have a `OnLoad.cpp` file inside the `src/main/jni` folder. There you should add a line to load the `MyComponentsRegistry` class:
 
-```cpp
+```cpp title="OnLoad.cpp"
 #include <fbjni/fbjni.h>
 #include "MyApplicationTurboModuleManagerDelegate.h"
 
