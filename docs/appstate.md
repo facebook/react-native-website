@@ -160,7 +160,7 @@ Received when the user is not actively interacting with the app. Useful in situa
 addEventListener(type, handler);
 ```
 
-Add a handler to AppState changes by listening to the `change` event type and providing the handler
+Add a handler to AppState changes by listening to the `change` event type.  Returns the `EventSubscription`.
 
 ---
 
@@ -170,7 +170,7 @@ Add a handler to AppState changes by listening to the `change` event type and pr
 removeEventListener(type, handler);
 ```
 
-> **Deprecated.** Use the `remove()` method on the event subscription returned by [`addEventListener()`](#addeventlistener).
+> **Deprecated.** Use the `remove()` method on the `EventSubscription` returned by [`addEventListener()`](#addeventlistener).
 
 ## Properties
 
