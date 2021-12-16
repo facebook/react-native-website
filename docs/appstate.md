@@ -157,17 +157,18 @@ Received when the user is not actively interacting with the app. Useful in situa
 ### `addEventListener()`
 
 ```jsx
-addEventListener(type, handler);
+addEventListener(type, listener);
 ```
 
-Add a handler to AppState changes by listening to the `change` event type.  Returns the `EventSubscription`.
+Sets up a function that will be called whenever the specified event type on AppState occurs.  `type` can be one of `blur`, `change`, `focus` or `memoryWarning`.
+Returns the `EventSubscription`.
 
 ---
 
 ### `removeEventListener()`
 
 ```jsx
-removeEventListener(type, handler);
+removeEventListener(type, listener);
 ```
 
 > **Deprecated.** Use the `remove()` method on the `EventSubscription` returned by [`addEventListener()`](#addeventlistener).
