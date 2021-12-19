@@ -161,7 +161,7 @@ addEventListener(eventType, listener);
 ```
 
 Sets up a function that will be called whenever the specified event type on AppState occurs. Valid values for `eventType` are
-[listed above](https://reactnative.dev/docs/appstate#events).  Returns the `EventSubscription`.
+[listed above](#events). Returns the `EventSubscription`.
 
 ---
 
