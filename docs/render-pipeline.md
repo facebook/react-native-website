@@ -1,5 +1,5 @@
 ---
-id: rendering
+id: render-pipeline
 title: Render, Commit, and Mount
 ---
 
