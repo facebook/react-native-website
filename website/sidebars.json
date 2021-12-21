@@ -166,9 +166,12 @@
   "architecture": {
     "Architecture": [
       "architecture-overview",
-      "rendering",
-      "fabric-renderer",
-      "rendering-implementation",
+      {
+        "type": "category",
+        "label": "Rendering",
+        "collapsed": false,
+        "items": ["fabric-renderer", "rendering", "rendering-implementation"]
+      },
       "glossary"
     ]
   }
