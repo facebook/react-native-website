@@ -162,5 +162,14 @@
       "rect",
       "viewtoken"
     ]
+  },
+  "architecture": {
+    "Architecture": [
+      "architecture-overview",
+      "rendering",
+      "fabric-renderer",
+      "rendering-implementation",
+      "glossary"
+    ]
   }
 }
