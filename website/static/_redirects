@@ -4,7 +4,7 @@
 /docs/android-setup             /docs/getting-started
 /docs/building-for-apple-tv     /docs/building-for-tv
 /docs/building-from-source      https://github.com/facebook/react-native/wiki/Building-from-source
-/docs/contributing              https://github.com/facebook/react-native/blob/master/CONTRIBUTING.md
+/docs/contributing              https://github.com/facebook/react-native/blob/main/CONTRIBUTING.md
 /docs/maintainers               https://github.com/facebook/react-native/wiki/
 /docs/publishing-forks          https://github.com/facebook/react-native/wiki/Building-from-source#publish-your-own-version-of-react-native
 /docs/testing                   https://github.com/facebook/react-native/wiki/Tests

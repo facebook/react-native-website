@@ -16,7 +16,7 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import con
 
 ```SnackPlayer name=Systrace%20Function%20Component%20Example
 import React from "react";
-import { Button, Text, View, StyleSheet, Systrace } from "react-native";
+import { Button, Text, View, SafeAreaView, StyleSheet, Systrace } from "react-native";
 
 const App = () =>  {
 
@@ -31,11 +31,13 @@ const App = () =>  {
   }
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Text style={[styles.header, styles.paragraph]}>React Native Systrace API</Text>
+    <View style={styles.buttonRow}>
       <Button title="Capture the non-Timed JS events in EasyProfiler" onPress={()=> enableProfiling()}/>
       <Button title="Stop capturing" onPress={()=> stopProfiling()} color="#FF0000"/>
     </View>
+    </SafeAreaView>
   );
 }
 
@@ -55,7 +57,13 @@ const styles = StyleSheet.create({
   },
   paragraph: {
     margin: 24,
+    fontSize: 25,
     textAlign: "center"
+  },
+  buttonRow: {
+    flexBasis: 150,
+    marginVertical: 16,
+    justifyContent: 'space-evenly'
   }
 });
 
@@ -67,7 +75,7 @@ export default App;
 
 ```SnackPlayer name=Systrace%20Class%20Component%20Example
 import React, { Component } from "react";
-import { Button, Text, View, StyleSheet, Systrace } from "react-native";
+import { Button, Text, View, SafeAreaView, StyleSheet, Systrace } from "react-native";
 
 class App extends Component {
 
@@ -83,11 +91,13 @@ class App extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <Text style={[styles.header, styles.paragraph]}>React Native Systrace API</Text>
+      <View style={styles.buttonRow}>
         <Button title="Capture the non-Timed JS events in EasyProfiler" onPress={()=> this.enableProfiling()}/>
         <Button title="Stop capturing" onPress={()=> this.stopProfiling()} color="#FF0000"/>
       </View>
+      </SafeAreaView>
     );
   }
 }
@@ -108,7 +118,13 @@ const styles = StyleSheet.create({
   },
   paragraph: {
     margin: 24,
+    fontSize: 25,
     textAlign: "center"
+  },
+  buttonRow: {
+    flexBasis: 150,
+    marginVertical: 16,
+    justifyContent: 'space-evenly'
   }
 });
 

@@ -69,7 +69,7 @@ const Versions = () => {
           <code>react-native-releases</code>
         </a>{' '}
         repository. At the beginning of each month, a new release candidate is
-        created off the master branch of{' '}
+        created off the <code>main</code> branch of{' '}
         <a href={'https://github.com/facebook/react-native'}>
           <code>facebook/react-native</code>
         </a>

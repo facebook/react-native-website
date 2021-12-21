@@ -16,7 +16,7 @@ AppState is frequently used to determine the intent and proper behavior when han
   - in another app
   - on the home screen
   - [Android] on another `Activity` (even if it was launched by your app)
-- [iOS] `inactive` - This is a state that occurs when transitioning between foreground & background, and during periods of inactivity such as entering the Multitasking view or in the event of an incoming call
+- [iOS] `inactive` - This is a state that occurs when transitioning between foreground & background, and during periods of inactivity such as entering the multitasking view, opening the Notification Center or in the event of an incoming call.
 
 For more information, see [Apple's documentation](https://developer.apple.com/documentation/uikit/app_and_scenes/managing_your_app_s_life_cycle)
 
@@ -144,33 +144,34 @@ This event is received when the app state has changed. The listener is called wi
 
 This event is used in the need of throwing memory warning or releasing it.
 
-### `focus`
+### `focus` <div class="label android">Android</div>
 
-[Android only] Received when the app gains focus (the user is interacting with the app).
+Received when the app gains focus (the user is interacting with the app).
 
-### `blur`
+### `blur` <div class="label android">Android</div>
 
-[Android only] Received when the user is not actively interacting with the app. Useful in situations when the user pulls down the [notification drawer](https://developer.android.com/guide/topics/ui/notifiers/notifications#bar-and-drawer). `AppState` won't change but the `blur` event will get fired.
+Received when the user is not actively interacting with the app. Useful in situations when the user pulls down the [notification drawer](https://developer.android.com/guide/topics/ui/notifiers/notifications#bar-and-drawer). `AppState` won't change but the `blur` event will get fired.
 
 ## Methods
 
 ### `addEventListener()`
 
 ```jsx
-addEventListener(type, handler);
+addEventListener(eventType, listener);
 ```
 
-Add a handler to AppState changes by listening to the `change` event type and providing the handler
+Sets up a function that will be called whenever the specified event type on AppState occurs. Valid values for `eventType` are
+[listed above](#events). Returns the `EventSubscription`.
 
 ---
 
 ### `removeEventListener()`
 
 ```jsx
-removeEventListener(type, handler);
+removeEventListener(eventType, listener);
 ```
 
-> **Deprecated.** Use the `remove()` method on the event subscription returned by [`addEventListener()`](#addeventlistener).
+> **Deprecated.** Use the `remove()` method on the `EventSubscription` returned by [`addEventListener()`](#addeventlistener).
 
 ## Properties
 

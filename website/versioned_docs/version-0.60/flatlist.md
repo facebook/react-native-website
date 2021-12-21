@@ -578,7 +578,7 @@ List of `ViewabilityConfig`/`onViewableItemsChanged` pairs. A specific `onViewab
 ### `scrollToEnd()`
 
 ```jsx
-scrollToEnd([params]);
+scrollToEnd(([options]: { animated: boolean }));
 ```
 
 Scrolls to the end of the content. May be janky without `getItemLayout` prop.

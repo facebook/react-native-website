@@ -660,7 +660,3 @@ Set text break strategy on Android API Level 23+, possible values are `simple`, 
 | ------ | --------------------------------------- | -------- | ----------------------------------------------------- |
 | lines  | array of [TextLayout](text#textlayout)s | No       | Provides the TextLayout data for every rendered line. |
 | target | number                                  | No       | The node id of the element.                           |
-
-## Known issues
-
-- [react-native#22811](https://github.com/facebook/react-native/issues/22811): Nested Text elements do not support `numberOfLines` attribute
