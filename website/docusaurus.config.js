@@ -163,7 +163,7 @@ const lastVersion = versions[0];
         style: 'dark',
         items: [
           {
-            label: 'Docs',
+            label: 'Guides',
             type: 'doc',
             docId: 'getting-started',
             position: 'right',
