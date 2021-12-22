@@ -170,7 +170,13 @@
         "type": "category",
         "label": "Rendering",
         "collapsed": false,
-        "items": ["fabric-renderer", "rendering", "rendering-implementation"]
+        "items": [
+          "fabric-renderer",
+          "render-pipeline",
+          "xplat-implementation",
+          "view-flattening",
+          "threading-model"
+        ]
       },
       "glossary"
     ]
