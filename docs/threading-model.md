@@ -38,7 +38,7 @@ Let’s review the supported scenarios of execution for each phase:
 
 [Image: Case 5.jpg]
 
-- **C++ State update: \*\*** \*\*Update originating on UI thread and skips rendering phase. See [Fabric State Updates](rendering#fabric-state-updates) for more details.
+- **C++ State update: \*\*** \*\*Update originating on UI thread and skips rendering phase. See [Fabric State Updates](render-pipeline#fabric-state-updates) for more details.
 
 [Image: State update.jpg]
 Fabric is designed to be thread safe. At a high level thread safety is guaranteed by using immutable data structures in the internals of the framework (actually enforced by C++ “const correctness” feature). This means that every update in React needs to create or clone new objects in Fabric instead of updating data structures. This allows the framework to expose thread safe and synchronous APIs to React.

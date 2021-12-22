@@ -13,7 +13,7 @@ The render pipeline can be broken into three general phases:
 2. **Commit**: After a React Shadow Tree is fully created, the Fabric Renderer triggers a commit. This **promotes** both the React Element Tree and the newly created React Shadow Tree as the “next tree” to be mounted. This also schedules calculation of its layout information.
 3. **Mount:** The React Shadow Tree, now with the results of layout calculation, is transformed into a _Host View Tree_.
 
-> The phases of the render pipeline may occur on different threads. Refer to the [Threading Model](rendering-implementation#threading-model) doc for more detail.
+> The phases of the render pipeline may occur on different threads. Refer to the [Threading Model](threading-model) doc for more detail.
 
 [Image: Data flow.jpg]
 The render pipeline is executed in three different scenarios:
@@ -77,7 +77,7 @@ The mount phase transforms the _React Shadow Tree_ (which now contains data from
 At a high level, Fabric creates a corresponding _Host View_ for each _React Shadow Nod\*\*e_ and mounts it on screen. In the example above, Fabric creates an instance of `android.view.ViewGroup` for the `<View>` and `android.widget.TextView` for `<Text>` and populates it with “Hello World”. Similarly for iOS a `UIView` is created with and text is populated with a call to `NSLayoutManager`. Each host view is then configured to use props from its React Shadow Node, and its size and position is configured using the calculated layout information.
 [Image: image.png]In more detail, the mounting phase consists of these three steps:
 
-- **Tree Diffing:** This step computes the diff between the “previously rendered tree” and the “next tree” entirely in C++. The result is a list of atomic mutation operations to be performed on host views (e.g. `createView`, `updateView`, `removeView`, `deleteView`, etc). This step is also where the React Shadow Tree is flattened to avoid creating unnecessary host views. See [View Flattening](rendering-implementation#view-flattening) for details about this algorithm.
+- **Tree Diffing:** This step computes the diff between the “previously rendered tree” and the “next tree” entirely in C++. The result is a list of atomic mutation operations to be performed on host views (e.g. `createView`, `updateView`, `removeView`, `deleteView`, etc). This step is also where the React Shadow Tree is flattened to avoid creating unnecessary host views. See [View Flattening](view-flattening) for details about this algorithm.
 - **Tree Promotion (Next Tree → Rendered Tree)**: This step atomically promotes the “next tree” to “previously rendered tree” so that the next mount phase computes a diff against the proper tree.
 - **View Mounting**: This step applies the atomic mutation operations onto corresponding host views. This step executes in the host platform on UI thread.
 
