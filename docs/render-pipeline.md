@@ -3,7 +3,7 @@ id: render-pipeline
 title: Render, Commit, and Mount
 ---
 
-> This document refers to the architecture of the [new renderer](fabric-renderer) that is in active roll-out.
+> This document refers to the architecture of the [Fabric, the new renderer](fabric-renderer) that is in active roll-out.
 
 The React Native renderer goes through a sequence of work to render React logic to a host platform. This sequence of work is called the render pipeline and occurs for initial renders and updates to the UI state. This document goes over the render pipeline and how it differs in those scenarios.
 

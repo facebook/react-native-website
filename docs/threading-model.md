@@ -3,7 +3,13 @@ id: threading-model
 title: Threading Model
 ---
 
-The phases of the Render process of Fabric can be executed on different threads. Fabric uses three different threads.
+> This document refers to the architecture of the new renderer, [Fabric](fabric-renderer), that is in active roll-out.
+
+#### The React Native renderer distributes the work of the [render pipeline](render-pipeline) across multiple threads.
+
+Here we define the threading model and provide some examples to illustrate thread usage of the render pipeline.
+
+The renderer uses three different threads:
 
 - UI (often called main) thread. The only thread that can manipulate host views.
 - JavaScript thread. This is where React’s render phase is executed.

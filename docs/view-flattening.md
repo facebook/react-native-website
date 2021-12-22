@@ -3,6 +3,10 @@ id: view-flattening
 title: View Flattening
 ---
 
+> This document refers to the architecture of the the new renderer, [Fabric](fabric-renderer), that is in active roll-out.
+
+#### View Flattening is an optimization by the React Native renderer to avoid deep layout trees.
+
 The React API is designed to be declarative and reusable through composition; this is great for product developers because they can focus on what they want to render instead of how to render on the screen. However, in practice, these qualities of the API lead to the creation of deep React Element Trees, where a large majority of their Nodes only affect the layout of a View and don’t render anything on the screen, we call these types of nodes “Layout-Only” Nodes.
 
 Conceptually, each of the Nodes of the _React Element Tree_ have a 1-1 relationship with a view on the screen, therefore rendering a deep React Element Tree that is composed by a big amount of “Layout-Only” Node leads to poor performance during rendering.

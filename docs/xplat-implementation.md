@@ -3,7 +3,11 @@ id: xplat-implementation
 title: Cross Platform Implementation
 ---
 
-In the previous render system of React Native, the _React Shadow Tree_, _Layout System_, and _View Flattening_ algorithm were implemented once for each platform. The Fabric render system was designed to be a cross-platform solution which enables the implementation of all features to be shared across all platforms. The React Native team intends to incorporate an animation system into the render system and also extend the Fabric render system to new platforms such as Windows, PlayStation, and more.
+> This document refers to the architecture of the new renderer, [Fabric](fabric-renderer), that is in active roll-out.
+
+#### The React Native renderer utilizes a core render implementation to be shared across platforms
+
+In the previous render system of React Native, the _React Shadow Tree_, _Layout System_, and [View Flattening](view-flattening.md) algorithm were implemented once for each platform. The React Native render system was designed to be a cross-platform solution which enables the implementation of all features to be shared across all platforms. The React Native team intends to incorporate an animation system into the render system and also extend the Fabric render system to new platforms such as Windows, PlayStation, and more.
 
 Leveraging C++ for the core render system introduces several advantages. A single implementation reduces the cost of development and maintenance. It improves the performance of creating _React Shadow Trees_ and layout calculation because the overhead of integrating Yoga with Fabric is minimized on Android (i.e. no more JNI for Yoga). Finally, the memory footprint of each _React Shadow Node_ is smaller in C++ than it would be if allocated from Kotlin or Swift.
 The team is also leveraging C++ features that enforce immutability to ensure there are no issues related to concurrent access to shared but not protected resources.
