@@ -163,7 +163,7 @@ const lastVersion = versions[0];
         style: 'dark',
         items: [
           {
-            label: 'Docs',
+            label: 'Guides',
             type: 'doc',
             docId: 'getting-started',
             position: 'right',
@@ -178,6 +178,12 @@ const lastVersion = versions[0];
             label: 'API',
             type: 'doc',
             docId: 'accessibilityinfo',
+            position: 'right',
+          },
+          {
+            label: 'Architecture',
+            type: 'doc',
+            docId: 'architecture-overview',
             position: 'right',
           },
           {
