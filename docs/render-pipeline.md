@@ -15,13 +15,15 @@ The render pipeline can be broken into three general phases:
 
 > The phases of the render pipeline may occur on different threads. Refer to the [Threading Model](threading-model) doc for more detail.
 
-[Image: image.png]
+![React Native renderer Data flow](/docs/assets/Architecture/renderer-pipeline/data-flow.jpg)
 
 The render pipeline is executed in three different scenarios:
 
 1. [Initial Render](#initial-render)
 2. [React State Updates](#react-state-updates)
 3. [Fabric State Updates](#fabric-state-updates)
+
+---
 
 ### Initial Render
 
@@ -41,6 +43,8 @@ function MyComponent() {
 
 In the example above, `<MyComponent />` is a [React Element](glossary#react-element-tree-and-react-element). React recursively reduces this _React Element_ to a terminal [React Host Component](glossary#host-view-tree-and-host-view) by invoking it (or its `render` method if implemented with a JavaScript class) until every _React Element_ cannot be reduced any further. Now you have a _React Element Tree_ of [React Host Components](glossary#react-host-components-or-host-components).
 
+![Phase one: render](/docs/assets/Architecture/renderer-pipeline/phase-one-render.png)
+
 During this process of element reduction, as each _React Element_ is invoked, the renderer also synchronously creates a [React Shadow Node](glossary#react-shadow-tree-and-react-shadow-node). This happens only for _React Host Components_, not for [React Composite Components](glossary#react-composite-components). In the example above, the `<View>` leads to the creation of a `ViewShadowNode` object, and the
 `<Text>` leads to the creation of a `TextShadowNode` object. Notably, there is never a _React Shadow Node_ that directly represents `<MyComponent>`.
 
@@ -54,14 +58,17 @@ Whenever React creates a parent-child relationship between two _React Element No
 
 In the example above, the result of the render phase looks like this:
 
-[Image: image.png]
+![Step one](/docs/assets/Architecture/renderer-pipeline/render-pipeline-1.png)
 
 After the _React Shadow Tree_ is complete, the renderer triggers a commit of the _React Element Tree_.
+
+![Phase two: commit](/docs/assets/Architecture/renderer-pipeline/phase-two-commit.png)
+
 The commit phase consists of two operations: _Layout Calculation_ and _Tree Promotion_.
 
 - **Layout Calculation:** This operation calculates the position and size of each _React Shadow Node_. In React Native, this involves invoking Yoga to calculate the layout of each _React Shadow Node_. The actual calculation requires each _React Shadow Node_’s styles which originate from a _React Element_ in JavaScript. It also requires the layout constraints of the root of the _React Shadow Tree_, which determines the amount of available space that the resulting nodes can occupy.
 
-[Image: image.png]
+![Step two](/docs/assets/Architecture/renderer-pipeline/render-pipeline-2.png)
 
 - **Tree Promotion (New Tree → Next Tree):** This operation promotes the new _React Shadow Tree_ as the “next tree” to be mounted. This promotion indicates that the new _React Shadow Tree_ has all the information to be mounted and represents the latest state of the _React Element Tree_. The “next tree” mounts on the next “tick” of the UI Thread.
 
@@ -69,6 +76,8 @@ The commit phase consists of two operations: _Layout Calculation_ and _Tree Prom
 
 - These operations are asynchronously executed on a background thread.
 - Majority of layout calculation executes entirely within C++. However, the layout calculation of some components depend on the _host platform_ (e.g. `Text`, `TextInput`, etc.). Size and position of text is specific to each _host platform_ and needs to be calculated on the _host platform_ layer. For this purpose, Yoga invokes a function defined in the _host platform_ to calculate the component’s layout.
+
+![Phase two: commit](/docs/assets/Architecture/renderer-pipeline/phase-three-mount.png)
 
 The mount phase transforms the _React Shadow Tree_ (which now contains data from layout calculation) into a _Host_ _View Tree_ with rendered pixels on the screen. As a reminder, the _React Element Tree_ looks like this:
 
@@ -80,7 +89,7 @@ The mount phase transforms the _React Shadow Tree_ (which now contains data from
 
 At a high level, React Native renderer creates a corresponding [Host View](glossary#host-view-tree-and-host-view) for each _React Shadow Node_ and mounts it on screen. In the example above, Fabric creates an instance of `android.view.ViewGroup` for the `<View>` and `android.widget.TextView` for `<Text>` and populates it with “Hello World”. Similarly for iOS a `UIView` is created with and text is populated with a call to `NSLayoutManager`. Each host view is then configured to use props from its React Shadow Node, and its size and position is configured using the calculated layout information.
 
-[Image: image.png]
+![Step two](/docs/assets/Architecture/renderer-pipeline/render-pipeline-3.png)
 
 In more detail, the mounting phase consists of these three steps:
 
@@ -94,6 +103,8 @@ In more detail, the mounting phase consists of these three steps:
 - Scheduling, implementation, and execution of the mounting phase heavily depends on the _host platform_. For example, the renderer architecture of the mounting layer currently differs between Android and iOS.
 - During the initial render, the “previously rendered tree” is empty. As such, the tree diffing step will result in a list of mutation operations that consists only of creating views, setting props, and adding views to each other. Tree diffing becomes more important for performance when processing [React State Updates](#react-state-updates).
 - In current production tests, a _React Shadow Tree_ typically consists of about 600-1000 _React Shadow Nodes_ (before view flattening), the trees get reduced to ~200 nodes after view flattening. On iPad or desktop apps, this quantity may increase 10-fold.
+
+---
 
 ### React State Updates
 
@@ -116,7 +127,7 @@ function MyComponent() {
 
 Applying what was described in the [Initial Render](#initial-render) section, you would expect the following trees to be created:
 
-[Image: image.png]
+![Render pipeline 4](/docs/assets/Architecture/renderer-pipeline/render-pipeline-4.png)
 
 Notice that **Node 3** maps to a host view with a **red background**, and **Node 4** maps to a host view with a **blue background**. Assume that as the result of a state update in JavaScript product logic, the background of the first nested `<View>` changes from `'red'` to `'yellow'`. This is what the new _React Element Tree_ might look:
 
@@ -136,6 +147,9 @@ Notice that **Node 3** maps to a host view with a **red background**, and **Node
 When a state update occurs, the renderer needs to conceptually update the _React Element Tree_ in order to update the host views that are already mounted. But in order to preserve thread safety, both the _React Element Tree_ as well as the _React Shadow Tree_ must be immutable. This means that instead of mutating the current _React Element Tree_ and _React Shadow Tree_, React must create a new copy of each tree which incorporates the new props, styles, and children.
 
 Let’s explore each phase of the render pipeline during a state update.
+
+![Phase one: render](/docs/assets/Architecture/renderer-pipeline/phase-one-render.png)
+
 When React creates a new _React Element Tree_ that incorporates the new state, it must clone every _React Element_ and _React Shadow Node_ that is impacted by the change. After cloning, the new _React Shadow Tree_ is committed.
 
 React Native renderer leverages structural sharing to minimize the overhead of immutability. When a _React Element_ is cloned to include the new state, every _React Element_ that is on the path up to the root is cloned. **React will only clone a React Element if it requires an update to its props, style, or children.** Any _React Elements_ that are unchanged by the state update are shared by the old and new trees.
@@ -151,9 +165,12 @@ In the above example, React creates the new tree using these operations:
 
 After these operations, **Node 1'** represents the root of the new _React Element Tree_. Let's assign **T** to the “previously rendered tree” and **T'** to the “new tree”:
 
-[Image: image.png]
+![Render pipeline 5](/docs/assets/Architecture/renderer-pipeline/render-pipeline-5.png)
 
 Notice how **T** and **T'** both share **Node 4**. Structural sharing improves performance and reduces memory usage.
+
+![Phase two: commit](/docs/assets/Architecture/renderer-pipeline/phase-two-commit.png)
+
 After React creates the new _React Element Tree_ and _React Shadow Tree_, it must commit them.
 
 - **Layout Calculation:** Similar to Layout Calculation during [Initial Render](#initial-render). One important difference is that layout calculation may cause shared _React Shadow Nodes_ to be cloned. This can happen because if the parent of a shared _React Shadow Node_ incurs a layout change, the layout of the shared _React Shadow Node_ may also change.
@@ -161,11 +178,16 @@ After React creates the new _React Element Tree_ and _React Shadow Tree_, it mus
 
 - **Tree Diffing:** This step computes the diff between the “previously rendered tree” (**T**) and the “next tree” (**T'**). The result is a list of atomic mutation operations to be performed on _host views_.
   - In the above example, the operations consist of: `UpdateView(**Node 3'**, {backgroundColor: '“yellow“})`
+
+![Phase three: mount](/docs/assets/Architecture/renderer-pipeline/phase-three-mount.png)
+
 - **Tree Promotion (Next Tree → Rendered Tree)**: This step atomically promotes the “next tree” to “previously rendered tree” so that the next mount phase computes a diff against the proper tree.
   Diff can be calculated for any currently mounted tree with any new tree. The renderer can skip some intermediate versions of the tree.
 - **View Mounting**: This step applies the atomic mutation operations onto corresponding _host views_. In the above example, only the `backgroundColor` of **View 3** will be updated (to yellow).
 
-[Image: image.png]
+![Render pipeline 6](/docs/assets/Architecture/renderer-pipeline/render-pipeline-6.png)
+
+---
 
 ### Fabric State Updates
 
@@ -181,4 +203,10 @@ With two important differences:
 1. They skip the “render phase” since React is not involved.
 2. The updates can originate and happen on any thread, including the main thread.
 
+![Phase two: commit](/docs/assets/Architecture/renderer-pipeline/phase-two-commit.png)
+
 When performing a _C++ State_ update, a block of code requests an update of a `ShadowNode` (**N**) to set _C++ State_ to value **S**. React Native renderer will repeatedly attempt to get the latest committed version of **N**, clone it with a new state **S**, and commit **N’** to the tree. If React, or another _C++ State_ update, has performed another commit during this time, the _C++ State_ commit will fail and the renderer will retry the _C++ State_ update many times until a commit succeeds. This prevents source-of-truth collisions and races.
+
+![Phase three: mount](/docs/assets/Architecture/renderer-pipeline/phase-three-mount.png)
+
+The _Mount Phase_ is practically identical to the [Mount Phase of React State Updates](#react-state-updates). The renderer still needs to recompute layout perform a tree diff, etc. See above sections for details.

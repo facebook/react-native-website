@@ -15,7 +15,7 @@ Here is a common use case that is affected by the cost of "Layout Only" views.
 
 Imagine you want to render an image and a title that is handled by the `TitleComponent`, and you include this component as a child of the `ContainerComponent` that has some margin styles. After decomposing the components, the React code would look like this:
 
-```
+```jsx
 function MyComponent() {
   return (
     <View>                          // ReactAppComponent
@@ -32,7 +32,7 @@ function MyComponent() {
 
 As part of the render process, React Native will produce the following trees:
 
-[Image: image.png]
+![Diagram one](/docs/assets/Architecture/view-flattening/diagram-one.png)
 
 Note that the Views (2) and (3) are “Layout Only” views, because they are rendered on the screen but they only render a `margin` of `10 px` on top of their children.
 
@@ -42,6 +42,6 @@ The View Flattening algorithm is integrated by design as part of the diffing sta
 
 In the case of the previous example, the Views (2) and (3) would be flattened as part of the “diffing algorithm” and as a result their styles will be merged into the View (1):
 
-[Image: image.png]
+![Diagram two](/docs/assets/Architecture/view-flattening/diagram-two.png)
 
 It is important to note that this optimization allows the renderer to avoid the creation and render of two host views. From the user’s perspective there are no visible changes on the screen.

@@ -19,7 +19,7 @@ The renderer uses three different threads:
 
 Let’s review the supported scenarios of execution for each phase:
 
-[Image: image.png]
+![Threading model symbols](/docs/assets/Architecture/threading-model/symbols.png)
 
 ## Render Scenarios
 
@@ -27,7 +27,7 @@ Let’s review the supported scenarios of execution for each phase:
 
 This is the most common scenario where most of the render pipeline happens on JavaScript and background thread.
 
-[Image: Case 1.jpg]
+![Threading model use case one](/docs/assets/Architecture/threading-model/case-1.jpg)
 
 ---
 
@@ -35,7 +35,7 @@ This is the most common scenario where most of the render pipeline happens on Ja
 
 When there is a high priority event on the UI Thread, the renderer is able to execute all the render pipeline synchronously on the UI thread.
 
-[Image: Case 2.jpg]
+![Threading model use case two](/docs/assets/Architecture/threading-model/case-2.jpg)
 
 ---
 
@@ -43,7 +43,7 @@ When there is a high priority event on the UI Thread, the renderer is able to ex
 
 This scenario shows the interruption of the render phase by a low priority event in the UI thread. React and the React Native renderer are able to interrupt the render phase and merge its state with a low priority event that is executed on the UI thread. In this case the render process continues executing in the background thread.
 
-[Image: Case 4.jpg]
+![Threading model use case three](/docs/assets/Architecture/threading-model/case-3.jpg)
 
 ---
 
@@ -51,7 +51,7 @@ This scenario shows the interruption of the render phase by a low priority event
 
 The render phase is interruptible. This scenario shows the interruption of the render phase by a high priority event in the UI thread. React and the renderer are able to interrupt the render phase and merge its state with a high priority event that was executed on the UI thread. The render phase executes synchronously on the UI thread.
 
-[Image: Case 3.jpg]
+![Threading model use case four](/docs/assets/Architecture/threading-model/case-4.jpg)
 
 ---
 
@@ -59,7 +59,7 @@ The render phase is interruptible. This scenario shows the interruption of the r
 
 Before background thread dispatches update to UI thread, it checks if a newer update hasn’t come in from JavaScript. This way, the renderer doesn’t render stale state when it knows a newer state is coming it.
 
-[Image: Case 5.jpg]
+![Threading model use case five](/docs/assets/Architecture/threading-model/case-5.jpg)
 
 ---
 
@@ -67,6 +67,4 @@ Before background thread dispatches update to UI thread, it checks if a newer up
 
 Update originating on UI thread and skips rendering phase. See [React Native Renderer State Updates](render-pipeline#react-native-renderer-state-updates) for more details.
 
-[Image: State update.jpg]
-
----
+![Threading model use case six](/docs/assets/Architecture/threading-model/case-6.jpg)
