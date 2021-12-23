@@ -3,7 +3,7 @@ id: fabric-renderer
 title: Fabric Rendering
 ---
 
-Fabric is React Native's new rendering system. It was designed, built, and rolled out at Meta between 2018 and 2021. It is conceptual evolution of the legacy render system. The core principles are to unify more render logic in C++, improve interoperability with [host platforms](glossary#host-platform), and to unlock new capabilities.
+Fabric is React Native's new rendering system, a conceptual evolution of the legacy render system. The core principles are to unify more render logic in C++, improve interoperability with [host platforms](glossary#host-platform), and to unlock new capabilities for React Native. Development began in 2018 and in 2021, it has been adopted by the majority of React Native surfaces at Meta.
 
 This documentation provides an overview of the [new renderer](glossary#fabric-render) and its concepts. It avoids platform specifics and doesn’t contain any code snippets or pointers. This documentation covers key concepts, motivation, benefits, and an overview of the render pipeline in different scenarios.
 
