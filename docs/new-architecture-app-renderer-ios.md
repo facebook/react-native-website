@@ -9,7 +9,7 @@ This section will go over how to enable the new renderer in your app. Make sure 
 
 Add changes to your Podfile. You can see some examples in [RNTester](https://github.com/facebook/react-native/blob/main/packages/rn-tester/Podfile) and [rn-demo-app](https://github.com/facebook/fbt/blob/rn-demo-app/ios/Podfile).
 
-```ruby
+```ruby title="Podfile"
 # Add the following line at the top of Podfile.
 # Codegen produces files/classes that share names, and it will show the warning.
 # deterministic_uuids option surpresses the warning.
