@@ -181,6 +181,12 @@ const lastVersion = versions[0];
             position: 'right',
           },
           {
+            label: 'Architecture',
+            type: 'doc',
+            docId: 'architecture-overview',
+            position: 'right',
+          },
+          {
             to: '/help',
             label: 'Community',
             position: 'right',

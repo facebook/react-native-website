@@ -676,5 +676,51 @@
         }
       ]
     }
+  ],
+  "version-0.66/architecture": [
+    {
+      "type": "category",
+      "collapsed": false,
+      "collapsible": false,
+      "label": "Architecture",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-0.66/architecture-overview"
+        },
+        {
+          "type": "category",
+          "collapsed": false,
+          "collapsible": true,
+          "label": "Rendering",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-0.66/fabric-renderer"
+            },
+            {
+              "type": "doc",
+              "id": "version-0.66/render-pipeline"
+            },
+            {
+              "type": "doc",
+              "id": "version-0.66/xplat-implementation"
+            },
+            {
+              "type": "doc",
+              "id": "version-0.66/view-flattening"
+            },
+            {
+              "type": "doc",
+              "id": "version-0.66/threading-model"
+            }
+          ]
+        },
+        {
+          "type": "doc",
+          "id": "version-0.66/glossary"
+        }
+      ]
+    }
   ]
 }

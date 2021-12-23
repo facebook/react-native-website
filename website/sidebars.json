@@ -163,22 +163,28 @@
       "viewtoken"
     ]
   },
-  "architecture": {
-    "Architecture": [
-      "architecture-overview",
-      {
-        "type": "category",
-        "label": "Rendering",
-        "collapsed": false,
-        "items": [
-          "fabric-renderer",
-          "render-pipeline",
-          "xplat-implementation",
-          "view-flattening",
-          "threading-model"
-        ]
-      },
-      "glossary"
-    ]
-  }
+  "architecture": [
+    {
+      "type": "category",
+      "label": "Architecture",
+      "collapsed": false,
+      "collapsible": false,
+      "items": [
+        "architecture-overview",
+        {
+          "type": "category",
+          "label": "Rendering",
+          "collapsed": false,
+          "items": [
+            "fabric-renderer",
+            "render-pipeline",
+            "xplat-implementation",
+            "view-flattening",
+            "threading-model"
+          ]
+        },
+        "glossary"
+      ]
+    }
+  ]
 }
