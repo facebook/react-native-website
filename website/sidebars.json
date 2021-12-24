@@ -168,12 +168,12 @@
       "type": "category",
       "label": "Architecture",
       "collapsed": false,
-      "collapsible": false,
       "items": [
         "architecture-overview",
         {
           "type": "category",
           "label": "Rendering",
+          "collapsible": false,
           "collapsed": false,
           "items": [
             "fabric-renderer",
@@ -183,7 +183,7 @@
             "threading-model"
           ]
         },
-        "glossary"
+        "architecture-glossary"
       ]
     }
   ]
