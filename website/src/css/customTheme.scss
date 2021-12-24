@@ -664,7 +664,8 @@ aside[class^="docSidebarContainer"] {
     @extend %scrollbar-style;
   }
 
-  .menu__list .menu__link--sublist, a[class*="menuLinkText"] {
+  .menu__list .menu__link--sublist,
+  a[class*="menuLinkText"] {
     font-size: 16px !important;
     font-weight: 700 !important;
     padding: 5px 12px !important;
@@ -677,7 +678,8 @@ aside[class^="docSidebarContainer"] {
     }
   }
 
-  .menu__list .menu__list .menu__link--sublist, a[class*="menuLinkText"] {
+  .menu__list .menu__list .menu__link--sublist,
+  a[class*="menuLinkText"] {
     font-weight: 600 !important;
     font-size: 15px !important;
   }
