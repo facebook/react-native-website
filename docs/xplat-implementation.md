@@ -11,7 +11,7 @@ In the previous render system of React Native, the **[React Shadow Tree](glossar
 
 <!--TODO: Does the below paragraph makes sense to keep?-->
 
-The React Native team intends to incorporate an animation system into the render system and also extend the React Native render system to new platforms such as Windows, PlayStation, and more.
+The React Native team intends to incorporate an animation system into the render system and also extend the React Native render system to new platforms such as Windows, and operating systems in game consoles, televisions, and more.
 
 Leveraging C++ for the core render system introduces several advantages. A single implementation reduces the cost of development and maintenance. It improves the performance of creating React Shadow Trees and layout calculation because the overhead of integrating [Yoga](glossary#yoga-tree-and-yoga-node) with the renderer is minimized on Android (i.e. no more [JNI](glossary#java-native-interface-jni) for Yoga). Finally, the memory footprint of each React Shadow Node is smaller in C++ than it would be if allocated from Kotlin or Swift.
 
