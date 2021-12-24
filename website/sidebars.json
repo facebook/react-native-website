@@ -30,6 +30,7 @@
       {
         "type": "category",
         "label": "Connectivity",
+        "collapsible": false,
         "collapsed": false,
         "items": ["network", "security"]
       }
@@ -43,6 +44,7 @@
       {
         "type": "category",
         "label": "Interaction",
+        "collapsible": false,
         "collapsed": false,
         "items": [
           "handling-touches",
@@ -54,6 +56,7 @@
       {
         "type": "category",
         "label": "Inclusion",
+        "collapsible": false,
         "collapsed": false,
         "items": ["accessibility"]
       }
@@ -66,39 +69,29 @@
       "profile-hermes"
     ],
     "JavaScript Runtime": ["javascript-environment", "timers", "hermes"],
-    "Native Code": [
-      {
-        "type": "category",
-        "label": "Native Modules",
-        "collapsed": false,
-        "items": [
-          "native-modules-intro",
-          "native-modules-android",
-          "native-modules-ios",
-          "native-modules-setup"
-        ]
-      },
-      {
-        "type": "category",
-        "label": "Native Components",
-        "collapsed": false,
-        "items": [
-          "native-components-android",
-          "native-components-ios",
-          "direct-manipulation"
-        ]
-      }
+    "Native Modules": [
+      "native-modules-intro",
+      "native-modules-android",
+      "native-modules-ios",
+      "native-modules-setup"
+    ],
+    "Native Components": [
+      "native-components-android",
+      "native-components-ios",
+      "direct-manipulation"
     ],
     "Android and iOS guides": [
       {
         "type": "category",
         "label": "Android",
+        "collapsible": false,
         "collapsed": false,
         "items": ["headless-js-android", "signed-apk-android"]
       },
       {
         "type": "category",
         "label": "iOS",
+        "collapsible": false,
         "collapsed": false,
         "items": [
           "linking-libraries-ios",
