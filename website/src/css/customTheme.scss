@@ -97,7 +97,7 @@ main[class^="docMainContainer"] > .container {
 
 @media (min-width: 1440px) {
   .container {
-    max-width: auto !important;
+    max-width: inherit !important;
   }
 }
 
@@ -105,6 +105,10 @@ main[class^="docMainContainer"] > .container {
   main[class^="docMainContainer"] {
     width: calc(100% - var(--doc-sidebar-width));
     display: contents;
+  }
+
+  div[class*="docItemCol"] {
+    max-width: inherit !important;
   }
 }
 
@@ -660,8 +664,8 @@ aside[class^="docSidebarContainer"] {
     @extend %scrollbar-style;
   }
 
-  .menu__list .menu__link--sublist {
-    font-size: 15px !important;
+  .menu__list .menu__link--sublist, a[class*="menuLinkText"] {
+    font-size: 16px !important;
     font-weight: 700 !important;
     padding: 5px 12px !important;
     color: var(--subtle) !important;
@@ -671,6 +675,15 @@ aside[class^="docSidebarContainer"] {
       margin-right: -6px;
       margin-top: -1px;
     }
+  }
+
+  .menu__list .menu__list .menu__link--sublist, a[class*="menuLinkText"] {
+    font-weight: 600 !important;
+    font-size: 15px !important;
+  }
+
+  .menu__list-item .menu__list-item .menu__list-item {
+    padding-left: 8px;
   }
 
   @media only screen and (max-width: 1120px) {
@@ -1529,6 +1542,9 @@ html[data-theme="dark"] .docsRating {
     }
 
     div[class^="sidebar"] {
+      margin-left: 0;
+      margin-right: -16px;
+
       h3 {
         font-size: 16px;
         margin-bottom: 0;
@@ -1555,7 +1571,7 @@ html[data-theme="dark"] .docsRating {
 
   .container .row .col.col--7 {
     --ifm-col-width: calc(15 / 24 * 100%);
-    padding: 24px 16px 24px 20px;
+    padding: 24px 16px 24px 32px;
 
     &:last-child {
       --ifm-col-width: calc(18 / 24 * 100%);
