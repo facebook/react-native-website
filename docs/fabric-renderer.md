@@ -11,7 +11,7 @@ This documentation provides an overview of the [new renderer](glossary#fabric-re
 
 The render architecture was created to unlock better user experiences that weren’t possible with the legacy architecture. Some examples include:
 
-- With improved interoperablity between [host views](glossary#host-view-tree-and-host-view) and React views, the renderer is able to to measure and render React surfaces synchronously. In the legacy architecture, React Native layout was asynchronous which led to a layout “jump” issue when embedding a React Native rendered view in a _host view_.
+- With improved interoperablity between [host views](glossary#host-view-tree-and-host-view) and React views, the renderer is able to measure and render React surfaces synchronously. In the legacy architecture, React Native layout was asynchronous which led to a layout “jump” issue when embedding a React Native rendered view in a _host view_.
 - With support of multi-priority and synchronous events, the renderer can prioritize certain user interactions to ensure they are handled in a timely manner.
 - [Integration with React Suspense](https://reactjs.org/blog/2019/11/06/building-great-user-experiences-with-concurrent-mode-and-suspense.html) which allows for more intuitive design of data fetching in React apps.
 - Enable React [Concurrent Features](https://github.com/reactwg/react-18/discussions/4) on React Native.
