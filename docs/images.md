@@ -218,7 +218,7 @@ Note that you must specify some width and height style attributes.
 
 ## iOS Border Radius Styles
 
-Please note that the following corner specific, border radius style properties are currently ignored by iOS's image component:
+Please note that the following corner specific, border radius style properties might be ignored by iOS's image component:
 
 - `borderTopLeftRadius`
 - `borderTopRightRadius`
