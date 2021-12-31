@@ -1903,6 +1903,8 @@ If you followed the TurboModule instructions, you should have a `OnLoad.cpp` fil
 ```cpp
 #include <fbjni/fbjni.h>
 #include "MyApplicationTurboModuleManagerDelegate.h"
+// Add this import
+#include "MyComponentsRegistry.h"
 
 JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM *vm, void *) {
   return facebook::jni::initialize(vm, [] {
