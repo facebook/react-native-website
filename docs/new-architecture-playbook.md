@@ -112,7 +112,7 @@ Fabric will be providing new type safe JS APIs that are much more ergonomic than
 While we know that all deprecations are a hassle, this guide is intended to help people update components as smoothly as possible. Here are the steps you need to take to get your JS codebase ready for Fabric
 
 1. Migrating findNodeHandle / getting a HostComponent
-2. Migrating `.measure*(`
+2. Migrating `.measure*()`
 3. Migrating off `setNativeProps`
 4. Move the call to `requireNativeComponent` to a separate file
 5. Migrating off `dispatchViewManagerCommand`
@@ -232,7 +232,7 @@ class MyJSComponent extends React.Component<Props> {
 }
 ```
 
-#### Migrating `.measure(`
+#### Migrating `.measure*()`
 
 Let’s take a look at an example calling `UIManager.measure`. This code might look something like this
 
