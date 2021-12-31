@@ -593,7 +593,7 @@ app/build/generated/source/codegen
 └── schema.json
 ```
 
-#### Extends the abstract class provided by the generated
+#### Extends the abstract class provided by the codegen
 
 Update your native module or component to ensure it **extends the abstract class** that has been code-generated from your JavaScript specs (i.e. the `NativeAwesomeManagerSpec.java` file from the previous example).
 
