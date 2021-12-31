@@ -206,7 +206,7 @@ class MyComponent extends React.Component<Props> {
 
   _onSubmit: () => {
     if (this._ref != null)
-      this._ref.**getViewRef****()**.measure(() => {});
+      this._ref.getViewRef().measure(() => {});
     }
   }
 }
@@ -293,10 +293,10 @@ class MyComponent extends React.Component<Props> {
   }
 
   _onSubmit: () => {
-    this._viewRef.**setNativeProps****(**{
+    this._viewRef.setNativeProps({
        style: styles.submittedView,
        accessibility: true
-    **});**
+    });
     // ...other logic for onSubmit
   }
 }
@@ -412,11 +412,11 @@ Similar to one above, in an effort to avoid calling methods on the UIManager, al
 ```javascript
 class MyComponent extends React.Component<Props> {
   _moveToRegion: (region: Region, duration: number) => {
-   **** **UIManager.dispatchViewManagerCommand(
+    UIManager.dispatchViewManagerCommand(
       ReactNative.findNodeHandle(this),
       'moveToRegion',
       [region, duration],
-    );**
+    );
   }
 
   render() {
@@ -491,7 +491,7 @@ In the example the code-generated `Commands` will dispatch `moveToRegion` call t
 
 ```objc
 RCT_EXPORT_METHOD(moveToRegion:(nonnull NSNumber *)reactTag
-                        region:(`NSDictionary`` ``*`)region
+                        region:(NSDictionary *)region
                       duration:(double)duration
 {
    ...
