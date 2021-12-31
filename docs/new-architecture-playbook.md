@@ -1715,27 +1715,32 @@ As you can see, some methods are `native()` which we will implement in C++ in th
 ```java
 package com.awesomeproject;
 
-  @DoNotStrip
-  public class MyComponentsRegistry {
-    static {
-      SoLoader.loadLibrary("fabricjni");
-    }
+import com.facebook.jni.HybridData;
+import com.facebook.proguard.annotations.DoNotStrip;
+import com.facebook.react.fabric.ComponentFactory;
+import com.facebook.soloader.SoLoader;
 
-    @DoNotStrip private final HybridData mHybridData;
-
-    @DoNotStrip
-    private native HybridData initHybrid(ComponentFactory componentFactory);
-
-    @DoNotStrip
-    private MyComponentsRegistry(ComponentFactory componentFactory) {
-      mHybridData = initHybrid(componentFactory);
-    }
-
-    @DoNotStrip
-    public static MyComponentsRegistry register(ComponentFactory componentFactory) {
-      return new MyComponentsRegistry(componentFactory);
-    }
+@DoNotStrip
+public class MyComponentsRegistry {
+  static {
+    SoLoader.loadLibrary("fabricjni");
   }
+
+  @DoNotStrip private final HybridData mHybridData;
+
+  @DoNotStrip
+  private native HybridData initHybrid(ComponentFactory componentFactory);
+
+  @DoNotStrip
+  private MyComponentsRegistry(ComponentFactory componentFactory) {
+    mHybridData = initHybrid(componentFactory);
+  }
+
+  @DoNotStrip
+  public static MyComponentsRegistry register(ComponentFactory componentFactory) {
+    return new MyComponentsRegistry(componentFactory);
+  }
+}
 ```
 
 4. **Register your custom Fabric Component Registry**
