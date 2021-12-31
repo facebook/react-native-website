@@ -26,7 +26,7 @@ We also recommend enabling [Gradle Daemon](https://docs.gradle.org/2.9/userguide
 
 ### Create A Custom Native Module File
 
-The first step is to create the CalendarModule.java Java file inside `android/app/src/main/java/com/your-app-name/ folder`. This Java file will contain your native module Java class.
+The first step is to create the CalendarModule.java Java file inside `android/app/src/main/java/com/your-app-name/` folder. This Java file will contain your native module Java class.
 
 <figure>
   <img src="/docs/assets/native-modules-android-add-class.png" width="700" alt="Image of adding a class called CalendarModule.java within the Android Studio." />
