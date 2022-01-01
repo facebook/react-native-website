@@ -233,27 +233,32 @@ As you can see, some methods are `native()` which we will implement in C++ in th
 ```java
 package com.awesomeproject;
 
-  @DoNotStrip
-  public class MyComponentsRegistry {
-    static {
-      SoLoader.loadLibrary("fabricjni");
-    }
+import com.facebook.jni.HybridData;
+import com.facebook.proguard.annotations.DoNotStrip;
+import com.facebook.react.fabric.ComponentFactory;
+import com.facebook.soloader.SoLoader;
 
-    @DoNotStrip private final HybridData mHybridData;
+@DoNotStrip
+public class MyComponentsRegistry {
+	static {
+		SoLoader.loadLibrary("fabricjni");
+	}
 
-    @DoNotStrip
-    private native HybridData initHybrid(ComponentFactory componentFactory);
+	@DoNotStrip private final HybridData mHybridData;
 
-    @DoNotStrip
-    private MyComponentsRegistry(ComponentFactory componentFactory) {
-      mHybridData = initHybrid(componentFactory);
-    }
+	@DoNotStrip
+	private native HybridData initHybrid(ComponentFactory componentFactory);
 
-    @DoNotStrip
-    public static MyComponentsRegistry register(ComponentFactory componentFactory) {
-      return new MyComponentsRegistry(componentFactory);
-    }
-  }
+	@DoNotStrip
+	private MyComponentsRegistry(ComponentFactory componentFactory) {
+		mHybridData = initHybrid(componentFactory);
+	}
+
+	@DoNotStrip
+	public static MyComponentsRegistry register(ComponentFactory componentFactory) {
+		return new MyComponentsRegistry(componentFactory);
+	}
+}
 ```
 
 4. **Register your custom Fabric Component Registry**
@@ -297,7 +302,7 @@ public class MyApplication extends Application implements ReactApplication {
 
 It’s now time to provide an implementation for your `MyComponentsRegistry` in C++:
 
-1. **Create an header file: `MyComponentsRegistry.h`**
+1. **Create a header file: `MyComponentsRegistry.h`**
 
 The file should be placed inside the `src/main/jni` folder.
 Please note that the `kJavaDescriptor` should be adapted to follow the package name you picked for your project.
@@ -416,6 +421,8 @@ If you followed the TurboModule instructions, you should have a `OnLoad.cpp` fil
 ```cpp title="OnLoad.cpp"
 #include <fbjni/fbjni.h>
 #include "MyApplicationTurboModuleManagerDelegate.h"
+// Add this import
+#include "MyComponentsRegistry.h"
 
 JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM *vm, void *) {
   return facebook::jni::initialize(vm, [] {

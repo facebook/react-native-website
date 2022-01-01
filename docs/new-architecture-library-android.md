@@ -21,7 +21,7 @@ react {
 
 _(Please note that this setup requires you to have the React Gradle Plugin configured in the prerequisite step)._
 
-There are two arguments that are required:
+There are three arguments that are required:
 
 - `reactRoot`: Reference to the `react-native` package root. Usually located inside `../node_modules/react-native`. For third-party NPM libraries that are installed in `node_modules`, this will be `../react-native`.
 - `jsRootDir`: Reference to the directory that contains the JavaScript specs for this library.
@@ -75,7 +75,7 @@ app/build/generated/source/codegen
 └── schema.json
 ```
 
-### Extends the abstract class provided by the generated
+### Extends the abstract class provided by the codegen
 
 Update your native module or component to ensure it **extends the abstract class** that has been code-generated from your JavaScript specs (i.e. the `NativeAwesomeManagerSpec.java` file from the previous example).
 

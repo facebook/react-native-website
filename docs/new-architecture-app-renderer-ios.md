@@ -20,15 +20,15 @@ target 'Some App' do
 end
 
 def pods()
-// Get config
+# Get config
 config = use_native_modules!
 
-// Use env variables to turn it on/off.
+# Use env variables to turn it on/off.
 fabric_enabled = ENV['USE_FABRIC']
 use_codegen_discovery= ENV['USE_CODEGEN_DISCOVERY']
 
-// Enabled codegen discovery. This will run the codegen at preinstall time.
-// Files are generated at {pod installation root}/build/generated/ios/
+# Enabled codegen discovery. This will run the codegen at preinstall time.
+# Files are generated at {pod installation root}/build/generated/ios/
 if use_codegen_discovery
   Pod::UI.puts "[Codegen] Building target with codegen library discovery enabled."
   pre_install do |installer|
@@ -41,7 +41,7 @@ if use_codegen_discovery
   end
 end
 
-// Pass the flag to enable fabric to use_react_native!.
+# Pass the flag to enable fabric to use_react_native!.
 use_react_native!(
   ...
   :fabric_enabled => fabric_enabled

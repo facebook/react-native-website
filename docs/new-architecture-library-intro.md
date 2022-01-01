@@ -83,10 +83,10 @@ The new renderer also known as Fabric doesn’t use the UIManager so direct call
 
 Fabric will be providing new type safe JS APIs that are much more ergonomic than some of the patterns we've seen in product code today. These APIs require references to the underlying component, no longer using the result of `findNodeHandle`. `findNodeHandle` is used to search the tree for a native component given a class instance. This was breaking the React abstraction model. `findNodeHandle` won’t be compatible with React concurrent mode once we are ready to roll that out. Deprecation of `findNodeHandle` in React Native is similar to the [deprecation of `findDOMNode` in React DOM](https://reactjs.org/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage).
 
-While we know that all deprecations are a hassle, this guide is intended to help people update components as smoothly as possible. Here are the steps you need to take to get your JS codebase ready for Fabric
+While we know that all deprecations are a hassle, this guide is intended to help people update components as smoothly as possible. Here are the steps you need to take to get your JS codebase ready for Fabric:
 
 1. Migrating findNodeHandle / getting a HostComponent
-2. Migrating `.measure*(`
+2. Migrating `.measure*()`
 3. Migrating off `setNativeProps`
 4. Move the call to `requireNativeComponent` to a separate file
 5. Migrating off `dispatchViewManagerCommand`
@@ -166,7 +166,7 @@ const MyJSComponent = React.forwardRef((props, forwardedRef) => {
 
 ### Using a getter, (note the addition of `getViewRef`)
 
-```jsx
+```tsx
 class MyComponent extends React.Component<Props> {
   _ref: ?React.ElementRef<typeof MyJSComponent>;
 
@@ -180,7 +180,7 @@ class MyComponent extends React.Component<Props> {
 
   _onSubmit: () => {
     if (this._ref != null)
-      this._ref.**getViewRef****()**.measure(() => {});
+      this._ref.getViewRef().measure(() => {});
     }
   }
 }
@@ -206,7 +206,7 @@ class MyJSComponent extends React.Component<Props> {
 }
 ```
 
-### Migrating `.measure(`
+### Migrating `.measure*()`
 
 Let’s take a look at an example calling `UIManager.measure`. This code might look something like this
 
@@ -249,7 +249,7 @@ setNativeProps will not be supported in the post-Fabric world. To migrate, move 
 
 **Example**
 
-```jsx
+```tsx
 class MyComponent extends React.Component<Props> {
   _viewRef: ?React.ElementRef<typeof View>;
 
@@ -267,10 +267,10 @@ class MyComponent extends React.Component<Props> {
   }
 
   _onSubmit: () => {
-    this._viewRef.**setNativeProps****(**{
+    this._viewRef.setNativeProps({
        style: styles.submittedView,
        accessibility: true
-    **});**
+    });
     // ...other logic for onSubmit
   }
 }
@@ -310,7 +310,7 @@ The fact that React Native stores some internal state of each component that isn
 
 Taking those caveats into account, a proper migration would look like this:
 
-```javascript
+```tsx
 class MyComponent extends React.Component<Props> {
   state = {
     hasSubmitted: false,
@@ -328,7 +328,7 @@ class MyComponent extends React.Component<Props> {
   }
 
   _onSubmit: () => {
-    this.setState(state => ({...state, hasSubmitted: true}));
+    this.setState(state => ({ ...state, hasSubmitted: true }));
     // ...other logic for onSubmit
   }
 }

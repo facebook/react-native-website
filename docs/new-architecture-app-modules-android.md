@@ -133,8 +133,6 @@ public class MyApplicationTurboModuleManagerDelegate extends ReactPackageTurboMo
 
     protected native HybridData initHybrid();
 
-    native boolean canCreateTurboModule(String moduleName);
-
     public static class Builder extends ReactPackageTurboModuleManagerDelegate.Builder {
         protected MyApplicationTurboModuleManagerDelegate build(
                 ReactApplicationContext context, List<ReactPackage> packages) {
@@ -289,12 +287,6 @@ public:
   std::shared_ptr<TurboModule> getTurboModule(const std::string name, const std::shared_ptr<CallInvoker> jsInvoker) override;
   std::shared_ptr<TurboModule> getTurboModule(const std::string name, const JavaTurboModule::InitParams &params) override;
 
-  /**
-   * Test-only method. Allows user to verify whether a TurboModule can be created
-   * by instances of this class.
-   */
-  bool canCreateTurboModule(std::string name);
-
 private:
   friend HybridBase;
   using HybridBase::HybridBase;
@@ -321,7 +313,6 @@ jni::local_ref<MyApplicationTurboModuleManagerDelegate::jhybriddata> MyApplicati
 void MyApplicationTurboModuleManagerDelegate::registerNatives() {
   registerHybrid({
     makeNativeMethod("initHybrid", MyApplicationTurboModuleManagerDelegate::initHybrid),
-    makeNativeMethod("canCreateTurboModule", MyApplicationTurboModuleManagerDelegate::canCreateTurboModule),
   });
 }
 
@@ -332,10 +323,6 @@ std::shared_ptr<TurboModule> MyApplicationTurboModuleManagerDelegate::getTurboMo
 
 std::shared_ptr<TurboModule> MyApplicationTurboModuleManagerDelegate::getTurboModule(const std::string name, const JavaTurboModule::InitParams &params) {
   return MyApplicationModuleProvider(name, params);
-}
-
-bool MyApplicationTurboModuleManagerDelegate::canCreateTurboModule(std::string name) {
-  return getTurboModule(name, nullptr) != nullptr || getTurboModule(name, {.moduleName = name}) != nullptr;
 }
 
 } // namespace react
