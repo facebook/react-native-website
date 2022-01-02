@@ -7,7 +7,7 @@ title: View Flattening
 
 #### View Flattening is an optimization by the React Native renderer to avoid deep layout trees.
 
-The React API is designed to be declarative and reusable through composition. This provides a great model for intuitive development. However, in implementation, these qualities of the API lead to the creation of deep [React Element Trees](glossary#react-element-tree-and-react-element), where a large majority of React Element Nodes only affect the layout of a View and don’t render anything on the screen. We call these types of nodes **“Layout-Only”** Nodes.
+The React API is designed to be declarative and reusable through composition. This provides a great model for intuitive development. However, in implementation, these qualities of the API lead to the creation of deep [React Element Trees](architecture-glossary#react-element-tree-and-react-element), where a large majority of React Element Nodes only affect the layout of a View and don’t render anything on the screen. We call these types of nodes **“Layout-Only”** Nodes.
 
 Conceptually, each of the Nodes of the React Element Tree have a 1:1 relationship with a view on the screen, therefore rendering a deep React Element Tree that is composed by a large amount of “Layout-Only” Node leads to poor performance during rendering.
 
@@ -36,7 +36,7 @@ As part of the render process, React Native will produce the following trees:
 
 Note that the Views (2) and (3) are “Layout Only” views, because they are rendered on the screen but they only render a `margin` of `10 px` on top of their children.
 
-To improve the performance of these types of React Element Trees, the renderer implements a View Flattening mechanism that merges or flattens these types of Nodes, reducing the depth of the [host view](glossary#host-view-tree-and-host-view) hierarchy that is rendered on the screen. This algorithm takes into consideration props like: `margin`, `padding`, `backgroundColor`, `opacity`, etc.
+To improve the performance of these types of React Element Trees, the renderer implements a View Flattening mechanism that merges or flattens these types of Nodes, reducing the depth of the [host view](architecture-glossary#host-view-tree-and-host-view) hierarchy that is rendered on the screen. This algorithm takes into consideration props like: `margin`, `padding`, `backgroundColor`, `opacity`, etc.
 
 The View Flattening algorithm is integrated by design as part of the diffing stage of the renderer, which means that we don’t use extra CPU cycles to optimize the React Element Tree flattening these types of views. As the rest of the core, the View flattening algorithm is implemented in C++ and its benefits are shared by default on all supported platforms.
 

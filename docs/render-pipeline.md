@@ -5,13 +5,13 @@ title: Render, Commit, and Mount
 
 > This document refers to the architecture of the new renderer, [Fabric](fabric-renderer), that is in active roll-out.
 
-The React Native renderer goes through a sequence of work to render React logic to a [host platform](glossary#host-platform). This sequence of work is called the render pipeline and occurs for initial renders and updates to the UI state. This document goes over the render pipeline and how it differs in those scenarios.
+The React Native renderer goes through a sequence of work to render React logic to a [host platform](architecture-glossary#host-platform). This sequence of work is called the render pipeline and occurs for initial renders and updates to the UI state. This document goes over the render pipeline and how it differs in those scenarios.
 
 The render pipeline can be broken into three general phases:
 
-1. **Render:** React executes product logic which creates a [React Element Trees](glossary#react-element-tree-and-react-element) in JavaScript. From this tree, the renderer creates a [React Shadow Tree](glossary#react-shadow-tree-and-react-shadow-node) in C++.
+1. **Render:** React executes product logic which creates a [React Element Trees](architecture-glossary#react-element-tree-and-react-element) in JavaScript. From this tree, the renderer creates a [React Shadow Tree](architecture-glossary#react-shadow-tree-and-react-shadow-node) in C++.
 2. **Commit**: After a React Shadow Tree is fully created, the renderer triggers a commit. This **promotes** both the React Element Tree and the newly created React Shadow Tree as the “next tree” to be mounted. This also schedules calculation of its layout information.
-3. **Mount:** The React Shadow Tree, now with the results of layout calculation, is transformed into a [Host View Tree](glossary#host-view-tree-and-host-view).
+3. **Mount:** The React Shadow Tree, now with the results of layout calculation, is transformed into a [Host View Tree](architecture-glossary#host-view-tree-and-host-view).
 
 > The phases of the render pipeline may occur on different threads. Refer to the [Threading Model](threading-model) doc for more detail.
 
@@ -41,11 +41,11 @@ function MyComponent() {
 // <MyComponent />
 ```
 
-In the example above, `<MyComponent />` is a [React Element](glossary#react-element-tree-and-react-element). React recursively reduces this _React Element_ to a terminal [React Host Component](glossary#host-view-tree-and-host-view) by invoking it (or its `render` method if implemented with a JavaScript class) until every _React Element_ cannot be reduced any further. Now you have a _React Element Tree_ of [React Host Components](glossary#react-host-components-or-host-components).
+In the example above, `<MyComponent />` is a [React Element](architecture-glossary#react-element-tree-and-react-element). React recursively reduces this _React Element_ to a terminal [React Host Component](architecture-glossary#host-view-tree-and-host-view) by invoking it (or its `render` method if implemented with a JavaScript class) until every _React Element_ cannot be reduced any further. Now you have a _React Element Tree_ of [React Host Components](architecture-glossary#react-host-components-or-host-components).
 
 ![Phase one: render](/docs/assets/Architecture/renderer-pipeline/phase-one-render.png)
 
-During this process of element reduction, as each _React Element_ is invoked, the renderer also synchronously creates a [React Shadow Node](glossary#react-shadow-tree-and-react-shadow-node). This happens only for _React Host Components_, not for [React Composite Components](glossary#react-composite-components). In the example above, the `<View>` leads to the creation of a `ViewShadowNode` object, and the
+During this process of element reduction, as each _React Element_ is invoked, the renderer also synchronously creates a [React Shadow Node](architecture-glossary#react-shadow-tree-and-react-shadow-node). This happens only for _React Host Components_, not for [React Composite Components](architecture-glossary#react-composite-components). In the example above, the `<View>` leads to the creation of a `ViewShadowNode` object, and the
 `<Text>` leads to the creation of a `TextShadowNode` object. Notably, there is never a _React Shadow Node_ that directly represents `<MyComponent>`.
 
 Whenever React creates a parent-child relationship between two _React Element Nodes_, the renderer creates the same relationship between the corresponding _React Shadow Nodes_. This is how the _React Shadow Tree_ is assembled.
@@ -87,7 +87,7 @@ The mount phase transforms the _React Shadow Tree_ (which now contains data from
 </View>
 ```
 
-At a high level, React Native renderer creates a corresponding [Host View](glossary#host-view-tree-and-host-view) for each _React Shadow Node_ and mounts it on screen. In the example above, the renderer creates an instance of `android.view.ViewGroup` for the `<View>` and `android.widget.TextView` for `<Text>` and populates it with “Hello World”. Similarly for iOS a `UIView` is created with and text is populated with a call to `NSLayoutManager`. Each host view is then configured to use props from its React Shadow Node, and its size and position is configured using the calculated layout information.
+At a high level, React Native renderer creates a corresponding [Host View](architecture-glossary#host-view-tree-and-host-view) for each _React Shadow Node_ and mounts it on screen. In the example above, the renderer creates an instance of `android.view.ViewGroup` for the `<View>` and `android.widget.TextView` for `<Text>` and populates it with “Hello World”. Similarly for iOS a `UIView` is created with and text is populated with a call to `NSLayoutManager`. Each host view is then configured to use props from its React Shadow Node, and its size and position is configured using the calculated layout information.
 
 ![Step two](/docs/assets/Architecture/renderer-pipeline/render-pipeline-3.png)
 

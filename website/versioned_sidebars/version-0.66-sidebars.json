@@ -681,7 +681,6 @@
     {
       "type": "category",
       "collapsed": false,
-      "collapsible": false,
       "label": "Architecture",
       "items": [
         {
@@ -691,7 +690,7 @@
         {
           "type": "category",
           "collapsed": false,
-          "collapsible": true,
+          "collapsible": false,
           "label": "Rendering",
           "items": [
             {
@@ -718,7 +717,7 @@
         },
         {
           "type": "doc",
-          "id": "version-0.66/glossary"
+          "id": "version-0.66/architecture-glossary"
         }
       ]
     }

@@ -7,15 +7,15 @@ title: Cross Platform Implementation
 
 #### The React Native renderer utilizes a core render implementation to be shared across platforms
 
-In the previous render system of React Native, the **[React Shadow Tree](glossary#react-shadow-tree-and-react-shadow-node)**, layout logic, and **[View Flattening](view-flattening.md)** algorithm were implemented once for each platform. The current renderer was designed to be a cross-platform solution by sharing a core C++ implementation.
+In the previous render system of React Native, the **[React Shadow Tree](architecture-glossary#react-shadow-tree-and-react-shadow-node)**, layout logic, and **[View Flattening](view-flattening.md)** algorithm were implemented once for each platform. The current renderer was designed to be a cross-platform solution by sharing a core C++ implementation.
 
 The React Native team intends to incorporate an animation system into the render system and also extend the React Native render system to new platforms such as Windows, and operating systems in game consoles, televisions, and more.
 
-Leveraging C++ for the core render system introduces several advantages. A single implementation reduces the cost of development and maintenance. It improves the performance of creating React Shadow Trees and layout calculation because the overhead of integrating [Yoga](glossary#yoga-tree-and-yoga-node) with the renderer is minimized on Android (i.e. no more [JNI](glossary#java-native-interface-jni) for Yoga). Finally, the memory footprint of each React Shadow Node is smaller in C++ than it would be if allocated from Kotlin or Swift.
+Leveraging C++ for the core render system introduces several advantages. A single implementation reduces the cost of development and maintenance. It improves the performance of creating React Shadow Trees and layout calculation because the overhead of integrating [Yoga](architecture-glossary#yoga-tree-and-yoga-node) with the renderer is minimized on Android (i.e. no more [JNI](architecture-glossary#java-native-interface-jni) for Yoga). Finally, the memory footprint of each React Shadow Node is smaller in C++ than it would be if allocated from Kotlin or Swift.
 
 The team is also leveraging C++ features that enforce immutability to ensure there are no issues related to concurrent access to shared but not protected resources.
 
-It is important to recognize that the renderer use case for Android still incurs the cost of [JNI](glossary#java-native-interface-jni) for two primary use cases:
+It is important to recognize that the renderer use case for Android still incurs the cost of [JNI](architecture-glossary#java-native-interface-jni) for two primary use cases:
 
 - Layout calculation of complex views (e.g. `Text`, `TextInput`, etc.) requires sending props over JNI.
 - The mount phase requires sending mutation operations over JNI.

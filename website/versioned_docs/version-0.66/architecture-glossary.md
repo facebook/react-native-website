@@ -1,5 +1,5 @@
 ---
-id: glossary
+id: architecture-glossary
 title: Glossary
 ---
 
@@ -9,7 +9,7 @@ React Native executes the same React framework code as React for the web. Howeve
 
 ## Host platform
 
-The platform embedding React Native (e.g., Android, iOS, Windows, macOS).
+The platform embedding React Native (e.g., Android, iOS, macOS, Windows).
 
 ## Host View Tree (and Host View)
 
