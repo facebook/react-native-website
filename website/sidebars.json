@@ -26,16 +26,41 @@
       "testing-overview",
       "libraries",
       "typescript",
-      "upgrading"
+      "upgrading",
+      {
+        "type": "category",
+        "label": "Connectivity",
+        "collapsible": false,
+        "collapsed": false,
+        "items": ["network", "security"]
+      }
     ],
-    "Design": ["style", "height-and-width", "flexbox", "images", "colors"],
-    "Interaction": [
-      "handling-touches",
-      "navigation",
-      "animations",
-      "gesture-responder-system"
+    "Design": [
+      "style",
+      "height-and-width",
+      "flexbox",
+      "images",
+      "colors",
+      {
+        "type": "category",
+        "label": "Interaction",
+        "collapsible": false,
+        "collapsed": false,
+        "items": [
+          "handling-touches",
+          "navigation",
+          "animations",
+          "gesture-responder-system"
+        ]
+      },
+      {
+        "type": "category",
+        "label": "Inclusion",
+        "collapsible": false,
+        "collapsed": false,
+        "items": ["accessibility"]
+      }
     ],
-    "Inclusion": ["accessibility"],
     "Performance": [
       "performance",
       "optimizing-flatlist-configuration",
@@ -44,7 +69,6 @@
       "profile-hermes"
     ],
     "JavaScript Runtime": ["javascript-environment", "timers", "hermes"],
-    "Connectivity": ["network", "security"],
     "Native Modules": [
       "native-modules-intro",
       "native-modules-android",
@@ -56,13 +80,27 @@
       "native-components-ios",
       "direct-manipulation"
     ],
-    "Guides (Android)": ["headless-js-android", "signed-apk-android"],
-    "Guides (iOS)": [
-      "linking-libraries-ios",
-      "running-on-simulator-ios",
-      "communication-ios",
-      "app-extensions",
-      "publishing-to-app-store"
+    "Android and iOS guides": [
+      {
+        "type": "category",
+        "label": "Android",
+        "collapsible": false,
+        "collapsed": false,
+        "items": ["headless-js-android", "signed-apk-android"]
+      },
+      {
+        "type": "category",
+        "label": "iOS",
+        "collapsible": false,
+        "collapsed": false,
+        "items": [
+          "linking-libraries-ios",
+          "running-on-simulator-ios",
+          "communication-ios",
+          "app-extensions",
+          "publishing-to-app-store"
+        ]
+      }
     ]
   },
   "api": {
