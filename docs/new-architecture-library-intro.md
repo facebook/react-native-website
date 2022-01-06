@@ -356,7 +356,7 @@ const RNTMyNativeView = requireNativeComponent('RNTMyNativeView');
 ...
   return <RNTMyNativeView />
 // New way
-import RNTMyNativeViewNativeComponent from 'RNTMyNativeViewNativeComponent';
+import RNTMyNativeViewNativeComponent from './RNTMyNativeViewNativeComponent';
 ...
   return <RNTMyNativeViewNativeComponent />
 
