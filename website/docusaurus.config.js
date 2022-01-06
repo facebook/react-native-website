@@ -319,7 +319,7 @@ const lastVersion = versions[0];
       gtag: {
         trackingID: 'UA-41298772-2',
       },
-      metadatas: [
+      metadata: [
         {
           property: 'og:image',
           content: 'https://reactnative.dev/img/logo-og.png',
