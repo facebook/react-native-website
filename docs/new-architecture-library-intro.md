@@ -13,7 +13,8 @@ As the first step to adopting the new architecture, you will start by creating t
 
 ### Writing the JavaScript Spec
 
-The JavaScript spec defines all APIs that are provided by the native module, along with the types of those constants and functions. You will be using Flow to type the input arguments and outputs of your native module’s methods.
+The JavaScript spec defines all APIs that are provided by the native module, along with the types of those constants and functions.
+Using a **typed** spec file allows to be intentional and declare all the input arguments and outputs of your native module’s methods.
 
 By convention, JavaScript spec files are named `Native<MODULE_NAME>.js` and they export a `TurboModuleRegistry` `Spec` object.
 
@@ -43,7 +44,7 @@ export default (TurboModuleRegistry.get<Spec>('<MODULE_NAME>'): ?Spec);
 
 ### Supported Flow Types
 
-You will be using [Flow type annotations](https://flow.org/en/docs/types/) to define your JavaScript spec. Keeping in mind that the goal of defining a JavaScript spec is to ensure the generated native interface code is type safe, the set of supported Flow types will be those that can be mapped one-to-one to a corresponding type on the native platform.
+When using Flow, you will be using [type annotations](https://flow.org/en/docs/types/) to define your spec. Keeping in mind that the goal of defining a JavaScript spec is to ensure the generated native interface code is type safe, the set of supported Flow types will be those that can be mapped one-to-one to a corresponding type on the native platform.
 
 <!-- alex ignore savage -->
 
