@@ -402,7 +402,7 @@ class MyComponent extends React.Component<Props> {
 **Creating the NativeCommands with `codegenNativeCommands`**
 
 ```js title="MyCustomMapNativeComponent.js"
-import codegeNativeCommands from 'codegenNativeCommands';
+import codegeNativeCommands from 'react-native/Libraries/Utilities/codegenNativeCommands';
 ...
 type Props = {...};
 
