@@ -448,7 +448,7 @@ An object that identifies the data to be rendered for a given section.
 
 | Name                     | Type               | Description                                                                                                                                                            |
 | ------------------------ | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| data                     | array              | The data for rendering items in this section. Array of objects, much like [`FlatList`'s data prop](flatlist.md#data).                                                  |
+| data                     | array              | The data for rendering items in this section. Array of objects, much like [`FlatList`'s data prop](flatlist.md#required-data).                                         |
 | [key]                    | string             | Optional key to keep track of section re-ordering. If you don't plan on re-ordering sections, the array index will be used by default.                                 |
 | [renderItem]             | function           | Optionally define an arbitrary item renderer for this section, overriding the default [`renderItem`](sectionlist.md#renderitem) for the list.                          |
 | [ItemSeparatorComponent] | component, element | Optionally define an arbitrary item separator for this section, overriding the default [`ItemSeparatorComponent`](sectionlist.md#itemseparatorcomponent) for the list. |

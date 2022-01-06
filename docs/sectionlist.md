@@ -198,11 +198,11 @@ The render function will be passed an object with the following keys:
 - 'index' (number) - Item's index within the section.
 - 'section' (object) - The full section object as specified in `sections`.
 - 'separators' (object) - An object with the following keys:
-    - 'highlight' (function) - `() => void`
-    - 'unhighlight' (function) - `() => void`
-    - 'updateProps' (function) - `(select, newProps) => void`
-        - 'select' (enum) - possible values are 'leading', 'trailing'
-        - 'newProps' (object)
+  - 'highlight' (function) - `() => void`
+  - 'unhighlight' (function) - `() => void`
+  - 'updateProps' (function) - `(select, newProps) => void`
+    - 'select' (enum) - possible values are 'leading', 'trailing'
+    - 'newProps' (object)
 
 ---
 
