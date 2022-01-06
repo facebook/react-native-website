@@ -15,7 +15,15 @@ As the first step to adopting the new architecture, you will start by creating t
 
 The JavaScript spec defines all APIs that are provided by the native module, along with the types of those constants and functions. You will be using Flow to type the input arguments and outputs of your native module’s methods.
 
-By convention, JavaScript spec files are named `Native<MODULE_NAME>.js` and they export a `TurboModuleRegistry` `Spec` object. The following is a basic JavaScript spec template:
+By convention, JavaScript spec files are named `Native<MODULE_NAME>.js` and they export a `TurboModuleRegistry` `Spec` object.
+
+:::info
+
+Currently, this Playbook is written under the assumption that you will be using [Flow](https://flow.org/). The `react-native-codegen` package is also currently working only with Flow source as input. We know that a lot of our users are using **TypeScript** instead and we hope to release TypeScript support really soon. This Playbook will be updated once the TypeScript support is also available.
+
+:::
+
+The following is a basic JavaScript spec template, written using the [Flow](https://flow.org/) syntax.
 
 ```ts
 'use strict';
