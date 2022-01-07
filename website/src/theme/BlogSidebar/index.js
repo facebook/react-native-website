@@ -28,9 +28,9 @@ export default function BlogSidebar({sidebar}) {
             ) : null;
           cachedYear = postYear;
           return (
-            <>
+            <div key={item.permalink}>
               {yearHeader}
-              <li key={item.permalink} className={styles.sidebarItem}>
+              <li className={styles.sidebarItem}>
                 <Link
                   isNavLink
                   to={item.permalink}
@@ -39,7 +39,7 @@ export default function BlogSidebar({sidebar}) {
                   {item.title}
                 </Link>
               </li>
-            </>
+            </div>
           );
         })}
       </ul>

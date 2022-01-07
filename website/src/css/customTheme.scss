@@ -13,7 +13,7 @@
   --rn-note-background: rgba(255, 229, 100, 0.25);
   --ifm-font-size-base: 17px;
   --ifm-spacing-horizontal: 16px;
-  --ifm-navbar-item-padding-horizontal: 20px;
+  --ifm-navbar-item-padding-horizontal: 18px;
   --ifm-menu-link-padding-horizontal: 0;
   --ifm-toc-padding-vertical: 6px;
   --ifm-toc-link-color: var(--ifm-color-emphasis-700);
@@ -34,8 +34,8 @@
   --ifm-pagination-nav-color-hover: var(--ifm-color-emphasis-300);
   --doc-sidebar-width: 100%;
   --ifm-table-border-width: 0.005rem;
-
   --ifm-navbar-sidebar-width: 100%;
+
   @media (min-width: 340px) {
     --ifm-navbar-sidebar-width: 340px;
   }
@@ -74,6 +74,12 @@ html[data-theme="dark"] {
   h1[class^="docTitle"] {
     font-size: 2.8rem;
   }
+
+  .admonition-content {
+    a {
+      text-decoration: none;
+    }
+  }
 }
 
 main[class^="docMainContainer"] > .container {
@@ -90,25 +96,14 @@ main[class^="docMainContainer"] > .container {
 @media (max-width: 1320px) and (min-width: 997px) {
   .container {
     max-width: calc(
-      var(--ifm-container-width) - 125px - var(--ifm-spacing-horizontal) * 2
+      var(--ifm-container-width) - var(--doc-sidebar-width) / 2
     );
-  }
-}
-
-@media (min-width: 1440px) {
-  .container {
-    max-width: inherit !important;
   }
 }
 
 @media (min-width: 997px) {
   main[class^="docMainContainer"] {
-    width: calc(100% - var(--doc-sidebar-width));
-    display: contents;
-  }
-
-  div[class*="docItemCol"] {
-    max-width: inherit !important;
+    max-width: calc(100% - var(--doc-sidebar-width) + 44px)
   }
 }
 
@@ -442,6 +437,40 @@ html[data-theme="dark"] .avatar__name a {
 
 .avatar__subtitle {
   margin-top: 0;
+  font-weight: 600;
+  color: var(--subtle);
+}
+
+article header h2 a {
+  color: var(--ifm-font-color-base);
+
+  &:hover {
+    color: var(--light);
+  }
+}
+
+div[class^='blogPostData'] {
+  color: var(--subtle);
+}
+
+.main-wrapper.blog-wrapper .container.margin-vert--lg .col.text--right a {
+  padding: 8px 16px !important;
+}
+
+a[class*='tagRegular'] {
+  padding: 6px 12px !important;
+
+  &:hover {
+    background: var(--ifm-menu-color-background-active);
+    --docusaurus-tag-list-border: inherit;
+  }
+}
+
+.blog-wrapper {
+  .pagination-nav__item .pagination-nav__label:before,
+  .pagination-nav__item--next .pagination-nav__label:after{
+    display: none;
+  }
 }
 
 /* Navbar */
@@ -467,8 +496,8 @@ html[data-theme="dark"] .avatar__name a {
 
   .navbar__item {
     &.navbar__link {
-      font-weight: 300;
-      font-size: 18px;
+      font-weight: 400;
+      font-size: 17px;
       user-select: none;
     }
 
@@ -581,11 +610,11 @@ html[data-theme="dark"] .avatar__name a {
     display: flex;
     width: calc(100% + 40px);
     height: 4px;
-    margin-top: -3px;
+    margin-top: -4px;
     margin-left: -20px;
     margin-right: -20px;
     position: relative;
-    top: 17px;
+    top: 18px;
     background: var(--brand);
   }
 }
@@ -617,6 +646,12 @@ So we need to "revert" some CSS vars to not enforce dark mode
       color: var(--ifm-color-emphasis-700);
       padding: 6px 12px 8px;
     }
+
+    .menu__list-item-collapsible a[class*='menuLinkText'] {
+      font-weight: 600;
+      font-size: 14px;
+      background: var(--ifm-background-color) !important;
+    }
   }
 
   .navbar-github-link {
@@ -640,10 +675,11 @@ html[data-theme="dark"] .navbar-sidebar {
   background: var(--ifm-background-color);
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 1200px) {
   .navbar {
     .DocSearch-Button {
       padding: 0 12px;
+      max-width: 40px;
     }
 
     .DocSearch-Button-Key,
@@ -690,7 +726,11 @@ aside[class^="docSidebarContainer"] {
   }
 
   .menu__list-item .menu__list-item .menu__list-item {
-    padding-left: 8px;
+    padding-left: 8px !important;
+  }
+
+  .menu__list-item-collapsible a[class*="menuLinkText"] {
+    background: var(--ifm-background-color) !important;
   }
 
   @media only screen and (max-width: 1120px) {
@@ -717,6 +757,7 @@ aside[class^="docSidebarContainer"] {
 .menu__list {
   margin-bottom: 8px;
   transition: none !important;
+  height: auto !important;
 
   .menu__list-item {
     margin-bottom: 2px;
@@ -750,7 +791,7 @@ aside[class^="docSidebarContainer"] {
     }
 
     .menu__list .menu__link {
-      padding: 3px 12px 3px 16px;
+      padding: 3px 12px;
     }
 
     .menu__list .menu__link--active {
@@ -763,11 +804,18 @@ aside[class^="docSidebarContainer"] {
     border-left-style: solid;
     border-left-color: var(--ifm-menu-color-active) !important;
     font-weight: 600 !important;
-    padding-left: 8px;
+    padding-left: 8px !important;
+    background: var(--ifm-code-background);
   }
 
   .menu__list-item--collapsed .menu__list {
     margin-bottom: 0;
+  }
+}
+
+.menu__list-item.menu__list-item--collapsed {
+  .menu__list {
+    height: 0 !important;
   }
 }
 
@@ -838,6 +886,20 @@ div[class^="tableOfContents"] {
 
 html[data-theme="dark"] div[class^="tableOfContents"] {
   @extend %scrollbar-style-dark;
+}
+
+button[class*='tocCollapsibleButton'] {
+  font-weight: 600;
+  color: var(--ifm-color-content-secondary);
+}
+
+.navbar-sidebar {
+  background: var(--ifm-background-surface-color);
+}
+
+.navbar-sidebar__back {
+  color: var(--ifm-color-content-secondary);
+  background: var(--ifm-footer-background-color);
 }
 
 /* Doc Item footer metadata */
@@ -989,21 +1051,6 @@ html[data-theme="dark"] div[class^="tableOfContents"] {
       text-align: center;
     }
   }
-}
-
-/* Blog */
-
-article header h2 a {
-  color: var(--ifm-font-color-base);
-
-  &:hover {
-    color: var(--light);
-  }
-}
-
-.avatar__subtitle {
-  font-weight: 600;
-  color: var(--subtle);
 }
 
 /* Announcement banner */
@@ -1625,6 +1672,12 @@ html[data-theme="dark"] {
         @extend %link-style-dark;
       }
     }
+  }
+}
+
+@media only screen and (max-width: 1320px) and (min-width: 997px) {
+  .container.margin-vert--lg .row .col.col--3 {
+    margin-left: -32px;
   }
 }
 
