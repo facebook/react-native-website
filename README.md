@@ -31,6 +31,7 @@ If you are looking for the source code of the [React Native Archive website](htt
 
 1.  `cd website` to go into the website portion of the project.
 1.  `yarn start` to start the development server _(powered by [Docusaurus](https://v2.docusaurus.io))_.
+    **_Note: In case you find any error regarding [Docusaurus], while starting the development server, run the command `yarn upgrade docusaurus --latest`._**
 1.  `open http://localhost:3000/` to open the site in your favorite browser.
 
 ## 📖 Overview
