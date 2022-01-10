@@ -64,14 +64,15 @@ The way to render your app with Fabric depends on your setup. Here is an example
 #import <react/config/ReactNativeConfig.h>
 #endif
 
-@interface AppDelegate () <RCTCxxBridgeDelegate, RCTTurboModuleManagerDelegate> {
+@interface AppDelegate () <RCTCxxBridgeDelegate,
+                           RCTTurboModuleManagerDelegate> {
 #ifdef RN_FABRIC_ENABLED
   RCTSurfacePresenterBridgeAdapter *_bridgeAdapter;
   std::shared_ptr<const facebook::react::ReactNativeConfig> _reactNativeConfig;
   facebook::react::ContextContainer::Shared _contextContainer;
 #endif
 
-// Find a line that define rootView and replace/edit with the following lines.
+  // Find a line that define rootView and replace/edit with the following lines.
 
 #ifdef RN_FABRIC_ENABLED
   _contextContainer = std::make_shared<facebook::react::ContextContainer const>();
@@ -79,15 +80,18 @@ The way to render your app with Fabric depends on your setup. Here is an example
 
   _contextContainer->insert("ReactNativeConfig", _reactNativeConfig);
 
-  _bridgeAdapter = [[RCTSurfacePresenterBridgeAdapter alloc] initWithBridge:_bridge contextContainer:_contextContainer];
+  _bridgeAdapter = [[RCTSurfacePresenterBridgeAdapter alloc]
+        initWithBridge:_bridge
+      contextContainer:_contextContainer];
 
   _bridge.surfacePresenter = _bridgeAdapter.surfacePresenter;
 
-  UIView *rootView = [[RCTFabricSurfaceHostingProxyRootView alloc] initWithBridge:_bridge
-                                                                       moduleName:@"MyTestApp"
-                                                                initialProperties:nil];
+  UIView *rootView =
+      [[RCTFabricSurfaceHostingProxyRootView alloc] initWithBridge:_bridge
+                                                        moduleName:@"MyTestApp"
+                                                 initialProperties:nil];
 #else
-   // Current implementation to define rootview.
+  // Current implementation to define rootview.
   RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge
                                                    moduleName:@"MyTestApp"
                                             initialProperties:nil];

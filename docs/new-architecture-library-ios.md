@@ -40,7 +40,7 @@ Pod::Spec.new do |s|
 end
 ```
 
-> Note: Currently, the Folly version used here must match the Folly version used by React Native. A version mismatch here may lead to errors when running `pod install`. If CocoaPods flags an issue with your Folly version, then you may have a version mismatch. Check which version is used by the core modules Podspecs (e.g. FBReactNativeSpec.podspec), and try running `pod install` again after editing your podspec with the correct Folly version.
+> **Note:** Currently, the Folly version used here must match the Folly version used by React Native. A version mismatch here may lead to errors when running `pod install`. If CocoaPods flags an issue with your Folly version, then you may have a version mismatch. Check which version is used by the core modules Podspecs (e.g. FBReactNativeSpec.podspec), and try running `pod install` again after editing your podspec with the correct Folly version.
 
 ### Enable codegen in your `package.json`
 

@@ -10,8 +10,8 @@ Make sure your application meets all the [prerequisites](new-architecture-app-in
 Add the following imports at the top of your bridge delegate (e.g. `AppDelegate.mm`):
 
 ```objc
-#import<ReactCommon/RCTTurboModuleManager.h>
-#import<React/CoreModulesPlugins.h>
+#import <ReactCommon/RCTTurboModuleManager.h>
+#import <React/CoreModulesPlugins.h>
 ```
 
 You will also need to declare that your AppDelegate conforms to the `RCTTurboModuleManagerDelegate` protocol, as well as create an instance variable for our Turbo Module manager:
@@ -34,9 +34,7 @@ To conform to the `RCTTurboModuleManagerDelegate` protocol, you will implement t
 
 Take note of `getModuleInstanceFromClass:` in the following example, as it includes some necessary instantiation of several core modules that you will need to include in your application. Eventually, this may not be required.
 
-```objc
-// AppDelegate.mm
-
+```objc title='AppDelegate.mm'
 // ...
 
 #import <React/RCTDataRequestHandler.h>
@@ -60,9 +58,9 @@ Take note of `getModuleInstanceFromClass:` in the following example, as it inclu
   return RCTCoreModulesClassProvider(name);
 }
 
-- (std::shared_ptr<facebook::react::TurboModule>)getTurboModule:(const std::string &)name
-                                                      jsInvoker:(std::shared_ptr<facebook::react::CallInvoker>)jsInvoker
-{
+- (std::shared_ptr<facebook::react::TurboModule>)
+    getTurboModule:(const std::string &)name
+         jsInvoker:(std::shared_ptr<facebook::react::CallInvoker>)jsInvoker {
   return nullptr;
 }
 
@@ -78,13 +76,15 @@ Take note of `getModuleInstanceFromClass:` in the following example, as it inclu
           return @ [[RCTGIFImageDecoder new]];
         }];
   } else if (moduleClass == RCTNetworking.class) {
-    return [[moduleClass alloc] initWithHandlersProvider:^NSArray<id<RCTURLRequestHandler>> *(RCTModuleRegistry * moduleRegistry) {
-      return @[
-        [RCTHTTPRequestHandler new],
-        [RCTDataRequestHandler new],
-        [RCTFileRequestHandler new],
-      ];
-    }];
+     return [[moduleClass alloc]
+        initWithHandlersProvider:^NSArray<id<RCTURLRequestHandler>> *(
+            RCTModuleRegistry *moduleRegistry) {
+          return @[
+            [RCTHTTPRequestHandler new],
+            [RCTDataRequestHandler new],
+            [RCTFileRequestHandler new],
+          ];
+        }];
   }
   // No custom initializer here.
   return [moduleClass new];
@@ -102,9 +102,10 @@ Next, you will create a `RCTTurboModuleManager` in your bridge delegate’s `jsE
 {
   // Add these lines to create a TurboModuleManager
   if (RCTTurboModuleEnabled()) {
-    _turboModuleManager = [[RCTTurboModuleManager alloc] initWithBridge:bridge
-                                                               delegate:self
-                                                              jsInvoker:bridge.jsCallInvoker];
+    _turboModuleManager =
+        [[RCTTurboModuleManager alloc] initWithBridge:bridge
+                                             delegate:self
+                                            jsInvoker:bridge.jsCallInvoker];
 
     // Necessary to allow NativeModules to lookup TurboModules
     [bridge setRCTTurboModuleRegistry:_turboModuleManager];

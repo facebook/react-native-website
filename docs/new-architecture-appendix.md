@@ -44,7 +44,7 @@ You can trigger the code-gen by invoking the following task:
 
 The extra `--rerun-tasks` flag is added to make sure Gradle is ignoring the `UP-TO-DATE` checks for this task. You should not need it during normal development.
 
-The `generateCodegenArtifactsFromSchema` task normally runs before the `preBuild` task, so you should not need to invoke it manually but it will be triggered before your builds.
+The `generateCodegenArtifactsFromSchema` task normally runs before the `preBuild` task, so you should not need to invoke it manually, but it will be triggered before your builds.
 
 ### Invoking the script manually
 
