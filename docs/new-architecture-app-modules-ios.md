@@ -1,6 +1,6 @@
 ---
 id: new-architecture-app-modules-ios
-title: Enabling TurboMudule on iOS
+title: Enabling TurboModule on iOS
 ---
 
 Make sure your application meets all the [prerequisites](new-architecture-app-intro).
