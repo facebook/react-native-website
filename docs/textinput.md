@@ -130,11 +130,11 @@ Tells `TextInput` to automatically capitalize certain characters. This property 
 
 ---
 
-### `autoComplete` <div class="label android">Android</div>
+### `autoCompleteType` <div class="label android">Android</div>
 
-Specifies autocomplete hints for the system, so it can provide autofill. On Android, the system will always attempt to offer autofill by using heuristics to identify the type of content. To disable autocomplete, set `autoComplete` to `off`.
+Specifies autocomplete hints for the system, so it can provide autofill. On Android, the system will always attempt to offer autofill by using heuristics to identify the type of content. To disable autocomplete, set `autoCompleteType` to `off`.
 
-Possible values for `autoComplete` are:
+Possible values for `autoCompleteType` are:
 
 - `birthdate-day`
 - `birthdate-full`
