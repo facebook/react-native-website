@@ -122,9 +122,9 @@ import codegenNativeComponent from 'react-native/Libraries/Utilities/codegenNati
 // babel-plugin-codegen will replace the function call to use NativeComponentRegistry
 // 'RCTWebView' is interopped by RCTFabricComponentsPlugins
 
-export default (codegenNativeComponent<NativeProps>(
-  'RCTWebView'
-): HostComponent<NativeProps>);
+export default (codegenNativeComponent <
+  NativeProps >
+  'RCTWebView': HostComponent<NativeProps>);
 ```
 
 4. **[Flow users]** Make sure your native component has Flow types for its props, since the JS codegen uses these types to generate the type-safe native implementation of the component. The codegen generates C++ classes during the build time, which guarantees that the native implementation is always up-to-date with its JS interface. Use [these c++ compatible types](https://github.com/facebook/react-native/blob/main/Libraries/Types/CodegenTypes.js#L28-L30).
