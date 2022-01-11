@@ -25,7 +25,7 @@ If you are looking for the source code of the [React Native Archive website](htt
 ### Installation
 
 1.  `cd react-native-website` to go into the project root.
-1.  `yarn` to install the website's workspace dependencies.
+1.  Run `yarn` to install the website's workspace dependencies.
 
 ### Running locally
 
