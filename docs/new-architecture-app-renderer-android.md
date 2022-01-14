@@ -11,7 +11,7 @@ In order to enable Fabric in your app, you would need to add a `JSIModulePackage
 
 Once you located it, you need to add the `getJSIModulePackage` method as from the snippet below:
 
-```java
+```java title='MyApplication.java'
 public class MyApplication extends Application implements ReactApplication {
 
   private final ReactNativeHost mReactNativeHost =
