@@ -116,15 +116,15 @@ First, make sure you followed the instructions to [Enabling the New Renderer (Fa
 1. Make sure your other JS changes are ready to go by following Preparing your JavaScript codebase for the new React Native Renderer (Fabric)
 2. Replace the call to `requireNativeComponent` with `codegenNativeComponent`. This tells the JS codegen to start generating the native implementation of the component, consisting of C++ and Java classes. This is how it looks for the WebView component:
 
-```javascript
+```ts
 import codegenNativeComponent from 'react-native/Libraries/Utilities/codegenNativeComponent';
 
 // babel-plugin-codegen will replace the function call to use NativeComponentRegistry
 // 'RCTWebView' is interopped by RCTFabricComponentsPlugins
 
-export default (codegenNativeComponent <
-  NativeProps >
-  'RCTWebView': HostComponent<NativeProps>);
+export default (codegenNativeComponent<NativeProps>(
+  'RCTWebView',
+): HostComponent<NativeProps>);
 ```
 
 4. **[Flow users]** Make sure your native component has Flow types for its props, since the JS codegen uses these types to generate the type-safe native implementation of the component. The codegen generates C++ classes during the build time, which guarantees that the native implementation is always up-to-date with its JS interface. Use [these c++ compatible types](https://github.com/facebook/react-native/blob/main/Libraries/Types/CodegenTypes.js#L28-L30).
