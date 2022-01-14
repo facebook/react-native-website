@@ -11,50 +11,52 @@ In order to enable Fabric in your app, you would need to add a `JSIModulePackage
 
 Once you located it, you need to add the `getJSIModulePackage` method as from the snippet below:
 
-```java
+```java title='MyApplication.java'
 public class MyApplication extends Application implements ReactApplication {
 
-    private final ReactNativeHost mReactNativeHost =
-            new ReactNativeHost(this) {
+  private final ReactNativeHost mReactNativeHost =
+    new ReactNativeHost(this) {
 
-                // Add those lines:
-                @Nullable
-                @Override
-                protected JSIModulePackage getJSIModulePackage() {
-                    return new JSIModulePackage() {
-                        @Override
-                        public List<JSIModuleSpec> getJSIModules(
-                                final ReactApplicationContext reactApplicationContext,
-                                final JavaScriptContextHolder jsContext) {
-                            final List<JSIModuleSpec> specs = new ArrayList<>();
-                            specs.add(new JSIModuleSpec() {
-                                @Override
-                                public JSIModuleType getJSIModuleType() {
-                                    return JSIModuleType.UIManager;
-                                }
+      // Add those lines:
+      @Nullable
+      @Override
+      protected JSIModulePackage getJSIModulePackage() {
+        return new JSIModulePackage() {
+          @Override
+          public List<JSIModuleSpec> getJSIModules(
+              final ReactApplicationContext reactApplicationContext,
+              final JavaScriptContextHolder jsContext) {
+            final List<JSIModuleSpec> specs = new ArrayList<>();
+            specs.add(new JSIModuleSpec() {
+              @Override
+              public JSIModuleType getJSIModuleType() {
+                return JSIModuleType.UIManager;
+              }
 
-                                @Override
-                                public JSIModuleProvider<UIManager> getJSIModuleProvider() {
-                                    final ComponentFactory componentFactory = new ComponentFactory();
-                                    CoreComponentsRegistry.register(componentFactory);
-                                    final ReactInstanceManager reactInstanceManager = getReactInstanceManager();
+              @Override
+              public JSIModuleProvider<UIManager> getJSIModuleProvider() {
+                final ComponentFactory componentFactory = new ComponentFactory();
+                CoreComponentsRegistry.register(componentFactory);
+                final ReactInstanceManager reactInstanceManager = getReactInstanceManager();
 
-                                    ViewManagerRegistry viewManagerRegistry =
-                                            new ViewManagerRegistry(
-                                                    reactInstanceManager.getOrCreateViewManagers(
-                                                            reactApplicationContext));
+                ViewManagerRegistry viewManagerRegistry =
+                    new ViewManagerRegistry(
+                        reactInstanceManager.getOrCreateViewManagers(
+                            reactApplicationContext));
 
-                                    return new FabricJSIModuleProvider(
-                                            reactApplicationContext,
-                                            componentFactory,
-                                            new EmptyReactNativeConfig(),
-                                            viewManagerRegistry);
-                                }
-                            });
-                            return specs;
-                        }
-                    };
-                }
+                return new FabricJSIModuleProvider(
+                    reactApplicationContext,
+                    componentFactory,
+                    new EmptyReactNativeConfig(),
+                    viewManagerRegistry);
+              }
+            });
+            return specs;
+          }
+        };
+      }
+    };
+}
 ```
 
 ## 2. Make sure your call `setIsFabric` on your Activity’s `ReactRootView`
@@ -114,10 +116,12 @@ First, make sure you followed the instructions to [Enabling the New Renderer (Fa
 1. Make sure your other JS changes are ready to go by following Preparing your JavaScript codebase for the new React Native Renderer (Fabric)
 2. Replace the call to `requireNativeComponent` with `codegenNativeComponent`. This tells the JS codegen to start generating the native implementation of the component, consisting of C++ and Java classes. This is how it looks for the WebView component:
 
-```javascript
+```ts
 import codegenNativeComponent from 'react-native/Libraries/Utilities/codegenNativeComponent';
+
 // babel-plugin-codegen will replace the function call to use NativeComponentRegistry
 // 'RCTWebView' is interopped by RCTFabricComponentsPlugins
+
 export default (codegenNativeComponent<NativeProps>(
   'RCTWebView',
 ): HostComponent<NativeProps>);
@@ -125,7 +129,7 @@ export default (codegenNativeComponent<NativeProps>(
 
 4. **[Flow users]** Make sure your native component has Flow types for its props, since the JS codegen uses these types to generate the type-safe native implementation of the component. The codegen generates C++ classes during the build time, which guarantees that the native implementation is always up-to-date with its JS interface. Use [these c++ compatible types](https://github.com/facebook/react-native/blob/main/Libraries/Types/CodegenTypes.js#L28-L30).
 
-```javascript title="RNTMyNativeViewNativeComponent.js"
+```ts title="RNTMyNativeViewNativeComponent.js"
 import type {Int32} from 'react-native/Libraries/Types/CodegenTypes';
 import codegenNativeComponent from 'react-native/Libraries/Utilities/codegenNativeComponent';
 import type {HostComponent} from 'react-native';
@@ -134,9 +138,9 @@ import type {ViewProps} from 'react-native/Libraries/Components/View/ViewPropTyp
 type NativeProps = $ReadOnly<{|
   ...ViewProps, // This is required.
   someNumber: Int32,
-  |}>;
+|}>;
 
-...
+[...]
 
 export default (codegenNativeComponent<NativeProps>(
   'RNTMyNativeView',
@@ -152,8 +156,8 @@ export default (codegenNativeComponent<NativeProps>(
 Specifically you will have to implement the generated **ViewManagerInterface** and to pass events to the generated **ViewManagerDelegate.**
 Your ViewManager could follow this structure. The MyNativeView class in this example is an Android View implementation (like a subclass of LinearLayout, Button, TextView, etc.)
 
-```java
-/** View manager for MyNativeView components. */
+```java title='MyNativeViewManager.java'
+// View manager for MyNativeView components.
 @ReactModule(name = MyNativeViewManager.REACT_CLASS)
 public class MyNativeViewManager extends SimpleViewManager<MyNativeView>
         implements RNTMyNativeViewManagerInterface<MyNativeView> {
@@ -222,6 +226,8 @@ public class MyApplication extends Application implements ReactApplication {
       });
       return packages;
     }
+  };
+}
 ```
 
 3. **Add a Fabric Component Registry**
@@ -240,24 +246,24 @@ import com.facebook.soloader.SoLoader;
 
 @DoNotStrip
 public class MyComponentsRegistry {
-	static {
-		SoLoader.loadLibrary("fabricjni");
-	}
+  static {
+    SoLoader.loadLibrary("fabricjni");
+  }
 
-	@DoNotStrip private final HybridData mHybridData;
+  @DoNotStrip private final HybridData mHybridData;
 
-	@DoNotStrip
-	private native HybridData initHybrid(ComponentFactory componentFactory);
+  @DoNotStrip
+  private native HybridData initHybrid(ComponentFactory componentFactory);
 
-	@DoNotStrip
-	private MyComponentsRegistry(ComponentFactory componentFactory) {
-		mHybridData = initHybrid(componentFactory);
-	}
+  @DoNotStrip
+  private MyComponentsRegistry(ComponentFactory componentFactory) {
+    mHybridData = initHybrid(componentFactory);
+  }
 
-	@DoNotStrip
-	public static MyComponentsRegistry register(ComponentFactory componentFactory) {
-		return new MyComponentsRegistry(componentFactory);
-	}
+  @DoNotStrip
+  public static MyComponentsRegistry register(ComponentFactory componentFactory) {
+    return new MyComponentsRegistry(componentFactory);
+  }
 }
 ```
 
@@ -287,7 +293,7 @@ public class MyApplication extends Application implements ReactApplication {
               CoreComponentsRegistry.register(componentFactory);
 
               // Add this line just below CoreComponentsRegistry.register
-              MyComponentsRegistry.register(componentFactory)
+              MyComponentsRegistry.register(componentFactory);
 
               // ...
             }
@@ -296,6 +302,8 @@ public class MyApplication extends Application implements ReactApplication {
         }
       };
     }
+  };
+}
 ```
 
 ### Native/C++ Changes

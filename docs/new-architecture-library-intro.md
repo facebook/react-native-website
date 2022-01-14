@@ -84,7 +84,11 @@ android/settings.gradle:apply from: file("../node_modules/@react-native-communit
 
 On iOS, this generally requires your library to provide a Podspec (see [`react-native-webview`](https://github.com/react-native-community/react-native-webview/blob/master/react-native-webview.podspec) for an example).
 
-> To determine if your library is set up for autolinking, check the CocoaPods output after running `pod install` on an iOS project. If you see "auto linking library name", you are all set to go.
+:::info
+
+To determine if your library is set up for autolinking, check the CocoaPods output after running `pod install` on an iOS project. If you see "auto linking library name", you are all set to go.
+
+:::
 
 ## Preparing your JavaScript codebase for the new React Native Renderer (Fabric)
 
@@ -254,11 +258,11 @@ this._scrollView.measure((x, y, width, height) => {
 
 ### Migrating off `setNativeProps`
 
-setNativeProps will not be supported in the post-Fabric world. To migrate, move all `setNativeProp` values to component state.
+`setNativeProps` will not be supported in the post-Fabric world. To migrate, move all `setNativeProp` values to component state.
 
 **Example**
 
-```tsx
+```ts
 class MyComponent extends React.Component<Props> {
   _viewRef: ?React.ElementRef<typeof View>;
 
@@ -358,28 +362,39 @@ Be wary of your assumptions as uncaught subtleties can introduce differences in 
 
 This will prepare for the JS to be ready for the new codegen system for the new architecture. The new file should be named `<ComponentName>NativeComponent.js.`
 
-```javascript
-// 1. MyNativeView.js
-// Old way
-const RNTMyNativeView = requireNativeComponent('RNTMyNativeView');
-...
-  return <RNTMyNativeView />
-// New way
-import RNTMyNativeViewNativeComponent from './RNTMyNativeViewNativeComponent';
-...
-  return <RNTMyNativeViewNativeComponent />
+#### Old way
 
-// RNTMyNativeViewNativeComponent.js
-import {requireNativeComponent} from 'react-native';
+```js
+const RNTMyNativeView = requireNativeComponent('RNTMyNativeView');
+
+[...]
+
+return <RNTMyNativeView />;
+```
+
+#### New way
+
+```js title="RNTMyNativeNativeComponent.js"
+import RNTMyNativeViewNativeComponent from './RNTMyNativeViewNativeComponent';
+
+[...]
+
+return <RNTMyNativeViewNativeComponent />;
+```
+
+```js title="RNTMyNativeViewNativeComponent.js"
+import { requireNativeComponent } from 'react-native';
 const RNTMyNativeViewNativeComponent = requireNativeComponent(
-  'RNTMyNativeView',
+  'RNTMyNativeView'
 );
 export default RNTMyNativeViewNativeComponent;
 ```
 
-**[Flow users]** If `requireNativeComponent` is not typed, you can temporarily use the `mixed` type to fix the Flow warning, for example:
+#### Flow support
 
-```javascript
+If `requireNativeComponent` is not typed, you can temporarily use the `mixed` type to fix the Flow warning, for example:
+
+```js
 import type { HostComponent } from 'react-native/Libraries/Renderer/shims/ReactNativeTypes';
 // ...
 const RCTWebViewNativeComponent: HostComponent<mixed> =
@@ -392,13 +407,13 @@ Similar to one above, in an effort to avoid calling methods on the UIManager, al
 
 **Before**
 
-```jsx
+```tsx
 class MyComponent extends React.Component<Props> {
   _moveToRegion: (region: Region, duration: number) => {
     UIManager.dispatchViewManagerCommand(
       ReactNative.findNodeHandle(this),
       'moveToRegion',
-      [region, duration],
+      [region, duration]
     );
   }
 
@@ -410,7 +425,7 @@ class MyComponent extends React.Component<Props> {
 
 **Creating the NativeCommands with `codegenNativeCommands`**
 
-```js title="MyCustomMapNativeComponent.js"
+```ts title="MyCustomMapNativeComponent.js"
 import codegeNativeCommands from 'react-native/Libraries/Utilities/codegenNativeCommands';
 ...
 type Props = {...};
@@ -419,7 +434,7 @@ const MyCustomMapNativeComponent: HostComponent<Props> =
    requireNativeComponent<Props>('MyCustomMapNativeComponent');
 
 interface NativeCommands {
-  +moveToRegion: (
+  moveToRegion: (
     ref: React.ElementRef<typeof MyCustomMapNativeComponent>,
     region: MapRegion,
     duration: number,
@@ -440,7 +455,7 @@ Note:
 
 ### Using Your Command
 
-```jsx
+```tsx
 import {Commands, ... } from './MyCustomMapNativeComponent';
 
 class MyComponent extends React.Component<Props> {
@@ -472,7 +487,7 @@ In the example the code-generated `Commands` will dispatch `moveToRegion` call t
 
 ```objc
 RCT_EXPORT_METHOD(moveToRegion:(nonnull NSNumber *)reactTag
-                        region:(`NSDictionary`` ``*`)region
+                        region:(NSDictionary *)region
                       duration:(double)duration
 {
    ...

@@ -7,7 +7,11 @@ Make sure your application meets all the [prerequisites](new-architecture-app-in
 
 ## 1. Enable NDK and the native build
 
-> NOTE: In this iteration of the playbook we’re setting up the project to let you build from source. You might notice an increase in your build time because of this. We’re looking into what would be the preferred approach here so please feel free to share your feedbacks.
+:::caution
+
+In this iteration of the playbook we’re setting up the project to let you build from source. You might notice an increase in your build time because of this. We’re looking into what would be the preferred approach here so please feel free to share your feedbacks.
+
+:::
 
 The code-gen will output some Java and some C++ code that now we need to build.
 

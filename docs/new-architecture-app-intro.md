@@ -112,7 +112,11 @@ Hermes is an open-source JavaScript engine optimized for React Native. We highly
 
 Please [follow the instructions on the React Native website](hermes) in order to enable Hermes in your application.
 
-> iOS: If you opt out of using Hermes, you will need to replace `HermesExecutorFactory` with `JSCExecutorFactory` in any examples used throughout the rest of this playbook.
+:::caution
+
+**iOS:** If you opt out of using Hermes, you will need to replace `HermesExecutorFactory` with `JSCExecutorFactory` in any examples used throughout the rest of this playbook.
+
+:::
 
 ## iOS: Enable C++17 language feature support
 
@@ -132,13 +136,21 @@ If done correctly, your diff will show the following changes to your project fil
 CLANG_CXX_LANGUAGE_STANDARD = "c++17"
 ```
 
-> Your project should also be configured to support Folly. This should be done automatically once the library dependency is picked up, so no further changes to your project are necessary.
+:::info
+
+Your project should also be configured to support Folly. This should be done automatically once the library dependency is picked up, so no further changes to your project are necessary.
+
+:::
 
 ## iOS: Use Objective-C++ (`.mm` extension)
 
 TurboModules can be written using Objective-C or C++. In order to support both cases, any source files that include C++ code should use the `.mm` file extension. This extension corresponds to Objective-C++, a language variant that allows for the use of a combination of C++ and Objective-C in source files.
 
-> Use Xcode to rename existing files to ensure file references persist in your project. You might need to clean the build folder (_Project → Clean Build Folder_) before re-building the app. If the file is renamed outside of Xcode, you may need to click on the old `.m` file reference and Locate the new file.
+:::info
+
+Use Xcode to rename existing files to ensure file references persist in your project. You might need to clean the build folder (_Project → Clean Build Folder_) before re-building the app. If the file is renamed outside of Xcode, you may need to click on the old `.m` file reference and Locate the new file.
+
+:::
 
 ## iOS: TurboModules: Ensure your App Provides an `RCTCxxBridgeDelegate`
 
