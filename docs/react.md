@@ -1,6 +1,6 @@
 ---
-id: rect
-title: Rect Object Type
+id: react
+title: React Object Type
 ---
 
 `Rect` accepts numeric pixel values to describe how far to extend a rectangular area. These values are added to the original area's size to expand it.
