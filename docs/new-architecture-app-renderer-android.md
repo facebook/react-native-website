@@ -156,7 +156,7 @@ export default (codegenNativeComponent<NativeProps>(
 Specifically you will have to implement the generated **ViewManagerInterface** and to pass events to the generated **ViewManagerDelegate.**
 Your ViewManager could follow this structure. The MyNativeView class in this example is an Android View implementation (like a subclass of LinearLayout, Button, TextView, etc.)
 
-```java
+```java title='MyNativeViewManager.java'
 // View manager for MyNativeView components.
 @ReactModule(name = MyNativeViewManager.REACT_CLASS)
 public class MyNativeViewManager extends SimpleViewManager<MyNativeView>
