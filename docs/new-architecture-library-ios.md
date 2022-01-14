@@ -40,14 +40,23 @@ Pod::Spec.new do |s|
 end
 ```
 
-> **Note:** Currently, the Folly version used here must match the Folly version used by React Native. A version mismatch here may lead to errors when running `pod install`. If CocoaPods flags an issue with your Folly version, then you may have a version mismatch. Check which version is used by the core modules Podspecs (e.g. FBReactNativeSpec.podspec), and try running `pod install` again after editing your podspec with the correct Folly version.
+:::caution
+
+Currently, the Folly version used here must match the Folly version used by React Native. A version mismatch here may lead to errors when running `pod install`. If CocoaPods flags an issue with your Folly version, then you may have a version mismatch. Check which version is used by the core modules Podspecs (e.g. FBReactNativeSpec.podspec), and try running `pod install` again after editing your podspec with the correct Folly version.
+
+:::
 
 ### Enable codegen in your `package.json`
 
 At this point, you are now ready to enable code-gen support in your library. In your library’s package.json add the following:
 
+:::info
+
+Please note that this format is subject to change.
+
+:::
+
 ```json title="package.json"
-// Please note that this format is subject to change.
 "codegenConfig": {
   "libraries": [
     {

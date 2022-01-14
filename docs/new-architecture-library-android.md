@@ -19,7 +19,11 @@ react {
 }
 ```
 
-_(Please note that this setup requires you to have the React Gradle Plugin configured in the prerequisite step)._
+:::info
+
+Please note that this setup requires you to have the React Gradle Plugin configured in the prerequisite step).
+
+:::
 
 There are three arguments that are required:
 

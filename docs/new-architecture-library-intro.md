@@ -84,7 +84,11 @@ android/settings.gradle:apply from: file("../node_modules/@react-native-communit
 
 On iOS, this generally requires your library to provide a Podspec (see [`react-native-webview`](https://github.com/react-native-community/react-native-webview/blob/master/react-native-webview.podspec) for an example).
 
-> To determine if your library is set up for autolinking, check the CocoaPods output after running `pod install` on an iOS project. If you see "auto linking library name", you are all set to go.
+:::info
+
+To determine if your library is set up for autolinking, check the CocoaPods output after running `pod install` on an iOS project. If you see "auto linking library name", you are all set to go.
+
+:::
 
 ## Preparing your JavaScript codebase for the new React Native Renderer (Fabric)
 
