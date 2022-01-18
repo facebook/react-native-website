@@ -226,33 +226,21 @@ class ChildComponent extends React.Component<Props> {
 Let’s take a look at an example calling `UIManager.measure`. This code might look something like this
 
 ```js
-if (this._scrollView == null || viewRef == null) {
-  return;
-}
-
+const viewRef: React.ElementRef<typeof View> =  /* ... */;
 const viewHandle = ReactNative.findNodeHandle(viewRef);
-const scrollViewHandle = ReactNative.findNodeHandle(
-  this._scrollView
-);
-UIManager.measure(scrollViewHandle, (x, y, width, height) => {
-  UIManager.measureLayout(
-    viewHandle,
-    scrollViewHandle,
-    emptyFunction,
-    successCallback
-  );
+
+UIManager.measure(viewHandle, (x, y, width, height) => {
+  // Use layout metrics.
 });
 ```
 
 In order to call `UIManager.measure*` we need to call `findNodeHandle` first and pass in those handles. With the new API, we instead call `measure` directly on native refs without `findNodeHandle`. The example above with the new API looks like this:
 
 ```js
-if (this._scrollView == null || viewRef == null) {
-  return;
-}
+const viewRef: React.ElementRef<typeof View> = /* ... */;
 
-this._scrollView.measure((x, y, width, height) => {
-  viewRef.measureLayout(this._scrollView, successCallback);
+viewRef.measure((x, y, width, height) => {
+  // Use layout metrics.
 });
 ```
 
