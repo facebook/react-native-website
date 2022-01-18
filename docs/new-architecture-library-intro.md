@@ -111,14 +111,14 @@ While we know that all deprecations are a hassle, this guide is intended to help
 
 Much of the migration work requires a HostComponent ref to access certain APIs that are only attached to host components (like View, Text, or ScrollView). HostComponents are the return value of calls to `requireNativeComponent`. `findNodeHandle` tunnels through multiple levels of component hierarchy to find the nearest native component.
 
-As a concrete example, this code uses `findNodeHandle` to tunnel from `MyComponent` through to the `View` rendered by `MyJSComponent`.
+As a concrete example, this code uses `findNodeHandle` to tunnel from `ParentComponent` through to the `View` rendered by `ChildComponent`.
 
 ```jsx
-class MyComponent extends React.Component<Props> {
-  _ref: ?React.ElementRef<typeof MyJSComponent>;
+class ParentComponent extends React.Component<Props> {
+  _ref: ?React.ElementRef<typeof ChildComponent>;
 
   render() {
-    return <MyJSComponent ref={this._captureRef} onSubmit={this._onSubmit} />
+    return <ChildComponent ref={this._captureRef} onSubmit={this._onSubmit} />
   }
 
   _captureRef: (ref) => {
@@ -134,27 +134,29 @@ class MyComponent extends React.Component<Props> {
   }
 }
 
-function MyJSComponent(props) {
-  return (
-    <View>
-      <SubmitButton onSubmit={props.onSubmit} />
-    </View>
-  );
+class ChildComponent extends React.Component<Props> {
+  render() {
+    return (
+      <View>
+        <SubmitButton onSubmit={props.onSubmit} />
+      </View>
+    );
+  }
 }
 ```
 
-We can’t convert this call to `this._ref.measure` because `this._ref` is an instance to `MyJSComponent`, which is not a HostComponent and thus does not have a `measure` function.
+We can’t convert this call to `this._ref.measure` because `this._ref` is an instance to `ChildComponent`, which is not a HostComponent and thus does not have a `measure` function.
 
-`MyJSComponent` renders a View, which is a HostComponent, so we need to get a reference to `View` instead. There are typically two approaches to get what we need. If the component we need to get the ref from is a function component using `forwardRef` is probably the right choice. If it is a class component with other public methods, adding a public method for getting the ref is an option. Here are examples of those two forms:
+`ChildComponent` renders a `View`, which is a HostComponent, so we need to get a reference to `View` instead. There are typically two approaches to get what we need. If the component we need to get the ref from is a function component using `forwardRef` is probably the right choice. If it is a class component with other public methods, adding a public method for getting the ref is an option. Here are examples of those two forms:
 
 ### Using `forwardRef`
 
 ```jsx
-class MyComponent extends React.Component<Props> {
-  _ref: ?React.ElementRef<typeof MyJSComponent>;
+class ParentComponent extends React.Component<Props> {
+  _ref: ?React.ElementRef<typeof ChildComponent>;
 
   render() {
-    return <MyJSComponent ref={this._captureRef} onSubmit={this._onSubmit} />
+    return <ChildComponent ref={this._captureRef} onSubmit={this._onSubmit} />
   }
 
   _captureRef: (ref) => {
@@ -168,7 +170,7 @@ class MyComponent extends React.Component<Props> {
   }
 }
 
-const MyJSComponent = React.forwardRef((props, forwardedRef) => {
+const ChildComponent = React.forwardRef((props, forwardedRef) => {
   return (
     <View ref={forwardedRef}>
       <SubmitButton onSubmit={props.onSubmit} />
@@ -180,11 +182,11 @@ const MyJSComponent = React.forwardRef((props, forwardedRef) => {
 ### Using a getter, (note the addition of `getViewRef`)
 
 ```tsx
-class MyComponent extends React.Component<Props> {
-  _ref: ?React.ElementRef<typeof MyJSComponent>;
+class ParentComponent extends React.Component<Props> {
+  _ref: ?React.ElementRef<typeof ChildComponent>;
 
   render() {
-    return <MyJSComponent ref={this._captureRef} onSubmit={this._onSubmit} />
+    return <ChildComponent ref={this._captureRef} onSubmit={this._onSubmit} />
   }
 
   _captureRef: (ref) => {
@@ -198,7 +200,7 @@ class MyComponent extends React.Component<Props> {
   }
 }
 
-class MyJSComponent extends React.Component<Props> {
+class ChildComponent extends React.Component<Props> {
   _ref: ?React.ElementRef<typeof View>;
 
   render() {
