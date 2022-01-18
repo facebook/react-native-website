@@ -368,7 +368,7 @@ You can invoke the callback in your Java method, providing whatever data you wan
   @ReactMethod
    public void createCalendarEvent(String name, String location, Callback callBack) {
        Integer eventId = ...
-       callback.invoke(eventId);
+       callBack.invoke(eventId);
    }
 ```
 
