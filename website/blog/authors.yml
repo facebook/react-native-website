@@ -1,35 +1,41 @@
 abernathyca:
   name: Christine Abernathy
-  title: Developer Advocate at Facebook
+  title: Developer Advocate at Meta
   url: https://twitter.com/abernathyca
   image_url: https://github.com/caabernathy.png
 
 Eli_White:
   name: Eli White
-  title: Engineering Manager at Facebook
+  title: Engineering Manager at Meta
   url: https://twitter.com/Eli_White
   image_url: https://github.com/TheSavior.png
 
 lunaleaps:
   name: Luna Wei
-  title: Software Engineer at Facebook
+  title: Software Engineer at Meta
   url: https://twitter.com/lunaleaps
   image_url: https://github.com/lunaleaps.png
 
 SamuelSusla:
   name: Samuel Susla
-  title: Software Engineer at Facebook
+  title: Software Engineer at Meta
   url: https://twitter.com/SamuelSusla
   image_url: https://github.com/sammy-SC.png
 
 yungsters:
   name: Timothy Yung
-  title: Software Engineer at Facebook
+  title: Software Engineer at Meta
   url: https://twitter.com/yungsters
   image_url: https://github.com/yungsters.png
 
 huxpro:
   name: Xuan Huang
-  title: Software Engineer at Facebook
+  title: Software Engineer at Meta
   url: https://twitter.com/huxpro
   image_url: https://github.com/huxpro.png
+
+kelset:
+  name: Lorenzo Sciandra
+  title: Senior Software Engineer at Microsoft
+  url: https://twitter.com/kelset
+  image_url: https://github.com/kelset.png
