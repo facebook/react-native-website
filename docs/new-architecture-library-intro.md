@@ -20,7 +20,7 @@ By convention, JavaScript spec files are named `Native<MODULE_NAME>.js` and they
 
 :::info
 
-Currently, this Playbook is written under the assumption that you will be using [Flow](https://flow.org/). The `react-native-codegen` package is also currently working only with Flow source as input. We know that a lot of our users are using **TypeScript** instead and we hope to release TypeScript support really soon. This Playbook will be updated once the TypeScript support is also available.
+Currently, this guide is written under the assumption that you will be using [Flow](https://flow.org/). The `react-native-codegen` package is also currently working only with Flow source as input. We know that a lot of our users are using **TypeScript** instead and we hope to release TypeScript support really soon. This guide will be updated once the TypeScript support is also available.
 
 :::
 

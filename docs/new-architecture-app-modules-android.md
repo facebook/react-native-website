@@ -9,7 +9,7 @@ Make sure your application meets all the [prerequisites](new-architecture-app-in
 
 :::caution
 
-In this iteration of the playbook we’re setting up the project to let you build from source. You might notice an increase in your build time because of this. We’re looking into what would be the preferred approach here so please feel free to share your feedbacks.
+In this iteration of the guide we’re setting up the project to let you build from source. You might notice an increase in your build time because of this. We’re looking into what would be the preferred approach here so please feel free to share your feedbacks.
 
 :::
 

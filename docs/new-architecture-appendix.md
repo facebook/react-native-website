@@ -62,7 +62,7 @@ node node_modules/react-native-codegen/lib/cli/combine/combine-js-to-schema-cli.
   <output_file_schema_json> <javascript_sources_dir>
 ```
 
-> The source for the `react-native-codegen` is available in the React Native repository, under `packages/react-native-codegen`. Run `yarn install` and `yarn build` in that directory to build your own `react-native-codegen` package from source. In most cases, you will not want to do this as the playbook assumes the use of the `react-native-codegen` package version that is associated with the relevant React Native nightly release.
+> The source for the `react-native-codegen` is available in the React Native repository, under `packages/react-native-codegen`. Run `yarn install` and `yarn build` in that directory to build your own `react-native-codegen` package from source. In most cases, you will not want to do this as the guide assumes the use of the `react-native-codegen` package version that is associated with the relevant React Native nightly release.
 
 #### Generating the native code artifacts
 
@@ -102,11 +102,11 @@ In the above example, the code-gen script will generate several files: `MyLibSpe
 
 ## III. Note on Existing Apps
 
-The playbook provides instructions for migrating an application that is based on the default app template that is provided by React Native. If your app has deviated from the template, or you are working with an application that was never based off the template, then the following sections might help.
+This guide provides instructions for migrating an application that is based on the default app template that is provided by React Native. If your app has deviated from the template, or you are working with an application that was never based off the template, then the following sections might help.
 
 ### Finding your bridge delegate
 
-The playbook assumes that the `AppDelegate` is configured as the bridge delegate. If you are not sure which is your bridge delegate, then place a breakpoint in `RCTBridge` and `RCTCxxBridge`, run your app, and inspect `self.delegate`.
+This guide assumes that the `AppDelegate` is configured as the bridge delegate. If you are not sure which is your bridge delegate, then place a breakpoint in `RCTBridge` and `RCTCxxBridge`, run your app, and inspect `self.delegate`.
 
 ## IV. Troubleshooting
 

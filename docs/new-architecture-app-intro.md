@@ -9,7 +9,7 @@ There’s a few prerequisites that should be addressed before the new architectu
 
 At this time, you must use a React Native nightly release in order to get access to the most up to date changes. Eventually, we will recommend targeting a minimum stable open source release.
 
-This guide is written with the expectation that you’re using a specific nightly release. As new revisions of the playbook are release, the target nightly release may be updated. The specific nightly version that we will be using throughout the rest of the playbook is version `0.0.0-20211205-2008-583471bc4`.
+This guide is written with the expectation that you’re using a specific nightly release. As new revisions of this guide are released, the target nightly release may be updated. The specific nightly version that we will be using throughout the rest of this guide is version `0.0.0-20211205-2008-583471bc4`.
 
 Before upgrading your app to a specific nightly release, we recommend upgrading your app to the latest open source release. By upgrading to a published open source release first, you will be able to take advantage of tools like the [upgrade helper](https://react-native-community.github.io/upgrade-helper/) to determine what other changes may be required for your project.
 
@@ -114,7 +114,7 @@ Please [follow the instructions on the React Native website](hermes) in order to
 
 :::caution
 
-**iOS:** If you opt out of using Hermes, you will need to replace `HermesExecutorFactory` with `JSCExecutorFactory` in any examples used throughout the rest of this playbook.
+**iOS:** If you opt out of using Hermes, you will need to replace `HermesExecutorFactory` with `JSCExecutorFactory` in any examples used throughout the rest of this guide.
 
 :::
 

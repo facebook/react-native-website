@@ -3,13 +3,13 @@ id: new-architecture-intro
 title: Adopting the New Architecture
 ---
 
-# Playbook for Adopting the New Architecture
+# Getting Started with the New Architecture
 
 :::caution
 
 This documentation is still **experimental** and details are subject to changes as we iterate. Feel free to share your feedback on the [react-native-website PR](https://github.com/facebook/react-native-website) for this page.
 
-Moreover, it contains several **manual steps**. Please note that this won't be representative of the final developer experience once the New Architecture is stable. We're working on tools, templates and libraries to help you get started fast on the New Architecture, without having to go through the whole Playbook.
+Moreover, it contains several **manual steps**. Please note that this won't be representative of the final developer experience once the New Architecture is stable. We're working on tools, templates and libraries to help you get started fast on the New Architecture, without having to go through the whole setup.
 
 :::
 
@@ -17,7 +17,7 @@ This migration guide is designed for React Native **library authors** and **appl
 
 ## Table of Contents
 
-The playbook is divided into three sections:
+The guide is divided into three sections:
 
 - **Supporting the New Architecture in your Library**
   - [Prerequisites for Supporting the New Architecture in JavaScript](new-architecture-library-intro)

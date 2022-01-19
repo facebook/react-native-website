@@ -7,7 +7,7 @@ Make sure your application meets all the [prerequisites](new-architecture-app-in
 
 ## 1. Provide a `JSIModulePackage` inside your `ReactNativeHost`
 
-In order to enable Fabric in your app, you would need to add a `JSIModulePackage` inside your `ReactNativeHost`. If you followed the TurboModule section of this playbook, you probably already know where to find your `ReactNativeHost`. If not, you can locate your `ReactNativeHost` by searching for the `getReactNativeHost()`. The `ReactNativeHost` is usually located inside your `Application` class.
+In order to enable Fabric in your app, you would need to add a `JSIModulePackage` inside your `ReactNativeHost`. If you followed the TurboModule section of this guide, you probably already know where to find your `ReactNativeHost`. If not, you can locate your `ReactNativeHost` by searching for the `getReactNativeHost()`. The `ReactNativeHost` is usually located inside your `Application` class.
 
 Once you located it, you need to add the `getJSIModulePackage` method as from the snippet below:
 
