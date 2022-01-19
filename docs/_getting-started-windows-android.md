@@ -8,14 +8,14 @@ While you can use any editor of your choice to develop your app, you will need t
 
 We recommend installing Node via [Chocolatey](https://chocolatey.org), a popular package manager for Windows.
 
-If you want to be able to switch between different Node versions, you might want to install Node via [nvm-windows](https://github.com/coreybutler/nvm-windows), a Node version manager for Windows.
+It is recommended to use an LTS version of Node. If you want to be able to switch between different versions, you might want to install Node via [nvm-windows](https://github.com/coreybutler/nvm-windows), a Node version manager for Windows.
 
 React Native also requires [Java SE Development Kit (JDK)](https://openjdk.java.net/projects/jdk/11/), which can be installed using Chocolatey as well.
 
 Open an Administrator Command Prompt (right click Command Prompt and select "Run as Administrator"), then run the following command:
 
 ```powershell
-choco install -y nodejs.install openjdk11
+choco install -y nodejs-lts openjdk11
 ```
 
 If you have already installed Node on your system, make sure it is Node 12 or newer. If you already have a JDK on your system, make sure it is version 11 or newer.
@@ -186,7 +186,7 @@ If everything is set up correctly, you should see your new app running in your A
 
 `npx react-native run-android` is one way to run your app - you can also run it directly from within Android Studio.
 
-> If you can't get this to work, see the [Troubleshooting](troubleshooting.md#content) page.
+> If you can't get this to work, see the [Troubleshooting](troubleshooting.md) page.
 
 <h3>Modifying your app</h3>
 

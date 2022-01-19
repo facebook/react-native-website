@@ -677,6 +677,16 @@ Use in conjunction with `snapToOffsets`. By default, the beginning of the list c
 
 ---
 
+### `stickyHeaderHiddenOnScroll`
+
+When set to `true`, sticky header will be hidden when scrolling down the list, and it will dock at the top of the list when scrolling up.
+
+| Type | Default |
+| ---- | ------- |
+| bool | `false` |
+
+---
+
 ### `stickyHeaderIndices`
 
 An array of child indices determining which children get docked to the top of the screen when scrolling. For example, passing `stickyHeaderIndices={[0]}` will cause the first child to be fixed to the top of the scroll view. You can also use like [x,y,z] to make multiple items sticky when they are at the top. This property is not supported in conjunction with `horizontal={true}`.
@@ -732,9 +742,9 @@ Scrolls to a given x, y offset, either immediately, with a smooth animation.
 ### `scrollToEnd()`
 
 ```jsx
-scrollToEnd(([options]: { animated: boolean, duration: number }));
+scrollToEnd(([options]: { animated: boolean }));
 ```
 
 If this is a vertical ScrollView scrolls to the bottom. If this is a horizontal ScrollView scrolls to the right.
 
-Use `scrollToEnd({ animated: true })` for smooth animated scrolling, `scrollToEnd({ animated: false })` for immediate scrolling. For Android, you may specify a duration, e.g. `scrollToEnd({ duration: 500 })` for a controlled duration scroll. If no options are passed, `animated` defaults to `true`.
+Use `scrollToEnd({ animated: true })` for smooth animated scrolling, `scrollToEnd({ animated: false })` for immediate scrolling. If no options are passed, `animated` defaults to `true`.

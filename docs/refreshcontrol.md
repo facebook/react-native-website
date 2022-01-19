@@ -133,9 +133,9 @@ Progress view top offset.
 
 Size of the refresh indicator.
 
-| Type                                                             | Default                          |
-| ---------------------------------------------------------------- | -------------------------------- |
-| [RefreshControl.SIZE](refreshcontrol.md#refreshlayoutconstssize) | RefreshLayoutConsts.SIZE.DEFAULT |
+| Type                         | Default     |
+| ---------------------------- | ----------- |
+| enum(`'default'`, `'large'`) | `'default'` |
 
 ---
 
@@ -166,20 +166,3 @@ The color of the refresh indicator title.
 | Type               |
 | ------------------ |
 | [color](colors.md) |
-
-## Type Definitions
-
-### RefreshLayoutConsts.SIZE
-
-The SwipeRefreshLayout Android component constants. The actual component size may vary between devices. You can read more about the native component in the [Android documentation](https://developer.android.com/reference/androidx/swiperefreshlayout/widget/SwipeRefreshLayout).
-
-| Type |
-| ---- |
-| enum |
-
-**Constants:**
-
-| Name    | Type | Value | Description                 |
-| ------- | ---- | ----- | --------------------------- |
-| DEFAULT | int  | `1`   | Default RefreshControl size |
-| LARGE   | int  | `0`   | Large RefreshControl size   |

@@ -153,6 +153,7 @@ Available as constants under `PermissionsAndroid.PERMISSIONS`:
 - `GET_ACCOUNTS`: 'android.permission.GET_ACCOUNTS'
 - `ACCESS_FINE_LOCATION`: 'android.permission.ACCESS_FINE_LOCATION'
 - `ACCESS_COARSE_LOCATION`: 'android.permission.ACCESS_COARSE_LOCATION'
+- `ACCESS_BACKGROUND_LOCATION`: 'android.permission.ACCESS_BACKGROUND_LOCATION'
 - `RECORD_AUDIO`: 'android.permission.RECORD_AUDIO'
 - `READ_PHONE_STATE`: 'android.permission.READ_PHONE_STATE'
 - `CALL_PHONE`: 'android.permission.CALL_PHONE'
@@ -169,6 +170,15 @@ Available as constants under `PermissionsAndroid.PERMISSIONS`:
 - `RECEIVE_MMS`: 'android.permission.RECEIVE_MMS'
 - `READ_EXTERNAL_STORAGE`: 'android.permission.READ_EXTERNAL_STORAGE'
 - `WRITE_EXTERNAL_STORAGE`: 'android.permission.WRITE_EXTERNAL_STORAGE'
+- `BLUETOOTH_CONNECT`: 'android.permission.BLUETOOTH_CONNECT'
+- `BLUETOOTH_SCAN`: 'android.permission.BLUETOOTH_SCAN'
+- `BLUETOOTH_ADVERTISE`: 'android.permission.BLUETOOTH_ADVERTISE'
+- `ACCESS_MEDIA_LOCATION`: 'android.permission.ACCESS_MEDIA_LOCATION'
+- `ACCEPT_HANDOVER`: 'android.permission.ACCEPT_HANDOVER'
+- `ACTIVITY_RECOGNITION`: 'android.permission.ACTIVITY_RECOGNITION'
+- `ANSWER_PHONE_CALLS`: 'android.permission.ANSWER_PHONE_CALLS'
+- `READ_PHONE_NUMBERS`: 'android.permission.READ_PHONE_NUMBERS'
+- `UWB_RANGING`: 'android.permission.UWB_RANGING'
 
 ### Result strings for requesting permissions
 

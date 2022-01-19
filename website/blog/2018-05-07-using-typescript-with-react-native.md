@@ -12,10 +12,10 @@ JavaScript! We all love it. But some of us also love [types](https://en.wikipedi
 
 This post uses Microsoft's [TypeScript-React-Native-Starter](https://github.com/Microsoft/TypeScript-React-Native-Starter) repo as a guide.
 
-**Update**: Since this blog post was written, [Babel 7 was released with integrated TypeScript support](https://blogs.msdn.microsoft.com/typescript/2018/08/27/typescript-and-babel-7/). Babel 7 replaces all the set up described in this blog post with just one command:
+**Update**: Since this blog post was written, things have gotten even easier. You can replace all the set up described in this blog post by running just one command:
 
 ```sh
-react-native init MyAwesomeProject --template typescript
+npx react-native init MyAwesomeProject --template react-native-template-typescript
 ```
 
 However, there _are_ some limitations to Babel's TypeScript support, which the blog post above goes into in detail. The steps outlined in _this_ post still work, and Artsy is still using [react-native-typescript-transformer](https://github.com/ds300/react-native-typescript-transformer) in production, but the fastest way to get up and running with React Native and TypeScript is using the above command. You can always switch later if you have to.

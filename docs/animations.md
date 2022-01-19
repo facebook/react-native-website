@@ -24,7 +24,7 @@ import { Animated, Text, View } from 'react-native';
 const FadeInView = (props) => {
   const fadeAnim = useRef(new Animated.Value(0)).current  // Initial value for opacity: 0
 
-  React.useEffect(() => {
+  useEffect(() => {
     Animated.timing(
       fadeAnim,
       {
@@ -722,8 +722,8 @@ While using transform styles such as `rotateY`, `rotateX`, and others ensure the
 
 The RNTester app has various examples of `Animated` in use:
 
-- [AnimatedGratuitousApp](https://github.com/facebook/react-native/tree/master/packages/rn-tester/js/examples/Animated/AnimatedGratuitousApp)
-- [NativeAnimationsExample](https://github.com/facebook/react-native/blob/master/packages/rn-tester/js/examples/NativeAnimation/NativeAnimationsExample.js)
+- [AnimatedGratuitousApp](https://github.com/facebook/react-native/tree/main/packages/rn-tester/js/examples/AnimatedGratuitousApp)
+- [NativeAnimationsExample](https://github.com/facebook/react-native/blob/main/packages/rn-tester/js/examples/NativeAnimation/NativeAnimationsExample.js)
 
 ## `LayoutAnimation` API
 

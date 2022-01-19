@@ -5,7 +5,7 @@ title: Handling Text Input
 
 [`TextInput`](textinput#content) is a [Core Component](intro-react-native-components) that allows the user to enter text. It has an `onChangeText` prop that takes a function to be called every time the text changed, and an `onSubmitEditing` prop that takes a function to be called when the text is submitted.
 
-For example, let's say that as the user types, you're translating their words into a different language. In this new language, every single word is written the same way: 🍕. So the sentence "Hello there Bob" would be translated as "🍕🍕🍕".
+For example, let's say that as the user types, you're translating their words into a different language. In this new language, every single word is written the same way: 🍕. So the sentence "Hello there Bob" would be translated as "🍕 🍕 🍕".
 
 ```SnackPlayer name=Handling%20Text%20Input
 import React, { useState } from 'react';
@@ -18,7 +18,7 @@ const PizzaTranslator = () => {
       <TextInput
         style={{height: 40}}
         placeholder="Type here to translate!"
-        onChangeText={text => setText(text)}
+        onChangeText={newText => setText(newText)}
         defaultValue={text}
       />
       <Text style={{padding: 10, fontSize: 42}}>

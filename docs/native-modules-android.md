@@ -26,7 +26,7 @@ We also recommend enabling [Gradle Daemon](https://docs.gradle.org/2.9/userguide
 
 ### Create A Custom Native Module File
 
-The first step is to create the CalendarModule.java Java file inside `android/app/src/main/java/com/your-app-name/ folder`. This Java file will contain your native module Java class.
+The first step is to create the CalendarModule.java Java file inside `android/app/src/main/java/com/your-app-name/` folder. This Java file will contain your native module Java class.
 
 <figure>
   <img src="/docs/assets/native-modules-android-add-class.png" width="700" alt="Image of adding a class called CalendarModule.java within the Android Studio." />
@@ -368,7 +368,7 @@ You can invoke the callback in your Java method, providing whatever data you wan
   @ReactMethod
    public void createCalendarEvent(String name, String location, Callback callBack) {
        Integer eventId = ...
-       callback.invoke(eventId);
+       callBack.invoke(eventId);
    }
 ```
 
@@ -515,6 +515,15 @@ private void sendEvent(ReactContext reactContext,
  reactContext
      .getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
      .emit(eventName, params);
+}
+@ReactMethod
+public void addListener(String eventName) {
+  // Set up any upstream listeners or background tasks as necessary
+}
+
+@ReactMethod
+public void removeListeners(Integer count) {
+  // Remove upstream listeners, stop unnecessary background tasks
 }
 ...
 WritableMap params = Arguments.createMap();

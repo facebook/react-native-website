@@ -516,6 +516,15 @@ private void sendEvent(ReactContext reactContext,
      .getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
      .emit(eventName, params);
 }
+@ReactMethod
+public void addListener(String eventName) {
+  // Set up any upstream listeners or background tasks as necessary
+}
+
+@ReactMethod
+public void removeListeners(Integer count) {
+  // Remove upstream listeners, stop unnecessary background tasks
+}
 ...
 WritableMap params = Arguments.createMap();
 params.putString("eventProperty", "someValue");

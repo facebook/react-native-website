@@ -192,16 +192,18 @@ dependencies {
   implementation 'com.facebook.fresco:animated-base-support:1.3.0'
 
   // For animated GIF support
-  implementation 'com.facebook.fresco:animated-gif:2.0.0'
+  implementation 'com.facebook.fresco:animated-gif:2.5.0'
 
   // For WebP support, including animated WebP
-  implementation 'com.facebook.fresco:animated-webp:2.1.0'
-  implementation 'com.facebook.fresco:webpsupport:2.0.0'
+  implementation 'com.facebook.fresco:animated-webp:2.5.0'
+  implementation 'com.facebook.fresco:webpsupport:2.5.0'
 
   // For WebP support, without animations
-  implementation 'com.facebook.fresco:webpsupport:2.0.0'
+  implementation 'com.facebook.fresco:webpsupport:2.5.0'
 }
 ```
+
+> Note: the version listed above may not be updated in time. Please check [`ReactAndroid/gradle.properties`](https://github.com/facebook/react-native/blob/0.66-stable/ReactAndroid/gradle.properties) in the main repo to see which fresco version is being used in a specific tagged version.
 
 ---
 

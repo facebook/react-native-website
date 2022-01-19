@@ -93,7 +93,7 @@ npx react-native start
 
 > If you use the Yarn package manager, you can use `yarn` instead of `npx` when running React Native commands inside an existing project.
 
-> If you're familiar with web development, Metro is a lot like webpack—for React Native apps. Unlike Kotlin or Java, JavaScript isn't compiled—and neither is React Native. Bundling isn't the same as compiling, but it can help improve startup performance and translate some platform-specific JavaScript into more widely supported JavaScript.
+> If you're familiar with web development, Metro is a lot like webpack—for React Native apps. Unlike Swift or Objective-C, JavaScript isn't compiled—and neither is React Native. Bundling isn't the same as compiling, but it can help improve startup performance and translate some platform-specific JavaScript into more widely supported JavaScript.
 
 ### Step 2: Start your application
 
@@ -109,7 +109,7 @@ You should see your new app running in the iOS Simulator shortly.
 
 `npx react-native run-ios` is one way to run your app. You can also run it directly from within Xcode.
 
-> If you can't get this to work, see the [Troubleshooting](troubleshooting.md#content) page.
+> If you can't get this to work, see the [Troubleshooting](troubleshooting.md) page.
 
 ### Running on a device
 
