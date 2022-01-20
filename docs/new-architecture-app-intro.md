@@ -87,8 +87,13 @@ Edit your **module-level** **Gradle file** (usually `app/build.gradle[.kts]`) to
 ```groovy
 apply plugin: "com.android.application"
 
-// Add this line
+// Add those lines
 apply plugin: "com.facebook.react"
+// Add those lines as well
+react {
+    reactRoot = rootProject.file("../node_modules/react-native/")
+    codegenDir = rootProject.file("../node_modules/react-native-codegen/")
+}
 ```
 
 Finally, it’s time to update your project to use the `react-native` dependency from source, rather than using a precompiled artifact from the NPM package. This is needed as the later setup will rely on building the native code from source.
