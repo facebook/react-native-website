@@ -60,11 +60,8 @@ ls -la node_modules/react-native-gradle-plugin
 Now, you can edit your **top level** `settings.gradle` file to include the following line at the end of the file:
 
 ```groovy
-includeBuild('../node_modules/react-native-gradle-plugin') {
-    dependencySubstitution {
-        substitute(module("com.facebook.react:react")).using(project(":"))
-    }
-}
+includeBuild('../node_modules/react-native-gradle-plugin')
+
 include(":ReactAndroid")
 project(":ReactAndroid").projectDir = file('../node_modules/react-native/ReactAndroid')
 ```
@@ -76,10 +73,10 @@ buildscript {
     // ...
     dependencies {
         // Make sure that AGP is at least at version 7.x
-        classpath("com.android.tools.build:gradle:7.0.1")
+        classpath("com.android.tools.build:gradle:7.0.4")
 
         // Add those lines
-        classpath("com.facebook.react:react")
+        classpath("com.facebook.react:react-native-gradle-plugin")
         classpath("de.undercouch:gradle-download-task:4.1.2")
     }
 }
