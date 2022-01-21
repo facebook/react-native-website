@@ -7,6 +7,7 @@ tags: [announcement]
 # React Native - H2 2021 Recap
 
 While we're all still excited for the [release of React Native 0.67](/blog/2022/01/19/version-067), we want to take a moment to **celebrate** what the community achieved in the last half and share what we have on the **horizon** for the future of React Native.
+
 <!--truncate-->
 
 Specifically, this last half was an [exciting half for both us and the community](/blog/2021/08/19/h2-2021#pushing-the-technology-forward) where we had the opportunity to invest more in our open-source ecosystem. We revamped some of our processes and created new ones from scratch that will help you, us, and the community to enjoy a **better** React Native experience.
