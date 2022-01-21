@@ -124,5 +124,5 @@ module.exports = {
 
 ```bash
 // Run pod install with the flags
-USE_FABRIC=1 USE_CODEGEN_DISCOVERY=1 pod install
+USE_FABRIC=1 RCT_NEW_ARCH_ENABLED=1 pod install
 ```
