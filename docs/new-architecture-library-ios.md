@@ -105,6 +105,11 @@ RCT_EXPORT_METHOD(getString:(NSString *)string
 {
   // ...
 }
+
+- (std::shared_ptr<TurboModule>)getTurboModule:(const ObjCTurboModule::InitParams &)params
+{
+  return std::make_shared<StringGetterSpecJSI>(params);
+}
 ```
 
 For an existing native module, you will likely already have one or more instances of [`RCT_EXPORT_METHOD`](native-modules-ios#export-a-native-method-to-javascript). To migrate to the new architecture, you’ll need to make sure the method signature makes use of the structs provided by the codegen output.
