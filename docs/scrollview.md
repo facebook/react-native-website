@@ -527,6 +527,42 @@ When true, ScrollView allows use of pinch gestures to zoom in and out.
 
 ---
 
+### `pointerEvents` <div class="label android">Android</div>
+
+Controls whether the `ScrollView` can be the target of touch events.
+
+- `'auto'`: The View can be the target of touch events.
+- `'none'`: The View is never the target of touch events.
+- `'box-none'`: The View is never the target of touch events but its subviews can be. It behaves like if the view had the following classes in CSS:
+
+```
+.box-none {
+     pointer-events: none;
+}
+.box-none * {
+     pointer-events: auto;
+}
+```
+
+- `'box-only'`: The view can be the target of touch events but its subviews cannot be. It behaves like if the view had the following classes in CSS:
+
+```
+.box-only {
+     pointer-events: auto;
+}
+.box-only * {
+     pointer-events: none;
+}
+```
+
+> Since `pointerEvents` does not affect layout/appearance, and we are already deviating from the spec by adding additional modes, we opt to not include `pointerEvents` on `style`. On some platforms, we would need to implement it as a `className` anyways. Using `style` or not is an implementation detail of the platform.
+
+| Type                                         |
+| -------------------------------------------- |
+| enum('box-none', 'none', 'box-only', 'auto') |
+
+---
+
 ### `refreshControl`
 
 A RefreshControl component, used to provide pull-to-refresh functionality for the ScrollView. Only works for vertical ScrollViews (`horizontal` prop must be `false`).
