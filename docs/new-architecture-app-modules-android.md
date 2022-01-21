@@ -65,6 +65,8 @@ android {
 
     afterEvaluate {
         preBuild.dependsOn(packageReactNdkLibs)
+        configureNdkBuildDebug.dependsOn(preBuild)
+        configureNdkBuildRelease.dependsOn(preBuild)
     }
 
     packagingOptions {
