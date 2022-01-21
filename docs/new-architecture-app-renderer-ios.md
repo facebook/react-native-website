@@ -3,6 +3,14 @@ id: new-architecture-app-renderer-ios
 title: Enabling Fabric on iOS
 ---
 
+:::caution
+
+This documentation is still **experimental** and details are subject to changes as we iterate. Feel free to share your feedback on the [react-native-website PR](https://github.com/facebook/react-native-website) for this page.
+
+Moreover, it contains several **manual steps**. Please note that this won't be representative of the final developer experience once the New Architecture is stable. We're working on tools, templates and libraries to help you get started fast on the New Architecture, without having to go through the whole setup.
+
+:::
+
 This section will go over how to enable the new renderer in your app. Make sure your application meets all the [prerequisites](new-architecture-app-intro).
 
 ## 1. Enable Fabric in Podfile
