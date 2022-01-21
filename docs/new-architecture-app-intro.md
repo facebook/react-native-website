@@ -169,7 +169,7 @@ In order to set up the TurboModule system, you will add some code to interact wi
 Now you will have your AppDelegate conform to `RCTCxxBridgeDelegate`. Start by adding the following imports at the top of your AppDelegate file:
 
 ```objc
-#import <React/HermesExecutorFactory.h>
+#import <reacthermes/HermesExecutorFactory.h>
 #import <React/RCTCxxBridgeDelegate.h>
 #import <React/RCTJSIExecutorRuntimeInstaller.h>
 ```
