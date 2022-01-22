@@ -133,8 +133,6 @@ Type the following in your command prompt to install and launch your app on the 
 $ npx react-native run-android
 ```
 
-Select your project in the Xcode Project Navigator, then select your main target (it should share the same name as your project). Look for the "Signing & Capabilities" tab. Go to "Signing" and make sure your Apple developer account or team is selected under the Team dropdown. Do the same for the tests target (it ends with Tests, and is below your main target).
-
 > Hint: You can also use the `React Native CLI` to generate and run a `Release` build (e.g. `npx react-native run-android --variant=release`).
 
 <h2>Connecting to the development server</h2>
