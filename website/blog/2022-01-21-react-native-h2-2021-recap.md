@@ -68,13 +68,13 @@ There is a wealth of knowledge that our community brings into React Native, and 
 
 We’ve been working hard to deliver the infrastructure needed to rollout the New Architecture to apps and libraries. We involved some of our partners and core contributors/library maintainers to refine our support for the new architecture to get early stage feedback.
 
-We are now preparing to release a new guide on our website: [Getting Started with the New Architecture](https://github.com/facebook/react-native-website/pull/2879). That will be the entry point to a collection of material that we’re going to release next year and will help you migrate/start your project with the new architecture.
+We are now preparing to release a new guide on our website: [Getting Started with the New Architecture](https://github.com/facebook/react-native-website/pull/2879). That will be the entry point to a collection of material that we’re going to release this year and will help you migrate/start your project with the new architecture.
 
 Moreover, we would like to stress the [importance of **giving feedback**](https://github.com/facebook/react-native-website/pull/2879) on the New Architecture material. We’re still in the process of finalizing the last details and your input will help everyone adopt the new architecture more seamlessly.
 
 **Releases** play a critical role in the New Architecture rollout. Our goal last half was to ensure any release blocking issues did not stagnate. We approached the problem by [clarifying and improving process and responsibilities](https://github.com/facebook/react-native/wiki/Releases) for better accountability. Our release coordination now occurs in a [dedicated discussions repository](https://github.com/reactwg/react-native-releases/discussions) with [clearer release issue reporting](https://github.com/facebook/react-native/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2CType%3A+Upgrade+Issue&template=upgrade-regression-form.yml).
 
-For this next half we will continue to iterate on release responsibilities to support new architecture rollout. If you’d like to help out testing release candidates or [working on improvements](https://github.com/facebook/react-native/projects/18), feel free to [join the discussion](https://github.com/reactwg/react-native-releases/discussions/categories/improvements)!
+For this coming half we will continue to iterate on release responsibilities to support new architecture rollout. If you’d like to help out testing release candidates or [working on improvements](https://github.com/facebook/react-native/projects/18), feel free to [join the discussion](https://github.com/reactwg/react-native-releases/discussions/categories/improvements)!
 
 ## To Mobile and beyond
 
