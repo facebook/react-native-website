@@ -10,11 +10,11 @@ While we're all still excited for the [release of React Native 0.67](/blog/2022/
 
 <!--truncate-->
 
-Specifically, this last half was an [exciting half for both us and the community](/blog/2021/08/19/h2-2021#pushing-the-technology-forward) where we had the opportunity to invest more in our open-source ecosystem. We revamped some of our processes and created new ones from scratch that will help you, us, and the community to enjoy a **better** React Native experience.
+Specifically, H2 2021 was an [exciting half for both us and the community](/blog/2021/08/19/h2-2021#pushing-the-technology-forward) where we had the opportunity to invest more in our open-source ecosystem. We revamped some of our processes and created new ones from scratch that will help you, us, and the community to enjoy a **better** React Native experience.
 
 ## Repository Health
 
-This last half we invested in tackling some of the _OSS debt_ that our repository built up over the years. Specifically, most of our focus was around **pull requests**. We built an internal process to make sure all the new pull requests are addressed in a timely manner.
+In H2 2021, we invested in tackling some of the _OSS debt_ that our repository built up over the years. Specifically, most of our focus was around **pull requests**. We built an internal process to make sure all the new pull requests are addressed in a timely manner.
 
 Although this is not a complete list, we would like to highlight some **impactful** PRs we received from our contributors:
 
@@ -48,7 +48,7 @@ There are so many more PRs we would like to call out, and we want to **thank** a
 
 ## Community Engagement
 
-At the beginning of the half we set a goal to **communicate** with our community more and set process for the behavior to continue. Here were some of our engagements this half:
+At the beginning of the half we set a goal to **communicate** with our community more and set process for the behavior to continue. Here were some of our engagements in H2 2021:
 
 <!--alex ignore gross-->
 
@@ -58,7 +58,7 @@ At the beginning of the half we set a goal to **communicate** with our community
 - Our own [Kevin Gozali](https://twitter.com/fkgozali) appeared on [an episode of React Native Radio podcast](https://reactnativeradio.com/episodes/rnr-222-the-new-architecture-with-kevin-gozali-from-the-rn-core-team) to talk about the new architecture.
 - At [ReactConf 2021](https://conf.reactjs.org/), ReactConf [Rick Hanlon](https://twitter.com/rickhanlonii) shared the unified many-platform vision for React and React Native. Moreover, [Eric Rozell](https://twitter.com/EricRozell) and [Steven Moyes](https://twitter.com/moyessa) got to share the amazing progress React Native Desktop has made in supporting both Meta and Microsoft apps and showcasing the Many Platform Vision in practice.
 
-Beyond sharing more updates this half, we also **leaned** on our community more than ever. We relied on critical feedback from contributors as they dogfooded early drafts of the New Architecture material. As well, we were heavily supported by the expertise of our community in debugging critical release issues and improvements.
+Beyond sharing more updates in H2 2021, we also **leaned** on our community more than ever. We relied on critical feedback from contributors as they dogfooded early drafts of the New Architecture material. As well, we were heavily supported by the expertise of our community in debugging critical release issues and improvements.
 
 There is a wealth of knowledge that our community brings into React Native, and we need to continue to nurture it.
 
@@ -68,22 +68,22 @@ There is a wealth of knowledge that our community brings into React Native, and 
 
 We’ve been working hard to deliver the infrastructure needed to rollout the New Architecture to apps and libraries. We involved some of our partners and core contributors/library maintainers to refine our support for the new architecture to get early stage feedback.
 
-We are now preparing to release a new guide on our website: [Getting Started with the New Architecture](https://github.com/facebook/react-native-website/pull/2879). That will be the entry point to a collection of material that we’re going to release next year and will help you migrate/start your project with the new architecture.
+We are now preparing to release a new guide on our website: [Getting Started with the New Architecture](https://github.com/facebook/react-native-website/pull/2879). That will be the entry point to a collection of material that we’re going to release in 2022 and will help you migrate/start your project with the new architecture.
 
 Moreover, we would like to stress the [importance of **giving feedback**](https://github.com/facebook/react-native-website/pull/2879) on the New Architecture material. We’re still in the process of finalizing the last details and your input will help everyone adopt the new architecture more seamlessly.
 
 **Releases** play a critical role in the New Architecture rollout. Our goal last half was to ensure any release blocking issues did not stagnate. We approached the problem by [clarifying and improving process and responsibilities](https://github.com/facebook/react-native/wiki/Releases) for better accountability. Our release coordination now occurs in a [dedicated discussions repository](https://github.com/reactwg/react-native-releases/discussions) with [clearer release issue reporting](https://github.com/facebook/react-native/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2CType%3A+Upgrade+Issue&template=upgrade-regression-form.yml).
 
-For this next half we will continue to iterate on release responsibilities to support new architecture rollout. If you’d like to help out testing release candidates or [working on improvements](https://github.com/facebook/react-native/projects/18), feel free to [join the discussion](https://github.com/reactwg/react-native-releases/discussions/categories/improvements)!
+In H1 2022, we will continue to iterate on release responsibilities to support new architecture rollout. If you’d like to help out testing release candidates or [working on improvements](https://github.com/facebook/react-native/projects/18), feel free to [join the discussion](https://github.com/reactwg/react-native-releases/discussions/categories/improvements)!
 
 ## To Mobile and beyond
 
 As you can see from [the ReactConf talk lineup](https://conf.reactjs.org/), React Native is not only Android & iOS.
 
-Earlier this year we shared our [Many Platform Vision](https://reactnative.dev/blog/2021/08/26/many-platform-vision), and we had a successful time rolling out React Native on both Desktop and VR.
+Earlier in 2021, we shared our [Many Platform Vision](https://reactnative.dev/blog/2021/08/26/many-platform-vision), and we had a successful time rolling out React Native on both Desktop and VR.
 
 We’re looking forward to **converging patterns** that are platform-specific into the React Native experience.
 
-Finally, we want to thank again the community for the enormous support this last half. It’s always amazing to see how contributors come together and support each other on Github, fixing bugs, sharing their and helping us deliver React Native to millions of users.
+Finally, we want to thank again the community for the enormous support in H2 2021. It’s always amazing to see how contributors come together and support each other on Github, fixing bugs, sharing their and helping us deliver React Native to millions of users.
 
 Stay tuned and looking forward to an **even more amazing 2022** 🎉!
