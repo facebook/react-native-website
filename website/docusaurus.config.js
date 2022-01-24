@@ -317,7 +317,7 @@ const lastVersion = versions[0];
           src: 'img/oss_logo.png',
           href: 'https://opensource.facebook.com',
         },
-        copyright: `Copyright © ${new Date().getFullYear()} Facebook, Inc.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Meta Platforms, Inc.`,
       },
       algolia: {
         apiKey: '2c98749b4a1e588efec53b2acec13025',
