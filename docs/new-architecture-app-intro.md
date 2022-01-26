@@ -192,7 +192,7 @@ You can implement the `jsExecutorFactoryForBridge:` method like this:
 
 - (std::unique_ptr<facebook::react::JSExecutorFactory>)jsExecutorFactoryForBridge:(RCTBridge *)bridge
 {
-  return std::make_unique<HermesExecutorFactory>(RCTJSIExecutorRuntimeInstaller([](jsi::Runtime &runtime) {
+  return std::make_unique<facebook::react::HermesExecutorFactory>(facebook::react::RCTJSIExecutorRuntimeInstaller([bridge](facebook::jsi::Runtime &runtime) {
       if (!bridge) {
         return;
       }
