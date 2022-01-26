@@ -104,6 +104,10 @@ html[data-theme="dark"] {
   align-self: center;
   font-weight: 300;
 
+  div[class*="docPage"] {
+    justify-content: center;
+  }
+
   h1[class^="docTitle"] {
     font-size: 2.8rem;
   }
@@ -398,10 +402,6 @@ html[data-theme="dark"] article .badge {
     font-size: 1.5rem;
     margin-top: 16px;
     display: inline-block;
-  }
-
-  .container--fluid > div {
-    padding-top: 0 !important;
   }
 
   .row .col p a {
@@ -1605,6 +1605,10 @@ html[data-theme="dark"] .docsRating {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
   grid-template-areas: ". .";
+
+  div[class^="codeBlockContainer"] {
+    overflow: auto;
+  }
 
   div[class^="codeBlockLines"] {
     white-space: pre-wrap;
