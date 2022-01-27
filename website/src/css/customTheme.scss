@@ -1,7 +1,6 @@
 @import "shared";
 
 :root {
-  --ifm-color-primary: #06bcee;
   --brand: #61dafb;
   --dark: #282c34;
   --deepdark: #20232a;
@@ -11,6 +10,9 @@
   --divider: #ececec;
   --tintColor: #f7f7f7;
   --rn-note-background: rgba(255, 229, 100, 0.25);
+  --ifm-font-family-base: "Optimistic Display", system-ui, -apple-system,
+    sans-serif;
+  --ifm-color-primary: #06bcee;
   --ifm-font-size-base: 17px;
   --ifm-spacing-horizontal: 16px;
   --ifm-navbar-item-padding-horizontal: 18px;
@@ -64,12 +66,47 @@ html[data-theme="dark"] {
   }
 }
 
+::marker {
+  color: var(--ifm-font-color-secondary);
+}
+
+/* Font */
+
+@font-face {
+  font-family: "Optimistic Display";
+  src: url("https://facebookmicrosites.github.io/design/public/fonts/OptimisticDisplayLight-199be98cf48e5b4c688356b08a02362c.woff2")
+    format("woff2");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Optimistic Display";
+  src: url("https://facebookmicrosites.github.io/design/public/fonts/OptimisticDisplayRegular-b0e4e99f91efd0021c3ab8e4df0e6e1b.woff2")
+    format("woff2");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Optimistic Display";
+  src: url("https://facebookmicrosites.github.io/design/public/fonts/OptimisticDisplayBold-3a50548145f36de582c3b36d9626f4d6.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
 /* Content */
 
 .main-wrapper {
   max-width: 1400px;
   width: 1400px;
   align-self: center;
+  font-weight: 300;
+
+  div[class*="docPage"] {
+    justify-content: center;
+  }
 
   h1[class^="docTitle"] {
     font-size: 2.8rem;
@@ -95,15 +132,13 @@ main[class^="docMainContainer"] > .container {
 
 @media (max-width: 1320px) and (min-width: 997px) {
   .container {
-    max-width: calc(
-      var(--ifm-container-width) - var(--doc-sidebar-width) / 2
-    );
+    max-width: calc(var(--ifm-container-width) - var(--doc-sidebar-width) / 2);
   }
 }
 
 @media (min-width: 997px) {
   main[class^="docMainContainer"] {
-    max-width: calc(100% - var(--doc-sidebar-width) + 44px)
+    max-width: calc(100% - var(--doc-sidebar-width) + 44px);
   }
 }
 
@@ -369,10 +404,6 @@ html[data-theme="dark"] article .badge {
     display: inline-block;
   }
 
-  .container--fluid > div {
-    padding-top: 0 !important;
-  }
-
   .row .col p a {
     @extend %link-style;
   }
@@ -437,7 +468,7 @@ html[data-theme="dark"] .avatar__name a {
 
 .avatar__subtitle {
   margin-top: 0;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--subtle);
 }
 
@@ -449,7 +480,7 @@ article header h2 a {
   }
 }
 
-div[class^='blogPostData'] {
+div[class^="blogPostData"] {
   color: var(--subtle);
 }
 
@@ -457,7 +488,7 @@ div[class^='blogPostData'] {
   padding: 8px 16px !important;
 }
 
-a[class*='tagRegular'] {
+a[class*="tagRegular"] {
   padding: 6px 12px !important;
 
   &:hover {
@@ -468,7 +499,7 @@ a[class*='tagRegular'] {
 
 .blog-wrapper {
   .pagination-nav__item .pagination-nav__label:before,
-  .pagination-nav__item--next .pagination-nav__label:after{
+  .pagination-nav__item--next .pagination-nav__label:after {
     display: none;
   }
 }
@@ -556,6 +587,7 @@ a[class*='tagRegular'] {
   .DocSearch-Button {
     border-radius: var(--ifm-global-radius);
     padding: 0 6px 0 10px;
+    font-family: var(--ifm-font-family-base);
 
     .DocSearch-Search-Icon {
       width: 16px;
@@ -647,7 +679,7 @@ So we need to "revert" some CSS vars to not enforce dark mode
       padding: 6px 12px 8px;
     }
 
-    .menu__list-item-collapsible a[class*='menuLinkText'] {
+    .menu__list-item-collapsible a[class*="menuLinkText"] {
       font-weight: 600;
       font-size: 14px;
       background: var(--ifm-background-color) !important;
@@ -677,6 +709,14 @@ html[data-theme="dark"] .navbar-sidebar {
 
 @media (max-width: 1200px) {
   .navbar {
+    .navbar__item.navbar__link {
+      font-size: 15px;
+
+      &.navbar__link--active:after {
+        top: 20px;
+      }
+    }
+
     .DocSearch-Button {
       padding: 0 12px;
       max-width: 40px;
@@ -693,13 +733,8 @@ html[data-theme="dark"] .navbar-sidebar {
 /* Sidebar */
 
 aside[class^="docSidebarContainer"] {
-  margin-right: 16px;
-
-  .menu > .menu__list > .menu__list-item {
-    margin-bottom: 4px;
-  }
-
   --doc-sidebar-width: 266px;
+  margin-right: 16px;
 
   .thin-scrollbar {
     @extend %scrollbar-style;
@@ -710,7 +745,7 @@ aside[class^="docSidebarContainer"] {
     font-size: 16px !important;
     font-weight: 700 !important;
     padding: 5px 12px !important;
-    color: var(--subtle) !important;
+    color: var(--ifm-color-content-secondary) !important;
 
     &:after {
       background-size: 1.66rem 1.66rem;
@@ -721,7 +756,7 @@ aside[class^="docSidebarContainer"] {
 
   .menu__list .menu__list .menu__link--sublist,
   a[class*="menuLinkText"] {
-    font-weight: 600 !important;
+    font-weight: 700 !important;
     font-size: 15px !important;
   }
 
@@ -729,8 +764,8 @@ aside[class^="docSidebarContainer"] {
     padding-left: 8px !important;
   }
 
-  .menu__list-item-collapsible a[class*="menuLinkText"] {
-    background: var(--ifm-background-color) !important;
+  .theme-doc-sidebar-item-category .menu__list .menu__list-item-collapsible {
+    margin-top: 6px;
   }
 
   @media only screen and (max-width: 1120px) {
@@ -782,7 +817,7 @@ aside[class^="docSidebarContainer"] {
       line-height: 20px;
       font-size: 13px;
       padding: 3px 12px;
-      font-weight: normal;
+      font-weight: 300;
       color: var(--ifm-font-color-base);
     }
 
@@ -888,8 +923,7 @@ html[data-theme="dark"] div[class^="tableOfContents"] {
   @extend %scrollbar-style-dark;
 }
 
-button[class*='tocCollapsibleButton'] {
-  font-weight: 600;
+button[class*="tocCollapsibleButton"] {
   color: var(--ifm-color-content-secondary);
 }
 
@@ -1319,7 +1353,7 @@ h2 .label {
 }
 
 h3 .label {
-  top: -2px;
+  top: -3px;
   margin-left: 22px;
   line-height: 20px;
 }
@@ -1331,11 +1365,11 @@ td .label {
 
   &:before {
     left: -8px;
-    border-width: 9px 8px 9px 0;
+    border-width: 10px 8px 10px 0;
   }
 
   &:after {
-    top: 7px;
+    top: 8px;
   }
 
   &.required {
@@ -1367,7 +1401,7 @@ td .label {
   height: 6px;
   border-radius: 100%;
   margin-left: 4px;
-  margin-top: 8px;
+  margin-top: 7px;
   white-space: nowrap;
   overflow: hidden;
   color: transparent;
@@ -1572,6 +1606,10 @@ html[data-theme="dark"] .docsRating {
   grid-template-rows: 1fr;
   grid-template-areas: ". .";
 
+  div[class^="codeBlockContainer"] {
+    overflow: auto;
+  }
+
   div[class^="codeBlockLines"] {
     white-space: pre-wrap;
   }
@@ -1586,9 +1624,13 @@ html[data-theme="dark"] .docsRating {
   }
 }
 
-/* Blog sidebar */
+/* Blog */
 
 .main-wrapper.blog-wrapper {
+  h3[class*="sidebarItemTitle"] {
+    color: var(--ifm-font-color-secondary);
+  }
+
   .container.margin-vert--lg {
     max-width: calc(100% - (var(--ifm-spacing-horizontal)) * 4);
     margin-top: 0 !important;
@@ -1606,33 +1648,33 @@ html[data-theme="dark"] .docsRating {
       margin-right: 16px;
     }
 
+    .docusaurus-mt-lg {
+      margin-top: 2rem;
+    }
+
     footer {
-      strong {
+      b {
         font-weight: 500;
+      }
+
+      .text--right b {
+        font-weight: 700;
       }
     }
   }
 
   .container .row .col.col--3 {
     --ifm-col-width: calc(5 / 24 * 100%);
-    padding-left: 0;
-
-    &:last-child {
-      --ifm-col-width: calc(4 / 24 * 100%);
-      padding-right: 0;
-    }
+    padding: 0;
 
     div[class^="sidebar"] {
-      margin-left: 0;
-      margin-right: -16px;
-
       h3 {
         font-size: 16px;
         margin-bottom: 0;
       }
 
       h4 {
-        font-weight: 500;
+        font-weight: 700;
         font-size: 14px;
         margin-top: 14px;
         margin-bottom: 6px;
@@ -1672,12 +1714,6 @@ html[data-theme="dark"] {
         @extend %link-style-dark;
       }
     }
-  }
-}
-
-@media only screen and (max-width: 1320px) and (min-width: 997px) {
-  .container.margin-vert--lg .row .col.col--3 {
-    margin-left: -32px;
   }
 }
 
