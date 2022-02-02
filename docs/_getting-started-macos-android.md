@@ -19,10 +19,11 @@ If you have already installed Node on your system, make sure it is Node 12 or ne
 
 <h3>Java Development Kit</h3>
 
-We recommend installing JDK using [Homebrew](http://brew.sh/). Run the following commands in a Terminal after installing Homebrew:
+We recommend installing the OpenJDK distribution called Temurin using [Homebrew](http://brew.sh/). Run the following commands in a Terminal after installing Homebrew:
 
 ```shell
-brew install --cask adoptopenjdk/openjdk/adoptopenjdk11
+brew tap homebrew/cask-versions
+brew install --cask temurin11
 ```
 
 If you have already installed JDK on your system, make sure it is JDK 11 or newer.
