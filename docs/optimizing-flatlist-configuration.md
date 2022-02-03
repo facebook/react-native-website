@@ -123,6 +123,8 @@ You can also use a `key` prop in your item component.
 
 Move out the `renderItem` function to the outside of render function, so it won't recreate itself each time render function called.
 
+Class Based Component:
+
 ```jsx
 renderItem = ({ item }) => (<View key={item.key}><Text>{item.title}</Text></View>);
 
@@ -137,3 +139,21 @@ render(){
   // ...
 }
 ```
+
+Function Based Component:
+
+```jsx
+const renderItem = ({ item }) => (<View key={item.key}><Text>{item.title}</Text></View>);
+
+return(
+  // ...
+
+  <FlatList
+    data={items}
+    renderItem={renderItem}
+  />
+
+  // ...
+)
+```
+
