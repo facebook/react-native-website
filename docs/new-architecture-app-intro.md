@@ -27,15 +27,20 @@ As of this writing, the latest stable release is `0.67.2`. Once you have upgrade
 yarn add react-native@0.0.0-20220201-2008-79975d146
 ```
 
-## Install react-native-codegen v0.0.12 or above
+## Install react-native-codegen
 
-Make sure that you have the most recent react-native-codegen package; otherwise, you might see an error like `***TypeError: RNCodegen.generateFromSchemas is not a function.***`
+Make sure that you're using the latest version of the [`react-native-codegen`](https://www.npmjs.com/package/react-native-codegen) NPM package. At the time of writing it's `0.0.13`.
 
 ```bash
-yarn add react-native-codegen@0.0.12
+yarn add react-native-codegen
 ```
 
-If you are still getting the error, you may have an older version installed under node_modules/react-native/node_modules. You can remove that or reinstall everything in node_modules to fix the problem.
+:::info
+
+If you see an error like `***TypeError: RNCodegen.generateFromSchemas is not a function.***`, it means that you're using a older version of `react-native-codegen`.
+Make sure you don't have an older version installed under the `node_modules/react-native/node_modules` folder. You can remove that or reinstall everything in node_modules to fix the problem.
+
+:::
 
 ### Android specifics
 
