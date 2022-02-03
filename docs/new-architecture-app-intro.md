@@ -17,14 +17,14 @@ There’s a few prerequisites that should be addressed before the new architectu
 
 At this time, you must use a React Native nightly release in order to get access to the most up to date changes. Eventually, we will recommend targeting a minimum stable open source release.
 
-This guide is written with the expectation that you’re using a specific nightly release. As new revisions of this guide are released, the target nightly release may be updated. The specific nightly version that we will be using throughout the rest of this guide is version `0.0.0-20211205-2008-583471bc4`.
+This guide is written with the expectation that you’re using a specific nightly release. As new revisions of this guide are released, the target nightly release may be updated. The specific nightly version that we will be using throughout the rest of this guide is version `0.0.0-20220201-2008-79975d146`.
 
 Before upgrading your app to a specific nightly release, we recommend upgrading your app to the latest open source release. By upgrading to a published open source release first, you will be able to take advantage of tools like the [upgrade helper](https://react-native-community.github.io/upgrade-helper/) to determine what other changes may be required for your project.
 
-As of this writing, the latest stable release is `0.66.3`. Once you have upgraded your project to this version successfully, you may proceed to targeting the `0.0.0-20211102-2008-8fef52035` nightly release. You may target this nightly release the same way you’d target any other version of React Native:
+As of this writing, the latest stable release is `0.67.2`. Once you have upgraded your project to this version successfully, you may proceed to targeting the `0.0.0-20220201-2008-79975d146` nightly release. You may target this nightly release the same way you’d target any other version of React Native:
 
 ```bash
-yarn add react-native@0.0.0-20211205-2008-583471bc4
+yarn add react-native@0.0.0-20220201-2008-79975d146
 ```
 
 ## Install react-native-codegen v0.0.12 or above
