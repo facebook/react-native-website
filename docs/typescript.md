@@ -22,6 +22,8 @@ npx react-native init MyApp --template react-native-template-typescript
 > - `npm uninstall -g react-native-cli` or `yarn global remove react-native-cli`
 >
 > and then run the `npx` command again.
+> Or use this command:
+> - npx react-native --ignore-existing init MyApp --template react-native-template-typescript
 
 You can use [Expo][expo] which has two TypeScript templates:
 
