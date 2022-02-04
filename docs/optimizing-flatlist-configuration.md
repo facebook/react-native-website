@@ -154,12 +154,12 @@ const renderItem = ({ item }) => (
    </View>
  );
 
-return(
+return (
   // ...
 
   <FlatList data={items} renderItem={renderItem} />;
   // ...
-)
+);
 ```
 
 </TabItem>
