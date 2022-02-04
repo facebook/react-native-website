@@ -23,7 +23,7 @@ npx react-native init MyApp --template react-native-template-typescript
 >
 > and then run the `npx` command again.
 
-> **Note:** Optionally, you can also use the command given below to get started with your template easily.
+> **Note:** Optionally, you can also use the command given below to get started with your template.
 >
 > - `npx react-native --ignore-existing init MyApp --template react-native-template-typescript`
 
