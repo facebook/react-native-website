@@ -102,6 +102,8 @@ allprojects {
 
 > Make sure that the path is correct! You shouldn’t run into any “Failed to resolve: com.facebook.react:react-native:0.x.x" errors after running Gradle sync in Android Studio.
 
+If you have the following error: `Build was configured to prefer settings repositories over project repositories but repository 'maven' was added by build file 'build.gradle'`, then you need to update the `settings.gradle` file by replacing `RepositoriesMode.FAIL_ON_PROJECT_REPOS` by `RepositoriesMode.PREFER_PROJECT`.
+
 ### Enable native modules autolinking
 
 To use the power of [autolinking](https://github.com/react-native-community/cli/blob/master/docs/autolinking.md), we have to apply it a few places. First add the following entry to `settings.gradle`:
