@@ -84,6 +84,17 @@ allprojects {
             url("$rootDir/../node_modules/jsc-android/dist")
         }
         ...
+
+        mavenCentral {
+            // We don't want to fetch react-native from Maven Central as there are
+            // older versions over there.
+            content {
+                excludeGroup "com.facebook.react"
+            }
+        }
+        google()
+        maven { url 'https://www.jitpack.io' }
+
     }
     ...
 }
