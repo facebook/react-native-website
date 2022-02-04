@@ -142,7 +142,8 @@ render(){
   // ...
 }
 
-```  
+```
+
 </TabItem>
 <TabItem value="functional">
 
@@ -159,8 +160,7 @@ return(
   <FlatList data={items} renderItem={renderItem} />;
   // ...
 )
-
-``` 
+```
+ 
 </TabItem>
 </Tabs>
-
