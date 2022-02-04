@@ -116,6 +116,8 @@ Next add the following entry at the very bottom of the `app/build.gradle`:
 apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)
 ```
 
+> You need to run `yarn react-native run-android` to generate some classes. Even if this command fails the first time, it is needed to generate the necessary files to remove the Android Studio's error about the `PackageList` instantiation.
+
 ### Configuring permissions
 
 Next, make sure you have the Internet permission in your `AndroidManifest.xml`:
