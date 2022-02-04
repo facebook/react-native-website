@@ -104,6 +104,8 @@ allprojects {
 
 If you have the following error: `Build was configured to prefer settings repositories over project repositories but repository 'maven' was added by build file 'build.gradle'`, then you need to update the `settings.gradle` file by replacing `RepositoriesMode.FAIL_ON_PROJECT_REPOS` by `RepositoriesMode.PREFER_PROJECT`.
 
+If you have the following error: `Caused by: java.io.IOException: Cannot run program “node”: error=2, No such file or directory`, then you need to give the execution permission to the printenv script. You can do this by executing: `chmod +x /Applications/Android\ Studio.app/Contents/bin/printenv`
+
 ### Enable native modules autolinking
 
 To use the power of [autolinking](https://github.com/react-native-community/cli/blob/master/docs/autolinking.md), we have to apply it a few places. First add the following entry to `settings.gradle`:
