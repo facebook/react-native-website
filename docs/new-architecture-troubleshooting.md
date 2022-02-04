@@ -11,7 +11,7 @@ Moreover, it contains several **manual steps**. Please note that this won't be r
 
 :::
 
-This page contains resolutions to common problem you might face when migrating to the New Architecture. 
+This page contains resolutions to common problem you might face when migrating to the New Architecture.
 
 ## Xcode Build Issues
 
@@ -44,8 +44,7 @@ As it happens, the Folly version used in your podspec must match whatever versio
 
 ## Android build is failing with `OutOfMemoryException`
 
-If your Android Gradle builds are failing with: `OutOfMemoryException: Out of memory: Java heap space.` or similar errors related to low memory, 
-you might need to increase the memory allocated to the JVM.
+If your Android Gradle builds are failing with: `OutOfMemoryException: Out of memory: Java heap space.` or similar errors related to low memory, you might need to increase the memory allocated to the JVM.
 
 You can do that by editing the `gradle.properties` file in your `android/gradle.properties` folder:
 
@@ -61,8 +60,8 @@ Make sure to uncomment the line and set the preferred memory size with the `-Xmx
 
 ## Android NDK and Mac with M1 Apple Silicon CPUs
 
-We're aware of a series of incompatibilities between the Android NDK and Macs on M1 CPUs ([here](https://github.com/android/ndk/issues/1299) and [here](https://github.com/android/ndk/issues/1410)). 
+We're aware of a series of incompatibilities between the Android NDK and Macs on M1 CPUs ([here](https://github.com/android/ndk/issues/1299) and [here](https://github.com/android/ndk/issues/1410)).
 As you need to enable the NDK when building from source, you might face problems during your build.
 
-The workaround at this stage is [suggested here](https://github.com/android/ndk/issues/1299). 
+The workaround at this stage is [suggested here](https://github.com/android/ndk/issues/1299).
 As newer version of the Android SDK/NDK are released, we will update the documentation with the necessary steps.
