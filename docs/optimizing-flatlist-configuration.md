@@ -3,6 +3,8 @@ id: optimizing-flatlist-configuration
 title: Optimizing Flatlist Configuration
 ---
 
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+
 ## Terms
 
 - **VirtualizedList:** The component behind `FlatList` (React Native's implementation of the [`Virtual List`](https://bvaughn.github.io/react-virtualized/#/components/List) concept.)
@@ -123,6 +125,9 @@ You can also use a `key` prop in your item component.
 
 Move out the `renderItem` function to the outside of render function, so it won't recreate itself each time render function called.
 
+<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<TabItem value="classical">
+
 ```jsx
 renderItem = ({ item }) => (<View key={item.key}><Text>{item.title}</Text></View>);
 
@@ -136,4 +141,26 @@ render(){
 
   // ...
 }
+
 ```
+
+</TabItem>
+<TabItem value="functional">
+
+```jsx
+const renderItem = ({ item }) => (
+   <View key={item.key}>
+      <Text>{item.title}</Text>
+   </View>
+ );
+
+return (
+  // ...
+
+  <FlatList data={items} renderItem={renderItem} />;
+  // ...
+);
+```
+
+</TabItem>
+</Tabs>
