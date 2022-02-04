@@ -61,7 +61,7 @@ Add the React Native and JSC dependency to your app's `build.gradle` file:
 
 ```gradle
 dependencies {
-    implementation "com.android.support:appcompat-v7:27.1.1"
+    implementation 'androidx.appcompat:appcompat:1.3.0' // no need to duplicate this line if it already exists
     ...
     implementation "com.facebook.react:react-native:+" // From node_modules
     implementation "org.webkit:android-jsc:+"
