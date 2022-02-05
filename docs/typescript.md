@@ -27,7 +27,8 @@ and then run the `npx` command again.
 Optionally, you can also use the command given below to get started with your template.
 
 - `npx react-native --ignore-existing init MyApp --template react-native-template-typescript`
-  :::
+
+:::
 
 You can use [Expo][expo] which has two TypeScript templates:
 
