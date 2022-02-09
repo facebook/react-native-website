@@ -17,11 +17,18 @@ You can use the [TypeScript template][ts-template]:
 npx react-native init MyApp --template react-native-template-typescript
 ```
 
-> **Note:** If the above command is failing, you may have an old version of `react-native` or `react-native-cli` installed globally on your system. To fix the issue try uninstalling the CLI:
->
-> - `npm uninstall -g react-native-cli` or `yarn global remove react-native-cli`
->
-> and then run the `npx` command again.
+:::note
+
+If the above command is failing, you may have an old version of `react-native` or `react-native-cli` installed globally on your system. To fix the issue try uninstalling the CLI:
+
+- `npm uninstall -g react-native-cli` or `yarn global remove react-native-cli`
+
+and then run the `npx` command again.
+Optionally, you can also use the command given below to get started with your template.
+
+- `npx react-native --ignore-existing init MyApp --template react-native-template-typescript`
+
+:::
 
 You can use [Expo][expo] which has two TypeScript templates:
 
