@@ -224,5 +224,18 @@
         "architecture-glossary"
       ]
     }
-  ]
+  ],
+  "community": {
+    "The React Native Community": ["community"],
+    "Release Wiki": [
+      "releases",
+      "release-schedule",
+      "release-process",
+      "release-roles-responsibilities",
+      "release-testing",
+      "updating-upgrade-helper",
+      "release-faq",
+      "release-dependencies"
+    ]
+  }
 }

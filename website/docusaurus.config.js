@@ -198,7 +198,8 @@ const lastVersion = versions[0];
             position: 'right',
           },
           {
-            to: '/help',
+            type: 'doc',
+            docId: 'community',
             label: 'Community',
             position: 'right',
           },
