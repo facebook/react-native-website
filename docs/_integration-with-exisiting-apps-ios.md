@@ -153,6 +153,8 @@ Pod installation complete! There are 3 dependencies from the Podfile and 1 total
 
 > If this fails with errors mentioning `xcrun`, make sure that in Xcode in **Preferences > Locations** the Command Line Tools are assigned.
 
+> If you get a warning such as "_The `swift-2048 [Debug]` target overrides the `FRAMEWORK_SEARCH_PATHS` build setting defined in `Pods/Target Support Files/Pods-swift-2048/Pods-swift-2048.debug.xcconfig`. This can lead to problems with the CocoaPods installation_", then make sure the `Framework Search Paths` in `Build Settings` for both `Debug` and `Release` only contain `$(inherited)`.
+
 ### Code integration
 
 Now we will actually modify the native iOS application to integrate React Native. For our 2048 sample app, we will add a "High Score" screen in React Native.
@@ -242,13 +244,31 @@ When you build a React Native application, you use the [Metro bundler][metro] to
 
 We will, for debugging purposes, log that the event handler was invoked. Then, we will create a string with the location of our React Native code that exists inside the `index.bundle`. Finally, we will create the main `RCTRootView`. Notice how we provide `RNHighScores` as the `moduleName` that we created [above](#the-react-native-component) when writing the code for our React Native component.
 
+<Tabs groupId="language" defaultValue="objective-c" values={[ {label: 'Objective-C', value: 'objective-c'}, {label: 'Swift', value: 'swift'}, ]}>
+<TabItem value="objective-c">
+
 First `import` the `RCTRootView` header.
 
 ```objectivec
 #import <React/RCTRootView.h>
 ```
 
+</TabItem>
+<TabItem value="swift">
+
+First `import` the `React` module.
+
+```swift
+import React
+```
+
+</TabItem>
+</Tabs>
+
 > The `initialProperties` are here for illustration purposes so we have some data for our high score screen. In our React Native component, we will use `this.props` to get access to that data.
+
+<Tabs groupId="language" defaultValue="objective-c" values={[ {label: 'Objective-C', value: 'objective-c'}, {label: 'Swift', value: 'swift'}, ]}>
+<TabItem value="objective-c">
 
 ```objectivec
 - (IBAction)highScoreButtonPressed:(id)sender {
@@ -275,6 +295,39 @@ First `import` the `RCTRootView` header.
 > Note that `-[RCTRootView initWithBundleURL:...]` starts up a new JavaScript VM. To save resources and simplify the communication between React Native views in different parts of your native app, you can have multiple views powered by React Native that are associated with a single JS runtime. To do that, instead of using `-[RCTRootView initWithBundleURL:...]`, use [`-[RCTBridge initWithBundleURL:...]`](https://github.com/facebook/react-native/blob/master/React/Base/RCTBridge.h#L93) to create a bridge, and then use `-[RCTRootView initWithBridge:...]`.
 
 > When moving your app to production, the `NSURL` can point to a pre-bundled file on disk via something like `[[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];`. You can use the `react-native-xcode.sh` script in `node_modules/react-native/scripts/` to generate that pre-bundled file.
+
+</TabItem>
+<TabItem value="swift">
+
+```swift
+@IBAction func highScoreButtonTapped(sender: UIButton) {
+    let jsCodeLocation = URL(string: "http://localhost:8081/index.bundle?platform=ios")
+    let mockData = [
+        "scores" : [
+            ["name" : "Alex", "value" : "42"],
+            ["name" : "Joel", "value" : "10"],
+        ]
+    ]
+
+    let rootView = RCTRootView(
+        bundleURL: jsCodeLocation,
+        moduleName: "RNHighScores",
+        initialProperties: mockData,
+        launchOptions: nil
+    )
+
+    let vc = UIViewController()
+    vc.view = rootView
+    self.present(vc, animated: true)
+}
+```
+
+> Note that `RCTRootView(bundleURL:...)` starts up a new JavaScript VM. To save resources and simplify the communication between React Native views in different parts of your native app, you can have multiple views powered by React Native that are associated with a single JS runtime. To do that, instead of using `RCTRootView(bundleURL:...)`, use [`RCTBridge(bundleURL:...)`](https://github.com/facebook/react-native/blob/master/React/Base/RCTBridge.h#L89) to create a bridge, and then use `RCTRootView(bridge:...)`.
+
+> When moving your app to production, the `URL` can point to a pre-bundled file on disk via something like `Bundle.main.url(forResource: "main", withExtension: "jsbundle")`. You can use the `react-native-xcode.sh` script in `node_modules/react-native/scripts/` to generate that pre-bundled file.
+
+</TabItem>
+</Tabs>
 
 ##### 3. Wire Up
 
