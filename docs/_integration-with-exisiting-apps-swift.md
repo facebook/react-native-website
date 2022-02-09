@@ -1,3 +1,5 @@
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+
 ## Key Concepts
 
 The keys to integrating React Native components into your iOS application are to:
@@ -37,21 +39,47 @@ Next, make sure you have [installed the yarn package manager](https://yarnpkg.co
 
 Install the `react` and `react-native` packages. Open a terminal or command prompt, then navigate to the directory with your `package.json` file and run:
 
+<Tabs groupId="package-manager" defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<TabItem value="npm">
+
 ```shell
-$ yarn add react-native
+npm install react-native
 ```
 
-This will print a message similar to the following (scroll up in the yarn output to see it):
+</TabItem>
+<TabItem value="yarn">
+
+```shell
+yarn add react-native
+```
+
+</TabItem>
+</Tabs>
+
+This will print a message similar to the following (scroll up in the output to see it):
 
 > warning "react-native@0.52.2" has unmet peer dependency "react@16.2.0".
 
 This is OK, it means we also need to install React:
 
+<Tabs groupId="package-manager" defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<TabItem value="npm">
+
 ```shell
-$ yarn add react@version_printed_above
+npm install react@version_printed_above
 ```
 
-Yarn has created a new `/node_modules` folder. This folder stores all the JavaScript dependencies required to build your project.
+</TabItem>
+<TabItem value="yarn">
+
+```shell
+yarn add react@version_printed_above
+```
+
+</TabItem>
+</Tabs>
+
+The installation process has created a new `/node_modules` folder. This folder stores all the JavaScript dependencies required to build your project.
 
 Add `node_modules/` to your `.gitignore` file.
 
@@ -62,14 +90,14 @@ Add `node_modules/` to your `.gitignore` file.
 We recommend installing CocoaPods using [Homebrew](http://brew.sh/).
 
 ```shell
-$ brew install cocoapods
+brew install cocoapods
 ```
 
 > It is technically possible not to use CocoaPods, but that would require manual library and linker additions that would overly complicate this process.
 
 ## Adding React Native to your app
 
-Assume the [app for integration](https://github.com/JoelMarcey/swift-2048) is a [2048](https://en.wikipedia.org/wiki/2048_%28video_game%29) game. Here is what the main menu of the native application looks like without React Native.
+Assume the app is a [2048](https://en.wikipedia.org/wiki/2048_%28video_game%29) game. Here is what the main menu of the native application looks like without React Native.
 
 ![Before RN Integration](/docs/assets/react-native-existing-app-integration-ios-before.png)
 
@@ -81,58 +109,33 @@ Install the Command Line Tools. Choose "Preferences..." in the Xcode menu. Go to
 
 ### Configuring CocoaPods dependencies
 
-Before you integrate React Native into your application, you will want to decide what parts of the React Native framework you would like to integrate. We will use CocoaPods to specify which of these "subspecs" your app will depend on.
-
-The list of supported `subspec`s is available in [`/node_modules/react-native/React.podspec`](https://github.com/facebook/react-native/blob/master/React.podspec). They are generally named by functionality. For example, you will generally always want the `Core` `subspec`. That will get you the `AppRegistry`, `StyleSheet`, `View` and other core React Native libraries. If you want to add the React Native `Text` library (e.g., for `<Text>` elements), then you will need the `RCTText` `subspec`. If you want the `Image` library (e.g., for `<Image>` elements), then you will need the `RCTImage` `subspec`.
-
-You can specify which `subspec`s your app will depend on in a `Podfile` file. The easiest way to create a `Podfile` is by running the CocoaPods `init` command in the `/ios` subfolder of your project:
+Add React Native targets to your project by editing your CocoaPods `Podfile`. If you don't have a `Podfile`, the easiest way to create one is by running the CocoaPods `init` command in the `/ios` subfolder of your project:
 
 ```shell
-$ pod init
+pod init
 ```
 
 The `Podfile` will contain a boilerplate setup that you will tweak for your integration purposes.
 
-> The `Podfile` version changes depending on your version of `react-native`. Refer to https://react-native-community.github.io/upgrade-helper/ for the specific version of `Podfile` you should be using.
+Inside the `target` section of your `Podfile`, call `use_react_native!`, like this:
 
-Ultimately, your `Podfile` should look something similar to this:
+```ruby
+require_relative '../node_modules/react-native/scripts/react_native_pods'
 
-```
-source 'https://github.com/CocoaPods/Specs.git'
-
-# Required for Swift apps
-platform :ios, '8.0'
-use_frameworks!
-
-# The target name is most likely the name of your project.
-target 'swift-2048' do
-
+# The target name is usually the name of your application.
+target 'NumberTileGame' do
   # Your 'node_modules' directory is probably in the root of your project,
-  # but if not, adjust the `:path` accordingly
-  pod 'React', :path => '../node_modules/react-native', :subspecs => [
-    'Core',
-    'CxxBridge', # Include this for RN >= 0.47
-    'DevSupport', # Include this to enable In-App Devmenu if RN >= 0.43
-    'RCTText',
-    'RCTNetwork',
-    'RCTWebSocket', # needed for debugging
-    # Add any other subspecs you want to use in your project
-  ]
-  # Explicitly include Yoga if you are using RN >= 0.42.0
-  pod "Yoga", :path => "../node_modules/react-native/ReactCommon/yoga"
-
-  # Third party deps podspec link
-  pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
-  pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
-  pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
-
+  # but if not, adjust the `:path` argument accordingly.
+  use_react_native!(
+     :path => "../node_modules/react-native"
+  )
 end
 ```
 
-After you have created your `Podfile`, you are ready to install the React Native pod.
+After you have created your `Podfile`, you are ready to install the React Native pods.
 
 ```shell
-$ pod install
+pod install
 ```
 
 You should see output such as:
@@ -241,40 +244,40 @@ When you build a React Native application, you use the [Metro bundler][metro] to
 
 We will, for debugging purposes, log that the event handler was invoked. Then, we will create a string with the location of our React Native code that exists inside the `index.bundle`. Finally, we will create the main `RCTRootView`. Notice how we provide `RNHighScores` as the `moduleName` that we created [above](#the-react-native-component) when writing the code for our React Native component.
 
-First `import` the `React` library.
+First `import` the `React` module.
 
-```jsx
+```swift
 import React
 ```
 
 > The `initialProperties` are here for illustration purposes so we have some data for our high score screen. In our React Native component, we will use `this.props` to get access to that data.
 
 ```swift
-@IBAction func highScoreButtonTapped(sender : UIButton) {
-  NSLog("Hello")
-  let jsCodeLocation = URL(string: "http://localhost:8081/index.bundle?platform=ios")
-  let mockData:NSDictionary = ["scores":
-      [
-          ["name":"Alex", "value":"42"],
-          ["name":"Joel", "value":"10"]
-      ]
-  ]
+@IBAction func highScoreButtonTapped(sender: UIButton) {
+    let jsCodeLocation = URL(string: "http://localhost:8081/index.bundle?platform=ios")
+    let mockData = [
+        "scores" : [
+            ["name" : "Alex", "value" : "42"],
+            ["name" : "Joel", "value" : "10"],
+        ]
+    ]
 
-  let rootView = RCTRootView(
-      bundleURL: jsCodeLocation,
-      moduleName: "RNHighScores",
-      initialProperties: mockData as [NSObject : AnyObject],
-      launchOptions: nil
-  )
-  let vc = UIViewController()
-  vc.view = rootView
-  self.present(vc, animated: true, completion: nil)
+    let rootView = RCTRootView(
+        bundleURL: jsCodeLocation,
+        moduleName: "RNHighScores",
+        initialProperties: mockData,
+        launchOptions: nil
+    )
+
+    let vc = UIViewController()
+    vc.view = rootView
+    self.present(vc, animated: true)
 }
 ```
 
-> Note that `RCTRootView bundleURL` starts up a new JSC VM. To save resources and simplify the communication between RN views in different parts of your native app, you can have multiple views powered by React Native that are associated with a single JS runtime. To do that, instead of using `RCTRootView bundleURL`, use [`RCTBridge initWithBundleURL`](https://github.com/facebook/react-native/blob/master/React/Base/RCTBridge.h#L89) to create a bridge and then use `RCTRootView initWithBridge`.
+> Note that `RCTRootView(bundleURL:...)` starts up a new JavaScript VM. To save resources and simplify the communication between React Native views in different parts of your native app, you can have multiple views powered by React Native that are associated with a single JS runtime. To do that, instead of using `RCTRootView(bundleURL:...)`, use [`RCTBridge(bundleURL:...)`](https://github.com/facebook/react-native/blob/master/React/Base/RCTBridge.h#L89) to create a bridge, and then use `RCTRootView(bridge:...)`.
 
-> When moving your app to production, the `NSURL` can point to a pre-bundled file on disk via something like `let mainBundle = NSBundle(URLForResource: "main" withExtension:"jsbundle")`. You can use the `react-native-xcode.sh` script in `node_modules/react-native/scripts/` to generate that pre-bundled file.
+> When moving your app to production, the `URL` can point to a pre-bundled file on disk via something like `Bundle.main.url(forResource: "main", withExtension: "jsbundle")`. You can use the `react-native-xcode.sh` script in `node_modules/react-native/scripts/` to generate that pre-bundled file.
 
 ##### 3. Wire Up
 
@@ -312,9 +315,22 @@ Apple has blocked implicit cleartext HTTP resource loading. So we need to add th
 
 To run your app, you need to first start the development server. To do this, run the following command in the root directory of your React Native project:
 
+<Tabs groupId="package-manager" defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<TabItem value="npm">
+
 ```shell
-$ npm start
+npm start
 ```
+
+</TabItem>
+<TabItem value="yarn">
+
+```shell
+yarn start
+```
+
+</TabItem>
+</Tabs>
 
 ##### 3. Run the app
 

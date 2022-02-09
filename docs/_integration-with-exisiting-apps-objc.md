@@ -56,7 +56,7 @@ yarn add react-native
 </TabItem>
 </Tabs>
 
-This will print a message similar to the following (scroll up in the yarn output to see it):
+This will print a message similar to the following (scroll up in the output to see it):
 
 > warning "react-native@0.52.2" has unmet peer dependency "react@16.2.0".
 
@@ -79,7 +79,7 @@ yarn add react@version_printed_above
 </TabItem>
 </Tabs>
 
-Installation process has created a new `/node_modules` folder. This folder stores all the JavaScript dependencies required to build your project.
+The installation process has created a new `/node_modules` folder. This folder stores all the JavaScript dependencies required to build your project.
 
 Add `node_modules/` to your `.gitignore` file.
 
@@ -97,7 +97,7 @@ brew install cocoapods
 
 ## Adding React Native to your app
 
-Assume the [app for integration](https://github.com/JoelMarcey/iOS-2048) is a [2048](https://en.wikipedia.org/wiki/2048_%28video_game%29) game. Here is what the main menu of the native application looks like without React Native.
+Assume the app is a [2048](https://en.wikipedia.org/wiki/2048_%28video_game%29) game. Here is what the main menu of the native application looks like without React Native.
 
 ![Before RN Integration](/docs/assets/react-native-existing-app-integration-ios-before.png)
 
@@ -109,11 +109,7 @@ Install the Command Line Tools. Choose "Preferences..." in the Xcode menu. Go to
 
 ### Configuring CocoaPods dependencies
 
-Before you integrate React Native into your application, you will want to decide what parts of the React Native framework you would like to integrate. We will use CocoaPods to specify which of these "subspecs" your app will depend on.
-
-The list of supported `subspec`s is available in [`/node_modules/react-native/React.podspec`](https://github.com/facebook/react-native/blob/master/React.podspec). They are generally named by functionality. For example, you will generally always want the `Core` `subspec`. That will get you the `AppRegistry`, `StyleSheet`, `View` and other core React Native libraries. If you want to add the React Native `Text` library (e.g., for `<Text>` elements), then you will need the `RCTText` `subspec`. If you want the `Image` library (e.g., for `<Image>` elements), then you will need the `RCTImage` `subspec`.
-
-You can specify which `subspec`s your app will depend on in a `Podfile` file. The easiest way to create a `Podfile` is by running the CocoaPods `init` command in the `/ios` subfolder of your project:
+Add React Native targets to your project by editing your CocoaPods `Podfile`. If you don't have a `Podfile`, the easiest way to create one is by running the CocoaPods `init` command in the `/ios` subfolder of your project:
 
 ```shell
 pod init
@@ -121,54 +117,25 @@ pod init
 
 The `Podfile` will contain a boilerplate setup that you will tweak for your integration purposes.
 
-> The `Podfile` version changes depending on your version of `react-native`. Refer to https://react-native-community.github.io/upgrade-helper/ for the specific version of `Podfile` you should be using.
+Inside the `target` section of your `Podfile`, call `use_react_native!`, like this:
 
-Ultimately, your `Podfile` should look something similar to this:
+```ruby
+require_relative '../node_modules/react-native/scripts/react_native_pods'
 
-```
-# The target name is most likely the name of your project.
+# The target name is usually the name of your application.
 target 'NumberTileGame' do
-
   # Your 'node_modules' directory is probably in the root of your project,
-  # but if not, adjust the `:path` accordingly
-  pod 'FBLazyVector', :path => "../node_modules/react-native/Libraries/FBLazyVector"
-  pod 'FBReactNativeSpec', :path => "../node_modules/react-native/Libraries/FBReactNativeSpec"
-  pod 'RCTRequired', :path => "../node_modules/react-native/Libraries/RCTRequired"
-  pod 'RCTTypeSafety', :path => "../node_modules/react-native/Libraries/TypeSafety"
-  pod 'React', :path => '../node_modules/react-native/'
-  pod 'React-Core', :path => '../node_modules/react-native/'
-  pod 'React-CoreModules', :path => '../node_modules/react-native/React/CoreModules'
-  pod 'React-Core/DevSupport', :path => '../node_modules/react-native/'
-  pod 'React-RCTActionSheet', :path => '../node_modules/react-native/Libraries/ActionSheetIOS'
-  pod 'React-RCTAnimation', :path => '../node_modules/react-native/Libraries/NativeAnimation'
-  pod 'React-RCTBlob', :path => '../node_modules/react-native/Libraries/Blob'
-  pod 'React-RCTImage', :path => '../node_modules/react-native/Libraries/Image'
-  pod 'React-RCTLinking', :path => '../node_modules/react-native/Libraries/LinkingIOS'
-  pod 'React-RCTNetwork', :path => '../node_modules/react-native/Libraries/Network'
-  pod 'React-RCTSettings', :path => '../node_modules/react-native/Libraries/Settings'
-  pod 'React-RCTText', :path => '../node_modules/react-native/Libraries/Text'
-  pod 'React-RCTVibration', :path => '../node_modules/react-native/Libraries/Vibration'
-  pod 'React-Core/RCTWebSocket', :path => '../node_modules/react-native/'
-
-  pod 'React-cxxreact', :path => '../node_modules/react-native/ReactCommon/cxxreact'
-  pod 'React-jsi', :path => '../node_modules/react-native/ReactCommon/jsi'
-  pod 'React-jsiexecutor', :path => '../node_modules/react-native/ReactCommon/jsiexecutor'
-  pod 'React-jsinspector', :path => '../node_modules/react-native/ReactCommon/jsinspector'
-  pod 'ReactCommon/callinvoker', :path => "../node_modules/react-native/ReactCommon"
-  pod 'ReactCommon/turbomodule/core', :path => "../node_modules/react-native/ReactCommon"
-  pod 'Yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
-
-  pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
-  pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
-  pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
-
+  # but if not, adjust the `:path` argument accordingly.
+  use_react_native!(
+     :path => "../node_modules/react-native"
+  )
 end
 ```
 
-After you have created your `Podfile`, you are ready to install the React Native pod.
+After you have created your `Podfile`, you are ready to install the React Native pods.
 
 ```shell
-$ pod install
+pod install
 ```
 
 You should see output such as:
@@ -285,33 +252,27 @@ First `import` the `RCTRootView` header.
 
 ```objectivec
 - (IBAction)highScoreButtonPressed:(id)sender {
-    NSLog(@"High Score Button Pressed");
     NSURL *jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.bundle?platform=ios"];
+    NSDictionary *mockData = @{
+        @"scores" : @[
+            @{ @"name" : @"Alex", @"value": @"42" },
+            @{ @"name" : @"Joel", @"value": @"10" },
+        ],
+    };
 
     RCTRootView *rootView =
-      [[RCTRootView alloc] initWithBundleURL: jsCodeLocation
-                                  moduleName: @"RNHighScores"
-                           initialProperties:
-                             @{
-                               @"scores" : @[
-                                 @{
-                                   @"name" : @"Alex",
-                                   @"value": @"42"
-                                  },
-                                 @{
-                                   @"name" : @"Joel",
-                                   @"value": @"10"
-                                 }
-                               ]
-                             }
-                               launchOptions: nil];
+        [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
+                                    moduleName:@"RNHighScores"
+                             initialProperties:mockData
+                                 launchOptions:nil];
+
     UIViewController *vc = [[UIViewController alloc] init];
     vc.view = rootView;
     [self presentViewController:vc animated:YES completion:nil];
 }
 ```
 
-> Note that `RCTRootView initWithURL` starts up a new JSC VM. To save resources and simplify the communication between RN views in different parts of your native app, you can have multiple views powered by React Native that are associated with a single JS runtime. To do that, instead of using `[RCTRootView alloc] initWithURL`, use [`RCTBridge initWithBundleURL`](https://github.com/facebook/react-native/blob/master/React/Base/RCTBridge.h#L93) to create a bridge and then use `RCTRootView initWithBridge`.
+> Note that `-[RCTRootView initWithBundleURL:...]` starts up a new JavaScript VM. To save resources and simplify the communication between React Native views in different parts of your native app, you can have multiple views powered by React Native that are associated with a single JS runtime. To do that, instead of using `-[RCTRootView initWithBundleURL:...]`, use [`-[RCTBridge initWithBundleURL:...]`](https://github.com/facebook/react-native/blob/master/React/Base/RCTBridge.h#L93) to create a bridge, and then use `-[RCTRootView initWithBridge:...]`.
 
 > When moving your app to production, the `NSURL` can point to a pre-bundled file on disk via something like `[[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];`. You can use the `react-native-xcode.sh` script in `node_modules/react-native/scripts/` to generate that pre-bundled file.
 
