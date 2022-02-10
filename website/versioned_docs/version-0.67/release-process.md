@@ -11,11 +11,11 @@ This document goes over steps to run different types of React Native release upd
 - [Promote release candidate to stable](#releasing-stable-0minor0)
 - [Troubleshooting](#troubleshooting)
 
-# Releasing a new minor release candidate
+## Releasing a new minor release candidate
 
 ### Prerequisites
 
-- Write access to `[react-native](https://github.com/facebook/react-native)` repo
+- Write access to [react-native](https://github.com/facebook/react-native) repo
 - Your CircleCI personal API token. See [here](https://circleci.com/docs/2.0/managing-api-tokens/#creating-a-personal-api-token) on how to set one
 - If testing, follow [pre-requisites for testing](https://github.com/facebook/react-native/wiki/Release-Testing)
 
@@ -65,7 +65,7 @@ npx @rnx-kit/rn-changelog-generator --base v0.66.4 --compare v0.67.0-rc.0 \
 
 ### 3. Create a Github Release
 
-- Create a [Github release](<[https://github.com/facebook/react-native/releases](https://github.com/facebook/react-native/releases)>) with this template and **check “Pre-Release” checkbox**
+- Create a [Github release](https://github.com/facebook/react-native/releases) with this template and **check “Pre-Release” checkbox**
 
 ```markdown
 <!-- Template for pre-release Github release -->
@@ -172,7 +172,7 @@ The branch cut has happened.
 - Twitter?
 - Relevant chats
 
-# Release release candidate patch
+## Release release candidate patch
 
 ### Pre-requisite
 
@@ -195,7 +195,7 @@ $ git cherry-pick <commit>
 
 ### 3. Update the relevant discussion post with latest RC
 
-# Release Stable Patch
+## Release Stable Patch
 
 ### Pre-requisitse
 
@@ -278,7 +278,7 @@ To help you upgrade to this version, you can use the [upgrade helper](https://re
 You can find the whole changelog history in the [changelog.md file](https://github.com/facebook/react-native/blob/main/CHANGELOG.md).
 ```
 
-# Releasing Stable (0.{minor}.0)
+## Releasing Stable (0.{minor}.0)
 
 ### Pre-requisites
 
@@ -315,7 +315,7 @@ This release includes **621 commits** with **92 contributors**! Thank you to all
 ### 3. Create a new patch post for your new version
 
 ```markdown
-# Should we release 0.67.1?
+## Should we release 0.67.1?
 
 Current Release: 0.67.0
 
@@ -349,7 +349,7 @@ If the issue is a [major release issue](https://github.com/facebook/react-native
 - Ship the blog post, tweet about blog post
 - Ship the react-native-website changes if not done already
 
-# Troubleshooting
+## Troubleshooting
 
 ### Manually set npm tags
 

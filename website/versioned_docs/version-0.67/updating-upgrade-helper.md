@@ -35,7 +35,7 @@ curl -X POST -H "Accept: application/vnd.github.v3+json" \
 
 #### Manual instructions
 
-To generate the diff for a new version, there are essentially just 3 steps needed:
+To generate the diff for a new version, there are essentially only 3 steps needed:
 
 - git clone the rn-diff-purge repo
 - cd into it, and yarn install
