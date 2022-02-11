@@ -315,9 +315,11 @@ Invoked on mount and on layout changes.
 
 Invoked when load completes successfully.
 
-| Type                                             |
-| ------------------------------------------------ |
-| ([ImageLoadEvent](image#imageloadevent)) => void |
+**Example:** `onLoad={({nativeEvent: {source: {width, height}}}) => setImageRealSize({width, height})}`
+
+| Type                                                              |
+| ----------------------------------------------------------------- |
+| ({ nativeEvent: [ImageLoadEvent](image#imageloadevent) }) => void |
 
 ---
 
@@ -569,6 +571,14 @@ Object returned in the `onLoad` callback.
 | Type   |
 | ------ |
 | object |
+
+**Properties:**
+
+| Name   | Type   | Description                         |
+| ------ | ------ | ----------------------------------- |
+| source | object | The [source object](#source-object) |
+
+#### Source Object
 
 **Properties:**
 
