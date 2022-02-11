@@ -317,8 +317,8 @@ Invoked when load completes successfully.
 
 **Example:** `onLoad={({nativeEvent: {source: {width, height}}}) => setImageRealSize({width, height})}`
 
-| Type                                             |
-| ------------------------------------------------ |
+| Type                                                              |
+| ----------------------------------------------------------------- |
 | ({ nativeEvent: [ImageLoadEvent](image#imageloadevent) }) => void |
 
 ---
@@ -574,18 +574,19 @@ Object returned in the `onLoad` callback.
 
 **Properties:**
 
-| Name   | Type   | Description                                                  |
-| ------ | ------ | ------------------------------------------------------------ |
-| source | object | The [source object](#source-object)                                            |
+| Name   | Type   | Description                         |
+| ------ | ------ | ----------------------------------- |
+| source | object | The [source object](#source-object) |
 
 #### Source Object
+
 **Properties:**
 
 | Name   | Type   | Description                                                  |
 | ------ | ------ | ------------------------------------------------------------ |
 | width  | number | The width of loaded image.                                   |
 | height | number | The height of loaded image.                                  |
-| uri    | string | A string representing the resource identifier for the image.  |
+| uri    | string | A string representing the resource identifier for the image. |
 
 ### ImageSource
 
