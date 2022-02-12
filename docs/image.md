@@ -283,7 +283,7 @@ Fade animation duration in miliseconds.
 
 ### `loadingIndicatorSource`
 
-Similarly to `source`, this property represents the resource used to render the loading indicator for the image, displayed until image is ready to be displayed, typically after when it got downloaded from network.
+Similarly to `source`, this property represents the resource used to render the loading indicator for the image. The loading indicator is displayed until image is ready to be displayed, typically after the image is downloaded.
 
 | Type                                                  |
 | ----------------------------------------------------- |
