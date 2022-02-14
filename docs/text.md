@@ -571,7 +571,7 @@ When the scroll view is disabled, this defines how far your touch may move off o
 
 ---
 
-### `selectable`
+### `selectable` <div class="label android">Android</div>
 
 Lets the user select text, to use the native copy and paste functionality.
 
