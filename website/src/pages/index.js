@@ -79,6 +79,13 @@ Members of the React Native team frequently speak at various conferences.
 <br/><br/>
 You can follow the latest news from the React Native team on Twitter
   `,
+  introVideo: `
+The <a href="https://opensource.facebook.com/">Meta Open Source team</a> has put together a short overview of React Native, 
+where they explained the project in beginner's terms. You can also find 
+other content about Meta Open Source projects on their <a href="https://www.youtube.com/channel/UCCQY962PmHabTjaHv2wJzfQ">YouTube Channel</a>.
+<br/><br/>
+You can follow the latest Meta OSS news from the Meta Open Source team on Twitter
+  `,
 };
 
 function Heading({text}) {
@@ -122,13 +129,13 @@ function HomeCallToAction() {
   );
 }
 
-function TwitterButton() {
+function TwitterButton({accountName}) {
   return (
     <a
-      href="https://twitter.com/intent/follow?screen_name=reactnative&region=follow_link"
+      href={`https://twitter.com/intent/follow?screen_name=${accountName}&region=follow_link`}
       className="twitter-follow-button">
       <div className="icon" />
-      Follow @reactnative
+      Follow @{accountName}
     </a>
   );
 }
@@ -245,7 +252,7 @@ function HeaderHero() {
   return (
     <Section background="dark" className="HeaderHero">
       <div className="socialLinks">
-        <TwitterButton />
+        <TwitterButton accountName="reactnative"/>
         <GitHubStarButton />
       </div>
       <TwoColumns
@@ -365,30 +372,53 @@ function FastRefresh() {
   );
 }
 
-function Talks() {
+function VideoContent() {
   return (
-    <Section className="Talks" background="tint">
-      <TwoColumns
+    <div>
+      <Section className="VideoContent" background="tint">
+        <TwoColumns
         columnOne={
           <TextColumn
-            title="Talks"
-            text={textContent.talks}
-            moreContent={<TwitterButton />}
+            title="Brief Intro Video"
+            text={textContent.introVideo}
+              moreContent={<TwitterButton accountName="MetaOpenSource" />}
           />
         }
         columnTwo={
           <div className="vidWrapper">
             <iframe
-              src="https://www.youtube.com/embed/NCAY0HIfrwc"
-              title="Mobile Innovation with React Native, ComponentKit, and Litho"
+              src="https://www.youtube.com/embed/wUDeLT6WXnQ"
+              title="Explain Like I'm 5: React Native"
               frameBorder="0"
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             />
           </div>
         }
-      />
-    </Section>
+       />
+        <br/>
+        <TwoColumns
+          columnOne={
+            <TextColumn
+              title="Talks"
+              text={textContent.talks}
+              moreContent={<TwitterButton accountName="reactnative" />}
+            />
+          }
+          columnTwo={
+            <div className="vidWrapper">
+              <iframe
+                src="https://www.youtube.com/embed/NCAY0HIfrwc"
+                title="Mobile Innovation with React Native, ComponentKit, and Litho"
+                frameBorder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          }
+        />
+      </Section>
+    </div>
   );
 }
 
@@ -514,6 +544,48 @@ function GetStarted() {
   );
 }
 
+function IntroVideo() {
+  return (
+    <Section className="IntroVideo" background="tint">
+      <TwoColumns
+        columnOne={
+          <TextColumn
+            title="Intro Video"
+            text={textContent.talks}
+          />
+        }
+        columnTwo={
+          <div className="vidWrapper">
+            <iframe
+              src="https://www.youtube.com/embed/wUDeLT6WXnQ"
+              title="Explain Like I'm 5: React Native"
+              frameBorder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+        }
+      />
+    </Section>
+  );
+      // <div className="container text--center margin-bottom--xl margin-top--lg">
+    //   <div className="row">
+    //     <div className="col">
+    //       <h2>Check it out in the intro video</h2>
+    //         <iframe
+    //           width="560"
+    //           height="315"
+    //           src="https://www.youtube.com/embed/Slc3gRQpnBI"
+    //           title="Explain Like I'm 5: Hydra"
+    //           frameBorder="0"
+    //           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    //           allowFullScreen
+    //         />
+    //     </div>
+    //   </div>
+    // </div>
+}
+
 const useHomePageAnimations = () => {
   useEffect(() => setupHeaderAnimations(), []);
   useEffect(() => setupDissectionAnimation(), []);
@@ -542,7 +614,7 @@ const Index = () => {
       <NativeDevelopment />
       <CrossPlatform />
       <FastRefresh />
-      <Talks />
+      <VideoContent />
       <Community />
       <GetStarted />
     </Layout>
