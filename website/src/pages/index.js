@@ -544,48 +544,6 @@ function GetStarted() {
   );
 }
 
-function IntroVideo() {
-  return (
-    <Section className="IntroVideo" background="tint">
-      <TwoColumns
-        columnOne={
-          <TextColumn
-            title="Intro Video"
-            text={textContent.talks}
-          />
-        }
-        columnTwo={
-          <div className="vidWrapper">
-            <iframe
-              src="https://www.youtube.com/embed/wUDeLT6WXnQ"
-              title="Explain Like I'm 5: React Native"
-              frameBorder="0"
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
-          </div>
-        }
-      />
-    </Section>
-  );
-      // <div className="container text--center margin-bottom--xl margin-top--lg">
-    //   <div className="row">
-    //     <div className="col">
-    //       <h2>Check it out in the intro video</h2>
-    //         <iframe
-    //           width="560"
-    //           height="315"
-    //           src="https://www.youtube.com/embed/Slc3gRQpnBI"
-    //           title="Explain Like I'm 5: Hydra"
-    //           frameBorder="0"
-    //           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    //           allowFullScreen
-    //         />
-    //     </div>
-    //   </div>
-    // </div>
-}
-
 const useHomePageAnimations = () => {
   useEffect(() => setupHeaderAnimations(), []);
   useEffect(() => setupDissectionAnimation(), []);
