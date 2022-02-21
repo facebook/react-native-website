@@ -45,6 +45,17 @@ sudo gem install cocoapods
 
 For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
 
+<details>
+  <summary>Note for Mac M1 users</summary>
+Mac M1 architecture is not directly compatible with Cocoapods. If you encounter issues when installing pods, you can solve it by running:
+
+- `sudo arch -x86_64 gem install ffi`
+- `arch -x86_64 pod install`
+
+These commands install the `ffi` package, to load dynamically-linked libraries and let you run the `pod install` properly, and runs `pod install` with the proper architecture.
+
+</details>
+
 ### React Native Command Line Interface
 
 React Native has a built-in command line interface. Rather than install and manage a specific version of the CLI globally, we recommend you access the current version at runtime using `npx`, which ships with Node.js. With `npx react-native <command>`, the current stable version of the CLI will be downloaded and executed at the time the command is run.

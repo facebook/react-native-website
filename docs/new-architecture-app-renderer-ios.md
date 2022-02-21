@@ -28,20 +28,32 @@ target 'Some App' do
 end
 
 def pods()
-  # Get config
-  config = use_native_modules!
+# Get config
+config = use_native_modules!
 
-  # Use env variables to turn it on/off.
-  fabric_enabled = ENV['USE_FABRIC']
+# Use env variables to turn it on/off.
+fabric_enabled = ENV['USE_FABRIC']
+use_codegen_discovery= ENV['USE_CODEGEN_DISCOVERY']
 
-  use_react_native!(
-    ...
-    # Modify here if your app root path isn't the same as this one.
-    :app_path => "#{Dir.pwd}/..",
-    # Pass the flag to enable fabric to use_react_native!.
-    :fabric_enabled => fabric_enabled
-  )
+# Enabled codegen discovery. This will run the codegen at preinstall time.
+# Files are generated at {pod installation root}/build/generated/ios/
+if use_codegen_discovery
+  Pod::UI.puts "[Codegen] Building target with codegen library discovery enabled."
+  pre_install do |installer|
+    use_react_native_codegen_discovery!({
+        react_native_path: config[:reactNativePath],
+        # Modify here if your app root path isn't the same as this one.
+        app_path: "#{Dir.pwd}/..",
+        fabric_enabled: fabric_enabled,
+    })
+  end
 end
+
+# Pass the flag to enable fabric to use_react_native!.
+use_react_native!(
+  ...
+  :fabric_enabled => fabric_enabled
+)
 ```
 
 ## 2. Update your root view
@@ -110,3 +122,14 @@ module.exports = {
 // Run pod install with the flags
 USE_FABRIC=1 RCT_NEW_ARCH_ENABLED=1 pod install
 ```
+
+<details>
+  <summary>Note for Mac M1 users</summary>
+Mac M1 architecture is not directly compatible with Cocoapods. If you encounter issues when installing pods, you can solve it by running:
+
+- `sudo arch -x86_64 gem install ffi`
+- `arch -x86_64 pod install`
+
+These commands install the `ffi` package, to load dynamically-linked libraries and let you run the `pod install` properly, and runs `pod install` with the proper architecture.
+
+</details>

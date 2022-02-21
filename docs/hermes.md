@@ -77,6 +77,17 @@ Next, install the Hermes pods:
 $ cd ios && pod install
 ```
 
+<details>
+  <summary>Note for Mac M1 users</summary>
+Mac M1 architecture is not directly compatible with Cocoapods. If you encounter issues when installing pods, you can solve it by running:
+
+- `sudo arch -x86_64 gem install ffi`
+- `arch -x86_64 pod install`
+
+These commands install the `ffi` package, to load dynamically-linked libraries and let you run the `pod install` properly, and runs `pod install` with the proper architecture.
+
+</details>
+
 That's it! You should now be able to develop and deploy your app as usual:
 
 ```shell

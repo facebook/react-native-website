@@ -27,10 +27,10 @@ Open `~/Library/Developer/Xcode/DerivedData`. and look for a folder named after 
 
 The CocoaPods integration will see frequent updates as we rollout the New Architecture, and it is possible to end up with your workspace in a broken state after one of these changes. You may clean up any changes related to the codegen by performing some of these steps:
 
-1. Run `pod deintegrate` in your ios directory (or wherever your Podfile is located) and re-run `pod install`.
-2. Delete `Podfile.lock` and re-run `pod install`.
+1. Run `pod deintegrate` in your ios directory (or wherever your Podfile is located) and re-run `pod install` (or `arch -x86_64 pod install`, in case of a Mac M1).
+2. Delete `Podfile.lock` and re-run `pod install` (or `arch -x86_64 pod install`, in case of a Mac M1).
 3. Delete `node_modules` and re-run `yarn install`.
-4. Delete your codegen artifacts and re-run `pod install`, then clean and build your Xcode project.
+4. Delete your codegen artifacts and re-run `pod install` (or `arch -x86_64 pod install`, in case of a Mac M1), then clean and build your Xcode project.
 
 ## Folly Version
 

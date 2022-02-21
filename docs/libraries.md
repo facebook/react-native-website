@@ -51,6 +51,17 @@ Run `pod install` in our `ios` directory in order to link it to our native iOS p
 npx pod-install
 ```
 
+<details>
+  <summary>Note for Mac M1 users</summary>
+Mac M1 architecture is not directly compatible with Cocoapods. If you encounter issues when installing pods, you can solve it by running:
+
+- `sudo arch -x86_64 gem install ffi`
+- `arch -x86_64 pod install`
+
+These commands install the `ffi` package, to load dynamically-linked libraries and let you run the pod install properly, and runs `pod install` with the proper architecture.
+
+</details>
+
 Once this is complete, re-build the app binary to start using your new library:
 
 ```bash
