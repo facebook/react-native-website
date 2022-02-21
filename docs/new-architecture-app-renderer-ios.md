@@ -34,11 +34,11 @@ def pods()
   # Use env variables to turn it on/off.
   fabric_enabled = ENV['USE_FABRIC']
 
-  # Pass the flag to enable fabric to use_react_native!.
   use_react_native!(
     ...
     # Modify here if your app root path isn't the same as this one.
     :app_path => "#{Dir.pwd}/..",
+    # Pass the flag to enable fabric to use_react_native!.
     :fabric_enabled => fabric_enabled
   )
 end
