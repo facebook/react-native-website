@@ -2,6 +2,7 @@
 id: hermes
 title: Using Hermes
 ---
+import M1Cocoapods from './_markdown-m1-cocoapods.mdx';
 
 <a href="https://hermesengine.dev">
 <img width={300} height={300} style={{float: 'right', margin: '-30px 4px 0'}} src="/docs/assets/HermesLogo.svg" />
@@ -77,16 +78,7 @@ Next, install the Hermes pods:
 $ cd ios && pod install
 ```
 
-<details>
-  <summary>Note for Mac M1 users</summary>
-Mac M1 architecture is not directly compatible with Cocoapods. If you encounter issues when installing pods, you can solve it by running:
-
-- `sudo arch -x86_64 gem install ffi`
-- `arch -x86_64 pod install`
-
-These commands install the `ffi` package, to load dynamically-linked libraries and let you run the `pod install` properly, and runs `pod install` with the proper architecture.
-
-</details>
+<M1Cocoapods />
 
 That's it! You should now be able to develop and deploy your app as usual:
 

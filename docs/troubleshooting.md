@@ -2,6 +2,7 @@
 id: troubleshooting
 title: Troubleshooting
 ---
+import M1Cocoapods from './_markdown-m1-cocoapods.mdx';
 
 These are some common issues you may run into while setting up React Native. If you encounter something that is not listed here, try [searching for the issue in GitHub](https://github.com/facebook/react-native/issues/).
 
@@ -61,16 +62,7 @@ pod 'React', :path => '../node_modules/react-native', :subspecs => [
 
 Next, make sure you have run `pod install` and that a `Pods/` directory has been created in your project with React installed. CocoaPods will instruct you to use the generated `.xcworkspace` file henceforth to be able to use these installed dependencies.
 
-<details>
-  <summary>Note for Mac M1 users</summary>
-Mac M1 architecture is not directly compatible with Cocoapods. If you encounter issues when installing pods, you can solve it by running:
-
-- `sudo arch -x86_64 gem install ffi`
-- `arch -x86_64 pod install`
-
-These commands install the `ffi` package, to load dynamically-linked libraries and let you run the `pod install` properly, and runs `pod install` with the proper architecture.
-
-</details>
+<M1Cocoapods />
 
 #### React Native does not compile when being used as a CocoaPod
 

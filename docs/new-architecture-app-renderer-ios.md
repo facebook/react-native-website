@@ -2,6 +2,7 @@
 id: new-architecture-app-renderer-ios
 title: Enabling Fabric on iOS
 ---
+import M1Cocoapods from './_markdown-m1-cocoapods.mdx';
 
 :::caution
 
@@ -123,13 +124,4 @@ module.exports = {
 USE_FABRIC=1 RCT_NEW_ARCH_ENABLED=1 pod install
 ```
 
-<details>
-  <summary>Note for Mac M1 users</summary>
-Mac M1 architecture is not directly compatible with Cocoapods. If you encounter issues when installing pods, you can solve it by running:
-
-- `sudo arch -x86_64 gem install ffi`
-- `arch -x86_64 pod install`
-
-These commands install the `ffi` package, to load dynamically-linked libraries and let you run the `pod install` properly, and runs `pod install` with the proper architecture.
-
-</details>
+<M1Cocoapods />

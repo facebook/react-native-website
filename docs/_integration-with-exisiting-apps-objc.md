@@ -1,4 +1,4 @@
-import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants'; import M1Cocoapods from './_markdown-m1-cocoapods.mdx';
 
 ## Key Concepts
 
@@ -186,16 +186,7 @@ Pod installation complete! There are 3 dependencies from the Podfile and 1 total
 
 > If this fails with errors mentioning `xcrun`, make sure that in Xcode in **Preferences > Locations** the Command Line Tools are assigned.
 
-<details>
-  <summary>Note for Mac M1 users</summary>
-Mac M1 architecture is not directly compatible with Cocoapods. If you encounter issues when installing pods, you can solve it by running:
-
-- `sudo arch -x86_64 gem install ffi`
-- `arch -x86_64 pod install`
-
-These commands install the `ffi` package, to load dynamically-linked libraries and let you run the `pod install` properly, and runs `pod install` with the proper architecture.
-
-</details>
+<M1Cocoapods />
 
 ### Code integration
 

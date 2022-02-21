@@ -1,3 +1,5 @@
+import M1Cocoapods from './_markdown-m1-cocoapods.mdx';
+
 ## Key Concepts
 
 The keys to integrating React Native components into your iOS application are to:
@@ -152,16 +154,7 @@ Pod installation complete! There are 3 dependencies from the Podfile and 1 total
 
 > If you get a warning such as "_The `swift-2048 [Debug]` target overrides the `FRAMEWORK_SEARCH_PATHS` build setting defined in `Pods/Target Support Files/Pods-swift-2048/Pods-swift-2048.debug.xcconfig`. This can lead to problems with the CocoaPods installation_", then make sure the `Framework Search Paths` in `Build Settings` for both `Debug` and `Release` only contain `$(inherited)`.
 
-<details>
-  <summary>Note for Mac M1 users</summary>
-Mac M1 architecture is not directly compatible with Cocoapods. If you encounter issues when installing pods, you can solve it by running:
-
-- `sudo arch -x86_64 gem install ffi`
-- `arch -x86_64 pod install`
-
-These commands install the `ffi` package, to load dynamically-linked libraries and let you run the `pod install` properly, and runs `pod install` with the proper architecture.
-
-</details>
+<M1Cocoapods />
 
 ### Code integration
 

@@ -6,7 +6,8 @@ authorURL: 'https://twitter.com/notbrent'
 description: This guide introduces React Native developers to finding, installing, and using third-party libraries in their apps.
 ---
 
-import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants'; import M1Cocoapods from './_markdown-m1-cocoapods.mdx';
+
 
 React Native provides a set of built-in [Core Components and APIs](./components-and-apis) ready to use in your app. You're not limited to the components and APIs bundled with React Native. React Native has a community of thousands of developers. If the Core Components and APIs don't have what you are looking for, you may be able to find and install a library from the community to add the functionality to your app.
 
@@ -51,16 +52,7 @@ Run `pod install` in our `ios` directory in order to link it to our native iOS p
 npx pod-install
 ```
 
-<details>
-  <summary>Note for Mac M1 users</summary>
-Mac M1 architecture is not directly compatible with Cocoapods. If you encounter issues when installing pods, you can solve it by running:
-
-- `sudo arch -x86_64 gem install ffi`
-- `arch -x86_64 pod install`
-
-These commands install the `ffi` package, to load dynamically-linked libraries and let you run the pod install properly, and runs `pod install` with the proper architecture.
-
-</details>
+<M1Cocoapods />
 
 Once this is complete, re-build the app binary to start using your new library:
 
