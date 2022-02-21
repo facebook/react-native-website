@@ -23,38 +23,22 @@ Add changes to your Podfile. You can see some examples in [RNTester](https://git
 # Codegen produces files/classes that share names, and it will show the warning.
 # deterministic_uuids option surpresses the warning.
 install! 'cocoapods', :deterministic_uuids => false
-
 target 'Some App' do
   pods()
 end
-
 def pods()
-# Get config
-config = use_native_modules!
-
-# Use env variables to turn it on/off.
-fabric_enabled = ENV['USE_FABRIC']
-use_codegen_discovery= ENV['USE_CODEGEN_DISCOVERY']
-
-# Enabled codegen discovery. This will run the codegen at preinstall time.
-# Files are generated at {pod installation root}/build/generated/ios/
-if use_codegen_discovery
-  Pod::UI.puts "[Codegen] Building target with codegen library discovery enabled."
-  pre_install do |installer|
-    use_react_native_codegen_discovery!({
-        react_native_path: config[:reactNativePath],
-        # Modify here if your app root path isn't the same as this one.
-        app_path: "#{Dir.pwd}/..",
-        fabric_enabled: fabric_enabled,
-    })
-  end
+  # Get config
+  config = use_native_modules!
+  # Use env variables to turn it on/off.
+  fabric_enabled = ENV['USE_FABRIC']
+  use_react_native!(
+    ...
+    # Modify here if your app root path isn't the same as this one.
+    :app_path => "#{Dir.pwd}/..",
+    # Pass the flag to enable fabric to use_react_native!.
+    :fabric_enabled => fabric_enabled
+  )
 end
-
-# Pass the flag to enable fabric to use_react_native!.
-use_react_native!(
-  ...
-  :fabric_enabled => fabric_enabled
-)
 ```
 
 ## 2. Update your root view
