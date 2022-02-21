@@ -2,7 +2,8 @@
 id: new-architecture-library-ios
 title: Enabling in iOS Library
 ---
-import M1Cocoapods from './_markdown-m1-cocoapods.mdx';
+
+import M1Cocoapods from './\_markdown-m1-cocoapods.mdx';
 
 :::caution
 

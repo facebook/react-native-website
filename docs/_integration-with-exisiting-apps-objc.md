@@ -1,4 +1,4 @@
-import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants'; import M1Cocoapods from './_markdown-m1-cocoapods.mdx';
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants'; import M1Cocoapods from './\_markdown-m1-cocoapods.mdx';
 
 ## Key Concepts
 

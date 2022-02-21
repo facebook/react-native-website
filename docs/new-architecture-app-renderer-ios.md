@@ -2,7 +2,8 @@
 id: new-architecture-app-renderer-ios
 title: Enabling Fabric on iOS
 ---
-import M1Cocoapods from './_markdown-m1-cocoapods.mdx';
+
+import M1Cocoapods from './\_markdown-m1-cocoapods.mdx';
 
 :::caution
 

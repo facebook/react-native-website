@@ -2,7 +2,8 @@
 id: hermes
 title: Using Hermes
 ---
-import M1Cocoapods from './_markdown-m1-cocoapods.mdx';
+
+import M1Cocoapods from './\_markdown-m1-cocoapods.mdx';
 
 <a href="https://hermesengine.dev">
 <img width={300} height={300} style={{float: 'right', margin: '-30px 4px 0'}} src="/docs/assets/HermesLogo.svg" />
