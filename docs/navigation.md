@@ -3,6 +3,8 @@ id: navigation
 title: Navigating Between Screens
 ---
 
+import M1Cocoapods from './\_markdown-m1-cocoapods.mdx';
+
 Mobile apps are rarely made up of a single screen. Managing the presentation of, and transition between, multiple screens is typically handled by what is known as a navigator.
 
 This guide covers the various navigation components available in React Native. If you are getting started with navigation, you will probably want to use [React Navigation](navigation.md#react-navigation). React Navigation provides a straightforward navigation solution, with the ability to present common stack navigation and tabbed navigation patterns on both Android and iOS.
@@ -44,6 +46,8 @@ Next, install the required peer dependencies. You need to run different commands
   ```
 
 > Note: You might get warnings related to peer dependencies after installation. They are usually caused by incorrect version ranges specified in some packages. You can safely ignore most warnings as long as your app builds.
+
+<M1Cocoapods />
 
 Now, you need to wrap the whole app in `NavigationContainer`. Usually you'd do this in your entry file, such as `index.js` or `App.js`:
 

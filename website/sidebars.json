@@ -80,6 +80,35 @@
       "native-components-ios",
       "direct-manipulation"
     ],
+    "The New Architecture": [
+      "new-architecture-intro",
+      {
+        "type": "category",
+        "label": "Supporting in your Library",
+        "collapsible": false,
+        "collapsed": false,
+        "items": [
+          "new-architecture-library-intro",
+          "new-architecture-library-android",
+          "new-architecture-library-ios"
+        ]
+      },
+      {
+        "type": "category",
+        "label": "Supporting in your App",
+        "collapsible": false,
+        "collapsed": false,
+        "items": [
+          "new-architecture-app-intro",
+          "new-architecture-app-modules-android",
+          "new-architecture-app-modules-ios",
+          "new-architecture-app-renderer-android",
+          "new-architecture-app-renderer-ios"
+        ]
+      },
+      "new-architecture-troubleshooting",
+      "new-architecture-appendix"
+    ],
     "Android and iOS guides": [
       {
         "type": "category",
