@@ -3,6 +3,8 @@ id: new-architecture-app-renderer-ios
 title: Enabling Fabric on iOS
 ---
 
+import M1Cocoapods from './\_markdown-m1-cocoapods.mdx';
+
 :::caution
 
 This documentation is still **experimental** and details are subject to changes as we iterate. Feel free to share your feedback on the [react-native-website PR](https://github.com/facebook/react-native-website) for this page.
@@ -22,18 +24,14 @@ Add changes to your Podfile. You can see some examples in [RNTester](https://git
 # Codegen produces files/classes that share names, and it will show the warning.
 # deterministic_uuids option surpresses the warning.
 install! 'cocoapods', :deterministic_uuids => false
-
 target 'Some App' do
   pods()
 end
-
 def pods()
   # Get config
   config = use_native_modules!
-
   # Use env variables to turn it on/off.
   fabric_enabled = ENV['USE_FABRIC']
-
   use_react_native!(
     ...
     # Modify here if your app root path isn't the same as this one.
@@ -110,3 +108,5 @@ module.exports = {
 // Run pod install with the flags
 USE_FABRIC=1 RCT_NEW_ARCH_ENABLED=1 pod install
 ```
+
+<M1Cocoapods />

@@ -94,7 +94,7 @@ On iOS, this generally requires your library to provide a Podspec (see [`react-n
 
 :::info
 
-To determine if your library is set up for autolinking, check the CocoaPods output after running `pod install` on an iOS project. If you see "auto linking library name", you are all set to go.
+To determine if your library is set up for autolinking, check the CocoaPods output after running `pod install` (or `arch -x86_64 pod install` in case of a Mac M1) on an iOS project. If you see "auto linking library name", you are all set to go.
 
 :::
 
