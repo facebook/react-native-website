@@ -79,13 +79,6 @@ Members of the React Native team frequently speak at various conferences.
 <br/><br/>
 You can follow the latest news from the React Native team on Twitter
   `,
-  introVideo: `
-The <a href="https://opensource.facebook.com/">Meta Open Source team</a> has put together a short overview of React Native, 
-where they explained the project in beginner's terms. You can also find 
-other content about Meta Open Source projects on their <a href="https://www.youtube.com/channel/UCCQY962PmHabTjaHv2wJzfQ">YouTube Channel</a>.
-<br/><br/>
-You can follow the latest Meta OSS news from the Meta Open Source team on Twitter
-  `,
 };
 
 function Heading({text}) {
@@ -252,7 +245,7 @@ function HeaderHero() {
   return (
     <Section background="dark" className="HeaderHero">
       <div className="socialLinks">
-        <TwitterButton accountName="reactnative"/>
+        <TwitterButton accountName="reactnative" />
         <GitHubStarButton />
       </div>
       <TwoColumns
@@ -376,31 +369,11 @@ function VideoContent() {
   return (
     <div>
       <Section className="VideoContent" background="tint">
-        <TwoColumns
-        columnOne={
-          <TextColumn
-            title="Brief Intro Video"
-            text={textContent.introVideo}
-              moreContent={<TwitterButton accountName="MetaOpenSource" />}
-          />
-        }
-        columnTwo={
-          <div className="vidWrapper">
-            <iframe
-              src="https://www.youtube.com/embed/wUDeLT6WXnQ"
-              title="Explain Like I'm 5: React Native"
-              frameBorder="0"
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
-          </div>
-        }
-       />
-        <br/>
+        <br />
         <TwoColumns
           columnOne={
             <TextColumn
-              title="Talks"
+              title="Talks and Videos"
               text={textContent.talks}
               moreContent={<TwitterButton accountName="reactnative" />}
             />
@@ -410,6 +383,32 @@ function VideoContent() {
               <iframe
                 src="https://www.youtube.com/embed/NCAY0HIfrwc"
                 title="Mobile Innovation with React Native, ComponentKit, and Litho"
+                frameBorder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          }
+        />
+        <br />
+        <TwoColumns
+          columnOne={
+            <>
+              <p>
+                The{' '}
+                <a href="https://opensource.facebook.com/">
+                  Meta Open Source team
+                </a>{' '}
+                has put together a short overview of React Native, where they
+                explained the project in beginner's terms.
+              </p>
+            </>
+          }
+          columnTwo={
+            <div className="vidWrapper">
+              <iframe
+                src="https://www.youtube.com/embed/wUDeLT6WXnQ"
+                title="Explain Like I'm 5: React Native"
                 frameBorder="0"
                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
