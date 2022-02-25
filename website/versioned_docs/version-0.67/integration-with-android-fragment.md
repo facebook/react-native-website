@@ -49,7 +49,7 @@ class MyReactApplication: Application(), ReactApplication {
         SoLoader.init(this, false)
     }
 
-    private val reactNativeHost = object: ReactNativeHost(this) {
+    private val reactNativeHost = object : ReactNativeHost(this) {
 
         override fun getUseDeveloperSupport(): Boolean {
             return BuildConfig.DEBUG
