@@ -200,7 +200,7 @@ override fun onCreate(savedInstanceState: Bundle): Unit {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.main_activity)
 
-    button = findViewById(R.id.button) as Button
+    button = findViewById<Button>(R.id.button)
     button.setOnClickListener {
         val reactNativeFragment = ReactFragment.Builder()
                 .setComponentName("HelloWorld")
