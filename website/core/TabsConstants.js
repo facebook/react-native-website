@@ -19,13 +19,6 @@ const packageManagers = [
 ];
 const defaultPackageManager = 'npm';
 
-const androidLanguages = [
-  {label: 'Java', value: 'java'},
-  {label: 'Kotlin', value: 'kotlin'},
-];
-
-const defaultAndroidLanguage = 'kotlin';
-
 const guides = [
   {label: 'Expo CLI Quickstart', value: 'quickstart'},
   {label: 'React Native CLI Quickstart', value: 'native'},
