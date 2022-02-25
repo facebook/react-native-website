@@ -1,6 +1,6 @@
 ---
 id: release-testing
-title: Release Testing
+title: How to test a release candidate
 ---
 
 ## Pre-requisites
@@ -16,7 +16,7 @@ title: Release Testing
   react-native$ echo '{}' > .watchmanconfig
   ```
 
-- Have Android and iOS development environment set-up. Follow instuctions for macOS/iOS and macOS/Android from [React Native docs](https://reactnative.dev/docs/environment-setup)
+- Have Android and iOS development environment set-up. Follow instructions for macOS/iOS and macOS/Android from the [Environment Setup](/docs/environment-setup) guide.
   - Android
     - Android emulator or device set up
     - Gradle should now install [the appropriate ndk](https://github.com/facebook/react-native/blob/31b64c2615f8af547b68aa6ccaaa244b9c5d3932/template/android/build.gradle#L9). Verify that you have in your path the `ANDROID_NDK` variable, pointing to it.

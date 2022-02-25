@@ -1,6 +1,6 @@
 ---
 id: release-roles-responsibilities
-title: Release Roles and Responsibilities
+title: Roles and Responsibilities
 ---
 
 Here we set guidelines to apply the “dividi et impera” approach to React Native releases: it is an involved process and we need to clarify the work to allow for easier rotations of folks in various positions.

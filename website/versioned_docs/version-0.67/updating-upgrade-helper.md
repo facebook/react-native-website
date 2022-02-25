@@ -7,23 +7,26 @@ _Point people: [@lucasbento](https://github.com/lucasbento), [@pvinis](https://g
 
 From the readme of [its dedicated repo](https://github.com/react-native-community/upgrade-helper#-how-it-works):
 
-> The Upgrade Helper tool aims to provide the full set of changes happening between any two versions, based on the previous work done in the rn-diff-purge project:
+:::note
 
-> > This repository exposes an untouched React Native app generated with the CLI react-native init RnDiffApp. Each new React Native release causes a new project to be created, removing the old one, and getting a diff between them. This way, the diff is always clean, always in sync with the changes of the init template.
+The Upgrade Helper tool aims to provide the full set of changes happening between any two versions, based on the previous work done in the rn-diff-purge project:
 
+This repository exposes an untouched React Native app generated with the CLI react-native init RnDiffApp. Each new React Native release causes a new project to be created, removing the old one, and getting a diff between them. This way, the diff is always clean, always in sync with the changes of the init template.
+
+:::
 The upgrade helper webapp relies on [rn-diff-purge](https://github.com/react-native-community/rn-diff-purge) having the diff for the versions of RN released.
 
 ## Instructions to update
 
 ### For release versions >= 0.68
 
-- The Github action will be triggered by the [pCircleCI job that pushes the release link](https://github.com/facebook/react-native/blob/main/.circleci/config.yml#L822)
+- The GitHub action will be triggered by the [CircleCI job that pushes the release link](https://github.com/facebook/react-native/blob/main/.circleci/config.yml#L822).
 
 ### For release versions < 0.68
 
 > You must have access to the rn-diff-purge repo to do either of these approaches:
 
-#### Trigger Github action via CURL
+#### Trigger GitHub action via CURL
 
 ```bash
 # Update the "version" with your version and provide your PAT

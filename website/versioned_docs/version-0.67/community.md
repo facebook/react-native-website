@@ -1,6 +1,6 @@
 ---
 title: Community
-description: The React Native Community
+description: React Native Community
 wrapperClassName: 'community-page'
 id: 'community'
 ---
