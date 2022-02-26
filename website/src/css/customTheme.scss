@@ -277,6 +277,10 @@ hr {
     background-color: var(--light);
   }
 
+  div[class^="codeBlockContent"] {
+    display: inline-grid;
+  }
+
   div[class^="codeBlockLines"] {
     font-size: 80%;
   }
