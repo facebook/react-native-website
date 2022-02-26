@@ -1,6 +1,6 @@
 ---
 id: new-architecture-app-modules-android
-title: Enabling TurboMudule on Android
+title: Enabling TurboModule on Android
 ---
 
 :::caution
