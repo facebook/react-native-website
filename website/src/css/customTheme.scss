@@ -279,6 +279,7 @@ hr {
 
   div[class^="codeBlockContent"] {
     display: inline-grid;
+    min-width: 100%;
   }
 
   div[class^="codeBlockLines"] {
