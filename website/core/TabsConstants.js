@@ -24,7 +24,7 @@ const androidLanguages = [
   {label: 'Kotlin', value: 'kotlin'},
 ];
 
-const defaultAndroidLanguage = 'kotlin';
+const defaultAndroidLanguage = 'java';
 
 const guides = [
   {label: 'Expo CLI Quickstart', value: 'quickstart'},
