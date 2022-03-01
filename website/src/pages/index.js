@@ -543,6 +543,20 @@ function GetStarted() {
   );
 }
 
+function SocialBanner() {
+  return (
+    <div className="SocialBanner">
+      <div>
+        Support Ukraine.{' '}
+        <a href="https://razomforukraine.org/donate">
+          Help Provide Humanitarian Aid to Ukraine
+        </a>
+        .
+      </div>
+    </div>
+  );
+}
+
 const useHomePageAnimations = () => {
   useEffect(() => setupHeaderAnimations(), []);
   useEffect(() => setupDissectionAnimation(), []);
@@ -565,6 +579,7 @@ const Index = () => {
           content="React Native · Learn once, write anywhere"
         />
       </Head>
+      <SocialBanner />
       <HeaderHero />
       <NativeApps />
       <NativeCode />
