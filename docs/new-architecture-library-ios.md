@@ -4,14 +4,9 @@ title: Enabling in iOS Library
 ---
 
 import M1Cocoapods from './\_markdown-m1-cocoapods.mdx';
+import NewArchitectureWarning from './\_markdown-new-architecture-warning.mdx';
 
-:::caution
-
-This documentation is still **experimental** and details are subject to changes as we iterate. Feel free to share your feedback on the [react-native-website PR](https://github.com/facebook/react-native-website) for this page.
-
-Moreover, it contains several **manual steps**. Please note that this won't be representative of the final developer experience once the New Architecture is stable. We're working on tools, templates and libraries to help you get started fast on the New Architecture, without having to go through the whole setup.
-
-:::
+<NewArchitectureWarning/>
 
 You have defined the JavaScript specs for your native modules as part of the [prerequisites](new-architecture-library-intro) and you are now ready to migrate your library to the new architecture. Here are the steps you can follow to accomplish this.
 

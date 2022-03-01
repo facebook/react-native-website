@@ -3,13 +3,9 @@ id: new-architecture-intro
 title: Adopting the New Architecture
 ---
 
-:::caution
+import NewArchitectureWarning from './\_markdown-new-architecture-warning.mdx';
 
-This documentation is still **experimental** and details are subject to changes as we iterate. Feel free to share your feedback on the [react-native-website PR](https://github.com/facebook/react-native-website) for this page.
-
-Moreover, it contains several **manual steps**. Please note that this won't be representative of the final developer experience once the New Architecture is stable. We're working on tools, templates and libraries to help you get started fast on the New Architecture, without having to go through the whole setup.
-
-:::
+<NewArchitectureWarning/>
 
 # Getting Started with the New Architecture
 
