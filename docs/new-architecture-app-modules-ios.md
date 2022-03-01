@@ -17,14 +17,14 @@ Make sure your application meets all the [prerequisites](new-architecture-app-in
 
 Add the following imports at the top of your bridge delegate (e.g. `AppDelegate.mm`):
 
-```objc
+```objc title='AppDelegate.mm'
 #import <ReactCommon/RCTTurboModuleManager.h>
 #import <React/CoreModulesPlugins.h>
 ```
 
 You will also need to declare that your AppDelegate conforms to the `RCTTurboModuleManagerDelegate` protocol, as well as create an instance variable for our Turbo Module manager:
 
-```objc
+```objc title='AppDelegate.mm'
 @interface AppDelegate () <RCTCxxBridgeDelegate, RCTTurboModuleManagerDelegate> {
   // ...
   RCTTurboModuleManager *_turboModuleManager;
@@ -103,7 +103,7 @@ Take note of `getModuleInstanceFromClass:` in the following example, as it inclu
 
 Next, you will create a `RCTTurboModuleManager` in your bridge delegate’s `jsExecutorFactoryForBridge:` method, and install the JavaScript bindings:
 
-```objc
+```objc title='AppDelegate.mm'
 #pragma mark - RCTCxxBridgeDelegate
 
 - (std::unique_ptr<facebook::react::JSExecutorFactory>)jsExecutorFactoryForBridge:(RCTBridge *)bridge
@@ -159,7 +159,7 @@ RCTEnableTurboModule(YES);
 
 #### Example
 
-```objc
+```objc title='AppDelegate.mm'
 @implementation AppDelegate
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

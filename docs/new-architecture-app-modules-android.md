@@ -25,68 +25,65 @@ The code-gen will output some Java and some C++ code that now we need to build.
 
 Let’s edit your **module level** `build.gradle` to include the **two** `externalNativeBuild` blocks detailed below inside the `android{}` block:
 
-```groovy
+```diff title='android/app/build.gradle'
 android {
     defaultConfig {
         applicationId "com.awesomeproject"
-        // ...
 
-        // Add this block
-        externalNativeBuild {
-            ndkBuild {
-                arguments "APP_PLATFORM=android-21",
-                        "APP_STL=c++_shared",
-                        "NDK_TOOLCHAIN_VERSION=clang",
-                        "GENERATED_SRC_DIR=$buildDir/generated/source",
-                        "PROJECT_BUILD_DIR=$buildDir",
-                        "REACT_ANDROID_DIR=$rootDir/../node_modules/react-native/ReactAndroid",
-                        "REACT_ANDROID_BUILD_DIR=$rootDir/../node_modules/react-native/ReactAndroid/build"
-                cFlags "-Wall", "-Werror", "-fexceptions", "-frtti", "-DWITH_INSPECTOR=1"
-                cppFlags "-std=c++17"
-                targets "myapplication_appmodules"
-            }
-        }
++       externalNativeBuild {
++           ndkBuild {
++               arguments "APP_PLATFORM=android-21",
++                       "APP_STL=c++_shared",
++                       "NDK_TOOLCHAIN_VERSION=clang",
++                       "GENERATED_SRC_DIR=$buildDir/generated/source",
++                       "PROJECT_BUILD_DIR=$buildDir",
++                       "REACT_ANDROID_DIR=$rootDir/../node_modules/react-native/ReactAndroid",
++                       "REACT_ANDROID_BUILD_DIR=$rootDir/../node_modules/react-native/ReactAndroid/build"
++               cFlags "-Wall", "-Werror", "-fexceptions", "-frtti", "-DWITH_INSPECTOR=1"
++               cppFlags "-std=c++17"
++               targets "myapplication_appmodules"
++           }
++       }
     }
 
-    // Add this block
-    externalNativeBuild {
-        ndkBuild {
-            path "$projectDir/src/main/jni/Android.mk"
-        }
-    }
++   externalNativeBuild {
++       ndkBuild {
++           path "$projectDir/src/main/jni/Android.mk"
++       }
++   }
 }
 ```
 
 In the same `build.gradle` file, inside the same `android{}` let’s add also the following section:
 
-```groovy
+```diff title='android/app/build.gradle'
 android {
     // ...
 
-    def reactAndroidProjectDir = project(':ReactAndroid').projectDir
-    def packageReactNdkLibs = tasks.register("packageReactNdkLibs", Copy) {
-        dependsOn(":ReactAndroid:packageReactNdkLibsForBuck")
-        dependsOn("generateCodegenArtifactsFromSchema")
-        from("$reactAndroidProjectDir/src/main/jni/prebuilt/lib")
-        into("$buildDir/react-ndk/exported")
-    }
-
-    afterEvaluate {
-        preBuild.dependsOn(packageReactNdkLibs)
-        configureNdkBuildDebug.dependsOn(preBuild)
-        configureNdkBuildRelease.dependsOn(preBuild)
-    }
-
-    packagingOptions {
-        pickFirst '**/libhermes.so'
-        pickFirst '**/libjsc.so'
-    }
++   def reactAndroidProjectDir = project(':ReactAndroid').projectDir
++   def packageReactNdkLibs = tasks.register("packageReactNdkLibs", Copy) {
++       dependsOn(":ReactAndroid:packageReactNdkLibsForBuck")
++       dependsOn("generateCodegenArtifactsFromSchema")
++       from("$reactAndroidProjectDir/src/main/jni/prebuilt/lib")
++       into("$buildDir/react-ndk/exported")
++   }
++
++   afterEvaluate {
++       preBuild.dependsOn(packageReactNdkLibs)
++       configureNdkBuildDebug.dependsOn(preBuild)
++       configureNdkBuildRelease.dependsOn(preBuild)
++   }
++
++   packagingOptions {
++       pickFirst '**/libhermes.so'
++       pickFirst '**/libjsc.so'
++   }
 }
 ```
 
 Finally, we need to create a Makefile inside the `src/main/jni` folder called `Android.mk` with the following content:
 
-```makefile
+```makefile title='src/main/jni/Android.mk'
 THIS_DIR := $(call my-dir)
 
 include $(REACT_ANDROID_DIR)/Android-prebuilt.mk
@@ -143,7 +140,7 @@ yarn react-native run-android
 Now is time to actually use the TurboModule.
 First, we will need to create a `ReactPackageTurboModuleManagerDelegate` subclass, like the following:
 
-```java
+```java title='ReactPackageTurboModuleManagerDelegate.java'
 package com.awesomeproject;
 
 import com.facebook.jni.HybridData;
@@ -192,7 +189,7 @@ Then, you can provide the class you created to your `ReactNativeHost`. You can l
 
 Once you located it, you need to add the `getReactPackageTurboModuleManagerDelegateBuilder` method as from the snippet below:
 
-```java
+```diff title='MyApplication.java'
 public class MyApplication extends Application implements ReactApplication {
 
     private final ReactNativeHost mReactNativeHost =
@@ -206,11 +203,11 @@ public class MyApplication extends Application implements ReactApplication {
             @Override
             protected String getJSMainModuleName() {/* ... */ }
 
-            @NonNull
-            @Override
-            protected ReactPackageTurboModuleManagerDelegate.Builder getReactPackageTurboModuleManagerDelegateBuilder() {
-                return new MyApplicationTurboModuleManagerDelegate.Builder();
-            }
++           @NonNull
++           @Override
++           protected ReactPackageTurboModuleManagerDelegate.Builder getReactPackageTurboModuleManagerDelegateBuilder() {
++               return new MyApplicationTurboModuleManagerDelegate.Builder();
++           }
         };
 }
 ```
@@ -219,7 +216,7 @@ public class MyApplication extends Application implements ReactApplication {
 
 Still on the `ReactNativeHost` , we need to extend the the `getPackages()` method to include the newly created TurboModule. Update the method to include the following:
 
-```java
+```diff title='MyApplication.java'
 public class MyApplication extends Application implements ReactApplication {
 
     private final ReactNativeHost mReactNativeHost =
@@ -231,38 +228,37 @@ public class MyApplication extends Application implements ReactApplication {
             protected List<ReactPackage> getPackages() {
                 List<ReactPackage> packages = new PackageList(this).getPackages();
 
-                // Add those lines
-                packages.add(new TurboReactPackage() {
-                    @Nullable
-                    @Override
-                    public NativeModule getModule(String name, ReactApplicationContext reactContext) {
-                        if (name.equals(NativeAwesomeManager.NAME)) {
-                            return new NativeAwesomeManager(reactContext);
-                        } else {
-                            return null;
-                        }
-                    }
-
-                    @Override
-                    public ReactModuleInfoProvider getReactModuleInfoProvider() {
-                        return () -> {
-                            final Map<String, ReactModuleInfo> moduleInfos = new HashMap<>();
-                            moduleInfos.put(
-                                    NativeAwesomeManager.NAME,
-                                    new ReactModuleInfo(
-                                            NativeAwesomeManager.NAME,
-                                            "NativeAwesomeManager",
-                                            false, // canOverrideExistingModule
-                                            false, // needsEagerInit
-                                            true, // hasConstants
-                                            false, // isCxxModule
-                                            true // isTurboModule
-                                    )
-                            );
-                            return moduleInfos;
-                        };
-                    }
-                });
++               packages.add(new TurboReactPackage() {
++                   @Nullable
++                   @Override
++                   public NativeModule getModule(String name, ReactApplicationContext reactContext) {
++                       if (name.equals(NativeAwesomeManager.NAME)) {
++                           return new NativeAwesomeManager(reactContext);
++                       } else {
++                           return null;
++                       }
++                   }
++
++                   @Override
++                   public ReactModuleInfoProvider getReactModuleInfoProvider() {
++                       return () -> {
++                           final Map<String, ReactModuleInfo> moduleInfos = new HashMap<>();
++                           moduleInfos.put(
++                                   NativeAwesomeManager.NAME,
++                                   new ReactModuleInfo(
++                                           NativeAwesomeManager.NAME,
++                                           "NativeAwesomeManager",
++                                           false, // canOverrideExistingModule
++                                           false, // needsEagerInit
++                                           true, // hasConstants
++                                           false, // isCxxModule
++                                           true // isTurboModule
++                                   )
++                           );
++                           return moduleInfos;
++                       };
++                   }
++               });
                 return packages;
             }
 
@@ -295,7 +291,7 @@ The content of those files should be the following:
 
 Please note that the `kJavaDescriptor` should be adapted to follow the package name you picked for your project.
 
-```cpp
+```cpp title='MyApplicationTurboModuleManagerDelegate.h'
 #include <memory>
 #include <string>
 
@@ -330,7 +326,7 @@ private:
 
 #### MyApplicationTurboModuleManagerDelegate.cpp
 
-```cpp
+```cpp title='MyApplicationTurboModuleManagerDelegate.cpp'
 #include "MyApplicationTurboModuleManagerDelegate.h"
 #include "MyApplicationModuleProvider.h"
 
@@ -362,7 +358,7 @@ std::shared_ptr<TurboModule> MyApplicationTurboModuleManagerDelegate::getTurboMo
 
 #### MyApplicationModuleProvider.h
 
-```cpp
+```cpp title='MyApplicationModuleProvider.h'
 #pragma once
 
 #include <memory>
@@ -386,7 +382,7 @@ This is the C++ generated file that is created by the codegen.
 
 Here you can also specify more than one provider, should you have more than one TurboModule. Specifically in this example we look for a TurboModule from `samplelibrary` (the one we specified) and we fallback to the `rncore` Module Provider (containing all the Core modules).
 
-```cpp
+```cpp title='MyApplicationModuleProvider.cpp'
 #include "MyApplicationModuleProvider.h"
 
 #include <rncore.h>
@@ -410,7 +406,7 @@ std::shared_ptr<TurboModule> MyApplicationModuleProvider(const std::string modul
 
 #### OnLoad.cpp
 
-```cpp
+```cpp title='OnLoad.cpp'
 #include <fbjni/fbjni.h>
 #include "MyApplicationTurboModuleManagerDelegate.h"
 
@@ -425,12 +421,12 @@ JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM *vm, void *) {
 
 Now you can finally enable the `TurboModule `support in your Application. To do so, you need to turn on the `useTurboModule` flag inside your Application `onCreate` method.
 
-```java
+```diff title='MyApplication.java'
 public class MyApplication extends Application implements ReactApplication {
 
     @Override
     public void onCreate() {
-        ReactFeatureFlags.useTurboModules = true;
++       ReactFeatureFlags.useTurboModules = true;
         //...
     }
 ```

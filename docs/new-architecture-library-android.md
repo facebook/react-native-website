@@ -17,7 +17,7 @@ Once you have defined the JavaScript specs for your native modules as part of th
 
 You can now configure Codegen by specifying the following in the module-level `build.gradle` file:
 
-```groovy
+```groovy title='android/app/build.gradle'
 react {
     reactRoot = rootProject.file("../node_modules/react-native/")
     jsRootDir = rootProject.file("../js/")
@@ -93,7 +93,7 @@ Update your native module or component to ensure it **extends the abstract class
 
 Following the example set forth in the previous section, your library might import `NativeAwesomeManagerSpec`, implement the relevant native interface and the necessary methods for it:
 
-```java
+```java title='NativeAwesomeManager.java'
 import androidx.annotation.NonNull;
 
 import com.example.samplelibrary.NativeAwesomeManagerSpec;

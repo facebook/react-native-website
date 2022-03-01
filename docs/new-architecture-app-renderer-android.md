@@ -19,50 +19,49 @@ In order to enable Fabric in your app, you would need to add a `JSIModulePackage
 
 Once you located it, you need to add the `getJSIModulePackage` method as from the snippet below:
 
-```java title='MyApplication.java'
+```diff title='MyApplication.java'
 public class MyApplication extends Application implements ReactApplication {
 
   private final ReactNativeHost mReactNativeHost =
     new ReactNativeHost(this) {
 
-      // Add those lines:
-      @Nullable
-      @Override
-      protected JSIModulePackage getJSIModulePackage() {
-        return new JSIModulePackage() {
-          @Override
-          public List<JSIModuleSpec> getJSIModules(
-              final ReactApplicationContext reactApplicationContext,
-              final JavaScriptContextHolder jsContext) {
-            final List<JSIModuleSpec> specs = new ArrayList<>();
-            specs.add(new JSIModuleSpec() {
-              @Override
-              public JSIModuleType getJSIModuleType() {
-                return JSIModuleType.UIManager;
-              }
-
-              @Override
-              public JSIModuleProvider<UIManager> getJSIModuleProvider() {
-                final ComponentFactory componentFactory = new ComponentFactory();
-                CoreComponentsRegistry.register(componentFactory);
-                final ReactInstanceManager reactInstanceManager = getReactInstanceManager();
-
-                ViewManagerRegistry viewManagerRegistry =
-                    new ViewManagerRegistry(
-                        reactInstanceManager.getOrCreateViewManagers(
-                            reactApplicationContext));
-
-                return new FabricJSIModuleProvider(
-                    reactApplicationContext,
-                    componentFactory,
-                    new EmptyReactNativeConfig(),
-                    viewManagerRegistry);
-              }
-            });
-            return specs;
-          }
-        };
-      }
++     @Nullable
++     @Override
++     protected JSIModulePackage getJSIModulePackage() {
++       return new JSIModulePackage() {
++         @Override
++         public List<JSIModuleSpec> getJSIModules(
++             final ReactApplicationContext reactApplicationContext,
++             final JavaScriptContextHolder jsContext) {
++           final List<JSIModuleSpec> specs = new ArrayList<>();
++           specs.add(new JSIModuleSpec() {
++             @Override
++             public JSIModuleType getJSIModuleType() {
++               return JSIModuleType.UIManager;
++             }
++
++             @Override
++             public JSIModuleProvider<UIManager> getJSIModuleProvider() {
++               final ComponentFactory componentFactory = new ComponentFactory();
++               CoreComponentsRegistry.register(componentFactory);
++               final ReactInstanceManager reactInstanceManager = getReactInstanceManager();
++
++               ViewManagerRegistry viewManagerRegistry =
++                   new ViewManagerRegistry(
++                       reactInstanceManager.getOrCreateViewManagers(
++                           reactApplicationContext));
++
++               return new FabricJSIModuleProvider(
++                   reactApplicationContext,
++                   componentFactory,
++                   new EmptyReactNativeConfig(),
++                   viewManagerRegistry);
++             }
++           });
++           return specs;
++         }
++       };
++     }
     };
 }
 ```
@@ -72,31 +71,31 @@ public class MyApplication extends Application implements ReactApplication {
 Inside your `Activity` class, you need to make sure you’re calling `setIsFabric` on the `ReactRootView`.
 If you don’t have a `ReactActivityDelegate` you might need to create one.
 
-```java
+```diff title='MainActivity.java'
 public class MainActivity extends ReactActivity {
 
   // Add the Activity Delegate, if you don't have one already.
-  public static class MainActivityDelegate extends ReactActivityDelegate {
-
-    public MainActivityDelegate(ReactActivity activity, String mainComponentName) {
-      super(activity, mainComponentName);
-    }
-
-    @Override
-    protected ReactRootView createRootView() {
-      ReactRootView reactRootView = new ReactRootView(getContext());
-
-      // Make sure to call setIsFabric(true) on your ReactRootView
-      reactRootView.setIsFabric(true);
-      return reactRootView;
-    }
-  }
++ public static class MainActivityDelegate extends ReactActivityDelegate {
++
++   public MainActivityDelegate(ReactActivity activity, String mainComponentName) {
++     super(activity, mainComponentName);
++   }
++
++   @Override
++   protected ReactRootView createRootView() {
++     ReactRootView reactRootView = new ReactRootView(getContext());
++
++     // Make sure to call setIsFabric(true) on your ReactRootView
++     reactRootView.setIsFabric(true);
++     return reactRootView;
++   }
++ }
 
   // Make sure to override the `createReactActivityDelegate()` method.
-  @Override
-  protected ReactActivityDelegate createReactActivityDelegate() {
-    return new MainActivityDelegate(this, getMainComponentName());
-  }
++ @Override
++ protected ReactActivityDelegate createReactActivityDelegate() {
++   return new MainActivityDelegate(this, getMainComponentName());
++ }
 }
 ```
 
@@ -202,7 +201,7 @@ public class MyNativeViewManager extends SimpleViewManager<MyNativeView>
 
 Specifically inside the `ReactNativeHost` , update `getPackages` method to include the following:
 
-```java
+```diff title='MyApplication.java'
 public class MyApplication extends Application implements ReactApplication {
 
   private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
@@ -216,22 +215,22 @@ public class MyApplication extends Application implements ReactApplication {
       // ... other packages or `TurboReactPackage added` here...
 
       // Add those lines.
-      packages.add(new ReactPackage() {
-        @NonNull
-        @Override
-        public List<NativeModule> createNativeModules(
-            @NonNull ReactApplicationContext reactContext) {
-          return Collections.emptyList();
-        }
-
-        @NonNull
-        @Override
-        public List<ViewManager> createViewManagers(
-            @NonNull ReactApplicationContext reactContext) {
-          // Your ViewManager is returned here.
-          return Collections.singletonList(new MyNativeViewManager());
-        }
-      });
++     packages.add(new ReactPackage() {
++       @NonNull
++       @Override
++       public List<NativeModule> createNativeModules(
++           @NonNull ReactApplicationContext reactContext) {
++         return Collections.emptyList();
++       }
++
++       @NonNull
++       @Override
++       public List<ViewManager> createViewManagers(
++           @NonNull ReactApplicationContext reactContext) {
++         // Your ViewManager is returned here.
++         return Collections.singletonList(new MyNativeViewManager());
++       }
++     });
       return packages;
     }
   };
@@ -244,7 +243,7 @@ You need to create a new component Registry that will allow you to **register** 
 
 As you can see, some methods are `native()` which we will implement in C++ in the following paragraph.
 
-```java
+```java title='MyComponentsRegistry.java'
 package com.awesomeproject;
 
 import com.facebook.jni.HybridData;
@@ -279,7 +278,7 @@ public class MyComponentsRegistry {
 
 Finally, let’s edit the `getJSIModulePackage` from the `ReactNativeHost` to also register your Component Registry alongside the Core one:
 
-```java
+```diff title='MyApplication.java'
 public class MyApplication extends Application implements ReactApplication {
 
   private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
@@ -293,17 +292,14 @@ public class MyApplication extends Application implements ReactApplication {
                 final JavaScriptContextHolder jsContext) {
           final List<JSIModuleSpec> specs = new ArrayList<>();
           specs.add(new JSIModuleSpec() {
-            // ...
 
             @Override
             public JSIModuleProvider<UIManager> getJSIModuleProvider() {
               final ComponentFactory componentFactory = new ComponentFactory();
               CoreComponentsRegistry.register(componentFactory);
 
-              // Add this line just below CoreComponentsRegistry.register
-              MyComponentsRegistry.register(componentFactory);
-
-              // ...
++             // Add this line just below CoreComponentsRegistry.register
++             MyComponentsRegistry.register(componentFactory);
             }
           });
           return specs;
@@ -434,20 +430,18 @@ void MyComponentsRegistry::registerNatives() {
 
 If you followed the TurboModule instructions, you should have a `OnLoad.cpp` file inside the `src/main/jni` folder. There you should add a line to load the `MyComponentsRegistry` class:
 
-```cpp title="OnLoad.cpp"
-#include <fbjni/fbjni.h>
-#include "MyApplicationTurboModuleManagerDelegate.h"
-// Add this import
-#include "MyComponentsRegistry.h"
-
-JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM *vm, void *) {
-  return facebook::jni::initialize(vm, [] {
-    facebook::react::MyApplicationTurboModuleManagerDelegate::registerNatives();
-
-    // Add this line
-    facebook::react::MyComponentsRegistry::registerNatives();
-  });
-}
+```diff title="OnLoad.cpp"
+ #include <fbjni/fbjni.h>
+ #include "MyApplicationTurboModuleManagerDelegate.h"
++#include "MyComponentsRegistry.h"
+ 
+ JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM *vm, void *) {
+   return facebook::jni::initialize(vm, [] {
+     facebook::react::MyApplicationTurboModuleManagerDelegate::registerNatives();
+ 
++    facebook::react::MyComponentsRegistry::registerNatives();
+   });
+ }
 ```
 
 You can now verify that everything works correctly by running your android app:

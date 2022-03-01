@@ -72,53 +72,51 @@ ls -la node_modules/react-native-gradle-plugin
 
 Now, you can edit your **top level** `settings.gradle` file to include the following line at the end of the file:
 
-```groovy
-includeBuild('../node_modules/react-native-gradle-plugin')
+```diff title='android/settings.gradle'
+ include ':app'
++includeBuild('../node_modules/react-native-gradle-plugin')
 
-include(":ReactAndroid")
-project(":ReactAndroid").projectDir = file('../node_modules/react-native/ReactAndroid')
++include(":ReactAndroid")
++project(":ReactAndroid").projectDir = file('../node_modules/react-native/ReactAndroid')
 ```
 
 Then, edit your **top-level Gradle file** to include the highlighted lines:
 
-```groovy
+```diff title='android/build.gradle'
 buildscript {
     // ...
     dependencies {
         // Make sure that AGP is at least at version 7.x
-        classpath("com.android.tools.build:gradle:7.0.4")
+-       classpath("com.android.tools.build:gradle:4.2.2")
++       classpath("com.android.tools.build:gradle:7.0.4")
 
-        // Add those lines
-        classpath("com.facebook.react:react-native-gradle-plugin")
-        classpath("de.undercouch:gradle-download-task:4.1.2")
++       classpath("com.facebook.react:react-native-gradle-plugin")
++       classpath("de.undercouch:gradle-download-task:4.1.2")
     }
 }
 ```
 
 Edit your **module-level** **Gradle file** (usually `app/build.gradle[.kts]`) to include the following:
 
-```groovy
-apply plugin: "com.android.application"
+```diff title='android/app/settings.gradle'
+ apply plugin: "com.android.application"
 
-// Add those lines
-apply plugin: "com.facebook.react"
-// Add those lines as well
-react {
-    reactRoot = rootProject.file("../node_modules/react-native/")
-    codegenDir = rootProject.file("../node_modules/react-native-codegen/")
-}
++apply plugin: "com.facebook.react"
+
++react {
++    reactRoot = rootProject.file("../node_modules/react-native/")
++    codegenDir = rootProject.file("../node_modules/react-native-codegen/")
++}
 ```
 
 Finally, it’s time to update your project to use the `react-native` dependency from source, rather than using a precompiled artifact from the NPM package. This is needed as the later setup will rely on building the native code from source.
 
 Let’s edit your **module level** `build.gradle` (the one inside `app/` folder) and change the following line:
 
-```groovy
+```diff title='android/app/build.gradle'
 dependencies {
-  // Replace this:
-  implementation "com.facebook.react:react-native:+"  // From node_modules
-  // With this:
-  implementation project(":ReactAndroid")  // From node_modules
+-  implementation "com.facebook.react:react-native:+"  // From node_modules
++  implementation project(":ReactAndroid")  // From node_modules
 ```
 
 ## Use Hermes
@@ -173,7 +171,7 @@ In order to set up the TurboModule system, you will add some code to interact wi
 
 Now you will have your AppDelegate conform to `RCTCxxBridgeDelegate`. Start by adding the following imports at the top of your AppDelegate file:
 
-```objc
+```objc title='AppDelegate.mm'
 #import <reacthermes/HermesExecutorFactory.h>
 #import <React/RCTCxxBridgeDelegate.h>
 #import <React/RCTJSIExecutorRuntimeInstaller.h>
@@ -181,7 +179,7 @@ Now you will have your AppDelegate conform to `RCTCxxBridgeDelegate`. Start by a
 
 Then, declare your app delegate as a `RCTCxxBridgeDelegate` provider:
 
-```objc
+```objc title='AppDelegate.mm'
 @interface AppDelegate () <RCTCxxBridgeDelegate> {
   // ...
 }
@@ -192,7 +190,7 @@ To conform to the `RCTCxxBridgeDelegate` protocol, you will need to implement th
 
 You can implement the `jsExecutorFactoryForBridge:` method like this:
 
-```objc
+```objc title='AppDelegate.mm'
 #pragma mark - RCTCxxBridgeDelegate
 
 - (std::unique_ptr<facebook::react::JSExecutorFactory>)jsExecutorFactoryForBridge:(RCTBridge *)bridge
