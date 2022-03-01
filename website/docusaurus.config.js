@@ -148,6 +148,17 @@ const lastVersion = versions[0];
         ],
       },
     ],
+    [
+      'content-docs',
+      /** @type {import('@docusaurus/plugin-content-docs').Options} */
+      ({
+        id: 'community',
+        path: 'community',
+        routeBasePath: 'community',
+        editCurrentVersion: true,
+        sidebarPath: require.resolve('./sidebarsCommunity.json'),
+      }),
+    ],
   ],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
@@ -198,7 +209,7 @@ const lastVersion = versions[0];
             position: 'right',
           },
           {
-            type: 'doc',
+            to: '/community/community',
             docId: 'community',
             label: 'Community',
             position: 'right',

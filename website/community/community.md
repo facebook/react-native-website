@@ -1,5 +1,5 @@
 ---
-title: Community
+title: Support
 description: React Native Community
 wrapperClassName: 'community-page'
 id: 'community'

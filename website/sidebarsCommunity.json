@@ -1,0 +1,38 @@
+{
+  "community": [
+    {
+      "type": "category",
+      "label": "Community Overview",
+      "collapsed": false,
+      "collapsible": false,
+      "items": [
+        "community",
+        {
+          "type": "category",
+          "label": "Release Guides",
+          "collapsed": false,
+          "collapsible": false,
+          "items": [
+            {
+              "type": "category",
+              "label": "How to Run a New Minor Release or Patch",
+              "collapsed": false,
+              "items": [
+                "release-candidate-minor",
+                "release-candidate-patch",
+                "release-stable-patch",
+                "release-stable-minor",
+                "release-troubleshooting"
+              ]
+            },
+            "release-roles-responsibilities",
+            "release-testing",
+            "updating-upgrade-helper",
+            "release-faq",
+            "release-dependencies"
+          ]
+        }
+      ]
+    }
+  ]
+}
