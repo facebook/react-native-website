@@ -19,13 +19,16 @@ The render pipeline can be broken into three general phases:
 
 The render pipeline is executed in three different scenarios:
 
-1. [Initial Render](#initial-render)
-2. [React State Updates](#react-state-updates)
-3. [React Native Renderer State Updates](#react-native-renderer-state-updates)
+- [Initial Render](#initial-render)
+  - [Phase 1. Render](#phase-1-render)
+  - [Phase 2. Commit](#phase-2-commit)
+  - [Phase 3. Mount](#phase-3-mount)
+- [React State Updates](#react-state-updates)
+- [React Native Renderer State Updates](#react-native-renderer-state-updates)
 
 ---
 
-### Initial Render
+## Initial Render
 
 Imagine you want to render the following:
 
@@ -42,6 +45,8 @@ function MyComponent() {
 ```
 
 In the example above, `<MyComponent />` is a [React Element](architecture-glossary#react-element-tree-and-react-element). React recursively reduces this _React Element_ to a terminal [React Host Component](architecture-glossary#host-view-tree-and-host-view) by invoking it (or its `render` method if implemented with a JavaScript class) until every _React Element_ cannot be reduced any further. Now you have a _React Element Tree_ of [React Host Components](architecture-glossary#react-host-components-or-host-components).
+
+### Phase 1. Render
 
 ![Phase one: render](/docs/assets/Architecture/renderer-pipeline/phase-one-render.png)
 
@@ -62,6 +67,8 @@ In the example above, the result of the render phase looks like this:
 
 After the _React Shadow Tree_ is complete, the renderer triggers a commit of the _React Element Tree_.
 
+### Phase 2. Commit
+
 ![Phase two: commit](/docs/assets/Architecture/renderer-pipeline/phase-two-commit.png)
 
 The commit phase consists of two operations: _Layout Calculation_ and _Tree Promotion_.
@@ -77,7 +84,9 @@ The commit phase consists of two operations: _Layout Calculation_ and _Tree Prom
 - These operations are asynchronously executed on a background thread.
 - Majority of layout calculation executes entirely within C++. However, the layout calculation of some components depend on the _host platform_ (e.g. `Text`, `TextInput`, etc.). Size and position of text is specific to each _host platform_ and needs to be calculated on the _host platform_ layer. For this purpose, Yoga invokes a function defined in the _host platform_ to calculate the component’s layout.
 
-![Phase two: commit](/docs/assets/Architecture/renderer-pipeline/phase-three-mount.png)
+### Phase 3. Mount
+
+![Phase three: mount](/docs/assets/Architecture/renderer-pipeline/phase-three-mount.png)
 
 The mount phase transforms the _React Shadow Tree_ (which now contains data from layout calculation) into a _Host_ _View Tree_ with rendered pixels on the screen. As a reminder, the _React Element Tree_ looks like this:
 
@@ -106,7 +115,7 @@ In more detail, the mounting phase consists of these three steps:
 
 ---
 
-### React State Updates
+## React State Updates
 
 Let’s explore each phase of the render pipeline when the state of a _React Element Tree_ is updated. Let’s say, you’ve rendered the following component in an initial render:
 
@@ -189,7 +198,7 @@ After React creates the new _React Element Tree_ and _React Shadow Tree_, it mus
 
 ---
 
-### React Native Renderer State Updates
+## React Native Renderer State Updates
 
 For most information in the _Shadow Tree_, React is the single owner and single source of truth. All data originates from React and there is a single-direction flow of data.
 
