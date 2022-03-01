@@ -434,11 +434,11 @@ If you followed the TurboModule instructions, you should have a `OnLoad.cpp` fil
  #include <fbjni/fbjni.h>
  #include "MyApplicationTurboModuleManagerDelegate.h"
 +#include "MyComponentsRegistry.h"
- 
+
  JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM *vm, void *) {
    return facebook::jni::initialize(vm, [] {
      facebook::react::MyApplicationTurboModuleManagerDelegate::registerNatives();
- 
+
 +    facebook::react::MyComponentsRegistry::registerNatives();
    });
  }
