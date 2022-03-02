@@ -548,7 +548,7 @@ function SocialBanner() {
     <div className="SocialBanner">
       <div>
         Support Ukraine 🇺🇦{' '}
-        <a href="https://razomforukraine.org/donate">
+        <a href="https://opensource.facebook.com/support-ukraine">
           Help Provide Humanitarian Aid to Ukraine
         </a>
         .
