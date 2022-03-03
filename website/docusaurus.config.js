@@ -152,6 +152,14 @@ const lastVersion = versions[0];
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      announcementBar: {
+        id: 'support_ukraine',
+        content:
+          'Support Ukraine 🇺🇦 <a target="_blank" rel="noopener noreferrer" href="https://opensource.facebook.com/support-ukraine"> Help Provide Humanitarian Aid to Ukraine</a>.',
+        backgroundColor: '#20232a',
+        textColor: '#fff',
+        isCloseable: false,
+      },
       prism: {
         defaultLanguage: 'jsx',
         theme: require('./core/PrismTheme'),
