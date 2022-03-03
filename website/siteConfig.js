@@ -58,7 +58,9 @@ const siteConfig = {
   },
   blogSidebarCount: 'ALL',
   algolia: {
-    apiKey: '2c98749b4a1e588efec53b2acec13025',
+    // apiKey: '2c98749b4a1e588efec53b2acec13025',
+    appId: '2W9DUHXF3I',
+    apiKey: 'f3a42b24f7c22d56073f9d1b024799f0',
     indexName: 'react-native-archive',
     algoliaOptions: {
       facetFilters: ['tags:VERSION'],
