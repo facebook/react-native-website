@@ -63,7 +63,7 @@ const siteConfig = {
     apiKey: 'f3a42b24f7c22d56073f9d1b024799f0',
     indexName: 'react-native-archive',
     algoliaOptions: {
-      facetFilters: ['tags:VERSION'],
+      facetFilters: ['version:VERSION'],
       hitsPerPage: 5,
     },
   },
