@@ -1,12 +1,12 @@
 {
-  "community": [
+  "contributing": [
     {
       "type": "category",
-      "label": "Community Overview",
+      "label": "Contributing to React Native",
       "collapsed": false,
       "collapsible": false,
       "items": [
-        "community",
+        "how-to",
         {
           "type": "category",
           "label": "Release Guides",

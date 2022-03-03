@@ -3,8 +3,6 @@ id: release-candidate-patch
 title: Release Patch Candidate
 ---
 
-## Release candidate patch
-
 ### Pre-requisite
 
 - You have some pick requests that qualify for a patch release and people have agreed it’s good to release a patch

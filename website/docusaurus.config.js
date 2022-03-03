@@ -152,9 +152,9 @@ const lastVersion = versions[0];
       'content-docs',
       /** @type {import('@docusaurus/plugin-content-docs').Options} */
       ({
-        id: 'community',
-        path: 'community',
-        routeBasePath: 'community',
+        id: 'contributing',
+        path: 'contributing',
+        routeBasePath: 'contributing',
         editCurrentVersion: true,
         sidebarPath: require.resolve('./sidebarsCommunity.json'),
       }),
@@ -209,9 +209,9 @@ const lastVersion = versions[0];
             position: 'right',
           },
           {
-            to: '/community/community',
-            docId: 'community',
-            label: 'Community',
+            to: '/contributing/how-to',
+            docId: 'contributing',
+            label: 'Contributing',
             position: 'right',
           },
           {
