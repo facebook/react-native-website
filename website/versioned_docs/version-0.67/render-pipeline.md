@@ -44,7 +44,7 @@ function MyComponent() {
 // <MyComponent />
 ```
 
-In the example above, `<MyComponent />` is a [React Element](architecture-glossary#react-element-tree-and-react-element). React recursively reduces this _React Element_ to a terminal [React Host Component](architecture-glossary#host-view-tree-and-host-view) by invoking it (or its `render` method if implemented with a JavaScript class) until every _React Element_ cannot be reduced any further. Now you have a _React Element Tree_ of [React Host Components](architecture-glossary#react-host-components-or-host-components).
+In the example above, `<MyComponent />` is a [React Element](architecture-glossary#react-element-tree-and-react-element). React recursively reduces this _React Element_ to a terminal [React Host Component](architecture-glossary#react-host-components-or-host-components) by invoking it (or its `render` method if implemented with a JavaScript class) until every _React Element_ cannot be reduced any further. Now you have a _React Element Tree_ of [React Host Components](architecture-glossary#react-host-components-or-host-components).
 
 ### Phase 1. Render
 
