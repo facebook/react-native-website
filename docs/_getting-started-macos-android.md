@@ -81,6 +81,7 @@ Add the following lines to your `$HOME/.bash_profile` or `$HOME/.bashrc` (if you
 ```shell
 export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
+# Commandline Path is determined by version "/cmdline-tools/[VERSION]/bin" latest is the default from Android studio but please check you setup within the SDK Manager
 export PATH=$PATH:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin
 export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 ```
