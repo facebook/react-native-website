@@ -9,7 +9,7 @@ This document goes over steps to run different types of React Native release upd
 
 - Write access to [react-native](https://github.com/facebook/react-native) repository.
 - Your CircleCI personal API token. See [here](https://circleci.com/docs/2.0/managing-api-tokens/#creating-a-personal-api-token) on how to set one.
-- If testing, follow [pre-requisites for testing](https://github.com/facebook/react-native/wiki/Release-Testing).
+- If testing, follow [pre-requisites for testing](/contributing/release-testing#pre-requisites).
 
 ### Creating 0.{minor}.0-rc.0
 
@@ -109,8 +109,8 @@ The branch cut has happened.
 
 - [Current release candidate: 0.68.0-rc.0][current-release]
 - Have an issue with current release candidate? [File an issue][issue-form] and we will triage.
-- Have a pick request for this release? Does it fall under our [pick request qualifications][faq-wiki]? If so please create a PR against the release branch and comment with the PR link
-- If you are release testing. Copy and fill [Release report form](https://github.com/facebook/react-native/wiki/Release-Tester-Matrix)
+- Have a pick request for this release? Does it fall under our [pick request qualifications][release-faq]? If so please create a PR against the release branch and comment with the PR link
+- If you are release testing. Copy and fill [Test Checklist](/contributing/release-testing#test-checklist).
 
 #### Highlighted Changes in this release
 
@@ -118,13 +118,13 @@ The branch cut has happened.
 
 - Checkout this [Changelog PR][changelog-pr]
 
-## [Release Process][release-process-wiki]
+## [Release Process][release-processes]
 
 #### Checklist
 
 - [ ] [Changelog PR][changelog-pr]
 - [ ] Start a Google doc of blog post for release and invite contributors of release highlights to expand
-- [ ] Follow up on [release dependencies][dependencies-wiki]
+- [ ] Follow up on [release dependencies][release-dependencies]
   > When ready to publish stable
 - [ ] Ship changelog
 - [ ] Ship blog post
@@ -151,12 +151,12 @@ The branch cut has happened.
 [changelog-pr]: https://github.com/facebook/react-native/labels/%F0%9F%93%9D%20Changelog
 [current-release]: https://github.com/facebook/react-native/releases
 [changelog-wiki]: https://github.com/facebook/react-native/wiki/Release-Changelog
-[dependencies-wiki]: https://github.com/facebook/react-native/wiki/Release-Dependencies
-[faq-wiki]: https://github.com/facebook/react-native/wiki/Release-FAQ
+[release-dependencies]: https://reactnative.dev/contributing/release-dependencies
+[release-faq]: https://reactnative.dev/contributing/release-faq
 [issue-form]: https://github.com/facebook/react-native/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Cpre-release&template=release_blocker_form.yml
 [releases]: https://github.com/facebook/react-native/releases
-[release-process-wiki]: https://github.com/facebook/react-native/wiki/Release-Process
-[upgrade-helper-wiki]: https://github.com/facebook/react-native/wiki/Updating-upgrade-helper
+[release-processes]: https://reactnative.dev/contributing/how-to
+[upgrade-helper]: https://reactnative.dev/contributing/updating-upgrade-helper
 ```
 
 ### 5. Verify that Upgrade Helper GitHub action has fired

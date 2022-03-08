@@ -83,7 +83,7 @@ Two sub-roles:
   - Create the changelog & release entry in GH
   - Makes documentation PR and blogpost PR
   - Trigger the rn-diff-purge script to update upgrade-helper (this should be automated for 0.68 onwards)
-- Help release testing via [local E2E script](https://github.com/facebook/react-native/wiki/Release-Testing)
+- Help release testing via [local E2E script](/contributing/release-testing)
 
 ### Who can fill it
 
@@ -109,7 +109,7 @@ No strict coupling with any specific release - active supports and testers will 
 - Watch the [release discussions repo](https://github.com/reactwg/react-native-releases/discussions)
   - Help answer/debug/escalate issues
 - Work on any [release improvements](https://github.com/facebook/react-native/projects/18) or if you see something that can be improved; please add!
-- Help [test release candidates](https://github.com/facebook/react-native/wiki/Release-Testing) with your configuration or improve it
+- Help [test release candidates](/contributing/release-testing) with your configuration or improve it
 - Engage/help out with discussion in the release related channels (#supporters-feed, #testers-feedback, #release-coordination)
 
 ### Release Tester Responsibilities

@@ -44,13 +44,13 @@ Current Release: 0.67.0
 
 Conversations on this thread are limited:
 
-- [major release issues](https://github.com/facebook/react-native/wiki/Release-FAQ#what-is-release-blocking)
-- [qualified cherry-pick requests](https://github.com/facebook/react-native/wiki/Release-FAQ#what-is-a-qualified-pick-request) of commits on main that [did not make the previous patch version](https://github.com/facebook/react-native/wiki/Release-FAQ#how-do-i-know-if-my-fixfeature-is-in-a-certain-release).
+- [major release issues](https://reactnative.dev/contributing/release-faq#what-is-release-blocking).
+- [qualified cherry-pick requests](https://reactnative.dev/contributing/release-faq#what-is-a-qualified-pick-request) of commits on main that [did not make the previous patch version](https://reactnative.dev/contributing/release-faq#how-do-i-know-if-my-fixfeature-is-in-a-certain-release).
 
 Please include a link to the specific commit on main to be cherry-picked, for example: [facebook/react-native@bd2b7d6](https://github.com/facebook/react-native/commit/20b0eba581a00e5e7e300f6377379b836617c147)
 
 In other words, if you cannot point to a particular commit on main, then your request likely belongs as a new issue.
-If the issue is a [major release issue](https://github.com/facebook/react-native/wiki/Release-FAQ#what-is-release-blocking), please reference the issue here.
+If the issue is a [major release issues](https://reactnative.dev/contributing/release-faq#what-is-release-blocking), please reference the issue here.
 
 ---
 
@@ -69,5 +69,5 @@ If the issue is a [major release issue](https://github.com/facebook/react-native
 
 ### 5. Communicate the new release
 
-- Ship the blog post, tweet about blog post/
 - Ship the `react-native-website` changes if not done already.
+- Ship the blog post, tweet about blog post.
