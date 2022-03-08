@@ -8,7 +8,7 @@ title: FAQ
 Judgement call, but using these dimensions to evaluate:
 
 - Is a fix for an issue introduced in current release.
-- Fix for a critical developer workflow
+- Fix for a critical developer workflow.
 
 ### What is release blocking?
 
@@ -44,5 +44,5 @@ We have a dedicated [release discussions repo](https://github.com/reactwg/react-
 ### What if I find a release blocker that needs escalation?
 
 - Is there an existing release blocking issue?
-  - If no, [create a release blocking issue via this form](https://github.com/facebook/react-native/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2CType%3A+Upgrade+Issue&template=upgrade-regression-form.yml)
-- Once you have a release blocking issue, share the issue with the [relevant release discussion](https://github.com/reactwg/react-native-releases/discussions)
+  - If no, [create a release blocking issue via this form](https://github.com/facebook/react-native/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2CType%3A+Upgrade+Issue&template=upgrade-regression-form.yml).
+- Once you have a release blocking issue, share the issue with the [relevant release discussion](https://github.com/reactwg/react-native-releases/discussions).

@@ -9,6 +9,8 @@ The roles should be imagined as “concentric”, with #1 in the centre: this me
 
 The goal of this structure is that #1 doesn’t have to do everything: to do so the suggestion is to at least always have a person per each role in each release.
 
+---
+
 ## Release Role #1: Meta Releasers (x2)
 
 ### Details
@@ -51,6 +53,8 @@ Two sub-roles:
 
 - These roles must be filled by Meta engineers
 
+---
+
 ## Release Role #2 : Release Copilot
 
 ### Details
@@ -84,6 +88,8 @@ Two sub-roles:
 ### Who can fill it
 
 - This role can be filled by anyone with write access to the necessary repos (react-native)
+
+---
 
 ## Release Role #3: Release Supporter
 

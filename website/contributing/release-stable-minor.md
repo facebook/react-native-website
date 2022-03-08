@@ -1,18 +1,18 @@
 ---
 id: release-stable-minor
-title: Releasing Stable Minor
+title: Release Stable Minor
 ---
 
 ### Pre-requisites
 
-- Have the blog post ready to submit as a PR for react-native-website
-- Changelog PR should be ready to merge
+- Have the blog post ready to submit as a PR for `react-native-website` [repository](https://github.com/facebook/react-native-website).
+- Changelog PR should be ready to merge.
 
 ### 1. Publish the release
 
 ```bash
 # In your react-native checkout, on the release branch of the version
-$ ./scripts/bump-oss-version.js
+./scripts/bump-oss-version.js
 > What version are you releasing?
 # Your version
 > Do you want this to be latest?
@@ -24,7 +24,7 @@ $ ./scripts/bump-oss-version.js
 - You can find out how many commits and contributors for a release by making a PR and [comparing the release branches](https://github.com/facebook/react-native/compare/0.66-stable...0.67-stable).
 
 ```markdown
-<!-- Temlate for GitHub stable release -->
+<!-- Template for GitHub stable release -->
 
 0.66 stable is out!
 
@@ -65,9 +65,9 @@ If the issue is a [major release issue](https://github.com/facebook/react-native
 
 ### 4. Close any outstanding patch posts for previous versions
 
-- Any patch posts for the previous stable are irrelevant now
+- Any patch posts for the previous stable are irrelevant now.
 
 ### 5. Communicate the new release
 
-- Ship the blog post, tweet about blog post
-- Ship the react-native-website changes if not done already
+- Ship the blog post, tweet about blog post/
+- Ship the `react-native-website` changes if not done already.

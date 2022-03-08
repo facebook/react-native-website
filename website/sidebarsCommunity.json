@@ -9,27 +9,28 @@
         "how-to",
         {
           "type": "category",
+          "label": "How to Perform Releases",
+          "collapsed": false,
+          "collapsible": false,
+          "items": [
+            "release-candidate-minor",
+            "release-candidate-patch",
+            "release-stable-patch",
+            "release-stable-minor",
+            "release-troubleshooting"
+          ]
+        },
+        {
+          "type": "category",
           "label": "Release Guides",
           "collapsed": false,
           "collapsible": false,
           "items": [
-            {
-              "type": "category",
-              "label": "How to Run a New Minor Release or Patch",
-              "collapsed": false,
-              "items": [
-                "release-candidate-minor",
-                "release-candidate-patch",
-                "release-stable-patch",
-                "release-stable-minor",
-                "release-troubleshooting"
-              ]
-            },
             "release-roles-responsibilities",
+            "release-dependencies",
             "release-testing",
             "updating-upgrade-helper",
-            "release-faq",
-            "release-dependencies"
+            "release-faq"
           ]
         }
       ]

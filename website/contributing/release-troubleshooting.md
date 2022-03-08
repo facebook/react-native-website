@@ -5,7 +5,7 @@ title: Troubleshooting
 
 ### Manually set npm tags
 
-Say you accidentally forgot to mark something as "latest" or "next"
+Say you accidentally forgot to mark a release as "latest" or "next"?
 
 ```bash
 # You'll need to first login:
@@ -24,7 +24,9 @@ npm dist-tag ls [<pkg>]
 npm dist-tag add react-native@0.66.4 latest
 ```
 
-### Git Tags
+### Add Git Tags
+
+Say you accidentally forgot to add a tags to the release?
 
 ```bash
 # Delete a tag (annotated or not) locally, then push to delete it remotely
