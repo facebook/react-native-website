@@ -209,7 +209,7 @@ const lastVersion = versions[0];
             position: 'right',
           },
           {
-            to: '/contributing/how-to',
+            to: '/contributing/how-to-contribute',
             docId: 'contributing',
             label: 'Contributing',
             position: 'right',
