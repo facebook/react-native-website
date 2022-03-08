@@ -9,22 +9,13 @@ The React Native renderer goes through a sequence of work to render React logic 
 
 The render pipeline can be broken into three general phases:
 
-1. **Render:** React executes product logic which creates a [React Element Trees](architecture-glossary#react-element-tree-and-react-element) in JavaScript. From this tree, the renderer creates a [React Shadow Tree](architecture-glossary#react-shadow-tree-and-react-shadow-node) in C++.
+1. **Render:** React executes product logic which creates a [React Element Tree](architecture-glossary#react-element-tree-and-react-element) in JavaScript. From this tree, the renderer creates a [React Shadow Tree](architecture-glossary#react-shadow-tree-and-react-shadow-node) in C++.
 2. **Commit**: After a React Shadow Tree is fully created, the renderer triggers a commit. This **promotes** both the React Element Tree and the newly created React Shadow Tree as the “next tree” to be mounted. This also schedules calculation of its layout information.
 3. **Mount:** The React Shadow Tree, now with the results of layout calculation, is transformed into a [Host View Tree](architecture-glossary#host-view-tree-and-host-view).
 
 > The phases of the render pipeline may occur on different threads. Refer to the [Threading Model](threading-model) doc for more detail.
 
 ![React Native renderer Data flow](/docs/assets/Architecture/renderer-pipeline/data-flow.jpg)
-
-The render pipeline is executed in three different scenarios:
-
-- [Initial Render](#initial-render)
-  - [Phase 1. Render](#phase-1-render)
-  - [Phase 2. Commit](#phase-2-commit)
-  - [Phase 3. Mount](#phase-3-mount)
-- [React State Updates](#react-state-updates)
-- [React Native Renderer State Updates](#react-native-renderer-state-updates)
 
 ---
 
@@ -157,6 +148,8 @@ When a state update occurs, the renderer needs to conceptually update the _React
 
 Let’s explore each phase of the render pipeline during a state update.
 
+### Phase 1: Render
+
 ![Phase one: render](/docs/assets/Architecture/renderer-pipeline/phase-one-render.png)
 
 When React creates a new _React Element Tree_ that incorporates the new state, it must clone every _React Element_ and _React Shadow Node_ that is impacted by the change. After cloning, the new _React Shadow Tree_ is committed.
@@ -178,6 +171,8 @@ After these operations, **Node 1'** represents the root of the new _React Elemen
 
 Notice how **T** and **T'** both share **Node 4**. Structural sharing improves performance and reduces memory usage.
 
+### Phase 2: Commit
+
 ![Phase two: commit](/docs/assets/Architecture/renderer-pipeline/phase-two-commit.png)
 
 After React creates the new _React Element Tree_ and _React Shadow Tree_, it must commit them.
@@ -187,6 +182,8 @@ After React creates the new _React Element Tree_ and _React Shadow Tree_, it mus
 
 - **Tree Diffing:** This step computes the diff between the “previously rendered tree” (**T**) and the “next tree” (**T'**). The result is a list of atomic mutation operations to be performed on _host views_.
   - In the above example, the operations consist of: `UpdateView(**Node 3'**, {backgroundColor: '“yellow“})`
+
+### Phase 3: Mount
 
 ![Phase three: mount](/docs/assets/Architecture/renderer-pipeline/phase-three-mount.png)
 
@@ -212,9 +209,13 @@ With two important differences:
 1. They skip the “render phase” since React is not involved.
 2. The updates can originate and happen on any thread, including the main thread.
 
+### Phase 2: Commit
+
 ![Phase two: commit](/docs/assets/Architecture/renderer-pipeline/phase-two-commit.png)
 
 When performing a _C++ State_ update, a block of code requests an update of a `ShadowNode` (**N**) to set _C++ State_ to value **S**. React Native renderer will repeatedly attempt to get the latest committed version of **N**, clone it with a new state **S**, and commit **N’** to the tree. If React, or another _C++ State_ update, has performed another commit during this time, the _C++ State_ commit will fail and the renderer will retry the _C++ State_ update many times until a commit succeeds. This prevents source-of-truth collisions and races.
+
+### Phase 3: Mount
 
 ![Phase three: mount](/docs/assets/Architecture/renderer-pipeline/phase-three-mount.png)
 
