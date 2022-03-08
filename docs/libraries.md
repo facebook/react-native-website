@@ -6,7 +6,7 @@ authorURL: 'https://twitter.com/notbrent'
 description: This guide introduces React Native developers to finding, installing, and using third-party libraries in their apps.
 ---
 
-import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants'; import M1Cocoapods from './\_markdown-m1-cocoapods.mdx';
 
 React Native provides a set of built-in [Core Components and APIs](./components-and-apis) ready to use in your app. You're not limited to the components and APIs bundled with React Native. React Native has a community of thousands of developers. If the Core Components and APIs don't have what you are looking for, you may be able to find and install a library from the community to add the functionality to your app.
 
@@ -50,6 +50,8 @@ Run `pod install` in our `ios` directory in order to link it to our native iOS p
 ```bash
 npx pod-install
 ```
+
+<M1Cocoapods />
 
 Once this is complete, re-build the app binary to start using your new library:
 

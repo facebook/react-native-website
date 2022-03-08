@@ -283,7 +283,7 @@ Fade animation duration in miliseconds.
 
 ### `loadingIndicatorSource`
 
-Similarly to `source`, this property represents the resource used to render the loading indicator for the image, displayed until image is ready to be displayed, typically after when it got downloaded from network.
+Similarly to `source`, this property represents the resource used to render the loading indicator for the image. The loading indicator is displayed until image is ready to be displayed, typically after the image is downloaded.
 
 | Type                                                  |
 | ----------------------------------------------------- |
@@ -315,9 +315,11 @@ Invoked on mount and on layout changes.
 
 Invoked when load completes successfully.
 
-| Type                                             |
-| ------------------------------------------------ |
-| ([ImageLoadEvent](image#imageloadevent)) => void |
+**Example:** `onLoad={({nativeEvent: {source: {width, height}}}) => setImageRealSize({width, height})}`
+
+| Type                                                              |
+| ----------------------------------------------------------------- |
+| ({ nativeEvent: [ImageLoadEvent](image#imageloadevent) }) => void |
 
 ---
 
@@ -569,6 +571,14 @@ Object returned in the `onLoad` callback.
 | Type   |
 | ------ |
 | object |
+
+**Properties:**
+
+| Name   | Type   | Description                         |
+| ------ | ------ | ----------------------------------- |
+| source | object | The [source object](#source-object) |
+
+#### Source Object
 
 **Properties:**
 
