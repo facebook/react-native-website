@@ -3,7 +3,9 @@ id: render-pipeline
 title: Render, Commit, and Mount
 ---
 
-> This document refers to the architecture of the new renderer, [Fabric](fabric-renderer), that is in active roll-out.
+import FabricWarning from './\_fabric-warning.mdx';
+
+<FabricWarning />
 
 The React Native renderer goes through a sequence of work to render React logic to a [host platform](architecture-glossary#host-platform). This sequence of work is called the render pipeline and occurs for initial renders and updates to the UI state. This document goes over the render pipeline and how it differs in those scenarios.
 
