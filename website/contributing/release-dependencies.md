@@ -1,6 +1,6 @@
 ---
 id: release-dependencies
-title: Dependencies
+title: Release Dependencies
 ---
 
 This table wants to highlight the various tooling that we need to pay attention to and potentially bump to ensure that everything works correctly - it could be that some versions need to be only changed/bumped in the [`template`](https://github.com/facebook/react-native/tree/main/template) folder.

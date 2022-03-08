@@ -1,6 +1,6 @@
 ---
 id: release-faq
-title: FAQ
+title: Release FAQ
 ---
 
 ### What is a qualified pick request?
