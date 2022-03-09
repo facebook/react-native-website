@@ -3,13 +3,9 @@ id: new-architecture-app-intro
 title: Prerequisites for Applications
 ---
 
-:::caution
+import NewArchitectureWarning from './\_markdown-new-architecture-warning.mdx';
 
-This documentation is still **experimental** and details are subject to changes as we iterate. Feel free to share your feedback on the [react-native-website PR](https://github.com/facebook/react-native-website) for this page.
-
-Moreover, it contains several **manual steps**. Please note that this won't be representative of the final developer experience once the New Architecture is stable. We're working on tools, templates and libraries to help you get started fast on the New Architecture, without having to go through the whole setup.
-
-:::
+<NewArchitectureWarning/>
 
 There’s a few prerequisites that should be addressed before the new architecture is enabled in your application.
 
