@@ -94,18 +94,19 @@ const lastVersion = versions[0];
   plugins: [
     'docusaurus-plugin-sass',
     [
-      '@docusaurus/plugin-content-docs',
-      {
-        id: 'docs_unversioned',
-        path: '../docs_unversioned',
-        sidebarPath: require.resolve('./sidebars_unversioned.json'),
-        routeBasePath: '/',
+      'content-docs',
+      /** @type {import('@docusaurus/plugin-content-docs').Options} */
+      ({
+        id: 'architecture',
+        path: 'architecture',
+        sidebarPath: require.resolve('./sidebarsArchitecture.json'),
+        routeBasePath: '/architecture',
         showLastUpdateAuthor: false,
         showLastUpdateTime: true,
         editUrl:
           'https://github.com/facebook/react-native-website/blob/master/website/',
         remarkPlugins: [require('@react-native-website/remark-snackplayer')],
-      },
+      }),
     ],
     [
       '@docusaurus/plugin-pwa',
@@ -216,9 +217,9 @@ const lastVersion = versions[0];
           {
             label: 'Architecture',
             type: 'doc',
-            docId: 'architecture/architecture-overview',
+            docId: 'architecture-overview',
             position: 'right',
-            docsPluginId: 'docs_unversioned',
+            docsPluginId: 'architecture',
           },
           {
             to: '/help',

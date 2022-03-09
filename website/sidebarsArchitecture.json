@@ -5,21 +5,21 @@
       "label": "Architecture",
       "collapsed": false,
       "items": [
-        "architecture/architecture-overview",
+        "architecture-overview",
         {
           "type": "category",
           "label": "Rendering",
           "collapsible": false,
           "collapsed": false,
           "items": [
-            "architecture/fabric-renderer",
-            "architecture/render-pipeline",
-            "architecture/xplat-implementation",
-            "architecture/view-flattening",
-            "architecture/threading-model"
+            "fabric-renderer",
+            "render-pipeline",
+            "xplat-implementation",
+            "view-flattening",
+            "threading-model"
           ]
         },
-        "architecture/architecture-glossary"
+        "architecture-glossary"
       ]
     }
   ]
