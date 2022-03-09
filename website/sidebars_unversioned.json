@@ -1,0 +1,26 @@
+{
+  "architecture": [
+    {
+      "type": "category",
+      "label": "Architecture",
+      "collapsed": false,
+      "items": [
+        "architecture/architecture-overview",
+        {
+          "type": "category",
+          "label": "Rendering",
+          "collapsible": false,
+          "collapsed": false,
+          "items": [
+            "architecture/fabric-renderer",
+            "architecture/render-pipeline",
+            "architecture/xplat-implementation",
+            "architecture/view-flattening",
+            "architecture/threading-model"
+          ]
+        },
+        "architecture/architecture-glossary"
+      ]
+    }
+  ]
+}
