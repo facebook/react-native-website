@@ -155,8 +155,7 @@ const lastVersion = versions[0];
         id: 'contributing',
         path: 'contributing',
         routeBasePath: 'contributing',
-        editCurrentVersion: true,
-        sidebarPath: require.resolve('./sidebarsCommunity.json'),
+        sidebarPath: require.resolve('./sidebarsContributing.json'),
       }),
     ],
   ],
@@ -218,7 +217,6 @@ const lastVersion = versions[0];
           },
           {
             to: '/contributing/how-to-contribute',
-            docId: 'contributing',
             label: 'Contributing',
             position: 'right',
           },
