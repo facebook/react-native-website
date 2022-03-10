@@ -65,13 +65,6 @@ Next, select the "SDK Tools" tab and check the box next to "Show Package Details
 
 Finally, click "Apply" to download and install the Android SDK and related build tools.
 
-You can also run the following command after setting ANDROID_SDK_ROOT.
-
-```shell
-sdkmanager "platforms;android-30" "system-images;android-30;default;x86_64" "system-images;android-30;google_apis;x86"
-sdkmanager "cmdline-tools;latest" "build-tools;30.0.2"
-```
-
 <h4>3. Configure the ANDROID_SDK_ROOT environment variable</h4>
 
 The React Native tools require some environment variables to be set up in order to build apps with native code.
@@ -81,8 +74,6 @@ Add the following lines to your `$HOME/.bash_profile` or `$HOME/.bashrc` (if you
 ```shell
 export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
-# Commandline Path is determined by version "/cmdline-tools/[VERSION]/bin" latest is the default from Android studio but please check you setup within the SDK Manager
-export PATH=$PATH:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin
 export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 ```
 
