@@ -12,3 +12,17 @@
 
 # Changed blog post dates
 /blog/2021/03/11/version-0.64   /blog/2021/03/12/version-0.64
+
+
+
+
+/docs/architecture-overview             /architecture/overview
+/docs/fabric-renderer                   /architecture/fabric-renderer
+/docs/render-pipeline                   /architecture/render-pipeline
+/docs/xplat-implementation              /architecture/xplat-implementation
+/docs/view-flattening                   /architecture/view-flattening
+/docs/threading-model                   /architecture/threading-model
+/docs/architecture-glossary             /architecture/glossary
+
+
+
