@@ -3,6 +3,14 @@ const versions = require('./versions.json');
 
 const lastVersion = versions[0];
 
+const commonDocsOptions = {
+  showLastUpdateAuthor: false,
+  showLastUpdateTime: true,
+  editUrl:
+    'https://github.com/facebook/react-native-website/blob/master/website/',
+  remarkPlugins: [require('@react-native-website/remark-snackplayer')],
+};
+
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 (module.exports = {
   title: 'React Native',
@@ -53,13 +61,8 @@ const lastVersion = versions[0];
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          showLastUpdateAuthor: false,
-          showLastUpdateTime: true,
-          editUrl:
-            'https://github.com/facebook/react-native-website/blob/master/website/',
           path: '../docs',
           sidebarPath: require.resolve('./sidebars.json'),
-          remarkPlugins: [require('@react-native-website/remark-snackplayer')],
           editCurrentVersion: true,
           onlyIncludeVersions:
             process.env.PREVIEW_DEPLOY === 'true'
@@ -70,6 +73,7 @@ const lastVersion = versions[0];
               badge: false, // Do not show version badge for last RN version
             },
           },
+          ...commonDocsOptions,
         },
         blog: {
           path: 'blog',
@@ -93,6 +97,28 @@ const lastVersion = versions[0];
   ],
   plugins: [
     'docusaurus-plugin-sass',
+    [
+      'content-docs',
+      /** @type {import('@docusaurus/plugin-content-docs').Options} */
+      ({
+        id: 'architecture',
+        path: 'architecture',
+        routeBasePath: '/architecture',
+        sidebarPath: require.resolve('./sidebarsArchitecture.json'),
+        ...commonDocsOptions
+      }),
+    ],
+    [
+      'content-docs',
+      /** @type {import('@docusaurus/plugin-content-docs').Options} */
+      ({
+        id: 'contributing',
+        path: 'contributing',
+        routeBasePath: '/contributing',
+        sidebarPath: require.resolve('./sidebarsContributing.json'),
+        ...commonDocsOptions
+      }),
+    ],
     [
       '@docusaurus/plugin-pwa',
       {
@@ -147,21 +173,6 @@ const lastVersion = versions[0];
           },
         ],
       },
-    ],
-    [
-      'content-docs',
-      /** @type {import('@docusaurus/plugin-content-docs').Options} */
-      ({
-        id: 'contributing',
-        path: 'contributing',
-        routeBasePath: 'contributing',
-        sidebarPath: require.resolve('./sidebarsContributing.json'),
-        showLastUpdateAuthor: false,
-        showLastUpdateTime: true,
-        editUrl:
-          'https://github.com/facebook/react-native-website/blob/master/website/',
-        remarkPlugins: [require('@react-native-website/remark-snackplayer')],
-      }),
     ],
   ],
   themeConfig:
@@ -219,6 +230,7 @@ const lastVersion = versions[0];
             type: 'doc',
             docId: 'architecture-overview',
             position: 'right',
+            docsPluginId: 'architecture',
           },
           {
             to: '/contributing/how-to-contribute',
