@@ -22,7 +22,7 @@
     "format:markdown": "prettier --write ../docs/*.md && prettier --write {{versioned_docs,src}/**/*.md,blog/*.md}",
     "format:style": "prettier --write src/**/*.{scss,css}",
     "prettier": "yarn format:source && yarn format:markdown && yarn format:style",
-    "lint": "eslint ../docs/** blog/** core/** src/**/*.{js,md}",
+    "lint": "eslint ../docs/** blog/** core/** src/**/*.{js,md} ./*.js",
     "lint:versioned": "eslint versioned_docs/**",
     "language:lint": "cd ../ && alex",
     "language:lint:versioned": "cd ../ && alex .",

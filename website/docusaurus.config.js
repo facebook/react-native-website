@@ -2,6 +2,7 @@ const users = require('./showcase.json');
 const versions = require('./versions.json');
 
 const lastVersion = versions[0];
+const copyright = `Copyright © ${new Date().getFullYear()} Meta Platforms, Inc.`;
 
 const commonDocsOptions = {
   showLastUpdateAuthor: false,
@@ -12,7 +13,7 @@ const commonDocsOptions = {
 };
 
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
-(module.exports = {
+module.exports = {
   title: 'React Native',
   tagline: 'A framework for building native apps using React',
   organizationName: 'facebook',
@@ -23,13 +24,11 @@ const commonDocsOptions = {
   trailingSlash: false, // because trailing slashes can break some existing relative links
   scripts: [
     {
-      src:
-        'https://cdn.jsdelivr.net/npm/focus-visible@5.2.0/dist/focus-visible.min.js',
+      src: 'https://cdn.jsdelivr.net/npm/focus-visible@5.2.0/dist/focus-visible.min.js',
       defer: true,
     },
     {
-      src:
-        'https://widget.surveymonkey.com/collect/website/js/tRaiETqnLgj758hTBazgd8ryO5qrZo8Exadq9qmt1wtm4_2FdZGEAKHDFEt_2BBlwwM4.js',
+      src: 'https://widget.surveymonkey.com/collect/website/js/tRaiETqnLgj758hTBazgd8ryO5qrZo8Exadq9qmt1wtm4_2FdZGEAKHDFEt_2BBlwwM4.js',
       defer: true,
     },
     {src: 'https://snack.expo.dev/embed.js', defer: true},
@@ -81,7 +80,7 @@ const commonDocsOptions = {
           blogSidebarTitle: 'All Blog Posts',
           feedOptions: {
             type: 'all',
-            copyright: `Copyright © ${new Date().getFullYear()} Facebook, Inc.`,
+            copyright,
           },
         },
         theme: {
@@ -105,7 +104,7 @@ const commonDocsOptions = {
         path: 'architecture',
         routeBasePath: '/architecture',
         sidebarPath: require.resolve('./sidebarsArchitecture.json'),
-        ...commonDocsOptions
+        ...commonDocsOptions,
       }),
     ],
     [
@@ -116,7 +115,7 @@ const commonDocsOptions = {
         path: 'contributing',
         routeBasePath: '/contributing',
         sidebarPath: require.resolve('./sidebarsContributing.json'),
-        ...commonDocsOptions
+        ...commonDocsOptions,
       }),
     ],
     [
@@ -303,8 +302,7 @@ const commonDocsOptions = {
               },
               {
                 label: 'Contributor Guide',
-                href:
-                  'https://github.com/facebook/react-native/blob/master/CONTRIBUTING.md',
+                href: 'https://github.com/facebook/react-native/blob/main/CONTRIBUTING.md',
               },
               {
                 label: 'DEV Community',
@@ -338,11 +336,11 @@ const commonDocsOptions = {
               },
               {
                 label: 'Privacy Policy',
-                href: 'https://opensource.facebook.com/legal/privacy',
+                href: 'https://opensource.fb.com/legal/privacy/',
               },
               {
                 label: 'Terms of Service',
-                href: 'https://opensource.facebook.com/legal/terms',
+                href: 'https://opensource.fb.com/legal/terms/',
               },
             ],
           },
@@ -350,9 +348,9 @@ const commonDocsOptions = {
         logo: {
           alt: 'Facebook Open Source Logo',
           src: 'img/oss_logo.png',
-          href: 'https://opensource.facebook.com',
+          href: 'https://opensource.fb.com/',
         },
-        copyright: `Copyright © ${new Date().getFullYear()} Meta Platforms, Inc.`,
+        copyright,
       },
       algolia: {
         apiKey: '2c98749b4a1e588efec53b2acec13025',
@@ -378,4 +376,4 @@ const commonDocsOptions = {
         {name: 'twitter:site', content: '@reactnative'},
       ],
     }),
-});
+};
