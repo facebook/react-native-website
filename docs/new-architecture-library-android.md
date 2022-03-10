@@ -36,8 +36,8 @@ All the arguments are **optional** and provide **default values**, you might wan
 - `codegenJavaPackageName`: A string that represents the Java package your code should use. By default this will be `com.facebook.fbreact.specs` but you might want to customize it.
 - `root`: Reference to the root of your project. By default is `..` as Gradle is running inside the `./android` folder.
 - `reactNativeDir`: Reference to the `react-native` package root. Usually located inside `../node_modules/react-native`. For third-party NPM libraries that are installed in `node_modules`, this will be `../react-native`.
-- `jsRootDir`: Reference to the directory that contains the JavaScript specs for this library. By default is `../js/`
-- `codegenDir`: Reference to the `react-native-codegen` root. Usually located inside `../node_modules/react-native-codegen`
+- `jsRootDir`: Reference to the directory that contains the JavaScript specs for this library. By default is `../js/`.
+- `codegenDir`: Reference to the `react-native-codegen` root. Usually located inside `../node_modules/react-native-codegen`.
 
 The generator will write its output inside the **build folder**, specifically inside the `./build/generated/source/codegen` folder.
 
