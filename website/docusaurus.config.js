@@ -148,6 +148,21 @@ const lastVersion = versions[0];
         ],
       },
     ],
+    [
+      'content-docs',
+      /** @type {import('@docusaurus/plugin-content-docs').Options} */
+      ({
+        id: 'contributing',
+        path: 'contributing',
+        routeBasePath: 'contributing',
+        sidebarPath: require.resolve('./sidebarsContributing.json'),
+        showLastUpdateAuthor: false,
+        showLastUpdateTime: true,
+        editUrl:
+          'https://github.com/facebook/react-native-website/blob/master/website/',
+        remarkPlugins: [require('@react-native-website/remark-snackplayer')],
+      }),
+    ],
   ],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
@@ -206,8 +221,8 @@ const lastVersion = versions[0];
             position: 'right',
           },
           {
-            to: '/help',
-            label: 'Community',
+            to: '/contributing/how-to-contribute',
+            label: 'Contributing',
             position: 'right',
           },
           {

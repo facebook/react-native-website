@@ -1,0 +1,37 @@
+{
+  "contributing": [
+    {
+      "type": "category",
+      "label": "Contributing to React Native",
+      "collapsed": false,
+      "collapsible": false,
+      "items": ["how-to-contribute"]
+    },
+    {
+      "type": "category",
+      "label": "How to Perform Releases",
+      "collapsed": false,
+      "collapsible": false,
+      "items": [
+        "release-candidate-minor",
+        "release-candidate-patch",
+        "release-stable-patch",
+        "release-stable-minor",
+        "release-troubleshooting"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Release Guides",
+      "collapsed": false,
+      "collapsible": false,
+      "items": [
+        "release-roles-responsibilities",
+        "release-dependencies",
+        "release-testing",
+        "updating-upgrade-helper",
+        "release-faq"
+      ]
+    }
+  ]
+}
