@@ -156,6 +156,11 @@ const lastVersion = versions[0];
         path: 'contributing',
         routeBasePath: 'contributing',
         sidebarPath: require.resolve('./sidebarsContributing.json'),
+        showLastUpdateAuthor: false,
+        showLastUpdateTime: true,
+        editUrl:
+          'https://github.com/facebook/react-native-website/blob/master/website/',
+        remarkPlugins: [require('@react-native-website/remark-snackplayer')],
       }),
     ],
   ],
