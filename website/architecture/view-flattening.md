@@ -3,7 +3,9 @@ id: view-flattening
 title: View Flattening
 ---
 
-> This document refers to the architecture of the new renderer, [Fabric](fabric-renderer), that is in active roll-out.
+import FabricWarning from './\_fabric-warning.mdx';
+
+<FabricWarning />
 
 #### View Flattening is an optimization by the React Native renderer to avoid deep layout trees.
 
