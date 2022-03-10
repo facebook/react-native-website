@@ -3,7 +3,9 @@ id: xplat-implementation
 title: Cross Platform Implementation
 ---
 
-> This document refers to the architecture of the new renderer, [Fabric](fabric-renderer), that is in active roll-out.
+import FabricWarning from './\_fabric-warning.mdx';
+
+<FabricWarning />
 
 #### The React Native renderer utilizes a core render implementation to be shared across platforms
 

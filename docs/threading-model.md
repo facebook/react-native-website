@@ -3,7 +3,9 @@ id: threading-model
 title: Threading Model
 ---
 
-> This document refers to the architecture of the new renderer, [Fabric](fabric-renderer), that is in active roll-out.
+import FabricWarning from './\_fabric-warning.mdx';
+
+<FabricWarning />
 
 #### The React Native renderer distributes the work of the [render pipeline](render-pipeline) across multiple threads.
 
