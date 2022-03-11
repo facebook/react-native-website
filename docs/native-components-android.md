@@ -451,9 +451,8 @@ I. Start with custom View manager:
 ```jsx title="MyViewManager.jsx"
 import { requireNativeComponent } from 'react-native';
 
-export const MyViewManager = requireNativeComponent(
-  'MyViewManager'
-);
+export const MyViewManager =
+  requireNativeComponent('MyViewManager');
 ```
 
 II. Then implement custom View calling the `create` method:

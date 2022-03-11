@@ -358,9 +358,9 @@ Specifies whether fonts should scale to respect Text Size accessibility settings
 
 Sets the frequency of automatic hyphenation to use when determining word breaks on Android API Level 23+.
 
-| Type                                             | Default  |
-| ------------------------------------------------ | -------- |
-| enum(`'none'`, `'full'`, `'balanced'`, `'high'`) | `'none'` |
+| Type                                | Default  |
+| ----------------------------------- | -------- |
+| enum(`'none'`, `'normal'`,`'full'`) | `'none'` |
 
 ---
 

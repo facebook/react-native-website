@@ -1,6 +1,7 @@
 ---
 id: architecture-overview
 title: Architecture Overview
+slug: /overview
 ---
 
 :::info

@@ -2,9 +2,18 @@ const users = require('./showcase.json');
 const versions = require('./versions.json');
 
 const lastVersion = versions[0];
+const copyright = `Copyright © ${new Date().getFullYear()} Meta Platforms, Inc.`;
+
+const commonDocsOptions = {
+  showLastUpdateAuthor: false,
+  showLastUpdateTime: true,
+  editUrl:
+    'https://github.com/facebook/react-native-website/blob/master/website/',
+  remarkPlugins: [require('@react-native-website/remark-snackplayer')],
+};
 
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
-(module.exports = {
+module.exports = {
   title: 'React Native',
   tagline: 'A framework for building native apps using React',
   organizationName: 'facebook',
@@ -15,13 +24,11 @@ const lastVersion = versions[0];
   trailingSlash: false, // because trailing slashes can break some existing relative links
   scripts: [
     {
-      src:
-        'https://cdn.jsdelivr.net/npm/focus-visible@5.2.0/dist/focus-visible.min.js',
+      src: 'https://cdn.jsdelivr.net/npm/focus-visible@5.2.0/dist/focus-visible.min.js',
       defer: true,
     },
     {
-      src:
-        'https://widget.surveymonkey.com/collect/website/js/tRaiETqnLgj758hTBazgd8ryO5qrZo8Exadq9qmt1wtm4_2FdZGEAKHDFEt_2BBlwwM4.js',
+      src: 'https://widget.surveymonkey.com/collect/website/js/tRaiETqnLgj758hTBazgd8ryO5qrZo8Exadq9qmt1wtm4_2FdZGEAKHDFEt_2BBlwwM4.js',
       defer: true,
     },
     {src: 'https://snack.expo.dev/embed.js', defer: true},
@@ -53,13 +60,8 @@ const lastVersion = versions[0];
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          showLastUpdateAuthor: false,
-          showLastUpdateTime: true,
-          editUrl:
-            'https://github.com/facebook/react-native-website/blob/master/website/',
           path: '../docs',
           sidebarPath: require.resolve('./sidebars.json'),
-          remarkPlugins: [require('@react-native-website/remark-snackplayer')],
           editCurrentVersion: true,
           onlyIncludeVersions:
             process.env.PREVIEW_DEPLOY === 'true'
@@ -70,6 +72,7 @@ const lastVersion = versions[0];
               badge: false, // Do not show version badge for last RN version
             },
           },
+          ...commonDocsOptions,
         },
         blog: {
           path: 'blog',
@@ -77,7 +80,7 @@ const lastVersion = versions[0];
           blogSidebarTitle: 'All Blog Posts',
           feedOptions: {
             type: 'all',
-            copyright: `Copyright © ${new Date().getFullYear()} Facebook, Inc.`,
+            copyright,
           },
         },
         theme: {
@@ -93,6 +96,28 @@ const lastVersion = versions[0];
   ],
   plugins: [
     'docusaurus-plugin-sass',
+    [
+      'content-docs',
+      /** @type {import('@docusaurus/plugin-content-docs').Options} */
+      ({
+        id: 'architecture',
+        path: 'architecture',
+        routeBasePath: '/architecture',
+        sidebarPath: require.resolve('./sidebarsArchitecture.json'),
+        ...commonDocsOptions,
+      }),
+    ],
+    [
+      'content-docs',
+      /** @type {import('@docusaurus/plugin-content-docs').Options} */
+      ({
+        id: 'contributing',
+        path: 'contributing',
+        routeBasePath: '/contributing',
+        sidebarPath: require.resolve('./sidebarsContributing.json'),
+        ...commonDocsOptions,
+      }),
+    ],
     [
       '@docusaurus/plugin-pwa',
       {
@@ -204,10 +229,11 @@ const lastVersion = versions[0];
             type: 'doc',
             docId: 'architecture-overview',
             position: 'right',
+            docsPluginId: 'architecture',
           },
           {
-            to: '/help',
-            label: 'Community',
+            to: '/contributing/how-to-contribute',
+            label: 'Contributing',
             position: 'right',
           },
           {
@@ -276,8 +302,7 @@ const lastVersion = versions[0];
               },
               {
                 label: 'Contributor Guide',
-                href:
-                  'https://github.com/facebook/react-native/blob/master/CONTRIBUTING.md',
+                href: 'https://github.com/facebook/react-native/blob/main/CONTRIBUTING.md',
               },
               {
                 label: 'DEV Community',
@@ -311,11 +336,11 @@ const lastVersion = versions[0];
               },
               {
                 label: 'Privacy Policy',
-                href: 'https://opensource.facebook.com/legal/privacy',
+                href: 'https://opensource.fb.com/legal/privacy/',
               },
               {
                 label: 'Terms of Service',
-                href: 'https://opensource.facebook.com/legal/terms',
+                href: 'https://opensource.fb.com/legal/terms/',
               },
             ],
           },
@@ -323,9 +348,9 @@ const lastVersion = versions[0];
         logo: {
           alt: 'Facebook Open Source Logo',
           src: 'img/oss_logo.png',
-          href: 'https://opensource.facebook.com',
+          href: 'https://opensource.fb.com/',
         },
-        copyright: `Copyright © ${new Date().getFullYear()} Meta Platforms, Inc.`,
+        copyright,
       },
       algolia: {
         apiKey: '2c98749b4a1e588efec53b2acec13025',
@@ -351,4 +376,4 @@ const lastVersion = versions[0];
         {name: 'twitter:site', content: '@reactnative'},
       ],
     }),
-});
+};

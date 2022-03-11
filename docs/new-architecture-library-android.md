@@ -15,11 +15,12 @@ You can now configure Codegen by specifying the following in the module-level `b
 
 ```groovy
 react {
-    reactRoot = rootProject.file("../node_modules/react-native/")
-    jsRootDir = rootProject.file("../js/")
-    codegenDir = rootProject.file("../node_modules/react-native-codegen/")
     libraryName = "samplelibrary"
     codegenJavaPackageName = "com.example.samplelibrary"
+    root = rootProject.file("..")
+    jsRootDir = rootProject.file("../js/")
+    reactNativeDir = rootProject.file("../node_modules/react-native/")
+    codegenDir = rootProject.file("../node_modules/react-native-codegen/")
 }
 ```
 
@@ -29,18 +30,16 @@ Please note that this setup requires you to have the React Gradle Plugin configu
 
 :::
 
-There are three arguments that are required:
+All the arguments are **optional** and provide **default values**, you might want to customize them to follow your setup.
 
-- `reactRoot`: Reference to the `react-native` package root. Usually located inside `../node_modules/react-native`. For third-party NPM libraries that are installed in `node_modules`, this will be `../react-native`.
-- `jsRootDir`: Reference to the directory that contains the JavaScript specs for this library.
-- `codegenDir`: Reference to the `react-native-codegen` root. Usually located inside `./node_modules/react-native-codegen`
+- `libraryName`: A string that identifies your library. By default, the codegen will use a library name that is derived from the name of the module with a `Spec` suffix. E.g. for `:example:project` it will be `ExampleProjectSpec`.
+- `codegenJavaPackageName`: A string that represents the Java package your code should use. By default this will be `com.facebook.fbreact.specs` but you might want to customize it.
+- `root`: Reference to the root of your project. By default is `..` as Gradle is running inside the `./android` folder.
+- `reactNativeDir`: Reference to the `react-native` package root. Usually located inside `../node_modules/react-native`. For third-party NPM libraries that are installed in `node_modules`, this will be `../react-native`.
+- `jsRootDir`: Reference to the directory that contains the JavaScript specs for this library. By default is `../js/`.
+- `codegenDir`: Reference to the `react-native-codegen` root. Usually located inside `../node_modules/react-native-codegen`.
 
-These are optional:
-
-- `libraryName`: Optional. A string that identifies your library. By default, the codegen will use a library name that is derived from the name of the module with a `Spec` suffix. E.g. for `:example:project` it will be `ExampleProjectSpec`).
-- `codegenJavaPackageName`: Optional. A string that represents the Java package your code should use. By default this will be `com.facebook.fbreact.specs` but you might want to customize it.
-
-The generator will write its output inside the **build folder**, specifically inside `/build/generated/source/codegen`
+The generator will write its output inside the **build folder**, specifically inside the `./build/generated/source/codegen` folder.
 
 ## 2. Extend or implement the code-generated native interfaces
 

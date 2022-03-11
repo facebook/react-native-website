@@ -5,7 +5,7 @@
       "options": {
         "arrowParens": "avoid",
         "bracketSpacing": false,
-        "jsxBracketSameLine": true,
+        "bracketSameLine": true,
         "printWidth": 80,
         "singleQuote": true,
         "trailingComma": "es5",
@@ -17,7 +17,7 @@
       "options": {
         "arrowParens": "always",
         "bracketSpacing": true,
-        "jsxBracketSameLine": true,
+        "bracketSameLine": true,
         "printWidth": 66,
         "proseWrap": "preserve",
         "singleQuote": true,

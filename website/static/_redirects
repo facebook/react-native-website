@@ -12,3 +12,28 @@
 
 # Changed blog post dates
 /blog/2021/03/11/version-0.64   /blog/2021/03/12/version-0.64
+
+# Architecture pages move to unversioned docs
+/docs/architecture-overview             /architecture/overview
+/docs/fabric-renderer                   /architecture/fabric-renderer
+/docs/render-pipeline                   /architecture/render-pipeline
+/docs/xplat-implementation              /architecture/xplat-implementation
+/docs/view-flattening                   /architecture/view-flattening
+/docs/threading-model                   /architecture/threading-model
+/docs/architecture-glossary             /architecture/glossary
+
+/docs/next/architecture-overview             /architecture/overview
+/docs/next/fabric-renderer                   /architecture/fabric-renderer
+/docs/next/render-pipeline                   /architecture/render-pipeline
+/docs/next/xplat-implementation              /architecture/xplat-implementation
+/docs/next/view-flattening                   /architecture/view-flattening
+/docs/next/threading-model                   /architecture/threading-model
+/docs/next/architecture-glossary             /architecture/glossary
+
+/docs/0.66/architecture-overview             /architecture/overview
+/docs/0.66/fabric-renderer                   /architecture/fabric-renderer
+/docs/0.66/render-pipeline                   /architecture/render-pipeline
+/docs/0.66/xplat-implementation              /architecture/xplat-implementation
+/docs/0.66/view-flattening                   /architecture/view-flattening
+/docs/0.66/threading-model                   /architecture/threading-model
+/docs/0.66/architecture-glossary             /architecture/glossary
