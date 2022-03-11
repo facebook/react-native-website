@@ -42,7 +42,7 @@ Then run the following commands to create a new React Native project called "Awe
 <TabItem value="npm">
 
 ```shell
-expo init AwesomeProject
+npx expo init AwesomeProject
 
 cd AwesomeProject
 npm start # you can also use: expo start
