@@ -5,7 +5,7 @@ slug: /overview
 ---
 
 :::info
-Welcome to the Architecture Overview! If you're getting started with React Native, please refer to <a href="getting-started">Guides</a> section. Continue reading to learn how internals of React Native work!
+Welcome to the Architecture Overview! If you're getting started with React Native, please refer to <a href="/docs/getting-started">Guides</a> section. Continue reading to learn how internals of React Native work!
 
 This section is a work in progress and more material will be added in the future. Please make sure to come back later to check for new information.
 :::
@@ -20,4 +20,4 @@ Architecture Overview is intended to share conceptual overview of how React Nati
   - [Cross Platform Implementation](xplat-implementation)
   - [View Flattening](view-flattening)
   - [Threading Model](threading-model)
-- [Glossary](architecture-glossary)
+- [Glossary](glossary)
