@@ -99,6 +99,16 @@ ActionSheetIOS.showActionSheetWithOptions(
 
 ---
 
+### `dismissActionSheet()`
+
+```jsx
+static dismissActionSheet()
+```
+
+Dismisses the most upper iOS action sheet presented, if no action sheet is present a warning is displayed.
+
+---
+
 ### `showShareActionSheetWithOptions()`
 
 ```jsx
