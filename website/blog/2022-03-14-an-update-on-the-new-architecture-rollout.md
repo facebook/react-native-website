@@ -2,6 +2,7 @@
 title: An update on the New Architecture Rollout
 authors: [cortinico]
 tags: [announcement]
+date: 2022-03-15
 ---
 
 # An update on the New Architecture Rollout
@@ -83,7 +84,7 @@ Work on the 0.68 pre-release has realized much of [the improved release process 
 
 We’re happy to share that with 0.68 we were able to:
 
-- Successfully onboard release work to an internal rotation. Much of this is supported by [improved documentation](https://github.com/facebook/react-native/wiki/releases) on the release process which will reduce the bus factor of the release process.
+- Successfully onboard release work to an internal rotation. Much of this is supported by [improved documentation](/contributing/how-to-contribute) on the release process which will reduce the bus factor of the release process.
 - Initiated discussions with partners to support a [Copilot rotation](/contributing/release-roles-responsibilities#release-role-2--release-copilot). We hope this effort will improve transparency of the process and inform our partners where to invest to support React Native releases and eco-system.
 - [Onboarded several Release Supporters and Testers from the community](https://github.com/reactwg/react-native-releases/discussions/11). We had put a call-out for help last half and so many folks stepped up! The feedback from our testers and supporters have **helped us fix crucial bugs** and regressions, especially around the new architecture, for the upcoming release. Thank you to everyone who signed up and tested out the release! If you’d like to join as a release tester or supporter, please sign up here!
 
