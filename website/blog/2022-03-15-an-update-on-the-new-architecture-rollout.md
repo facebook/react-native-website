@@ -68,7 +68,7 @@ Please consider trying this new template, and [report any bug or unexpected beha
 
 ### The 3rd-party Libraries Ecosystem
 
-We could not migrate to the New Architecture without the full support of **3rd-party libraries author & maintainers**.
+The community won't be able to migrate to the New Architecture without the full support of **3rd-party libraries author & maintainers**.
 
 We understand how this can be a tedious process, and we understand the importance of supporting users on **both** old and New Architecture. Over the next months, we will focus on supporting our library developers to help them migrate over.
 
@@ -86,7 +86,7 @@ We’re happy to share that with 0.68 we were able to:
 
 - Successfully onboard release work to an internal rotation. Much of this is supported by [improved documentation](/contributing/how-to-contribute) on the release process which will reduce the bus factor of the release process.
 - Initiated discussions with partners to support a [Copilot rotation](/contributing/release-roles-responsibilities#release-role-2--release-copilot). We hope this effort will improve transparency of the process and inform our partners where to invest to support React Native releases and eco-system.
-- [Onboarded several Release Supporters and Testers from the community](https://github.com/reactwg/react-native-releases/discussions/11). We had put a call-out for help last half and so many folks stepped up! The feedback from our testers and supporters have **helped us fix crucial bugs** and regressions, especially around the new architecture, for the upcoming release. Thank you to everyone who signed up and tested out the release! If you’d like to join as a release tester or supporter, please sign up here!
+- [Onboarded several Release Supporters and Testers from the community](https://github.com/reactwg/react-native-releases/discussions/11). We had put a call-out for help last half and so many folks stepped up! The feedback from our testers and supporters have **helped us fix crucial bugs** and regressions, especially around the new architecture, for the upcoming release. Thank you to everyone who signed up and tested out the release!
 
 With React Native 0.69 we will continue refining this process, ideally getting partners to provide earlier release signal and onboarding co-pilots. As always, [any feedback is more than welcome](https://github.com/reactwg/react-native-releases/discussions).
 
