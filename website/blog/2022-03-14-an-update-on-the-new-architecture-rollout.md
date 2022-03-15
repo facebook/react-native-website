@@ -37,7 +37,7 @@ After several rounds of review & feedback, we finally merged **the Migration Gui
 
 This Migration Guide will show you **how to create a custom Fabric component or a TurboModule** with a step-by-step approach. The guide will also show you how to **adapt your existing app or library** to use the New Architecture.
 
-Moreover, we would like to remind you the brand-new [Architecture section](/docs/next/architecture-overview) of our website. There you can find several in-depth articles and explanation of the React Native internals. Specifically, [the Fabric section](/docs/next/fabric-renderer) can help you understand the rendering pipeline in the New Architecture world.
+Moreover, we would like to remind you the brand-new [Architecture section](/architecture/overview) of our website. There you can find several in-depth articles and explanation of the React Native internals. Specifically, [the Fabric section](/architecture/fabric-renderer) can help you understand the rendering pipeline in the New Architecture world.
 
 Finally, please consider **sharing your feedback** to this documentation material [on the working group](https://github.com/reactwg/react-native-new-architecture/discussions/7). We’re constantly looking for developer’s opinion, and we want to make sure we’re delivering the content that you find most useful.
 
@@ -75,7 +75,7 @@ If you’re a **library developer**, [we invite you to post an update](https://g
 
 If instead you’re a **library user**, you can [post a message here](https://github.com/reactwg/react-native-new-architecture/discussions/6) to request a migration of a library. If we identify a library that becomes a blocker for a number of users, we will try to reach out to the maintainer and understand why they haven’t migrated yet.
 
-Finally, we would like to give a shout out to Software Mansion for releasing a new version of `[react-native-screens](https://github.com/software-mansion/react-native-screens)`, which has support for both architectures. Moreover, they published a blog-post ([Introducing Fabric to react-native-screens](https://blog.swmansion.com/introducing-fabric-to-react-native-screens-fd17bf18858e)) where they **tell their migration story**. We hope you will find this story inspiring and useful to tackle your migration.
+Finally, we would like to give a shout out to Software Mansion for releasing a new version of [`react-native-screens`](https://github.com/software-mansion/react-native-screens), which has support for both architectures. Moreover, they published a blog-post ([Introducing Fabric to react-native-screens](https://blog.swmansion.com/introducing-fabric-to-react-native-screens-fd17bf18858e)) where they **tell their migration story**. We hope you will find this story inspiring and useful to tackle your migration.
 
 ### Releases
 
@@ -84,7 +84,7 @@ Work on the 0.68 pre-release has realized much of [the improved release process 
 We’re happy to share that with 0.68 we were able to:
 
 - Successfully onboard release work to an internal rotation. Much of this is supported by [improved documentation](https://github.com/facebook/react-native/wiki/releases) on the release process which will reduce the bus factor of the release process.
-- Initiated discussions with partners to support a [co-pilot rotation](https://github.com/facebook/react-native/wiki/Release-Roles-and-Responsibilities#release-role-2--release-copilot). We hope this effort will improve transparency of the process and inform our partners where to invest to support React Native releases and eco-system.
+- Initiated discussions with partners to support a [Copilot rotation](/contributing/release-roles-responsibilities#release-role-2--release-copilot). We hope this effort will improve transparency of the process and inform our partners where to invest to support React Native releases and eco-system.
 - [Onboarded several Release Supporters and Testers from the community](https://github.com/reactwg/react-native-releases/discussions/11). We had put a call-out for help last half and so many folks stepped up! The feedback from our testers and supporters have **helped us fix crucial bugs** and regressions, especially around the new architecture, for the upcoming release. Thank you to everyone who signed up and tested out the release! If you’d like to join as a release tester or supporter, please sign up here!
 
 With React Native 0.69 we will continue refining this process, ideally getting partners to provide earlier release signal and onboarding co-pilots. As always, [any feedback is more than welcome](https://github.com/reactwg/react-native-releases/discussions).
