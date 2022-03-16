@@ -128,7 +128,9 @@ Next, you will create a `RCTTurboModuleManager` in your bridge delegate’s `jsE
   // Add this line...
   __weak __typeof(self) weakSelf = self;
 
-  return std::make_unique<facebook::react::JSCExecutorFactory>(
+  // If you want to use the `JSCExecutorFactory`, remember to add the `#import <React/JSCExecutorFactory.h>`
+  // import statement on top.
+  return std::make_unique<facebook::react::HermesExecutorFactory>(
     facebook::react::RCTJSIExecutorRuntimeInstaller([weakSelf, bridge](facebook::jsi::Runtime &runtime) {
       if (!bridge) {
         return;
