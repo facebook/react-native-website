@@ -117,7 +117,7 @@ Specifies whether fonts should scale to respect Text Size accessibility settings
 
 ### `android_errorMessage` <div class="label android">Android</div>
 
-String to be read by screenreaders to indicate an error state. If this value is not null, an error will be announced. You can use onChangeText or onBlur to detect an error and set this prop. Once the error is gone, set this to null to clear the error.
+String to be read by screenreaders to indicate an error state of a TextInput. The default is `null`.
 
 | Type   |
 | ------ |
@@ -131,7 +131,7 @@ Tells `TextInput` to automatically capitalize certain characters. This property 
 
 - `characters`: all characters.
 - `words`: first letter of each word.
-- `sentences`: first letter of each sentence (_default_).
+- `sentences`: first letter of each sentence (_default_) a.
 - `none`: don't auto capitalize anything.
 
 | Type                                             |
