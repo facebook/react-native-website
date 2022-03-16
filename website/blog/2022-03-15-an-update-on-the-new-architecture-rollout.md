@@ -56,7 +56,7 @@ In the next releases, we will keep on updating the template to make it even more
 
 To enable the New Architecture on either platform, you can:
 
-- On iOS, run `RCT_NEW_ARCH_ENABLED=1 pod install` inside the `ios` folder.
+- On iOS, run `RCT_NEW_ARCH_ENABLED=1 bundle exec pod install` inside the `ios` folder.
 - On Android, set the `newArchEnabled` property to `true` by **either**:
   - Changing the corresponding line inside the `android/gradle.properties` file.
   - Set an environment variable `ORG_GRADLE_PROJECT_newArchEnabled=true`
