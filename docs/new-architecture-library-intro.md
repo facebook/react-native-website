@@ -31,7 +31,7 @@ Currently, this guide is written under the assumption that you will be using [Fl
 The following is a basic JavaScript spec template, written using the [Flow](https://flow.org/) syntax.
 
 ```ts
-'use strict';
+// @flow
 
 import type {TurboModule} from 'react-native/Libraries/TurboModule/RCTExport';
 import {TurboModuleRegistry} from 'react-native';
@@ -40,7 +40,7 @@ export interface Spec extends TurboModule {
   +getConstants: () => {||};
 
   // your module methods go here, for example:
-  +getString(id: string): Promise<string>;
+  getString(id: string): Promise<string>;
 }
 
 export default (TurboModuleRegistry.get<Spec>('<MODULE_NAME>'): ?Spec);
