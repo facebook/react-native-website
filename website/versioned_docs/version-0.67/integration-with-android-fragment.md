@@ -44,7 +44,7 @@ Override the required methods `getUseDeveloperSupport`, `getPackages` and `getRe
 ```kotlin
 class MyReactApplication: Application(), ReactApplication {
 
-    override fun onCreate(): Unit {
+    override fun onCreate() {
         super.onCreate()
         SoLoader.init(this, false)
     }
