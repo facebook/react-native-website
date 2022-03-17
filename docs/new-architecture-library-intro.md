@@ -20,13 +20,15 @@ As the first step to adopting the new architecture, you will start by creating t
 The JavaScript spec defines all APIs that are provided by the native module, along with the types of those constants and functions.
 Using a **typed** spec file allows to be intentional and declare all the input arguments and outputs of your native module’s methods.
 
-By convention, JavaScript spec files are named `Native<MODULE_NAME>.js` and they export a `TurboModuleRegistry` `Spec` object.
-
 :::info
 
 Currently, this guide is written under the assumption that you will be using [Flow](https://flow.org/). The `react-native-codegen` package is also currently working only with Flow source as input. We know that a lot of our users are using **TypeScript** instead and we hope to release TypeScript support really soon. This guide will be updated once the TypeScript support is also available.
 
 :::
+
+#### Turbomodules
+
+JavaScript spec files **must** be named `Native<MODULE_NAME>.js` and they export a `TurboModuleRegistry` `Spec` object. The name convention is important because the Codegen process looks for modules whose `js` spec file starts with the keyword `Native`.
 
 The following is a basic JavaScript spec template, written using the [Flow](https://flow.org/) syntax.
 
@@ -44,6 +46,29 @@ export interface Spec extends TurboModule {
 }
 
 export default (TurboModuleRegistry.get<Spec>('<MODULE_NAME>'): ?Spec);
+```
+
+#### Fabric Components
+
+JavaScript spec files **must** be named `<FABRIC COMPONENT>NativeComponent.js` and they export a `HostComponent` object. The name convention is important: the Codegen process looks for components whose `js` spec file ends with the keyword `NativeComponent`.
+
+The following is a basic JavaScript spec template, written using the [Flow](https://flow.org/) syntax.
+
+```ts
+// @flow strict-local
+
+import type {ViewProps} from 'react-native/Libraries/Components/View/ViewPropTypes';
+import type {HostComponent} from 'react-native';
+import codegenNativeComponent from 'react-native/Libraries/Utilities/codegenNativeComponent';
+
+type NativeProps = $ReadOnly<{|
+  ...ViewProps,
+  // add other props here
+|}>;
+
+export default (codegenNativeComponent<NativeProps>(
+   '<FABRIC COMPONENT>',
+): HostComponent<NativeProps>);
 ```
 
 ### Supported Flow Types
