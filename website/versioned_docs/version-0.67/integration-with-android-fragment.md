@@ -192,7 +192,7 @@ Update your Activity's onCreate method as follows:
 <TabItem value="kotlin">
 
 ```kotlin
-override fun onCreate(savedInstanceState: Bundle): Unit {
+override fun onCreate(savedInstanceState: Bundle) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.main_activity)
 
