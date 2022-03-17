@@ -251,10 +251,8 @@ Add the `getLaunchOptions` method which will allow you to pass props through to 
 <TabItem value="kotlin">
 
 ```kotlin
-private fun getLaunchOptions(String message): Bundle {
-    val initialProperties = Bundle()
-    initialProperties.putString("message", message)
-    return initialProperties
+private fun getLaunchOptions(message: String) = Bundle().apply {
+    putString("message", message)
 }
 
 ```
