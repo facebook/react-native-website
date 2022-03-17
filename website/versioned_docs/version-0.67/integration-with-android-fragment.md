@@ -60,9 +60,7 @@ class MyReactApplication: Application(), ReactApplication {
         }
     }
 
-    override fun getReactNativeHost(): ReactNativeHost {
-        return reactNativeHost
-    }
+    override fun getReactNativeHost(): ReactNativeHost = reactNativeHost
 }
 ```
 
