@@ -51,9 +51,7 @@ class MyReactApplication: Application(), ReactApplication {
 
     private val reactNativeHost = object : ReactNativeHost(this) {
 
-        override fun getUseDeveloperSupport(): Boolean {
-            return BuildConfig.DEBUG
-        }
+        override fun getUseDeveloperSupport() = BuildConfig.DEBUG
 
         override fun getPackages(): List<ReactPackage> {
             val packages = PackageList(this).getPackages()
