@@ -34,7 +34,7 @@ Pod::Spec.new do |s|
     "HEADER_SEARCH_PATHS" => "\"$(PODS_ROOT)/boost\""
   }
 
-  s.dependency "React"
+  s.dependency "React-Core"
   s.dependency "React-RCTFabric" # This is for fabric component
   s.dependency "React-Codegen"
   s.dependency "RCT-Folly", folly_version
