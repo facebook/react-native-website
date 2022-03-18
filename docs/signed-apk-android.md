@@ -7,7 +7,11 @@ Android requires that all apps be digitally signed with a certificate before the
 
 ## Generating an upload key
 
-You can generate a private signing key using `keytool`. On Windows `keytool` must be run from `C:\Program Files\Java\jdkx.x.x_x\bin`.
+You can generate a private signing key using `keytool`.
+
+### Windows
+
+On Windows `keytool` must be run from `C:\Program Files\Java\jdkx.x.x_x\bin`.
 
     keytool -genkeypair -v -storetype PKCS12 -keystore my-upload-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000
 
@@ -15,7 +19,9 @@ This command prompts you for passwords for the keystore and key and for the Dist
 
 The keystore contains a single key, valid for 10000 days. The alias is a name that you will use later when signing your app, so remember to take note of the alias.
 
-On Mac, if you're not sure where your JDK bin folder is, then perform the following command to find it:
+### macOS
+
+On macOS, if you're not sure where your JDK bin folder is, then perform the following command to find it:
 
     /usr/libexec/java_home
 
