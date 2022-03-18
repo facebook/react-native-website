@@ -59,6 +59,12 @@ module.exports = {
       '@docusaurus/preset-classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
+        googleAnalytics: {
+          trackingID: 'UA-41298772-2',
+        },
+        gtag: {
+          trackingID: 'UA-41298772-2',
+        },
         docs: {
           path: '../docs',
           sidebarPath: require.resolve('./sidebars.json'),
@@ -353,15 +359,10 @@ module.exports = {
         copyright,
       },
       algolia: {
-        apiKey: '2c98749b4a1e588efec53b2acec13025',
+        appId: '8TDSE0OHGQ',
+        apiKey: '83cd239c72f9f8b0ed270a04b1185288',
         indexName: 'react-native-v2',
         contextualSearch: true,
-      },
-      googleAnalytics: {
-        trackingID: 'UA-41298772-2',
-      },
-      gtag: {
-        trackingID: 'UA-41298772-2',
       },
       metadata: [
         {

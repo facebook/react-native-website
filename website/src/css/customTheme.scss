@@ -501,7 +501,7 @@ div[class^="blogPostData"] {
   color: var(--subtle);
 }
 
-.main-wrapper.blog-wrapper .container.margin-vert--lg .col.text--right a {
+.plugin-blog .main-wrapper .container.margin-vert--lg .col.text--right a {
   padding: 8px 16px !important;
 }
 
@@ -514,7 +514,7 @@ a[class*="tagRegular"] {
   }
 }
 
-.blog-wrapper {
+.plugin-blog .main-wrapper {
   .pagination-nav__item .pagination-nav__label:before,
   .pagination-nav__item--next .pagination-nav__label:after {
     display: none;
@@ -1659,7 +1659,7 @@ html[data-theme="dark"] .docsRating {
 
 /* Blog */
 
-.main-wrapper.blog-wrapper {
+.plugin-blog .main-wrapper {
   h3[class*="sidebarItemTitle"] {
     color: var(--ifm-font-color-secondary);
   }
@@ -1735,8 +1735,8 @@ html[data-theme="dark"] .docsRating {
   }
 }
 
-html[data-theme="dark"] {
-  .main-wrapper.blog-wrapper {
+html[data-theme="dark"].plugin-blog {
+  .main-wrapper {
     .row .col.col--3 div[class^="sidebar"] {
       @extend %scrollbar-style-dark;
     }
@@ -1750,8 +1750,8 @@ html[data-theme="dark"] {
   }
 }
 
-html[data-theme="light"] {
-  .main-wrapper.blog-wrapper {
+html[data-theme="light"].plugin-blog {
+  .main-wrapper {
     .container.margin-vert--lg {
       .col.text--right a:hover {
         color: var(--ifm-link-color);
