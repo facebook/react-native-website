@@ -59,10 +59,12 @@ export default {
   defaultPackageManager,
   defaultPlatform,
   defaultSyntax,
+  defaultAndroidLanguage,
   getDevNotesTabs,
   guides,
   oses,
   packageManagers,
   platforms,
   syntax,
+  androidLanguages,
 };
