@@ -19,9 +19,9 @@ This command prompts you for passwords for the keystore and key and for the Dist
 
 The keystore contains a single key, valid for 10000 days. The alias is a name that you will use later when signing your app, so remember to take note of the alias.
 
-### Mac
+### macOS
 
-On Mac, if you're not sure where your JDK bin folder is, then perform the following command to find it:
+On macOS, if you're not sure where your JDK bin folder is, then perform the following command to find it:
 
     /usr/libexec/java_home
 
