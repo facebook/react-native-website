@@ -10,7 +10,7 @@ Welcome to the Architecture Overview! If you're getting started with React Nativ
 This section is a work in progress and more material will be added in the future. Please make sure to come back later to check for new information.
 :::
 
-Architecture Overview is intended to share conceptual overview of how React Native's internals work. The indented audience includes library authors and core contributors. If you are an app developer, it is not a requirement to be familiar with this material to be effective with React Native. You can still benefit from the overview as it will give you insights into how React Native works under the hood. Feel free to share your feedback on the <a href="https://github.com/reactwg/react-native-new-architecture/discussions/9">discussion inside the working group</a> for this section.
+Architecture Overview is intended to share conceptual overview of how React Native's internals work. The intended audience includes library authors and core contributors. If you are an app developer, it is not a requirement to be familiar with this material to be effective with React Native. You can still benefit from the overview as it will give you insights into how React Native works under the hood. Feel free to share your feedback on the <a href="https://github.com/reactwg/react-native-new-architecture/discussions/9">discussion inside the working group</a> for this section.
 
 ## Table of Contents
 
