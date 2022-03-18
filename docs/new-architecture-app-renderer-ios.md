@@ -74,12 +74,12 @@ The way to render your app with Fabric depends on your setup. Here is an example
   UIView *rootView =
       [[RCTFabricSurfaceHostingProxyRootView alloc] initWithBridge:bridge
                                                         moduleName:<#moduleName#>
-                                                 initialProperties:nil];
+                                                 initialProperties:@{}];
 #else
   // Current implementation to define rootview.
   RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge
                                                    moduleName:<#moduleName#>
-                                            initialProperties:nil];
+                                            initialProperties:@{}];
 #endif
 ```
 
