@@ -66,13 +66,13 @@ The way to render your app with Fabric depends on your setup. Here is an example
   _contextContainer->insert("ReactNativeConfig", _reactNativeConfig);
 
   _bridgeAdapter = [[RCTSurfacePresenterBridgeAdapter alloc]
-        initWithBridge:_bridge
+        initWithBridge:bridge
       contextContainer:_contextContainer];
 
-  _bridge.surfacePresenter = _bridgeAdapter.surfacePresenter;
+  bridge.surfacePresenter = _bridgeAdapter.surfacePresenter;
 
   UIView *rootView =
-      [[RCTFabricSurfaceHostingProxyRootView alloc] initWithBridge:_bridge
+      [[RCTFabricSurfaceHostingProxyRootView alloc] initWithBridge:bridge
                                                         moduleName:<#moduleName#>
                                                  initialProperties:nil];
 #else
