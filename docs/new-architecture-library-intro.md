@@ -444,14 +444,14 @@ class MyComponent extends React.Component<Props> {
 
 **Creating the NativeCommands with `codegenNativeCommands`**
 
-```js title="MyCustomMapNativeComponent.js"
+```ts title="MyCustomMapNativeComponent.js"
 import codegenNativeCommands from 'react-native/Libraries/Utilities/codegenNativeCommands';
 import type { HostComponent } from 'react-native/Libraries/Renderer/shims/ReactNativeTypes';
 
 type MyCustomMapNativeComponentType = HostComponent<NativeProps>;
 
- interface NativeCommands {
-   +moveToRegion: (
+interface NativeCommands {
+  +moveToRegion: (
      viewRef: React.ElementRef<MyCustomMapNativeComponentType>,
       region: MapRegion,
       duration: number,
