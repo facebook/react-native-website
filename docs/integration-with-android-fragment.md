@@ -54,7 +54,7 @@ class MyReactApplication: Application(), ReactApplication {
         override fun getUseDeveloperSupport() = BuildConfig.DEBUG
 
         override fun getPackages(): List<ReactPackage> {
-            val packages = PackageList(this).getPackages()
+            val packages = PackageList(this).getPackages().toMutableList()
             // Packages that cannot be autolinked yet can be added manually here
             return packages
         }
