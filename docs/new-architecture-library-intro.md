@@ -444,21 +444,19 @@ class MyComponent extends React.Component<Props> {
 
 **Creating the NativeCommands with `codegenNativeCommands`**
 
-```ts title="MyCustomMapNativeComponent.js"
-import codegeNativeCommands from 'react-native/Libraries/Utilities/codegenNativeCommands';
-...
-type Props = {...};
+```js title="MyCustomMapNativeComponent.js"
+import codegenNativeCommands from 'react-native/Libraries/Utilities/codegenNativeCommands';
+import type { HostComponent } from 'react-native/Libraries/Renderer/shims/ReactNativeTypes';
 
-const MyCustomMapNativeComponent: HostComponent<Props> =
-   requireNativeComponent<Props>('MyCustomMapNativeComponent');
+type MyCustomMapNativeComponentType = HostComponent<NativeProps>;
 
-interface NativeCommands {
-  moveToRegion: (
-    ref: React.ElementRef<typeof MyCustomMapNativeComponent>,
-    region: MapRegion,
-    duration: number,
-  ) => void;
-}
+ interface NativeCommands {
+   +moveToRegion: (
+     viewRef: React.ElementRef<MyCustomMapNativeComponentType>,
+      region: MapRegion,
+      duration: number,
+   ) => void;
+ }
 
 export const Commands: NativeCommands = codegenNativeCommands<NativeCommands>({
   supportedCommands: ['moveToRegion'],
