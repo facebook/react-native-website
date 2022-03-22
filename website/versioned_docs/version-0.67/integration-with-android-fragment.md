@@ -42,24 +42,20 @@ Override the required methods `getUseDeveloperSupport`, `getPackages` and `getRe
 <TabItem value="kotlin">
 
 ```kotlin
-class MyReactApplication: Application(), ReactApplication {
-
+class MyReactApplication : Application(), ReactApplication {
     override fun onCreate() {
         super.onCreate()
         SoLoader.init(this, false)
     }
-
-    private val reactNativeHost = object : ReactNativeHost(this) {
-
-        override fun getUseDeveloperSupport() = BuildConfig.DEBUG
-
-        override fun getPackages(): List<ReactPackage> {
-            val packages = PackageList(this).getPackages().toMutableList()
-            // Packages that cannot be autolinked yet can be added manually here
-            return packages
+    private val reactNativeHost =
+        object : ReactNativeHost(this) {
+            override fun getUseDeveloperSupport() = BuildConfig.DEBUG
+            override fun getPackages(): List<ReactPackage> {
+                val packages = PackageList(this).getPackages().toMutableList()
+                // Packages that cannot be autolinked yet can be added manually here
+                return packages
+            }
         }
-    }
-
     override fun getReactNativeHost(): ReactNativeHost = reactNativeHost
 }
 ```
