@@ -189,14 +189,12 @@ Update your Activity's onCreate method as follows:
 override fun onCreate(savedInstanceState: Bundle) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.main_activity)
-
     button = findViewById<Button>(R.id.button)
     button.setOnClickListener {
         val reactNativeFragment = ReactFragment.Builder()
                 .setComponentName("HelloWorld")
                 .setLaunchOptions(getLaunchOptions("test message"))
                 .build()
-
         getSupportFragmentManager()
                 .beginTransaction()
                 .add(R.id.reactNativeFragment, reactNativeFragment)
