@@ -39,28 +39,6 @@ public class MyReactApplication extends Application implements ReactApplication 
 Override the required methods `getUseDeveloperSupport`, `getPackages` and `getReactNativeHost`:
 
 <Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
-<TabItem value="kotlin">
-
-```kotlin
-class MyReactApplication : Application(), ReactApplication {
-    override fun onCreate() {
-        super.onCreate()
-        SoLoader.init(this, false)
-    }
-    private val reactNativeHost =
-        object : ReactNativeHost(this) {
-            override fun getUseDeveloperSupport() = BuildConfig.DEBUG
-            override fun getPackages(): List<ReactPackage> {
-                val packages = PackageList(this).getPackages().toMutableList()
-                // Packages that cannot be autolinked yet can be added manually here
-                return packages
-            }
-        }
-    override fun getReactNativeHost(): ReactNativeHost = reactNativeHost
-}
-```
-
-</TabItem>
 <TabItem value="java">
 
 ```java
@@ -92,24 +70,34 @@ public class MyReactApplication extends Application implements ReactApplication 
 ```
 
 </TabItem>
+<TabItem value="kotlin">
+
+```kotlin
+class MyReactApplication: Application(), ReactApplication {
+
+    override fun onCreate() {
+        super.onCreate()
+        SoLoader.init(this, false)
+    }
+
+    private val reactNativeHost = object: ReactNativeHost(this) {
+
+        override fun getUseDeveloperSupport() = BuildConfig.DEBUG
+
+        override fun getPackages() = PackageList(this).getPackages()
+    }
+
+    override fun getReactNativeHost() = reactNativeHost
+
+}
+```
+
+</TabItem>
 </Tabs>
 
 If you are using Android Studio, use Alt + Enter to add all missing imports in your class. Alternatively these are the required imports to include manually:
 
 <Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
-<TabItem value="kotlin">
-
-```kotlin
-import android.app.Application
-
-import com.facebook.react.PackageList
-import com.facebook.react.ReactApplication
-import com.facebook.react.ReactNativeHost
-import com.facebook.react.ReactPackage
-import com.facebook.soloader.SoLoader
-```
-
-</TabItem>
 <TabItem value="java">
 
 ```java
@@ -122,6 +110,20 @@ import com.facebook.react.ReactPackage;
 import com.facebook.soloader.SoLoader;
 
 import java.util.List;
+```
+
+</TabItem>
+<TabItem value="kotlin">
+
+```kotlin
+import android.app.Application
+
+import com.facebook.react.PackageList
+import com.facebook.react.ReactApplication
+import com.facebook.react.ReactNativeHost
+import com.facebook.react.ReactPackage
+import com.facebook.soloader.SoLoader
+
 ```
 
 </TabItem>
@@ -164,17 +166,17 @@ Now in your Activity class e.g. `MainActivity.java` you need to add an OnClickLi
 Add the button field to the top of your Activity:
 
 <Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
-<TabItem value="kotlin">
-
-```kotlin
-private lateinit var button: Button
-```
-
-</TabItem>
 <TabItem value="java">
 
 ```java
 private Button mButton;
+```
+
+</TabItem>
+<TabItem value="kotlin">
+
+```kotlin
+private lateinit var button: Button
 ```
 
 </TabItem>
@@ -183,29 +185,6 @@ private Button mButton;
 Update your Activity's onCreate method as follows:
 
 <Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
-<TabItem value="kotlin">
-
-```kotlin
-override fun onCreate(savedInstanceState: Bundle) {
-    super.onCreate(savedInstanceState)
-    setContentView(R.layout.main_activity)
-
-    button = findViewById<Button>(R.id.button)
-    button.setOnClickListener {
-        val reactNativeFragment =
-            ReactFragment.Builder()
-                .setComponentName("HelloWorld")
-                .setLaunchOptions(getLaunchOptions("test message"))
-                .build()
-        getSupportFragmentManager()
-            .beginTransaction()
-            .add(R.id.reactNativeFragment, reactNativeFragment)
-            .commit()
-    }
-}
-```
-
-</TabItem>
 <TabItem value="java">
 
 ```java
@@ -233,6 +212,29 @@ protected void onCreate(Bundle savedInstanceState) {
 ```
 
 </TabItem>
+<TabItem value="kotlin">
+
+```kotlin
+override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    setContentView(R.layout.main_activity)
+
+    mButton = findViewById(R.id.button)
+    mButton.setOnClickListener {
+        val reactNativeFragment = ReactFragment.Builder()
+            .setComponentName("HelloWorld")
+            .setLaunchOptions(getLaunchOptions("test message"))
+            .build()
+
+        supportFragmentManager
+            .beginTransaction()
+            .add(R.id.reactNativeFragment, reactNativeFragment)
+            .commit()
+    }
+}
+```
+
+</TabItem>
 </Tabs>
 
 In the code above `Fragment reactNativeFragment = new ReactFragment.Builder()` creates the ReactFragment and `getSupportFragmentManager().beginTransaction().add()` adds the Fragment to the Frame Layout.
@@ -242,16 +244,6 @@ If you are using a starter kit for React Native, replace the "HelloWorld" string
 Add the `getLaunchOptions` method which will allow you to pass props through to your component. This is optional and you can remove `setLaunchOptions` if you don't need to pass any props.
 
 <Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
-<TabItem value="kotlin">
-
-```kotlin
-private fun getLaunchOptions(message: String) = Bundle().apply {
-    putString("message", message)
-}
-
-```
-
-</TabItem>
 <TabItem value="java">
 
 ```java
@@ -263,25 +255,19 @@ private Bundle getLaunchOptions(String message) {
 ```
 
 </TabItem>
-</Tabs>
-
-Add all missing imports in your Activity class. Be careful to use your package’s BuildConfig and not the one from the facebook package! Alternatively these are the required imports to include manually:
-
-<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
 <TabItem value="kotlin">
 
 ```kotlin
-import android.app.Application
-
-import com.facebook.react.ReactApplication
-import com.facebook.react.ReactNativeHost
-import com.facebook.react.ReactPackage
-import com.facebook.react.shell.MainReactPackage
-import com.facebook.soloader.SoLoader
-
+ private fun getLaunchOptions(message: String) = Bundle().apply {
+     putString("message", message)
+}
 ```
 
 </TabItem>
+</Tabs>
+Add all missing imports in your Activity class. Be careful to use your package’s BuildConfig and not the one from the facebook package! Alternatively these are the required imports to include manually:
+
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
 <TabItem value="java">
 
 ```java
@@ -292,6 +278,19 @@ import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
+```
+
+</TabItem>
+<TabItem value="kotlin">
+
+```kotlin
+import android.app.Application
+
+import com.facebook.react.ReactApplication
+import com.facebook.react.ReactNativeHost
+import com.facebook.react.ReactPackage
+import com.facebook.react.shell.MainReactPackage
+import com.facebook.soloader.SoLoader
 ```
 
 </TabItem>
@@ -306,3 +305,7 @@ Make sure you run `yarn` to install your react-native dependencies and run `yarn
 ### Step 6. Additional setup - Native modules
 
 You may need to call out to existing Java code from your react component. Native modules allow you to call out to native code and run methods in your native app. Follow the setup here [native-modules-android](https://reactnative.dev/docs/native-modules-android)
+
+```
+
+```
