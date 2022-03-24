@@ -68,7 +68,7 @@ Android In the above example, TalkBack will read the hint after the label. At th
 
 ### `accessibilityLanguage` <div class="label ios">iOS</div>
 
-Using the `accessibilityLanguage` property the screen reader will understand which language to use while reading the element's **label**, **value** and **hint**. The provided string value must follow the [BCP 47 specification](https://www.rfc-editor.org/info/bcp47).
+By using the `accessibilityLanguage` property, the screen reader will understand which language to use while reading the element's **label**, **value** and **hint**. The provided string value must follow the [BCP 47 specification](https://www.rfc-editor.org/info/bcp47).
 
 ```jsx
 <View
