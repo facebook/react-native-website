@@ -23,10 +23,6 @@ const androidLanguages = [
   {label: 'Java', value: 'java'},
   {label: 'Kotlin', value: 'kotlin'},
 ];
-<<<<<<< HEAD
-
-=======
->>>>>>> integration-with-android-fragment
 const defaultAndroidLanguage = 'java';
 
 const guides = [
