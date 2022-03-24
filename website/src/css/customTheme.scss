@@ -277,6 +277,11 @@ hr {
     background-color: var(--light);
   }
 
+  div[class^="codeBlockContainer"] {
+    box-shadow: none;
+    margin-bottom: 1rem;
+  }
+
   div[class^="codeBlockContent"] {
     display: inline-grid;
     min-width: 100%;
@@ -1733,6 +1738,10 @@ html[data-theme="dark"] .docsRating {
       --ifm-col-width: calc(18 / 24 * 100%);
     }
   }
+
+  article.margin-bottom--xl {
+    margin-bottom: 2.5rem !important
+  }
 }
 
 html[data-theme="dark"] {
@@ -1767,6 +1776,7 @@ html[data-theme="light"] {
 
   .container.margin-vert--lg .row .col.col--7 {
     --ifm-col-width: 100% !important;
+    padding: 24px 16px !important;
   }
 
   .main-wrapper:not(.community-page) {
