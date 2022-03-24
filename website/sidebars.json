@@ -115,7 +115,11 @@
         "label": "Android",
         "collapsible": false,
         "collapsed": false,
-        "items": ["headless-js-android", "signed-apk-android"]
+        "items": [
+          "headless-js-android",
+          "signed-apk-android",
+          "build-speed-android"
+        ]
       },
       {
         "type": "category",
