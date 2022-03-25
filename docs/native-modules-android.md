@@ -28,7 +28,7 @@ We also recommend enabling [Gradle Daemon](https://docs.gradle.org/2.9/userguide
 
 ### Create A Custom Native Module File
 
-The first step is to create the (CalendarModule.java or CalendarModule.kt) Java/Kotlin file inside `android/app/src/main/java/com/your-app-name/` folder. This Java/Kotlin file will contain your native module Java/Kotlin class.
+The first step is to create the (`CalendarModule.java` or `CalendarModule.kt`) Java/Kotlin file inside `android/app/src/main/java/com/your-app-name/` folder (the folder is the same for both for either Kotlin of Java). This Java/Kotlin file will contain your native module Java/Kotlin class.
 
 <figure>
   <img src="/docs/assets/native-modules-android-add-class.png" width="700" alt="Image of adding a class called CalendarModule.java within the Android Studio." />
@@ -173,9 +173,22 @@ Once you finish implementing the native module and hook it up in JavaScript, you
 
 You can pass `isBlockingSynchronousMethod = true` to a native method to mark it as a synchronous method.
 
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="java">
+
 ```java
 @ReactMethod(isBlockingSynchronousMethod = true)
 ```
+
+</TabItem>
+<TabItem value="kotlin">
+
+```kotlin
+@ReactMethod(isBlockingSynchronousMethod = true)
+```
+
+</TabItem>
+</Tabs>
 
 At the moment, we do not recommend this, since calling methods synchronously can have strong performance penalties and introduce threading-related bugs to your native modules. Additionally, please note that if you choose to enable `isBlockingSynchronousMethod`, your app can no longer use the Google Chrome debugger. This is because synchronous methods require the JS VM to share memory with the app. For the Google Chrome debugger, React Native runs inside the JS VM in Google Chrome, and communicates asynchronously with the mobile devices via WebSockets.
 
@@ -238,16 +251,13 @@ import com.facebook.react.uimanager.ViewManager
 
 class MyAppPackage : ReactPackage {
 
-    override fun createViewManagers(reactContext: ReactApplicationContext):
-            MutableList<ViewManager<View, ReactShadowNode<*>>> =
-        mutableListOf()
+    override fun createViewManagers(
+        reactContext: ReactApplicationContext
+    ): MutableList<ViewManager<View, ReactShadowNode<*>>> = mutableListOf()
 
-    override fun createNativeModules(reactContext: ReactApplicationContext):
-            MutableList<NativeModule> {
-        val modules = mutableListOf<NativeModule>()
-        modules.add(CalendarModule(reactContext))
-        return modules
-    }
+    override fun createNativeModules(
+        reactContext: ReactApplicationContext
+    ): MutableList<NativeModule> = listOf(CalendarModule(reactContext)).toMutableList()
 }
 ```
 
@@ -258,7 +268,7 @@ This file imports the native module you created, `CalendarModule`. It then insta
 
 > It is worth noting that this way of registering native modules eagerly initializes all native modules when the application starts, which adds to the startup time of an application. You can use [TurboReactPackage](https://github.com/facebook/react-native/blob/master/ReactAndroid/src/main/java/com/facebook/react/TurboReactPackage.java) as an alternative. Instead of `createNativeModules`, which return a list of instantiated native module objects, TurboReactPackage implements a `getModule(String name, ReactApplicationContext rac)` method that creates the native module object, when required. TurboReactPackage is a bit more complicated to implement at the moment. In addition to implementing a `getModule()` method, you have to implement a `getReactModuleInfoProvider()` method, which returns a list of all the native modules the package can instantiate along with a function that instantiates them, example [here](https://github.com/facebook/react-native/blob/8ac467c51b94c82d81930b4802b2978c85539925/ReactAndroid/src/main/java/com/facebook/react/CoreModulesPackage.java#L86-L165). Again, using TurboReactPackage will allow your application to have a faster startup time, but it is currently a bit cumbersome to write. So proceed with caution if you choose to use TurboReactPackages.
 
-To register the `CalendarModule` package, you must add `MyAppPackage` to the list of packages returned in ReactNativeHost's `getPackages()` method. Open up your `MainApplication.java` or `MainApplication.kt` file, which can be found in the following path: `android/app/src/main/java/com/your-app-name/MainApplication.java` or `android/app/src/main/kotlin/com/your-app-name/MainApplication.kt`.
+To register the `CalendarModule` package, you must add `MyAppPackage` to the list of packages returned in ReactNativeHost's `getPackages()` method. Open up your `MainApplication.java` or `MainApplication.kt` file, which can be found in the following path: `android/app/src/main/java/com/your-app-name/`.
 
 Locate ReactNativeHost’s `getPackages()` method and add your package to the packages list `getPackages()` returns:
 
@@ -280,13 +290,13 @@ Locate ReactNativeHost’s `getPackages()` method and add your package to the pa
 <TabItem value="kotlin">
 
 ```kotlin
-override fun getPackages(): List<ReactPackage> {
-    val packages: MutableList<ReactPackage> = PackageList(this).packages
-    // Packages that cannot be autolinked yet can be added manually here, for example:
-    // packages.add(new MyReactNativePackage());
-    packages.add(MyAppPackage())
-    return packages
-}
+override fun getPackages(): List<ReactPackage> =
+    PackageList(this).packages.apply {
+        // Packages that cannot be autolinked yet can be added manually here, for example:
+        // packages.add(new MyReactNativePackage());
+        add(MyAppPackage())
+    }
+
 ```
 
 </TabItem>
@@ -414,23 +424,23 @@ CalendarModule.createCalendarEvent('foo', 'bar');
 
 When a native module method is invoked in JavaScript, React Native converts the arguments from JS objects to their Java/Kotlin object analogues. So for example, if your Java Native Module method accepts a double, in JS you need to call the method with a number. React Native will handle the conversion for you. Below is a list of the argument types supported for native module methods and the JavaScript equivalents they map to.
 
-| Java/Kotlin   | JavaScript |
-| ------------- | ---------- |
-| Boolean       | ?boolean   |
-| boolean       | boolean    |
-| Double        | ?number    |
-| double        | number     |
-| String        | string     |
-| Callback      | Function   |
-| ReadableMap   | Object     |
-| ReadableArray | Array      |
+| Java          | Kotlin        | JavaScript |
+| ------------- | ------------- | ---------- |
+| Boolean       | Boolean       | ?boolean   |
+| boolean       |               | boolean    |
+| Double        | Double        | ?number    |
+| double        |               | number     |
+| String        | String        | string     |
+| Callback      | Callback      | Function   |
+| ReadableMap   | ReadableMap   | Object     |
+| ReadableArray | ReadableArray | Array      |
 
 > The following types are currently supported but will not be supported in TurboModules. Please avoid using them:
 >
-> - Integer -> ?number
-> - int -> number
-> - Float -> ?number
-> - float -> number
+> - Integer Java/Kotlin -> ?number
+> - Float Java/Kotlin -> ?number
+> - int Java -> number
+> - float Java -> number
 
 For argument types not listed above, you will need to handle the conversion yourself. For example, in Android, `Date` conversion is not supported out of the box. You can handle the conversion to the `Date` type within the native method yourself like so:
 
@@ -454,8 +464,10 @@ For argument types not listed above, you will need to handle the conversion your
     val dateFormat = "yyyy-MM-dd"
     val sdf = SimpleDateFormat(dateFormat, Locale.US)
     val eStartDate = Calendar.getInstance()
-    sdf.parse(startDate)?.let {
-        eStartDate.time = it
+    try {
+        sdf.parse(startDate)?.let {
+            eStartDate.time = it
+        }
     }
 ```
 
@@ -482,11 +494,8 @@ public Map<String, Object> getConstants() {
 <TabItem value="kotlin">
 
 ```kotlin
-override fun getConstants(): MutableMap<String, Any> {
-    val constants: MutableMap<String, Any> = HashMap()
-    constants["DEFAULT_EVENT_NAME"] = "New Event"
-    return constants
-}
+override fun getConstants(): MutableMap<String, Any> =
+    hashMapOf("DEFAULT_EVENT_NAME" to "New Event")
 ```
 
 </TabItem>
@@ -1033,28 +1042,27 @@ class ImagePickerModule(reactContext: ReactApplicationContext) :
 
     @ReactMethod
     fun pickImage(promise: Promise) {
+        val currentActivity = currentActivity
 
         if (currentActivity == null) {
             promise.reject(E_ACTIVITY_DOES_NOT_EXIST, "Activity doesn't exist")
             return
         }
 
-        // Store the promise to resolve/reject when picker returns data
         pickerPromise = promise
 
         try {
-            val galleryIntent = Intent(Intent.ACTION_PICK)
-
-            galleryIntent.type = "image/\*"
+            val galleryIntent = Intent(Intent.ACTION_PICK).apply { type = "image\/*" }
 
             val chooserIntent = Intent.createChooser(galleryIntent, "Pick an image")
 
-            currentActivity!!.startActivityForResult(chooserIntent, IMAGE_PICKER_REQUEST)
+            currentActivity.startActivityForResult(chooserIntent, IMAGE_PICKER_REQUEST)
         } catch (t: Throwable) {
             pickerPromise?.reject(E_FAILED_TO_SHOW_PICKER, t)
             pickerPromise = null
         }
     }
+}
 
     companion object {
         const val IMAGE_PICKER_REQUEST = 1
