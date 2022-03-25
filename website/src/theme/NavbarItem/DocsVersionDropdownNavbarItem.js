@@ -15,8 +15,8 @@ import {
 import {useDocsPreferredVersion} from '@docusaurus/theme-common';
 import {translate} from '@docusaurus/Translate';
 
-const getVersionMainDoc = (version) =>
-  version.docs.find((doc) => doc.id === version.mainDocId);
+const getVersionMainDoc = version =>
+  version.docs.find(doc => doc.id === version.mainDocId);
 
 export default function DocsVersionDropdownNavbarItem({
   mobile,
@@ -41,7 +41,7 @@ export default function DocsVersionDropdownNavbarItem({
   const reducedVersions = versions.slice(0, 6);
 
   function getItems() {
-    const versionLinks = reducedVersions.map((version) => {
+    const versionLinks = reducedVersions.map(version => {
       // We try to link to the same doc, in another version
       // When not possible, fallback to the "main doc" of the version
       const versionDoc =
