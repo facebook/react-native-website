@@ -817,6 +817,12 @@ sendEvent(reactContext, "EventReminder", params);
 <TabItem value="kotlin">
 
 ```kotlin
+...
+import com.facebook.react.bridge.WritableMap
+import com.facebook.react.bridge.Arguments
+import com.facebook.react.modules.core.DeviceEventManagerModule
+...
+
 private fun sendEvent(reactContext: ReactContext, eventName: String, params: WritableMap?) {
     reactContext
       .getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter::class.java)
