@@ -305,4 +305,4 @@ Make sure you run `yarn` to install your react-native dependencies and run `yarn
 
 ### Step 6. Additional setup - Native modules
 
-You may need to call out to existing Java/Kotlin code from your react component. Native modules allow you to call out to native code and run methods in your native app. Follow the setup here [native-modules-android](https://reactnative.dev/docs/native-modules-android)
+You may need to call out to existing Java/Kotlin code from your react component. Native modules allow you to call out to native code and run methods in your native app. Follow the setup here [native-modules-android](/docs/native-modules-android)
