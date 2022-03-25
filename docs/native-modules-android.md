@@ -1042,9 +1042,9 @@ class ImagePickerModule(reactContext: ReactApplicationContext) :
 
     @ReactMethod
     fun pickImage(promise: Promise) {
-        val currentActivity = currentActivity
+        val activity = currentActivity
 
-        if (currentActivity == null) {
+        if (activity == null) {
             promise.reject(E_ACTIVITY_DOES_NOT_EXIST, "Activity doesn't exist")
             return
         }
@@ -1056,7 +1056,7 @@ class ImagePickerModule(reactContext: ReactApplicationContext) :
 
             val chooserIntent = Intent.createChooser(galleryIntent, "Pick an image")
 
-            currentActivity.startActivityForResult(chooserIntent, IMAGE_PICKER_REQUEST)
+            activity.startActivityForResult(chooserIntent, IMAGE_PICKER_REQUEST)
         } catch (t: Throwable) {
             pickerPromise?.reject(E_FAILED_TO_SHOW_PICKER, t)
             pickerPromise = null
