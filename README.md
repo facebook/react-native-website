@@ -35,9 +35,11 @@ If you are looking for the source code of the [React Native Archive website](htt
 
 ## 📖 Overview
 
-If you would like to **_contribute an edit or addition to the docs,_** read through our [style guide](STYLEGUIDE.md) before you write anything. All our content is generated from markdown files you can find in the `docs` directory.
+If you would like to **_contribute an edit or addition to the docs,_** read through our [style guide](STYLEGUIDE.md) before you write anything. 
+Almost all our content is generated from markdown files you can find in the `docs`, `website/architecure` and `website/contibuting` directories.
 
-**_To edit the internals of how the site is built,_** you may want to get familiarized with how the site is built. The React Native website is a static site generated using [Docusaurus](https://v2.docusaurus.io). The website configuration can be found in the `website` directory. Visit the Docusaurus website to learn more about all the available configuration options.
+**_To edit the internals of how the site is built,_** you may want to get familiarized with how the site is built. The React Native website is a static site generated using [Docusaurus](https://docusaurus.io/). 
+The website configuration can be found in the `website` directory. Visit the Docusaurus website to learn more about all the available configuration options.
 
 ### Directory Structure
 
@@ -46,52 +48,65 @@ The following is a high-level overview of relevant files and folders.
 ```
 react-native-website/
 ├── docs/
-│   ├── accessibility.md
+│   ├── [BASE VERSIONED DOC FILES]
 │   └── ...
 └── website/
+    ├── architecture/
+    │   ├── [ARCHITECTURE DOC FILES]
+    │   └── ...
     ├── blog/
-    │   ├── 2015-03-26-react-native-bringing-modern-web-techniques-to-mobile.md
+    │   ├── [BLOG POSTS]
+    │   └── ...
+    ├── contributing/
+    │   ├── [CONTRIBUTING DOC FILES]
     │   └── ...
     ├── core/
-    ├── pages/
-    │   └── en/
+    │   ├── [CUSTOM COMPONENTS]
+    │   └── ...
     ├── src/
     │   ├── css/
-    │   │   ├── customTheme.scss
+    │   │   ├── [CUSTOM STYLES]
     │   │   └── ...
     │   ├── pages/
-    │   │   ├── index.js
+    │   │   ├── [STATIC PAGES]
     │   │   └── ...
     │   └── theme/
+    │   │   ├── [SWIZZLED COMPONENTS]
+    │   │   └── ...
     ├── static/
     │   ├── blog/
     │   │   └── assets/
     │   ├── docs/
     │   │   └── assets/
-    │   ├── img/
-    │   └── js/
+    │   └── img/
     ├── versioned_docs/
-    │   ├── version-0.60/
+    │   ├── [GENERATED VERSIONED DOC FILES]
     │   └── ...
     ├── versioned_sidebars/
-    │   ├── version-0.60-sidebars.json
+    │   ├── [GENERATED VERSIONED SIDEBARS]
     │   └── ...
     ├── docusaurus.config.js
     ├── package.json
     ├── showcase.json
     ├── sidebars.json
+    ├── sidebarsArchitecture.json
+    ├── sidebarsContributing.json
     └── versions.json
 ```
 
 ### Documentation sources
 
-As mentioned above, the `docs` folder contains the source files for all of the docs in the React Native website. In most cases, you will want to edit the files within this directory. If you're adding a new doc or you need to alter the order the docs appear in the sidebar, take a look at the `sidebars.json` file in the `website` directory. The sidebars file contains a list of document ids that should match those defined in the header metadata (aka frontmatter) of the docs markdown files.
+As mentioned above, the `docs` folder contains the source files for docs from "Guides", "Components" and "APIs" tabs on the React Native website (versioned docs). 
+The doc files for the "Architecture" and "Contribution" tabs are located inside `website` in the respective directories (unversioned/static docs). 
+In most cases, you will only want to edit the files within those directories. 
+
+If you're adding a new doc or you need to alter the order the docs appear in the sidebar, take a look at the `sidebars.json`, `sidebarsArchitecture.json` and `sidebarsContributing.json` files in the `website` directory. The sidebar files contains a list of document ids that should match those defined in the header metadata (aka frontmatter) of the docs markdown files.
 
 ### Versioned docs
 
-The React Native website is versioned to allow users to go back and see the API reference docs for any given release. A new version of the website is generally generated whenever there is a new React Native release. When this happens, any changes made to the `docs` and `website/sidebars.json` files will be copied over to the corresponding location within `website/versioned_docs` and `website/versioned_sidebars`.
+Part of the React Native website is versioned to allow users to go back and see the Guides or API reference documentation for any given release. A new version of the website is generally generated whenever there is a new React Native release. When this happens, any changes made to the `docs` and `website/sidebars.json` files will be copied over to the corresponding location within `website/versioned_docs` and `website/versioned_sidebars`.
 
-> **_Note:_** Do not edit the auto-generated files within `versioned_docs` or `versioned_sidebars` unless you are sure it is necessary. Edits made to older versions will not be propagated to newer versions of the docs.
+> **_Note:_** Do not edit the auto-generated files within `versioned_docs` or `versioned_sidebars` unless you are sure it is necessary. Edits made to older versions will not be propagated to newer versions of the versioned docs.
 
 Docusaurus keeps track of the list of versions for the site in the `website/versions.json` file. The ordering of the versions in this file should be in reverse chronological order.
 
