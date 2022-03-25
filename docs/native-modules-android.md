@@ -296,7 +296,6 @@ override fun getPackages(): List<ReactPackage> =
         // packages.add(new MyReactNativePackage());
         add(MyAppPackage())
     }
-
 ```
 
 </TabItem>
@@ -1062,7 +1061,6 @@ class ImagePickerModule(reactContext: ReactApplicationContext) :
             pickerPromise = null
         }
     }
-}
 
     companion object {
         const val IMAGE_PICKER_REQUEST = 1
