@@ -15,9 +15,9 @@ Follow the guide for [Integration with Existing Apps](https://reactnative.dev/do
 
 You can render your React Native component into a Fragment instead of a full screen React Native Activity. The component may be termed a "screen" or "fragment" and it will function in the same manner as an Android fragment, likely containing child components. These components can be placed in a `/fragments` folder and the child components used to compose the fragment can be placed in a `/components` folder.
 
-You will need to implement the ReactApplication interface in your main Application Java class. If you have created a new project from Android Studio with a default activity, you will need to create a new class e.g. `MyReactApplication.java`. If it is an existing class you can find this main class in your `AndroidManifest.xml` file. Under the `<application />` tag you should see a property `android:name` e.g. `android:name=".MyReactApplication"`. This value is the class you want to implement and provide the required methods to.
+You will need to implement the `ReactApplication` interface in your main Application Java/Kotlin class. If you have created a new project from Android Studio with a default activity, you will need to create a new class (e.g. `MyReactApplication.java` or `MyReactApplication.kt`). If it is an existing class you can find this main class in your `AndroidManifest.xml` file. Under the `<application />` tag you should see a property `android:name` e.g. `android:name=".MyReactApplication"`. This value is the class you want to implement and provide the required methods to.
 
-Ensure your main Application Java class implements ReactApplication:
+Ensure your main Application class implements ReactApplication:
 
 <Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
 <TabItem value="kotlin">
@@ -159,7 +159,7 @@ Modify your Activity layout to add the button:
     android:text="Show react fragment" />
 ```
 
-Now in your Activity class e.g. `MainActivity.java` you need to add an OnClickListener for the button, instantiate your ReactFragment and add it to the frame layout.
+Now in your Activity class (e.g. `MainActivity.java` or `MainActivity.kt`) you need to add an `OnClickListener` for the button, instantiate your `ReactFragment` and add it to the frame layout.
 
 Add the button field to the top of your Activity:
 
@@ -180,7 +180,7 @@ private Button mButton;
 </TabItem>
 </Tabs>
 
-Update your Activity's onCreate method as follows:
+Update your Activity's `onCreate` method as follows:
 
 <Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
 <TabItem value="kotlin">
@@ -303,4 +303,4 @@ Make sure you run `yarn` to install your react-native dependencies and run `yarn
 
 ### Step 6. Additional setup - Native modules
 
-You may need to call out to existing Java code from your react component. Native modules allow you to call out to native code and run methods in your native app. Follow the setup here [native-modules-android](https://reactnative.dev/docs/native-modules-android)
+You may need to call out to existing Java/Kotlin code from your react component. Native modules allow you to call out to native code and run methods in your native app. Follow the setup here [native-modules-android](/docs/native-modules-android)
