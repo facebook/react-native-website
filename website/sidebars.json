@@ -66,7 +66,8 @@
       "optimizing-flatlist-configuration",
       "ram-bundles-inline-requires",
       "profiling",
-      "profile-hermes"
+      "profile-hermes",
+      "build-speed"
     ],
     "JavaScript Runtime": ["javascript-environment", "timers", "hermes"],
     "Native Modules": [
@@ -115,11 +116,7 @@
         "label": "Android",
         "collapsible": false,
         "collapsed": false,
-        "items": [
-          "headless-js-android",
-          "signed-apk-android",
-          "build-speed-android"
-        ]
+        "items": ["headless-js-android", "signed-apk-android"]
       },
       {
         "type": "category",
