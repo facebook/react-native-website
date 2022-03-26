@@ -23,7 +23,6 @@ const androidLanguages = [
   {label: 'Java', value: 'java'},
   {label: 'Kotlin', value: 'kotlin'},
 ];
-
 const defaultAndroidLanguage = 'java';
 
 const guides = [
