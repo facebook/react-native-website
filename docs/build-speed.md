@@ -144,5 +144,3 @@ Similar to the android compiler cache section above, we recommend using ccache, 
 For Xcode to take advantage of a compiler cache three steps are required:
 
 1. You must make symbolic links to the compilers that xcodebuild needs, similar to the links made above for `gcc` and `g++` but Xcode uses `clang` and `clang++`:
-
-
