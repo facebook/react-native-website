@@ -139,8 +139,62 @@ We defer to the sccache [distributed compilation quickstart](https://github.com/
 
 Compilation of Objective-C/C++ and Swift files may also be accelerated by a compiler cache.
 
-Similar to the android compiler cache section above, we recommend using ccache, and you should install it in the same way.
+Similar to the Android compiler cache section above, we recommend using `ccache`, and you should install it in the same way.
 
 For Xcode to take advantage of a compiler cache three steps are required:
 
 1. You must make symbolic links to the compilers that xcodebuild needs, similar to the links made above for `gcc` and `g++` but Xcode uses `clang` and `clang++`:
+
+```
+ln -s ccache /usr/local/bin/clang
+ln -s ccache /usr/local/bin/clang++
+```
+
+This will create symbolic links to `ccache` inside the `/usr/local/bin/` which are called `clang` and `clang++`.
+
+This works as long as `/usr/local/bin/` comes first than `/usr/bin/` inside your `$PATH` variable, which is the default.
+
+You can verify that it works using the `which` command:
+
+```
+$ which clang
+/usr/local/bin/clang
+```
+
+If the result is `/usr/local/bin/clang`, then you're effectively calling `ccache` which will wrap the `clang` calls.
+
+2. You must alter the way Xcode and `xcodebuild` call for the compiler command. By default they use _fully specified paths_ to the compiler binaries, so the symbolic links installed in `/usr/local/bin` will not be used. You may configure Xcode to use _relative_ names for the compilers using either of these two options:
+
+- environment variables prefixed on the command line if you use a direct command line: `CLANG=clang CLANGPLUSPLUS=clang++ LD=clang LDPLUSPLUS=clang++ xcodebuild <rest of xcodebuild command line>`
+- A `post_install` section in your `ios/Podfile` that alters the compiler in your Xcode workspace during the `pod install` step:
+
+```ruby
+  post_install do |installer|
+    react_native_post_install(installer)
+
+    # ...possibly other post_install items here
+
+    installer.pods_project.targets.each do |target|
+      target.build_configurations.each do |config|
+        # Using the un-qualified names means you can swap in different implementations, for example ccache
+        config.build_settings["CC"] = "clang"
+        config.build_settings["LD"] = "clang"
+        config.build_settings["CXX"] = "clang++"
+        config.build_settings["LDPLUSPLUS"] = "clang++"
+      end
+    end
+
+    __apply_Xcode_12_5_M1_post_install_workaround(installer)
+  end
+```
+
+3. A `ccache` configuration that allows for a certain level of sloppiness and cache behavior such that ccache registers cache hits during Xcode compiles. The ccache configuration variables that are different from standard are as follows if configured by environment variable:
+
+```bash
+export CCACHE_SLOPPINESS=clang_index_store,file_stat_matches,include_file_ctime,include_file_mtime,ivfsoverlay,pch_defines,modules,system_headers,time_macros
+export CCACHE_FILECLONE=true
+export CCACHE_DEPEND=true
+export CCACHE_INODECACHE=true
+```
+
+The same may be configured in a `ccache.conf` file or any other mechanism ccache provides. More on this can be found in the [official ccache manual](https://ccache.dev/manual/4.3.html).
