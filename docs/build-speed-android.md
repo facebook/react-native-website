@@ -1,21 +1,23 @@
 ---
-id: build-speed-android
-title: Speeding up your Android Build
+id: build-speed
+title: Speeding up your Build
 ---
 
-Building your React Native app on Android could be **expensive** and take several minutes of developers time.
+Building your React Native app could be **expensive** and take several minutes of developers time.
 This can be problematic as your project grows and generally in bigger organizations with multiple React Native developers.
 
 With [the New React Native Architecture](/docs/next/new-architecture-app-modules-android), this problem is becoming more critical
-as you might have to compile some native code (C++) in your project with the Android NDK.
+as you might have to compile some native C++ code in your project with the Android NDK in addition to the native code already necessary for the iOS and Android platforms.
 
-To mitigate this performance hit, this page shares some suggestions on how to **improve your Android build time**.
+To mitigate this performance hit, this page shares some suggestions on how to **improve your build time**.
 
-## Build only one ABI
+## Android
 
-When building your app locally, you build all the 4 ABIs by default: `armeabi-v7a`, `arm64-v8a`, `x86` & `x86_64`.
+### Build only one ABI
 
-However, you probably don't need to build all of them if you're building locally and testing your emulator or on a phisical device.
+When building your android app locally, you build all the 4 ABIs by default: `armeabi-v7a`, `arm64-v8a`, `x86` & `x86_64`.
+
+However, you probably don't need to build all of them if you're building locally and testing your emulator or on a physical device.
 
 This should reduce your build time by a **~75% factor**.
 
@@ -69,7 +71,7 @@ if an intermediate compilation result was originally stored.
 To install it, you can follow the [official installation instructions](https://github.com/ccache/ccache/blob/master/doc/INSTALL.md).
 
 On Mac OS, we recommend to install ccache with `brew install ccache`.
-Once installed you can configure it as follows:
+Once installed you can configure it as follows to cache NDK compile results:
 
 ```
 ln -s ccache /usr/local/bin/gcc
@@ -130,3 +132,17 @@ This could be specifically useful in bigger organizations that are doing frequen
 
 We recommend to use [sccache](https://github.com/mozilla/sccache) to achieve this.
 We defer to the sccache [distributed compilation quickstart](https://github.com/mozilla/sccache/blob/main/docs/DistributedQuickstart.md) for instructions on how to setup and use this tool.
+
+## iOS
+
+### Use a compiler cache
+
+Compilation of Objective-C/C++ and Swift files may also be accelerated by a compiler cache.
+
+Similar to the android compiler cache section above, we recommend using ccache, and you should install it in the same way.
+
+For Xcode to take advantage of a compiler cache three steps are required:
+
+1. You must make symbolic links to the compilers that xcodebuild needs, similar to the links made above for `gcc` and `g++` but Xcode uses `clang` and `clang++`:
+
+
