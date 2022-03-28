@@ -137,7 +137,7 @@ We defer to the sccache [distributed compilation quickstart](https://github.com/
 
 ### Use a compiler cache
 
-Compilation of Objective-C/C++ and Swift files may also be accelerated by a compiler cache.
+Compilation of Objective-C/C++ files may also be accelerated by a compiler cache.
 
 Similar to the Android compiler cache section above, we recommend using `ccache`, and you should install it in the same way.
 
