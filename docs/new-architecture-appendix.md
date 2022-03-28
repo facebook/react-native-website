@@ -25,7 +25,7 @@ You may use the following table as a reference for which types are supported and
 
 ### Object literal
 
-This is recommended over simply using `Object`, for type safety.
+This is recommended over using plain `Object`, for type safety.
 
 **Example:** `{| foo: string, ... |}`
 
