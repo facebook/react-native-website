@@ -112,6 +112,8 @@ Primary storage:
   Cache size (GB): 0.60 / 20.00 (3.00 %)
 ```
 
+Note that `ccache` aggregates the stats over all builds. You can use `ccache --zero-stats` to reset them before a build to verify the cache-hit ratio.
+
 Should you need to wipe your cache, you can do so with `ccache --clear`
 
 #### Using this approach on a CI
