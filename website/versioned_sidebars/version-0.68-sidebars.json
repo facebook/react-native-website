@@ -1,0 +1,234 @@
+{
+  "docs": {
+    "The Basics": [
+      "getting-started",
+      "intro-react-native-components",
+      "intro-react",
+      "handling-text-input",
+      "using-a-scrollview",
+      "using-a-listview",
+      "troubleshooting",
+      "platform-specific-code",
+      "more-resources"
+    ],
+    "Environment setup": [
+      "environment-setup",
+      "integration-with-existing-apps",
+      "integration-with-android-fragment",
+      "building-for-tv",
+      "out-of-tree-platforms"
+    ],
+    "Workflow": [
+      "running-on-device",
+      "fast-refresh",
+      "debugging",
+      "symbolication",
+      "testing-overview",
+      "libraries",
+      "typescript",
+      "upgrading",
+      {
+        "type": "category",
+        "label": "Connectivity",
+        "collapsible": false,
+        "collapsed": false,
+        "items": ["network", "security"]
+      }
+    ],
+    "Design": [
+      "style",
+      "height-and-width",
+      "flexbox",
+      "images",
+      "colors",
+      {
+        "type": "category",
+        "label": "Interaction",
+        "collapsible": false,
+        "collapsed": false,
+        "items": [
+          "handling-touches",
+          "navigation",
+          "animations",
+          "gesture-responder-system"
+        ]
+      },
+      {
+        "type": "category",
+        "label": "Inclusion",
+        "collapsible": false,
+        "collapsed": false,
+        "items": ["accessibility"]
+      }
+    ],
+    "Performance": [
+      "performance",
+      "build-speed",
+      "optimizing-flatlist-configuration",
+      "ram-bundles-inline-requires",
+      "profiling",
+      "profile-hermes"
+    ],
+    "JavaScript Runtime": ["javascript-environment", "timers", "hermes"],
+    "Native Modules": [
+      "native-modules-intro",
+      "native-modules-android",
+      "native-modules-ios",
+      "native-modules-setup"
+    ],
+    "Native Components": [
+      "native-components-android",
+      "native-components-ios",
+      "direct-manipulation"
+    ],
+    "The New Architecture": [
+      "new-architecture-intro",
+      {
+        "type": "category",
+        "label": "Supporting in your Library",
+        "collapsible": false,
+        "collapsed": false,
+        "items": [
+          "new-architecture-library-intro",
+          "new-architecture-library-android",
+          "new-architecture-library-ios"
+        ]
+      },
+      {
+        "type": "category",
+        "label": "Supporting in your App",
+        "collapsible": false,
+        "collapsed": false,
+        "items": [
+          "new-architecture-app-intro",
+          "new-architecture-app-modules-android",
+          "new-architecture-app-modules-ios",
+          "new-architecture-app-renderer-android",
+          "new-architecture-app-renderer-ios"
+        ]
+      },
+      "new-architecture-troubleshooting",
+      "new-architecture-appendix"
+    ],
+    "Android and iOS guides": [
+      {
+        "type": "category",
+        "label": "Android",
+        "collapsible": false,
+        "collapsed": false,
+        "items": ["headless-js-android", "signed-apk-android"]
+      },
+      {
+        "type": "category",
+        "label": "iOS",
+        "collapsible": false,
+        "collapsed": false,
+        "items": [
+          "linking-libraries-ios",
+          "running-on-simulator-ios",
+          "communication-ios",
+          "app-extensions",
+          "publishing-to-app-store"
+        ]
+      }
+    ]
+  },
+  "api": {
+    "APIs": [
+      "accessibilityinfo",
+      "alert",
+      "animated",
+      "animatedvalue",
+      "animatedvaluexy",
+      "appearance",
+      "appregistry",
+      "appstate",
+      "devsettings",
+      "dimensions",
+      "easing",
+      "interactionmanager",
+      "keyboard",
+      "layoutanimation",
+      "linking",
+      "panresponder",
+      "pixelratio",
+      "platform",
+      "platformcolor",
+      "roottag",
+      "share",
+      "stylesheet",
+      "systrace",
+      "transforms",
+      "vibration",
+      {
+        "type": "category",
+        "label": "Hooks",
+        "collapsed": false,
+        "items": ["usecolorscheme", "usewindowdimensions"]
+      },
+      {
+        "type": "category",
+        "label": "Android APIs",
+        "collapsed": false,
+        "items": ["backhandler", "permissionsandroid", "toastandroid"]
+      },
+      {
+        "type": "category",
+        "label": "iOS APIs",
+        "collapsed": false,
+        "items": ["actionsheetios", "dynamiccolorios", "settings"]
+      }
+    ]
+  },
+  "components": {
+    "Core Components": [
+      "components-and-apis",
+      "activityindicator",
+      "button",
+      "flatlist",
+      "image",
+      "imagebackground",
+      "keyboardavoidingview",
+      "modal",
+      "pressable",
+      "refreshcontrol",
+      "scrollview",
+      "sectionlist",
+      "statusbar",
+      "switch",
+      "text",
+      "textinput",
+      "touchablehighlight",
+      "touchableopacity",
+      "touchablewithoutfeedback",
+      "view",
+      "virtualizedlist",
+      {
+        "type": "category",
+        "label": "Android Components",
+        "collapsed": false,
+        "items": ["drawerlayoutandroid", "touchablenativefeedback"]
+      },
+      {
+        "type": "category",
+        "label": "iOS Components",
+        "collapsed": false,
+        "items": ["inputaccessoryview", "safeareaview"]
+      }
+    ],
+    "Props": [
+      "image-style-props",
+      "layout-props",
+      "shadow-props",
+      "text-style-props",
+      "view-style-props"
+    ],
+    "Object Types": [
+      "layoutevent",
+      "pressevent",
+      "react-node",
+      "rect",
+      "viewtoken"
+    ]
+  }
+}
