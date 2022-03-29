@@ -11,21 +11,79 @@ import NewArchitectureWarning from './\_markdown-new-architecture-warning.mdx';
 
 You may use the following table as a reference for which types are supported and what they map to in each platform:
 
-| Flow Type                                      | Nullable Support?                             | Android (Java)                       | iOS                                                            | Note                                                                           |
-| ---------------------------------------------- | --------------------------------------------- | ------------------------------------ | -------------------------------------------------------------- | ------------------------------------------------------------------------------ |
-| `string`                                       | `?string`                                     | `String`                             | `NSString`                                                     |                                                                                |
-| `boolean`                                      | `?boolean`                                    | `Boolean`                            | `NSNumber`                                                     |                                                                                |
-| `number`                                       | No                                            | `double`                             | `NSNumber`                                                     |                                                                                |
-| <code>{&#124; foo: string, ... &#124;}</code>  | <code>?{&#124; foo: string, ...&#124;}</code> |                                      |                                                                | Object literal. This is recommended over simply using Object, for type safety. |
-| `Object`                                       | `?Object`                                     | `ReadableMap`                        | `@{} (untyped dictionary)`                                     | Recommended to use object literal (see above).                                 |
-| `Array<*>`                                     | `?Array<*>`                                   | `ReadableArray`                      | `NSArray` (or `RCTConvertVecToArray` when used inside objects) |                                                                                |
-| `Function`                                     | `?Function`                                   |                                      |                                                                |                                                                                |
-| `Promise<*>`                                   | `?Promise<*>`                                 | `com.facebook.react.bridge.Promise`  | `RCTPromiseResolve` and `RCTPromiseRejectBlock`                |                                                                                |
-| Type aliases of the above                      | Yes                                           |                                      |                                                                |                                                                                |
-| Type Unions <code>'SUCCESS'&#124;'FAIL'</code> | Only as callbacks.                            |                                      |                                                                | Type unions only supported as callbacks.                                       |
-| Callbacks: `( ) =>`                            | Yes                                           | `com.facebook.react.bridge.Callback` | `RCTResponseSenderBlock`                                       | Callback functions are not type checked, and are generalized as Objects.       |
+### `string`
 
+| Nullable Support? | Android (Java) | iOS        |
+| ----------------- | -------------- | ---------- |
+| `?string`         | `String`       | `NSString` |
+
+### `boolean`
+
+| Nullable Support? | Android (Java) | iOS        |
+| ----------------- | -------------- | ---------- |
+| `?boolean`        | `Boolean`      | `NSNumber` |
+
+### Object literal
+
+This is recommended over using plain `Object`, for type safety.
+
+**Example:** `{| foo: string, ... |}`
+
+| Nullable Support?                             | Android (Java) | iOS |
+| --------------------------------------------- | -------------- | --- |
+| <code>?{&#124; foo: string, ...&#124;}</code> | -              | -   |
+
+### `Object`
+
+:::note
+Recommended to use [Object literal](#object-literal) instead.
+:::
+
+| Nullable Support? | Android (Java) | iOS                        |
+| ----------------- | -------------- | -------------------------- |
+| `?Object`         | `ReadableMap`  | `@{}` (untyped dictionary) |
+
+### `Array<*>`
+
+| Nullable Support? | Android (Java)  | iOS                                                            |
+| ----------------- | --------------- | -------------------------------------------------------------- |
+| `?Array<*>`       | `ReadableArray` | `NSArray` (or `RCTConvertVecToArray` when used inside objects) |
+
+### `Function`
+
+| Nullable Support? | Android (Java) | iOS |
+| ----------------- | -------------- | --- |
+| `?Function`       | -              | -   |
+
+### `Promise<*>`
+
+| Nullable Support? | Android (Java)                      | iOS                                             |
+| ----------------- | ----------------------------------- | ----------------------------------------------- |
+| `?Promise<*>`     | `com.facebook.react.bridge.Promise` | `RCTPromiseResolve` and `RCTPromiseRejectBlock` |
+
+### Type Unions
+
+Type unions are only supported as callbacks.
+
+**Example:** `'SUCCESS' | 'FAIL'`
+
+| Nullable Support?  | Android (Java) | iOS |
+| ------------------ | -------------- | --- |
+| Only as callbacks. | -              | -   |
+
+### Callbacks
+
+Callback functions are not type checked, and are generalized as `Object`s.
+
+**Example:** `() =>`
+
+| Nullable Support? | Android (Java)                       | iOS                      |
+| ----------------- | ------------------------------------ | ------------------------ |
+| Yes               | `com.facebook.react.bridge.Callback` | `RCTResponseSenderBlock` |
+
+:::note
 You may also find it useful to refer to the JavaScript specifications for the core modules in React Native. These are located inside the `Libraries/` directory in the React Native repository.
+:::
 
 ## II. Invoking the code-gen during development
 
