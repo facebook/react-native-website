@@ -25,6 +25,12 @@ const androidLanguages = [
 ];
 const defaultAndroidLanguage = 'java';
 
+const turboModuleSpecLanguages = [
+  {label: 'Flow', value: 'flow'},
+  {label: 'TypeScript', value: 'typescript'},
+];
+const defaultTurboModuleSpecLanguage = 'flow';
+
 const guides = [
   {label: 'Expo CLI Quickstart', value: 'quickstart'},
   {label: 'React Native CLI Quickstart', value: 'native'},
@@ -59,6 +65,8 @@ export default {
   defaultPlatform,
   defaultSyntax,
   defaultAndroidLanguage,
+  turboModuleSpecLanguages,
+  defaultTurboModuleSpecLanguage,
   getDevNotesTabs,
   guides,
   oses,
