@@ -18,19 +18,21 @@ As the first step to adopting the new architecture, you will start by creating t
 ### Writing the JavaScript Spec
 
 The JavaScript spec defines all APIs that are provided by the native module, along with the types of those constants and functions.
-Using a **typed** spec file allows to be intentional and declare all the input arguments and outputs of your native module’s methods.
+Using a **typed** spec file allows us to be intentional and declare all the input arguments and outputs of your native module’s methods.
 
 :::info
 
-Currently, this guide is written under the assumption that you will be using [Flow](https://flow.org/). The `react-native-codegen` package is also currently working only with Flow source as input. We know that a lot of our users are using **TypeScript** instead and we hope to release TypeScript support really soon. This guide will be updated once the TypeScript support is also available.
+JavaScript spec files can be written in either [Flow](https://flow.org/) or [TypeScript](https://www.typescriptlang.org/). The Codegen process will automatically choose the correct type parser based on your spec file's extension (`.js` for Flow, `.ts` or `.tsx` for TypeScript).
 
 :::
 
-#### Turbomodules
+#### TurboModules
 
-JavaScript spec files **must** be named `Native<MODULE_NAME>.js` and they export a `TurboModuleRegistry` `Spec` object. The name convention is important because the Codegen process looks for modules whose `js` spec file starts with the keyword `Native`.
+JavaScript spec files **must** be named `Native<MODULE_NAME>.js` (for TypeScript use extension `.ts` or `.tsx`) and they export a `TurboModuleRegistry` `Spec` object. The name convention is important because the Codegen process looks for modules whose JavaScript spec file starts with the keyword `Native`.
 
-The following is a basic JavaScript spec template, written using the [Flow](https://flow.org/) syntax.
+The following is a basic JavaScript spec template, written in [Flow](https://flow.org/) as well as [TypeScript](https://www.typescriptlang.org/).
+
+##### TurboModule: Flow Example
 
 ```ts
 // @flow
@@ -48,11 +50,29 @@ export interface Spec extends TurboModule {
 export default (TurboModuleRegistry.get<Spec>('<MODULE_NAME>'): ?Spec);
 ```
 
+##### Turbo Module: TypeScript Example
+
+```ts
+import type { TurboModule } from 'react-native/Libraries/TurboModule/RCTExport';
+import * as TurboModuleRegistry from 'react-native/Libraries/TurboModule/TurboModuleRegistry';
+
+export interface Spec extends TurboModule {
+  readonly getConstants: () => {};
+
+  // your module methods go here, for example:
+  getString(id: string): Promise<string>;
+}
+
+export default TurboModuleRegistry.get<Spec>('<MODULE_NAME>');
+```
+
 #### Fabric Components
 
-JavaScript spec files **must** be named `<FABRIC COMPONENT>NativeComponent.js` and they export a `HostComponent` object. The name convention is important: the Codegen process looks for components whose `js` spec file ends with the keyword `NativeComponent`.
+JavaScript spec files **must** be named `<FABRIC COMPONENT>NativeComponent.js` (for TypeScript use extension `.ts` or `.tsx`) and they export a `HostComponent` object. The name convention is important: the Codegen process looks for components whose `js` spec file ends with the keyword `NativeComponent`.
 
-The following is a basic JavaScript spec template, written using the [Flow](https://flow.org/) syntax.
+The following is a basic JavaScript spec template, written in [Flow](https://flow.org/) as well as [TypeScript](https://www.typescriptlang.org/).
+
+##### Fabric Component: Flow Example
 
 ```ts
 // @flow strict-local
@@ -69,6 +89,22 @@ type NativeProps = $ReadOnly<{|
 export default (codegenNativeComponent<NativeProps>(
    '<FABRIC COMPONENT>',
 ): HostComponent<NativeProps>);
+```
+
+##### Fabric Component: TypeScript Example
+
+```ts
+import type { ViewProps } from 'ViewPropTypes';
+import type { HostComponent } from 'react-native';
+const codegenNativeComponent = require('codegenNativeComponent');
+
+export interface NativeProps extends ViewProps {
+  // add other props here
+}
+
+export default codegenNativeComponent<NativeProps>(
+  '<FABRIC COMPONENT>'
+) as HostComponent<NativeProps>;
 ```
 
 ### Supported Flow Types
