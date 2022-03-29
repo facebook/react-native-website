@@ -1,6 +1,6 @@
 ---
 id: build-speed
-title: Speeding up your Build
+title: Speeding up your Build phase
 ---
 
 Building your React Native app could be **expensive** and take several minutes of developers time.
@@ -11,11 +11,10 @@ as you might have to compile some native C++ code in your project with the Andro
 
 To mitigate this performance hit, this page shares some suggestions on how to **improve your build time**.
 
-## Android
-
-### Build only one ABI
+## Build only one ABI during development (Android-only)
 
 When building your android app locally, you build all the 4 ABIs by default: `armeabi-v7a`, `arm64-v8a`, `x86` & `x86_64`.
+When building your android app locally, by default you build all the 4 [Application Binary Interfaces (ABIs)](developer.android.com/ndk/guides/abis) : `armeabi-v7a`, `arm64-v8a`, `x86` & `x86_64`.
 
 However, you probably don't need to build all of them if you're building locally and testing your emulator or on a physical device.
 
@@ -59,10 +58,17 @@ Once you build a **release version** of your app, don't forget to remove those f
 
 ## Use a compiler cache
 
-If you're running frequent native builds, you might benefit from using a compiler cache.
+If you're running frequent native builds (either C++ or Objective-C), you might benefit from using a **compiler cache**.
+
 Specifically you can use two type of caches: local compiler caches and distributed compiler caches.
 
 ### Local caches
+
+:::info
+The following instructions will work for **both Android & iOS**.
+If you're building only Android apps, you should be good to go.
+If you're building also iOS apps, please follow the instructions in the [XCode Specific Setup](#xcode-specific-setup) section below.
+:::
 
 We suggest to use [**ccache**](https://ccache.dev/) to cache the compilation of your native builds.
 Ccache works by wrapping the C++ compilers, storing the compilation results, and skipping the compilation
@@ -70,7 +76,7 @@ if an intermediate compilation result was originally stored.
 
 To install it, you can follow the [official installation instructions](https://github.com/ccache/ccache/blob/master/doc/INSTALL.md).
 
-On Mac OS, we recommend to install ccache with `brew install ccache`.
+On Mac OS, we can install ccache with `brew install ccache`.
 Once installed you can configure it as follows to cache NDK compile results:
 
 ```
@@ -78,9 +84,11 @@ ln -s ccache /usr/local/bin/gcc
 ln -s ccache /usr/local/bin/g++
 ln -s ccache /usr/local/bin/cc
 ln -s ccache /usr/local/bin/c++
+ln -s ccache /usr/local/bin/clang
+ln -s ccache /usr/local/bin/clang++
 ```
 
-This will create symbolic links to `ccache` inside the `/usr/local/bin/` which are called `gcc`, `g++`, `cc` and `c++`.
+This will create symbolic links to `ccache` inside the `/usr/local/bin/` which are called `gcc`, `g++`, and so on.
 
 This works as long as `/usr/local/bin/` comes first than `/usr/bin/` inside your `$PATH` variable, which is the default.
 
@@ -93,7 +101,22 @@ $ which gcc
 
 If the results is `/usr/local/bin/gcc`, then you're effectively calling `ccache` which will wrap the `gcc` calls.
 
-You can then do two Android clean builds. You will notice that the second build was way faster than the first one (it should take seconds rather than minutes).
+:::caution
+Please note that this setup of `ccache` will affect all the compilations that you're running on your machine, not only those related to React Native. Use it at your own risk. If you're failing to install/compile other software, this might be the reason. If that is the case, you can remove the symlink you created with:
+
+```
+unlink /usr/local/bin/gcc
+unlink /usr/local/bin/g++
+unlink /usr/local/bin/cc
+unlink /usr/local/bin/c++
+unlink /usr/local/bin/clang
+unlink /usr/local/bin/clang++
+```
+
+to revert your machine to the original status and use the default compilers.
+:::
+
+You can then do two clean builds (e.g. on Android you can first run `yarn react-native run-android`, delete the `android/app/build` folder and run the first command once more). You will notice that the second build was way faster than the first one (it should take seconds rather than minutes).
 While building, you can verify that `ccache` works correctly and check the cache hits/miss rate `ccache -s`
 
 ```
@@ -116,56 +139,11 @@ Note that `ccache` aggregates the stats over all builds. You can use `ccache --z
 
 Should you need to wipe your cache, you can do so with `ccache --clear`
 
-#### Using this approach on a CI
+#### XCode Specific Setup
 
-Ccache uses the `/Users/$USER/Library/Caches/ccache` folder on macOS to store the cache.
-Therefore you could save & restore this folder also on CI to speedup your builds.
+To make sure `ccache` works correctly with iOS and XCode, you need to follow a couple of extra steps:
 
-However, there are a couple of things to be aware:
-
-1. On CI, we recommend to do a full clean build, to avoid poisoned cache problems. If you follow the approach mentioned in the previous paragraph, you should be able to parallelize the native build on 4 different ABIs and you will most likely not need `ccache` on CI.
-
-2. `ccache` relies on timestamps to compute a cache hit. This doesn't work well on CI as files are re-downloaded at every CI run. To overcome this, you'll need to use the `compiler_check content` option which relies instead on [hashing the content of the file](https://ccache.dev/manual/4.3.html).
-
-### Distributed caches
-
-Similar to local caches, you might want to consider using a distributed cache for your native builds.
-This could be specifically useful in bigger organizations that are doing frequent native builds.
-
-We recommend to use [sccache](https://github.com/mozilla/sccache) to achieve this.
-We defer to the sccache [distributed compilation quickstart](https://github.com/mozilla/sccache/blob/main/docs/DistributedQuickstart.md) for instructions on how to setup and use this tool.
-
-## iOS
-
-### Use a compiler cache
-
-Compilation of Objective-C/C++ files may also be accelerated by a compiler cache.
-
-Similar to the Android compiler cache section above, we recommend using `ccache`, and you should install it in the same way.
-
-For Xcode to take advantage of a compiler cache three steps are required:
-
-1. You must make symbolic links to the compilers that xcodebuild needs, similar to the links made above for `gcc` and `g++` but Xcode uses `clang` and `clang++`:
-
-```
-ln -s ccache /usr/local/bin/clang
-ln -s ccache /usr/local/bin/clang++
-```
-
-This will create symbolic links to `ccache` inside the `/usr/local/bin/` which are called `clang` and `clang++`.
-
-This works as long as `/usr/local/bin/` comes first than `/usr/bin/` inside your `$PATH` variable, which is the default.
-
-You can verify that it works using the `which` command:
-
-```
-$ which clang
-/usr/local/bin/clang
-```
-
-If the result is `/usr/local/bin/clang`, then you're effectively calling `ccache` which will wrap the `clang` calls.
-
-2. You must alter the way Xcode and `xcodebuild` call for the compiler command. By default they use _fully specified paths_ to the compiler binaries, so the symbolic links installed in `/usr/local/bin` will not be used. You may configure Xcode to use _relative_ names for the compilers using either of these two options:
+1. You must alter the way Xcode and `xcodebuild` call for the compiler command. By default they use _fully specified paths_ to the compiler binaries, so the symbolic links installed in `/usr/local/bin` will not be used. You may configure Xcode to use _relative_ names for the compilers using either of these two options:
 
 - environment variables prefixed on the command line if you use a direct command line: `CLANG=clang CLANGPLUSPLUS=clang++ LD=clang LDPLUSPLUS=clang++ xcodebuild <rest of xcodebuild command line>`
 - A `post_install` section in your `ios/Podfile` that alters the compiler in your Xcode workspace during the `pod install` step:
@@ -190,7 +168,7 @@ If the result is `/usr/local/bin/clang`, then you're effectively calling `ccache
   end
 ```
 
-3. A `ccache` configuration that allows for a certain level of sloppiness and cache behavior such that ccache registers cache hits during Xcode compiles. The ccache configuration variables that are different from standard are as follows if configured by environment variable:
+2. You need a ccache configuration that allows for a certain level of sloppiness and cache behavior such that ccache registers cache hits during Xcode compiles. The ccache configuration variables that are different from standard are as follows if configured by environment variable:
 
 ```bash
 export CCACHE_SLOPPINESS=clang_index_store,file_stat_matches,include_file_ctime,include_file_mtime,ivfsoverlay,pch_defines,modules,system_headers,time_macros
@@ -200,3 +178,22 @@ export CCACHE_INODECACHE=true
 ```
 
 The same may be configured in a `ccache.conf` file or any other mechanism ccache provides. More on this can be found in the [official ccache manual](https://ccache.dev/manual/4.3.html).
+
+#### Using this approach on a CI
+
+Ccache uses the `/Users/$USER/Library/Caches/ccache` folder on macOS to store the cache.
+Therefore you could save & restore the corresponding folder also on CI to speedup your builds.
+
+However, there are a couple of things to be aware:
+
+1. On CI, we recommend to do a full clean build, to avoid poisoned cache problems. If you follow the approach mentioned in the previous paragraph, you should be able to parallelize the native build on 4 different ABIs and you will most likely not need `ccache` on CI.
+
+2. `ccache` relies on timestamps to compute a cache hit. This doesn't work well on CI as files are re-downloaded at every CI run. To overcome this, you'll need to use the `compiler_check content` option which relies instead on [hashing the content of the file](https://ccache.dev/manual/4.3.html).
+
+### Distributed caches
+
+Similar to local caches, you might want to consider using a distributed cache for your native builds.
+This could be specifically useful in bigger organizations that are doing frequent native builds.
+
+We recommend to use [sccache](https://github.com/mozilla/sccache) to achieve this.
+We defer to the sccache [distributed compilation quickstart](https://github.com/mozilla/sccache/blob/main/docs/DistributedQuickstart.md) for instructions on how to setup and use this tool.
