@@ -63,6 +63,7 @@
     ],
     "Performance": [
       "performance",
+      "build-speed",
       "optimizing-flatlist-configuration",
       "ram-bundles-inline-requires",
       "profiling",
