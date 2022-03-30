@@ -66,6 +66,19 @@ iOS In the above example, VoiceOver will read the hint after the label, if the u
 
 Android In the above example, TalkBack will read the hint after the label. At this time, hints cannot be turned off on Android.
 
+### `accessibilityLanguage` <div class="label ios">iOS</div>
+
+By using the `accessibilityLanguage` property, the screen reader will understand which language to use while reading the element's **label**, **value** and **hint**. The provided string value must follow the [BCP 47 specification](https://www.rfc-editor.org/info/bcp47).
+
+```jsx
+<View
+  accessible={true}
+  accessibilityLabel="Pizza"
+  accessibilityLanguage="it-IT">
+  <Text>🍕</Text>
+</View>
+```
+
 ### `accessibilityIgnoresInvertColors` <div class="label ios">iOS</div>
 
 Inverting screen colors is an Accessibility feature that makes the iPhone and iPad easier on the eyes for some people with a sensitivity to brightness, easier to distinguish for some people with color blindness, and easier to make out for some people with low vision. However, sometimes you have views such as photos that you don't want to be inverted. In this case, you can set this property to be false so that these specific views won't have their colors inverted.
