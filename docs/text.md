@@ -262,6 +262,18 @@ An accessibility hint helps users understand what will happen when they perform 
 
 ---
 
+### `accessibilityLanguage` <div class="label ios">iOS</div>
+
+A value indicating which language should be used by the screen reader when the user interacts with the element. It should follow the [BCP 47 specification](https://www.rfc-editor.org/info/bcp47).
+
+See the [iOS `accessibilityLanguage` doc](https://developer.apple.com/documentation/objectivec/nsobject/1615192-accessibilitylanguage) for more information.
+
+| Type   |
+| ------ |
+| string |
+
+---
+
 ### `accessibilityLabel`
 
 Overrides the text that's read by the screen reader when the user interacts with the element. By default, the label is constructed by traversing all the children and accumulating all the `Text` nodes separated by space.
@@ -358,9 +370,9 @@ Specifies whether fonts should scale to respect Text Size accessibility settings
 
 Sets the frequency of automatic hyphenation to use when determining word breaks on Android API Level 23+.
 
-| Type                                             | Default  |
-| ------------------------------------------------ | -------- |
-| enum(`'none'`, `'full'`, `'balanced'`, `'high'`) | `'none'` |
+| Type                                | Default  |
+| ----------------------------------- | -------- |
+| enum(`'none'`, `'normal'`,`'full'`) | `'none'` |
 
 ---
 

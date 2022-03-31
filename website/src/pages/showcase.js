@@ -92,7 +92,7 @@ const Showcase = () => {
         </div>
         <div className="logos">{apps.map(renderApp)}</div>
         <a
-          class="form-button"
+          className="form-button"
           href="https://forms.gle/BdNf3v5hemV9D5c86"
           target="_blank">
           Fill out this form to apply to the customer spotlight.

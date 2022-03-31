@@ -1,7 +1,6 @@
 @import "shared";
 
 :root {
-  --ifm-color-primary: #06bcee;
   --brand: #61dafb;
   --dark: #282c34;
   --deepdark: #20232a;
@@ -11,15 +10,19 @@
   --divider: #ececec;
   --tintColor: #f7f7f7;
   --rn-note-background: rgba(255, 229, 100, 0.25);
+  --ifm-font-family-base: "Optimistic Display", system-ui, -apple-system,
+    sans-serif;
+  --ifm-color-primary: #06bcee;
   --ifm-font-size-base: 17px;
   --ifm-spacing-horizontal: 16px;
-  --ifm-navbar-item-padding-horizontal: 20px;
+  --ifm-navbar-item-padding-horizontal: 18px;
   --ifm-menu-link-padding-horizontal: 0;
   --ifm-toc-padding-vertical: 6px;
   --ifm-toc-link-color: var(--ifm-color-emphasis-700);
   --ifm-code-font-size: 90%;
   --ifm-code-border-radius: 3px;
   --ifm-blockquote-color: var(--ifm-font-color-base);
+  --ifm-blockquote-font-size: 16px;
   --ifm-table-head-color: var(--subtle);
   --ifm-link-hover-decoration: none;
   --ifm-navbar-background-color: var(--deepdark);
@@ -34,8 +37,8 @@
   --ifm-pagination-nav-color-hover: var(--ifm-color-emphasis-300);
   --doc-sidebar-width: 100%;
   --ifm-table-border-width: 0.005rem;
-
   --ifm-navbar-sidebar-width: 100%;
+
   @media (min-width: 340px) {
     --ifm-navbar-sidebar-width: 340px;
   }
@@ -44,6 +47,7 @@
 html[data-theme="light"] {
   --ifm-code-background: rgba(0, 0, 0, 0.06);
   --docsearch-container-background: rgba(32, 35, 42, 0.6);
+  --ifm-link-color: #357da1;
 }
 
 html[data-theme="dark"] {
@@ -64,15 +68,56 @@ html[data-theme="dark"] {
   }
 }
 
+::marker {
+  color: var(--ifm-font-color-secondary);
+}
+
+/* Font */
+
+@font-face {
+  font-family: "Optimistic Display";
+  src: url("https://facebookmicrosites.github.io/design/public/fonts/OptimisticDisplayLight-199be98cf48e5b4c688356b08a02362c.woff2")
+    format("woff2");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Optimistic Display";
+  src: url("https://facebookmicrosites.github.io/design/public/fonts/OptimisticDisplayRegular-b0e4e99f91efd0021c3ab8e4df0e6e1b.woff2")
+    format("woff2");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Optimistic Display";
+  src: url("https://facebookmicrosites.github.io/design/public/fonts/OptimisticDisplayBold-3a50548145f36de582c3b36d9626f4d6.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
 /* Content */
 
 .main-wrapper {
   max-width: 1400px;
   width: 1400px;
   align-self: center;
+  font-weight: 300;
+
+  div[class*="docPage"] {
+    justify-content: center;
+  }
 
   h1[class^="docTitle"] {
     font-size: 2.8rem;
+  }
+
+  .admonition-content {
+    a {
+      text-decoration: none;
+    }
   }
 }
 
@@ -89,22 +134,13 @@ main[class^="docMainContainer"] > .container {
 
 @media (max-width: 1320px) and (min-width: 997px) {
   .container {
-    max-width: calc(
-      var(--ifm-container-width) - 125px - var(--ifm-spacing-horizontal) * 2
-    );
-  }
-}
-
-@media (min-width: 1440px) {
-  .container {
-    max-width: auto !important;
+    max-width: calc(var(--ifm-container-width) - var(--doc-sidebar-width) / 2);
   }
 }
 
 @media (min-width: 997px) {
   main[class^="docMainContainer"] {
-    width: calc(100% - var(--doc-sidebar-width));
-    display: contents;
+    max-width: calc(100% - var(--doc-sidebar-width) + 44px);
   }
 }
 
@@ -241,6 +277,16 @@ hr {
     background-color: var(--light);
   }
 
+  div[class^="codeBlockContainer"] {
+    box-shadow: none;
+    margin-bottom: 1rem;
+  }
+
+  div[class^="codeBlockContent"] {
+    display: inline-grid;
+    min-width: 100%;
+  }
+
   div[class^="codeBlockLines"] {
     font-size: 80%;
   }
@@ -337,6 +383,16 @@ html[data-theme="dark"] article .badge {
   }
 }
 
+.admonition {
+  text-align: left;
+  font-size: var(--ifm-blockquote-font-size);
+  line-height: var(--ifm-pre-line-height);
+
+  h5 {
+    font-size: 14px;
+  }
+}
+
 /* Home page */
 
 .homepage {
@@ -368,10 +424,6 @@ html[data-theme="dark"] article .badge {
     font-size: 1.5rem;
     margin-top: 16px;
     display: inline-block;
-  }
-
-  .container--fluid > div {
-    padding-top: 0 !important;
   }
 
   .row .col p a {
@@ -438,6 +490,40 @@ html[data-theme="dark"] .avatar__name a {
 
 .avatar__subtitle {
   margin-top: 0;
+  font-weight: 500;
+  color: var(--subtle);
+}
+
+article header h2 a {
+  color: var(--ifm-font-color-base);
+
+  &:hover {
+    color: var(--light);
+  }
+}
+
+div[class^="blogPostData"] {
+  color: var(--subtle);
+}
+
+.main-wrapper.blog-wrapper .container.margin-vert--lg .col.text--right a {
+  padding: 8px 16px !important;
+}
+
+a[class*="tagRegular"] {
+  padding: 6px 12px !important;
+
+  &:hover {
+    background: var(--ifm-menu-color-background-active);
+    --docusaurus-tag-list-border: inherit;
+  }
+}
+
+.blog-wrapper {
+  .pagination-nav__item .pagination-nav__label:before,
+  .pagination-nav__item--next .pagination-nav__label:after {
+    display: none;
+  }
 }
 
 /* Navbar */
@@ -463,8 +549,8 @@ html[data-theme="dark"] .avatar__name a {
 
   .navbar__item {
     &.navbar__link {
-      font-weight: 300;
-      font-size: 18px;
+      font-weight: 400;
+      font-size: 17px;
       user-select: none;
     }
 
@@ -523,6 +609,7 @@ html[data-theme="dark"] .avatar__name a {
   .DocSearch-Button {
     border-radius: var(--ifm-global-radius);
     padding: 0 6px 0 10px;
+    font-family: var(--ifm-font-family-base);
 
     .DocSearch-Search-Icon {
       width: 16px;
@@ -577,11 +664,11 @@ html[data-theme="dark"] .avatar__name a {
     display: flex;
     width: calc(100% + 40px);
     height: 4px;
-    margin-top: -3px;
+    margin-top: -4px;
     margin-left: -20px;
     margin-right: -20px;
     position: relative;
-    top: 17px;
+    top: 18px;
     background: var(--brand);
   }
 }
@@ -613,6 +700,12 @@ So we need to "revert" some CSS vars to not enforce dark mode
       color: var(--ifm-color-emphasis-700);
       padding: 6px 12px 8px;
     }
+
+    .menu__list-item-collapsible a[class*="menuLinkText"] {
+      font-weight: 600;
+      font-size: 14px;
+      background: var(--ifm-background-color) !important;
+    }
   }
 
   .navbar-github-link {
@@ -636,10 +729,19 @@ html[data-theme="dark"] .navbar-sidebar {
   background: var(--ifm-background-color);
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 1200px) {
   .navbar {
+    .navbar__item.navbar__link {
+      font-size: 15px;
+
+      &.navbar__link--active:after {
+        top: 20px;
+      }
+    }
+
     .DocSearch-Button {
       padding: 0 12px;
+      max-width: 40px;
     }
 
     .DocSearch-Button-Key,
@@ -653,24 +755,39 @@ html[data-theme="dark"] .navbar-sidebar {
 /* Sidebar */
 
 aside[class^="docSidebarContainer"] {
-  margin-right: 16px;
   --doc-sidebar-width: 266px;
+  margin-right: 16px;
 
   .thin-scrollbar {
     @extend %scrollbar-style;
   }
 
-  .menu__list .menu__link--sublist {
-    font-size: 15px !important;
+  .menu__list .menu__link--sublist,
+  a[class*="menuLinkText"] {
+    font-size: 16px !important;
     font-weight: 700 !important;
     padding: 5px 12px !important;
-    color: var(--subtle) !important;
+    color: var(--ifm-color-content-secondary) !important;
 
     &:after {
       background-size: 1.66rem 1.66rem;
       margin-right: -6px;
       margin-top: -1px;
     }
+  }
+
+  .menu__list .menu__list .menu__link--sublist,
+  a[class*="menuLinkText"] {
+    font-weight: 700 !important;
+    font-size: 15px !important;
+  }
+
+  .menu__list-item .menu__list-item .menu__list-item {
+    padding-left: 8px !important;
+  }
+
+  .theme-doc-sidebar-item-category .menu__list .menu__list-item-collapsible {
+    margin-top: 6px;
   }
 
   @media only screen and (max-width: 1120px) {
@@ -695,8 +812,9 @@ aside[class^="docSidebarContainer"] {
 }
 
 .menu__list {
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   transition: none !important;
+  height: auto !important;
 
   .menu__list-item {
     margin-bottom: 2px;
@@ -704,18 +822,37 @@ aside[class^="docSidebarContainer"] {
     user-select: none;
   }
 
+  .menu__link--sublist {
+    font-size: 15px;
+    font-weight: 600;
+    padding: 5px 12px !important;
+    color: var(--light);
+
+    &:after {
+      background-size: 1.66rem 1.66rem;
+      margin-right: -6px;
+    }
+  }
+
   .menu__list {
     .menu__link {
       line-height: 20px;
       font-size: 13px;
       padding: 3px 12px;
-      font-weight: normal;
+      font-weight: 300;
       color: var(--ifm-font-color-base);
     }
 
     .menu__link--sublist {
-      font-weight: 600 !important;
-      margin-top: 4px;
+      font-size: 14px !important;
+    }
+
+    .menu__list .menu__link {
+      padding: 3px 12px;
+    }
+
+    .menu__list .menu__link--active {
+      padding-left: 12px;
     }
   }
 
@@ -723,12 +860,19 @@ aside[class^="docSidebarContainer"] {
     border-left-width: 4px;
     border-left-style: solid;
     border-left-color: var(--ifm-menu-color-active) !important;
-    font-weight: 700 !important;
-    padding-left: 8px;
+    font-weight: 600 !important;
+    padding-left: 8px !important;
+    background: var(--ifm-code-background);
   }
 
   .menu__list-item--collapsed .menu__list {
     margin-bottom: 0;
+  }
+}
+
+.menu__list-item.menu__list-item--collapsed {
+  .menu__list {
+    height: 0 !important;
   }
 }
 
@@ -739,6 +883,14 @@ aside[class^="docSidebarContainer"] {
 
 html[data-theme="dark"] .menu {
   @extend %scrollbar-style-dark;
+
+  .menu__list > .menu__list-item > .menu__link--sublist {
+    color: var(--ifm-color-emphasis-400);
+  }
+
+  .menu__list .menu__list .menu__link--sublist {
+    color: var(--subtle);
+  }
 }
 
 /* TOC */
@@ -772,6 +924,14 @@ div[class^="tableOfContents"] {
       padding: 0;
       border: 0;
     }
+
+    &:hover {
+      color: var(--ifm-link-color);
+
+      code {
+        color: var(--ifm-link-color);
+      }
+    }
   }
 
   .table-of-contents__link--active {
@@ -786,11 +946,32 @@ div[class^="tableOfContents"] {
       color: var(--ifm-font-color-base);
       white-space: nowrap;
     }
+
+    &:hover {
+      color: var(--ifm-font-color-base);
+
+      code {
+        color: var(--ifm-font-color-base);
+      }
+    }
   }
 }
 
 html[data-theme="dark"] div[class^="tableOfContents"] {
   @extend %scrollbar-style-dark;
+}
+
+button[class*="tocCollapsibleButton"] {
+  color: var(--ifm-color-content-secondary);
+}
+
+.navbar-sidebar {
+  background: var(--ifm-background-surface-color);
+}
+
+.navbar-sidebar__back {
+  color: var(--ifm-color-content-secondary);
+  background: var(--ifm-footer-background-color);
 }
 
 /* Doc Item footer metadata */
@@ -942,21 +1123,6 @@ html[data-theme="dark"] div[class^="tableOfContents"] {
       text-align: center;
     }
   }
-}
-
-/* Blog */
-
-article header h2 a {
-  color: var(--ifm-font-color-base);
-
-  &:hover {
-    color: var(--light);
-  }
-}
-
-.avatar__subtitle {
-  font-weight: 600;
-  color: var(--subtle);
 }
 
 /* Announcement banner */
@@ -1225,7 +1391,7 @@ h2 .label {
 }
 
 h3 .label {
-  top: -2px;
+  top: -3px;
   margin-left: 22px;
   line-height: 20px;
 }
@@ -1237,11 +1403,11 @@ td .label {
 
   &:before {
     left: -8px;
-    border-width: 9px 8px 9px 0;
+    border-width: 10px 8px 10px 0;
   }
 
   &:after {
-    top: 7px;
+    top: 8px;
   }
 
   &.required {
@@ -1273,7 +1439,7 @@ td .label {
   height: 6px;
   border-radius: 100%;
   margin-left: 4px;
-  margin-top: 8px;
+  margin-top: 7px;
   white-space: nowrap;
   overflow: hidden;
   color: transparent;
@@ -1478,6 +1644,10 @@ html[data-theme="dark"] .docsRating {
   grid-template-rows: 1fr;
   grid-template-areas: ". .";
 
+  div[class^="codeBlockContainer"] {
+    overflow: auto;
+  }
+
   div[class^="codeBlockLines"] {
     white-space: pre-wrap;
   }
@@ -1492,9 +1662,13 @@ html[data-theme="dark"] .docsRating {
   }
 }
 
-/* Blog sidebar */
+/* Blog */
 
 .main-wrapper.blog-wrapper {
+  h3[class*="sidebarItemTitle"] {
+    color: var(--ifm-font-color-secondary);
+  }
+
   .container.margin-vert--lg {
     max-width: calc(100% - (var(--ifm-spacing-horizontal)) * 4);
     margin-top: 0 !important;
@@ -1512,21 +1686,24 @@ html[data-theme="dark"] .docsRating {
       margin-right: 16px;
     }
 
+    .docusaurus-mt-lg {
+      margin-top: 2rem;
+    }
+
     footer {
-      strong {
+      b {
         font-weight: 500;
+      }
+
+      .text--right b {
+        font-weight: 700;
       }
     }
   }
 
   .container .row .col.col--3 {
     --ifm-col-width: calc(5 / 24 * 100%);
-    padding-left: 0;
-
-    &:last-child {
-      --ifm-col-width: calc(4 / 24 * 100%);
-      padding-right: 0;
-    }
+    padding: 0;
 
     div[class^="sidebar"] {
       h3 {
@@ -1535,7 +1712,7 @@ html[data-theme="dark"] .docsRating {
       }
 
       h4 {
-        font-weight: 500;
+        font-weight: 700;
         font-size: 14px;
         margin-top: 14px;
         margin-bottom: 6px;
@@ -1555,11 +1732,15 @@ html[data-theme="dark"] .docsRating {
 
   .container .row .col.col--7 {
     --ifm-col-width: calc(15 / 24 * 100%);
-    padding: 24px 16px 24px 20px;
+    padding: 24px 16px 24px 32px;
 
     &:last-child {
       --ifm-col-width: calc(18 / 24 * 100%);
     }
+  }
+
+  article.margin-bottom--xl {
+    margin-bottom: 2.5rem !important
   }
 }
 
@@ -1578,6 +1759,16 @@ html[data-theme="dark"] {
   }
 }
 
+html[data-theme="light"] {
+  .main-wrapper.blog-wrapper {
+    .container.margin-vert--lg {
+      .col.text--right a:hover {
+        color: var(--ifm-link-color);
+      }
+    }
+  }
+}
+
 @media only screen and (max-width: 996px) {
   .container.margin-vert--lg .row .col.col--3 {
     display: none;
@@ -1585,6 +1776,7 @@ html[data-theme="dark"] {
 
   .container.margin-vert--lg .row .col.col--7 {
     --ifm-col-width: 100% !important;
+    padding: 24px 16px !important;
   }
 
   .main-wrapper:not(.community-page) {

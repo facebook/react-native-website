@@ -77,7 +77,7 @@ function formatTypeColumn(prop) {
         const isMatch = prop.flowType.raw.match(/: [a-zA-Z]*/);
         if (isMatch) {
           // Formats EventType
-          const eventType = isMatch[0].substr(2);
+          const eventType = isMatch[0].slice(2);
           // Checks for aliases in magic and generates md url
           if (
             Object.hasOwnProperty.call(magic.linkableTypeAliases, eventType)
