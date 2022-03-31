@@ -186,6 +186,23 @@ Post a string to be announced by the screen reader.
 
 ---
 
+### `announceForAccessibilityWithOptions()`
+
+```jsx
+static announceForAccessibilityWithOptions(announcement, options)
+```
+
+Post a string to be announced by the screen reader with modification options. By default announcements will interrupt any existing speech, but on iOS they can be queued behind existing speech by setting `queue` to `true` in the options object.
+
+**Parameters:**
+
+| Name                                                          | Type   | Description                                                                              |
+| ------------------------------------------------------------- | ------ | ---------------------------------------------------------------------------------------- |
+| announcement <div class="label basic required">Required</div> | string | The string to be announced                                                               |
+| options <div class="label basic required">Required</div>      | object | `queue` - queue the announcement behind existing speech <div class="label ios">iOS</div> |
+
+---
+
 ### `getRecommendedTimeoutMillis()` <div class="label android">Android</div>
 
 ```jsx
