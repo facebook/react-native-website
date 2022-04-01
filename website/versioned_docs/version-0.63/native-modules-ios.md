@@ -229,7 +229,7 @@ This JavaScript file also becomes a good location for you to add any JavaScript 
 * 2. String location: A string representing the location of the event
 */
 import { NativeModules } from 'react-native';
-const { CalendarModule } = NativeModules
+const { CalendarModule } = NativeModules;
 interface CalendarInterface {
    createCalendarEvent(name: string, location: string): void;
 }
