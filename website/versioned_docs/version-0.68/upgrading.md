@@ -7,9 +7,9 @@ Upgrading to new versions of React Native will give you access to more APIs, vie
 
 ## Expo projects
 
-Upgrading your Expo project to a new version of React Native requires updating the `react-native`, `react`, and `expo` package versions in your `package.json` file. Please refer to [this list](https://docs.expo.io/versions/latest/sdk/#sdk-version) to find out what versions are supported. You will also need to set the correct `sdkVersion` in your `app.json` file.
+Upgrading your Expo project to a new version of React Native requires updating the `react-native`, `react`, and `expo` package versions in your `package.json` file. Please refer to [this list](https://docs.expo.dev/versions/latest/#each-expo-sdk-version-depends-on-a) to find out what versions are supported. You will also need to set the correct `sdkVersion` in your `app.json` file.
 
-See the [Upgrading Expo SDK Walkthrough](https://docs.expo.io/versions/latest/workflow/upgrading-expo-sdk-walkthrough) for up-to-date information about upgrading your project.
+See the [Upgrading Expo SDK Walkthrough](https://docs.expo.dev/workflow/upgrading-expo-sdk-walkthrough/) for up-to-date information about upgrading your project.
 
 ## React Native projects
 
