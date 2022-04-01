@@ -197,3 +197,40 @@ This could be specifically useful in bigger organizations that are doing frequen
 
 We recommend to use [sccache](https://github.com/mozilla/sccache) to achieve this.
 We defer to the sccache [distributed compilation quickstart](https://github.com/mozilla/sccache/blob/main/docs/DistributedQuickstart.md) for instructions on how to setup and use this tool.
+
+## Troubleshooting
+
+Please find instructions on how to solve some of the most common build performance issue in this section.
+
+### Clean Android build with `--active-arch-only` is failing.
+
+If you're using the `--active-arch-only` flag on a clean Android build (e.g. after having cloned a project or after having created a new project) you might experience a build failures as follows:
+
+```
+Android NDK: ERROR:/.../android/app/src/main/jni/Android.mk:fb: LOCAL_SRC_FILES points to a missing file
+Android NDK: Check that /.../android/app/build/react-ndk/exported/armeabi-v7a/libfb.so exists or that its path is correct
+
+/.../Android/sdk/ndk/24.0.8079956/build/core/prebuilt-library.mk:51: *** Android NDK: Aborting    .  Stop.
+```
+
+To overcome this, you can either:
+
+1. Run a full build before without `--active-arch-only`. Subsequent builds with `--active-arch-only` will work correctly.
+2. Add an `abiFilter` block inside your `android/app/build.gradle` file [as follows](https://github.com/facebook/react-native/commit/5dff920177220ae5f4e37c662c63c27ebf696c83):
+
+```diff
+  android {
+    defaultConfig {
+
+      // ...
+
++     if (!enableSeparateBuildPerCPUArchitecture) {
++       ndk {
++         abiFilters (*reactNativeArchitectures())
++       }
++     }
+    }
+  }
+```
+
+Projects created with React Native 0.69 and subsequent versions already contain this fix.
