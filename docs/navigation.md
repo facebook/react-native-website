@@ -9,7 +9,7 @@ Mobile apps are rarely made up of a single screen. Managing the presentation of,
 
 This guide covers the various navigation components available in React Native. If you are getting started with navigation, you will probably want to use [React Navigation](navigation.md#react-navigation). React Navigation provides a straightforward navigation solution, with the ability to present common stack navigation and tabbed navigation patterns on both Android and iOS.
 
-If you're integrating React Native into an app that already manages navigation natively, or looking for an alternative to React Navigation, the following library provides native navigation on both platforms: [react-native-navigation](https://github.com/wix/react-native-navigation).
+If you're integrating React Native into an app that already manages navigation natively, or looking for an alternative to React Navigation, the following libraries provide native navigation on both platforms: [react-native-navigation](https://github.com/wix/react-native-navigation) and [navigation router](https://grahammendick.github.io/navigation/native/).
 
 ## React Navigation
 
