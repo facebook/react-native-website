@@ -233,4 +233,6 @@ To overcome this, you can either:
   }
 ```
 
+:::info
 Projects created with React Native 0.69 and subsequent versions already contain this fix.
+:::
