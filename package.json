@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "babel-eslint": "^10.1.0",
+    "case-police": "^0.5.1",
     "eslint": "^8.10.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-mdx": "^1.16.0",
