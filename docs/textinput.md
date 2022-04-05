@@ -115,23 +115,13 @@ Specifies whether fonts should scale to respect Text Size accessibility settings
 
 ---
 
-### `android_errorMessage` <div class="label android">Android</div>
-
-String to be read by screenreaders to indicate an error state of a TextInput. The default is `null`.
-
-| Type   |
-| ------ |
-| string |
-
----
-
 ### `autoCapitalize`
 
 Tells `TextInput` to automatically capitalize certain characters. This property is not supported by some keyboard types such as `name-phone-pad`.
 
 - `characters`: all characters.
 - `words`: first letter of each word.
-- `sentences`: first letter of each sentence (_default_) a.
+- `sentences`: first letter of each sentence (_default_).
 - `none`: don't auto capitalize anything.
 
 | Type                                             |
@@ -318,6 +308,16 @@ If `true`, the keyboard disables the return key when there is no text and automa
 | Type |
 | ---- |
 | bool |
+
+---
+
+### `errorMessageAndroid` <div class="label android">Android</div>
+
+String to be read by screenreaders to indicate an error state of a TextInput. The default is `null`.
+
+| Type   |
+| ------ |
+| string |
 
 ---
 
