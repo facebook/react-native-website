@@ -11,8 +11,10 @@ import {
   useVersions,
   useLatestVersion,
   useActiveDocContext,
-} from '@theme/hooks/useDocs';
-import {useDocsPreferredVersion} from '@docusaurus/theme-common';
+} from '@docusaurus/plugin-content-docs/client';
+import {
+  useDocsPreferredVersion
+} from '@docusaurus/theme-common';
 import {translate} from '@docusaurus/Translate';
 
 const getVersionMainDoc = version =>
