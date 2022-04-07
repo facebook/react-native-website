@@ -12,9 +12,7 @@ import {
   useLatestVersion,
   useActiveDocContext,
 } from '@docusaurus/plugin-content-docs/client';
-import {
-  useDocsPreferredVersion
-} from '@docusaurus/theme-common';
+import { useDocsPreferredVersion } from '@docusaurus/theme-common';
 import {translate} from '@docusaurus/Translate';
 
 const getVersionMainDoc = version =>
