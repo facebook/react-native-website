@@ -5,7 +5,7 @@ title: Creating a New Architecture App
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
-This page will help you create a new React Native app that uses the new architecture.
+This page will help you create a new React Native app that uses the New Architecture.
 
 ## Installing dependencies
 
@@ -36,7 +36,7 @@ Follow the steps below to enable the New Architecture and build the app you just
 
 ### iOS
 
-To configure iOS to use the new architecture, navigate to the `ios` directory and run the following:
+Navigate to the `ios` directory and run the following:
 
 ```shell
 # from `ios` directory
@@ -64,7 +64,7 @@ RCT_NEW_ARCH_ENABLED=1 bundle exec pod install
 
 ### Android
 
-In `android/gradle.properties`, enable the new architecture:
+Edit `android/gradle.properties`, and set `newArchEnabled` to `true`:
 
 ```
 newArchEnabled=true
