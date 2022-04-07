@@ -3,6 +3,8 @@ id: use-app-template
 title: Creating a New Architecture App
 ---
 
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+
 This page will help you create a new React Native app that uses the new architecture.
 
 ## Installing dependencies
@@ -23,7 +25,16 @@ React Native has a built-in command line interface, which you can use to generat
 npx react-native init AwesomeProject
 ```
 
-## Configuring iOS
+## Configuration
+
+Follow the steps below to enable the New Architecture and build the app you just created.
+
+#### Target OS
+
+<Tabs groupId="platform" defaultValue={constants.defaultPlatform} values={constants.platforms} className="pill-tabs">
+<TabItem value="ios">
+
+### iOS
 
 To configure iOS to use the new architecture, navigate to the `ios` directory and run the following:
 
@@ -38,7 +49,7 @@ Then build and run the app as usual:
 npx react-native run-ios
 ```
 
-### Troubleshooting
+#### Troubleshooting
 
 If you see a build failure, there may be cached files from a previous build with the old architecture. Clean the build cache and try again:
 
@@ -48,7 +59,10 @@ xcodebuild clean
 RCT_NEW_ARCH_ENABLED=1 bundle exec pod install
 ```
 
-## Configuring Android
+</TabItem>
+<TabItem value="android">
+
+### Android
 
 In `android/gradle.properties`, enable the new architecture:
 
@@ -61,3 +75,6 @@ Then build and run the app as usual:
 ```shell
 npx react-native run-android
 ```
+
+</TabItem>
+</Tabs>
