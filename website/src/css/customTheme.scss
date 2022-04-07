@@ -647,6 +647,10 @@ a[class*="tagRegular"] {
     top: 18px;
     background: var(--brand);
   }
+
+  .navbar-sidebar__back:hover {
+    background: var(--ifm-code-background);
+  }
 }
 
 /*
@@ -706,7 +710,7 @@ html[data-theme="dark"] {
     background: var(--ifm-background-color);
   }
 
-  .clean-btn:hover {
+  .navbar button[class*='toggleButton']:hover {
     background: var(--ifm-color-emphasis-200);
   }
 }
