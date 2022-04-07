@@ -1,6 +1,6 @@
 ---
 id: use-app-template
-title: Using the New App Template
+title: Creating a New Architecture App
 ---
 
 This page will help you create a new React Native app that uses the new architecture.
