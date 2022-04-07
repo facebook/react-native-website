@@ -29,6 +29,14 @@ npx react-native init AwesomeProject
 
 Follow the steps below to enable the New Architecture and build the app you just created.
 
+### Enable Hermes
+
+Hermes is an open-source JavaScript engine optimized for React Native. We highly recommend using Hermes in your application. With Hermes enabled, you will be able to use the JavaScript debugger in Flipper to directly debug your JavaScript code.
+
+Please [follow the instructions on the React Native website](hermes.md) in order to enable Hermes in your application.
+
+### Platform configuration
+
 #### Target OS
 
 <Tabs groupId="platform" defaultValue={constants.defaultPlatform} values={constants.platforms} className="pill-tabs">
