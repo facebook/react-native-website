@@ -13,7 +13,7 @@ brew install node
 brew install watchman
 ```
 
-If you have already installed Node on your system, make sure it is the current or previous LTS version of Node.
+If you have already installed Node on your system, make sure it is the current or previous [LTS version of Node](https://nodejs.org/en/about/releases/).
 
 [Watchman](https://facebook.github.io/watchman) is a tool by Facebook for watching changes in the filesystem. It is highly recommended you install it for better performance.
 
