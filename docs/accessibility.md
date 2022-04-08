@@ -63,9 +63,11 @@ To use, set the `accessibilityHint` property to a custom string on your View, Te
 ```
 
 <div class="label ios basic">iOS</div>
+
 In the above example, VoiceOver will read the hint after the label, if the user has hints enabled in the device's VoiceOver settings. Read more about guidelines for `accessibilityHint` in the [iOS Developer Docs](https://developer.apple.com/documentation/objectivec/nsobject/1615093-accessibilityhint)
 
 <div class="label android basic">Android</div>
+
 In the above example, TalkBack will read the hint after the label. At this time, hints cannot be turned off on Android.
 
 ### `accessibilityLanguage` <div class="label ios">iOS</div>
