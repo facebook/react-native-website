@@ -320,6 +320,34 @@ In order to integrate existing Native UI elements to your React Native app, you 
 
 First, let's create a `CustomView` class which extends `FrameLayout` (the content of this view can be any view that you'd like to render)
 
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="kotlin">
+
+```kotlin title="CustomView.kt"
+package com.mypackage
+
+import android.content.Context
+import android.graphics.Color
+import android.widget.FrameLayout
+import android.widget.TextView
+
+class CustomView(context: Context) : FrameLayout(context) {
+  init {
+    // set padding and background color
+    setPadding(16,16,16,16)
+    setBackgroundColor(Color.parseColor("#5FD3F3"))
+
+    // add default text view
+    addView(TextView(context).apply {
+      text = "Welcome to Android Fragments with React Native."
+    })
+  }
+}
+```
+
+</TabItem>
+<TabItem value="java">
+
 ```java title="CustomView.java"
 // replace with your package
 package com.mypackage;
@@ -347,7 +375,64 @@ public class CustomView extends FrameLayout {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ### 2. Create a `Fragment`
+
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="kotlin">
+
+```kotlin title="MyFragment.kt"
+// replace with your package
+package com.mypackage
+
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+
+// replace with your view's import
+import com.mypackage.CustomView
+
+class MyFragment : Fragment() {
+  private lateinit var customView: CustomView
+
+  override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+    super.onCreateView(inflater, container, savedInstanceState)
+    customView = CustomView(requireNotNull(context))
+    return customView // this CustomView could be any view that you want to render
+  }
+
+  override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    super.onViewCreated(view, savedInstanceState)
+    // do any logic that should happen in an `onCreate` method, e.g:
+    // customView.onCreate(savedInstanceState);
+  }
+
+  override fun onPause() {
+    super.onPause()
+    // do any logic that should happen in an `onPause` method
+    // e.g.: customView.onPause();
+  }
+
+  override fun onResume() {
+    super.onResume()
+    // do any logic that should happen in an `onResume` method
+    // e.g.: customView.onResume();
+  }
+
+  override fun onDestroy() {
+    super.onDestroy()
+    // do any logic that should happen in an `onDestroy` method
+    // e.g.: customView.onDestroy();
+  }
+}
+```
+
+</TabItem>
+<TabItem value="java">
 
 ```java title="MyFragment.java"
 // replace with your package
@@ -402,7 +487,120 @@ public class MyFragment extends Fragment {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ### 3. Create the `ViewManager` subclass
+
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="kotlin">
+
+```kotlin title="MyViewManager.kt"
+// replace with your package
+package com.mypackage
+
+import android.view.Choreographer
+import android.view.View
+import android.view.ViewGroup
+import android.widget.FrameLayout
+import androidx.fragment.app.FragmentActivity
+import com.facebook.react.bridge.ReactApplicationContext
+import com.facebook.react.bridge.ReadableArray
+import com.facebook.react.uimanager.ThemedReactContext
+import com.facebook.react.uimanager.ViewGroupManager
+import com.facebook.react.uimanager.annotations.ReactPropGroup
+import kotlin.properties.Delegates
+
+class MyViewManager(
+    private val reactContext: ReactApplicationContext
+) : ViewGroupManager<FrameLayout>() {
+  private var propWidth by Delegates.notNull<Int>()
+  private var propHeight by Delegates.notNull<Int>()
+
+  override fun getName() = REACT_CLASS
+
+  /**
+   * Return a FrameLayout which will later hold the Fragment
+   */
+  override fun createViewInstance(reactContext: ThemedReactContext) =
+      FrameLayout(reactContext)
+
+  /**
+   * Map the "create" command to an integer
+   */
+  override fun getCommandsMap() = mapOf("create" to COMMAND_CREATE)
+
+  /**
+   * Handle "create" command (called from JS) and call createFragment method
+   */
+  override fun receiveCommand(
+      root: FrameLayout,
+      commandId: String,
+      args: ReadableArray?
+  ) {
+    super.receiveCommand(root, commandId, args)
+    val reactNativeViewId = requireNotNull(args).getInt(0)
+
+    when (commandId.toInt()) {
+      COMMAND_CREATE -> createFragment(root, reactNativeViewId)
+    }
+  }
+
+  @ReactPropGroup(names = ["width", "height"], customType = "Style")
+  fun setStyle(view: FrameLayout, index: Int, value: Int) {
+    if (index == 0) propWidth = value
+    if (index == 1) propHeight = value
+  }
+
+  /**
+   * Replace your React Native view with a custom fragment
+   */
+  fun createFragment(root: FrameLayout, reactNativeViewId: Int) {
+    val parentView = root.findViewById<ViewGroup>(reactNativeViewId)
+    setupLayout(parentView)
+
+    val myFragment = MyFragment()
+    val activity = reactContext.currentActivity as FragmentActivity
+    activity.supportFragmentManager
+        .beginTransaction()
+        .replace(reactNativeViewId, myFragment, reactNativeViewId.toString())
+        .commit()
+  }
+
+  fun setupLayout(view: View) {
+    Choreographer.getInstance().postFrameCallback(object: Choreographer.FrameCallback {
+      override fun doFrame(frameTimeNanos: Long) {
+        manuallyLayoutChildren(view)
+        view.viewTreeObserver.dispatchOnGlobalLayout()
+        Choreographer.getInstance().postFrameCallback(this)
+      }
+    })
+  }
+
+  /**
+   * Layout all children properly
+   */
+  private fun manuallyLayoutChildren(view: View) {
+    // propWidth and propHeight coming from react-native props
+    val width = propWidth
+    val height = propHeight
+
+    view.measure(
+        View.MeasureSpec.makeMeasureSpec(width, View.MeasureSpec.EXACTLY),
+        View.MeasureSpec.makeMeasureSpec(height, View.MeasureSpec.EXACTLY))
+
+    view.layout(0, 0, width, height)
+  }
+
+  companion object {
+    private const val REACT_CLASS = "MyViewManager"
+    private const val COMMAND_CREATE = 1
+  }
+}
+```
+
+</TabItem>
+<TabItem value="java">
 
 ```java title="MyViewManager.java"
 // replace with your package
@@ -536,7 +734,34 @@ public class MyViewManager extends ViewGroupManager<FrameLayout> {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ### 4. Register the `ViewManager`
+
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="kotlin">
+
+```kotlin title="MyPackage.kt"
+// replace with your package
+package com.mypackage
+
+import com.facebook.react.ReactPackage
+import com.facebook.react.bridge.ReactApplicationContext
+import com.facebook.react.uimanager.ViewManager
+
+class MyPackage : ReactPackage {
+  ...
+  override fun createViewManagers(
+      reactContext: ReactApplicationContext
+  ): List<ViewManager<*, *>> {
+    return listOf(MyViewManager(reactContext))
+  }
+}
+```
+
+</TabItem>
+<TabItem value="java">
 
 ```java title="MyPackage.java"
 // replace with your package
@@ -561,7 +786,22 @@ public class MyPackage implements ReactPackage {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ### 5. Register the `Package`
+
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="kotlin">
+
+```kotlin title="MainApplication.kt"
+    override fun getPackages() = PackageList(this).packages.apply {
+      add(MyPackage())
+    }
+```
+
+</TabItem>
+<TabItem value="java">
 
 ```java title="MainApplication.java"
     @Override
@@ -572,6 +812,9 @@ public class MyPackage implements ReactPackage {
       return packages;
     }
 ```
+
+</TabItem>
+</Tabs>
 
 ### 6. Implement the JavaScript module
 
