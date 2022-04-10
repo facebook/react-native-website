@@ -204,6 +204,27 @@ The `requireNativeComponent` function takes the name of the native view. Note th
 
 So now we know how to expose native view components that we can control freely from JS, but how do we deal with events from the user, like pinch-zooms or panning? When a native event occurs the native code should issue an event to the JavaScript representation of the View, and the two views are linked with the value returned from the `getId()` method.
 
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="kotlin">
+
+```kotlin
+class MyCustomView(context: Context) : View(context) {
+  ...
+  fun onReceiveNativeEvent() {
+    val event = Arguments.createMap().apply {
+      putString("message", "MyMessage")
+    }
+    val reactContext = context as ReactContext
+    reactContext
+        .getJSModule(RCTEventEmitter::class.java)
+        .receiveEvent(id, "topChange", event)
+  }
+}
+```
+
+</TabItem>
+<TabItem value="java">
+
 ```java
 class MyCustomView extends View {
    ...
@@ -218,7 +239,31 @@ class MyCustomView extends View {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 To map the `topChange` event name to the `onChange` callback prop in JavaScript, register it by overriding the `getExportedCustomBubblingEventTypeConstants` method in your `ViewManager`:
+
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="kotlin">
+
+```kotlin
+class ReactImageManager : SimpleViewManager<MyCustomView>() {
+  ...
+  override fun getExportedCustomBubblingEventTypeConstants(): Map<String, Any> {
+    return mapOf(
+      "topChange" to mapOf(
+        "phasedRegistrationNames" to mapOf(
+          "bubbled" to "onChange"
+        )
+      )
+    )
+  }
+}
+```
+
+</TabItem>
+<TabItem value="java">
 
 ```java
 public class ReactImageManager extends SimpleViewManager<MyCustomView> {
@@ -234,6 +279,9 @@ public class ReactImageManager extends SimpleViewManager<MyCustomView> {
     }
 }
 ```
+
+</TabItem>
+</Tabs>
 
 This callback is invoked with the raw event, which we typically process in the wrapper component to make a simpler API:
 
