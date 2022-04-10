@@ -182,6 +182,18 @@ hr {
       top: -1px;
       position: relative;
     }
+
+    .hermes-logo {
+      float: right;
+      margin: -30px 4px 0;
+    }
+
+    @media screen and (max-width: 960px) {
+      .hermes-logo {
+        margin: 0 4px 30px;
+        width: 100%;
+      }
+    }
   }
 
   strong {
@@ -1740,7 +1752,7 @@ html[data-theme="dark"] .docsRating {
   }
 
   article.margin-bottom--xl {
-    margin-bottom: 2.5rem !important
+    margin-bottom: 2.5rem !important;
   }
 }
 
