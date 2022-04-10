@@ -3,6 +3,8 @@ id: native-components-android
 title: Android Native UI Components
 ---
 
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+
 There are tons of native UI widgets out there ready to be used in the latest apps - some of them are part of the platform, others are available as third-party libraries, and still more might be in use in your very own portfolio. React Native has several of the most critical platform components already wrapped, like `ScrollView` and `TextInput`, but not all of them, and certainly not ones you might have written yourself for a previous app. Fortunately, we can wrap up these existing components for seamless integration with your React Native application.
 
 Like the native module guide, this too is a more advanced guide that assumes you are somewhat familiar with Android SDK programming. This guide will show you how to build a native UI component, walking you through the implementation of a subset of the existing `ImageView` component available in the core React Native library.
@@ -27,6 +29,25 @@ To send a view:
 
 In this example we create view manager class `ReactImageManager` that extends `SimpleViewManager` of type `ReactImageView`. `ReactImageView` is the type of object managed by the manager, this will be the custom native view. Name returned by `getName` is used to reference the native view type from JavaScript.
 
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="kotlin">
+
+```kotlin
+class ReactImageManager(
+    private val mCallerContext: ReactApplicationContext
+) : SimpleViewManager<ReactImageView>() {
+
+  override fun getName() = REACT_CLASS
+
+  companion object {
+    const val REACT_CLASS = "RCTImageView"
+  }
+}
+```
+
+</TabItem>
+<TabItem value="java">
+
 ```java
 public class ReactImageManager extends SimpleViewManager<ReactImageView> {
 
@@ -44,9 +65,23 @@ public class ReactImageManager extends SimpleViewManager<ReactImageView> {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ### 2. Implement method `createViewInstance`
 
 Views are created in the `createViewInstance` method, the view should initialize itself in its default state, any properties will be set via a follow up call to `updateView.`
+
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="kotlin">
+
+```kotlin
+  override fun createViewInstance(context: ThemedReactContext) =
+      ReactImageView(context, Fresco.newDraweeControllerBuilder(), null, mCallerContext)
+```
+
+</TabItem>
+<TabItem value="java">
 
 ```java
   @Override
@@ -54,6 +89,9 @@ Views are created in the `createViewInstance` method, the view should initialize
     return new ReactImageView(context, Fresco.newDraweeControllerBuilder(), null, mCallerContext);
   }
 ```
+
+</TabItem>
+</Tabs>
 
 ### 3. Expose view property setters using `@ReactProp` (or `@ReactPropGroup`) annotation
 
@@ -68,6 +106,29 @@ Except from `name`, `@ReactProp` annotation may take following optional argument
 Setter declaration requirements for methods annotated with `@ReactPropGroup` are different than for `@ReactProp`, please refer to the `@ReactPropGroup` annotation class docs for more information about it. **IMPORTANT!** in ReactJS updating the property value will result in setter method call. Note that one of the ways we can update component is by removing properties that have been set before. In that case setter method will be called as well to notify view manager that property has changed. In that case "default" value will be provided (for primitive types "default" can value can be specified using `defaultBoolean`, `defaultFloat`, etc. arguments of `@ReactProp` annotation, for complex types setter will be called with value set to `null`).
 
 <!-- alex enable primitive -->
+
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="kotlin">
+
+```kotlin
+  @ReactProp(name = "src")
+  fun setSrc(view: ReactImageView, sources: ReadableArray?) {
+    view.setSource(sources)
+  }
+
+  @ReactProp(name = "borderRadius", defaultFloat = 0f)
+  override fun setBorderRadius(view: ReactImageView, borderRadius: Float) {
+    view.setBorderRadius(borderRadius)
+  }
+
+  @ReactProp(name = ViewProps.RESIZE_MODE)
+  fun setResizeMode(view: ReactImageView, resizeMode: String?) {
+    view.setScaleType(ImageResizeMode.toScaleType(resizeMode))
+  }
+```
+
+</TabItem>
+<TabItem value="java">
 
 ```java
   @ReactProp(name = "src")
@@ -86,9 +147,26 @@ Setter declaration requirements for methods annotated with `@ReactPropGroup` are
   }
 ```
 
+</TabItem>
+</Tabs>
+
 ### 4. Register the `ViewManager`
 
 The final Java/Kotlin step is to register the ViewManager to the application, this happens in a similar way to [Native Modules](native-modules-android.md), via the applications package member function `createViewManagers.`
+
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="kotlin">
+
+```kotlin
+  override fun createViewManagers(
+      reactContext: ReactApplicationContext
+  ): List<ViewManager<*, *>> {
+    return listOf(ReactImageManager(reactContext))
+  }
+```
+
+</TabItem>
+<TabItem value="java">
 
 ```java
   @Override
@@ -99,6 +177,9 @@ The final Java/Kotlin step is to register the ViewManager to the application, th
     );
   }
 ```
+
+</TabItem>
+</Tabs>
 
 ### 5. Implement the JavaScript module
 
