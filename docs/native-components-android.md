@@ -88,7 +88,7 @@ Setter declaration requirements for methods annotated with `@ReactPropGroup` are
 
 ### 4. Register the `ViewManager`
 
-The final Java step is to register the ViewManager to the application, this happens in a similar way to [Native Modules](native-modules-android.md), via the applications package member function `createViewManagers.`
+The final Java/Kotlin step is to register the ViewManager to the application, this happens in a similar way to [Native Modules](native-modules-android.md), via the applications package member function `createViewManagers.`
 
 ```java
   @Override
@@ -102,7 +102,7 @@ The final Java step is to register the ViewManager to the application, this happ
 
 ### 5. Implement the JavaScript module
 
-The very final step is to create the JavaScript module that defines the interface layer between Java and JavaScript for the users of your new view. It is recommended for you to document the component interface in this module (e.g. using Flow, TypeScript, or plain old comments).
+The very final step is to create the JavaScript module that defines the interface layer between Java/Kotlin and JavaScript for the users of your new view. It is recommended for you to document the component interface in this module (e.g. using Flow, TypeScript, or plain old comments).
 
 ```jsx title="ImageView.js"
 import { requireNativeComponent } from 'react-native';
