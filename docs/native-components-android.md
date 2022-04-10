@@ -324,6 +324,7 @@ First, let's create a `CustomView` class which extends `FrameLayout` (the conten
 <TabItem value="kotlin">
 
 ```kotlin title="CustomView.kt"
+// replace with your package
 package com.mypackage
 
 import android.content.Context
