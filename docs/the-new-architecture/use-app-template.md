@@ -59,7 +59,8 @@ npx react-native run-ios
 
 #### Troubleshooting
 
-If you see a build failure, there may be cached files from a previous build with the old architecture. Clean the build cache and try again:
+If you see a build failure, there may be cached files from a previous build with
+the old architecture. Clean the build cache and try again:
 
 ```shell
 # from `ios` directory
@@ -72,17 +73,21 @@ RCT_NEW_ARCH_ENABLED=1 bundle exec pod install
 
 ### Android
 
-Edit `android/gradle.properties`, and set `newArchEnabled` to `true`:
+Set the `newArchEnabled` property to `true` by **either**:
 
-```
-newArchEnabled=true
-```
+- Changing the corresponding line in `android/gradle.properties`
+- Setting the environment variable `ORG_GRADLE_PROJECT_newArchEnabled=true`
 
 Then build and run the app as usual:
 
 ```shell
 npx react-native run-android
 ```
+
+> **Note**: You may notice longer build times with the New Architecture, due to
+> additional step of C++ compilation with the Android NDK. To improve your build
+> time, see
+> [Speeding Up Your Build Phase](docs/build-speed.md).
 
 </TabItem>
 </Tabs>
