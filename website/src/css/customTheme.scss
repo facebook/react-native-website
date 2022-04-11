@@ -182,6 +182,18 @@ hr {
       top: -1px;
       position: relative;
     }
+
+    .hermes-logo {
+      float: right;
+      margin: -30px 4px 0;
+    }
+
+    @media screen and (max-width: 960px) {
+      .hermes-logo {
+        margin: 0 4px 30px;
+        width: 100%;
+      }
+    }
   }
 
   strong {
@@ -275,6 +287,11 @@ hr {
 
   .docusaurus-highlight-code-line {
     background-color: var(--light);
+  }
+
+  div[class^="codeBlockContainer"] {
+    box-shadow: none;
+    margin-bottom: 1rem;
   }
 
   div[class^="codeBlockContent"] {
@@ -1733,6 +1750,10 @@ html[data-theme="dark"] .docsRating {
       --ifm-col-width: calc(18 / 24 * 100%);
     }
   }
+
+  article.margin-bottom--xl {
+    margin-bottom: 2.5rem !important;
+  }
 }
 
 html[data-theme="dark"] {
@@ -1767,6 +1788,7 @@ html[data-theme="light"] {
 
   .container.margin-vert--lg .row .col.col--7 {
     --ifm-col-width: 100% !important;
+    padding: 24px 16px !important;
   }
 
   .main-wrapper:not(.community-page) {

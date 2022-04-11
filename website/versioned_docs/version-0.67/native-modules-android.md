@@ -263,7 +263,7 @@ const { CalendarModule } = NativeModules;
 export default CalendarModule;
 ```
 
-This JavaScript file also becomes a good location for you to add any JavaScript side functionality. For example, if you use a type system like Typescript you can add type annotations for your native module here. While React Native does not yet support Native to JS type safety, all your JS code will be type safe. Doing so will also make it easier for you to switch to type-safe native modules down the line. Below is an example of adding type safety to the CalendarModule:
+This JavaScript file also becomes a good location for you to add any JavaScript side functionality. For example, if you use a type system like TypeScript you can add type annotations for your native module here. While React Native does not yet support Native to JS type safety, all your JS code will be type safe. Doing so will also make it easier for you to switch to type-safe native modules down the line. Below is an example of adding type safety to the CalendarModule:
 
 ```jsx
 /**
@@ -274,7 +274,7 @@ This JavaScript file also becomes a good location for you to add any JavaScript 
 * 2. String location: A string representing the location of the event
 */
 import { NativeModules } from 'react-native';
-const { CalendarModule } = NativeModules
+const { CalendarModule } = NativeModules;
 interface CalendarInterface {
    createCalendarEvent(name: string, location: string): void;
 }
