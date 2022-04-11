@@ -311,7 +311,7 @@ If `true`, the keyboard disables the return key when there is no text and automa
 
 ---
 
-### `errorMessageAndroid` <div class="label android">Android</div>
+### `screenreaderErrorAndroid` <div class="label android">Android</div>
 
 String to be read by screenreaders to indicate an error state of a TextInput. The default is `null`.
 
