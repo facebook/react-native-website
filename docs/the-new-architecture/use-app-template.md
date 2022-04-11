@@ -86,3 +86,10 @@ npx react-native run-android
 
 </TabItem>
 </Tabs>
+
+### Confirming the New Architecture is in use
+
+After you build and run the app, when Metro serves the JavaScript bundle, you
+should see `"fabric": true` in the Metro logs:
+
+<img src="/docs/assets/metro-new-arch.png" alt="Metro shows fabric: true" width="600" />
