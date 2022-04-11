@@ -16,6 +16,8 @@ Quickstart** tab.
 If following the setup guide, stop when you reach the section **Running your React Native
 Application**, and resume following this guide.
 
+> **Note**: The New Architecture cannot currently be enabled in an Expo app.
+
 ## Creating a new application
 
 > If you previously installed a global `react-native-cli` package, please remove it as it may cause unexpected issues.
