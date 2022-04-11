@@ -7,23 +7,26 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import con
 
 This page will help you create a new React Native app that uses the New Architecture.
 
-## Installing dependencies
+## Development environment
 
-Start by setting up your development environment as described in [Getting Started](getting-started.md), under "React Native CLI Quickstart". Stop when you reach "React Native Command Line Interface", and resume here.
+Ensure your development environment matches the guide [Setting up the
+development environment](getting-started.md), under the **React Native CLI
+Quickstart** tab.
 
-<h3>React Native Command Line Interface</h3>
+If following the setup guide, stop when you reach the section **Running your React Native
+Application**, and resume following this guide.
 
-React Native has a built-in command line interface. Rather than install and manage a specific version of the CLI globally, we recommend you access the current version at runtime using `npx`, which ships with Node.js. With `npx react-native <command>`, the current stable version of the CLI will be downloaded and executed at the time the command is run.
-
-<h2>Creating a new application</h2>
+## Creating a new application
 
 > If you previously installed a global `react-native-cli` package, please remove it as it may cause unexpected issues.
 
-React Native has a built-in command line interface, which you can use to generate a new project. You can access it without installing anything globally using `npx`, which ships with Node.js. Let's create a new React Native project called "AwesomeProject":
+If you already have your development environment set up, create a new react-native project from the template:
 
 ```shell
 npx react-native init AwesomeProject
 ```
+
+> **Note**: If specifying a versioned template, use version 0.68 or later.
 
 ## Configuration
 
@@ -35,7 +38,7 @@ Hermes is an open-source JavaScript engine optimized for React Native. [Hermes w
 
 Please [follow the instructions on the React Native website](hermes.md) in order to enable Hermes in your application.
 
-### Platform configuration
+### Enable the New Architecture
 
 #### Target OS
 
@@ -71,7 +74,9 @@ npx react-native run-ios
 
 #### Troubleshooting
 
-If you see a build failure, there may be cached files from a previous build with
+##### `run-ios` fails
+
+If you see a build failure from `run-ios`, there may be cached files from a previous build with
 the old architecture. Clean the build cache and try again:
 
 ```shell
