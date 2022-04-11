@@ -57,6 +57,18 @@ Then build and run the app as usual:
 npx react-native run-ios
 ```
 
+> **Tip**: You need to re-run `pod install` each time a dependency with native
+> code changes. Make this command easier to run by adding it to `scripts` to your
+> project's `package.json` file:
+>
+> ```
+> "scripts": {
+>   "pod-install": "RCT_NEW_ARCH_ENABLED=1 bundle exec pod install"
+> }
+> ```
+>
+> and run it with `yarn pod-install`.
+
 #### Troubleshooting
 
 If you see a build failure, there may be cached files from a previous build with
