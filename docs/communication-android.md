@@ -64,6 +64,7 @@ class MainActivity : ReactActivity() {
     }
 }
 ```
+
 </TabItem>
 </Tabs>
 
@@ -97,6 +98,7 @@ updatedProps.putStringArrayList("images", imageList);
 
 mReactRootView.setAppProperties(updatedProps);
 ```
+
 </TabItem>
 
 <TabItem value="kotlin">
@@ -106,6 +108,7 @@ var updatedProps: Bundle = mReactRootView.getAppProperties()
 var imageList: ArrayList<String> =
     ArrayList<String>(listOf("http://foo.com/bar3.png", "http://foo.com/bar4.png"))
 ```
+
 </TabItem>
 
 </Tabs>
