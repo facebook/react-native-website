@@ -54,10 +54,8 @@ class MainActivity : ReactActivity() {
     override fun createReactActivityDelegate(): ReactActivityDelegate {
         return object : ReactActivityDelegate(this, mainComponentName) {
             override fun getLaunchOptions(): Bundle {
-                val initialProperties = Bundle()
-                val imageList =
-                    ArrayList(listOf("http://foo.com/bar1.png", "http://foo.com/bar2.png"))
-                initialProperties.putStringArrayList("images", imageList)
+                val imageList = arrayListOf("http://foo.com/bar1.png", "http://foo.com/bar2.png")
+                val initialProperties = Bundle().apply { putStringArrayList("images", imageList) }
                 return initialProperties
             }
         }
@@ -105,8 +103,7 @@ mReactRootView.setAppProperties(updatedProps);
 
 ```kotlin
 var updatedProps: Bundle = mReactRootView.getAppProperties()
-var imageList: ArrayList<String> =
-    ArrayList<String>(listOf("http://foo.com/bar3.png", "http://foo.com/bar4.png"))
+var imageList = arrayListOf("http://foo.com/bar3.png", "http://foo.com/bar4.png")
 ```
 
 </TabItem>
