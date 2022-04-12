@@ -56,7 +56,7 @@ bundle install && RCT_NEW_ARCH_ENABLED=1 bundle exec pod install
 Then build and run the app as usual:
 
 ```shell
-npx react-native run-ios
+yarn ios
 ```
 
 > **Tip**: You need to re-run `pod install` each time a dependency with native code changes. Make this command easier to run by adding it to `scripts` to your project's `package.json` file:
@@ -77,7 +77,8 @@ If you see a build failure from `react-native run-ios`, there may be cached file
 
 1. Open the project `ios/project.xcworkspace` in Xcode
 2. In XCode, choose Product > Clean Build Folder
-3. Try building and running the app again
+3. In the project directory, remove the `ios/Podfile.lock` file and `ios/Pods` directory: `rm -rf ios/Podfile.lock ios/Pods`
+4. Re-run `yarn pod-install` and `yarn ios`
 
 </TabItem>
 <TabItem value="android">
@@ -90,7 +91,7 @@ Set the `newArchEnabled` property to `true` by **either**:
 Then build and run the app as usual:
 
 ```shell
-npx react-native run-android
+yarn android
 ```
 
 > **Note**: You may notice longer build times with the New Architecture, due to additional step of C++ compilation with the Android NDK. To improve your build time, see [Speeding Up Your Build Phase](docs/build-speed.md).
