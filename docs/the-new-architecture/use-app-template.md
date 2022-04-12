@@ -76,9 +76,9 @@ npx react-native run-ios
 
 #### Troubleshooting
 
-##### `run-ios` fails
+##### `react-native run-ios` fails
 
-If you see a build failure from `run-ios`, there may be cached files from a previous build with
+If you see a build failure from `react-native run-ios`, there may be cached files from a previous build with
 the old architecture. Clean the build cache and try again:
 
 ```shell
