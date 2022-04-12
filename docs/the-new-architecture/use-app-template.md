@@ -34,7 +34,7 @@ If specifying a versioned template, use version 0.68 or later.
 
 ## Configuration
 
-Follow the steps below to enable the New Architecture and build the app you just created.
+Follow the steps below to enable the New Architecture and build the app.
 
 ### Enable Hermes
 
