@@ -11,12 +11,9 @@ This page will help you create a new React Native app that uses the New Architec
 
 ## Development environment
 
-Before continuing, make sure you've followed all the steps in [Setting up the
-development environment](getting-started.md), under the **React Native CLI
-Quickstart** tab.
+Before continuing, make sure you've followed all the steps in [Setting up the development environment](getting-started.md), under the **React Native CLI Quickstart** tab.
 
-If following the setup guide, stop when you reach the section **Running your React Native
-Application**, and resume following this guide.
+If following the setup guide, stop when you reach the section **Running your React Native Application**, and resume following this guide.
 
 **Note**: The New Architecture cannot currently be enabled in an Expo app.
 
@@ -62,9 +59,7 @@ Then build and run the app as usual:
 npx react-native run-ios
 ```
 
-> **Tip**: You need to re-run `pod install` each time a dependency with native
-> code changes. Make this command easier to run by adding it to `scripts` to your
-> project's `package.json` file:
+> **Tip**: You need to re-run `pod install` each time a dependency with native code changes. Make this command easier to run by adding it to `scripts` to your project's `package.json` file:
 >
 > ```
 > "scripts": {
@@ -78,8 +73,7 @@ npx react-native run-ios
 
 ##### `react-native run-ios` fails
 
-If you see a build failure from `react-native run-ios`, there may be cached files from a previous build with
-the old architecture. Clean the build cache and try again:
+If you see a build failure from `react-native run-ios`, there may be cached files from a previous build with the old architecture. Clean the build cache and try again:
 
 1. Open the project `ios/project.xcworkspace` in Xcode
 2. In XCode, choose Product > Clean Build Folder
@@ -99,27 +93,20 @@ Then build and run the app as usual:
 npx react-native run-android
 ```
 
-> **Note**: You may notice longer build times with the New Architecture, due to
-> additional step of C++ compilation with the Android NDK. To improve your build
-> time, see
-> [Speeding Up Your Build Phase](docs/build-speed.md).
+> **Note**: You may notice longer build times with the New Architecture, due to additional step of C++ compilation with the Android NDK. To improve your build time, see [Speeding Up Your Build Phase](docs/build-speed.md).
 
 </TabItem>
 </Tabs>
 
 ### Confirming the New Architecture is in use
 
-After you build and run the app, when Metro serves the JavaScript bundle, you
-should see `"fabric": true` in the Metro logs:
+After you build and run the app, when Metro serves the JavaScript bundle, you should see `"fabric": true` in the Metro logs:
 
 <img src="/docs/assets/metro-new-arch.png" alt="Metro shows fabric: true" width="600" />
 
 ### Want to know more?
 
-If you'd like to view the code changes relevant for the New Architecture, take a
-look at the [upgrade
-helper from version 0.67.4 to 0.68.0](https://react-native-community.github.io/upgrade-helper/?from=0.67.4&to=0.68.0).
-Files that were added for the New Architecture are marked with a yellow banner.
+If you'd like to view the code changes relevant for the New Architecture, take a look at the [upgrade helper from version 0.67.4 to 0.68.0](https://react-native-community.github.io/upgrade-helper/?from=0.67.4&to=0.68.0). Files that were added for the New Architecture are marked with a yellow banner.
 
 For further explanations of what each file is doing, check out these guides to walk through the changes step-by-step:
 
