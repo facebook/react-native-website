@@ -5,6 +5,8 @@ title: Creating a New Architecture App
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
+import RemoveGlobalCLI from '.././\_remove-global-cli.md';
+
 This page will help you create a new React Native app that uses the New Architecture.
 
 ## Development environment
@@ -20,7 +22,7 @@ Application**, and resume following this guide.
 
 ## Creating a new application
 
-> If you previously installed a global `react-native-cli` package, please remove it as it may cause unexpected issues.
+<RemoveGlobalCLI />
 
 If you already have your development environment set up, create a new react-native project from the template:
 
