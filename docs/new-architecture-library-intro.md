@@ -128,7 +128,7 @@ When using Flow or TypeScript, you will be using [type annotations](https://flow
 
 In general, this means you can use primitive types (strings, numbers, booleans), as well as function types, object types, and array types. Union types, on the other hand, are not supported. All types must be read-only. For Flow: either `+` or `$ReadOnly<>` or `{||}` objects. For TypeScript: `readonly` for properties, `Readonly<>` for objects, and `ReadonlyArray<>` for arrays.
 
-> See Appendix [I. Spec Type to Native Type Mapping](#i-spec-type-to-native-type-mapping).
+> See Appendix [I. Flow Type to Native Type Mapping](./new-architecture-appendix#i-flow-type-to-native-type-mapping). (TypeScript to Native Type Mapping will be added soon.)
 
 ### Be Consistent Across Platforms and Eliminate Type Ambiguity
 
