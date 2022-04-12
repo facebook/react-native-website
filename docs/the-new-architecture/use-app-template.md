@@ -18,7 +18,7 @@ Quickstart** tab.
 If following the setup guide, stop when you reach the section **Running your React Native
 Application**, and resume following this guide.
 
-> **Note**: The New Architecture cannot currently be enabled in an Expo app.
+**Note**: The New Architecture cannot currently be enabled in an Expo app.
 
 ## Creating a new application
 
@@ -30,7 +30,7 @@ If you already have your development environment set up, create a new react-nati
 npx react-native init AwesomeProject
 ```
 
-> **Note**: If specifying a versioned template, use version 0.68 or later.
+If specifying a versioned template, use version 0.68 or later.
 
 ## Configuration
 
