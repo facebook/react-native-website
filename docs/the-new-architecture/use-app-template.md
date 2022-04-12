@@ -27,7 +27,7 @@ If you already have your development environment set up, create a new React Nati
 npx react-native init AwesomeProject
 ```
 
-If specifying a versioned template, use version 0.68 or later.
+**Note:** The New Architecture is available in version 0.68 or later.
 
 ## Configuration
 
