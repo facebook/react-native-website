@@ -50,7 +50,7 @@ Navigate to the `ios` directory and run the following:
 
 ```shell
 # from `ios` directory
-RCT_NEW_ARCH_ENABLED=1 bundle exec pod install
+bundle install && RCT_NEW_ARCH_ENABLED=1 bundle exec pod install
 ```
 
 Then build and run the app as usual:
@@ -67,7 +67,7 @@ npx react-native run-ios
 > }
 > ```
 >
-> and run it with `yarn pod-install`.
+> and run it with `yarn pod-install`. Note that `bundle install` does not need to be run again after the first time, as long as the Gemfile has not changed.
 
 #### Troubleshooting
 
