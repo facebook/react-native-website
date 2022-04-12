@@ -59,15 +59,17 @@ Then build and run the app as usual:
 yarn ios
 ```
 
-> **Tip**: You need to re-run `pod install` each time a dependency with native code changes. Make this command easier to run by adding it to `scripts` to your project's `package.json` file:
->
-> ```
-> "scripts": {
->   "pod-install": "RCT_NEW_ARCH_ENABLED=1 bundle exec pod install"
-> }
-> ```
->
-> and run it with `yarn pod-install`. Note that `bundle install` does not need to be run again after the first time, as long as the Gemfile has not changed.
+:::note
+You will need to run `pod install` each time a dependency with native code changes. Make this command easier to run by adding it to `scripts` to your project's `package.json` file:
+
+```
+"scripts": {
+  "pod-install": "RCT_NEW_ARCH_ENABLED=1 bundle exec pod install"
+}
+```
+
+and run it with `yarn pod-install`. Note that `bundle install` does not need to run a second time, as long as the Gemfile has not changed.
+:::
 
 #### Troubleshooting
 
@@ -94,7 +96,9 @@ Then build and run the app as usual:
 yarn android
 ```
 
-> **Note**: You may notice longer build times with the New Architecture, due to additional step of C++ compilation with the Android NDK. To improve your build time, see [Speeding Up Your Build Phase](docs/build-speed.md).
+:::note
+You may notice longer build times with the New Architecture, due to additional step of C++ compilation with the Android NDK. To improve your build time, see [Speeding Up Your Build Phase](docs/build-speed.md).
+:::
 
 </TabItem>
 </Tabs>
