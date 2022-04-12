@@ -81,11 +81,9 @@ npx react-native run-ios
 If you see a build failure from `react-native run-ios`, there may be cached files from a previous build with
 the old architecture. Clean the build cache and try again:
 
-```shell
-# from `ios` directory
-xcodebuild clean
-RCT_NEW_ARCH_ENABLED=1 bundle exec pod install
-```
+1. Open the project `ios/project.xcworkspace` in Xcode
+2. In XCode, choose Product > Clean Build Folder
+3. Try building and running the app again
 
 </TabItem>
 <TabItem value="android">
