@@ -49,8 +49,6 @@ Please [follow the instructions on the React Native website](hermes.md) in order
 <Tabs groupId="platform" defaultValue={constants.defaultPlatform} values={constants.platforms} className="pill-tabs">
 <TabItem value="ios">
 
-### iOS
-
 Navigate to the `ios` directory and run the following:
 
 ```shell
@@ -91,8 +89,6 @@ RCT_NEW_ARCH_ENABLED=1 bundle exec pod install
 
 </TabItem>
 <TabItem value="android">
-
-### Android
 
 Set the `newArchEnabled` property to `true` by **either**:
 
