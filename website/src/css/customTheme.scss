@@ -35,7 +35,6 @@
   --ifm-alert-border-radius: 0;
   --ifm-alert-color: var(--ifm-font-color-base);
   --ifm-pagination-nav-color-hover: var(--ifm-color-emphasis-300);
-  --doc-sidebar-width: 100%;
   --ifm-table-border-width: 0.005rem;
   --ifm-navbar-sidebar-width: 100%;
 
@@ -66,6 +65,10 @@ html[data-theme="dark"] {
       0 1px 2px 1px var(--ifm-table-border-color);
     --docsearch-container-background: rgba(0, 0, 0, 0.6);
   }
+}
+
+:root {
+  --doc-sidebar-width: 266px !important;
 }
 
 ::marker {
@@ -181,6 +184,18 @@ hr {
       padding: 0 6px;
       top: -1px;
       position: relative;
+    }
+
+    .hermes-logo {
+      float: right;
+      margin: -30px 4px 0;
+    }
+
+    @media screen and (max-width: 960px) {
+      .hermes-logo {
+        margin: 0 4px 30px;
+        width: 100%;
+      }
     }
   }
 
@@ -356,10 +371,10 @@ html[data-theme="dark"] {
   }
 }
 
-.markdown .hash-link,
+.mdx-page .hash-link,
 .community-page .hash-link,
-html[data-theme="dark"] .markdown .hash-link,
-html[data-theme="dark"] .community-page .hash-link {
+html[data-theme="dark"].mdx-page .hash-link,
+html[data-theme="dark"].community-page .hash-link {
   @extend %hash-link-style;
 }
 
@@ -409,8 +424,6 @@ html[data-theme="dark"] article .badge {
 /* Community page */
 
 .community-page {
-  max-width: 1280px;
-
   h1 {
     font-size: 2.8rem;
   }
@@ -440,7 +453,7 @@ html[data-theme="dark"] article .badge {
   }
 }
 
-html[data-theme="dark"] .community-page {
+html[data-theme="dark"].community-page {
   .row .col p a {
     @extend %link-style-dark;
   }
@@ -577,33 +590,8 @@ a[class*="tagRegular"] {
     transform: rotate(180deg) scale(0.9);
   }
 
-  .react-toggle {
-    margin: 0 8px;
-
-    .react-toggle-track {
-      background: #3d3f47;
-      font-size: 15px;
-    }
-
-    .react-toggle-thumb {
-      border: 2px solid #4d4d4d;
-    }
-
-    &:hover {
-      .react-toggle-thumb {
-        border-color: var(--ifm-color-primary);
-      }
-    }
-  }
-
-  .react-toggle--focus {
-    .react-toggle-thumb {
-      box-shadow: 0 0 2px 3px #0099e085;
-    }
-  }
-
-  .navbar__toggle {
-    color: #fff;
+  .clean-btn:hover {
+    background: var(--ifm-color-emphasis-800);
   }
 
   .DocSearch-Button {
@@ -671,6 +659,10 @@ a[class*="tagRegular"] {
     top: 18px;
     background: var(--brand);
   }
+
+  .navbar-sidebar__back:hover {
+    background: var(--ifm-code-background);
+  }
 }
 
 /*
@@ -725,8 +717,14 @@ So we need to "revert" some CSS vars to not enforce dark mode
   }
 }
 
-html[data-theme="dark"] .navbar-sidebar {
-  background: var(--ifm-background-color);
+html[data-theme="dark"] {
+  .navbar-sidebar {
+    background: var(--ifm-background-color);
+  }
+
+  .navbar button[class*='toggleButton']:hover {
+    background: var(--ifm-color-emphasis-200);
+  }
 }
 
 @media (max-width: 1200px) {
@@ -754,8 +752,7 @@ html[data-theme="dark"] .navbar-sidebar {
 
 /* Sidebar */
 
-aside[class^="docSidebarContainer"] {
-  --doc-sidebar-width: 266px;
+aside[class^="theme-doc-sidebar-container"] {
   margin-right: 16px;
 
   .thin-scrollbar {
@@ -763,13 +760,18 @@ aside[class^="docSidebarContainer"] {
   }
 
   .menu__list .menu__link--sublist,
-  a[class*="menuLinkText"] {
+  a[class*="menu__link--sublist-caret"] {
     font-size: 16px !important;
     font-weight: 700 !important;
     padding: 5px 12px !important;
     color: var(--ifm-color-content-secondary) !important;
 
     &:after {
+      display: none;
+    }
+
+    &[aria-expanded]:after {
+      display: block;
       background-size: 1.66rem 1.66rem;
       margin-right: -6px;
       margin-top: -1px;
@@ -777,13 +779,17 @@ aside[class^="docSidebarContainer"] {
   }
 
   .menu__list .menu__list .menu__link--sublist,
-  a[class*="menuLinkText"] {
+  a[class*="menu__link--sublist-caret"] {
     font-weight: 700 !important;
     font-size: 15px !important;
   }
 
   .menu__list-item .menu__list-item .menu__list-item {
     padding-left: 8px !important;
+  }
+
+  .menu__link {
+    justify-content: space-between;
   }
 
   .theme-doc-sidebar-item-category .menu__list .menu__list-item-collapsible {
@@ -796,7 +802,7 @@ aside[class^="docSidebarContainer"] {
 }
 
 @media only screen and (min-width: 997px) {
-  aside[class^="docSidebarContainer"] {
+  aside[class^="theme-doc-sidebar-container"] {
     .menu {
       padding: 12px;
     }
@@ -804,7 +810,7 @@ aside[class^="docSidebarContainer"] {
 }
 
 @media only screen and (max-width: 996px) {
-  aside[class^="docSidebarContainer"] {
+  aside[class^="theme-doc-sidebar-container"] {
     width: 0 !important;
     min-width: 0 !important;
     margin-right: 0;
@@ -1664,7 +1670,7 @@ html[data-theme="dark"] .docsRating {
 
 /* Blog */
 
-.main-wrapper.blog-wrapper {
+.blog-wrapper .main-wrapper {
   h3[class*="sidebarItemTitle"] {
     color: var(--ifm-font-color-secondary);
   }
@@ -1740,27 +1746,20 @@ html[data-theme="dark"] .docsRating {
   }
 
   article.margin-bottom--xl {
-    margin-bottom: 2.5rem !important
+    margin-bottom: 2.5rem !important;
   }
 }
 
-html[data-theme="dark"] {
-  .main-wrapper.blog-wrapper {
+html[data-theme="dark"].blog-wrapper {
+  .main-wrapper {
     .row .col.col--3 div[class^="sidebar"] {
       @extend %scrollbar-style-dark;
     }
-
-    .container.margin-vert--lg {
-      a.margin-horiz--sm,
-      a.padding-right--md {
-        @extend %link-style-dark;
-      }
-    }
   }
 }
 
-html[data-theme="light"] {
-  .main-wrapper.blog-wrapper {
+html[data-theme="light"].blog-wrapper {
+  .main-wrapper {
     .container.margin-vert--lg {
       .col.text--right a:hover {
         color: var(--ifm-link-color);
@@ -1779,7 +1778,7 @@ html[data-theme="light"] {
     padding: 24px 16px !important;
   }
 
-  .main-wrapper:not(.community-page) {
+  html:not(.community-page) .main-wrapper {
     .container.margin-vert--lg {
       max-width: 96% !important;
     }

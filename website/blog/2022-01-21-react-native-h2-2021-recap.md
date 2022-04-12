@@ -84,6 +84,6 @@ Earlier in 2021, we shared our [Many Platform Vision](https://reactnative.dev/bl
 
 We’re looking forward to **converging patterns** that are platform-specific into the React Native experience.
 
-Finally, we want to thank again the community for the enormous support in H2 2021. It’s always amazing to see how contributors come together and support each other on Github, fixing bugs, sharing their and helping us deliver React Native to millions of users.
+Finally, we want to thank again the community for the enormous support in H2 2021. It’s always amazing to see how contributors come together and support each other on GitHub, fixing bugs, sharing their and helping us deliver React Native to millions of users.
 
 Stay tuned and looking forward to an **even more amazing 2022** 🎉!
