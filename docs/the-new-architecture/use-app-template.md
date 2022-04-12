@@ -24,7 +24,7 @@ Application**, and resume following this guide.
 
 <RemoveGlobalCLI />
 
-If you already have your development environment set up, create a new react-native project from the template:
+If you already have your development environment set up, create a new React Native project from the template:
 
 ```shell
 npx react-native init AwesomeProject
