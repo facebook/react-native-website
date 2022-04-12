@@ -6,7 +6,7 @@ title: Custom WebView
 While the built-in web view has a lot of features, it is not possible to handle every use-case in React Native. You can, however, extend the web view with native code without forking React Native or duplicating all the existing web view code.
 
 :::info
-The React Native WebView component has been moved under `react-native-community/react-native-webview` as part of the [lean core effort](https://github.com/facebook/react-native/issues/23313).
+The React Native WebView component has been extracted to [`react-native-webview`](https://github.com/react-native-webview/react-native-webview) package as part of the [Lean Core effort](https://github.com/facebook/react-native/issues/23313).
 That is the recommended way to use WebView in React Native as of today. You should not use the [WebView](https://reactnative.dev/docs/0.61/webview) component as that was deprecated and removed from React Native.  
 :::
 
