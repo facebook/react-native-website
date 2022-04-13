@@ -102,7 +102,7 @@ mReactRootView.setAppProperties(updatedProps);
 <TabItem value="kotlin">
 
 ```kotlin
-var updatedProps: Bundle = mReactRootView.getAppProperties()
+var updatedProps: Bundle = reactRootView.getAppProperties()
 var imageList = arrayListOf("http://foo.com/bar3.png", "http://foo.com/bar4.png")
 ```
 
