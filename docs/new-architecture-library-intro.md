@@ -4,6 +4,9 @@ title: Prerequisites for Libraries
 ---
 
 import NewArchitectureWarning from './\_markdown-new-architecture-warning.mdx';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import constants from '@site/core/TabsConstants';
 
 <NewArchitectureWarning/>
 
@@ -18,19 +21,22 @@ As the first step to adopting the new architecture, you will start by creating t
 ### Writing the JavaScript Spec
 
 The JavaScript spec defines all APIs that are provided by the native module, along with the types of those constants and functions.
-Using a **typed** spec file allows to be intentional and declare all the input arguments and outputs of your native module’s methods.
+Using a **typed** spec file allows us to be intentional and declare all the input arguments and outputs of your native module’s methods.
 
 :::info
 
-Currently, this guide is written under the assumption that you will be using [Flow](https://flow.org/). The `react-native-codegen` package is also currently working only with Flow source as input. We know that a lot of our users are using **TypeScript** instead and we hope to release TypeScript support really soon. This guide will be updated once the TypeScript support is also available.
+JavaScript spec files can be written in either [Flow](https://flow.org/) or [TypeScript](https://www.typescriptlang.org/). The Codegen process will automatically choose the correct type parser based on your spec file's extension (`.js` for Flow, `.ts` or `.tsx` for TypeScript). Note that TypeScript support is still in beta—if you come across any bugs or missing features, please [report them](https://github.com/reactwg/react-native-new-architecture/discussions/categories/q-a).
 
 :::
 
-#### Turbomodules
+#### TurboModules
 
-JavaScript spec files **must** be named `Native<MODULE_NAME>.js` and they export a `TurboModuleRegistry` `Spec` object. The name convention is important because the Codegen process looks for modules whose `js` spec file starts with the keyword `Native`.
+JavaScript spec files **must** be named `Native<MODULE_NAME>.js` (for TypeScript use extension `.ts` or `.tsx`) and they export a `TurboModuleRegistry` `Spec` object. The name convention is important because the Codegen process looks for modules whose spec file (either JavaScript of TypeScript) starts with the keyword `Native`.
 
-The following is a basic JavaScript spec template, written using the [Flow](https://flow.org/) syntax.
+The following snippets show a basic spec template, written in [Flow](https://flow.org/) as well as [TypeScript](https://www.typescriptlang.org/).
+
+<Tabs groupId="turbo-module-spec-language" defaultValue={constants.defaultJavaScriptSpecLanguages} values={constants.javaScriptSpecLanguages}>
+<TabItem value="flow">
 
 ```ts
 // @flow
@@ -48,11 +54,34 @@ export interface Spec extends TurboModule {
 export default (TurboModuleRegistry.get<Spec>('<MODULE_NAME>'): ?Spec);
 ```
 
+</TabItem>
+<TabItem value="typescript">
+
+```ts
+import type { TurboModule } from 'react-native';
+import { TurboModuleRegistry } from 'react-native';
+
+export interface Spec extends TurboModule {
+  readonly getConstants: () => {};
+
+  // your module methods go here, for example:
+  getString(id: string): Promise<string>;
+}
+
+export default TurboModuleRegistry.get<Spec>('<MODULE_NAME>');
+```
+
+</TabItem>
+</Tabs>
+
 #### Fabric Components
 
-JavaScript spec files **must** be named `<FABRIC COMPONENT>NativeComponent.js` and they export a `HostComponent` object. The name convention is important: the Codegen process looks for components whose `js` spec file ends with the keyword `NativeComponent`.
+JavaScript spec files **must** be named `<FABRIC COMPONENT>NativeComponent.js` (for TypeScript use extension `.ts` or `.tsx`) and they export a `HostComponent` object. The name convention is important: the Codegen process looks for components whose spec file (either JavaScript or TypeScript) ends with the suffix `NativeComponent`.
 
-The following is a basic JavaScript spec template, written using the [Flow](https://flow.org/) syntax.
+The following snippet shows a basic JavaScript spec template, written in [Flow](https://flow.org/) as well as [TypeScript](https://www.typescriptlang.org/).
+
+<Tabs groupId="turbo-module-spec-language" defaultValue={constants.defaultJavaScriptSpecLanguages} values={constants.javaScriptSpecLanguages}>
+<TabItem value="flow">
 
 ```ts
 // @flow strict-local
@@ -71,15 +100,35 @@ export default (codegenNativeComponent<NativeProps>(
 ): HostComponent<NativeProps>);
 ```
 
-### Supported Flow Types
+</TabItem>
+<TabItem value="typescript">
 
-When using Flow, you will be using [type annotations](https://flow.org/en/docs/types/) to define your spec. Keeping in mind that the goal of defining a JavaScript spec is to ensure the generated native interface code is type safe, the set of supported Flow types will be those that can be mapped one-to-one to a corresponding type on the native platform.
+```ts
+import type { ViewProps } from 'ViewPropTypes';
+import type { HostComponent } from 'react-native';
+import codegenNativeComponent from 'react-native/Libraries/Utilities/codegenNativeComponent';
+
+export interface NativeProps extends ViewProps {
+  // add other props here
+}
+
+export default codegenNativeComponent<NativeProps>(
+  '<FABRIC COMPONENT>'
+) as HostComponent<NativeProps>;
+```
+
+</TabItem>
+</Tabs>
+
+### Supported Types
+
+When using Flow or TypeScript, you will be using [type annotations](https://flow.org/en/docs/types/) to define your spec. Keeping in mind that the goal of defining a JavaScript spec is to ensure the generated native interface code is type safe, the set of supported types will be those that can be mapped one-to-one to a corresponding type on the native platform.
 
 <!-- alex ignore savage -->
 
-In general, this means you can use primitive types (strings, numbers, booleans), as well as function types, object types, and array types. Union types, on the other hand, are not supported. All types must be read-only in Flow: either `+` or `$ReadOnly<>` or `{||}` objects.
+In general, this means you can use primitive types (strings, numbers, booleans), as well as function types, object types, and array types. Union types, on the other hand, are not supported. All types must be read-only. For Flow: either `+` or `$ReadOnly<>` or `{||}` objects. For TypeScript: `readonly` for properties, `Readonly<>` for objects, and `ReadonlyArray<>` for arrays.
 
-> See Appendix [I. Flow Type to Native Type Mapping](#i-flow-type-to-native-type-mapping).
+> See Appendix [I. Flow Type to Native Type Mapping](./new-architecture-appendix#i-flow-type-to-native-type-mapping). (TypeScript to Native Type Mapping will be added soon.)
 
 ### Be Consistent Across Platforms and Eliminate Type Ambiguity
 
