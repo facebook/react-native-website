@@ -5,15 +5,15 @@ title: How to test a release candidate
 
 ## Pre-requisites
 
-- Have clone of `react-native` repo and be on the release candidate branch.
+- Have a clone of `react-native` repo and be on the release candidate branch.
 
   ```bash
   # Checkout relevant branch
-  react-native$ git checkout 0.66-stable
-  react-native$ yarn install
+  git checkout 0.66-stable
+  yarn install
 
   # I needed a .watchmanconfig because `npm start` would fail without it.
-  react-native$ echo '{}' > .watchmanconfig
+  echo '{}' > .watchmanconfig
   ```
 
 - Have Android and iOS development environment set-up. Follow instructions for macOS/iOS and macOS/Android from the [Environment Setup](/docs/environment-setup) guide.
@@ -79,7 +79,7 @@ Covered by running `test-manual-e2e.sh`, see [issue](https://github.com/facebook
 
     ```bash
     # This will run you through the different variants in Test Dimensions table
-    react-native$ ./scripts/test-manual-e2e.sh
+    ./scripts/test-manual-e2e.sh
     ```
 
 5. Go through **Test Checklist** for Hermes enabled template app.
