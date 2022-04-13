@@ -12,7 +12,7 @@ Starting in version 0.68, React Native provides a New Architecture that improves
 This is made possible by these [Pillars of the New Architecture](pillars):
 
 - [Fabric renderer and components](pillars-fabric-components), and the capabilities they offer for layout and interaction events
-- [TurboModules](pillars-turbo-modules), which supports faster loading of and communication with native code
+- [TurboModules](pillars-turbomodules), which supports faster loading of and communication with native code
 - [CodeGen](pillars-codegen), which generates code you can use to interface with native modules, via static typing in JavaScript
 
 ## Get started with the New Architecture
@@ -25,4 +25,8 @@ To **migrate an existing app** to the New Architecture, follow [Adopting the New
 
 ### For library maintainers
 
-If you are adding support for the New Architecture to a library, head to the [Pillars]([pillars]) section to learn more about supporting apps that have migrated to the New Architecture, while still maintaining backwards compatibility for apps that haven't.
+First, you'll need to learn about the primary components of the New Architecture: TurboModules, Fabric, and CodeGen. Learn more about these concepts in the [Pillars](pillars) section.
+
+Then, for a **how-to guide** on supporting the New Architecture, check out the [Migration](../new-architecture-library-info) guide.
+
+For information on **supporting both the Old and New Architectures**, see the [Backwards Compatibility](backward-compatibility) guide.
