@@ -35,7 +35,7 @@ JavaScript spec files **must** be named `Native<MODULE_NAME>.js` (for TypeScript
 
 The following snippets show a basic spec template, written in [Flow](https://flow.org/) as well as [TypeScript](https://www.typescriptlang.org/).
 
-<Tabs groupId="turbo-module-spec-language" defaultValue={constants.defaultTurboModuleSpecLanguage} values={constants.turboModuleSpecLanguages}>
+<Tabs groupId="turbo-module-spec-language" defaultValue={constants.defaultJavaScriptSpecLanguages} values={constants.javaScriptSpecLanguages}>
 <TabItem value="flow">
 
 ```ts
@@ -80,7 +80,7 @@ JavaScript spec files **must** be named `<FABRIC COMPONENT>NativeComponent.js` (
 
 The following snippet shows a basic JavaScript spec template, written in [Flow](https://flow.org/) as well as [TypeScript](https://www.typescriptlang.org/).
 
-<Tabs groupId="turbo-module-spec-language" defaultValue={constants.defaultTurboModuleSpecLanguage} values={constants.turboModuleSpecLanguages}>
+<Tabs groupId="turbo-module-spec-language" defaultValue={constants.defaultJavaScriptSpecLanguages} values={constants.javaScriptSpecLanguages}>
 <TabItem value="flow">
 
 ```ts
