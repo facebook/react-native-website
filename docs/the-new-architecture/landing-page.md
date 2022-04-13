@@ -19,7 +19,7 @@ This is made possible by these [Pillars of the New Architecture](pillars):
 
 ### For app developers
 
-To **create a new app** using the New Architecture, head over to [Creating a New Architecture App](use-app-template.md), which will get you up and running in a few easy steps with the new app template.
+To **create a new app** using the New Architecture, head over to [Creating a New Architecture App](use-app-template.md), which will get you up and running in a few quick steps with the new app template.
 
 To **migrate an existing app** to the New Architecture, follow [Adopting the New Architecture](../new-architecture-intro.md).
 
