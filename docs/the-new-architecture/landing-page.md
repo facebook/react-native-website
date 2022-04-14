@@ -5,7 +5,7 @@ title: Introduction
 
 Starting in version 0.68, React Native provides the New Architecture, which offers developers new capabilities for building highly performant and responsive apps. Visit [Why a New Architecture](why) to learn more about what drove the decision to re-architect, and the benefits it provides.
 
-The core concepts are explained by the [Pillars of the New Architecture](pillars):
+In order to achieve these benefits, we had to rethink how Native Modules and Native Components work. This led us to develop the [Pillars of the New Architecture](pillars):
 
 - [Fabric renderer and components](pillars-fabric-components), and the capabilities they offer for layout and interaction events
 - [TurboModules](pillars-turbomodules), which supports faster loading of and communication with native code
