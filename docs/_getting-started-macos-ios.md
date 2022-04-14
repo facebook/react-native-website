@@ -47,7 +47,11 @@ sudo gem install cocoapods
 
 For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
 
-<M1Cocoapods />
+If you are installing Cocoapods on an M1 Mac, do not use the `gem` command to install. Only use homebrew to install Cocoapods on M1 Macs.
+
+```shell
+brew install cocoapods
+```
 
 ### React Native Command Line Interface
 
