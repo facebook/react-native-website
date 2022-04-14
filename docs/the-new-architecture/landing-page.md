@@ -3,13 +3,9 @@ id: landing-page
 title: Introduction
 ---
 
-Starting in version 0.68, React Native provides a New Architecture that improves several aspects of how JavaScript code and host platforms can integrate, such as:
+Starting in version 0.68, React Native provides the New Architecture, which offers developers new capabilities for building highly performant and responsive apps. Visit [Why a New Architecture](why) to learn more about what drove the decision to re-architect, and the benefits it provides.
 
-- synchronously measure and render React Native views at the same time as native views
-- support for prioritization of events that update the app's layout, like user interactions
-- improved type safety and consistency of communication between JavaScript and native code
-
-This is made possible by these [Pillars of the New Architecture](pillars):
+The core concepts are explained by the [Pillars of the New Architecture](pillars):
 
 - [Fabric renderer and components](pillars-fabric-components), and the capabilities they offer for layout and interaction events
 - [TurboModules](pillars-turbomodules), which supports faster loading of and communication with native code
@@ -25,7 +21,7 @@ To **migrate an existing app** to the New Architecture, follow [Adopting the New
 
 ### For library maintainers
 
-First, you'll need to learn about the primary components of the New Architecture: TurboModules, Fabric, and CodeGen. Learn more about these concepts in the [Pillars](pillars) section.
+First, read up on the core concepts outlined in the [Pillars](pillars) section.
 
 Then, for a **how-to guide** on supporting the New Architecture, check out the [Migration](../new-architecture-library-info) guide.
 
