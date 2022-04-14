@@ -16,7 +16,7 @@ Before continuing, make sure you've followed all the steps in [Setting up the de
 If following the setup guide, stop when you reach the section **Running your React Native Application**, and resume following this guide.
 
 :::caution
-The New Architecture cannot currently be enabled in an Expo app.
+If you're using Expo, you can't enable the New Architecture at the moment, and will have to wait for a future release of the Expo SDK.
 :::
 
 ## Creating a new application
@@ -30,7 +30,7 @@ npx react-native init AwesomeProject
 ```
 
 :::caution
-The New Architecture is available in version 0.68 or later.
+The New Architecture is available in React Native version 0.68 or later.
 :::
 
 ## Configuration
