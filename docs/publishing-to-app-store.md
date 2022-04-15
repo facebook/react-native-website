@@ -47,3 +47,12 @@ The static bundle is built every time you target a physical device, even in Debu
 You can now build your app for release by tapping `⌘B` or selecting **Product** → **Build** from the menu bar. Once built for release, you'll be able to distribute the app to beta testers and submit the app to the App Store.
 
 > You can also use the `React Native CLI` to perform this operation using the option `--configuration` with the value `Release` (e.g. `npx react-native run-ios --configuration Release`).
+
+Once you are done with the testing and you are ready to publish to App Store, click on `Product` → `Archive`. Make sure to set the device to "Any iOS Device (arm64)". 
+
+> Note: Check your Bundle Identifier and make sure it is exactly same as the one you have created in the Identifers in Apple Developer Dashbaord
+
+After the archive is completed, in the archive window, click on `Distribute App`. Then on `App Store Connect` (if you want to publish in App Store) → `Upload` → Make sure all the check boxes are selected, hit "Next" → Choose between `Automatically manage signing` and `Manually manage signing` based on your needs → Click on Upload → Now you can find it in the App Store Connect under Testflight.
+
+Now fill up the necessary information and in the Build Section, select the build of the app and click on `Save` → `Submit For Review`.
+
