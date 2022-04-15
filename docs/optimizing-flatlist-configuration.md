@@ -136,7 +136,7 @@ render(){
 
   <FlatList
     data={items}
-    renderItem={renderItem}
+    renderItem={this.renderItem}
   />
 
   // ...
@@ -157,7 +157,7 @@ const renderItem = ({ item }) => (
 return (
   // ...
 
-  <FlatList data={items} renderItem={this.renderItem} />;
+  <FlatList data={items} renderItem={renderItem} />;
   // ...
 );
 ```
