@@ -157,7 +157,7 @@ const renderItem = ({ item }) => (
 return (
   // ...
 
-  <FlatList data={items} renderItem={renderItem} />;
+  <FlatList data={items} renderItem={this.renderItem} />;
   // ...
 );
 ```
