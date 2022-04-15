@@ -52,6 +52,6 @@ Once you are done with the testing and you are ready to publish to App Store, cl
 
 > Note: Check your Bundle Identifier and make sure it is exactly same as the one you have created in the Identifers in Apple Developer Dashbaord
 
-After the archive is completed, in the archive window, click on `Distribute App`. Then on `App Store Connect` (if you want to publish in App Store) → `Upload` → Make sure all the check boxes are selected, hit "Next" → Choose between `Automatically manage signing` and `Manually manage signing` based on your needs → Click on Upload → Now you can find it in the App Store Connect under Testflight.
+After the archive is completed, in the archive window, click on `Distribute App`. Then on `App Store Connect` (if you want to publish in App Store) → `Upload` → Make sure all the check boxes are selected, hit "Next" → Choose between `Automatically manage signing` and `Manually manage signing` based on your needs → Click on Upload → Now you can find it in the App Store Connect under TestFlight.
 
 Now fill up the necessary information and in the Build Section, select the build of the app and click on `Save` → `Submit For Review`.
