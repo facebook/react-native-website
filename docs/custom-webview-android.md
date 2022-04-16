@@ -65,22 +65,22 @@ public class CustomWebViewManager extends RNCWebViewManager {
 
 ```kotlin
 @ReactModule(name = CustomWebViewManager.name)
-class CustomWebViewManager : ReactWebViewManager() {
-    protected class CustomWebViewClient : ReactWebViewClient()
-    protected class CustomWebView(reactContext: ThemedReactContext?) : ReactWebView(reactContext)
+class CustomWebViewManager : RNCWebViewManager() {
+    protected class CustomWebViewClient : RNCWebViewClient()
+    protected inner class CustomWebView(reactContext: ThemedReactContext?) :
+        RNCWebView(reactContext)
 
-    protected fun createReactWebViewInstance(reactContext: ThemedReactContext?): ReactWebView {
+    override fun createRNCWebViewInstance(reactContext: ThemedReactContext?): RNCWebView {
         return CustomWebView(reactContext)
     }
 
-    protected fun addEventEmitters(reactContext: ThemedReactContext?, view: WebView) {
-        view.setWebViewClient(CustomWebViewClient())
+    override fun addEventEmitters(reactContext: ThemedReactContext, view: WebView) {
+        view.webViewClient = CustomWebViewClient()
     }
 
     companion object {
         /* This name must match what we're referring to in JS */
-        val name = "RCTCustomWebView"
-            get() = Companion.field
+        const val name = "RCTCustomWebView"
     }
 }
 ```
@@ -129,9 +129,10 @@ public class CustomWebViewManager extends RNCWebViewManager {
 <TabItem value="kotlin">
 
 ```kotlin
-class CustomWebViewManager : ReactWebViewManager() {
-    protected class CustomWebView(reactContext: ThemedReactContext?) : ReactWebView(reactContext) {
-        @Nullable var finalUrl: String? = null
+class CustomWebViewManager : RNCWebViewManager() {
+    protected inner class CustomWebView(reactContext: ThemedReactContext?) :
+        RNCWebView(reactContext) {
+        var finalUrl: String? = null
     }
 
     @ReactProp(name = "finalUrl")
@@ -179,20 +180,14 @@ public class NavigationCompletedEvent extends Event<NavigationCompletedEvent> {
 
 ```kotlin
 // NavigationCompletedEvent.kt
-class NavigationCompletedEvent(viewTag: Int, params: WritableMap) :
-    Event<NavigationCompletedEvent?>(viewTag) {
-    private val mParams: WritableMap
+class NavigationCompletedEvent(viewTag: Int, val params: WritableMap) :
+    Event<NavigationCompletedEvent>(viewTag) {
+    private val eventName: String = "navigationCompleted"
+    override fun getEventName() = this.eventName
 
-    init {
-        mParams = params
-    }
-
-    val eventName: String
-        get() = "navigationCompleted"
-
-    fun dispatch(rctEventEmitter: RCTEventEmitter) {
-        init(getViewTag())
-        rctEventEmitter.receiveEvent(getViewTag(), eventName, mParams)
+    override fun dispatch(rctEventEmitter: RCTEventEmitter) {
+        init(viewTag)
+        rctEventEmitter.receiveEvent(viewTag, eventName, params)
     }
 }
 ```
@@ -249,30 +244,25 @@ protected static class CustomWebViewClient extends RNCWebViewClient {
 <TabItem value="kotlin">
 
 ```kotlin
-class NavigationCompletedEvent(viewTag: Int, params: WritableMap) :
-    Event<NavigationCompletedEvent?>(viewTag) {
-    private val mParams: WritableMap
+class NavigationCompletedEvent(viewTag: Int, val params: WritableMap) :
+    Event<NavigationCompletedEvent>(viewTag) {
 
-    init {
-        mParams = params
-    }
+    private val eventName = "navigationCompleted"
+    override fun getEventName() = this.eventName
 
-    val eventName: String
-        get() = "navigationCompleted"
-
-    fun dispatch(rctEventEmitter: RCTEventEmitter) {
-        init(getViewTag())
-        rctEventEmitter.receiveEvent(getViewTag(), eventName, mParams)
+    override fun dispatch(rctEventEmitter: RCTEventEmitter) {
+        init(viewTag)
+        rctEventEmitter.receiveEvent(viewTag, eventName, params)
     }
 }
 
 // CustomWebViewManager.kt
 
-protected class CustomWebViewClient : ReactWebViewClient() {
-    fun shouldOverrideUrlLoading(view: WebView, url: String?): Boolean {
+protected class CustomWebViewClient : RNCWebViewClient() {
+    override fun shouldOverrideUrlLoading(view: WebView, url: String?): Boolean {
         val shouldOverride: Boolean = super.shouldOverrideUrlLoading(view, url)
-        val finalUrl: String = (view as CustomWebView).getFinalUrl()
-        if (!shouldOverride && url != null && finalUrl != null && String(url) == finalUrl) {
+        val finalUrl: String? = (view as CustomWebView).finalUrl
+        if (!shouldOverride && url != null && finalUrl != null && url == finalUrl) {
             val params: WritableMap = Arguments.createMap()
             dispatchEvent(view, NavigationCompletedEvent(view.getId(), params))
         }
@@ -310,20 +300,20 @@ public class CustomWebViewManager extends RNCWebViewManager {
 <TabItem value="kotlin">
 
 ```kotlin
-class CustomWebViewManager : ReactWebViewManager() {
-    @get:Nullable
-    val exportedCustomDirectEventTypeConstants: Map
-        get() {
-            var export: Map<String?, Any?> = super.getExportedCustomDirectEventTypeConstants()
-            if (export == null) {
-                export = MapBuilder.newHashMap()
+class CustomWebViewManager : RNCWebViewManager() {
+    override fun getExportedCustomDirectEventTypeConstants(): MutableMap<Any?, Any?>? {
+        val export =
+            if (super.getExportedCustomDirectEventTypeConstants() != null) {
+                super.getExportedCustomDirectEventTypeConstants()
+            } else {
+                MapBuilder.newHashMap<Any, Any?>()
             }
-            export.put(
-                "navigationCompleted",
-                MapBuilder.of("registrationName", "onNavigationCompleted")
-            )
-            return export
-        }
+        export?.set(
+            "navigationCompleted",
+            MapBuilder.of("registrationName", "onNavigationCompleted")
+        )
+        return export
+    }
 }
 ```
 
