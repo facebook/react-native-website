@@ -34,7 +34,7 @@ In this example we create view manager class `ReactImageManager` that extends `S
 
 ```kotlin
 class ReactImageManager(
-    private val mCallerContext: ReactApplicationContext
+    private val callerContext: ReactApplicationContext
 ) : SimpleViewManager<ReactImageView>() {
 
   override fun getName() = REACT_CLASS
@@ -77,7 +77,7 @@ Views are created in the `createViewInstance` method, the view should initialize
 
 ```kotlin
   override fun createViewInstance(context: ThemedReactContext) =
-      ReactImageView(context, Fresco.newDraweeControllerBuilder(), null, mCallerContext)
+      ReactImageView(context, Fresco.newDraweeControllerBuilder(), null, callerContext)
 ```
 
 </TabItem>
@@ -95,7 +95,7 @@ Views are created in the `createViewInstance` method, the view should initialize
 
 ### 3. Expose view property setters using `@ReactProp` (or `@ReactPropGroup`) annotation
 
-Properties that are to be reflected in JavaScript needs to be exposed as setter method annotated with `@ReactProp` (or `@ReactPropGroup`). Setter method should take view to be updated (of the current view type) as a first argument and property value as a second argument. Setter should be declared as a `void` method in Java or with return type `Unit` (or omitted) in Kotlin and should be `public`. Property type sent to JS is determined automatically based on the type of value argument of the setter. The following type of values are currently supported (in Java): `boolean`, `int`, `float`, `double`, `String`, `Boolean`, `Integer`, `ReadableArray`, `ReadableMap`. The corresponding types in Kotlin are `Boolean`, `Int`, `Float`, `Double`, `String`, `ReadableArray`, `ReadableMap`.
+Properties that are to be reflected in JavaScript needs to be exposed as setter method annotated with `@ReactProp` (or `@ReactPropGroup`). Setter method should take view to be updated (of the current view type) as a first argument and property value as a second argument. Setter should be public and not return a value (i.e. return type should be `void` in Java or `Unit` in Kotlin). Property type sent to JS is determined automatically based on the type of value argument of the setter. The following type of values are currently supported (in Java): `boolean`, `int`, `float`, `double`, `String`, `Boolean`, `Integer`, `ReadableArray`, `ReadableMap`. The corresponding types in Kotlin are `Boolean`, `Int`, `Float`, `Double`, `String`, `ReadableArray`, `ReadableMap`.
 
 Annotation `@ReactProp` has one obligatory argument `name` of type `String`. Name assigned to the `@ReactProp` annotation linked to the setter method is used to reference the property on JS side.
 
@@ -152,7 +152,7 @@ Setter declaration requirements for methods annotated with `@ReactPropGroup` are
 
 ### 4. Register the `ViewManager`
 
-The final Java/Kotlin step is to register the ViewManager to the application, this happens in a similar way to [Native Modules](native-modules-android.md), via the applications package member function `createViewManagers.`
+The final step is to register the ViewManager to the application, this happens in a similar way to [Native Modules](native-modules-android.md), via the applications package member function `createViewManagers`.
 
 <Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
 <TabItem value="kotlin">
@@ -160,9 +160,7 @@ The final Java/Kotlin step is to register the ViewManager to the application, th
 ```kotlin
   override fun createViewManagers(
       reactContext: ReactApplicationContext
-  ): List<ViewManager<*, *>> {
-    return listOf(ReactImageManager(reactContext))
-  }
+  ) = listOf(ReactImageManager(reactContext))
 ```
 
 </TabItem>
@@ -510,13 +508,12 @@ import com.facebook.react.bridge.ReadableArray
 import com.facebook.react.uimanager.ThemedReactContext
 import com.facebook.react.uimanager.ViewGroupManager
 import com.facebook.react.uimanager.annotations.ReactPropGroup
-import kotlin.properties.Delegates
 
 class MyViewManager(
     private val reactContext: ReactApplicationContext
 ) : ViewGroupManager<FrameLayout>() {
-  private var propWidth by Delegates.notNull<Int>()
-  private var propHeight by Delegates.notNull<Int>()
+  private var propWidth: Int? = null
+  private var propHeight: Int? = null
 
   override fun getName() = REACT_CLASS
 
@@ -583,8 +580,8 @@ class MyViewManager(
    */
   private fun manuallyLayoutChildren(view: View) {
     // propWidth and propHeight coming from react-native props
-    val width = propWidth
-    val height = propHeight
+    val width = requireNotNull(propWidth)
+    val height = requireNotNull(propHeight)
 
     view.measure(
         View.MeasureSpec.makeMeasureSpec(width, View.MeasureSpec.EXACTLY),
@@ -755,9 +752,7 @@ class MyPackage : ReactPackage {
   ...
   override fun createViewManagers(
       reactContext: ReactApplicationContext
-  ): List<ViewManager<*, *>> {
-    return listOf(MyViewManager(reactContext))
-  }
+  ) = listOf(MyViewManager(reactContext))
 }
 ```
 
