@@ -81,6 +81,15 @@ npx react-native init AwesomeTSProject --template react-native-template-typescri
 
 > **Note** If the above command is failing, you may have old version of `react-native` or `react-native-cli` installed globally on your pc. Try uninstalling the cli and run the cli using `npx`.
 
+### [Optional] Configuring your environment
+
+Starting from React Native version 0.69, it is possible to configure the Xcode environment using the `.xcode.env` file provided by the template.
+
+The `.xcode.env` file contains an environment variable to export the path to the `node` executable in the `NODE_BINARY` variable.
+This is the **suggested approach** to decouple the build infrastructure from the system version of `node`. You should customize this variable with your own path or your own `node` version manager, if it differs from the default.
+
+On top of this, it's possible to add any other environment variable and to source the `.xcode.env` file in your build script phases. If you need to run script that requires some specific environment, this is the **suggested approach**: it allows to decouple the build phases from a specific environment.
+
 ## Running your React Native application
 
 ### Step 1: Start Metro
