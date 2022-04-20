@@ -1,4 +1,4 @@
-import M1Cocoapods from './\_markdown-m1-cocoapods.mdx';
+import M1Cocoapods from './\_markdown-m1-cocoapods.mdx'; import RemoveGlobalCLI from './\_remove-global-cli.md';
 
 ## Installing dependencies
 
@@ -57,7 +57,7 @@ React Native has a built-in command line interface. Rather than install and mana
 
 ## Creating a new application
 
-> If you previously installed a global `react-native-cli` package, please remove it as it may cause unexpected issues.
+<RemoveGlobalCLI />
 
 You can use React Native's built-in command line interface to generate a new project. Let's create a new React Native project called "AwesomeProject":
 
