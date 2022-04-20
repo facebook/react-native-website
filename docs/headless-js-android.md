@@ -28,7 +28,65 @@ You can do anything in your task such as network requests, timers and so on, as 
 
 ## The Java API
 
-Yes, this does still require some native code, but it's pretty thin. You need to extend `HeadlessJsTaskService` and override `getTaskConfig`, e.g.:
+Yes, this does still require some native code, but it's pretty thin. Depending on your use case, you can choose between `WorkManager` or `Service` to execute task with.
+
+From Android 8.0(API Level 26), the system imposes [limitations on running services in the background][0]. If your use case falls under the limitations, you have to use `WorkManager` as a task executer.
+
+### Executing task with `WorkManager`
+
+You need to extend `HeadlessJsTaskWorker` and override `getTaskConfig`, e.g.:
+
+```java
+package com.your_application_name;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.work.Data;
+import androidx.work.WorkerParameters;
+import com.facebook.react.HeadlessJsTaskWorker;
+import com.facebook.react.bridge.Arguments;
+import com.facebook.react.jstasks.HeadlessJsTaskConfig;
+
+public class MyTaskWorker extends HeadlessJsTaskWorker {
+    public MyTaskWorker(@NonNull Context context, @NonNull WorkerParameters params) {
+        super(context, params);
+    }
+
+    @Override
+    protected @Nullable HeadlessJsTaskConfig getTaskConfig(Data data) {
+        if (data != null) {
+            return new HeadlessJsTaskConfig(
+                "SomeTaskName",
+                Arguments.makeNativeMap(data.getKeyValueMap()),
+                5000, // timeout for the task
+                false // optional: defines whether or not  the task is allowed in foreground. Default is false
+            );
+        }
+        return null
+    }
+}
+```
+
+Now, whenever your work is executed, JS will spin up, run your task, then spin down. You can schedule your work [by enqueuing WorkRequest to WorkManager][1].
+
+Example:
+
+```java
+Data inputData = new Data.Builder()
+        .putString("message", "Task has executed")
+        .build();
+WorkRequest headlessJsTaskWorkRequest =
+        new OneTimeWorkRequest.Builder(MyTaskWorker.class)
+                .setInputData(inputData)
+                .build();
+WorkManager
+        .getInstance(this)
+        .enqueue(headlessJsTaskWorkRequest);
+```
+
+### Executing task with `Service`
+
+You need to extend `HeadlessJsTaskService` and override `getTaskConfig`, e.g.:
 
 ```java
 package com.your_application_name;
@@ -63,7 +121,7 @@ Then add the service to your `AndroidManifest.xml` file:
 <service android:name="com.example.MyTaskService" />
 ```
 
-Now, whenever you [start your service][0], e.g. as a periodic task or in response to some system event / broadcast, JS will spin up, run your task, then spin down.
+Now, whenever you [start your service][2], e.g. as a periodic task or in response to some system event / broadcast, JS will spin up, run your task, then spin down.
 
 Example:
 
@@ -123,7 +181,7 @@ If you wish all errors to cause a retry attempt, you will need to catch them and
 
 ## Example Usage
 
-Service can be started from Java API. First you need to decide when the service should be started and implement your solution accordingly. Here is an example that reacts to network connection change.
+Work or Service can be started from Java API. First you need to decide when the work or service should be started and implement your solution accordingly. Here is an example that reacts to network connection change.
 
 Following lines shows part of Android manifest file for registering broadcast receiver.
 
@@ -135,7 +193,11 @@ Following lines shows part of Android manifest file for registering broadcast re
 </receiver>
 ```
 
-Broadcast receiver then handles intent that was broadcasted in onReceive function. This is a great place to check whether your app is on foreground or not. If app is not on foreground we can prepare our intent to be started, with no information or additional information bundled using `putExtra` (keep in mind bundle can handle only parcelable values). In the end service is started and wakelock is acquired.
+Broadcast receiver then handles intent that was broadcasted in onReceive function. This is a great place to check whether your app is on foreground or not. If app is not on foreground we can prepare our WorkRequest or Service.
+
+To execute with WorkManager, build `WorkRequest`, with no data or additional data by [assigning input data][2]. Then, we submit our work request.
+
+To execute with Serivce, prepare intent to be started, with no information or additional information bundled using `putExtra` (keep in mind bundle can handle only parcelable values). In the end service is started and wakelock is acquired.
 
 ```java
 public class NetworkChangeReceiver extends BroadcastReceiver {
@@ -148,6 +210,25 @@ public class NetworkChangeReceiver extends BroadcastReceiver {
         **/
         if (!isAppOnForeground((context))) {
             /**
+              Executing task with WorkManager
+
+              We will submit work request with extra info about
+              network connections
+            **/
+            Data inputData = new Data.Builder()
+                    .putBoolean("hasInternet", hasInternet)
+                    .build();
+            WorkRequest headlessJsTaskWorkRequest =
+                    new OneTimeWorkRequest.Builder(MyTaskWorker.class)
+                            .setInputData(inputData)
+                            .build();
+            WorkManager
+                    .getInstance(context)
+                    .enqueue(headlessJsTaskWorkRequest);
+
+            /**
+              Executing task with Service
+
               We will start our service and send extra info about
               network connections
             **/
@@ -188,8 +269,9 @@ public class NetworkChangeReceiver extends BroadcastReceiver {
         return (netInfo != null && netInfo.isConnected());
     }
 
-
 }
 ```
 
-[0]: https://developer.android.com/reference/android/content/Context.html#startService(android.content.Intent)
+[0]: https://developer.android.com/about/versions/oreo/background#services
+[1]: https://developer.android.com/topic/libraries/architecture/workmanager/how-to/define-work
+[2]: https://developer.android.com/reference/android/content/Context.html#startService(android.content.Intent)
