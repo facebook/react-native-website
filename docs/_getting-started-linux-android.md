@@ -1,3 +1,5 @@
+import RemoveGlobalCLI from './\_remove-global-cli.md';
+
 ## Installing dependencies
 
 You will need Node, the React Native command line interface, a JDK, and Android Studio.
@@ -77,7 +79,7 @@ React Native has a built-in command line interface. Rather than install and mana
 
 <h2>Creating a new application</h2>
 
-> If you previously installed a global `react-native-cli` package, please remove it as it may cause unexpected issues.
+<RemoveGlobalCLI />
 
 React Native has a built-in command line interface, which you can use to generate a new project. You can access it without installing anything globally using `npx`, which ships with Node.js. Let's create a new React Native project called "AwesomeProject":
 
