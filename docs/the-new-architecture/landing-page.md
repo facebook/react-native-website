@@ -3,11 +3,26 @@ id: landing-page
 title: Introduction
 ---
 
-This section is the entry point for the new guide’s documentation.
-It contains some basic information about the New Architecture: its pillars, the version from which it has been made available and other very high-level information. Then, it should present the guide’s structure itself.
+Starting in version 0.68, React Native provides the New Architecture, which offers developers new capabilities for building highly performant and responsive apps. Visit [Why a New Architecture](why) to learn more about what drove the decision to re-architect, and the benefits it provides.
 
-This section should also contains a sort of Driving guide based on the user use-cases:
+In order to achieve these benefits, we had to rethink how Native Modules and Native Components work. This led us to develop the [Pillars of the New Architecture](pillars):
 
-- New user: link to how to use the new [app template](use-app-template)
-- New Library developer: link to the [pillars](pillars)
-- Old library developer/app developer: link to [the migration guide](../new-architecture-intro)
+- [TurboModules](pillars-turbomodules), a framework to support efficient and flexible integration with native code
+- [Fabric renderer and components](pillars-fabric-components), which offer improved capabilities, cross-platform consistency, and performance in rendering
+- [CodeGen](pillars-codegen), which generates boilerplate C++ required by the New Architecture, via static typing in JavaScript
+
+## Get started with the New Architecture
+
+### For app developers
+
+To **create a new app** using the New Architecture, head over to [Creating a New Architecture App](use-app-template), which will get you up and running in a few quick steps with the new app template.
+
+To **migrate an existing app** to the New Architecture, follow [Adopting the New Architecture](../new-architecture-intro).
+
+### For library maintainers
+
+First, read up on the core concepts outlined in the [Pillars](pillars) section.
+
+Then, for a **how-to guide** on supporting the New Architecture, check out the [Migration](../new-architecture-library-info) guide.
+
+For information on **supporting both the Old and New Architectures**, see the [Backwards Compatibility](backward-compatibility) guide.
