@@ -39,7 +39,7 @@ JavaScript thread performance suffers greatly when running in dev mode. This is 
 
 When running a bundled app, these statements can cause a big bottleneck in the JavaScript thread. This includes calls from debugging libraries such as [redux-logger](https://github.com/evgenyrodionov/redux-logger), so make sure to remove them before bundling. You can also use this [babel plugin](https://babeljs.io/docs/plugins/transform-remove-console/) that removes all the `console.*` calls. You need to install it first with `npm i babel-plugin-transform-remove-console --save-dev`, and then edit the `.babelrc` file under your project directory like this:
 
-```jsxon
+```json
 {
   "env": {
     "production": {
@@ -50,6 +50,8 @@ When running a bundled app, these statements can cause a big bottleneck in the J
 ```
 
 This will automatically remove all `console.*` calls in the release (production) versions of your project.
+
+It is recommended to use the plugin even if no `console.*` calls are made in your project. A third party library could also call them.
 
 ### `ListView` initial rendering is too slow or scroll performance is bad for large lists
 
