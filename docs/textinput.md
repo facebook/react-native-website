@@ -311,16 +311,6 @@ If `true`, the keyboard disables the return key when there is no text and automa
 
 ---
 
-### `screenreaderErrorAndroid` <div class="label android">Android</div>
-
-String to be read by screenreaders to indicate an error state of a TextInput. The default is `null`.
-
-| Type   |
-| ------ |
-| string |
-
----
-
 ### `importantForAutofill` <div class="label android">Android</div>
 
 Tells the operating system whether the individual fields in your app should be included in a view structure for autofill purposes on Android API Level 26+. Possible values are `auto`, `no`, `noExcludeDescendants`, `yes`, and `yesExcludeDescendants`. The default value is `auto`.
@@ -674,6 +664,16 @@ If `true`, allows TextInput to pass touch events to the parent component. This a
 | Type |
 | ---- |
 | bool |
+
+---
+
+### `screenreaderErrorAndroid` <div class="label android">Android</div>
+
+String to be read by screenreaders to indicate an error state of a TextInput. The default is `null`.
+
+| Type   |
+| ------ |
+| string |
 
 ---
 
