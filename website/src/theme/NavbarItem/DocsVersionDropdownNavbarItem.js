@@ -33,9 +33,7 @@ export default function DocsVersionDropdownNavbarItem({
     useDocsPreferredVersion(docsPluginId);
 
   // (CUSTOM) Hide version dropdown on non-versioned pages
-  if (!activeDocContext.activeDoc) {
-    return null;
-  }
+  !activeDocContext.activeDoc && return null;
 
   // (CUSTOM) Show only `next` and last 5 versions in the dropdown
   const reducedVersions = versions.slice(0, 6);
