@@ -69,7 +69,7 @@ The render phase is interruptible. This scenario shows the interruption of the r
 
 ### Background thread batches updates from JavaScript
 
-Before background thread dispatches update to UI thread, it checks if a newer update hasn’t come in from JavaScript. This way, the renderer doesn’t render stale state when it knows a newer state is coming it.
+Before background thread dispatches update to UI thread, it checks if a newer update hasn’t come in from JavaScript. This way, the renderer doesn’t render stale state when it knows a newer state is coming in.
 
 <figure>
 	<img src="/docs/assets/Architecture/threading-model/case-5.jpg" alt="Threading model use case five" />
