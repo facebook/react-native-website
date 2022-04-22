@@ -827,7 +827,11 @@ II. Then implement custom View calling the `create` method:
 
 ```jsx title="MyView.jsx"
 import React, { useEffect, useRef } from 'react';
-import { UIManager, findNodeHandle } from 'react-native';
+import {
+  PixelRatio,
+  UIManager,
+  findNodeHandle
+} from 'react-native';
 
 import { MyViewManager } from './my-view-manager';
 
