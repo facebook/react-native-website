@@ -64,7 +64,7 @@ public class CustomWebViewManager extends RNCWebViewManager {
 <TabItem value="kotlin">
 
 ```kotlin
-@ReactModule(name = CustomWebViewManager.name)
+@ReactModule(name = CustomWebViewManager.REACT_CLASS)
 class CustomWebViewManager : RNCWebViewManager() {
     protected class CustomWebViewClient : RNCWebViewClient()
     protected inner class CustomWebView(reactContext: ThemedReactContext?) :
@@ -80,7 +80,7 @@ class CustomWebViewManager : RNCWebViewManager() {
 
     companion object {
         /* This name must match what we're referring to in JS */
-        const val name = "RCTCustomWebView"
+        const val REACT_CLASS = "RCTCustomWebView"
     }
 }
 ```
@@ -130,10 +130,10 @@ public class CustomWebViewManager extends RNCWebViewManager {
 
 ```kotlin
 class CustomWebViewManager : RNCWebViewManager() {
-    protected inner class CustomWebView(reactContext: ThemedReactContext?) :
-        RNCWebView(reactContext) {
+    protected inner class CustomWebView(
+        reactContext: ThemedReactContext?,
         var finalUrl: String? = null
-    }
+    ) : RNCWebView(reactContext)
 
     @ReactProp(name = "finalUrl")
     fun setFinalUrl(view: WebView, url: String?) {
@@ -182,8 +182,7 @@ public class NavigationCompletedEvent extends Event<NavigationCompletedEvent> {
 // NavigationCompletedEvent.kt
 class NavigationCompletedEvent(viewTag: Int, val params: WritableMap) :
     Event<NavigationCompletedEvent>(viewTag) {
-    private val eventName: String = "navigationCompleted"
-    override fun getEventName() = this.eventName
+    override fun getEventName(): String = "navigationCompleted"
 
     override fun dispatch(rctEventEmitter: RCTEventEmitter) {
         init(viewTag)
@@ -247,8 +246,7 @@ protected static class CustomWebViewClient extends RNCWebViewClient {
 class NavigationCompletedEvent(viewTag: Int, val params: WritableMap) :
     Event<NavigationCompletedEvent>(viewTag) {
 
-    private val eventName = "navigationCompleted"
-    override fun getEventName() = this.eventName
+    override fun getEventName(): String = "navigationCompleted"
 
     override fun dispatch(rctEventEmitter: RCTEventEmitter) {
         init(viewTag)
