@@ -387,6 +387,7 @@ The following values work across platforms:
 - `numeric`
 - `email-address`
 - `phone-pad`
+- `url`
 
 _iOS Only_
 
@@ -394,7 +395,6 @@ The following values work on iOS only:
 
 - `ascii-capable`
 - `numbers-and-punctuation`
-- `url`
 - `name-phone-pad`
 - `twitter`
 - `web-search`
