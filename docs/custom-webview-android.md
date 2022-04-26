@@ -300,16 +300,9 @@ public class CustomWebViewManager extends RNCWebViewManager {
 ```kotlin
 class CustomWebViewManager : RNCWebViewManager() {
     override fun getExportedCustomDirectEventTypeConstants(): MutableMap<Any?, Any?>? {
-        val export =
-            if (super.getExportedCustomDirectEventTypeConstants() != null) {
-                super.getExportedCustomDirectEventTypeConstants()
-            } else {
-                MapBuilder.newHashMap<Any, Any?>()
-            }
-        export?.set(
-            "navigationCompleted",
-            MapBuilder.of("registrationName", "onNavigationCompleted")
-        )
+        val superTypeConstants = super.getExportedCustomDirectEventTypeConstants()
+        val export = superTypeConstants ?: MapBuilder.newHashMap<Any, Any?>()
+        export["navigationCompleted"] = MapBuilder.of("registrationName", "onNavigationCompleted")
         return export
     }
 }
