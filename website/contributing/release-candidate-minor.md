@@ -8,10 +8,11 @@ This document goes over steps to run different types of React Native release upd
 ### Pre-requisites
 
 - Write access to [react-native](https://github.com/facebook/react-native) repository.
+- Write access to [hermes](https://github.com/facebook/hermes) repository.
 - Your CircleCI personal API token. See [here](https://circleci.com/docs/2.0/managing-api-tokens/#creating-a-personal-api-token) on how to set one.
 - If testing, follow [pre-requisites for testing](/contributing/release-testing#pre-requisites).
 
-### Creating 0.{minor}.0-rc.0
+### 1. Creating a new release branch 
 
 - Create the release branch in `react-native` repo with the appropriate name (usually `0.X-stable`).
 
@@ -19,6 +20,20 @@ This document goes over steps to run different types of React Native release upd
   git checkout main
   git pull origin main
   git checkout -b 0.68-stable
+  ```
+  
+- Head to the [Publish Tag](https://github.com/facebook/hermes/actions/workflows/create-tag.yml) workflow in the Hermes repo. Click the "Run Workflow" button and input the RN stable version you're using (e.g. 0.69.0). You need to have write access to the facebook/hermes repo to do so or ask a Meta employee to help you on this step.
+
+- Bump the Hermes version on the release branch using this command:
+
+  ```bash
+  # Replace <the_hermes_tag> with the tag that will look like 'hermes-2022-02-21-RNv0.68.0-rc1-0172d30ac14e8c936c4fd2c435b799e0009aeb00'
+  ./scripts/bump-hermes-version.js -t <the_hermes_tag>
+  ```
+
+### 2. Kick off the build of 0.{minor}.0-rc.0 
+
+  ```
   git push origin 0.68-stable
 
   # This will walk you through what version you are releasing
@@ -43,7 +58,7 @@ This document goes over steps to run different types of React Native release upd
   latest: 0.65.1            next: 0.66.0-rc.2         nightly: 0.0.0-f617e022c
   ```
 
-### 2. Create a PR of the changelog generator
+### 3. Create a PR of the changelog generator
 
 ```bash
 # Run following with the stable release as base, and your rc.0 version
@@ -58,7 +73,7 @@ npx @rnx-kit/rn-changelog-generator --base v0.66.4 --compare v0.67.0-rc.0 \
 - Prepend contents of `NEW_CHANGES.md` to `CHANGELOG.md`.
 - Create a pull request of this change to `react-native` repo and add the `Changelog` label.
 
-### 3. Create a GitHub Release
+### 4. Create a GitHub Release
 
 - Create a [GitHub Release](https://github.com/facebook/react-native/releases) with this template and **check “Pre-Release” checkbox**.
 
@@ -93,7 +108,7 @@ See changes from this release in the [changelog PR](https://github.com/facebook/
   <figcaption>Creating a GitHub Release.</figcaption>
 </figure>
 
-### 4. Create a tracking discussion post
+### 5. Create a tracking discussion post
 
 Create a "Road to <YOUR_MINOR_VERSION>" discussion post in [`react-native-releases`](https://github.com/reactwg/react-native-releases/discussions):
 
