@@ -3,6 +3,8 @@ id: custom-webview-android
 title: Custom WebView
 ---
 
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+
 While the built-in web view has a lot of features, it is not possible to handle every use-case in React Native. You can, however, extend the web view with native code without forking React Native or duplicating all the existing web view code.
 
 :::info
@@ -23,6 +25,9 @@ To get started, you'll need to create a subclass of `RNCWebViewManager`, `RNCWeb
 - `createRNCWebViewInstance`
 - `getName`
 - `addEventEmitters`
+
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="java">
 
 ```java
 @ReactModule(name = CustomWebViewManager.REACT_CLASS)
@@ -55,11 +60,42 @@ public class CustomWebViewManager extends RNCWebViewManager {
 }
 ```
 
+</TabItem>
+<TabItem value="kotlin">
+
+```kotlin
+@ReactModule(name = CustomWebViewManager.REACT_CLASS)
+class CustomWebViewManager : RNCWebViewManager() {
+    protected class CustomWebViewClient : RNCWebViewClient()
+    protected inner class CustomWebView(reactContext: ThemedReactContext?) :
+        RNCWebView(reactContext)
+
+    override fun createRNCWebViewInstance(reactContext: ThemedReactContext?): RNCWebView {
+        return CustomWebView(reactContext)
+    }
+
+    override fun addEventEmitters(reactContext: ThemedReactContext, view: WebView) {
+        view.webViewClient = CustomWebViewClient()
+    }
+
+    companion object {
+        /* This name must match what we're referring to in JS */
+        const val REACT_CLASS = "RCTCustomWebView"
+    }
+}
+```
+
+</TabItem>
+</Tabs>
+
 You'll need to follow the usual steps to [register the module](native-modules-android.md#register-the-module).
 
 ### Adding New Properties
 
 To add a new property, you'll need to add it to `CustomWebView`, and then expose it in `CustomWebViewManager`.
+
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="java">
 
 ```java
 public class CustomWebViewManager extends RNCWebViewManager {
@@ -89,9 +125,32 @@ public class CustomWebViewManager extends RNCWebViewManager {
 }
 ```
 
+</TabItem>
+<TabItem value="kotlin">
+
+```kotlin
+class CustomWebViewManager : RNCWebViewManager() {
+    protected inner class CustomWebView(
+        reactContext: ThemedReactContext?,
+        var finalUrl: String? = null
+    ) : RNCWebView(reactContext)
+
+    @ReactProp(name = "finalUrl")
+    fun setFinalUrl(view: WebView, url: String?) {
+        (view as CustomWebView).finalUrl = url
+    }
+}
+```
+
+</TabItem>
+</Tabs>
+
 ### Adding New Events
 
 For events, you'll first need to make create event subclass.
+
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="java">
 
 ```java
 // NavigationCompletedEvent.java
@@ -116,9 +175,31 @@ public class NavigationCompletedEvent extends Event<NavigationCompletedEvent> {
 }
 ```
 
+</TabItem>
+<TabItem value="kotlin">
+
+```kotlin
+// NavigationCompletedEvent.kt
+class NavigationCompletedEvent(viewTag: Int, val params: WritableMap) :
+    Event<NavigationCompletedEvent>(viewTag) {
+    override fun getEventName(): String = "navigationCompleted"
+
+    override fun dispatch(rctEventEmitter: RCTEventEmitter) {
+        init(viewTag)
+        rctEventEmitter.receiveEvent(viewTag, eventName, params)
+    }
+}
+```
+
+</TabItem>
+</Tabs>
+
 You can trigger the event in your web view client. You can hook existing handlers if your events are based on them.
 
 You should refer to [RNCWebViewManager.java](https://github.com/react-native-webview/react-native-webview/blob/master/android/src/main/java/com/reactnativecommunity/webview/RNCWebViewManager.java) in the React Native WebView codebase to see what handlers are available and how they are implemented. You can extend any methods here to provide extra functionality.
+
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="java">
 
 ```java
 public class NavigationCompletedEvent extends Event<NavigationCompletedEvent> {
@@ -158,7 +239,43 @@ protected static class CustomWebViewClient extends RNCWebViewClient {
 }
 ```
 
+</TabItem>
+<TabItem value="kotlin">
+
+```kotlin
+class NavigationCompletedEvent(viewTag: Int, val params: WritableMap) :
+    Event<NavigationCompletedEvent>(viewTag) {
+
+    override fun getEventName(): String = "navigationCompleted"
+
+    override fun dispatch(rctEventEmitter: RCTEventEmitter) {
+        init(viewTag)
+        rctEventEmitter.receiveEvent(viewTag, eventName, params)
+    }
+}
+
+// CustomWebViewManager.kt
+
+protected class CustomWebViewClient : RNCWebViewClient() {
+    override fun shouldOverrideUrlLoading(view: WebView, url: String?): Boolean {
+        val shouldOverride: Boolean = super.shouldOverrideUrlLoading(view, url)
+        val finalUrl: String? = (view as CustomWebView).finalUrl
+        if (!shouldOverride && url != null && finalUrl != null && url == finalUrl) {
+            val params: WritableMap = Arguments.createMap()
+            dispatchEvent(view, NavigationCompletedEvent(view.getId(), params))
+        }
+        return shouldOverride
+    }
+}
+```
+
+</TabItem>
+</Tabs>
+
 Finally, you'll need to expose the events in `CustomWebViewManager` through `getExportedCustomDirectEventTypeConstants`. Note that currently, the default implementation returns `null`, but this may change in the future.
+
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="java">
 
 ```java
 public class CustomWebViewManager extends RNCWebViewManager {
@@ -176,6 +293,23 @@ public class CustomWebViewManager extends RNCWebViewManager {
   }
 }
 ```
+
+</TabItem>
+<TabItem value="kotlin">
+
+```kotlin
+class CustomWebViewManager : RNCWebViewManager() {
+    override fun getExportedCustomDirectEventTypeConstants(): MutableMap<Any?, Any?>? {
+        val superTypeConstants = super.getExportedCustomDirectEventTypeConstants()
+        val export = superTypeConstants ?: MapBuilder.newHashMap<Any, Any?>()
+        export["navigationCompleted"] = MapBuilder.of("registrationName", "onNavigationCompleted")
+        return export
+    }
+}
+```
+
+</TabItem>
+</Tabs>
 
 ## JavaScript Interface
 
