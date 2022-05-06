@@ -37,7 +37,7 @@ To install a simulator, open <strong>Xcode > Preferences...</strong> and select 
 
 #### CocoaPods
 
-[CocoaPods](https://cocoapods.org/) is built with Ruby and it will be installable with the default Ruby available on macOS. 
+[CocoaPods](https://cocoapods.org/) is built with Ruby and it will be installable with the default Ruby available on macOS.
 
 Using the default Ruby available on macOS will require you to use `sudo` when installing gems. (This is only an issue for the duration of the gem installation, though.)
 
