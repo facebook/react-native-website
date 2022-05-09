@@ -125,7 +125,7 @@ The branch cut has happened.
 - [Current release candidate: 0.68.0-rc.0][current-release]
 - Have an issue with current release candidate? [File an issue][issue-form] and we will triage.
 - Have a pick request for this release? Does it fall under our [pick request qualifications][release-faq]? If so please create a PR against the release branch and comment with the PR link
-- If you are release testing. Copy and fill [Test Checklist](/contributing/release-testing#test-checklist).
+- If you are release testing, copy and fill a [test checklist](https://reactnative.dev/contributing/release-testing#test-checklist).
 
 #### Highlighted Changes in this release
 
