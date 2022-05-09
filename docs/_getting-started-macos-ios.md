@@ -37,13 +37,15 @@ To install a simulator, open <strong>Xcode > Preferences...</strong> and select 
 
 #### CocoaPods
 
-[CocoaPods](https://cocoapods.org/) is built with Ruby and it will be installable with the default Ruby available on macOS. You can use a Ruby Version manager, however we recommend that you use the standard Ruby available on macOS unless you know what you're doing.
+[CocoaPods](https://cocoapods.org/) is built with Ruby and it will be installable with the default Ruby available on macOS.
 
-Using the default Ruby install will require you to use `sudo` when installing gems. (This is only an issue for the duration of the gem installation, though.)
+Using the default Ruby available on macOS will require you to use `sudo` when installing gems. (This is only an issue for the duration of the gem installation, though.)
 
 ```shell
 sudo gem install cocoapods
 ```
+
+Otherwise you can use a Ruby version manager, such as `rbenv`. Apps created with the command `npx react-native init` described below are configured to work well with `rbenv` and will pick the correct Ruby version requested by the template.
 
 For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
 
