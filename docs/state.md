@@ -16,7 +16,7 @@ import { Text, View } from 'react-native';
 const Blink = (props) => {
   const [isShowingText, setIsShowingText] = useState(true);
 
-   useEffect(() => {
+  useEffect(() => {
      const toggle = setInterval(() => {
        setIsShowingText(!isShowingText);
      }, 1000);
