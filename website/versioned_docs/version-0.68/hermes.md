@@ -68,12 +68,17 @@ Since React Native 0.64, Hermes also runs on iOS. To enable Hermes for iOS, edit
    use_react_native!(
      :path => config[:reactNativePath],
      # to enable hermes on iOS, change `false` to `true` and then install pods
--    :hermes_enabled => false
+     # By default, Hermes is disabled on Old Architecture, and enabled on New Architecture.
+     # You can enable/disable it manually by replacing `flags[:hermes_enabled]` with `true` or `false`.
+-    :hermes_enabled => flags[:hermes_enabled],
 +    :hermes_enabled => true
    )
 ```
 
-Next, install the Hermes pods:
+By default, you will be using Hermes if you're on the New Architecture. By specifying a value such
+as `true` or `false` you can enable/disable Hermes as you wish.
+
+Once you've configured it, you can install the Hermes pods with:
 
 ```shell
 $ cd ios && pod install
