@@ -201,3 +201,14 @@ You can implement the `jsExecutorFactoryForBridge:` method like this:
   );
 }
 ```
+
+## iOS: Setup Folly
+
+The previous step will incorporate in your iOS app a dependency called Folly. Folly requires some extra compiler flags to works properly. To set them up, follow these steps:
+
+1. In the **Project Navigator** (`cmd+1`), select your app project.
+1. In the **Targets** section, select the target with the name of your app.
+1. Select the **Build Settings** tab
+1. Search for **Other C++ Flags**
+1. Update the **Debug** configuration, adding following flags: `-DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1`
+1. Update the **Release** configuration with the following flags: `-DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1`
