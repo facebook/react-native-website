@@ -562,6 +562,28 @@ RCT_EXPORT_METHOD(moveToRegion:(nonnull NSNumber *)reactTag
 
 **Android**
 
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="kotlin">
+
+```kotlin
+    fun receiveCommand(
+        view: ReactMapDrawerView?, commandId: String?, @Nullable args: ReadableArray?
+    ) {
+        when (commandId) {
+            "moveToRegion" -> {
+                if (args == null) {
+                    break
+                }
+                val region: ReadableMap = args.getMap(0)
+                val durationMs: Int = args.getInt(1)
+            }
+        }
+    }
+```
+
+</TabItem>
+<TabItem value="java">
+
 ```java
 // receiveCommand signature has changed to receive String commandId
 @Override
@@ -580,3 +602,6 @@ RCT_EXPORT_METHOD(moveToRegion:(nonnull NSNumber *)reactTag
     }
   }
 ```
+
+</TabItem>
+</Tabs>
