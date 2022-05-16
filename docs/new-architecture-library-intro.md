@@ -574,6 +574,7 @@ RCT_EXPORT_METHOD(moveToRegion:(nonnull NSNumber *)reactTag
                 if (args != null) {
                     val region: ReadableMap = args.getMap(0)
                     val durationMs: Int = args.getInt(1)
+                    // ... act on the view...
                 }
             }
         }
