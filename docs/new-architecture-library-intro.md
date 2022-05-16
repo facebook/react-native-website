@@ -545,7 +545,7 @@ class MyComponent extends React.Component<Props> {
 }
 ```
 
-### Updating Native implementation [iOS]
+### Updating Native implementation
 
 In the example the code-generated `Commands` will dispatch `moveToRegion` call to the native component’s view manager. In addition to writing the JS interface, you’ll need to update your native implementation signatures to match the dispatched method call. See the mapping for [Android argument types](https://facebook.github.io/react-native/docs/native-modules-android#argument-types) and[iOS argument types](https://facebook.github.io/react-native/docs/native-modules-ios#argument-types) for reference.
 
@@ -561,6 +561,28 @@ RCT_EXPORT_METHOD(moveToRegion:(nonnull NSNumber *)reactTag
 ```
 
 **Android**
+
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="kotlin">
+
+```kotlin
+    fun receiveCommand(
+        view: ReactMapDrawerView?, commandId: String?, args: ReadableArray?
+    ) {
+        when (commandId) {
+            "moveToRegion" -> {
+                if (args != null) {
+                    val region: ReadableMap = args.getMap(0)
+                    val durationMs: Int = args.getInt(1)
+                    // ... act on the view...
+                }
+            }
+        }
+    }
+```
+
+</TabItem>
+<TabItem value="java">
 
 ```java
 // receiveCommand signature has changed to receive String commandId
@@ -580,3 +602,6 @@ RCT_EXPORT_METHOD(moveToRegion:(nonnull NSNumber *)reactTag
     }
   }
 ```
+
+</TabItem>
+</Tabs>
