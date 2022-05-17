@@ -164,15 +164,16 @@ static addEventListener(eventName, handler)
 
 Add an event handler. Supported events:
 
-| Event name                                                                 | Description                                                                                                                                                                                                                                                                                              |
-| -------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `announcementFinished`<br/><div class="label two-lines ios">iOS</div>      | Fires when the screen reader has finished making an announcement. The argument to the event handler is a dictionary with these keys:<ul><li>`announcement`: The string announced by the screen reader.</li><li>`success`: A boolean indicating whether the announcement was successfully made.</li></ul> |
-| `boldTextChanged`<br/><div class="label two-lines ios">iOS</div>           | Fires when the state of the bold text toggle changes. The argument to the event handler is a boolean. The boolean is `true` when bold text is enabled and `false` otherwise.                                                                                                                             |
-| `grayscaleChanged`<br/><div class="label two-lines ios">iOS</div>          | Fires when the state of the gray scale toggle changes. The argument to the event handler is a boolean. The boolean is `true` when a gray scale is enabled and `false` otherwise.                                                                                                                         |
-| `invertColorsChanged`<br/><div class="label two-lines ios">iOS</div>       | Fires when the state of the invert colors toggle changes. The argument to the event handler is a boolean. The boolean is `true` when invert colors is enabled and `false` otherwise.                                                                                                                     |
-| `reduceMotionChanged`                                                      | Fires when the state of the reduce motion toggle changes. The argument to the event handler is a boolean. The boolean is `true` when a reduce motion is enabled (or when "Transition Animation Scale" in "Developer options" is "Animation off") and `false` otherwise.                                  |
-| `reduceTransparencyChanged`<br/><div class="label two-lines ios">iOS</div> | Fires when the state of the reduce transparency toggle changes. The argument to the event handler is a boolean. The boolean is `true` when reduce transparency is enabled and `false` otherwise.                                                                                                         |
-| `screenReaderChanged`                                                      | Fires when the state of the screen reader changes. The argument to the event handler is a boolean. The boolean is `true` when a screen reader is enabled and `false` otherwise.                                                                                                                          |
+| Event name                                                                           | Description                                                                                                                                                                                                                                                                                              |
+| ------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `accessibilityServiceChanged`<br/><div class="label two-lines android">Android</div> | Fires when some services such as TalkBack, other Android assistive technologies, and third-party accessibility services are enabled. The argument to the event handler is a boolean. The boolean is `true` when a some accessibility services is enabled and `false` otherwise.                          |
+| `announcementFinished`<br/><div class="label two-lines ios">iOS</div>                | Fires when the screen reader has finished making an announcement. The argument to the event handler is a dictionary with these keys:<ul><li>`announcement`: The string announced by the screen reader.</li><li>`success`: A boolean indicating whether the announcement was successfully made.</li></ul> |
+| `boldTextChanged`<br/><div class="label two-lines ios">iOS</div>                     | Fires when the state of the bold text toggle changes. The argument to the event handler is a boolean. The boolean is `true` when bold text is enabled and `false` otherwise.                                                                                                                             |
+| `grayscaleChanged`<br/><div class="label two-lines ios">iOS</div>                    | Fires when the state of the gray scale toggle changes. The argument to the event handler is a boolean. The boolean is `true` when a gray scale is enabled and `false` otherwise.                                                                                                                         |
+| `invertColorsChanged`<br/><div class="label two-lines ios">iOS</div>                 | Fires when the state of the invert colors toggle changes. The argument to the event handler is a boolean. The boolean is `true` when invert colors is enabled and `false` otherwise.                                                                                                                     |
+| `reduceMotionChanged`                                                                | Fires when the state of the reduce motion toggle changes. The argument to the event handler is a boolean. The boolean is `true` when a reduce motion is enabled (or when "Transition Animation Scale" in "Developer options" is "Animation off") and `false` otherwise.                                  |
+| `reduceTransparencyChanged`<br/><div class="label two-lines ios">iOS</div>           | Fires when the state of the reduce transparency toggle changes. The argument to the event handler is a boolean. The boolean is `true` when reduce transparency is enabled and `false` otherwise.                                                                                                         |
+| `screenReaderChanged`                                                                | Fires when the state of the screen reader changes. The argument to the event handler is a boolean. The boolean is `true` when a screen reader is enabled and `false` otherwise.                                                                                                                          |
 
 ---
 
@@ -183,6 +184,23 @@ static announceForAccessibility(announcement)
 ```
 
 Post a string to be announced by the screen reader.
+
+---
+
+### `announceForAccessibilityWithOptions()`
+
+```jsx
+static announceForAccessibilityWithOptions(announcement, options)
+```
+
+Post a string to be announced by the screen reader with modification options. By default announcements will interrupt any existing speech, but on iOS they can be queued behind existing speech by setting `queue` to `true` in the options object.
+
+**Parameters:**
+
+| Name                                                          | Type   | Description                                                                              |
+| ------------------------------------------------------------- | ------ | ---------------------------------------------------------------------------------------- |
+| announcement <div class="label basic required">Required</div> | string | The string to be announced                                                               |
+| options <div class="label basic required">Required</div>      | object | `queue` - queue the announcement behind existing speech <div class="label ios">iOS</div> |
 
 ---
 
@@ -200,6 +218,18 @@ This value is set in "Time to take action (Accessibility timeout)" of "Accessibi
 | Name                                                             | Type   | Description                                                                           |
 | ---------------------------------------------------------------- | ------ | ------------------------------------------------------------------------------------- |
 | originalTimeout <div class="label basic required">Required</div> | number | The timeout to return if "Accessibility timeout" is not set. Specify in milliseconds. |
+
+---
+
+### `isAccessibilityServiceEnabled()` <div class="label android">Android</div>
+
+```jsx
+static isAccessibilityServiceEnabled(): Promise<boolean>
+```
+
+Check whether any accessibility service is enabled. This includes TalkBack but also any third-party accessibility app that may be installed. To only check whether TalkBack is enabled, use [isScreenReaderEnabled](#isscreenreaderenabled). Returns a promise which resolves to a boolean. The result is `true` when some accessibility services is enabled and `false` otherwise.
+
+> **Note**: Please use [isScreenReaderEnabled](#isscreenreaderenabled) if you only want to check the status of TalkBack.
 
 ---
 

@@ -30,7 +30,7 @@ const VersionItem = ({version, currentVersion}) => {
   let releaseNotesURL = 'https://github.com/facebook/react-native/releases';
   let releaseNotesTitle = 'Changelog';
   if (isNext) {
-    releaseNotesURL = `https://github.com/facebook/react-native/compare/${latestMajorVersion}-stable...master`;
+    releaseNotesURL = `https://github.com/facebook/react-native/compare/${latestMajorVersion}-stable...main`;
     releaseNotesTitle = 'Commits since ' + latestMajorVersion;
   } else if (!isRC) {
     releaseNotesURL = `https://github.com/facebook/react-native/releases/tag/v${version}.0`;

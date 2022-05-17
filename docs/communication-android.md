@@ -3,6 +3,8 @@ id: communication-android
 title: Communication between native and React Native
 ---
 
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+
 In [Integrating with Existing Apps guide](integration-with-existing-apps) and [Native UI Components guide](native-components-android) we learn how to embed React Native in a native component and vice versa. When we mix native and React Native components, we'll eventually find a need to communicate between these two worlds. Some ways to achieve that have been already mentioned in other guides. This article summarizes available techniques.
 
 ## Introduction
@@ -18,6 +20,10 @@ Properties are the most straightforward way of cross-component communication. So
 ### Passing properties from native to React Native
 
 You can pass properties down to the React Native app by providing a custom implementation of `ReactActivityDelegate` in your main activity. This implementation should override `getLaunchOptions` to return a `Bundle` with the desired properties.
+
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+
+<TabItem value="java">
 
 ```java
 public class MainActivity extends ReactActivity {
@@ -39,6 +45,27 @@ public class MainActivity extends ReactActivity {
 }
 ```
 
+</TabItem>
+
+<TabItem value="kotlin">
+
+```kotlin
+class MainActivity : ReactActivity() {
+    override fun createReactActivityDelegate(): ReactActivityDelegate {
+        return object : ReactActivityDelegate(this, mainComponentName) {
+            override fun getLaunchOptions(): Bundle {
+                val imageList = arrayListOf("http://foo.com/bar1.png", "http://foo.com/bar2.png")
+                val initialProperties = Bundle().apply { putStringArrayList("images", imageList) }
+                return initialProperties
+            }
+        }
+    }
+}
+```
+
+</TabItem>
+</Tabs>
+
 ```jsx
 import React from 'react';
 import { View, Image } from 'react-native';
@@ -55,6 +82,10 @@ export default class ImageBrowserApp extends React.Component {
 
 `ReactRootView` provides a read-write property `appProperties`. After `appProperties` is set, the React Native app is re-rendered with new properties. The update is only performed when the new updated properties differ from the previous ones.
 
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+
+<TabItem value="java">
+
 ```java
 Bundle updatedProps = mReactRootView.getAppProperties();
 ArrayList<String> imageList = new ArrayList<String>(Arrays.asList(
@@ -65,6 +96,19 @@ updatedProps.putStringArrayList("images", imageList);
 
 mReactRootView.setAppProperties(updatedProps);
 ```
+
+</TabItem>
+
+<TabItem value="kotlin">
+
+```kotlin
+var updatedProps: Bundle = reactRootView.getAppProperties()
+var imageList = arrayListOf("http://foo.com/bar3.png", "http://foo.com/bar4.png")
+```
+
+</TabItem>
+
+</Tabs>
 
 It is fine to update properties anytime. However, updates have to be performed on the main thread. You use the getter on any thread.
 
@@ -100,6 +144,6 @@ Events are powerful, because they allow us to change React Native components wit
 
 ### Calling native functions from React Native (native modules)
 
-Native modules are Java classes that are available in JS. Typically one instance of each module is created per JS bridge. They can export arbitrary functions and constants to React Native. They have been covered in detail in [this article](native-modules-android).
+Native modules are Java/Kotlin classes that are available in JS. Typically one instance of each module is created per JS bridge. They can export arbitrary functions and constants to React Native. They have been covered in detail in [this article](native-modules-android).
 
 > **_Warning_**: All native modules share the same namespace. Watch out for name collisions when creating new ones.

@@ -138,6 +138,18 @@ Text to display for blindness accessibility features.
 
 ---
 
+### `accessibilityLanguage` <div class="label ios">iOS</div>
+
+A value indicating which language should be used by the screen reader when the user interacts with the element. It should follow the [BCP 47 specification](https://www.rfc-editor.org/info/bcp47).
+
+See the [iOS `accessibilityLanguage` doc](https://developer.apple.com/documentation/objectivec/nsobject/1615192-accessibilitylanguage) for more information.
+
+| Type   |
+| ------ |
+| string |
+
+---
+
 ### `accessibilityActions`
 
 Accessibility actions allow an assistive technology to programmatically invoke the actions of a component. The `accessibilityActions` property should contain a list of action objects. Each action object should contain the field name and label.

@@ -126,7 +126,7 @@ CalendarManager.addEvent(
   'Birthday Party',
   '4 Privet Drive, Surrey',
   date.getTime()
-); // passing date as number of milliseconds since Unix epoch
+); // passing date as number of milliseconds since UNIX epoch
 ```
 
 or

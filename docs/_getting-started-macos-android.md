@@ -13,19 +13,22 @@ brew install node
 brew install watchman
 ```
 
-If you have already installed Node on your system, make sure it is Node 12 or newer.
+If you have already installed Node on your system, make sure it is Node 14 or newer.
 
 [Watchman](https://facebook.github.io/watchman) is a tool by Facebook for watching changes in the filesystem. It is highly recommended you install it for better performance.
 
 <h3>Java Development Kit</h3>
 
-We recommend installing JDK using [Homebrew](http://brew.sh/). Run the following commands in a Terminal after installing Homebrew:
+We recommend installing the OpenJDK distribution called Azul **Zulu** using [Homebrew](http://brew.sh/). Run the following commands in a Terminal after installing Homebrew:
 
 ```shell
-brew install --cask adoptopenjdk/openjdk/adoptopenjdk8
+brew tap homebrew/cask-versions
+brew install --cask zulu11
 ```
 
-If you have already installed JDK on your system, make sure it is JDK 8 or newer.
+The Zulu OpenJDK distribution offers JDKs for **both Intel and M1 Macs**. This will make sure your build are faster on M1 Macs compared to using an Intel-based JDK.
+
+If you have already installed JDK on your system, make sure it is JDK 11 or newer.
 
 <h3>Android development environment</h3>
 
@@ -47,7 +50,7 @@ Once setup has finalized and you're presented with the Welcome screen, proceed t
 
 <h4>2. Install the Android SDK</h4>
 
-Android Studio installs the latest Android SDK by default. Building a React Native app with native code, however, requires the `Android 10 (Q)` SDK in particular. Additional Android SDKs can be installed through the SDK Manager in Android Studio.
+Android Studio installs the latest Android SDK by default. Building a React Native app with native code, however, requires the `Android 11 (R)` SDK in particular. Additional Android SDKs can be installed through the SDK Manager in Android Studio.
 
 To do that, open Android Studio, click on "Configure" button and select "SDK Manager".
 
@@ -55,39 +58,30 @@ To do that, open Android Studio, click on "Configure" button and select "SDK Man
 
 > The SDK Manager can also be found within the Android Studio "Preferences" dialog, under **Appearance & Behavior** → **System Settings** → **Android SDK**.
 
-Select the "SDK Platforms" tab from within the SDK Manager, then check the box next to "Show Package Details" in the bottom right corner. Look for and expand the `Android 10 (Q)` entry, then make sure the following items are checked:
+Select the "SDK Platforms" tab from within the SDK Manager, then check the box next to "Show Package Details" in the bottom right corner. Look for and expand the `Android 11 (R)` entry, then make sure the following items are checked:
 
-- `Android SDK Platform 29`
-- `Intel x86 Atom_64 System Image` or `Google APIs Intel x86 Atom System Image`
+- `Android SDK Platform 30`
+- `Intel x86 Atom_64 System Image` or `Google APIs Intel x86 Atom System Image` or (for Apple M1 Silicon) `Google APIs ARM 64 v8a System Image`
 
-Next, select the "SDK Tools" tab and check the box next to "Show Package Details" here as well. Look for and expand the "Android SDK Build-Tools" entry, then make sure that `29.0.2` is selected and check the "Android SDK Command-line Tools (latest)".
+Next, select the "SDK Tools" tab and check the box next to "Show Package Details" here as well. Look for and expand the "Android SDK Build-Tools" entry, then make sure that `30.0.2` is selected.
 
 Finally, click "Apply" to download and install the Android SDK and related build tools.
 
-You can also run the following command after setting ANDROID_HOME.
-
-```shell
-sdkmanager "platforms;android-29" "system-images;android-29;default;x86_64" "system-images;android-29;google_apis;x86"
-sdkmanager "cmdline-tools;latest" "build-tools;29.0.2"
-```
-
-<h4>3. Configure the ANDROID_HOME environment variable</h4>
+<h4>3. Configure the ANDROID_SDK_ROOT environment variable</h4>
 
 The React Native tools require some environment variables to be set up in order to build apps with native code.
 
 Add the following lines to your `$HOME/.bash_profile` or `$HOME/.bashrc` (if you are using `zsh` then `~/.zprofile` or `~/.zshrc`) config file:
 
 ```shell
-export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/tools/bin
-export PATH=$PATH:$ANDROID_HOME/platform-tools
+export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
+export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 ```
 
 > `.bash_profile` is specific to `bash`. If you're using another shell, you will need to edit the appropriate shell-specific config file.
 
-Type `source $HOME/.bash_profile` for `bash` or `source $HOME/.zprofile` to load the config into your current shell. Verify that ANDROID_HOME has been set by running `echo $ANDROID_HOME` and the appropriate directories have been added to your path by running `echo $PATH`.
+Type `source $HOME/.bash_profile` for `bash` or `source $HOME/.zprofile` to load the config into your current shell. Verify that ANDROID_SDK_ROOT has been set by running `echo $ANDROID_SDK_ROOT` and the appropriate directories have been added to your path by running `echo $PATH`.
 
 > Please make sure you use the correct Android SDK path. You can find the actual location of the SDK in the Android Studio "Preferences" dialog, under **Appearance & Behavior** → **System Settings** → **Android SDK**.
 
@@ -137,7 +131,7 @@ If you use Android Studio to open `./AwesomeProject/android`, you can see the li
 
 ![Android Studio AVD Manager](/docs/assets/GettingStartedAndroidStudioAVD.png)
 
-If you have recently installed Android Studio, you will likely need to [create a new AVD](https://developer.android.com/studio/run/managing-avds.html). Select "Create Virtual Device...", then pick any Phone from the list and click "Next", then select the **Q** API Level 29 image.
+If you have recently installed Android Studio, you will likely need to [create a new AVD](https://developer.android.com/studio/run/managing-avds.html). Select "Create Virtual Device...", then pick any Phone from the list and click "Next", then select the **R** API Level 30 image.
 
 Click "Next" then "Finish" to create your AVD. At this point you should be able to click on the green triangle button next to your AVD to launch it, then proceed to the next step.
 

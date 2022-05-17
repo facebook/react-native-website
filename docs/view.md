@@ -116,6 +116,18 @@ An accessibility hint helps users understand what will happen when they perform 
 
 ---
 
+### `accessibilityLanguage` <div class="label ios">iOS</div>
+
+A value indicating which language should be used by the screen reader when the user interacts with the element. It should follow the [BCP 47 specification](https://www.rfc-editor.org/info/bcp47).
+
+See the [iOS `accessibilityLanguage` doc](https://developer.apple.com/documentation/objectivec/nsobject/1615192-accessibilitylanguage) for more information.
+
+| Type   |
+| ------ |
+| string |
+
+---
+
 ### `accessibilityIgnoresInvertColors` <div class="label ios">iOS</div>
 
 A value indicating this view should or should not be inverted when color inversion is turned on. A value of `true` will tell the view to not be inverted even if color inversion is turned on.

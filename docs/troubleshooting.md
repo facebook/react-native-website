@@ -3,6 +3,8 @@ id: troubleshooting
 title: Troubleshooting
 ---
 
+import M1Cocoapods from './\_markdown-m1-cocoapods.mdx';
+
 These are some common issues you may run into while setting up React Native. If you encounter something that is not listed here, try [searching for the issue in GitHub](https://github.com/facebook/react-native/issues/).
 
 ### Port already in use
@@ -61,6 +63,8 @@ pod 'React', :path => '../node_modules/react-native', :subspecs => [
 
 Next, make sure you have run `pod install` and that a `Pods/` directory has been created in your project with React installed. CocoaPods will instruct you to use the generated `.xcworkspace` file henceforth to be able to use these installed dependencies.
 
+<M1Cocoapods />
+
 #### React Native does not compile when being used as a CocoaPod
 
 There is a CocoaPods plugin called [cocoapods-fix-react-native](https://github.com/orta/cocoapods-fix-react-native) which handles any potential post-fixing of the source code due to differences when using a dependency manager.
@@ -108,5 +112,9 @@ Issue caused by the number of directories [inotify](https://github.com/guard/lis
 ```shell
 echo fs.inotify.max_user_watches=582222 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 ```
+
+### Error: spawnSync ./gradlew EACCES
+
+If you run into issue where executing `npm run android` on macOS throws the above error, try to run `sudo chmod +x android/gradlew` command to make `gradlew` files into executable.
 
 [metro]: https://facebook.github.io/metro/

@@ -69,6 +69,7 @@ Display an iOS action sheet. The `options` object must contain one or more of:
 
 - `options` (array of strings) - a list of button titles (required)
 - `cancelButtonIndex` (int) - index of cancel button in `options`
+- `cancelButtonTintColor` (string) - the [color](colors) used for the change the text color of the cancel button
 - `destructiveButtonIndex` (int or array of ints) - indices of destructive buttons in `options`
 - `title` (string) - a title to show above the action sheet
 - `message` (string) - a message to show below the title
@@ -95,6 +96,16 @@ ActionSheetIOS.showActionSheetWithOptions(
   }
 );
 ```
+
+---
+
+### `dismissActionSheet()`
+
+```jsx
+static dismissActionSheet()
+```
+
+Dismisses the most upper iOS action sheet presented, if no action sheet is present a warning is displayed.
 
 ---
 

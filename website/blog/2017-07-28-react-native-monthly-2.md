@@ -78,7 +78,7 @@ Here are the notes from each team:
 - [CodePush](https://github.com/Microsoft/code-push) has now been integrated into [Mobile Center](https://mobile.azure.com/). Existing users will have no change in their workflow.
   - Some people have reported an issue with duplicate apps - they already had an app on Mobile Center. We are working on resolving them, but if you have two apps, let us know, and we can merge them for you.
 - Mobile Center now supports Push Notifications for CodePush. We also showed how a combination of Notifications and CodePush could be used for A/B testing apps - something unique to the ReactNative architecture.
-- [VSCode](https://github.com/Microsoft/vscode) has a known debugging issue with ReactNative - the next release of the extension in a couple of days will be fixing the issue.
+- [VS Code](https://github.com/Microsoft/vscode) has a known debugging issue with ReactNative - the next release of the extension in a couple of days will be fixing the issue.
 - Since there are many other teams also working on React Native inside Microsoft, we will work on getting better representation from all the groups for the next meeting.
 
 ### Shoutem

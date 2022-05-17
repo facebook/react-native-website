@@ -19,6 +19,18 @@ const packageManagers = [
 ];
 const defaultPackageManager = 'npm';
 
+const androidLanguages = [
+  {label: 'Java', value: 'java'},
+  {label: 'Kotlin', value: 'kotlin'},
+];
+const defaultAndroidLanguage = 'java';
+
+const javaScriptSpecLanguages = [
+  {label: 'Flow', value: 'flow'},
+  {label: 'TypeScript', value: 'typescript'},
+];
+const defaultJavaScriptSpecLanguages = 'flow';
+
 const guides = [
   {label: 'Expo CLI Quickstart', value: 'quickstart'},
   {label: 'React Native CLI Quickstart', value: 'native'},
@@ -52,10 +64,14 @@ export default {
   defaultPackageManager,
   defaultPlatform,
   defaultSyntax,
+  defaultAndroidLanguage,
+  javaScriptSpecLanguages,
+  defaultJavaScriptSpecLanguages,
   getDevNotesTabs,
   guides,
   oses,
   packageManagers,
   platforms,
   syntax,
+  androidLanguages,
 };
