@@ -202,7 +202,7 @@ You can implement the `jsExecutorFactoryForBridge:` method like this:
 }
 ```
 
-## iOS: Setup Folly
+## iOS: Setup Folly
 
 The previous step will incorporate in your iOS app a dependency called Folly. Folly requires some extra compiler flags to works properly. To set them up, follow these steps:
 
