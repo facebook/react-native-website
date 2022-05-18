@@ -17,7 +17,7 @@ The goal of this structure is that #1 doesn’t have to do everything: to do so 
 
 Two sub-roles:
 
-- 1 **release captain** as main point of contact per minor release (aiming for every 2 months, see [schedule](https://github.com/facebook/react-native/wiki/Release-Schedule))
+- 1 **release captain** as main point of contact per minor release (aiming for every 2 months)
 - 1 **reverse shadow** per minor release — working on high-need tooling (perhaps from retrospective of previous minor release) and serves as backup if release captain is out
 
 **Time commitment:** maximum 4 hours/week of work for each release captain and reverse shadow.

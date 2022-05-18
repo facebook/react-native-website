@@ -165,7 +165,7 @@ The branch cut has happened.
 
 [changelog-pr]: https://github.com/facebook/react-native/labels/%F0%9F%93%9D%20Changelog
 [current-release]: https://github.com/facebook/react-native/releases
-[changelog-wiki]: https://github.com/facebook/react-native/wiki/Release-Changelog
+[changelog-wiki]: https://reactnative.dev/contributing/changelogs-in-pull-requests
 [release-dependencies]: https://reactnative.dev/contributing/release-dependencies
 [release-faq]: https://reactnative.dev/contributing/release-faq
 [issue-form]: https://github.com/facebook/react-native/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Cpre-release&template=release_blocker_form.yml

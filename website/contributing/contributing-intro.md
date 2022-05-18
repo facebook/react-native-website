@@ -22,7 +22,7 @@ If you are eager to start contributing code right away, we have a list of [good 
 
 There are other ways you can contribute without writing a single line of code. Here are a few things you can do to help out:
 
-1. **Replying and handling open issues.** We get a lot of issues every day, and some of them may lack necessary information. You can help out by guiding people through the process of filling out the issue template, asking for clarifying information, or pointing them to existing issues that match their description of the problem. We cover more about this process in the [Issue Triage wiki](https://github.com/facebook/react-native/wiki/Triaging-GitHub-Issues).
+1. **Replying and handling open issues.** We get a lot of issues every day, and some of them may lack necessary information. You can help out by guiding people through the process of filling out the issue template, asking for clarifying information, or pointing them to existing issues that match their description of the problem. We cover more about this process on the [Triaging GitHub Issues](/contributing/triaging-github-issues) page.
 2. **Reviewing pull requests for the docs.** Reviewing [documentation updates](https://github.com/facebook/react-native-website/pulls) can be as simple as checking for spelling and grammar. If you encounter situations that can be explained better in the docs, click **Edit** at the top of most docs pages to get started with your own contribution.
 3. **Help people write test plans.** Some pull requests sent to the main repository may lack a proper test plan. These help reviewers understand how the change was tested, and can speed up the time it takes for a contribution to be accepted.
 
@@ -36,8 +36,8 @@ Once a change made on GitHub is approved, it will first be imported into Faceboo
 
 You can learn more about the contribution process in the following documents:
 
-- [Issues](https://github.com/facebook/react-native/wiki/Triaging-GitHub-Issues)
-- [Pull Requests](https://github.com/facebook/react-native/wiki/Managing-Pull-Requests)
+- [Triaging GitHub Issues](/contributing/triaging-github-issues)
+- [Managing Pull Requests](/contributing/managing-pull-requests)
 
 We also have a thriving community of contributors who would be happy to help you get set up. You can reach out to us through [@ReactNative](http://twitter.com/reactnative) (the React Native team) and [@ReactNativeComm](http://twitter.com/reactnativecomm) (the React Native Community organization).
 
@@ -57,7 +57,7 @@ Browsing through these repositories should provide some insight into how the Rea
 
 ## GitHub Issues
 
-We use GitHub issues to track bugs exclusively. We have documented our issue handling processes in the [Issues wiki](https://github.com/facebook/react-native/wiki/Triaging-GitHub-Issues).
+We use GitHub issues to track bugs exclusively. We have documented our issue handling processes in the [Issues wiki](/contributing/triaging-github-issues).
 
 ### Security Bugs
 
@@ -75,7 +75,7 @@ The React Native blog is generated [from the Markdown sources for the blog](http
 
 Please open an issue in the React Native website repository or tag us on [@ReactNative on Twitter](http://twitter.com/reactnative) and get the go-ahead from a maintainer before writing an article intended for the React Native blog. In most cases, you might want to share your article on your own blog or writing medium instead. It's worth asking, though, in case we find your article is a good fit for the blog.
 
-We recommend referring to the [Contributing Intro](/contributing/contributing-intro) document for the `react-native-website` repository to learn more about contributing to the website in general.
+We recommend referring to the [`react-native-website` repository Readme](https://github.com/facebook/react-native-website#readme) document to learn more about contributing to the website in general.
 
 ## Contributing Code
 
