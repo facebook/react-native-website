@@ -30,7 +30,7 @@
     },
     {
       "type": "category",
-      "label": "How to Perform Releases",
+      "label": "Contributing to Releases",
       "collapsed": true,
       "collapsible": true,
       "items": [
