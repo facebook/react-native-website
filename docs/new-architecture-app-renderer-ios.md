@@ -83,21 +83,7 @@ The way to render your app with Fabric depends on your setup. Here is an example
 #endif
 ```
 
-## 3. Add Babel Plugins
-
-This will trigger the codegen that will run at the metro building time.
-
-```javascript title="babel.config.js"
-module.exports = {
-  presets: ['module:metro-react-native-babel-preset'],
-  plugins: [
-    '@babel/plugin-proposal-class-properties',
-    './node_modules/react-native/packages/babel-plugin-codegen'
-  ]
-};
-```
-
-## 4. Run pod install
+## 3. Run pod install
 
 ```bash
 // Run pod install with the flags
