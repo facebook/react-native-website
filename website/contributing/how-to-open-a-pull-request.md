@@ -8,7 +8,7 @@ These instructions provide the step-by-step process to set up your machine to ma
 
 You will need a few tools and dependencies in order to build and develop for React Native. These are covered as part of the [Environment Setup](/docs/environment-setup) guide under the "Building Projects with Native Code" section.
 
-In order to accept your pull request, we need you to submit a [Contributor License Agreement (CLA)](/contributing/contribution-license-agreement). You only need to do this once to work on any of Facebook's open source projects. It only takes a minute so you can do it while you wait for your dependencies to install.
+In order to accept your pull request, we need you to submit a [Contributor License Agreement (CLA)](/contributing/contribution-license-agreement). You only need to do this once to work on any of Meta's open source projects. It only takes a minute, so you can do it while you wait for your dependencies to install.
 
 ## Chapter I: Welcome to Open Source
 
@@ -62,7 +62,9 @@ Make sure your changes are correct and do not introduce any test failures. You c
 
 We understand it can take a while to ramp up and get a sense of the style followed for each of the languages in use in the core React Native repository. Developers should not need to worry about minor nits, so whenever possible, we use tools that automate the process of rewriting your code to follow conventions.
 
-For example, we use [Prettier](https://prettier.io/) to format our JavaScript code. This saves you time and energy as you can let Prettier fix up any formatting issues automatically through its editor integrations, or by manually running `yarn run prettier`. We also use a linter to catch styling issues that may exist in your code. You can check the status of your code styling by running `yarn run lint`.
+For example, we use [Prettier](https://prettier.io/) to format our JavaScript code. This saves you time and energy as you can let Prettier fix up any formatting issues automatically through its editor integrations, or by manually running `yarn run prettier`. 
+
+We also use a linter to catch styling issues that may exist in your code. You can check the status of your code styling by running `yarn run lint`.
 
 To learn more about coding conventions, refer to the [Coding Style guide](/contributing/how-to-contribute-code#coding-style).
 
@@ -84,7 +86,7 @@ git commit -m <message>
 You can use a short descriptive sentence as your commit message.
 
 :::note
-Worried about writing good git commit messages? Do not fret. Later, when your pull request is merged, all your commits will be squashed into a single commit. It is your pull request description which will be used to populate the message for this squashed commit.\_
+Worried about writing good git commit messages? Do not fret. Later, when your pull request is merged, all your commits will be squashed into a single commit. It is your pull request description which will be used to populate the message for this squashed commit.
 :::
 
 This guide covers enough information to help you along with your first contribution. GitHub has several resources to help you get started with git:

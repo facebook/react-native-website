@@ -20,7 +20,7 @@ A bot that performs actions defined in a GitHub workflow. Workflows are configur
 
 ## facebook-github-bot
 
-The Facebook GitHub Bot is used across several open source projects at Facebook. In the case of React Native, you will most likely encounter it when it pushes a merge commit to `main` after a pull request is successfully imported to Facebook's internal source control. It will also let authors know if they are missing a Contributor License Agreement.
+The Facebook GitHub Bot is used across several open source projects at Meta. In the case of React Native, you will most likely encounter it when it pushes a merge commit to `main` after a pull request is successfully imported to Facebook's internal source control. It will also let authors know if they are missing a Contributor License Agreement.
 
 ## react-native-bot
 

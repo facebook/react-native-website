@@ -101,9 +101,13 @@ The JavaScript tests can be found inside `__test__` directories, colocated next 
 
 ### iOS Integration Tests
 
-React Native provides facilities to make it easier to test integrated components that require both native and JS components to communicate across the bridge. The two main components are `RCTTestRunner` and `RCTTestModule`. `RCTTestRunner` sets up the React Native environment and provides facilities to run the tests as `XCTestCase`s in Xcode (`runTest:module` is the simplest method). `RCTTestModule` is exported to JavaScript as `NativeModules.TestModule`.
+React Native provides facilities to make it easier to test integrated components that require both native and JS components to communicate across the bridge. 
 
-The tests themselves are written in JS, and must call `TestModule.markTestCompleted()` when they are done, otherwise the test will timeout and fail. Test failures are primarily indicated by throwing a JS exception. It is also possible to test error conditions with `runTest:module:initialProps:expectErrorRegex:` or `runTest:module:initialProps:expectErrorBlock:` which will expect an error to be thrown and verify the error matches the provided criteria.
+The two main components are `RCTTestRunner` and `RCTTestModule`. `RCTTestRunner` sets up the React Native environment and provides facilities to run the tests as `XCTestCase`s in Xcode (`runTest:module` is the simplest method). `RCTTestModule` is exported to JavaScript as `NativeModules.TestModule`.
+
+The tests themselves are written in JS, and must call `TestModule.markTestCompleted()` when they are done, otherwise the test will timeout and fail. 
+
+Test failures are primarily indicated by throwing a JS exception. It is also possible to test error conditions with `runTest:module:initialProps:expectErrorRegex:` or `runTest:module:initialProps:expectErrorBlock:` which will expect an error to be thrown and verify the error matches the provided criteria.
 
 See the following for example usage and integration points:
 
@@ -119,9 +123,13 @@ See the following for example usage and integration points:
 
 A common type of integration test is the snapshot test. These tests render a component, and verify snapshots of the screen against reference images using `TestModule.verifySnapshot()`, using the [`FBSnapshotTestCase`](https://github.com/facebook/ios-snapshot-test-case) library behind the scenes. Reference images are recorded by setting `recordMode = YES` on the `RCTTestRunner`, then running the tests.
 
-Snapshots will differ slightly between 32 and 64 bit, and various OS versions, so it's recommended that you enforce tests are run with the [correct configuration](https://github.com/facebook/react-native/blob/main/scripts/.tests.env). It's also highly recommended that all network data be mocked out, along with other potentially troublesome dependencies. See [`SimpleSnapshotTest`](https://github.com/facebook/react-native/blob/main/IntegrationTests/SimpleSnapshotTest.js) for a basic example.
+Snapshots will differ slightly between 32 and 64 bit, and various OS versions, so it's recommended that you enforce tests are run with the [correct configuration](https://github.com/facebook/react-native/blob/main/scripts/.tests.env). 
 
-If you make a change that affects a snapshot test in a pull request, such as adding a new example case to one of the examples that is snapshotted, you'll need to re-record the snapshot reference image. To do this, change `recordMode` flag to `_runner.recordMode = YES;` in [RNTester/RNTesterSnapshotTests.m](https://github.com/facebook/react-native/blob/136666e2e7d2bb8d3d51d599fc1384a2f68c43d3/RNTester/RNTesterIntegrationTests/RNTesterSnapshotTests.m#L29), re-run the failing tests, then flip record back to `NO` and submit/update your pull request and wait to see if the Circle build passes.
+It's also highly recommended that all network data be mocked out, along with other potentially troublesome dependencies. See [`SimpleSnapshotTest`](https://github.com/facebook/react-native/blob/main/IntegrationTests/SimpleSnapshotTest.js) for a basic example.
+
+If you make a change that affects a snapshot test in a pull request, such as adding a new example case to one of the examples that is snapshotted, you'll need to re-record the snapshot reference image. 
+
+To do this, change `recordMode` flag to `_runner.recordMode = YES;` in [RNTester/RNTesterSnapshotTests.m](https://github.com/facebook/react-native/blob/136666e2e7d2bb8d3d51d599fc1384a2f68c43d3/RNTester/RNTesterIntegrationTests/RNTesterSnapshotTests.m#L29), re-run the failing tests, then flip record back to `NO` and submit/update your pull request and wait to see if the CircleCI build passes.
 
 ### Android Unit Tests
 
@@ -138,9 +146,11 @@ We use [Appveyor][config-appveyor] and [Circle CI][config-circleci] to automatic
 [config-appveyor]: https://github.com/facebook/react-native/blob/main/.appveyor/config.yml
 [config-circleci]: https://github.com/facebook/react-native/blob/main/.circleci/config.yml
 
-There's another set of tests that run within Facebook's internal test infrastructure. Some of these tests are integration tests defined by internal consumers of React Native (e.g. unit tests for a React Native surface in the Facebook app). These tests run on every commit to the copy of React Native hosted on Facebook's source control. They also run when a pull request is imported to Facebook's source control.
+There's another set of tests that run within Meta's internal test infrastructure. Some of these tests are integration tests defined by internal consumers of React Native (e.g. unit tests for a React Native surface in the Facebook app). 
 
-If one of these tests fail, you'll need someone at Facebook to take a look. Since pull requests can only be imported by Facebook employees, whoever imported the pull request should be able to facilitate any details.
+These tests run on every commit to the copy of React Native hosted on Facebook's source control. They also run when a pull request is imported to Facebook's source control.
+
+If one of these tests fail, you'll need someone at Meta to take a look. Since pull requests can only be imported by Meta employees, whoever imported the pull request should be able to facilitate any details.
 
 :::note
 **Running CI tests locally**
@@ -151,11 +161,15 @@ Most open source collaborators rely on Circle CI and Appveyor to see the results
 
 #### How do I upgrade the Xcode version used in CI tests?
 
-When upgrading to a new version of Xcode, first make sure it is [supported by Circle CI](https://circleci.com/docs/2.0/testing-ios/#supported-xcode-versions). You will also need to update the test environment config to make sure tests run on an iOS Simulator that comes installed in the Circle CI machine. This can also be found in [Circle CI's Xcode version reference](https://circleci.com/docs/2.0/testing-ios/#supported-xcode-versions) by clicking the desired version and looking under Runtimes.
+When upgrading to a new version of Xcode, first make sure it is [supported by Circle CI](https://circleci.com/docs/2.0/testing-ios/#supported-xcode-versions). 
+
+You will also need to update the test environment config to make sure tests run on an iOS Simulator that comes installed in the Circle CI machine. 
+
+This can also be found in [Circle CI's Xcode version reference](https://circleci.com/docs/2.0/testing-ios/#supported-xcode-versions) by clicking the desired version and looking under Runtimes.
 
 You can then edit these two files:
 
 - `.circleci/config.yml`: Edit the `xcode:` line under 'macos:' (search for `_XCODE_VERSION`)
 - `scripts/.tests.env`: Edit the `IOS_TARGET_OS` envvar to match the desired iOS Runtime.
 
-If you intend to merge this change on GitHub, please make sure to notify a Facebook employee as they'll need to update the value of `_XCODE_VERSION` used in the internal Sandcastle RN OSS iOS test in `react_native_oss.py` when they import your pull request.
+If you intend to merge this change on GitHub, please make sure to notify a Meta employee as they'll need to update the value of `_XCODE_VERSION` used in the internal Sandcastle RN OSS iOS test in `react_native_oss.py` when they import your pull request.

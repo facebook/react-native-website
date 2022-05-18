@@ -149,7 +149,11 @@ You should be able to use the _Run_ button to run your app on a device. Android 
 
 ### Additional notes
 
-Building from source can take a long time, especially for the first build, as it needs to download ~200 MB of artifacts and compile the native code. Every time you update the `react-native` version from your repo, the build directory may get deleted, and all the files are re-downloaded. To avoid this, you might want to change your build directory path by editing the `~/.gradle/init.gradle` file:
+Building from source can take a long time, especially for the first build, as it needs to download ~200 MB of artifacts and compile the native code. 
+
+Every time you update the `react-native` version from your repo, the build directory may get deleted, and all the files are re-downloaded. 
+
+To avoid this, you might want to change your build directory path by editing the `~/.gradle/init.gradle` file:
 
 ```groovy
 gradle.projectsLoaded {
@@ -188,7 +192,9 @@ Install it in your app project package.json.
 
 ## Rationale
 
-The recommended approach to working with React Native is to always update to the latest version. No support is provided on older versions and if you run into issues the contributors will always ask you to upgrade to the latest version before even looking at your particular issue. Sometimes, though, you are temporarily stuck on an older React Native version, but you require some changes from newer versions urgently (bugfixes) without having to do a full upgrade right now. This situation should be short lived by definition and once you have the time, the real solution is to upgrade to the latest version.
+The recommended approach to working with React Native is to always update to the latest version. No support is provided on older versions and if you run into issues the contributors will always ask you to upgrade to the latest version before even looking at your particular issue. 
+
+Sometimes, though, you are temporarily stuck on an older React Native version, but you require some changes from newer versions urgently (bugfixes) without having to do a full upgrade right now. This situation should be short lived by definition and once you have the time, the real solution is to upgrade to the latest version.
 
 With this goal of a shortlived fork of React Native in mind, you can publish your own version of React Native. The facebook/react-native repository contains all the dependencies required to be used directly as a git dependency, except for the Android React Native library binary (.aar).
 
@@ -220,7 +226,11 @@ Upload the binaries from the `android` folder to maven and point your Android ap
 
 Instead of uploading to Maven/Nexus, you can add the binaries built in the previous steps to git, by changing the .gitignore and committing the binaries to your forked branch. This allows you to make your fork into a functioning git dependency for React Native app projects.
 
-If you have changes that you want to actually merge to React Native, make them on another branch first and open a PR. To start making your dependency branch, make sure you are on a `release/my-forked-release` branch, then merge any commits that you need from yourself or others into this branch. This release branch should never be merged into any other branch.
+If you have changes that you want to actually merge to React Native, make them on another branch first and open a PR. 
+
+To start making your dependency branch, make sure you are on a `release/my-forked-release` branch, then merge any commits that you need from yourself or others into this branch. 
+
+This release branch should never be merged into any other branch.
 
 ```bash
 # create .aar, then:

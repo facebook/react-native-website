@@ -30,7 +30,9 @@ Each of these tasks is highly impactful, and maintainers will greatly appreciate
 
 ### Our Development Process
 
-We use GitHub issues and pull requests to keep track of bug reports and contributions from the community. All changes from engineers at Facebook will sync to [GitHub](https://github.com/facebook/react-native) through a bridge with Facebook's internal source control. Changes from the community are handled through GitHub pull requests. Once a change made on GitHub is approved, it will first be imported into Facebook's internal source control and tested against Facebook's codebase. Once merged at Facebook, the change will eventually sync back to GitHub as a single commit once it has passed Facebook's internal tests.
+We use GitHub issues and pull requests to keep track of bug reports and contributions from the community. All changes from engineers at Meta will sync to [GitHub](https://github.com/facebook/react-native) through a bridge with Meta's internal source control. Changes from the community are handled through GitHub pull requests. 
+
+Once a change made on GitHub is approved, it will first be imported into Facebook's internal source control and tested against Facebook's codebase. Once merged at Facebook, the change will eventually sync back to GitHub as a single commit once it has passed Facebook's internal tests.
 
 You can learn more about the contribution process in the following documents:
 
@@ -59,7 +61,7 @@ We use GitHub issues to track bugs exclusively. We have documented our issue han
 
 ### Security Bugs
 
-Facebook has a [bounty program](https://www.facebook.com/whitehat/) for the safe disclosure of security bugs. In those cases, please go through the process outlined on that page and do not file a public issue.
+Meta has a [bounty program](https://www.facebook.com/whitehat/) for the safe disclosure of security bugs. In those cases, please go through the process outlined on that page and do not file a public issue.
 
 ## Helping with Documentation
 
@@ -77,14 +79,14 @@ We recommend referring to the [Contributing Intro](/contributing/contributing-in
 
 ## Contributing Code
 
-Code-level contributions to React Native generally come in the form of [pull requests](https://help.github.com/en/articles/about-pull-requests). These are done by forking the repo and making changes locally. Directly in the repo, there is the [`rn-tester` app](https://github.com/facebook/react-native/packages/rn-tester) that you can install on your device (or simulators) and use to test the changes you're making to React Native sources.
+Code-level contributions to React Native generally come in the form of [pull requests](https://help.github.com/en/articles/about-pull-requests). These are done by forking the repo and making changes locally. Directly in the repo, there is the [`rn-tester` app](https://github.com/facebook/react-native/tree/main/packages/rn-tester) that you can install on your device (or simulators) and use to test the changes you're making to React Native sources.
 
 The process of proposing a change to React Native can be summarized as follows:
 
 1. Fork the React Native repository and create your branch from `main`.
 2. Make the desired changes to React Native sources. Use the `packages/rn-tester` app to test them out.
 3. If you've added code that should be tested, add tests.
-4. If you've changed APIs, update the documentation, which lives in [another repo](https://github.com/facebook/react-native-website/).
+4. If you've changed APIs, update the documentation, which lives in [separate repo](https://github.com/facebook/react-native-website/).
 5. Ensure the test suite passes, either locally or on CI once you opened a pull request.
 6. Make sure your code lints (for example via `yarn lint --fix`).
 7. Push the changes to your fork.
@@ -102,7 +104,9 @@ Whenever you are ready to contribute code, check out our [step-by-step guide to 
 
 ### Tests
 
-Tests help us prevent regressions from being introduced to the codebase. The GitHub repository is continuously tested using Circle and Appveyor, the results of which are available through the Checks functionality on [commits](https://github.com/facebook/react-native/commits/HEAD) and pull requests. You can learn more about running and writing tests in the [Tests wiki](http://github.com/facebook/react-native/wiki/Tests).
+Tests help us prevent regressions from being introduced to the codebase. The GitHub repository is continuously tested using CircleCI and Appveyor, the results of which are available through the Checks functionality on [commits](https://github.com/facebook/react-native/commits/HEAD) and pull requests. 
+
+You can learn more about running and writing tests on the [How to Run and Write Tests](/contributing/how-to-run-and-write-tests) page.
 
 ## Community Contributions
 

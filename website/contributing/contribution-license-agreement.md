@@ -2,7 +2,7 @@
 title: Contribution License Agreement
 ---
 
-You must sign a Contribution License Agreement (CLA) before your pull request can be merged. This a one-time requirement for Facebook projects in GitHub. You can read more about [Contributor License Agreements (CLA)](https://en.wikipedia.org/wiki/Contributor_License_Agreement) on Wikipedia.
+You must sign a Contribution License Agreement (CLA) before your pull request can be merged. This a one-time requirement for Meta projects in GitHub. You can read more about [Contributor License Agreements (CLA)](https://en.wikipedia.org/wiki/Contributor_License_Agreement) on Wikipedia.
 
 However, you don't have to do this up-front. We welcome you to follow, fork, and submit a pull request.
 

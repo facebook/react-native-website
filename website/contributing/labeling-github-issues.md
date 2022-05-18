@@ -2,7 +2,13 @@
 title: Labeling GitHub Issues
 ---
 
-Most of [our labels](https://github.com/facebook/react-native/issues/labels) have a prefix that provides a hint of their purpose. You'll notice right away there's two label prefixes that dominate the list, [API:](https://github.com/facebook/react-native/labels?utf8=%E2%9C%93&q=API%3A), and [Component:](https://github.com/facebook/react-native/labels?utf8=%E2%9C%93&q=Component%3A). These generally denote issues and pull requests related to an API or Component in the core React Native library. It helps us understand, at a glance, which components are in dire need of documentation or support. These labels are added automatically by one of our [bots](/contributing/bots-reference), but feel free to adjust them if the bot mis-attributes an issue.
+Most of [our labels](https://github.com/facebook/react-native/issues/labels) have a prefix that provides a hint of their purpose. 
+
+You'll notice right away there's two label prefixes that dominate the list, [API:](https://github.com/facebook/react-native/labels?utf8=%E2%9C%93&q=API%3A), and [Component:](https://github.com/facebook/react-native/labels?utf8=%E2%9C%93&q=Component%3A). 
+
+These generally denote issues and pull requests related to an API or Component in the core React Native library. It helps us understand, at a glance, which components are in dire need of documentation or support. 
+
+These labels are added automatically by one of our [bots](/contributing/bots-reference), but feel free to adjust them if the bot mis-attributes an issue.
 
 - The `p:` class of labels denote a company with whom with maintain some sort of [relationship](https://github.com/facebook/react-native/blob/main/ECOSYSTEM.md). These include Microsoft and Expo, for example. These are also added automatically by our tooling, based on the issue author.
 - The `DX:` class of labels denote areas that deal with the developer experience. Use these for issues that negatively impact people who use React Native.

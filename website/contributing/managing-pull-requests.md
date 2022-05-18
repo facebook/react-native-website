@@ -36,13 +36,15 @@ A pull request must pass all the tests before it can be merged. They run on ever
 
 ## How we prioritize PRs
 
-Members of the React Native team at Facebook aim to review pull requests quickly and most PRs will get a response within a week.
+Members of the React Native team at Meta aim to review pull requests quickly and most PRs will get a response within a week.
 
 ## How does a PR get merged?
 
-The React Native GitHub repository is actually a mirror of a subdirectory from one of Facebook's monorepos. Pull requests are therefore not merged in the traditional sense. Instead, they need to be imported into Facebook's internal code review system as a ["diff"](https://www.phacility.com/phabricator/differential/). Once imported, the changes will go through a suite of tests. Some of these tests are land-blocking, meaning they need to succeed before the contents of the diff can be merged. Facebook always runs React Native from `main` and some changes may require a Facebook employee to attach internal changes to your pull request before it can be merged. For example, if you rename a module name, all Facebook internal callsites have to be updated in the same change in order to merge it. If the diff lands successfully, the changes will eventually get synced back to GitHub by [ShipIt](https://github.com/facebook/fbshipit) as a single commit.
+The React Native GitHub repository is actually a mirror of a subdirectory from one of Meta's monorepos. Pull requests are therefore not merged in the traditional sense. Instead, they need to be imported into Meta's internal code review system as a ["diff"](https://www.phacility.com/phabricator/differential/). 
 
-Facebook employees are using a custom browser extension for GitHub that can import a pull request in one of two ways: the pull request can be "landed to fbsource", meaning it will be imported and the resulting diff will be approved automatically, and barring any failures, the changes will eventually sync back to `main`. A pull request may also be "imported to Phabricator", meaning the changes will be copied to an internal diff that will require further review and approval before it can land.
+Once imported, the changes will go through a suite of tests. Some of these tests are land-blocking, meaning they need to succeed before the contents of the diff can be merged. Meta always runs React Native from `main` and some changes may require a Facebook employee to attach internal changes to your pull request before it can be merged. For example, if you rename a module name, all Facebook internal callsites have to be updated in the same change in order to merge it. If the diff lands successfully, the changes will eventually get synced back to GitHub by [ShipIt](https://github.com/facebook/fbshipit) as a single commit.
+
+Meta employees are using a custom browser extension for GitHub that can import a pull request in one of two ways: the pull request can be "landed to fbsource", meaning it will be imported and the resulting diff will be approved automatically, and barring any failures, the changes will eventually sync back to `main`. A pull request may also be "imported to Phabricator", meaning the changes will be copied to an internal diff that will require further review and approval before it can land.
 
 ![Screenshot of the custom browser extension. Two buttons are visible: a green one that is titled "Import to Phabricator", and a grey one with "Land to fbsource" in red text. ](/img/importing-pull-requests.png)
 
@@ -52,5 +54,5 @@ As you review and work on pull requests, you might encounter comments left by a 
 
 ## Pull Request Labels
 
-- `Merged`: Applied to a closed PR to indicate that its changes have been incorporated into the core repository. This label is necessary because pull requests are not merged directly on GitHub. Instead, a patch with the PR's changes is imported and queued up for code review. Once approved, the result of applying those changes on top of Facebook's internal monorepository gets synced out to GitHub as a new commit. GitHub does not attribute that commit back to the original PR, hence the need for a label that communicates the PR's true status.
+- `Merged`: Applied to a closed PR to indicate that its changes have been incorporated into the core repository. This label is necessary because pull requests are not merged directly on GitHub. Instead, a patch with the PR's changes is imported and queued up for code review. Once approved, the result of applying those changes on top of Meta's internal monorepository gets synced out to GitHub as a new commit. GitHub does not attribute that commit back to the original PR, hence the need for a label that communicates the PR's true status.
 - `Blocked on FB`: The PR has been imported, but the changes have not yet been applied.
