@@ -25,7 +25,7 @@ yarn run lint
 
 ### iOS Tests
 
-Start off by running `pod install` inside the `RNTester/` directory. This will set up your native dependencies and create a `RNTesterPods` Xcode workspace.
+Start off by running `pod install` inside the `RNTester` directory. This will set up your native dependencies and create a `RNTesterPods` Xcode workspace.
 
 Then, go back to the root of your React Native checkout and run `yarn` followed by `yarn start`. This will set up your JavaScript dependencies.
 
@@ -35,9 +35,9 @@ At this point, you can run iOS tests by invoking the following script from the r
 ./scripts/objc-test.sh test
 ```
 
-You can also use Xcode to run iOS tests. Open `RNTester/RNTesterPods.xcworkspace` and run tests locally by pressing Command + U or selecting `Product` then `Test` from the menubar.
+You can also use Xcode to run iOS tests. Open `RNTester/RNTesterPods.xcworkspace` and run tests locally by pressing <kbd>Command + U</kbd> or selecting `Product` then `Test` from the menubar.
 
-Xcode also allows running individual tests through its Test Navigator (Command + 6).
+Xcode also allows running individual tests through its Test Navigator. You can also use <kbd>Command + 6</kbd> shortcut.
 
 :::note
 `objc-test.sh` ensures your test environment is set up to run all tests. It also disables tests that are known to be flaky or broken. Keep this in mind when running tests using Xcode. If you see an unexpected failure, see if it's disabled in `objc-test.sh` first.
@@ -141,7 +141,7 @@ It's a good idea to add an Android integration test whenever you are working on 
 
 ## Continuous Testing
 
-We use [Appveyor][config-appveyor] and [Circle CI][config-circleci] to automatically run our open source tests. Appveyor and Circle CI will run these tests whenever a commit is added to a pull request, as a way to help maintainers understand whether a code change introduces a regression. The tests also run on commits to the `main` and `*-stable` branches in order to keep track of the health of these branches.
+We use [Appveyor][config-appveyor] and [CircleCI][config-circleci] to automatically run our open source tests. Appveyor and CircleCI will run these tests whenever a commit is added to a pull request, as a way to help maintainers understand whether a code change introduces a regression. The tests also run on commits to the `main` and `*-stable` branches in order to keep track of the health of these branches.
 
 [config-appveyor]: https://github.com/facebook/react-native/blob/main/.appveyor/config.yml
 [config-circleci]: https://github.com/facebook/react-native/blob/main/.circleci/config.yml
@@ -153,23 +153,28 @@ These tests run on every commit to the copy of React Native hosted on Facebook's
 If one of these tests fail, you'll need someone at Meta to take a look. Since pull requests can only be imported by Meta employees, whoever imported the pull request should be able to facilitate any details.
 
 :::note
-**Running CI tests locally**
-Most open source collaborators rely on Circle CI and Appveyor to see the results of these tests. If you'd rather verify your changes locally using the same configuration as Circle CI, Circle CI provides a [command line interface](https://circleci.com/docs/2.0/local-cli/) with the ability to run jobs locally.
+**Running CI tests locally:**
+Most open source collaborators rely on CircleCI and Appveyor to see the results of these tests. If you'd rather verify your changes locally using the same configuration as CircleCI, CircleCI provides a [command line interface](https://circleci.com/docs/2.0/local-cli/) with the ability to run jobs locally.
 :::
 
 ### F.A.Q.
 
 #### How do I upgrade the Xcode version used in CI tests?
 
-When upgrading to a new version of Xcode, first make sure it is [supported by Circle CI](https://circleci.com/docs/2.0/testing-ios/#supported-xcode-versions). 
+When upgrading to a new version of Xcode, first make sure it is [supported by CircleCI](https://circleci.com/docs/2.0/testing-ios/#supported-xcode-versions). 
 
-You will also need to update the test environment config to make sure tests run on an iOS Simulator that comes installed in the Circle CI machine. 
+You will also need to update the test environment config to make sure tests run on an iOS Simulator that comes installed in the CircleCI machine. 
 
-This can also be found in [Circle CI's Xcode version reference](https://circleci.com/docs/2.0/testing-ios/#supported-xcode-versions) by clicking the desired version and looking under Runtimes.
+This can also be found in [CircleCI's Xcode version reference](https://circleci.com/docs/2.0/testing-ios/#supported-xcode-versions) by clicking the desired version and looking under Runtimes.
 
 You can then edit these two files:
 
-- `.circleci/config.yml`: Edit the `xcode:` line under 'macos:' (search for `_XCODE_VERSION`)
-- `scripts/.tests.env`: Edit the `IOS_TARGET_OS` envvar to match the desired iOS Runtime.
+- `.circleci/config.yml`
+
+  Edit the `xcode:` line under `macos:` (search for `_XCODE_VERSION`).
+
+- `scripts/.tests.env`
+
+  Edit the `IOS_TARGET_OS` envvar to match the desired iOS Runtime.
 
 If you intend to merge this change on GitHub, please make sure to notify a Meta employee as they'll need to update the value of `_XCODE_VERSION` used in the internal Sandcastle RN OSS iOS test in `react_native_oss.py` when they import your pull request.

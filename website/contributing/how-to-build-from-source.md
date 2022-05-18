@@ -152,7 +152,6 @@ You should be able to use the _Run_ button to run your app on a device. Android 
 Building from source can take a long time, especially for the first build, as it needs to download ~200 MB of artifacts and compile the native code. 
 
 Every time you update the `react-native` version from your repo, the build directory may get deleted, and all the files are re-downloaded. 
-
 To avoid this, you might want to change your build directory path by editing the `~/.gradle/init.gradle` file:
 
 ```groovy
@@ -230,7 +229,9 @@ If you have changes that you want to actually merge to React Native, make them o
 
 To start making your dependency branch, make sure you are on a `release/my-forked-release` branch, then merge any commits that you need from yourself or others into this branch. 
 
+:::warning
 This release branch should never be merged into any other branch.
+:::
 
 ```bash
 # create .aar, then:

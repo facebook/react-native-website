@@ -46,7 +46,10 @@ Once imported, the changes will go through a suite of tests. Some of these tests
 
 Meta employees are using a custom browser extension for GitHub that can import a pull request in one of two ways: the pull request can be "landed to fbsource", meaning it will be imported and the resulting diff will be approved automatically, and barring any failures, the changes will eventually sync back to `main`. A pull request may also be "imported to Phabricator", meaning the changes will be copied to an internal diff that will require further review and approval before it can land.
 
-![Screenshot of the custom browser extension. Two buttons are visible: a green one that is titled "Import to Phabricator", and a grey one with "Land to fbsource" in red text. ](/img/importing-pull-requests.png)
+<figure>
+  <img src="/img/importing-pull-requests.png" />
+  <figcaption>Screenshot of the custom browser extension. Two buttons are visible: a green one that is titled "Import to Phabricator", and a grey one with "Land to fbsource" in red text.</figcaption>
+</figure>
 
 ## Bots
 
