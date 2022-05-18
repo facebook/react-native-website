@@ -28,7 +28,7 @@ title: Release Stable Minor
 
 0.66 stable is out!
 
-This release includes **621 commits** with **92 contributors**! Thank you to all our contributors new and old! You can find the [full changelog here](https://github.com/react-native-community/releases/blob/master/CHANGELOG.md#v0660).
+This release includes **621 commits** with **92 contributors**! Thank you to all our contributors new and old! You can find the [full changelog here](https://github.com/react-native-community/releases/blob/main/CHANGELOG.md#v0660).
 
 - See the highlights of the release in our [release blog post](https://reactnative.dev/blog/2021/10/01/version-066).
 - You can participate in the conversation on the status of this release at [this issue](https://github.com/react-native-community/releases/issues/254).

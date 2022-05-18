@@ -3,9 +3,9 @@ id: release-roles-responsibilities
 title: Roles and Responsibilities
 ---
 
-Here we set guidelines to apply the “dividi et impera” approach to React Native releases: it is an involved process and we need to clarify the work to allow for easier rotations of folks in various positions.
+Here we set guidelines to apply the "dividi et impera" approach to React Native releases: it is an involved process and we need to clarify the work to allow for easier rotations of folks in various positions.
 
-The roles should be imagined as “concentric”, with #1 in the centre: this means that anything in role #3 can be done by #2 or #1, and anything on role #2 can be done by #1.
+The roles should be imagined as "concentric", with #1 in the centre: this means that anything in role #3 can be done by #2 or #1, and anything on role #2 can be done by #1.
 
 The goal of this structure is that #1 doesn’t have to do everything: to do so the suggestion is to at least always have a person per each role in each release.
 

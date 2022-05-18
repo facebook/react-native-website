@@ -239,7 +239,7 @@ module.exports = {
             docsPluginId: 'architecture',
           },
           {
-            to: '/contributing/how-to-contribute',
+            to: '/contributing/contributing-intro',
             label: 'Contributing',
             position: 'right',
           },
