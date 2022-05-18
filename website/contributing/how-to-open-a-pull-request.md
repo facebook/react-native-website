@@ -118,7 +118,7 @@ Visit the provided URL to proceed to the next step.
 You are almost there! The next step is to fill out the pull request. Use a descriptive title that is not too long. Then, make sure to fill out all of the fields provided by the default pull request template:
 
 - **Summary:** Use this field to provide your motivation for sending this pull request. What are you fixing?
-- **[Changelog](Changelog):** Help release maintainers write release notes by providing a short description of what will be changed should the pull request get merged.
+- **[Changelog](/contributing/changelogs-in-pull-requests):** Help release maintainers write release notes by providing a short description of what will be changed should the pull request get merged.
 - **Test Plan:** Let reviewers know how you tested your changes. Did you consider any edge cases? Which steps did you follow to make sure your changes have the desired effect? See [What is a Test Plan?](https://medium.com/@martinkonicek/what-is-a-test-plan-8bfc840ec171) to learn more.
 
 ### 4. Review and address feedback
