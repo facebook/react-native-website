@@ -43,13 +43,15 @@ Using the default Ruby available on macOS will require you to use `sudo` when in
 
 ```shell
 sudo gem install cocoapods
+
+// Or for M1 Mac chipset (ARM64) (prefer using latest brew version) as seen [here](https://github.com/CocoaPods/CocoaPods/issues/9907#issuecomment-962871846)
+sudo gem uninstall cocoapods
+brew install cocoapods
 ```
 
 Otherwise you can use a Ruby version manager, such as `rbenv`. Apps created with the command `npx react-native init` described below are configured to work well with `rbenv` and will pick the correct Ruby version requested by the template.
 
 For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-<M1Cocoapods />
 
 ### React Native Command Line Interface
 
