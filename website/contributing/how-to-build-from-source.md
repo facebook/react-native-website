@@ -167,7 +167,7 @@ gradle.projectsLoaded {
 
 Gradle build fails in `ndk-build`. See the section about `local.properties` file above.
 
-# Publish your own version of React Native
+## Publish your own version of React Native
 
 There is a docker image that helps you build the required Android sources without installing any additional tooling (other than [Docker](https://docs.docker.com/install/), which can be committed to a git branch as a fully functional React Native fork release.
 
