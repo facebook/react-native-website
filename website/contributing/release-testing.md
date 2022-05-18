@@ -87,11 +87,9 @@ Covered by running `test-manual-e2e.sh`, see [issue](https://github.com/facebook
 
 5. Go through **Test Checklist** for Hermes enabled template app.
 
-:::info
-
-Note: Script will install template app at `/tmp/RNTestProject`.
-
-:::
+   :::info
+   Script will install template app at `/tmp/RNTestProject`.
+   :::
 
 - Enable Hermes for Android template app, clean, build and go through [Test Checklist](#test-checklist).
 
