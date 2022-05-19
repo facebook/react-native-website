@@ -53,7 +53,7 @@ You can learn more about the contribution process in the following documents:
 - [Triaging GitHub Issues](/contributing/triaging-github-issues)
 - [Managing Pull Requests](/contributing/managing-pull-requests)
 
-We also have a thriving community of contributors who would be happy to help you get set up. You can reach out to us through [@ReactNative](http://twitter.com/reactnative) (the React Native team) and [@ReactNativeComm](http://twitter.com/reactnativecomm) (the React Native Community organization).
+We also have a thriving community of contributors who would be happy to help you get set up. You can reach out to the React Native team through [@ReactNative](http://twitter.com/reactnative).
 
 ### Repositories
 
