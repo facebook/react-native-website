@@ -129,7 +129,7 @@ Container.js # picked up by Webpack, Rollup or any other Web bundler
 Container.native.js # picked up by the React Native bundler for both Android and iOS (Metro)
 ```
 
-You can still require it without the `.native` extension, as follows:
+You can still import it without the `.native` extension, as follows:
 
 ```jsx
 import Container from './Container';
