@@ -667,7 +667,7 @@ If `true`, allows TextInput to pass touch events to the parent component. This a
 
 ---
 
-### `screenreaderErrorAndroid` <div class="label android">Android</div>
+### `screenreaderError`
 
 String to be read by screenreaders to indicate an error state of a TextInput. The default is `null`.
 
