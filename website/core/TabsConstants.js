@@ -44,6 +44,13 @@ const oses = [
 ];
 const defaultOs = isMacOS ? 'macos' : isWindows ? 'windows' : 'linux';
 
+const javaScriptSpecLanguages = [
+  {label: 'Flow', value: 'flow'},
+  {label: 'TypeScript', value: 'typescript'},
+];
+
+const defaultJavaScriptSpecLanguages = "flow";
+
 const getDevNotesTabs = (tabs = ['android', 'ios', 'web', 'windows']) =>
   [
     tabs.includes('android') ? {label: 'Android', value: 'android'} : undefined,
@@ -59,6 +66,7 @@ export default {
   defaultPlatform,
   defaultSyntax,
   defaultAndroidLanguage,
+  defaultJavaScriptSpecLanguages,
   getDevNotesTabs,
   guides,
   oses,
@@ -66,4 +74,5 @@ export default {
   platforms,
   syntax,
   androidLanguages,
+  javaScriptSpecLanguages,
 };
