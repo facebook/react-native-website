@@ -13,7 +13,7 @@ brew install node
 brew install watchman
 ```
 
-If you have already installed Node on your system, make sure it is Node 12 or newer.
+If you have already installed Node on your system, make sure it is Node 14 or newer.
 
 [Watchman](https://facebook.github.io/watchman) is a tool by Facebook for watching changes in the filesystem. It is highly recommended you install it for better performance.
 
@@ -26,7 +26,7 @@ brew tap homebrew/cask-versions
 brew install --cask zulu11
 ```
 
-The Zulu OpenJDK distribution offers JDKs for **both Intel and M1 Macs**. This will make sure your build are faster on M1 Macs compared to using an Intel-based JDK.
+The Zulu OpenJDK distribution offers JDKs for **both Intel and M1 Macs**. This will make sure your builds are faster on M1 Macs compared to using an Intel-based JDK.
 
 If you have already installed JDK on your system, make sure it is JDK 11 or newer.
 
@@ -61,7 +61,7 @@ To do that, open Android Studio, click on "Configure" button and select "SDK Man
 Select the "SDK Platforms" tab from within the SDK Manager, then check the box next to "Show Package Details" in the bottom right corner. Look for and expand the `Android 11 (R)` entry, then make sure the following items are checked:
 
 - `Android SDK Platform 30`
-- `Intel x86 Atom_64 System Image` or `Google APIs Intel x86 Atom System Image`
+- `Intel x86 Atom_64 System Image` or `Google APIs Intel x86 Atom System Image` or (for Apple M1 Silicon) `Google APIs ARM 64 v8a System Image`
 
 Next, select the "SDK Tools" tab and check the box next to "Show Package Details" here as well. Look for and expand the "Android SDK Build-Tools" entry, then make sure that `30.0.2` is selected.
 

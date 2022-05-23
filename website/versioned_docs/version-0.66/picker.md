@@ -3,7 +3,7 @@ id: picker
 title: '🚧 Picker'
 ---
 
-> **Deprecated.** Use one of the [community packages](https://reactnative.directory/?search=picker) instead.
+> **Removed.** Use one of the [community packages](https://reactnative.directory/?search=picker) instead.
 
 Renders the native picker component on Android and iOS.
 

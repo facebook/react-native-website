@@ -15,7 +15,7 @@ brew install node
 brew install watchman
 ```
 
-If you have already installed Node on your system, make sure it is Node 12 or newer.
+If you have already installed Node on your system, make sure it is Node 14 or newer.
 
 [Watchman](https://facebook.github.io/watchman) is a tool by Facebook for watching changes in the filesystem. It is highly recommended you install it for better performance.
 
@@ -37,13 +37,15 @@ To install a simulator, open <strong>Xcode > Preferences...</strong> and select 
 
 #### CocoaPods
 
-[CocoaPods](https://cocoapods.org/) is built with Ruby and it will be installable with the default Ruby available on macOS. You can use a Ruby Version manager, however we recommend that you use the standard Ruby available on macOS unless you know what you're doing.
+[CocoaPods](https://cocoapods.org/) is built with Ruby and it will be installable with the default Ruby available on macOS.
 
-Using the default Ruby install will require you to use `sudo` when installing gems. (This is only an issue for the duration of the gem installation, though.)
+Using the default Ruby available on macOS will require you to use `sudo` when installing gems. (This is only an issue for the duration of the gem installation, though.)
 
 ```shell
 sudo gem install cocoapods
 ```
+
+Otherwise you can use a Ruby version manager, such as `rbenv`. Apps created with the command `npx react-native init` described below are configured to work well with `rbenv` and will pick the correct Ruby version requested by the template.
 
 For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
 
@@ -80,6 +82,15 @@ npx react-native init AwesomeTSProject --template react-native-template-typescri
 ```
 
 > **Note** If the above command is failing, you may have old version of `react-native` or `react-native-cli` installed globally on your pc. Try uninstalling the cli and run the cli using `npx`.
+
+### [Optional] Configuring your environment
+
+Starting from React Native version 0.69, it is possible to configure the Xcode environment using the `.xcode.env` file provided by the template.
+
+The `.xcode.env` file contains an environment variable to export the path to the `node` executable in the `NODE_BINARY` variable.
+This is the **suggested approach** to decouple the build infrastructure from the system version of `node`. You should customize this variable with your own path or your own `node` version manager, if it differs from the default.
+
+On top of this, it's possible to add any other environment variable and to source the `.xcode.env` file in your build script phases. If you need to run script that requires some specific environment, this is the **suggested approach**: it allows to decouple the build phases from a specific environment.
 
 ## Running your React Native application
 

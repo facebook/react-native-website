@@ -3,34 +3,48 @@ id: custom-webview-android
 title: Custom WebView
 ---
 
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+
 While the built-in web view has a lot of features, it is not possible to handle every use-case in React Native. You can, however, extend the web view with native code without forking React Native or duplicating all the existing web view code.
+
+:::info
+The React Native WebView component has been extracted to [`react-native-webview`](https://github.com/react-native-webview/react-native-webview) package as part of the [Lean Core effort](https://github.com/facebook/react-native/issues/23313).
+That is the recommended way to use WebView in React Native as of today. You should not use the [WebView](https://reactnative.dev/docs/0.61/webview) component as that was deprecated and removed from React Native.  
+:::
 
 Before you do this, you should be familiar with the concepts in [native UI components](native-components-android). You should also familiarise yourself with the [native code for web views](https://github.com/react-native-webview/react-native-webview/blob/master/android/src/main/java/com/reactnativecommunity/webview/RNCWebViewManager.java), as you will have to use this as a reference when implementing new features—although a deep understanding is not required.
 
 ## Native Code
 
-To get started, you'll need to create a subclass of `ReactWebViewManager`, `ReactWebView`, and `ReactWebViewClient`. In your view manager, you'll then need to override:
+:::info
+This example assumes you already have [`react-native-webview`](https://github.com/react-native-webview/react-native-webview) installed, if not please follow their [Getting Started guide](https://github.com/react-native-webview/react-native-webview/blob/master/docs/Getting-Started.md) first.
+:::
 
-- `createReactWebViewInstance`
+To get started, you'll need to create a subclass of `RNCWebViewManager`, `RNCWebView`, and `RNCWebViewClient`. In your view manager, you'll then need to override:
+
+- `createRNCWebViewInstance`
 - `getName`
 - `addEventEmitters`
 
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="java">
+
 ```java
 @ReactModule(name = CustomWebViewManager.REACT_CLASS)
-public class CustomWebViewManager extends ReactWebViewManager {
+public class CustomWebViewManager extends RNCWebViewManager {
   /* This name must match what we're referring to in JS */
   protected static final String REACT_CLASS = "RCTCustomWebView";
 
-  protected static class CustomWebViewClient extends ReactWebViewClient { }
+  protected static class CustomWebViewClient extends RNCWebViewClient { }
 
-  protected static class CustomWebView extends ReactWebView {
+  protected static class CustomWebView extends RNCWebView {
     public CustomWebView(ThemedReactContext reactContext) {
       super(reactContext);
     }
   }
 
   @Override
-  protected ReactWebView createReactWebViewInstance(ThemedReactContext reactContext) {
+  protected RNCWebView createRNCWebViewInstance(ThemedReactContext reactContext) {
     return new CustomWebView(reactContext);
   }
 
@@ -46,17 +60,47 @@ public class CustomWebViewManager extends ReactWebViewManager {
 }
 ```
 
+</TabItem>
+<TabItem value="kotlin">
+
+```kotlin
+@ReactModule(name = CustomWebViewManager.REACT_CLASS)
+class CustomWebViewManager : RNCWebViewManager() {
+    protected class CustomWebViewClient : RNCWebViewClient()
+    protected inner class CustomWebView(reactContext: ThemedReactContext?) :
+        RNCWebView(reactContext)
+
+    override fun createRNCWebViewInstance(reactContext: ThemedReactContext?): RNCWebView {
+        return CustomWebView(reactContext)
+    }
+
+    override fun addEventEmitters(reactContext: ThemedReactContext, view: WebView) {
+        view.webViewClient = CustomWebViewClient()
+    }
+
+    companion object {
+        /* This name must match what we're referring to in JS */
+        const val REACT_CLASS = "RCTCustomWebView"
+    }
+}
+```
+
+</TabItem>
+</Tabs>
+
 You'll need to follow the usual steps to [register the module](native-modules-android.md#register-the-module).
 
 ### Adding New Properties
 
 To add a new property, you'll need to add it to `CustomWebView`, and then expose it in `CustomWebViewManager`.
 
-```java
-public class CustomWebViewManager extends ReactWebViewManager {
-  ...
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="java">
 
-  protected static class CustomWebView extends ReactWebView {
+```java
+public class CustomWebViewManager extends RNCWebViewManager {
+  ...
+  protected static class CustomWebView extends RNCWebView {
     public CustomWebView(ThemedReactContext reactContext) {
       super(reactContext);
     }
@@ -81,9 +125,32 @@ public class CustomWebViewManager extends ReactWebViewManager {
 }
 ```
 
+</TabItem>
+<TabItem value="kotlin">
+
+```kotlin
+class CustomWebViewManager : RNCWebViewManager() {
+    protected inner class CustomWebView(
+        reactContext: ThemedReactContext?,
+        var finalUrl: String? = null
+    ) : RNCWebView(reactContext)
+
+    @ReactProp(name = "finalUrl")
+    fun setFinalUrl(view: WebView, url: String?) {
+        (view as CustomWebView).finalUrl = url
+    }
+}
+```
+
+</TabItem>
+</Tabs>
+
 ### Adding New Events
 
 For events, you'll first need to make create event subclass.
+
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="java">
 
 ```java
 // NavigationCompletedEvent.java
@@ -108,9 +175,31 @@ public class NavigationCompletedEvent extends Event<NavigationCompletedEvent> {
 }
 ```
 
+</TabItem>
+<TabItem value="kotlin">
+
+```kotlin
+// NavigationCompletedEvent.kt
+class NavigationCompletedEvent(viewTag: Int, val params: WritableMap) :
+    Event<NavigationCompletedEvent>(viewTag) {
+    override fun getEventName(): String = "navigationCompleted"
+
+    override fun dispatch(rctEventEmitter: RCTEventEmitter) {
+        init(viewTag)
+        rctEventEmitter.receiveEvent(viewTag, eventName, params)
+    }
+}
+```
+
+</TabItem>
+</Tabs>
+
 You can trigger the event in your web view client. You can hook existing handlers if your events are based on them.
 
-You should refer to [ReactWebViewManager.java](https://github.com/react-native-webview/react-native-webview/blob/master/android/src/main/java/com/reactnativecommunity/webview/RNCWebViewManager.java) in the React Native WebView codebase to see what handlers are available and how they are implemented. You can extend any methods here to provide extra functionality.
+You should refer to [RNCWebViewManager.java](https://github.com/react-native-webview/react-native-webview/blob/master/android/src/main/java/com/reactnativecommunity/webview/RNCWebViewManager.java) in the React Native WebView codebase to see what handlers are available and how they are implemented. You can extend any methods here to provide extra functionality.
+
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="java">
 
 ```java
 public class NavigationCompletedEvent extends Event<NavigationCompletedEvent> {
@@ -134,7 +223,7 @@ public class NavigationCompletedEvent extends Event<NavigationCompletedEvent> {
 }
 
 // CustomWebViewManager.java
-protected static class CustomWebViewClient extends ReactWebViewClient {
+protected static class CustomWebViewClient extends RNCWebViewClient {
   @Override
   public boolean shouldOverrideUrlLoading(WebView view, String url) {
     boolean shouldOverride = super.shouldOverrideUrlLoading(view, url);
@@ -150,10 +239,46 @@ protected static class CustomWebViewClient extends ReactWebViewClient {
 }
 ```
 
+</TabItem>
+<TabItem value="kotlin">
+
+```kotlin
+class NavigationCompletedEvent(viewTag: Int, val params: WritableMap) :
+    Event<NavigationCompletedEvent>(viewTag) {
+
+    override fun getEventName(): String = "navigationCompleted"
+
+    override fun dispatch(rctEventEmitter: RCTEventEmitter) {
+        init(viewTag)
+        rctEventEmitter.receiveEvent(viewTag, eventName, params)
+    }
+}
+
+// CustomWebViewManager.kt
+
+protected class CustomWebViewClient : RNCWebViewClient() {
+    override fun shouldOverrideUrlLoading(view: WebView, url: String?): Boolean {
+        val shouldOverride: Boolean = super.shouldOverrideUrlLoading(view, url)
+        val finalUrl: String? = (view as CustomWebView).finalUrl
+        if (!shouldOverride && url != null && finalUrl != null && url == finalUrl) {
+            val params: WritableMap = Arguments.createMap()
+            dispatchEvent(view, NavigationCompletedEvent(view.getId(), params))
+        }
+        return shouldOverride
+    }
+}
+```
+
+</TabItem>
+</Tabs>
+
 Finally, you'll need to expose the events in `CustomWebViewManager` through `getExportedCustomDirectEventTypeConstants`. Note that currently, the default implementation returns `null`, but this may change in the future.
 
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="java">
+
 ```java
-public class CustomWebViewManager extends ReactWebViewManager {
+public class CustomWebViewManager extends RNCWebViewManager {
   ...
 
   @Override
@@ -168,6 +293,23 @@ public class CustomWebViewManager extends ReactWebViewManager {
   }
 }
 ```
+
+</TabItem>
+<TabItem value="kotlin">
+
+```kotlin
+class CustomWebViewManager : RNCWebViewManager() {
+    override fun getExportedCustomDirectEventTypeConstants(): MutableMap<Any?, Any?>? {
+        val superTypeConstants = super.getExportedCustomDirectEventTypeConstants()
+        val export = superTypeConstants ?: MapBuilder.newHashMap<Any, Any?>()
+        export["navigationCompleted"] = MapBuilder.of("registrationName", "onNavigationCompleted")
+        return export
+    }
+}
+```
+
+</TabItem>
+</Tabs>
 
 ## JavaScript Interface
 

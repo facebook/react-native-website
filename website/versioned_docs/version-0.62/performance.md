@@ -51,6 +51,8 @@ When running a bundled app, these statements can cause a big bottleneck in the J
 
 This will automatically remove all `console.*` calls in the release (production) versions of your project.
 
+It is recommended to use the plugin even if no `console.*` calls are made in your project. A third party library could also call them.
+
 ### `ListView` initial rendering is too slow or scroll performance is bad for large lists
 
 Use the new [`FlatList`](flatlist.md) or [`SectionList`](sectionlist.md) component instead. Besides simplifying the API, the new list components also have significant performance enhancements, the main one being nearly constant memory usage for any number of rows.

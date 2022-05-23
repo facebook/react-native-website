@@ -5,6 +5,7 @@ const lastVersion = versions[0];
 const copyright = `Copyright © ${new Date().getFullYear()} Meta Platforms, Inc.`;
 
 const commonDocsOptions = {
+  breadcrumbs: false,
   showLastUpdateAuthor: false,
   showLastUpdateTime: true,
   editUrl:
@@ -359,7 +360,8 @@ module.exports = {
         copyright,
       },
       algolia: {
-        apiKey: '2c98749b4a1e588efec53b2acec13025',
+        appId: '8TDSE0OHGQ',
+        apiKey: '83cd239c72f9f8b0ed270a04b1185288',
         indexName: 'react-native-v2',
         contextualSearch: true,
       },

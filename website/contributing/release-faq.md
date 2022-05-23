@@ -7,8 +7,8 @@ title: Release FAQ
 
 Judgement call, but using these dimensions to evaluate:
 
-- Is a fix for an issue introduced in current release.
-- Fix for a critical developer workflow.
+- Is it a fix for a regression introduced by the current release (for example, did it work in `v0.67.0` but it's broken in `v0.68.0`)?
+- Is it a fix for a critical developer workflow?
 
 ### What is release blocking?
 

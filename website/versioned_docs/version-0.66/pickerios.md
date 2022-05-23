@@ -3,7 +3,7 @@ id: pickerios
 title: '🚧 PickerIOS'
 ---
 
-> **Deprecated.** Use one of the [community packages](https://reactnative.directory/?search=picker) instead.
+> **Removed.** Use one of the [community packages](https://reactnative.directory/?search=picker) instead.
 
 ---
 

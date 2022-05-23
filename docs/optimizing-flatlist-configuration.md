@@ -136,7 +136,7 @@ render(){
 
   <FlatList
     data={items}
-    renderItem={renderItem}
+    renderItem={this.renderItem}
   />
 
   // ...
