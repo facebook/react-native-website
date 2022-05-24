@@ -97,7 +97,7 @@ class MainActivity : ReactActivity() {
 
 ### Opt-ing out of React 18 on iOS
 
-On iOS, you'll have access to the `concurrentRootEnabled` method on your `AppDelegate.mm` file.
+On iOS, you'll have access to the `concurrentRootEnabled` method on your `AppDelegate.mm` file. You should change the returned value to `false` (or `NO`) to disable the feature.
 
 ```objc
 /// This method controls whether the `concurrentRoot`feature of React18 is turned on or off.
