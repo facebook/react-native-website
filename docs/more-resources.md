@@ -13,6 +13,7 @@ There’s always more to learn: developer workflows, shipping to app stores, int
 - [Debug your app](debugging)
 - [Make your app cross platform](platform-specific-code)
 - [Get involved in the React Native community](/help)
+- [List of React Native courses](https://skillcombo.com/topic/react-native/)
 
 ## Dive deep
 
