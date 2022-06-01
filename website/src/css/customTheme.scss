@@ -256,7 +256,7 @@ hr {
       border-bottom: 2px solid var(--ifm-table-border-color);
     }
 
-    div[class^="codeBlockContainer"] {
+    div[class*="codeBlockContainer"] {
       &,
       & pre {
         margin-bottom: 0;
@@ -292,21 +292,22 @@ hr {
     background-color: var(--light);
   }
 
-  div[class^="codeBlockContainer"] {
+  div[class*="codeBlockContainer"] {
     box-shadow: none;
     margin-bottom: 1rem;
   }
 
-  div[class^="codeBlockContent"] {
+  div[class*="codeBlockContent"] {
     display: inline-grid;
     min-width: 100%;
+    background-color: var(--dark);
   }
 
-  div[class^="codeBlockLines"] {
+  div[class*="codeBlockLines"] {
     font-size: 80%;
   }
 
-  div[class^="codeBlockTitle"] {
+  div[class*="codeBlockTitle"] {
     color: var(--subtle) !important;
     background-color: var(--ifm-table-border-color) !important;
   }
@@ -360,11 +361,6 @@ html[data-theme="dark"] {
       background-color: var(--ifm-menu-color-background-active);
     }
 
-    div[class^="codeBlockTitle"],
-    div[class^="codeBlockLines"] {
-      background-color: var(--deepdark) !important;
-    }
-
     .prism-code {
       @extend %scrollbar-style-dark;
     }
@@ -411,7 +407,7 @@ html[data-theme="dark"] article .badge {
 /* Home page */
 
 .homepage {
-  div[class^="codeBlockContainer"] {
+  div[class*="codeBlockContainer"] {
     margin-bottom: 0;
     overflow: visible;
 
@@ -1675,11 +1671,11 @@ html[data-theme="dark"] .docsRating {
   grid-template-rows: 1fr;
   grid-template-areas: ". .";
 
-  div[class^="codeBlockContainer"] {
+  div[class*="codeBlockContainer"] {
     overflow: auto;
   }
 
-  div[class^="codeBlockLines"] {
+  div[class*="codeBlockLines"] {
     white-space: pre-wrap;
   }
 }
