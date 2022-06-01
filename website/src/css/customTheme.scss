@@ -256,7 +256,7 @@ hr {
       border-bottom: 2px solid var(--ifm-table-border-color);
     }
 
-    div[class^="codeBlockContainer"] {
+    div[class*="codeBlockContainer"] {
       &,
       & pre {
         margin-bottom: 0;
@@ -292,21 +292,22 @@ hr {
     background-color: var(--light);
   }
 
-  div[class^="codeBlockContainer"] {
+  div[class*="codeBlockContainer"] {
     box-shadow: none;
     margin-bottom: 1rem;
   }
 
-  div[class^="codeBlockContent"] {
+  div[class*="codeBlockContent"] {
     display: inline-grid;
     min-width: 100%;
+    background-color: var(--dark);
   }
 
-  div[class^="codeBlockLines"] {
+  div[class*="codeBlockLines"] {
     font-size: 80%;
   }
 
-  div[class^="codeBlockTitle"] {
+  div[class*="codeBlockTitle"] {
     color: var(--subtle) !important;
     background-color: var(--ifm-table-border-color) !important;
   }
@@ -360,11 +361,6 @@ html[data-theme="dark"] {
       background-color: var(--ifm-menu-color-background-active);
     }
 
-    div[class^="codeBlockTitle"],
-    div[class^="codeBlockLines"] {
-      background-color: var(--deepdark) !important;
-    }
-
     .prism-code {
       @extend %scrollbar-style-dark;
     }
@@ -411,7 +407,7 @@ html[data-theme="dark"] article .badge {
 /* Home page */
 
 .homepage {
-  div[class^="codeBlockContainer"] {
+  div[class*="codeBlockContainer"] {
     margin-bottom: 0;
     overflow: visible;
 
@@ -690,7 +686,7 @@ So we need to "revert" some CSS vars to not enforce dark mode
 
     .menu__list-item a {
       color: var(--ifm-color-emphasis-700);
-      padding: 5px 12px;
+      padding: 4px 12px;
     }
 
     .menu__list-item-collapsible a[class*="menuLinkText"] {
@@ -763,7 +759,6 @@ aside[class^="theme-doc-sidebar-container"] {
   a[class*="menu__link--sublist-caret"] {
     font-size: 16px !important;
     font-weight: 700 !important;
-    padding: 5px 12px !important;
     color: var(--ifm-color-content-secondary) !important;
 
     &:after {
@@ -794,6 +789,14 @@ aside[class^="theme-doc-sidebar-container"] {
 
   .theme-doc-sidebar-item-category .menu__list .menu__list-item-collapsible {
     margin-top: 6px;
+  }
+
+  .menu__list-item-collapsible:hover {
+    background: none !important;
+
+    .menu__link--sublist-caret:hover {
+      background: var(--ifm-menu-color-background-hover) !important;
+    }
   }
 
   @media only screen and (max-width: 1120px) {
@@ -844,7 +847,7 @@ aside[class^="theme-doc-sidebar-container"] {
   .menu__link--sublist {
     font-size: 15px;
     font-weight: 600;
-    padding: 5px 12px !important;
+    padding: 4px 12px !important;
     color: var(--light);
 
     &:after {
@@ -857,7 +860,7 @@ aside[class^="theme-doc-sidebar-container"] {
     .menu__link {
       line-height: 20px;
       font-size: 13px;
-      padding: 5px 12px !important;
+      padding: 4px 12px !important;
       font-weight: 300;
       color: var(--ifm-font-color-base);
     }
@@ -866,21 +869,25 @@ aside[class^="theme-doc-sidebar-container"] {
       font-size: 14px !important;
     }
 
-    .menu__list .menu__link {
-      padding: 5px 12px 5px 16px !important;
-    }
-
     .menu__list .menu__link--active {
       padding-left: 12px !important;
     }
   }
 
   .menu__link.menu__link--active {
+    border-left-color: var(--ifm-menu-color-active) !important;
+    border-left-width: 0;
+  }
+
+  a[href].menu__link.menu__link--active {
+    background: var(--ifm-code-background);
+    padding-left: 8px !important;
     border-left-width: 4px;
     border-left-style: solid;
-    border-left-color: var(--ifm-menu-color-active) !important;
-    padding-left: 8px !important;
-    background: var(--ifm-code-background);
+  }
+
+  a[href="#"].menu__link.menu__link--active {
+    border-left-width: 0;
   }
 
   .menu__list-item-collapsible {
@@ -892,6 +899,11 @@ aside[class^="theme-doc-sidebar-container"] {
       font-weight: 600;
       font-size: 15px;
       color: var(--subtle);
+      padding-left: 8px !important;
+
+      .menu__link {
+        padding-left: 12px !important;
+      }
     }
   }
 
@@ -1675,11 +1687,11 @@ html[data-theme="dark"] .docsRating {
   grid-template-rows: 1fr;
   grid-template-areas: ". .";
 
-  div[class^="codeBlockContainer"] {
+  div[class*="codeBlockContainer"] {
     overflow: auto;
   }
 
-  div[class^="codeBlockLines"] {
+  div[class*="codeBlockLines"] {
     white-space: pre-wrap;
   }
 }
