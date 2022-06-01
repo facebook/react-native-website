@@ -791,6 +791,14 @@ aside[class^="theme-doc-sidebar-container"] {
     margin-top: 6px;
   }
 
+  .menu__list-item-collapsible:hover {
+    background: none !important;
+
+    .menu__link--sublist-caret:hover {
+      background: var(--ifm-menu-color-background-hover) !important;
+    }
+  }
+
   @media only screen and (max-width: 1120px) {
     --doc-sidebar-width: 240px;
   }
@@ -874,8 +882,11 @@ aside[class^="theme-doc-sidebar-container"] {
     border-left-width: 4px;
     border-left-style: solid;
     border-left-color: var(--ifm-menu-color-active) !important;
-    padding-left: 8px !important;
     background: var(--ifm-code-background);
+  }
+
+  a[href].menu__link.menu__link--active {
+    padding-left: 8px !important;
   }
 
   .menu__list-item-collapsible {
