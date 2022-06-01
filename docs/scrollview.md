@@ -114,7 +114,7 @@ Controls whether iOS should automatically adjust the content inset for scroll vi
 
 ### `automaticallyAdjustKeyboardInsets` <div class="label ios">iOS</div>
 
-Controls whether the ScrollView should automatically adjust its contentInset and scrollViewInsets when the Keyboard changes its size.
+Controls whether the ScrollView should automatically adjust its `contentInset` and `scrollViewInsets` when the Keyboard changes its size.
 
 | Type | Default |
 | ---- | ------- |
