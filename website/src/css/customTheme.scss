@@ -686,7 +686,7 @@ So we need to "revert" some CSS vars to not enforce dark mode
 
     .menu__list-item a {
       color: var(--ifm-color-emphasis-700);
-      padding: 5px 12px;
+      padding: 4px 12px;
     }
 
     .menu__list-item-collapsible a[class*="menuLinkText"] {
@@ -847,7 +847,7 @@ aside[class^="theme-doc-sidebar-container"] {
   .menu__link--sublist {
     font-size: 15px;
     font-weight: 600;
-    padding: 5px 12px !important;
+    padding: 4px 12px !important;
     color: var(--light);
 
     &:after {
@@ -860,7 +860,7 @@ aside[class^="theme-doc-sidebar-container"] {
     .menu__link {
       line-height: 20px;
       font-size: 13px;
-      padding: 5px 12px !important;
+      padding: 4px 12px !important;
       font-weight: 300;
       color: var(--ifm-font-color-base);
     }
@@ -869,24 +869,25 @@ aside[class^="theme-doc-sidebar-container"] {
       font-size: 14px !important;
     }
 
-    .menu__list .menu__link {
-      padding: 5px 12px 5px 16px !important;
-    }
-
     .menu__list .menu__link--active {
       padding-left: 12px !important;
     }
   }
 
   .menu__link.menu__link--active {
-    border-left-width: 4px;
-    border-left-style: solid;
     border-left-color: var(--ifm-menu-color-active) !important;
-    background: var(--ifm-code-background);
+    border-left-width: 0;
   }
 
   a[href].menu__link.menu__link--active {
+    background: var(--ifm-code-background);
     padding-left: 8px !important;
+    border-left-width: 4px;
+    border-left-style: solid;
+  }
+
+  a[href="#"].menu__link.menu__link--active {
+    border-left-width: 0;
   }
 
   .menu__list-item-collapsible {
@@ -898,6 +899,11 @@ aside[class^="theme-doc-sidebar-container"] {
       font-weight: 600;
       font-size: 15px;
       color: var(--subtle);
+      padding-left: 8px !important;
+
+      .menu__link {
+        padding-left: 12px !important;
+      }
     }
   }
 
