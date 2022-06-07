@@ -86,8 +86,8 @@ dependencyResolutionManagement {
     }
 }
 ```
-> If your project has the dependency repositories configured in the top-level `build.gradle`, be sure to add the entries to the “allprojects” block above other maven repositories:
 
+> If your project has the dependency repositories configured in the top-level `build.gradle`, be sure to add the entries to the “allprojects” block above other maven repositories:
 
 ```gradle
 allprojects {
@@ -209,15 +209,17 @@ AppRegistry.registerComponent(
 
 If your app is targeting the Android `API level 23` or greater, make sure you have the permission `android.permission.SYSTEM_ALERT_WINDOW` enabled for the development build. You can check this with `Settings.canDrawOverlays(this);`. This is required in dev builds because React Native development errors must be displayed above all the other windows. Due to the new permissions system introduced in the API level 23 (Android M), the user needs to approve it. This can be achieved by adding the following code to your Activity's in `onCreate()` method.
 
-```java
-private final int OVERLAY_PERMISSION_REQ_CODE = 1;  // Choose any value
+```kotlin
+companion object {
+    const val OVERLAY_PERMISSION_REQ_CODE = 1  // Choose any value
+}
 
 ...
 
 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-    if (!Settings.canDrawOverlays(this)) {
-        Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
-                                   Uri.parse("package:" + getPackageName()));
+    if(!Settings.canDrawOverlays(this)) {
+        val intent: Intent = Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
+                                    Uri.parse("package: $packageName"))
         startActivityForResult(intent, OVERLAY_PERMISSION_REQ_CODE);
     }
 }
@@ -225,9 +227,8 @@ if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
 
 Finally, the `onActivityResult()` method (as shown in the code below) has to be overridden to handle the permission Accepted or Denied cases for consistent UX. Also, for integrating Native Modules which use `startActivityForResult`, we need to pass the result to the `onActivityResult` method of our `ReactInstanceManager` instance.
 
-```java
-@Override
-protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+```kotlin
+override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
     if (requestCode == OVERLAY_PERMISSION_REQ_CODE) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (!Settings.canDrawOverlays(this)) {
@@ -235,7 +236,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
             }
         }
     }
-    mReactInstanceManager.onActivityResult( this, requestCode, resultCode, data );
+    mReactInstanceManager?.onActivityResult(this, requestCode, resultCode, data)
 }
 ```
 
@@ -245,41 +246,35 @@ Let's add some native code in order to start the React Native runtime and tell i
 
 > If you are targeting Android version <5, use the `AppCompatActivity` class from the `com.android.support:appcompat` package instead of `Activity`.
 
-```java
-public class MyReactActivity extends Activity implements DefaultHardwareBackBtnHandler {
-    private ReactRootView mReactRootView;
-    private ReactInstanceManager mReactInstanceManager;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        SoLoader.init(this, false);
-
-        mReactRootView = new ReactRootView(this);
-        List<ReactPackage> packages = new PackageList(getApplication()).getPackages();
+```kotlin
+class MyReactActivity : Activity(), DefaultHardwareBackBtnHandler {
+    private var mReactRootView: ReactRootView? = null
+    private var mReactInstanceManager: ReactInstanceManager? = null
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        SoLoader.init(this, false)
+        mReactRootView = ReactRootView(this)
+        val packages: List<ReactPackage> = PackageList(application).packages
         // Packages that cannot be autolinked yet can be added manually here, for example:
         // packages.add(new MyReactNativePackage());
         // Remember to include them in `settings.gradle` and `app/build.gradle` too.
-
         mReactInstanceManager = ReactInstanceManager.builder()
-                .setApplication(getApplication())
-                .setCurrentActivity(this)
-                .setBundleAssetName("index.android.bundle")
-                .setJSMainModulePath("index")
-                .addPackages(packages)
-                .setUseDeveloperSupport(BuildConfig.DEBUG)
-                .setInitialLifecycleState(LifecycleState.RESUMED)
-                .build();
+            .setApplication(application)
+            .setCurrentActivity(this)
+            .setBundleAssetName("index.android.bundle")
+            .setJSMainModulePath("index")
+            .addPackages(packages)
+            .setUseDeveloperSupport(BuildConfig.DEBUG)
+            .setInitialLifecycleState(LifecycleState.RESUMED)
+            .build()
         // The string here (e.g. "MyReactNativeApp") has to match
         // the string in AppRegistry.registerComponent() in index.js
-        mReactRootView.startReactApplication(mReactInstanceManager, "MyReactNativeApp", null);
-
-        setContentView(mReactRootView);
+        mReactRootView?.startReactApplication(mReactInstanceManager, "MyReactNativeApp", null)
+        setContentView(mReactRootView)
     }
 
-    @Override
-    public void invokeDefaultOnBackPressed() {
-        super.onBackPressed();
+    override fun invokeDefaultOnBackPressed() {
+        super.onBackPressed()
     }
 }
 ```
@@ -304,47 +299,32 @@ We need set the theme of `MyReactActivity` to `Theme.AppCompat.Light.NoActionBar
 
 Next, we need to pass some activity lifecycle callbacks to the `ReactInstanceManager` and `ReactRootView`:
 
-```java
-@Override
-protected void onPause() {
-    super.onPause();
-
-    if (mReactInstanceManager != null) {
-        mReactInstanceManager.onHostPause(this);
-    }
+```kotlin
+override fun onPause() {
+    super.onPause()
+    mReactInstanceManager?.onHostPause(this)
 }
 
-@Override
-protected void onResume() {
-    super.onResume();
-
-    if (mReactInstanceManager != null) {
-        mReactInstanceManager.onHostResume(this, this);
-    }
+override fun onResume() {
+    super.onResume()
+    mReactInstanceManager?.onHostResume(this, this)
 }
 
-@Override
-protected void onDestroy() {
-    super.onDestroy();
-
-    if (mReactInstanceManager != null) {
-        mReactInstanceManager.onHostDestroy(this);
-    }
-    if (mReactRootView != null) {
-        mReactRootView.unmountReactApplication();
-    }
+override fun onDestroy() {
+    super.onDestroy()
+    mReactInstanceManager?.onHostDestroy(this)
+    mReactRootView?.unmountReactApplication()
 }
 ```
 
 We also need to pass back button events to React Native:
 
-```java
-@Override
- public void onBackPressed() {
+```kotlin
+override fun onBackPressed() {
     if (mReactInstanceManager != null) {
-        mReactInstanceManager.onBackPressed();
+        mReactInstanceManager!!.onBackPressed()
     } else {
-        super.onBackPressed();
+        super.onBackPressed()
     }
 }
 ```
@@ -353,14 +333,13 @@ This allows JavaScript to control what happens when the user presses the hardwar
 
 Finally, we need to hook up the dev menu. By default, this is activated by (rage) shaking the device, but this is not very useful in emulators. So we make it show when you press the hardware menu button (use `Ctrl + M` if you're using Android Studio emulator):
 
-```java
-@Override
-public boolean onKeyUp(int keyCode, KeyEvent event) {
+```kotlin
+override fun onKeyUp(keyCode: Int, event: KeyEvent?): Boolean {
     if (keyCode == KeyEvent.KEYCODE_MENU && mReactInstanceManager != null) {
-        mReactInstanceManager.showDevOptionsDialog();
-        return true;
+        mReactInstanceManager!!.showDevOptionsDialog()
+        return true
     }
-    return super.onKeyUp(keyCode, event);
+    return super.onKeyUp(keyCode, event)
 }
 ```
 
