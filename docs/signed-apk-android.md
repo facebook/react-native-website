@@ -11,7 +11,7 @@ You can generate a private signing key using `keytool`.
 
 ### Windows
 
-On Windows `keytool` must be run from `C:\Program Files\Java\jdkx.x.x_x\bin`.
+On Windows `keytool` must be run from `C:\Program Files\Java\jdkx.x.x_x\bin`, as administrator.
 
     keytool -genkeypair -v -storetype PKCS12 -keystore my-upload-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000
 
