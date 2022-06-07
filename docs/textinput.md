@@ -439,7 +439,11 @@ Limits the maximum number of characters that can be entered. Use this instead of
 
 If `true`, the text input can be multiple lines. The default value is `false`. 
 
-> It is important to note that this aligns the text to the top on iOS, and centers it on Android. Use with `textAlignVertical` set to `top` for the same behavior in both platforms.
+:::note
+
+It is important to note that this aligns the text to the top on iOS, and centers it on Android. Use with `textAlignVertical` set to `top` for the same behavior in both platforms.
+
+:::
 
 | Type |
 | ---- |
