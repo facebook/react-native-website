@@ -667,13 +667,27 @@ If `true`, allows TextInput to pass touch events to the parent component. This a
 
 ---
 
-### `screenreaderError`
+### `accessibilityErrorMessage`
 
-String to be read by screenreaders to indicate an error state of a TextInput. The default is `null`.
+String to be read by screenreaders to indicate an error state of a TextInput.
+Setting accessibilityInvalid to true activates the error message. 
 
 | Type   |
 | ------ |
 | string |
+
+---
+
+### `accessibilityInvalid`
+
+Setting accessibilityInvalid to true activates the error message. 
+Setting accessibilityInvalid to false removes the error message.
+The default value is `false`.
+
+
+| Type |
+| ---- |
+| bool |
 
 ---
 
