@@ -168,7 +168,7 @@ val retryPolicy: HeadlessJsTaskRetryPolicy =
         1000 // Delay between each retry attempt
     )
 
-return HeadlessJsTaskConfig('SomeTaskName', Arguments.fromBundle(extras), 5000, false, retryPolicy)
+return HeadlessJsTaskConfig("SomeTaskName", Arguments.fromBundle(extras), 5000, false, retryPolicy)
 ```
 
 </TabItem>
