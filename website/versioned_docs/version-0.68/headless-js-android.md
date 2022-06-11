@@ -84,7 +84,7 @@ class MyTaskService : HeadlessJsTaskService() {
                 "SomeTaskName",
                 Arguments.fromBundle(extras),
                 5000, // timeout for the task
-                false // optional: defines whether or not  the task is allowed in foreground.
+                false // optional: defines whether or not the task is allowed in foreground.
                 // Default is false
                 )
         }
