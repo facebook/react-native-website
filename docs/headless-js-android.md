@@ -71,24 +71,21 @@ public class MyTaskService extends HeadlessJsTaskService {
 package com.your_application_name;
 
 import android.content.Intent
-import android.os.Bundle
 import com.facebook.react.HeadlessJsTaskService
 import com.facebook.react.bridge.Arguments
 import com.facebook.react.jstasks.HeadlessJsTaskConfig
 
 class MyTaskService : HeadlessJsTaskService() {
     override fun getTaskConfig(intent: Intent): HeadlessJsTaskConfig? {
-        val extras: Bundle? = intent.extras
-        if (extras != null) {
-            return HeadlessJsTaskConfig(
-                "SomeTaskName",
-                Arguments.fromBundle(extras),
+        return intent.extras?.let {
+            HeadlessJsTaskConfig(
+                "SomeT  askName",
+                Arguments.fromBundle(it),
                 5000, // timeout for the task
                 false // optional: defines whether or not  the task is allowed in foreground.
                 // Default is false
                 )
         }
-        return null
     }
 }
 
