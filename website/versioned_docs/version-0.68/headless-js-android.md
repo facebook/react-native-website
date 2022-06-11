@@ -29,7 +29,7 @@ module.exports = async (taskData) => {
 
 You can do anything in your task such as network requests, timers and so on, as long as it doesn't touch UI. Once your task completes (i.e. the promise is resolved), React Native will go into "paused" mode (unless there are other tasks running, or there is a foreground app).
 
-## The Native API
+## The Platform API
 
 Yes, this does still require some native code, but it's pretty thin. You need to extend `HeadlessJsTaskService` and override `getTaskConfig`, e.g.:
 
@@ -71,24 +71,21 @@ public class MyTaskService extends HeadlessJsTaskService {
 package com.your_application_name;
 
 import android.content.Intent
-import android.os.Bundle
 import com.facebook.react.HeadlessJsTaskService
 import com.facebook.react.bridge.Arguments
 import com.facebook.react.jstasks.HeadlessJsTaskConfig
 
 class MyTaskService : HeadlessJsTaskService() {
     override fun getTaskConfig(intent: Intent): HeadlessJsTaskConfig? {
-        val extras: Bundle? = intent.extras
-        if (extras != null) {
-            return HeadlessJsTaskConfig(
-                "SomeTaskName",
-                Arguments.fromBundle(extras),
+        return intent.extras?.let {
+            HeadlessJsTaskConfig(
+                "SomeT  askName",
+                Arguments.fromBundle(it),
                 5000, // timeout for the task
-                false // optional: defines whether or not the task is allowed in foreground.
+                false // optional: defines whether or not  the task is allowed in foreground.
                 // Default is false
                 )
         }
-        return null
     }
 }
 
@@ -124,7 +121,7 @@ getApplicationContext().startService(service);
 <TabItem value="kotlin">
 
 ```kotlin
-val service = Intent(getApplicationContext(), MyTaskService::class.java)
+val service = Intent(applicationContext, MyTaskService::class.java)
 val bundle = Bundle()
 
 bundle.putString("foo", "bar")
@@ -171,7 +168,7 @@ val retryPolicy: HeadlessJsTaskRetryPolicy =
         1000 // Delay between each retry attempt
     )
 
-return HeadlessJsTaskConfig('SomeTaskName', Arguments.fromBundle(extras), 5000, false, retryPolicy)
+return HeadlessJsTaskConfig("SomeTaskName", Arguments.fromBundle(extras), 5000, false, retryPolicy)
 ```
 
 </TabItem>
@@ -279,7 +276,7 @@ public class NetworkChangeReceiver extends BroadcastReceiver {
         ConnectivityManager cm = (ConnectivityManager)
                 context.getSystemService(Context.CONNECTIVITY_SERVICE);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             Network networkCapabilities = cm.getActiveNetwork();
 
             if(networkCapabilities == null) {
@@ -299,7 +296,7 @@ public class NetworkChangeReceiver extends BroadcastReceiver {
             return false;
         }
 
-        // deprecated in API level 29
+        // deprecated in API level 28
         NetworkInfo netInfo = cm.getActiveNetworkInfo();
         return (netInfo != null && netInfo.isConnected());
     }
