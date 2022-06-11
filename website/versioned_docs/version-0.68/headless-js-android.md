@@ -296,7 +296,7 @@ public class NetworkChangeReceiver extends BroadcastReceiver {
             return false;
         }
 
-        // deprecated in API level 28
+        // deprecated in API level 29
         NetworkInfo netInfo = cm.getActiveNetworkInfo();
         return (netInfo != null && netInfo.isConnected());
     }
@@ -372,7 +372,7 @@ class NetworkChangeReceiver : BroadcastReceiver() {
                 return result
             } else {
                 cm.run {
-                    // deprecated in API level 28
+                    // deprecated in API level 29
                     cm.activeNetworkInfo?.run {
                         result =
                             when (type) {
