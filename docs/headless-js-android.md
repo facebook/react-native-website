@@ -121,7 +121,7 @@ getApplicationContext().startService(service);
 <TabItem value="kotlin">
 
 ```kotlin
-val service = Intent(getApplicationContext(), MyTaskService::class.java)
+val service = Intent(applicationContext, MyTaskService::class.java)
 val bundle = Bundle()
 
 bundle.putString("foo", "bar")
