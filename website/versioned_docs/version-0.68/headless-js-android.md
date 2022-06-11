@@ -279,7 +279,7 @@ public class NetworkChangeReceiver extends BroadcastReceiver {
         ConnectivityManager cm = (ConnectivityManager)
                 context.getSystemService(Context.CONNECTIVITY_SERVICE);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             Network networkCapabilities = cm.getActiveNetwork();
 
             if(networkCapabilities == null) {
@@ -299,7 +299,7 @@ public class NetworkChangeReceiver extends BroadcastReceiver {
             return false;
         }
 
-        // deprecated in API level 28
+        // deprecated in API level 29
         NetworkInfo netInfo = cm.getActiveNetworkInfo();
         return (netInfo != null && netInfo.isConnected());
     }
