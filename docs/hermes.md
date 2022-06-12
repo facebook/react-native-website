@@ -120,6 +120,16 @@ $ npx react-native run-ios --configuration Release
 
 This will compile JavaScript to bytecode during build time which will improve your app's startup speed on device.
 
+## Bundled Hermes
+
+Starting with React Native 0.69.0, every version of React Native will be come with a **bundled version** of Hermes.
+We will be building a version of Hermes for you whenever we release a new version of React Native. This will make sure you're consuming a version of Hermes which is fully compatible with the version of React Native you're using.
+
+Historically, we had problems with matching versions of Hermes with versions of React Native. This fully eliminates this problem, and offers users a JS engine that is compatible with the specific React Native version.
+
+This change is fully transparent to users of React Native. You can still enable/disable Hermes using the command described in this page.
+You can [read more about the technical implementation on this page](/architecture/bundled-hermes).
+
 ## Debugging JS on Hermes using Google Chrome's DevTools
 
 Hermes supports the Chrome debugger by implementing the Chrome inspector protocol. This means Chrome's tools can be used to directly debug JavaScript running on Hermes, on an emulator or on a real, physical, device.
