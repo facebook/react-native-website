@@ -28,7 +28,7 @@ Before continuing further, follow the [testing](/contributing/release-testing) g
 ### 3. Run `bump-oss-version` script
 
 ```bash
-# run a script to bump the version (must be triggered by a Meta employee)
+# run a script to bump the version
 # You most likely **don't** want this release marked as "latest"
 ./scripts/bump-oss-version.js --version x.y.z-rc.x --token circle-ci-token
 ```
