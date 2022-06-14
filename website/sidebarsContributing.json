@@ -6,7 +6,7 @@
       "collapsed": false,
       "collapsible": true,
       "items": [
-        "contributing-intro",
+        "overview",
         "how-to-contribute-code",
         "how-to-build-from-source",
         "how-to-run-and-write-tests",

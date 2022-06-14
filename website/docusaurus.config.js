@@ -240,7 +240,7 @@ module.exports = {
           },
           {
             type: 'doc',
-            docId: 'contributing-intro',
+            docId: 'overview',
             label: 'Contributing',
             position: 'right',
             docsPluginId: 'contributing',

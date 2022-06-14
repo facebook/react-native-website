@@ -1,14 +1,15 @@
 ---
-title: Contributing Intro
+id: overview
+title: Contributing Overview
 description: How to contribute to React Native
 ---
 
 <!-- alex disable simple simply -->
 
-Thank you for your interest in contributing to React Native! From commenting on and triaging issues, to reviewing and sending Pull Requests, all contributions are welcome. 
+Thank you for your interest in contributing to React Native! From commenting on and triaging issues, to reviewing and sending Pull Requests, all contributions are welcome.
 We aim to build a vibrant and inclusive [ecosystem of partners, core contributors, and community](https://github.com/facebook/react-native/blob/main/ECOSYSTEM.md) that goes beyond the main React Native GitHub repository.
 
-The [Open Source Guides](https://opensource.guide/) website has a collection of resources for individuals, communities, and companies who want to learn how to run and contribute to an open source project. 
+The [Open Source Guides](https://opensource.guide/) website has a collection of resources for individuals, communities, and companies who want to learn how to run and contribute to an open source project.
 
 Contributors and people new to open source alike will find the following guides especially useful:
 
@@ -21,22 +22,22 @@ As a reminder, all contributors are expected to adhere to the [Code of Conduct](
 
 ## Ways to Contribute
 
-If you are eager to start contributing code right away, we have a list of [good first issues](https://github.com/facebook/react-native/labels/good%20first%20issue) that contain bugs which have a relatively limited scope. 
+If you are eager to start contributing code right away, we have a list of [good first issues](https://github.com/facebook/react-native/labels/good%20first%20issue) that contain bugs which have a relatively limited scope.
 As you gain more experience and demonstrate a commitment to evolving React Native, you may be granted issue management permissions in the repository.
 
 There are other ways you can contribute without writing a single line of code. Here are a few things you can do to help out:
 
-1. **Replying and handling open issues.** 
+1. **Replying and handling open issues.**
 
-   We get a lot of issues every day, and some of them may lack necessary information. You can help out by guiding people through the process of filling out the issue template, asking for clarifying information, or pointing them to existing issues that match their description of the problem. 
+   We get a lot of issues every day, and some of them may lack necessary information. You can help out by guiding people through the process of filling out the issue template, asking for clarifying information, or pointing them to existing issues that match their description of the problem.
    We cover more about this process on the [Triaging GitHub Issues](/contributing/triaging-github-issues) page.
 
-2. **Reviewing pull requests for the docs.** 
+2. **Reviewing pull requests for the docs.**
 
-   Reviewing [documentation updates](https://github.com/facebook/react-native-website/pulls) can be as simple as checking for spelling and grammar. 
+   Reviewing [documentation updates](https://github.com/facebook/react-native-website/pulls) can be as simple as checking for spelling and grammar.
    If you encounter situations that can be explained better in the docs, click **Edit** at the top of most docs pages to get started with your own contribution.
 
-3. **Help people write test plans.** 
+3. **Help people write test plans.**
 
    Some pull requests sent to the main repository may lack a proper test plan. These help reviewers understand how the change was tested, and can speed up the time it takes for a contribution to be accepted.
 
@@ -44,7 +45,7 @@ Each of these tasks is highly impactful, and maintainers will greatly appreciate
 
 ### Our Development Process
 
-We use GitHub issues and pull requests to keep track of bug reports and contributions from the community. All changes from engineers at Meta will sync to [GitHub](https://github.com/facebook/react-native) through a bridge with Meta's internal source control. Changes from the community are handled through GitHub pull requests. 
+We use GitHub issues and pull requests to keep track of bug reports and contributions from the community. All changes from engineers at Meta will sync to [GitHub](https://github.com/facebook/react-native) through a bridge with Meta's internal source control. Changes from the community are handled through GitHub pull requests.
 
 Once a change made on GitHub is approved, it will first be imported into Facebook's internal source control and tested against Facebook's codebase. Once merged at Facebook, the change will eventually sync back to GitHub as a single commit once it has passed Facebook's internal tests.
 
@@ -88,14 +89,14 @@ If you are adding new functionality or introducing a change in behavior, we will
 
 The React Native blog is generated [from the Markdown sources for the blog](https://github.com/facebook/react-native-website/tree/HEAD/website/blog).
 
-Please open an issue in the React Native website repository or tag us on [@ReactNative on Twitter](http://twitter.com/reactnative) and get the go-ahead from a maintainer before writing an article intended for the React Native blog. 
+Please open an issue in the React Native website repository or tag us on [@ReactNative on Twitter](http://twitter.com/reactnative) and get the go-ahead from a maintainer before writing an article intended for the React Native blog.
 In most cases, you might want to share your article on your own blog or writing medium instead. It's worth asking, though, in case we find your article is a good fit for the blog.
 
 We recommend referring to the `react-native-website` repository [Readme file](https://github.com/facebook/react-native-website#-contributing) to learn more about contributing to the website in general.
 
 ## Contributing Code
 
-Code-level contributions to React Native generally come in the form of [pull requests](https://help.github.com/en/articles/about-pull-requests). These are done by forking the repo and making changes locally. 
+Code-level contributions to React Native generally come in the form of [pull requests](https://help.github.com/en/articles/about-pull-requests). These are done by forking the repo and making changes locally.
 
 Directly in the repo, there is the [`rn-tester` app](https://github.com/facebook/react-native/tree/main/packages/rn-tester) that you can install on your device (or simulators) and use to test the changes you're making to React Native sources.
 
@@ -122,7 +123,7 @@ Whenever you are ready to contribute code, check out our [step-by-step guide to 
 
 ### Tests
 
-Tests help us prevent regressions from being introduced to the codebase. The GitHub repository is continuously tested using CircleCI and Appveyor, the results of which are available through the Checks functionality on [commits](https://github.com/facebook/react-native/commits/HEAD) and pull requests. 
+Tests help us prevent regressions from being introduced to the codebase. The GitHub repository is continuously tested using CircleCI and Appveyor, the results of which are available through the Checks functionality on [commits](https://github.com/facebook/react-native/commits/HEAD) and pull requests.
 
 You can learn more about running and writing tests on the [How to Run and Write Tests](/contributing/how-to-run-and-write-tests) page.
 
