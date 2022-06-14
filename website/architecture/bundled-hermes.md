@@ -37,7 +37,7 @@ The following paragraphs describe which changes we did under the hood and explai
 
 On iOS, we've move the `hermes-engine` you're using.
 
-Prior to React Native 0.69, users would download a remote podspec ([defined here](https://github.com/CocoaPods/Specs/blob/master/Specs/5/d/0/hermes-engine/0.11.0/hermes-engine.podspec.json)).
+Prior to React Native 0.69, users would download a pod (here you can find the [podspec](https://github.com/CocoaPods/Specs/blob/master/Specs/5/d/0/hermes-engine/0.11.0/hermes-engine.podspec.json)).
 
 On React Native 0.69, users would instead use a podspec that is defined inside the `sdks/hermes-engine/hermes-engine.podspec` file in the `react-native` NPM package.
 That podspec relies on a pre-built tarball of Hermes that we upload on GitHub Releases, as part of the React Native release process (i.e. [see the assets of this release](https://github.com/facebook/react-native/releases/tag/v0.69.0-rc.6)).
@@ -105,7 +105,7 @@ This mechanism relies on **downloading a tarball** with the Hermes source code f
 
 When building React Native from `main`, we will be fetching a tarball of `main` of facebook/hermes and building it as part of the build process of React Native.
 
-When building a React Native from a release branch (say `0.69-stable`), we will instead use a **tag** on the Hermes repo to **syncronize the code** between the two repos. The specific tag name used will then be stored inside the `sdks/.hermesversion` file inside React Native in the release branch (e.g. [this if the file](https://github.com/facebook/react-native/blob/0.69-stable/sdks/.hermesversion) on the 0.69 release branch).
+When building React Native from a release branch (say `0.69-stable`), we will instead use a **tag** on the Hermes repo to **syncronize the code** between the two repos. The specific tag name used will then be stored inside the `sdks/.hermesversion` file inside React Native in the release branch (e.g. [this if the file](https://github.com/facebook/react-native/blob/0.69-stable/sdks/.hermesversion) on the 0.69 release branch).
 
 In a sense, you can think of this approach similarly to a **git submodule**.
 
@@ -128,7 +128,7 @@ from the React Native `main` branch.
 
 You won't need to install extra tools (such as `cmake`, `ninja` or `python3`) in your machine as we configured the build to use the NDK versions of those tools.
 
-On the Gradle consumer side, we also shipped a small improvement on the consumer side: we moved from `releaseImplementation` & `debugImplementation` to `implementation`. This is possible because the newer hermes-engine Android artifact is **variant aware** and will proper match a debug build of the engine with a debug build of your app. You don't need any custom configuration here (even if you use `staging` or other build types/flavors).
+On the Gradle consumer side, we also shipped a small improvement on the consumer side: we moved from `releaseImplementation` & `debugImplementation` to `implementation`. This is possible because the newer `hermes-engine` Android artifact is **variant aware** and will proper match a debug build of the engine with a debug build of your app. You don't need any custom configuration here (even if you use `staging` or other build types/flavors).
 
 However, this made this line necessary in the template:
 
@@ -136,7 +136,7 @@ However, this made this line necessary in the template:
 exclude group:'com.facebook.fbjni'
 ```
 
-This is needed as React Native is consuming fbjni using the non-prefab approach (i.e. unzipping the `.aar` and extracting `.so` files). Hermes-engine, and other libraries, are using prefab instead to consume fbjni. We're looking into [addressing this issue](https://github.com/facebook/react-native/pull/33397) in the future so the Hermes import will be a oneliner.
+This is needed as React Native is consuming `fbjni` using the non-prefab approach (i.e. unzipping the `.aar` and extracting `.so` files). Hermes-engine, and other libraries, are using prefab instead to consume fbjni. We're looking into [addressing this issue](https://github.com/facebook/react-native/pull/33397) in the future so the Hermes import will be a oneliner.
 
 #### iOS implementation details
 
