@@ -256,7 +256,7 @@ hr {
       border-bottom: 2px solid var(--ifm-table-border-color);
     }
 
-    div[class^="codeBlockContainer"] {
+    div[class*="codeBlockContainer"] {
       &,
       & pre {
         margin-bottom: 0;
@@ -292,21 +292,21 @@ hr {
     background-color: var(--light);
   }
 
-  div[class^="codeBlockContainer"] {
+  div[class*="codeBlockContainer"] {
     box-shadow: none;
     margin-bottom: 1rem;
   }
 
-  div[class^="codeBlockContent"] {
+  div[class*="codeBlockContent"] {
     display: inline-grid;
     min-width: 100%;
   }
 
-  div[class^="codeBlockLines"] {
+  div[class*="codeBlockLines"] {
     font-size: 80%;
   }
 
-  div[class^="codeBlockTitle"] {
+  div[class*="codeBlockTitle"] {
     color: var(--subtle) !important;
     background-color: var(--ifm-table-border-color) !important;
   }
@@ -358,11 +358,6 @@ html[data-theme="dark"] {
 
     table thead tr {
       background-color: var(--ifm-menu-color-background-active);
-    }
-
-    div[class^="codeBlockTitle"],
-    div[class^="codeBlockLines"] {
-      background-color: var(--deepdark) !important;
     }
 
     .prism-code {
@@ -427,7 +422,7 @@ html[data-theme="dark"] .alert--secondary {
 /* Home page */
 
 .homepage {
-  div[class^="codeBlockContainer"] {
+  div[class*="codeBlockContainer"] {
     margin-bottom: 0;
     overflow: visible;
 
@@ -706,7 +701,7 @@ So we need to "revert" some CSS vars to not enforce dark mode
 
     .menu__list-item a {
       color: var(--ifm-color-emphasis-700);
-      padding: 6px 12px 8px;
+      padding: 4px 12px;
     }
 
     .menu__list-item-collapsible a[class*="menuLinkText"] {
@@ -779,7 +774,6 @@ aside[class^="theme-doc-sidebar-container"] {
   a[class*="menu__link--sublist-caret"] {
     font-size: 16px !important;
     font-weight: 700 !important;
-    padding: 5px 12px !important;
     color: var(--ifm-color-content-secondary) !important;
 
     &:after {
@@ -812,6 +806,14 @@ aside[class^="theme-doc-sidebar-container"] {
     margin-top: 6px;
   }
 
+  .menu__list-item-collapsible:hover {
+    background: none !important;
+
+    .menu__link--sublist-caret:hover {
+      background: var(--ifm-menu-color-background-hover) !important;
+    }
+  }
+
   @media only screen and (max-width: 1120px) {
     --doc-sidebar-width: 240px;
   }
@@ -838,6 +840,19 @@ aside[class^="theme-doc-sidebar-container"] {
   transition: none !important;
   height: auto !important;
 
+  &.blog-menu__list {
+    font-size: 14px;
+    font-weight: 300;
+
+    a {
+      line-height: 20px;
+    }
+
+    .menu__link--active {
+      font-weight: 600;
+    }
+  }
+
   .menu__list-item {
     margin-bottom: 2px;
     margin-top: 2px;
@@ -847,7 +862,7 @@ aside[class^="theme-doc-sidebar-container"] {
   .menu__link--sublist {
     font-size: 15px;
     font-weight: 600;
-    padding: 5px 12px !important;
+    padding: 4px 12px !important;
     color: var(--light);
 
     &:after {
@@ -860,7 +875,7 @@ aside[class^="theme-doc-sidebar-container"] {
     .menu__link {
       line-height: 20px;
       font-size: 13px;
-      padding: 3px 12px;
+      padding: 4px 12px !important;
       font-weight: 300;
       color: var(--ifm-font-color-base);
     }
@@ -869,22 +884,42 @@ aside[class^="theme-doc-sidebar-container"] {
       font-size: 14px !important;
     }
 
-    .menu__list .menu__link {
-      padding: 3px 12px;
-    }
-
     .menu__list .menu__link--active {
-      padding-left: 12px;
+      padding-left: 12px !important;
     }
   }
 
-  .theme-doc-sidebar-item-link .menu__link--active {
+  .menu__link.menu__link--active {
+    border-left-color: var(--ifm-menu-color-active) !important;
+    border-left-width: 0;
+  }
+
+  a[href].menu__link.menu__link--active {
+    background: var(--ifm-code-background);
+    padding-left: 8px !important;
     border-left-width: 4px;
     border-left-style: solid;
-    border-left-color: var(--ifm-menu-color-active) !important;
-    font-weight: 600 !important;
-    padding-left: 8px !important;
-    background: var(--ifm-code-background);
+  }
+
+  a[href="#"].menu__link.menu__link--active {
+    border-left-width: 0;
+  }
+
+  .menu__list-item-collapsible {
+    .menu__link--active {
+      border-left-color: transparent !important;
+    }
+
+    .menu__link {
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--subtle);
+      padding-left: 8px !important;
+
+      .menu__link {
+        padding-left: 12px !important;
+      }
+    }
   }
 
   .menu__list-item--collapsed .menu__list {
@@ -1667,11 +1702,11 @@ html[data-theme="dark"] .docsRating {
   grid-template-rows: 1fr;
   grid-template-areas: ". .";
 
-  div[class^="codeBlockContainer"] {
+  div[class*="codeBlockContainer"] {
     overflow: auto;
   }
 
-  div[class^="codeBlockLines"] {
+  div[class*="codeBlockLines"] {
     white-space: pre-wrap;
   }
 }
@@ -1727,30 +1762,6 @@ html[data-theme="dark"] .docsRating {
   .container .row .col.col--3 {
     --ifm-col-width: calc(5 / 24 * 100%);
     padding: 0;
-
-    div[class^="sidebar"] {
-      h3 {
-        font-size: 16px;
-        margin-bottom: 0;
-      }
-
-      h4 {
-        font-weight: 700;
-        font-size: 14px;
-        margin-top: 14px;
-        margin-bottom: 6px;
-        padding-bottom: 4px;
-        border-bottom: 0.01rem solid var(--ifm-table-border-color);
-      }
-
-      h3,
-      h4,
-      li {
-        user-select: none;
-      }
-
-      @extend %scrollbar-style;
-    }
   }
 
   .container .row .col.col--7 {
@@ -1758,18 +1769,22 @@ html[data-theme="dark"] .docsRating {
     padding: 24px 16px 24px 32px;
 
     &:last-child {
-      --ifm-col-width: calc(18 / 24 * 100%);
+      --ifm-col-width: calc(19 / 24 * 100%);
     }
   }
 
   article.margin-bottom--xl {
     margin-bottom: 2.5rem !important;
   }
+
+  aside nav {
+    @extend %scrollbar-style;
+  }
 }
 
 html[data-theme="dark"].blog-wrapper {
   .main-wrapper {
-    .row .col.col--3 div[class^="sidebar"] {
+    aside nav {
       @extend %scrollbar-style-dark;
     }
   }

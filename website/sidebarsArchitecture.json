@@ -19,6 +19,13 @@
             "threading-model"
           ]
         },
+        {
+          "type": "category",
+          "label": "Build Tools",
+          "collapsible": false,
+          "collapsed": false,
+          "items": ["bundled-hermes"]
+        },
         "architecture-glossary"
       ]
     }

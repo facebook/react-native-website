@@ -1,7 +1,7 @@
-var theme = {
+const theme = {
   plain: {
     color: '#FFFFFF',
-    background: '#282C34',
+    backgroundColor: '#282C34',
   },
   styles: [
     {

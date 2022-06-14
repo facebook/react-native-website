@@ -149,7 +149,7 @@ Determines what the opacity of the wrapped view should be when touch is active. 
 
 ---
 
-### `tvParallaxProperties` <div class="label android">Android</div>
+### `tvParallaxProperties` <div class="label ios">IOS</div>
 
 _(Apple TV only)_ Object with properties to control Apple TV parallax effects.
 
