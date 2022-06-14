@@ -66,7 +66,7 @@ There are a few other repositories you might want to familiarize yourself with:
 - **Changelog** for the releases can be found [here](https://github.com/facebook/react-native/blob/main/CHANGELOG.md).
 - **Discussions** about React Native take place in the [Discussions and Proposals](https://github.com/react-native-community/discussions-and-proposals) repository.
 - **Discussions** about the new architecture of React Native take place in the [React Native New Architecture Working Group](https://github.com/reactwg/react-native-new-architecture) repository.
-- **High-quality plugins** for React Native can be found throughout the [React Native Community GitHub Organization](http://github.com/react-native-community/).
+- **High-quality plugins** for React Native can be found throughout the [React Native Directory](https://reactnative.directory) website.
 
 Browsing through these repositories should provide some insight into how the React Native open source project is managed.
 
