@@ -8,11 +8,11 @@ This pull request linter bot performs basic sanity checks whenever a pull reques
 
 ## analysis-bot
 
-The code analysis bot collects feedback from tools such as Prettier, eslint, and Flow whenever a commit is added to a pull request. If any of these tools finds issues with the code, the bot will add these as inline review comments on the pull request. Its configuration can be found in the [`code-analysis-bot.js`](https://github.com/facebook/react-native/blob/main/scripts/circleci/code-analysis-bot.js) file.
+The code analysis bot collects feedback from tools such as Prettier, eslint, and Flow whenever a commit is added to a pull request. If any of these tools finds issues with the code, the bot will add these as inline review comments on the pull request. Its configuration can be found in the [`analyze_code.sh`](https://github.com/facebook/react-native/blob/main/scripts/circleci/analyze_code.sh) file in core repository.
 
 ## label-actions
 
-A bot that acts on an issue or pull request based on a label. Configured in [`.github/label-actions.yml`](https://github.com/facebook/react-native/blob/main/.github/label-actions.yml).
+A bot that acts on an issue or pull request based on a label. Configured in [`.github/respond-to-issue-based-on-label.yml`](https://github.com/facebook/react-native/blob/main/.github/respond-to-issue-based-on-label.yml).
 
 ## github-actions
 
