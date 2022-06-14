@@ -7,6 +7,7 @@ title: Release Stable Minor
 
 - Have the blog post ready to submit as a PR for `react-native-website` [repository](https://github.com/facebook/react-native-website).
 - Changelog PR should be ready to merge.
+- Previous RC has been thoroughly tested and no important issues have been reported. When releasing stable minor, you should not include any new cherry-picks. 
 
 ### 1. Publish the release
 

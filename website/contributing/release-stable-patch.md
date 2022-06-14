@@ -7,7 +7,7 @@ title: Release Stable Patch
 
 - You have some pick requests that qualify for a patch release and people have agreed it’s good to release a patch.
 
-### 1. Cherry-pick commits and run `bump-oss-version` script
+### 1. Check out the latest version from release branch
 
 ```bash
 # Be on relevant release branch
@@ -19,18 +19,26 @@ git cherry-pick <commit>
 
 # once done picking, push changes to the remote
 git push
-
-# then run a script to bump the version (must be triggered by a Meta employee)
-# You most likely want this release marked as "latest"
-./scripts/bump-oss-version.js --version x.y.z --token circle-ci-token
 ```
 
-### 2. Verify Upgrade helper is updated
+### 2. Test the current changes
+
+Before continuing further, follow the [testing](/contributing/release-testing) guide to ensure the release doesn't have any major issues.
+
+### 3. Run `bump-oss-version` script
+
+```bash
+# run a script to bump the version
+# You most likely **don't** want this release marked as "latest"
+./scripts/bump-oss-version.js --version x.y.z-rc.x --token circle-ci-token
+```
+
+### 4. Verify Upgrade helper is updated
 
 - You should see a [new publish job complete here](https://github.com/react-native-community/rn-diff-purge/actions) which will be automatically triggered after a new tag is pushed to the `react-native` repository.
 - If not, check out the guide on [how to update Upgrade Helper](/contributing/updating-upgrade-helper).
 
-### 3. Create a new patch discussion post using template below
+### 5. Create a new patch discussion post using template below
 
 ```markdown
 <!-- Template for new patch -->
@@ -58,13 +66,13 @@ If the issue is a [major release issues](https://reactnative.dev/contributing/re
 1.
 ```
 
-### 4. Update previous discussion post
+### 6. Update previous discussion post
 
 - Label it `Released`.
 - Update the title saying the patch has been released and link to new patch discussion.
 - Lock the discussion.
 
-### 5. Create GitHub Release
+### 7. Create GitHub Release
 
 Use template below for the GitHub Release:
 
