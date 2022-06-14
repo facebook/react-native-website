@@ -48,7 +48,7 @@ Meta employees are using a custom browser extension for GitHub that can import a
 
 <figure>
   <img src="/img/importing-pull-requests.png" />
-  <figcaption>Screenshot of the custom browser extension. Two buttons are visible: a green one that is titled "Import to Phabricator", and a grey one with "Land to fbsource" in red text.</figcaption>
+  <figcaption>Screenshot of the custom browser extension. The button "Import to fbsource" is used to import a Pull Request internally.</figcaption>
 </figure>
 
 ## Bots

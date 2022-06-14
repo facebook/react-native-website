@@ -72,7 +72,7 @@ Browsing through these repositories should provide some insight into how the Rea
 
 ## GitHub Issues
 
-We use GitHub issues to track bugs exclusively. We have documented our issue handling processes in the [Issues wiki](/contributing/triaging-github-issues).
+We use GitHub issues to track bugs exclusively. We have documented our issue handling processes in the [Triaging Issues Page](/contributing/triaging-github-issues).
 
 ### Security Bugs
 
@@ -118,7 +118,7 @@ If all goes well, your pull request will be merged. If it is not merged, maintai
 
 ### Step-by-step Guide
 
-Whenever you are ready to contribute code, check out our [step-by-step guide to sending your first pull request](/contributing/how-to-open-a-pull-request), or read the [How to Contribute Code](/contributing/how-to-contribute-code) wiki for more details.
+Whenever you are ready to contribute code, check out our [step-by-step guide to sending your first pull request](/contributing/how-to-open-a-pull-request), or read the [How to Contribute Code](/contributing/how-to-contribute-code) page for more details.
 
 ### Tests
 
