@@ -173,7 +173,7 @@ The branch cut has happened.
 [release-faq]: https://reactnative.dev/contributing/release-faq
 [issue-form]: https://github.com/facebook/react-native/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Cpre-release&template=release_blocker_form.yml
 [releases]: https://github.com/facebook/react-native/releases
-[release-processes]: https://reactnative.dev/contributing/contributing-intro
+[release-processes]: https://reactnative.dev/contributing/overview
 [upgrade-helper]: https://reactnative.dev/contributing/updating-upgrade-helper
 ```
 

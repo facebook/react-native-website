@@ -13,6 +13,6 @@ As a reminder, all contributors are expected to adhere to the [Code of Conduct](
 
 ## Ways to Contribute
 
-Please see our [Contributing Guide](https://reactnative.dev/contributing/contributing-intro) on the React Native website.
+Please see our [Contributing Guide](https://reactnative.dev/contributing/overview) on the React Native website.
 
 If you are interested specifically in contributing to the React Native website check out [Contributing section](https://github.com/facebook/react-native-website#-contributing) in the React Native website repository README file.
