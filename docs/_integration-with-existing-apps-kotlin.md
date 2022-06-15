@@ -207,7 +207,7 @@ AppRegistry.registerComponent(
 
 ##### 3. Configure permissions for development error overlay
 
-If your app is targeting the Android `API level 23` or greater, make sure you have the permission `android.permission.SYSTEM_ALERT_WINDOW` enabled for the development build. You can check this with `Settings.canDrawOverlays(this);`. This is required in dev builds because React Native development errors must be displayed above all the other windows. Due to the new permissions system introduced in the API level 23 (Android M), the user needs to approve it. This can be achieved by adding the following code to your Activity's in `onCreate()` method.
+If your app is targeting the Android `API level 23` or greater, make sure you have the permission `android.permission.SYSTEM_ALERT_WINDOW` enabled for the development build. You can check this with `Settings.canDrawOverlays(this)`. This is required in dev builds because React Native development errors must be displayed above all the other windows. Due to the new permissions system introduced in the API level 23 (Android M), the user needs to approve it. This can be achieved by adding the following code to your Activity's in `onCreate()` method.
 
 ```kotlin
 companion object {
@@ -218,7 +218,7 @@ companion object {
 
 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
     if(!Settings.canDrawOverlays(this)) {
-        val intent: Intent = Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
+        val intent = Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
                                     Uri.parse("package: $packageName"))
         startActivityForResult(intent, OVERLAY_PERMISSION_REQ_CODE);
     }
@@ -236,7 +236,7 @@ override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) 
             }
         }
     }
-    mReactInstanceManager?.onActivityResult(this, requestCode, resultCode, data)
+    reactInstanceManager?.onActivityResult(this, requestCode, resultCode, data)
 }
 ```
 
@@ -248,17 +248,17 @@ Let's add some native code in order to start the React Native runtime and tell i
 
 ```kotlin
 class MyReactActivity : Activity(), DefaultHardwareBackBtnHandler {
-    private var mReactRootView: ReactRootView? = null
-    private var mReactInstanceManager: ReactInstanceManager? = null
+    private lateinit var reactRootView: ReactRootView
+    private lateinit var reactInstanceManager: ReactInstanceManager
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         SoLoader.init(this, false)
-        mReactRootView = ReactRootView(this)
+        reactRootView = ReactRootView(this)
         val packages: List<ReactPackage> = PackageList(application).packages
         // Packages that cannot be autolinked yet can be added manually here, for example:
-        // packages.add(new MyReactNativePackage());
+        // packages.add(MyReactNativePackage())
         // Remember to include them in `settings.gradle` and `app/build.gradle` too.
-        mReactInstanceManager = ReactInstanceManager.builder()
+        reactInstanceManager = ReactInstanceManager.builder()
             .setApplication(application)
             .setCurrentActivity(this)
             .setBundleAssetName("index.android.bundle")
@@ -269,8 +269,8 @@ class MyReactActivity : Activity(), DefaultHardwareBackBtnHandler {
             .build()
         // The string here (e.g. "MyReactNativeApp") has to match
         // the string in AppRegistry.registerComponent() in index.js
-        mReactRootView?.startReactApplication(mReactInstanceManager, "MyReactNativeApp", null)
-        setContentView(mReactRootView)
+        reactRootView?.startReactApplication(reactInstanceManager, "MyReactNativeApp", null)
+        setContentView(reactRootView)
     }
 
     override fun invokeDefaultOnBackPressed() {
@@ -302,18 +302,18 @@ Next, we need to pass some activity lifecycle callbacks to the `ReactInstanceMan
 ```kotlin
 override fun onPause() {
     super.onPause()
-    mReactInstanceManager?.onHostPause(this)
+    reactInstanceManager.onHostPause(this)
 }
 
 override fun onResume() {
     super.onResume()
-    mReactInstanceManager?.onHostResume(this, this)
+    reactInstanceManager.onHostResume(this, this)
 }
 
 override fun onDestroy() {
     super.onDestroy()
-    mReactInstanceManager?.onHostDestroy(this)
-    mReactRootView?.unmountReactApplication()
+    reactInstanceManager.onHostDestroy(this)
+    reactRootView.unmountReactApplication()
 }
 ```
 
@@ -321,11 +321,8 @@ We also need to pass back button events to React Native:
 
 ```kotlin
 override fun onBackPressed() {
-    if (mReactInstanceManager != null) {
-        mReactInstanceManager!!.onBackPressed()
-    } else {
-        super.onBackPressed()
-    }
+    reactInstanceManager.onBackPressed()
+    super.onBackPressed()
 }
 ```
 
@@ -335,8 +332,8 @@ Finally, we need to hook up the dev menu. By default, this is activated by (rage
 
 ```kotlin
 override fun onKeyUp(keyCode: Int, event: KeyEvent?): Boolean {
-    if (keyCode == KeyEvent.KEYCODE_MENU && mReactInstanceManager != null) {
-        mReactInstanceManager!!.showDevOptionsDialog()
+    if (keyCode == KeyEvent.KEYCODE_MENU && reactInstanceManager != null) {
+        reactInstanceManager.showDevOptionsDialog()
         return true
     }
     return super.onKeyUp(keyCode, event)
