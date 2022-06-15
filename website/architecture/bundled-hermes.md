@@ -21,21 +21,21 @@ From 0.69 on, you will always have a JS engine that has been built and tested al
 
 Historically, React Native and Hermes followed two **distinct release processes** with distinct versioning. Having distinct releases with distinct numbers created confusion in the OSS ecosystem, where it was not clear if a specific version of Hermes was compatible with a specific version of React Native (i.e. you needed to know that Hermes 0.11.0 was compatible only with React Native 0.68.0, etc.)
 
-Both Hermes and React Native, share the JSI code ([Hermes here](https://github.com/facebook/hermes/tree/main/API/jsi/jsi) and [React Native here](https://github.com/facebook/react-native/tree/main/ReactCommon/jsi/jsi)). If the two JSI copies of JSI gets out of sync, a build of Hermes won't be compatible with a build of React Native. You can read more about this problem, [ABI incompatibility here](https://github.com/react-native-community/discussions-and-proposals/issues/257).
+Both Hermes and React Native, share the JSI code ([Hermes here](https://github.com/facebook/hermes/tree/main/API/jsi/jsi) and [React Native here](https://github.com/facebook/react-native/tree/main/ReactCommon/jsi/jsi)). If the two JSI copies of JSI get out of sync, a build of Hermes won't be compatible with a build of React Native. You can read more about this [ABI incompatibility problem here](https://github.com/react-native-community/discussions-and-proposals/issues/257).
 
-To overcome this problem, we've extended the React Native release process to download and build Hermes, and make sure only one copy of JSI is used when building Hermes.
+To overcome this problem, we've extended the React Native release process to download and build Hermes and made sure only one copy of JSI is used when building Hermes.
 
 Thanks to this, we can release a version of Hermes whenever we release a version of React Native, and be sure that the Hermes engine we built is **fully compatible** with the React Native version we're releasing. We're shipping this version of Hermes alongside the React Native version we're doing, hence the name _Bundled Hermes_.
 
-## How this will impact app developer
+## How this will impact app developers
 
-As mentioned in the introduction, if you're a app developer this change **should not affect** you directly.
+As mentioned in the introduction, if you're an app developer, this change **should not affect** you directly.
 
 The following paragraphs describe which changes we did under the hood and explains some of the rationales, for the sake of transparency.
 
 ### iOS Users
 
-On iOS, we've move the `hermes-engine` you're using.
+On iOS, we've moved the `hermes-engine` you're using.
 
 Prior to React Native 0.69, users would download a pod (here you can find the [podspec](https://github.com/CocoaPods/Specs/blob/master/Specs/5/d/0/hermes-engine/0.11.0/hermes-engine.podspec.json)).
 
@@ -79,7 +79,7 @@ You can find instructions to optimize your build time and reduce the impact on y
 
 #### Android Users on New Architecture building on Windows
 
-Users building React Native App, with the New Architecture, on Windows machines needs to follow those extra steps to let the build work correctly:
+Users building React Native App, with the New Architecture, on Windows machines need to follow those extra steps to let the build work correctly:
 
 * Make sure the [environment is configured properly](https://reactnative.dev/docs/environment-setup), with Android SDK & node.
 * Install [cmake](https://community.chocolatey.org/packages/cmake) with Chocolatey
@@ -105,7 +105,7 @@ This mechanism relies on **downloading a tarball** with the Hermes source code f
 
 When building React Native from `main`, we will be fetching a tarball of `main` of facebook/hermes and building it as part of the build process of React Native.
 
-When building React Native from a release branch (say `0.69-stable`), we will instead use a **tag** on the Hermes repo to **syncronize the code** between the two repos. The specific tag name used will then be stored inside the `sdks/.hermesversion` file inside React Native in the release branch (e.g. [this if the file](https://github.com/facebook/react-native/blob/0.69-stable/sdks/.hermesversion) on the 0.69 release branch).
+When building React Native from a release branch (say `0.69-stable`), we will instead use a **tag** on the Hermes repo to **syncronize the code** between the two repos. The specific tag name used will then be stored inside the `sdks/.hermesversion` file inside React Native in the release branch (e.g. [this is the file](https://github.com/facebook/react-native/blob/0.69-stable/sdks/.hermesversion) on the 0.69 release branch).
 
 In a sense, you can think of this approach similarly to a **git submodule**.
 
@@ -128,7 +128,7 @@ from the React Native `main` branch.
 
 You won't need to install extra tools (such as `cmake`, `ninja` or `python3`) in your machine as we configured the build to use the NDK versions of those tools.
 
-On the Gradle consumer side, we also shipped a small improvement on the consumer side: we moved from `releaseImplementation` & `debugImplementation` to `implementation`. This is possible because the newer `hermes-engine` Android artifact is **variant aware** and will proper match a debug build of the engine with a debug build of your app. You don't need any custom configuration here (even if you use `staging` or other build types/flavors).
+On the Gradle consumer side, we also shipped a small improvement on the consumer side: we moved from `releaseImplementation` & `debugImplementation` to `implementation`. This is possible because the newer `hermes-engine` Android artifact is **variant aware** and will properly match a debug build of the engine with a debug build of your app. You don't need any custom configuration here (even if you use `staging` or other build types/flavors).
 
 However, this made this line necessary in the template:
 
@@ -142,8 +142,8 @@ This is needed as React Native is consuming `fbjni` using the non-prefab approac
 
 The iOS implementation relies on a series of scripts that lives in the following locations:
 
-* [`/scripts/hermes`](https://github.com/facebook/react-native/tree/main/scripts/hermes). Those scripts contains logic to download the hermes tarball, unzip it, and configure the iOS build. They're invoked at `pod install` time if you have the `hermes_enabled` field set to `true`.
-* [`/sdks/hermes-engine`](https://github.com/facebook/react-native/tree/main/sdks/hermes-engine). Those scripts contains the build logic that is effectively building Hermes. They were copied and adapted from the `facebook/hermes` repo to properly work within React Native. Specifically, the scripts inside the `utils` folder are responsible of building Hermes for all the Mac platforms.
+* [`/scripts/hermes`](https://github.com/facebook/react-native/tree/main/scripts/hermes). Those scripts contain logic to download the hermes tarball, unzip it, and configure the iOS build. They're invoked at `pod install` time if you have the `hermes_enabled` field set to `true`.
+* [`/sdks/hermes-engine`](https://github.com/facebook/react-native/tree/main/sdks/hermes-engine). Those scripts contain the build logic that is effectively building Hermes. They were copied and adapted from the `facebook/hermes` repo to properly work within React Native. Specifically, the scripts inside the `utils` folder are responsible of building Hermes for all the Mac platforms.
 
 To distribute a prebuilt for iOS, we rely on the `build_hermes_macos` Job on CircleCI. The job will produce as artifact a tarball which will be downloaded by the `hermes-engine` podspec (i.e. [those are the artifacts for an execution for React Native 0.69](https://app.circleci.com/pipelines/github/facebook/react-native/13679/workflows/5172f8e4-6b02-4ccb-ab97-7cb954911fae/jobs/258701/artifacts)).
 

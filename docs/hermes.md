@@ -122,7 +122,7 @@ This will compile JavaScript to bytecode during build time which will improve yo
 
 ## Bundled Hermes
 
-Starting with React Native 0.69.0, every version of React Native will be come with a **bundled version** of Hermes.
+Starting with React Native 0.69.0, every version of React Native will come with a **bundled version** of Hermes.
 We will be building a version of Hermes for you whenever we release a new version of React Native. This will make sure you're consuming a version of Hermes which is fully compatible with the version of React Native you're using.
 
 Historically, we had problems with matching versions of Hermes with versions of React Native. This fully eliminates this problem, and offers users a JS engine that is compatible with the specific React Native version.
