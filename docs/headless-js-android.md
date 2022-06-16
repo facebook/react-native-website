@@ -128,7 +128,7 @@ bundle.putString("foo", "bar")
 
 service.putExtras(bundle)
 
-getApplicationContext().startService(service)
+applicationContext.startService(service)
 ```
 
 </TabItem>
