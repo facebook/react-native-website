@@ -393,3 +393,218 @@ There are other macros that can be used to export modules and methods. You view 
 :::
 
 TODO: more description?
+
+### Android
+
+Android follows similar steps to iOS. We have to generate the code for Android, and then we have to write some native code to make it work.
+
+#### Generate the Code - Android
+
+To generate the code for Android, we need to manually invoke CodeGen. This is done similarly to what we did for iOS: first, we need to add the package to the app and then we need to invoke a script.
+
+```sh title="Running CodeGen for Android"
+cd MyApp
+yarn add ../RTNCalculator
+cd android
+./gradlew generateCodegenArtifactsFromSchema --rerun-tasks
+```
+
+This script first adds the package to the app, in the same way iOS does. Then, after moving to the `android` folder, it invokes a Gradle task to create the generated code.
+
+:::note
+To run **CodeGen**, you need to enable the **New Architecture** in the Android app. This can be done by opening the `gradle.properties` files and by switching the `newArchEnabled` property from `false` to `true`.
+:::
+
+The generated code is stored in the `MyApp/node_modules/rtn-calculator/android/build/generated/source/codegen` folder and it has this structure:
+
+TODO: ordering issue. I can't actually get codegen to work at this point. Only works once I add the native files following. Probably similar issue for Fabric guide. Including generated file structure for later ease of use:
+
+```title="Android generated code"
+codegen
+├── java
+│   └── com
+│       └── RTNCalculator
+│           └── NativeCalculatorSpec.java
+├── jni
+│   ├── Android.mk
+│   ├── RTNCalculator-generated.cpp
+│   ├── RTNCalculator.h
+│   └── react
+│       └── renderer
+│           └── components
+│               └── RTNCalculator
+│                   ├── ComponentDescriptors.h
+│                   ├── EventEmitters.cpp
+│                   ├── EventEmitters.h
+│                   ├── Props.cpp
+│                   ├── Props.h
+│                   ├── ShadowNodes.cpp
+│                   └── ShadowNodes.h
+└── schema.json
+```
+
+#### Write the Native Android Code
+
+The native code for the Android side of a TurboModule requires three more files:
+
+1. An `AndroidManifest.xml` file.
+2. A `RTNCalculatorModule.java` that implements the module.
+4. A `RTNCalculatorPackage.java` that React Native uses to configure the library.
+
+The final structure within the Android library should look like this:
+
+```title="Android Folder Structure"
+android
+├── build.gradle
+└── src
+    └── main
+        ├── AndroidManifest.xml
+        └── java
+            └── com
+                └── RTNCalculator
+                    ├── CalculatorModule.java
+                    └── CalculatorPackage.java
+```
+
+##### AndroidManifest.xml
+
+```xml title="AndroidManifest.xml"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.RTNCalculator">
+</manifest>
+```
+
+This is a small manifest file that defines the package for our module.
+
+
+##### CalculatorModule.java
+
+```java title="CalculatorModule.java"
+package com.RTNCalculator;
+
+import androidx.annotation.NonNull;
+import com.facebook.react.bridge.NativeModule;
+import com.facebook.react.bridge.Promise;
+import com.facebook.react.bridge.ReactApplicationContext;
+import com.facebook.react.bridge.ReactContext;
+import com.facebook.react.bridge.ReactContextBaseJavaModule;
+import com.facebook.react.bridge.ReactMethod;
+import java.util.Map;
+import java.util.HashMap;
+
+public class CalculatorModule extends NativeCalculatorSpec {
+
+    CalculatorModule(ReactApplicationContext context) {
+        super(context);
+    }
+
+    @Override
+    @NonNull
+    public String getName() {
+        return "RTNCalculator";
+    }
+
+    @Override
+    public void add(double a, double b, Promise promise) {
+        promise.resolve(a + b);
+    }
+}
+```
+
+This class implements the module itself, which extends the `NativeCalculatorSpec` that was generated from the `NativeCalculator` JavaScript specification file.
+
+##### CalculatorPackage.java
+
+```java title="CalculatorPackage.java"
+package com.RTNCalculator;
+
+import androidx.annotation.Nullable;
+import com.facebook.react.bridge.NativeModule;
+import com.facebook.react.bridge.ReactApplicationContext;
+import com.facebook.react.module.model.ReactModuleInfo;
+import com.facebook.react.module.model.ReactModuleInfoProvider;
+import com.facebook.react.TurboReactPackage;
+import com.facebook.react.uimanager.ViewManager;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
+
+public class CalculatorPackage extends TurboReactPackage {
+
+  @Nullable
+  @Override
+  public NativeModule getModule(String name, ReactApplicationContext reactContext) {
+      if (name.equals("RTNCalculator")) {
+          return new CalculatorModule(reactContext);
+      } else {
+          return null;
+      }
+  }
+
+
+  @Override
+  public ReactModuleInfoProvider getReactModuleInfoProvider() {
+      return () -> {
+          final Map<String, ReactModuleInfo> moduleInfos = new HashMap<>();
+          moduleInfos.put(
+                  "RTNCalculator",
+                  new ReactModuleInfo(
+                          "RTNCalculator",
+                          "RTNCalculator",
+                          false, // canOverrideExistingModule
+                          false, // needsEagerInit
+                          true, // hasConstants
+                          false, // isCxxModule
+                          false // isTurboModule
+          ));
+          return moduleInfos;
+      };
+  }
+
+}
+```
+
+This is the last piece of Native Code for Android. It defines the Package object that will be used by the app to load the module.
+
+## 5. Adding the Fabric Component To Your App
+
+Now you can install and use the TurboModule in your app.
+
+### Shared
+
+First of all, we need to add the NPM package which contains the Component to the app. This can be done with the following command:
+
+```sh
+cd MyApp
+yarn add ../RTNCalculator
+```
+
+This command will add the `RTNCalculator` module to the `node_modules` of your app.
+
+### iOS
+
+Then, you need to install the new dependencies in your iOS project. To do so, run these commands:
+
+```sh
+cd ios
+RCT_NEW_ARCH_ENABLED=1 bundle exec pod install
+```
+
+This command will look for all the dependencies of the project and it will install the iOS ones. The `RCT_NEW_ARCH_ENABLED=1` instruct **Cocoapods** that it has to run some additional operations to run **CodeGen**.
+
+:::note
+You may have to run `bundle install` once before you can use `RCT_NEW_ARCH_ENABLED=1 bundle exec pod install`. You won't need to run `bundle install` anymore, unless you need to change the Ruby dependencies.
+:::
+
+### Android
+
+Android configuration requires slightly more steps in order to be able to use your new TurboModule.
+
+First, to enable the **New Architecture**:
+
+1. Open the `android/gradle.properties` file
+2. Scroll down to the end of the file and switch the `newArchEnabled` property from `false` to `true`.
+
