@@ -65,12 +65,12 @@ There are two requirements the file containing this specification must meet:
 import type { TurboModule } from 'react-native/Libraries/TurboModule/RCTExport';
 import { TurboModuleRegistry } from 'react-native';
 
-export interface RTNCalculatorSpec extends TurboModule {
+export interface Spec extends TurboModule {
   add(a: number, b: number): Promise<number>;
 }
-export default (TurboModuleRegistry.get<RTNCalculatorSpec>(
+export default (TurboModuleRegistry.get<Spec>(
   'RTNCalculator'
-): ?RTNCalculatorSpec);
+): ?Spec);
 ```
 
 </TabItem>
@@ -80,13 +80,13 @@ export default (TurboModuleRegistry.get<RTNCalculatorSpec>(
 import type { TurboModule } from 'react-native/Libraries/TurboModule/RCTExport';
 import { TurboModuleRegistry } from 'react-native';
 
-export interface RTNCalculatorSpec extends TurboModule {
+export interface Spec extends TurboModule {
   add(a: number, b: number): Promise<number>;
 }
 
-export default (TurboModuleRegistry.get<RTNCalculatorSpec>(
+export default (TurboModuleRegistry.get<Spec>(
   'RTNCalculator'
-) as RTNCalculatorSpec | null);
+) as Spec | null);
 ```
 
 </TabItem>
@@ -97,7 +97,7 @@ At the beginning of the spec files are the imports:
 - The `TurboModule` type, which defines the base interface for all TurboModules
 - The `TurboModuleRegistry` JavaScript module, which contains functions for loading TurboModules
 
-The second section of the file contains the interface specification for the TurboMOdule. In this case, the interface defines the `add` function which takes two numbers and returns a promise that resolves to a number.
+The second section of the file contains the interface specification for the TurboModule. In this case, the interface defines the `add` function which takes two numbers and returns a promise that resolves to a number. This interface type **must** be named `Spec` for a TurboModule.
 
 Finally, we invoke `TurboModuleRegistry.get`, passing the module's name, which will load the TurboModule if it's available. 
 
