@@ -3,13 +3,23 @@ id: pillars-turbomodules
 title: TurboModules
 ---
 
-This section contains a high-level introduction to TurboModules. It provides enough context to understand when a TurboModule is needed and how it roughly works.
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
-This section must have a warning that it works only with the new architecture enabled. It points to the [migration section](../new-architecture-intro).
+If you've worked with React Native, you may be familiar with the concept of Native Modules, which allow JavaScript and platform-native code to communicate over the React Native "bridge", which handles cross-platform serialization via JSON.
 
-## How to create a Turbomodule
+TurboModules are the next iteration on Native Modules that provide a few extra [benefits](./why):
 
-This section is a step-by-step guide to create a TurboModule from scratch. The list of subsections is roughly:
+- Strongly typed interfaces that are consistent across platforms
+- The ability to create shared C++ code for use across platforms
+- Lazy loading of modules, allowing for faster app startup
+- The use of JSI, a JavaScript interface for native code, which allows for more efficient communication between native and JavaScript code than the bridge
+
+This guide will show you how to create a basic TurboModule.
+
+:::caution
+TurboModules only work with the **New Architecture** enabled.
+To migrate to the **New Architecture**, follow the [Migration guide](../new-architecture-intro)
+:::
 
 ## How to Create a TurboModule
 
@@ -50,14 +60,49 @@ There are two requirements the file containing this specification must meet:
 <Tabs groupId="turbomodule-specs" defaultValue={constants.defaultJavaScriptSpecLanguages} values={constants.javaScriptSpecLanguages}>
 <TabItem value="flow">
 
-```typescript
+```typescript title="NativeCalculator.js"
+// @flow
+import type { TurboModule } from 'react-native/Libraries/TurboModule/RCTExport';
+import { TurboModuleRegistry } from 'react-native';
+
+export interface RTNCalculatorSpec extends TurboModule {
+  add(a: number, b: number): Promise<number>;
+}
+export default (TurboModuleRegistry.get<RTNCalculatorSpec>(
+  'RTNCalculator'
+): ?RTNCalculatorSpec);
 ```
 
 </TabItem>
 <TabItem value="typescript">
 
-```typescript
+```typescript title="NativeCalculator.ts"
+import type { TurboModule } from 'react-native/Libraries/TurboModule/RCTExport';
+import { TurboModuleRegistry } from 'react-native';
+
+export interface RTNCalculatorSpec extends TurboModule {
+  add(a: number, b: number): Promise<number>;
+}
+
+export default (TurboModuleRegistry.get<RTNCalculatorSpec>(
+  'RTNCalculator'
+) as RTNCalculatorSpec | null);
 ```
 
 </TabItem>
 </Tabs>
+
+At the beginning of the spec files are the imports:
+
+- The `TurboModule` type, which defines the base interface for all TurboModules
+- The `TurboModuleRegistry` JavaScript module, which contains functions for loading TurboModules
+
+The second section of the file contains the interface specification for the TurboMOdule. In this case, the interface defines the `add` function which takes two numbers and returns a promise that resolves to a number.
+
+Finally, we invoke `TurboModuleRegistry.get`, passing the module's name, which will load the TurboModule if it's available. 
+
+:::caution
+We are writing JavaScript files importing types from libraries, without setting up a proper node module and installing its dependencies. Your IDE will not be able to resolve the import statements and you may see errors and warnings. This is expected and will not cause problems when you add the module to your app.
+:::
+
+```json
