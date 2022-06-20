@@ -11,8 +11,29 @@ This section must have a warning that it works only with the new architecture en
 
 This section is a step-by-step guide to create a TurboModule from scratch. The list of subsections is roughly:
 
-- JS spec (with all the supported features)
-- Configuration (package.json, cocoapods, gradle, …) and CodeGen
-- Native code (one section for iOS and one for Android)
-- Integration in an App (`yarn add` and how to connect the JS specs to the app itself)
-- Troubleshooting (common issues and how to solve them)
+## How to Create a TurboModule
+
+To create a TurboModule, we need to:
+
+1. Define a set of JavaScript specifications.
+2. Configure the module and inspect the code created by Codegen.
+3. Write the native code to finish implementing the module.
+
+## 1. Folder Setup
+
+In order to keep the module decoupled from the app, it's a good idea to define the module separately from the app, and then add it as a dependency to your app later.
+
+Next to your application, create a folder called `RTNCalculator`. (**RTN** stands for "**R**eact**T** **N**ative", and is a standard prefix for React Native modules).
+
+Within `RTNCalculator`, create three subfolders: `js`, `ios`, and `android`.
+
+The final result should look like this:
+
+```sh
+TurboModulesGuide
+├── MyApp
+└── RTNCalculator
+    ├── android
+    ├── ios
+    └── js
+```
