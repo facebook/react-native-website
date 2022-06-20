@@ -37,3 +37,27 @@ TurboModulesGuide
     ├── ios
     └── js
 ```
+
+## 2. JavaScript Specification
+
+The **New Architecture** requires interfaces specified in a typed dialect of JavaScript (either [Flow](https://flow.org/) or [TypeScript](https://www.typescriptlang.org/)). **Codegen** will use these specifications to generate code in strongly-typed languages, including C++, Objective-C++, and Java.
+
+There are two requirements the file containing this specification must meet:
+
+1. The file **must** be named `Native<MODULE_NAME>`, with a `.js` or `.jsx` extension when using Flow, or a `.ts`, or `.tsx` extension when using TypeScript. Codegen will only look for files matching this pattern.
+2. The file must export a `TurboModuleRegistrySpec` object.
+
+<Tabs groupId="turbomodule-specs" defaultValue={constants.defaultJavaScriptSpecLanguages} values={constants.javaScriptSpecLanguages}>
+<TabItem value="flow">
+
+```typescript
+```
+
+</TabItem>
+<TabItem value="typescript">
+
+```typescript
+```
+
+</TabItem>
+</Tabs>
