@@ -239,9 +239,11 @@ module.exports = {
             docsPluginId: 'architecture',
           },
           {
-            to: '/contributing/how-to-contribute',
+            type: 'doc',
+            docId: 'overview',
             label: 'Contributing',
             position: 'right',
+            docsPluginId: 'contributing',
           },
           {
             to: '/blog',
@@ -306,10 +308,6 @@ module.exports = {
               {
                 label: 'Ask Questions on Stack Overflow',
                 href: 'https://stackoverflow.com/questions/tagged/react-native',
-              },
-              {
-                label: 'Contributor Guide',
-                href: 'https://github.com/facebook/react-native/blob/main/CONTRIBUTING.md',
               },
               {
                 label: 'DEV Community',

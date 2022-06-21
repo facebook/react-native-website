@@ -24,9 +24,7 @@
           "label": "Build Tools",
           "collapsible": false,
           "collapsed": false,
-          "items": [
-            "bundled-hermes"
-          ]
+          "items": ["bundled-hermes"]
         },
         "architecture-glossary"
       ]

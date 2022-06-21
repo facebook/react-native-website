@@ -366,8 +366,12 @@ html[data-theme="dark"] {
   }
 }
 
+div[class^="docPage"] .hash-link,
+article[itemprop="blogPost"] .hash-link,
 .mdx-page .hash-link,
 .community-page .hash-link,
+html[data-theme="dark"] div[class^="docPage"] .hash-link,
+html[data-theme="dark"] article[itemprop="blogPost"] .hash-link,
 html[data-theme="dark"].mdx-page .hash-link,
 html[data-theme="dark"].community-page .hash-link {
   @extend %hash-link-style;
@@ -382,6 +386,8 @@ html[data-theme="dark"] article .badge {
   border-color: var(--deepdark);
   color: var(--ifm-font-color-base);
 }
+
+/* Admonitions & notes */
 
 .alert--warning {
   background-color: var(--rn-note-background);
@@ -401,6 +407,16 @@ html[data-theme="dark"] article .badge {
   h5 {
     font-size: 14px;
   }
+}
+
+.alert--secondary {
+  --ifm-alert-background-color: var(--ifm-color-secondary-lightest);
+  --ifm-alert-background-color-highlight: rgba(225, 227, 230, 0.7);
+}
+
+html[data-theme="dark"] .alert--secondary {
+  --ifm-alert-background-color: var(--ifm-color-secondary-contrast-background);
+  --ifm-alert-background-color-highlight: rgba(225, 227, 230, 0.15);
 }
 
 /* Home page */

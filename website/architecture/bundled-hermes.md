@@ -13,7 +13,7 @@ Please note that this page serves as a technical deep dive and is targeted for u
 
 ## What is 'Bundled Hermes'
 
-Starting with React Native 0.69.0, every version of React Native will be **built alongside** to a Hermes version. We call this distribution model **Bundled Hermes**. 
+Starting with React Native 0.69.0, every version of React Native will be **built alongside** to a Hermes version. We call this distribution model **Bundled Hermes**.
 
 From 0.69 on, you will always have a JS engine that has been built and tested alongside each React Native version that you can use.
 
@@ -65,7 +65,7 @@ dependencies {
 
 Prior to React Native 0.69, users will be consuming `hermes-debug.aar` and `hermes-release.aar` from the `hermes-engine` NPM package.
 
-On React Native 0.69, users will be consuming the Android multi-variant artifacts available inside the `android/com/facebook/react/hermes-engine/` folder in the `react-native` NPM package. 
+On React Native 0.69, users will be consuming the Android multi-variant artifacts available inside the `android/com/facebook/react/hermes-engine/` folder in the `react-native` NPM package.
 Please also note that we're going to [remove the dependency](https://github.com/facebook/react-native/blob/c418bf4c8fe8bf97273e3a64211eaa38d836e0a0/package.json#L105) on `hermes-engine` entirely in one of the future version of React Native.
 
 #### Android Users on New Architecture
@@ -91,10 +91,10 @@ Users building React Native App, with the New Architecture, on Windows machines 
 
 ### Can users still use another engine?
 
-Yes, users are free to enable/disable Hermes (with the `enableHermes` variable on Android, `hermes_enabled` on iOS). 
+Yes, users are free to enable/disable Hermes (with the `enableHermes` variable on Android, `hermes_enabled` on iOS).
 The 'Bundled Hermes' change will impact only **how Hermes is built and bundled** for you.
 
-Please note that, at the time of writing, the default for `enableHermes`/`hermes_enabled` is `false`. 
+Please note that, at the time of writing, the default for `enableHermes`/`hermes_enabled` is `false`.
 We're looking into updating the template to have it default to `true` in the near future.
 
 ## How this will impact contributor and extension developers

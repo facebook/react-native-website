@@ -1,6 +1,6 @@
 ---
 id: release-testing
-title: How to test a release candidate
+title: How to Test a Release Candidate
 ---
 
 ## Pre-requisites
@@ -19,6 +19,7 @@ title: How to test a release candidate
 - Have Android and iOS development environment set-up. Follow instructions for macOS/iOS and macOS/Android from the [Environment Setup](/docs/environment-setup) guide.
 
   ### Additional steps for Android
+
   - Gradle should now install [the appropriate ndk](https://github.com/facebook/react-native/blob/31b64c2615f8af547b68aa6ccaaa244b9c5d3932/template/android/build.gradle#L9). Verify that you have in your path the `ANDROID_NDK` variable, pointing to it.
   - In case you are on macOS Catalina (or higher), you might also need to run `sudo xattr -r -d com.apple.quarantine /path/to/ndk` to avoid the e2e script to fail. That said, this should not happen anymore since from NDK 21 and higher the Android team started signing the NDK.\*
 
@@ -63,11 +64,13 @@ Covered by running `test-manual-e2e.sh`, see [issue](https://github.com/facebook
 
 1. Delete `RNTester` and `RNTestProject` from your Android emulator and iOS simulator if leftover from previous test.
 2. Remove any temporary files:
+
    ```bash
     git clean -fdx
    ```
 
 3. Install dependencies:
+
    ```bash
     yarn install
     pushd packages/rn-tester
@@ -77,20 +80,19 @@ Covered by running `test-manual-e2e.sh`, see [issue](https://github.com/facebook
 
 4. Go through **Test Checklist** for variants supported by `test-manual-e2e` script:
 
-    ```bash
-    # This will run you through the different variants in Test Dimensions table
-    ./scripts/test-manual-e2e.sh
-    ```
+   ```bash
+   # This will run you through the different variants in Test Dimensions table
+   ./scripts/test-manual-e2e.sh
+   ```
 
 5. Go through **Test Checklist** for Hermes enabled template app.
 
-  :::info
+   :::info
+   Script will install template app at `/tmp/RNTestProject`.
+   :::
 
-  Note: Script will install template app at `/tmp/RNTestProject`.
-
-  :::
 - Enable Hermes for Android template app, clean, build and go through [Test Checklist](#test-checklist).
-  
+
   ```bash
   # Update `/tmp/RNTestProject/android/app/build.gradle` to `enableHermes`
   project.ext.react = [

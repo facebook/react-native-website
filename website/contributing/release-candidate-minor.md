@@ -11,7 +11,7 @@ This document goes over steps to run different types of React Native release upd
 - Write access to [hermes](https://github.com/facebook/hermes) repository.
 - Your CircleCI personal API token. See [here](https://circleci.com/docs/2.0/managing-api-tokens/#creating-a-personal-api-token) on how to set one.
 
-### 1. Creating a new release branch 
+### 1. Creating a new release branch
 
 - Create the release branch in `react-native` repo with the appropriate name (usually `0.X-stable`).
 
@@ -20,7 +20,7 @@ This document goes over steps to run different types of React Native release upd
   git pull origin main
   git checkout -b 0.68-stable
   ```
-  
+
 - Head to the [Publish Tag](https://github.com/facebook/hermes/actions/workflows/create-tag.yml) workflow in the Hermes repo. Click the "Run Workflow" button and input the RN stable version you're using (e.g. 0.69.0). You need to have write access to the facebook/hermes repo to do so or ask a Meta employee to help you on this step.
 
 - Bump the Hermes version on the release branch using this command:
@@ -34,14 +34,14 @@ This document goes over steps to run different types of React Native release upd
 
 Before continuing further, follow the [testing](/contributing/release-testing) guide to ensure the release doesn't have any major issues.
 
-### 3. Kick off the build of 0.{minor}.0-rc.0 
+### 3. Kick off the build of 0.{minor}.0-rc.0
 
-  ```
-  git push origin 0.68-stable
+```
+git push origin 0.68-stable
 
-  # This will walk you through what version you are releasing
-  ./scripts/bump-oss-version.js -v 0.68.0-rc.0 -t <YOUR_CIRCLE_CI_TOKEN>
-  ```
+# This will walk you through what version you are releasing
+./scripts/bump-oss-version.js -v 0.68.0-rc.0 -t <YOUR_CIRCLE_CI_TOKEN>
+```
 
 - Once you have run that script, head to CircleCI and you should see under the releases workflow, a `prepare-package-for-release` job.
 
@@ -49,9 +49,9 @@ Before continuing further, follow the [testing](/contributing/release-testing) g
     <img width="400" alt="CircleCI showing publish release" src="https://user-images.githubusercontent.com/1309636/150040711-cfbc2fe3-91eb-42b9-bd06-de2aa7fb94ea.png"/>
     <figcaption>CircleCI showing publish release.</figcaption>
   </figure>
-  
+
 - This script runs and commits any changes and triggers a deploy job, `build_and_publish_npm_package`.
-- Note: Look under “All Branches” to find the publish job. CircleCI does not give a way to search for these jobs.
+- Note: Look under "All Branches" to find the publish job. CircleCI does not give a way to search for these jobs.
 - Once complete you should be able to run `npm view react-native` and verify `next` is expected release version.
 
   ```bash
@@ -78,7 +78,7 @@ npx @rnx-kit/rn-changelog-generator --base v0.66.4 --compare v0.67.0-rc.0 \
 
 ### 5. Create a GitHub Release
 
-- Create a [GitHub Release](https://github.com/facebook/react-native/releases) with this template and **check “Pre-Release” checkbox**.
+- Create a [GitHub Release](https://github.com/facebook/react-native/releases) with this template and **check "Pre-Release" checkbox**.
 
 ```markdown
 <!-- Template for pre-release GitHub release -->
@@ -128,7 +128,7 @@ The branch cut has happened.
 - [Current release candidate: 0.68.0-rc.0][current-release]
 - Have an issue with current release candidate? [File an issue][issue-form] and we will triage.
 - Have a pick request for this release? Does it fall under our [pick request qualifications][release-faq]? If so please create a PR against the release branch and comment with the PR link
-- If you are release testing, copy and fill a [test checklist](https://reactnative.dev/contributing/release-testing#test-checklist).
+- If you are release testing, copy and fill a [test checklist](/contributing/release-testing#test-checklist).
 
 #### Highlighted Changes in this release
 
@@ -168,12 +168,12 @@ The branch cut has happened.
 
 [changelog-pr]: https://github.com/facebook/react-native/labels/%F0%9F%93%9D%20Changelog
 [current-release]: https://github.com/facebook/react-native/releases
-[changelog-wiki]: https://github.com/facebook/react-native/wiki/Release-Changelog
+[changelog-wiki]: https://reactnative.dev/contributing/changelogs-in-pull-requests
 [release-dependencies]: https://reactnative.dev/contributing/release-dependencies
 [release-faq]: https://reactnative.dev/contributing/release-faq
 [issue-form]: https://github.com/facebook/react-native/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Cpre-release&template=release_blocker_form.yml
 [releases]: https://github.com/facebook/react-native/releases
-[release-processes]: https://reactnative.dev/contributing/how-to
+[release-processes]: https://reactnative.dev/contributing/overview
 [upgrade-helper]: https://reactnative.dev/contributing/updating-upgrade-helper
 ```
 

@@ -35,10 +35,10 @@ If you are looking for the source code of the [React Native Archive website](htt
 
 ## 📖 Overview
 
-If you would like to **_contribute an edit or addition to the docs,_** read through our [style guide](STYLEGUIDE.md) before you write anything. 
+If you would like to **_contribute an edit or addition to the docs,_** read through our [style guide](STYLEGUIDE.md) before you write anything.
 Almost all our content is generated from markdown files you can find in the `docs`, `website/architecure` and `website/contibuting` directories.
 
-**_To edit the internals of how the site is built,_** you may want to get familiarized with how the site is built. The React Native website is a static site generated using [Docusaurus](https://docusaurus.io/). 
+**_To edit the internals of how the site is built,_** you may want to get familiarized with how the site is built. The React Native website is a static site generated using [Docusaurus](https://docusaurus.io/).
 The website configuration can be found in the `website` directory. Visit the Docusaurus website to learn more about all the available configuration options.
 
 ### Directory Structure
@@ -96,9 +96,9 @@ react-native-website/
 
 ### Documentation sources
 
-As mentioned above, the `docs` folder contains the source files for docs from "Guides", "Components" and "APIs" tabs on the React Native website (versioned docs). 
-The doc files for the "Architecture" and "Contribution" tabs are located inside `website` in the respective directories (unversioned/static docs). 
-In most cases, you will only want to edit the files within those directories. 
+As mentioned above, the `docs` folder contains the source files for docs from "Guides", "Components" and "APIs" tabs on the React Native website (versioned docs).
+The doc files for the "Architecture" and "Contribution" tabs are located inside `website` in the respective directories (unversioned/static docs).
+In most cases, you will only want to edit the files within those directories.
 
 If you're adding a new doc or you need to alter the order the docs appear in the sidebar, take a look at the `sidebars.json`, `sidebarsArchitecture.json` and `sidebarsContributing.json` files in the `website` directory. The sidebar files contains a list of document ids that should match those defined in the header metadata (aka frontmatter) of the docs markdown files.
 
