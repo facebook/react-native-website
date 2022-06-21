@@ -4,7 +4,7 @@
 /docs/android-setup             /docs/getting-started
 /docs/building-for-apple-tv     /docs/building-for-tv
 /docs/building-from-source      /contributing/how-to-build-from-source
-/docs/contributing              /contributing/contributing-intro
+/docs/contributing              /contributing/overview
 /docs/publishing-forks          /contributing/how-to-build-from-source#publish-your-own-version-of-react-native
 /docs/testing                   /contributing/how-to-run-and-write-tests
 /docs/understanding-cli         https://github.com/react-native-community/cli#react-native-cli
