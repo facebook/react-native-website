@@ -15,13 +15,14 @@ First, ensure you're using at least version 0.60.4 of React Native.
 
 If you have an existing app based on an earlier version of React Native, you will have to upgrade it first. See [Upgrading to new React Native Versions](/docs/upgrading) for how to do this. After upgrading the app, make sure everything works before trying to switch to Hermes.
 
-> ## Note for RN compatibility.
->
-> Each Hermes release is aimed at a specific RN version. The rule of thumb is to always follow [Hermes releases](https://github.com/facebook/hermes/releases) strictly. Version mismatch can result in instant crash of your apps in the worst case scenario.
+:::caution Note for React Native compatibility
+Each Hermes release is aimed at a specific RN version. The rule of thumb is to always follow [Hermes releases](https://github.com/facebook/hermes/releases) strictly.
+Version mismatch can result in instant crash of your apps in the worst case scenario.
+:::
 
-> ## Note for Windows users.
->
-> Hermes requires [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/en-us/download/details.aspx?id=48145)
+:::info Note for Windows users
+Hermes requires [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/en-us/download/details.aspx?id=48145).
+:::
 
 ## Enabling Hermes
 
@@ -56,9 +57,9 @@ That's it! You should now be able to develop and deploy your app as usual:
 $ npx react-native run-android
 ```
 
-> ## Note about Android App Bundles
->
-> Android app bundles are supported from react-native 0.62.0 and up.
+:::note Note about Android App Bundles
+Android app bundles are supported from React Native 0.62 and up.
+:::
 
 ### iOS
 
@@ -104,7 +105,10 @@ A `HermesInternal` global variable will be available in JavaScript that can be u
 const isHermes = () => !!global.HermesInternal;
 ```
 
-> If you are using a non-standard way of loading the JS bundle, it is possible that the `HermesInternal` variable is available but you aren't using the highly optimised pre-compiled bytecode. Confirm that you are using the `.hbc` file and also benchmark the before/after as detailed below.
+:::caution
+If you are using a non-standard way of loading the JS bundle, it is possible that the `HermesInternal` variable is available but you aren't using the highly optimised pre-compiled bytecode.
+Confirm that you are using the `.hbc` file and also benchmark the before/after as detailed below.
+:::
 
 To see the benefits of Hermes, try making a release build/deployment of your app to compare. For example:
 
@@ -134,7 +138,9 @@ You can [read more about the technical implementation on this page](/architectur
 
 Hermes supports the Chrome debugger by implementing the Chrome inspector protocol. This means Chrome's tools can be used to directly debug JavaScript running on Hermes, on an emulator or on a real, physical, device.
 
-> Note that this is very different with the "Remote JS Debugging" from the In-App Developer Menu documented in the [Debugging](debugging#debugging-using-a-custom-javascript-debugger) section, which actually runs the JS code on Chrome's V8 on your development machine (laptop or desktop).
+:::info
+Note that this is very different with the "Remote JS Debugging" from the In-App Developer Menu documented in the [Debugging](debugging#debugging-using-a-custom-javascript-debugger) section, which actually runs the JS code on Chrome's V8 on your development machine (laptop or desktop).
+:::
 
 Chrome connects to Hermes running on device via Metro, so you'll need to know where Metro is listening. Typically this will be on `localhost:8081`, but this is [configurable](https://facebook.github.io/metro/docs/configuration). When running `yarn start` the address is written to stdout on startup.
 

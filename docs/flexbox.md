@@ -7,7 +7,10 @@ A component can specify the layout of its children using the Flexbox algorithm. 
 
 You will normally use a combination of `flexDirection`, `alignItems`, and `justifyContent` to achieve the right layout.
 
-> Flexbox works the same way in React Native as it does in CSS on the web, with a few exceptions. The defaults are different, with `flexDirection` defaulting to `column` instead of `row`, `alignContent` defaulting to `flex-start` instead of `stretch`, `flexShrink` defaulting to `0` instead of `1`, the `flex` parameter only supporting a single number.
+:::caution
+Flexbox works the same way in React Native as it does in CSS on the web, with a few exceptions.
+The defaults are different, with `flexDirection` defaulting to `column` instead of `row`, `alignContent` defaulting to `flex-start` instead of `stretch`, `flexShrink` defaulting to `0` instead of `1`, the `flex` parameter only supporting a single number.
+:::
 
 ## Flex
 
@@ -429,7 +432,9 @@ export default JustifyContentBasics;
 
 - `baseline` Align children of a container along a common baseline. Individual children can be set to be the reference baseline for their parents.
 
-> For `stretch` to have an effect, children must not have a fixed dimension along the secondary axis. In the following example, setting `alignItems: stretch` does nothing until the `width: 50` is removed from the children.
+:::info
+For `stretch` to have an effect, children must not have a fixed dimension along the secondary axis. In the following example, setting `alignItems: stretch` does nothing until the `width: 50` is removed from the children.
+:::
 
 You can learn more [here](https://yogalayout.com/docs/align-items).
 

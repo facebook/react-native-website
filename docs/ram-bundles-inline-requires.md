@@ -13,9 +13,7 @@ Before react-native can execute JS code, that code must be loaded into memory an
 
 Inline requires delay the requiring of a module or file until that file is actually needed. A basic example would look like this:
 
-### VeryExpensive.js
-
-```js
+```js title='VeryExpensive.js'
 import React, { Component } from 'react';
 import { Text } from 'react-native';
 // ... import some very expensive modules
@@ -31,9 +29,7 @@ export default class VeryExpensive extends Component {
 }
 ```
 
-### Optimized.js
-
-```js
+```js title='Optimized.js'
 import React, { Component } from 'react';
 import { TouchableOpacity, View, Text } from 'react-native';
 
@@ -96,7 +92,9 @@ project.ext.react = [
 ]
 ```
 
-> **_Note_**: If you are using [Hermes JS Engine](https://github.com/facebook/hermes), you **should not** have RAM bundles feature enabled. In Hermes, when loading the bytecode, `mmap` ensures that the entire file is not loaded. Using Hermes with RAM bundles might lead to issues, because those mechanisms are not compatible with each other.
+:::info
+If you are using [Hermes JS Engine](https://github.com/facebook/hermes), you **should not** have RAM bundles feature enabled. In Hermes, when loading the bytecode, `mmap` ensures that the entire file is not loaded. Using Hermes with RAM bundles might lead to issues, because those mechanisms are not compatible with each other.
+:::
 
 ## Configure Preloading and Inline Requires
 

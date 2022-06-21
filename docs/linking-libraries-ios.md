@@ -9,7 +9,10 @@ With that in mind we exposed many of these features as independent static librar
 
 For most of the libs it will be as quick as dragging two files, sometimes a third step will be necessary, but no more than that.
 
-_All the libraries we ship with React Native live in the `Libraries` folder in the root of the repository. Some of them are pure JavaScript, and you only need to `require` it. Other libraries also rely on some native code, in that case you'll have to add these files to your app, otherwise the app will throw an error as soon as you try to use the library._
+:::note
+All the libraries we ship with React Native live in the `Libraries` folder in the root of the repository. Some of them are pure JavaScript, and you only need to `require` it.
+Other libraries also rely on some native code, in that case you'll have to add these files to your app, otherwise the app will throw an error as soon as you try to use the library.
+:::
 
 ## Here are the few steps to link your libraries that contain native code
 
@@ -23,7 +26,9 @@ Install a library with native dependencies:
 npm install <library-with-native-dependencies> --save
 ```
 
-> **_Note:_** `--save` or `--save-dev` flag is very important for this step. React Native will link your libs based on `dependencies` and `devDependencies` in your `package.json` file.
+:::info
+`--save` or `--save-dev` flag is very important for this step. React Native will link your libs based on `dependencies` and `devDependencies` in your `package.json` file.
+:::
 
 #### Step 2
 
@@ -35,7 +40,10 @@ npx react-native link
 
 Done! All libraries with native dependencies should be successfully linked to your iOS/Android project.
 
-> **_Note:_** If your iOS project is using CocoaPods (contains `Podfile`) and linked library has `podspec` file, then `npx react-native link` will link library using Podfile. To support non-trivial Podfiles add `# Add new pods below this line` comment to places where you expect pods to be added.
+:::note
+If your iOS project is using CocoaPods (contains `Podfile`) and linked library has `podspec` file, then `npx react-native link` will link library using Podfile.
+To support non-trivial Podfiles add `# Add new pods below this line` comment to places where you expect pods to be added.
+:::
 
 ### Manual linking
 

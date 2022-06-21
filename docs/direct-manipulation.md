@@ -5,9 +5,14 @@ title: Direct Manipulation
 
 It is sometimes necessary to make changes directly to a component without using state/props to trigger a re-render of the entire subtree. When using React in the browser for example, you sometimes need to directly modify a DOM node, and the same is true for views in mobile apps. `setNativeProps` is the React Native equivalent to setting properties directly on a DOM node.
 
-> Use setNativeProps when frequent re-rendering creates a performance bottleneck
->
-> Direct manipulation will not be a tool that you reach for frequently; you will typically only be using it for creating continuous animations to avoid the overhead of rendering the component hierarchy and reconciling many views. `setNativeProps` is imperative and stores state in the native layer (DOM, UIView, etc.) and not within your React components, which makes your code more difficult to reason about. Before you use it, try to solve your problem with `setState` and [shouldComponentUpdate](https://reactjs.org/docs/optimizing-performance.html#shouldcomponentupdate-in-action).
+:::caution
+Use `setNativeProps` when frequent re-rendering creates a performance bottleneck!
+
+Direct manipulation will not be a tool that you reach for frequently. You will typically only be using it for creating continuous animations to avoid the overhead of rendering the component hierarchy and reconciling many views.
+`setNativeProps` is imperative and stores state in the native layer (DOM, UIView, etc.) and not within your React components, which makes your code more difficult to reason about.
+
+Before you use it, try to solve your problem with `setState` and [`shouldComponentUpdate`](https://reactjs.org/docs/optimizing-performance.html#shouldcomponentupdate-in-action).
+:::
 
 ## setNativeProps with TouchableOpacity
 
@@ -185,7 +190,9 @@ Determines the location of the given view in the window and returns the values v
 
 Like `measure()`, but measures the view relative to an ancestor, specified with `relativeToNativeComponentRef` reference. This means that the returned coordinates are relative to the origin `x`, `y` of the ancestor view.
 
-> Note: This method can also be called with a `relativeToNativeNode` handler (instead of reference), but this variant is deprecated.
+:::note
+This method can also be called with a `relativeToNativeNode` handler (instead of reference), but this variant is deprecated.
+:::
 
 ```SnackPlayer name=measureLayout%20example&supportedPlatforms=android,ios
 import React, { useEffect, useRef, useState } from "react";
