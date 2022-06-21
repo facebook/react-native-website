@@ -7,7 +7,9 @@ You can visualize JavaScript's performance in a React Native app using [Hermes](
 
 In this section, you will learn how to profile your React Native app running on Hermes and how to visualize the profile using [the Performance tab on Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/reference)
 
-> Be sure to [enable hermes in your app](hermes) before you get started!
+:::caution
+Be sure to [enable Hermes in your app](Hermes) before you get started!
+:::
 
 Follow the instructions below to get started profiling:
 
@@ -50,7 +52,9 @@ project.ext.react = [
 ]
 ```
 
-> Be sure to clean the build whenever you make any changes to `build.gradle`
+:::info
+Be sure to clean the build whenever you make any changes to `build.gradle`
+:::
 
 2. Clean the build by running:
 

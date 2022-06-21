@@ -19,8 +19,7 @@ To expose a view you can:
 - Add the `RCT_EXPORT_MODULE()` marker macro.
 - Implement the `-(UIView *)view` method.
 
-```objectivec
-// RNTMapManager.m
+```objectivec title='RNTMapManager.m'
 #import <MapKit/MapKit.h>
 
 #import <React/RCTViewManager.h>
@@ -40,22 +39,28 @@ RCT_EXPORT_MODULE(RNTMap)
 @end
 ```
 
-**Note:** Do not attempt to set the `frame` or `backgroundColor` properties on the `UIView` instance that you expose through the `-view` method. React Native will overwrite the values set by your custom class in order to match your JavaScript component's layout props. If you need this granularity of control it might be better to wrap the `UIView` instance you want to style in another `UIView` and return the wrapper `UIView` instead. See [Issue 2948](https://github.com/facebook/react-native/issues/2948) for more context.
+:::note
+Do not attempt to set the `frame` or `backgroundColor` properties on the `UIView` instance that you expose through the `-view` method.
+React Native will overwrite the values set by your custom class in order to match your JavaScript component's layout props.
+If you need this granularity of control it might be better to wrap the `UIView` instance you want to style in another `UIView` and return the wrapper `UIView` instead.
+See [Issue 2948](https://github.com/facebook/react-native/issues/2948) for more context.
+:::
 
-> In the example above, we prefixed our class name with `RNT`. Prefixes are used to avoid name collisions with other frameworks. Apple frameworks use two-letter prefixes, and React Native uses `RCT` as a prefix. In order to avoid name collisions, we recommend using a three-letter prefix other than `RCT` in your own classes.
+:::info
+In the example above, we prefixed our class name with `RNT`. Prefixes are used to avoid name collisions with other frameworks.
+Apple frameworks use two-letter prefixes, and React Native uses `RCT` as a prefix. In order to avoid name collisions, we recommend using a three-letter prefix other than `RCT` in your own classes.
+:::
 
 Then you need a little bit of JavaScript to make this a usable React component:
 
-```jsx
-// MapView.js
-
+```jsx title='MapView.js'
 import { requireNativeComponent } from 'react-native';
 
 // requireNativeComponent automatically resolves 'RNTMap' to 'RNTMapManager'
 module.exports = requireNativeComponent('RNTMap');
+```
 
-// MyApp.js
-
+```jsx title='MyApp.js'
 import MapView from './MapView.js';
 
 ...
@@ -67,7 +72,9 @@ render() {
 
 Make sure to use `RNTMap` here. We want to require the manager here, which will expose the view of our manager for use in JavaScript.
 
-**Note:** When rendering, don't forget to stretch the view, otherwise you'll be staring at a blank screen.
+:::note
+When rendering, don't forget to stretch the view, otherwise you'll be staring at a blank screen.
+:::
 
 ```jsx
   render() {
@@ -81,8 +88,7 @@ This is now a fully-functioning native map view component in JavaScript, complet
 
 The first thing we can do to make this component more usable is to bridge over some native properties. Let's say we want to be able to disable zooming and specify the visible region. Disabling zoom is a boolean, so we add this one line:
 
-```objectivec
-// RNTMapManager.m
+```objectivec title='RNTMapManager.m'
 RCT_EXPORT_VIEW_PROPERTY(zoomEnabled, BOOL)
 ```
 
@@ -90,15 +96,13 @@ Note that we explicitly specify the type as `BOOL` - React Native uses `RCTConve
 
 Now to actually disable zooming, we set the property in JS:
 
-```jsx
-// MyApp.js
+```jsx title='MyApp.js'
 <MapView zoomEnabled={false} style={{ flex: 1 }} />
 ```
 
 To document the properties (and which values they accept) of our MapView component we'll add a wrapper component and document the interface with React `PropTypes`:
 
-```jsx
-// MapView.js
+```jsx title='MapView.js'
 import PropTypes from 'prop-types';
 import React from 'react';
 import { requireNativeComponent } from 'react-native';
@@ -126,8 +130,7 @@ Now we have a nicely documented wrapper component to work with.
 
 Next, let's add the more complex `region` prop. We start by adding the native code:
 
-```objectivec
-// RNTMapManager.m
+```objectivec title='RNTMapManager.m'
 RCT_CUSTOM_VIEW_PROPERTY(region, MKCoordinateRegion, MKMapView)
 {
   [view setRegion:json ? [RCTConvert MKCoordinateRegion:json] : defaultView.region animated:YES];
@@ -138,13 +141,11 @@ Ok, this is more complicated than the `BOOL` case we had before. Now we have a `
 
 You could write any conversion function you want for your view - here is the implementation for `MKCoordinateRegion` via a category on `RCTConvert`. It uses an already existing category of ReactNative `RCTConvert+CoreLocation`:
 
-```objectivec
-// RNTMapManager.m
-
+```objectivec title='RNTMapManager.m'
 #import "RCTConvert+Mapkit.h"
+```
 
-// RCTConvert+Mapkit.h
-
+```objectivec title='RCTConvert+Mapkit.h'
 #import <MapKit/MapKit.h>
 #import <React/RCTConvert.h>
 #import <CoreLocation/CoreLocation.h>
@@ -183,9 +184,7 @@ These conversion functions are designed to safely process any JSON that the JS m
 
 To finish up support for the `region` prop, we need to document it in `propTypes`:
 
-```jsx
-// MapView.js
-
+```jsx title='MapView.js'
 MapView.propTypes = {
   /**
    * A Boolean value that determines whether the user may use pinch
@@ -211,12 +210,12 @@ MapView.propTypes = {
      * to be displayed.
      */
     latitudeDelta: PropTypes.number.isRequired,
-    longitudeDelta: PropTypes.number.isRequired,
-  }),
+    longitudeDelta: PropTypes.number.isRequired
+  })
 };
+```
 
-// MyApp.js
-
+```jsx title='MyApp.js'
 render() {
   var region = {
     latitude: 37.48,
@@ -242,9 +241,7 @@ So now we have a native map component that we can control freely from JS, but ho
 
 Until now we've only returned a `MKMapView` instance from our manager's `-(UIView *)view` method. We can't add new properties to `MKMapView` so we have to create a new subclass from `MKMapView` which we use for our View. We can then add a `onRegionChange` callback on this subclass:
 
-```objectivec
-// RNTMapView.h
-
+```objectivec title='RNTMapView.h'
 #import <MapKit/MapKit.h>
 
 #import <React/RCTComponent.h>
@@ -254,9 +251,9 @@ Until now we've only returned a `MKMapView` instance from our manager's `-(UIVie
 @property (nonatomic, copy) RCTBubblingEventBlock onRegionChange;
 
 @end
+```
 
-// RNTMapView.m
-
+```objectivec title='RNTMapView.m'
 #import "RNTMapView.h"
 
 @implementation RNTMapView
@@ -266,9 +263,7 @@ Until now we've only returned a `MKMapView` instance from our manager's `-(UIVie
 
 Note that all `RCTBubblingEventBlock` must be prefixed with `on`. Next, declare an event handler property on `RNTMapManager`, make it a delegate for all the views it exposes, and forward events to JS by calling the event handler block from the native view.
 
-```objectivec {9,17,31-48}
-// RNTMapManager.m
-
+```objectivec {9,17,31-48} title='RNTMapManager.m'
 #import <MapKit/MapKit.h>
 #import <React/RCTViewManager.h>
 
@@ -320,9 +315,7 @@ RCT_CUSTOM_VIEW_PROPERTY(region, MKCoordinateRegion, MKMapView)
 
 In the delegate method `-mapView:regionDidChangeAnimated:` the event handler block is called on the corresponding view with the region data. Calling the `onRegionChange` event handler block results in calling the same callback prop in JavaScript. This callback is invoked with the raw event, which we typically process in the wrapper component to simplify the API:
 
-```jsx
-// MapView.js
-
+```jsx title='MapView.js'
 class MapView extends React.Component {
   _onRegionChange = (event) => {
     if (!this.props.onRegionChange) {
@@ -348,9 +341,9 @@ MapView.propTypes = {
   onRegionChange: PropTypes.func,
   ...
 };
+```
 
-// MyApp.js
-
+```jsx title='MyApp.js'
 class MyApp extends React.Component {
   onRegionChange(event) {
     // Do stuff with event.region.latitude, etc.
@@ -404,9 +397,7 @@ When the user interacts with the component, like clicking the button, the `backg
 
 Now the above component has a reference to a particular `MyNativeView` which allows us to use a specific instance of `MyNativeView`. Now the button can control which `MyNativeView` should change its `backgroundColor`. In this example let's assume that `callNativeMethod` changes `backgroundColor`.
 
-`MyNativeView.ios.js` contains code as follow:
-
-```jsx
+```jsx title='MyNativeView.ios.js'
 class MyNativeView extends React.Component {
   callNativeMethod = () => {
     UIManager.dispatchViewManagerCommand(
@@ -429,9 +420,7 @@ class MyNativeView extends React.Component {
 - `commandID:(NSInteger)commandID`  -  Id of the native method that should be called
 - `commandArgs:(NSArray<id> \*)commandArgs`  -  Args of the native method that we can pass from JS to native.
 
-`RNCMyNativeViewManager.m`
-
-```objectivec
+```objectivec title='RNCMyNativeViewManager.m'
 #import <React/RCTViewManager.h>
 #import <React/RCTUIManager.h>
 #import <React/RCTLog.h>
@@ -455,9 +444,7 @@ Here the `callNativeMethod` is defined in the `RNCMyNativeViewManager.m` file an
 
 Since all our native react views are subclasses of `UIView`, most style attributes will work like you would expect out of the box. Some components will want a default style, however, for example `UIDatePicker` which is a fixed size. This default style is important for the layout algorithm to work as expected, but we also want to be able to override the default style when using the component. `DatePickerIOS` does this by wrapping the native component in an extra view, which has flexible styling, and using a fixed style (which is generated with constants passed in from native) on the inner native component:
 
-```jsx
-// DatePickerIOS.ios.js
-
+```jsx title='DatePickerIOS.ios.js'
 import { UIManager } from 'react-native';
 var RCTDatePickerIOSConsts = UIManager.RCTDatePicker.Constants;
 ...
@@ -484,9 +471,7 @@ var styles = StyleSheet.create({
 
 The `RCTDatePickerIOSConsts` constants are exported from native by grabbing the actual frame of the native component like so:
 
-```objectivec
-// RCTDatePickerManager.m
-
+```objectivec title='RCTDatePickerManager.m'
 - (NSDictionary *)constantsToExport
 {
   UIDatePicker *dp = [[UIDatePicker alloc] init];

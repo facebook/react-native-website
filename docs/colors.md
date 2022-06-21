@@ -41,13 +41,17 @@ React Native supports also colors as an `int` values (in RGB color mode):
 
 - `0xff00ff00` (0xrrggbbaa)
 
-> **_Note:_** This might appear similar to the Android [Color](https://developer.android.com/reference/android/graphics/Color) ints representation but on Android values are stored in SRGB color mode (0xaarrggbb).
+:::caution
+This might appear similar to the Android [Color](https://developer.android.com/reference/android/graphics/Color) ints representation but on Android values are stored in SRGB color mode (0xaarrggbb).
+:::
 
 ### Named colors
 
 In React Native you can also use color name strings as values.
 
-> **_Note:_** React Native only supports lowercase color names. Uppercase color names are not supported.
+:::info
+React Native only supports lowercase color names. Uppercase color names are not supported.
+:::
 
 #### `transparent`
 
