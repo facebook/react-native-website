@@ -37,6 +37,7 @@
   --ifm-pagination-nav-color-hover: var(--ifm-color-emphasis-300);
   --ifm-table-border-width: 0.005rem;
   --ifm-navbar-sidebar-width: 100%;
+  --ifm-hr-border-color: var(--docusaurus-collapse-button-bg-hover);
 
   @media (min-width: 340px) {
     --ifm-navbar-sidebar-width: 340px;
@@ -53,7 +54,6 @@ html[data-theme="dark"] {
   --ifm-code-background: rgba(255, 255, 255, 0.06);
   --ifm-toc-border-color: var(--dark);
   --ifm-color-emphasis-300: var(--dark);
-  --ifm-hr-border-color: var(--dark);
 
   *[class^="DocSearch"] {
     --docsearch-searchbox-background: var(--ifm-background-color);
