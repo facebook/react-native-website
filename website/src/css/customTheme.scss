@@ -37,6 +37,7 @@
   --ifm-pagination-nav-color-hover: var(--ifm-color-emphasis-300);
   --ifm-table-border-width: 0.005rem;
   --ifm-navbar-sidebar-width: 100%;
+  --ifm-hr-border-color: var(--docusaurus-collapse-button-bg-hover);
 
   @media (min-width: 340px) {
     --ifm-navbar-sidebar-width: 340px;
@@ -53,7 +54,6 @@ html[data-theme="dark"] {
   --ifm-code-background: rgba(255, 255, 255, 0.06);
   --ifm-toc-border-color: var(--dark);
   --ifm-color-emphasis-300: var(--dark);
-  --ifm-hr-border-color: var(--dark);
 
   *[class^="DocSearch"] {
     --docsearch-searchbox-background: var(--ifm-background-color);
@@ -294,11 +294,20 @@ hr {
 
   div[class*="codeBlockContainer"] {
     box-shadow: none;
-    margin-bottom: 1rem;
+    border-radius: 8px;
+
+    pre {
+      border-radius: 8px;
+    }
+
+    button {
+      border-color: var(--light);
+      background: var(--deepdark);
+    }
   }
 
   div[class*="codeBlockContent"] {
-    display: inline-grid;
+    display: grid;
     min-width: 100%;
   }
 
@@ -307,12 +316,8 @@ hr {
   }
 
   div[class*="codeBlockTitle"] {
-    color: var(--subtle) !important;
-    background-color: var(--ifm-table-border-color) !important;
-  }
-
-  button[class^="copyButton"] {
-    font-size: 13px;
+    color: var(--subtle);
+    background-color: var(--ifm-color-emphasis-300);
   }
 
   .prism-code {
@@ -362,6 +367,11 @@ html[data-theme="dark"] {
 
     .prism-code {
       @extend %scrollbar-style-dark;
+    }
+
+    div[class*="codeBlockTitle"] {
+      color: var(--docsearch-muted-color);
+      background-color: var(--deepdark);
     }
   }
 }
@@ -770,6 +780,10 @@ aside[class^="theme-doc-sidebar-container"] {
     @extend %scrollbar-style;
   }
 
+  .menu__list .menu__list {
+    margin-top: 0;
+  }
+
   .menu__list .menu__link--sublist,
   a[class*="menu__link--sublist-caret"] {
     font-size: 16px !important;
@@ -802,8 +816,12 @@ aside[class^="theme-doc-sidebar-container"] {
     justify-content: space-between;
   }
 
-  .theme-doc-sidebar-item-category .menu__list .menu__list-item-collapsible {
-    margin-top: 6px;
+  .theme-doc-sidebar-item-category {
+    margin-bottom: 6px;
+
+    .menu__list .menu__list-item-collapsible {
+      margin-top: 6px;
+    }
   }
 
   .menu__list-item-collapsible:hover {
