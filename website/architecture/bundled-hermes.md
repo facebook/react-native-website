@@ -81,11 +81,13 @@ You can find instructions to optimize your build time and reduce the impact on y
 
 Users building React Native App, with the New Architecture, on Windows machines need to follow those extra steps to let the build work correctly:
 
-- Make sure the [environment is configured properly](https://reactnative.dev/docs/environment-setup), with Android SDK & node.
-- Install [cmake](https://community.chocolatey.org/packages/cmake) with Chocolatey
-- Install [Visual Studio 22 Community edition](https://visualstudio.microsoft.com/vs/community/) - Picking only the C++ desktop development is sufficient.
-- Make sure the [Visual Studio Command Prompt](https://docs.microsoft.com/en-us/visualstudio/ide/reference/command-prompt-powershell?view=vs-2022) is configured correctly. This is required as the proper C++ compiler environment variable is configured in those command prompt.
-- Run the app with `npx react-native run-android` inside a Visual Studio Command Prompt.
+* Make sure the [environment is configured properly](https://reactnative.dev/docs/environment-setup), with Android SDK & node.
+* Install [cmake](https://community.chocolatey.org/packages/cmake) with Chocolatey
+* Install either:
+  * [Build Tools for Visual Studio 2022](https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2022).
+  * [Visual Studio 22 Community Edition](https://visualstudio.microsoft.com/vs/community/) - Picking only the C++ desktop development is sufficient.
+* Make sure the [Visual Studio Command Prompt](https://docs.microsoft.com/en-us/visualstudio/ide/reference/command-prompt-powershell?view=vs-2022) is configured correctly. This is required as the proper C++ compiler environment variable is configured in those command prompt.
+* Run the app with `npx react-native run-android` inside a Visual Studio Command Prompt.
 
 ### Can users still use another engine?
 
