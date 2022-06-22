@@ -20,7 +20,7 @@ The upgrade helper webapp relies on [rn-diff-purge](https://github.com/react-nat
 
 ### For release versions >= 0.68
 
-- The GitHub action will be triggered by the [CircleCI job that pushes the release link](https://github.com/facebook/react-native/blob/main/.circleci/config.yml#L822).
+- The GitHub action will be triggered by the [CircleCI job that pushes the release link](https://github.com/facebook/react-native/blob/97291bfa3157ac171a2754e19a52d006040961fb/.circleci/config.yml#L1213-L1219).
 
 ### For release versions < 0.68
 
