@@ -146,11 +146,11 @@ const App = () => {
 
   const toggleBox = () => {
     LayoutAnimation.configureNext({ 
-        duration: 700, 
-        create: { type: 'linear', property: 'opacity' }, 
-        update: { type: 'spring', springDamping: 0.4 }, 
-        delete: { type: 'linear', property: 'opacity' } 
-     });
+      duration: 700, 
+      create: { type: "linear", property: "opacity" }, 
+      update: { type: "spring", springDamping: 0.4 }, 
+      delete: { type: "linear", property: "opacity" } 
+    });
     setBoxPosition(boxPosition === "left" ? "right" : "left");
   };
 
