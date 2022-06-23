@@ -146,7 +146,7 @@ const App = () => {
 
   const toggleBox = () => {
     LayoutAnimation.configureNext({ 
-      duration: 700, 
+      duration: 500, 
       create: { type: "linear", property: "opacity" }, 
       update: { type: "spring", springDamping: 0.4 }, 
       delete: { type: "linear", property: "opacity" } 
@@ -220,7 +220,7 @@ class App extends Component {
 
   toggleBox = () => {
     LayoutAnimation.configureNext({ 
-      duration: 700, 
+      duration: 500, 
       create: { type: "linear", property: "opacity" }, 
       update: { type: "spring", springDamping: 0.4 }, 
       delete: { type: "linear", property: "opacity" } 
