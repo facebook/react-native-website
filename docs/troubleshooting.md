@@ -108,11 +108,13 @@ When you're debugging a process or need to know a little more about the error be
 Run the following command to your root directory.
 
 For android
+
 ```shell
 npx react-native run-android --verbose
 ```
 
 For iOS
+
 ```shell
 npx react-native run-ios --verbose
 ```
