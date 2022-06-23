@@ -223,8 +223,8 @@ class App extends Component {
       LayoutAnimation.create(
         500,
         LayoutAnimation.Types.spring,
-        LayoutAnimation.Properties.scaleXY,
-      ),
+        LayoutAnimation.Properties.scaleXY
+      )
     );
     this.setState({
       boxPosition: this.state.boxPosition === "left" ? "right" : "left",
