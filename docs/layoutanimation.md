@@ -227,7 +227,7 @@ class App extends Component {
       ),
     );
     this.setState({
-      boxPosition: this.state.boxPosition === 'left' ? 'right' : 'left',
+      boxPosition: this.state.boxPosition === "left" ? "right" : "left",
     });
   };
 
