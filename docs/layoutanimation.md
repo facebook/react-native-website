@@ -219,12 +219,12 @@ class App extends Component {
   };
 
   toggleBox = () => {
-     LayoutAnimation.configureNext({ 
-        duration: 700, 
-        create: { type: 'linear', property: 'opacity' }, 
-        update: { type: 'spring', springDamping: 0.4 }, 
-        delete: { type: 'linear', property: 'opacity' } 
-     });
+    LayoutAnimation.configureNext({ 
+      duration: 700, 
+      create: { type: "linear", property: "opacity" }, 
+      update: { type: "spring", springDamping: 0.4 }, 
+      delete: { type: "linear", property: "opacity" } 
+    });
     this.setState({
       boxPosition: this.state.boxPosition === "left" ? "right" : "left"
     });
