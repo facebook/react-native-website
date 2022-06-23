@@ -145,11 +145,11 @@ const App = () => {
   const [boxPosition, setBoxPosition] = useState("left");
 
   const toggleBox = () => {
-    LayoutAnimation.configureNext({ 
-      duration: 500, 
-      create: { type: "linear", property: "opacity" }, 
-      update: { type: "spring", springDamping: 0.4 }, 
-      delete: { type: "linear", property: "opacity" } 
+    LayoutAnimation.configureNext({
+      duration: 500,
+      create: { type: "linear", property: "opacity" },
+      update: { type: "spring", springDamping: 0.4 },
+      delete: { type: "linear", property: "opacity" }
     });
     setBoxPosition(boxPosition === "left" ? "right" : "left");
   };
@@ -219,11 +219,11 @@ class App extends Component {
   };
 
   toggleBox = () => {
-    LayoutAnimation.configureNext({ 
-      duration: 500, 
-      create: { type: "linear", property: "opacity" }, 
-      update: { type: "spring", springDamping: 0.4 }, 
-      delete: { type: "linear", property: "opacity" } 
+    LayoutAnimation.configureNext({
+      duration: 500,
+      create: { type: "linear", property: "opacity" },
+      update: { type: "spring", springDamping: 0.4 },
+      delete: { type: "linear", property: "opacity" }
     });
     this.setState({
       boxPosition: this.state.boxPosition === "left" ? "right" : "left"
