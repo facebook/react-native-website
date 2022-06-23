@@ -43,6 +43,10 @@ emulator-5554 offline   # Google emulator
 
 Seeing `device` in the right column means the device is connected. You must have **only one device connected** at a time.
 
+:::note
+If you see `unauthorized` in the list you will need to run `adb reverse tcp:8081 tcp:8081` and press allow USB debugging on the device.
+:::
+
 ### 3. Run your app
 
 Type the following in your command prompt to install and launch your app on the device:
