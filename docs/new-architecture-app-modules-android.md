@@ -190,7 +190,7 @@ Then, you can provide the class you created to your `ReactNativeHost`. You can l
 Once you located it, you need to add the `getReactPackageTurboModuleManagerDelegateBuilder` method as from the snippet below:
 
 ```java
-public class MyApplication extends Application implements ReactApplication {
+public class MainApplication extends Application implements ReactApplication {
 
     private final ReactNativeHost mReactNativeHost =
         new ReactNativeHost(this) {
@@ -217,7 +217,7 @@ public class MyApplication extends Application implements ReactApplication {
 Still on the `ReactNativeHost` , we need to extend the the `getPackages()` method to include the newly created TurboModule. Update the method to include the following:
 
 ```java
-public class MyApplication extends Application implements ReactApplication {
+public class MainApplication extends Application implements ReactApplication {
 
     private final ReactNativeHost mReactNativeHost =
         new ReactNativeHost(this) {
