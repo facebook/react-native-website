@@ -214,29 +214,32 @@ module.exports = {
         style: 'dark',
         items: [
           {
-            label: 'Guides',
-            type: 'doc',
-            docId: 'getting-started',
+            label: 'Developer',
+            type: 'dropdown',
             position: 'right',
-          },
-          {
-            label: 'Components',
-            type: 'doc',
-            docId: 'components-and-apis',
-            position: 'right',
-          },
-          {
-            label: 'API',
-            type: 'doc',
-            docId: 'accessibilityinfo',
-            position: 'right',
-          },
-          {
-            label: 'Architecture',
-            type: 'doc',
-            docId: 'architecture-overview',
-            position: 'right',
-            docsPluginId: 'architecture',
+            items: [
+              {
+                label: 'Guides',
+                type: 'doc',
+                docId: 'getting-started',
+              },
+              {
+                label: 'Components',
+                type: 'doc',
+                docId: 'components-and-apis',
+              },
+              {
+                label: 'API',
+                type: 'doc',
+                docId: 'accessibilityinfo',
+              },
+              {
+                label: 'Architecture',
+                type: 'doc',
+                docId: 'architecture-overview',
+                docsPluginId: 'architecture',
+              },
+            ],
           },
           {
             type: 'doc',
@@ -244,6 +247,11 @@ module.exports = {
             label: 'Contributing',
             position: 'right',
             docsPluginId: 'contributing',
+          },
+          {
+            to: '/showcase',
+            label: 'Showcase',
+            position: 'right',
           },
           {
             to: '/blog',
