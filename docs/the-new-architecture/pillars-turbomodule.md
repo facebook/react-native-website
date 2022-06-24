@@ -5,7 +5,7 @@ title: TurboModules
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
-If you've worked with React Native, you may be familiar with the concept of Native Modules, which allow JavaScript and platform-native code to communicate over the React Native "bridge", which handles cross-platform serialization via JSON.
+If you've worked with React Native, you may be familiar with the concept of [Native Modules](../native-modules-intro.md), which allow JavaScript and platform-native code to communicate over the React Native "bridge", which handles cross-platform serialization via JSON.
 
 TurboModules are the next iteration on Native Modules that provide a few extra [benefits](./why):
 
