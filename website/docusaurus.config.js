@@ -214,19 +214,15 @@ module.exports = {
         style: 'dark',
         items: [
           {
-            label: 'Developer',
+            label: 'Development',
             type: 'dropdown',
             position: 'right',
             items: [
               {
-                label: 'Guides',
+                label: 'Architecture',
                 type: 'doc',
-                docId: 'getting-started',
-              },
-              {
-                label: 'Components',
-                type: 'doc',
-                docId: 'components-and-apis',
+                docId: 'architecture-overview',
+                docsPluginId: 'architecture',
               },
               {
                 label: 'API',
@@ -234,10 +230,14 @@ module.exports = {
                 docId: 'accessibilityinfo',
               },
               {
-                label: 'Architecture',
+                label: 'Components',
                 type: 'doc',
-                docId: 'architecture-overview',
-                docsPluginId: 'architecture',
+                docId: 'components-and-apis',
+              },
+              {
+                label: 'Guides',
+                type: 'doc',
+                docId: 'getting-started',
               },
             ],
           },
