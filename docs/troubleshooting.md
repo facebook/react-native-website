@@ -111,7 +111,9 @@ Run the following command to your root directory.
 ```shell
 npx react-native run-android --verbose && npx react-native run-ios --verbose
 ```
+
 :::note
+
 If you only need to run for Android, remove `&& npx react-native run-ios --verbose` and for iOS, remove `npx react-native run-android --verbose &&`.
 :::
 
