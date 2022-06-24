@@ -54,6 +54,15 @@
     "pinned": true
   },
   {
+    "name": "Microsoft Outlook",
+    "icon": "outlookmobile.png",
+    "linkAppStore": "https://apps.apple.com/us/app/microsoft-outlook/id951937596",
+    "linkPlayStore": "https://play.google.com/store/apps/details?id=com.microsoft.office.outlook",
+    "infoLink": "https://www.youtube.com/watch?v=r7yKet5dga4",
+    "infoTitle": "Unlocking the next generation of desktop app with React Native",
+    "pinned": true
+  },
+  {
     "name": "Coinbase",
     "icon": "coinbase.png",
     "linkAppStore": "https://apps.apple.com/us/app/coinbase-buy-sell-bitcoin/id886427730",
