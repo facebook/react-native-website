@@ -310,7 +310,7 @@ module.exports = {
                 to: 'help',
               },
               {
-                label: "Who's using React Native?",
+                label: 'Showcase',
                 to: 'showcase',
               },
               {
