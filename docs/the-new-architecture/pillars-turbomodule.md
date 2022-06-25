@@ -25,13 +25,13 @@ To migrate to the **New Architecture**, follow the [Migration guide](../new-arch
 
 To create a TurboModule, we need to:
 
-1. Define a set of JavaScript specifications.
-2. Configure the module and inspect the code created by Codegen.
+1. Define the JavaScript specification.
+2. Configure the module so that CodeGen can generate the scaffolding.
 3. Write the native code to finish implementing the module.
 
 ## 1. Folder Setup
 
-In order to keep the module decoupled from the app, it's a good idea to define the module separately from the app, and then add it as a dependency to your app later.
+In order to keep the module decoupled from the app, it's a good idea to define the module separately from the app, and then add it as a dependency to your app later. This is also what you'll do for writing TurboModules that can be released as open-source libraries later.
 
 Next to your application, create a folder called `RTNCalculator`. (**RTN** stands for "**R**eact**T** **N**ative", and is a standard prefix for React Native modules).
 
@@ -164,16 +164,16 @@ The shared configuration is a `package.json` file that will be used by yarn when
 
 ### iOS: Create the `podspec` file
 
-For iOS, you'll need to create a `.podspec` file which will define the module as a dependency for your app. It will stay in the root of `RTNCalculator`, alongside the `ios` folder.
+For iOS, you'll need to create a `rtn-calculator.podspec` file which will define the module as a dependency for your app. It will stay in the root of `RTNCalculator`, alongside the `ios` folder.
 
-The `.podspec` file for the module will look like this:
+The file will look like this:
 
 ```ruby title="rnt-calculator.podspec"
 require "json"
 
 package = JSON.parse(File.read(File.join(__dir__, "package.json")))
 
-folly_version = '2021.06.28.00-v2'
+folly_version = '2021.07.22.00'
 folly_compiler_flags = '-DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1 -Wno-comma -Wno-shorten-64-to-32'
 
 Pod::Spec.new do |s|
@@ -233,12 +233,6 @@ apply plugin: 'com.facebook.react'
 
 android {
   compileSdkVersion safeExtGet('compileSdkVersion', 31)
-
-  defaultConfig {
-    minSdkVersion safeExtGet('minSdkVersion', 21)
-    targetSdkVersion safeExtGet('targetSdkVersion', 31)
-    buildConfigField("boolean", "IS_NEW_ARCHITECTURE_ENABLED", "true")
-  }
 }
 
 repositories {
@@ -263,7 +257,6 @@ react {
 
 Of interest in the `build.gradle` file:
 
-- The `defaultConfig` block, within the `android` block, adds a `buildConfigField` to enable the New Architecture.
 - The `react` block configures the CodeGen process. For Android, we need to specify:
   - the `jsRootDir`, which contains the relative path to the JavaScript specs
   - the `libraryName` we will use to link the library in the app.
@@ -276,7 +269,7 @@ For the final step in getting your TurboModule ready to go, you'll need to write
 - Run **CodeGen** to see what it generates.
 - Write your native code, implementing the generated interfaces.
 
-When developing a React Native app that uses a TurboMOdule, it is responsibility of the app to actually generate the code using **CodeGen**. However, when developing a TurboModule as a library, we need to reference the generated code, and it is therefore useful to see what the app will generate.
+When developing a React Native app that uses a TurboModule, it is responsibility of the app to actually generate the code using **CodeGen**. However, when developing a TurboModule as a library, we need to reference the generated code, and it is therefore useful to see what the app will generate.
 
 As first step for both iOS and Android, this guide shows how to execute manually the scripts used by **CodeGen** to generate the required code. Further information on **CodeGen** can be found [here](/docs/pillars-codegen.md)
 
@@ -301,7 +294,7 @@ node MyApp/node_modules/react-native/scripts/generate-artifacts.js \
 
 This script first adds the `RTNCalculator` module to the app with `yarn add`. Then, it invokes Codegen via the `generate-artifacts.js` script.
 
-The `--path` option specifies the path to the app, while the `--outputPath` option tells the script where to output the generated code.
+The `--path` option specifies the path to the app, while the `--outputPath` option tells CodeGen where to output the generated code.
 
 The output of this process is the following folder structure:
 
@@ -348,9 +341,13 @@ Now add the Native code for your TurboModule. Create two files in the `RTNCalcul
 ```objc title="RTNCalculator.h"
 #import <React/RCTBridgeModule.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface RTNCalculator : NSObject <RCTBridgeModule>
 
 @end
+
+NS_ASSUME_NONNULL_END
 ```
 
 This file defines the interface for the `RTNCalculator` module. Here, we can add any native method we may want to invoke on the view. For this guide, we don't need anything, therefore the interface is empty.
@@ -494,6 +491,8 @@ import java.util.HashMap;
 
 public class CalculatorModule extends NativeCalculatorSpec {
 
+    public static String NAME = "RTNCalculator";
+
     CalculatorModule(ReactApplicationContext context) {
         super(context);
     }
@@ -501,7 +500,7 @@ public class CalculatorModule extends NativeCalculatorSpec {
     @Override
     @NonNull
     public String getName() {
-        return "RTNCalculator";
+        return NAME;
     }
 
     @Override
@@ -537,7 +536,7 @@ public class CalculatorPackage extends TurboReactPackage {
   @Nullable
   @Override
   public NativeModule getModule(String name, ReactApplicationContext reactContext) {
-      if (name.equals("RTNCalculator")) {
+      if (name.equals(CalculatorModule.NAME)) {
           return new CalculatorModule(reactContext);
       } else {
           return null;
@@ -550,10 +549,10 @@ public class CalculatorPackage extends TurboReactPackage {
       return () -> {
           final Map<String, ReactModuleInfo> moduleInfos = new HashMap<>();
           moduleInfos.put(
-                  "RTNCalculator",
+                  CalculatorModule.NAME,
                   new ReactModuleInfo(
-                          "RTNCalculator",
-                          "RTNCalculator",
+                          CalculatorModule.NAME,
+                          CalculatorModule.NAME,
                           false, // canOverrideExistingModule
                           false, // needsEagerInit
                           true, // hasConstants
@@ -569,7 +568,7 @@ public class CalculatorPackage extends TurboReactPackage {
 
 This is the last piece of Native Code for Android. It defines the Package object that will be used by the app to load the module.
 
-## 5. Adding the Fabric Component To Your App
+## 5. Adding the TurboModule to your App
 
 Now you can install and use the TurboModule in your app.
 
@@ -678,18 +677,18 @@ import {SafeAreaView, StatusBar, Text, Button} from 'react-native';
 import RTNCalculator from 'rtn-calculator/js/NativeCalculator.js';
 
 const App: () => Node = () => {
-  const [currentResult, setResult] = useState<number | null>(null);
+  const [result, setResult] = useState<number | null>(null);
   return (
     <SafeAreaView>
       <StatusBar barStyle={'dark-content'} />
       <Text style={{marginLeft: 20, marginTop: 20}}>
-        3+7={currentResult ?? '??'}
+        3+7={result ?? '??'}
       </Text>
       <Button
         title="Compute"
         onPress={async () => {
-          const result = await RTNCalculator.add(3, 7);
-          setResult(result);
+          const value = await RTNCalculator.add(3, 7);
+          setResult(value);
         }}
       />
     </SafeAreaView>
