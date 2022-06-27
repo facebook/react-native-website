@@ -101,7 +101,7 @@ yarn android
 ```
 
 :::note
-You may notice longer build times with the New Architecture, due to additional step of C++ compilation with the Android NDK. To improve your build time, see [Speeding Up Your Build Phase](docs/build-speed.md).
+You may notice longer build times with the New Architecture, due to additional step of C++ compilation with the Android NDK. To improve your build time, see [Speeding Up Your Build Phase](../build-speed.md).
 :::
 
 </TabItem>
