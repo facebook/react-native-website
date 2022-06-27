@@ -13,9 +13,7 @@ title: Release Stable Minor
 
 ```bash
 # In your react-native checkout, on the release branch of the version
-./scripts/bump-oss-version.js
-> What version are you releasing?
-# Your version
+./scripts/bump-oss-version.js -v x.y.z -t <YOUR_CIRCLE_CI_TOKEN>
 > Do you want this to be latest?
 # Generally yes. This updates npm registry to point to this version as "latest"
 ```
@@ -29,19 +27,31 @@ title: Release Stable Minor
 
 0.66 stable is out!
 
-This release includes **621 commits** with **92 contributors**! Thank you to all our contributors new and old! You can find the [full changelog here](https://github.com/react-native-community/releases/blob/main/CHANGELOG.md#v0660).
+This release includes **621 commits** with **92 contributors**! Thank you to all our contributors new and old! See the highlights of the release in our [release blog post](https://reactnative.dev/blog/2021/10/01/version-066).
 
-- See the highlights of the release in our [release blog post](https://reactnative.dev/blog/2021/10/01/version-066).
-- You can participate in the conversation on the status of this release at [this issue](https://github.com/react-native-community/releases/issues/254).
-- You can upgrade to this version using the [upgrade helper webtool](https://react-native-community.github.io/upgrade-helper/) ⚛️
+---
+
+You can participate in the conversation on the status of this release in this [discussion](https://github.com/reactwg/react-native-releases/discussions/23)
+
+---
+
+To help you upgrade to this version, you can use the [upgrade helper](https://react-native-community.github.io/upgrade-helper/) ⚛️
+
+---
+
+You can find the whole changelog history in the [changelog.md file](https://github.com/facebook/react-native/blob/main/CHANGELOG.md).
 ```
 
-### 3. Create a new patch post for your new version
+### 3. Upload prebuilt Hermes binary
+
+In the `publish_release` CI workflow, the `build_hermes_macos` step produces a `tmp/hermes/output/hermes-runtime-darwin-vx.y.z.tar.gz` artifact, for example [here](https://app.circleci.com/pipelines/github/facebook/react-native/13933/workflows/5f2ad198-2264-4e7e-8c62-7b28e97532d8/jobs/262322/artifacts) are the artifacts for `0.69.0` release. Download it and attach it to the GitHub release.
+
+### 4. Create a new patch post for your new version
 
 ```markdown
-## Should we release 0.67.1?
+## Should we release 0.66.1?
 
-Current Release: 0.67.0
+Current Release: 0.66.0
 
 Conversations on this thread are limited:
 
@@ -68,7 +78,12 @@ If the issue is a [major release issues](https://reactnative.dev/contributing/re
 
 - Any patch posts for the previous stable are irrelevant now.
 
-### 5. Communicate the new release
+### 5. Verify that Upgrade Helper GitHub action has fired
 
-- Ship the `react-native-website` changes if not done already.
-- Ship the blog post, tweet about blog post.
+- You should see a [new publish job complete here](https://github.com/react-native-community/rn-diff-purge/actions).
+- If not, check out the guide on [how to update Upgrade Helper](/contributing/updating-upgrade-helper).
+
+### 6. Communicate the new release
+
+- Ship the `react-native-website` changes if not done already. See [here](https://github.com/facebook/react-native-website#cutting-a-new-version) how to cut a new version of the website.
+- Ship the blog post and tweet about it.
