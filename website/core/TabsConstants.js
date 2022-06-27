@@ -49,7 +49,7 @@ const javaScriptSpecLanguages = [
   {label: 'TypeScript', value: 'typescript'},
 ];
 
-const defaultJavaScriptSpecLanguages = "flow";
+const defaultJavaScriptSpecLanguages = 'flow';
 
 const getDevNotesTabs = (tabs = ['android', 'ios', 'web', 'windows']) =>
   [

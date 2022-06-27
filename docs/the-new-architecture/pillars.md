@@ -25,5 +25,5 @@ Finally, we dive a little deeper into the [CodeGen](pillars-codegen) process tha
 To integrate a TurboModule or a Fabric Component in an app, the app has to run with the New Architecture enabled.
 
 To create a new app adopting the New Architecture, refer to the [Using the App Template](use-app-template) section.
-To migrate an existing app to the New Architecture, refer to the [Migration](/docs/new-architecture-intro) guide.
+To migrate an existing app to the New Architecture, refer to the [Migration](../new-architecture-intro) guide.
 :::
