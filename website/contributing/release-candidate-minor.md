@@ -111,7 +111,11 @@ See changes from this release in the [changelog PR](https://github.com/facebook/
   <figcaption>Creating a GitHub Release.</figcaption>
 </figure>
 
-### 6. Create a tracking discussion post
+### 6. Upload prebuilt Hermes binary
+
+In the `publish_release` CI workflow, the `build_hermes_macos` step produces a `tmp/hermes/output/hermes-runtime-darwin-vx.y.z.tar.gz` artifact, for example [here](https://app.circleci.com/pipelines/github/facebook/react-native/13933/workflows/5f2ad198-2264-4e7e-8c62-7b28e97532d8/jobs/262322/artifacts) are the artifacts for `0.69.0` release. Download it and attach it to the GitHub release.
+
+### 7. Create a tracking discussion post
 
 Create a "Road to <YOUR_MINOR_VERSION>" discussion post in [`react-native-releases`](https://github.com/reactwg/react-native-releases/discussions):
 
@@ -177,12 +181,12 @@ The branch cut has happened.
 [upgrade-helper]: https://reactnative.dev/contributing/updating-upgrade-helper
 ```
 
-### 5. Verify that Upgrade Helper GitHub action has fired
+### 8. Verify that Upgrade Helper GitHub action has fired
 
 - You should see a [new publish job complete here](https://github.com/react-native-community/rn-diff-purge/actions).
 - If not, check out the guide on [how to update Upgrade Helper](/contributing/updating-upgrade-helper).
 
-### 6. Broadcast that release candidate is out
+### 9. Broadcast that release candidate is out
 
 - React Native Twitter.
 - Discord `#releases-coordination` channel.
