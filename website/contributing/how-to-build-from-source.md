@@ -174,6 +174,7 @@ Run this from a fork of the React Native [repo](https://github.com/facebook/reac
 
 ```bash
 git checkout -d release/my-react-native-release
+npm install
 docker run --rm --name rn-build -v $PWD:/pwd -w /pwd reactnativecommunity/react-native-android /bin/sh -c "./gradlew installArchives"
 git add android --force
 git commit -a -m 'my react native forked release'
