@@ -54,20 +54,18 @@ A full list of React Native's enabled transformations can be found in [metro-rea
   <tr><td className="table-heading" colSpan="2">ECMAScript 2017 (ES8)</td></tr>
   <TableRow name="Async Functions" code="async function doStuffAsync() { const foo = await doOtherStuffAsync(); };" url="https://github.com/tc39/ecmascript-asyncawait" />
   <TableRow name="Function Trailing Comma" code="function f(a, b, c,) {};" url="https://github.com/jeffmo/es-trailing-function-commas" />
+  <tr><td className="table-heading" colSpan="2">ECMAScript 2018 (ES9)</td></tr>
+  <TableRow name="Object Spread" code="const extended = { ...obj, a: 10 };" url="https://github.com/tc39/proposal-object-rest-spread" />
   <tr><td className="table-heading" colSpan="2">ECMAScript 2019 (ES10)</td></tr>
   <TableRow name="Optional Catch Binding" code="try { throw 0; } catch { doSomethingWhichDoesNotCareAboutTheValueThrown(); }" url="https://babeljs.io/docs/en/babel-plugin-proposal-optional-catch-binding" />
   <tr><td className="table-heading" colSpan="2">ECMAScript 2020 (ES11)</td></tr>
   <TableRow name="Dynamic Imports" code="const package = await import('package'); package.function()" url="https://babeljs.io/docs/en/babel-plugin-syntax-dynamic-import" />
-  <tr><td className="table-heading" colSpan="2">Stage 1 Proposal</td></tr>
-  <TableRow name="Export Default From" code="export v from 'mod';" url="https://babeljs.io/docs/en/babel-plugin-proposal-export-default-from" />
-  <tr><td className="table-heading" colSpan="2">Stage 3 Proposal</td></tr>
-  <TableRow name="Object Spread" code="const extended = { ...obj, a: 10 };" url="https://github.com/tc39/proposal-object-rest-spread" />
-  <TableRow name="Static Class Fields" code="class CustomDate { static epoch = new CustomDate(0); }" url="https://github.com/tc39/proposal-static-class-features)" />
-  <tr><td className="table-heading" colSpan="2">Stage 4 Proposal</td></tr>
   <TableRow name="Nullish Coalescing Operator" code="const foo = object.foo ?? 'default';" url="https://babeljs.io/docs/en/babel-plugin-proposal-nullish-coalescing-operator" />
   <TableRow name="Optional Chaining" code="const name = obj.user?.name;" url="https://github.com/tc39/proposal-optional-chaining" />
-  <tr><td className="table-heading" colSpan="2">Other Proposals</td></tr>
-  <TableRow name="Class Properties" code="class Bork { static a = 'foo'; static b; x = 'bar'; y; }" url="https://babeljs.io/docs/en/babel-plugin-proposal-class-properties" />
+  <tr><td className="table-heading" colSpan="2">ECMAScript 2022 (ES13)</td></tr>
+  <TableRow name="Class Fields" code="class Bork { static a = 'foo'; static b; x = 'bar'; y; }" url="https://babeljs.io/docs/en/babel-plugin-proposal-class-properties" />
+  <tr><td className="table-heading" colSpan="2">Stage 1 Proposal</td></tr>
+  <TableRow name="Export Default From" code="export v from 'mod';" url="https://babeljs.io/docs/en/babel-plugin-proposal-export-default-from" />  
   <tr><td className="table-heading" colSpan="2">Miscellaneous</td></tr>
   <TableRow name="Babel Template" code="template(`const %%importName%% = require(%%source%%);`);" url="https://babeljs.io/docs/en/babel-template" />
   <TableRow name="Flow" code="function foo(x: ?number): string {};" url="https://flowtype.org/" />
