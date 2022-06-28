@@ -103,6 +103,14 @@ If you run into issues where running `npx react-native init` hangs in your syste
 npx react-native init --verbose
 ```
 
+When you're debugging a process or need to know a little more about the error being thrown, you may want to use the verbose option to output more logs and information to nail down your issue.
+
+Run the following command in your root directory.
+
+```shell
+npx react-native run-android --verbose
+```
+
 ## Unable to start react-native package manager (on Linux)
 
 ### Case 1: Error "code":"ENOSPC","errno":"ENOSPC"
