@@ -27,7 +27,7 @@ React Native also lets you build your own Native Components for [Android](native
 
 ## Core Components
 
-React Native has many Core Components for everything from form controls to activity indicators. You can find them all [documented in the API section](components-and-apis). You will mostly work with the following Core Components:
+React Native has many Core Components for everything from controls to activity indicators. You can find them all [documented in the API section](components-and-apis). You will mostly work with the following Core Components:
 
 | React Native UI Component | Android View   | iOS View         | Web Analog              | Description                                                                                           |
 | ------------------------- | -------------- | ---------------- | ----------------------- | ----------------------------------------------------------------------------------------------------- |
