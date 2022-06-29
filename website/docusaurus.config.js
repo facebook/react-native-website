@@ -351,8 +351,8 @@ module.exports = {
           },
         ],
         logo: {
-          alt: 'Facebook Open Source Logo',
-          src: 'img/oss_logo.png',
+          alt: 'Meta Open Source Logo',
+          src: 'img/oss_logo.svg',
           href: 'https://opensource.fb.com/',
         },
         copyright,

@@ -1162,9 +1162,9 @@ button[class*="tocCollapsibleButton"] {
     margin-bottom: 8px;
   }
 
-  img[class^="themedImage"] {
-    display: initial !important;
+  .footer__logo {
     height: 54px;
+    max-width: 100%;
   }
 
   svg[class^="iconExternalLink"] {
