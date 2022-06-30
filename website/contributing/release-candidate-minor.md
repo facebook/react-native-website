@@ -40,7 +40,7 @@ Before continuing further, follow the [testing](/contributing/release-testing) g
 git push origin 0.68-stable
 
 # This will walk you through what version you are releasing
-./scripts/bump-oss-version.js -v 0.68.0-rc.0 -t <YOUR_CIRCLE_CI_TOKEN>
+./scripts/bump-oss-version.js --to-version 0.68.0-rc.0 --token <YOUR_CIRCLE_CI_TOKEN>
 ```
 
 - Once you have run that script, head to CircleCI and you should see under the releases workflow, a `prepare-package-for-release` job.

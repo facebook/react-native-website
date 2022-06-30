@@ -30,7 +30,7 @@ Before continuing further, follow the [testing](/contributing/release-testing) g
 ```bash
 # run a script to bump the version
 # You most likely **don't** want this release marked as "latest"
-./scripts/bump-oss-version.js --version x.y.z-rc.x --token circle-ci-token
+./scripts/bump-oss-version.js --to-version x.y.z --token <YOUR_CIRCLE_CI_TOKEN>
 ```
 
 ### 4. Verify Upgrade helper is updated
