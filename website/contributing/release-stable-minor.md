@@ -13,7 +13,7 @@ title: Release Stable Minor
 
 ```bash
 # In your react-native checkout, on the release branch of the version
-./scripts/bump-oss-version.js -v x.y.z -t <YOUR_CIRCLE_CI_TOKEN>
+./scripts/bump-oss-version.js --to-version x.y.z --token <YOUR_CIRCLE_CI_TOKEN>
 > Do you want this to be latest?
 # Generally yes. This updates npm registry to point to this version as "latest"
 ```
