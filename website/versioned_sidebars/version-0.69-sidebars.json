@@ -128,7 +128,8 @@
         "collapsed": false,
         "items": [
           "headless-js-android",
-          "signed-apk-android"
+          "signed-apk-android",
+          "communication-android"
         ]
       },
       {
