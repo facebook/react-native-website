@@ -46,7 +46,7 @@ A source map is used to enhance the profile and associate trace events with the 
 
 1. In your app's `android/app/build.gradle` file, add:
 
-```java
+```groovy
 project.ext.react = [
   bundleInDebug: true,
 ]
