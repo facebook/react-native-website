@@ -3,6 +3,10 @@ id: why
 title: Why A New Architecture
 ---
 
+import NewArchitectureWarning from '../\_markdown-new-architecture-warning.mdx';
+
+<NewArchitectureWarning/>
+
 The goal of the New Architecture is to solve some of the issues that afflicted the Old Architecture in terms of performance and flexibility. This section provides the basic context to understand the Old Architecture limitations and how it has been possible to overcome them with the New Architecture.
 
 This is not a technical deep dive: for further technical information, refer to the [Architecture](/architecture/overview) tab of the website.

@@ -1,6 +1,6 @@
 ---
 id: new-architecture-intro
-title: Adopting the New Architecture
+title: Migrating to the New Architecture
 ---
 
 import NewArchitectureWarning from './\_markdown-new-architecture-warning.mdx';
@@ -28,4 +28,6 @@ The guide is divided into three sections:
   - Enabling the New Renderer (Fabric) in your App
     - [Android](new-architecture-app-renderer-android)
     - [iOS](new-architecture-app-renderer-ios)
+- [**React18 and React Native**](react-18-and-react-native)
+- [**Troubleshooting**](new-architecture-troubleshooting)
 - [**Appendix**](new-architecture-appendix)

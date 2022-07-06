@@ -3,6 +3,10 @@ id: native-modules-ios
 title: iOS Native Modules
 ---
 
+import NativeDeprecated from './the-new-architecture/\_markdown_native_deprecation.mdx'
+
+<NativeDeprecated />
+
 Welcome to Native Modules for iOS. Please start by reading the [Native Modules Intro](native-modules-intro) for an intro to what native modules are.
 
 ## Create a Calendar Native Module

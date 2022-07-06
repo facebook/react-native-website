@@ -3,6 +3,10 @@ id: pillars
 title: What Compose the New Architecture
 ---
 
+import NewArchitectureWarning from '../\_markdown-new-architecture-warning.mdx';
+
+<NewArchitectureWarning/>
+
 The New Architecture is composed mainly by two pillars:
 
 - [TurboModules](pillars-turbomodules)
@@ -19,7 +23,7 @@ The next sections contain an high-level overview of the pillars, together with t
 1. Implement the Native code.
 1. Integrate the code in the app.
 
-Finally, we dive a little deeper into the [CodeGen](pillars-codegen) process that is required to create all the C++ types and files used by our components, including some useful steps to work comfortably while developing the component.
+Finally, we dive a little deeper into the [Codegen](pillars-codegen) process that is required to create all the C++ types and files used by our components, including some useful steps to work comfortably while developing the component.
 
 :::caution
 To integrate a TurboModule or a Fabric Component in an app, the app has to run with the New Architecture enabled.

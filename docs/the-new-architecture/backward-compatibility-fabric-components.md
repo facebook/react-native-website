@@ -7,6 +7,9 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import constants from '@site/core/TabsConstants';
 import BetaTS from './\_markdown_beta_ts_support.mdx';
+import NewArchitectureWarning from '../\_markdown-new-architecture-warning.mdx';
+
+<NewArchitectureWarning/>
 
 :::info
 The creation of a backward compatible Fabric Component requires the knowledge of how to create a Fabric Component. To recall these concepts, have a look at this [guide](pillars-fabric-components).
@@ -37,7 +40,7 @@ require "json"
 
 package = JSON.parse(File.read(File.join(__dir__, "package.json")))
 
-folly_version = '2021.06.28.00-v2'
+folly_version = '2021.07.22.00'
 folly_compiler_flags = '-DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1 -Wno-comma -Wno-shorten-64-to-32'
 
 Pod::Spec.new do |s|
@@ -249,23 +252,23 @@ The final folder structure looks like this:
 ```sh
 my-component
 ├── android
-│   ├── build.gradle
-│   └── src
-│       ├── main
-│       │   ├── AndroidManifest.xml
-│       │   └── java
-│       │       └── com
-│       │           └── MyComponent
-│       │               ├── MyComponentView.java
-│       │               ├── MyComponentViewManagerImpl.java
-│       │               └── MyComponentViewPackage.java
+│   ├── build.gradle
+│   └── src
+│       ├── main
+│       │   ├── AndroidManifest.xml
+│       │   └── java
+│       │       └── com
+│       │           └── MyComponent
+│       │               ├── MyComponentView.java
+│       │               ├── MyComponentViewManagerImpl.java
+│       │               └── MyComponentViewPackage.java
 │       ├── newarch
 │       │   └── java
-│       │       └── com
+│       │       └── com
 │       │           └── MyComponentViewManager.java
 │       └── oldarch
 │           └── java
-│               └── com
+│               └── com
 │                   └── MyComponentViewManager.java
 ├── ios
 ├── js

@@ -39,7 +39,7 @@ end
 
 ## 2. Update your root view
 
-The way to render your app with Fabric depends on your setup. Here is an example of how you can enable Fabric in your app with the `RN_FABRIC_ENABLED` compiler flag to enable/disable. Refer [RN-Tester’s AppDelegate](https://github.com/facebook/react-native/blob/main/packages/rn-tester/RNTester/AppDelegate.mm) as an example.
+How to render your app with Fabric depends on your setup. Here is an example of how you can enable Fabric in your app with the `RN_FABRIC_ENABLED` compiler flag to enable/disable. Refer [RN-Tester’s AppDelegate](https://github.com/facebook/react-native/blob/main/packages/rn-tester/RNTester/AppDelegate.mm) as an example.
 
 ```objc title="AppDelegate.mm"
 #ifdef RN_FABRIC_ENABLED
