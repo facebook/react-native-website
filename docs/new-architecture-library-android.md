@@ -129,17 +129,18 @@ import com.example.samplelibrary.NativeAwesomeManagerSpec
 import com.facebook.react.bridge.Promise
 import com.facebook.react.bridge.ReactApplicationContext
 
-class NativeAwesomeManager(reactContext: ReactApplicationContext) :
+class NativeAwesomeManager(reactContext: ReactApplicationContext?) :
     NativeAwesomeManagerSpec(reactContext) {
-    val NAME = "NativeAwesomeManager"
     override fun getString(id: String?, promise: Promise?) {
         // Implement this method
     }
 
-    override fun getName(): String {
-        return NAME
+    companion object {
+        val NAME = "NativeAwesomeManager"
+            get() = Companion.field
     }
 }
+
 ```
 
 </TabItem>
