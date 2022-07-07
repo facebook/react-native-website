@@ -137,10 +137,10 @@ class NativeAwesomeManager(reactContext: ReactApplicationContext?) :
 
     companion object {
         val NAME = "NativeAwesomeManager"
-            get() = Companion.field
     }
-}
 
+    override fun getName() = NAME
+}
 ```
 
 </TabItem>
