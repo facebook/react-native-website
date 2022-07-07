@@ -135,11 +135,11 @@ class NativeAwesomeManager(reactContext: ReactApplicationContext) :
         // Implement this method
     }
 
+    override fun getName() = NAME
+
     companion object {
         val NAME = "NativeAwesomeManager"
     }
-
-    override fun getName() = NAME
 }
 ```
 
