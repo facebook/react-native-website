@@ -385,11 +385,11 @@ The most important call is to the `RCT_EXPORT_MODULE`, which is required to expo
 
 Then the `RCT_REMAP_METHOD` macro is used to expose the `add` method.
 
+Finally, the `getTurboModule` method gets an instance of the TurboModule so that the JavaScript side can invoke its methods. The function is defined in (and requested by) the `RTNCalculatorSpec.h` file that was generated earlier by Codegen.
+
 :::info
 There are other macros that can be used to export modules and methods. You view the code that specifies them [here](https://github.com/facebook/react-native/blob/main/React/Base/RCTBridgeModule.h).
 :::
-
-TODO: more description?
 
 ### Android
 
