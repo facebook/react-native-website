@@ -168,7 +168,7 @@ For iOS, you'll need to create a `rtn-calculator.podspec` file which will define
 
 The file will look like this:
 
-```ruby title="rnt-calculator.podspec"
+```ruby title="rtn-calculator.podspec"
 require "json"
 
 package = JSON.parse(File.read(File.join(__dir__, "package.json")))
