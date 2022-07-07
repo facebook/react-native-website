@@ -557,7 +557,7 @@ public class CalculatorPackage extends TurboReactPackage {
                           false, // needsEagerInit
                           true, // hasConstants
                           false, // isCxxModule
-                          false // isTurboModule
+                          true // isTurboModule
           ));
           return moduleInfos;
       };
