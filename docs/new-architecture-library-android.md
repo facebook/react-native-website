@@ -3,7 +3,7 @@ id: new-architecture-library-android
 title: Enabling in Android Library
 ---
 
-import NewArchitectureWarning from './\_markdown-new-architecture-warning.mdx';
+import NewArchitectureWarning from './\_markdown-new-architecture-warning.mdx'; import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 <NewArchitectureWarning/>
 
@@ -88,6 +88,10 @@ Update your native module or component to ensure it **extends the abstract class
 
 Following the example set forth in the previous section, your library might import `NativeAwesomeManagerSpec`, implement the relevant native interface and the necessary methods for it:
 
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+
+<TabItem value="java">
+
 ```java
 import androidx.annotation.NonNull;
 
@@ -115,5 +119,31 @@ public class NativeAwesomeManager extends NativeAwesomeManagerSpec {
     }
 }
 ```
+
+</TabItem>
+
+<TabItem value="kotlin">
+
+```kotlin
+import com.example.samplelibrary.NativeAwesomeManagerSpec
+import com.facebook.react.bridge.Promise
+import com.facebook.react.bridge.ReactApplicationContext
+
+class NativeAwesomeManager(reactContext: ReactApplicationContext) :
+    NativeAwesomeManagerSpec(reactContext) {
+    override fun getString(id: String, promise: Promise) {
+        // Implement this method
+    }
+
+    override fun getName() = NAME
+
+    companion object {
+        val NAME = "NativeAwesomeManager"
+    }
+}
+```
+
+</TabItem>
+</Tabs>
 
 Please note that the **generated abstract class** that you’re now extending (`MyAwesomeSpec` in this example), is itself extending `ReactContextBaseJavaModule`. Therefore you should not use access to any of the method/fields you were previously using (e.g. the `ReactApplicationContext` and so on). Moreover the generated class will now also implement the `TurboModule` interface for you.
