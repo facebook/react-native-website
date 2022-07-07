@@ -129,9 +129,9 @@ import com.example.samplelibrary.NativeAwesomeManagerSpec
 import com.facebook.react.bridge.Promise
 import com.facebook.react.bridge.ReactApplicationContext
 
-class NativeAwesomeManager(reactContext: ReactApplicationContext?) :
+class NativeAwesomeManager(reactContext: ReactApplicationContext) :
     NativeAwesomeManagerSpec(reactContext) {
-    override fun getString(id: String?, promise: Promise?) {
+    override fun getString(id: String, promise: Promise) {
         // Implement this method
     }
 
