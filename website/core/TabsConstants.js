@@ -25,6 +25,13 @@ const androidLanguages = [
 ];
 const defaultAndroidLanguage = 'java';
 
+const javaScriptSpecLanguages = [
+  {label: 'Flow', value: 'flow'},
+  {label: 'TypeScript', value: 'typescript'},
+];
+
+const defaultJavaScriptSpecLanguages = 'flow';
+
 const guides = [
   {label: 'Expo CLI Quickstart', value: 'quickstart'},
   {label: 'React Native CLI Quickstart', value: 'native'},
@@ -43,13 +50,6 @@ const oses = [
   {label: 'Linux', value: 'linux'},
 ];
 const defaultOs = isMacOS ? 'macos' : isWindows ? 'windows' : 'linux';
-
-const javaScriptSpecLanguages = [
-  {label: 'Flow', value: 'flow'},
-  {label: 'TypeScript', value: 'typescript'},
-];
-
-const defaultJavaScriptSpecLanguages = 'flow';
 
 const getDevNotesTabs = (tabs = ['android', 'ios', 'web', 'windows']) =>
   [
