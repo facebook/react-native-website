@@ -162,6 +162,16 @@ The shared configuration is a `package.json` file that will be used by yarn when
 }
 ```
 
+The upper part of the file contains some descriptive information like the name of the component, its version and its source files. Make sure to update the various placeholders which are wrapped in `<>`: replace all the occurrences of the `<your_github_handle>`, `<Your Name>`, and `<your_email@your_provider.com>` tokens.
+
+Then there are the dependencies for this package. For this guide, you need `react` and `react-native`.
+
+Finally, the **Codegen** configuration is specified by the `codegenConfig` field. It contains an array of libraries, each of which is defined by three other fields:
+
+- `name`: The name of the library. By convention, you should add the `Spec` suffix.
+- `type`: The type of module contained by this package. In this case, it is a TurboModule, thus the value to use is `modules`.
+- `jsSrcsDir`: the relative path to access the `js` specification that is parsed by **Codegen**.
+
 ### iOS: Create the `podspec` file
 
 For iOS, you'll need to create a `rtn-calculator.podspec` file which will define the module as a dependency for your app. It will stay in the root of `RTNCalculator`, alongside the `ios` folder.
