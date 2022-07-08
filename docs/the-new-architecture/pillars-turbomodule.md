@@ -414,8 +414,6 @@ To run **Codegen**, you need to enable the **New Architecture** in the Android a
 
 The generated code is stored in the `MyApp/node_modules/rtn-calculator/android/build/generated/source/codegen` folder and it has this structure:
 
-TODO: ordering issue. I can't actually get codegen to work at this point. Only works once I add the native files following. Probably similar issue for Fabric guide. Including generated file structure for later ease of use:
-
 ```title="Android generated code"
 codegen
 ├── java
