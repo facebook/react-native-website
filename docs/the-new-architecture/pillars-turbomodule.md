@@ -33,7 +33,7 @@ To create a TurboModule, we need to:
 
 In order to keep the module decoupled from the app, it's a good idea to define the module separately from the app, and then add it as a dependency to your app later. This is also what you'll do for writing TurboModules that can be released as open-source libraries later.
 
-Next to your application, create a folder called `RTNCalculator`. (**RTN** stands for "**R**eact**T** **N**ative", and is a standard prefix for React Native modules).
+Next to your application, create a folder called `RTNCalculator`. **RTN** stands for "**R**eac**t** **N**ative", and is a recommended prefix for React Native modules.
 
 Within `RTNCalculator`, create three subfolders: `js`, `ios`, and `android`.
 
