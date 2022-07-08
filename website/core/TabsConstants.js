@@ -29,7 +29,6 @@ const javaScriptSpecLanguages = [
   {label: 'Flow', value: 'flow'},
   {label: 'TypeScript', value: 'typescript'},
 ];
-
 const defaultJavaScriptSpecLanguages = 'flow';
 
 const guides = [
