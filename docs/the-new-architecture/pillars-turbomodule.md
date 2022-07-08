@@ -10,7 +10,7 @@ If you've worked with React Native, you may be familiar with the concept of [Nat
 TurboModules are the next iteration on Native Modules that provide a few extra [benefits](./why):
 
 - Strongly typed interfaces that are consistent across platforms
-- The ability to create shared C++ code for use across platforms
+- The ability to write your code in C++, either exclusively or integrated with another native platform language, reducing the need to duplicate implementations across platforms
 - Lazy loading of modules, allowing for faster app startup
 - The use of JSI, a JavaScript interface for native code, which allows for more efficient communication between native and JavaScript code than the bridge
 
