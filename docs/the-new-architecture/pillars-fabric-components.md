@@ -5,11 +5,13 @@ title: Fabric Components
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
-A Fabric Component is a UI component rendered on the screen using the [Fabric Renderer](https://reactnative.dev/architecture/fabric-renderer).
+A Fabric Component is a UI component rendered on the screen using the [Fabric Renderer](https://reactnative.dev/architecture/fabric-renderer). Using Fabric Components instead of Native Components allows us to reap all the [benefits](./why) of the **New Architecture**:
 
-Using Fabric Components instead of Native Components allows us to reap all the [benefits](./why) of the **New Architecture**. Specifically, it enables to use JSI to efficiently connect the Native UI code with JavaScript.
+- Strongly typed interfaces that are consistent across platforms.
+- The ability to write your code in C++, either exclusively or integrated with another native platform language, reducing the need to duplicate implementations across platforms.
+- The use of JSI, a JavaScript interface for native code, which allows for more efficient communication between native and JavaScript code than the bridge.
 
-A Fabric Component is created starting from a **JavaScript specification**. Then [**CodeGen**](./pillars-codegen) creates some C++ code, integrated in the platform native layer and shared among all the React Native platforms. This C++ code is boilerplate code that component-specific logic needs to import and use to be properly adopted by React Native. After the component-specific logic is connected with the generated code, the component can be integrated in the app.
+A Fabric Component is created starting from a **JavaScript specification**. Then [**Codegen**](./pillars-codegen) creates some C++ scaffolding code to connect the component-specific logic (for example, accessing some native platform capability) to the rest of the React Native infrastructure. The C++ code is the same for all the platforms. Once the component is properly connected with the scaffolding code, it is ready to be imported and used by an app.
 
 The following section guides you through the creation of a Fabric Component, step-by-step.
 
@@ -23,7 +25,7 @@ To migrate to the **New Architecture**, follow the [Migration guide](../new-arch
 To create a Fabric Component, you have to follow these steps:
 
 1. Define a set of JavaScript specifications.
-2. Configure the component so that **CodeGen** can create the shared code and it can added as a dependency for an app.
+2. Configure the component so that **Codegen** can create the shared code and it can added as a dependency for an app.
 3. Write the required native code required.
 
 Once these steps are done, the component is ready to be consumed by an app. The guide shows how to add it to an app, leveraging _autolinking_, and how to reference it from the JavaScript code.
@@ -34,9 +36,9 @@ In order to keep the component decoupled from the app, it's a good idea to defin
 
 For this guide, you are going to create a Fabric Component that centers some text on the screen.
 
-Let's create a new folder at the same level of the app and let's call it `RTNCenteredText`.
+Create a new folder at the same level of the app and call it `RTNCenteredText`.
 
-In this folder, let's create three subfolders: `js`, `ios` and `android`.
+In this folder, create three subfolders: `js`, `ios` and `android`.
 
 The final result should look like this:
 
@@ -55,10 +57,10 @@ The **New Architecture** requires interfaces specified in a typed dialect of Jav
 
 There are two requirements the file containing this specification must meet:
 
-1. The file **must** be named `<MODULE_NAME>NativeComponent`, with a `.js` or `.jsx` extension when using Flow, or a `.ts`, or `.tsx` extension when using TypeScript. **CodeGen** only looks for files matching this pattern.
+1. The file **must** be named `<MODULE_NAME>NativeComponent`, with a `.js` or `.jsx` extension when using Flow, or a `.ts`, or `.tsx` extension when using TypeScript. **Codegen** only looks for files matching this pattern.
 2. The file must export a `HostComponent` object.
 
-The following are the specification of our `RTNCenteredText` component in both Flow and TypeScript: let's create a `RTNCenteredText` file with the proper extension in the `js` folder.
+Below are specifications of the `RTNCenteredText` component in both Flow and TypeScript. Create a `RTNCenteredText` file with the proper extension in the `js` folder.
 
 <Tabs groupId="fabric-component-specs" defaultValue={constants.defaultJavaScriptSpecLanguages} values={constants.javaScriptSpecLanguages}>
 <TabItem value='flow'>
@@ -103,11 +105,9 @@ export default codegenNativeComponent<NativeProps>(
 </TabItem>
 </Tabs>
 
-Let's break these down a little.
-
 At the beginning of the spec files, there are the imports. The most important imports, required by every Fabric Component, are:
 
-- The `HostComponent`: type our exported component needs to conform to.
+- The `HostComponent`: type the exported component needs to conform to.
 - The `codegenNativeComponent` function: responsible to actually register the component in the JavaScript runtime.
 
 The second section of the files contains the **props** of the component. [Props](https://reactnative.dev/docs/next/intro-react#props) (short for "properties") are component-specific information that let you customize React components. In this case, you want to control the `text` property of the component.
@@ -121,16 +121,13 @@ These will disappear as soon as the Fabric Component is added as a dependency of
 
 ## 3. Component Configuration
 
-The second element needed to properly develop a Fabric Component is a bit of configuration, that helps setting up:
+Next, you need to add some configuration for [**Codegen**](pillars-codegen.md) and auto-linking.
 
-- all the data the **CodeGen** process requires to run properly
-- the files required to link the Fabric Component into the app
-
-Some of these configuration are shared between iOS and Android, while the others are platform-specific.
+Some of these configuration files are shared between iOS and Android, while the others are platform-specific.
 
 ### Shared
 
-The shared configuration is a `package.json` file that is used by yarn when installing your component. Create the `package.json` file in the root of the `RTNCenteredText` directory.
+The shared configuration is a `package.json` file that will be used by yarn when installing your module. Create the `package.json` file in the root of the `RTNCenteredText` directory.
 
 ```json title="package.json"
 {
@@ -175,22 +172,21 @@ The shared configuration is a `package.json` file that is used by yarn when inst
 }
 ```
 
-The upper part of the file contains some descriptive information like the name of the component, its version and what composes it. Make sure to update the various placeholders which are wrapped in `<>`: replace all the occurrences of the `<your_github_handle>`, `<Your Name>`, and `<your_email@your_provider.com>` tokens.
+The upper part of the file contains some descriptive information like the name of the component, its version and its source files. Make sure to update the various placeholders which are wrapped in `<>`: replace all the occurrences of the `<your_github_handle>`, `<Your Name>`, and `<your_email@your_provider.com>` tokens.
 
-Then there are the dependencies for this package, specifically you need `react` and `react-native`, and you can add all the other dependencies you may have.
+Then there are the dependencies for this package. For this guide, you need `react` and `react-native`.
 
-Finally, the **CodeGen** configuration is specified by the `codegenConfig` field. It contains an array of libraries, each of which is defined by three other fields:
+Finally, the **Codegen** configuration is specified by the `codegenConfig` field. It contains an array of libraries, each of which is defined by three other fields:
 
-- `name`: The name of the library. By convention, you should add the `Specs` suffix.
-- `type`: The type of module contained by this package. In this case, it is a component, thus the value to use is `components`.
-- `jsSrcsDir`: the relative path to access the `js` specification that is parsed by the **CodeGen**.
+- `name`: The name of the library. By convention, you should add the `Spec` suffix.
+- `type`: The type of module contained by this package. In this case, it is a TurboModule, thus the value to use is `modules`.
+- `jsSrcsDir`: the relative path to access the `js` specification that is parsed by **Codegen**.
 
-### iOS: Create the `podspec` file
+### iOS: Create the `.podspec` file
 
-Now, let's configure the native component to generate the required code to integrate it with an app. For further information on how the **CodeGen**, have a look [here](./pillars-codegen.md).
+For iOS, you'll need to create a `rtn-calculator.podspec` file which will define the module as a dependency for your app. It will stay in the root of `RTNCalculator`, alongside the `ios` folder.
 
-For iOS, you need to create a `.podspec` file which defines the component as a dependency. This file stays in the root folder of the `RTNCenteredText` component, _outside_ the `ios` folder.
-The `.podspec` file for the component looks like this
+The file will look like this:
 
 ```ruby title="rnt-centered-text.podspec"
 require "json"
@@ -231,13 +227,35 @@ Pod::Spec.new do |s|
 end
 ```
 
-The `podspec` file has to be a sibling of the `package.json` file and its name is the one set in the `package.json`'s `name` property: `rnt-centered-text`.
+The `.podspec` file has to be a sibling of the `package.json` file and its name is the one we set in the `package.json`'s `name` property: `rtn-calculator`.
 
-The first part of the file prepares some variables used throughout the rest of it. Then, there is a section that contains some information that configures the pod, like its name, version, and description. Finally, there is a set of dependencies that are required by the New Architecture.
+The first part of the file prepares some variables we will use throughout the rest of it. Then, there is a section that contains some information used to configure the pod, like its name, version, and description. Finally, we have a set of dependencies that are required by the New Architecture.
 
-### Android: Create the `build.gradle` file
+### Android: `build.gradle`, `AndroidManifest.xml`, a `ReactPackage` class
 
-You need to create a `build.gradle` file in the `android` folder, with the following contents:
+To prepare Android to run **Codegen** you have to create three files:
+
+1. The `build.gradle` with the **Codegen** configuration
+1. The `AndroidManifest.xml` file
+1. A java class that implements the `ReactPackage` interface.
+
+At the end of these steps, the `android` folder should look like this:
+
+```title="Android Folder Structure"
+android
+├── build.gradle
+└── src
+    └── main
+        ├── AndroidManifest.xml
+        └── java
+            └── com
+                └── rtncenteredtext
+                    └── RTNCenteredTextPackage.java
+```
+
+#### The `build.gradle` file
+
+First, create a `build.gradle` file in the `android` folder, with the following contents:
 
 ```kotlin title="build.gradle"
 buildscript {
@@ -286,27 +304,72 @@ react {
 }
 ```
 
-The `build.gradle` file contains various section to properly configure the library and to access the required dependencies. The most interesting sections are:
+Of interest in the `build.gradle` file:
 
-- the `defaultConfig` block within the `android` block, where a `buildConfigField` is added to enable the new architecture.
-- the `react` block where you configure the **CodeGen** process. Here, the following properties are required:
-  - The `jsRootDir` contains the relative path to the JavaScript specs.
-  - The `libraryName` is used to link the library to the app.
-  - The `codegenJavaPackageName` that corresponds to the name of the Java Package that is used to group the code generated by **CodeGen**.
+- The `react` block configures the CodeGen process. For Android, we need to specify:
+  - the `jsRootDir`, which contains the relative path to the JavaScript specs
+  - the `libraryName` we will use to link the library in the app.
+  - the `codegenJavaPackageName` which corresponds to the name of the Java package we will use for the code generated by **CodeGen**.
+
+#### The `AndroidManifest.xml`
+
+Second, create an `android/src/main` folder. Inside that folder, create a `AndroidManifest.xml` file, with the following code:
+
+```xml title="AndroidManifest.xml"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.rtncenteredtext">
+</manifest>
+```
+
+This is a small manifest file that defines the package for your module.
+
+#### The `ReactPackage` class
+
+Finally, you need a class that implements the `ReactPackage` interface. To run the **Codegen** process, you don't have to completely implement the Package class: an empty implementation is enough for the app to pick up the module as a proper React Native dependency and to try and generate the scaffolding code.
+
+Create an `android/src/main/java/com/rtncenteredtext` folder and, inside that folder, create a `RTNCenteredTextPackage.java` file.
+
+```java title="RTNCenteredTextPackage"
+package com.rtncenteredtext;
+
+import com.facebook.react.ReactPackage;
+import com.facebook.react.bridge.NativeModule;
+import com.facebook.react.bridge.ReactApplicationContext;
+import com.facebook.react.uimanager.ViewManager;
+
+import java.util.Collections;
+import java.util.List;
+
+public class RTNCenteredTextPackage implements ReactPackage {
+
+    @Override
+    public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
+        return Collections.emptyList();
+    }
+
+    @Override
+    public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
+        return Collections.emptyList();
+    }
+
+}
+```
+
+The `ReactPackage` interface is used by React Native to understand what native classes the app has to use for the `ViewManager` and `Native Modules` exported by the library.
 
 ## 4. Native Code
 
 The last step requires you to write some native code to connect the JavaScript side of the Component to what is offered by the platforms. This process requires two main steps:
 
-1. Run the **CodeGen** to see what would be generated.
+1. Run **Codegen** to see what would be generated.
 2. Write the native code that will make it work.
 
-When developing a React Native app that uses a Fabric Component, it is responsibility of the app to actually generate the code using **CodeGen**. However, when developing a Fabric Component as a library, it needs to reference the generated code and it is useful to see what the app will generate.
+When developing a React Native app that uses a Fabric Component, it is responsibility of the app to actually generate the code using **Codegen**. However, when developing a Fabric Component as a library, it needs to reference the generated code and it is useful to see what the app will generate.
 
-As first step for both iOS and Android, this guide shows how to execute manually the scripts used by **CodeGen** to generate the required code. Further information on **CodeGen** can be found [here](./pillars-codegen.md)
+As first step for both iOS and Android, this guide shows how to execute manually the scripts used by **Codegen** to generate the required code. Further information on **Codegen** can be found [here](./pillars-codegen.md)
 
 :::caution
-The code generated by the **CodeGen** in this step should not be committed to the versioning system. React Native apps are able to generate the code when the app is built for all the libraries. This ensure that a consistent version of the **CodeGen** is used across all the libraries.
+The code generated by **Codegen** in this step should not be committed to the versioning system. React Native apps are able to generate the code when the app is built. This allows an app to ensure that all libraries have code generated for the correct version of React Native.
 :::
 
 ### iOS
@@ -324,7 +387,7 @@ node MyApp/node_modules/react-native/scripts/generate-artifacts.js \
   --outputPath RTNCenteredText/generated/
 ```
 
-This script first adds the `RTNCenteredText` module to the app with `yarn add`. Then, it invokes **CodeGen** via the `generate-artifacts.js` script.
+This script first adds the `RTNCenteredText` module to the app with `yarn add`. Then, it invokes **Codegen** via the `generate-artifacts.js` script.
 
 The `--path` option specifies the path to the app, while the `--outputPath` option tells the script where to output the generated code.
 
@@ -364,13 +427,13 @@ generated
 ```
 
 The relevant path for the component is `generated/build/generated/ios/react/renderer/components/RTNCenteredTextSpecs`.
-This folder contains all the generated code required by our Component.
+This folder contains all the generated code required by your Component.
 
-See the [CodeGen](./pillars-codegen) section for further details on the generated files.
+See the [Codegen](./pillars-codegen) section for further details on the generated files.
 
 #### Write the Native iOS Code
 
-Now that the scaffolding code has been generated, it's time to write the Native code for our Fabric Component.
+Now that the scaffolding code has been generated, it's time to write the Native code for your Fabric Component.
 You need to create three files in the `RTNCenteredText/ios` folder:
 
 1. The `RTNCenteredTextManager.mm`, an Objective-C++ file that declares what the Component exports.
@@ -396,7 +459,7 @@ RCT_EXPORT_VIEW_PROPERTY(text, NSString)
 @end
 ```
 
-This file is the manager for the Fabric Component.
+This file is the manager for the Fabric Component. The manager objects are used by the React Native runtime to register the modules, the properties and the methods so that they are available to the JavaScript side.
 
 The most important call is to the `RCT_EXPORT_MODULE` which is required to export the module so that Fabric can retrieve and instantiate it.
 
@@ -501,13 +564,13 @@ Class<RCTComponentViewProtocol> RTNCenteredTextCls(void)
 
 This file contains the actual implementation of the view.
 
-It starts with some imports which require you to read the files generated by the **CodeGen**.
+It starts with some imports which require you to read the files generated by **Codegen**.
 
-The component has to conform to a specific protocol generated by the **CodeGen**, in this case `RCTRTNCenteredTextViewProtocol`.
+The component has to conform to a specific protocol generated by **Codegen**, in this case `RCTRTNCenteredTextViewProtocol`.
 
 Then, the file defines a static `(ComponentDescriptorProvider)componentDescriptorProvider` method which is used by Fabric to retrieve the descriptor provider to instantiate the object.
 
-Then, there is the constructor of the view: the `init` method. In this method, it is important to create a `defaultProps` struct using the `RTNCenteredTextProps` type from the **CodeGen**. You need to assign it to the private `_props` property to correctly initialize the Fabric Component. The remaining part of the initializer is standard Objective-C code to create views and layout them with AutoLayout.
+Then, there is the constructor of the view: the `init` method. In this method, it is important to create a `defaultProps` struct using the `RTNCenteredTextProps` type from **Codegen**. You need to assign it to the private `_props` property to correctly initialize the Fabric Component. The remaining part of the initializer is standard Objective-C code to create views and layout them with AutoLayout.
 
 The last two pieces are the `updateProps` method and the `RTNCenteredTextCls` method.
 
@@ -525,19 +588,19 @@ Android follows some similar steps to iOS. You have to generate the code, and th
 
 #### Generate the Code - Android
 
-To generate the code, you need to manually invoke the **CodeGen**. This is done similarly to what you need to do for iOS: first, you need to add the package to the app and then you need to invoke a script.
+To generate the code, you need to manually invoke **Codegen**. This is done similarly to what you need to do for iOS: first, you need to add the package to the app and then you need to invoke a script.
 
-```sh title="Running CodeGen for Android"
+```sh title="Running Codegen for Android"
 cd MyApp
 yarn add ../RTNCenteredText
 cd android
 ./gradlew generateCodegenArtifactsFromSchema --rerun-tasks
 ```
 
-This script first adds the package to the app, in the same way iOS does. Then, after moving to the `android` folder, it invokes a Gradle task to generate the codegen.
+This script first adds the package to the app, in the same way iOS does. Then, after moving to the `android` folder, it invokes a Gradle task to generate the scaffolding code.
 
 :::note
-To run the **CodeGen**, you need to enable the **New Architecture** in the Android app. This can be done by opening the `gradle.properties` files and by switching the `newArchEnabled` property from `false` to `true`.
+To run **Codegen**, you need to enable the **New Architecture** in the Android app. This can be done by opening the `gradle.properties` files and by switching the `newArchEnabled` property from `false` to `true`.
 :::
 
 The generated code is stored in the `MyApp/node_modules/rnt-centered-text/android/build/generated/source/codegen` folder and it has this structure:
@@ -570,18 +633,17 @@ codegen
 └── schema.json
 ```
 
-You can see that the content of the `codegen/jni/react/renderer/components/RTNCenteredTextSpecs` looks similar to the files created by the iOS counterpart. Other interesting pieces are the `Android.mk` and `CMakeList.txt` files, which you need to configure the Fabric Component in the app. And the `RTNCenteredTextManagerDelegate.java` and `RTNCenteredTextManagerInterface.java` that you need to use in our manager.
+You can see that the content of the `codegen/jni/react/renderer/components/RTNCenteredTextSpecs` looks similar to the files created by the iOS counterpart. The `Android.mk` and `CMakeList.txt` files configure the Fabric Component in the app, while the `RTNCenteredTextManagerDelegate.java` and `RTNCenteredTextManagerInterface.java` files are meant use in your manager.
 
-See the [CodeGen](./pillars-codegen) section for further details on the generated files.
+See the [Codegen](./pillars-codegen) section for further details on the generated files.
 
 #### Write the Native Android Code
 
-The native code for the Android side of a Fabric Components requires four pieces:
+The native code for the Android side of a Fabric Components requires three pieces:
 
-1. An `AndroidManifest.xml` file.
-2. A `RTNCenteredText.java` that represents the actual view.
-3. A `RTNCenteredTextManager.java` to instantiate the view.
-4. A `RTNCenteredTextPackage.java` that React Native uses to configure the library.
+1. A `RTNCenteredText.java` that represents the actual view.
+2. A `RTNCenteredTextManager.java` to instantiate the view.
+3. Finally, you have to fill the implementation of the `RTNCenteredTextPackage.java` created in the previous step.
 
 The final structure within the Android library should be like this.
 
@@ -598,16 +660,6 @@ android
                     ├── RTNCenteredTextManager.java
                     └── RTNCenteredTextPackage.java
 ```
-
-##### AndroidManifest.xml
-
-```xml title="AndroidManifest.xml"
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.rtncenteredtext">
-</manifest>
-```
-
-This is a small manifest file that defines the package for our module.
 
 ##### RTNCenteredText.java
 
@@ -646,7 +698,7 @@ public class RTNCenteredText extends TextView {
 }
 ```
 
-This class represents the actual view Android is going to represent on screen. It inherit from `TextView` and it configures the basic aspects of itself using a private `configureComponent()` function
+This class represents the actual view Android is going to represent on screen. It inherit from `TextView` and it configures the basic aspects of itself using a private `configureComponent()` function.
 
 ##### RTNCenteredTextManager.java
 
@@ -705,13 +757,15 @@ public class RTNCenteredTextManager extends SimpleViewManager<RTNCenteredText>
 }
 ```
 
-The `RTNCenteredTextManager` is a class used by React Native to instantiate the native component. It is the class that leverage the **CodeGen** to implement all the proper interfaces (See the `RTNCenteredTextManagerInterface` interface in the `implements` clause) and it uses the `RTNCenteredTextManagerDelegate`.
+The `RTNCenteredTextManager` is a class used by React Native to instantiate the native component. It is the class that implements the interfaces generated by **Codegen** (see the `RTNCenteredTextManagerInterface` interface in the `implements` clause) and it uses the `RTNCenteredTextManagerDelegate` class.
 
-It is also responsible to export all the constructs required by ReactNative: the class itself is annotated with `@ReactModule` and the `setText` method is annothated with `@ReactProp`.
+It is also responsible for exporting all the constructs required by React Native: the class itself is annotated with `@ReactModule` and the `setText` method is annotated with `@ReactProp`.
 
 ##### RTNCenteredTextPackage.java
 
-```java title="RTNCenteredTextPackage"
+Finally, open the `RTNCenteredTextPackage.java` file in the `android/src/main/java/com/rtncenteredtext` folder and update it with the following lines
+
+```diff title="RTNCenteredTextPackage update"
 package com.rtncenteredtext;
 
 import com.facebook.react.ReactPackage;
@@ -719,7 +773,7 @@ import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.ViewManager;
 
-import java.util.ArrayList;
++ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -727,9 +781,10 @@ public class RTNCenteredTextPackage implements ReactPackage {
 
     @Override
     public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
-        List<ViewManager> viewManagers = new ArrayList<>();
-        viewManagers.add(new RTNCenteredTextManager(reactContext));
-        return viewManagers;
+-        return Collections.emptyList();
++        List<ViewManager> viewManagers = new ArrayList<>();
++        viewManagers.add(new RTNCenteredTextManager(reactContext));
++        return viewManagers;
     }
 
     @Override
@@ -740,11 +795,11 @@ public class RTNCenteredTextPackage implements ReactPackage {
 }
 ```
 
-This is the last piece of Native Code for Android. It defines the Package object that is used by the app to load the manager.
+The added lines instantiate a new `RTNCenteredTextManager` object so that the React Native runtime can use it to render our Fabric Component.
 
 ## 5. Adding the Fabric Component To Your App
 
-This is the last step to finally see our Fabric Component running on our app.
+This is the last step to finally see your Fabric Component running on your app.
 
 ### Shared
 
@@ -759,14 +814,14 @@ This command adds the `RTNCenteredText` Component to the `node_modules` of your 
 
 ### iOS
 
-Then, you need to install the new dependencies in our iOS project. To do so, you need to run these commands:
+Then, you need to install the new dependencies in your iOS project. To do so, you need to run these commands:
 
 ```sh
 cd ios
 RCT_NEW_ARCH_ENABLED=1 bundle exec pod install
 ```
 
-This command looks for all the dependencies of the project and it installs the iOS ones. The `RCT_NEW_ARCH_ENABLED=1` flag instructs **Cocoapods** that it has to execute some additional operations to run the **CodeGen**.
+This command installs the iOS dependencies for the project. The `RCT_NEW_ARCH_ENABLED=1` flag instructs **Cocoapods** that it has to execute some additional operations to run **Codegen**.
 
 :::note
 You may have to run `bundle install` once before you can use `RCT_NEW_ARCH_ENABLED=1 bundle exec pod install`. You won't need to run `bundle install` anymore, unless you need to change the ruby dependencies.
@@ -774,9 +829,7 @@ You may have to run `bundle install` once before you can use `RCT_NEW_ARCH_ENABL
 
 #### Android
 
-Android configuration requires more steps to use our new Component.
-
-First, you need to enable the **New Architecture**. This can be done by:
+Android configuration requires more steps to use your new Component. First, you need to enable the **New Architecture**.
 
 1. Open the `android/gradle.properties` file
 2. Scroll down to the end of the file and switch the `newArchEnabled` property from `false` to `true`.
@@ -810,7 +863,7 @@ The name of the library is `libreact_codegen_<libraryname>` where `<libraryname>
 Also, this step won't be necessary anymore as soon as a version of React Native that supports autolinking for Android is released.
 :::
 
-Finally, you need to configure the Fabric component registry to load the Fabric Component at runtime. This can be done by:
+Finally, you need to configure the Fabric component registry to load the Fabric Component at runtime.
 
 1. Open the `MyApp/android/app/src/main/jni/MainComponentsRegistry.cpp`
 1. Add the following include:
@@ -831,7 +884,7 @@ Finally, you need to configure the Fabric component registry to load the Fabric 
 
 ### JavaScript
 
-Finally, you can read the Component in our JavaScript application.
+Finally, you can read the Component in your JavaScript application.
 To do so, you have to:
 
 1. Import the Component in the js file that uses it. So, if you want to use it in the `App.js`, you need to add this line:
@@ -856,4 +909,4 @@ To do so, you have to:
    };
    ```
 
-Now, you can run the React Native app and see our Component on the screen.
+Now, you can run the React Native app and see your Component on the screen.
