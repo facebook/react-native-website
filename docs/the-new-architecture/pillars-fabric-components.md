@@ -131,7 +131,7 @@ The shared configuration is a `package.json` file that will be used by yarn when
 
 ```json title="package.json"
 {
-  "name": "rnt-centered-text",
+  "name": "rtn-centered-text",
   "version": "0.0.1",
   "description": "Showcase a Fabric Component with a centered text",
   "react-native": "js/index",
@@ -140,7 +140,7 @@ The shared configuration is a `package.json` file that will be used by yarn when
     "js",
     "android",
     "ios",
-    "rnt-centered-text.podspec",
+    "rtn-centered-text.podspec",
     "!android/build",
     "!ios/build",
     "!**/__tests__",
@@ -148,13 +148,13 @@ The shared configuration is a `package.json` file that will be used by yarn when
     "!**/__mocks__"
   ],
   "keywords": ["react-native", "ios", "android"],
-  "repository": "https://github.com/<your_github_handle>/rnt-centered-text",
+  "repository": "https://github.com/<your_github_handle>/rtn-centered-text",
   "author": "<Your Name> <your_email@your_provider.com> (https://github.com/<your_github_handle>)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/<your_github_handle>/rnt-centered-text/issues"
+    "url": "https://github.com/<your_github_handle>/rtn-centered-text/issues"
   },
-  "homepage": "https://github.com/<your_github_handle>/rnt-centered-text#readme",
+  "homepage": "https://github.com/<your_github_handle>/rtn-centered-text#readme",
   "devDependencies": {},
   "peerDependencies": {
     "react": "*",
@@ -179,16 +179,16 @@ Then there are the dependencies for this package. For this guide, you need `reac
 Finally, the **Codegen** configuration is specified by the `codegenConfig` field. It contains an array of libraries, each of which is defined by three other fields:
 
 - `name`: The name of the library. By convention, you should add the `Spec` suffix.
-- `type`: The type of module contained by this package. In this case, it is a TurboModule, thus the value to use is `modules`.
+- `type`: The type of module contained by this package. In this case, it is a Fabric Component, thus the value to use is `components`.
 - `jsSrcsDir`: the relative path to access the `js` specification that is parsed by **Codegen**.
 
 ### iOS: Create the `.podspec` file
 
-For iOS, you'll need to create a `rtn-calculator.podspec` file which will define the module as a dependency for your app. It will stay in the root of `RTNCalculator`, alongside the `ios` folder.
+For iOS, you'll need to create a `rtn-centered-text.podspec` file which will define the module as a dependency for your app. It will stay in the root of `RTNCenteredText`, alongside the `ios` folder.
 
 The file will look like this:
 
-```ruby title="rnt-centered-text.podspec"
+```ruby title="rtn-centered-text.podspec"
 require "json"
 
 package = JSON.parse(File.read(File.join(__dir__, "package.json")))
@@ -197,7 +197,7 @@ folly_version = '2021.06.28.00-v2'
 folly_compiler_flags = '-DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1 -Wno-comma -Wno-shorten-64-to-32'
 
 Pod::Spec.new do |s|
-  s.name            = "rnt-centered-text"
+  s.name            = "rtn-centered-text"
   s.version         = package["version"]
   s.summary         = package["description"]
   s.description     = package["description"]
@@ -227,7 +227,7 @@ Pod::Spec.new do |s|
 end
 ```
 
-The `.podspec` file has to be a sibling of the `package.json` file and its name is the one we set in the `package.json`'s `name` property: `rtn-calculator`.
+The `.podspec` file has to be a sibling of the `package.json` file and its name is the one we set in the `package.json`'s `name` property: `rtn-centered-text`.
 
 The first part of the file prepares some variables we will use throughout the rest of it. Then, there is a section that contains some information used to configure the pod, like its name, version, and description. Finally, we have a set of dependencies that are required by the New Architecture.
 
@@ -431,6 +431,17 @@ This folder contains all the generated code required by your Component.
 
 See the [Codegen](./pillars-codegen) section for further details on the generated files.
 
+:::note
+When generating the scaffolding code using **Codegen**, iOS does not clean the `build` folder automatically. If you changed a the Spec name, for example, and then run **Codegen** again, the old files will be retained.
+If that happens, remember to remove the `build` folder before running the **Codegen** again.
+
+```
+cd MyApp/ios
+rm -rf build
+```
+
+:::
+
 #### Write the Native iOS Code
 
 Now that the scaffolding code has been generated, it's time to write the Native code for your Fabric Component.
@@ -603,7 +614,7 @@ This script first adds the package to the app, in the same way iOS does. Then, a
 To run **Codegen**, you need to enable the **New Architecture** in the Android app. This can be done by opening the `gradle.properties` files and by switching the `newArchEnabled` property from `false` to `true`.
 :::
 
-The generated code is stored in the `MyApp/node_modules/rnt-centered-text/android/build/generated/source/codegen` folder and it has this structure:
+The generated code is stored in the `MyApp/node_modules/rtn-centered-text/android/build/generated/source/codegen` folder and it has this structure:
 
 ```title="Android generated code"
 codegen
@@ -827,7 +838,7 @@ This command installs the iOS dependencies for the project. The `RCT_NEW_ARCH_EN
 You may have to run `bundle install` once before you can use `RCT_NEW_ARCH_ENABLED=1 bundle exec pod install`. You won't need to run `bundle install` anymore, unless you need to change the ruby dependencies.
 :::
 
-#### Android
+### Android
 
 Android configuration requires more steps to use your new Component. First, you need to enable the **New Architecture**.
 
@@ -847,7 +858,7 @@ This can be with these steps:
    # will have to include the following autogenerated makefile.
    # include $(GENERATED_SRC_DIR)/codegen/jni/Android.mk
 
-   +include $(NODE_MODULES_DIR)/rnt-centered-text/android/build/generated/source/codegen/jni/Android.mk
+   +include $(NODE_MODULES_DIR)/rtn-centered-text/android/build/generated/source/codegen/jni/Android.mk
    include $(CLEAR_VARS)
    ```
 
@@ -890,7 +901,7 @@ To do so, you have to:
 1. Import the Component in the js file that uses it. So, if you want to use it in the `App.js`, you need to add this line:
 
    ```js title="App.js"
-   import RTNCenteredText from 'rnt-centered-text/js/RTNCenteredTextNativeComponent';
+   import RTNCenteredText from 'rtn-centered-text/js/RTNCenteredTextNativeComponent';
    ```
 
 2. Then, you need to use it in another React Native component. The syntax is the same as for any other component:
