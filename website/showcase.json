@@ -49,8 +49,8 @@
     "icon": "officemobile.png",
     "linkAppStore": "https://apps.apple.com/gb/app/microsoft-office/id541164041",
     "linkPlayStore": "https://play.google.com/store/apps/details?id=com.microsoft.office.officehubrow",
-    "infoLink": "https://www.youtube.com/watch?v=r7yKet5dga4",
-    "infoTitle": "Unlocking the next generation of desktop app with React Native",
+    "infoLink": "",
+    "infoTitle": "",
     "pinned": true
   },
   {
@@ -58,8 +58,8 @@
     "icon": "outlookmobile.png",
     "linkAppStore": "https://apps.apple.com/us/app/microsoft-outlook/id951937596",
     "linkPlayStore": "https://play.google.com/store/apps/details?id=com.microsoft.office.outlook",
-    "infoLink": "https://www.youtube.com/watch?v=r7yKet5dga4",
-    "infoTitle": "Unlocking the next generation of desktop app with React Native",
+    "infoLink": "",
+    "infoTitle": "",
     "pinned": true
   },
   {
@@ -67,8 +67,8 @@
     "icon": "teamsmobile.png",
     "linkAppStore": "https://apps.apple.com/gb/app/microsoft-teams/id1113153706",
     "linkPlayStore": "https://play.google.com/store/apps/details?id=com.microsoft.teams",
-    "infoLink": "https://www.youtube.com/watch?v=r7yKet5dga4",
-    "infoTitle": "Unlocking the next generation of desktop app with React Native",
+    "infoLink": "",
+    "infoTitle": "",
     "pinned": true
   },
   {
@@ -76,8 +76,8 @@
     "icon": "xboxgamepass.png",
     "linkAppStore": "https://apps.apple.com/gb/app/xbox-game-pass/id1374542474",
     "linkPlayStore": "https://play.google.com/store/apps/details?id=com.gamepass",
-    "infoLink": "https://www.youtube.com/watch?v=r7yKet5dga4",
-    "infoTitle": "Unlocking the next generation of desktop app with React Native",
+    "infoLink": "",
+    "infoTitle": "",
     "pinned": true
   },
   {
