@@ -181,7 +181,12 @@ Inherits [ScrollView Props](scrollview.md#props), unless it is nested in another
 ### <div class="label required basic">Required</div> **`renderItem`**
 
 ```jsx
-renderItem({ item, index, separators });
+renderItem({
+  item,
+  index,
+  separators,
+  accessibilityCollectionItem
+});
 ```
 
 Takes an item from `data` and renders it into the list.
@@ -195,11 +200,21 @@ Provides additional metadata like `index` if you need it, as well as a more gene
 - `item` (Object): The item from `data` being rendered.
 - `index` (number): The index corresponding to this item in the `data` array.
 - `separators` (Object)
+
   - `highlight` (Function)
   - `unhighlight` (Function)
   - `updateProps` (Function)
     - `select` (enum('leading', 'trailing'))
     - `newProps` (Object)
+
+- `accessibilityCollectionItem` (Object):
+  Used by TalkBack to announce the position of the item of a collection (row and column numbers). A collection item is contained in a collection, it starts at a given row and column in the collection, and spans one or more rows and columns. For example, a header of two related table columns starts at the first row and the first column, spans one row and two columns.
+  - itemIndex
+  - rowIndex The row index at which the item is located.
+  - rowSpan The number of rows the item spans.
+  - columnIndex The column index at which the item is located.
+  - columnSpan The number of columns the item spans.
+  - heading Whether the item is a heading.
 
 Example usage:
 
@@ -217,13 +232,21 @@ Example usage:
     ))
   }
   data={[{ title: 'Title Text', key: 'item1' }]}
-  renderItem={({ item, index, separators }) => (
+  renderItem={({
+    item,
+    index,
+    separators,
+    accessibilityCollectionItem
+  }) => (
     <TouchableHighlight
       key={item.key}
       onPress={() => this._onPress(item)}
       onShowUnderlay={separators.highlight}
       onHideUnderlay={separators.unhighlight}>
-      <View style={{ backgroundColor: 'white' }}>
+      <View
+        style={{ backgroundColor: 'white' }}
+        importantForAccessibility="yes"
+        accessibilityCollectionItem={accessibilityCollectionItem}>
         <Text>{item.title}</Text>
       </View>
     </TouchableHighlight>
