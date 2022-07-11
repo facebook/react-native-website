@@ -45,6 +45,42 @@
     "pinned": true
   },
   {
+    "name": "Microsoft Office",
+    "icon": "officemobile.png",
+    "linkAppStore": "https://apps.apple.com/gb/app/microsoft-office/id541164041",
+    "linkPlayStore": "https://play.google.com/store/apps/details?id=com.microsoft.office.officehubrow",
+    "infoLink": "",
+    "infoTitle": "",
+    "pinned": true
+  },
+  {
+    "name": "Microsoft Outlook",
+    "icon": "outlookmobile.png",
+    "linkAppStore": "https://apps.apple.com/us/app/microsoft-outlook/id951937596",
+    "linkPlayStore": "https://play.google.com/store/apps/details?id=com.microsoft.office.outlook",
+    "infoLink": "",
+    "infoTitle": "",
+    "pinned": true
+  },
+  {
+    "name": "Microsoft Teams",
+    "icon": "teamsmobile.png",
+    "linkAppStore": "https://apps.apple.com/gb/app/microsoft-teams/id1113153706",
+    "linkPlayStore": "https://play.google.com/store/apps/details?id=com.microsoft.teams",
+    "infoLink": "",
+    "infoTitle": "",
+    "pinned": true
+  },
+  {
+    "name": "Xbox Game Pass",
+    "icon": "xboxgamepass.png",
+    "linkAppStore": "https://apps.apple.com/gb/app/xbox-game-pass/id1374542474",
+    "linkPlayStore": "https://play.google.com/store/apps/details?id=com.gamepass",
+    "infoLink": "",
+    "infoTitle": "",
+    "pinned": true
+  },
+  {
     "name": "Coinbase",
     "icon": "coinbase.png",
     "linkAppStore": "https://apps.apple.com/us/app/coinbase-buy-sell-bitcoin/id886427730",
@@ -214,7 +250,7 @@
   },
   {
     "name": "Artsy",
-    "icon": "https://raw.githubusercontent.com/artsy/eigen/master/Artsy/Resources/Images.xcassets/AppIcon.appiconset/AppIcon167.png",
+    "icon": "artsy.png",
     "linkAppStore": "https://itunes.apple.com/us/app/artsy-collect-bid-on-fine/id703796080?mt=8",
     "infoLink": "https://artsy.github.io/series/react-native-at-artsy/",
     "infoTitle": "React Native at Artsy",
