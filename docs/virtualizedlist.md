@@ -671,13 +671,13 @@ more rows and columns. For example, a header of two related table columns starts
 | ------ |
 | object |
 
-| <div className="wideColumn">Name</div> | Type   | Description                                   |
-| -------------------------------------- | ------ | --------------------------------------------- |
-| itemIndex                              | string |                                               |
-| rowIndex                               | string | The row index at which the item is located    |
-| rowSpan                                | string | The number of rows the item spans             |
-| columnIndex                            | string | The column index at which the item is located |
-| columnIndex                            | string | The column index at which the item is located |
-| columnIndex                            | string | The column index at which the item is located |
-| columnSpan                             | string | The number of columns the item spans          |
-| heading                                | string | Whether the item is a heading                 |
+| <div className="wideColumn">Name</div> | Type   | Description                                                  |
+| -------------------------------------- | ------ | ------------------------------------------------------------ |
+| itemIndex                              | string | The index of the item in the collection (index of prop.data) |
+| rowIndex                               | string | The row index at which the item is located                   |
+| rowSpan                                | string | The number of rows the item spans                            |
+| columnIndex                            | string | The column index at which the item is located                |
+| columnIndex                            | string | The column index at which the item is located                |
+| columnIndex                            | string | The column index at which the item is located                |
+| columnSpan                             | string | The number of columns the item spans                         |
+| heading                                | string | Whether the item is a heading                                |

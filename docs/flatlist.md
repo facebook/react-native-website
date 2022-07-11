@@ -209,7 +209,7 @@ Provides additional metadata like `index` if you need it, as well as a more gene
 
 - `accessibilityCollectionItem` (Object):
   Used by TalkBack to announce the position of the item of a collection (row and column numbers). A collection item is contained in a collection, it starts at a given row and column in the collection, and spans one or more rows and columns. For example, a header of two related table columns starts at the first row and the first column, spans one row and two columns.
-  - itemIndex
+  - itemIndex The index of the item in the collection (index of prop.data).
   - rowIndex The row index at which the item is located.
   - rowSpan The number of rows the item spans.
   - columnIndex The column index at which the item is located.
