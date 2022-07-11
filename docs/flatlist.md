@@ -200,13 +200,11 @@ Provides additional metadata like `index` if you need it, as well as a more gene
 - `item` (Object): The item from `data` being rendered.
 - `index` (number): The index corresponding to this item in the `data` array.
 - `separators` (Object)
-
   - `highlight` (Function)
   - `unhighlight` (Function)
   - `updateProps` (Function)
     - `select` (enum('leading', 'trailing'))
     - `newProps` (Object)
-
 - `accessibilityCollectionItem` (Object):
   Used by TalkBack to announce the position of the item of a collection (row and column numbers). A collection item is contained in a collection, it starts at a given row and column in the collection, and spans one or more rows and columns. For example, a header of two related table columns starts at the first row and the first column, spans one row and two columns.
   - itemIndex The index of the item in the collection (index of prop.data).
