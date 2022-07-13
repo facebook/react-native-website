@@ -75,8 +75,9 @@ The debugger will receive a list of all project roots, separated by a space. For
 
 You can use Safari to debug the iOS version of your app without having to enable "Debug JS Remotely".
 
-- Enable Develop menu in Safari: `Preferences → Advanced → Select "Show Develop menu in menu bar"`
-- Select your app's JSContext: `Develop → Simulator → JSContext`
+- On a physical device go to: `Settings → Safari → Advanced → Make sure "Web Inspector" is turned on` (This step is not needed on the Simulator)
+- On your Mac enable Develop menu in Safari: `Preferences → Advanced → Select "Show Develop menu in menu bar"`
+- Select your app's JSContext: `Develop → Simulator (or other device) → JSContext`
 - Safari's Web Inspector should open which has a Console and a Debugger
 
 While sourcemaps may not be enabled by default, you can follow [this guide](http://blog.nparashuram.com/2019/10/debugging-react-native-ios-apps-with.html) or [video](https://www.youtube.com/watch?v=GrGqIIz51k4) to enable them and set break points at the right places in the source code.
