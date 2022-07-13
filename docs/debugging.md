@@ -7,7 +7,7 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import con
 
 ## Accessing the In-App Developer Menu
 
-You can access the developer menu by shaking your device or by selecting "Shake Gesture" inside the Hardware menu in the iOS Simulator. You can also use the `⌘D` keyboard shortcut when your app is running in the iOS Simulator, or `⌘M` when running in an Android emulator on Mac OS and `Ctrl+M` on Windows and Linux. Alternatively for Android, you can run the command `adb shell input keyevent 82` to open the dev menu (82 being the Menu key code).
+You can access the developer menu by shaking your device or by selecting "Shake Gesture" inside the Hardware menu in the iOS Simulator. You can also use the `⌘D` keyboard shortcut when your app is running in the iOS Simulator, or `⌘M` when running in an Android emulator on macOS and `Ctrl+M` on Windows and Linux. Alternatively for Android, you can run the command `adb shell input keyevent 82` to open the dev menu (82 being the Menu key code).
 
 ![](/docs/assets/DeveloperMenu.png)
 
@@ -19,7 +19,7 @@ Fast Refresh is a React Native feature that allows you to get near-instant feedb
 
 ## Enabling Keyboard Shortcuts
 
-React Native supports a few keyboard shortcuts in the iOS Simulator. They are described below. To enable them on MacOS, inside the Simulator app, open the I/O menu, select Keyboard, and make sure that "Connect Hardware Keyboard" is checked.
+React Native supports a few keyboard shortcuts in the iOS Simulator. They are described below. To enable them on macOS, inside the Simulator app, open the I/O menu, select Keyboard, and make sure that "Connect Hardware Keyboard" is checked.
 
 ## LogBox
 
