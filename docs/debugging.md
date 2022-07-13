@@ -19,7 +19,7 @@ Fast Refresh is a React Native feature that allows you to get near-instant feedb
 
 ## Enabling Keyboard Shortcuts
 
-React Native supports a few keyboard shortcuts in the iOS Simulator. They are described below. To enable them, open the Hardware menu, select Keyboard, and make sure that "Connect Hardware Keyboard" is checked.
+React Native supports a few keyboard shortcuts in the iOS Simulator. They are described below. To enable them on MacOS, inside the Simulator app, open the I/O menu, select Keyboard, and make sure that "Connect Hardware Keyboard" is checked.
 
 ## LogBox
 
