@@ -7,7 +7,7 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import con
 
 ## Accessing the In-App Developer Menu
 
-You can access the developer menu by shaking your device or by selecting "Shake Gesture" inside the Hardware menu in the iOS Simulator. You can also use the `⌘D` keyboard shortcut when your app is running in the iOS Simulator, or `⌘M` when running in an Android emulator on Mac OS and `Ctrl+M` on Windows and Linux. Alternatively for Android, you can run the command `adb shell input keyevent 82` to open the dev menu (82 being the Menu key code).
+You can access the developer menu by shaking your device or by selecting "Shake Gesture" inside the Hardware menu in the iOS Simulator. You can also use the `⌘D` keyboard shortcut when your app is running in the iOS Simulator, or `⌘M` when running in an Android emulator on macOS and `Ctrl+M` on Windows and Linux. Alternatively for Android, you can run the command `adb shell input keyevent 82` to open the dev menu (82 being the Menu key code).
 
 ![](/docs/assets/DeveloperMenu.png)
 
@@ -19,7 +19,7 @@ Fast Refresh is a React Native feature that allows you to get near-instant feedb
 
 ## Enabling Keyboard Shortcuts
 
-React Native supports a few keyboard shortcuts in the iOS Simulator. They are described below. To enable them, open the Hardware menu, select Keyboard, and make sure that "Connect Hardware Keyboard" is checked.
+React Native supports a few keyboard shortcuts in the iOS Simulator. They are described below. To enable them on macOS, inside the Simulator app, open the I/O menu, select Keyboard, and make sure that "Connect Hardware Keyboard" is checked.
 
 ## LogBox
 
@@ -75,8 +75,9 @@ The debugger will receive a list of all project roots, separated by a space. For
 
 You can use Safari to debug the iOS version of your app without having to enable "Debug JS Remotely".
 
-- Enable Develop menu in Safari: `Preferences → Advanced → Select "Show Develop menu in menu bar"`
-- Select your app's JSContext: `Develop → Simulator → JSContext`
+- On a physical device go to: `Settings → Safari → Advanced → Make sure "Web Inspector" is turned on` (This step is not needed on the Simulator)
+- On your Mac enable Develop menu in Safari: `Preferences → Advanced → Select "Show Develop menu in menu bar"`
+- Select your app's JSContext: `Develop → Simulator (or other device) → JSContext`
 - Safari's Web Inspector should open which has a Console and a Debugger
 
 While sourcemaps may not be enabled by default, you can follow [this guide](http://blog.nparashuram.com/2019/10/debugging-react-native-ios-apps-with.html) or [video](https://www.youtube.com/watch?v=GrGqIIz51k4) to enable them and set break points at the right places in the source code.
