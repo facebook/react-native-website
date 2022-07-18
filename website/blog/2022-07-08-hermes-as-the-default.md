@@ -14,6 +14,8 @@ Since the announcement, a lot of work has gone into making Hermes better, and to
 
 Note that while Hermes will be enabled by default in new React Native projects, support for other engines will continue.
 
+<!--truncate-->
+
 ## Benchmarking
 
 We measured three different metrics important to app developers: TTI, binary size, and memory consumption. We used the React Native app [Mattermost](https://github.com/mattermost/mattermost-mobile) for testing. We ran these experiments for both Android and iOS on high end hardware from 2020.
