@@ -25,8 +25,8 @@ To migrate to the **New Architecture**, follow the [Migration guide](../new-arch
 To create a Fabric Component, you have to follow these steps:
 
 1. Define a set of JavaScript specifications.
-2. Configure the component so that **Codegen** can create the shared code and it can added as a dependency for an app.
-3. Write the required native code required.
+2. Configure the component so that **Codegen** can create the shared code and it can be added as a dependency for an app.
+3. Write the required native code.
 
 Once these steps are done, the component is ready to be consumed by an app. The guide shows how to add it to an app, leveraging _autolinking_, and how to reference it from the JavaScript code.
 
@@ -784,7 +784,6 @@ import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.ViewManager;
 
-+ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -792,10 +791,7 @@ public class RTNCenteredTextPackage implements ReactPackage {
 
     @Override
     public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
--        return Collections.emptyList();
-+        List<ViewManager> viewManagers = new ArrayList<>();
-+        viewManagers.add(new RTNCenteredTextManager(reactContext));
-+        return viewManagers;
++        return Collections.singletonList(new RTNCenteredTextManager(reactContext));;
     }
 
     @Override
