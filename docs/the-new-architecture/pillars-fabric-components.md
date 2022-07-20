@@ -605,7 +605,7 @@ To generate the code, you need to manually invoke **Codegen**. This is done simi
 cd MyApp
 yarn add ../RTNCenteredText
 cd android
-./gradlew generateCodegenArtifactsFromSchema --rerun-tasks
+./gradlew generateCodegenArtifactsFromSchema
 ```
 
 This script first adds the package to the app, in the same way iOS does. Then, after moving to the `android` folder, it invokes a Gradle task to generate the scaffolding code.
