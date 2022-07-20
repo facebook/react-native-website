@@ -35,8 +35,6 @@ One of our key decisions with Hermes was to not implement a [just-in-time (JIT) 
 
 ### Pioneering at Vertical Integrations
 
-<!-- alex ignore host -->
-
 At Facebook, we prefer to colocate projects within a large [monorepo](https://en.wikipedia.org/wiki/Monorepo). By having the engine (Hermes) and the host (React Native) closely iterating together, we opened a lot of room for vertical integrations. To name a few:
 
 - Hermes supports [on-device JavaScript debugging with the Chrome debugger](https://reactnative.dev/docs/hermes#debugging-js-on-hermes-using-google-chromes-devtools) by speaking the [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/). It’s better than the legacy “[Remote JS Debugging](https://reactnative.dev/docs/debugging#chrome-developer-tools)” (which uses an in-app proxy to run JS in desktop Chrome) because it supports debugging synchronous native calls and guaranteed a consistent runtime environment. Together with React DevTools, Metro, Inspector, and so on, Hermes debugger is now part of [Flipper](https://reactnative.dev/blog/2020/03/26/version-0.62) to provide a one-stop developer experience.
@@ -62,8 +60,7 @@ Last but not least, Hermes has also been powering all virtual reality experience
 
 We acknowledge there are still blockers that prevent parts of the community from adopting Hermes and we are committed to building support for these missing features. Our goal is to be fully featured so that Hermes is the right choice for most React Native apps. Here is how the community has already shaped the Hermes roadmap:
 
-<!-- alex ignore just -->
-<!-- alex ignore fellowship -->
+<!-- alex ignore just fellowship -->
 
 - [`Proxy` and `Reflect`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Meta_programming) were originally excluded from Hermes because Facebook does not use them. We were also concerned that adding Proxy would hurt property lookup performance even when Proxy is not used. But Proxy quickly become [the most requested feature](https://github.com/facebook/hermes/issues/33) of Hermes due to popular libraries such as [MobX](https://mobx.js.org/README.html) and [Immer](https://immerjs.github.io/immer/). We carefully evaluated and decided to build it just for the community, and we managed to implement it with very low cost. Since this is a feature we don’t use, we relied on our community to prove its stability. We started by testing Proxy behind a flag and created opt-in npm packages for [release v0.4](https://github.com/facebook/hermes/issues/33#issuecomment-668374607) and [v0.5](https://github.com/facebook/hermes/issues/33#issuecomment-668374607), and it’s [enabled by default starting from v0.7](https://github.com/facebook/hermes/releases/tag/v0.7.0).
 - [ECMAScript Internationalization API Specification (ECMA-402, or `Intl`)](https://hermesengine.dev/docs/intl) was [the second most requested feature](https://github.com/facebook/hermes/issues/23). `Intl` is a huge set of APIs and often requires the implementation to include **6MB worth** of [Unicode CLDR](https://cldr.unicode.org/index) data. This is why polyfills like [FormatJS (a.k.a. `react-intl`)](https://github.com/formatjs/formatjs) and JS engines like the [international variant build of community JSC](https://github.com/react-native-community/jsc-android-buildscripts#international-variant) are so huge. To avoid substantially increasing the binary size of Hermes, we decided to implement it with another strategy by consuming and mapping the ICU facilities provided by the libraries included in the operating systems, at the cost of some (often minor) variance in behaviors across platforms.
@@ -84,6 +81,6 @@ It’s extremely important for us to prepare the ecosystem for a smooth adoption
 
 We’d love to thank the Hermes team, the React Native team, and the many contributors from the React Native community for their work to improve Hermes.
 
-<!-- alex ignore White -->
+<!-- alex ignore white -->
 
 I’d also love to personally thank (in alphabetic order) Eli White, Luna Wei, Neil Dhar, Tim Yung, Tzvetan Mikov, and many others for their help during the writing.
