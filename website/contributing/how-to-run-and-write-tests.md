@@ -77,16 +77,7 @@ Finally, make sure end-to-end tests run successfully by executing the following 
 ./scripts/test-manual-e2e.sh
 ```
 
-End-to-end tests written in [Detox](https://github.com/wix/Detox) confirm that React Native components and APIs function correctly in the context of a running app. They run the RNTester app in the simulator and simulate a user interacting with the app.
-
-You can run Detox end-to-end tests locally by [installing the Detox CLI](https://github.com/wix/Detox/blob/master/docs/Introduction.GettingStarted.md#step-1-install-dependencies) on macOS, then running the following in the command line:
-
-```bash
-yarn run build-ios-e2e
-yarn run test-ios-e2e
-```
-
-If you work on a component or API that isn't covered by a Detox test, please consider adding one. Detox tests are stored under [`RNTester/e2e/__tests__`](https://github.com/facebook/react-native/tree/main/RNTester/e2e/__tests__).
+This script will make you select to run the RNTester app (that lives within `packages/rn-tester`) or it will generate a fresh new project in `/tmp/RNTestProject`. Follow the step-by-step instructions from the script to test successfully if your changes.
 
 ## Writing Tests
 
