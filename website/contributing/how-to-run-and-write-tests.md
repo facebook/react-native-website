@@ -132,9 +132,8 @@ It's a good idea to add an Android integration test whenever you are working on 
 
 ## Continuous Testing
 
-We use [Appveyor][config-appveyor] and [CircleCI][config-circleci] to automatically run our open source tests. Appveyor and CircleCI will run these tests whenever a commit is added to a pull request, as a way to help maintainers understand whether a code change introduces a regression. The tests also run on commits to the `main` and `*-stable` branches in order to keep track of the health of these branches.
+We use [CircleCI][config-circleci] to automatically run our open source tests. CircleCI will run these tests whenever a commit is added to a pull request, as a way to help maintainers understand whether a code change introduces a regression. The tests also run on commits to the `main` and `*-stable` branches in order to keep track of the health of these branches.
 
-[config-appveyor]: https://github.com/facebook/react-native/blob/main/.appveyor/config.yml
 [config-circleci]: https://github.com/facebook/react-native/blob/main/.circleci/config.yml
 
 There's another set of tests that run within Meta's internal test infrastructure. Some of these tests are integration tests defined by internal consumers of React Native (e.g. unit tests for a React Native surface in the Facebook app).
@@ -145,7 +144,7 @@ If one of these tests fail, you'll need someone at Meta to take a look. Since pu
 
 :::note
 **Running CI tests locally:**
-Most open source collaborators rely on CircleCI and Appveyor to see the results of these tests. If you'd rather verify your changes locally using the same configuration as CircleCI, CircleCI provides a [command line interface](https://circleci.com/docs/2.0/local-cli/) with the ability to run jobs locally.
+Most open source collaborators rely on CircleCI to see the results of these tests. If you'd rather verify your changes locally using the same configuration as CircleCI, CircleCI provides a [command line interface](https://circleci.com/docs/2.0/local-cli/) with the ability to run jobs locally.
 :::
 
 ### F.A.Q.
