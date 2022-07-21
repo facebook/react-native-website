@@ -12,8 +12,8 @@ Assuming you have the Android SDK installed, run `android` to open the Android S
 
 Make sure you have the following installed:
 
-1. Android SDK version 30 (`compileSdkVersion` in [`build.gradle`](https://github.com/facebook/react-native/blob/main/ReactAndroid/build.gradle)).
-2. Android NDK 21.4.7075529 (from in [`gradle.properties`](https://github.com/facebook/react-native/blob/b1120c6a6513ec24568abc6bbe60dd57ef1dec96/gradle.properties#L7), download links and installation instructions below).
+1. Android SDK (find the specific version in the `compileSdkVersion` in [`build.gradle`](https://github.com/facebook/react-native/blob/main/ReactAndroid/build.gradle#L253)).
+2. Android NDK
 
 #### Point Gradle to your Android SDK
 
@@ -45,13 +45,7 @@ ndk.dir=/Users/your_unix_name/android-ndk/android-ndk-r20b
 
 #### Download links for Android NDK
 
-1. [macOS (64-bit)](https://dl.google.com/android/repository/android-ndk-r20b-darwin-x86_64.zip)
-2. [Linux (64-bit)](https://dl.google.com/android/repository/android-ndk-r20b-linux-x86_64.zip)
-3. [Windows (64-bit)](https://dl.google.com/android/repository/android-ndk-r20b-windows-x86_64.zip)
-4. [Windows (32-bit)](https://dl.google.com/android/repository/android-ndk-r20b-windows-x86.zip)
-
-You can find further instructions on the [official page](https://developer.android.com/ndk/index.html).
-Or follow instructions to [download appropriate NDK from SDK manager](https://developer.android.com/studio/projects/install-ndk#specific-version).
+You can find the instructions to install the NDK on the [official Android NDK website](https://developer.android.com/studio/projects/install-ndk). In case you need a specific version (ex. you are working on an older version of React Native) you can refer to these instructions to install [download appropriate NDK from SDK manager](https://developer.android.com/studio/projects/install-ndk#specific-version).
 
 ### Building the source
 
