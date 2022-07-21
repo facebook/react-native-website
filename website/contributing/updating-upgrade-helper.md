@@ -3,8 +3,6 @@ id: updating-upgrade-helper
 title: How to Update Upgrade Helper
 ---
 
-_Point people: [@lucasbento](https://github.com/lucasbento), [@pvinis](https://github.com/pvinis), [@kelset](https://github.com/kelset)_
-
 From the readme of [its dedicated repo](https://github.com/react-native-community/upgrade-helper#-how-it-works):
 
 :::note
