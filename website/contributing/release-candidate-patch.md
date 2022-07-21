@@ -62,3 +62,9 @@ git push
 ### 5. Update the relevant discussion post with the latest RC
 
 Go back to the "road to 0.XX.0" [discussion](https://github.com/reactwg/react-native-releases/discussions) and update the "Current release candidate" line with the new version you just published.
+
+### 6. Broadcast that release candidate is out
+
+Once all the steps above have been completed, it's time to signal to the community that the new RC is available for testing! Do so in the following channels:
+
+- RN Discord `#releases-coordination` and to the testers in `#testers-feedback`
