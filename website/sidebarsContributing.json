@@ -47,8 +47,8 @@
           "items": [
             "release-branch-cut-and-rc0",
             "release-candidate-patch",
-            "release-stable-patch",
             "release-stable-minor",
+            "release-stable-patch",
             "release-troubleshooting"
           ]
         }
