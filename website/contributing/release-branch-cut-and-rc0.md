@@ -154,7 +154,7 @@ The branch cut has happened.
   > When ready to publish stable
 - [ ] Ship changelog
 - [ ] Ship blog post
-- [ ] Notify `react-native-website` to ship new version
+- [ ] Make PR to `react-native-website` with the new version cut ([see docs](https://github.com/facebook/react-native-website#cutting-a-new-version))
 
 #### Retrospective Topics
 
