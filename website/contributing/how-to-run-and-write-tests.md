@@ -144,7 +144,7 @@ If one of these tests fail, you'll need someone at Meta to take a look. Since pu
 
 :::note
 **Running CI tests locally:**
-Most open source collaborators rely on CircleCI to see the results of these tests. If you'd rather verify your changes locally using the same configuration as CircleCI, CircleCI provides a [command line interface](https://circleci.com/docs/2.0/local-cli/) with the ability to run jobs locally.
+Most open source collaborators rely on CircleCI to see the results of these tests. If you'd rather verify your changes locally using the same configuration as CircleCI, CircleCI provides a [command line interface](https://circleci.com/docs/local-cli) with the ability to run jobs locally.
 :::
 
 ### F.A.Q.
