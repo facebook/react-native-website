@@ -10,6 +10,7 @@
 /docs/understanding-cli         https://github.com/react-native-community/cli#react-native-cli
 
 /contributing/how-to-contribute         /contributing/overview
+/releases/release-candidate-minor         /releases/release-branch-cut-and-rc0
 
 # Changed blog post dates
 /blog/2021/03/11/version-0.64   /blog/2021/03/12/version-0.64

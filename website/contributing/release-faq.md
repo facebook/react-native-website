@@ -32,9 +32,11 @@ To determine whether a fix or feature is present in a given release, you will ne
 
 Once you have the commit hash, navigate to `https://github.com/facebook/react-native/commit/<COMMIT_HASH>`. Look closely at the commit message, underneath which you will find a list of tags associated with the commit.
 These tags will tell you which releases contains this commit. For example, commit [a6768bfd70187634e587d7b2e92d2b6735a4037e](https://github.com/facebook/react-native/commit/a6768bfd70187634e587d7b2e92d2b6735a4037e) has the following tags as of this writing:
+
 ```plain
 v0.67.0-rc.3 v0.67.0-rc.2 v0.67.0-rc.1 v0.67.0-rc.0 v0.66.3 v0.66.2 v0.66.1 v0.66.0 v0.66.0-rc.4 v0.66.0-rc.3 v0.66.0-rc.2 v0.66.0-rc.1 v0.66.0-rc.0 latest
 ```
+
 These tags tell us that the commit first made it into the 0.66 release candidate, eventually landing in the 0.66 stable release. It is also present, as you'd expect, in the 0.67 release candidate (and should make it to 0.67 stable, and so on).
 
 If the commit is only present in `main` (i.e. has no tags), then the commit has yet to be picked up by a release (or it may have been included in a follow up cherry pick for a patch version). You can expect it to be included in the next release candidate that is cut once the designed features have all landed.
