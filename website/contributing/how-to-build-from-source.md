@@ -45,7 +45,7 @@ ndk.dir=/Users/your_unix_name/android-ndk/android-ndk-r20b
 
 #### Download links for Android NDK
 
-You can find the instructions to install the NDK on the [official Android NDK website](https://developer.android.com/studio/projects/install-ndk). In case you need a specific version (ex. you are working on an older version of React Native) you can refer to these instructions to install [download appropriate NDK from SDK manager](https://developer.android.com/studio/projects/install-ndk#specific-version).
+You can find the instructions to install the NDK on the [official Android NDK website](https://developer.android.com/studio/projects/install-ndk).
 
 ### Building the source
 
