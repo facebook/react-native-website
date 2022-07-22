@@ -12,7 +12,7 @@ Documents in this section go over steps to run different types of React Native r
 - Write access to [react-native](https://github.com/facebook/react-native) repository.
 - Write access to [hermes](https://github.com/facebook/hermes) repository.
 - Write access to [releases](https://github.com/reactwg/react-native-releases) repository.
-- One CircleCI personal API token - see [here](https://circleci.com/docs/2.0/managing-api-tokens/#creating-a-personal-api-token) how to set one.
+- One CircleCI personal API token - see [here](https://circleci.com/docs/managing-api-tokens#creating-a-personal-api-token) how to set one.
 
 ### 1. Creating a new release branch
 
