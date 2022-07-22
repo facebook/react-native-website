@@ -12,8 +12,7 @@ Documents in this section go over steps to run different types of React Native r
 - Write access to [react-native](https://github.com/facebook/react-native) repository.
 - Write access to [releases](https://github.com/reactwg/react-native-releases) repository.
 - One CircleCI personal API token - see [here](https://circleci.com/docs/2.0/managing-api-tokens/#creating-a-personal-api-token) how to set one.
-- Have the blog post ready as a PR .
-- Blogpost PR should be ready to merge (for `react-native-website` [repository](https://github.com/facebook/react-native-website)).
+- Blog post PR should be ready to merge (for `react-native-website` [repository](https://github.com/facebook/react-native-website)).
 - Documentation PR should be ready to merge (for `react-native-website` [repository](https://github.com/facebook/react-native-website)).
 - Changelog PR should be ready to merge (for `react-native` [repository](https://github.com/facebook/react-native)).
 - Previous RC has been thoroughly tested and no important issues have been reported. When releasing stable minor, you **should not** include any new cherry-picks.
