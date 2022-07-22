@@ -61,7 +61,7 @@ git push
 
 ### 5. Update the relevant discussion post with the latest RC
 
-Go back to the "road to 0.XX.0" [discussion](https://github.com/reactwg/react-native-releases/discussions) and update the "Current release candidate" line with the new version you just published.
+Go back to the "road to 0.XX.0" [discussion](https://github.com/reactwg/react-native-releases/discussions) and update the "Current release candidate" line with the new version you published.
 
 ### 6. Broadcast that release candidate is out
 
