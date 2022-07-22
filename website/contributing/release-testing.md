@@ -15,7 +15,7 @@ These steps needs to be followed by the release crew as part of the release proc
   # Checkout relevant branch
   git checkout 0.66-stable
 
-  # (optional) you might need a .watchmanconfig because `npm start` would fail without it.
+  # Optional: you might need a .watchmanconfig because `npm start` would fail without it.
   echo '{}' > .watchmanconfig
   ```
 
