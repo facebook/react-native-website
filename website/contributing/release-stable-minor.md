@@ -30,7 +30,7 @@ git checkout -b 0.Y-stable
 # This updates npm registry to point to this version as "latest"
 ```
 
-When this is done, all the other PRs (changelog, documentation, blogpost) should also get merged.
+When this is done, all the other PRs (changelog, documentation, blog post) should also get merged.
 
 ### 2. Update the GitHub releases
 
