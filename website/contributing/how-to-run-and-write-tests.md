@@ -151,7 +151,7 @@ Most open source collaborators rely on CircleCI to see the results of these test
 
 #### How do I upgrade the Xcode version used in CI tests?
 
-When upgrading to a new version of Xcode, first make sure it is [supported by CircleCI](https://circleci.com/docs/2.0/testing-ios/#supported-xcode-versions).
+When upgrading to a new version of Xcode, first make sure it is [supported by CircleCI](https://circleci.com/docs/testing-ios#supported-xcode-versions).
 
 You will also need to update the test environment config to make sure tests run on an iOS Simulator that comes installed in the CircleCI machine.
 
