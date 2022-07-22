@@ -56,7 +56,7 @@ To help you upgrade to this version, you can use the [upgrade helper](https://re
 You can find the whole changelog history in the [changelog.md file](https://github.com/facebook/react-native/blob/main/CHANGELOG.md).
 ```
 
-It's likely that when you post this GitHub release, the PRs for changelog, blogpost and documentation are still in the rollout phase. You can start publishing the release anyway (to do step #3) with placeholders instead of links - but make sure to come back and update them once everything is out!
+It's likely that when you post this GitHub release, the PRs for changelog, blog post and documentation are still in the rollout phase. You can start publishing the release anyway (to do step #3) with placeholders instead of links - but make sure to come back and update them once everything is out!
 
 ### 3. Upload prebuilt Hermes binary
 
