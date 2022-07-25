@@ -199,6 +199,7 @@ See the [Android `View` docs](http://developer.android.com/reference/android/vie
 - `'tablist'` - Used to represent a list of tabs.
 - `'timer'` - Used to represent a timer.
 - `'toolbar'` - Used to represent a tool bar (a container of action buttons or components).
+- `'grid'` - Used with ScrollView, VirtualizedList, FlatList or SectionList to represent a grid (only used with Android GridView).
 
 | Type   |
 | ------ |
