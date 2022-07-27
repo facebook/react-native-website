@@ -27,6 +27,42 @@ On Android, `accessible={true}` property for a react-native View will be transla
 
 In the above example, we can't get accessibility focus separately on 'text one' and 'text two'. Instead we get focus on a parent view with 'accessible' property.
 
+```jsx
+<View accessible={true}>
+  <Text accessible={true}>text one</Text>
+  <Text>text two</Text>
+</View>
+```
+
+<div class="label ios basic">iOS</div>
+
+VoiceOver can't get accessibility focus separately on 'text one' and 'text two' in the above example. Instead, it focuses on the parent view with 'accessible' property.
+
+<div class="label android basic">Android</div>
+
+In the above example, the TalkBack screenreader focuses on the parent view with the 'accessible' property and uses the unfocusable child Text with the text "text two" as a label. The focus will then move to read the second focusable child Text with the text "text one".
+
+```jsx
+<View
+  accessible={true}
+  accessibilityLabel="a couple of text views">
+  <Text onPress={() => console.log('text one pressed')}>
+    text One
+  </Text>
+  <Text onPress={() => console.log('text two pressed')}>
+    text Two
+  </Text>
+</View>
+```
+
+<div class="label ios basic">iOS</div>
+
+VoiceOver can't get accessibility focus separately on 'text one' and 'text two' in the above example. Instead, it focuses on the parent view with 'accessible' property.
+
+<div class="label android basic">Android</div>
+
+In the above example, the TalkBack screenreader focuses on the parent view with the 'accessible' property and announces the accessibilityLabel 'a couple of text views'. The focus then moves to the next focusable child, the Text with 'text one' and 'text two'. Android elements with an onPress or onLongPress handler are focusable.
+
 ### `accessibilityLabel`
 
 When a view is marked as accessible, it is a good practice to set an accessibilityLabel on the view, so that people who use VoiceOver know what element they have selected. VoiceOver will read this string when a user selects the associated element.
