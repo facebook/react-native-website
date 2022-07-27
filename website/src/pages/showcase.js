@@ -6,19 +6,23 @@
  */
 
 import React from 'react';
-import Layout from '@theme/Layout';
-
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import Layout from '@theme/Layout';
+import ThemedImage from '@theme/ThemedImage';
+
+import {Section} from './index';
 
 const renderApp = (app, i) => {
   return (
     <div className="showcase" key={i}>
-      <div>
-        <a href={app.infoLink}>{renderAppIcon(app)}</a>
-        <h3>{app.name}</h3>
-        {renderLinks(app)}
-        {renderInfo(app.infoTitle, app.infoLink)}
+      {renderAppIcon(app)}
+      <div className="showcaseContent">
+        <div>
+          <h3>{app.name}</h3>
+          {renderLinks(app)}
+        </div>
+        {renderInfo('Learn more', app.infoLink)}
       </div>
     </div>
   );
@@ -29,22 +33,24 @@ const renderAppIcon = app => {
   if (!app.icon.startsWith('http')) {
     imgSource = useBaseUrl('img/showcase/' + app.icon);
   }
-  return <img src={imgSource} alt={app.name} />;
+  return (
+    <div className="iconBox">
+      <img src={imgSource} alt={app.name} />
+    </div>
+  );
 };
 
 const renderInfo = (title, uri) => {
   return uri ? (
-    <p className="info">
-      <a href={uri} target="_blank">
-        {title}
-      </a>
-    </p>
+    <a className="articleButton" href={uri} target="_blank">
+      {title}
+    </a>
   ) : null;
 };
 
 const renderLinks = app => {
   if (!app.linkAppStore && !app.linkPlayStore) {
-    return;
+    return <p />;
   }
 
   const linkAppStore = app.linkAppStore ? (
@@ -71,44 +77,120 @@ const Showcase = () => {
   const {siteConfig} = useDocusaurusContext();
 
   const showcaseApps = siteConfig.customFields.users;
-  const pinnedApps = showcaseApps.filter(app => app.pinned);
-  const featuredApps = showcaseApps
-    .filter(app => !app.pinned)
-    .sort((a, b) => a.name.localeCompare(b.name));
-  const apps = pinnedApps.concat(featuredApps);
+
+  const metaApps = showcaseApps.filter(app => app.group === 'Meta');
+  const microsoftApps = showcaseApps.filter(app => app.group === 'Microsoft');
+  const shopifyApps = showcaseApps.filter(app => app.group === 'Shopify');
+  const apps = showcaseApps
+    .filter(app => !app.group)
+    .sort(() => 0.5 - Math.random());
 
   return (
     <Layout
       title="Who's using React Native?"
       description="Thousands of apps are using React Native, check out these apps!">
-      <div className="showcaseSection">
-        <div className="prose">
-          <h1>Who's using React Native?</h1>
+      <Section background="dark">
+        <div className="sectionContainer headerContainer">
+          <h1>
+            Who's using <span>React Native</span>?
+          </h1>
           <p>
             Thousands of apps are using React Native, from established Fortune
-            500 companies to hot new startups. If you're curious to see what can
-            be accomplished with React Native, check out these apps!
+            500 companies to hot new startups.
+            <br />
+            If you're curious to see what can be accomplished with React Native,
+            check out these apps!
           </p>
         </div>
-        <div className="logos">{apps.map(renderApp)}</div>
-        <a
-          className="form-button"
-          href="https://forms.gle/BdNf3v5hemV9D5c86"
-          target="_blank">
-          Fill out this form to apply to the customer spotlight.
-        </a>
-        <p>
-          A curated list of{' '}
-          <span>
+      </Section>
+      <Section>
+        <div className="showcaseSection">
+          <h2 className="withLogo">
+            <ThemedImage
+              alt="Meta logo"
+              width={140}
+              sources={{
+                light: useBaseUrl('/img/meta_positive_primary.svg'),
+                dark: useBaseUrl('/img/meta_negative_primary.svg'),
+              }}
+            />
+          </h2>
+          <p className="showcaseSectionDescription">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sit
+            amet ex ullamcorper, dignissim elit ac, ornare elit. Donec iaculis,
+            erat in pharetra euismod, sem ipsum varius urna, nec hendrerit nisi
+            urna sed lorem.
+          </p>
+          <div className="logos">{metaApps.map(renderApp)}</div>
+        </div>
+        <div className="showcaseSection">
+          <h2 className="withLogo">
+            <ThemedImage
+              alt="Microsoft logo"
+              width={180}
+              sources={{
+                light: useBaseUrl('/img/microsoft-logo-gray.png'),
+                dark: useBaseUrl('/img/microsoft-logo-white.png'),
+              }}
+            />
+          </h2>
+          <p className="showcaseSectionDescription">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sit
+            amet ex ullamcorper, dignissim elit ac, ornare elit. Donec iaculis,
+            erat in pharetra euismod, sem ipsum varius urna, nec hendrerit nisi
+            urna sed lorem.
+          </p>
+          <div className="logos">{microsoftApps.map(renderApp)}</div>
+        </div>
+        <div className="showcaseSection">
+          <h2 className="withLogo">
+            <ThemedImage
+              alt="Shopify logo"
+              width={160}
+              sources={{
+                light: useBaseUrl('/img/shopify_logo_whitebg.svg'),
+                dark: useBaseUrl('/img/shopify_logo_darkbg.svg'),
+              }}
+            />
+          </h2>
+          <p className="showcaseSectionDescription">
+            EXAMPLE: After years of native mobile development, we’ve decided to
+            go full steam ahead building all of our new mobile apps using React
+            Native.
+            <br />
+            Read more about it on our{' '}
+            <a href="https://shopify.engineering/topics/mobile" target="_blank">
+              Engineering Blog
+            </a>
+            .
+          </p>
+          <div className="logos">{shopifyApps.map(renderApp)}</div>
+        </div>
+        <div className="showcaseSection showcaseCustomers">
+          <h2>Customers Spotlight</h2>
+          <div className="logos">{apps.map(renderApp)}</div>
+        </div>
+      </Section>
+      <Section background="dark">
+        <div className="sectionContainer footerContainer">
+          <a
+            className="formButton"
+            href="https://forms.gle/BdNf3v5hemV9D5c86"
+            target="_blank">
+            Fill out this form to apply to the Customer Spotlight
+          </a>
+          <p>
+            A curated list of{' '}
             <a
               key="demo-apps"
               href="https://github.com/ReactNativeNews/React-Native-Apps">
               open source React Native apps
-            </a>
-          </span>{' '}
-          is also being kept by <a href="https://infinite.red">Infinite Red</a>.
-        </p>
-      </div>
+            </a>{' '}
+            is also being kept by{' '}
+            <a href="https://infinite.red">Infinite Red</a>.
+          </p>
+        </div>
+      </Section>
     </Layout>
   );
 };

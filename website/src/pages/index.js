@@ -147,7 +147,7 @@ function GitHubStarButton() {
   );
 }
 
-function Section({
+export function Section({
   element = 'section',
   children,
   className,

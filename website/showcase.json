@@ -1,11 +1,12 @@
 [
   {
     "name": "Facebook",
-    "icon": "facebook.png",
+    "icon": "facebook.webp",
     "linkAppStore": "https://itunes.apple.com/app/facebook/id284882215",
     "linkPlayStore": "https://play.google.com/store/apps/details?id=com.facebook.katana",
     "infoLink": "https://code.facebook.com/posts/895897210527114/dive-into-react-native-performance/",
     "infoTitle": "Using React Native in the Facebook App",
+    "group": "Meta",
     "pinned": true
   },
   {
@@ -15,6 +16,7 @@
     "linkPlayStore": "https://play.google.com/store/apps/details?id=com.facebook.adsmanager",
     "infoLink": "https://code.facebook.com/posts/1189117404435352/react-native-for-android-how-we-built-the-first-cross-platform-react-native-app/",
     "infoTitle": "How We Built the First Cross-Platform React Native App",
+    "group": "Meta",
     "pinned": true
   },
   {
@@ -24,6 +26,7 @@
     "linkPlayStore": "https://play.google.com/store/apps/details?id=com.facebook.analytics",
     "infoLink": "https://analytics.facebook.com/blog",
     "infoTitle": "",
+    "group": "Meta",
     "pinned": true
   },
   {
@@ -33,6 +36,7 @@
     "linkPlayStore": "https://play.google.com/store/apps/details?id=com.instagram.android&referrer=utm_source%3Dinstagramweb%26utm_campaign%3DunifiedHome%26utm_medium%3Dbadge",
     "infoLink": "https://engineering.instagram.com/react-native-at-instagram-dd828a9a90c7#.3h4wir4zr",
     "infoTitle": "React Native at Instagram",
+    "group": "Meta",
     "pinned": true
   },
   {
@@ -42,6 +46,7 @@
     "linkPlayStore": "https://play.google.com/store/apps/details?id=com.oculus.twilight&hl=en_US",
     "infoLink": "https://www.oculus.com/experiences/quest/",
     "infoTitle": "",
+    "group": "Meta",
     "pinned": true
   },
   {
@@ -49,8 +54,7 @@
     "icon": "officemobile.png",
     "linkAppStore": "https://apps.apple.com/gb/app/microsoft-office/id541164041",
     "linkPlayStore": "https://play.google.com/store/apps/details?id=com.microsoft.office.officehubrow",
-    "infoLink": "",
-    "infoTitle": "",
+    "group": "Microsoft",
     "pinned": true
   },
   {
@@ -58,8 +62,7 @@
     "icon": "outlookmobile.png",
     "linkAppStore": "https://apps.apple.com/us/app/microsoft-outlook/id951937596",
     "linkPlayStore": "https://play.google.com/store/apps/details?id=com.microsoft.office.outlook",
-    "infoLink": "",
-    "infoTitle": "",
+    "group": "Microsoft",
     "pinned": true
   },
   {
@@ -67,8 +70,7 @@
     "icon": "teamsmobile.png",
     "linkAppStore": "https://apps.apple.com/gb/app/microsoft-teams/id1113153706",
     "linkPlayStore": "https://play.google.com/store/apps/details?id=com.microsoft.teams",
-    "infoLink": "",
-    "infoTitle": "",
+    "group": "Microsoft",
     "pinned": true
   },
   {
@@ -76,8 +78,7 @@
     "icon": "xboxgamepass.png",
     "linkAppStore": "https://apps.apple.com/gb/app/xbox-game-pass/id1374542474",
     "linkPlayStore": "https://play.google.com/store/apps/details?id=com.gamepass",
-    "infoLink": "",
-    "infoTitle": "",
+    "group": "Microsoft",
     "pinned": true
   },
   {
@@ -91,16 +92,39 @@
   },
   {
     "name": "Shopify",
-    "icon": "shopify.png",
+    "icon": "shopify.webp",
+    "linkAppStore": "https://apps.apple.com/us/app/shopify-your-ecommerce-store/id371294472",
+    "linkPlayStore": "https://play.google.com/store/apps/details?id=com.shopify.mobile&hl=en_US&gl=US",
+    "group": "Shopify",
+    "pinned": true
+  },
+  {
+    "name": "Shop: All your favorite brands",
+    "icon": "shop.webp",
     "linkAppStore": "https://apps.apple.com/ca/app/shop-package-order-tracker/id1223471316",
     "linkPlayStore": "https://play.google.com/store/apps/details?id=com.shopify.arrive&hl=en_US&gl=US",
-    "infoLink": "https://engineering.shopify.com/blogs/engineering/react-native-future-mobile-shopify",
-    "infoTitle": "React Native is the Future of Mobile at Shopify",
+    "group": "Shopify",
+    "pinned": true
+  },
+  {
+    "name": "Shopify Inbox",
+    "icon": "shopify-inbox.webp",
+    "linkAppStore": "https://apps.apple.com/us/app/shopify-inbox/id1301681854",
+    "linkPlayStore": "https://play.google.com/store/apps/details?id=com.shopify.ping&gl=US",
+    "group": "Shopify",
+    "pinned": true
+  },
+  {
+    "name": "Shopify Point of Sale",
+    "icon": "pos.webp",
+    "linkAppStore": "https://apps.apple.com/us/app/shopify-point-of-sale-pos/id686830644",
+    "linkPlayStore": "https://play.google.com/store/apps/details?id=com.shopify.pos&gl=US",
+    "group": "Shopify",
     "pinned": true
   },
   {
     "name": "Tableau",
-    "icon": "tableau.png",
+    "icon": "tableau.webp",
     "linkAppStore": "https://apps.apple.com/us/app/tableau-mobile/id434633927",
     "linkPlayStore": "https://play.google.com/store/apps/details?id=com.Tableau.TableauApp&hl=en_US",
     "infoLink": "https://engineering.tableau.com/react-native-at-tableau-3-years-in-89d43c38354c",
@@ -144,11 +168,10 @@
   },
   {
     "name": "Skype",
-    "icon": "skype.png",
+    "icon": "skype.webp",
     "linkAppStore": "https://itunes.apple.com/us/app/skype-for-iphone/id304878510?mt=8",
     "linkPlayStore": "https://play.google.com/store/apps/details?id=com.skype.raider",
-    "infoLink": "https://dev.skype.com/react",
-    "infoTitle": "",
+    "group": "Microsoft",
     "pinned": true
   },
   {
@@ -179,15 +202,15 @@
     "pinned": true
   },
   {
-    "name": "Uber Eats",
+    "name": "Uber Eats: Food Delivery",
     "icon": "ubereats.png",
     "infoLink": "https://eng.uber.com/ubereats-react-native/",
     "infoTitle": "Powering Uber Eats with React Native",
     "pinned": true
   },
   {
-    "name": "Walmart",
-    "icon": "walmart.png",
+    "name": "Walmart Shopping & Grocery",
+    "icon": "walmart.webp",
     "linkAppStore": "https://itunes.apple.com/us/app/walmart-app-shopping-savings/id338137227?mt=8",
     "linkPlayStore": "https://play.google.com/store/apps/details?id=com.walmart.android",
     "infoLink": " https://medium.com/walmartlabs/react-native-at-walmartlabs-cdd140589560#.ueonqqloc",
@@ -271,14 +294,6 @@
     "linkPlayStore": "https://play.google.com/store/apps/details?id=com.cbssports.fantasy.franchisefootball2015",
     "infoLink": "http://www.cbssports.com/fantasy/football/games/franchise/2015",
     "infoTitle": "Award winning Fantasy Football league manager built with React Native",
-    "pinned": false
-  },
-  {
-    "name": "Chop",
-    "icon": "chop.png",
-    "linkAppStore": "http://apple.co/2dfkYH9",
-    "infoLink": "http://blog.getchop.io/2016/10/13/how-we-built-chop/",
-    "infoTitle": "How we built Chop using React Native",
     "pinned": false
   },
   {
