@@ -292,7 +292,7 @@ On iOS, these roles map to corresponding Accessibility Traits. Image button has 
 
 On Android, these roles have similar functionality on TalkBack as adding Accessibility Traits does on Voiceover in iOS.
 
-> Nested Text with accessibilityRole link are only supported on Android.
+> Nested Text with accessibilityRole link is only supported on Android.
 
 | Type                                                 |
 | ---------------------------------------------------- |
