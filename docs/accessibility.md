@@ -161,7 +161,7 @@ In the above example method `addOne` changes the state variable `count`. As soon
 - **image** Used when the element should be treated as an image. Can be combined with button or link, for example.
 - **imagebutton** Used when the element should be treated as a button and is also an image.
 - **keyboardkey** Used when the element acts as a keyboard key.
-- **link** Used when the element should be treated as a link.
+- **link** Used when the element should be treated as a link. Nested Text with accessibilityRole link are only supported on Android.
 - **menu** Used when the component is a menu of choices.
 - **menubar** Used when a component is a container of multiple menus.
 - **menuitem** Used to represent an item within a menu.
