@@ -29,19 +29,27 @@ Documents in this section go over steps to run different types of React Native r
 - Bump the Hermes version on the release branch using this command:
 
   ```bash
-  # Replace <the_hermes_tag> with the tag that will look like 'hermes-2022-02-21-RNv0.68.0-rc1-0172d30ac14e8c936c4fd2c435b799e0009aeb00'
-  ./scripts/bump-hermes-version.js -t <the_hermes_tag>
+  # Replace <the_hermes_tag> with the tag that will look like 'hermes-2022-07-20-RNv0.70.0-bc97c5399e0789c0a323f8e1431986e207a9e8ba'
+  ./scripts/hermes/bump-hermes-version.js -t <the_hermes_tag>
   ```
 
-### 2. Test the current changes
+- Add and commit the extra file that got created at `sdks/hermes/.hermesversion`.
+
+### 2. Push the branch and test the current changes
+
+You can now push the branch you created so that others can also start testing:
+
+```bash
+git push origin 0.69-stable
+```
 
 Before continuing further, follow the [testing guide](/contributing/release-testing) to ensure the code doesn't have any major issues.
 
 ### 3. Kick off the build of 0.{minor}.0-rc.0
 
-```bash
-git push origin 0.69-stable
+Once you're done with the testing, you can kick-off the bump and publishing of RC0:
 
+```
 # This will walk you through what version you are releasing
 ./scripts/bump-oss-version.js --to-version 0.69.0-rc.0 --token <YOUR_CIRCLE_CI_TOKEN>
 ```
