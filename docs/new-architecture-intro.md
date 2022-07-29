@@ -13,7 +13,7 @@ This migration guide is designed for React Native **library authors** and **appl
 
 ## Table of Contents
 
-The guide is divided into three sections:
+The guide is divided into five sections:
 
 - **Supporting the New Architecture in your Library**
   - [Prerequisites for Supporting the New Architecture in JavaScript](new-architecture-library-intro)
@@ -28,4 +28,6 @@ The guide is divided into three sections:
   - Enabling the New Renderer (Fabric) in your App
     - [Android](new-architecture-app-renderer-android)
     - [iOS](new-architecture-app-renderer-ios)
+- [**React 18 & React Native**](react-18-and-react-native)
+- [**Troubleshooting**](new-architecture-troubleshooting)
 - [**Appendix**](new-architecture-appendix)
