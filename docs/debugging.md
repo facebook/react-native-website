@@ -115,7 +115,7 @@ react-devtools
 
 ![React DevTools](/docs/assets/ReactDevTools.png)
 
-It should connect to your simulator within a few seconds. 
+It should connect to your simulator within a few seconds.
 
 :::info
 If connecting to the emulator proves troublesome (especially Android 12), try running `adb reverse tcp:8097 tcp:8097` in a new terminal.
