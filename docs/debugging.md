@@ -115,9 +115,15 @@ react-devtools
 
 ![React DevTools](/docs/assets/ReactDevTools.png)
 
-It should connect to your simulator within a few seconds.
+It should connect to your simulator within a few seconds. 
 
-> Note: if you prefer to avoid global installations, you can add `react-devtools` as a project dependency. Add the `react-devtools` package to your project using `npm install --save-dev react-devtools`, then add `"react-devtools": "react-devtools"` to the `scripts` section in your `package.json`, and then run `npm run react-devtools` from your project folder to open the DevTools.
+:::info
+If connecting to the emulator proves troublesome (especially Android 12), try running `adb reverse tcp:8097 tcp:8097` in a new terminal.
+:::
+
+:::info
+If you prefer to avoid global installations, you can add `react-devtools` as a project dependency. Add the `react-devtools` package to your project using `npm install --save-dev react-devtools`, then add `"react-devtools": "react-devtools"` to the `scripts` section in your `package.json`, and then run `npm run react-devtools` from your project folder to open the DevTools.
+:::
 
 ### Integration with React Native Inspector
 
