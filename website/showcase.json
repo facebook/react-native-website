@@ -202,13 +202,6 @@
     "pinned": true
   },
   {
-    "name": "Uber Eats: Food Delivery",
-    "icon": "ubereats.png",
-    "infoLink": "https://eng.uber.com/ubereats-react-native/",
-    "infoTitle": "Powering Uber Eats with React Native",
-    "pinned": true
-  },
-  {
     "name": "Walmart Shopping & Grocery",
     "icon": "walmart.webp",
     "linkAppStore": "https://itunes.apple.com/us/app/walmart-app-shopping-savings/id338137227?mt=8",
