@@ -20,16 +20,6 @@
     "pinned": true
   },
   {
-    "name": "Facebook Analytics",
-    "icon": "fba.png",
-    "linkAppStore": "https://itunes.apple.com/us/app/facebook/id1266461465",
-    "linkPlayStore": "https://play.google.com/store/apps/details?id=com.facebook.analytics",
-    "infoLink": "https://analytics.facebook.com/blog",
-    "infoTitle": "",
-    "group": "Meta",
-    "pinned": true
-  },
-  {
     "name": "Instagram",
     "icon": "instagram.png",
     "linkAppStore": "https://itunes.apple.com/app/instagram/id389801252?pt=428156&ct=igweb.unifiedHome.badge&mt=8",
@@ -185,7 +175,7 @@
   },
   {
     "name": "Pinterest",
-    "icon": "pinterest.png",
+    "icon": "pinterest.webp",
     "linkAppStore": "https://itunes.apple.com/us/app/pinterest/id429047995?mt=8",
     "linkPlayStore": "https://play.google.com/store/apps/details?id=com.pinterest",
     "infoLink": "https://medium.com/@Pinterest_Engineering/supporting-react-native-at-pinterest-f8c2233f90e6",
@@ -343,7 +333,7 @@
   },
   {
     "name": "Tencent QQ",
-    "icon": "qq.png",
+    "icon": "qq.webp",
     "linkPlayStore": "http://android.myapp.com/myapp/detail.htm?apkName=com.tencent.mobileqq",
     "infoLink": "https://www.tencent.com/en-us/system.html",
     "infoTitle": "QQ is China's largest messaging platform, with over 829 million active accounts",
