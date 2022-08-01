@@ -3,13 +3,17 @@ id: landing-page
 title: Introduction
 ---
 
-Starting in version 0.68, React Native provides the New Architecture, which offers developers new capabilities for building highly performant and responsive apps. Visit [Why a New Architecture](why) to learn more about what drove the decision to re-architect, and the benefits it provides.
+import NewArchitectureWarning from '../\_markdown-new-architecture-warning.mdx';
+
+<NewArchitectureWarning/>
+
+Starting from version 0.68, React Native provides the New Architecture, which offers developers new capabilities for building highly performant and responsive apps. Visit [Why a New Architecture](why) to learn more about what drove the decision to re-architect, and the benefits it provides.
 
 In order to achieve these benefits, we had to rethink how Native Modules and Native Components work. This led us to develop the [Pillars of the New Architecture](pillars):
 
 - [TurboModules](pillars-turbomodules), a framework to support efficient and flexible integration with native code
 - [Fabric renderer and components](pillars-fabric-components), which offer improved capabilities, cross-platform consistency, and performance in rendering
-- [CodeGen](pillars-codegen), which generates boilerplate C++ required by the New Architecture, via static typing in JavaScript
+- [Codegen](pillars-codegen), which generates boilerplate C++ required by the New Architecture, via static typing in JavaScript
 
 ## Get started with the New Architecture
 

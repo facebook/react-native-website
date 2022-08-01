@@ -7,6 +7,9 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import constants from '@site/core/TabsConstants';
 import BetaTS from './\_markdown_beta_ts_support.mdx';
+import NewArchitectureWarning from '../\_markdown-new-architecture-warning.mdx';
+
+<NewArchitectureWarning/>
 
 :::info
 The creation of a backward compatible TurboModule requires the knowledge of how to create a TurboModule. To recall these concepts, have a look at this [guide](pillars-turbomodules).
@@ -37,7 +40,7 @@ require "json"
 
 package = JSON.parse(File.read(File.join(__dir__, "package.json")))
 
-folly_version = '2021.06.28.00-v2'
+folly_version = '2021.07.22.00'
 folly_compiler_flags = '-DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1 -Wno-comma -Wno-shorten-64-to-32'
 
 Pod::Spec.new do |s|
@@ -88,7 +91,7 @@ Therefore, we can leverage this environment variable in the `podspec` to exclude
 
 ```diff
 + if ENV['RCT_NEW_ARCH_ENABLED'] == '1' then
-    # The following lines are required by the New Architecture.
+    # The following lines are required by the New Architecture.
     s.compiler_flags = folly_compiler_flags + " -DRCT_NEW_ARCH_ENABLED=1"
     # ... other dependencies ...
     s.dependency "ReactCommon/turbomodule/core"
@@ -197,22 +200,22 @@ The final folder structure looks like this:
 ```sh
 my-module
 ├── android
-│   ├── build.gradle
-│   └── src
-│       ├── main
-│       │   ├── AndroidManifest.xml
-│       │   └── java
-│       │       └── com
-│       │           └── MyModule
-│       │               ├── MyModuleImpl.java
-│       │               └── MyModulePackage.java
+│   ├── build.gradle
+│   └── src
+│       ├── main
+│       │   ├── AndroidManifest.xml
+│       │   └── java
+│       │       └── com
+│       │           └── MyModule
+│       │               ├── MyModuleImpl.java
+│       │               └── MyModulePackage.java
 │       ├── newarch
 │       │   └── java
-│       │       └── com
+│       │       └── com
 │       │           └── MyModule.java
 │       └── oldarch
 │           └── java
-│               └── com
+│               └── com
 │                   └── MyModule.java
 ├── ios
 ├── js

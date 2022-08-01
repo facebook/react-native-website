@@ -4,8 +4,10 @@ title: Creating a New Architecture App
 ---
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
-
 import RemoveGlobalCLI from '.././\_remove-global-cli.md';
+import NewArchitectureWarning from '../\_markdown-new-architecture-warning.mdx';
+
+<NewArchitectureWarning/>
 
 This page will help you create a new React Native app that uses the New Architecture.
 
