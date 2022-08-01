@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
@@ -14,9 +14,14 @@ import ThemedImage from '@theme/ThemedImage';
 import {Section} from './index';
 
 const renderApp = (app, i) => {
+  const imgSource = !app.icon.startsWith('http')
+    ? useBaseUrl('img/showcase/' + app.icon)
+    : app.icon;
   return (
     <div className="showcase" key={`app-${app.name}-${i}`}>
-      {renderAppIcon(app)}
+      <div className="iconBox">
+        <img src={imgSource} alt={app.name} />
+      </div>
       <div className="showcaseContent">
         <div>
           <h3>{app.name}</h3>
@@ -24,18 +29,6 @@ const renderApp = (app, i) => {
         </div>
         {renderInfo('Learn more', app.infoLink)}
       </div>
-    </div>
-  );
-};
-
-const renderAppIcon = app => {
-  let imgSource = app.icon;
-  if (!app.icon.startsWith('http')) {
-    imgSource = useBaseUrl('img/showcase/' + app.icon);
-  }
-  return (
-    <div className="iconBox">
-      <img src={imgSource} alt={app.name} />
     </div>
   );
 };
@@ -73,17 +66,22 @@ const renderLinks = app => {
   );
 };
 
+const randomizeApps = apps =>
+  apps.filter(app => !app.group).sort(() => 0.5 - Math.random());
+
 const Showcase = () => {
   const {siteConfig} = useDocusaurusContext();
 
   const showcaseApps = siteConfig.customFields.users;
+  const [randomizedApps, setRandomizedApps] = useState([]);
+
+  useEffect(() => {
+    setRandomizedApps(randomizeApps(showcaseApps));
+  }, []);
 
   const metaApps = showcaseApps.filter(app => app.group === 'Meta');
   const microsoftApps = showcaseApps.filter(app => app.group === 'Microsoft');
   const shopifyApps = showcaseApps.filter(app => app.group === 'Shopify');
-  const apps = showcaseApps
-    .filter(app => !app.group)
-    .sort(() => 0.5 - Math.random());
 
   return (
     <Layout
@@ -168,7 +166,7 @@ const Showcase = () => {
         </div>
         <div className="showcaseSection showcaseCustomers">
           <h2>Customers Spotlight</h2>
-          <div className="logos">{apps.map(renderApp)}</div>
+          <div className="logos">{randomizedApps.map(renderApp)}</div>
         </div>
       </Section>
       <Section background="dark">
