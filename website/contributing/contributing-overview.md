@@ -123,7 +123,7 @@ Whenever you are ready to contribute code, check out our [step-by-step guide to 
 
 ### Tests
 
-Tests help us prevent regressions from being introduced to the codebase. The GitHub repository is continuously tested using CircleCI and Appveyor, the results of which are available through the Checks functionality on [commits](https://github.com/facebook/react-native/commits/HEAD) and pull requests.
+Tests help us prevent regressions from being introduced to the codebase. The GitHub repository is continuously tested using CircleCI, the results of which are available through the Checks functionality on [commits](https://github.com/facebook/react-native/commits/HEAD) and pull requests.
 
 You can learn more about running and writing tests on the [How to Run and Write Tests](/contributing/how-to-run-and-write-tests) page.
 

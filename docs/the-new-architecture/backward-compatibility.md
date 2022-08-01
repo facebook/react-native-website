@@ -23,4 +23,3 @@ The next sections requires that you are familiar with the [Pillars](pillars) of 
 
 - To create a backward compatible **TurboModule**, follow [this guide](backward-compatibility-turbomodules).
 - To create a backward compatible **Fabric Component**, follow [this guide](backward-compatibility-fabric-components).
-- If you have troubles while creating a backward compatible module, look at our [troubleshooting guide](backward-compatibility-troubleshooting).

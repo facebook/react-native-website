@@ -40,6 +40,42 @@
     "icon": "oculus.png",
     "linkAppStore": "https://apps.apple.com/us/app/oculus/id1366478176",
     "linkPlayStore": "https://play.google.com/store/apps/details?id=com.oculus.twilight&hl=en_US",
+    "infoLink": "https://www.oculus.com/experiences/quest/",
+    "infoTitle": "",
+    "pinned": true
+  },
+  {
+    "name": "Microsoft Office",
+    "icon": "officemobile.png",
+    "linkAppStore": "https://apps.apple.com/gb/app/microsoft-office/id541164041",
+    "linkPlayStore": "https://play.google.com/store/apps/details?id=com.microsoft.office.officehubrow",
+    "infoLink": "",
+    "infoTitle": "",
+    "pinned": true
+  },
+  {
+    "name": "Microsoft Outlook",
+    "icon": "outlookmobile.png",
+    "linkAppStore": "https://apps.apple.com/us/app/microsoft-outlook/id951937596",
+    "linkPlayStore": "https://play.google.com/store/apps/details?id=com.microsoft.office.outlook",
+    "infoLink": "",
+    "infoTitle": "",
+    "pinned": true
+  },
+  {
+    "name": "Microsoft Teams",
+    "icon": "teamsmobile.png",
+    "linkAppStore": "https://apps.apple.com/gb/app/microsoft-teams/id1113153706",
+    "linkPlayStore": "https://play.google.com/store/apps/details?id=com.microsoft.teams",
+    "infoLink": "",
+    "infoTitle": "",
+    "pinned": true
+  },
+  {
+    "name": "Xbox Game Pass",
+    "icon": "xboxgamepass.png",
+    "linkAppStore": "https://apps.apple.com/gb/app/xbox-game-pass/id1374542474",
+    "linkPlayStore": "https://play.google.com/store/apps/details?id=com.gamepass",
     "infoLink": "",
     "infoTitle": "",
     "pinned": true
@@ -143,13 +179,6 @@
     "pinned": true
   },
   {
-    "name": "Uber Eats",
-    "icon": "ubereats.png",
-    "infoLink": "https://eng.uber.com/ubereats-react-native/",
-    "infoTitle": "Powering Uber Eats with React Native",
-    "pinned": true
-  },
-  {
     "name": "Walmart",
     "icon": "walmart.png",
     "linkAppStore": "https://itunes.apple.com/us/app/walmart-app-shopping-savings/id338137227?mt=8",
@@ -214,7 +243,7 @@
   },
   {
     "name": "Artsy",
-    "icon": "https://raw.githubusercontent.com/artsy/eigen/master/Artsy/Resources/Images.xcassets/AppIcon.appiconset/AppIcon167.png",
+    "icon": "artsy.png",
     "linkAppStore": "https://itunes.apple.com/us/app/artsy-collect-bid-on-fine/id703796080?mt=8",
     "infoLink": "https://artsy.github.io/series/react-native-at-artsy/",
     "infoTitle": "React Native at Artsy",
