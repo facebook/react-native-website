@@ -15,7 +15,7 @@ import {Section} from './index';
 
 const renderApp = (app, i) => {
   return (
-    <div className="showcase" key={i}>
+    <div className="showcase" key={`app-${app.name}-${i}`}>
       {renderAppIcon(app)}
       <div className="showcaseContent">
         <div>
