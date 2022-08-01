@@ -85,11 +85,31 @@ Callback functions are not type checked, and are generalized as `Object`s.
 You may also find it useful to refer to the JavaScript specifications for the core modules in React Native. These are located inside the `Libraries/` directory in the React Native repository.
 :::
 
-## II. Invoking the code-gen during development
+## II. TypeScript to Native Type Mapping
+
+You may use the following table as a reference for which types are supported and what they map to in each platform:
+
+| TypeScript Type                                | Nullable Support?                                        | Android (Java)                       | iOS                                                            | Note                                                                           |
+| ---------------------------------------------- | -------------------------------------------------------- | ------------------------------------ | -------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| `string`                                       | <code>string &#124; null </code>                         | `String`                             | `NSString`                                                     |                                                                                |
+| `boolean`                                      | <code>boolean &#124; null </code>                        | `Boolean`                            | `NSNumber`                                                     |                                                                                |
+| `Float`, `Double`, or `Int32`                  | No                                                       | `double`                             | `NSNumber`                                                     |                                                                                |
+| <code>{&#124; foo: string, ... &#124;}</code>  | <code>{&#124; foo: string, ...&#124;} &#124; null</code> |                                      |                                                                | Object literal. This is recommended over simply using Object, for type safety. |
+| `Object`                                       | <code>Object &#124; null </code>                         | `ReadableMap`                        | `@{} (untyped dictionary)`                                     | Recommended to use object literal (see above).                                 |
+| `Array<*>`                                     | <code>Array<\*> &#124; null </code>                      | `ReadableArray`                      | `NSArray` (or `RCTConvertVecToArray` when used inside objects) |                                                                                |
+| `Function`                                     | <code>Function &#124; null </code>                       |                                      |                                                                |                                                                                |
+| `Promise<*>`                                   | <code>Promise<\*> &#124; null </code>                    | `com.facebook.react.bridge.Promise`  | `RCTPromiseResolve` and `RCTPromiseRejectBlock`                |                                                                                |
+| Type aliases of the above                      | Yes                                                      |                                      |                                                                |                                                                                |
+| Type Unions <code>'SUCCESS'&#124;'FAIL'</code> | Only as callbacks.                                       |                                      |                                                                | Type unions only supported as callbacks.                                       |
+| Callbacks: `( ) =>`                            | Yes                                                      | `com.facebook.react.bridge.Callback` | `RCTResponseSenderBlock`                                       | Callback functions are not type checked, and are generalized as Objects.       |
+
+You may also find it useful to refer to the JavaScript specifications for the core modules in React Native. These are located inside the `Libraries/` directory in the React Native repository.
+
+## III. Invoking the code-gen during development
 
 > This section contains information specific to v0.66 of React Native.
 
-The code-gen is typically invoked at build time, but you may find it useful to generate your native interface code on demand for troubleshooting.
+The Codegen is typically invoked at build time, but you may find it useful to generate your native interface code on demand for troubleshooting.
 
 If you wish to invoke the codegen manually, you have two options:
 
@@ -98,7 +118,7 @@ If you wish to invoke the codegen manually, you have two options:
 
 ### Invoking a Gradle task directly
 
-You can trigger the code-gen by invoking the following task:
+You can trigger the Codegen by invoking the following task:
 
 ```bash
 ./gradlew generateCodegenArtifactsFromSchema --rerun-tasks
@@ -140,12 +160,12 @@ node node_modules/react-native/scripts/generate-specs-cli.js \
   [--libraryType all(default)|modules|components]
 ```
 
-> **NOTE:** The output artifacts of the code-gen are inside the build folder and should not be committed.
+> **NOTE:** The output artifacts of the Codegen are inside the build folder and should not be committed.
 > They should be considered only for reference.
 
 ##### Example
 
-The following is a basic example of invoking the code-gen script to generate native iOS interface code for a library that provides native modules. The JavaScript spec sources for this library are located in a `js/` subdirectory, and this library’s native code expects the native interfaces to be available in the `ios` subdirectory.
+The following is a basic example of invoking the Codegen script to generate native iOS interface code for a library that provides native modules. The JavaScript spec sources for this library are located in a `js/` subdirectory, and this library’s native code expects the native interfaces to be available in the `ios` subdirectory.
 
 ```bash
 # Generate schema - only needs to be done whenever JS specs change
@@ -162,7 +182,7 @@ node node_modules/react-native/scripts/generate-specs-cli.js \
 
 In the above example, the code-gen script will generate several files: `MyLibSpecs.h` and `MyLibSpecs-generated.mm`, as well as a handful of `.h` and `.cpp` files, all located in the `ios` directory.
 
-## III. Note on Existing Apps
+## IV. Note on Existing Apps
 
 This guide provides instructions for migrating an application that is based on the default app template that is provided by React Native. If your app has deviated from the template, or you are working with an application that was never based off the template, then the following sections might help.
 

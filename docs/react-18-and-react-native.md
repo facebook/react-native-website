@@ -4,6 +4,9 @@ title: React 18 & React Native
 ---
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+import NewArchitectureWarning from './\_markdown-new-architecture-warning.mdx';
+
+<NewArchitectureWarning/>
 
 This page describes how to use React 18 with React Native using the React Native's New Architecture.
 

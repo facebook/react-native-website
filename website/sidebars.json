@@ -105,46 +105,39 @@
         "items": [
           "the-new-architecture/backward-compatibility",
           "the-new-architecture/backward-compatibility-turbomodules",
-          "the-new-architecture/backward-compatibility-fabric-components",
-          "the-new-architecture/backward-compatibility-troubleshooting"
+          "the-new-architecture/backward-compatibility-fabric-components"
+        ]
+      }
+    ],
+    "Migrati to the New Architecture": [
+      "new-architecture-intro",
+      {
+        "type": "category",
+        "label": "Supporting in your Library",
+        "collapsible": false,
+        "collapsed": false,
+        "items": [
+          "new-architecture-library-intro",
+          "new-architecture-library-android",
+          "new-architecture-library-ios"
         ]
       },
       {
         "type": "category",
-        "label": "Migration",
+        "label": "Supporting in your App",
         "collapsible": false,
         "collapsed": false,
         "items": [
-          "new-architecture-intro",
-          {
-            "type": "category",
-            "label": "Supporting in your Library",
-            "collapsible": false,
-            "collapsed": false,
-            "items": [
-              "new-architecture-library-intro",
-              "new-architecture-library-android",
-              "new-architecture-library-ios"
-            ]
-          },
-          {
-            "type": "category",
-            "label": "Supporting in your App",
-            "collapsible": false,
-            "collapsed": false,
-            "items": [
-              "new-architecture-app-intro",
-              "new-architecture-app-modules-android",
-              "new-architecture-app-modules-ios",
-              "new-architecture-app-renderer-android",
-              "new-architecture-app-renderer-ios"
-            ]
-          },
-          "react-18-and-react-native",
-          "new-architecture-troubleshooting",
-          "new-architecture-appendix"
+          "new-architecture-app-intro",
+          "new-architecture-app-modules-android",
+          "new-architecture-app-modules-ios",
+          "new-architecture-app-renderer-android",
+          "new-architecture-app-renderer-ios"
         ]
-      }
+      },
+      "react-18-and-react-native",
+      "new-architecture-troubleshooting",
+      "new-architecture-appendix"
     ],
     "Android and iOS guides": [
       {
@@ -152,7 +145,11 @@
         "label": "Android",
         "collapsible": false,
         "collapsed": false,
-        "items": ["headless-js-android", "signed-apk-android", "communication-android"]
+        "items": [
+          "headless-js-android",
+          "signed-apk-android",
+          "communication-android"
+        ]
       },
       {
         "type": "category",
