@@ -484,6 +484,23 @@ const RCTWebViewNativeComponent: HostComponent<mixed> =
   requireNativeComponent < mixed > 'RNTMyNativeView';
 ```
 
+#### Later on you can replace `requireNativeComponent`
+
+When you are ready to migrate to Fabric you can replace `requireNativeComponent` with `codegenNativeComponent`:
+
+```ts title="RNTMyNativeViewNativeComponent.js"
+export default (codegenNativeComponent<NativeProps>(
+   'RNTMyNativeView',
+): HostComponent<NativeProps>);
+```
+
+And update the main file:
+
+```ts title="RNTMyNativeNativeComponent.js"
+export default require('./RNTMyNativeViewNativeComponent')
+  .default;
+```
+
 ### Migrating off `dispatchViewManagerCommand`
 
 Similar to one above, in an effort to avoid calling methods on the UIManager, all view manager methods are now called through an instance of `NativeCommands`. `codegenNativeCommands` is a new API to code-generate `NativeCommands` given an interface of your view manager’s commands.
