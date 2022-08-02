@@ -81,6 +81,19 @@ In general, this means you can use primitive types (strings, numbers, booleans),
 
 > See Appendix [I. Flow Type to Native Type Mapping](#i-flow-type-to-native-type-mapping).
 
+### Codegen helper types
+
+You can use predefined types for your JavaScript spec, here is a list of them:
+
+- `Double`
+- `Float`
+- `Int32`
+- `WithDefault<Type, Value>` - Sets default value for type
+- `BubblingEventHandler<T>` - For bubbling events (eg: `onChange`).
+- `DirectEventHandler<T>` - For direct events (eg: `onClick`).
+
+Later on those types are compiled to coresponding equivalents on target platforms.
+
 ### Be Consistent Across Platforms and Eliminate Type Ambiguity
 
 Before adopting the new architecture in your native module, you will need to ensure your methods are consistent across platforms. This is something you will realize as you set out to write the JavaScript spec for your native module - remember, that JavaScript spec defines what the methods will look like on all supported platforms.
