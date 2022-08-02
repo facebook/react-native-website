@@ -102,7 +102,7 @@
     "linkAppStore": "https://apps.apple.com/us/app/shopify-inbox/id1301681854",
     "linkPlayStore": "https://play.google.com/store/apps/details?id=com.shopify.ping&gl=US",
     "group": "Shopify",
-    "pinned": true
+    "pinned": false
   },
   {
     "name": "Shopify Point of Sale",
@@ -110,7 +110,7 @@
     "linkAppStore": "https://apps.apple.com/us/app/shopify-point-of-sale-pos/id686830644",
     "linkPlayStore": "https://play.google.com/store/apps/details?id=com.shopify.pos&gl=US",
     "group": "Shopify",
-    "pinned": true
+    "pinned": false
   },
   {
     "name": "Tableau",
