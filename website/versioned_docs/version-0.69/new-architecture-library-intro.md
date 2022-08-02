@@ -194,7 +194,7 @@ While we know that all deprecations are a hassle, this guide is intended to help
 3. Migrating off `setNativeProps`
 4. Move the call to `requireNativeComponent` to a separate file
 5. Migrating off `dispatchViewManagerCommand`
-6. Using `codegenNativeComponent`
+6. Creating NativeCommands with `codegenNativeCommands`
 
 ### Migrating `findNodeHandle` / getting a `HostComponent`
 
@@ -506,7 +506,7 @@ class MyComponent extends React.Component<Props> {
 }
 ```
 
-**Creating the NativeCommands with `codegenNativeCommands`**
+**Creating NativeCommands with `codegenNativeCommands`**
 
 ```ts title="MyCustomMapNativeComponent.js"
 import codegenNativeCommands from 'react-native/Libraries/Utilities/codegenNativeCommands';
