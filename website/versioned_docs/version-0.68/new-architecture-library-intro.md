@@ -403,9 +403,11 @@ return <RNTMyNativeViewNativeComponent />;
 
 ```js title="RNTMyNativeViewNativeComponent.js"
 import { requireNativeComponent } from 'react-native';
+
 const RNTMyNativeViewNativeComponent = requireNativeComponent(
   'RNTMyNativeView'
 );
+
 export default RNTMyNativeViewNativeComponent;
 ```
 
