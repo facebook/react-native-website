@@ -8,11 +8,11 @@
 import React, {useEffect, useState} from 'react';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import IconExternalLink from '@theme/Icon/ExternalLink';
 import Layout from '@theme/Layout';
 import ThemedImage from '@theme/ThemedImage';
 
 import {Section} from './index';
+import IconExternalLink from '../theme/Icon/ExternalLink';
 
 const renderApp = (app, i) => {
   const imgSource = !app.icon.startsWith('http')
@@ -32,9 +32,7 @@ const renderApp = (app, i) => {
         {app.infoLink && (
           <a className="articleButton" href={app.infoLink} target="_blank">
             Learn more{' '}
-            <span>
-              <IconExternalLink width={12} height={12} />
-            </span>
+            <IconExternalLink width={12} height={12} style={{opacity: 0.5}} />
           </a>
         )}
       </div>

@@ -152,7 +152,8 @@
     "name": "Discord",
     "icon": "discord.png",
     "linkAppStore": "https://itunes.apple.com/us/app/discord-chat-for-gamers/id985746746?mt=8",
-    "infoLink": "https://blog.discord.com/how-discord-achieves-native-ios-performance-with-react-native-390c84dcd502",
+    "linkPlayStore": "https://play.google.com/store/apps/details?id=com.discord",
+    "infoLink": "https://discord.com/blog/how-discord-achieves-native-ios-performance-with-react-native",
     "infoTitle": "How Discord achieves native iOS performance with React Native",
     "pinned": true
   },
@@ -345,14 +346,6 @@
     "linkAppStore": "https://itunes.apple.com/us/app/townske-stunning-city-guides/id1018136179?ls=1&mt=8",
     "infoLink": "https://hackernoon.com/townske-app-in-react-native-6ad557de7a7c",
     "infoTitle": "The experience of a web developer building an app using React Native",
-    "pinned": false
-  },
-  {
-    "name": "Vogue",
-    "icon": "vogue.jpeg",
-    "linkAppStore": "https://itunes.apple.com/app/apple-store/id1087973225?pt=45076&ct=site-promo&mt=8",
-    "infoLink": "http://www.vogue.com/app",
-    "infoTitle": "",
     "pinned": false
   },
   {
