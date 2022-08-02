@@ -8,6 +8,7 @@
 import React, {useEffect, useState} from 'react';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import IconExternalLink from '@theme/Icon/ExternalLink';
 import Layout from '@theme/Layout';
 import ThemedImage from '@theme/ThemedImage';
 
@@ -17,6 +18,7 @@ const renderApp = (app, i) => {
   const imgSource = !app.icon.startsWith('http')
     ? useBaseUrl('img/showcase/' + app.icon)
     : app.icon;
+
   return (
     <div className="showcase" key={`app-${app.name}-${i}`}>
       <div className="iconBox">
@@ -27,18 +29,17 @@ const renderApp = (app, i) => {
           <h3>{app.name}</h3>
           {renderLinks(app)}
         </div>
-        {renderInfo('Learn more', app.infoLink)}
+        {app.infoLink && (
+          <a className="articleButton" href={app.infoLink} target="_blank">
+            Learn more{' '}
+            <span>
+              <IconExternalLink width={12} height={12} />
+            </span>
+          </a>
+        )}
       </div>
     </div>
   );
-};
-
-const renderInfo = (title, uri) => {
-  return uri ? (
-    <a className="articleButton" href={uri} target="_blank">
-      {title}
-    </a>
-  ) : null;
 };
 
 const renderLinks = app => {
@@ -58,9 +59,9 @@ const renderLinks = app => {
   ) : null;
 
   return (
-    <p>
+    <p className="showcaseLinks">
       {linkPlayStore}
-      {linkPlayStore && linkAppStore ? ' • ' : ''}
+      {linkPlayStore && linkAppStore ? <span> • </span> : ''}
       {linkAppStore}
     </p>
   );

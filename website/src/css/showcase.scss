@@ -145,18 +145,26 @@ html[data-theme="dark"] {
       justify-content: space-between;
       flex-grow: 1;
     }
+
+    .showcaseLinks span {
+      color: var(--subtle);
+    }
   }
 
   .articleButton {
     @extend %button-link-style;
-    color: var(--subtle);
+    color: var(--ifm-color-emphasis-600);
     font-weight: 500;
     font-size: 15px;
     padding: 4px 12px;
     margin-top: 6px;
 
     &:hover {
-      color: var(--ifm-font-color-base) !important;
+      color: var(--ifm-font-color-secondary) !important;
+    }
+
+    span {
+      opacity: 0.5;
     }
   }
 }
@@ -197,6 +205,10 @@ html[data-theme="dark"] {
 html[data-theme="dark"] .showcaseSection {
   p a {
     @extend %link-style-dark;
+  }
+
+  .articleButton {
+    color: var(--ifm-color-emphasis-400);
   }
 
   .formButton {
