@@ -45,6 +45,10 @@ git push origin 0.69-stable
 
 Before continuing further, follow the [testing guide](/contributing/release-testing) to ensure the code doesn't have any major issues.
 
+:::info
+Since testing is a time consuming activity (>1 hrs) it is recommended that the release crew coordinates on the steps above then do testing on at least two separate systems in an async way.
+:::
+
 ### 3. Kick off the build of 0.{minor}.0-rc.0
 
 Once you're done with the testing, you can kick-off the bump and publishing of RC0:
