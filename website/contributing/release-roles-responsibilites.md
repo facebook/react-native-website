@@ -18,7 +18,7 @@ Two sub-roles:
 - 1 **release captain** as main point of contact per minor release (aiming for every 2 months)
 - 1 **reverse shadow** per minor release — working on high-need tooling (perhaps from retrospective of previous minor release) and serves as backup if release captain is out
 
-**Time commitment:** around 4 hours/week of work for each release captain and reverse shadow.
+**Time commitment:** about 4 hours/week of work for each release captain and reverse shadow.
 
 ### Release Captain Responsibilities
 
