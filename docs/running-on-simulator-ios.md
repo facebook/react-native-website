@@ -17,6 +17,6 @@ The device names correspond to the list of devices available in Xcode. You can c
 
 If you have multiple iOS versions installed, you also need to specify it's appropiate version. E.g. run `npx react-native run-ios --simulator='iPhone 13 Pro (15.5)'` in order to specify the iOS version.
 
-## Specifying an udid
+## Specifying an UDID
 
-You can specify the device udid returned from `xcrun simctl list devices` command. E.g. run `npx react-native run-ios --udid='AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAAAA'`
+You can specify the device UDID returned from `xcrun simctl list devices` command. E.g. run `npx react-native run-ios --udid='AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAAAA'`.
