@@ -87,4 +87,4 @@ Two sub-roles:
 ### Who can fill it
 
 - This role can be filled by anyone with write access to the necessary repos (react-native)
-- Engineers from key companies in the React Native ecosystem are preferred
+- Engineers from key companies in the React Native ecosystem are preferred.
