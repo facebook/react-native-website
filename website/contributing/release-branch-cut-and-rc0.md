@@ -3,6 +3,8 @@ id: release-branch-cut-and-rc0
 title: Branch Cut & RC0
 ---
 
+import AsyncTestingNote from './\_markdown-async-testing-note.mdx';
+
 :::info
 Documents in this section go over steps to run different types of React Native release updates. Its intended audience is those in [relevant release roles](./release-roles-responsibilites.md).
 :::
@@ -45,9 +47,7 @@ git push origin 0.69-stable
 
 Before continuing further, follow the [testing guide](/contributing/release-testing) to ensure the code doesn't have any major issues.
 
-:::info
-Since testing is a time consuming activity (>1 hrs) it is recommended that the release crew coordinates on the steps above then do testing on at least two separate systems in an async way.
-:::
+<AsyncTestingNote/>
 
 ### 3. Kick off the build of 0.{minor}.0-rc.0
 
