@@ -59,7 +59,7 @@ Two sub-roles:
 
 - 2 people per each release
 
-**Time commitment:** can be more flexible but, m most likely, a few hours per week.
+**Time commitment:** can be more flexible but, most likely, a few hours per week.
 
 ### Responsibilities
 
