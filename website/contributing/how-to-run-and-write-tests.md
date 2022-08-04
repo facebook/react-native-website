@@ -32,9 +32,9 @@ Start off by going to the `packages/rn-tester` directory, then:
 This will set up your native dependencies and create a `RNTesterPods` Xcode workspace. 
 **Note:** It may take a long time to complete "Installing hermes-engine (1000.0.0)" as it must build Hermes from source.
 
-Then, go back to the root of your React Native checkout and run `yarn` followed by `yarn start`. This will set up your JavaScript dependencies.
+Then, go back to the root of your React Native checkout and run `yarn`. This will set up your JavaScript dependencies.
 
-At this point, you can run iOS tests in a new window by invoking the following script from the root of your React Native checkout:
+At this point, you can run iOS tests by invoking the following script from the root of your React Native checkout:
 
 ```bash
 ./scripts/objc-test.sh test
