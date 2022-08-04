@@ -84,6 +84,7 @@ Two sub-roles:
   - Makes documentation PR and blogpost PR
   - Trigger the rn-diff-purge script to update upgrade-helper (this should be automated for 0.68 onwards)
 - Help release testing via [local E2E script](/contributing/release-testing)
+- Runs a release retrospective after a new minor is released
 
 ### Who can fill it
 
