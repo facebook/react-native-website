@@ -202,9 +202,9 @@ protected constructor(
     reactApplicationContext: ReactApplicationContext,
     packages: List<ReactPackage>
 ) : ReactPackageTurboModuleManagerDelegate(reactApplicationContext, packages) {
-    protected external fun initHybrid(): HybridData?
+    override protected external fun initHybrid(): HybridData?
     class Builder : ReactPackageTurboModuleManagerDelegate.Builder() {
-        protected fun build(
+        override protected fun build(
             context: ReactApplicationContext,
             packages: List<ReactPackage>
         ): MyApplicationTurboModuleManagerDelegate {
@@ -213,7 +213,7 @@ protected constructor(
     }
 
     @Synchronized
-    protected fun maybeLoadOtherSoLibraries() {
+    override protected fun maybeLoadOtherSoLibraries() {
         // Prevents issues with initializer interruptions.
         if (!sIsSoLibraryLoaded) {
             SoLoader.loadLibrary("myapplication_appmodules")
