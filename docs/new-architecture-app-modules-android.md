@@ -20,7 +20,7 @@ You can mitigate this by following the approach described in [Speeding up your B
 
 :::
 
-The code-gen will output some Java/Kotlin and some C++ code that now we need to build.
+The code-gen will output some Java and some C++ code that now we need to build.
 
 Let’s edit your **module level** `build.gradle` to include the **two** `externalNativeBuild` blocks detailed below inside the `android{}` block:
 
@@ -199,14 +199,14 @@ import com.facebook.soloader.SoLoader
 
 class MyApplicationTurboModuleManagerDelegate
 protected constructor(
-    reactApplicationContext: ReactApplicationContext?,
-    packages: List<ReactPackage?>?
+    reactApplicationContext: ReactApplicationContext,
+    packages: List<ReactPackage>
 ) : ReactPackageTurboModuleManagerDelegate(reactApplicationContext, packages) {
     protected external fun initHybrid(): HybridData?
     class Builder : ReactPackageTurboModuleManagerDelegate.Builder() {
         protected fun build(
-            context: ReactApplicationContext?,
-            packages: List<ReactPackage?>?
+            context: ReactApplicationContext,
+            packages: List<ReactPackage>
         ): MyApplicationTurboModuleManagerDelegate {
             return MyApplicationTurboModuleManagerDelegate(context, packages)
         }
@@ -246,7 +246,7 @@ Once you located it, you need to add the `getReactPackageTurboModuleManagerDeleg
 ```java
 public class MyApplication extends Application implements ReactApplication {
 
-    private final ReactNativeHost mReactNativeHost =
+    private final ReactNativeHost reactNativeHost =
         new ReactNativeHost(this) {
             @Override
             public boolean getUseDeveloperSupport() { /* ... */ }
@@ -271,28 +271,26 @@ public class MyApplication extends Application implements ReactApplication {
 
 ```kotlin
 class MyApplication : Application(), ReactApplication {
-    private val mReactNativeHost: ReactNativeHost =
+    private val reactNativeHost: ReactNativeHost =
         object : ReactNativeHost(this) {
-            /* ... */
-            val useDeveloperSupport: Boolean
-                get() {
-                    /* ... */
-                }
 
-            /* ... */
-            protected val packages: List<Any>
-                protected get() {
-                    /* ... */
-                }
+            override fun getUseDeveloperSupport(): Boolean {
+                /* ... */
+            }
 
-            /* ... */
-            protected val jSMainModuleName: String
-                protected get() {
-                    /* ... */
-                }
-            protected val reactPackageTurboModuleManagerDelegateBuilder:
-                ReactPackageTurboModuleManagerDelegate.Builder
-                protected get() = Builder()
+            override fun getPackages(): List<ReactPackage?>? {
+                /* ... */
+            }
+
+            override fun getJSMainModuleName(): String? {
+                /* ... */
+            }
+
+            @NonNull
+            override fun getReactPackageTurboModuleManagerDelegateBuilder():
+                ReactPackageTurboModuleManagerDelegate.Builder? {
+                return Builder()
+            }
         }
 }
 ```
@@ -310,7 +308,7 @@ Still on the `ReactNativeHost` , we need to extend the the `getPackages()` metho
 ```java
 public class MyApplication extends Application implements ReactApplication {
 
-    private final ReactNativeHost mReactNativeHost =
+    private final ReactNativeHost reactNativeHost =
         new ReactNativeHost(this) {
             @Override
             public boolean getUseDeveloperSupport() { /* ... */ }
@@ -371,61 +369,54 @@ public class MyApplication extends Application implements ReactApplication {
 
 ```kotlin
 class MyApplication() : Application(), ReactApplication {
-    private val mReactNativeHost: ReactNativeHost =
+    private val reactNativeHost: ReactNativeHost =
         object : ReactNativeHost(this) {
-            /* ... */
-            val useDeveloperSupport: Boolean
-                get() {
-                    /* ... */
-                }
-
-            val packages: List<Any>
-                protected get() {
-                    val packages: MutableList<ReactPackage> = PackageList(this).getPackages()
-
-                    // Add those lines
-                    packages.add(
-                        object : TurboReactPackage() {
-                            @Nullable
-                            fun getModule(
-                                name: String,
-                                reactContext: ReactApplicationContext?
-                            ): NativeModule? {
-                                if ((name == NativeAwesomeManager.NAME)) {
-                                    return NativeAwesomeManager(reactContext)
-                                } else {
-                                    return null
-                                }
-                            }
-
-                            val reactModuleInfoProvider: ReactModuleInfoProvider
-                                get() = ReactModuleInfoProvider {
-                                    val moduleInfos: MutableMap<String, ReactModuleInfo> = HashMap()
-                                    moduleInfos.put(
-                                        NativeAwesomeManager.NAME,
-                                        ReactModuleInfo(
-                                            NativeAwesomeManager.NAME,
-                                            "NativeAwesomeManager",
-                                            false, // canOverrideExistingModule
-                                            false, // needsEagerInit
-                                            true, // hasConstants
-                                            false, // isCxxModule
-                                            true // isTurboModule
-                                        )
-                                    )
-                                    moduleInfos
-                                }
-                        }
-                    )
-                    return packages
-                }
-
-            protected fun getJSMainModuleName(): String {
+            override fun getUseDeveloperSupport(): Boolean {
                 /* ... */
             }
 
-            protected fun getReactPackageTurboModuleManagerDelegateBuilder():
-                ReactPackageTurboModuleManagerDelegate.Builder {
+            override protected fun getPackages(): List<ReactPackage>? {
+                val packages: MutableList<ReactPackage> = PackageList(this).getPackages()
+
+                // Add those lines
+                packages.add(
+                    object : TurboReactPackage() {
+                        @Nullable
+                        override fun getModule(
+                            name: String,
+                            reactContext: ReactApplicationContext?
+                        ): NativeModule? =
+                            if ((name == NativeAwesomeManager.NAME)) {
+                                NativeAwesomeManager(reactContext)
+                            } else {
+                                null
+                            }
+
+                        override fun getReactModuleInfoProvider() =
+                            mutableMapOf<String, ReactModuleInfo>(
+                                NativeAwesomeManager.NAME,
+                                ReactModuleInfo(
+                                    NativeAwesomeManager.NAME,
+                                    "NativeAwesomeManager",
+                                    false, // canOverrideExistingModule
+                                    false, // needsEagerInit
+                                    true, // hasConstants
+                                    false, // isCxxModule
+                                    true // isTurboModule
+                                )
+                            )
+                    }
+                )
+                return packages
+            }
+
+            override protected fun getJSMainModuleName(): String? {
+                /* ... */
+            }
+
+            @NonNull
+            override protected fun getReactPackageTurboModuleManagerDelegateBuilder():
+                ReactPackageTurboModuleManagerDelegate.Builder? {
                 return Builder()
             }
         }
@@ -603,7 +594,7 @@ public class MyApplication extends Application implements ReactApplication {
 
 ```kotlin
 class MyApplication : Application(), ReactApplication {
-    fun onCreate() {
+    override fun onCreate() {
         ReactFeatureFlags.useTurboModules = true
         // ...
     }
