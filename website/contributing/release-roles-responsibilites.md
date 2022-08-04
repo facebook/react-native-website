@@ -5,7 +5,9 @@ title: Roles and Responsibilities
 
 Here we set guidelines to apply the "dividi et impera" approach to React Native releases: it is an involved process and we need to clarify the work to allow for easier rotations of folks in various positions.
 
-In a normal situation, we expect that the Release Crew at any given point is composed of 2+2 releasers (two people from the community, two from Meta).
+In a standard situation, we expect that the Release Crew is composed of 2+2 releasers (two people from the community, two from Meta). Organically, the Release Crew will identify one Meta and Community drivers that will lead the effort, but that can change based on day-to-day availability of the members.
+
+A Release Crew effort starts with the work on a new minor; meaning, at least one week ahead of the branch cut. It is part of the current Release Crew responsibilities to identify when to "pass the baton" to the next one.
 
 ---
 
