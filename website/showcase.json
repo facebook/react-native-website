@@ -138,6 +138,7 @@
     "name": "Discord",
     "icon": "discord.png",
     "linkAppStore": "https://itunes.apple.com/us/app/discord-chat-for-gamers/id985746746?mt=8",
+    "linkPlayStore": "https://play.google.com/store/apps/details?id=com.discord&hl=en_US",
     "infoLink": "https://blog.discord.com/how-discord-achieves-native-ios-performance-with-react-native-390c84dcd502",
     "infoTitle": "How Discord achieves native iOS performance with React Native",
     "pinned": true
