@@ -367,6 +367,7 @@ public class MyApplication extends Application implements ReactApplication {
 
 ```kotlin
 class MyApplication() : Application(), ReactApplication {
+
     private val reactNativeHost: ReactNativeHost =
         object : ReactNativeHost(this) {
             override fun getUseDeveloperSupport(): Boolean {
@@ -592,6 +593,7 @@ public class MyApplication extends Application implements ReactApplication {
 
 ```kotlin
 class MyApplication : Application(), ReactApplication {
+
     override fun onCreate() {
         ReactFeatureFlags.useTurboModules = true
         // ...
