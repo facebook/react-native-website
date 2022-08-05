@@ -4,6 +4,8 @@ title: Enabling TurboModule on Android
 ---
 
 import NewArchitectureWarning from './\_markdown-new-architecture-warning.mdx';
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
+import constants from '@site/core/TabsConstants';
 
 <NewArchitectureWarning/>
 
@@ -135,10 +137,13 @@ You can now verify that everything works correctly by running your android app:
 yarn react-native run-android
 ```
 
-## 2. Java - Provide a `ReactPackageTurboModuleManagerDelegate`
+## 2. Java/Kotlin - Provide a `ReactPackageTurboModuleManagerDelegate`
 
 Now is time to actually use the TurboModule.
 First, we will need to create a `ReactPackageTurboModuleManagerDelegate` subclass, like the following:
+
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="java">
 
 ```java
 package com.awesomeproject;
@@ -179,6 +184,52 @@ public class MyApplicationTurboModuleManagerDelegate extends ReactPackageTurboMo
 }
 ```
 
+</TabItem>
+
+<TabItem value="kotlin">
+
+```kotlin
+package com.awesomeproject
+
+import com.facebook.jni.HybridData
+import com.facebook.react.ReactPackage
+import com.facebook.react.ReactPackageTurboModuleManagerDelegate
+import com.facebook.react.bridge.ReactApplicationContext
+import com.facebook.soloader.SoLoader
+
+class MyApplicationTurboModuleManagerDelegate
+protected constructor(
+    reactApplicationContext: ReactApplicationContext,
+    packages: List<ReactPackage>
+) : ReactPackageTurboModuleManagerDelegate(reactApplicationContext, packages) {
+
+    override protected external fun initHybrid(): HybridData?
+    class Builder : ReactPackageTurboModuleManagerDelegate.Builder() {
+        override protected fun build(
+            context: ReactApplicationContext,
+            packages: List<ReactPackage>
+        ): MyApplicationTurboModuleManagerDelegate =
+            MyApplicationTurboModuleManagerDelegate(context, packages)
+    }
+
+    @Synchronized
+    override protected fun maybeLoadOtherSoLibraries() {
+        // Prevents issues with initializer interruptions.
+        if (!isSoLibraryLoaded) {
+            SoLoader.loadLibrary("myapplication_appmodules")
+            isSoLibraryLoaded = true
+        }
+    }
+
+    companion object {
+        @Volatile private var isSoLibraryLoaded = false
+    }
+}
+```
+
+</TabItem>
+</Tabs>
+
 Please note that the `SoLoader.loadLibrary` parameter (in this case `"myapplication_appmodules")` should be the same as the one specified for `LOCAL_MODULE :=` inside the `Android.mk` file you created before.
 
 This class will then be responsible of loading the TurboModules and will take care of loading the native library build with the NDK at runtime.
@@ -188,6 +239,9 @@ This class will then be responsible of loading the TurboModules and will take ca
 Then, you can provide the class you created to your `ReactNativeHost`. You can locate your `ReactNativeHost` by searching for the `getReactNativeHost()`. The `ReactNativeHost` is usually located inside your `Application` class.
 
 Once you located it, you need to add the `getReactPackageTurboModuleManagerDelegateBuilder` method as from the snippet below:
+
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="java">
 
 ```java
 public class MyApplication extends Application implements ReactApplication {
@@ -212,9 +266,42 @@ public class MyApplication extends Application implements ReactApplication {
 }
 ```
 
+</TabItem>
+<TabItem value="kotlin">
+
+```kotlin
+class MyApplication : Application(), ReactApplication {
+    private val reactNativeHost: ReactNativeHost =
+        object : ReactNativeHost(this) {
+
+            override fun getUseDeveloperSupport(): Boolean {
+                /* ... */
+            }
+
+            override fun getPackages(): List<ReactPackage?>? {
+                /* ... */
+            }
+
+            override fun getJSMainModuleName(): String? {
+                /* ... */
+            }
+
+            @NonNull
+            override fun getReactPackageTurboModuleManagerDelegateBuilder() =
+                ReactPackageTurboModuleManagerDelegate.Builder()
+        }
+}
+```
+
+</TabItem>
+</Tabs>
+
 ## 4. Extend the `getPackages()` from your `ReactNativeHost` to use the TurboModule
 
 Still on the `ReactNativeHost` , we need to extend the the `getPackages()` method to include the newly created TurboModule. Update the method to include the following:
+
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="java">
 
 ```java
 public class MyApplication extends Application implements ReactApplication {
@@ -272,7 +359,71 @@ public class MyApplication extends Application implements ReactApplication {
                 return new MyApplicationTurboModuleManagerDelegate.Builder();
             }
         };
+}
 ```
+
+</TabItem>
+<TabItem value="kotlin">
+
+```kotlin
+class MyApplication() : Application(), ReactApplication {
+
+    private val reactNativeHost: ReactNativeHost =
+        object : ReactNativeHost(this) {
+            override fun getUseDeveloperSupport(): Boolean {
+                /* ... */
+            }
+
+            override protected fun getPackages(): List<ReactPackage>? {
+                val packages: MutableList<ReactPackage> = PackageList(this).getPackages()
+
+                // Add those lines
+                packages.add(
+                    object : TurboReactPackage() {
+                        @Nullable
+                        override fun getModule(
+                            name: String,
+                            reactContext: ReactApplicationContext?
+                        ): NativeModule? =
+                            if ((name == NativeAwesomeManager.NAME)) {
+                                NativeAwesomeManager(reactContext)
+                            } else {
+                                null
+                            }
+
+                        override fun getReactModuleInfoProvider() =
+                            mutableMapOf<String, ReactModuleInfo>(
+                                NativeAwesomeManager.NAME,
+                                ReactModuleInfo(
+                                    NativeAwesomeManager.NAME,
+                                    "NativeAwesomeManager",
+                                    false, // canOverrideExistingModule
+                                    false, // needsEagerInit
+                                    true, // hasConstants
+                                    false, // isCxxModule
+                                    true // isTurboModule
+                                )
+                            )
+                    }
+                )
+                return packages
+            }
+
+            override protected fun getJSMainModuleName(): String? {
+                /* ... */
+            }
+
+            @NonNull
+            override protected fun getReactPackageTurboModuleManagerDelegateBuilder():
+                ReactPackageTurboModuleManagerDelegate.Builder? {
+                return Builder()
+            }
+        }
+}
+```
+
+</TabItem>
+</Tabs>
 
 ## 5. C++ Provide a native implementation for the methods in your `*TurboModuleDelegate` class
 
@@ -422,6 +573,9 @@ JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM *vm, void *) {
 
 Now you can finally enable the `TurboModule `support in your Application. To do so, you need to turn on the `useTurboModule` flag inside your Application `onCreate` method.
 
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="java">
+
 ```java
 public class MyApplication extends Application implements ReactApplication {
 
@@ -430,7 +584,25 @@ public class MyApplication extends Application implements ReactApplication {
         ReactFeatureFlags.useTurboModules = true;
         //...
     }
+}
 ```
+
+</TabItem>
+
+<TabItem value="kotlin">
+
+```kotlin
+class MyApplication : Application(), ReactApplication {
+
+    override fun onCreate() {
+        ReactFeatureFlags.useTurboModules = true
+        // ...
+    }
+}
+```
+
+</TabItem>
+</Tabs>
 
 It’s now time to run again your Android app to verify that everything works correctly:
 
