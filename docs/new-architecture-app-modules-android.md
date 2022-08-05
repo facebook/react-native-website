@@ -202,27 +202,27 @@ protected constructor(
     reactApplicationContext: ReactApplicationContext,
     packages: List<ReactPackage>
 ) : ReactPackageTurboModuleManagerDelegate(reactApplicationContext, packages) {
+
     override protected external fun initHybrid(): HybridData?
     class Builder : ReactPackageTurboModuleManagerDelegate.Builder() {
         override protected fun build(
             context: ReactApplicationContext,
             packages: List<ReactPackage>
-        ): MyApplicationTurboModuleManagerDelegate {
-            return MyApplicationTurboModuleManagerDelegate(context, packages)
-        }
+        ): MyApplicationTurboModuleManagerDelegate =
+            MyApplicationTurboModuleManagerDelegate(context, packages)
     }
 
     @Synchronized
     override protected fun maybeLoadOtherSoLibraries() {
         // Prevents issues with initializer interruptions.
-        if (!sIsSoLibraryLoaded) {
+        if (!isSoLibraryLoaded) {
             SoLoader.loadLibrary("myapplication_appmodules")
-            sIsSoLibraryLoaded = true
+            isSoLibraryLoaded = true
         }
     }
 
     companion object {
-        @Volatile private var sIsSoLibraryLoaded = false
+        @Volatile private var isSoLibraryLoaded = false
     }
 }
 ```
@@ -246,7 +246,7 @@ Once you located it, you need to add the `getReactPackageTurboModuleManagerDeleg
 ```java
 public class MyApplication extends Application implements ReactApplication {
 
-    private final ReactNativeHost reactNativeHost =
+    private final ReactNativeHost mReactNativeHost =
         new ReactNativeHost(this) {
             @Override
             public boolean getUseDeveloperSupport() { /* ... */ }
@@ -287,10 +287,8 @@ class MyApplication : Application(), ReactApplication {
             }
 
             @NonNull
-            override fun getReactPackageTurboModuleManagerDelegateBuilder():
-                ReactPackageTurboModuleManagerDelegate.Builder? {
-                return Builder()
-            }
+            override fun getReactPackageTurboModuleManagerDelegateBuilder() =
+                ReactPackageTurboModuleManagerDelegate.Builder()
         }
 }
 ```
@@ -308,7 +306,7 @@ Still on the `ReactNativeHost` , we need to extend the the `getPackages()` metho
 ```java
 public class MyApplication extends Application implements ReactApplication {
 
-    private final ReactNativeHost reactNativeHost =
+    private final ReactNativeHost mReactNativeHost =
         new ReactNativeHost(this) {
             @Override
             public boolean getUseDeveloperSupport() { /* ... */ }
