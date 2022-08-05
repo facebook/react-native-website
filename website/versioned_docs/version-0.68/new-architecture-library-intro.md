@@ -75,8 +75,6 @@ export default (codegenNativeComponent<NativeProps>(
 
 When using Flow, you will be using [type annotations](https://flow.org/en/docs/types/) to define your spec. Keeping in mind that the goal of defining a JavaScript spec is to ensure the generated native interface code is type safe, the set of supported Flow types will be those that can be mapped one-to-one to a corresponding type on the native platform.
 
-<!-- alex ignore savage -->
-
 In general, this means you can use primitive types (strings, numbers, booleans), as well as function types, object types, and array types. Union types, on the other hand, are not supported. All types must be read-only in Flow: either `+` or `$ReadOnly<>` or `{||}` objects.
 
 > See Appendix [I. Flow Type to Native Type Mapping](#i-flow-type-to-native-type-mapping).
@@ -148,8 +146,6 @@ While we know that all deprecations are a hassle, this guide is intended to help
 6. Creating NativeCommands with `codegenNativeCommands`
 
 ### Migrating `findNodeHandle` / getting a `HostComponent`
-
-<!-- alex ignore host -->
 
 Much of the migration work requires a HostComponent ref to access certain APIs that are only attached to host components (like View, Text, or ScrollView). HostComponents are the return value of calls to `requireNativeComponent`. `findNodeHandle` tunnels through multiple levels of component hierarchy to find the nearest native component.
 

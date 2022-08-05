@@ -83,8 +83,6 @@ You can also connect to the development server over Wi-Fi. You'll first need to 
 
 You can find the IP address in **System Preferences** → **Network**.
 
-<!-- alex ignore host -->
-
 1. Make sure your laptop and your phone are on the **same** Wi-Fi network.
 2. Open your React Native app on your device.
 3. You'll see a [red screen with an error](debugging.md#in-app-errors-and-warnings). This is OK. The following steps will fix that.
@@ -164,8 +162,6 @@ You can now enable Live reloading from the [Developer menu](debugging.md#accessi
 You can also connect to the development server over Wi-Fi. You'll first need to install the app on your device using a USB cable, but once that has been done you can debug wirelessly by following these instructions. You'll need your development machine's current IP address before proceeding.
 
 Open the command prompt and type `ipconfig` to find your machine's IP address ([more info](http://windows.microsoft.com/en-us/windows/using-command-line-tools-networking-information)).
-
-<!-- alex ignore host -->
 
 1. Make sure your laptop and your phone are on the **same** Wi-Fi network.
 2. Open your React Native app on your device.
@@ -291,8 +287,6 @@ You can now enable Live reloading from the [Developer menu](debugging.md#accessi
 You can also connect to the development server over Wi-Fi. You'll first need to install the app on your device using a USB cable, but once that has been done you can debug wirelessly by following these instructions. You'll need your development machine's current IP address before proceeding.
 
 Open a terminal and type `/sbin/ifconfig` to find your machine's IP address.
-
-<!-- alex ignore host -->
 
 1. Make sure your laptop and your phone are on the **same** Wi-Fi network.
 2. Open your React Native app on your device.
