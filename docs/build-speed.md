@@ -13,7 +13,6 @@ To mitigate this performance hit, this page shares some suggestions on how to **
 
 ## Build only one ABI during development (Android-only)
 
-When building your android app locally, you build all the 4 ABIs by default: `armeabi-v7a`, `arm64-v8a`, `x86` & `x86_64`.
 When building your android app locally, by default you build all the 4 [Application Binary Interfaces (ABIs)](https://developer.android.com/ndk/guides/abis) : `armeabi-v7a`, `arm64-v8a`, `x86` & `x86_64`.
 
 However, you probably don't need to build all of them if you're building locally and testing your emulator or on a physical device.

@@ -12,8 +12,8 @@ Assuming you have the Android SDK installed, run `android` to open the Android S
 
 Make sure you have the following installed:
 
-1. Android SDK version 30 (`compileSdkVersion` in [`build.gradle`](https://github.com/facebook/react-native/blob/main/ReactAndroid/build.gradle)).
-2. Android NDK 21.4.7075529 (from in [`gradle.properties`](https://github.com/facebook/react-native/blob/b1120c6a6513ec24568abc6bbe60dd57ef1dec96/gradle.properties#L7), download links and installation instructions below).
+1. Android SDK (find the specific version in the `compileSdkVersion` in [`build.gradle`](https://github.com/facebook/react-native/blob/main/ReactAndroid/build.gradle#L253)).
+2. Android NDK
 
 #### Point Gradle to your Android SDK
 
@@ -45,13 +45,7 @@ ndk.dir=/Users/your_unix_name/android-ndk/android-ndk-r20b
 
 #### Download links for Android NDK
 
-1. [macOS (64-bit)](https://dl.google.com/android/repository/android-ndk-r20b-darwin-x86_64.zip)
-2. [Linux (64-bit)](https://dl.google.com/android/repository/android-ndk-r20b-linux-x86_64.zip)
-3. [Windows (64-bit)](https://dl.google.com/android/repository/android-ndk-r20b-windows-x86_64.zip)
-4. [Windows (32-bit)](https://dl.google.com/android/repository/android-ndk-r20b-windows-x86.zip)
-
-You can find further instructions on the [official page](https://developer.android.com/ndk/index.html).
-Or follow instructions to [download appropriate NDK from SDK manager](https://developer.android.com/studio/projects/install-ndk#specific-version).
+You can find the instructions to install the NDK on the [official Android NDK website](https://developer.android.com/studio/projects/install-ndk).
 
 ### Building the source
 
@@ -149,9 +143,9 @@ You should be able to use the _Run_ button to run your app on a device. Android 
 
 ### Additional notes
 
-Building from source can take a long time, especially for the first build, as it needs to download ~200 MB of artifacts and compile the native code. 
+Building from source can take a long time, especially for the first build, as it needs to download ~200 MB of artifacts and compile the native code.
 
-Every time you update the `react-native` version from your repo, the build directory may get deleted, and all the files are re-downloaded. 
+Every time you update the `react-native` version from your repo, the build directory may get deleted, and all the files are re-downloaded.
 To avoid this, you might want to change your build directory path by editing the `~/.gradle/init.gradle` file:
 
 ```groovy
@@ -192,7 +186,7 @@ Install it in your app project package.json.
 
 ## Rationale
 
-The recommended approach to working with React Native is to always update to the latest version. No support is provided on older versions and if you run into issues the contributors will always ask you to upgrade to the latest version before even looking at your particular issue. 
+The recommended approach to working with React Native is to always update to the latest version. No support is provided on older versions and if you run into issues the contributors will always ask you to upgrade to the latest version before even looking at your particular issue.
 
 Sometimes, though, you are temporarily stuck on an older React Native version, but you require some changes from newer versions urgently (bugfixes) without having to do a full upgrade right now. This situation should be short lived by definition and once you have the time, the real solution is to upgrade to the latest version.
 
@@ -226,9 +220,9 @@ Upload the binaries from the `android` folder to maven and point your Android ap
 
 Instead of uploading to Maven/Nexus, you can add the binaries built in the previous steps to git, by changing the .gitignore and committing the binaries to your forked branch. This allows you to make your fork into a functioning git dependency for React Native app projects.
 
-If you have changes that you want to actually merge to React Native, make them on another branch first and open a PR. 
+If you have changes that you want to actually merge to React Native, make them on another branch first and open a PR.
 
-To start making your dependency branch, make sure you are on a `release/my-forked-release` branch, then merge any commits that you need from yourself or others into this branch. 
+To start making your dependency branch, make sure you are on a `release/my-forked-release` branch, then merge any commits that you need from yourself or others into this branch.
 
 :::warning
 This release branch should never be merged into any other branch.
