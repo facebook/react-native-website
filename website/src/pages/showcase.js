@@ -30,7 +30,11 @@ const renderApp = (app, i) => {
           {renderLinks(app)}
         </div>
         {app.infoLink && (
-          <a className="articleButton" href={app.infoLink} target="_blank">
+          <a
+            className="articleButton"
+            href={app.infoLink}
+            target="_blank"
+            title={app.infoTitle}>
             Learn more{' '}
             <IconExternalLink width={12} height={12} style={{opacity: 0.5}} />
           </a>
@@ -164,7 +168,7 @@ const Showcase = () => {
           <div className="logos">{shopifyApps.map(renderApp)}</div>
         </div>
         <div className="showcaseSection showcaseCustomers">
-          <h2>Customers Spotlight</h2>
+          <h2>Users Spotlight</h2>
           <div className="logos">{randomizedApps.map(renderApp)}</div>
         </div>
       </Section>
@@ -174,7 +178,7 @@ const Showcase = () => {
             className="formButton"
             href="https://forms.gle/BdNf3v5hemV9D5c86"
             target="_blank">
-            Fill out this form to apply to the Customer Spotlight
+            Fill out this form to apply to the Users Spotlight
           </a>
           <p>
             A curated list of{' '}

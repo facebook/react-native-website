@@ -12,7 +12,7 @@
   {
     "name": "Facebook Ads Manager",
     "icon": "adsmanager.png",
-    "linkAppStore": "https://itunes.apple.com/us/app/facebook-ads-manager/id964397083?mt=8",
+    "linkAppStore": "https://apps.apple.com/us/app/facebook-ads-manager/id964397083",
     "linkPlayStore": "https://play.google.com/store/apps/details?id=com.facebook.adsmanager",
     "infoLink": "https://code.facebook.com/posts/1189117404435352/react-native-for-android-how-we-built-the-first-cross-platform-react-native-app/",
     "infoTitle": "How We Built the First Cross-Platform React Native App",
@@ -35,7 +35,6 @@
     "linkAppStore": "https://apps.apple.com/us/app/oculus/id1366478176",
     "linkPlayStore": "https://play.google.com/store/apps/details?id=com.oculus.twilight&hl=en_US",
     "infoLink": "https://www.oculus.com/experiences/quest/",
-    "infoTitle": "",
     "group": "Meta",
     "pinned": true
   },
@@ -151,7 +150,7 @@
   {
     "name": "Discord",
     "icon": "discord.png",
-    "linkAppStore": "https://itunes.apple.com/us/app/discord-chat-for-gamers/id985746746?mt=8",
+    "linkAppStore": "https://apps.apple.com/us/app/discord-chat-for-gamers/id985746746",
     "linkPlayStore": "https://play.google.com/store/apps/details?id=com.discord",
     "infoLink": "https://discord.com/blog/how-discord-achieves-native-ios-performance-with-react-native",
     "infoTitle": "How Discord achieves native iOS performance with React Native",
@@ -168,7 +167,7 @@
   {
     "name": "Bloomberg",
     "icon": "bloomberg.png",
-    "linkAppStore": "https://itunes.apple.com/us/app/bloomberg/id281941097?mt=8",
+    "linkAppStore": "https://apps.apple.com/us/app/bloomberg/id281941097",
     "linkPlayStore": "https://play.google.com/store/apps/details?id=com.bloomberg.android.plus",
     "infoLink": "https://www.techatbloomberg.com/blog/bloomberg-used-react-native-develop-new-consumer-app/",
     "infoTitle": "How Bloomberg Used React Native to Develop its new Consumer App",
@@ -186,10 +185,10 @@
   {
     "name": "Tesla",
     "icon": "tesla.png",
-    "linkAppStore": "https://itunes.apple.com/us/app/tesla-motors/id582007913?mt=8",
+    "linkAppStore": "https://apps.apple.com/us/app/tesla/id582007913",
     "linkPlayStore": "https://play.google.com/store/apps/details?id=com.teslamotors.tesla",
     "infoLink": "https://www.tesla.com/blog",
-    "infoTitle": "",
+    "infoTitle": "Tesla Blog",
     "pinned": true
   },
   {
@@ -213,14 +212,14 @@
   {
     "name": "Salesforce",
     "icon": "salesforce.png",
-    "linkAppStore": "https://itunes.apple.com/us/app/salesforce/id404249815?mt=8",
+    "linkAppStore": "https://apps.apple.com/us/app/salesforce/id404249815",
     "linkPlayStore": "https://play.google.com/store/apps/details?id=com.salesforce.chatter",
     "infoLink": "https://www.salesforce.com/products/einstein/einstein-voice/",
     "infoTitle": "Einstein Voice Assistant: Voice Activated AI",
     "pinned": true
   },
   {
-    "name": "Words with Friends",
+    "name": "Words with Friends 2",
     "icon": "words2.png",
     "linkAppStore": "https://apps.apple.com/app/words-with-friends-2-word-game/id1196764367",
     "linkPlayStore": "https://play.google.com/store/apps/details?id=com.zynga.words3&hl=en_US&gl=US",
@@ -231,7 +230,7 @@
   {
     "name": "Call of Duty Companion App",
     "icon": "callofduty_companion.png",
-    "linkAppStore": "https://apps.apple.com/us/app/call-of-duty-companion-app/id1405837628?ls=1",
+    "linkAppStore": "https://apps.apple.com/us/app/call-of-duty-companion-app/id1405837628",
     "linkPlayStore": "https://play.google.com/store/apps/details?id=com.activision.callofduty.companion",
     "infoLink": "https://www.callofduty.com/app",
     "infoTitle": "",
