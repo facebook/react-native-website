@@ -25,12 +25,7 @@ yarn run lint
 
 ### iOS Tests
 
-Start off by going to the `packages/rn-tester` directory, then:
-1. Run `yarn`
-2. Run `pod install` (You may have to run `brew install cmake` prior)
-
-This will set up your native dependencies and create a `RNTesterPods` Xcode workspace. 
-**Note:** It may take a long time to complete "Installing hermes-engine (1000.0.0)" as it must build Hermes from source.
+Follow the [README.md](https://github.com/facebook/react-native/blob/main/packages/rn-tester/README.md) instructions in the `packages/rn-tester` directory.
 
 Then, go back to the root of your React Native checkout and run `yarn`. This will set up your JavaScript dependencies.
 
@@ -47,6 +42,16 @@ Xcode also allows running individual tests through its Test Navigator. You can a
 :::note
 `objc-test.sh` ensures your test environment is set up to run all tests. It also disables tests that are known to be flaky or broken. Keep this in mind when running tests using Xcode. If you see an unexpected failure, see if it's disabled in `objc-test.sh` first.
 :::
+
+#### iOS Podfile/Ruby tests
+
+If you are making modifications to `Podfile` configurations then there are Ruby tests that can verify these.
+
+To run the ruby tests:
+```bash
+cd scripts
+sh run_ruby_tests.sh
+```
 
 ### Android Tests
 
