@@ -22,7 +22,7 @@
   --ifm-code-font-size: 90%;
   --ifm-code-border-radius: 3px;
   --ifm-blockquote-color: var(--ifm-font-color-base);
-  --ifm-blockquote-font-size: 16px;
+  --ifm-blockquote-font-size: 15px;
   --ifm-table-head-color: var(--subtle);
   --ifm-link-hover-decoration: none;
   --ifm-navbar-background-color: var(--deepdark);
@@ -399,24 +399,24 @@ html[data-theme="dark"] article .badge {
 
 /* Admonitions & notes */
 
-.alert--warning {
-  background-color: var(--rn-note-background);
-  font-size: 14px;
-  text-align: center;
+.admonition,
+.theme-admonition {
+  font-size: var(--ifm-blockquote-font-size);
+  margin-bottom: 1.5rem !important;
 
-  .margin-top--md {
-    margin-top: 0.33rem !important;
+  div[class^="admonitionContent"] {
+    h5 {
+      font-size: 14px;
+    }
+
+    a {
+      border-bottom: 0;
+    }
   }
 }
 
-.admonition {
-  text-align: left;
-  font-size: var(--ifm-blockquote-font-size);
-  line-height: var(--ifm-pre-line-height);
-
-  h5 {
-    font-size: 14px;
-  }
+.alert--warning {
+  background-color: var(--rn-note-background);
 }
 
 .alert--secondary {
