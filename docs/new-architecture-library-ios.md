@@ -42,14 +42,6 @@ Pod::Spec.new do |s|
 end
 ```
 
-:::caution
-
-Currently, the Folly version used here must match the Folly version used by React Native. A version mismatch here may lead to errors when running `pod install`. If CocoaPods flags an issue with your Folly version, then you may have a version mismatch. Check which version is used by the core modules Podspecs (e.g. FBReactNativeSpec.podspec), and try running `pod install` again after editing your podspec with the correct Folly version.
-
-<M1Cocoapods />
-
-:::
-
 ## 2. Extend or implement the code-generated native interfaces
 
 The JavaScript spec for your native module or component will be used to generate native interface code for each supported platform (i.e. Android and iOS). These native interface files will be generated when a React Native application that depends on your library is built.

@@ -7,7 +7,7 @@ import NewArchitectureWarning from './\_markdown-new-architecture-warning.mdx';
 
 <NewArchitectureWarning/>
 
-There’s a few prerequisites that should be addressed before the New Architecture is enabled in your application.
+There are a few prerequisites that should be addressed before the New Architecture is enabled in your application.
 
 ## Use a React Native >= 0.68 release
 
@@ -15,7 +15,7 @@ React Native released the support for the New Architecture with the release `0.6
 
 This guide is written with the expectation that you’re using the latest React Native release. At the moment of writing, this is `0.70.0`. Other than this guide, you can leverage the [upgrade helper](https://react-native-community.github.io/upgrade-helper/) to determine what other changes may be required for your project.
 
-To update to the most recent version of React Native, you can run this command
+To update to the most recent version of React Native, you can run this command:
 
 ```bash
 yarn add react-native@0.70.0
@@ -41,9 +41,9 @@ You can update Gradle by running:
 cd android && ./gradlew wrapper --gradle-version 7.3.3 --distribution-type=all
 ```
 
-While the AGP version should be updated inside the **top level** `build.gradle` file at the `com.android.tools.build:gradle` dependency line.
+While the AGP version should be updated inside the **top-level** `build.gradle` file at the `com.android.tools.build:gradle` dependency line.
 
-Now, you can edit your **top level** `settings.gradle` file to include the following line at the end of the file:
+Now, you can edit your **top-level** `settings.gradle` file to include the following line at the end of the file:
 
 ```groovy
 includeBuild('../node_modules/react-native-gradle-plugin')
@@ -141,7 +141,7 @@ task copyDownloadableDepsToLibs(type: Copy) {
 
 Finally, it’s time to update your project to use the `react-native` dependency from source, rather than using a precompiled artifact from the NPM package. This is needed as the later setup will rely on building the native code from source.
 
-Let’s edit your **module level** `build.gradle` (the one inside `app/` folder) and change the following line:
+Let’s edit your **module-level** `build.gradle` (the one inside `app/` folder) and change the following line:
 
 ```diff
 dependencies {
@@ -228,7 +228,7 @@ echo 'export NODE_BINARY=$(command -v node)' > .xcode.env
 ```
 
 If you need it, you can also open the file and replace the `$(command -v node)` with the path to the node executable.
-React Native supports also a local version of this file `.xcode.env.local` which is not synced with the repository, if your local setup is different from the Continuous Integration or team one.
+React Native supports also a local version of this file `.xcode.env.local`. This file is not synced with the repository to let you customize your local setup, if it differs from the Continuous Integration or the team one.
 
 ## iOS: Use Objective-C++ (`.mm` extension)
 

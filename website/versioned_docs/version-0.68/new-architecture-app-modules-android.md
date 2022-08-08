@@ -20,7 +20,7 @@ You can mitigate this by following the approach described in [Speeding up your B
 
 The code-gen will output some Java and some C++ code that now we need to build.
 
-Let’s edit your **module level** `build.gradle` to include the **two** `externalNativeBuild` blocks detailed below inside the `android{}` block:
+Let’s edit your **module-level** `build.gradle` to include the **two** `externalNativeBuild` blocks detailed below inside the `android{}` block:
 
 ```groovy
 android {
