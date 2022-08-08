@@ -82,6 +82,34 @@
       "direct-manipulation"
     ],
     "The New Architecture": [
+      "the-new-architecture/landing-page",
+      "the-new-architecture/why",
+      "the-new-architecture/use-app-template",
+      {
+        "type": "category",
+        "label": "Pillars",
+        "collapsible": false,
+        "collapsed": false,
+        "items": [
+          "the-new-architecture/pillars",
+          "the-new-architecture/pillars-turbomodules",
+          "the-new-architecture/pillars-fabric-components",
+          "the-new-architecture/pillars-codegen"
+        ]
+      },
+      {
+        "type": "category",
+        "label": "Backward Compatibility",
+        "collapsible": false,
+        "collapsed": false,
+        "items": [
+          "the-new-architecture/backward-compatibility",
+          "the-new-architecture/backward-compatibility-turbomodules",
+          "the-new-architecture/backward-compatibility-fabric-components"
+        ]
+      }
+    ],
+    "Migrati to the New Architecture": [
       "new-architecture-intro",
       {
         "type": "category",
@@ -117,7 +145,11 @@
         "label": "Android",
         "collapsible": false,
         "collapsed": false,
-        "items": ["headless-js-android", "signed-apk-android", "communication-android"]
+        "items": [
+          "headless-js-android",
+          "signed-apk-android",
+          "communication-android"
+        ]
       },
       {
         "type": "category",

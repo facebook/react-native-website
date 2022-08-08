@@ -34,7 +34,7 @@ We recommend using the [VS Code](https://code.visualstudio.com/) code editor and
 
 Try out apps from the [Showcase](https://reactnative.dev/showcase) to see what React Native is capable of! Looking for something more hands on? Check out this [set of example apps on GitHub](https://github.com/ReactNativeNews/React-Native-Apps). You can look at their source code—try running one on a simulator or device.
 
-## Find, make, and share your own Native Components and Modules
+## Find, make, and share your own Native Components and TurboModules
 
 React Native has a community of thousands of developers like you making content, tools, tutorials—and Native Components!
 

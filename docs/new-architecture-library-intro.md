@@ -3,40 +3,36 @@ id: new-architecture-library-intro
 title: Prerequisites for Libraries
 ---
 
-import NewArchitectureWarning from './\_markdown-new-architecture-warning.mdx';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import constants from '@site/core/TabsConstants';
+import NewArchitectureWarning from './\_markdown-new-architecture-warning.mdx';
 
 <NewArchitectureWarning/>
 
 The following steps will help ensure your modules and components are ready for the New Architecture.
 
-## TurboModules: Define Specs in JavaScript
+## Define Specs in JavaScript
 
-Under the TurboModule system, the JavaScript spec will serve as the source of truth for the methods that are provided by each native module. Without the JavaScript spec, it is up to you to ensure your public method signatures are equivalent on Android and iOS.
-
-As the first step to adopting the new architecture, you will start by creating these specs for your native modules. You can do this, right now, prior to actually migrating your native module library to the new architecture. Your JavaScript spec will be used later on to generate native interface code for all the supported platforms, as a way to enforce uniform APIs across platforms.
-
-### Writing the JavaScript Spec
-
-The JavaScript spec defines all APIs that are provided by the native module, along with the types of those constants and functions.
-Using a **typed** spec file allows us to be intentional and declare all the input arguments and outputs of your native module’s methods.
+The JavaScript specs serve as the source of truth for the methods that are provided by each native module. They defines all APIs that are provided by the native module, along with the types of those constants and functions.
+Using a **typed** spec file allows to be intentional and declare all the input arguments and outputs of your native module’s methods.
 
 :::info
-
-JavaScript spec files can be written in either [Flow](https://flow.org/) or [TypeScript](https://www.typescriptlang.org/). The Codegen process will automatically choose the correct type parser based on your spec file's extension (`.js` for Flow, `.ts` or `.tsx` for TypeScript). Note that TypeScript support is still in beta—if you come across any bugs or missing features, please [report them](https://github.com/reactwg/react-native-new-architecture/discussions/categories/q-a).
-
+Currently, this guide is written under the assumption that you will be using [Flow](https://flow.org/). The `react-native-codegen` package is also currently working only with Flow source as input. **TypeScript** support is in beta right now.
 :::
 
-#### TurboModules
+To adopt the New Architecture, you start by creating these specs for your native modules and native components. You can do this prior to actually migrating to the New Architecture: the specs will be used later on to generate native interface code for all the supported platforms, as a way to enforce uniform APIs across platforms.
 
-JavaScript spec files **must** be named `Native<MODULE_NAME>.js` (for TypeScript use extension `.ts` or `.tsx`) and they export a `TurboModuleRegistry` `Spec` object. The name convention is important because the Codegen process looks for modules whose spec file (either JavaScript of TypeScript) starts with the keyword `Native`.
+#### Turbomodules
 
-The following snippets show a basic spec template, written in [Flow](https://flow.org/) as well as [TypeScript](https://www.typescriptlang.org/).
+JavaScript spec files **must** be named `Native<MODULE_NAME>.js` and they export a `TurboModuleRegistry` `Spec` object. The name convention is important because the Codegen process looks for modules whose `js` (`jsx`, `ts`, or `tsx`) spec file starts with the keyword `Native`.
 
-<Tabs groupId="turbo-module-spec-language" defaultValue={constants.defaultJavaScriptSpecLanguages} values={constants.javaScriptSpecLanguages}>
-<TabItem value="flow">
+The following is a basic JavaScript spec template, written using the [Flow](https://flow.org/) syntax as well as [TypeScript](https://www.typescriptlang.org/).
+
+<Tabs groupId="fabric-component-backward-compatibility"
+      defaultValue={constants.defaultFabricComponentSpecLanguage}
+      values={constants.fabricComponentSpecLanguages}>
+<TabItem value="Flow">
 
 ```ts
 // @flow
@@ -55,7 +51,7 @@ export default (TurboModuleRegistry.get<Spec>('<MODULE_NAME>'): ?Spec);
 ```
 
 </TabItem>
-<TabItem value="typescript">
+<TabItem value="TypeScript">
 
 ```ts
 import type { TurboModule } from 'react-native';
@@ -80,8 +76,10 @@ JavaScript spec files **must** be named `<FABRIC COMPONENT>NativeComponent.js` (
 
 The following snippet shows a basic JavaScript spec template, written in [Flow](https://flow.org/) as well as [TypeScript](https://www.typescriptlang.org/).
 
-<Tabs groupId="turbo-module-spec-language" defaultValue={constants.defaultJavaScriptSpecLanguages} values={constants.javaScriptSpecLanguages}>
-<TabItem value="flow">
+<Tabs groupId="fabric-component-backward-compatibility"
+      defaultValue={constants.defaultFabricComponentSpecLanguage}
+      values={constants.fabricComponentSpecLanguages}>
+<TabItem value="Flow">
 
 ```ts
 // @flow strict-local
@@ -101,7 +99,7 @@ export default (codegenNativeComponent<NativeProps>(
 ```
 
 </TabItem>
-<TabItem value="typescript">
+<TabItem value="TypeScript">
 
 ```ts
 import type { ViewProps } from 'ViewPropTypes';
@@ -124,9 +122,12 @@ export default codegenNativeComponent<NativeProps>(
 
 When using Flow or TypeScript, you will be using [type annotations](https://flow.org/en/docs/types/) to define your spec. Keeping in mind that the goal of defining a JavaScript spec is to ensure the generated native interface code is type safe, the set of supported types will be those that can be mapped one-to-one to a corresponding type on the native platform.
 
+<!-- alex ignore primitive -->
+
 In general, this means you can use primitive types (strings, numbers, booleans), as well as function types, object types, and array types. Union types, on the other hand, are not supported. All types must be read-only. For Flow: either `+` or `$ReadOnly<>` or `{||}` objects. For TypeScript: `readonly` for properties, `Readonly<>` for objects, and `ReadonlyArray<>` for arrays.
 
-> See Appendix [I. Flow Type to Native Type Mapping](./new-architecture-appendix#i-flow-type-to-native-type-mapping). (TypeScript to Native Type Mapping will be added soon.)
+> See Appendix [I. Flow Type to Native Type Mapping](#i-flow-type-to-native-type-mapping).
+> See Appendix [II. TypeScript to Native Type Mapping](#ii-typescript-to-native-type-mapping).
 
 ### Codegen helper types
 
@@ -143,7 +144,7 @@ Later on those types are compiled to coresponding equivalents on target platform
 
 ### Be Consistent Across Platforms and Eliminate Type Ambiguity
 
-Before adopting the new architecture in your native module, you will need to ensure your methods are consistent across platforms. This is something you will realize as you set out to write the JavaScript spec for your native module - remember, that JavaScript spec defines what the methods will look like on all supported platforms.
+Before adopting the New Architecture in your native module, you will need to ensure your methods are consistent across platforms. This is something you will realize as you set out to write the JavaScript spec for your native module - remember, that JavaScript spec defines what the methods will look like on all supported platforms.
 
 If your existing native module has methods with the same name on multiple platforms, but with different numbers or types of arguments across platforms, you will need to find a way to make these consistent. If you have methods that can take two or more different types for the same argument, you will also need to find a way to resolve this type ambiguity as type unions are intentionally not supported.
 
@@ -169,9 +170,22 @@ android/settings.gradle:apply from: file("../node_modules/@react-native-communit
 ...
 ```
 
+If you don't, open the `settings.gradle` file and add this line:
+
+```diff
+rootProject.name = <Your App Name>
++ apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
+```
+
+Then, open your `android/app/build.gradle` file and add this line at the end of the file:
+
+```kotlin
+apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)
+```
+
 ### iOS
 
-On iOS, this generally requires your library to provide a Podspec (see [`react-native-webview`](https://github.com/react-native-community/react-native-webview/blob/master/react-native-webview.podspec) for an example).
+On iOS, make sure that your library provides a Podspec (see [`react-native-webview`](https://github.com/react-native-community/react-native-webview/blob/master/react-native-webview.podspec) for an example).
 
 :::info
 
@@ -179,11 +193,38 @@ To determine if your library is set up for autolinking, check the CocoaPods outp
 
 :::
 
+## Configure Codegen
+
+[Codegen](the-new-architecture/pillars-codegen) is a tool that runs when you build an Android app or when you install the dependencies of an iOS app. It creates some scaffolding code that you won't have to create manually.
+
+Codegen can be configured in the `package.json` file of your Library. Add the following JSON object at the end of it.
+
+```diff
+  },
++  "codegenConfig": {
++    "name": "<library name>",
++    "type": "all",
++    "jsSrcsDir": ".",
++    "android": {
++      "javaPackageName": "com.facebook.fbreact.specs"
++    }
++  }
+}
+```
+
+- The `codegenConfig` is the key used by the Codegen to verify that there is some code to generate.
+- The `name` field, is the name of the library.
+- The `type` field is used to identify the type of module we want to create. Our suggestions is to keep `all` to support libraries that contains both TurboModule and Fabric Components.
+- The `jsSrcsDir` is the directory where the codegen will start looking for JavaScript specs.
+- The `android.javaPackageName` is the name of the package where the generated code wil end up.
+
+Android also requires to have the [React Gradle Plugin properly configured](new-architecture-app-intro#android-specifics) in your app.
+
 ## Preparing your JavaScript codebase for the new React Native Renderer (Fabric)
 
 The new renderer also known as Fabric doesn’t use the UIManager so direct calls to UIManager will need to be migrated. Historically, calls to UIManager had some pretty complicated patterns. Fortunately, we’ve created new APIs that are much cleaner. These new APIs are forwards compatible with Fabric so you can migrate your code today and they will work properly when you turn on Fabric!
 
-Fabric will be providing new type safe JS APIs that are much more ergonomic than some of the patterns we've seen in product code today. These APIs require references to the underlying component, no longer using the result of `findNodeHandle`. `findNodeHandle` is used to search the tree for a native component given a class instance. This was breaking the React abstraction model. `findNodeHandle` won’t be compatible with React 18 once we are ready to roll that out. Deprecation of `findNodeHandle` in React Native is similar to the [deprecation of `findDOMNode` in React DOM](https://reactjs.org/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage).
+Fabric will be providing new type safe JS APIs that are much more ergonomic than some of the patterns we've seen in product code today. These APIs require references to the underlying component, no longer using the result of `findNodeHandle`. `findNodeHandle` is used to search the tree for a native component given a class instance. This was breaking the React abstraction model. `findNodeHandle` is not compatible with React 18. Deprecation of `findNodeHandle` in React Native is similar to the [deprecation of `findDOMNode` in React DOM](https://reactjs.org/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage).
 
 While we know that all deprecations are a hassle, this guide is intended to help people update components as smoothly as possible. Here are the steps you need to take to get your JS codebase ready for Fabric:
 
@@ -437,7 +478,7 @@ Be wary of your assumptions as uncaught subtleties can introduce differences in 
 
 ### Move the call to `requireNativeComponent` to a separate file
 
-This will prepare for the JS to be ready for the new codegen system for the new architecture. The new file should be named `<ComponentName>NativeComponent.js.`
+This will prepare for the JS to be ready for the new codegen system for the New Architecture. The new file should be named `<ComponentName>NativeComponent.js.`
 
 #### Old way
 

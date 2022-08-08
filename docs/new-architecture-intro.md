@@ -1,6 +1,6 @@
 ---
 id: new-architecture-intro
-title: Adopting the New Architecture
+title: Migrating to the New Architecture
 ---
 
 import NewArchitectureWarning from './\_markdown-new-architecture-warning.mdx';

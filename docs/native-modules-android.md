@@ -3,7 +3,10 @@ id: native-modules-android
 title: Android Native Modules
 ---
 
+import NativeDeprecated from './the-new-architecture/\_markdown_native_deprecation.mdx'
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+
+<NativeDeprecated />
 
 Welcome to Native Modules for Android. Please start by reading the [Native Modules Intro](native-modules-intro) for an intro to what native modules are.
 

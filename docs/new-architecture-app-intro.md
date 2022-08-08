@@ -7,40 +7,29 @@ import NewArchitectureWarning from './\_markdown-new-architecture-warning.mdx';
 
 <NewArchitectureWarning/>
 
-There’s a few prerequisites that should be addressed before the new architecture is enabled in your application.
+There are a few prerequisites that should be addressed before the New Architecture is enabled in your application.
 
-## Use a React Native nightly release
+## Use a React Native >= 0.68 release
 
-At this time, you must use a React Native nightly release in order to get access to the most up to date changes. Eventually, we will recommend targeting a minimum stable open source release.
+React Native released the support for the New Architecture with the release `0.68.0`.
 
-This guide is written with the expectation that you’re using a specific nightly release. As new revisions of this guide are released, the target nightly release may be updated. The specific nightly version that we will be using throughout the rest of this guide is version `0.0.0-20220201-2008-79975d146`.
+This guide is written with the expectation that you’re using the latest React Native release. At the moment of writing, this is `0.70.0`. Other than this guide, you can leverage the [upgrade helper](https://react-native-community.github.io/upgrade-helper/) to determine what other changes may be required for your project.
 
-Before upgrading your app to a specific nightly release, we recommend upgrading your app to the latest open source release. By upgrading to a published open source release first, you will be able to take advantage of tools like the [upgrade helper](https://react-native-community.github.io/upgrade-helper/) to determine what other changes may be required for your project.
-
-As of this writing, the latest stable release is `0.67.2`. Once you have upgraded your project to this version successfully, you may proceed to targeting the `0.0.0-20220201-2008-79975d146` nightly release. You may target this nightly release the same way you’d target any other version of React Native:
+To update to the most recent version of React Native, you can run this command:
 
 ```bash
-yarn add react-native@0.0.0-20220201-2008-79975d146
+yarn add react-native@0.70.0
 ```
 
-## Install react-native-codegen
-
-Make sure that you're using the latest version of the [`react-native-codegen`](https://www.npmjs.com/package/react-native-codegen) NPM package. At the time of writing it's `0.0.13`.
+Starting from React Native `0.69.0`, you may also need to update the version of React to 18. You can do so by using this command:
 
 ```bash
-yarn add react-native-codegen
+yarn add react@18.0.0
 ```
-
-:::info
-
-If you see an error like `***TypeError: RNCodegen.generateFromSchemas is not a function.***`, it means that you're using a older version of `react-native-codegen`.
-Make sure you don't have an older version installed under the `node_modules/react-native/node_modules` folder. You can remove that or reinstall everything in node_modules to fix the problem.
-
-:::
 
 ### Android specifics
 
-Using the new architecture on Android has some prerequisites that you need to meet:
+Using the New Architecture on Android has some prerequisites that you need to meet:
 
 1. Using Gradle 7.x and Android Gradle Plugin 7.x
 2. Using the **new React Gradle Plugin**
@@ -49,40 +38,52 @@ Using the new architecture on Android has some prerequisites that you need to me
 You can update Gradle by running:
 
 ```bash
-cd android && ./gradlew wrapper --gradle-version 7.3 --distribution-type=all
+cd android && ./gradlew wrapper --gradle-version 7.3.3 --distribution-type=all
 ```
 
-While the AGP version should be updated inside the **top level** `build.gradle` file at the `com.android.tools.build:gradle` dependency line.
+While the AGP version should be updated inside the **top-level** `build.gradle` file at the `com.android.tools.build:gradle` dependency line.
 
-If you’re set with it, let’s now install the new Gradle plugin which is distributed through a NPM package called [**`react-native-gradle-plugin`**](https://www.npmjs.com/package/react-native-gradle-plugin). You can do so with:
-
-```bash
-yarn add react-native-gradle-plugin
-```
-
-You can control if you have the package already installed by doing:
-
-```bash
-ls -la node_modules/react-native-gradle-plugin
-```
-
-Now, you can edit your **top level** `settings.gradle` file to include the following line at the end of the file:
+Now, you can edit your **top-level** `settings.gradle` file to include the following line at the end of the file:
 
 ```groovy
 includeBuild('../node_modules/react-native-gradle-plugin')
 
 include(":ReactAndroid")
 project(":ReactAndroid").projectDir = file('../node_modules/react-native/ReactAndroid')
+include(":ReactAndroid:hermes-engine")
+project(":ReactAndroid:hermes-engine").projectDir = file('../node_modules/react-native/ReactAndroid/hermes-engine')
+```
+
+Then, open the `android/app/src/main/AndroidManifest.xml` file and add this line:
+
+```diff
+android:windowSoftInputMode="adjustResize"
++ android:exported="true">
+<intent-filter>
 ```
 
 Then, edit your **top-level Gradle file** to include the highlighted lines:
 
 ```groovy
 buildscript {
+    ext {
+        buildToolsVersion = "31.0.0"
+        minSdkVersion = 21
+        compileSdkVersion = 31
+        targetSdkVersion = 31
+        if (System.properties['os.arch'] == "aarch64") {
+            // For M1 Users we need to use the NDK 24 which added support for aarch64
+            ndkVersion = "24.0.8215888"
+        } else {
+            // Otherwise we default to the side-by-side NDK version from AGP.
+            ndkVersion = "21.4.7075529"
+        }
+    }
+
     // ...
     dependencies {
         // Make sure that AGP is at least at version 7.x
-        classpath("com.android.tools.build:gradle:7.0.4")
+        classpath("com.android.tools.build:gradle:7.2.0")
 
         // Add those lines
         classpath("com.facebook.react:react-native-gradle-plugin")
@@ -93,35 +94,68 @@ buildscript {
 
 Edit your **module-level** **Gradle file** (usually `app/build.gradle[.kts]`) to include the following:
 
-```groovy
+```diff
+// ...
+
 apply plugin: "com.android.application"
 
-// Add those lines
-apply plugin: "com.facebook.react"
-// Add those lines as well
-react {
-    reactRoot = rootProject.file("../node_modules/react-native/")
-    codegenDir = rootProject.file("../node_modules/react-native-codegen/")
-}
+// ...
+
+if (enableHermes) {
+-    def hermesPath = "../../node_modules/hermes-engine/android/";
+-    debugImplementation files(hermesPath + "hermes-debug.aar")
+-    releaseImplementation files(hermesPath + "hermes-release.aar")
++    //noinspection GradleDynamicVersion
++    implementation("com.facebook.react:hermes-engine:+") { // From node_modules
++        exclude group:'com.facebook.fbjni'
++    }
+} else {
+
+// ...
+
++ configurations.all {
++     resolutionStrategy.dependencySubstitution {
++         substitute(module("com.facebook.react:react-native"))
++                 .using(project(":ReactAndroid"))
++                 .because("On New Architecture we're building React Native from source")
++         substitute(module("com.facebook.react:hermes-engine"))
++                .using(project(":ReactAndroid:hermes-engine"))
++                .because("On New Architecture we're building Hermes from source")
++     }
++ }
+
+// Run this once to be able to run the application with BUCK
+// puts all compile dependencies into folder libs for BUCK to use
+task copyDownloadableDepsToLibs(type: Copy) {
+
+// ...
+
++ def isNewArchitectureEnabled() {
++     // To opt-in for the New Architecture, you can either:
++     // - Set `newArchEnabled` to true inside the `gradle.properties` file
++     // - Invoke gradle with `-newArchEnabled=true`
++     // - Set an environment variable `ORG_GRADLE_PROJECT_newArchEnabled=true`
++     return project.hasProperty("newArchEnabled") && project.newArchEnabled == "true"
++ }
 ```
 
 Finally, it’s time to update your project to use the `react-native` dependency from source, rather than using a precompiled artifact from the NPM package. This is needed as the later setup will rely on building the native code from source.
 
-Let’s edit your **module level** `build.gradle` (the one inside `app/` folder) and change the following line:
+Let’s edit your **module-level** `build.gradle` (the one inside `app/` folder) and change the following line:
 
-```groovy
+```diff
 dependencies {
-  // Replace this:
-  implementation "com.facebook.react:react-native:+"  // From node_modules
-  // With this:
-  implementation project(":ReactAndroid")  // From node_modules
+-  implementation "com.facebook.react:react-native:+"  // From node_modules
++  implementation project(":ReactAndroid")  // From node_modules
 ```
 
 ## Use Hermes
 
-Hermes is an open-source JavaScript engine optimized for React Native. We highly recommend using Hermes in your application. With Hermes enabled, you will be able to use the JavaScript debugger in Flipper to directly debug your JavaScript code.
+Hermes is an open-source JavaScript engine optimized for React Native. Hermes is enabled by default and you have to explicitly disable it if you want to use JSC.
 
-Please [follow the instructions on the React Native website](hermes) in order to enable Hermes in your application.
+We highly recommend using Hermes in your application. With Hermes enabled, you will be able to use the JavaScript debugger in Flipper to directly debug your JavaScript code.
+
+Please [follow the instructions on the React Native website](hermes) to learn how to enable/disable Hermes.
 
 :::caution
 
@@ -129,29 +163,72 @@ Please [follow the instructions on the React Native website](hermes) in order to
 
 :::
 
-## iOS: Enable C++17 language feature support
+### Android
 
-Your Xcode project settings need to be updated to support C++17 language features.
+To enable Hermes in Android, open the `android/app/build.gradle` and apply the following changes:
 
-**Instructions**
+```diff
+project.ext.react = [
+-    enableHermes: true,  // clean and rebuild if changing
++    enableHermes: true,  // clean and rebuild if changing
+]
+// ...
 
-1. Select your project in the Project navigator on the left (e.g. MyXcodeApp)
-2. Then, make sure your project is selected in the center pane (as opposed to a particular target in your project, e.g. MyXcodeApp under Project, not under Targets).
-3. Go to Build Settings
-4. Search for C++ Language Dialect or CLANG_CXX_LANGUAGE_STANDARD
-5. Make sure **C++17** is selected from the dropdown menu (or enter "c++17" directly into the value box).
+}
 
-If done correctly, your diff will show the following changes to your project file:
-
-```ruby
-CLANG_CXX_LANGUAGE_STANDARD = "c++17"
+if (enableHermes) {
+-    def hermesPath = "../../node_modules/hermes-engine/android/";
+-    debugImplementation files(hermesPath + "hermes-debug.aar")
+-    releaseImplementation files(hermesPath + "hermes-release.aar")
++    //noinspection GradleDynamicVersion
++    implementation("com.facebook.react:hermes-engine:+") { // From node_modules
++        exclude group:'com.facebook.fbjni'
++    }
+} else {
 ```
 
-:::info
+Moreover, you'll need to update the `proguard-rules`, adding the following ones:
 
-Your project should also be configured to support Folly. This should be done automatically once the library dependency is picked up, so no further changes to your project are necessary.
+```
+-keep class com.facebook.hermes.unicode.** { *; }
+-keep class com.facebook.jni.** { *; }
+```
 
-:::
+After that, remember to cleanup the project, running
+
+```sh
+cd android
+./gradlew clean
+```
+
+## iOS: Make the project build
+
+After upgrading the project, there are a few changes you need to apply:
+
+1. Fix an API change in the `AppDelegate.m`. Open this file and apply this change:
+
+```diff
+#if DEBUG
+-       return [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
++       return [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index"];
+#else
+```
+
+2. Target the proper iOS version. Open the `Podfile` and apply this change:
+
+```diff
+- platform :ios, '11.0'
++ platform :ios, '12.4'
+```
+
+3. Create an `.xcode.env` file to export the locaion of the NODE_BINARY. Navigate to the `ios` folder and run this command:
+
+```sh
+echo 'export NODE_BINARY=$(command -v node)' > .xcode.env
+```
+
+If you need it, you can also open the file and replace the `$(command -v node)` with the path to the node executable.
+React Native supports also a local version of this file `.xcode.env.local`. This file is not synced with the repository to let you customize your local setup, if it differs from the Continuous Integration or the team one.
 
 ## iOS: Use Objective-C++ (`.mm` extension)
 
@@ -201,14 +278,3 @@ You can implement the `jsExecutorFactoryForBridge:` method like this:
   );
 }
 ```
-
-## iOS: Setup Folly
-
-The previous step will incorporate in your iOS app a dependency called Folly. Folly requires some extra compiler flags to works properly. To set them up, follow these steps:
-
-1. In the **Project Navigator** (`cmd+1`), select your app project.
-1. In the **Targets** section, select the target with the name of your app.
-1. Select the **Build Settings** tab
-1. Search for **Other C++ Flags**
-1. Update the **Debug** configuration, adding following flags: `-DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1`
-1. Update the **Release** configuration with the following flags: `-DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1`
