@@ -18,15 +18,6 @@
     "pinned": true
   },
   {
-    "name": "Facebook Analytics",
-    "icon": "fba.png",
-    "linkAppStore": "https://itunes.apple.com/us/app/facebook/id1266461465",
-    "linkPlayStore": "https://play.google.com/store/apps/details?id=com.facebook.analytics",
-    "infoLink": "https://analytics.facebook.com/blog",
-    "infoTitle": "",
-    "pinned": true
-  },
-  {
     "name": "Instagram",
     "icon": "instagram.png",
     "linkAppStore": "https://itunes.apple.com/app/instagram/id389801252?pt=428156&ct=igweb.unifiedHome.badge&mt=8",
