@@ -21,5 +21,5 @@ Architecture Overview is intended to share conceptual overview of how React Nati
   - [View Flattening](view-flattening)
   - [Threading Model](threading-model)
 - Build Tools
-  - [Bundled Hermes](bundled-hermes)  
+  - [Bundled Hermes](bundled-hermes)
 - [Glossary](glossary)

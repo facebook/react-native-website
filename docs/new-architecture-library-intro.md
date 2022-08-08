@@ -237,8 +237,6 @@ While we know that all deprecations are a hassle, this guide is intended to help
 
 ### Migrating `findNodeHandle` / getting a `HostComponent`
 
-<!-- alex ignore host -->
-
 Much of the migration work requires a HostComponent ref to access certain APIs that are only attached to host components (like View, Text, or ScrollView). HostComponents are the return value of calls to `requireNativeComponent`. `findNodeHandle` tunnels through multiple levels of component hierarchy to find the nearest native component.
 
 As a concrete example, this code uses `findNodeHandle` to tunnel from `ParentComponent` through to the `View` rendered by `ChildComponent`.
