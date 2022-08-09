@@ -22,7 +22,8 @@ const renderApp = (app, i) => {
   return (
     <div className="showcase" key={`app-${app.name}-${i}`}>
       <div className="iconBox">
-        <img src={imgSource} alt={app.name} />
+        <img src={imgSource} alt={app.name} className="iconBackground" />
+        <img src={imgSource} alt={app.name} className="icon" />
       </div>
       <div className="showcaseContent">
         <div>

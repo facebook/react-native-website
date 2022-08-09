@@ -1,11 +1,11 @@
 @import "shared";
 
 :root {
-  --showcase-icon-background: rgb(0 0 0 / 3%);
+  --showcase-icon-background: rgb(0 0 0 / 1.5%);
 }
 
 html[data-theme="dark"] {
-  --showcase-icon-background: rgb(255 255 255 / 3%);
+  --showcase-icon-background: rgb(255 255 255 / 1.5%);
 }
 
 .plugin-pages .main-wrapper {
@@ -90,7 +90,7 @@ html[data-theme="dark"] {
     display: grid;
     grid-template-columns: 1fr;
 
-    img {
+    .icon {
       padding: 0;
     }
   }
@@ -103,6 +103,7 @@ html[data-theme="dark"] {
     border: 1px solid var(--ifm-hr-border-color);
     transition: transform 0.25s ease-in-out;
     overflow: hidden;
+    position: relative;
 
     h3 {
       margin-bottom: 0;
@@ -126,16 +127,31 @@ html[data-theme="dark"] {
       color: var(--ifm-color-emphasis-800);
     }
 
+    &:hover .icon {
+      transform: scale3d(1.03, 1.03, 1);
+    }
+
     .iconBox {
       display: flex;
       justify-content: center;
       background: linear-gradient(var(--showcase-icon-background), transparent);
       padding: 20px;
       width: 100%;
+      overflow: visible;
+    }
 
-      img {
-        box-shadow: 0 8px 16px rgb(20 20 20 / 8%);
-      }
+    .iconBackground {
+      filter: blur(28px);
+      position: absolute;
+      opacity: 0.2;
+      transform: scale3d(1.32, 1, 1);
+    }
+
+    .icon {
+      box-shadow: 0 8px 16px rgb(20 20 20 / 7%);
+      position: relative;
+      z-index: 1;
+      transition: transform 200ms ease-in-out;
     }
 
     .showcaseContent {
@@ -209,6 +225,10 @@ html[data-theme="dark"] .showcaseSection {
 
   .formButton {
     color: var(--ifm-color-secondary-dark);
+  }
+
+  .iconBackground {
+    opacity: 0.15;
   }
 }
 
