@@ -75,16 +75,12 @@ const randomizeApps = apps =>
 const Showcase = () => {
   const {siteConfig} = useDocusaurusContext();
 
-  const showcaseApps = siteConfig.customFields.users;
+  const {meta, microsoft, shopify, others} = siteConfig.customFields.users;
   const [randomizedApps, setRandomizedApps] = useState([]);
 
   useEffect(() => {
-    setRandomizedApps(randomizeApps(showcaseApps));
+    setRandomizedApps(randomizeApps(others));
   }, []);
-
-  const metaApps = showcaseApps.filter(app => app.group === 'Meta');
-  const microsoftApps = showcaseApps.filter(app => app.group === 'Microsoft');
-  const shopifyApps = showcaseApps.filter(app => app.group === 'Shopify');
 
   return (
     <Layout
@@ -99,8 +95,8 @@ const Showcase = () => {
             Thousands of apps are using React Native, from established Fortune
             500 companies to hot new startups.
             <br />
-            If you are curious to see what can be accomplished with React Native,
-            check out these apps!
+            If you are curious to see what can be accomplished with React
+            Native, check out these apps!
           </p>
         </div>
       </Section>
@@ -122,7 +118,7 @@ const Showcase = () => {
             erat in pharetra euismod, sem ipsum varius urna, nec hendrerit nisi
             urna sed lorem.
           </p>
-          <div className="logos">{metaApps.map(renderApp)}</div>
+          <div className="logos">{meta.map(renderApp)}</div>
         </div>
         <div className="showcaseSection">
           <h2 className="withLogo">
@@ -136,15 +132,20 @@ const Showcase = () => {
             />
           </h2>
           <p className="showcaseSectionDescription">
-            At Microsoft, we leverage the power of React Native to enable our developers to deliver excellent customer experiences in some of our most well known apps.
+            At Microsoft, we leverage the power of React Native to enable our
+            developers to deliver excellent customer experiences in some of our
+            most well known apps.
             <br />
-            We don't stop at mobile platforms either, we leverage it to target desktop too - find out more in our{' '}
-            <a href="https://microsoft.github.io/react-native-windows/resources-showcase" target="_blank">
+            We don't stop at mobile platforms either, we leverage it to target
+            desktop too - find out more in our{' '}
+            <a
+              href="https://microsoft.github.io/react-native-windows/resources-showcase"
+              target="_blank">
               dedicated showcase
-            </a>
-            for React Native Windows and MacOS.
+            </a>{' '}
+            for React Native Windows and macOS.
           </p>
-          <div className="logos">{microsoftApps.map(renderApp)}</div>
+          <div className="logos">{microsoft.map(renderApp)}</div>
         </div>
         <div className="showcaseSection">
           <h2 className="withLogo">
@@ -168,10 +169,10 @@ const Showcase = () => {
             </a>
             .
           </p>
-          <div className="logos">{shopifyApps.map(renderApp)}</div>
+          <div className="logos">{shopify.map(renderApp)}</div>
         </div>
         <div className="showcaseSection showcaseCustomers">
-          <h2>Users Spotlight</h2>
+          <h2>Users Showcase</h2>
           <div className="logos">{randomizedApps.map(renderApp)}</div>
         </div>
       </Section>
@@ -190,8 +191,7 @@ const Showcase = () => {
               href="https://github.com/ReactNativeNews/React-Native-Apps">
               open source React Native apps
             </a>{' '}
-            is maintained by{' '}
-            <a href="https://infinite.red">Infinite Red</a>.
+            is maintained by <a href="https://infinite.red">Infinite Red</a>.
           </p>
         </div>
       </Section>

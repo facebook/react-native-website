@@ -425,7 +425,9 @@ function VideoContent() {
 
 function AppList() {
   const {siteConfig} = useDocusaurusContext();
-  const apps = siteConfig.customFields.users.filter(app => app.pinned);
+  const apps = Object.values(siteConfig.customFields.users)
+    .flat()
+    .filter(app => app.pinned);
 
   return (
     <ul className="AppList">
