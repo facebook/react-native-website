@@ -109,6 +109,18 @@ Overrides the text that's read by the screen reader when the user interacts with
 
 ---
 
+### `accessibilityLabelledBy` <div class="label android">Android</div>
+
+A reference to another element nativeID used to build complex forms. The value of the accessibilityLabelledBy should match the nativeID of the other element.
+
+See the [Accessibility guide](accessibility.md#accessibilitylabelledby) for more information.
+
+| Type            |
+| --------------- |
+| string or array |
+
+---
+
 ### `accessibilityLanguage` <div class="label ios">iOS</div>
 
 A value indicating which language should be used by the screen reader when the user interacts with the element. It should follow the [BCP 47 specification](https://www.rfc-editor.org/info/bcp47).

@@ -284,6 +284,18 @@ Overrides the text that's read by the screen reader when the user interacts with
 
 ---
 
+### `accessibilityLabelledBy` <div class="label android">Android</div>
+
+A reference to another element nativeID used to build complex forms. The value of the accessibilityLabelledBy should match the nativeID of the other element.
+
+See the [Accessibility guide](accessibility.md#accessibilitylabelledby) for more information.
+
+| Type            |
+| --------------- |
+| string or array |
+
+---
+
 ### `accessibilityRole`
 
 Tells the screen reader to treat the currently focused on element as having a specific role.
