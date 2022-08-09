@@ -1,7 +1,4 @@
----
-id: intro-react-native-components
-title: Core Components and Fabric Components
-description: 'React Native lets you compose app interfaces using Fabric Components. Conveniently, it comes with a set of these components for you to get started with right now—the Core Components!'
+
 ---
 
 import ThemedImage from '@theme/ThemedImage';
