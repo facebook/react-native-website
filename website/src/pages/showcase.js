@@ -88,18 +88,18 @@ const Showcase = () => {
 
   return (
     <Layout
-      title="Who's using React Native?"
+      title="Showcase"
       description="Thousands of apps are using React Native, check out these apps!">
       <Section background="dark">
         <div className="sectionContainer headerContainer">
           <h1>
-            Who's using <span>React Native</span>?
+            Who is using <span>React Native</span>?
           </h1>
           <p>
             Thousands of apps are using React Native, from established Fortune
             500 companies to hot new startups.
             <br />
-            If you're curious to see what can be accomplished with React Native,
+            If you are curious to see what can be accomplished with React Native,
             check out these apps!
           </p>
         </div>
@@ -136,10 +136,13 @@ const Showcase = () => {
             />
           </h2>
           <p className="showcaseSectionDescription">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sit
-            amet ex ullamcorper, dignissim elit ac, ornare elit. Donec iaculis,
-            erat in pharetra euismod, sem ipsum varius urna, nec hendrerit nisi
-            urna sed lorem.
+            At Microsoft, we leverage the power of React Native to enable our developers to deliver excellent customer experiences in some of our most well known apps.
+            <br />
+            We don't stop at mobile platforms either, we leverage it to target desktop too - find out more in our{' '}
+            <a href="https://microsoft.github.io/react-native-windows/resources-showcase" target="_blank">
+              dedicated showcase
+            </a>
+            for React Native Windows and MacOS.
           </p>
           <div className="logos">{microsoftApps.map(renderApp)}</div>
         </div>
@@ -178,7 +181,7 @@ const Showcase = () => {
             className="formButton"
             href="https://forms.gle/BdNf3v5hemV9D5c86"
             target="_blank">
-            Fill out this form to apply to the Users Spotlight
+            Apply to the Showcase by filling out this form
           </a>
           <p>
             A curated list of{' '}
@@ -187,7 +190,7 @@ const Showcase = () => {
               href="https://github.com/ReactNativeNews/React-Native-Apps">
               open source React Native apps
             </a>{' '}
-            is also being kept by{' '}
+            is maintained by{' '}
             <a href="https://infinite.red">Infinite Red</a>.
           </p>
         </div>
