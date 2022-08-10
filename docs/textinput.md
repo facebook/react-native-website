@@ -281,6 +281,16 @@ Provides an initial value that will change when the user starts typing. Useful f
 
 ---
 
+### `cursorColor` <div class="label android">Android</div>
+
+When provided it will set the color of the cursor (or "caret") in the component. Unlike the behavior of `selectionColor` the cursor color will be set independently from the color of the text selection box.
+
+| Type               |
+| ------------------ |
+| [color](colors.md) |
+
+---
+
 ### `disableFullscreenUI` <div class="label android">Android</div>
 
 When `false`, if there is a small amount of space available around a text input (e.g. landscape orientation on a phone), the OS may choose to have the user edit the text inside of a full screen text input mode. When `true`, this feature is disabled and users will always edit the text directly inside of the text input. Defaults to `false`.
