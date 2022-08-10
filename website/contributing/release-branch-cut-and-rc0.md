@@ -5,6 +5,7 @@ title: Branch Cut & RC0
 
 import AsyncTestingNote from './\_markdown-async-testing-note.mdx';
 import GHReleasesNotesPrerelease from './\_markdown-GH-release-notes-prerelease.mdx';
+import RoadToReleaseTemplate from './\_markdown-road-to-release-template.mdx';
 
 :::info
 Documents in this section go over steps to run different types of React Native release updates. Its intended audience is those in [relevant release roles](./release-roles-responsibilites.md).
@@ -107,67 +108,7 @@ In the `publish_release` CI workflow, the `build_hermes_macos` step produces a `
 
 Create a "Road to <YOUR_MINOR_VERSION>" discussion post in the [`react-native-releases`](https://github.com/reactwg/react-native-releases/discussions) working group:
 
-```markdown
-<!-- Template for a new minor release candidate -->
-<!-- Title: Road to <YOUR_VERSION> -->
-
-The branch cut has happened.
-
-## Notice
-
-<!-- TODO update the version -->
-
-- [Current release candidate: 0.69.0-rc.0][current-release]
-- Have an issue with current release candidate? [File an issue][issue-form] and we will triage.
-- Have a pick request for this release? Does it fall under our [pick request qualifications][release-faq]? If so please create a PR against the release branch and comment with the PR link
-- If you are release testing, copy and fill a [test checklist](/contributing/release-testing#test-checklist).
-
-#### Highlighted Changes in this release
-
-<!-- Add stand-out changes in this release, and link to changelog PR.  -->
-
-- Checkout this [Changelog PR][changelog-pr]
-
-## [Release Process][release-processes]
-
-#### Checklist
-
-- [ ] [Changelog PR][changelog-pr]
-- [ ] Start a Google doc of blog post for release and invite contributors of release highlights to expand
-- [ ] Follow up on [release dependencies][release-dependencies]
-  > When ready to publish stable
-- [ ] Ship changelog
-- [ ] Ship blog post
-- [ ] Make PR to `react-native-website` with the new version cut ([see docs](https://github.com/facebook/react-native-website#cutting-a-new-version))
-
-#### Retrospective Topics
-
-<!-- List out pain points, issues to investigate that are not release-blocking to follow up on -->
-
--
-
-## Release Status
-
-### Tracking 0.69.0-rc.1
-
-#### Blocking issues for releasing 0.69.0-rc.1
-
--
-
-#### Picks for 0.69.0-rc.1
-
--
-
-[changelog-pr]: https://github.com/facebook/react-native/labels/%F0%9F%93%9D%20Changelog
-[current-release]: https://github.com/facebook/react-native/releases
-[changelog-wiki]: https://reactnative.dev/contributing/changelogs-in-pull-requests
-[release-dependencies]: https://reactnative.dev/contributing/release-dependencies
-[release-faq]: https://reactnative.dev/contributing/release-faq
-[issue-form]: https://github.com/facebook/react-native/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Cpre-release&template=release_blocker_form.yml
-[releases]: https://github.com/facebook/react-native/releases
-[release-processes]: https://reactnative.dev/contributing/overview
-[upgrade-helper]: https://reactnative.dev/contributing/updating-upgrade-helper
-```
+<RoadToReleaseTemplate />
 
 After creating it, make sure to link it in the relevant GitHub Release you created above, and to pin it in the discussion repo.
 
