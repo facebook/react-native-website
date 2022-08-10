@@ -4,6 +4,7 @@ title: Branch Cut & RC0
 ---
 
 import AsyncTestingNote from './\_markdown-async-testing-note.mdx';
+import GHReleasesNotesPrerelease from './\_markdown-GH-release-notes-prerelease.mdx';
 
 :::info
 Documents in this section go over steps to run different types of React Native release updates. Its intended audience is those in [relevant release roles](./release-roles-responsibilites.md).
@@ -96,36 +97,7 @@ Create a pull request of this change to `react-native` repo and add the `Changel
 
 - Create a [GitHub Release](https://github.com/facebook/react-native/releases) with this template and **check "Pre-Release" checkbox**.
 
-```markdown
-<!-- Template for pre-release GitHub release -->
-
-- <!-- TODO List out notable picks for this patch -->
-
----
-
-To test it, run:
-
-<!-- TODO Update with your version -->
-
-npx react-native init RN069RC0 --version 0.69.0-rc.0
-
----
-
-You can participate in the conversation on the status of this release in the [working group](https://github.com/reactwg/react-native-releases/discussions).
-
----
-
-To help you upgrade to this version, you can use the [upgrade helper](https://react-native-community.github.io/upgrade-helper/) ⚛️
-
----
-
-See changes from this release in the [changelog PR](https://github.com/facebook/react-native/labels/%F0%9F%93%9D%20Changelog)
-```
-
-<figure>
-  <img width="400" alt="Creating a GitHub Release" src="https://user-images.githubusercontent.com/1309636/133348648-c33f82b8-b8d2-474a-a06e-35a1fb8d18de.png"/>
-  <figcaption>Creating a GitHub Release.</figcaption>
-</figure>
+<GHReleasesNotesPrerelease />
 
 ### 6. Upload prebuilt Hermes binary
 
