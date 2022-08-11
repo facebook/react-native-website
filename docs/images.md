@@ -232,8 +232,6 @@ Image decoding can take more than a frame-worth of time. This is one of the majo
 
 ## Configuring iOS Image Cache Limits
 
-ac
-
 ```objectivec
 RCTSetImageCacheLimits(4*1024*1024, 200*1024*1024);
 ```
