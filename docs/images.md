@@ -232,7 +232,7 @@ Image decoding can take more than a frame-worth of time. This is one of the majo
 
 ## Configuring iOS Image Cache Limits
 
-By default React Native would set `NSCache.totalCostLimit` to 20MB and the single image size limit to 2MB (bitmap size). The default cache size may not be enough for applications that make heavy use of images. 
+By default React Native would set `NSCache.totalCostLimit` to 20MB and the single image size limit to 2MB (bitmap size). The default cache size may not be enough for applications that make heavy use of images.
 
 You can configure the image cache size on iOS by adding `RCTSetImageCacheLimits` in your app App Delegate.
 
@@ -242,9 +242,9 @@ RCTSetImageCacheLimits(4*1024*1024, 200*1024*1024);
 
 **Parameters:**
 
-| Name     | Type                     | Required | Description                                  |
-| -------- | ------------------------ | -------- | -------------------------------------------- |
-| imageSizeLimit | number | Yes       | Image cache size limit. |
-| totalCostLimit | number | Yes       | Total cache cost limit. |
+| Name           | Type   | Required | Description             |
+| -------------- | ------ | -------- | ----------------------- |
+| imageSizeLimit | number | Yes      | Image cache size limit. |
+| totalCostLimit | number | Yes      | Total cache cost limit. |
 
 Based on the code above the single image size limit would be set to 4 MB and the total cost limit would be set to 200 MB.
