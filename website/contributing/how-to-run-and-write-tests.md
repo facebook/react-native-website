@@ -25,9 +25,9 @@ yarn run lint
 
 ### iOS Tests
 
-Start off by running `pod install` inside the `RNTester` directory. This will set up your native dependencies and create a `RNTesterPods` Xcode workspace.
+Follow the [README.md](https://github.com/facebook/react-native/blob/main/packages/rn-tester/README.md) instructions in the `packages/rn-tester` directory.
 
-Then, go back to the root of your React Native checkout and run `yarn` followed by `yarn start`. This will set up your JavaScript dependencies.
+Then, go back to the root of your React Native checkout and run `yarn`. This will set up your JavaScript dependencies.
 
 At this point, you can run iOS tests by invoking the following script from the root of your React Native checkout:
 
@@ -42,6 +42,16 @@ Xcode also allows running individual tests through its Test Navigator. You can a
 :::note
 `objc-test.sh` ensures your test environment is set up to run all tests. It also disables tests that are known to be flaky or broken. Keep this in mind when running tests using Xcode. If you see an unexpected failure, see if it's disabled in `objc-test.sh` first.
 :::
+
+#### iOS Podfile/Ruby tests
+
+If you are making modifications to `Podfile` configurations then there are Ruby tests that can verify these.
+
+To run the ruby tests:
+```bash
+cd scripts
+sh run_ruby_tests.sh
+```
 
 ### Android Tests
 
