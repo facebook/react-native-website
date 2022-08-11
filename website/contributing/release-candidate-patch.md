@@ -4,6 +4,7 @@ title: RC Patches
 ---
 
 import AsyncTestingNote from './\_markdown-async-testing-note.mdx';
+import GHReleasesNotesPrerelease from './\_markdown-GH-release-notes-prerelease.mdx';
 
 :::info
 Documents in this section go over steps to run different types of React Native release updates. Its intended audience is those in [relevant release roles](./release-roles-responsibilites.md).
@@ -63,11 +64,17 @@ git push
   latest: 0.(y-1).1            next: 0.y.0-rc.x         nightly: 0.0.0-f617e022c
   ```
 
-### 5. Update the relevant discussion post with the latest RC
+### 5. Create a GitHub Release
+
+- Create a [GitHub Release](https://github.com/facebook/react-native/releases) with this template and **check "Pre-Release" checkbox**.
+
+<GHReleasesNotesPrerelease />
+
+### 6. Update the relevant discussion post with the latest RC
 
 Go back to the "road to 0.XX.0" [discussion](https://github.com/reactwg/react-native-releases/discussions) and update the "Current release candidate" line with the new version you published.
 
-### 6. Broadcast that release candidate is out
+### 7. Broadcast that release candidate is out
 
 Once all the steps above have been completed, it's time to signal to the community that the new RC is available for testing! Do so in the following channels:
 
