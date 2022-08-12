@@ -13,7 +13,6 @@ To mitigate this performance hit, this page shares some suggestions on how to **
 
 ## Build only one ABI during development (Android-only)
 
-When building your android app locally, you build all the 4 ABIs by default: `armeabi-v7a`, `arm64-v8a`, `x86` & `x86_64`.
 When building your android app locally, by default you build all the 4 [Application Binary Interfaces (ABIs)](https://developer.android.com/ndk/guides/abis) : `armeabi-v7a`, `arm64-v8a`, `x86` & `x86_64`.
 
 However, you probably don't need to build all of them if you're building locally and testing your emulator or on a physical device.
@@ -45,7 +44,7 @@ $ ./gradlew :app:assembleDebug -PreactNativeArchitectures=x86,x86_64
 
 This can be useful if you wish to build your Android App on a CI and use a matrix to parallelize the build of the different architectures.
 
-If you wish, you can also override this value locally, using the `gradle.properties` file you have in the [top level folder](https://github.com/facebook/react-native/blob/19cf70266eb8ca151aa0cc46ac4c09cb987b2ceb/template/android/gradle.properties#L30-L33) of your project:
+If you wish, you can also override this value locally, using the `gradle.properties` file you have in the [top-level folder](https://github.com/facebook/react-native/blob/19cf70266eb8ca151aa0cc46ac4c09cb987b2ceb/template/android/gradle.properties#L30-L33) of your project:
 
 ```
 # Use this property to specify which architecture you want to build.

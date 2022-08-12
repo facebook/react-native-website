@@ -281,6 +281,16 @@ Provides an initial value that will change when the user starts typing. Useful f
 
 ---
 
+### `cursorColor` <div class="label android">Android</div>
+
+When provided it will set the color of the cursor (or "caret") in the component. Unlike the behavior of `selectionColor` the cursor color will be set independently from the color of the text selection box.
+
+| Type               |
+| ------------------ |
+| [color](colors.md) |
+
+---
+
 ### `disableFullscreenUI` <div class="label android">Android</div>
 
 When `false`, if there is a small amount of space available around a text input (e.g. landscape orientation on a phone), the OS may choose to have the user edit the text inside of a full screen text input mode. When `true`, this feature is disabled and users will always edit the text directly inside of the text input. Defaults to `false`.
@@ -437,7 +447,11 @@ Limits the maximum number of characters that can be entered. Use this instead of
 
 ### `multiline`
 
-If `true`, the text input can be multiple lines. The default value is `false`. It is important to note that this aligns the text to the top on iOS, and centers it on Android. Use with `textAlignVertical` set to `top` for the same behavior in both platforms.
+If `true`, the text input can be multiple lines. The default value is `false`.
+
+:::note
+It is important to note that this aligns the text to the top on iOS, and centers it on Android. Use with `textAlignVertical` set to `top` for the same behavior in both platforms.
+:::
 
 | Type |
 | ---- |
@@ -863,15 +877,11 @@ see [Issue#7070](https://github.com/facebook/react-native/issues/7070) for more 
 
 ### `textBreakStrategy` <div class="label android">Android</div>
 
-<!-- alex disable simple -->
-
 Set text break strategy on Android API Level 23+, possible values are `simple`, `highQuality`, `balanced` The default value is `simple`.
 
 | Type                                      |
 | ----------------------------------------- |
 | enum('simple', 'highQuality', 'balanced') |
-
-<!-- alex enable simple -->
 
 ---
 

@@ -5,7 +5,9 @@ title: Publishing to Apple App Store
 
 The publishing process is the same as any other native iOS app, with some additional considerations to take into account.
 
-> If you are using Expo then read the Expo Guide for [Building Standalone Apps](https://docs.expo.dev/classic/building-standalone-apps/).
+:::info
+If you are using Expo then read the Expo Guide for [Building Standalone Apps](https://docs.expo.dev/classic/building-standalone-apps/).
+:::
 
 ### 1. Enable App Transport Security
 
@@ -13,7 +15,9 @@ App Transport Security is a security feature introduced in iOS 9 that rejects al
 
 You should re-enable ATS prior to building your app for production by removing the `localhost` entry from the `NSExceptionDomains` dictionary and setting `NSAllowsArbitraryLoads` to `false` in your `Info.plist` file in the `ios/` folder. You can also re-enable ATS from within Xcode by opening your target properties under the Info pane and editing the App Transport Security Settings entry.
 
-> If your application needs to access HTTP resources on production, learn how to configure ATS on your project.
+:::note
+If your application needs to access HTTP resources on production, learn how to configure ATS on your project.
+:::
 
 ### 2. Configure release scheme
 
@@ -46,7 +50,9 @@ The static bundle is built every time you target a physical device, even in Debu
 
 You can now build your app for release by tapping `⌘B` or selecting **Product** → **Build** from the menu bar. Once built for release, you'll be able to distribute the app to beta testers and submit the app to the App Store.
 
-> You can also use the `React Native CLI` to perform this operation using the option `--configuration` with the value `Release` (e.g. `npx react-native run-ios --configuration Release`).
+:::info
+You can also use the `React Native CLI` to perform this operation using the option `--configuration` with the value `Release` (e.g. `npx react-native run-ios --configuration Release`).
+:::
 
 Once you are done with the testing and ready to publish to App Store, follow along with this guide.
 
@@ -54,7 +60,9 @@ Once you are done with the testing and ready to publish to App Store, follow alo
 - Double click on YOUR_APP_NAME.xcworkspace. It should launch XCode.
 - Click on `Product` → `Archive`. Make sure to set the device to "Any iOS Device (arm64)".
 
-> Note: Check your Bundle Identifier and make sure it is exactly same as the one you have created in the Identifers in Apple Developer Dashboard
+:::note
+Check your Bundle Identifier and make sure it is exactly same as the one you have created in the Identifiers in Apple Developer Dashboard.
+:::
 
 - After the archive is completed, in the archive window, click on `Distribute App`.
 - Click on `App Store Connect` now (if you want to publish in App Store).

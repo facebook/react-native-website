@@ -57,11 +57,11 @@ rootView.appProperties = @{@"images" : imageList};
 
 It is fine to update properties anytime. However, updates have to be performed on the main thread. You use the getter on any thread.
 
-> **_Note:_** Currently, there is a known issue where setting appProperties during the bridge startup, the change can be lost. See https://github.com/facebook/react-native/issues/20115 for more information.
+:::note
+Currently, there is a known issue where setting appProperties during the bridge startup, the change can be lost. See https://github.com/facebook/react-native/issues/20115 for more information.
+:::
 
 There is no way to update only a few properties at a time. We suggest that you build it into your own wrapper instead.
-
-> **_Note:_** Currently, JS function `componentWillUpdateProps` of the top level RN component will not be called after a prop update. However, you can access the new props in `componentDidMount` function.
 
 ### Passing properties from React Native to native
 
@@ -101,7 +101,9 @@ Although this solution is complex, it is used in `RCTUIManager`, which is an int
 
 Native modules can also be used to expose existing native libraries to JS. The [Geolocation library](https://github.com/michalchudziak/react-native-geolocation) is a living example of the idea.
 
-> **_Warning_**: All native modules share the same namespace. Watch out for name collisions when creating new ones.
+:::caution
+All native modules share the same namespace. Watch out for name collisions when creating new ones.
+:::
 
 ## Layout computation flow
 
@@ -119,9 +121,7 @@ The general scenario is when we have a React Native app with a fixed size, which
 
 For instance, to make an RN app 200 (logical) pixels high, and the hosting view's width wide, we could do:
 
-```objectivec
-// SomeViewController.m
-
+```objectivec title='SomeViewController.m'
 - (void)viewDidLoad
 {
   [...]
@@ -146,9 +146,7 @@ In some cases we'd like to render content of initially unknown size. Let's say t
 
 `RCTRootView` supports 4 different size flexibility modes:
 
-```objectivec
-// RCTRootView.h
-
+```objectivec title='RCTRootView.h'
 typedef NS_ENUM(NSInteger, RCTRootViewSizeFlexibility) {
   RCTRootViewSizeFlexibilityNone = 0,
   RCTRootViewSizeFlexibilityWidth,
@@ -159,13 +157,13 @@ typedef NS_ENUM(NSInteger, RCTRootViewSizeFlexibility) {
 
 `RCTRootViewSizeFlexibilityNone` is the default value, which makes a root view's size fixed (but it still can be updated with `setFrame:`). The other three modes allow us to track React Native content's size updates. For instance, setting mode to `RCTRootViewSizeFlexibilityHeight` will cause React Native to measure the content's height and pass that information back to `RCTRootView`'s delegate. An arbitrary action can be performed within the delegate, including setting the root view's frame, so the content fits. The delegate is called only when the size of the content has changed.
 
-> **_Warning:_** Making a dimension flexible in both JS and native leads to undefined behavior. For example - don't make a top-level React component's width flexible (with `flexbox`) while you're using `RCTRootViewSizeFlexibilityWidth` on the hosting `RCTRootView`.
+:::caution
+Making a dimension flexible in both JS and native leads to undefined behavior. For example - don't make a top-level React component's width flexible (with `flexbox`) while you're using `RCTRootViewSizeFlexibilityWidth` on the hosting `RCTRootView`.
+:::
 
 Let's look at an example.
 
-```objectivec
-// FlexibleSizeExampleView.m
-
+```objectivec title='FlexibleSizeExampleView.m'
 - (instancetype)initWithFrame:(CGRect)frame
 {
   [...]
@@ -195,6 +193,12 @@ You can checkout full source code of the example [here](https://github.com/faceb
 
 It's fine to change root view's size flexibility mode dynamically. Changing flexibility mode of a root view will schedule a layout recalculation and the delegate `rootViewDidChangeIntrinsicSize:` method will be called once the content size is known.
 
-> **_Note:_** React Native layout calculation is performed on a separate thread, while native UI view updates are done on the main thread. This may cause temporary UI inconsistencies between native and React Native. This is a known problem and our team is working on synchronizing UI updates coming from different sources.
+:::note
+React Native layout calculation is performed on a separate thread, while native UI view updates are done on the main thread.
+This may cause temporary UI inconsistencies between native and React Native. This is a known problem and our team is working on synchronizing UI updates coming from different sources.
+:::
 
-> **_Note:_** React Native does not perform any layout calculations until the root view becomes a subview of some other views. If you want to hide React Native view until its dimensions are known, add the root view as a subview and make it initially hidden (use `UIView`'s `hidden` property). Then change its visibility in the delegate method.
+:::note
+React Native does not perform any layout calculations until the root view becomes a subview of some other views.
+If you want to hide React Native view until its dimensions are known, add the root view as a subview and make it initially hidden (use `UIView`'s `hidden` property). Then change its visibility in the delegate method.
+:::

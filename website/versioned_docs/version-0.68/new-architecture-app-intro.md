@@ -52,7 +52,7 @@ You can update Gradle by running:
 cd android && ./gradlew wrapper --gradle-version 7.3 --distribution-type=all
 ```
 
-While the AGP version should be updated inside the **top level** `build.gradle` file at the `com.android.tools.build:gradle` dependency line.
+While the AGP version should be updated inside the **top-level** `build.gradle` file at the `com.android.tools.build:gradle` dependency line.
 
 If you’re set with it, let’s now install the new Gradle plugin which is distributed through a NPM package called [**`react-native-gradle-plugin`**](https://www.npmjs.com/package/react-native-gradle-plugin). You can do so with:
 
@@ -66,7 +66,7 @@ You can control if you have the package already installed by doing:
 ls -la node_modules/react-native-gradle-plugin
 ```
 
-Now, you can edit your **top level** `settings.gradle` file to include the following line at the end of the file:
+Now, you can edit your **top-level** `settings.gradle` file to include the following line at the end of the file:
 
 ```groovy
 includeBuild('../node_modules/react-native-gradle-plugin')
@@ -107,7 +107,7 @@ react {
 
 Finally, it’s time to update your project to use the `react-native` dependency from source, rather than using a precompiled artifact from the NPM package. This is needed as the later setup will rely on building the native code from source.
 
-Let’s edit your **module level** `build.gradle` (the one inside `app/` folder) and change the following line:
+Let’s edit your **module-level** `build.gradle` (the one inside `app/` folder) and change the following line:
 
 ```groovy
 dependencies {

@@ -104,6 +104,7 @@ yarn add -D typescript @types/jest @types/react @types/react-native @types/react
     "isolatedModules": true,
     "jsx": "react-native",
     "lib": ["es2017"],
+    "types": ["react-native", "jest"],
     "moduleResolution": "node",
     "noEmit": true,
     "strict": true,

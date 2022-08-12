@@ -239,9 +239,11 @@ module.exports = {
             docsPluginId: 'architecture',
           },
           {
-            to: '/contributing/how-to-contribute',
+            type: 'doc',
+            docId: 'overview',
             label: 'Contributing',
             position: 'right',
+            docsPluginId: 'contributing',
           },
           {
             to: '/blog',
@@ -308,10 +310,6 @@ module.exports = {
                 href: 'https://stackoverflow.com/questions/tagged/react-native',
               },
               {
-                label: 'Contributor Guide',
-                href: 'https://github.com/facebook/react-native/blob/main/CONTRIBUTING.md',
-              },
-              {
                 label: 'DEV Community',
                 href: 'https://dev.to/t/reactnative',
               },
@@ -353,8 +351,8 @@ module.exports = {
           },
         ],
         logo: {
-          alt: 'Facebook Open Source Logo',
-          src: 'img/oss_logo.png',
+          alt: 'Meta Open Source Logo',
+          src: 'img/oss_logo.svg',
           href: 'https://opensource.fb.com/',
         },
         copyright,

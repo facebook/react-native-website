@@ -65,7 +65,6 @@ export default {
   defaultPlatform,
   defaultSyntax,
   defaultAndroidLanguage,
-  javaScriptSpecLanguages,
   defaultJavaScriptSpecLanguages,
   getDevNotesTabs,
   guides,
@@ -74,4 +73,5 @@ export default {
   platforms,
   syntax,
   androidLanguages,
+  javaScriptSpecLanguages,
 };

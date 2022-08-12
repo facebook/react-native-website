@@ -37,6 +37,7 @@
   --ifm-pagination-nav-color-hover: var(--ifm-color-emphasis-300);
   --ifm-table-border-width: 0.005rem;
   --ifm-navbar-sidebar-width: 100%;
+  --ifm-hr-border-color: var(--docusaurus-collapse-button-bg-hover);
 
   @media (min-width: 340px) {
     --ifm-navbar-sidebar-width: 340px;
@@ -53,7 +54,6 @@ html[data-theme="dark"] {
   --ifm-code-background: rgba(255, 255, 255, 0.06);
   --ifm-toc-border-color: var(--dark);
   --ifm-color-emphasis-300: var(--dark);
-  --ifm-hr-border-color: var(--dark);
 
   *[class^="DocSearch"] {
     --docsearch-searchbox-background: var(--ifm-background-color);
@@ -294,11 +294,20 @@ hr {
 
   div[class*="codeBlockContainer"] {
     box-shadow: none;
-    margin-bottom: 1rem;
+    border-radius: 8px;
+
+    pre {
+      border-radius: 8px;
+    }
+
+    button {
+      border-color: var(--light);
+      background: var(--deepdark);
+    }
   }
 
   div[class*="codeBlockContent"] {
-    display: inline-grid;
+    display: grid;
     min-width: 100%;
   }
 
@@ -307,12 +316,8 @@ hr {
   }
 
   div[class*="codeBlockTitle"] {
-    color: var(--subtle) !important;
-    background-color: var(--ifm-table-border-color) !important;
-  }
-
-  button[class^="copyButton"] {
-    font-size: 13px;
+    color: var(--subtle);
+    background-color: var(--ifm-color-emphasis-300);
   }
 
   .prism-code {
@@ -363,11 +368,20 @@ html[data-theme="dark"] {
     .prism-code {
       @extend %scrollbar-style-dark;
     }
+
+    div[class*="codeBlockTitle"] {
+      color: var(--docsearch-muted-color);
+      background-color: var(--deepdark);
+    }
   }
 }
 
+div[class^="docPage"] .hash-link,
+article[itemprop="blogPost"] .hash-link,
 .mdx-page .hash-link,
 .community-page .hash-link,
+html[data-theme="dark"] div[class^="docPage"] .hash-link,
+html[data-theme="dark"] article[itemprop="blogPost"] .hash-link,
 html[data-theme="dark"].mdx-page .hash-link,
 html[data-theme="dark"].community-page .hash-link {
   @extend %hash-link-style;
@@ -382,6 +396,8 @@ html[data-theme="dark"] article .badge {
   border-color: var(--deepdark);
   color: var(--ifm-font-color-base);
 }
+
+/* Admonitions & notes */
 
 .alert--warning {
   background-color: var(--rn-note-background);
@@ -401,6 +417,16 @@ html[data-theme="dark"] article .badge {
   h5 {
     font-size: 14px;
   }
+}
+
+.alert--secondary {
+  --ifm-alert-background-color: var(--ifm-color-secondary-lightest);
+  --ifm-alert-background-color-highlight: rgba(225, 227, 230, 0.7);
+}
+
+html[data-theme="dark"] .alert--secondary {
+  --ifm-alert-background-color: var(--ifm-color-secondary-contrast-background);
+  --ifm-alert-background-color-highlight: rgba(225, 227, 230, 0.15);
 }
 
 /* Home page */
@@ -754,6 +780,10 @@ aside[class^="theme-doc-sidebar-container"] {
     @extend %scrollbar-style;
   }
 
+  .menu__list .menu__list {
+    margin-top: 0;
+  }
+
   .menu__list .menu__link--sublist,
   a[class*="menu__link--sublist-caret"] {
     font-size: 16px !important;
@@ -786,8 +816,12 @@ aside[class^="theme-doc-sidebar-container"] {
     justify-content: space-between;
   }
 
-  .theme-doc-sidebar-item-category .menu__list .menu__list-item-collapsible {
-    margin-top: 6px;
+  .theme-doc-sidebar-item-category {
+    margin-bottom: 6px;
+
+    .menu__list .menu__list-item-collapsible {
+      margin-top: 6px;
+    }
   }
 
   .menu__list-item-collapsible:hover {
@@ -1128,9 +1162,9 @@ button[class*="tocCollapsibleButton"] {
     margin-bottom: 8px;
   }
 
-  img[class^="themedImage"] {
-    display: initial !important;
+  .footer__logo {
     height: 54px;
+    max-width: 100%;
   }
 
   svg[class^="iconExternalLink"] {
