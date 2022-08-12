@@ -133,9 +133,11 @@ const Showcase = () => {
             />
           </h2>
           <p className="showcaseSectionDescription">
-            Microsoft leverages the power of React Native to deliver excellent customer experiences in some of its most well known apps.
+            Microsoft leverages the power of React Native to deliver excellent
+            customer experiences in some of its most well known apps.
             <br />
-            Microsoft doesn't stop at mobile platforms either -- Microsoft leverages React Native to target desktop too! Find out more in the {' '}
+            Microsoft doesn't stop at mobile platforms either -- Microsoft
+            leverages React Native to target desktop too! Find out more in the{' '}
             <a
               href="https://microsoft.github.io/react-native-windows/resources-showcase"
               target="_blank">
