@@ -39,8 +39,7 @@ html[data-theme="dark"] {
 .showcaseSection {
   max-width: 1320px;
   text-align: center;
-  margin: 8px auto 64px;
-
+  margin: 8px auto 54px;
   padding: 20px 16px 16px;
   border: 1px solid var(--ifm-hr-border-color);
   border-radius: 12px;
@@ -89,6 +88,8 @@ html[data-theme="dark"] {
   .logos {
     display: grid;
     grid-template-columns: 1fr;
+    grid-gap: 28px;
+    margin: 20px 20px 16px;
 
     .icon {
       padding: 0;
@@ -96,7 +97,6 @@ html[data-theme="dark"] {
   }
 
   .showcase {
-    margin: 20px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -135,7 +135,7 @@ html[data-theme="dark"] {
       display: flex;
       justify-content: center;
       background: linear-gradient(var(--showcase-icon-background), transparent);
-      padding: 20px;
+      padding: 20px 20px 16px;
       width: 100%;
       overflow: visible;
     }
@@ -143,8 +143,8 @@ html[data-theme="dark"] {
     .iconBackground {
       filter: blur(28px);
       position: absolute;
-      opacity: 0.2;
-      transform: scale3d(1.32, 1, 1);
+      opacity: 0.18;
+      transform: scale(1.38);
     }
 
     .icon {
@@ -155,7 +155,7 @@ html[data-theme="dark"] {
     }
 
     .showcaseContent {
-      padding: 8px 16px 20px;
+      padding: 8px 16px 16px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -234,7 +234,7 @@ html[data-theme="dark"] .showcaseSection {
 
 .home-showcase-section {
   max-width: 800px;
-  margin: 20px auto 20px auto;
+  margin: 20px auto;
   text-align: center;
   padding-bottom: 40px;
 
