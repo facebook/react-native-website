@@ -105,6 +105,29 @@ Inherits [View Props](view.md#props).
 
 ---
 
+### `accessibilityErrorMessage`
+
+String read by screenreaders to indicate an error state of a TextInput.
+Setting accessibilityInvalid to true activates the error message.
+
+| Type   |
+| ------ |
+| string |
+
+---
+
+### `accessibilityInvalid`
+
+Setting accessibilityInvalid to true activates the accessibilityErrorMessage.
+Setting accessibilityInvalid to false removes the accessibilityErrorMessage.
+The default value is `false`.
+
+| Type |
+| ---- |
+| bool |
+
+---
+
 ### `allowFontScaling`
 
 Specifies whether fonts should scale to respect Text Size accessibility settings. The default is `true`.
@@ -674,29 +697,6 @@ The following values work on iOS only:
 ### `rejectResponderTermination` <div class="label ios">iOS</div>
 
 If `true`, allows TextInput to pass touch events to the parent component. This allows components such as SwipeableListView to be swipeable from the TextInput on iOS, as is the case on Android by default. If `false`, TextInput always asks to handle the input (except when disabled). The default value is `true`.
-
-| Type |
-| ---- |
-| bool |
-
----
-
-### `accessibilityErrorMessage`
-
-String read by screenreaders to indicate an error state of a TextInput.
-Setting accessibilityInvalid to true activates the error message.
-
-| Type   |
-| ------ |
-| string |
-
----
-
-### `accessibilityInvalid`
-
-Setting accessibilityInvalid to true activates the accessibilityErrorMessage.
-Setting accessibilityInvalid to false removes the accessibilityErrorMessage.
-The default value is `false`.
 
 | Type |
 | ---- |
