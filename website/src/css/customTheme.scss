@@ -22,7 +22,7 @@
   --ifm-code-font-size: 90%;
   --ifm-code-border-radius: 3px;
   --ifm-blockquote-color: var(--ifm-font-color-base);
-  --ifm-blockquote-font-size: 15px;
+  --ifm-blockquote-font-size: 16px;
   --ifm-table-head-color: var(--subtle);
   --ifm-link-hover-decoration: none;
   --ifm-navbar-background-color: var(--deepdark);
@@ -405,13 +405,13 @@ html[data-theme="dark"] article .badge {
   margin-bottom: 1.5rem !important;
 
   div[class^="admonitionContent"] {
-    h5 {
-      font-size: 14px;
-    }
-
     a {
       border-bottom: 0;
     }
+  }
+
+  div[class^="admonitionHeading"] {
+    font-size: 14px;
   }
 }
 
@@ -490,15 +490,23 @@ html[data-theme="dark"].community-page {
 
 /* Version warning */
 
-.theme-doc-version-banner.alert--warning {
+.theme-doc-version-banner {
   background-color: rgba(100, 215, 255, 0.3);
   border-style: none;
   color: var(--ifm-font-color-base);
   box-shadow: none;
+  font-size: 15px;
+  line-height: var(--ifm-pre-line-height);
+  text-align: center;
+
   a {
     color: var(--ifm-font-color-base) !important;
     text-decoration: underline !important;
     text-decoration-thickness: 1px !important;
+  }
+
+  .margin-top--md {
+    margin-top: 8px !important;
   }
 }
 
