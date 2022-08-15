@@ -237,6 +237,18 @@ The text that's read by the screen reader when the user interacts with the image
 
 ---
 
+### `accessibilityLabelledBy` <div class="label android">Android</div>
+
+A reference to another element nativeID used to build complex forms. The value of the accessibilityLabelledBy should match the nativeID of the other element.
+
+See the [Accessibility guide](accessibility.md#accessibilitylabelledby) for more information.
+
+| Type            |
+| --------------- |
+| string or array |
+
+---
+
 ### `blurRadius`
 
 blurRadius: the blur radius of the blur filter added to the image.
