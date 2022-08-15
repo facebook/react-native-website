@@ -138,6 +138,18 @@ Overrides the text that's read by the screen reader when the user interacts with
 
 ---
 
+### `accessibilityLabelledBy` <div class="label android">Android</div>
+
+A reference to another element nativeID used to build complex forms. The value of the accessibilityLabelledBy should match the nativeID of the other element.
+
+See the [Accessibility guide](accessibility.md#accessibilitylabelledby) for more information.
+
+| Type            |
+| --------------- |
+| string or array |
+
+---
+
 ### `accessibilityLiveRegion` <div class="label android">Android</div>
 
 Indicates to accessibility services whether the user should be notified when this view changes. Works for Android API >= 19 only. Possible values:

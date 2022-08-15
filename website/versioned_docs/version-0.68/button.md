@@ -138,6 +138,18 @@ Text to display for blindness accessibility features.
 
 ---
 
+### `accessibilityLabelledBy` <div class="label android">Android</div>
+
+A reference to another element nativeID used to build complex forms. The value of the accessibilityLabelledBy should match the nativeID of the other element.
+
+See the [Accessibility guide](accessibility.md#accessibilitylabelledby) for more information.
+
+| Type            |
+| --------------- |
+| string or array |
+
+---
+
 ### `accessibilityActions`
 
 Accessibility actions allow an assistive technology to programmatically invoke the actions of a component. The `accessibilityActions` property should contain a list of action objects. Each action object should contain the field name and label.
