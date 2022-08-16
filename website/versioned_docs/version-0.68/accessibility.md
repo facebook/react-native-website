@@ -46,7 +46,7 @@ In the above example, the `accessibilityLabel` on the TouchableOpacity element w
 
 ### `accessibilityLabelledBy` <div class="label android">Android</div>
 
-A reference to another element [nativeID](view#nativeid) used to build complex forms.
+A reference to another element [nativeID](view.md#nativeid) used to build complex forms.
 The value of `accessibilityLabelledBy` should match the `nativeID` of the related element:
 
 ```jsx
