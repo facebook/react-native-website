@@ -46,10 +46,10 @@ To use, set the `accessibilityLabel` property to a custom string on your View, T
 
 In the above example, the `accessibilityLabel` on the TouchableOpacity element would default to "Press me!". The label is constructed by concatenating all Text node children separated by spaces.
 
-### `accessibilityLabelledBy`
+### `accessibilityLabelledBy` <div class="label android">Android</div>
 
-A reference to another element nativeID used to build complex forms.
-The value of the `accessibilityLabelledBy` should match the `nativeID` of the other element:
+A reference to another element [nativeID](view#nativeid) used to build complex forms.
+The value of `accessibilityLabelledBy` should match the `nativeID` of the related element:
 
 ```jsx
 <View>
