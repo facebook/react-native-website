@@ -30,22 +30,20 @@ Optionally, you can also use the command given below to get started with your te
 
 :::
 
-You can use [Expo][expo] which has two TypeScript templates:
+You can use [Expo][expo], which maintains TypeScript templates, or will prompt you to automatically install and configure TypeScript when a `.ts` or `.tsx` file is added to your project:
 
 <Tabs groupId="package-manager" defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
 <TabItem value="npm">
 
 ```shell
-npm install -g expo-cli
-expo init MyTSProject
+npx create-expo-app --template
 ```
 
 </TabItem>
 <TabItem value="yarn">
 
 ```shell
-yarn global add expo-cli
-expo init MyTSProject
+yarn create expo-app --template
 ```
 
 </TabItem>
