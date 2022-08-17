@@ -399,24 +399,24 @@ html[data-theme="dark"] article .badge {
 
 /* Admonitions & notes */
 
-.alert--warning {
-  background-color: var(--rn-note-background);
-  font-size: 14px;
-  text-align: center;
+.admonition,
+.theme-admonition {
+  font-size: var(--ifm-blockquote-font-size);
+  margin-bottom: 1.5rem !important;
 
-  .margin-top--md {
-    margin-top: 0.33rem !important;
+  div[class^="admonitionContent"] {
+    a {
+      border-bottom: 0;
+    }
+  }
+
+  div[class^="admonitionHeading"] {
+    font-size: 14px;
   }
 }
 
-.admonition {
-  text-align: left;
-  font-size: var(--ifm-blockquote-font-size);
-  line-height: var(--ifm-pre-line-height);
-
-  h5 {
-    font-size: 14px;
-  }
+.alert--warning {
+  background-color: var(--rn-note-background);
 }
 
 .alert--secondary {
@@ -490,15 +490,23 @@ html[data-theme="dark"].community-page {
 
 /* Version warning */
 
-.theme-doc-version-banner.alert--warning {
+.theme-doc-version-banner {
   background-color: rgba(100, 215, 255, 0.3);
   border-style: none;
   color: var(--ifm-font-color-base);
   box-shadow: none;
+  font-size: 15px;
+  line-height: var(--ifm-pre-line-height);
+  text-align: center;
+
   a {
     color: var(--ifm-font-color-base) !important;
     text-decoration: underline !important;
     text-decoration-thickness: 1px !important;
+  }
+
+  .margin-top--md {
+    margin-top: 0.33rem !important;
   }
 }
 

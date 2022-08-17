@@ -6,7 +6,7 @@ title: Publishing to Apple App Store
 The publishing process is the same as any other native iOS app, with some additional considerations to take into account.
 
 :::info
-If you are using Expo then read the Expo Guide for [Building Standalone Apps](https://docs.expo.dev/classic/building-standalone-apps/).
+If you are using Expo, read the Expo guide for [Deploying to App Stores](https://docs.expo.dev/distribution/app-stores/) to build and submit your app for the Apple App Store. This guide works with any React Native app to automate the deployment process.
 :::
 
 ### 1. Enable App Transport Security

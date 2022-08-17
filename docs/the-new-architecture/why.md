@@ -25,7 +25,7 @@ _The Bridge_ had some intrinsic limitations:
 
 The New Architecture dropped the concept of _The Bridge_ in favor of another communication mechanism: the _JavaScript Interface (JSI)_. The _JSI_ is an interface that allows a JavaScript object to hold a reference to a C++ and viceversa.
 
-Once an object has a reference to the other one, it can directly invoke methods on it. So, for example, a C++ object can now asks a JavaScript object to execute a method in the JavaScript world and viceversa.
+Once an object has a reference to the other one, it can directly invoke methods on it. So, for example, a C++ object can now ask a JavaScript object to execute a method in the JavaScript world and viceversa.
 
 This idea allowed to unlock several benefits:
 

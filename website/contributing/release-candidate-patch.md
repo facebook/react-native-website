@@ -78,4 +78,4 @@ Go back to the "road to 0.XX.0" [discussion](https://github.com/reactwg/react-na
 
 Once all the steps above have been completed, it's time to signal to the community that the new RC is available for testing! Do so in the following channels:
 
-- RN Discord `#releases-coordination` and to the testers in `#testers-feedback`
+- RN Discord `#releases-coordination`
