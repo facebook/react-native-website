@@ -128,5 +128,4 @@ For further explanations of what each file is doing, check out these guides to w
 
 #### iOS
 
-- [Enabling TurboModules on iOS](new-architecture-app-modules-ios.md)
-- [Enabling Fabric on iOS](new-architecture-app-renderer-ios.md)
+- [Enabling The New Architecture in Your App](new-architecture-app-intro.md)

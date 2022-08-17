@@ -17,7 +17,7 @@ TurboModules are the next iteration on Native Modules that provide a few extra [
 - Lazy loading of modules, allowing for faster app startup
 - The use of JSI, a JavaScript interface for native code, allows for more efficient communication between native and JavaScript code than the bridge
 
-This guide will show you how to create a basic TurboModule.
+This guide will show you how to create a basic TurboModule compatible with React Native 0.70.0.
 
 :::caution
 TurboModules only work with the **New Architecture** enabled.

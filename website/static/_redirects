@@ -15,6 +15,10 @@
 # Changed blog post dates
 /blog/2021/03/11/version-0.64   /blog/2021/03/12/version-0.64
 
+# Removed pages
+/docs/new-architecture-app-modules-ios       /docs/new-architecture-intro
+/docs/new-architecture-app-renderer-ios      /docs/new-architecture-intro
+
 # Architecture pages move to unversioned docs
 /docs/architecture-overview             /architecture/overview
 /docs/fabric-renderer                   /architecture/fabric-renderer
