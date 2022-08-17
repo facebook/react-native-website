@@ -77,10 +77,12 @@ const Showcase = () => {
   const {siteConfig} = useDocusaurusContext();
 
   const {meta, microsoft, shopify, others} = siteConfig.customFields.users;
+  const [pinnedRandomizedApps, setPinnedRandomizedApps] = useState([]);
   const [randomizedApps, setRandomizedApps] = useState([]);
 
   useEffect(() => {
-    setRandomizedApps(randomizeApps(others));
+    setRandomizedApps(randomizeApps(others.filter(app => !app.pinned)));
+    setPinnedRandomizedApps(randomizeApps(others.filter(app => app.pinned)));
   }, []);
 
   return (
@@ -173,7 +175,10 @@ const Showcase = () => {
         </div>
         <div className="showcaseSection showcaseCustomers">
           <h2>Users Showcase</h2>
-          <div className="logos">{randomizedApps.map(renderApp)}</div>
+          <div className="logos">
+            {pinnedRandomizedApps.map(renderApp)}
+            {randomizedApps.map(renderApp)}
+          </div>
         </div>
       </Section>
       <Section background="dark">
