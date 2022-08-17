@@ -5,8 +5,6 @@
       "icon": "facebook.webp",
       "linkAppStore": "https://apps.apple.com/app/facebook/id284882215",
       "linkPlayStore": "https://play.google.com/store/apps/details?id=com.facebook.katana",
-      "infoLink": "https://code.facebook.com/posts/895897210527114/dive-into-react-native-performance/",
-      "infoTitle": "Using React Native in the Facebook App",
       "pinned": true
     },
     {
@@ -14,8 +12,6 @@
       "icon": "adsmanager.png",
       "linkAppStore": "https://apps.apple.com/us/app/facebook-ads-manager/id964397083",
       "linkPlayStore": "https://play.google.com/store/apps/details?id=com.facebook.adsmanager",
-      "infoLink": "https://code.facebook.com/posts/1189117404435352/react-native-for-android-how-we-built-the-first-cross-platform-react-native-app/",
-      "infoTitle": "How We Built the First Cross-Platform React Native App",
       "pinned": true
     },
     {

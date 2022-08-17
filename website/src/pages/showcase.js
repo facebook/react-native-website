@@ -116,10 +116,9 @@ const Showcase = () => {
             />
           </h2>
           <p className="showcaseSectionDescription">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sit
-            amet ex ullamcorper, dignissim elit ac, ornare elit. Donec iaculis,
-            erat in pharetra euismod, sem ipsum varius urna, nec hendrerit nisi
-            urna sed lorem.
+            React Native is shaping mobile, web, and desktop experiences within
+            Meta’s product ecosystem, from Facebook Marketplace, Messenger
+            Desktop, Ads Manager to the Oculus companion app and many more.
           </p>
           <div className="logos">{meta.map(renderApp)}</div>
         </div>
@@ -161,13 +160,12 @@ const Showcase = () => {
             />
           </h2>
           <p className="showcaseSectionDescription">
-            EXAMPLE: After years of native mobile development, we’ve decided to
-            go full steam ahead building all of our new mobile apps using React
-            Native.
-            <br />
-            Read more about it on our{' '}
+            All new mobile apps at Shopify are React Native and we are actively
+            migrating our flagship merchant admin app Shopify Mobile to React
+            Native as well. You can read more about React Native development at
+            Shopify on our{' '}
             <a href="https://shopify.engineering/topics/mobile" target="_blank">
-              Engineering Blog
+              blog
             </a>
             .
           </p>

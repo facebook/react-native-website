@@ -43,7 +43,6 @@ html[data-theme="dark"] {
   padding: 20px 16px 16px;
   border: 1px solid var(--ifm-hr-border-color);
   border-radius: 12px;
-  box-shadow: 0 2px 15px rgb(0 0 0 / 5%);
 
   &.showcaseCustomers {
     border: 0;
@@ -81,7 +80,7 @@ html[data-theme="dark"] {
   }
 
   .showcase img {
-    height: 100px;
+    height: 80px;
     border-radius: 20px;
   }
 
@@ -113,8 +112,7 @@ html[data-theme="dark"] {
     }
 
     p {
-      margin-top: 8px;
-      margin-bottom: 12px;
+      margin: 8px 0;
       padding-top: 0 !important;
 
       a {
@@ -135,7 +133,7 @@ html[data-theme="dark"] {
       display: flex;
       justify-content: center;
       background: linear-gradient(var(--showcase-icon-background), transparent);
-      padding: 20px 20px 16px;
+      padding: 20px 20px 12px;
       width: 100%;
       overflow: visible;
     }
@@ -143,7 +141,7 @@ html[data-theme="dark"] {
     .iconBackground {
       filter: blur(28px);
       position: absolute;
-      opacity: 0.18;
+      opacity: 0.16;
       transform: scale(1.38);
     }
 
