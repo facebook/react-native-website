@@ -18,8 +18,6 @@ Other libraries also rely on some native code, in that case you'll have to add t
 
 ### Automatic linking
 
-#### Step 1
-
 Install a library with native dependencies:
 
 ```shell
@@ -30,20 +28,7 @@ npm install <library-with-native-dependencies> --save
 `--save` or `--save-dev` flag is very important for this step. React Native will link your libs based on `dependencies` and `devDependencies` in your `package.json` file.
 :::
 
-#### Step 2
-
-Link your native dependencies:
-
-```shell
-npx react-native link
-```
-
-Done! All libraries with native dependencies should be successfully linked to your iOS/Android project.
-
-:::note
-If your iOS project is using CocoaPods (contains `Podfile`) and linked library has `podspec` file, then `npx react-native link` will link library using Podfile.
-To support non-trivial Podfiles add `# Add new pods below this line` comment to places where you expect pods to be added.
-:::
+That's it! Next time you build your app the native code will be linked thanks to the [autolinking](https://github.com/react-native-community/cli/blob/main/docs/autolinking.md) mechanism.
 
 ### Manual linking
 
