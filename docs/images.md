@@ -232,7 +232,7 @@ Image decoding can take more than a frame-worth of time. This is one of the majo
 
 ## Configuring iOS Image Cache Limits
 
-On iOS, we expose an API to override React Native's default image cache limits. This should be called from within your native AppDelegate code (e.g. within (e.g. within didFinishLaunchingWithOptions).
+On iOS, we expose an API to override React Native's default image cache limits. This should be called from within your native AppDelegate code (e.g. within `didFinishLaunchingWithOptions`).
 
 ```objectivec
 RCTSetImageCacheLimits(4*1024*1024, 200*1024*1024);
