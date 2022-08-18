@@ -96,10 +96,8 @@ const Showcase = () => {
           </h1>
           <p>
             Thousands of apps are using React Native, from established Fortune
-            500 companies to hot new startups.
-            <br />
-            If you are curious to see what can be accomplished with React
-            Native, check out these apps!
+            500 companies to hot new startups. If you are curious to see what
+            can be accomplished with React Native, check out these apps!
           </p>
         </div>
       </Section>

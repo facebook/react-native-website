@@ -154,7 +154,16 @@ export function Section({
   background = 'light',
 }) {
   const El = element;
-  return <El className={`Section ${className} ${background}`}>{children}</El>;
+  return (
+    <El
+      className={
+        className
+          ? `Section ${className} ${background}`
+          : `Section ${background}`
+      }>
+      {children}
+    </El>
+  );
 }
 
 function TwoColumns({columnOne, columnTwo, reverse}) {
