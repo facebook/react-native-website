@@ -99,7 +99,7 @@ These approaches provide no safety checks. It's up to you to guarantee that thos
 
 ## Network Images
 
-Many of the images you will display in your app will not be available at compile time, or you will want to load some dynamically to keep the binary size down. Unlike with static resources, _you will need to manually specify the dimensions of your image_. It's highly recommended that you use https as well in order to satisfy [App Transport Security](running-on-device.md#app-transport-security) requirements on iOS.
+Many of the images you will display in your app will not be available at compile time, or you will want to load some dynamically to keep the binary size down. Unlike with static resources, _you will need to manually specify the dimensions of your image_. It's highly recommended that you use https as well in order to satisfy [App Transport Security](publishing-to-app-store.md#1-enable-app-transport-security) requirements on iOS.
 
 ```jsx
 // GOOD
@@ -229,3 +229,20 @@ Please note that the following corner specific, border radius style properties m
 ## Off-thread Decoding
 
 Image decoding can take more than a frame-worth of time. This is one of the major sources of frame drops on the web because decoding is done in the main thread. In React Native, image decoding is done in a different thread. In practice, you already need to handle the case when the image is not downloaded yet, so displaying the placeholder for a few more frames while it is decoding does not require any code change.
+
+## Configuring iOS Image Cache Limits
+
+On iOS, we expose an API to override React Native's default image cache limits. This should be called from within your native AppDelegate code (e.g. within `didFinishLaunchingWithOptions`).
+
+```objectivec
+RCTSetImageCacheLimits(4*1024*1024, 200*1024*1024);
+```
+
+**Parameters:**
+
+| Name           | Type   | Required | Description             |
+| -------------- | ------ | -------- | ----------------------- |
+| imageSizeLimit | number | Yes      | Image cache size limit. |
+| totalCostLimit | number | Yes      | Total cache cost limit. |
+
+In the above code example the image size limit is set to 4 MB and the total cost limit is set to 200 MB.

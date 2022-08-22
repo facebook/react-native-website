@@ -114,7 +114,7 @@ In the example above, there are both a TurboModule and a set of Fabric Component
 
 Each TurboModule's folder contains two files: an interface file and an implementation file.
 
-The interface files have the same name of the TurboModule and they contain methods to initialize their the JSI interface.
+The interface files have the same name of the TurboModule and they contain methods to initialize the JSI interface.
 
 The implementation files, instead, have the `-generated` suffix and they contains the logic to invoke the native methods from JS and viceversa.
 
@@ -218,7 +218,7 @@ Notice that both TurboModules and Fabric Components comes with two build file de
 
 ### TurboModule
 
-The **Codegen** generates a Java abstract class in the `java` package which the same name of the TurboModule. This abstract class has to be implemented by the JNI C++ implementation.
+The **Codegen** generates a Java abstract class in the `java` package with the same name of the TurboModule. This abstract class has to be implemented by the JNI C++ implementation.
 
 Then, it generates the C++ files in the `jni` folder. They follow the same iOS convention: there is an interface called `MyTurbomodule.h` and an implementation file called `MyTurbomodule-generated.cpp`. The former is an interface that allows React Natvie to initialize the JSI interface for the TurboModule. The latter is the implementation file which contains the logic to invoke the native method from JS and viceversa.
 
