@@ -625,6 +625,16 @@ The text color of the placeholder string.
 
 ---
 
+### `readOnly`
+
+If `true`, text is not editable. The default value is `false`.
+
+| Type |
+| ---- |
+| bool |
+
+---
+
 ### `returnKeyLabel` <div class="label android">Android</div>
 
 Sets the return key to the label. Use it instead of `returnKeyType`.
