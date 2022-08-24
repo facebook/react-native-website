@@ -12,12 +12,12 @@ import NewArchitectureWarning from '../\_markdown-new-architecture-warning.mdx';
 <NewArchitectureWarning/>
 
 :::info
-The creation of a backward compatible TurboModule requires the knowledge of how to create a TurboModule. To recall these concepts, have a look at this [guide](pillars-turbomodules).
+Creating a backward compatible TurboModule requires the knowledge of how to create a TurboModule. To recall these concepts, have a look at this [guide](pillars-turbomodules).
 
-TurboModules only works when the New Architecture is properly setup. If you already have a library that you want to migrate to the New Architecture, have a look at the [migration guide](../new-architecture-intro) as well.
+TurboModules only works when the New Architecture is properly set up. If you already have a library that you want to migrate to the New Architecture, have a look at the [migration guide](../new-architecture-intro) as well.
 :::
 
-Creating a backward compatible TurboModule lets your users continue leverage your library, independently from the architecture they use. The creation of such a module requires a few steps:
+Creating a backward compatible TurboModule lets your users continue to leverage your library, independently from the architecture they use. The creation of such a module requires a few steps:
 
 1. Configure the library so that dependencies are prepared set up properly for both the Old and the New Architecture.
 1. Update the codebase so that the New Architecture types are not compiled when not available.
@@ -31,7 +31,7 @@ While the last step is the same for all the platforms, the first two steps are d
 
 ### <a name="dependencies-ios" />iOS
 
-The Apple platform installs TurboModules using [Cocoapods](https://cocoapods.org) as dependency manager.
+The Apple platform installs TurboModules using [Cocoapods](https://cocoapods.org) as a dependency manager.
 
 Every TurboModule defines a `podspec` that looks like this:
 
@@ -87,7 +87,7 @@ pod install
 RCT_NEW_ARCH_ENABLED=1 pod install
 ```
 
-Therefore, we can leverage this environment variable in the `podspec` to exclude the settings and the dependencies that are related to the New Architecture:
+Therefore, we can leverage this environment variable in the `podspec` to exclude the settings and the dependencies, that are related to the New Architecture:
 
 ```diff
 + if ENV['RCT_NEW_ARCH_ENABLED'] == '1' then
@@ -142,7 +142,7 @@ This changes do three main things:
 
 1. The first lines define a function that returns whether the New Architecture is enabled or not.
 2. The `buildConfigField` line defines a build configuration boolean field called `IS_NEW_ARCHITECTURE_ENABLED`, and initialize it using the function declared in the first step. This allows you to check at runtime if a user has specified the `newArchEnabled` property or not.
-3. The last lines leverage the function declared in step one to decide which source sets we need to build, depending on the choosen architecture.
+3. The last lines leverage the function declared in step one to decide which source sets we need to build, depending on the chosen architecture.
 
 ## Update the codebase
 
@@ -150,7 +150,7 @@ This changes do three main things:
 
 The second step is to instruct Xcode to avoid compiling all the lines using the New Architecture types and files when we are building an app with the Old Architecture.
 
-The file to change is the module implementation file, which is usually a `<your-module>.mm` file. That file is structured as follow:
+The file to change is the module implementation file, which is usually a `<your-module>.mm` file. That file is structured as follows:
 
 - Some `#import` statements, among which there is a `<GeneratedSpec>.h` file.
 - The module implementation, using the various `RCT_EXPORT_xxx` and `RCT_REMAP_xxx` macros.
@@ -222,7 +222,7 @@ my-module
 └── package.json
 ```
 
-The code that should go in the `MyModuleImpl.java` and that can be shared by the Native Module and the TurboModule is, for example:
+The code that should go in the `MyModuleImpl.java`, and that can be shared by the Native Module and the TurboModule is, for example:
 
 ```java title="example of MyModuleImple.java"
 package com.MyModule;
@@ -319,7 +319,7 @@ For a TurboModule, the source of truth is the `Native<MyModule>.js` (or `.ts`) s
 import MyModule from 'your-module/src/index';
 ```
 
-The **goal** is to conditionally `export` from the `index` file the proper object, given the architecture chosen by the user. We can achieve this with a code that looks like this:
+The **goal** is to conditionally `export` the proper object from the `index` file , given the architecture chosen by the user. We can achieve this with a code that looks like this:
 
 <Tabs groupId="turbomodule-backward-compatibility"
       defaultValue={constants.defaultTurboModuleSpecLanguage}
@@ -357,14 +357,14 @@ export default myModule;
 </Tabs>
 
 :::note
-If you are using TypeScript and you want to follow the example, make sure to `export` the `NativeModule` in a separate `ts` file called `<MyModule>.ts`.
+If you are using TypeScript and you want to follow the example, ensure to `export` the `NativeModule` in a separate `ts` file called `<MyModule>.ts`.
 :::
 
 Whether you are using Flow or TypeScript for your specs, we understand which architecture is running by checking whether the `global.__turboModuleProxy` object has been set or not.
 
 :::caution
-The `global.__turboModuleProxy` API may change in the future for a function that encapsulate this check.
+The `global.__turboModuleProxy` API may change in the future for a function that encapsulates this check.
 :::
 
 - If that object is `null`, the app has not enabled the TurboModule feature. It's running on the Old Architecture, and the fallback is to use the default [`NativeModule` implementation](../native-modules-intro).
-- If that object is set, the app is running with the TurboModules enabled and it should use the `Native<MyModule>` spec to access the TurboModule.
+- If that object is set, the app is running with the TurboModules enabled, and it should use the `Native<MyModule>` spec to access the TurboModule.
