@@ -298,7 +298,7 @@ module.exports = {
               },
               {
                 label: 'Architecture',
-                to: 'docs/architecture/overview',
+                to: 'architecture/overview',
               },
             ],
           },
