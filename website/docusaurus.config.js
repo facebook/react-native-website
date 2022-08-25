@@ -282,23 +282,23 @@ module.exports = {
         style: 'dark',
         links: [
           {
-            title: 'Docs',
+            title: 'Development',
             items: [
               {
-                label: 'Getting Started',
+                label: 'Guides',
                 to: 'docs/getting-started',
               },
               {
-                label: 'Tutorial',
-                to: 'docs/tutorial',
-              },
-              {
-                label: 'Components and APIs',
+                label: 'Components',
                 to: 'docs/components-and-apis',
               },
               {
-                label: 'More Resources',
-                to: 'docs/more-resources',
+                label: 'API',
+                to: 'docs/accessibilityinfo',
+              },
+              {
+                label: 'Architecture',
+                to: 'docs/architecture/overview',
               },
             ],
           },
@@ -306,20 +306,20 @@ module.exports = {
             title: 'Community',
             items: [
               {
-                label: 'The React Native Community',
-                to: 'help',
-              },
-              {
                 label: 'Showcase',
                 to: 'showcase',
               },
               {
-                label: 'Ask Questions on Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/react-native',
+                label: 'Contributing',
+                to: 'contributing',
               },
               {
-                label: 'DEV Community',
-                href: 'https://dev.to/t/reactnative',
+                label: 'The React Native Community',
+                to: 'help',
+              },
+              {
+                label: 'Ask Questions on Stack Overflow',
+                href: 'https://stackoverflow.com/questions/tagged/react-native',
               },
             ],
           },
@@ -344,7 +344,7 @@ module.exports = {
             title: 'More',
             items: [
               {
-                label: 'React',
+                label: 'ReactJS',
                 href: 'https://reactjs.org/',
               },
               {
