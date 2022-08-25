@@ -311,7 +311,7 @@ module.exports = {
               },
               {
                 label: 'Contributing',
-                to: 'contributing',
+                to: 'contributing/overview',
               },
               {
                 label: 'The React Native Community',
