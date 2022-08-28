@@ -277,7 +277,7 @@ We can’t convert this call to `this._ref.measure` because `this._ref` is an in
 
 `ChildComponent` renders a `View`, which is a HostComponent, so we need to get a reference to `View` instead. There are typically two approaches to get what we need. If the component we need to get the ref from is a function component using `forwardRef` is probably the right choice. If it is a class component with other public methods, adding a public method for getting the ref is an option. Here are examples of those two forms:
 
-### Using `forwardRef`
+#### Using `forwardRef`
 
 ```jsx
 class ParentComponent extends React.Component<Props> {
@@ -307,7 +307,7 @@ const ChildComponent = React.forwardRef((props, forwardedRef) => {
 });
 ```
 
-### Using a getter, (note the addition of `getViewRef`)
+#### Using a getter, (note the addition of `getViewRef`)
 
 ```tsx
 class ParentComponent extends React.Component<Props> {
