@@ -269,6 +269,16 @@ This defines how far your touch can start away from the button. This is added to
 | ---------------------- |
 | [Rect](rect) or number |
 
+### `id`
+
+Used to locate this view from native code. Has precedence over `nativeID`
+
+| Type   |
+| ------ |
+| string |
+
+---
+
 ### `onBlur`
 
 Invoked when the item loses focus.
