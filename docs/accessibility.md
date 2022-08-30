@@ -166,10 +166,10 @@ In the above example method `addOne` changes the state variable `count`. As soon
 - **timer** Used to represent a timer.
 - **togglebutton** Used to represent a toggle button. Should be used with accessibilityState checked to indicate if the button is toggled on or off.
 - **toolbar** Used to represent a tool bar (a container of action buttons or components).
-- **grid** Used to represent a grid.
+- **grid** Used with ScrollView, VirtualizedList, FlatList, or SectionList to represent a grid. Adds the in/out of grid announcements to the android GridView.
 - **pager** Used to represent a pager. Layout manager that allows the user to flip left and right through pages of data.
-- **scrollview** Used to represent a ScrollView.
-- **horizontalscrollview** Used to represent a HorizontalScrollView.
+- **scrollview** Used to represent a ScrollView. Adds the in/out of grid announcements to the android ScrollView.
+- **horizontalscrollview** Used to represent a HorizontalScrollView. Adds the in/out of grid announcements to the android ScrollView.
 - **viewgroup** Used to represent a ViewGroup. ViewGroup is a special view that can contain other views (called children.) The view group is the base class for layouts and views containers.
 - **webview** Used to represent a webview.
 - **drawerlayout** Used to represent a drawerlayout.
