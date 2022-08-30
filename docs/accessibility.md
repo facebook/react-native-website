@@ -136,6 +136,10 @@ In the above example method `addOne` changes the state variable `count`. As soon
 - **adjustable** Used when an element can be "adjusted" (e.g. a slider).
 - **alert** Used when an element contains important text to be presented to the user.
 - **button** Used when the element should be treated as a button.
+- **checkedtextview** Used to represent a checkedtextview.
+- **checkbox** Used to represent a checkbox.
+- **dropdownlist** Used to represent a dropdownlist.
+- **edittext** Used to represent a edittext.
 - **checkbox** Used when an element represents a checkbox which can be checked, unchecked, or have mixed checked state.
 - **combobox** Used when an element represents a combo box, which allows the user to select among several choices.
 - **header** Used when an element acts as a header for a content section (e.g. the title of a navigation bar).
@@ -149,6 +153,7 @@ In the above example method `addOne` changes the state variable `count`. As soon
 - **none** Used when the element has no role.
 - **progressbar** Used to represent a component which indicates progress of a task.
 - **radio** Used to represent a radio button.
+- **seekcontrol** Used to represent a seekcontrol.
 - **radiogroup** Used to represent a group of radio buttons.
 - **scrollbar** Used to represent a scroll bar.
 - **search** Used when the text field element should also be treated as a search field.
@@ -161,6 +166,15 @@ In the above example method `addOne` changes the state variable `count`. As soon
 - **timer** Used to represent a timer.
 - **togglebutton** Used to represent a toggle button. Should be used with accessibilityState checked to indicate if the button is toggled on or off.
 - **toolbar** Used to represent a tool bar (a container of action buttons or components).
+- **grid** Used to represent a grid.
+- **pager** Used to represent a pager.
+- **scrollview** Used to represent a scrollview.
+- **horizontalscrollview** Used to represent a horizontalscrollview.
+- **viewgroup** Used to represent a viewgroup.
+- **webview** Used to represent a webview.
+- **drawerlayout** Used to represent a drawerlayout.
+- **slidingdrawer** Used to represent a slidingdrawer.
+- **iconmenu** Used to represent a iconmenu.
 
 ### `accessibilityState`
 
