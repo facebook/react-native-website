@@ -136,7 +136,7 @@ In the above example method `addOne` changes the state variable `count`. As soon
 - **adjustable** Used when an element can be "adjusted" (e.g. a slider).
 - **alert** Used when an element contains important text to be presented to the user.
 - **button** Used when the element should be treated as a button.
-- **checkedtextview** Used to represent a checkedtextview.
+- **checkedtextview** Used to represent a checkedtextview. CheckedTextView is an extension to TextView that supports the Checkable.
 - **checkbox** Used to represent a checkbox.
 - **dropdownlist** Used to represent a dropdownlist.
 - **edittext** Used to represent a edittext.
@@ -167,10 +167,10 @@ In the above example method `addOne` changes the state variable `count`. As soon
 - **togglebutton** Used to represent a toggle button. Should be used with accessibilityState checked to indicate if the button is toggled on or off.
 - **toolbar** Used to represent a tool bar (a container of action buttons or components).
 - **grid** Used to represent a grid.
-- **pager** Used to represent a pager.
-- **scrollview** Used to represent a scrollview.
-- **horizontalscrollview** Used to represent a horizontalscrollview.
-- **viewgroup** Used to represent a viewgroup.
+- **pager** Used to represent a pager. Layout manager that allows the user to flip left and right through pages of data.
+- **scrollview** Used to represent a ScrollView.
+- **horizontalscrollview** Used to represent a HorizontalScrollView.
+- **viewgroup** Used to represent a ViewGroup. ViewGroup is a special view that can contain other views (called children.) The view group is the base class for layouts and views containers.
 - **webview** Used to represent a webview.
 - **drawerlayout** Used to represent a drawerlayout.
 - **slidingdrawer** Used to represent a slidingdrawer.
