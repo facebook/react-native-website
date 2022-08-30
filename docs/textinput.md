@@ -108,7 +108,7 @@ Inherits [View Props](view.md#props).
 ### `accessibilityErrorMessage`
 
 String read by screenreaders to indicate an error state of a TextInput.
-Setting accessibilityInvalid to true activates the error message.
+Setting `accessibilityInvalid` to `true` activates the error message.
 
 > Note: This prop models [`aria-errormessage`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-errormessage) but differs in that it does not provide an element id.
 
@@ -120,8 +120,8 @@ Setting accessibilityInvalid to true activates the error message.
 
 ### `accessibilityInvalid`
 
-Setting accessibilityInvalid to true activates the accessibilityErrorMessage.
-Setting accessibilityInvalid to false removes the accessibilityErrorMessage.
+Setting `accessibilityInvalid` to `true` activates the `accessibilityErrorMessage`.
+Setting `accessibilityInvalid` to `false` removes the `accessibilityErrorMessage`.
 The default value is `false`.
 
 | Type |
