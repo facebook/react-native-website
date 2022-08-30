@@ -110,6 +110,8 @@ Inherits [View Props](view.md#props).
 String read by screenreaders to indicate an error state of a TextInput.
 Setting accessibilityInvalid to true activates the error message.
 
+Note: This prop models [`aria-errormessage`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-errormessage) but differs in that it does not provide an element id.
+
 | Type   |
 | ------ |
 | string |
