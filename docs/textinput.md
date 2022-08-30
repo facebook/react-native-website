@@ -373,6 +373,27 @@ An optional identifier which links a custom [InputAccessoryView](inputaccessoryv
 
 ---
 
+### `inputMode`
+
+Works like the `inputmode` attribute in HTML, it determines which keyboard to open, e.g. `numeric` and has precedence over `keyboardType`.
+
+Support the following values:
+
+- `none`
+- `text`
+- `decimal`
+- `numeric`
+- `tel`
+- `search`
+- `email`
+- `url`
+
+| Type                                                                        |
+| --------------------------------------------------------------------------- |
+| enum('decimal', 'email', 'none', 'numeric', 'search', 'tel', 'text', 'url') |
+
+---
+
 ### `keyboardAppearance` <div class="label ios">iOS</div>
 
 Determines the color of the keyboard.
