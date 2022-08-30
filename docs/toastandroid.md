@@ -90,12 +90,12 @@ const Toast = ({ visible, message }) => {
 };
 
 const App = () => {
-  const [visibleToast, setvisibleToast] = useState(false);
+  const [visibleToast, setVisibleToast] = useState(false);
 
-  useEffect(() => setvisibleToast(false), [visibleToast]);
+  useEffect(() => setVisibleToast(false), [visibleToast]);
 
   const handleButtonPress = () => {
-    setvisibleToast(true);
+    setVisibleToast(true);
   };
 
   return (
