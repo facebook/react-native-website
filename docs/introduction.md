@@ -136,4 +136,4 @@ Menu paths are written in bold and use carets to navigate submenus. Example: **A
 
 ---
 
-Now that you know how this guide works, it's time to get to know the foundation of React Native: [Fabric Components](the-new-architecture/pillars-fabric-components).
+Now that you know how this guide works, it's time to get to know the foundation of React Native: [Fabric Components](intro-react-native-components.md).
