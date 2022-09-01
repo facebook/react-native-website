@@ -32,7 +32,7 @@ To create a Fabric Component, you have to follow these steps:
 2. Configure the component so that **Codegen** can create the shared code and it can be added as a dependency for an app.
 3. Write the required native code.
 
-Once these steps are done, the component is ready to be consumed by an app. The guide shows how to add it to an app, leverage _autolinking_, and how to reference it from the JavaScript code.
+Once these steps are done, the component is ready to be consumed by an app. The guide shows how to add it to an app by leveraging _autolinking_, and how to reference it from the JavaScript code.
 
 ## 1. Folder Setup
 
