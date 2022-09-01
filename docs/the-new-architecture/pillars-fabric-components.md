@@ -456,7 +456,7 @@ RCT_EXPORT_VIEW_PROPERTY(text, NSString)
 @end
 ```
 
-This file is the manager for the Fabric Component. React Native runtime uses the manager objects to register the modules, properties and methods to make them available to the JavaScript side.
+This file is the manager for the Fabric Component. React Native runtime uses manager objects to register the modules, properties and methods to make them available to the JavaScript side.
 
 The most important call is to the `RCT_EXPORT_MODULE`, which is required to export the module so that Fabric can retrieve and instantiate it.
 
