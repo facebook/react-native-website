@@ -321,6 +321,30 @@ If `true`, the keyboard disables the return key when there is no text and automa
 
 ---
 
+### `enterKeyHint`
+
+Determines what text should be shown to the return key. Has precedence over the `returnKeyType` prop.
+
+The following values work across platforms:
+
+- `enter`
+- `done`
+- `next`
+- `search`
+- `send`
+
+_Android Only_
+
+The following values work on Android only:
+
+- `previous`
+
+| Type                                                        |
+| ----------------------------------------------------------- |
+| enum('enter', 'done', 'next', 'previous', 'search', 'send') |
+
+---
+
 ### `importantForAutofill` <div class="label android">Android</div>
 
 Tells the operating system whether the individual fields in your app should be included in a view structure for autofill purposes on Android API Level 26+. Possible values are `auto`, `no`, `noExcludeDescendants`, `yes`, and `yesExcludeDescendants`. The default value is `auto`.
