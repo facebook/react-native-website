@@ -617,9 +617,9 @@ Supports the following values:
 - `0` - View is focusable
 - `-1` - View is not focusable
 
-| Type   |
-| ------ |
-| number |
+| Type        |
+| ----------- |
+| enum(0, -1) |
 
 ---
 
