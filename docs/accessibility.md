@@ -161,6 +161,7 @@ In the above example method `addOne` changes the state variable `count`. As soon
 - **timer** Used to represent a timer.
 - **togglebutton** Used to represent a toggle button. Should be used with accessibilityState checked to indicate if the button is toggled on or off.
 - **toolbar** Used to represent a tool bar (a container of action buttons or components).
+- **grid** Used with ScrollView, VirtualizedList, FlatList, or SectionList to represent a grid. Adds the in/out of grid announcements to the android GridView.
 
 ### `accessibilityState`
 
