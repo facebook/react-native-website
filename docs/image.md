@@ -448,7 +448,7 @@ A unique identifier for this element to be used in UI Automation testing scripts
 
 ### `tintColor`
 
-Changes the color of all the non-transparent pixels to the tintColor.
+Changes the color of all non-transparent pixels to the `tintColor`.
 
 | Type               |
 | ------------------ |
