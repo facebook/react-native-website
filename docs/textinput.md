@@ -691,6 +691,16 @@ If `true`, allows TextInput to pass touch events to the parent component. This a
 
 ---
 
+### `rows` <div class="label android">Android</div>
+
+Sets the number of lines for a `TextInput`. Use it with multiline set to `true` to be able to fill the lines.
+
+| Type   |
+| ------ |
+| number |
+
+---
+
 ### `scrollEnabled` <div class="label ios">iOS</div>
 
 If `false`, scrolling of the text view will be disabled. The default value is `true`. Only works with `multiline={true}`.
