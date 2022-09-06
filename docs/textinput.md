@@ -323,9 +323,7 @@ If `true`, the keyboard disables the return key when there is no text and automa
 
 ### `enterKeyHint`
 
-Determines what text should be shown to the return key. Has precedence over the `returnKeyType`
-
-_Cross platform_
+Determines what text should be shown to the return key. Has precedence over the `returnKeyType` prop.
 
 The following values work across platforms:
 
