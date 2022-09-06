@@ -610,6 +610,20 @@ Rasterization incurs an off-screen drawing pass and the bitmap consumes memory. 
 
 ---
 
+### `tabIndex` <div class="label android">Android</div>
+
+Whether this `View` should be focusable with a non-touch input device, eg. receive focus with a hardware keyboard.
+Supports the following values:
+
+- `0` - View is focusable
+- `-1` - View is not focusable
+
+| Type        |
+| ----------- |
+| enum(0, -1) |
+
+---
+
 ### `testID`
 
 Used to locate this view in end-to-end tests.
