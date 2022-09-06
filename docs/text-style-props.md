@@ -408,26 +408,7 @@ Set to `false` to remove extra font padding intended to make space for certain a
 | Type | Default |
 | ---- | ------- |
 
-| array of enum(`'small-caps'`, `'oldstyle-nums'`, `'lining-nums'`, `'tabular-nums'`, `'proportional-nums' `,`'stylistic-one'`,
-, `'stylistic-two'`
-, `'stylistic-three'`
-, `'stylistic-four'`
-, `'stylistic-five'`
-, `'stylistic-six'`
-, `'stylistic-seven'`
-, `'stylistic-eight'`
-, `'stylistic-nine'`
-, `'stylistic-ten'`
-, `'stylistic-eleven'`
-, `'stylistic-twelve'`
-, `'stylistic-thirteen'`
-, `'stylistic-fourteen'`
-, `'stylistic-fifteen'`
-, `'stylistic-sixteen'`
-, `'stylistic-seventeen'`
-, `'stylistic-eighteen'`
-, `'stylistic-nineteen'`
-, `'stylistic-twenty'`) | `[]` |
+| array of enum(`'small-caps'`, `'oldstyle-nums'`, `'lining-nums'`, `'tabular-nums'`, `'proportional-nums' `,`'stylistic-one'`, `'stylistic-two'`, `'stylistic-three'`, `'stylistic-four'`, `'stylistic-five'`, `'stylistic-six'`, `'stylistic-seven'`, `'stylistic-eight'`, `'stylistic-nine'`, `'stylistic-ten'`, `'stylistic-eleven'`, `'stylistic-twelve'`, `'stylistic-thirteen'`, `'stylistic-fourteen'`, `'stylistic-fifteen'`, `'stylistic-sixteen'`, `'stylistic-seventeen'`, `'stylistic-eighteen'`, `'stylistic-nineteen'`, `'stylistic-twenty'`) | `[]` |
 
 ---
 
