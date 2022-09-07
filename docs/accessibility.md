@@ -134,7 +134,7 @@ In the above example method `addOne` changes the state variable `count`. As soon
 `accessibilityRole` can be one of the following:
 
 - **adjustable** Used when an element can be "adjusted" (e.g. a slider, seekcontrol).
-- **alert** Used when an element contains important text to be presented to the user (Android).
+- **alert** Used when an element contains important text to be presented to the user.
 - **button** Used when the element should be treated as a button.
 - **dropdownlist** Used to represent a dropdownlist (Spinner). A view that displays one child at a time and lets the user pick among them (Android).
 - **checkbox** Used when an element represents a checkbox which can be checked, unchecked, or have mixed checked state (Android).
@@ -144,24 +144,24 @@ In the above example method `addOne` changes the state variable `count`. As soon
 - **imagebutton** Used when the element should be treated as a button and is also an image.
 - **keyboardkey** Used when the element acts as a keyboard key.
 - **link** Used when the element should be treated as a link.
-- **menu** Used when the component is a menu of choices (Android).
-- **menubar** Used when a component is a container of multiple menus (Android).
-- **menuitem** Used to represent an item within a menu (Android).
+- **menu** Used when the component is a menu of choices.
+- **menubar** Used when a component is a container of multiple menus.
+- **menuitem** Used to represent an item within a menu.
 - **none** Used when the element has no role.
 - **progressbar** Used to represent a component which indicates progress of a task.
 - **radio** Used to represent a radio button (Android).
-- **radiogroup** Used to represent a group of radio buttons (Android).
-- **scrollbar** Used to represent a scroll bar (Android).
+- **radiogroup** Used to represent a group of radio buttons.
+- **scrollbar** Used to represent a scroll bar.
 - **search** Used when the text field element should also be treated as a search field.
 - **spinbutton** Used to represent a button which opens a list of choices (Android).
 - **summary** Used when an element can be used to provide a quick summary of current conditions in the app when the app first launches.
 - **switch** Used to represent a switch which can be turned on and off.
-- **tab** Used to represent a tab (Android).
-- **tablist** Used to represent a list of tabs (Android).
+- **tab** Used to represent a tab.
+- **tablist** Used to represent a list of tabs.
 - **text** Used when the element should be treated as static text that cannot change.
-- **timer** Used to represent a timer (Android).
+- **timer** Used to represent a timer.
 - **togglebutton** Used to represent a toggle button. Should be used with accessibilityState checked to indicate if the button is toggled on or off.
-- **toolbar** Used to represent a tool bar (a container of action buttons or components) (Android).
+- **toolbar** Used to represent a tool bar (a container of action buttons or components).
 - **list** Base class that can be used to implement virtualized lists of items.
   A list does not have a spatial definition here. For instance, subclasses of
   this class can display the content of the list in a grid, in a carousel, as
