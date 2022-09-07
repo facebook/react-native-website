@@ -136,7 +136,7 @@ In the above example method `addOne` changes the state variable `count`. As soon
 - **adjustable** Used when an element can be "adjusted" (e.g. a slider).
 - **alert** Used when an element contains important text to be presented to the user (Android).
 - **button** Used when the element should be treated as a button.
-- **dropdownlist** Used to represent a dropdownlist. A view that displays one child at a time and lets the user pick among them. The items in the Spinner come from the {@link Adapter} associated with this view (Android).
+- **dropdownlist** Used to represent a dropdownlist. A view that displays one child at a time and lets the user pick among them. The items in the Spinner come from the Adapter associated with this view, for more information refer to (Android).
 - **checkbox** Used when an element represents a checkbox which can be checked, unchecked, or have mixed checked state (Android).
 - **combobox** Used when an element represents a combo box, which allows the user to select among several choices (Android).
 - **header** Used when an element acts as a header for a content section (e.g. the title of a navigation bar).
@@ -162,16 +162,19 @@ In the above example method `addOne` changes the state variable `count`. As soon
 - **timer** Used to represent a timer (Android).
 - **togglebutton** Used to represent a toggle button. Should be used with accessibilityState checked to indicate if the button is toggled on or off.
 - **toolbar** Used to represent a tool bar (a container of action buttons or components) (Android).
-- **list** Base class that can be used to implement virtualized lists of items. A list does not have a spatial definition here. For instance, subclasses of this class can display the content of the list in a grid, in a carousel, as stack, etc. (Android).
+- **list** Base class that can be used to implement virtualized lists of items.
+  A list does not have a spatial definition here. For instance, subclasses of
+  this class can display the content of the list in a grid, in a carousel, as
+  stack, etc. For more information refer to (Android).
 - **grid** Used with ScrollView, VirtualizedList, FlatList, or SectionList to represent a grid. Adds the in/out of grid announcements to the android GridView (Android).
 - **pager** Used to represent a pager. Layout manager that allows the user to flip left and right through pages of data (Android).
-- **scrollview** Used to represent a ScrollView. Adds the in/out of grid announcements to the android ScrollView (Android).
-- **horizontalscrollview** Used to represent a HorizontalScrollView. Adds the in/out of grid announcements to the android ScrollView (Android).
+- **scrollview** Used to represent a ScrollView. ScrollView is a view group that allows the view hierarchy placed within it to be scrolled (Android).
+- **horizontalscrollview** Used to represent a HorizontalScrollView. (Android).
 - **viewgroup** Used to represent a ViewGroup. ViewGroup is a special view that can contain other views (called children.) The view group is the base class for layouts and views containers (Android).
 - **webview** Used to represent a webview (Android).
-- **drawerlayout** Used to represent a drawerlayout (Android).
-- **slidingdrawer** Used to represent a slidingdrawer (Android).
-- **iconmenu** Used to represent a iconmenu (Android).
+- **drawerlayout** Used to represent a drawerlayout (Android). Announces Drawer on the left or right (Android).
+- **slidingdrawer** Used to represent a slidingdrawer. Announces Sliding drawer opened (Android).
+- **iconmenu** Used to represent a iconmenu. Announces Options, Drawer on the left or right (Android).
 
 ### `accessibilityState`
 
