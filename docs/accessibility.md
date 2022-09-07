@@ -136,7 +136,7 @@ In the above example method `addOne` changes the state variable `count`. As soon
 - **adjustable** Used when an element can be "adjusted" (e.g. a slider, seekcontrol).
 - **alert** Used when an element contains important text to be presented to the user (Android).
 - **button** Used when the element should be treated as a button.
-- **dropdownlist** Used to represent a dropdownlist. A view that displays one child at a time and lets the user pick among them. The items in the Spinner come from the Adapter associated with this view, for more information refer to (Android).
+- **dropdownlist** Used to represent a dropdownlist. A view that displays one child at a time and lets the user pick among them. The items in the Spinner come from the Adapter associated with this view (Android).
 - **checkbox** Used when an element represents a checkbox which can be checked, unchecked, or have mixed checked state (Android).
 - **combobox** Used when an element represents a combo box, which allows the user to select among several choices (Android).
 - **header** Used when an element acts as a header for a content section (e.g. the title of a navigation bar).
@@ -165,7 +165,7 @@ In the above example method `addOne` changes the state variable `count`. As soon
 - **list** Base class that can be used to implement virtualized lists of items.
   A list does not have a spatial definition here. For instance, subclasses of
   this class can display the content of the list in a grid, in a carousel, as
-  stack, etc. For more information refer to (Android).
+  stack, etc. (Android).
 - **grid** Used with ScrollView, VirtualizedList, FlatList, or SectionList to represent a grid. Adds the in/out of grid announcements to the android GridView (Android).
 - **pager** Used to represent a pager. Layout manager that allows the user to flip left and right through pages of data (Android).
 - **scrollview** Used to represent a ScrollView. ScrollView is a view group that allows the view hierarchy placed within it to be scrolled (Android).
