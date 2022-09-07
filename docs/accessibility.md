@@ -134,43 +134,44 @@ In the above example method `addOne` changes the state variable `count`. As soon
 `accessibilityRole` can be one of the following:
 
 - **adjustable** Used when an element can be "adjusted" (e.g. a slider).
-- **alert** Used when an element contains important text to be presented to the user.
+- **alert** Used when an element contains important text to be presented to the user (Android).
 - **button** Used when the element should be treated as a button.
-- **dropdownlist** Used to represent a dropdownlist.
-- **checkbox** Used when an element represents a checkbox which can be checked, unchecked, or have mixed checked state.
-- **combobox** Used when an element represents a combo box, which allows the user to select among several choices.
+- **dropdownlist** Used to represent a dropdownlist. A view that displays one child at a time and lets the user pick among them. The items in the Spinner come from the {@link Adapter} associated with this view (Android).
+- **checkbox** Used when an element represents a checkbox which can be checked, unchecked, or have mixed checked state (Android).
+- **combobox** Used when an element represents a combo box, which allows the user to select among several choices (Android).
 - **header** Used when an element acts as a header for a content section (e.g. the title of a navigation bar).
 - **image** Used when the element should be treated as an image. Can be combined with button or link, for example.
 - **imagebutton** Used when the element should be treated as a button and is also an image.
 - **keyboardkey** Used when the element acts as a keyboard key.
 - **link** Used when the element should be treated as a link.
-- **menu** Used when the component is a menu of choices.
-- **menubar** Used when a component is a container of multiple menus.
-- **menuitem** Used to represent an item within a menu.
+- **menu** Used when the component is a menu of choices (Android).
+- **menubar** Used when a component is a container of multiple menus (Android).
+- **menuitem** Used to represent an item within a menu (Android).
 - **none** Used when the element has no role.
 - **progressbar** Used to represent a component which indicates progress of a task.
-- **radio** Used to represent a radio button.
-- **radiogroup** Used to represent a group of radio buttons.
-- **scrollbar** Used to represent a scroll bar.
+- **radio** Used to represent a radio button (Android).
+- **radiogroup** Used to represent a group of radio buttons (Android).
+- **scrollbar** Used to represent a scroll bar (Android).
 - **search** Used when the text field element should also be treated as a search field.
-- **spinbutton** Used to represent a button which opens a list of choices.
+- **spinbutton** Used to represent a button which opens a list of choices (Android).
 - **summary** Used when an element can be used to provide a quick summary of current conditions in the app when the app first launches.
 - **switch** Used to represent a switch which can be turned on and off.
-- **tab** Used to represent a tab.
-- **tablist** Used to represent a list of tabs.
+- **tab** Used to represent a tab (Android).
+- **tablist** Used to represent a list of tabs (Android).
 - **text** Used when the element should be treated as static text that cannot change.
-- **timer** Used to represent a timer.
+- **timer** Used to represent a timer (Android).
 - **togglebutton** Used to represent a toggle button. Should be used with accessibilityState checked to indicate if the button is toggled on or off.
-- **toolbar** Used to represent a tool bar (a container of action buttons or components).
-- **grid** Used with ScrollView, VirtualizedList, FlatList, or SectionList to represent a grid. Adds the in/out of grid announcements to the android GridView.
-- **pager** Used to represent a pager. Layout manager that allows the user to flip left and right through pages of data.
-- **scrollview** Used to represent a ScrollView. Adds the in/out of grid announcements to the android ScrollView.
-- **horizontalscrollview** Used to represent a HorizontalScrollView. Adds the in/out of grid announcements to the android ScrollView.
-- **viewgroup** Used to represent a ViewGroup. ViewGroup is a special view that can contain other views (called children.) The view group is the base class for layouts and views containers.
-- **webview** Used to represent a webview.
-- **drawerlayout** Used to represent a drawerlayout.
-- **slidingdrawer** Used to represent a slidingdrawer.
-- **iconmenu** Used to represent a iconmenu.
+- **toolbar** Used to represent a tool bar (a container of action buttons or components) (Android).
+- **list** Base class that can be used to implement virtualized lists of items. A list does not have a spatial definition here. For instance, subclasses of this class can display the content of the list in a grid, in a carousel, as stack, etc. (Android).
+- **grid** Used with ScrollView, VirtualizedList, FlatList, or SectionList to represent a grid. Adds the in/out of grid announcements to the android GridView (Android).
+- **pager** Used to represent a pager. Layout manager that allows the user to flip left and right through pages of data (Android).
+- **scrollview** Used to represent a ScrollView. Adds the in/out of grid announcements to the android ScrollView (Android).
+- **horizontalscrollview** Used to represent a HorizontalScrollView. Adds the in/out of grid announcements to the android ScrollView (Android).
+- **viewgroup** Used to represent a ViewGroup. ViewGroup is a special view that can contain other views (called children.) The view group is the base class for layouts and views containers (Android).
+- **webview** Used to represent a webview (Android).
+- **drawerlayout** Used to represent a drawerlayout (Android).
+- **slidingdrawer** Used to represent a slidingdrawer (Android).
+- **iconmenu** Used to represent a iconmenu (Android).
 
 ### `accessibilityState`
 
