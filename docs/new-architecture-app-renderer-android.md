@@ -4,6 +4,8 @@ title: Enabling Fabric on Android
 ---
 
 import NewArchitectureWarning from './\_markdown-new-architecture-warning.mdx';
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
+import constants from '@site/core/TabsConstants';
 
 <NewArchitectureWarning/>
 
@@ -14,6 +16,9 @@ Make sure your application meets all the [prerequisites](new-architecture-app-in
 In order to enable Fabric in your app, you would need to add a `JSIModulePackage` inside your `ReactNativeHost`. If you followed the TurboModule section of this guide, you probably already know where to find your `ReactNativeHost`. If not, you can locate your `ReactNativeHost` by searching for the `getReactNativeHost()`. The `ReactNativeHost` is usually located inside your `Application` class.
 
 Once you located it, you need to add the `getJSIModulePackage` method as from the snippet below:
+
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="java">
 
 ```java title='MyApplication.java'
 public class MyApplication extends Application implements ReactApplication {
@@ -63,10 +68,64 @@ public class MyApplication extends Application implements ReactApplication {
 }
 ```
 
+</TabItem>
+
+<TabItem value="kotlin">
+
+```kotlin title='MyApplication.kt'
+
+class MyApplication() : Application(), ReactApplication {
+  private val mReactNativeHost: ReactNativeHost =
+      object : ReactNativeHost(this) {
+        // Add those lines:
+        @get:Nullable
+        protected val jSIModulePackage: JSIModulePackage
+          protected get() =
+              object : JSIModulePackage() {
+                fun getJSIModules(
+                    reactApplicationContext: ReactApplicationContext?,
+                    jsContext: JavaScriptContextHolder?
+                ): List<JSIModuleSpec> {
+                  val specs: MutableList<JSIModuleSpec> = ArrayList()
+                  specs.add(
+                      object : JSIModuleSpec() {
+                        val jSIModuleType: JSIModuleType
+                          get() = JSIModuleType.UIManager
+                        val jSIModuleProvider: JSIModuleProvider<UIManager>
+                          get() {
+                            val componentFactory: ComponentFactory = ComponentFactory()
+                            CoreComponentsRegistry.register(componentFactory)
+                            val reactInstanceManager: ReactInstanceManager =
+                                getReactInstanceManager()
+                            val viewManagerRegistry: ViewManagerRegistry =
+                                ViewManagerRegistry(
+                                    reactInstanceManager.getOrCreateViewManagers(
+                                        reactApplicationContext))
+                            return FabricJSIModuleProvider(
+                                reactApplicationContext,
+                                componentFactory,
+                                EmptyReactNativeConfig(),
+                                viewManagerRegistry)
+                          }
+                      })
+                  return specs
+                }
+              }
+      }
+}
+```
+
+</TabItem>
+
+</Tabs>
+
 ## 2. Make sure your call `setIsFabric` on your Activity’s `ReactRootView`
 
 Inside your `Activity` class, you need to make sure you’re calling `setIsFabric` on the `ReactRootView`.
 If you don’t have a `ReactActivityDelegate` you might need to create one.
+
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="java">
 
 ```java
 public class MainActivity extends ReactActivity {
@@ -95,6 +154,35 @@ public class MainActivity extends ReactActivity {
   }
 }
 ```
+
+</TabItem>
+
+<TabItem value="kotlin">
+
+```kotlin
+class MainActivity : ReactActivity() {
+  // Add the Activity Delegate, if you don't have one already.
+  class MainActivityDelegate(activity: ReactActivity?, mainComponentName: String?) :
+      ReactActivityDelegate(activity, mainComponentName) {
+    protected fun createRootView(): ReactRootView {
+      val reactRootView = ReactRootView(getContext())
+
+      // Make sure to call setIsFabric(true) on your ReactRootView
+      reactRootView.setIsFabric(true)
+      return reactRootView
+    }
+  }
+
+  // Make sure to override the `createReactActivityDelegate()` method.
+  protected fun createReactActivityDelegate(): ReactActivityDelegate {
+    return MainActivity.MainActivityDelegate(this, getMainComponentName())
+  }
+}
+```
+
+</TabItem>
+
+</Tabs>
 
 The crucial part in this code is the `reactRootView.setIsFabric(true)` which will enable the new renderer for this Activity.
 
@@ -160,6 +248,9 @@ export default (codegenNativeComponent<NativeProps>(
 Specifically you will have to implement the generated **ViewManagerInterface** and to pass events to the generated **ViewManagerDelegate.**
 Your ViewManager could follow this structure. The MyNativeView class in this example is an Android View implementation (like a subclass of LinearLayout, Button, TextView, etc.)
 
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="java">
+
 ```java title='MyNativeViewManager.java'
 // View manager for MyNativeView components.
 @ReactModule(name = MyNativeViewManager.REACT_CLASS)
@@ -194,9 +285,46 @@ public class MyNativeViewManager extends SimpleViewManager<MyNativeView>
 }
 ```
 
+</TabItem>
+
+<TabItem value="kotlin">
+
+```kotlin title='MyNativeViewManager.kt'
+// View manager for MyNativeView components.
+@ReactModule(name = MyNativeViewManager.name)
+class MyNativeViewManager :
+    SimpleViewManager<MyNativeView?>(), RNTMyNativeViewManagerInterface<MyNativeView?> {
+  private val mDelegate: ViewManagerDelegate<MyNativeView>
+
+  @get:Nullable
+  protected val delegate: ViewManagerDelegate<MyNativeView>
+    protected get() = mDelegate
+
+  protected fun createViewInstance(reactContext: ThemedReactContext): MyNativeView {
+    return MyNativeView(reactContext)
+  }
+
+  companion object {
+    val name = "RNTMyNativeView"
+      get() = Companion.field
+  }
+
+  init {
+    mDelegate = RNTMyNativeViewManagerDelegate(this)
+  }
+}
+```
+
+</TabItem>
+
+</Tabs>
+
 1. **Add your ViewManager to one of the Packages loaded by your Application.**
 
 Specifically inside the `ReactNativeHost` , update `getPackages` method to include the following:
+
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="java">
 
 ```java
 public class MyApplication extends Application implements ReactApplication {
@@ -234,11 +362,60 @@ public class MyApplication extends Application implements ReactApplication {
 }
 ```
 
+</TabItem>
+
+<TabItem value="kotlin">
+
+```kotlin
+class MyApplication : Application(), ReactApplication {
+  private val mReactNativeHost: ReactNativeHost =
+      object : ReactNativeHost(this) {
+        /* ... */
+        val useDeveloperSupport: Boolean
+          get() {
+            /* ... */
+          } // Your ViewManager is returned here.
+
+        // Add those lines.
+        protected val packages: List<Any>
+          protected get() {
+            val packages: MutableList<ReactPackage> = PackageList(this).getPackages()
+
+            // ... other packages or `TurboReactPackage added` here...
+
+            // Add those lines.
+            packages.add(
+                object : ReactPackage() {
+                  fun createNativeModules(
+                      reactContext: ReactApplicationContext
+                  ): List<NativeModule> {
+                    return Collections.emptyList()
+                  }
+
+                  fun createViewManagers(reactContext: ReactApplicationContext): List<ViewManager> {
+                    // Your ViewManager is returned here.
+                    return Collections.singletonList(MyNativeViewManager())
+                  }
+                })
+            return packages
+          }
+      }
+}
+```
+
+</TabItem>
+
+</Tabs>
+
 3. **Add a Fabric Component Registry**
 
 You need to create a new component Registry that will allow you to **register** your components to be discovered by Fabric. Let’s create the `MyComponentsRegistry` file with the following content.
 
 As you can see, some methods are `native()` which we will implement in C++ in the following paragraph.
+
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+
+<TabItem value="java">
 
 ```java
 package com.awesomeproject;
@@ -271,9 +448,51 @@ public class MyComponentsRegistry {
 }
 ```
 
+</TabItem>
+
+<TabItem value="kotlin">
+
+```kotlin
+package com.awesomeproject
+
+import com.facebook.jni.HybridData
+import com.facebook.proguard.annotations.DoNotStrip
+import com.facebook.react.fabric.ComponentFactory
+import com.facebook.soloader.SoLoader
+
+@DoNotStrip
+class MyComponentsRegistry @DoNotStrip private constructor(componentFactory: ComponentFactory) {
+  companion object {
+    @DoNotStrip
+    fun register(componentFactory: ComponentFactory): MyComponentsRegistry {
+      return MyComponentsRegistry(componentFactory)
+    }
+
+    init {
+      SoLoader.loadLibrary("fabricjni")
+    }
+  }
+
+  @DoNotStrip private val mHybridData: HybridData
+  @DoNotStrip private external fun initHybrid(componentFactory: ComponentFactory): HybridData
+
+  init {
+    mHybridData = initHybrid(componentFactory)
+  }
+}
+```
+
+</TabItem>
+
+</Tabs>
+
 4. **Register your custom Fabric Component Registry**
 
 Finally, let’s edit the `getJSIModulePackage` from the `ReactNativeHost` to also register your Component Registry alongside the Core one:
+
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+
+<TabItem value="java">
 
 ```java
 public class MyApplication extends Application implements ReactApplication {
@@ -309,6 +528,51 @@ public class MyApplication extends Application implements ReactApplication {
   };
 }
 ```
+
+</TabItem>
+
+<TabItem value="kotlin">
+
+```kotlin
+class MyApplication() : Application(), ReactApplication {
+  private val mReactNativeHost: ReactNativeHost =
+      object : ReactNativeHost(this) {
+
+        @get:Nullable
+        protected val jSIModulePackage: JSIModulePackage
+          protected get() =
+              object : JSIModulePackage() {
+                fun getJSIModules(
+                    reactApplicationContext: ReactApplicationContext?,
+                    jsContext: JavaScriptContextHolder?
+                ): List<JSIModuleSpec> {
+                  val specs: MutableList<JSIModuleSpec> = ArrayList()
+                  specs.add(
+                      object : JSIModuleSpec() {
+
+                        // ..
+                        val jSIModuleProvider: JSIModuleProvider<UIManager>
+                          get() {
+                            val componentFactory: ComponentFactory = ComponentFactory()
+                            CoreComponentsRegistry.register(componentFactory)
+
+                            // Add this line just below
+                            // CoreComponentsRegistry.register
+                            MyComponentsRegistry.register(componentFactory)
+
+                            // ...
+                          }
+                      })
+                  return specs
+                }
+              }
+      }
+}
+```
+
+</TabItem>
+
+</Tabs>
 
 ### Native/C++ Changes
 
