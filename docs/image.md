@@ -446,6 +446,14 @@ A unique identifier for this element to be used in UI Automation testing scripts
 | ------ |
 | string |
 
+### `tintColor`
+
+Changes the color of all non-transparent pixels to the `tintColor`.
+
+| Type               |
+| ------------------ |
+| [color](colors.md) |
+
 ## Methods
 
 ### `abortPrefetch()` <div class="label android">Android</div>

@@ -199,6 +199,7 @@ See the [Android `View` docs](http://developer.android.com/reference/android/vie
 - `'tablist'` - Used to represent a list of tabs.
 - `'timer'` - Used to represent a timer.
 - `'toolbar'` - Used to represent a tool bar (a container of action buttons or components).
+- `'grid'` - Used with ScrollView, VirtualizedList, FlatList, or SectionList to represent a grid. Adds the in/out of grid announcements to the android GridView.
 
 | Type   |
 | ------ |
@@ -606,6 +607,20 @@ Rasterization incurs an off-screen drawing pass and the bitmap consumes memory. 
 | Type                           |
 | ------------------------------ |
 | [View Style](view-style-props) |
+
+---
+
+### `tabIndex` <div class="label android">Android</div>
+
+Whether this `View` should be focusable with a non-touch input device, eg. receive focus with a hardware keyboard.
+Supports the following values:
+
+- `0` - View is focusable
+- `-1` - View is not focusable
+
+| Type        |
+| ----------- |
+| enum(0, -1) |
 
 ---
 

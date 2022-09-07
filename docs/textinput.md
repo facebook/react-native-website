@@ -321,6 +321,30 @@ If `true`, the keyboard disables the return key when there is no text and automa
 
 ---
 
+### `enterKeyHint`
+
+Determines what text should be shown to the return key. Has precedence over the `returnKeyType` prop.
+
+The following values work across platforms:
+
+- `enter`
+- `done`
+- `next`
+- `search`
+- `send`
+
+_Android Only_
+
+The following values work on Android only:
+
+- `previous`
+
+| Type                                                        |
+| ----------------------------------------------------------- |
+| enum('enter', 'done', 'next', 'previous', 'search', 'send') |
+
+---
+
 ### `importantForAutofill` <div class="label android">Android</div>
 
 Tells the operating system whether the individual fields in your app should be included in a view structure for autofill purposes on Android API Level 26+. Possible values are `auto`, `no`, `noExcludeDescendants`, `yes`, and `yesExcludeDescendants`. The default value is `auto`.
@@ -370,6 +394,27 @@ An optional identifier which links a custom [InputAccessoryView](inputaccessoryv
 | Type   |
 | ------ |
 | string |
+
+---
+
+### `inputMode`
+
+Works like the `inputmode` attribute in HTML, it determines which keyboard to open, e.g. `numeric` and has precedence over `keyboardType`.
+
+Support the following values:
+
+- `none`
+- `text`
+- `decimal`
+- `numeric`
+- `tel`
+- `search`
+- `email`
+- `url`
+
+| Type                                                                        |
+| --------------------------------------------------------------------------- |
+| enum('decimal', 'email', 'none', 'numeric', 'search', 'tel', 'text', 'url') |
 
 ---
 
@@ -625,6 +670,16 @@ The text color of the placeholder string.
 
 ---
 
+### `readOnly`
+
+If `true`, text is not editable. The default value is `false`.
+
+| Type |
+| ---- |
+| bool |
+
+---
+
 ### `returnKeyLabel` <div class="label android">Android</div>
 
 Sets the return key to the label. Use it instead of `returnKeyType`.
@@ -678,6 +733,16 @@ If `true`, allows TextInput to pass touch events to the parent component. This a
 | Type |
 | ---- |
 | bool |
+
+---
+
+### `rows` <div class="label android">Android</div>
+
+Sets the number of lines for a `TextInput`. Use it with multiline set to `true` to be able to fill the lines.
+
+| Type   |
+| ------ |
+| number |
 
 ---
 
