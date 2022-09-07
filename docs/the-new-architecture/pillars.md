@@ -1,6 +1,6 @@
 ---
 id: pillars
-title: What Compose the New Architecture
+title: What Composes the New Architecture
 ---
 
 import NewArchitectureWarning from '../\_markdown-new-architecture-warning.mdx';

@@ -414,7 +414,7 @@ const styles = StyleSheet.create({
 
 In this example when the View is pressed there is a `setNativeProps` call to update the style and accessibility props of the component. To migrate this component it’s important to understand its current behavior using `setNativeProps`.
 
-### Pre-Fabric, Component Props Persist
+#### Pre-Fabric, Component Props Persist
 
 On first render, the component props are those declared in the render function. After the View is pressed `_onSubmit` calls `setNativeProps` with updated prop values.
 The resulting component can be represented as such:
@@ -437,7 +437,7 @@ Note that all prop values set in the render function are unchanged even though `
 
 The fact that React Native stores some internal state of each component that isn’t explicitly declared in last render is what Fabric intends to fix.
 
-### Moving `setNativeProps` to state
+#### Moving `setNativeProps` to state
 
 Taking those caveats into account, a proper migration would look like this:
 
@@ -588,7 +588,7 @@ Note:
 - The command definition is co-located with the native component. This is an encouraged pattern
 - Ensure you have included your command name in `supportedCommands` array
 
-### Using Your Command
+#### Using Your Command
 
 ```tsx
 import {Commands, ... } from './MyCustomMapNativeComponent';
@@ -614,7 +614,7 @@ class MyComponent extends React.Component<Props> {
 }
 ```
 
-### Updating Native implementation
+#### Updating Native implementation
 
 In the example the code-generated `Commands` will dispatch `moveToRegion` call to the native component’s view manager. In addition to writing the JS interface, you’ll need to update your native implementation signatures to match the dispatched method call. See the mapping for [Android argument types](https://facebook.github.io/react-native/docs/native-modules-android#argument-types) and[iOS argument types](https://facebook.github.io/react-native/docs/native-modules-ios#argument-types) for reference.
 

@@ -210,7 +210,7 @@ Post a string to be announced by the screen reader with modification options. By
 static getRecommendedTimeoutMillis(originalTimeout)
 ```
 
-Gets the timeout in millisecond that the user needs.  
+Gets the timeout in millisecond that the user needs.
 This value is set in "Time to take action (Accessibility timeout)" of "Accessibility" settings.
 
 **Parameters:**
@@ -290,6 +290,16 @@ static isScreenReaderEnabled()
 ```
 
 Query whether a screen reader is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when a screen reader is enabled and `false` otherwise.
+
+---
+
+### `prefersCrossFadeTransitions()` <div class="label ios">iOS</div>
+
+```jsx
+static prefersCrossFadeTransitions()
+```
+
+Query whether reduce motion and prefer cross-fade transitions settings are currently enabled. Returns a promise which resolves to a boolean. The result is `true` when prefer cross-fade transitions is enabled and `false` otherwise.
 
 ---
 
