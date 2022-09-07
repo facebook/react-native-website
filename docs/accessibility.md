@@ -133,7 +133,7 @@ In the above example method `addOne` changes the state variable `count`. As soon
 
 `accessibilityRole` can be one of the following:
 
-- **adjustable** Used when an element can be "adjusted" (e.g. a slider).
+- **adjustable** Used when an element can be "adjusted" (e.g. a slider, seekcontrol).
 - **alert** Used when an element contains important text to be presented to the user (Android).
 - **button** Used when the element should be treated as a button.
 - **dropdownlist** Used to represent a dropdownlist. A view that displays one child at a time and lets the user pick among them. The items in the Spinner come from the Adapter associated with this view, for more information refer to (Android).
