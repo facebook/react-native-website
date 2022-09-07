@@ -34,6 +34,7 @@ app/build/generated/source/codegen
 │               └── NativeAwesomeManagerSpec.java
 ├── jni
 │   ├── Android.mk
+│   ├── CMakeLists.txt
 │   ├── react
 │   │   └── renderer
 │   │       └── components
