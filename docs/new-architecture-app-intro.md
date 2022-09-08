@@ -219,6 +219,7 @@ After upgrading the project, there are a few changes you need to apply:
 ```diff
 - platform :ios, '11.0'
 + platform :ios, '12.4'
++ install! 'cocoapods', :deterministic_uuids => false
 ```
 
 3. Create an `.xcode.env` file to export the locaion of the NODE_BINARY. Navigate to the `ios` folder and run this command:
