@@ -12,14 +12,14 @@ import NewArchitectureWarning from '../\_markdown-new-architecture-warning.mdx';
 <NewArchitectureWarning/>
 
 :::info
-The creation of a backward compatible Fabric Component requires the knowledge of how to create a Fabric Component. To recall these concepts, have a look at this [guide](pillars-fabric-components).
+Creating a backward compatible Fabric Component requires the knowledge of how to create a Fabric Component. To recall these concepts, have a look at this [guide](pillars-fabric-components).
 
-Fabric Components only work when the New Architecture is properly setup. If you already have a library that you want to migrate to the New Architecture, have a look at the [migration guide](../new-architecture-intro) as well.
+Fabric Components only work when the New Architecture is properly set up. If you already have a library that you want to migrate to the New Architecture, have a look at the [migration guide](../new-architecture-intro) as well.
 :::
 
-Creating a backward compatible Fabric Component lets your users continue leverage your library, independently from the architecture they use. The creation of such a component requires a few steps:
+Creating a backward compatible Fabric Component lets your users continue to leverage your library independently from the architecture they use. The creation of such a component requires a few steps:
 
-1. Configure the library so that dependencies are prepared set up properly for both the Old and the New Architecture.
+1. Configure the library so that dependencies are prepared to set up properly for both the Old and the New Architecture.
 1. Update the codebase so that the New Architecture types are not compiled when not available.
 1. Uniform the JavaScript API so that your user code won't need changes.
 
@@ -31,7 +31,7 @@ While the last step is the same for all the platforms, the first two steps are d
 
 ### <a name="dependencies-ios" />iOS
 
-The Apple platform installs Fabric Components using [Cocoapods](https://cocoapods.org) as dependency manager.
+The Apple platform installs Fabric Components using [Cocoapods](https://cocoapods.org) as a dependency manager.
 
 Every Fabric Component defines a `podspec` that looks like this:
 
@@ -107,7 +107,7 @@ This `if` guard prevents the dependencies from being installed when the environm
 To create a module that can work with both architectures, you need to configure Gradle to choose which files need to be compiled depending on the chosen architecture. This can be achieved by using **different source sets** in the Gradle configuration.
 
 :::note
-Please note that this is currently the suggested approach. While it might lead to some code duplication, it will ensure the maximum compatibility with both architectures. You will see how to reduce the duplication in the next section.
+Please note that this is currently the suggested approach. While it might lead to some code duplication, it will ensure maximum compatibility with both architectures. You will see how to reduce the duplication in the next section.
 :::
 
 To configure the Fabric Component so that it picks the proper sourceset, you have to update the `build.gradle` file in the following way:
@@ -136,11 +136,11 @@ defaultConfig {
 }
 ```
 
-This changes do three main things:
+These changes do three main things:
 
 1. The first lines define a function that returns whether the New Architecture is enabled or not.
 2. The `buildConfigField` line defines a build configuration boolean field called `IS_NEW_ARCHITECTURE_ENABLED`, and initialize it using the function declared in the first step. This allows you to check at runtime if a user has specified the `newArchEnabled` property or not.
-3. The last lines leverage the function declared in step one to decide which source sets we need to build, depending on the choosen architecture.
+3. The last lines leverage the function declared in step one to decide which source sets we need to build, depending on the chosen architecture.
 
 ## Update the codebase
 
@@ -387,7 +387,7 @@ For a Fabric Component, the source of truth is the `<YourModule>NativeComponent.
 import MyComponent from 'your-component/src/index';
 ```
 
-The **goal** is to conditionally `export` from the `index` file the proper object, given the architecture chosen by the user. We can achieve this with a code that looks like this:
+The **goal** is to conditionally `export` the proper object from the `index` file , given the architecture chosen by the user. We can achieve this with a code that looks like this:
 
 <Tabs groupId="fabric-component-backward-compatibility"
       defaultValue={constants.defaultFabricComponentSpecLanguage}
@@ -431,5 +431,5 @@ Whether you are using Flow or TypeScript for your specs, we understand which arc
 Please note that the New Architecture is still experimental. The `global.nativeFabricUIManager` API might change in the future for a function that encapsulate this check.
 :::
 
-- If that object is `null`, the app has not enabled the Fabric feature. It's running on the Old Architecture, and the fallback is to use the default Native Components implementation ([iOS](../native-components-ios) or [Android](../native-components-android)).
-- If that object is set, the app is running with Fabric enabled and it should use the `<MyComponent>NativeComponent` spec to access the Fabric Component.
+- If that object is `null`, then the app has not enabled the Fabric feature. It's running on the Old Architecture, and the fallback is to use the default Native Components implementation ([iOS](../native-components-ios) or [Android](../native-components-android)).
+- If that object is set, the app is running with Fabric enabled, and it should use the `<MyComponent>NativeComponent` spec to access the Fabric Component.

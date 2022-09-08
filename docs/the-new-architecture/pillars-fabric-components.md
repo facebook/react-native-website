@@ -12,7 +12,7 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import con
 A Fabric Component is a UI component rendered on the screen using the [Fabric Renderer](https://reactnative.dev/architecture/fabric-renderer). Using Fabric Components instead of Native Components allows us to reap all the [benefits](./why) of the **New Architecture**:
 
 - Strongly typed interfaces that are consistent across platforms.
-- The ability to write your code in C++, either exclusively or integrated with another native platform language, reducing the need to duplicate implementations across platforms.
+- The ability to write your code in C++, either exclusively or integrated with another native platform language, hence reducing the need to duplicate implementations across platforms.
 - The use of JSI, a JavaScript interface for native code, which allows for more efficient communication between native and JavaScript code than the bridge.
 
 A Fabric Component is created starting from a **JavaScript specification**. Then [**Codegen**](./pillars-codegen) creates some C++ scaffolding code to connect the component-specific logic (for example, accessing some native platform capability) to the rest of the React Native infrastructure. The C++ code is the same for all the platforms. Once the component is properly connected with the scaffolding code, it is ready to be imported and used by an app.
@@ -32,17 +32,17 @@ To create a Fabric Component, you have to follow these steps:
 2. Configure the component so that **Codegen** can create the shared code and it can be added as a dependency for an app.
 3. Write the required native code.
 
-Once these steps are done, the component is ready to be consumed by an app. The guide shows how to add it to an app, leveraging _autolinking_, and how to reference it from the JavaScript code.
+Once these steps are done, the component is ready to be consumed by an app. The guide shows how to add it to an app by leveraging _autolinking_, and how to reference it from the JavaScript code.
 
 ## 1. Folder Setup
 
-In order to keep the component decoupled from the app, it's a good idea to define the module separately from the app, and then add it as a dependency to your app later. This is also what you'll do for writing Fabric Component that can be released as open-source libraries later.
+In order to keep the component decoupled from the app, it's a good idea to define the module separately from the app and then add it as a dependency to your app later. This is also what you'll do for writing Fabric Component that can be released as open-source libraries later.
 
 For this guide, you are going to create a Fabric Component that centers some text on the screen.
 
 Create a new folder at the same level of the app and call it `RTNCenteredText`.
 
-In this folder, create three subfolders: `js`, `ios` and `android`.
+In this folder, create three subfolders: `js`, `ios`, and `android`.
 
 The final result should look like this:
 
@@ -108,7 +108,7 @@ export default codegenNativeComponent<NativeProps>(
 </TabItem>
 </Tabs>
 
-At the beginning of the spec files, there are the imports. The most important imports, required by every Fabric Component, are:
+At the beginning of the spec files, there are the imports. The most important imports, required by every Fabric Component are:
 
 - The `HostComponent`: type the exported component needs to conform to.
 - The `codegenNativeComponent` function: responsible to actually register the component in the JavaScript runtime.
@@ -226,9 +226,9 @@ Pod::Spec.new do |s|
 end
 ```
 
-The `.podspec` file has to be a sibling of the `package.json` file and its name is the one we set in the `package.json`'s `name` property: `rtn-centered-text`.
+The `.podspec` file has to be a sibling of the `package.json` file, and its name is the one we set in the `package.json`'s `name` property: `rtn-centered-text`.
 
-The first part of the file prepares some variables we will use throughout the rest of it. Then, there is a section that contains some information used to configure the pod, like its name, version, and description. Finally, we have a set of dependencies that are required by the New Architecture.
+The first part of the file prepares some variables we will use throughout the rest of it. Then, there is a section that contains some information used to configure the pod, like its name, version, and description. Finally, we have a set of dependencies that the New Architecture requires.
 
 ### Android: `build.gradle`, `AndroidManifest.xml`, a `ReactPackage` class
 
@@ -350,9 +350,9 @@ The last step requires you to write some native code to connect the JavaScript s
 1. Run **Codegen** to see what would be generated.
 2. Write the native code that will make it work.
 
-When developing a React Native app that uses a Fabric Component, it is responsibility of the app to actually generate the code using **Codegen**. However, when developing a Fabric Component as a library, it needs to reference the generated code and it is useful to see what the app will generate.
+When developing a React Native app that uses a Fabric Component, it is the responsibility of the app to actually generate the code using **Codegen**. However, when developing a Fabric Component as a library, it needs to reference the generated code, and it is useful to see what the app will generate.
 
-As first step for both iOS and Android, this guide shows how to execute manually the scripts used by **Codegen** to generate the required code. Further information on **Codegen** can be found [here](./pillars-codegen.md)
+As the first step for both iOS and Android, this guide shows how to execute manually the scripts used by **Codegen** to generate the required code. Further information on **Codegen** can be found [here](./pillars-codegen.md).
 
 :::caution
 The code generated by **Codegen** in this step should not be committed to the versioning system. React Native apps are able to generate the code when the app is built. This allows an app to ensure that all libraries have code generated for the correct version of React Native.
@@ -456,14 +456,14 @@ RCT_EXPORT_VIEW_PROPERTY(text, NSString)
 @end
 ```
 
-This file is the manager for the Fabric Component. The manager objects are used by the React Native runtime to register the modules, the properties and the methods so that they are available to the JavaScript side.
+This file is the manager for the Fabric Component. React Native runtime uses manager objects to register the modules, properties and methods to make them available to the JavaScript side.
 
-The most important call is to the `RCT_EXPORT_MODULE` which is required to export the module so that Fabric can retrieve and instantiate it.
+The most important call is to the `RCT_EXPORT_MODULE`, which is required to export the module so that Fabric can retrieve and instantiate it.
 
 Then, you have to expose the `text` property for the Fabric Component. This is done with the `RCT_EXPORT_VIEW_PROPERTY` macro, specifying a name and a type.
 
 :::info
-There are other macros that can be used to export custom properties, emitters and other constructs. You can view the code that specifies them [here](https://github.com/facebook/react-native/blob/main/React/Views/RCTViewManager.h)
+There are other macros that can be used to export custom properties, emitters, and other constructs. You can view the code that specifies them [here](https://github.com/facebook/react-native/blob/main/React/Views/RCTViewManager.h).
 :::
 
 ##### RTNCenteredText.h
@@ -561,17 +561,17 @@ Class<RCTComponentViewProtocol> RTNCenteredTextCls(void)
 
 This file contains the actual implementation of the view.
 
-It starts with some imports which require you to read the files generated by **Codegen**.
+It starts with some imports, which require you to read the files generated by **Codegen**.
 
-The component has to conform to a specific protocol generated by **Codegen**, in this case `RCTRTNCenteredTextViewProtocol`.
+The component has to conform to a specific protocol generated by **Codegen**, in this case, `RCTRTNCenteredTextViewProtocol`.
 
-Then, the file defines a static `(ComponentDescriptorProvider)componentDescriptorProvider` method which is used by Fabric to retrieve the descriptor provider to instantiate the object.
+Then, the file defines a static `(ComponentDescriptorProvider)componentDescriptorProvider` method which Fabric uses to retrieve the descriptor provider to instantiate the object.
 
-Then, there is the constructor of the view: the `init` method. In this method, it is important to create a `defaultProps` struct using the `RTNCenteredTextProps` type from **Codegen**. You need to assign it to the private `_props` property to correctly initialize the Fabric Component. The remaining part of the initializer is standard Objective-C code to create views and layout them with AutoLayout.
+Then, there is the constructor of the view: the `init` method. In this method, it is important to create a `defaultProps` struct using the `RTNCenteredTextProps` type from **Codegen**. You need to assign it to the private `_props` to initialize the Fabric Component correctly. The remaining part of the initializer is standard Objective-C code to create views and layout them with AutoLayout.
 
 The last two pieces are the `updateProps` method and the `RTNCenteredTextCls` method.
 
-The `updateProps` method is invoked by Fabric every time a prop changes in JavaScript. The props passed as parameters are downcasted to the proper `RTNCenteredTextProps` type and then they are used to update the native code if needed. Notice that the superclass method `[super updateProps]` must be invoked as the last statement of this method, otherwise the `props` and `oldProps` struct will have the same values and you'll not be able to use them to make decisions and to update the component.
+The `updateProps` method is invoked by Fabric every time a prop changes in JavaScript. The props passed as parameters are downcasted to the proper `RTNCenteredTextProps` type, and then they are used to update the native code if needed. Notice that the superclass method `[super updateProps]` must be invoked as the last statement of this method; otherwise the `props` and `oldProps` struct will have the same values, and you'll not be able to use them to make decisions and to update the component.
 
 Finally, the `RTNCenteredTextCls` is another static method used to retrieve the correct instance of the class at runtime.
 

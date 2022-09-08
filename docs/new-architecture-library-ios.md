@@ -8,7 +8,7 @@ import NewArchitectureWarning from './\_markdown-new-architecture-warning.mdx';
 
 <NewArchitectureWarning/>
 
-You have defined the JavaScript specs for your native modules as part of the [prerequisites](new-architecture-library-intro) and you are now ready to migrate your library to the New Architecture. Here are the steps you can follow to accomplish this.
+You have defined the JavaScript specs for your native modules as part of the [prerequisites](new-architecture-library-intro), and you are now ready to migrate your library to the New Architecture. Here are the steps you can follow to accomplish this.
 
 ## 1. Updating your Podspec for the New Architecture
 
@@ -42,11 +42,11 @@ Pod::Spec.new do |s|
 end
 ```
 
-## 2. Extend or implement the code-generated native interfaces
+## 2. Extend or Implement the Code-generated Native Interfaces
 
-The JavaScript spec for your native module or component will be used to generate native interface code for each supported platform (i.e. Android and iOS). These native interface files will be generated when a React Native application that depends on your library is built.
+The JavaScript spec for your native module or component will be used to generate native interface code for each supported platform (i.e., Android and iOS). These native interface files will be generated when a React Native application that depends on your library is built.
 
-While this generated native interface code **will not ship as part of your library**, you do need to make sure your Objective-C or Java code conforms to the protocols provided by these native interface files. You can use the Codegen script to generate your library’s native interface code in order to use **as reference**.
+While this generated native interface code **will not ship as part of your library**, you do need to make sure your Objective-C or Java code conforms to the protocols provided by these native interface files. You can use the Codegen script to generate your library’s native interface code in order to use it **as reference**.
 
 ```sh
 cd <path/to/your/app>
@@ -55,7 +55,7 @@ node node_modules/react-native/scripts/generate-artifacts.js \
     --outputPath <an/output/path> \
 ```
 
-This command will generate the boilerplate code required by iOS in the output path provided as paramenter.
+This command will generate the boilerplate code required by iOS in the output path provided as a parameter.
 
 The files that are output by the script **should not be committed**, but you’ll need to refer to them to determine what changes you need to make to your native modules in order for them to provide an implementation for each generated `@protocol` / native interface.
 
@@ -83,4 +83,4 @@ RCT_EXPORT_METHOD(getString:(NSString *)string
 }
 ```
 
-For an existing native module, you will likely already have one or more instances of [`RCT_EXPORT_METHOD`](native-modules-ios#export-a-native-method-to-javascript). To migrate to the New Architecture, you’ll need to make sure the method signature makes use of the structs provided by the codegen output.
+For an existing native module, you will likely already have one or more instances of [`RCT_EXPORT_METHOD`](native-modules-ios#export-a-native-method-to-javascript). To migrate to the New Architecture, you’ll need to make sure the method signature uses the structs provided by the Codegen output.

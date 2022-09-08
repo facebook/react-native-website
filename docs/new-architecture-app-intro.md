@@ -9,11 +9,11 @@ import NewArchitectureWarning from './\_markdown-new-architecture-warning.mdx';
 
 There are a few prerequisites that should be addressed before the New Architecture is enabled in your application.
 
-## Use a React Native >= 0.68 release
+## Use a React Native >= 0.68 Release
 
 React Native released the support for the New Architecture with the release `0.68.0`.
 
-This guide is written with the expectation that you’re using the latest React Native release. At the moment of writing, this is `0.70.0`. Other than this guide, you can leverage the [upgrade helper](https://react-native-community.github.io/upgrade-helper/) to determine what other changes may be required for your project.
+This guide is written with the expectation that you’re using the latest React Native release. At the moment of writing, this is `0.70.0`. Besides this guide, you can leverage the [upgrade helper](https://react-native-community.github.io/upgrade-helper/) to determine what other changes may be required for your project.
 
 To update to the most recent version of React Native, you can run this command:
 
@@ -27,7 +27,7 @@ Starting from React Native `0.69.0`, you may also need to update the version of 
 yarn add react@18.0.0
 ```
 
-### Android specifics
+### Android Specifics
 
 Using the New Architecture on Android has some prerequisites that you need to meet:
 
@@ -139,9 +139,9 @@ task copyDownloadableDepsToLibs(type: Copy) {
 + }
 ```
 
-Finally, it’s time to update your project to use the `react-native` dependency from source, rather than using a precompiled artifact from the NPM package. This is needed as the later setup will rely on building the native code from source.
+Finally, it’s time to update your project to use the `react-native` dependency from the source rather than using a precompiled artifact from the NPM package. This is needed as the later setup will rely on building the native code from the source.
 
-Let’s edit your **module-level** `build.gradle` (the one inside `app/` folder) and change the following line:
+Let’s edit your **module-level** `build.gradle` (the one inside the `app/` folder) and change the following line:
 
 ```diff
 dependencies {
@@ -151,7 +151,7 @@ dependencies {
 
 ## Use Hermes
 
-Hermes is an open-source JavaScript engine optimized for React Native. Hermes is enabled by default and you have to explicitly disable it if you want to use JSC.
+Hermes is an open-source JavaScript engine optimized for React Native. Hermes is enabled by default, and you have to explicitly disable it if you want to use JSC.
 
 We highly recommend using Hermes in your application. With Hermes enabled, you will be able to use the JavaScript debugger in Flipper to directly debug your JavaScript code.
 
@@ -159,7 +159,7 @@ Please [follow the instructions on the React Native website](hermes) to learn ho
 
 :::caution
 
-**iOS:** If you opt out of using Hermes, you will need to replace `HermesExecutorFactory` with `JSCExecutorFactory` in any examples used throughout the rest of this guide.
+**iOS:** If you opt-out of using Hermes, you will need to replace `HermesExecutorFactory` with `JSCExecutorFactory` in any examples used throughout the rest of this guide.
 
 :::
 
@@ -201,7 +201,7 @@ cd android
 ./gradlew clean
 ```
 
-## iOS: Make the project build
+## iOS: Build the Project
 
 After upgrading the project, there are a few changes you need to apply:
 
@@ -228,7 +228,7 @@ echo 'export NODE_BINARY=$(command -v node)' > .xcode.env
 ```
 
 If you need it, you can also open the file and replace the `$(command -v node)` with the path to the node executable.
-React Native supports also a local version of this file `.xcode.env.local`. This file is not synced with the repository to let you customize your local setup, if it differs from the Continuous Integration or the team one.
+React Native also supports a local version of this file `.xcode.env.local`. This file is not synced with the repository to let you customize your local setup, if it differs from the Continuous Integration or the team one.
 
 ## iOS: Use Objective-C++ (`.mm` extension)
 
@@ -261,7 +261,7 @@ Then, declare your app delegate as a `RCTCxxBridgeDelegate` provider:
 @end
 ```
 
-To conform to the `RCTCxxBridgeDelegate` protocol, you will need to implement the `jsExecutorFactoryForBridge:` method. Typically, this is where you would return a `JSCExecutorFactory` or `HermesExecutorFactory`, and we will use it to install our TurboModules bindings later on.
+To conform to the `RCTCxxBridgeDelegate` protocol, you must implement the `jsExecutorFactoryForBridge:` method. Typically, this is where you would return a `JSCExecutorFactory` or `HermesExecutorFactory`, and we will use it to install our TurboModules bindings later on.
 
 You can implement the `jsExecutorFactoryForBridge:` method like this:
 
