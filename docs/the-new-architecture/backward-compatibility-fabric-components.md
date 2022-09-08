@@ -1,6 +1,6 @@
 ---
 id: backward-compatibility-fabric-components
-title: Fabric Components as Native Components
+title: Fabric Components as Legacy Native Components
 ---
 
 import Tabs from '@theme/Tabs';
@@ -12,28 +12,35 @@ import NewArchitectureWarning from '../\_markdown-new-architecture-warning.mdx';
 <NewArchitectureWarning/>
 
 :::info
-Creating a backward compatible Fabric Component requires the knowledge of how to create a Fabric Component. To recall these concepts, have a look at this [guide](pillars-fabric-components).
+Creating a backward compatible Fabric Native Component requires the knowledge of how to create a Legacy Native Component. To recall these concepts, have a look at this [guide](pillars-fabric-components).
 
-Fabric Components only work when the New Architecture is properly set up. If you already have a library that you want to migrate to the New Architecture, have a look at the [migration guide](../new-architecture-intro) as well.
+Fabric Native Components only work when the New Architecture is properly set up. If you already have a library that you want to migrate to the New Architecture, have a look at the [migration guide](../new-architecture-intro) as well.
 :::
 
-Creating a backward compatible Fabric Component lets your users continue to leverage your library independently from the architecture they use. The creation of such a component requires a few steps:
+Creating a backward compatible Fabric Native Component lets your users continue to leverage your library independently from the architecture they use. The creation of such a component requires a few steps:
 
 1. Configure the library so that dependencies are prepared to set up properly for both the Old and the New Architecture.
 1. Update the codebase so that the New Architecture types are not compiled when not available.
 1. Uniform the JavaScript API so that your user code won't need changes.
 
+:::info
+For the sake of this guide we're going to use the following **terminology**:
+
+- **Legacy Native Components** - To refer to Components which are running on the old React Native architecture.
+- **Fabric Native Components** - To refer to Components which have been adapted to work well with the New Native Renderer, Fabric. For brevity you might find them referred as **Fabric Components**.
+  :::
+
 <BetaTS />
 
 While the last step is the same for all the platforms, the first two steps are different for iOS and Android.
 
-## Configure the Fabric Component Dependencies
+## Configure the Fabric Native Component Dependencies
 
 ### <a name="dependencies-ios" />iOS
 
-The Apple platform installs Fabric Components using [Cocoapods](https://cocoapods.org) as a dependency manager.
+The Apple platform installs Fabric Native Components using [Cocoapods](https://cocoapods.org) as a dependency manager.
 
-Every Fabric Component defines a `podspec` that looks like this:
+Every Fabric Native Component defines a `podspec` that looks like this:
 
 ```ruby
 require "json"
@@ -104,13 +111,13 @@ This `if` guard prevents the dependencies from being installed when the environm
 
 ### Android
 
-To create a module that can work with both architectures, you need to configure Gradle to choose which files need to be compiled depending on the chosen architecture. This can be achieved by using **different source sets** in the Gradle configuration.
+To create a Native Component that can work with both architectures, you need to configure Gradle to choose which files need to be compiled depending on the chosen architecture. This can be achieved by using **different source sets** in the Gradle configuration.
 
 :::note
 Please note that this is currently the suggested approach. While it might lead to some code duplication, it will ensure maximum compatibility with both architectures. You will see how to reduce the duplication in the next section.
 :::
 
-To configure the Fabric Component so that it picks the proper sourceset, you have to update the `build.gradle` file in the following way:
+To configure the Fabric Native Component so that it picks the proper sourceset, you have to update the `build.gradle` file in the following way:
 
 ```diff title="build.gradle"
 +// Add this function in case you don't have it already
@@ -148,7 +155,7 @@ These changes do three main things:
 
 The second step is to instruct Xcode to avoid compiling all the lines using the New Architecture types and files when we are building an app with the Old Architecture.
 
-A Fabric Component requires an header file and an implementation file to add the actual `View` to the module.
+A Fabric Native Component requires an header file and an implementation file to add the actual `View` to the module.
 
 For example, the `RNMyComponentView.h` header file could look like this:
 
@@ -236,15 +243,15 @@ As we can't use conditional compilation blocks on Android, we will define two di
 
 Therefore, you have to:
 
-1. Create a Native Component in the `src/oldarch` path. See [this guide](../native-components-android) to learn how to create a Native Component.
-2. Create a Fabric Component in the `src/newarch` path. See [this guide](pillars-fabric-components) to learn how to create a Fabric Component.
+1. Create a Legacy Native Component in the `src/oldarch` path. See [this guide](../native-components-android) to learn how to create a Legacy Native Component.
+2. Create a Fabric Native Component in the `src/newarch` path. See [this guide](pillars-fabric-components) to learn how to create a Fabric Native Component.
 
 and then instruct Gradle to decide which implementation to pick.
 
-Some files can be shared between a Native and a Fabric Component: these should be created or moved into a folder that is loaded by both the architectures. These files are:
+Some files can be shared between a Legacy and a Fabric Component: these should be created or moved into a folder that is loaded by both the architectures. These files are:
 
 - the `<MyComponentView>.java` that instantiate and configure the Android View for both the components.
-- the `<MyComponentView>ManagerImpl.java` file where which contains the logic of the ViewManager that can be shared between the Native and the Fabric Component.
+- the `<MyComponentView>ManagerImpl.java` file where which contains the logic of the ViewManager that can be shared between the Legacy and the Fabric Component.
 - the `<MyComponentView>Package.java` file used to load the component.
 
 The final folder structure looks like this:
@@ -275,7 +282,7 @@ my-component
 └── package.json
 ```
 
-The code that should go in the `MyComponentViewManagerImpl.java` and that can be shared between the Native Component and the Fabric Component is, for example:
+The code that should go in the `MyComponentViewManagerImpl.java` and that can be shared between the Native Component and the Fabric Native Component is, for example:
 
 ```java title="example of MyComponentViewManager.java"
 package com.MyComponent;
@@ -296,7 +303,7 @@ public class MyComponentViewManagerImpl {
 }
 ```
 
-Then, the Native Component and the Fabric Component can be updated using the function declared in the shared manager.
+Then, the Native Component and the Fabric Native Component can be updated using the function declared in the shared manager.
 
 For example, for a Native Component:
 
@@ -330,7 +337,7 @@ public class MyComponentViewManager extends SimpleViewManager<MyComponentView> {
 }
 ```
 
-And, for a Fabric Component:
+And, for a Fabric Native Component:
 
 ```java title="Fabric Component using the ViewManagerImpl"
 // Use the static NAME property from the shared implementation
@@ -381,7 +388,7 @@ For a step-by-step example on how to achieve this, have a look at [this repo](ht
 
 The last step makes sure that the JavaScript behaves transparently to chosen architecture.
 
-For a Fabric Component, the source of truth is the `<YourModule>NativeComponent.js` (or `.ts`) spec file. The app accesses the spec file like this:
+For a Fabric Native Component, the source of truth is the `<YourModule>NativeComponent.js` (or `.ts`) spec file. The app accesses the spec file like this:
 
 ```ts
 import MyComponent from 'your-component/src/index';
@@ -431,5 +438,5 @@ Whether you are using Flow or TypeScript for your specs, we understand which arc
 Please note that the New Architecture is still experimental. The `global.nativeFabricUIManager` API might change in the future for a function that encapsulate this check.
 :::
 
-- If that object is `null`, then the app has not enabled the Fabric feature. It's running on the Old Architecture, and the fallback is to use the default Native Components implementation ([iOS](../native-components-ios) or [Android](../native-components-android)).
-- If that object is set, the app is running with Fabric enabled, and it should use the `<MyComponent>NativeComponent` spec to access the Fabric Component.
+- If that object is `null`, then the app has not enabled the Fabric feature. It's running on the Old Architecture, and the fallback is to use the default Legacy Native Components implementation ([iOS](../native-components-ios) or [Android](../native-components-android)).
+- If that object is set, the app is running with Fabric enabled, and it should use the `<MyComponent>NativeComponent` spec to access the Fabric Native Component.
