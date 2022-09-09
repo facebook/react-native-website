@@ -1,6 +1,6 @@
 ---
 id: pillars-fabric-components
-title: Fabric Components
+title: Fabric Native Components
 ---
 
 import NewArchitectureWarning from '../\_markdown-new-architecture-warning.mdx';
@@ -9,24 +9,24 @@ import NewArchitectureWarning from '../\_markdown-new-architecture-warning.mdx';
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
-A Fabric Component is a UI component rendered on the screen using the [Fabric Renderer](https://reactnative.dev/architecture/fabric-renderer). Using Fabric Components instead of Native Components allows us to reap all the [benefits](./why) of the **New Architecture**:
+A Fabric Native Component is a Native Component rendered on the screen using the [Fabric Renderer](https://reactnative.dev/architecture/fabric-renderer). Using Fabric Native Components instead of Legacy Native Components allows us to reap all the [benefits](./why) of the **New Architecture**:
 
 - Strongly typed interfaces that are consistent across platforms.
 - The ability to write your code in C++, either exclusively or integrated with another native platform language, hence reducing the need to duplicate implementations across platforms.
 - The use of JSI, a JavaScript interface for native code, which allows for more efficient communication between native and JavaScript code than the bridge.
 
-A Fabric Component is created starting from a **JavaScript specification**. Then [**Codegen**](./pillars-codegen) creates some C++ scaffolding code to connect the component-specific logic (for example, accessing some native platform capability) to the rest of the React Native infrastructure. The C++ code is the same for all the platforms. Once the component is properly connected with the scaffolding code, it is ready to be imported and used by an app.
+A Fabric Native Component is created starting from a **JavaScript specification**. Then [**Codegen**](./pillars-codegen) creates some C++ scaffolding code to connect the component-specific logic (for example, accessing some native platform capability) to the rest of the React Native infrastructure. The C++ code is the same for all the platforms. Once the component is properly connected with the scaffolding code, it is ready to be imported and used by an app.
 
-The following section guides you through the creation of a Fabric Component, step-by-step, targeting React Native 0.70.0.
+The following section guides you through the creation of a Fabric Native Component, step-by-step, targeting React Native 0.70.0.
 
 :::caution
-Fabric Components only works with the **New Architecture** enabled.
+Fabric Native Components only works with the **New Architecture** enabled.
 To migrate to the **New Architecture**, follow the [Migration guide](../new-architecture-intro)
 :::
 
-## How to Create a Fabric Components
+## How to Create a Fabric Native Components
 
-To create a Fabric Component, you have to follow these steps:
+To create a Fabric Native Component, you have to follow these steps:
 
 1. Define a set of JavaScript specifications.
 2. Configure the component so that **Codegen** can create the shared code and it can be added as a dependency for an app.
@@ -36,9 +36,9 @@ Once these steps are done, the component is ready to be consumed by an app. The 
 
 ## 1. Folder Setup
 
-In order to keep the component decoupled from the app, it's a good idea to define the module separately from the app and then add it as a dependency to your app later. This is also what you'll do for writing Fabric Component that can be released as open-source libraries later.
+In order to keep the component decoupled from the app, it's a good idea to define the module separately from the app and then add it as a dependency to your app later. This is also what you'll do for writing Fabric Native Component that can be released as open-source libraries later.
 
-For this guide, you are going to create a Fabric Component that centers some text on the screen.
+For this guide, you are going to create a Fabric Native Component that centers some text on the screen.
 
 Create a new folder at the same level of the app and call it `RTNCenteredText`.
 
@@ -108,7 +108,7 @@ export default codegenNativeComponent<NativeProps>(
 </TabItem>
 </Tabs>
 
-At the beginning of the spec files, there are the imports. The most important imports, required by every Fabric Component are:
+At the beginning of the spec files, there are the imports. The most important imports, required by every Fabric Native Component are:
 
 - The `HostComponent`: type the exported component needs to conform to.
 - The `codegenNativeComponent` function: responsible to actually register the component in the JavaScript runtime.
@@ -119,7 +119,7 @@ Finally, the spec file exports the returned value of the `codegenNativeComponent
 
 :::caution
 The JavaScript files imports types from libraries, without setting up a proper node module and installing its dependencies. The outcome of this is that the IDE may have troubles resolving the import statements and it can output errors and warnings.
-These will disappear as soon as the Fabric Component is added as a dependency of a React Native app.
+These will disappear as soon as the Fabric Native Component is added as a dependency of a React Native app.
 :::
 
 ## 3. Component Configuration
@@ -136,7 +136,7 @@ The shared configuration is a `package.json` file that will be used by yarn when
 {
   "name": "rtn-centered-text",
   "version": "0.0.1",
-  "description": "Showcase a Fabric Component with a centered text",
+  "description": "Showcase a Fabric Native Component with a centered text",
   "react-native": "js/index",
   "source": "js/index",
   "files": [
@@ -178,7 +178,7 @@ Then there are the dependencies for this package. For this guide, you need `reac
 Finally, the **Codegen** configuration is specified by the `codegenConfig` field. It contains an array of libraries, each of which is defined by three other fields:
 
 - `name`: The name of the library. By convention, you should add the `Spec` suffix.
-- `type`: The type of module contained by this package. In this case, it is a Fabric Component, thus the value to use is `components`.
+- `type`: The type of module contained by this package. In this case, it is a Fabric Native Component, thus the value to use is `components`.
 - `jsSrcsDir`: the relative path to access the `js` specification that is parsed by **Codegen**.
 
 ### iOS: Create the `.podspec` file
@@ -350,7 +350,7 @@ The last step requires you to write some native code to connect the JavaScript s
 1. Run **Codegen** to see what would be generated.
 2. Write the native code that will make it work.
 
-When developing a React Native app that uses a Fabric Component, it is the responsibility of the app to actually generate the code using **Codegen**. However, when developing a Fabric Component as a library, it needs to reference the generated code, and it is useful to see what the app will generate.
+When developing a React Native app that uses a Fabric Native Component, it is the responsibility of the app to actually generate the code using **Codegen**. However, when developing a Fabric Component as a library, it needs to reference the generated code, and it is useful to see what the app will generate.
 
 As the first step for both iOS and Android, this guide shows how to execute manually the scripts used by **Codegen** to generate the required code. Further information on **Codegen** can be found [here](./pillars-codegen.md).
 
@@ -456,11 +456,11 @@ RCT_EXPORT_VIEW_PROPERTY(text, NSString)
 @end
 ```
 
-This file is the manager for the Fabric Component. React Native runtime uses manager objects to register the modules, properties and methods to make them available to the JavaScript side.
+This file is the manager for the Fabric Native Component. React Native runtime uses manager objects to register the modules, properties and methods to make them available to the JavaScript side.
 
 The most important call is to the `RCT_EXPORT_MODULE`, which is required to export the module so that Fabric can retrieve and instantiate it.
 
-Then, you have to expose the `text` property for the Fabric Component. This is done with the `RCT_EXPORT_VIEW_PROPERTY` macro, specifying a name and a type.
+Then, you have to expose the `text` property for the Fabric Native Component. This is done with the `RCT_EXPORT_VIEW_PROPERTY` macro, specifying a name and a type.
 
 :::info
 There are other macros that can be used to export custom properties, emitters, and other constructs. You can view the code that specifies them [here](https://github.com/facebook/react-native/blob/main/React/Views/RCTViewManager.h).
@@ -567,7 +567,7 @@ The component has to conform to a specific protocol generated by **Codegen**, in
 
 Then, the file defines a static `(ComponentDescriptorProvider)componentDescriptorProvider` method which Fabric uses to retrieve the descriptor provider to instantiate the object.
 
-Then, there is the constructor of the view: the `init` method. In this method, it is important to create a `defaultProps` struct using the `RTNCenteredTextProps` type from **Codegen**. You need to assign it to the private `_props` to initialize the Fabric Component correctly. The remaining part of the initializer is standard Objective-C code to create views and layout them with AutoLayout.
+Then, there is the constructor of the view: the `init` method. In this method, it is important to create a `defaultProps` struct using the `RTNCenteredTextProps` type from **Codegen**. You need to assign it to the private `_props` to initialize the Fabric Native Component correctly. The remaining part of the initializer is standard Objective-C code to create views and layout them with AutoLayout.
 
 The last two pieces are the `updateProps` method and the `RTNCenteredTextCls` method.
 
@@ -576,7 +576,7 @@ The `updateProps` method is invoked by Fabric every time a prop changes in JavaS
 Finally, the `RTNCenteredTextCls` is another static method used to retrieve the correct instance of the class at runtime.
 
 :::caution
-Differently from Native Components, Fabric requires to manually implement the `updateProps` method. It's not enough to export properties with the `RCT_EXPORT_XXX` and `RCT_REMAP_XXX` macros.
+Differently from Legacy Native Components, Fabric requires to manually implement the `updateProps` method. It's not enough to export properties with the `RCT_EXPORT_XXX` and `RCT_REMAP_XXX` macros.
 :::
 
 ### Android
@@ -630,13 +630,13 @@ codegen
 └── schema.json
 ```
 
-You can see that the content of the `codegen/jni/react/renderer/components/RTNCenteredTextSpecs` looks similar to the files created by the iOS counterpart. The `Android.mk` and `CMakeList.txt` files configure the Fabric Component in the app, while the `RTNCenteredTextManagerDelegate.java` and `RTNCenteredTextManagerInterface.java` files are meant use in your manager.
+You can see that the content of the `codegen/jni/react/renderer/components/RTNCenteredTextSpecs` looks similar to the files created by the iOS counterpart. The `Android.mk` and `CMakeList.txt` files configure the Fabric Native Component in the app, while the `RTNCenteredTextManagerDelegate.java` and `RTNCenteredTextManagerInterface.java` files are meant use in your manager.
 
 See the [Codegen](./pillars-codegen) section for further details on the generated files.
 
 #### Write the Native Android Code
 
-The native code for the Android side of a Fabric Components requires three pieces:
+The native code for the Android side of a Fabric Native Components requires three pieces:
 
 1. A `RTNCenteredText.java` that represents the actual view.
 2. A `RTNCenteredTextManager.java` to instantiate the view.
@@ -788,11 +788,11 @@ public class RTNCenteredTextPackage implements ReactPackage {
 }
 ```
 
-The added lines instantiate a new `RTNCenteredTextManager` object so that the React Native runtime can use it to render our Fabric Component.
+The added lines instantiate a new `RTNCenteredTextManager` object so that the React Native runtime can use it to render our Fabric Native Component.
 
-## 5. Adding the Fabric Component To Your App
+## 5. Adding the Fabric Native Component To Your App
 
-This is the last step to finally see your Fabric Component running on your app.
+This is the last step to finally see your Fabric Native Component running on your app.
 
 ### Shared
 
