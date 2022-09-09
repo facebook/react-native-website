@@ -113,7 +113,7 @@ LOG Running "App" with {"fabric":true,"initialProps":{},"rootTag":1}
 
 ## Migrating Android ViewManagers
 
-First, make sure you followed the instructions to [Enabling the New Renderer (Fabric) in Your Android Application](#enabling-the-new-renderer-fabric-in-your-android-application). Plus we will also assume that you followed the instructions from [Enabling the New NativeModule System (Turbo Module) in Your Android Application](#enabling-the-new-nativemodule-system-turbomodule-in-your-android-application) as the native builds setup steps are presented over there and won’t be repeated here.
+First, make sure you followed the instructions to [Enabling the New Renderer (Fabric) in Your Android Application](#enabling-the-new-renderer-fabric-in-your-android-application). Plus we will also assume that you followed the instructions from [Enabling the New NativeModule System (TurboModule) in Your Android Application](#enabling-the-new-nativemodule-system-turbomodule-in-your-android-application) as the native builds setup steps are presented over there and won’t be repeated here.
 
 ### JavaScript changes
 

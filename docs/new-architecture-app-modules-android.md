@@ -100,7 +100,7 @@ yarn react-native run-android
 
 ## 2. Java/Kotlin - Provide a `ReactPackageTurboModuleManagerDelegate`
 
-Now is time to actually use the Turbo Native Module.
+Now is time to actually use the TurboModule.
 First, we will need to create a `ReactPackageTurboModuleManagerDelegate` subclass, like the following:
 
 <Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
@@ -193,7 +193,7 @@ protected constructor(
 
 Please note that the `SoLoader.loadLibrary` parameter (in this case `"myapplication_appmodules")` should be the same as the one specified for `project()` inside the `CMakeLists.txt` file you created before.
 
-This class will then be responsible of loading the Turbo Native Modules and will take care of loading the native library build with the NDK at runtime.
+This class will then be responsible of loading the TurboModules and will take care of loading the native library build with the NDK at runtime.
 
 ## 3. Adapt your `ReactNativeHost` to use the `ReactPackageTurboModuleManagerDelegate`
 
@@ -259,7 +259,7 @@ class MyApplication : Application(), ReactApplication {
 
 ## 4. Extend the `getPackages()` from your `ReactNativeHost` to use the TurboModule
 
-Still on the `ReactNativeHost` , we need to extend the the `getPackages()` method to include the newly created Turbo Native Module. Update the method to include the following:
+Still on the `ReactNativeHost` , we need to extend the the `getPackages()` method to include the newly created TurboModule. Update the method to include the following:
 
 <Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
 <TabItem value="java">
@@ -493,7 +493,7 @@ std::shared_ptr<TurboModule> MyApplicationModuleProvider(const std::string modul
 Please adapt the `samplelibrary.h` import to match the same library name you provided when building the apps.
 This is the C++ generated file that is created by the codegen.
 
-Here you can also specify more than one provider, should you have more than one Turbo Native Module. Specifically in this example we look for a Turbo Native Module from `samplelibrary` (the one we specified) and we fallback to the `rncore` Module Provider (containing all the Core modules).
+Here you can also specify more than one provider, should you have more than one TurboModule. Specifically in this example we look for a TurboModule from `samplelibrary` (the one we specified) and we fallback to the `rncore` Module Provider (containing all the Core modules).
 
 ```cpp
 #include "MyApplicationModuleProvider.h"
@@ -532,7 +532,7 @@ JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM *vm, void *) {
 
 ## 6. Enable the `useTurboModules` flag in your Application `onCreate`
 
-Now you can finally enable the `Turbo Native Module` support in your Application. To do so, you need to turn on the `useTurboModule` flag inside your Application `onCreate` method.
+Now you can finally enable the `TurboModule `support in your Application. To do so, you need to turn on the `useTurboModule` flag inside your Application `onCreate` method.
 
 <Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
 <TabItem value="java">
