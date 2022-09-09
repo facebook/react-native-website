@@ -11,7 +11,7 @@ Make sure your application meets all the [prerequisites](new-architecture-app-in
 
 ## 1. Provide a `JSIModulePackage` inside your `ReactNativeHost`
 
-In order to enable Fabric in your app, you would need to add a `JSIModulePackage` inside your `ReactNativeHost`. If you followed the TurboModule section of this guide, you probably already know where to find your `ReactNativeHost`. If not, you can locate your `ReactNativeHost` by searching for the `getReactNativeHost()`. The `ReactNativeHost` is usually located inside your `Application` class.
+In order to enable Fabric in your app, you would need to add a `JSIModulePackage` inside your `ReactNativeHost`. If you followed the Turbo Native Module section of this guide, you probably already know where to find your `ReactNativeHost`. If not, you can locate your `ReactNativeHost` by searching for the `getReactNativeHost()`. The `ReactNativeHost` is usually located inside your `Application` class.
 
 Once you located it, you need to add the `getJSIModulePackage` method as from the snippet below:
 
@@ -113,12 +113,12 @@ LOG Running "App" with {"fabric":true,"initialProps":{},"rootTag":1}
 
 ## Migrating Android ViewManagers
 
-First, make sure you followed the instructions to [Enabling the New Renderer (Fabric) in Your Android Application](#enabling-the-new-renderer-fabric-in-your-android-application). Plus we will also assume that you followed the instructions from [Enabling the New NativeModule System (TurboModule) in Your Android Application](#enabling-the-new-nativemodule-system-turbomodule-in-your-android-application) as the native builds setup steps are presented over there and won’t be repeated here.
+First, make sure you followed the instructions to [Enabling the New Renderer (Fabric) in Your Android Application](#enabling-the-new-renderer-fabric-in-your-android-application). Plus we will also assume that you followed the instructions from [Enabling the New Native Module System (Turbo Module) in Your Android Application](#enabling-the-new-nativemodule-system-turbomodule-in-your-android-application) as the native builds setup steps are presented over there and won’t be repeated here.
 
 ### JavaScript changes
 
 1. Make sure your other JS changes are ready to go by following Preparing your JavaScript codebase for the new React Native Renderer (Fabric)
-2. Replace the call to `requireNativeComponent` with `codegenNativeComponent`. This tells the JS codegen to start generating the native implementation of the component, consisting of C++ and Java classes. This is how it looks for the WebView component:
+2. Replace the call to `requireNativeComponent` with `codegenNativeComponent`. This tells the JS codegen to start generating the native implementation of the Native Component, consisting of C++ and Java classes. This is how it looks for the WebView component:
 
 ```ts
 import codegenNativeComponent from 'react-native/Libraries/Utilities/codegenNativeComponent';
@@ -131,7 +131,7 @@ export default (codegenNativeComponent<NativeProps>(
 ): HostComponent<NativeProps>);
 ```
 
-4. **[Flow users]** Make sure your native component has Flow types for its props, since the JS codegen uses these types to generate the type-safe native implementation of the component. The codegen generates C++ classes during the build time, which guarantees that the native implementation is always up-to-date with its JS interface. Use [these c++ compatible types](https://github.com/facebook/react-native/blob/main/Libraries/Types/CodegenTypes.js#L28-L30).
+4. **[Flow users]** Make sure your Native Component has Flow types for its props, since the JS codegen uses these types to generate the type-safe native implementation of the Component. The codegen generates C++ classes during the build time, which guarantees that the native implementation is always up-to-date with its JS interface. Use [these c++ compatible types](https://github.com/facebook/react-native/blob/main/Libraries/Types/CodegenTypes.js#L28-L30).
 
 ```ts title="RNTMyNativeViewNativeComponent.js"
 import type {Int32} from 'react-native/Libraries/Types/CodegenTypes';
@@ -428,7 +428,7 @@ void MyComponentsRegistry::registerNatives() {
 
 4. **Load your file in the OnLoad.cpp**
 
-If you followed the TurboModule instructions, you should have a `OnLoad.cpp` file inside the `src/main/jni` folder. There you should add a line to load the `MyComponentsRegistry` class:
+If you followed the Turbo Native Module instructions, you should have a `OnLoad.cpp` file inside the `src/main/jni` folder. There you should add a line to load the `MyComponentsRegistry` class:
 
 ```cpp title="OnLoad.cpp"
 #include <fbjni/fbjni.h>

@@ -1,6 +1,6 @@
 ---
 id: pillars-fabric-components
-title: Fabric Components
+title: Fabric Native Components
 ---
 
 import NewArchitectureWarning from '../\_markdown-new-architecture-warning.mdx';
@@ -119,7 +119,7 @@ Finally, the spec file exports the returned value of the `codegenNativeComponent
 
 :::caution
 The JavaScript files imports types from libraries, without setting up a proper node module and installing its dependencies. The outcome of this is that the IDE may have troubles resolving the import statements and it can output errors and warnings.
-These will disappear as soon as the Fabric Component is added as a dependency of a React Native app.
+These will disappear as soon as the Fabric Native Component is added as a dependency of a React Native app.
 :::
 
 ## 3. Component Configuration
@@ -136,7 +136,7 @@ The shared configuration is a `package.json` file that will be used by yarn when
 {
   "name": "rtn-centered-text",
   "version": "0.0.1",
-  "description": "Showcase a Fabric Component with a centered text",
+  "description": "Showcase a Fabric Native Component with a centered text",
   "react-native": "js/index",
   "source": "js/index",
   "files": [
@@ -178,7 +178,7 @@ Then there are the dependencies for this package. For this guide, you need `reac
 Finally, the **Codegen** configuration is specified by the `codegenConfig` field. It contains an array of libraries, each of which is defined by three other fields:
 
 - `name`: The name of the library. By convention, you should add the `Spec` suffix.
-- `type`: The type of module contained by this package. In this case, it is a Fabric Component, thus the value to use is `components`.
+- `type`: The type of module contained by this package. In this case, it is a Fabric Native Component, thus the value to use is `components`.
 - `jsSrcsDir`: the relative path to access the `js` specification that is parsed by **Codegen**.
 
 ### iOS: Create the `.podspec` file
@@ -576,7 +576,7 @@ The `updateProps` method is invoked by Fabric every time a prop changes in JavaS
 Finally, the `RTNCenteredTextCls` is another static method used to retrieve the correct instance of the class at runtime.
 
 :::caution
-Differently from Native Components, Fabric requires to manually implement the `updateProps` method. It's not enough to export properties with the `RCT_EXPORT_XXX` and `RCT_REMAP_XXX` macros.
+Differently from Legacy Native Components, Fabric requires to manually implement the `updateProps` method. It's not enough to export properties with the `RCT_EXPORT_XXX` and `RCT_REMAP_XXX` macros.
 :::
 
 ### Android
@@ -630,13 +630,13 @@ codegen
 └── schema.json
 ```
 
-You can see that the content of the `codegen/jni/react/renderer/components/RTNCenteredTextSpecs` looks similar to the files created by the iOS counterpart. The `Android.mk` and `CMakeList.txt` files configure the Fabric Component in the app, while the `RTNCenteredTextManagerDelegate.java` and `RTNCenteredTextManagerInterface.java` files are meant use in your manager.
+You can see that the content of the `codegen/jni/react/renderer/components/RTNCenteredTextSpecs` looks similar to the files created by the iOS counterpart. The `Android.mk` and `CMakeList.txt` files configure the Fabric Native Component in the app, while the `RTNCenteredTextManagerDelegate.java` and `RTNCenteredTextManagerInterface.java` files are meant use in your manager.
 
 See the [Codegen](./pillars-codegen) section for further details on the generated files.
 
 #### Write the Native Android Code
 
-The native code for the Android side of a Fabric Components requires three pieces:
+The native code for the Android side of a Fabric Native Components requires three pieces:
 
 1. A `RTNCenteredText.java` that represents the actual view.
 2. A `RTNCenteredTextManager.java` to instantiate the view.
@@ -788,11 +788,11 @@ public class RTNCenteredTextPackage implements ReactPackage {
 }
 ```
 
-The added lines instantiate a new `RTNCenteredTextManager` object so that the React Native runtime can use it to render our Fabric Component.
+The added lines instantiate a new `RTNCenteredTextManager` object so that the React Native runtime can use it to render our Fabric Native Component.
 
-## 5. Adding the Fabric Component To Your App
+## 5. Adding the Fabric Native Component To Your App
 
-This is the last step to finally see your Fabric Component running on your app.
+This is the last step to finally see your Fabric Native Component running on your app.
 
 ### Shared
 

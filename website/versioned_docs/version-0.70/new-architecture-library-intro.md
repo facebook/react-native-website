@@ -23,7 +23,7 @@ Currently, this guide is written under the assumption that you will be using [Fl
 
 To adopt the New Architecture, you start by creating these specs for your native modules and native components. You can do this prior to actually migrating to the New Architecture: the specs will be used later on to generate native interface code for all the supported platforms, as a way to enforce uniform APIs across platforms.
 
-#### Turbomodules
+#### Turbo Native Modules
 
 JavaScript spec files **must** be named `Native<MODULE_NAME>.js` and they export a `TurboModuleRegistry` `Spec` object. The name convention is important because the Codegen process looks for modules whose `js` (`jsx`, `ts`, or `tsx`) spec file starts with the keyword `Native`.
 
@@ -70,7 +70,7 @@ export default TurboModuleRegistry.get<Spec>('<MODULE_NAME>');
 </TabItem>
 </Tabs>
 
-#### Fabric Components
+#### Fabric Native Components
 
 JavaScript spec files **must** be named `<FABRIC COMPONENT>NativeComponent.js` (for TypeScript use extension `.ts` or `.tsx`) and they export a `HostComponent` object. The name convention is important: the Codegen process looks for components whose spec file (either JavaScript or TypeScript) ends with the suffix `NativeComponent`.
 
@@ -214,7 +214,7 @@ Codegen can be configured in the `package.json` file of your Library. Add the fo
 
 - The `codegenConfig` is the key used by the Codegen to verify that there is some code to generate.
 - The `name` field, is the name of the library.
-- The `type` field is used to identify the type of module we want to create. Our suggestions is to keep `all` to support libraries that contains both TurboModule and Fabric Components.
+- The `type` field is used to identify the type of module we want to create. Our suggestion is to keep `all` to support libraries that contain both Turbo Native Module and Fabric Native Components.
 - The `jsSrcsDir` is the directory where the codegen will start looking for JavaScript specs.
 - The `android.javaPackageName` is the name of the package where the generated code wil end up.
 

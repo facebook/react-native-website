@@ -226,7 +226,7 @@ React Native supports also a local version of this file `.xcode.env.local`. This
 
 ## iOS: Use Objective-C++ (`.mm` extension)
 
-TurboModules can be written using Objective-C or C++. In order to support both cases, any source files that include C++ code should use the `.mm` file extension. This extension corresponds to Objective-C++, a language variant that allows for the use of a combination of C++ and Objective-C in source files.
+Turbo Native Modules can be written using Objective-C or C++. In order to support both cases, any source files that include C++ code should use the `.mm` file extension. This extension corresponds to Objective-C++, a language variant that allows for the use of a combination of C++ and Objective-C in source files.
 
 :::info
 
