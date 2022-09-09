@@ -114,42 +114,21 @@ In the example above, there are both a TurboModule and a set of Fabric Native Co
 
 Each folder contains two files: an interface file and an implementation file.
 
-<<<<<<< HEAD
-The interface files have the same name as that of the TurboModule and contain methods to initialize the JSI interface.
-||||||| parent of 1f97265d (Clarify New Architecture Terminology)
-The interface files have the same name of the TurboModule and they contain methods to initialize the JSI interface.
-=======
-The interface files have the same name of the Turbo Native Module and they contain methods to initialize the JSI interface.
-
-> > > > > > > 1f97265d (Clarify New Architecture Terminology)
+The interface files have the same name as that of the Turbo Native Module and contain methods to initialize the JSI interface.
 
 The implementation files, instead, have the `-generated` suffix and contain the logic to invoke the native methods from JS and vice-versa.
 
 ### Fabric Native Components
 
-<<<<<<< HEAD
-The content of each Fabric Component folder contains several files. The basic element for a Fabric Component is the `ShadowNode`: it represents a node in the React abstract tree. The `ShadowNode` represents a React entity; therefore, it could need some props, which are defined in the `Props` files and, sometimes, an `EventEmitter`, defined in the corresponding file.
-||||||| parent of 1f97265d (Clarify New Architecture Terminology)
-The content of each Fabric Component folder contains several files. The basic element for a Fabric Componenent is the `ShadowNode`: it represents a node in the React absract tree. The `ShadowNode` represents a React entity, therefore it could need some props, which are defined in the `Props` files and, sometimes, an `EventEmitter`, defined in the corresponding file.
-=======
-The content of each Fabric Native Component folder contains several files. The basic element for a Fabric Componenent is the `ShadowNode`: it represents a node in the React absract tree. The `ShadowNode` represents a React entity, therefore it could need some props, which are defined in the `Props` files and, sometimes, an `EventEmitter`, defined in the corresponding file.
+The content of each Fabric Native Component folder contains several files. The basic element for a Fabric Native Component is the `ShadowNode`: it represents a node in the React abstract tree. The `ShadowNode` represents a React entity; therefore, it could need some props, which are defined in the `Props` files and, sometimes, an `EventEmitter`, defined in the corresponding file.
 
-> > > > > > > 1f97265d (Clarify New Architecture Terminology)
-
-Additionally, the **Codegen** also creates a `ComponentDescriptor.h` and an `RCTComponentViewHelpers.h` files: the first one is used by React Native and Fabric to properly get a reference to the Native Component, while the latter contains some helper methods and protocols that can be implemented by the Native View to properly respond to JSI invocations.
+Additionally, the **Codegen** also creates a `ComponentDescriptor.h` and an `RCTComponentViewHelpers.h` files: the first one is used by React Native and Fabric to properly get a reference to the Fabric Native Component, while the latter contains some helper methods and protocols that can be implemented by the Native View to properly respond to JSI invocations.
 
 For further details about how Fabric works, have a look at the [Renderer](/architecture/fabric-renderer) section.
 
 ### RCTThirdPartyFabricComponentsProvider
 
-<<<<<<< HEAD
-These are interface and implementation files for a registry. React Native uses this registry at runtime to retrieve the right class for a required Fabric Component. Once React Native has a handle to that class, it can instantiate it.
-||||||| parent of 1f97265d (Clarify New Architecture Terminology)
-These are an interface and an implementation files for a registry. React Native uses this registry at runtime to retrieve the right class for a required Fabric Component. Once React Native has an handle to that class, it can instantiate it.
-=======
-These are an interface and an implementation files for a registry. React Native uses this registry at runtime to retrieve the right class for a required Fabric Native Component. Once React Native has an handle to that class, it can instantiate it.
-
-> > > > > > > 1f97265d (Clarify New Architecture Terminology)
+These are interface and implementation files for a registry. React Native uses this registry at runtime to retrieve the right class for a required Fabric Native Component. Once React Native has a handle to that class, it can instantiate it.
 
 # Android
 
@@ -166,14 +145,7 @@ After that, you can navigate into the `SampleApp/android` folder and run:
 ./gradlew generateCodegenArtifactsFromSchema
 ```
 
-<<<<<<< HEAD
-These tasks invoke the `generateCodegenArtifactsFromSchema` on all the the imported projects of the app (the app and all the node modules which are linked to it). It generates the code in the corresponding `node_modules/<dependency>` folder. So, for example, if you have a Fabric Component whose node module is called `my-fabric-component`, the generated code is located in the `SampleApp/node_modules/my-fabric-component/android/build/generated/source/codegen` path.
-||||||| parent of 1f97265d (Clarify New Architecture Terminology)
-This tasks invokes the `generateCodegenArtifactsFromSchema` on all the the imported projects of the app (the app and all the node modules which are linked to it). It generates the code in the corresponding `node_modules/<dependency>` folder. So, for example, if you have a Fabric Component whose node module is called `my-fabric-component`, the generated code is located in the `SampleApp/node_modules/my-fabric-component/android/build/generated/source/codegen` path.
-=======
-This tasks invokes the `generateCodegenArtifactsFromSchema` on all the the imported projects of the app (the app and all the node modules which are linked to it). It generates the code in the corresponding `node_modules/<dependency>` folder. So, for example, if you have a Fabric Native Component whose node module is called `my-fabric-component`, the generated code is located in the `SampleApp/node_modules/my-fabric-component/android/build/generated/source/codegen` path.
-
-> > > > > > > 1f97265d (Clarify New Architecture Terminology)
+These tasks invoke the `generateCodegenArtifactsFromSchema` on all the the imported projects of the app (the app and all the node modules which are linked to it). It generates the code in the corresponding `node_modules/<dependency>` folder. So, for example, if you have a Fabric Native Component whose node module is called `my-fabric-component`, the generated code is located in the `SampleApp/node_modules/my-fabric-component/android/build/generated/source/codegen` path.
 
 ## The Generated Code
 
@@ -243,14 +215,7 @@ codegen
 
 Java can't interoperate seamlessly with C++ as Objective-C++ does. To work properly, **Codegen** creates some bridging between the Java and the C++ world in the `jni` folder, where the Java Native Interfaces are defined.
 
-<<<<<<< HEAD
-Notice that both TurboModules and Fabric Components come with two build file descriptors: the `Android.mk` and the `CMakeLists.txt`. These are used by the Android app to actually build the external modules.
-||||||| parent of 1f97265d (Clarify New Architecture Terminology)
-Notice that both TurboModules and Fabric Components comes with two build file descriptors: the `Android.mk` and the `CMakeLists.txt`. These are used by the Android app to actually build the external modules.
-=======
-Notice that both Turbo Native Modules and Fabric Native Components comes with two build file descriptors: the `Android.mk` and the `CMakeLists.txt`. These are used by the Android app to actually build the external modules.
-
-> > > > > > > 1f97265d (Clarify New Architecture Terminology)
+Notice that both Turbo Native Modules and Fabric Native Components come with two build file descriptors: the `Android.mk` and the `CMakeLists.txt`. These are used by the Android app to actually build the external modules.
 
 ### Turbo Native Module
 
@@ -264,11 +229,4 @@ The **Codegen** for a Fabric Native Component contains a `MyFabricComponentManag
 
 Then, there is a layer of JNI C++ files that are used by Fabric to render the components. The basic element for a Fabric Component is the `ShadowNode`: it represents a node in the React abstract tree. The `ShadowNode` represents a React entity; therefore it could need some props, which are defined in the `Props` files and, sometimes, an `EventEmitter`, defined in the corresponding file.
 
-<<<<<<< HEAD
-The **Codegen** also creates a `ComponentDescriptor.h`, which is required to get a proper handle on the Fabric Component.
-||||||| parent of 1f97265d (Clarify New Architecture Terminology)
-The **Codegen** also creates a `ComponentDescriptor.h` which is required to get a proper handle to the Fabric Component.
-=======
-The **Codegen** also creates a `ComponentDescriptor.h` which is required to get a proper handle to the Fabric Native Component.
-
-> > > > > > > 1f97265d (Clarify New Architecture Terminology)
+The **Codegen** also creates a `ComponentDescriptor.h`, which is required to get a proper handle on the Fabric Native Component.
