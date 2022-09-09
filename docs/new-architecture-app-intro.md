@@ -13,21 +13,29 @@ There are a few prerequisites that should be addressed before the New Architectu
 
 React Native released the support for the New Architecture with the release `0.68.0`.
 
-This guide is written with the expectation that you’re using the latest React Native release. At the moment of writing, this is `0.70.0`. Besides this guide, you can leverage the [upgrade helper](https://react-native-community.github.io/upgrade-helper/) to determine what other changes may be required for your project.
+This guide is written with the expectation that you’re using the latest React Native release. At the moment of writing, this is `0.71.0`. Beside this guide, you can leverage the [upgrade helper](https://react-native-community.github.io/upgrade-helper/) to determine what other changes may be required for your project.
 
 To update to the most recent version of React Native, you can run this command:
 
 ```bash
-yarn add react-native@0.70.0
+npx react-native upgrade
 ```
 
-Starting from React Native `0.69.0`, you may also need to update the version of React to 18. You can do so by using this command:
+## Use Hermes
 
-```bash
-yarn add react@18.0.0
-```
+Hermes is an open-source JavaScript engine optimized for React Native. Hermes is enabled by default, and you have to explicitly disable it if you want to use JSC.
 
-### Android Specifics
+We highly recommend using Hermes in your application. With Hermes enabled, you can use the JavaScript debugger in Flipper to directly debug your JavaScript code.
+
+Please [follow the instructions on the React Native website](hermes) to learn how to enable/disable Hermes.
+
+:::caution
+
+**iOS:** If you opt out of using Hermes, you will need to replace `HermesExecutorFactory` with `JSCExecutorFactory` in any examples used throughout the rest of this guide.
+
+:::
+
+## Android - Update Build System
 
 Using the New Architecture on Android has some prerequisites that you need to meet:
 
@@ -149,79 +157,18 @@ dependencies {
 +  implementation project(":ReactAndroid")  // From node_modules
 ```
 
-## Use Hermes
-
-Hermes is an open-source JavaScript engine optimized for React Native. Hermes is enabled by default, and you have to explicitly disable it if you want to use JSC.
-
-We highly recommend using Hermes in your application. With Hermes enabled, you will be able to use the JavaScript debugger in Flipper to directly debug your JavaScript code.
-
-Please [follow the instructions on the React Native website](hermes) to learn how to enable/disable Hermes.
-
-:::caution
-
-**iOS:** If you opt-out of using Hermes, you will need to replace `HermesExecutorFactory` with `JSCExecutorFactory` in any examples used throughout the rest of this guide.
-
-:::
-
-### Android
-
-To enable Hermes in Android, open the `android/app/build.gradle` and apply the following changes:
-
-```diff
-project.ext.react = [
--    enableHermes: true,  // clean and rebuild if changing
-+    enableHermes: true,  // clean and rebuild if changing
-]
-// ...
-
-}
-
-if (enableHermes) {
--    def hermesPath = "../../node_modules/hermes-engine/android/";
--    debugImplementation files(hermesPath + "hermes-debug.aar")
--    releaseImplementation files(hermesPath + "hermes-release.aar")
-+    //noinspection GradleDynamicVersion
-+    implementation("com.facebook.react:hermes-engine:+") { // From node_modules
-+        exclude group:'com.facebook.fbjni'
-+    }
-} else {
-```
-
-Moreover, you'll need to update the `proguard-rules`, adding the following ones:
-
-```
--keep class com.facebook.hermes.unicode.** { *; }
--keep class com.facebook.jni.** { *; }
-```
-
-After that, remember to cleanup the project, running
-
-```sh
-cd android
-./gradlew clean
-```
-
-## iOS: Build the Project
+## iOS - Build the Project
 
 After upgrading the project, there are a few changes you need to apply:
 
-1. Fix an API change in the `AppDelegate.m`. Open this file and apply this change:
-
-```diff
-#if DEBUG
--       return [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
-+       return [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index"];
-#else
-```
-
-2. Target the proper iOS version. Open the `Podfile` and apply this change:
+1. Target the proper iOS version. Open the `Podfile` and apply this change:
 
 ```diff
 - platform :ios, '11.0'
 + platform :ios, '12.4'
 ```
 
-3. Create an `.xcode.env` file to export the locaion of the NODE_BINARY. Navigate to the `ios` folder and run this command:
+2. Create an `.xcode.env` file to export the locaion of the NODE_BINARY. Navigate to the `ios` folder and run this command:
 
 ```sh
 echo 'export NODE_BINARY=$(command -v node)' > .xcode.env
@@ -230,51 +177,83 @@ echo 'export NODE_BINARY=$(command -v node)' > .xcode.env
 If you need it, you can also open the file and replace the `$(command -v node)` with the path to the node executable.
 React Native also supports a local version of this file `.xcode.env.local`. This file is not synced with the repository to let you customize your local setup, if it differs from the Continuous Integration or the team one.
 
-## iOS: Use Objective-C++ (`.mm` extension)
+2. Fix an API change in the `AppDelegate.m`. Open this file and apply this change:
+
+```diff
+#if DEBUG
+-       return [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
++       return [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index"];
+#else
+```
+
+## iOS - Use Objective-C++ (`.mm` extension)
 
 TurboModules can be written using Objective-C or C++. In order to support both cases, any source files that include C++ code should use the `.mm` file extension. This extension corresponds to Objective-C++, a language variant that allows for the use of a combination of C++ and Objective-C in source files.
 
-:::info
+:::important
 
-Use Xcode to rename existing files to ensure file references persist in your project. You might need to clean the build folder (_Project → Clean Build Folder_) before re-building the app. If the file is renamed outside of Xcode, you may need to click on the old `.m` file reference and Locate the new file.
+**Use Xcode to rename existing files** to ensure file references persist in your project. You might need to clean the build folder (_Project → Clean Build Folder_) before re-building the app. If the file is renamed outside of Xcode, you may need to click on the old `.m` file reference and Locate the new file.
 
 :::
 
-## iOS: TurboModules: Ensure your App Provides an `RCTCxxBridgeDelegate`
+## iOS - Make your AppDelegate conform to `RCTAppDelegate`
 
-In order to set up the TurboModule system, you will add some code to interact with the bridge in your AppDelegate. Before you start, go ahead and rename your AppDelegate file to use the `.mm` extension.
+The final step to configure iOS for the New Architecture is to extend a base class proided by React Native, called `RCTAppDelegate`.
 
-Now you will have your AppDelegate conform to `RCTCxxBridgeDelegate`. Start by adding the following imports at the top of your AppDelegate file:
+This class provides a base implementation for all the required functionalities of the new architecture. If you need to customize some of them, you can override those methods, invoke `[super methodNameWith:parameters:];` collecting the returned value and customize the bits you need to customize.
 
-```objc
-#import <reacthermes/HermesExecutorFactory.h>
-#import <React/RCTCxxBridgeDelegate.h>
-#import <React/RCTJSIExecutorRuntimeInstaller.h>
-```
+1. Open the `ios/AppDelegate.h` file and update it as it follows:
 
-Then, declare your app delegate as a `RCTCxxBridgeDelegate` provider:
+```diff
+- #import <React/RCTBridgeDelegate.h>
++ #import <React-RCTAppDelegate/RCTAppDelegate.h>
+#import <UIKit/UIKit.h>
 
-```objc
-@interface AppDelegate () <RCTCxxBridgeDelegate> {
-  // ...
-}
+- @interface AppDelegate : UIResponder <UIApplicationDelegate, RCTBridgeDelegate>
++ @interface AppDelegate : RCTAppDelegate
+
+- @property (nonatomic, strong) UIWindow *window;
+
 @end
 ```
 
-To conform to the `RCTCxxBridgeDelegate` protocol, you must implement the `jsExecutorFactoryForBridge:` method. Typically, this is where you would return a `JSCExecutorFactory` or `HermesExecutorFactory`, and we will use it to install our TurboModules bindings later on.
-
-You can implement the `jsExecutorFactoryForBridge:` method like this:
+2. Open the `ios/AppDelegate.mm` file and replace its content with the following:
 
 ```objc
-#pragma mark - RCTCxxBridgeDelegate
+#import "AppDelegate.h"
+#import <React/RCTBundleURLProvider.h>
 
-- (std::unique_ptr<facebook::react::JSExecutorFactory>)jsExecutorFactoryForBridge:(RCTBridge *)bridge
+@implementation AppDelegate
+  - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  return std::make_unique<facebook::react::HermesExecutorFactory>(facebook::react::RCTJSIExecutorRuntimeInstaller([bridge](facebook::jsi::Runtime &runtime) {
-      if (!bridge) {
-        return;
-      }
-    })
-  );
+  self.moduleName = @"NameOfTheApp";
+  return [super application:application didFinishLaunchingWithOptions:launchOptions];
 }
+
+- (NSURL *)sourceURLForBridge:(RCTBridge *)bridge
+{
+#if DEBUG
+  return [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index"];
+#else
+  return [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
+#endif
+}
+
+- (BOOL)concurrentRootEnabled
+{
+  return true;
+}
+
+@end
+```
+
+:::note
+The `moduleName` has to be the same string used in the `[RCTRootView initWithBridge:moduleName:initialProperties]` call in the original `AppDelegate.mm` file.
+:::
+
+## iOS - Run pod install
+
+```bash
+// Run pod install with the flags
+RCT_NEW_ARCH_ENABLED=1 pod install
 ```

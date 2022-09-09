@@ -36,6 +36,18 @@ Edit your `android/app/build.gradle` file and make the change illustrated below:
 -     enableHermes: false  // clean and rebuild if changing
 +     enableHermes: true  // clean and rebuild if changing
   ]
+
+// ...
+
+if (enableHermes) {
+-    def hermesPath = "../../node_modules/hermes-engine/android/";
+-    debugImplementation files(hermesPath + "hermes-debug.aar")
+-    releaseImplementation files(hermesPath + "hermes-release.aar")
++    //noinspection GradleDynamicVersion
++    implementation("com.facebook.react:hermes-engine:+") { // From node_modules
++        exclude group:'com.facebook.fbjni'
++    }
+} else {
 ```
 
 Also, if you're using ProGuard, you will need to add these rules in `proguard-rules.pro` :

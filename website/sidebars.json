@@ -130,9 +130,7 @@
         "items": [
           "new-architecture-app-intro",
           "new-architecture-app-modules-android",
-          "new-architecture-app-modules-ios",
-          "new-architecture-app-renderer-android",
-          "new-architecture-app-renderer-ios"
+          "new-architecture-app-renderer-android"
         ]
       },
       "react-18-and-react-native",
