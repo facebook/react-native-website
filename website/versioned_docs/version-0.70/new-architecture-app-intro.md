@@ -18,13 +18,7 @@ This guide is written with the expectation that you’re using the latest React 
 To update to the most recent version of React Native, you can run this command:
 
 ```bash
-yarn add react-native@0.70.0
-```
-
-Starting from React Native `0.69.0`, you may also need to update the version of React to 18. You can do so by using this command:
-
-```bash
-yarn add react@18.0.0
+npx react-native upgrade
 ```
 
 ### Android specifics

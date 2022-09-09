@@ -22,10 +22,9 @@ The guide is divided into five sections:
     - [iOS](new-architecture-library-ios)
 - **Supporting the New Architecture in your App**
   - [Prerequisites for Supporting the New Architecture in your App](new-architecture-app-intro)
-  - Enabling the New NativeModule System (TurboModule) in your App
-    - [Android](new-architecture-app-modules-android)
-  - Enabling the New Renderer (Fabric) in your App
-    - [Android](new-architecture-app-renderer-android)
+  - Android
+    - [Enabling the New NativeModule System (TurboModule) in your App](new-architecture-app-modules-android)
+    - [Enabling the New Renderer (Fabric) in your App](new-architecture-app-renderer-android)
 - [**React 18 & React Native**](react-18-and-react-native)
 - [**Troubleshooting**](new-architecture-troubleshooting)
 - [**Appendix**](new-architecture-appendix)

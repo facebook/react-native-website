@@ -110,6 +110,7 @@ On iOS, you'll have access to the `concurrentRootEnabled` method on your `AppDel
 /// @return: `true` if the `concurrentRoot` feture is enabled. Otherwise, it returns `false`.
 - (BOOL)concurrentRootEnabled
 {
+  // Switch this bool to turn on and off the concurrent root
   return true;
 }
 ```
