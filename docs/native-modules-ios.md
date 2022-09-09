@@ -13,8 +13,6 @@ Welcome to Native Modules for iOS. Please start by reading the [Native Modules I
 
 In the following guide you will create a native module, `CalendarModule`, that will allow you to access Apple's calendar APIs from JavaScript. By the end you will be able to call `CalendarModule.createCalendarEvent('Dinner Party', 'My House');` from JavaScript, invoking a native method that creates a calendar event.
 
-> The React Native team is currently working on a re-architecture of the Native Module system. This new system is called TurboModules, and it will help facilitate more efficient type-safe communication between JavaScript and native, without relying on the React Native bridge. It will also enable new extensions that weren't possible with the legacy Native Module system. You can read more about it [here](https://github.com/react-native-community/discussions-and-proposals/issues/40). Throughout these docs we have added notes around parts of Native Modules that will change in the TurboModules release and how you can best prepare for a smooth upgrade to TurboModules.
-
 ### Setup
 
 To get started, open up the iOS project within your React Native application in Xcode. You can find your iOS project here within a React Native app:
