@@ -55,16 +55,7 @@ Writing bundle output to:, android/app/build/generated/assets/react/release/inde
 Writing sourcemap output to:, android/app/build/intermediates/sourcemaps/react/release/index.android.bundle.packager.map
 ```
 
-Development builds do not produce a bundle and thus already have symbols, but if the development build is bundled - you may enable source maps like:
-
-Editing `android/app/build.gradle` file with:
-
-```groovy
-project.ext.react = [
-  bundleInDebug: true,
-  hermesFlagsDebug: ["-O", "-output-source-map"],
-]
-```
+Development builds do not produce a bundle and thus already have symbols, but if the development build is bundled you may use `hermesFlagsDebug` like above to enable source maps.
 
 ## Enable source maps on iOS
 
