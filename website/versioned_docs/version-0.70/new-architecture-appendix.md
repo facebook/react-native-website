@@ -7,7 +7,16 @@ import NewArchitectureWarning from './\_markdown-new-architecture-warning.mdx';
 
 <NewArchitectureWarning/>
 
-## I. Flow Type to Native Type Mapping
+## I. Terminology
+
+The whole New Architecture related guides will stick to the following **terminology**:
+
+- **Legacy Native Components** - To refer to Components which are running on the old React Native architecture.
+- **Legacy Native Modules** - To refer to Modules which are running on the old React Native architecture.
+- **Fabric Native Components** - To refer to Components which have been adapted to work well with the New Architecture, namely the new renderer. For brevity you might find them referred as **Fabric Components**.
+- **Turbo Native Modules** - To refer to Modules which have been adapted to work well with the New Architecture, namely the new Native Module System. For brevity you might find them referred as **Turbo Modules**
+
+## II. Flow Type to Native Type Mapping
 
 You may use the following table as a reference for which types are supported and what they map to in each platform:
 
@@ -85,7 +94,7 @@ Callback functions are not type checked, and are generalized as `Object`s.
 You may also find it useful to refer to the JavaScript specifications for the core modules in React Native. These are located inside the `Libraries/` directory in the React Native repository.
 :::
 
-## II. TypeScript to Native Type Mapping
+## III. TypeScript to Native Type Mapping
 
 You may use the following table as a reference for which types are supported and what they map to in each platform:
 
@@ -105,7 +114,7 @@ You may use the following table as a reference for which types are supported and
 
 You may also find it useful to refer to the JavaScript specifications for the core modules in React Native. These are located inside the `Libraries/` directory in the React Native repository.
 
-## III. Invoking the code-gen during development
+## IV. Invoking the code-gen during development
 
 > This section contains information specific to v0.66 of React Native.
 
@@ -182,7 +191,7 @@ node node_modules/react-native/scripts/generate-specs-cli.js \
 
 In the above example, the code-gen script will generate several files: `MyLibSpecs.h` and `MyLibSpecs-generated.mm`, as well as a handful of `.h` and `.cpp` files, all located in the `ios` directory.
 
-## IV. Note on Existing Apps
+## V. Note on Existing Apps
 
 This guide provides instructions for migrating an application that is based on the default app template that is provided by React Native. If your app has deviated from the template, or you are working with an application that was never based off the template, then the following sections might help.
 

@@ -11,9 +11,9 @@ Starting from version 0.68, React Native provides the New Architecture, which of
 
 In order to achieve these benefits, we had to rethink how Native Modules and Native Components work. This led us to develop the [Pillars of the New Architecture](pillars):
 
-- [TurboModules](pillars-turbomodules), a framework to support efficient and flexible integration with native code
-- [Fabric renderer and components](pillars-fabric-components), which offer improved capabilities, cross-platform consistency, and performance in rendering
-- [Codegen](pillars-codegen), which generates boilerplate C++ required by the New Architecture, via static typing in JavaScript
+- [The New Native Module System - Turbo Modules](pillars-turbomodules), a framework to support efficient and flexible integration with native code
+- [The New Native Renderer - Fabric](pillars-fabric-components), which offer improved capabilities, cross-platform consistency, and performance in rendering
+- [The Codegen](pillars-codegen), which generates boilerplate C++ required by the New Architecture via static typing in JavaScript
 
 ## Get started with the New Architecture
 
