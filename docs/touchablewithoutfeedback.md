@@ -219,6 +219,46 @@ See the [Accessibility guide](accessibility.md#accessibilityvalue-ios-android) f
 
 ---
 
+### `aria-valuemax`
+
+It Represents the maximum value for range-based components, such as sliders and progress bars. Has precedence over the `accessibilityValue.max` prop.
+
+| Type   |
+| ------ |
+| number |
+
+---
+
+### `aria-valuemin`
+
+It Represents the maximum value for range-based components, such as sliders and progress bars. Has precedence over the `accessibilityValue.min` prop.
+
+| Type   |
+| ------ |
+| number |
+
+---
+
+### `aria-valuenow`
+
+It Represents the current value for range-based components, such as sliders and progress bars. Has precedence over the `accessibilityValue.now` prop.
+
+| Type   |
+| ------ |
+| number |
+
+---
+
+### `aria-valuetext`
+
+It is the textual description of the component. Has precedence over the `accessibilityValue.text` prop.
+
+| Type   |
+| ------ |
+| string |
+
+---
+
 ### `delayLongPress`
 
 Duration (in milliseconds) from `onPressIn` before `onLongPress` is called.

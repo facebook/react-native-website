@@ -249,6 +249,46 @@ When `true`, indicates that the view is an accessibility element. By default, al
 
 ---
 
+### `aria-valuemax`
+
+It Represents the maximum value for range-based components, such as sliders and progress bars. Has precedence over the `accessibilityValue.max` prop.
+
+| Type   |
+| ------ |
+| number |
+
+---
+
+### `aria-valuemin`
+
+It Represents the maximum value for range-based components, such as sliders and progress bars. Has precedence over the `accessibilityValue.min` prop.
+
+| Type   |
+| ------ |
+| number |
+
+---
+
+### `aria-valuenow`
+
+It Represents the current value for range-based components, such as sliders and progress bars. Has precedence over the `accessibilityValue.now` prop.
+
+| Type   |
+| ------ |
+| number |
+
+---
+
+### `aria-valuetext`
+
+It is the textual description of the component. Has precedence over the `accessibilityValue.text` prop.
+
+| Type   |
+| ------ |
+| string |
+
+---
+
 ### `collapsable` <div class="label android">Android</div>
 
 Views that are only used to layout their children or otherwise don't draw anything may be automatically removed from the native hierarchy as an optimization. Set this property to `false` to disable this optimization and ensure that this `View` exists in the native view hierarchy.

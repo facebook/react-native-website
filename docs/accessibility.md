@@ -204,6 +204,22 @@ A Boolean value indicating whether the accessibility elements contained within t
 
 For example, in a window that contains sibling views `A` and `B`, setting `accessibilityElementsHidden` to `true` on view `B` causes VoiceOver to ignore the elements in the view `B`. This is similar to the Android property `importantForAccessibility="no-hide-descendants"`.
 
+### `aria-valuemax`
+
+It Represents the maximum value for range-based components, such as sliders and progress bars.
+
+### `aria-valuemin`
+
+It Represents the maximum value for range-based components, such as sliders and progress bars.
+
+### `aria-valuenow`
+
+It Represents the current value for range-based components, such as sliders and progress bars.
+
+### `aria-valuetext`
+
+It is the textual description of the component.
+
 ### `importantForAccessibility` <div class="label android">Android</div>
 
 In the case of two overlapping UI components with the same parent, default accessibility focus can have unpredictable behavior. The `importantForAccessibility` property will resolve this by controlling if a view fires accessibility events and if it is reported to accessibility services. It can be set to `auto`, `yes`, `no` and `no-hide-descendants` (the last value will force accessibility services to ignore the component and all of its children).
