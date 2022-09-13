@@ -85,7 +85,7 @@ Pod::Spec.new do |s|
 end
 ```
 
-You want to install the extra dependencies when the New Architecture is enabled and you want to avoid installing them when it's not.
+You should install the extra dependencies when the New Architecture is enabled, and avoid installing them when it's not.
 To achieve this, you can use the [`install_modules_dependencies`](https://github.com/facebook/react-native/blob/82e9c6ad611f1fb816de056ff031716f8cb24b4e/scripts/react_native_pods.rb#L145). Update the `.podspec` file as it follows:
 
 ```diff
