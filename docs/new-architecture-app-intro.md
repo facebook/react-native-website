@@ -151,7 +151,7 @@ If you updated to React Native 0.68+, you already meet those prerequisites. If y
 
 The New Architecture relies on the React Native Gradle Plugin (from the `react-native-gradle-plugin` NPM package) to build and run your project.
 
-Moreover, in this iteration of the guide we will let you build React Native from source.
+Moreover, in this iteration of the guide you will build React Native from source.
 
 If you updated your project to React Native 0.68+, you probably already have this configuration set up correctly.
 
@@ -215,14 +215,14 @@ dependencies {
 
 :::caution
 
-In this iteration of the guide we’re setting up the project to let you build from source. You might notice an increase in your build time because of this.
+In this iteration of the guide you’re setting up the project to build from source. You might notice an increase in your build time because of this.
 You can mitigate this by following the approach described in [Speeding up your Build phase](/docs/next/build-speed) guide.
 
 :::
 
-As the Codegen will output some Java and some C++ code that needs to build, we need to configure the Android NDK to let you do so.
+As Codegen will output some Java and some C++ code that needs to build, you need to configure the Android NDK to do so.
 
-Let’s edit your `android/app/build.gradle` file to include the **two** `externalNativeBuild` blocks detailed below inside the `android{}` block:
+Edit your `android/app/build.gradle` file to include the **two** `externalNativeBuild` blocks detailed below inside the `android{}` block:
 
 ```groovy
 android {
@@ -250,7 +250,7 @@ android {
 }
 ```
 
-In the same `build.gradle` file, inside the same `android{}` let’s add also the following section:
+In the same `build.gradle` file, inside the same `android{}` also add the following section:
 
 ```groovy
 android {
@@ -277,12 +277,12 @@ android {
 }
 ```
 
-Finally, we need to create two files that are necessary for your native build to run correctly:
+Finally, you need to create two files that are required to build the native code correctly:
 
 - A CMake file with the compilation instructions (similar to a `build.gradle` for Android/Java)
 - An `OnLoad.cpp` file which, as the name says, will be loaded when your app starts.
 
-Let's create a file inside the `android/app/src/main/jni` folder called `CMakeLists.txt` with the following content:
+Create a file inside the `android/app/src/main/jni` folder called `CMakeLists.txt` with the following content:
 
 ```cmake title="CMakeLists.txt"
 cmake_minimum_required(VERSION 3.13)
@@ -294,7 +294,7 @@ project(appmodules)
 include(${REACT_ANDROID_DIR}/cmake-utils/ReactNative-application.cmake)
 ```
 
-And let's create the `android/app/src/main/jni/OnLoad.cpp` file with the following content:
+And create the `android/app/src/main/jni/OnLoad.cpp` file with the following content:
 
 ```cpp title="OnLoad.cpp"
 #include <DefaultComponentsRegistry.h>
@@ -355,13 +355,13 @@ This is the only C++ file you'll have to add to your project, and the infrastruc
 
 ## Android - Update your Java classes
 
-In order to make easier to enable the New Architecture on Android, we created some utility classes that you can use and will take care of all the setup without you having to worry about it.
+To simplify how to enable the New Architecture on Android, you can use some utility classes that will take care of all the setup without you having to worry about it.
 
 Those classes are all located inside the `com.facebook.react.defaults` package and are all named `Defaults*`.
 
 ### Update the React Native Host
 
-First, let's update your `ReactNativeHost` as follows (usually located in your `MainApplication.java` file):
+First, update your `ReactNativeHost` as follows (usually located in your `MainApplication.java` file):
 
 <Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
 <TabItem value="java">
@@ -405,7 +405,7 @@ First, let's update your `ReactNativeHost` as follows (usually located in your `
 
 ### Update the your application OnCreate
 
-Still inside your `MainApplication` method `onCreate`, we need to make sure that the New Architecture infrastructure is loaded correctly:
+Still inside your `MainApplication` method `onCreate`, make sure that the New Architecture infrastructure is loaded correctly:
 
 <Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
 <TabItem value="java">
@@ -445,7 +445,7 @@ Still inside your `MainApplication` method `onCreate`, we need to make sure that
 
 ### Update your Activity Delegate
 
-Finally, let's update your `MainActivity.java` file by providing a React Activity Delegate:
+Finally, update your `MainActivity.java` file by providing a React Activity Delegate:
 
 <Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
 <TabItem value="java">
