@@ -349,7 +349,7 @@ JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM *vm, void *) {
 }
 ```
 
-When the app loads, this file will take care of registering the Native Components and Modules which provide native sources. By default we just provide the autolinked libraries as this allows you to use those libraries.
+When the app loads, this file will take care of registering the Native Components and Modules which provide native sources. By default we only provide the autolinked libraries as this allows you to use those libraries.
 
 This is the only C++ file you'll have to add to your project, and the infrastructure will take care of the rest.
 
