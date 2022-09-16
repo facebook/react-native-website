@@ -229,7 +229,7 @@ module.exports = {
                 docId: 'components-and-apis',
               },
               {
-                label: 'API',
+                label: 'APIs',
                 type: 'doc',
                 docId: 'accessibilityinfo',
               },
@@ -293,7 +293,7 @@ module.exports = {
                 to: 'docs/components-and-apis',
               },
               {
-                label: 'API',
+                label: 'APIs',
                 to: 'docs/accessibilityinfo',
               },
               {
