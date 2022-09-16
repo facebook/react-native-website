@@ -85,13 +85,15 @@ npx react-native init AwesomeProject
 This is not necessary if you are integrating React Native into an existing application, if you "ejected" from Expo, or if you're adding iOS support to an existing React Native project (see [Integration with Existing Apps](integration-with-existing-apps.md)). You can also use a third-party CLI to init your React Native app, such as [Ignite CLI](https://github.com/infinitered/ignite).
 
 :::info
+
 If you are having trouble with iOS, try to reinstall the dependencies by running:
 
 1. `cd ios` to navigate to the
 2. `bundle install` to install Bundler
    1. If needed: install a [Ruby Version Manager](#ruby) and update the Ruby version
 3. `bundle exec pod install` to install the iOS dependencies.
-   :::
+
+:::
 
 ### [Optional] Using a specific version or template
 
