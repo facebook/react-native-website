@@ -122,17 +122,7 @@
           "new-architecture-library-ios"
         ]
       },
-      {
-        "type": "category",
-        "label": "Supporting in your App",
-        "collapsible": false,
-        "collapsed": false,
-        "items": [
-          "new-architecture-app-intro",
-          "new-architecture-app-modules-android",
-          "new-architecture-app-renderer-android"
-        ]
-      },
+      "new-architecture-app-intro",
       "react-18-and-react-native",
       "new-architecture-troubleshooting",
       "new-architecture-appendix"

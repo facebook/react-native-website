@@ -119,13 +119,4 @@ After you build and run the app when Metro serves the JavaScript bundle, you sho
 
 If you'd like to view the code changes relevant to the New Architecture, take a look at the [upgrade helper from version 0.67.4 to 0.68.0](https://react-native-community.github.io/upgrade-helper/?from=0.67.4&to=0.68.0). Files that were added for the New Architecture are marked with a yellow banner.
 
-For further explanations of what each file is doing, check out these guides to walk through the changes step-by-step:
-
-#### Android
-
-- [Enabling the New Native Module System (Turbo Module) on Android](new-architecture-app-modules-android.md)
-- [Enabling the New Renderer (Fabric) on Android](new-architecture-app-renderer-android.md)
-
-#### iOS
-
-- [Enabling The New Architecture in Your App](new-architecture-app-intro.md)
+For further explanations of what each file is doing, check out these guides to walk through the changes step-by-step: [Enabling The New Architecture in Your App](new-architecture-app-intro.md)
