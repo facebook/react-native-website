@@ -91,7 +91,7 @@ If you are having trouble with iOS, try to reinstall the dependencies by running
 2. `bundle install` to install Bundler
    1. If needed: install a [Ruby Version Manager](#ruby) and update the Ruby version
 3. `bundle exec pod install` to install the iOS dependencies.
-   :::
+:::
 
 ### [Optional] Using a specific version or template
 
