@@ -11,8 +11,7 @@
       "name": "Facebook Ads Manager",
       "icon": "adsmanager.png",
       "linkAppStore": "https://apps.apple.com/us/app/facebook-ads-manager/id964397083",
-      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.facebook.adsmanager",
-      "pinned": true
+      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.facebook.adsmanager"
     },
     {
       "name": "Oculus",
@@ -64,8 +63,7 @@
       "name": "Shopify",
       "icon": "shopify.png",
       "linkAppStore": "https://apps.apple.com/us/app/shopify-your-ecommerce-store/id371294472",
-      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.shopify.mobile&hl=en_US&gl=US",
-      "pinned": true
+      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.shopify.mobile&hl=en_US&gl=US"
     },
     {
       "name": "Shop: All your favorite brands",
@@ -96,6 +94,41 @@
       "infoLink": "https://blog.coinbase.com/optimizing-react-native-7e7bf7ac3a34",
       "infoTitle": "Onboarding thousands of users with React Native",
       "pinned": true
+    },
+    {
+      "name": "PUMA",
+      "icon": "puma.png",
+      "linkAppStore": "https://apps.apple.com/us/app/puma/id1563024677",
+      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.puma.ecom.app",
+      "pinned": true
+    },
+    {
+      "name": "PlayStation App",
+      "icon": "playstation.png",
+      "linkAppStore": "https://apps.apple.com/gb/app/playstation-app/id410896080",
+      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.scee.psxandroid",
+      "pinned": true
+    },
+    {
+      "name": "OpenVPN Connect",
+      "icon": "openvpn.png",
+      "linkAppStore": "https://apps.apple.com/us/app/openvpn-connect/id590379981",
+      "linkPlayStore": "https://play.google.com/store/apps/details?id=net.openvpn.openvpn"
+    },
+    {
+      "name": "WordPress - Website Builder",
+      "icon": "wordpress.png",
+      "linkAppStore": "https://apps.apple.com/app/apple-store/id335703880",
+      "linkPlayStore": "https://play.google.com/store/apps/details?id=org.wordpress.android",
+      "infoLink": "https://github.com/wordpress-mobile/gutenberg-mobile",
+      "infoTitle": "Learn more",
+      "pinned": true
+    },
+    {
+      "name": "Dave - Banking & Cash Advance",
+      "icon": "dave.png",
+      "linkAppStore": "https://apps.apple.com/US/app/id1193801909",
+      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.dave"
     },
     {
       "name": "Tableau",
@@ -129,8 +162,7 @@
       "linkAppStore": "https://apps.apple.com/us/app/nerdwallet/id1174471607",
       "linkPlayStore": "https://play.google.com/store/apps/details?id=com.mobilecreditcards&hl=en_US",
       "infoLink": "https://www.nerdwallet.com/blog/engineering/beyond-the-browser-how-nerdwallet-went-native/",
-      "infoTitle": "Beyond the Browser: How NerdWallet Went Native",
-      "pinned": true
+      "infoTitle": "Beyond the Browser: How NerdWallet Went Native"
     },
     {
       "name": "Discord",
@@ -183,17 +215,7 @@
       "linkAppStore": "https://itunes.apple.com/us/app/wix-com/id1099748482?mt=8",
       "linkPlayStore": "https://play.google.com/store/apps/details?id=com.wix.android",
       "infoLink": "https://medium.com/wix-engineering/react-native-at-wix-the-architecture-db6361764da6",
-      "infoTitle": "React Native at Wix — The Architecture",
-      "pinned": true
-    },
-    {
-      "name": "Salesforce",
-      "icon": "salesforce.png",
-      "linkAppStore": "https://apps.apple.com/us/app/salesforce/id404249815",
-      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.salesforce.chatter",
-      "infoLink": "https://www.salesforce.com/products/einstein/einstein-voice/",
-      "infoTitle": "Einstein Voice Assistant: Voice Activated AI",
-      "pinned": true
+      "infoTitle": "React Native at Wix — The Architecture"
     },
     {
       "name": "Words with Friends 2",
@@ -201,8 +223,7 @@
       "linkAppStore": "https://apps.apple.com/app/words-with-friends-2-word-game/id1196764367",
       "linkPlayStore": "https://play.google.com/store/apps/details?id=com.zynga.words3&hl=en_US&gl=US",
       "infoLink": "https://medium.com/zynga-engineering/why-how-words-with-friends-is-adopting-react-native-b24a405f421c",
-      "infoTitle": "Why & How Words With Friends Is Adopting React Native",
-      "pinned": true
+      "infoTitle": "Why & How Words With Friends Is Adopting React Native"
     },
     {
       "name": "Call of Duty Companion App",
@@ -210,8 +231,7 @@
       "linkAppStore": "https://apps.apple.com/us/app/call-of-duty-companion-app/id1405837628",
       "linkPlayStore": "https://play.google.com/store/apps/details?id=com.activision.callofduty.companion",
       "infoLink": "https://www.callofduty.com/app",
-      "infoTitle": "",
-      "pinned": true
+      "infoTitle": ""
     },
     {
       "name": "Foreca",
@@ -276,6 +296,26 @@
       "infoLink": "https://www.tencent.com/en-us/business.html",
       "infoTitle": "QQ is China's largest messaging platform, with over 829 million active accounts",
       "pinned": true
+    },
+    {
+      "name": "Bolt Food: Delivery & Takeaway",
+      "icon": "bolt.png",
+      "linkAppStore": "https://apps.apple.com/us/app/bolt-food/id1451492388",
+      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.bolt.deliveryclient",
+      "infoLink": "https://medium.com/bolt-labs/how-we-built-a-react-native-app-in-2-months-aeadf210a764"
+    },
+    {
+      "name": "Mattermost",
+      "icon": "mattermost.webp",
+      "linkAppStore": "https://apps.apple.com/us/app/mattermost/id1257222717",
+      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.mattermost.rn",
+      "infoLink": "https://github.com/mattermost/mattermost-mobile"
+    },
+    {
+      "name": "Klarna | Shop now. Pay later.",
+      "icon": "klarna.jpg",
+      "linkAppStore": "https://apps.apple.com/us/app/klarna-shop-now-pay-later/id1115120118",
+      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.myklarnamobile"
     }
   ]
 }
