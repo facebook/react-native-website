@@ -18,7 +18,7 @@ Add the following imports at the top of your bridge delegate (e.g. `AppDelegate.
 #import <React/CoreModulesPlugins.h>
 ```
 
-You will also need to declare that your AppDelegate conforms to the `RCTTurboModuleManagerDelegate` protocol, as well as create an instance variable for our Turbo Module manager:
+You will also need to declare that your AppDelegate conforms to the `RCTTurboModuleManagerDelegate` protocol, as well as create an instance variable for our Turbo Native Module manager:
 
 ```objc
 @interface AppDelegate () <RCTCxxBridgeDelegate, RCTTurboModuleManagerDelegate> {
@@ -31,8 +31,8 @@ You will also need to declare that your AppDelegate conforms to the `RCTTurboMod
 To conform to the `RCTTurboModuleManagerDelegate` protocol, you will implement these three methods:
 
 - `getModuleClassFromName:` - This method should return the Class for a native module. You may use the `RCTCoreModulesClassProvider()` method to handle the default, core modules.
-- `getTurboModule:jsInvoker:` - This should return `nullptr`. This method may be used later to support C++ TurboModules.
-- `getModuleInstanceFromClass:moduleClass:` - This method allows you to perform any side-effects when your TurboModules are initialized. This is the TurboModule analogue to your bridge delegate’s `extraModulesForBridge` method. At this time, you’ll need to initialize the default RCTNetworking and RCTImageLoader modules as indicated below.
+- `getTurboModule:jsInvoker:` - This should return `nullptr`. This method may be used later to support C++ Turbo Native Modules.
+- `getModuleInstanceFromClass:moduleClass:` - This method allows you to perform any side-effects when your Turbo Native Modules are initialized. This is the Turbo Native Module analogue to your bridge delegate’s `extraModulesForBridge` method. At this time, you’ll need to initialize the default RCTNetworking and RCTImageLoader modules as indicated below.
 
 #### TurboModuleManagerDelegate Example
 
@@ -147,9 +147,9 @@ Next, you will create a `RCTTurboModuleManager` in your bridge delegate’s `jsE
 }
 ```
 
-## 3. Enable TurboModule System
+## 3. Enable Turbo Native Module System
 
-Finally, enable TurboModules in your app by executing the following statement before React Native is initialized in your app delegate (e.g. within `didFinishLaunchingWithOptions:`):
+Finally, enable Turbo Native Modules in your app by executing the following statement before React Native is initialized in your app delegate (e.g. within `didFinishLaunchingWithOptions:`):
 
 ```objc
 RCTEnableTurboModule(YES);

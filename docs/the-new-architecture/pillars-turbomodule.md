@@ -1,6 +1,6 @@
 ---
 id: pillars-turbomodules
-title: TurboModules
+title: Turbo Native Modules
 ---
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
@@ -10,23 +10,23 @@ import NewArchitectureWarning from '../\_markdown-new-architecture-warning.mdx';
 
 If you've worked with React Native, you may be familiar with the concept of [Native Modules](../native-modules-intro.md), which allow JavaScript and platform-native code to communicate over the React Native "bridge", which handles cross-platform serialization via JSON.
 
-TurboModules are the next iteration on Native Modules that provide a few extra [benefits](./why):
+Turbo Native Modules are the next iteration on Native Modules that provide a few extra [benefits](./why):
 
 - Strongly typed interfaces that are consistent across platforms
 - The ability to write your code in C++, either exclusively or integrated with another native platform language, reducing the need to duplicate implementations across platforms
 - Lazy loading of modules, allowing for faster app startup
-- The use of JSI, a JavaScript interface for native code, which allows for more efficient communication between native and JavaScript code than the bridge
+- The use of JSI, a JavaScript interface for native code, allows for more efficient communication between native and JavaScript code than the bridge
 
-This guide will show you how to create a basic TurboModule.
+This guide will show you how to create a basic Turbo Native Module compatible with React Native 0.70.0.
 
 :::caution
-TurboModules only work with the **New Architecture** enabled.
+Turbo Native Modules only work with the **New Architecture** enabled.
 To migrate to the **New Architecture**, follow the [Migration guide](../new-architecture-intro)
 :::
 
-## How to Create a TurboModule
+## How to Create a Turbo Native Module
 
-To create a TurboModule, we need to:
+To create a Turbo Native Module, we need to:
 
 1. Define the JavaScript specification.
 2. Configure the module so that Codegen can generate the scaffolding.
@@ -34,7 +34,7 @@ To create a TurboModule, we need to:
 
 ## 1. Folder Setup
 
-In order to keep the module decoupled from the app, it's a good idea to define the module separately from the app, and then add it as a dependency to your app later. This is also what you'll do for writing TurboModules that can be released as open-source libraries later.
+In order to keep the module decoupled from the app, it's a good idea to define the module separately from the app and then add it as a dependency to your app later. This is also what you'll do for writing Turbo Native Modules that can be released as open-source libraries later.
 
 Next to your application, create a folder called `RTNCalculator`. **RTN** stands for "**R**eac**t** **N**ative", and is a recommended prefix for React Native modules.
 
@@ -97,12 +97,12 @@ export default TurboModuleRegistry.get<Spec>(
 
 At the beginning of the spec files are the imports:
 
-- The `TurboModule` type, which defines the base interface for all TurboModules
-- The `TurboModuleRegistry` JavaScript module, which contains functions for loading TurboModules
+- The `TurboModule` type, which defines the base interface for all Turbo Native Modules
+- The `TurboModuleRegistry` JavaScript module, which contains functions for loading Turbo Native Modules
 
-The second section of the file contains the interface specification for the TurboModule. In this case, the interface defines the `add` function which takes two numbers and returns a promise that resolves to a number. This interface type **must** be named `Spec` for a TurboModule.
+The second section of the file contains the interface specification for the Turbo Native Module. In this case, the interface defines the `add` function, which takes two numbers and returns a promise that resolves to a number. This interface type **must** be named `Spec` for a Turbo Native Module.
 
-Finally, we invoke `TurboModuleRegistry.get`, passing the module's name, which will load the TurboModule if it's available.
+Finally, we invoke `TurboModuleRegistry.get`, passing the module's name, which will load the Turbo Native Module if it's available.
 
 :::caution
 We are writing JavaScript files importing types from libraries, without setting up a proper node module and installing its dependencies. Your IDE will not be able to resolve the import statements and you may see errors and warnings. This is expected and will not cause problems when you add the module to your app.
@@ -112,17 +112,17 @@ We are writing JavaScript files importing types from libraries, without setting 
 
 Next, you need to add some configuration for [**Codegen**](pillars-codegen.md) and auto-linking.
 
-Some of these configuration files are shared between iOS and Android, while the others are platform-specific.
+Some configuration files are shared between iOS and Android, while the others are platform-specific.
 
 ### Shared
 
-The shared configuration is a `package.json` file that will be used by yarn when installing your module. Create the `package.json` file in the root of the `RTNCalculator` directory.
+The shared configuration is a `package.json` file used by yarn when installing your module. Create the `package.json` file in the root of the `RTNCalculator` directory.
 
 ```json title="package.json"
 {
   "name": "rtn-calculator",
   "version": "0.0.1",
-  "description": "Add numbers with TurboModules",
+  "description": "Add numbers with Turbo Native Modules",
   "react-native": "js/index",
   "source": "js/index",
   "files": [
@@ -160,20 +160,20 @@ The shared configuration is a `package.json` file that will be used by yarn when
 }
 ```
 
-The upper part of the file contains some descriptive information like the name of the component, its version and its source files. Make sure to update the various placeholders which are wrapped in `<>`: replace all the occurrences of the `<your_github_handle>`, `<Your Name>`, and `<your_email@your_provider.com>` tokens.
+The upper part of the file contains some descriptive information like the name of the component, its version, and its source files. Make sure to update the various placeholders which are wrapped in `<>`: replace all the occurrences of the `<your_github_handle>`, `<Your Name>`, and `<your_email@your_provider.com>` tokens.
 
 Then there are the dependencies for this package. For this guide, you need `react` and `react-native`.
 
 Finally, the **Codegen** configuration is specified by the `codegenConfig` field. It contains an array of libraries, each of which is defined by three other fields:
 
 - `name`: The name of the library. By convention, you should add the `Spec` suffix.
-- `type`: The type of module contained by this package. In this case, it is a TurboModule, thus the value to use is `modules`.
+- `type`: The type of module contained by this package. In this case, it is a Turbo Native Module; thus, the value to use is `modules`.
 - `jsSrcsDir`: the relative path to access the `js` specification that is parsed by **Codegen**.
 - `android.javaPackageName`: the package to use in the Java files generated by **Codegen**.
 
 ### iOS: Create the `podspec` file
 
-For iOS, you'll need to create a `rtn-calculator.podspec` file which will define the module as a dependency for your app. It will stay in the root of `RTNCalculator`, alongside the `ios` folder.
+For iOS, you'll need to create a `rtn-calculator.podspec` file, which will define the module as a dependency for your app. It will stay in the root of `RTNCalculator`, alongside the `ios` folder.
 
 The file will look like this:
 
@@ -181,9 +181,6 @@ The file will look like this:
 require "json"
 
 package = JSON.parse(File.read(File.join(__dir__, "package.json")))
-
-folly_version = '2021.07.22.00'
-folly_compiler_flags = '-DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1 -Wno-comma -Wno-shorten-64-to-32'
 
 Pod::Spec.new do |s|
   s.name            = "rtn-calculator"
@@ -198,26 +195,15 @@ Pod::Spec.new do |s|
 
   s.source_files    = "ios/**/*.{h,m,mm,swift}"
 
-  s.dependency "React-Core"
-
-  s.compiler_flags = folly_compiler_flags + " -DRCT_NEW_ARCH_ENABLED=1"
-  s.pod_target_xcconfig    = {
-    "HEADER_SEARCH_PATHS" => "\"$(PODS_ROOT)/boost\"",
-    "OTHER_CPLUSPLUSFLAGS" => "-DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1",
-    "CLANG_CXX_LANGUAGE_STANDARD" => "c++17"
-  }
-
-  s.dependency "React-Codegen"
-  s.dependency "RCT-Folly", folly_version
-  s.dependency "RCTRequired"
-  s.dependency "RCTTypeSafety"
-  s.dependency "ReactCommon/turbomodule/core"
+  install_modules_dependencies(s)
 end
 ```
 
-The `.podspec` file has to be a sibling of the `package.json` file and its name is the one we set in the `package.json`'s `name` property: `rtn-calculator`.
+The `.podspec` file has to be a sibling of the `package.json` file, and its name is the one we set in the `package.json`'s `name` property: `rtn-calculator`.
 
-The first part of the file prepares some variables we will use throughout the rest of it. Then, there is a section that contains some information used to configure the pod, like its name, version, and description. Finally, we have a set of dependencies that are required by the New Architecture.
+The first part of the file prepares some variables that we use throughout the file. Then, there is a section that contains some information used to configure the pod, like its name, version, and description.
+
+All the requirements for the New Architecture have been encapsulated in the [`install_modules_dependencies`](https://github.com/facebook/react-native/blob/82e9c6ad611f1fb816de056ff031716f8cb24b4e/scripts/react_native_pods.rb#L145). It takes care of installing the proper dependencies based on which architecture is currently enabled. It also automatically installs the `React-Core` dependency in the old architecture.
 
 ### Android: `build.gradle`, `AndroidManifest.xml`, a `ReactPackage` class
 
@@ -225,7 +211,7 @@ To prepare Android to run **Codegen** you have to create three files:
 
 1. The `build.gradle` with the **Codegen** configuration
 1. The `AndroidManifest.xml` file
-1. A java class that implements the `ReactPackage` interface.
+1. A java class that implements the `ReactPackage` interface
 
 At the end of these steps, the `android` folder should look like this:
 
@@ -325,18 +311,18 @@ public class CalculatorPackage extends TurboReactPackage {
 }
 ```
 
-The `ReactPackage` interface is used by React Native to understand what native classes the app has to use for the `ViewManager` and `Native Modules` exported by the library.
+React Native uses the `ReactPackage` interface to understand what native classes the app has to use for the `ViewManager` and `Native Modules` exported by the library.
 
 ## 4. Native Code
 
-For the final step in getting your TurboModule ready to go, you'll need to write some native code to connect the JavaScript side to the native platforms. This process requires two main steps:
+For the final step in getting your Turbo Native Module ready to go, you'll need to write some native code to connect the JavaScript side to the native platforms. This process requires two main steps:
 
 - Run **Codegen** to see what it generates.
 - Write your native code, implementing the generated interfaces.
 
-When developing a React Native app that uses a TurboModule, it is responsibility of the app to actually generate the code using **Codegen**. However, when developing a TurboModule as a library, we need to reference the generated code, and it is therefore useful to see what the app will generate.
+When developing a React Native app that uses a Turbo Native Module, it is the responsibility of the app to actually generate the code using **Codegen**. However, when developing a TurboModule as a library, we need to reference the generated code, and it is therefore, useful to see what the app will generate.
 
-As first step for both iOS and Android, this guide shows how to execute manually the scripts used by **Codegen** to generate the required code. Further information on **Codegen** can be found [here](pillars-codegen.md)
+As the first step for both iOS and Android, this guide shows how to execute manually the scripts used by **Codegen** to generate the required code. Further information on **Codegen** can be found [here](pillars-codegen.md).
 
 :::caution
 The code generated by **Codegen** in this step should not be committed to the versioning system. React Native apps are able to generate the code when the app is built. This allows an app to ensure that all libraries have code generated for the correct version of React Native.
@@ -390,12 +376,12 @@ generated
                             └── ShadowNodes.h
 ```
 
-The relevant path for the TurboModule interface is `generated/build/generated/ios/RTNCalculatorSpec`.
+The relevant path for the Turbo Native Module interface is `generated/build/generated/ios/RTNCalculatorSpec`.
 
 See the [Codegen](./pillars-codegen) section for further details on the generated files.
 
 :::note
-When generating the scaffolding code using **Codegen**, iOS does not clean the `build` folder automatically. If you changed a the Spec name, for example, and then run **Codegen** again, the old files will be retained.
+When generating the scaffolding code using **Codegen**, iOS does not clean the `build` folder automatically. If you changed the Spec name, for example, and then run **Codegen** again, the old files would be retained.
 If that happens, remember to remove the `build` folder before running the **Codegen** again.
 
 ```
@@ -407,7 +393,7 @@ rm -rf build
 
 #### Write the Native iOS Code
 
-Now add the Native code for your TurboModule. Create two files in the `RTNCalculator/ios` folder:
+Now add the Native code for your Turbo Native Module. Create two files in the `RTNCalculator/ios` folder:
 
 1. The `RTNCalculator.h`, a header file for the module.
 2. The `RTNCalculator.mm`, the implementation of the module.
@@ -456,11 +442,11 @@ RCT_REMAP_METHOD(add, addA:(NSInteger)a
 @end
 ```
 
-The most important call is to the `RCT_EXPORT_MODULE`, which is required to export the module so that React Native can load the TurboModule.
+The most important call is to the `RCT_EXPORT_MODULE`, which is required to export the module so that React Native can load the Turbo Native Module.
 
 Then the `RCT_REMAP_METHOD` macro is used to expose the `add` method.
 
-Finally, the `getTurboModule` method gets an instance of the TurboModule so that the JavaScript side can invoke its methods. The function is defined in (and requested by) the `RTNCalculatorSpec.h` file that was generated earlier by Codegen.
+Finally, the `getTurboModule` method gets an instance of the Turbo Native Module so that the JavaScript side can invoke its methods. The function is defined in (and requested by) the `RTNCalculatorSpec.h` file that was generated earlier by Codegen.
 
 :::info
 There are other macros that can be used to export modules and methods. You view the code that specifies them [here](https://github.com/facebook/react-native/blob/main/React/Base/RCTBridgeModule.h).
@@ -472,7 +458,7 @@ Android follows similar steps to iOS. We have to generate the code for Android, 
 
 #### Generate the Code - Android
 
-To generate the code for Android, we need to manually invoke Codegen. This is done similarly to what we did for iOS: first, we need to add the package to the app and then we need to invoke a script.
+To generate the code for Android, we need to manually invoke Codegen. This is done similarly to what we did for iOS: first, we need to add the package to the app, and then we need to invoke a script.
 
 ```sh title="Running Codegen for Android"
 cd MyApp
@@ -516,7 +502,7 @@ codegen
 
 #### Write the Native Android Code
 
-The native code for the Android side of a TurboModule requires:
+The native code for the Android side of a Turbo Native Module requires:
 
 1. to create a `RTNCalculatorModule.java` that implements the module.
 2. to update the `RTNCalculatorPackage.java` created in the previous step.
@@ -628,9 +614,9 @@ public class CalculatorPackage extends TurboReactPackage {
 
 This is the last piece of Native Code for Android. It defines the `TurboReactPackage` object that will be used by the app to load the module.
 
-## 5. Adding the TurboModule to your App
+## 5. Adding the Turbo Native Module to your App
 
-Now you can install and use the TurboModule in your app.
+Now you can install and use the Turbo Native Module in your app.
 
 ### Shared
 
@@ -667,7 +653,7 @@ Android configuration requires to enable the **New Architecture**:
 
 ### JavaScript
 
-Now you can use your TurboModule calculator in your app!
+Now you can use your Turbo Native Module calculator in your app!
 
 Here's an example App.js file using the `add` method:
 
@@ -711,4 +697,4 @@ const App: () => Node = () => {
 export default App;
 ```
 
-Try this out to see your TurboModule in action!
+Try this out to see your Turbo Native Module in action!

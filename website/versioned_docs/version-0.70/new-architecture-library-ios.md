@@ -32,7 +32,7 @@ Pod::Spec.new do |s|
   }
 
   s.dependency "React-Core"
-  s.dependency "React-RCTFabric" # This is for Fabric Component
+  s.dependency "React-RCTFabric" # This is for Fabric Native Component
   s.dependency "React-Codegen"
   s.dependency "RCT-Folly"
   s.dependency "RCTRequired"

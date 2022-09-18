@@ -123,10 +123,10 @@ For further explanations of what each file is doing, check out these guides to w
 
 #### Android
 
-- [Enabling TurboModules on Android](new-architecture-app-modules-android.md)
-- [Enabling Fabric on Android](new-architecture-app-renderer-android.md)
+- [Enabling the New Native Module System (Turbo Module) on Android](new-architecture-app-modules-android.md)
+- [Enabling the New Renderer (Fabric) on Android](new-architecture-app-renderer-android.md)
 
 #### iOS
 
-- [Enabling TurboModules on iOS](new-architecture-app-modules-ios.md)
-- [Enabling Fabric on iOS](new-architecture-app-renderer-ios.md)
+- [Enabling the New Native Module System (Turbo Module) on iOS](new-architecture-app-modules-ios.md)
+- [Enabling the New Renderer (Fabric) on iOS](new-architecture-app-renderer-ios.md)

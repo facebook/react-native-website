@@ -35,7 +35,7 @@ This idea allowed to unlock several benefits:
 - **Code sharing:** by introducing C++, it is now possible to abstract all the platform agnostic code and to share it with ease between the plaforms.
 - **Type safety:** to make sure that JS can properly invoke methods on C++ objects and viceversa, a layer of code automatically generated has been added. The code is generated starting from some JS specification that must be typed through Flow or TypeScript.
 
-These advantages are the foundations of the [TurboModule](pillars-turbomodules) system and a jumping stone to further enhancements. For example, it has been possible to develop a new renderer which is faster and more performant: [Fabric](/architecture/fabric-renderer) and its [Fabric Components](pillars-fabric-components).
+These advantages are the foundations of the [New Native Module System](pillars-turbomodules) and a jumping stone to further enhancements. For example, it has been possible to develop a [new renderer](/architecture/fabric-renderer) which offers faster and more performant [Native Components](pillars-fabric-components).
 
 ## Further Reading
 
