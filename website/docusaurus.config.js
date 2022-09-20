@@ -214,29 +214,32 @@ module.exports = {
         style: 'dark',
         items: [
           {
-            label: 'Guides',
-            type: 'doc',
-            docId: 'getting-started',
+            label: 'Development',
+            type: 'dropdown',
             position: 'right',
-          },
-          {
-            label: 'Components',
-            type: 'doc',
-            docId: 'components-and-apis',
-            position: 'right',
-          },
-          {
-            label: 'API',
-            type: 'doc',
-            docId: 'accessibilityinfo',
-            position: 'right',
-          },
-          {
-            label: 'Architecture',
-            type: 'doc',
-            docId: 'architecture-overview',
-            position: 'right',
-            docsPluginId: 'architecture',
+            items: [
+              {
+                label: 'Guides',
+                type: 'doc',
+                docId: 'getting-started',
+              },
+              {
+                label: 'Components',
+                type: 'doc',
+                docId: 'components-and-apis',
+              },
+              {
+                label: 'APIs',
+                type: 'doc',
+                docId: 'accessibilityinfo',
+              },
+              {
+                label: 'Architecture',
+                type: 'doc',
+                docId: 'architecture-overview',
+                docsPluginId: 'architecture',
+              },
+            ],
           },
           {
             type: 'doc',
@@ -244,6 +247,11 @@ module.exports = {
             label: 'Contributing',
             position: 'right',
             docsPluginId: 'contributing',
+          },
+          {
+            to: '/showcase',
+            label: 'Showcase',
+            position: 'right',
           },
           {
             to: '/blog',
@@ -274,23 +282,23 @@ module.exports = {
         style: 'dark',
         links: [
           {
-            title: 'Docs',
+            title: 'Development',
             items: [
               {
-                label: 'Getting Started',
+                label: 'Guides',
                 to: 'docs/getting-started',
               },
               {
-                label: 'Tutorial',
-                to: 'docs/tutorial',
-              },
-              {
-                label: 'Components and APIs',
+                label: 'Components',
                 to: 'docs/components-and-apis',
               },
               {
-                label: 'More Resources',
-                to: 'docs/more-resources',
+                label: 'APIs',
+                to: 'docs/accessibilityinfo',
+              },
+              {
+                label: 'Architecture',
+                to: 'architecture/overview',
               },
             ],
           },
@@ -298,20 +306,20 @@ module.exports = {
             title: 'Community',
             items: [
               {
+                label: 'Showcase',
+                to: 'showcase',
+              },
+              {
+                label: 'Contributing',
+                to: 'contributing/overview',
+              },
+              {
                 label: 'The React Native Community',
                 to: 'help',
               },
               {
-                label: "Who's using React Native?",
-                to: 'showcase',
-              },
-              {
                 label: 'Ask Questions on Stack Overflow',
                 href: 'https://stackoverflow.com/questions/tagged/react-native',
-              },
-              {
-                label: 'DEV Community',
-                href: 'https://dev.to/t/reactnative',
               },
             ],
           },
@@ -336,7 +344,7 @@ module.exports = {
             title: 'More',
             items: [
               {
-                label: 'React',
+                label: 'ReactJS',
                 href: 'https://reactjs.org/',
               },
               {
