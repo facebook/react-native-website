@@ -271,7 +271,7 @@ This defines how far your touch can start away from the button. This is added to
 
 ### `id`
 
-Used to locate this view from native code. Has precedence over `nativeID`
+Used to locate this view from native code. Has precedence over `nativeID` prop.
 
 | Type   |
 | ------ |

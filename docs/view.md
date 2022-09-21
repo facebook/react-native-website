@@ -284,7 +284,7 @@ For example, if a touchable view has a height of 20 the touchable height can be 
 
 ### `id`
 
-Used to locate this view from native classes. Has precedence over `nativeID`
+Used to locate this view from native classes. Has precedence over `nativeID` prop.
 
 > This disables the 'layout-only view removal' optimization for this view!
 

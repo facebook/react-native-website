@@ -419,7 +419,7 @@ This can be one of the following values:
 
 ### `id`
 
-Used to locate this view from native code. Has precedence over `nativeID`
+Used to locate this view from native code. Has precedence over `nativeID` prop.
 
 | Type   |
 | ------ |
