@@ -14,7 +14,7 @@ TypeError: Cannot read property 'data' of undefined
   at p(app:///index.android.bundle:1:227785)
 ```
 
-The power of source maps allow tracing that line and column number back to the original source stacktrace.
+With source maps generated, a stacktrace will include path, file name, and line number of the original source file:
 
 ```text
 TypeError: Cannot read property 'data' of undefined
