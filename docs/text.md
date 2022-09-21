@@ -417,6 +417,16 @@ This can be one of the following values:
 
 ---
 
+### `id`
+
+Used to locate this view from native code. Has precedence over `nativeID` prop.
+
+| Type   |
+| ------ |
+| string |
+
+---
+
 ### `maxFontSizeMultiplier`
 
 Specifies the largest possible scale a font can reach when `allowFontScaling` is enabled. Possible values:

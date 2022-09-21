@@ -283,6 +283,18 @@ For example, if a touchable view has a height of 20 the touchable height can be 
 
 ---
 
+### `id`
+
+Used to locate this view from native classes. Has precedence over `nativeID` prop.
+
+> This disables the 'layout-only view removal' optimization for this view!
+
+| Type   |
+| ------ |
+| string |
+
+---
+
 ### `importantForAccessibility` <div class="label android">Android</div>
 
 Controls how view is important for accessibility which is if it fires accessibility events and if it is reported to accessibility services that query the screen. Works for Android only.
