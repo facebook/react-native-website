@@ -57,7 +57,7 @@ Development builds do not produce a bundle and thus already have symbols, but if
 
 Source maps are disabled by default. To enable them one has to define `SOURCEMAP_FILE` environment variable.
 
-In order to do so, within Xcode head to the build phase - "Bundle React Native code and images"
+In order to do so, within Xcode head to the build phase - "Bundle React Native code and images".
 
 At the top of the file near the other export's, add an entry for `SOURCEMAP_FILE` to the preferred location and name. Like below:
 
