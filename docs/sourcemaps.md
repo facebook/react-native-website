@@ -3,9 +3,9 @@ id: sourcemaps
 title: Source Maps
 ---
 
-Source maps help map a minified file back to an un-packaged state. This is common when investigating issues from release builds.
+Source maps allows to map a transformed file back to the original source file. The main purpose of source maps is to aid debugging and help investigating issues from release builds.
 
-This helps if you have a stacktrace like
+Without the source maps, when running into an error in the release build you will see a stacktrace like:
 
 ```text
 TypeError: Cannot read property 'data' of undefined
@@ -25,11 +25,7 @@ TypeError: Cannot read property 'data' of undefined
 
 This allows to triage release issues given a more accurate stacktrace.
 
-Follow the instructions below to get started with source maps:
-
-1. [Enable source maps on Android](sourcemaps.md#enable-source-maps-on-android)
-2. [Enable source maps on iOS](sourcemaps.md#enable-source-maps-on-ios)
-3. [Manual Symbolication](sourcemaps.md#manual-symbolication)
+Follow the instructions below to get started with source maps.
 
 ## Enable source maps on Android
 
@@ -59,9 +55,9 @@ Development builds do not produce a bundle and thus already have symbols, but if
 
 ## Enable source maps on iOS
 
-Source maps are built in Release mode by default. However, you might want to redirect the location of the source map for easier use.
+Source maps are disabled by default. To enable them one has to define `SOURCEMAP_FILE` environment variable.
 
-If so, within Xcode head to the build phrase - "Bundle React Native code and images"
+In order to do so, within Xcode head to the build phase - "Bundle React Native code and images"
 
 At the top of the file near the other export's, add an entry for `SOURCEMAP_FILE` to the preferred location and name. Like below:
 
