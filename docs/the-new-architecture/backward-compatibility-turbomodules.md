@@ -24,11 +24,13 @@ Creating a backward compatible TurboModule lets your users continue to leverage 
 1. Uniform the JavaScript API so that your user code won't need changes.
 
 :::info
+
 For the sake of this guide we're going to use the following **terminology**:
 
 - **Legacy Native Modules** - To refer to Modules which are running on the old React Native architecture.
 - **Turbo Native Modules** - To refer to Modules which have been adapted to work well with the New Native Module System. For brevity you might find them referred as **Turbo Modules**.
-  :::
+
+:::
 
 <BetaTS />
 

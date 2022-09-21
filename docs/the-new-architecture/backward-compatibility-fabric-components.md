@@ -24,11 +24,13 @@ Creating a backward compatible Fabric Native Component lets your users continue 
 1. Uniform the JavaScript API so that your user code won't need changes.
 
 :::info
+
 For the sake of this guide we're going to use the following **terminology**:
 
 - **Legacy Native Components** - To refer to Components which are running on the old React Native architecture.
 - **Fabric Native Components** - To refer to Components which have been adapted to work well with the New Native Renderer, Fabric. For brevity you might find them referred as **Fabric Components**.
-  :::
+
+:::
 
 <BetaTS />
 
