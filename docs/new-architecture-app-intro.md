@@ -143,7 +143,7 @@ RCT_NEW_ARCH_ENABLED=1 pod install
 Using the New Architecture on Android has some prerequisites that you need to meet:
 
 1. Using Gradle version >= 7.x
-2. Using Android Gradle Plugin >= 7.x (i.e. the `com.android.tools.build:gradle` dependency)
+2. Using Android Gradle Plugin >= 7.3.x (i.e. the `com.android.tools.build:gradle` dependency)
 
 If you updated to React Native 0.68+, you already meet those prerequisites. If you don't meet them, consider updating those dependencies first.
 
@@ -266,8 +266,6 @@ android {
 
     afterEvaluate {
         preBuild.dependsOn(packageReactNdkLibs)
-        configureCMakeRelWithDebInfo.dependsOn(preReleaseBuild)
-        configureCMakeDebug.dependsOn(preDebugBuild)
     }
 
     packagingOptions {
