@@ -264,12 +264,11 @@ When the image is resized, the corners of the size specified by `capInsets` will
 A string of a keyword specifying the CORS mode to use when fetching the image resource. It works similar to crossorigin attribute in HTML.
 
 - `anonymous`: No exchange of user credentials in the image request.
-
 - `use-credentials`: Sets `Access-Control-Allow-Credentials` header value to `true` in the image request.
 
-| Type                                     |
-| ---------------------------------------- |
-| enum(`'anonymous'`, `'use-credentials'`) |
+| Type                                     | Default       |
+| ---------------------------------------- | ------------- |
+| enum(`'anonymous'`, `'use-credentials'`) | `'anonymous'` |
 
 ---
 
@@ -419,11 +418,11 @@ More details about `resize` and `scale` can be found at http://frescolib.org/doc
 
 ### `referrerPolicy`
 
-A string indicating which referrer to use when fetching the resource. Sets the value for `Referrer-Policy` header in the image request. Works similar to referrerpolicy attribute in HTML.
+A string indicating which referrer to use when fetching the resource. Sets the value for `Referrer-Policy` header in the image request. Works similar to `referrerpolicy` attribute in HTML.
 
-| Type                                                                                                                                                                                     |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| enum(`'no-referrer'`, `'no-referrer-when-downgrade'`, `'origin'`, `'origin-when-cross-origin'`, `'same-origin'`, `'strict-origin'`, `'strict-origin-when-cross-origin'`, `'unsafe-url'`) |
+| Type                                                                                                                                                                                     | Default                             |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- |
+| enum(`'no-referrer'`, `'no-referrer-when-downgrade'`, `'origin'`, `'origin-when-cross-origin'`, `'same-origin'`, `'strict-origin'`, `'strict-origin-when-cross-origin'`, `'unsafe-url'`) | `'strict-origin-when-cross-origin'` |
 
 ---
 
@@ -480,7 +479,7 @@ A string representing the remote URL of the image. This prop has precedence over
 
 A string representing comma separated list of possible candidate image source. Each image source contains a URL of an image and a pixel density descriptor. If no descriptor is specified, it defaults to descriptor of `1x`.
 
-If srcSet does not contain a `1x` descriptor, the value in src, if provided, is used as image source with `1x` descriptor.
+If `srcSet` does not contain a `1x` descriptor, the value in `src` is used as image source with `1x` descriptor (if provided).
 
 This prop has precedence over both the `src` and `source` props.
 
