@@ -416,7 +416,7 @@ For a Fabric Native Component, the source of truth is the `<YourModule>NativeCom
 import MyComponent from 'your-component/src/index';
 ```
 
-Since `codegenNativeComponent` is calling the `requireNativeComponent` under the hood, we just need to re-export our component, to avoid registering it multiple times.
+Since `codegenNativeComponent` is calling the `requireNativeComponent` under the hood, we need to re-export our component, to avoid registering it multiple times.
 
 <Tabs groupId="fabric-component-backward-compatibility"
       defaultValue={constants.defaultFabricComponentSpecLanguage}
