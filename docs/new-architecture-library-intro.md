@@ -18,7 +18,7 @@ The JavaScript specs serve as the source of truth for the methods that are provi
 Using a **typed** spec file allows you to be intentional and declare all the input arguments and outputs of your native module’s methods.
 
 :::info
-Currently, this guide is written under the assumption that you will be using [Flow](https://flow.org/). The `react-native-codegen` package is also currently working only with the Flow source as an input. **TypeScript** support is in beta right now.
+**TypeScript** support is in beta right now.
 :::
 
 To adopt the New Architecture, you start by creating these specs for your native modules and native components. You can do this prior to actually migrating to the New Architecture: the specs will be used later on to generate native interface code for all the supported platforms as a way to enforce uniform APIs across platforms.
@@ -152,7 +152,7 @@ If your existing native module has methods with the same name on multiple platfo
 
 <!-- alex ignore master -->
 
-[Autolinking](https://github.com/react-native-community/cli/blob/master/docs/autolinking.md) is a feature of the React Native CLI that simplifies the installation of third-party React Native libraries. Instructions to enable _autolinking_ are available at https://github.com/react-native-community/cli/blob/master/docs/autolinking.md.
+[Autolinking](https://github.com/react-native-community/cli/blob/master/docs/autolinking.md) is a feature of the React Native CLI that simplifies the installation of third-party React Native libraries. Instructions to enable _autolinking_ are available in the [React Native CLI docs](https://github.com/react-native-community/cli/blob/master/docs/autolinking.md).
 
 ### Android
 
@@ -222,7 +222,7 @@ Android also requires to have the [React Gradle Plugin properly configured](new-
 
 ## Preparing your JavaScript Codebase for the new React Native Renderer (Fabric)
 
-The new renderer, also known as Fabric, doesn’t use the UIManager, so direct calls to UIManager will need to be migrated. Historically, calls to UIManager had some pretty complicated patterns. Fortunately, we’ve created new APIs that are much cleaner. These new APIs are forward compatible with Fabric, so you can migrate your code today, and the APIs will work properly when you turn on Fabric!
+The new renderer, Fabric, doesn’t use the UIManager, so direct calls to UIManager will need to be migrated. Historically, calls to UIManager had some pretty complicated patterns. Fortunately, we’ve created new APIs that are much cleaner. These new APIs are forward compatible with Fabric, so you can migrate your code today, and the APIs will work properly when you turn on Fabric!
 
 Fabric will be providing new type safe JS APIs that are much more ergonomic than some of the patterns we've seen in product code today. These APIs require references to the underlying component, no longer using the result of `findNodeHandle`. `findNodeHandle` is used to search the tree for a native component given a class instance. This was breaking the React abstraction model. `findNodeHandle` is not compatible with React 18. Deprecation of `findNodeHandle` in React Native is similar to the [deprecation of `findDOMNode` in React DOM](https://reactjs.org/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage).
 
