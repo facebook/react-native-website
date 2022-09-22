@@ -220,7 +220,7 @@ Codegen can be configured in the `package.json` file of your Library. Add the fo
 
 Android also requires to have the [React Gradle Plugin properly configured](new-architecture-app-intro#android-specifics) in your app.
 
-## Preparing your JavaScript Codebase for Fabric
+## Preparing your JavaScript Codebase for the new React Native Renderer (Fabric)
 
 The new renderer, Fabric, doesn’t use the UIManager, so direct calls to UIManager will need to be migrated. Historically, calls to UIManager had some pretty complicated patterns. Fortunately, we’ve created new APIs that are much cleaner. These new APIs are forward compatible with Fabric, so you can migrate your code today, and the APIs will work properly when you turn on Fabric!
 
