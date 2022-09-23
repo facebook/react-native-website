@@ -21,7 +21,7 @@ React Native tagged content can be found on many platforms, such as:
 - [DevTo community](https://dev.to/t/reactnative)
 - [Medium](https://medium.com/tag/react-native)
 - [Hashnode](https://hashnode.com/n/react-native)
-- [HackerNews](https://hn.algolia.com/?q=react-native)
+- [Hacker News](https://hn.algolia.com/?q=react-native)
 - [r/reactnative/](https://www.reddit.com/r/reactnative/)
 
 These are places where you can share React Native projects, articles and tutorials as well as start discussions and ask for feedback on React Native related topics. (but remember to give some love to the [main documentation](https://github.com/facebook/react-native-website) too!)
