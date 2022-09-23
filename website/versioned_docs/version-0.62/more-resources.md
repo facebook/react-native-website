@@ -12,7 +12,7 @@ Congratulations! You built your first React Native app. But there’s more to le
 - [Design and layout your app](flexbox)
 - [Debug your app](debugging)
 - [Make your app cross platform](platform-specific-code)
-- [Get involved in the React Native community](/help)
+- [Get involved in the React Native community](/community/overview)
 
 ## Dive deep
 

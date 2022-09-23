@@ -14,7 +14,7 @@ To increase your chances of resolving your issue quickly, please consider includ
 
 ### Code-level help
 
-If you're looking for help with your app, please refer to the ample [list of community resources](/help). Many members of the community use Stack Overflow to [ask questions](https://stackoverflow.com/questions/tagged/react-native?sort=frequent) using the **react-native** tag.
+If you're looking for help with your app, please refer to the ample [list of community resources](/community/support). Many members of the community use Stack Overflow to [ask questions](https://stackoverflow.com/questions/tagged/react-native?sort=frequent) using the **react-native** tag.
 
 ### Existing issues
 
