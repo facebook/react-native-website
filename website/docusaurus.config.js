@@ -370,10 +370,6 @@ module.exports = {
                 href: 'https://reactjs.org/',
               },
               {
-                label: 'Meta Open Source',
-                href: 'https://opensource.fb.com/',
-              },
-              {
                 label: 'Privacy Policy',
                 href: 'https://opensource.fb.com/legal/privacy/',
               },
