@@ -394,7 +394,7 @@ For a Fabric Native Component, the source of truth is the `<YourModule>NativeCom
 import MyComponent from 'your-component/src/index';
 ```
 
-The **goal** is to conditionally `export` from the `index` file the proper object, given the architecture chosen by the user. We can achieve this with a code that looks like this:
+Since `codegenNativeComponent` is calling the `requireNativeComponent` under the hood, we need to re-export our component, to avoid registering it multiple times.
 
 <Tabs groupId="fabric-component-backward-compatibility"
       defaultValue={constants.defaultFabricComponentSpecLanguage}
@@ -403,40 +403,15 @@ The **goal** is to conditionally `export` from the `index` file the proper objec
 
 ```ts
 // @flow
-import { requireNativeComponent } from 'react-native';
-
-const isFabricEnabled = global.nativeFabricUIManager != null;
-
-const myComponent = isFabricEnabled
-  ? require('./MyComponentNativeComponent').default
-  : requireNativeComponent('MyComponent');
-
-export default myComponent;
+export default require('./MyComponentNativeComponent').default;
 ```
 
 </TabItem>
 <TabItem value="TypeScript">
 
 ```ts
-import requireNativeComponent from 'react-native/Libraries/ReactNative/requireNativeComponent';
-
-const isFabricEnabled = global.nativeFabricUIManager != null;
-
-const myComponent = isFabricEnabled
-  ? require('./MyComponentNativeComponent').default
-  : requireNativeComponent('MyComponent');
-
-export default myComponent;
+export default require('./MyComponentNativeComponent').default;
 ```
 
 </TabItem>
 </Tabs>
-
-Whether you are using Flow or TypeScript for your specs, we understand which architecture is running by checking if the `global.nativeFabricUIManager` object has been set or not.
-
-:::caution
-Please note that the New Architecture is still experimental. The `global.nativeFabricUIManager` API might change in the future for a function that encapsulate this check.
-:::
-
-- If that object is `null`, then the app has not enabled the Fabric feature. It's running on the Old Architecture, and the fallback is to use the default Legacy Native Components implementation ([iOS](../native-components-ios) or [Android](../native-components-android)).
-- If that object is set, the app is running with Fabric enabled, and it should use the `<MyComponent>NativeComponent` spec to access the Fabric Native Component.

@@ -2,7 +2,7 @@ import M1Cocoapods from './\_markdown-m1-cocoapods.mdx'; import RemoveGlobalCLI 
 
 ## Installing dependencies
 
-You will need Node, Watchman, the React Native command line interface, Xcode and CocoaPods.
+You will need Node, Watchman, the React Native command line interface, a Ruby version manager, Xcode and CocoaPods.
 
 While you can use any editor of your choice to develop your app, you will need to install Xcode in order to set up the necessary tooling to build your React Native app for iOS.
 
@@ -18,6 +18,35 @@ brew install watchman
 If you have already installed Node on your system, make sure it is Node 14 or newer.
 
 [Watchman](https://facebook.github.io/watchman) is a tool by Facebook for watching changes in the filesystem. It is highly recommended you install it for better performance.
+
+### Ruby
+
+[Ruby](https://www.ruby-lang.org/en/) is a general-purpose programming language. React Native uses in some scripts related to the iOS dependency management. As every programming language, there are different versions of Ruby that have been developed during the years.
+
+React Native uses a `.ruby-version` file to make sure that your version of Ruby is aligned with what is needed. Currently, macOS 12.5.1 is shipped with Ruby 2.6.8, which is **not** what is required by React Native. Our suggestion is to install a Ruby version manager and to install the proper version of Ruby in your system.
+
+Some common Ruby version manager are:
+
+- [rbenv](https://github.com/rbenv/rbenv)
+- [RVM](https://rvm.io/)
+- [chruby](https://github.com/postmodern/chruby)
+- [asdf-vm](https://github.com/asdf-vm) with the [asdf-ruby](https://github.com/asdf-vm/asdf-ruby) plugin
+
+To check what is your current version of Ruby, you can run this command:
+
+```
+ruby --version
+```
+
+React Native uses [this version](https://github.com/facebook/react-native/blob/main/template/_ruby-version) of Ruby. You can also find which version your specific project needs in the `.ruby-version` file at root of your RN project.
+
+### Ruby's Bundler
+
+Ruby uses the concept of **gems** to handle its own dependencies. You can think of a gem as a package in NPM, a formula in Homebrew or a single pod in Cocoapods.
+
+Ruby's [Bundler](https://bundler.io/) is a Ruby gem that helps managing the Ruby dependencies of your project. We need Ruby to install Cocoapods and using Bundler will make sure that all the dependencies are aligned and that the project works properly.
+
+If you want to learn more about why we need this tool, you can read [this article](https://bundler.io/guides/rationale.html#bundlers-purpose-and-rationale).
 
 ### Xcode
 
@@ -37,15 +66,7 @@ To install a simulator, open <strong>Xcode > Preferences...</strong> and select 
 
 #### CocoaPods
 
-[CocoaPods](https://cocoapods.org/) is built with Ruby and it will be installable with the default Ruby available on macOS.
-
-Using the default Ruby available on macOS will require you to use `sudo` when installing gems. (This is only an issue for the duration of the gem installation, though.)
-
-```shell
-sudo gem install cocoapods
-```
-
-Otherwise you can use a Ruby version manager, such as `rbenv`. Apps created with the command `npx react-native init` described below are configured to work well with `rbenv` and will pick the correct Ruby version requested by the template.
+[CocoaPods](https://cocoapods.org/) is one of the dependency management system available for iOS. It is built with Ruby and you can install it using the version of Ruby you configured with in the previous steps.
 
 For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
 
@@ -66,6 +87,17 @@ npx react-native init AwesomeProject
 ```
 
 This is not necessary if you are integrating React Native into an existing application, if you "ejected" from Expo, or if you're adding iOS support to an existing React Native project (see [Integration with Existing Apps](integration-with-existing-apps.md)). You can also use a third-party CLI to init your React Native app, such as [Ignite CLI](https://github.com/infinitered/ignite).
+
+:::info
+
+If you are having trouble with iOS, try to reinstall the dependencies by running:
+
+1. `cd ios` to navigate to the
+2. `bundle install` to install Bundler
+   1. If needed: install a [Ruby Version Manager](#ruby) and update the Ruby version
+3. `bundle exec pod install` to install the iOS dependencies.
+
+:::
 
 ### [Optional] Using a specific version or template
 

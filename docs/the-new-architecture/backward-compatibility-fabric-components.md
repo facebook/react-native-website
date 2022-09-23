@@ -24,11 +24,13 @@ Creating a backward compatible Fabric Native Component lets your users continue 
 1. Uniform the JavaScript API so that your user code won't need changes.
 
 :::info
+
 For the sake of this guide we're going to use the following **terminology**:
 
 - **Legacy Native Components** - To refer to Components which are running on the old React Native architecture.
 - **Fabric Native Components** - To refer to Components which have been adapted to work well with the New Native Renderer, Fabric. For brevity you might find them referred as **Fabric Components**.
-  :::
+
+:::
 
 <BetaTS />
 
@@ -40,7 +42,9 @@ While the last step is the same for all the platforms, the first two steps are d
 
 The Apple platform installs Fabric Native Components using [Cocoapods](https://cocoapods.org) as a dependency manager.
 
-Every Fabric Native Component defines a `podspec` that looks like this:
+If you are already using the [`install_module_dependencies`](https://github.com/facebook/react-native/blob/82e9c6ad611f1fb816de056ff031716f8cb24b4e/scripts/react_native_pods.rb#L145) function, then **there is nothing to do**. The function already takes care of installing the proper dependencies when the New Architecture is enabled and avoiding them when it is not enabled.
+
+Otherwise, your Fabric Native Component's `podspec` should look like this:
 
 ```ruby
 require "json"
@@ -83,31 +87,49 @@ Pod::Spec.new do |s|
 end
 ```
 
-The **goal** is to avoid installing the dependencies when the app is prepared for the Old Architecture.
-
-When we want to install the dependencies, we use the following commands depending on the architecture:
-
-```sh
-# For the Old Architecture, we use:
-pod install
-
-# For the New Architecture, we use:
-RCT_NEW_ARCH_ENABLED=1 pod install
-```
-
-Therefore, we can leverage this environment variable in the `podspec` to exclude the settings and the dependencies that are related to the New Architecture:
+You should install the extra dependencies when the New Architecture is enabled, and avoid installing them when it's not.
+To achieve this, you can use the [`install_modules_dependencies`](https://github.com/facebook/react-native/blob/82e9c6ad611f1fb816de056ff031716f8cb24b4e/scripts/react_native_pods.rb#L145). Update the `.podspec` file as it follows:
 
 ```diff
-+ if ENV['RCT_NEW_ARCH_ENABLED'] == '1' then
-    # The following lines are required by the New Architecture.
-    s.compiler_flags = folly_compiler_flags + " -DRCT_NEW_ARCH_ENABLED=1"
-    # ... other dependencies ...
-    s.dependency "ReactCommon/turbomodule/core"
-+ end
+require "json"
+
+package = JSON.parse(File.read(File.join(__dir__, "package.json")))
+
+- folly_version = '2021.07.22.00'
+- folly_compiler_flags = '-DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1 -Wno-comma -Wno-shorten-64-to-32'
+
+Pod::Spec.new do |s|
+  # Default fields for a valid podspec
+  s.name            = "<FC Name>"
+  s.version         = package["version"]
+  s.summary         = package["description"]
+  s.description     = package["description"]
+  s.homepage        = package["homepage"]
+  s.license         = package["license"]
+  s.platforms       = { :ios => "11.0" }
+  s.author          = package["author"]
+  s.source          = { :git => package["repository"], :tag => "#{s.version}" }
+
+  s.source_files    = "ios/**/*.{h,m,mm,swift}"
+  # React Native Core dependency
++  install_modules_dependencies(s)
+-  s.dependency "React-Core"
+-  # The following lines are required by the New Architecture.
+-  s.compiler_flags = folly_compiler_flags + " -DRCT_NEW_ARCH_ENABLED=1"
+-  s.pod_target_xcconfig    = {
+-      "HEADER_SEARCH_PATHS" => "\"$(PODS_ROOT)/boost\"",
+-      "OTHER_CPLUSPLUSFLAGS" => "-DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1",
+-      "CLANG_CXX_LANGUAGE_STANDARD" => "c++17"
+-  }
+-
+-  s.dependency "React-RCTFabric"
+-  s.dependency "React-Codegen"
+-  s.dependency "RCT-Folly", folly_version
+-  s.dependency "RCTRequired"
+-  s.dependency "RCTTypeSafety"
+-  s.dependency "ReactCommon/turbomodule/core"
 end
 ```
-
-This `if` guard prevents the dependencies from being installed when the environment variable is not set.
 
 ### Android
 
@@ -394,7 +416,7 @@ For a Fabric Native Component, the source of truth is the `<YourModule>NativeCom
 import MyComponent from 'your-component/src/index';
 ```
 
-The **goal** is to conditionally `export` the proper object from the `index` file , given the architecture chosen by the user. We can achieve this with a code that looks like this:
+Since `codegenNativeComponent` is calling the `requireNativeComponent` under the hood, we need to re-export our component, to avoid registering it multiple times.
 
 <Tabs groupId="fabric-component-backward-compatibility"
       defaultValue={constants.defaultFabricComponentSpecLanguage}
@@ -403,40 +425,15 @@ The **goal** is to conditionally `export` the proper object from the `index` fil
 
 ```ts
 // @flow
-import { requireNativeComponent } from 'react-native';
-
-const isFabricEnabled = global.nativeFabricUIManager != null;
-
-const myComponent = isFabricEnabled
-  ? require('./MyComponentNativeComponent').default
-  : requireNativeComponent('MyComponent');
-
-export default myComponent;
+export default require('./MyComponentNativeComponent').default;
 ```
 
 </TabItem>
 <TabItem value="TypeScript">
 
 ```ts
-import requireNativeComponent from 'react-native/Libraries/ReactNative/requireNativeComponent';
-
-const isFabricEnabled = global.nativeFabricUIManager != null;
-
-const myComponent = isFabricEnabled
-  ? require('./MyComponentNativeComponent').default
-  : requireNativeComponent('MyComponent');
-
-export default myComponent;
+export default require('./MyComponentNativeComponent').default;
 ```
 
 </TabItem>
 </Tabs>
-
-Whether you are using Flow or TypeScript for your specs, we understand which architecture is running by checking if the `global.nativeFabricUIManager` object has been set or not.
-
-:::caution
-Please note that the New Architecture is still experimental. The `global.nativeFabricUIManager` API might change in the future for a function that encapsulate this check.
-:::
-
-- If that object is `null`, then the app has not enabled the Fabric feature. It's running on the Old Architecture, and the fallback is to use the default Legacy Native Components implementation ([iOS](../native-components-ios) or [Android](../native-components-android)).
-- If that object is set, the app is running with Fabric enabled, and it should use the `<MyComponent>NativeComponent` spec to access the Fabric Native Component.

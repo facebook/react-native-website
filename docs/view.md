@@ -287,6 +287,14 @@ Represents the textual description of the component. Has precedence over the `te
 | ------ |
 | string |
 
+### `aria-modal` <div class="label ios">iOS</div>
+
+Boolean value indicating whether VoiceOver should ignore the elements within views that are siblings of the receiver. Has precedence over the `accessibilityViewIsModal` prop.
+
+| Type | Default |
+| ---- | ------- |
+| bool | false   |
+
 ---
 
 ### `collapsable` <div class="label android">Android</div>
@@ -320,6 +328,18 @@ For example, if a touchable view has a height of 20 the touchable height can be 
 | Type                                                               |
 | ------------------------------------------------------------------ |
 | object: {top: number, left: number, bottom: number, right: number} |
+
+---
+
+### `id`
+
+Used to locate this view from native classes. Has precedence over `nativeID` prop.
+
+> This disables the 'layout-only view removal' optimization for this view!
+
+| Type   |
+| ------ |
+| string |
 
 ---
 

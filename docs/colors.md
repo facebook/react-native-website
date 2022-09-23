@@ -26,14 +26,27 @@ React Native supports `rgb()` and `rgba()` in both hexadecimal and functional no
 - `'#f0ff'` (#rgba)
 - `'#ff00ff00'` (#rrggbbaa)
 - `'rgb(255, 0, 255)'`
+- `'rgb(255 0 255)'`
 - `'rgba(255, 0, 255, 1.0)'`
+- `'rgba(255 0 255 / 1.0)'`
 
 ### Hue Saturation Lightness (HSL)
 
 React Native supports `hsl()` and `hsla()` in functional notation:
 
 - `'hsl(360, 100%, 100%)'`
+- `'hsl(360 100% 100%)'`
 - `'hsla(360, 100%, 100%, 1.0)'`
+- `'hsla(360 100% 100% / 1.0)'`
+
+### Hue Whiteness Blackness (HWB)
+
+React Native supports `hwb()` in functional notation:
+
+- `'hwb(0, 0%, 100%)'`
+- `'hwb(360, 100%, 100%)'`
+- `'hwb(0 0% 0%)'`
+- `'hwb(70 50% 0%)'`
 
 ### Color ints
 

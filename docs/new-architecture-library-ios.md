@@ -16,31 +16,19 @@ The New Architecture makes use of CocoaPods.
 
 ### Add Folly and Other Dependencies
 
-We'll need to ensure Folly is configured properly in any projects that consume your library. With CocoaPods, we can use the `compiler_flags` and `dependency` properties to set it up.
+The New Architecture requires some specific dependencies to work properly. You can set up your podspec to automatically install the required dependencies by modifying the `.podspec` file. In your `Pod::Spec.new` block, add the following line:
 
-Add these to your `Pod::Spec.new` block:
-
-```ruby
-folly_compiler_flags = '-DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1 -Wno-comma -Wno-shorten-64-to-32'
-
+```diff
 Pod::Spec.new do |s|
   # ...
-  s.compiler_flags  = folly_compiler_flags
-
-  s.pod_target_xcconfig    = {
-    "HEADER_SEARCH_PATHS" => "\"$(PODS_ROOT)/boost\""
-  }
-
-  s.dependency "React-Core"
-  s.dependency "React-RCTFabric" # This is for Fabric Native Component
-  s.dependency "React-Codegen"
-  s.dependency "RCT-Folly"
-  s.dependency "RCTRequired"
-  s.dependency "RCTTypeSafety"
-  s.dependency "ReactCommon/turbomodule/core"
++  install_modules_dependencies(s)
   # ...
 end
 ```
+
+At this [link](https://github.com/facebook/react-native/blob/82e9c6ad611f1fb816de056ff031716f8cb24b4e/scripts/react_native_pods.rb#L139-L144), you can find the documentation of the `install_modules_dependencies` function.
+
+If you need to explicitly know which `folly_flags` React Native is using, you can query them using the [`folly_flag`](https://github.com/facebook/react-native/blob/82e9c6ad611f1fb816de056ff031716f8cb24b4e/scripts/react_native_pods.rb#L135) function.
 
 ## 2. Extend or Implement the Code-generated Native Interfaces
 

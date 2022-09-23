@@ -220,6 +220,16 @@ Represents the current value for range-based components, such as sliders and pro
 
 Repersents the textual description of the component.
 
+### `aria-modal` <div class="label ios">iOS</div>
+
+Boolean value indicating whether VoiceOver should ignore the elements within views that are siblings of the receiver.
+
+| Type | Default |
+| ---- | ------- |
+| bool | false   |
+
+---
+
 ### `importantForAccessibility` <div class="label android">Android</div>
 
 In the case of two overlapping UI components with the same parent, default accessibility focus can have unpredictable behavior. The `importantForAccessibility` property will resolve this by controlling if a view fires accessibility events and if it is reported to accessibility services. It can be set to `auto`, `yes`, `no` and `no-hide-descendants` (the last value will force accessibility services to ignore the component and all of its children).
