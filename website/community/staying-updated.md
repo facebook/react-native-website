@@ -20,6 +20,10 @@ Expect important conversations to always be public; depending on the topic, you 
 - [Release status and issues](https://github.com/reactwg/react-native-releases/discussions)
 - [New Architecture adoption and feedback](https://github.com/reactwg/react-native-new-architecture/discussions)
 
+### Packages & Integrations
+
+In the [React Native Directory](https://reactnative.directory/) you will be able to see many libraries that are compatible with React Native. It is a community-driven effort to help developers browse and evaluate packages, plugins, state management libraries, and more.
+
 ### Conferences
 
 Over the years, many conferences organized by companies and partners have been organized around the world - it would be impossible to track them all here; moreover, often there is React Native content in React events as well.
