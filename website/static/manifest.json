@@ -31,7 +31,7 @@
     {
       "name": "Community",
       "short_name": "Community",
-      "url": "/help",
+      "url": "/community/overview",
       "icons": [{ "src": "img/pwa/manifest-icon-192.png", "sizes": "192x192" }]
     },
     {
