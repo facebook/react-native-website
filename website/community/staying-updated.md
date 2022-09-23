@@ -4,8 +4,6 @@ description: The React Native Community
 wrapperClassName: 'community-staying-updated-page'
 ---
 
-## Staying up to date
-
 ### Official channels
 
 The [React Twitter account](https://twitter.com/reactjs) covers both React and React Native. Follow the React Native [Twitter account](https://twitter.com/reactnative) and [blog](blog) to find out what's happening in the world of React Native.

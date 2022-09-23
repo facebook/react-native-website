@@ -4,12 +4,6 @@ description: Where to get help
 wrapperClassName: 'community-support-page'
 ---
 
-# Where to get help
-
-There are a lot of developers around the world using React Native. This is a brief overview of where you can find them.
-
-## Where To Get Help
-
 If you need help with your React Native app, the right place to go depends on the type of help that you need.
 
 ### Repository

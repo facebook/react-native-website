@@ -4,7 +4,7 @@ description: The React Native Community
 wrapperClassName: 'community-communities-page'
 ---
 
-## Communities
+TODO: write an overview
 
 ### Reactiflux Chat
 
