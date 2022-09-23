@@ -251,7 +251,7 @@ When `true`, indicates that the view is an accessibility element. By default, al
 
 ### `aria-valuemax`
 
-It Represents the maximum value for range-based components, such as sliders and progress bars. Has precedence over the `accessibilityValue.max` prop.
+Represents the maximum value for range-based components, such as sliders and progress bars. Has precedence over the `max` value in the `accessibilityValue` prop.
 
 | Type   |
 | ------ |
@@ -261,7 +261,7 @@ It Represents the maximum value for range-based components, such as sliders and 
 
 ### `aria-valuemin`
 
-It Represents the maximum value for range-based components, such as sliders and progress bars. Has precedence over the `accessibilityValue.min` prop.
+Represents the maximum value for range-based components, such as sliders and progress bars. Has precedence over the `min` value in the `accessibilityValue` prop.
 
 | Type   |
 | ------ |
@@ -271,7 +271,7 @@ It Represents the maximum value for range-based components, such as sliders and 
 
 ### `aria-valuenow`
 
-It Represents the current value for range-based components, such as sliders and progress bars. Has precedence over the `accessibilityValue.now` prop.
+Represents the current value for range-based components, such as sliders and progress bars. Has precedence over the `now` value in the `accessibilityValue` prop.
 
 | Type   |
 | ------ |
@@ -281,7 +281,7 @@ It Represents the current value for range-based components, such as sliders and 
 
 ### `aria-valuetext`
 
-It is the textual description of the component. Has precedence over the `accessibilityValue.text` prop.
+Represents the textual description of the component. Has precedence over the `text` value in the `accessibilityValue` prop.
 
 | Type   |
 | ------ |

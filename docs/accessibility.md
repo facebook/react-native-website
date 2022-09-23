@@ -206,19 +206,19 @@ For example, in a window that contains sibling views `A` and `B`, setting `acces
 
 ### `aria-valuemax`
 
-It Represents the maximum value for range-based components, such as sliders and progress bars.
+Represents the maximum value for range-based components, such as sliders and progress bars.
 
 ### `aria-valuemin`
 
-It Represents the maximum value for range-based components, such as sliders and progress bars.
+Represents the maximum value for range-based components, such as sliders and progress bars.
 
 ### `aria-valuenow`
 
-It Represents the current value for range-based components, such as sliders and progress bars.
+Represents the current value for range-based components, such as sliders and progress bars.
 
 ### `aria-valuetext`
 
-It is the textual description of the component.
+Repersents the textual description of the component.
 
 ### `importantForAccessibility` <div class="label android">Android</div>
 
