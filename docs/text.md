@@ -649,6 +649,16 @@ Set text break strategy on Android API Level 23+, possible values are `simple`, 
 | ----------------------------------------------- | ------------- |
 | enum(`'simple'`, `'highQuality'`, `'balanced'`) | `highQuality` |
 
+---
+
+### `userSelect`
+
+It allows the user to select text and to use the native copy and paste functionality. Has precedence over the `selectable` prop.
+
+| Type                                                     | Default |
+| -------------------------------------------------------- | ------- |
+| enum(`'auto'`, `'text'`, `'none'`, `'contain'`, `'all'`) | `none`  |
+
 ## Type Definitions
 
 ### TextLayout
