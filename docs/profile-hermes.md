@@ -42,31 +42,9 @@ npx react-native profile-hermes [destinationDir]
 
 ### Enabling source map
 
-A source map is used to enhance the profile and associate trace events with the application code. You can automatically generate a source map when converting the Hermes tracing profile to a Chrome tracing profile by enabling `bundleInDebug` if the app is running in development mode. This allows React Native to build the bundle during its running process. Here's how:
-
-1. In your app's `android/app/build.gradle` file, add:
-
-```groovy
-project.ext.react = [
-  bundleInDebug: true,
-]
-```
-
 :::info
-Be sure to clean the build whenever you make any changes to `build.gradle`
+You may read about source maps on the [source maps](sourcemaps.md) page.
 :::
-
-2. Clean the build by running:
-
-```sh
-cd android && ./gradlew clean
-```
-
-3. Run your app:
-
-```sh
-npx react-native run-android
-```
 
 ### Common errors
 

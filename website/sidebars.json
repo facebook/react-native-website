@@ -23,6 +23,7 @@
       "fast-refresh",
       "debugging",
       "symbolication",
+      "sourcemaps",
       "testing-overview",
       "libraries",
       "typescript",
