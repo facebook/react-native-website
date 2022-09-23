@@ -249,6 +249,44 @@ When `true`, indicates that the view is an accessibility element. By default, al
 
 ---
 
+### `aria-valuemax`
+
+Represents the maximum value for range-based components, such as sliders and progress bars. Has precedence over the `max` value in the `accessibilityValue` prop.
+
+| Type   |
+| ------ |
+| number |
+
+---
+
+### `aria-valuemin`
+
+Represents the maximum value for range-based components, such as sliders and progress bars. Has precedence over the `min` value in the `accessibilityValue` prop.
+
+| Type   |
+| ------ |
+| number |
+
+---
+
+### `aria-valuenow`
+
+Represents the current value for range-based components, such as sliders and progress bars. Has precedence over the `now` value in the `accessibilityValue` prop.
+
+| Type   |
+| ------ |
+| number |
+
+---
+
+### `aria-valuetext`
+
+Represents the textual description of the component. Has precedence over the `text` value in the `accessibilityValue` prop.
+
+| Type   |
+| ------ |
+| string |
+
 ### `aria-modal` <div class="label ios">iOS</div>
 
 Boolean value indicating whether VoiceOver should ignore the elements within views that are siblings of the receiver. Has precedence over the `accessibilityViewIsModal` prop.

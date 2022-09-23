@@ -204,6 +204,22 @@ A Boolean value indicating whether the accessibility elements contained within t
 
 For example, in a window that contains sibling views `A` and `B`, setting `accessibilityElementsHidden` to `true` on view `B` causes VoiceOver to ignore the elements in the view `B`. This is similar to the Android property `importantForAccessibility="no-hide-descendants"`.
 
+### `aria-valuemax`
+
+Represents the maximum value for range-based components, such as sliders and progress bars.
+
+### `aria-valuemin`
+
+Represents the maximum value for range-based components, such as sliders and progress bars.
+
+### `aria-valuenow`
+
+Represents the current value for range-based components, such as sliders and progress bars.
+
+### `aria-valuetext`
+
+Repersents the textual description of the component.
+
 ### `aria-modal` <div class="label ios">iOS</div>
 
 Boolean value indicating whether VoiceOver should ignore the elements within views that are siblings of the receiver.
