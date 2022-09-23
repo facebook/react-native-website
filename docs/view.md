@@ -253,9 +253,9 @@ When `true`, indicates that the view is an accessibility element. By default, al
 
 Boolean value indicating whether VoiceOver should ignore the elements within views that are siblings of the receiver. Has precedence over the `accessibilityViewIsModal` prop.
 
-| Type |
-| ---- |
-| bool |
+| Type | Default |
+| ---- | ------- |
+| bool | false   |
 
 ---
 

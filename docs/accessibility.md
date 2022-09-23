@@ -208,9 +208,9 @@ For example, in a window that contains sibling views `A` and `B`, setting `acces
 
 Boolean value indicating whether VoiceOver should ignore the elements within views that are siblings of the receiver.
 
-| Type |
-| ---- |
-| bool |
+| Type | Default |
+| ---- | ------- |
+| bool | false   |
 
 ---
 
