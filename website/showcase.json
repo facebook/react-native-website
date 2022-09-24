@@ -254,8 +254,8 @@
       "icon": "artsy.png",
       "linkAppStore": "https://apps.apple.com/us/app/artsy-buy-and-sell-fine-art/id703796080",
       "linkPlayStore": "https://play.google.com/store/apps/details?id=net.artsy.app&hl=en&gl=US",
-      "infoLink": "https://artsy.github.io/series/react-native-at-artsy/",
-      "infoTitle": "React Native at Artsy"
+      "infoLink": "https://github.com/artsy/eigen",
+      "infoTitle": "Artsy App (Eigen) on GitHub"
     },
     {
       "name": "Baidu Mobile (手机百度)",
