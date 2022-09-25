@@ -60,8 +60,8 @@ const App = () => {
       <View style={[styles.container, styles.playingSpace, hookedStyles]}>
         {squares.map(elem => elem)}
       </View>
-      <ScrollView style={[styles.container]}>
-        <View style={[styles.controlSpace]}>
+      <ScrollView style={styles.container}>
+        <View style={styles.controlSpace}>
           <View style={styles.buttonView}>
             <Button
               title="Change Flex Direction"
