@@ -11,7 +11,7 @@ For long form news and announcements, keep an eye on the [blog](blog) to find ou
 
 ### Discussions and efforts
 
-React Native is a dynamic framework and there is always room for improvement. As an open source framework, large-scale coordination and discussion should remain publicly accessible. Here are some dedicated discussion groups you can participate in: 
+React Native is a dynamic framework and there is always room for improvement. As an open source framework, large-scale coordination and discussion should remain publicly accessible. Here are some dedicated discussion groups you can participate in:
 
 Expect important conversations to always be public; depending on the topic, you can find them in one of these places:
 
