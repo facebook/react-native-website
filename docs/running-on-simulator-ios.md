@@ -9,13 +9,13 @@ Once you have your React Native project initialized, you can run `npx react-nati
 
 ## Specifying a device
 
-You can specify the device the simulator should run with the `--simulator` flag, followed by the device name as a string. The default is `"iPhone 13"`. If you wish to run your app on an iPhone SE (2nd generation), run `npx react-native run-ios --simulator='iPhone SE (2nd generation)'`.
+You can specify the device the simulator should run with the `--simulator` flag, followed by the device name as a string. The default is `"iPhone 14"`. If you wish to run your app on an iPhone SE (3rd generation), run `npx react-native run-ios --simulator='iPhone SE (3rd generation)'`.
 
 The device names correspond to the list of devices available in Xcode. You can check your available devices by running `xcrun simctl list devices` from the console.
 
 ### Specifying a version of device
 
-If you have multiple iOS versions installed, you also need to specify it's appropiate version. E.g. run `npx react-native run-ios --simulator='iPhone 13 Pro (15.5)'` in order to specify the iOS version.
+If you have multiple iOS versions installed, you also need to specify it's appropiate version. E.g. run `npx react-native run-ios --simulator='iPhone 14 Pro (16.0)'` in order to specify the iOS version.
 
 ## Specifying an UDID
 
