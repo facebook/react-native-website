@@ -615,7 +615,7 @@ In JavaScript, you can then check the first argument to see if an error was pass
 
 ```jsx
 const onPress = () => {
-  CalendarModule.createCalendarEventCallback(
+  CalendarModule.createCalendarEvent(
     'testName',
     'testLocation',
     (error, eventId) => {
@@ -659,7 +659,7 @@ Then in JavaScript you can add a separate callback for error and success respons
 
 ```jsx
 const onPress = () => {
-  CalendarModule.createCalendarEventCallback(
+  CalendarModule.createCalendarEvent(
     'testName',
     'testLocation',
     (error) => {
