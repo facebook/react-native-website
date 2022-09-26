@@ -1,7 +1,6 @@
 ---
 title: Communities
 description: The React Native Community
-wrapperClassName: 'community-communities-page'
 ---
 
 The React Native ecosystem is far and wide, and people can be part of it in many forms; here you will find but a partial list of different ways one developer can be part of it. If you know of other, or want to help expand this page, [submit a PR](https://github.com/facebook/react-native-website/pulls?q=is%3Apr+is%3Aopen+sort%3Aupdated-desc)!

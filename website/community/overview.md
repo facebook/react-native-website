@@ -1,7 +1,6 @@
 ---
 title: Overview
 description: The React Native Community
-wrapperClassName: 'community-overview-page'
 ---
 
 React Native is a widely used technology, empowered by a massive community of hundreds of thousands of developers.

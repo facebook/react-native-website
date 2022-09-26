@@ -1,7 +1,6 @@
 ---
 title: Where to get help
 description: Where to get help
-wrapperClassName: 'community-support-page'
 ---
 
 If you need help with your React Native app, the right place to go depends on the type of help that you need.

@@ -1,7 +1,6 @@
 ---
 title: Staying up to date
 description: The React Native Community
-wrapperClassName: 'community-staying-updated-page'
 ---
 
 ### News
