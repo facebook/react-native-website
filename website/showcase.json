@@ -206,8 +206,7 @@
       "linkAppStore": "https://apps.apple.com/us/app/walmart-app-shopping-savings/id338137227",
       "linkPlayStore": "https://play.google.com/store/apps/details?id=com.walmart.android",
       "infoLink": " https://medium.com/walmartlabs/react-native-at-walmartlabs-cdd140589560#.ueonqqloc",
-      "infoTitle": "React Native at Walmart Labs",
-      "pinned": true
+      "infoTitle": "React Native at Walmart Labs"
     },
     {
       "name": "Spaces: Follow Businesses",
@@ -316,6 +315,13 @@
       "icon": "klarna.jpg",
       "linkAppStore": "https://apps.apple.com/us/app/klarna-shop-now-pay-later/id1115120118",
       "linkPlayStore": "https://play.google.com/store/apps/details?id=com.myklarnamobile"
+    },
+    {
+      "name": "NFL",
+      "icon": "nfl.webp",
+      "linkAppStore": "https://apps.apple.com/us/app/nfl/id389781154",
+      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.gotv.nflgamecenter.us.lite&hl=en_US",
+      "pinned": true
     }
   ]
 }
