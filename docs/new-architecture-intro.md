@@ -9,7 +9,7 @@ import NewArchitectureWarning from './\_markdown-new-architecture-warning.mdx';
 
 # Getting Started with the New Architecture
 
-This migration guide is designed for React Native **library authors** and **application developers**. It outlines the steps you need to follow to roll out the new Architecture, composed by the **New Native Module system (Turbo Module) and the new Renderer (Fabric)** to your **Android** and **iOS** libraries and apps.
+This migration guide is designed for React Native **library authors** and **application developers**. It outlines the steps you need to follow to roll out the new Architecture, composed of the **new NativeModule system (Turbo Module) and the new Renderer (Fabric)** to your **Android** and **iOS** libraries and apps.
 
 ## Table of Contents
 
