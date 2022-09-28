@@ -417,6 +417,16 @@ This can be one of the following values:
 
 ---
 
+### `id`
+
+Used to locate this view from native code. Has precedence over `nativeID` prop.
+
+| Type   |
+| ------ |
+| string |
+
+---
+
 ### `maxFontSizeMultiplier`
 
 Specifies the largest possible scale a font can reach when `allowFontScaling` is enabled. Possible values:
@@ -638,6 +648,16 @@ Set text break strategy on Android API Level 23+, possible values are `simple`, 
 | Type                                            | Default       |
 | ----------------------------------------------- | ------------- |
 | enum(`'simple'`, `'highQuality'`, `'balanced'`) | `highQuality` |
+
+---
+
+### `userSelect`
+
+It allows the user to select text and to use the native copy and paste functionality. Has precedence over the `selectable` prop.
+
+| Type                                                     | Default |
+| -------------------------------------------------------- | ------- |
+| enum(`'auto'`, `'text'`, `'none'`, `'contain'`, `'all'`) | `none`  |
 
 ## Type Definitions
 

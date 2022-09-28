@@ -25,9 +25,9 @@ yarn run lint
 
 ### iOS Tests
 
-Start off by running `pod install` inside the `RNTester` directory. This will set up your native dependencies and create a `RNTesterPods` Xcode workspace.
+Follow the [README.md](https://github.com/facebook/react-native/blob/main/packages/rn-tester/README.md) instructions in the `packages/rn-tester` directory.
 
-Then, go back to the root of your React Native checkout and run `yarn` followed by `yarn start`. This will set up your JavaScript dependencies.
+Then, go back to the root of your React Native checkout and run `yarn`. This will set up your JavaScript dependencies.
 
 At this point, you can run iOS tests by invoking the following script from the root of your React Native checkout:
 
@@ -42,6 +42,16 @@ Xcode also allows running individual tests through its Test Navigator. You can a
 :::note
 `objc-test.sh` ensures your test environment is set up to run all tests. It also disables tests that are known to be flaky or broken. Keep this in mind when running tests using Xcode. If you see an unexpected failure, see if it's disabled in `objc-test.sh` first.
 :::
+
+#### iOS Podfile/Ruby tests
+
+If you are making modifications to `Podfile` configurations then there are Ruby tests that can verify these.
+
+To run the ruby tests:
+```bash
+cd scripts
+sh run_ruby_tests.sh
+```
 
 ### Android Tests
 
@@ -77,16 +87,7 @@ Finally, make sure end-to-end tests run successfully by executing the following 
 ./scripts/test-manual-e2e.sh
 ```
 
-End-to-end tests written in [Detox](https://github.com/wix/Detox) confirm that React Native components and APIs function correctly in the context of a running app. They run the RNTester app in the simulator and simulate a user interacting with the app.
-
-You can run Detox end-to-end tests locally by [installing the Detox CLI](https://github.com/wix/Detox/blob/master/docs/Introduction.GettingStarted.md#step-1-install-dependencies) on macOS, then running the following in the command line:
-
-```bash
-yarn run build-ios-e2e
-yarn run test-ios-e2e
-```
-
-If you work on a component or API that isn't covered by a Detox test, please consider adding one. Detox tests are stored under [`RNTester/e2e/__tests__`](https://github.com/facebook/react-native/tree/main/RNTester/e2e/__tests__).
+This script will make you select to run the RNTester app (that lives within `packages/rn-tester`) or it will generate a fresh new project in `/tmp/RNTestProject`. Follow the step-by-step instructions from the script to test successfully if your changes.
 
 ## Writing Tests
 
@@ -101,11 +102,11 @@ The JavaScript tests can be found inside `__test__` directories, colocated next 
 
 ### iOS Integration Tests
 
-React Native provides facilities to make it easier to test integrated components that require both native and JS components to communicate across the bridge. 
+React Native provides facilities to make it easier to test integrated components that require both native and JS components to communicate across the bridge.
 
 The two main components are `RCTTestRunner` and `RCTTestModule`. `RCTTestRunner` sets up the React Native environment and provides facilities to run the tests as `XCTestCase`s in Xcode (`runTest:module` is the simplest method). `RCTTestModule` is exported to JavaScript as `NativeModules.TestModule`.
 
-The tests themselves are written in JS, and must call `TestModule.markTestCompleted()` when they are done, otherwise the test will timeout and fail. 
+The tests themselves are written in JS, and must call `TestModule.markTestCompleted()` when they are done, otherwise the test will timeout and fail.
 
 Test failures are primarily indicated by throwing a JS exception. It is also possible to test error conditions with `runTest:module:initialProps:expectErrorRegex:` or `runTest:module:initialProps:expectErrorBlock:` which will expect an error to be thrown and verify the error matches the provided criteria.
 
@@ -123,11 +124,11 @@ See the following for example usage and integration points:
 
 A common type of integration test is the snapshot test. These tests render a component, and verify snapshots of the screen against reference images using `TestModule.verifySnapshot()`, using the [`FBSnapshotTestCase`](https://github.com/facebook/ios-snapshot-test-case) library behind the scenes. Reference images are recorded by setting `recordMode = YES` on the `RCTTestRunner`, then running the tests.
 
-Snapshots will differ slightly between 32 and 64 bit, and various OS versions, so it's recommended that you enforce tests are run with the [correct configuration](https://github.com/facebook/react-native/blob/main/scripts/.tests.env). 
+Snapshots will differ slightly between 32 and 64 bit, and various OS versions, so it's recommended that you enforce tests are run with the [correct configuration](https://github.com/facebook/react-native/blob/main/scripts/.tests.env).
 
 It's also highly recommended that all network data be mocked out, along with other potentially troublesome dependencies. See [`SimpleSnapshotTest`](https://github.com/facebook/react-native/blob/main/IntegrationTests/SimpleSnapshotTest.js) for a basic example.
 
-If you make a change that affects a snapshot test in a pull request, such as adding a new example case to one of the examples that is snapshotted, you'll need to re-record the snapshot reference image. 
+If you make a change that affects a snapshot test in a pull request, such as adding a new example case to one of the examples that is snapshotted, you'll need to re-record the snapshot reference image.
 
 To do this, change `recordMode` flag to `_runner.recordMode = YES;` in [RNTester/RNTesterSnapshotTests.m](https://github.com/facebook/react-native/blob/136666e2e7d2bb8d3d51d599fc1384a2f68c43d3/RNTester/RNTesterIntegrationTests/RNTesterSnapshotTests.m#L29), re-run the failing tests, then flip record back to `NO` and submit/update your pull request and wait to see if the CircleCI build passes.
 
@@ -141,12 +142,11 @@ It's a good idea to add an Android integration test whenever you are working on 
 
 ## Continuous Testing
 
-We use [Appveyor][config-appveyor] and [CircleCI][config-circleci] to automatically run our open source tests. Appveyor and CircleCI will run these tests whenever a commit is added to a pull request, as a way to help maintainers understand whether a code change introduces a regression. The tests also run on commits to the `main` and `*-stable` branches in order to keep track of the health of these branches.
+We use [CircleCI][config-circleci] to automatically run our open source tests. CircleCI will run these tests whenever a commit is added to a pull request, as a way to help maintainers understand whether a code change introduces a regression. The tests also run on commits to the `main` and `*-stable` branches in order to keep track of the health of these branches.
 
-[config-appveyor]: https://github.com/facebook/react-native/blob/main/.appveyor/config.yml
 [config-circleci]: https://github.com/facebook/react-native/blob/main/.circleci/config.yml
 
-There's another set of tests that run within Meta's internal test infrastructure. Some of these tests are integration tests defined by internal consumers of React Native (e.g. unit tests for a React Native surface in the Facebook app). 
+There's another set of tests that run within Meta's internal test infrastructure. Some of these tests are integration tests defined by internal consumers of React Native (e.g. unit tests for a React Native surface in the Facebook app).
 
 These tests run on every commit to the copy of React Native hosted on Facebook's source control. They also run when a pull request is imported to Facebook's source control.
 
@@ -154,16 +154,16 @@ If one of these tests fail, you'll need someone at Meta to take a look. Since pu
 
 :::note
 **Running CI tests locally:**
-Most open source collaborators rely on CircleCI and Appveyor to see the results of these tests. If you'd rather verify your changes locally using the same configuration as CircleCI, CircleCI provides a [command line interface](https://circleci.com/docs/2.0/local-cli/) with the ability to run jobs locally.
+Most open source collaborators rely on CircleCI to see the results of these tests. If you'd rather verify your changes locally using the same configuration as CircleCI, CircleCI provides a [command line interface](https://circleci.com/docs/local-cli) with the ability to run jobs locally.
 :::
 
 ### F.A.Q.
 
 #### How do I upgrade the Xcode version used in CI tests?
 
-When upgrading to a new version of Xcode, first make sure it is [supported by CircleCI](https://circleci.com/docs/2.0/testing-ios/#supported-xcode-versions). 
+When upgrading to a new version of Xcode, first make sure it is [supported by CircleCI](https://circleci.com/docs/testing-ios#supported-xcode-versions).
 
-You will also need to update the test environment config to make sure tests run on an iOS Simulator that comes installed in the CircleCI machine. 
+You will also need to update the test environment config to make sure tests run on an iOS Simulator that comes installed in the CircleCI machine.
 
 This can also be found in [CircleCI's Xcode version reference](https://circleci.com/docs/2.0/testing-ios/#supported-xcode-versions) by clicking the desired version and looking under Runtimes.
 

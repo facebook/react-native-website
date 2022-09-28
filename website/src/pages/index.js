@@ -108,15 +108,15 @@ function HomeCallToAction() {
     <>
       <ActionButton
         type="primary"
-        href={useBaseUrl('docs/getting-started')}
+        href={useBaseUrl('docs/environment-setup')}
         target="_self">
         Get started
       </ActionButton>
       <ActionButton
         type="secondary"
-        href={useBaseUrl('docs/tutorial')}
+        href={useBaseUrl('docs/getting-started')}
         target="_self">
-        Learn basics
+        Learn the basics
       </ActionButton>
     </>
   );
@@ -147,14 +147,23 @@ function GitHubStarButton() {
   );
 }
 
-function Section({
+export function Section({
   element = 'section',
   children,
   className,
   background = 'light',
 }) {
   const El = element;
-  return <El className={`Section ${className} ${background}`}>{children}</El>;
+  return (
+    <El
+      className={
+        className
+          ? `Section ${className} ${background}`
+          : `Section ${background}`
+      }>
+      {children}
+    </El>
+  );
 }
 
 function TwoColumns({columnOne, columnTwo, reverse}) {
@@ -425,7 +434,9 @@ function VideoContent() {
 
 function AppList() {
   const {siteConfig} = useDocusaurusContext();
-  const apps = siteConfig.customFields.users.filter(app => app.pinned);
+  const apps = Object.values(siteConfig.customFields.users)
+    .flat()
+    .filter(app => app.pinned);
 
   return (
     <ul className="AppList">

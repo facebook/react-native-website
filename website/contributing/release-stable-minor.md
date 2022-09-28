@@ -1,22 +1,35 @@
 ---
 id: release-stable-minor
-title: Release Stable Minor
+title: Minor Stable 0.Y.0
 ---
+
+:::info
+Documents in this section go over steps to run different types of React Native release updates. Its intended audience is those in [relevant release roles](./release-roles-responsibilites.md).
+:::
 
 ### Pre-requisites
 
-- Have the blog post ready to submit as a PR for `react-native-website` [repository](https://github.com/facebook/react-native-website).
-- Changelog PR should be ready to merge.
-- Previous RC has been thoroughly tested and no important issues have been reported. When releasing stable minor, you should not include any new cherry-picks.
+- Write access to [react-native](https://github.com/facebook/react-native) repository.
+- Write access to [releases](https://github.com/reactwg/react-native-releases) repository.
+- One CircleCI personal API token - see [here](https://circleci.com/docs/2.0/managing-api-tokens/#creating-a-personal-api-token) how to set one.
+- Blog post PR should be ready to merge (for `react-native-website` [repository](https://github.com/facebook/react-native-website)).
+- Documentation PR should be ready to merge (for `react-native-website` [repository](https://github.com/facebook/react-native-website)).
+- Changelog PR should be ready to merge (for `react-native` [repository](https://github.com/facebook/react-native)).
+- Previous RC has been thoroughly tested and no important issues have been reported. When releasing stable minor, you **should not** include any new cherry-picks.
 
 ### 1. Publish the release
 
 ```bash
-# In your react-native checkout, on the release branch of the version
-./scripts/bump-oss-version.js --to-version x.y.z --token <YOUR_CIRCLE_CI_TOKEN>
+# Make sure you are on the release branch of the version
+git checkout -b 0.Y-stable
+
+./scripts/bump-oss-version.js --to-version 0.Y.0 --token <YOUR_CIRCLE_CI_TOKEN>
 > Do you want this to be latest?
-# Generally yes. This updates npm registry to point to this version as "latest"
+# Reply to this prompt with "yes".
+# This updates npm registry to point to this version as "latest"
 ```
+
+When this is done, all the other PRs (changelog, documentation, blog post) should also get merged.
 
 ### 2. Update the GitHub releases
 
@@ -42,11 +55,15 @@ To help you upgrade to this version, you can use the [upgrade helper](https://re
 You can find the whole changelog history in the [changelog.md file](https://github.com/facebook/react-native/blob/main/CHANGELOG.md).
 ```
 
+It's likely that when you post this GitHub release, the PRs for changelog, blog post and documentation are still in the rollout phase. You can start publishing the release anyway (to do step #3) with placeholders instead of links - but make sure to come back and update them once everything is out!
+
 ### 3. Upload prebuilt Hermes binary
 
 In the `publish_release` CI workflow, the `build_hermes_macos` step produces a `tmp/hermes/output/hermes-runtime-darwin-vx.y.z.tar.gz` artifact, for example [here](https://app.circleci.com/pipelines/github/facebook/react-native/13933/workflows/5f2ad198-2264-4e7e-8c62-7b28e97532d8/jobs/262322/artifacts) are the artifacts for `0.69.0` release. Download it and attach it to the GitHub release.
 
 ### 4. Create a new patch post for your new version
+
+In the [releases working group](https://github.com/reactwg/react-native-releases/discussions), lock the relevant "road to 0.Y.0" discussion, unpin it and label it as "Released". Then, open a new discussion of the "Patches" type, with this text:
 
 ```markdown
 ## Should we release 0.66.1?
@@ -74,16 +91,15 @@ If the issue is a [major release issues](https://reactnative.dev/contributing/re
 1.
 ```
 
-### 4. Close any outstanding patch posts for previous versions
+### 4. Verify that Upgrade Helper GitHub action has fired
 
-- Any patch posts for the previous stable are irrelevant now.
-
-### 5. Verify that Upgrade Helper GitHub action has fired
-
-- You should see a [new publish job complete here](https://github.com/react-native-community/rn-diff-purge/actions).
+- You should see a [new publish job here](https://github.com/react-native-community/rn-diff-purge/actions).
+- Once it has finished, you should be able to see that the [Upgrade Helper](https://react-native-community.github.io/upgrade-helper/) presents the option to target the new minor.
 - If not, check out the guide on [how to update Upgrade Helper](/contributing/updating-upgrade-helper).
 
-### 6. Communicate the new release
+### 5. Communicate the new release
 
-- Ship the `react-native-website` changes if not done already. See [here](https://github.com/facebook/react-native-website#cutting-a-new-version) how to cut a new version of the website.
-- Ship the blog post and tweet about it.
+Once all the steps above have been completed, it's time to signal to the community that latest minor is available! Do so in the following channels:
+
+- [@reactnative](https://twitter.com/reactnative) on twitter (with a link to the blogpost)
+- RN Discord `#releases-coordination`

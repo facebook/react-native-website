@@ -6,7 +6,7 @@ title: Speeding up your Build phase
 Building your React Native app could be **expensive** and take several minutes of developers time.
 This can be problematic as your project grows and generally in bigger organizations with multiple React Native developers.
 
-With [the New React Native Architecture](/docs/next/new-architecture-app-modules-android), this problem is becoming more critical
+With [the New React Native Architecture](/docs/new-architecture-app-modules-android), this problem is becoming more critical
 as you might have to compile some native C++ code in your project with the Android NDK in addition to the native code already necessary for the iOS and Android platforms.
 
 To mitigate this performance hit, this page shares some suggestions on how to **improve your build time**.
@@ -45,7 +45,7 @@ $ ./gradlew :app:assembleDebug -PreactNativeArchitectures=x86,x86_64
 
 This can be useful if you wish to build your Android App on a CI and use a matrix to parallelize the build of the different architectures.
 
-If you wish, you can also override this value locally, using the `gradle.properties` file you have in the [top level folder](https://github.com/facebook/react-native/blob/19cf70266eb8ca151aa0cc46ac4c09cb987b2ceb/template/android/gradle.properties#L30-L33) of your project:
+If you wish, you can also override this value locally, using the `gradle.properties` file you have in the [top-level folder](https://github.com/facebook/react-native/blob/19cf70266eb8ca151aa0cc46ac4c09cb987b2ceb/template/android/gradle.properties#L30-L33) of your project:
 
 ```
 # Use this property to specify which architecture you want to build.

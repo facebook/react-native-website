@@ -18,6 +18,9 @@ exports.allow = [
 
   // host refers to host objects in native code
   'host-hostess',
+
+  // allowing this term to prevent reporting "primitive", which is a programming term
+  'savage',
 ];
 
 // Use a "maybe" level of profanity instead of the default "unlikely".

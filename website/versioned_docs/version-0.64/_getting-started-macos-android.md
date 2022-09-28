@@ -49,7 +49,7 @@ Once setup has finalized and you're presented with the Welcome screen, proceed t
 
 Android Studio installs the latest Android SDK by default. Building a React Native app with native code, however, requires the `Android 10 (Q)` SDK in particular. Additional Android SDKs can be installed through the SDK Manager in Android Studio.
 
-To do that, open Android Studio, click on "Configure" button and select "SDK Manager".
+To do that, open Android Studio, click on "More Actions" button and select "SDK Manager".
 
 ![Android Studio Welcome](/docs/assets/GettingStartedAndroidStudioWelcomeMacOS.png)
 

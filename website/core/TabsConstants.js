@@ -32,7 +32,7 @@ const javaScriptSpecLanguages = [
 const defaultJavaScriptSpecLanguages = 'flow';
 
 const guides = [
-  {label: 'Expo CLI Quickstart', value: 'quickstart'},
+  {label: 'Expo Go Quickstart', value: 'quickstart'},
   {label: 'React Native CLI Quickstart', value: 'native'},
 ];
 const defaultGuide = 'quickstart';
@@ -65,7 +65,6 @@ export default {
   defaultPlatform,
   defaultSyntax,
   defaultAndroidLanguage,
-  javaScriptSpecLanguages,
   defaultJavaScriptSpecLanguages,
   getDevNotesTabs,
   guides,
@@ -74,4 +73,5 @@ export default {
   platforms,
   syntax,
   androidLanguages,
+  javaScriptSpecLanguages,
 };

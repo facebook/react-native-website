@@ -159,7 +159,7 @@ You can view installation instructions [in the README](https://github.com/infini
 <div className="banner-native-code-required">
   <h3>Projects with Native Code Only</h3>
   <p>
-    The following section only applies to projects with native code exposed. If you are using the managed <code>expo-cli</code> workflow, see the guide on <a href="https://docs.expo.dev/workflow/customizing/" target="_blank">ejecting</a> to use this API.
+    The following section only applies to projects with native code exposed. If you are using the managed Expo workflow, see the guide on <a href="https://docs.expo.dev/workflow/prebuild/" target="_blank">prebuild</a> to use this API.
   </p>
 </div>
 
@@ -185,8 +185,6 @@ On iOS devices, open the file [`RCTWebSocketExecutor.mm`](https://github.com/fac
 On Android 5.0+ devices connected via USB, you can use the [`adb` command line tool](http://developer.android.com/tools/help/adb.html) to setup port forwarding from the device to your computer:
 
 `adb reverse tcp:8081 tcp:8081`
-
-<!-- alex ignore host-hostess -->
 
 Alternatively, select "Dev Settings" from the Developer Menu, then update the "Debug server host for device" setting to match the IP address of your computer.
 

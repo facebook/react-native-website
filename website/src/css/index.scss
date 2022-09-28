@@ -63,9 +63,10 @@
   .item {
     list-style: none;
 
-    a img {
-      border-radius: 20%;
+    img {
+      border-radius: 16px;
       overflow: hidden;
+      box-shadow: 0 6px 14px rgb(20 20 20 / 8%);
     }
   }
 }

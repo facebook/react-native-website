@@ -199,6 +199,7 @@ See the [Android `View` docs](http://developer.android.com/reference/android/vie
 - `'tablist'` - Used to represent a list of tabs.
 - `'timer'` - Used to represent a timer.
 - `'toolbar'` - Used to represent a tool bar (a container of action buttons or components).
+- `'grid'` - Used with ScrollView, VirtualizedList, FlatList, or SectionList to represent a grid. Adds the in/out of grid announcements to the android GridView.
 
 | Type   |
 | ------ |
@@ -248,6 +249,54 @@ When `true`, indicates that the view is an accessibility element. By default, al
 
 ---
 
+### `aria-valuemax`
+
+Represents the maximum value for range-based components, such as sliders and progress bars. Has precedence over the `max` value in the `accessibilityValue` prop.
+
+| Type   |
+| ------ |
+| number |
+
+---
+
+### `aria-valuemin`
+
+Represents the maximum value for range-based components, such as sliders and progress bars. Has precedence over the `min` value in the `accessibilityValue` prop.
+
+| Type   |
+| ------ |
+| number |
+
+---
+
+### `aria-valuenow`
+
+Represents the current value for range-based components, such as sliders and progress bars. Has precedence over the `now` value in the `accessibilityValue` prop.
+
+| Type   |
+| ------ |
+| number |
+
+---
+
+### `aria-valuetext`
+
+Represents the textual description of the component. Has precedence over the `text` value in the `accessibilityValue` prop.
+
+| Type   |
+| ------ |
+| string |
+
+### `aria-modal` <div class="label ios">iOS</div>
+
+Boolean value indicating whether VoiceOver should ignore the elements within views that are siblings of the receiver. Has precedence over the `accessibilityViewIsModal` prop.
+
+| Type | Default |
+| ---- | ------- |
+| bool | false   |
+
+---
+
 ### `collapsable` <div class="label android">Android</div>
 
 Views that are only used to layout their children or otherwise don't draw anything may be automatically removed from the native hierarchy as an optimization. Set this property to `false` to disable this optimization and ensure that this `View` exists in the native view hierarchy.
@@ -279,6 +328,18 @@ For example, if a touchable view has a height of 20 the touchable height can be 
 | Type                                                               |
 | ------------------------------------------------------------------ |
 | object: {top: number, left: number, bottom: number, right: number} |
+
+---
+
+### `id`
+
+Used to locate this view from native classes. Has precedence over `nativeID` prop.
+
+> This disables the 'layout-only view removal' optimization for this view!
+
+| Type   |
+| ------ |
+| string |
 
 ---
 
@@ -606,6 +667,20 @@ Rasterization incurs an off-screen drawing pass and the bitmap consumes memory. 
 | Type                           |
 | ------------------------------ |
 | [View Style](view-style-props) |
+
+---
+
+### `tabIndex` <div class="label android">Android</div>
+
+Whether this `View` should be focusable with a non-touch input device, eg. receive focus with a hardware keyboard.
+Supports the following values:
+
+- `0` - View is focusable
+- `-1` - View is not focusable
+
+| Type        |
+| ----------- |
+| enum(0, -1) |
 
 ---
 
