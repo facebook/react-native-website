@@ -18,6 +18,7 @@ Expect important conversations to always be public; depending on the topic, you 
 - [Framework discussions, proposals and RFCs](https://github.com/react-native-community/discussions-and-proposals/discussions)
 - [Release status and issues](https://github.com/reactwg/react-native-releases/discussions)
 - [New Architecture adoption and feedback](https://github.com/reactwg/react-native-new-architecture/discussions)
+- [Improvements to the Developer Experience](https://github.com/react-native-community/developer-experience-wg)
 
 ### Packages & Integrations
 
