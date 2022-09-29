@@ -945,6 +945,16 @@ The value to show for the text input. `TextInput` is a controlled component, whi
 | ------ |
 | string |
 
+---
+
+### `lineBreakStrategyIOS` <div class="label ios">iOS</div>
+
+Set line break strategy on iOS 14+. possible values are `none`, `standard`, `hangul-word`, `push-out`.
+
+| Type                                                        | Default  |
+| ----------------------------------------------------------- | -------- |
+| enum(`'none'`, `'standard'`, `'hangul-word'`, `'push-out'`) | `'none'` |
+
 ## Methods
 
 ### `.focus()`
