@@ -249,6 +249,11 @@ module.exports = {
             docsPluginId: 'contributing',
           },
           {
+            to: '/community',
+            label: 'Community',
+            position: 'right',
+          },
+          {
             to: '/showcase',
             label: 'Showcase',
             position: 'right',
@@ -282,7 +287,7 @@ module.exports = {
         style: 'dark',
         links: [
           {
-            title: 'Development',
+            title: 'Develop',
             items: [
               {
                 label: 'Guides',
@@ -303,7 +308,7 @@ module.exports = {
             ],
           },
           {
-            title: 'Community',
+            title: 'Participate',
             items: [
               {
                 label: 'Showcase',
@@ -314,11 +319,15 @@ module.exports = {
                 to: 'contributing/overview',
               },
               {
-                label: 'The React Native Community',
-                to: 'help',
+                label: 'Community',
+                to: 'community',
               },
               {
-                label: 'Ask Questions on Stack Overflow',
+                label: 'Directory',
+                href: 'https://reactnative.directory/',
+              },
+              {
+                label: 'Stack Overflow',
                 href: 'https://stackoverflow.com/questions/tagged/react-native',
               },
             ],
@@ -341,7 +350,7 @@ module.exports = {
             ],
           },
           {
-            title: 'More',
+            title: 'Explore More',
             items: [
               {
                 label: 'ReactJS',
