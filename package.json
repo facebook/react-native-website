@@ -30,6 +30,7 @@
     "yarn-deduplicate": "^5.0.0"
   },
   "resolutions": {
-    "trim": "^1.0.1"
+    "trim": "^1.0.1",
+    "update-notifier": "^6.0.2"
   }
 }
