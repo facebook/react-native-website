@@ -84,7 +84,12 @@ There are a lot of React Native gatherings that happen around the world. Often t
 
 ### Company-based communities
 
-Some companies actively involved in the React Native have also their own communication channels focused towards the projects they maintain, like [Callstack.io's Discord server](https://discordapp.com/invite/zwR2Cdh), [Invertase.io's Discord server (e.g. React Native Firebase)](https://discord.gg/C9aK28N), [Infinite Red's Slack Group](http://community.infinite.red/) and [The Expo Discord server](https://chat.expo.dev/).
+Some companies actively involved in the React Native have also their own communication channels focused towards the projects they maintain:
+
+- [Callstack.io's](https://www.callstack.com/) [Discord server](https://discordapp.com/invite/zwR2Cdh)
+- [Invertase.io's (e.g. React Native Firebase)](https://invertase.io/) [Discord server](https://discord.gg/C9aK28N)
+- [Infinite Red's](https://infinite.red/) [Slack Group](http://community.infinite.red/)
+- [Expo's](https://expo.dev/) [Discord server](https://chat.expo.dev/)
 
 ### Content sharing
 
