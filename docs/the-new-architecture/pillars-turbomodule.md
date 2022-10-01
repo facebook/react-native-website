@@ -94,6 +94,18 @@ export default TurboModuleRegistry.get<Spec>(
 
 </TabItem>
 </Tabs>
+    
+The final result should look like this:
+
+```sh
+TurboModulesGuide
+├── MyApp
+└── RTNCalculator
+    ├── android
+    ├── ios
+    └── js
+        └── NativeCalculator.js
+```
 
 At the beginning of the spec files are the imports:
 
@@ -159,6 +171,18 @@ The shared configuration is a `package.json` file used by yarn when installing y
   }
 }
 ```
+    
+The final result should look like this:
+
+```sh
+TurboModulesGuide
+├── MyApp
+└── RTNCalculator
+    ├── android
+    ├── ios
+    ├── js
+    └── package.json
+```
 
 The upper part of the file contains some descriptive information like the name of the component, its version, and its source files. Make sure to update the various placeholders which are wrapped in `<>`: replace all the occurrences of the `<your_github_handle>`, `<Your Name>`, and `<your_email@your_provider.com>` tokens.
 
@@ -199,6 +223,19 @@ Pod::Spec.new do |s|
 end
 ```
 
+The final result should look like this:
+
+```sh
+TurboModulesGuide
+├── MyApp
+└── RTNCalculator
+    ├── android
+    ├── ios
+    ├── js
+    ├── package.json
+    └── rtn-calculator.podspec
+```
+
 The `.podspec` file has to be a sibling of the `package.json` file, and its name is the one we set in the `package.json`'s `name` property: `rtn-calculator`.
 
 The first part of the file prepares some variables that we use throughout the file. Then, there is a section that contains some information used to configure the pod, like its name, version, and description.
@@ -223,7 +260,7 @@ android
         ├── AndroidManifest.xml
         └── java
             └── com
-                └── rtncalculator
+                └── RTNcalculator
                     └── RTNCalculatorPackage.java
 ```
 
@@ -282,7 +319,7 @@ This is a small manifest file that defines the package for your module.
 
 Finally, you need a class that extends the `TurboReactPackage` interface. To run the **Codegen** process, you don't have to completely implement the package class: an empty implementation is enough for the app to pick up the module as a proper React Native dependency and to try and generate the scaffolding code.
 
-Create an `android/src/main/java/com/rtncalculator` folder and, inside that folder, create a `RTNCalculatorPackage.java` file.
+Create an `android/src/main/java/com/RTNcalculator` folder and, inside that folder, create a `RTNCalculatorPackage.java` file.
 
 ```java title="RTNCalculatorPackage.java"
 package com.RTNCalculator;
@@ -296,7 +333,7 @@ import com.facebook.react.TurboReactPackage;
 import java.util.Collections;
 import java.util.List;
 
-public class CalculatorPackage extends TurboReactPackage {
+public class RTNCalculatorPackage extends TurboReactPackage {
 
   @Nullable
   @Override
@@ -441,6 +478,21 @@ RCT_REMAP_METHOD(add, addA:(NSInteger)a
 
 @end
 ```
+    
+The final result should look like this:
+
+```sh
+TurboModulesGuide
+├── MyApp
+└── RTNCalculator
+    ├── android
+    ├── ios
+    │   ├── RTNCalculator.h
+    │   └── RTNCalculator.mm
+    ├── js
+    ├── package.json
+    └── rtn-calculator.podspec
+```
 
 The most important call is to the `RCT_EXPORT_MODULE`, which is required to export the module so that React Native can load the Turbo Native Module.
 
@@ -518,13 +570,13 @@ android
         └── java
             └── com
                 └── RTNCalculator
-                    ├── CalculatorModule.java
-                    └── CalculatorPackage.java
+                    ├── RTNCalculatorModule.java
+                    └── RTNCalculatorPackage.java
 ```
 
-##### Creating the `CalculatorModule.java`
+##### Creating the `RTNCalculatorModule.java`
 
-```java title="CalculatorModule.java"
+```java title="RTNCalculatorModule.java"
 package com.RTNCalculator;
 
 import androidx.annotation.NonNull;
@@ -537,11 +589,11 @@ import com.facebook.react.bridge.ReactMethod;
 import java.util.Map;
 import java.util.HashMap;
 
-public class CalculatorModule extends NativeCalculatorSpec {
+public class RTNCalculatorModule extends NativeCalculatorSpec {
 
     public static String NAME = "RTNCalculator";
 
-    CalculatorModule(ReactApplicationContext context) {
+    RTNCalculatorModule(ReactApplicationContext context) {
         super(context);
     }
 
@@ -560,9 +612,9 @@ public class CalculatorModule extends NativeCalculatorSpec {
 
 This class implements the module itself, which extends the `NativeCalculatorSpec` that was generated from the `NativeCalculator` JavaScript specification file.
 
-##### Updating the `CalculatorPackage.java`
+##### Updating the `RTNCalculatorPackage.java`
 
-```diff title="CalculatorPackage.java"
+```diff title="RTNCalculatorPackage.java"
 package com.RTNCalculator;
 
 import androidx.annotation.Nullable;
@@ -577,13 +629,14 @@ import java.util.List;
 + import java.util.HashMap;
 + import java.util.Map;
 
-public class CalculatorPackage extends TurboReactPackage {
+
+public class RTNCalculatorPackage extends TurboReactPackage {
 
   @Nullable
   @Override
   public NativeModule getModule(String name, ReactApplicationContext reactContext) {
-+      if (name.equals(CalculatorModule.NAME)) {
-+          return new CalculatorModule(reactContext);
++      if (name.equals(RTNCalculatorModule.NAME)) {
++          return new RTNCalculatorModule(reactContext);
 +      } else {
           return null;
 +      }
@@ -596,10 +649,10 @@ public class CalculatorPackage extends TurboReactPackage {
 +      return () -> {
 +          final Map<String, ReactModuleInfo> moduleInfos = new HashMap<>();
 +          moduleInfos.put(
-+                  CalculatorModule.NAME,
++                  RTNCalculatorModule.NAME,
 +                  new ReactModuleInfo(
-+                          CalculatorModule.NAME,
-+                          CalculatorModule.NAME,
++                          RTNCalculatorModule.NAME,
++                          RTNCalculatorModule.NAME,
 +                          false, // canOverrideExistingModule
 +                          false, // needsEagerInit
 +                          true, // hasConstants
