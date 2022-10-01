@@ -94,7 +94,7 @@ export default TurboModuleRegistry.get<Spec>(
 
 </TabItem>
 </Tabs>
-    
+
 The final result should look like this:
 
 ```sh
@@ -578,7 +578,7 @@ android
 
 ```java title="RTNCalculatorModule.java"
 package com.RTNCalculator;
-    
+
 import androidx.annotation.NonNull;
 import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.Promise;
