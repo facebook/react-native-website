@@ -171,7 +171,7 @@ The shared configuration is a `package.json` file used by yarn when installing y
   }
 }
 ```
-    
+
 The final result should look like this:
 
 ```sh
@@ -478,7 +478,7 @@ RCT_REMAP_METHOD(add, addA:(NSInteger)a
 
 @end
 ```
-    
+
 The final result should look like this:
 
 ```sh
@@ -578,7 +578,6 @@ android
 
 ```java title="RTNCalculatorModule.java"
 package com.RTNCalculator;
-
     
 import androidx.annotation.NonNull;
 import com.facebook.react.bridge.NativeModule;
