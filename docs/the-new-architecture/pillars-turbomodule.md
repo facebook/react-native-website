@@ -95,18 +95,6 @@ export default TurboModuleRegistry.get<Spec>(
 </TabItem>
 </Tabs>
 
-The final result should look like this:
-
-```sh
-TurboModulesGuide
-├── MyApp
-└── RTNCalculator
-    ├── android
-    ├── ios
-    └── js
-        └── NativeCalculator.js
-```
-
 At the beginning of the spec files are the imports:
 
 - The `TurboModule` type, which defines the base interface for all Turbo Native Modules
@@ -172,18 +160,6 @@ The shared configuration is a `package.json` file used by yarn when installing y
 }
 ```
 
-The final result should look like this:
-
-```sh
-TurboModulesGuide
-├── MyApp
-└── RTNCalculator
-    ├── android
-    ├── ios
-    ├── js
-    └── package.json
-```
-
 The upper part of the file contains some descriptive information like the name of the component, its version, and its source files. Make sure to update the various placeholders which are wrapped in `<>`: replace all the occurrences of the `<your_github_handle>`, `<Your Name>`, and `<your_email@your_provider.com>` tokens.
 
 Then there are the dependencies for this package. For this guide, you need `react` and `react-native`.
@@ -223,19 +199,6 @@ Pod::Spec.new do |s|
 end
 ```
 
-The final result should look like this:
-
-```sh
-TurboModulesGuide
-├── MyApp
-└── RTNCalculator
-    ├── android
-    ├── ios
-    ├── js
-    ├── package.json
-    └── rtn-calculator.podspec
-```
-
 The `.podspec` file has to be a sibling of the `package.json` file, and its name is the one we set in the `package.json`'s `name` property: `rtn-calculator`.
 
 The first part of the file prepares some variables that we use throughout the file. Then, there is a section that contains some information used to configure the pod, like its name, version, and description.
@@ -261,7 +224,7 @@ android
         └── java
             └── com
                 └── rtncalculator
-                    └── RTNCalculatorPackage.java
+                    └── CalculatorPackage.java
 ```
 
 #### The `build.gradle` file
@@ -319,9 +282,9 @@ This is a small manifest file that defines the package for your module.
 
 Finally, you need a class that extends the `TurboReactPackage` interface. To run the **Codegen** process, you don't have to completely implement the package class: an empty implementation is enough for the app to pick up the module as a proper React Native dependency and to try and generate the scaffolding code.
 
-Create an `android/src/main/java/com/rtncalculator` folder and, inside that folder, create a `RTNCalculatorPackage.java` file.
+Create an `android/src/main/java/com/rtncalculator` folder and, inside that folder, create a `CalculatorPackage.java` file.
 
-```java title="RTNCalculatorPackage.java"
+```java title="CalculatorPackage.java"
 package com.RTNCalculator;
 
 import androidx.annotation.Nullable;
@@ -479,21 +442,6 @@ RCT_REMAP_METHOD(add, addA:(NSInteger)a
 @end
 ```
 
-The final result should look like this:
-
-```sh
-TurboModulesGuide
-├── MyApp
-└── RTNCalculator
-    ├── android
-    ├── ios
-    │   ├── RTNCalculator.h
-    │   └── RTNCalculator.mm
-    ├── js
-    ├── package.json
-    └── rtn-calculator.podspec
-```
-
 The most important call is to the `RCT_EXPORT_MODULE`, which is required to export the module so that React Native can load the Turbo Native Module.
 
 Then the `RCT_REMAP_METHOD` macro is used to expose the `add` method.
@@ -556,8 +504,8 @@ codegen
 
 The native code for the Android side of a Turbo Native Module requires:
 
-1. to create a `RTNCalculatorModule.java` that implements the module.
-2. to update the `RTNCalculatorPackage.java` created in the previous step.
+1. to create a `CalculatorModule.java` that implements the module.
+2. to update the `CalculatorPackage.java` created in the previous step.
 
 The final structure within the Android library should look like this:
 
@@ -666,6 +614,34 @@ public class CalculatorPackage extends TurboReactPackage {
 ```
 
 This is the last piece of Native Code for Android. It defines the `TurboReactPackage` object that will be used by the app to load the module.
+
+### Final structure
+
+The final structure should look like this:
+
+```sh
+TurboModulesGuide
+├── MyApp
+└── RTNCalculator
+    ├── android
+    │   ├── build.gradle
+    │   └── src
+    │       └── main
+    │           ├── AndroidManifest.xml
+    │           └── java
+    │               └── com
+    │                   └── rtncalculator
+    │                       ├── CalculatorPackage.java
+    │                       └── CalculatorModule.java
+    ├── generated
+    ├── ios
+    │   ├── RTNCalculator.h
+    │   └── RTNCalculator.mm
+    ├── js
+    │   └── NativeCalculator.js
+    ├── package.json
+    └── rtn-calculator.podspec
+```
 
 ## 5. Adding the Turbo Native Module to your App
 
