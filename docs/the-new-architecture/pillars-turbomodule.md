@@ -224,7 +224,7 @@ android
         └── java
             └── com
                 └── rtncalculator
-                    └── RTNCalculatorPackage.java
+                    └── CalculatorPackage.java
 ```
 
 #### The `build.gradle` file
@@ -272,7 +272,7 @@ Second, create an `android/src/main` folder. Inside that folder, create a `Andro
 
 ```xml title="AndroidManifest.xml"
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.RTNCalculator">
+          package="com.rtncalculator">
 </manifest>
 ```
 
@@ -282,9 +282,9 @@ This is a small manifest file that defines the package for your module.
 
 Finally, you need a class that extends the `TurboReactPackage` interface. To run the **Codegen** process, you don't have to completely implement the package class: an empty implementation is enough for the app to pick up the module as a proper React Native dependency and to try and generate the scaffolding code.
 
-Create an `android/src/main/java/com/rtncalculator` folder and, inside that folder, create a `RTNCalculatorPackage.java` file.
+Create an `android/src/main/java/com/rtncalculator` folder and, inside that folder, create a `CalculatorPackage.java` file.
 
-```java title="RTNCalculatorPackage.java"
+```java title="CalculatorPackage.java"
 package com.RTNCalculator;
 
 import androidx.annotation.Nullable;
@@ -504,8 +504,8 @@ codegen
 
 The native code for the Android side of a Turbo Native Module requires:
 
-1. to create a `RTNCalculatorModule.java` that implements the module.
-2. to update the `RTNCalculatorPackage.java` created in the previous step.
+1. to create a `CalculatorModule.java` that implements the module.
+2. to update the `CalculatorPackage.java` created in the previous step.
 
 The final structure within the Android library should look like this:
 
@@ -536,6 +536,7 @@ import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import java.util.Map;
 import java.util.HashMap;
+import com.calculator.NativeCalculatorSpec;
 
 public class CalculatorModule extends NativeCalculatorSpec {
 
@@ -613,6 +614,34 @@ public class CalculatorPackage extends TurboReactPackage {
 ```
 
 This is the last piece of Native Code for Android. It defines the `TurboReactPackage` object that will be used by the app to load the module.
+
+### Final structure
+
+The final structure should look like this:
+
+```sh
+TurboModulesGuide
+├── MyApp
+└── RTNCalculator
+    ├── android
+    │   ├── build.gradle
+    │   └── src
+    │       └── main
+    │           ├── AndroidManifest.xml
+    │           └── java
+    │               └── com
+    │                   └── rtncalculator
+    │                       ├── CalculatorPackage.java
+    │                       └── CalculatorModule.java
+    ├── generated
+    ├── ios
+    │   ├── RTNCalculator.h
+    │   └── RTNCalculator.mm
+    ├── js
+    │   └── NativeCalculator.js
+    ├── package.json
+    └── rtn-calculator.podspec
+```
 
 ## 5. Adding the Turbo Native Module to your App
 
