@@ -631,7 +631,7 @@ import java.util.List;
 + import java.util.Map;
 
 
-public class RTNCalculatorPackage extends TurboReactPackage {
+public class CalculatorPackage extends TurboReactPackage {
 
   @Nullable
   @Override
