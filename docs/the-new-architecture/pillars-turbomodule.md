@@ -260,7 +260,7 @@ android
         ├── AndroidManifest.xml
         └── java
             └── com
-                └── RTNCalculator
+                └── rtncalculator
                     └── RTNCalculatorPackage.java
 ```
 
@@ -309,7 +309,7 @@ Second, create an `android/src/main` folder. Inside that folder, create a `Andro
 
 ```xml title="AndroidManifest.xml"
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.RTNCalculator">
+          package="com.rtncalculator">
 </manifest>
 ```
 
@@ -319,7 +319,7 @@ This is a small manifest file that defines the package for your module.
 
 Finally, you need a class that extends the `TurboReactPackage` interface. To run the **Codegen** process, you don't have to completely implement the package class: an empty implementation is enough for the app to pick up the module as a proper React Native dependency and to try and generate the scaffolding code.
 
-Create an `android/src/main/java/com/RTNcalculator` folder and, inside that folder, create a `RTNCalculatorPackage.java` file.
+Create an `android/src/main/java/com/rtncalculator` folder and, inside that folder, create a `RTNCalculatorPackage.java` file.
 
 ```java title="RTNCalculatorPackage.java"
 package com.RTNCalculator;
@@ -333,7 +333,7 @@ import com.facebook.react.TurboReactPackage;
 import java.util.Collections;
 import java.util.List;
 
-public class RTNCalculatorPackage extends TurboReactPackage {
+public class CalculatorPackage extends TurboReactPackage {
 
   @Nullable
   @Override
@@ -570,13 +570,13 @@ android
         └── java
             └── com
                 └── RTNCalculator
-                    ├── RTNCalculatorModule.java
-                    └── RTNCalculatorPackage.java
+                    ├── CalculatorModule.java
+                    └── CalculatorPackage.java
 ```
 
-##### Creating the `RTNCalculatorModule.java`
+##### Creating the `CalculatorModule.java`
 
-```java title="RTNCalculatorModule.java"
+```java title="CalculatorModule.java"
 package com.RTNCalculator;
 
 import androidx.annotation.NonNull;
@@ -590,11 +590,11 @@ import java.util.Map;
 import java.util.HashMap;
 import com.calculator.NativeCalculatorSpec;
 
-public class RTNCalculatorModule extends NativeCalculatorSpec {
+public class CalculatorModule extends NativeCalculatorSpec {
 
     public static String NAME = "RTNCalculator";
 
-    RTNCalculatorModule(ReactApplicationContext context) {
+    CalculatorModule(ReactApplicationContext context) {
         super(context);
     }
 
@@ -613,9 +613,9 @@ public class RTNCalculatorModule extends NativeCalculatorSpec {
 
 This class implements the module itself, which extends the `NativeCalculatorSpec` that was generated from the `NativeCalculator` JavaScript specification file.
 
-##### Updating the `RTNCalculatorPackage.java`
+##### Updating the `CalculatorPackage.java`
 
-```diff title="RTNCalculatorPackage.java"
+```diff title="CalculatorPackage.java"
 package com.RTNCalculator;
 
 import androidx.annotation.Nullable;
@@ -636,8 +636,8 @@ public class RTNCalculatorPackage extends TurboReactPackage {
   @Nullable
   @Override
   public NativeModule getModule(String name, ReactApplicationContext reactContext) {
-+      if (name.equals(RTNCalculatorModule.NAME)) {
-+          return new RTNCalculatorModule(reactContext);
++      if (name.equals(CalculatorModule.NAME)) {
++          return new CalculatorModule(reactContext);
 +      } else {
           return null;
 +      }
@@ -650,10 +650,10 @@ public class RTNCalculatorPackage extends TurboReactPackage {
 +      return () -> {
 +          final Map<String, ReactModuleInfo> moduleInfos = new HashMap<>();
 +          moduleInfos.put(
-+                  RTNCalculatorModule.NAME,
++                  CalculatorModule.NAME,
 +                  new ReactModuleInfo(
-+                          RTNCalculatorModule.NAME,
-+                          RTNCalculatorModule.NAME,
++                          CalculatorModule.NAME,
++                          CalculatorModule.NAME,
 +                          false, // canOverrideExistingModule
 +                          false, // needsEagerInit
 +                          true, // hasConstants
