@@ -260,7 +260,7 @@ android
         ├── AndroidManifest.xml
         └── java
             └── com
-                └── RTNcalculator
+                └── RTNCalculator
                     └── RTNCalculatorPackage.java
 ```
 
