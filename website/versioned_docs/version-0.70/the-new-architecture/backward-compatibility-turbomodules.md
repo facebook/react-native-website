@@ -332,7 +332,7 @@ For a Turbo Native Module, the source of truth is the `Native<MyModule>.js` (or 
 import MyModule from 'your-module/src/index';
 ```
 
-The **goal** is to conditionally `export` from the `index` file the proper object, given the architecture chosen by the user. We can achieve this with a code that looks like this:
+Since `TurboModuleRegistry.get` taps into the old Native Modules API under the hood, we need to re-export our module, to avoid registering it multiple times.
 
 <Tabs groupId="turbomodule-backward-compatibility"
       defaultValue={constants.defaultTurboModuleSpecLanguage}
@@ -341,43 +341,15 @@ The **goal** is to conditionally `export` from the `index` file the proper objec
 
 ```ts
 // @flow
-
-import { NativeModules } from 'react-native'
-
-const isTurboModuleEnabled = global.__turboModuleProxy != null;
-
-const myModule = isTurboModuleEnabled ?
-    require('./Native<MyModule>').default :
-    NativeModules.<MyModule>;
-
-export default myModule;
+export default require('./Native<MyModule>').default;
 ```
 
 </TabItem>
 <TabItem value="TypeScript">
 
 ```ts
-const isTurboModuleEnabled = global.__turboModuleProxy != null;
-
-const myModule = isTurboModuleEnabled
-  ? require('./Native<MyModule>').default
-  : require('./<MyModule>').default;
-
-export default myModule;
+export default require('./Native<MyModule>').default;
 ```
 
 </TabItem>
 </Tabs>
-
-:::note
-If you are using TypeScript and you want to follow the example, make sure to `export` the `NativeModule` in a separate `ts` file called `<MyModule>.ts`.
-:::
-
-Whether you are using Flow or TypeScript for your specs, we understand which architecture is running by checking whether the `global.__turboModuleProxy` object has been set or not.
-
-:::caution
-The `global.__turboModuleProxy` API may change in the future for a function that encapsulate this check.
-:::
-
-- If that object is `null`, the app has not enabled the Turbo Native Module feature. It's running on the Old Architecture, and the fallback is to use the default [`Legacy Native Module` implementation](../native-modules-intro).
-- If that object is set, the app is running with the Turbo Native Modules enabled, and it should use the `Native<MyModule>` spec to access the Turbo Native Module.
