@@ -73,7 +73,7 @@ Finally, click "Apply" to download and install the Android SDK and related build
 
 The React Native tools require some environment variables to be set up in order to build apps with native code.
 
-Add the following lines to your `$HOME/.zprofile` or `$HOME/.zshrc` (if you are using `bash`, then `~/.bash_profile` or `~/.bashrc`) config file:
+Add the following lines to your `~/.zprofile` or `~/.zshrc` (if you are using `bash`, then `~/.bash_profile` or `~/.bashrc`) config file:
 
 ```shell
 export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
