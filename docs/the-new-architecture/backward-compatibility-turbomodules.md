@@ -234,7 +234,7 @@ my-module
 │       │   ├── AndroidManifest.xml
 │       │   └── java
 │       │       └── com
-│       │           └── MyModule
+│       │           └── mymodule
 │       │               ├── MyModuleImpl.java
 │       │               └── MyModulePackage.java
 │       ├── newarch
@@ -252,8 +252,11 @@ my-module
 
 The code that should go in the `MyModuleImpl.java`, and that can be shared by the Legacy Native Module and the Turbo Native Module is, for example:
 
-```java title="example of MyModuleImple.java"
-package com.MyModule;
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="java">
+
+```java title="example of MyModuleImpl.java"
+package com.mymodule;
 
 import androidx.annotation.NonNull;
 import com.facebook.react.bridge.Promise;
@@ -271,6 +274,29 @@ public class MyModuleImpl {
 }
 ```
 
+</TabItem>
+<TabItem value="kotlin">
+
+```kotlin title="example of MyModuleImpl.kt"
+package com.mymodule;
+
+import com.facebook.react.bridge.Promise
+
+class MyModuleImpl {
+  fun foo(a: Double, b: Double, promise: Promise) {
+    // implement the logic for foo and then invoke
+    // promise.resolve or promise.reject.
+  }
+
+  companion object {
+    const val NAME = "MyModule"
+  }
+}
+```
+
+</TabItem>
+</Tabs>
+
 Then, the Legacy Native Module and the Turbo Native Module can be updated with the following steps:
 
 1. Create a private instance of the `MyModuleImpl` class.
@@ -279,13 +305,16 @@ Then, the Legacy Native Module and the Turbo Native Module can be updated with t
 
 For example, for a Legacy Native Module:
 
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="java">
+
 ```java title="Native Module using the Impl module"
 public class MyModule extends ReactContextBaseJavaModule {
 
     // declare an instance of the implementation
     private MyModuleImpl implementation;
 
-    CalculatorModule(ReactApplicationContext context) {
+    MyModule(ReactApplicationContext context) {
         super(context);
         // initialize the implementation of the module
         implementation = MyModuleImpl();
@@ -305,7 +334,31 @@ public class MyModule extends ReactContextBaseJavaModule {
 }
 ```
 
+</TabItem>
+<TabItem value="kotlin">
+
+```kotlin title="Native Module using the Impl module"
+class MyModule(context: ReactApplicationContext) : ReactContextBaseJavaModule(context) {
+  // declare an instance of the implementation and use it in all the methods
+  private var implementation: MyModuleImpl = MyModuleImpl()
+
+  override fun getName(): String = MyModuleImpl.NAME
+
+  @ReactMethod
+  fun foo(a: Double, b: Double, promise: Promise) {
+    // Use the implementation instance to execute the function.
+    implementation.foo(a, b, promise)
+  }
+}
+```
+
+</TabItem>
+</Tabs>
+
 And, for a Turbo Native Module:
+
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="java">
 
 ```java title="TurboModule using the Impl module"
 public class MyModule extends MyModuleSpec {
@@ -332,6 +385,25 @@ public class MyModule extends MyModuleSpec {
     }
 }
 ```
+
+</TabItem>
+<TabItem value="kotlin">
+
+```kotlin title="TurboModule using the Impl module"
+class MyModule(reactContext: ReactApplicationContext) : MyModuleSpec(reactContext) {
+  // declare an instance of the implementation and use it in all the methods
+  private var implementation: MyModuleImpl = MyModuleImpl()
+
+  override fun getName(): String = MyModuleImpl.NAME
+
+  override fun add(a: Double, b: Double, promise: Promise) {
+    implementation.add(a, b, promise)
+  }
+}
+```
+
+</TabItem>
+</Tabs>
 
 For a step-by-step example on how to achieve this, have a look at [this repo](https://github.com/react-native-community/RNNewArchitectureLibraries/tree/feat/back-turbomodule).
 

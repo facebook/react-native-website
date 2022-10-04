@@ -3,7 +3,9 @@ id: pillars-turbomodules
 title: Turbo Native Modules
 ---
 
-import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import constants from '@site/core/TabsConstants';
 import NewArchitectureWarning from '../\_markdown-new-architecture-warning.mdx';
 
 <NewArchitectureWarning/>
@@ -154,7 +156,7 @@ The shared configuration is a `package.json` file used by yarn when installing y
     "type": "modules",
     "jsSrcsDir": "js",
     "android": {
-      "javaPackageName": "com.calculator"
+      "javaPackageName": "com.rtncalculator"
     }
   }
 }
@@ -211,7 +213,7 @@ To prepare Android to run **Codegen** you have to create three files:
 
 1. The `build.gradle` with the **Codegen** configuration
 1. The `AndroidManifest.xml` file
-1. A java class that implements the `ReactPackage` interface
+1. A Java/Kotlin class that implements the `ReactPackage` interface
 
 At the end of these steps, the `android` folder should look like this:
 
@@ -284,8 +286,11 @@ Finally, you need a class that extends the `TurboReactPackage` interface. To run
 
 Create an `android/src/main/java/com/rtncalculator` folder and, inside that folder, create a `CalculatorPackage.java` file.
 
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="java">
+
 ```java title="CalculatorPackage.java"
-package com.RTNCalculator;
+package com.rtncalculator;
 
 import androidx.annotation.Nullable;
 import com.facebook.react.bridge.NativeModule;
@@ -310,6 +315,27 @@ public class CalculatorPackage extends TurboReactPackage {
   }
 }
 ```
+
+</TabItem>
+<TabItem value="kotlin">
+
+```kotlin title="CalculatorPackage.kt"
+package com.rtncalculator;
+
+import com.facebook.react.TurboReactPackage
+import com.facebook.react.bridge.NativeModule
+import com.facebook.react.bridge.ReactApplicationContext
+import com.facebook.react.module.model.ReactModuleInfoProvider
+
+class CalculatorPackage : TurboReactPackage() {
+  override fun getModule(name: String?, reactContext: ReactApplicationContext): NativeModule? = null
+
+  override fun getReactModuleInfoProvider(): ReactModuleInfoProvider? = null
+}
+```
+
+</TabItem>
+</Tabs>
 
 React Native uses the `ReactPackage` interface to understand what native classes the app has to use for the `ViewManager` and `Native Modules` exported by the library.
 
@@ -479,7 +505,7 @@ The generated code is stored in the `MyApp/node_modules/rtn-calculator/android/b
 codegen
 ├── java
 │   └── com
-│       └── RTNCalculator
+│       └── rtncalculator
 │           └── NativeCalculatorSpec.java
 ├── jni
 │   ├── Android.mk
@@ -517,15 +543,18 @@ android
         ├── AndroidManifest.xml
         └── java
             └── com
-                └── RTNCalculator
+                └── rtncalculator
                     ├── CalculatorModule.java
                     └── CalculatorPackage.java
 ```
 
 ##### Creating the `CalculatorModule.java`
 
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="java">
+
 ```java title="CalculatorModule.java"
-package com.RTNCalculator;
+package com.rtncalculator;
 
 import androidx.annotation.NonNull;
 import com.facebook.react.bridge.NativeModule;
@@ -536,7 +565,7 @@ import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import java.util.Map;
 import java.util.HashMap;
-import com.calculator.NativeCalculatorSpec;
+import com.rtncalculator.NativeCalculatorSpec;
 
 public class CalculatorModule extends NativeCalculatorSpec {
 
@@ -559,12 +588,42 @@ public class CalculatorModule extends NativeCalculatorSpec {
 }
 ```
 
+</TabItem>
+<TabItem value="kotlin">
+
+```kotlin title="CalculatorModule.kt"
+package com.rtncalculator
+
+import com.facebook.react.bridge.Promise
+import com.facebook.react.bridge.ReactApplicationContext
+import com.rtncalculator.NativeCalculatorSpec
+
+class CalculatorModule(reactContext: ReactApplicationContext) : NativeCalculatorSpec(reactContext) {
+
+  override fun getName() = NAME
+
+  override fun add(a: Double, b: Double, promise: Promise) {
+    promise.resolve(a + b)
+  }
+
+  companion object {
+    const val NAME = "RTNCalculator"
+  }
+}
+```
+
+</TabItem>
+</Tabs>
+
 This class implements the module itself, which extends the `NativeCalculatorSpec` that was generated from the `NativeCalculator` JavaScript specification file.
 
 ##### Updating the `CalculatorPackage.java`
 
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="java">
+
 ```diff title="CalculatorPackage.java"
-package com.RTNCalculator;
+package com.rtncalculator;
 
 import androidx.annotation.Nullable;
 import com.facebook.react.bridge.NativeModule;
@@ -612,6 +671,47 @@ public class CalculatorPackage extends TurboReactPackage {
   }
 }
 ```
+
+</TabItem>
+<TabItem value="kotlin">
+
+```diff title="CalculatorPackage.kt"
+package com.rtncalculator;
+
+import com.facebook.react.TurboReactPackage
+import com.facebook.react.bridge.NativeModule
+import com.facebook.react.bridge.ReactApplicationContext
++import com.facebook.react.module.model.ReactModuleInfo
+import com.facebook.react.module.model.ReactModuleInfoProvider
+
+class CalculatorPackage : TurboReactPackage() {
+- override fun getModule(name: String?, reactContext: ReactApplicationContext): NativeModule? = null
++ override fun getModule(name: String?, reactContext: ReactApplicationContext): NativeModule? =
++   if (name == CalculatorModule.NAME) {
++     CalculatorModule(reactContext)
++   } else {
++     null
++   }
+
+- override fun getReactModuleInfoProvider() = ReactModuleInfoProvider? = null
++ override fun getReactModuleInfoProvider() = ReactModuleInfoProvider {
++   mapOf(
++     CalculatorModule.NAME to ReactModuleInfo(
++       CalculatorModule.NAME,
++       CalculatorModule.NAME,
++       false, // canOverrideExistingModule
++       false, // needsEagerInit
++       true, // hasConstants
++       false, // isCxxModule
++       true // isTurboModule
++     )
++   )
++ }
+}
+```
+
+</TabItem>
+</Tabs>
 
 This is the last piece of Native Code for Android. It defines the `TurboReactPackage` object that will be used by the app to load the module.
 

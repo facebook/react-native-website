@@ -287,7 +287,7 @@ my-component
 │       │   ├── AndroidManifest.xml
 │       │   └── java
 │       │       └── com
-│       │           └── MyComponent
+│       │           └── mycomponent
 │       │               ├── MyComponentView.java
 │       │               ├── MyComponentViewManagerImpl.java
 │       │               └── MyComponentViewPackage.java
@@ -306,8 +306,12 @@ my-component
 
 The code that should go in the `MyComponentViewManagerImpl.java` and that can be shared between the Native Component and the Fabric Native Component is, for example:
 
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="java">
+
 ```java title="example of MyComponentViewManager.java"
-package com.MyComponent;
+package com.mycomponent;
+
 import androidx.annotation.Nullable;
 import com.facebook.react.uimanager.ThemedReactContext;
 
@@ -325,9 +329,33 @@ public class MyComponentViewManagerImpl {
 }
 ```
 
+</TabItem>
+<TabItem value="kotlin">
+
+```kotlin title="example of MyComponentViewManager.kt"
+package com.mycomponent
+
+import com.facebook.react.uimanager.ThemedReactContext
+
+object MyComponentViewManagerImpl {
+  const val NAME = "MyComponent"
+  fun createViewInstance(context: ThemedReactContext?) = MyComponentView(context)
+
+  fun setFoo(view: MyComponentView, param: String) {
+    // implement the logic of the foo function using the view and the param passed.
+  }
+}
+```
+
+</TabItem>
+</Tabs>
+
 Then, the Native Component and the Fabric Native Component can be updated using the function declared in the shared manager.
 
 For example, for a Native Component:
+
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="java">
 
 ```java title="Native Component using the ViewManagerImpl"
 public class MyComponentViewManager extends SimpleViewManager<MyComponentView> {
@@ -359,7 +387,33 @@ public class MyComponentViewManager extends SimpleViewManager<MyComponentView> {
 }
 ```
 
+</TabItem>
+<TabItem value="kotlin">
+
+```kotlin title="Native Component using the ViewManagerImpl"
+class MyComponentViewManager(var context: ReactApplicationContext) : SimpleViewManager<MyComponentView>() {
+  // Use the static NAME property from the shared implementation
+  override fun getName() = MyComponentViewManagerImpl.NAME
+
+  public override fun createViewInstance(context: ThemedReactContext): MyComponentView =
+    // static createViewInstance function from the shared implementation
+    MyComponentViewManagerImpl.createViewInstance(context)
+
+  @ReactProp(name = "foo")
+  fun setFoo(view: MyComponentView, param: String) {
+    // static custom function from the shared implementation
+    MyComponentViewManagerImpl.setFoo(view, param)
+  }
+}
+```
+
+</TabItem>
+</Tabs>
+
 And, for a Fabric Native Component:
+
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="java">
 
 ```java title="Fabric Component using the ViewManagerImpl"
 // Use the static NAME property from the shared implementation
@@ -397,10 +451,39 @@ public class MyComponentViewManager extends SimpleViewManager<MyComponentView>
     @ReactProp(name = "foo")
     public void setFoo(MyComponentView view, @Nullable String param) {
         // static custom function from the shared implementation
-        MyComponentViewManagerImpl.setFoo(view, param]);
+        MyComponentViewManagerImpl.setFoo(view, param);
     }
 }
 ```
+
+</TabItem>
+<TabItem value="kotlin">
+
+```kotlin title="Fabric Component using the ViewManagerImpl"
+// Use the static NAME property from the shared implementation
+@ReactModule(name = MyComponentViewManagerImpl.NAME)
+class MyComponentViewManager(context: ReactApplicationContext) : SimpleViewManager<MyComponentView>(), MyComponentViewManagerInterface<MyComponentView> {
+  private val delegate: ViewManagerDelegate<MyComponentView> = MyComponentViewManagerDelegate(this)
+
+  override fun getDelegate(): ViewManagerDelegate<MyComponentView> = delegate
+
+  // Use the static NAME property from the shared implementation
+  override fun getName(): String = MyComponentViewManagerImpl.NAME
+
+  override fun createViewInstance(context: ThemedReactContext): MyComponentView =
+    // static createViewInstance function from the shared implementation
+    MyComponentViewManagerImpl.createViewInstance(context)
+
+  @ReactProp(name = "foo")
+  override fun setFoo(view: MyComponentView, text: String) {
+    // static custom function from the shared implementation
+    MyComponentViewManagerImpl.setFoo(view, param);
+  }
+}
+```
+
+</TabItem>
+</Tabs>
 
 For a step-by-step example on how to achieve this, have a look at [this repo](https://github.com/react-native-community/RNNewArchitectureLibraries/tree/feat/back-fabric-comp).
 
