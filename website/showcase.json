@@ -85,6 +85,32 @@
       "linkPlayStore": "https://play.google.com/store/apps/details?id=com.shopify.pos&gl=US"
     }
   ],
+  "wix": [
+    {
+      "name": "Spaces: Follow Businesses",
+      "icon": "spaces.webp",
+      "linkAppStore": "https://itunes.apple.com/us/app/wix-com/id1099748482",
+      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.wix.android"
+    },
+    {
+      "name": "Dine by Wix",
+      "icon": "dine.webp",
+      "linkAppStore": "https://apps.apple.com/us/app/dine-by-wix/id1561524113",
+      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.wix.restaurants"
+    },
+    {
+      "name": "Fit by Wix",
+      "icon": "fit.webp",
+      "linkAppStore": "https://apps.apple.com/us/developer/wix-com-inc/id407141669",
+      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.wix.fitness"
+    },
+    {
+      "name": "Wix Owner - Website Builder",
+      "icon": "owner.webp",
+      "linkAppStore": "https://apps.apple.com/us/app/wix-owner-website-builder/id1545924344",
+      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.wix.admin"
+    }
+  ],
   "others": [
     {
       "name": "Coinbase",
@@ -207,14 +233,6 @@
       "linkPlayStore": "https://play.google.com/store/apps/details?id=com.walmart.android",
       "infoLink": " https://medium.com/walmartlabs/react-native-at-walmartlabs-cdd140589560#.ueonqqloc",
       "infoTitle": "React Native at Walmart Labs"
-    },
-    {
-      "name": "Spaces: Follow Businesses",
-      "icon": "spaces.webp",
-      "linkAppStore": "https://itunes.apple.com/us/app/wix-com/id1099748482?mt=8",
-      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.wix.android",
-      "infoLink": "https://medium.com/wix-engineering/react-native-at-wix-the-architecture-db6361764da6",
-      "infoTitle": "React Native at Wix — The Architecture"
     },
     {
       "name": "Words with Friends 2",
