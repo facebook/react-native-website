@@ -503,6 +503,14 @@ Specifies text alignment. On Android, the value 'justify' is only supported on O
 
 ---
 
+### `verticalAlign` <div class="label android">Android</div>
+
+| Type                                            | Default  |
+| ----------------------------------------------- | -------- |
+| enum(`'auto'`, `'top'`, `'bottom'`, `'middle'`) | `'auto'` |
+
+---
+
 ### `writingDirection` <div class="label ios">iOS</div>
 
 | Type                             | Default  |
