@@ -211,9 +211,9 @@ Aspect ratio controls the size of the undefined dimension of a node. See https:/
 - On a node with flex grow/shrink, aspect ratio controls the size of the node in the cross axis if unset
 - Aspect ratio takes min/max dimensions into account
 
-| Type   | Required |
-| ------ | -------- |
-| number | No       |
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
 
 ---
 
