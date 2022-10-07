@@ -11,8 +11,6 @@ There are a lot of React Native gatherings that happen around the world. Often t
 
 ### Company-based communities
 
-### Company-based communities
-
 Some companies actively involved in the React Native have also their own communication channels focused towards the projects they maintain:
 
 - [Callstack.io's](https://www.callstack.com/) [Discord server](https://discordapp.com/invite/zwR2Cdh)
