@@ -163,7 +163,9 @@ This changes do three main things:
 
 The second step is to instruct Xcode to avoid compiling all the lines using the New Architecture types and files when we are building an app with the Old Architecture.
 
-The file to change is the module implementation file, which is usually a `<your-module>.mm` file. That file is structured as follow:
+There are two files to change. The module implementation file, which is usually a `<your-module>.mm` file, and the module header, which is usually a `<your-module>.h` file.
+
+That implementation file is structured as follows:
 
 - Some `#import` statements, among which there is a `<GeneratedSpec>.h` file.
 - The module implementation, using the various `RCT_EXPORT_xxx` and `RCT_REMAP_xxx` macros.
@@ -190,7 +192,27 @@ The **goal** is to make sure that the `Turbo Native Module` still builds with th
 @end
 ```
 
-This snippet uses the same `RCT_NEW_ARCH_ENABLED` flag used in the previous [section](#dependencies-ios). When this flag is not set, Xcode skips the lines within the `#ifdef` during compilation and it does not include them into the compiled binary.
+A similar thing needs to be done for the header file. Add the following lines at the bottom of your module header. You need to first import the header and then, if the New Architecture is enabled, make it conform to the Spec protocol.
+
+```diff
+#import <React/RCTBridgeModule.h>
++ #ifdef RCT_NEW_ARCH_ENABLED
++ #import <YourModuleSpec/YourModuleSpec.h>
++ #endif
+
+@interface YourModule: NSObject <RCTBridgeModule>
+
+@end
+
++ #ifdef RCT_NEW_ARCH_ENABLED
++ @interface YourModule () <YourModuleSpec>
+
++ @end
++ #endif
+
+```
+
+This snippets uses the same `RCT_NEW_ARCH_ENABLED` flag used in the previous [section](#dependencies-ios). When this flag is not set, Xcode skips the lines within the `#ifdef` during compilation and it does not include them into the compiled binary.
 
 ### Android
 
