@@ -796,7 +796,6 @@ Here's an example App.js file using the `add` method:
  */
 import React from 'react';
 import { useState } from 'react';
-import type { Node } from 'react';
 import {
   SafeAreaView,
   StatusBar,
@@ -805,8 +804,8 @@ import {
 } from 'react-native';
 import RTNCalculator from 'rtn-calculator/js/NativeCalculator.js';
 
-const App: () => Node = () => {
-  const [result, setResult] = useState<number | null>(null);
+const App = () => {
+  const [result, setResult] = useState(null);
   return (
     <SafeAreaView>
       <StatusBar barStyle={'dark-content'} />
