@@ -107,5 +107,5 @@ To ensure that we cover the most use cases, we need to ensure we test all these 
 
 :::note
 
-Bear in mind that RNTester project is already onboarded in the new architecture. `RNTestProject` is not - new architecture mode needs to be tested separately.
+Bear in mind that RNTester project is already onboarded in the new architecture. `RNTestProject` is not - new architecture mode needs to be [enabled](/docs/the-new-architecture/use-app-template#enable-the-new-architecture) and tested separately.
 :::
