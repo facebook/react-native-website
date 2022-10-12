@@ -147,7 +147,7 @@ import { Button, StyleSheet, Text, View } from 'react-native';
 export interface Props {
   name: string;
   baseEnthusiasmLevel?: number;
-};
+}
 
 const Hello: React.FC<Props> = ({
   name,
