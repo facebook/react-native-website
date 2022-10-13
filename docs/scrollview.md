@@ -509,7 +509,6 @@ Possible values:
 
 When true, the scroll view stops on multiples of the scroll view's size when scrolling. This can be used for horizontal pagination.
 
-> Note: Vertical pagination is not supported on Android.
 
 | Type | Default |
 | ---- | ------- |
