@@ -28,7 +28,7 @@ Now you are set up to run several commands:
 - `yarn flow` runs the [Flow](https://flowtype.org/) typechecks.
   - `yarn flow-check-android` does a full Flow check over `*.android.js` files.
   - `yarn flow-check-ios` does a full Flow check over `*.ios.js` files.
-- `yarn test-typescript` runs the [Typescript](https://www.typescriptlang.org/) typechecks.
+- `yarn test-typescript` runs the [TypeScript](https://www.typescriptlang.org/) typechecks.
 - `yarn test-ios` runs the iOS test suite (macOS required).
 
 ## Testing your Changes
