@@ -193,9 +193,7 @@ dependencies {
 -    debugImplementation files(hermesPath + "hermes-debug.aar")
 -    releaseImplementation files(hermesPath + "hermes-release.aar")
 +    //noinspection GradleDynamicVersion
-+    implementation("com.facebook.react:hermes-engine:+") { // From node_modules
-+        exclude group:'com.facebook.fbjni'
-+    }
++    implementation("com.facebook.react:hermes-engine:+") // From node_modules
   }
 }
 
@@ -246,31 +244,6 @@ android {
         cmake {
             path "$projectDir/src/main/jni/CMakeLists.txt"
         }
-    }
-}
-```
-
-In the same `build.gradle` file, inside the same `android{}` also add the following section:
-
-```groovy
-android {
-    // ...
-
-    def reactAndroidProjectDir = project(':ReactAndroid').projectDir
-    def packageReactNdkLibs = tasks.register("packageReactNdkLibs", Copy) {
-        dependsOn(":ReactAndroid:packageReactNdkLibsForBuck")
-        dependsOn("generateCodegenArtifactsFromSchema")
-        from("$reactAndroidProjectDir/src/main/jni/prebuilt/lib")
-        into("$buildDir/react-ndk/exported")
-    }
-
-    afterEvaluate {
-        preBuild.dependsOn(packageReactNdkLibs)
-    }
-
-    packagingOptions {
-        pickFirst '**/libhermes.so'
-        pickFirst '**/libjsc.so'
     }
 }
 ```
