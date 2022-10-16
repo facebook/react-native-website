@@ -427,11 +427,11 @@ Now add the Native code for your Turbo Native Module. Create two files in the `R
 ##### RTNCalculator.h
 
 ```objc title="RTNCalculator.h"
-#import <React/RCTBridgeModule.h>
+#import <RTNCalculatorSpec/RTNCalculatorSpec.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface RTNCalculator : NSObject <RCTBridgeModule>
+@interface RTNCalculator : NSObject <NativeCalculatorSpec>
 
 @end
 
@@ -448,13 +448,9 @@ This file defines the interface for the `RTNCalculator` module. Here, we can add
 
 @implementation RTNCalculator
 
-RCT_EXPORT_MODULE(RTNCalculator)
+RCT_EXPORT_MODULE()
 
-RCT_REMAP_METHOD(add, addA:(NSInteger)a
-                      andB:(NSInteger)b
-                withResolver:(RCTPromiseResolveBlock) resolve
-                withRejecter:(RCTPromiseRejectBlock) reject)
-{
+- (void)add:(double)a b:(double)b resolve:(RCTPromiseResolveBlock)resolve reject:(RCTPromiseRejectBlock)reject {
     NSNumber *result = [[NSNumber alloc] initWithInteger:a+b];
     resolve(result);
 }
@@ -470,7 +466,7 @@ RCT_REMAP_METHOD(add, addA:(NSInteger)a
 
 The most important call is to the `RCT_EXPORT_MODULE`, which is required to export the module so that React Native can load the Turbo Native Module.
 
-Then the `RCT_REMAP_METHOD` macro is used to expose the `add` method.
+Then the `add` method, whose signature must match the one specified by the Codegen in the `RTNCalculatorSpec.h`.
 
 Finally, the `getTurboModule` method gets an instance of the Turbo Native Module so that the JavaScript side can invoke its methods. The function is defined in (and requested by) the `RTNCalculatorSpec.h` file that was generated earlier by Codegen.
 
