@@ -3,11 +3,20 @@ id: release-testing
 title: How to Test a Release
 ---
 
-## Test source in the release branch
-
 These steps needs to be followed by the release crew as part of the release process, to ensure that new versions published have a good level of stability.
 
-### Pre-requisites
+:::info
+
+An important element of testing source in the release branch is that this process needs to be preferably be done twice, on two separate machines - there are multiple scenarios in which something might fail on a machine but not on another. By running tests on two computers, we want to reach a step of double confirmation that everything works fine.
+:::
+
+## Pre-requisites
+
+:::note
+
+Currently, this flow can only be done on macOS machines.
+
+:::
 
 - Have a clone of `react-native` repo and be on the release branch (`0.XX-stable`).
 
@@ -19,14 +28,18 @@ These steps needs to be followed by the release crew as part of the release proc
   echo '{}' > .watchmanconfig
   ```
 
-- Have Android and iOS development environment set-up. Follow instructions for macOS/iOS and macOS/Android from the [Environment Setup](/docs/environment-setup) guide.
+- Have Android and iOS development environment set-up. Follow instructions for `React Native CLI quickstart` for macOS/iOS and macOS/Android from the [Environment Setup](/docs/environment-setup) guide.
 
   #### Additional steps for Android
 
   - Gradle should now install [the appropriate NDK](https://github.com/facebook/react-native/blob/main/template/android/build.gradle). Verify that you have in your path the `ANDROID_NDK` variable, pointing to it.
   - In case you are on macOS Catalina (or higher), you might also need to run `sudo xattr -r -d com.apple.quarantine /path/to/ndk` to avoid the e2e script to fail. (_That said, this should not happen anymore since from NDK 21 and higher the Android team started signing the NDK._)
 
-### Steps
+## Steps
+
+### Clean up the local state
+
+When testing locally, we want to ensure that we start from a clean slate to avoid caches polluting our testing.
 
 1. Delete `RNTester` and `RNTestProject` from your Android emulator and iOS simulator if leftover from previous test.
 2. Remove any temporary files from the `react-native` repo:
@@ -35,76 +48,73 @@ These steps needs to be followed by the release crew as part of the release proc
     git clean -fdx
    ```
 
+   For `main` branch, and versions of RN >=0.71, you can instead use `yarn test-e2e-local-clean`.
+
 3. Install dependencies:
 
    ```bash
     yarn install
-    pushd packages/rn-tester
-    pod install --repo-update
-    popd
    ```
 
-4. Use the `test-manual-e2e` script to test `RNTester` and the template app (`RNTestProject`):
+### Generating the projects
 
-   ```bash
-   # This will run you through the different variants in Test Dimensions table
-   ./scripts/test-manual-e2e.sh
-   ```
+The local testing for a release consist of running the [test project](https://github.com/facebook/react-native/tree/main/packages/rn-tester) of the react-native repository, `RNTester`, which contains an in-depth list of components implementations, and generating a fresh new project based on the local code, `RNTestProject`, that will simulate accurately how a `react-native init` project will behave.
 
-5. Turn on Hermes in the `RNTestProject` and ensures it builds successfully.
+To generate the the right project with the specific configuration desired, you can use the command
 
-   - Enable Hermes for Android:
+```bash
+yarn test-e2e-local [options]
+```
 
-     ```bash
-     # Update `/tmp/RNTestProject/android/app/build.gradle` to `enableHermes`
-     project.ext.react = [
-       enableHermes: true,  // clean and rebuild if changing
-     ]
+Followed by the wanted options:
 
-     # Clean and rebuild
-     /tmp/RNTestProject/android$ ./gradlew clean
-     /tmp/RNTestProject$ npx react-native run-android
-     ```
+```bash
+  --help          Show help                                            [boolean]
+  --version       Show version number                                  [boolean]
+  -t, --target      [choices: "RNTester", "RNTestProject"] [default: "RNTester"]
+  -p, --platform                    [choices: "iOS", "Android"] [default: "iOS"]
+  -h, --hermes                                         [boolean] [default: true]
+```
 
-   - Enable Hermes for iOS:
+#### Versions older than 71
 
-     ```bash
-     # Update `/tmp/RNTestProject/ios/Podfile` and then run `pod install`
-     use_react_native!(
-       :path => config[:reactNativePath],
-       # to enable hermes on iOS, change `false` to `true` and then install pods
-       :hermes_enabled => true
-     )
+You need to use the interactive script run you through the different variants in [Test Dimensions](#test-dimensions):
 
-     # Install pods and run
-     /tmp/RNTestProject/ios$ pod install
-     /tmp/RNTestProject$ npx react-native run-ios
-     ```
+```bash
+./scripts/test-manual-e2e.sh
+```
 
-### Test Dimensions
+This script will ask you to select which platform and which project you want to test, and then to execute a series of extra steps during the process. Bear in mind, when testing RNTester on Android, you need to start the Android emulator ahead of time or it will fail.
 
-Covered by running `test-manual-e2e.sh`, see [issue](https://github.com/facebook/react-native/issues/33015) about supporting those "manual" cases.
+## What to test?
 
-| Variant          | RNTester                 | Template App             |
-| ---------------- | ------------------------ | ------------------------ |
-| Android - JSC    | via `test-manual-e2e.sh` | via `test-manual-e2e.sh` |
-| Android - Hermes | via `test-manual-e2e.sh` | manual                   |
-| iOS - JSC        | via `test-manual-e2e.sh` | via `test-manual-e2e.sh` |
-| iOS - Hermes     | via `test-manual-e2e.sh` | manual                   |
-
-**Note well:** Starting from RN 0.70, Hermes is turned on by default so for the template app JSC will need to be manually tested by switching off Hermes.
-
-### What to test?
-
-Aside from verifying that the building process is successful, once the app spawn by `test-manual-e2e.sh` is up and running, we want to run a series of manual tests to ensure that some core functionalities work, like Fast Refresh and the Flipper debugger.
+Aside from verifying that the building process is successful, once the app spawn by the script is up and running, we want to run a series of manual tests to ensure that some core functionalities work, like Fast Refresh and the Flipper debugger.
 
 In the `RNTester` you want to also play around with the app and try different components: some important onces are `Flatlist`, `Image` and the "New Architecture Component" (should be the very last one in the list).
 
-An important element of testing source in the release branch is that this process needs to be preferably be done twice, on two separate machines - there are multiple scenarios in which something might fail on a machine but not on another. By running tests on two computers, we want to reach a step of "double confirmation" that everything works fine.
+### Test Dimensions
 
-## Testing an RC on a project - checklist
+To ensure that we cover the most use cases, we need to ensure we test all these different combination of configurations:
 
-If you are a [release tester](./release-roles-responsibilities#release-tester-responsibilities), the ask for you is to set as dependency in your app the latest RC available and report in the related "Road to 0.XX" how it went ([example](https://github.com/reactwg/react-native-releases/discussions/26)). To help provide the relevant information, we have prepared this template: you can copy/pasted it in a comment and fill it accordingly.
+- RNTester + iOS + Hermes
+- RNTester + iOS + JSC
+- RNTester + Android + Hermes
+- RNTester + Android + JSC
+- RNTestProject + iOS + Hermes
+- RNTestProject + iOS + JSC
+- RNTestProject + Android + Hermes
+- RNTestProject + Android + JSC
+
+:::note
+
+Bear in mind that RNTester project is already onboarded in the new architecture. `RNTestProject` is not - new architecture mode needs to be [enabled](/docs/the-new-architecture/use-app-template#enable-the-new-architecture) and tested separately.
+:::
+
+## Testing pre-releases (RC) on production apps
+
+During the Release Candidate (RC) phase of a release cycle, we ask for the community to set as dependency in their apps the latest RC available and report in the related "Road to 0.XX" how it performs ([example](https://github.com/reactwg/react-native-releases/discussions/26)).
+
+To help provide the relevant information, we have prepared this template they can use as blueprint for what is important to test - they can copy/pasted it in a comment and fill it accordingly.
 
 ```markdown
 | Link to branch:              |                         |
