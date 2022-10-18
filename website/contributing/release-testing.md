@@ -109,3 +109,36 @@ To ensure that we cover the most use cases, we need to ensure we test all these 
 
 Bear in mind that RNTester project is already onboarded in the new architecture. `RNTestProject` is not - new architecture mode needs to be [enabled](/docs/the-new-architecture/use-app-template#enable-the-new-architecture) and tested separately.
 :::
+
+## Testing pre-releases (RC) on production apps
+
+During the Release Candidate (RC) phase of a release cycle, we ask for the community to set as dependency in their apps the latest RC available and report in the related "Road to 0.XX" how it performs ([example](https://github.com/reactwg/react-native-releases/discussions/26)).
+
+To help provide the relevant information, we have prepared this template they can use as blueprint for what is important to test - they can copy/pasted it in a comment and fill it accordingly.
+
+```markdown
+| Link to branch:              |                         |
+| ---------------------------- | :---------------------- |
+| **Project info**             |                         |
+| Name                         |                         |
+| Starting RN version          | <add me, ex. RN 0.65.1> |
+| Hermes on iOS                | yes/no                  |
+| Hermes on Android            | yes/no                  |
+| **Tested - iOS**             |                         |
+| Fast Refresh                 | ✅/🚨/🙅‍♂️                |
+| Debug/dev build on Simulator | ✅/🚨/🙅‍♂️                |
+| Debug/dev build on Device    | ✅/🚨/🙅‍♂️                |
+| Production build             | ✅/🚨/🙅‍♂️                |
+| Chrome remote debugger       | ✅/🚨/🙅‍♂️                |
+| Hermes debugger              | ✅/🚨/🙅‍♂️                |
+| Flipper debugger             | ✅/🚨/🙅‍♂️                |
+| Deploy to TestFlight         | ✅/🚨/🙅‍♂️                |
+| **Tested - Android**         |                         |
+| Fast Refresh                 | ✅/🚨/🙅‍♂️                |
+| Debug/dev build on Emulator  | ✅/🚨/🙅‍♂️                |
+| Debug/dev build on Device    | ✅/🚨/🙅‍♂️                |
+| Production build             | ✅/🚨/🙅‍♂️                |
+| Chrome remote debugger       | ✅/🚨/🙅‍♂️                |
+| Hermes debugger              | ✅/🚨/🙅‍♂️                |
+| Flipper debugger             | ✅/🚨/🙅‍♂️                |
+```
