@@ -163,7 +163,9 @@ This changes do three main things:
 
 The second step is to instruct Xcode to avoid compiling all the lines using the New Architecture types and files when we are building an app with the Old Architecture.
 
-The file to change is the module implementation file, which is usually a `<your-module>.mm` file. That file is structured as follow:
+There are two files to change. The module implementation file, which is usually a `<your-module>.mm` file, and the module header, which is usually a `<your-module>.h` file.
+
+That implementation file is structured as follows:
 
 - Some `#import` statements, among which there is a `<GeneratedSpec>.h` file.
 - The module implementation, using the various `RCT_EXPORT_xxx` and `RCT_REMAP_xxx` macros.
@@ -190,7 +192,27 @@ The **goal** is to make sure that the `Turbo Native Module` still builds with th
 @end
 ```
 
-This snippet uses the same `RCT_NEW_ARCH_ENABLED` flag used in the previous [section](#dependencies-ios). When this flag is not set, Xcode skips the lines within the `#ifdef` during compilation and it does not include them into the compiled binary.
+A similar thing needs to be done for the header file. Add the following lines at the bottom of your module header. You need to first import the header and then, if the New Architecture is enabled, make it conform to the Spec protocol.
+
+```diff
+#import <React/RCTBridgeModule.h>
++ #ifdef RCT_NEW_ARCH_ENABLED
++ #import <YourModuleSpec/YourModuleSpec.h>
++ #endif
+
+@interface YourModule: NSObject <RCTBridgeModule>
+
+@end
+
++ #ifdef RCT_NEW_ARCH_ENABLED
++ @interface YourModule () <YourModuleSpec>
+
++ @end
++ #endif
+
+```
+
+This snippets uses the same `RCT_NEW_ARCH_ENABLED` flag used in the previous [section](#dependencies-ios). When this flag is not set, Xcode skips the lines within the `#ifdef` during compilation and it does not include them into the compiled binary.
 
 ### Android
 
@@ -332,7 +354,7 @@ For a Turbo Native Module, the source of truth is the `Native<MyModule>.js` (or 
 import MyModule from 'your-module/src/index';
 ```
 
-The **goal** is to conditionally `export` from the `index` file the proper object, given the architecture chosen by the user. We can achieve this with a code that looks like this:
+Since `TurboModuleRegistry.get` taps into the old Native Modules API under the hood, we need to re-export our module, to avoid registering it multiple times.
 
 <Tabs groupId="turbomodule-backward-compatibility"
       defaultValue={constants.defaultTurboModuleSpecLanguage}
@@ -341,43 +363,15 @@ The **goal** is to conditionally `export` from the `index` file the proper objec
 
 ```ts
 // @flow
-
-import { NativeModules } from 'react-native'
-
-const isTurboModuleEnabled = global.__turboModuleProxy != null;
-
-const myModule = isTurboModuleEnabled ?
-    require('./Native<MyModule>').default :
-    NativeModules.<MyModule>;
-
-export default myModule;
+export default require('./Native<MyModule>').default;
 ```
 
 </TabItem>
 <TabItem value="TypeScript">
 
 ```ts
-const isTurboModuleEnabled = global.__turboModuleProxy != null;
-
-const myModule = isTurboModuleEnabled
-  ? require('./Native<MyModule>').default
-  : require('./<MyModule>').default;
-
-export default myModule;
+export default require('./Native<MyModule>').default;
 ```
 
 </TabItem>
 </Tabs>
-
-:::note
-If you are using TypeScript and you want to follow the example, make sure to `export` the `NativeModule` in a separate `ts` file called `<MyModule>.ts`.
-:::
-
-Whether you are using Flow or TypeScript for your specs, we understand which architecture is running by checking whether the `global.__turboModuleProxy` object has been set or not.
-
-:::caution
-The `global.__turboModuleProxy` API may change in the future for a function that encapsulate this check.
-:::
-
-- If that object is `null`, the app has not enabled the Turbo Native Module feature. It's running on the Old Architecture, and the fallback is to use the default [`Legacy Native Module` implementation](../native-modules-intro).
-- If that object is set, the app is running with the Turbo Native Modules enabled, and it should use the `Native<MyModule>` spec to access the Turbo Native Module.

@@ -1,3 +1,10 @@
+/**
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 const users = require('./showcase.json');
 const versions = require('./versions.json');
 
@@ -126,6 +133,17 @@ module.exports = {
       }),
     ],
     [
+      'content-docs',
+      /** @type {import('@docusaurus/plugin-content-docs').Options} */
+      ({
+        id: 'community',
+        path: 'community',
+        routeBasePath: '/community',
+        sidebarPath: require.resolve('./sidebarsCommunity.json'),
+        ...commonDocsOptions,
+      }),
+    ],
+    [
       '@docusaurus/plugin-pwa',
       {
         debug: true,
@@ -249,6 +267,13 @@ module.exports = {
             docsPluginId: 'contributing',
           },
           {
+            type: 'doc',
+            docId: 'overview',
+            label: 'Community',
+            position: 'right',
+            docsPluginId: 'community',
+          },
+          {
             to: '/showcase',
             label: 'Showcase',
             position: 'right',
@@ -282,7 +307,7 @@ module.exports = {
         style: 'dark',
         links: [
           {
-            title: 'Development',
+            title: 'Develop',
             items: [
               {
                 label: 'Guides',
@@ -303,7 +328,7 @@ module.exports = {
             ],
           },
           {
-            title: 'Community',
+            title: 'Participate',
             items: [
               {
                 label: 'Showcase',
@@ -314,11 +339,15 @@ module.exports = {
                 to: 'contributing/overview',
               },
               {
-                label: 'The React Native Community',
-                to: 'help',
+                label: 'Community',
+                to: 'community/overview',
               },
               {
-                label: 'Ask Questions on Stack Overflow',
+                label: 'Directory',
+                href: 'https://reactnative.directory/',
+              },
+              {
+                label: 'Stack Overflow',
                 href: 'https://stackoverflow.com/questions/tagged/react-native',
               },
             ],
@@ -341,7 +370,7 @@ module.exports = {
             ],
           },
           {
-            title: 'More',
+            title: 'Explore More',
             items: [
               {
                 label: 'ReactJS',

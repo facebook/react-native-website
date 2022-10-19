@@ -259,6 +259,19 @@ When the image is resized, the corners of the size specified by `capInsets` will
 
 ---
 
+### `crossOrigin`
+
+A string of a keyword specifying the CORS mode to use when fetching the image resource. It works similar to crossorigin attribute in HTML.
+
+- `anonymous`: No exchange of user credentials in the image request.
+- `use-credentials`: Sets `Access-Control-Allow-Credentials` header value to `true` in the image request.
+
+| Type                                     | Default       |
+| ---------------------------------------- | ------------- |
+| enum(`'anonymous'`, `'use-credentials'`) | `'anonymous'` |
+
+---
+
 ### `defaultSource`
 
 A static image to display while loading the image source.
@@ -278,6 +291,16 @@ Fade animation duration in miliseconds.
 | Type   | Default |
 | ------ | ------- |
 | number | `300`   |
+
+---
+
+### `height`
+
+Height of the image component.
+
+| Type   |
+| ------ |
+| number |
 
 ---
 
@@ -393,6 +416,16 @@ More details about `resize` and `scale` can be found at http://frescolib.org/doc
 
 ---
 
+### `referrerPolicy`
+
+A string indicating which referrer to use when fetching the resource. Sets the value for `Referrer-Policy` header in the image request. Works similar to `referrerpolicy` attribute in HTML.
+
+| Type                                                                                                                                                                                     | Default                             |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- |
+| enum(`'no-referrer'`, `'no-referrer-when-downgrade'`, `'origin'`, `'origin-when-cross-origin'`, `'same-origin'`, `'strict-origin'`, `'strict-origin-when-cross-origin'`, `'unsafe-url'`) | `'strict-origin-when-cross-origin'` |
+
+---
+
 ### `resizeMode`
 
 Determines how to resize the image when the frame doesn't match the raw image dimensions. Defaults to `cover`.
@@ -430,6 +463,34 @@ The currently supported formats are `png`, `jpg`, `jpeg`, `bmp`, `gif`, `webp`, 
 
 ---
 
+### `src`
+
+A string representing the remote URL of the image. This prop has precedence over `source` prop.
+
+**Example:** `src={'https://reactnative.dev/img/tiny_logo.png'}`
+
+| Type   |
+| ------ |
+| string |
+
+---
+
+### `srcSet`
+
+A string representing comma separated list of possible candidate image source. Each image source contains a URL of an image and a pixel density descriptor. If no descriptor is specified, it defaults to descriptor of `1x`.
+
+If `srcSet` does not contain a `1x` descriptor, the value in `src` is used as image source with `1x` descriptor (if provided).
+
+This prop has precedence over both the `src` and `source` props.
+
+**Example:** `srcSet={'https://reactnative.dev/img/tiny_logo.png 1x, https://reactnative.dev/img/header_logo.svg 2x'}`
+
+| Type   |
+| ------ |
+| string |
+
+---
+
 ### `style`
 
 | Type                                                                                                                                                 |
@@ -446,6 +507,8 @@ A unique identifier for this element to be used in UI Automation testing scripts
 | ------ |
 | string |
 
+---
+
 ### `tintColor`
 
 Changes the color of all non-transparent pixels to the `tintColor`.
@@ -453,6 +516,16 @@ Changes the color of all non-transparent pixels to the `tintColor`.
 | Type               |
 | ------------------ |
 | [color](colors.md) |
+
+---
+
+### `width`
+
+Width of the image component.
+
+| Type   |
+| ------ |
+| number |
 
 ## Methods
 

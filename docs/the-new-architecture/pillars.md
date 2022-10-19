@@ -10,7 +10,7 @@ import NewArchitectureWarning from '../\_markdown-new-architecture-warning.mdx';
 The New Architecture is composed mainly of two pillars:
 
 - [The New Native Module System - Turbo Modules](pillars-turbomodules)
-- [The New Renderer - Fabric](pillars-fabric-components).
+- [The New Renderer - Fabric](pillars-fabric-components)
 
 The core concepts of React Native still holds true in the New Architecture: Native Modules are the preferred way to create libraries that leverage some platform-specific API. Native Components are the preferred way to create reusable UI components, providing a native experience to the users.
 

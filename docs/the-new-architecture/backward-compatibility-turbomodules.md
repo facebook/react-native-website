@@ -24,11 +24,13 @@ Creating a backward compatible TurboModule lets your users continue to leverage 
 1. Uniform the JavaScript API so that your user code won't need changes.
 
 :::info
+
 For the sake of this guide we're going to use the following **terminology**:
 
 - **Legacy Native Modules** - To refer to Modules which are running on the old React Native architecture.
 - **Turbo Native Modules** - To refer to Modules which have been adapted to work well with the New Native Module System. For brevity you might find them referred as **Turbo Modules**.
-  :::
+
+:::
 
 <BetaTS />
 
@@ -176,7 +178,9 @@ This changes do three main things:
 
 The second step is to instruct Xcode to avoid compiling all the lines using the New Architecture types and files when we are building an app with the Old Architecture.
 
-The file to change is the module implementation file, which is usually a `<your-module>.mm` file. That file is structured as follows:
+There are two files to change. The module implementation file, which is usually a `<your-module>.mm` file, and the module header, which is usually a `<your-module>.h` file.
+
+That implementation file is structured as follows:
 
 - Some `#import` statements, among which there is a `<GeneratedSpec>.h` file.
 - The module implementation, using the various `RCT_EXPORT_xxx` and `RCT_REMAP_xxx` macros.
@@ -203,7 +207,27 @@ The **goal** is to make sure that the `Turbo Native Module` still builds with th
 @end
 ```
 
-This snippet uses the same `RCT_NEW_ARCH_ENABLED` flag used in the previous [section](#dependencies-ios). When this flag is not set, Xcode skips the lines within the `#ifdef` during compilation and it does not include them into the compiled binary.
+A similar thing needs to be done for the header file. Add the following lines at the bottom of your module header. You need to first import the header and then, if the New Architecture is enabled, make it conform to the Spec protocol.
+
+```diff
+#import <React/RCTBridgeModule.h>
++ #ifdef RCT_NEW_ARCH_ENABLED
++ #import <YourModuleSpec/YourModuleSpec.h>
++ #endif
+
+@interface YourModule: NSObject <RCTBridgeModule>
+
+@end
+
++ #ifdef RCT_NEW_ARCH_ENABLED
++ @interface YourModule () <YourModuleSpec>
+
++ @end
++ #endif
+
+```
+
+This snippets uses the same `RCT_NEW_ARCH_ENABLED` flag used in the previous [section](#dependencies-ios). When this flag is not set, Xcode skips the lines within the `#ifdef` during compilation and it does not include them into the compiled binary.
 
 ### Android
 
@@ -232,7 +256,7 @@ my-module
 │       │   ├── AndroidManifest.xml
 │       │   └── java
 │       │       └── com
-│       │           └── MyModule
+│       │           └── mymodule
 │       │               ├── MyModuleImpl.java
 │       │               └── MyModulePackage.java
 │       ├── newarch
@@ -250,8 +274,11 @@ my-module
 
 The code that should go in the `MyModuleImpl.java`, and that can be shared by the Legacy Native Module and the Turbo Native Module is, for example:
 
-```java title="example of MyModuleImple.java"
-package com.MyModule;
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="java">
+
+```java title="example of MyModuleImpl.java"
+package com.mymodule;
 
 import androidx.annotation.NonNull;
 import com.facebook.react.bridge.Promise;
@@ -269,6 +296,29 @@ public class MyModuleImpl {
 }
 ```
 
+</TabItem>
+<TabItem value="kotlin">
+
+```kotlin title="example of MyModuleImpl.kt"
+package com.mymodule;
+
+import com.facebook.react.bridge.Promise
+
+class MyModuleImpl {
+  fun foo(a: Double, b: Double, promise: Promise) {
+    // implement the logic for foo and then invoke
+    // promise.resolve or promise.reject.
+  }
+
+  companion object {
+    const val NAME = "MyModule"
+  }
+}
+```
+
+</TabItem>
+</Tabs>
+
 Then, the Legacy Native Module and the Turbo Native Module can be updated with the following steps:
 
 1. Create a private instance of the `MyModuleImpl` class.
@@ -277,13 +327,16 @@ Then, the Legacy Native Module and the Turbo Native Module can be updated with t
 
 For example, for a Legacy Native Module:
 
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="java">
+
 ```java title="Native Module using the Impl module"
 public class MyModule extends ReactContextBaseJavaModule {
 
     // declare an instance of the implementation
     private MyModuleImpl implementation;
 
-    CalculatorModule(ReactApplicationContext context) {
+    MyModule(ReactApplicationContext context) {
         super(context);
         // initialize the implementation of the module
         implementation = MyModuleImpl();
@@ -303,7 +356,31 @@ public class MyModule extends ReactContextBaseJavaModule {
 }
 ```
 
+</TabItem>
+<TabItem value="kotlin">
+
+```kotlin title="Native Module using the Impl module"
+class MyModule(context: ReactApplicationContext) : ReactContextBaseJavaModule(context) {
+  // declare an instance of the implementation and use it in all the methods
+  private var implementation: MyModuleImpl = MyModuleImpl()
+
+  override fun getName(): String = MyModuleImpl.NAME
+
+  @ReactMethod
+  fun foo(a: Double, b: Double, promise: Promise) {
+    // Use the implementation instance to execute the function.
+    implementation.foo(a, b, promise)
+  }
+}
+```
+
+</TabItem>
+</Tabs>
+
 And, for a Turbo Native Module:
+
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="java">
 
 ```java title="TurboModule using the Impl module"
 public class MyModule extends MyModuleSpec {
@@ -331,6 +408,25 @@ public class MyModule extends MyModuleSpec {
 }
 ```
 
+</TabItem>
+<TabItem value="kotlin">
+
+```kotlin title="TurboModule using the Impl module"
+class MyModule(reactContext: ReactApplicationContext) : MyModuleSpec(reactContext) {
+  // declare an instance of the implementation and use it in all the methods
+  private var implementation: MyModuleImpl = MyModuleImpl()
+
+  override fun getName(): String = MyModuleImpl.NAME
+
+  override fun add(a: Double, b: Double, promise: Promise) {
+    implementation.add(a, b, promise)
+  }
+}
+```
+
+</TabItem>
+</Tabs>
+
 For a step-by-step example on how to achieve this, have a look at [this repo](https://github.com/react-native-community/RNNewArchitectureLibraries/tree/feat/back-turbomodule).
 
 ## Unify the JavaScript specs
@@ -345,7 +441,7 @@ For a Turbo Native Module, the source of truth is the `Native<MyModule>.js` (or 
 import MyModule from 'your-module/src/index';
 ```
 
-The **goal** is to conditionally `export` the proper object from the `index` file , given the architecture chosen by the user. We can achieve this with a code that looks like this:
+Since `TurboModuleRegistry.get` taps into the old Native Modules API under the hood, we need to re-export our module, to avoid registering it multiple times.
 
 <Tabs groupId="turbomodule-backward-compatibility"
       defaultValue={constants.defaultTurboModuleSpecLanguage}
@@ -354,43 +450,15 @@ The **goal** is to conditionally `export` the proper object from the `index` fil
 
 ```ts
 // @flow
-
-import { NativeModules } from 'react-native'
-
-const isTurboModuleEnabled = global.__turboModuleProxy != null;
-
-const myModule = isTurboModuleEnabled ?
-    require('./Native<MyModule>').default :
-    NativeModules.<MyModule>;
-
-export default myModule;
+export default require('./Native<MyModule>').default;
 ```
 
 </TabItem>
 <TabItem value="TypeScript">
 
 ```ts
-const isTurboModuleEnabled = global.__turboModuleProxy != null;
-
-const myModule = isTurboModuleEnabled
-  ? require('./Native<MyModule>').default
-  : require('./<MyModule>').default;
-
-export default myModule;
+export default require('./Native<MyModule>').default;
 ```
 
 </TabItem>
 </Tabs>
-
-:::note
-If you are using TypeScript and you want to follow the example, ensure to `export` the `NativeModule` in a separate `ts` file called `<MyModule>.ts`.
-:::
-
-Whether you are using Flow or TypeScript for your specs, we understand which architecture is running by checking whether the `global.__turboModuleProxy` object has been set or not.
-
-:::caution
-The `global.__turboModuleProxy` API may change in the future for a function that encapsulates this check.
-:::
-
-- If that object is `null`, the app has not enabled the Turbo Native Module feature. It's running on the Old Architecture, and the fallback is to use the default [`Legacy Native Module` implementation](../native-modules-intro).
-- If that object is set, the app is running with the Turbo Native Modules enabled, and it should use the `Native<MyModule>` spec to access the Turbo Native Module.

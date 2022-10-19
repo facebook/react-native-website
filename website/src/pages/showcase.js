@@ -1,5 +1,5 @@
 /**
- * Copyright (c) Facebook, Inc. and its affiliates.
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
@@ -76,7 +76,7 @@ const randomizeApps = apps =>
 const Showcase = () => {
   const {siteConfig} = useDocusaurusContext();
 
-  const {meta, microsoft, shopify, others} = siteConfig.customFields.users;
+  const {meta, microsoft, shopify, wix, others} = siteConfig.customFields.users;
   const [pinnedRandomizedApps, setPinnedRandomizedApps] = useState([]);
   const [randomizedApps, setRandomizedApps] = useState([]);
 
@@ -168,6 +168,25 @@ const Showcase = () => {
             .
           </p>
           <div className="logos">{shopify.map(renderApp)}</div>
+        </div>
+        <div className="showcaseSection">
+          <h2 className="withLogo">
+            <ThemedImage
+              alt="Wix logo"
+              width={80}
+              sources={{
+                light: useBaseUrl('/img/showcase/wix_logo_lightbg.svg'),
+                dark: useBaseUrl('/img/showcase/wix_logo_darkbg.svg'),
+              }}
+            />
+          </h2>
+          <p className="showcaseSectionDescription">
+            With one of the largest React Native code bases in the world, Wix
+            has a long history with the development community and maintains a
+            variety of open source projects. Wix is an early adopter of React
+            Native and uses it for its entire suite of applications.
+          </p>
+          <div className="logos">{wix.map(renderApp)}</div>
         </div>
         <div className="showcaseSection showcaseCustomers">
           <h2>Users Showcase</h2>

@@ -3,7 +3,9 @@ id: pillars-turbomodules
 title: Turbo Native Modules
 ---
 
-import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import constants from '@site/core/TabsConstants';
 import NewArchitectureWarning from '../\_markdown-new-architecture-warning.mdx';
 
 <NewArchitectureWarning/>
@@ -154,7 +156,7 @@ The shared configuration is a `package.json` file used by yarn when installing y
     "type": "modules",
     "jsSrcsDir": "js",
     "android": {
-      "javaPackageName": "com.calculator"
+      "javaPackageName": "com.rtncalculator"
     }
   }
 }
@@ -211,7 +213,7 @@ To prepare Android to run **Codegen** you have to create three files:
 
 1. The `build.gradle` with the **Codegen** configuration
 1. The `AndroidManifest.xml` file
-1. A java class that implements the `ReactPackage` interface
+1. A Java/Kotlin class that implements the `ReactPackage` interface
 
 At the end of these steps, the `android` folder should look like this:
 
@@ -224,7 +226,7 @@ android
         └── java
             └── com
                 └── rtncalculator
-                    └── RTNCalculatorPackage.java
+                    └── CalculatorPackage.java
 ```
 
 #### The `build.gradle` file
@@ -272,7 +274,7 @@ Second, create an `android/src/main` folder. Inside that folder, create a `Andro
 
 ```xml title="AndroidManifest.xml"
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.RTNCalculator">
+          package="com.rtncalculator">
 </manifest>
 ```
 
@@ -282,10 +284,13 @@ This is a small manifest file that defines the package for your module.
 
 Finally, you need a class that extends the `TurboReactPackage` interface. To run the **Codegen** process, you don't have to completely implement the package class: an empty implementation is enough for the app to pick up the module as a proper React Native dependency and to try and generate the scaffolding code.
 
-Create an `android/src/main/java/com/rtncalculator` folder and, inside that folder, create a `RTNCalculatorPackage.java` file.
+Create an `android/src/main/java/com/rtncalculator` folder and, inside that folder, create a `CalculatorPackage.java` file.
 
-```java title="RTNCalculatorPackage.java"
-package com.RTNCalculator;
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="java">
+
+```java title="CalculatorPackage.java"
+package com.rtncalculator;
 
 import androidx.annotation.Nullable;
 import com.facebook.react.bridge.NativeModule;
@@ -310,6 +315,27 @@ public class CalculatorPackage extends TurboReactPackage {
   }
 }
 ```
+
+</TabItem>
+<TabItem value="kotlin">
+
+```kotlin title="CalculatorPackage.kt"
+package com.rtncalculator;
+
+import com.facebook.react.TurboReactPackage
+import com.facebook.react.bridge.NativeModule
+import com.facebook.react.bridge.ReactApplicationContext
+import com.facebook.react.module.model.ReactModuleInfoProvider
+
+class CalculatorPackage : TurboReactPackage() {
+  override fun getModule(name: String?, reactContext: ReactApplicationContext): NativeModule? = null
+
+  override fun getReactModuleInfoProvider(): ReactModuleInfoProvider? = null
+}
+```
+
+</TabItem>
+</Tabs>
 
 React Native uses the `ReactPackage` interface to understand what native classes the app has to use for the `ViewManager` and `Native Modules` exported by the library.
 
@@ -401,11 +427,11 @@ Now add the Native code for your Turbo Native Module. Create two files in the `R
 ##### RTNCalculator.h
 
 ```objc title="RTNCalculator.h"
-#import <React/RCTBridgeModule.h>
+#import <RTNCalculatorSpec/RTNCalculatorSpec.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface RTNCalculator : NSObject <RCTBridgeModule>
+@interface RTNCalculator : NSObject <NativeCalculatorSpec>
 
 @end
 
@@ -422,13 +448,9 @@ This file defines the interface for the `RTNCalculator` module. Here, we can add
 
 @implementation RTNCalculator
 
-RCT_EXPORT_MODULE(RTNCalculator)
+RCT_EXPORT_MODULE()
 
-RCT_REMAP_METHOD(add, addA:(NSInteger)a
-                      andB:(NSInteger)b
-                withResolver:(RCTPromiseResolveBlock) resolve
-                withRejecter:(RCTPromiseRejectBlock) reject)
-{
+- (void)add:(double)a b:(double)b resolve:(RCTPromiseResolveBlock)resolve reject:(RCTPromiseRejectBlock)reject {
     NSNumber *result = [[NSNumber alloc] initWithInteger:a+b];
     resolve(result);
 }
@@ -444,7 +466,7 @@ RCT_REMAP_METHOD(add, addA:(NSInteger)a
 
 The most important call is to the `RCT_EXPORT_MODULE`, which is required to export the module so that React Native can load the Turbo Native Module.
 
-Then the `RCT_REMAP_METHOD` macro is used to expose the `add` method.
+Then the `add` method, whose signature must match the one specified by the Codegen in the `RTNCalculatorSpec.h`.
 
 Finally, the `getTurboModule` method gets an instance of the Turbo Native Module so that the JavaScript side can invoke its methods. The function is defined in (and requested by) the `RTNCalculatorSpec.h` file that was generated earlier by Codegen.
 
@@ -479,7 +501,7 @@ The generated code is stored in the `MyApp/node_modules/rtn-calculator/android/b
 codegen
 ├── java
 │   └── com
-│       └── RTNCalculator
+│       └── rtncalculator
 │           └── NativeCalculatorSpec.java
 ├── jni
 │   ├── Android.mk
@@ -504,8 +526,8 @@ codegen
 
 The native code for the Android side of a Turbo Native Module requires:
 
-1. to create a `RTNCalculatorModule.java` that implements the module.
-2. to update the `RTNCalculatorPackage.java` created in the previous step.
+1. to create a `CalculatorModule.java` that implements the module.
+2. to update the `CalculatorPackage.java` created in the previous step.
 
 The final structure within the Android library should look like this:
 
@@ -517,15 +539,18 @@ android
         ├── AndroidManifest.xml
         └── java
             └── com
-                └── RTNCalculator
+                └── rtncalculator
                     ├── CalculatorModule.java
                     └── CalculatorPackage.java
 ```
 
 ##### Creating the `CalculatorModule.java`
 
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="java">
+
 ```java title="CalculatorModule.java"
-package com.RTNCalculator;
+package com.rtncalculator;
 
 import androidx.annotation.NonNull;
 import com.facebook.react.bridge.NativeModule;
@@ -536,6 +561,7 @@ import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import java.util.Map;
 import java.util.HashMap;
+import com.rtncalculator.NativeCalculatorSpec;
 
 public class CalculatorModule extends NativeCalculatorSpec {
 
@@ -558,12 +584,42 @@ public class CalculatorModule extends NativeCalculatorSpec {
 }
 ```
 
+</TabItem>
+<TabItem value="kotlin">
+
+```kotlin title="CalculatorModule.kt"
+package com.rtncalculator
+
+import com.facebook.react.bridge.Promise
+import com.facebook.react.bridge.ReactApplicationContext
+import com.rtncalculator.NativeCalculatorSpec
+
+class CalculatorModule(reactContext: ReactApplicationContext) : NativeCalculatorSpec(reactContext) {
+
+  override fun getName() = NAME
+
+  override fun add(a: Double, b: Double, promise: Promise) {
+    promise.resolve(a + b)
+  }
+
+  companion object {
+    const val NAME = "RTNCalculator"
+  }
+}
+```
+
+</TabItem>
+</Tabs>
+
 This class implements the module itself, which extends the `NativeCalculatorSpec` that was generated from the `NativeCalculator` JavaScript specification file.
 
 ##### Updating the `CalculatorPackage.java`
 
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="java">
+
 ```diff title="CalculatorPackage.java"
-package com.RTNCalculator;
+package com.rtncalculator;
 
 import androidx.annotation.Nullable;
 import com.facebook.react.bridge.NativeModule;
@@ -612,7 +668,76 @@ public class CalculatorPackage extends TurboReactPackage {
 }
 ```
 
+</TabItem>
+<TabItem value="kotlin">
+
+```diff title="CalculatorPackage.kt"
+package com.rtncalculator;
+
+import com.facebook.react.TurboReactPackage
+import com.facebook.react.bridge.NativeModule
+import com.facebook.react.bridge.ReactApplicationContext
++import com.facebook.react.module.model.ReactModuleInfo
+import com.facebook.react.module.model.ReactModuleInfoProvider
+
+class CalculatorPackage : TurboReactPackage() {
+- override fun getModule(name: String?, reactContext: ReactApplicationContext): NativeModule? = null
++ override fun getModule(name: String?, reactContext: ReactApplicationContext): NativeModule? =
++   if (name == CalculatorModule.NAME) {
++     CalculatorModule(reactContext)
++   } else {
++     null
++   }
+
+- override fun getReactModuleInfoProvider() = ReactModuleInfoProvider? = null
++ override fun getReactModuleInfoProvider() = ReactModuleInfoProvider {
++   mapOf(
++     CalculatorModule.NAME to ReactModuleInfo(
++       CalculatorModule.NAME,
++       CalculatorModule.NAME,
++       false, // canOverrideExistingModule
++       false, // needsEagerInit
++       true, // hasConstants
++       false, // isCxxModule
++       true // isTurboModule
++     )
++   )
++ }
+}
+```
+
+</TabItem>
+</Tabs>
+
 This is the last piece of Native Code for Android. It defines the `TurboReactPackage` object that will be used by the app to load the module.
+
+### Final structure
+
+The final structure should look like this:
+
+```sh
+TurboModulesGuide
+├── MyApp
+└── RTNCalculator
+    ├── android
+    │   ├── build.gradle
+    │   └── src
+    │       └── main
+    │           ├── AndroidManifest.xml
+    │           └── java
+    │               └── com
+    │                   └── rtncalculator
+    │                       ├── CalculatorPackage.java
+    │                       └── CalculatorModule.java
+    ├── generated
+    ├── ios
+    │   ├── RTNCalculator.h
+    │   └── RTNCalculator.mm
+    ├── js
+    │   └── NativeCalculator.js
+    ├── package.json
+    └── rtn-calculator.podspec
+```
 
 ## 5. Adding the Turbo Native Module to your App
 

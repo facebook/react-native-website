@@ -17,19 +17,19 @@ Please refer to the [Environment Setup](/docs/environment-setup) guide to setup 
 
 After cloning React Native, open the directory and run `yarn` to install its dependencies.
 
-Then, you can run several commands:
+Now you are set up to run several commands:
 
 - `yarn start` starts the Metro packager server.
 - `yarn lint` checks the code style.
 - `yarn format` automatically formats your code.
-- `yarn test` runs the JavaScript test suite.
-- `yarn test --watch` runs an interactive JavaScript test watcher.
-- `yarn test <pattern>` runs JavaScript tests with matching filenames.
+- `yarn test` runs the Jest-based JavaScript test suite.
+  - `yarn test --watch` runs an interactive JavaScript test watcher.
+  - `yarn test <pattern>` runs JavaScript tests with matching filenames.
 - `yarn flow` runs the [Flow](https://flowtype.org/) typechecks.
-- `yarn flow-check-android` does a full Flow check over `*.android.js` files.
-- `yarn flow-check-ios` does a full Flow check over `*.ios.js` files.
+  - `yarn flow-check-android` does a full Flow check over `*.android.js` files.
+  - `yarn flow-check-ios` does a full Flow check over `*.ios.js` files.
+- `yarn test-typescript` runs the [TypeScript](https://www.typescriptlang.org/) typechecks.
 - `yarn test-ios` runs the iOS test suite (macOS required).
-- `node ./scripts/run-ci-e2e-tests.js --js --android --ios` runs the end-to-tend JavaScript, Android, and iOS tests.
 
 ## Testing your Changes
 

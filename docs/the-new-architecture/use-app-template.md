@@ -13,7 +13,7 @@ This page will help you create a new React Native app that uses the New Architec
 
 ## Development Environment
 
-Before continuing, make sure you've followed all the steps in the[Setting up the development environment](getting-started.md) section under the **React Native CLI Quickstart** tab.
+Before continuing, make sure you've followed all the steps in the [Setting up the development environment](getting-started.md) section under the **React Native CLI Quickstart** tab.
 
 If following the setup guide, stop when you reach the section **Running your React Native Application**, and resume following this guide.
 

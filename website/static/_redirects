@@ -45,3 +45,6 @@
 /docs/0.66/view-flattening                   /architecture/view-flattening
 /docs/0.66/threading-model                   /architecture/threading-model
 /docs/0.66/architecture-glossary             /architecture/glossary
+
+# Rework of the community
+/help         /community/overview

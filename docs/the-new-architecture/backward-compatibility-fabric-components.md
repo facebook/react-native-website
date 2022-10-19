@@ -24,11 +24,13 @@ Creating a backward compatible Fabric Native Component lets your users continue 
 1. Uniform the JavaScript API so that your user code won't need changes.
 
 :::info
+
 For the sake of this guide we're going to use the following **terminology**:
 
 - **Legacy Native Components** - To refer to Components which are running on the old React Native architecture.
 - **Fabric Native Components** - To refer to Components which have been adapted to work well with the New Native Renderer, Fabric. For brevity you might find them referred as **Fabric Components**.
-  :::
+
+:::
 
 <BetaTS />
 
@@ -285,7 +287,7 @@ my-component
 │       │   ├── AndroidManifest.xml
 │       │   └── java
 │       │       └── com
-│       │           └── MyComponent
+│       │           └── mycomponent
 │       │               ├── MyComponentView.java
 │       │               ├── MyComponentViewManagerImpl.java
 │       │               └── MyComponentViewPackage.java
@@ -304,8 +306,12 @@ my-component
 
 The code that should go in the `MyComponentViewManagerImpl.java` and that can be shared between the Native Component and the Fabric Native Component is, for example:
 
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="java">
+
 ```java title="example of MyComponentViewManager.java"
-package com.MyComponent;
+package com.mycomponent;
+
 import androidx.annotation.Nullable;
 import com.facebook.react.uimanager.ThemedReactContext;
 
@@ -323,9 +329,33 @@ public class MyComponentViewManagerImpl {
 }
 ```
 
+</TabItem>
+<TabItem value="kotlin">
+
+```kotlin title="example of MyComponentViewManager.kt"
+package com.mycomponent
+
+import com.facebook.react.uimanager.ThemedReactContext
+
+object MyComponentViewManagerImpl {
+  const val NAME = "MyComponent"
+  fun createViewInstance(context: ThemedReactContext?) = MyComponentView(context)
+
+  fun setFoo(view: MyComponentView, param: String) {
+    // implement the logic of the foo function using the view and the param passed.
+  }
+}
+```
+
+</TabItem>
+</Tabs>
+
 Then, the Native Component and the Fabric Native Component can be updated using the function declared in the shared manager.
 
 For example, for a Native Component:
+
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="java">
 
 ```java title="Native Component using the ViewManagerImpl"
 public class MyComponentViewManager extends SimpleViewManager<MyComponentView> {
@@ -357,7 +387,33 @@ public class MyComponentViewManager extends SimpleViewManager<MyComponentView> {
 }
 ```
 
+</TabItem>
+<TabItem value="kotlin">
+
+```kotlin title="Native Component using the ViewManagerImpl"
+class MyComponentViewManager(var context: ReactApplicationContext) : SimpleViewManager<MyComponentView>() {
+  // Use the static NAME property from the shared implementation
+  override fun getName() = MyComponentViewManagerImpl.NAME
+
+  public override fun createViewInstance(context: ThemedReactContext): MyComponentView =
+    // static createViewInstance function from the shared implementation
+    MyComponentViewManagerImpl.createViewInstance(context)
+
+  @ReactProp(name = "foo")
+  fun setFoo(view: MyComponentView, param: String) {
+    // static custom function from the shared implementation
+    MyComponentViewManagerImpl.setFoo(view, param)
+  }
+}
+```
+
+</TabItem>
+</Tabs>
+
 And, for a Fabric Native Component:
+
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="java">
 
 ```java title="Fabric Component using the ViewManagerImpl"
 // Use the static NAME property from the shared implementation
@@ -395,10 +451,39 @@ public class MyComponentViewManager extends SimpleViewManager<MyComponentView>
     @ReactProp(name = "foo")
     public void setFoo(MyComponentView view, @Nullable String param) {
         // static custom function from the shared implementation
-        MyComponentViewManagerImpl.setFoo(view, param]);
+        MyComponentViewManagerImpl.setFoo(view, param);
     }
 }
 ```
+
+</TabItem>
+<TabItem value="kotlin">
+
+```kotlin title="Fabric Component using the ViewManagerImpl"
+// Use the static NAME property from the shared implementation
+@ReactModule(name = MyComponentViewManagerImpl.NAME)
+class MyComponentViewManager(context: ReactApplicationContext) : SimpleViewManager<MyComponentView>(), MyComponentViewManagerInterface<MyComponentView> {
+  private val delegate: ViewManagerDelegate<MyComponentView> = MyComponentViewManagerDelegate(this)
+
+  override fun getDelegate(): ViewManagerDelegate<MyComponentView> = delegate
+
+  // Use the static NAME property from the shared implementation
+  override fun getName(): String = MyComponentViewManagerImpl.NAME
+
+  override fun createViewInstance(context: ThemedReactContext): MyComponentView =
+    // static createViewInstance function from the shared implementation
+    MyComponentViewManagerImpl.createViewInstance(context)
+
+  @ReactProp(name = "foo")
+  override fun setFoo(view: MyComponentView, text: String) {
+    // static custom function from the shared implementation
+    MyComponentViewManagerImpl.setFoo(view, param);
+  }
+}
+```
+
+</TabItem>
+</Tabs>
 
 For a step-by-step example on how to achieve this, have a look at [this repo](https://github.com/react-native-community/RNNewArchitectureLibraries/tree/feat/back-fabric-comp).
 
@@ -414,7 +499,7 @@ For a Fabric Native Component, the source of truth is the `<YourModule>NativeCom
 import MyComponent from 'your-component/src/index';
 ```
 
-The **goal** is to conditionally `export` the proper object from the `index` file , given the architecture chosen by the user. We can achieve this with a code that looks like this:
+Since `codegenNativeComponent` is calling the `requireNativeComponent` under the hood, we need to re-export our component, to avoid registering it multiple times.
 
 <Tabs groupId="fabric-component-backward-compatibility"
       defaultValue={constants.defaultFabricComponentSpecLanguage}
@@ -423,40 +508,15 @@ The **goal** is to conditionally `export` the proper object from the `index` fil
 
 ```ts
 // @flow
-import { requireNativeComponent } from 'react-native';
-
-const isFabricEnabled = global.nativeFabricUIManager != null;
-
-const myComponent = isFabricEnabled
-  ? require('./MyComponentNativeComponent').default
-  : requireNativeComponent('MyComponent');
-
-export default myComponent;
+export default require('./MyComponentNativeComponent').default;
 ```
 
 </TabItem>
 <TabItem value="TypeScript">
 
 ```ts
-import requireNativeComponent from 'react-native/Libraries/ReactNative/requireNativeComponent';
-
-const isFabricEnabled = global.nativeFabricUIManager != null;
-
-const myComponent = isFabricEnabled
-  ? require('./MyComponentNativeComponent').default
-  : requireNativeComponent('MyComponent');
-
-export default myComponent;
+export default require('./MyComponentNativeComponent').default;
 ```
 
 </TabItem>
 </Tabs>
-
-Whether you are using Flow or TypeScript for your specs, we understand which architecture is running by checking if the `global.nativeFabricUIManager` object has been set or not.
-
-:::caution
-Please note that the New Architecture is still experimental. The `global.nativeFabricUIManager` API might change in the future for a function that encapsulate this check.
-:::
-
-- If that object is `null`, then the app has not enabled the Fabric feature. It's running on the Old Architecture, and the fallback is to use the default Legacy Native Components implementation ([iOS](../native-components-ios) or [Android](../native-components-android)).
-- If that object is set, the app is running with Fabric enabled, and it should use the `<MyComponent>NativeComponent` spec to access the Fabric Native Component.

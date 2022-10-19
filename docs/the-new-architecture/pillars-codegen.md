@@ -46,14 +46,14 @@ The rest of this guide assumes that you have a `Turbo Native Module` and/or a `F
 
 ## Running the Codegen
 
-The **Codegen** for iOS relies on some Node scripts that are invoked during the build process. The scripts are located in the `MyApp/node_modules/react_native/scripts/` folder.
+The **Codegen** for iOS relies on some Node scripts that are invoked during the build process. The scripts are located in the `MyApp/node_modules/react-native/scripts/` folder.
 
 The script that you have to run is the `generate-artifacts.js` script. This searches among all the dependencies of the app, looking for JS files that respects some specific conventions (look at [TurboModules](pillars-turbomodules) and [Fabric Components](pillars-fabric-components) sections for details), and it generates the required code.
 
 To invoke the script, you can run this command from the root folder of your app:
 
 ```sh
-node node_modules/react_native/scripts/generate-artifacts.js \
+node node_modules/react-native/scripts/generate-artifacts.js \
     --path SampleApp/ \
     --outputPath <an/output/path> \
 ```

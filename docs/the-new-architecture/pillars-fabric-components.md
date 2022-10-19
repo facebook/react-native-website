@@ -221,7 +221,7 @@ To prepare Android to run **Codegen** you have to create three files:
 
 1. The `build.gradle` with the **Codegen** configuration
 1. The `AndroidManifest.xml` file
-1. A java class that implements the `ReactPackage` interface.
+1. A Java/Kotlin class that implements the `ReactPackage` interface.
 
 At the end of these steps, the `android` folder should look like this:
 
@@ -234,7 +234,7 @@ android
         └── java
             └── com
                 └── rtncenteredtext
-                    └── RTNCenteredTextPackage.java
+                    └── CenteredTextPackage.java
 ```
 
 #### The `build.gradle` file
@@ -298,9 +298,12 @@ This is a small manifest file that defines the package for your module.
 
 Finally, you need a class that implements the `ReactPackage` interface. To run the **Codegen** process, you don't have to completely implement the Package class: an empty implementation is enough for the app to pick up the module as a proper React Native dependency and to try and generate the scaffolding code.
 
-Create an `android/src/main/java/com/rtncenteredtext` folder and, inside that folder, create a `RTNCenteredTextPackage.java` file.
+Create an `android/src/main/java/com/rtncenteredtext` folder and, inside that folder, create a `CenteredTextPackage.java` file.
 
-```java title="RTNCenteredTextPackage"
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="java">
+
+```java title="CenteredTextPackage.java"
 package com.rtncenteredtext;
 
 import com.facebook.react.ReactPackage;
@@ -325,6 +328,29 @@ public class RTNCenteredTextPackage implements ReactPackage {
 
 }
 ```
+
+</TabItem>
+<TabItem value="kotlin">
+
+```kotlin title="CenteredTextPackage.kt"
+package com.rtncenteredtext
+
+import com.facebook.react.ReactPackage
+import com.facebook.react.bridge.NativeModule
+import com.facebook.react.bridge.ReactApplicationContext
+import com.facebook.react.uimanager.ViewManager
+
+class CenteredTextPackage : ReactPackage {
+  override fun createViewManagers(reactContext: ReactApplicationContext): List<ViewManager<*, *>> =
+    emptyList()
+
+  override fun createNativeModules(reactContext: ReactApplicationContext): List<NativeModule> =
+    emptyList()
+}
+```
+
+</TabItem>
+</Tabs>
 
 The `ReactPackage` interface is used by React Native to understand what native classes the app has to use for the `ViewManager` and `Native Modules` exported by the library.
 
@@ -623,9 +649,9 @@ See the [Codegen](./pillars-codegen) section for further details on the generate
 
 The native code for the Android side of a Fabric Native Components requires three pieces:
 
-1. A `RTNCenteredText.java` that represents the actual view.
-2. A `RTNCenteredTextManager.java` to instantiate the view.
-3. Finally, you have to fill the implementation of the `RTNCenteredTextPackage.java` created in the previous step.
+1. A `CenteredText.java` that represents the actual view.
+2. A `CenteredTextManager.java` to instantiate the view.
+3. Finally, you have to fill the implementation of the `CenteredTextPackage.java` created in the previous step.
 
 The final structure within the Android library should be like this.
 
@@ -638,14 +664,17 @@ android
         └── java
             └── com
                 └── rtncenteredtext
-                    ├── RTNCenteredText.java
-                    ├── RTNCenteredTextManager.java
-                    └── RTNCenteredTextPackage.java
+                    ├── CenteredText.java
+                    ├── CenteredTextManager.java
+                    └── CenteredTextPackage.java
 ```
 
-##### RTNCenteredText.java
+##### CenteredText.java
 
-```java title="RTNCenteredText"
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="java">
+
+```java title="CenteredText.java"
 package com.rtncenteredtext;
 
 import androidx.annotation.Nullable;
@@ -656,19 +685,19 @@ import android.graphics.Color;
 import android.widget.TextView;
 import android.view.Gravity;
 
-public class RTNCenteredText extends TextView {
+public class CenteredText extends TextView {
 
-    public RTNCenteredText(Context context) {
+    public CenteredText(Context context) {
         super(context);
         this.configureComponent();
     }
 
-    public RTNCenteredText(Context context, @Nullable AttributeSet attrs) {
+    public CenteredText(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         this.configureComponent();
     }
 
-    public RTNCenteredText(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public CenteredText(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         this.configureComponent();
     }
@@ -680,17 +709,54 @@ public class RTNCenteredText extends TextView {
 }
 ```
 
+</TabItem>
+<TabItem value="kotlin">
+
+```kotlin title="CenteredText.kt"
+package com.rtncenteredtext;
+
+import android.content.Context
+import android.graphics.Color
+import android.util.AttributeSet
+import android.view.Gravity
+import android.widget.TextView
+
+class CenteredText : TextView {
+  constructor(context: Context?) : super(context) {
+    configureComponent()
+  }
+
+  constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs) {
+    configureComponent()
+  }
+
+  constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+    configureComponent()
+  }
+
+  private fun configureComponent() {
+    setBackgroundColor(Color.RED)
+    gravity = Gravity.CENTER_HORIZONTAL
+  }
+}
+```
+
+</TabItem>
+</Tabs>
+
 This class represents the actual view Android is going to represent on screen. It inherit from `TextView` and it configures the basic aspects of itself using a private `configureComponent()` function.
 
-##### RTNCenteredTextManager.java
+##### CenteredTextManager.java
 
-```java title="RTNCenteredTextManager.java"
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="java">
+
+```java title="CenteredTextManager.java"
 package com.rtncenteredtext;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.module.annotations.ReactModule;
 import com.facebook.react.uimanager.SimpleViewManager;
@@ -700,16 +766,15 @@ import com.facebook.react.uimanager.annotations.ReactProp;
 import com.facebook.react.viewmanagers.RTNCenteredTextManagerInterface;
 import com.facebook.react.viewmanagers.RTNCenteredTextManagerDelegate;
 
-
-@ReactModule(name = RTNCenteredTextManager.NAME)
-public class RTNCenteredTextManager extends SimpleViewManager<RTNCenteredText>
+@ReactModule(name = CenteredTextManager.NAME)
+public class CenteredTextManager extends SimpleViewManager<RTNCenteredText>
         implements RTNCenteredTextManagerInterface<RTNCenteredText> {
 
     private final ViewManagerDelegate<RTNCenteredText> mDelegate;
 
     static final String NAME = "RTNCenteredText";
 
-    public RTNCenteredTextManager(ReactApplicationContext context) {
+    public CenteredTextManager(ReactApplicationContext context) {
         mDelegate = new RTNCenteredTextManagerDelegate<>(this);
     }
 
@@ -722,7 +787,7 @@ public class RTNCenteredTextManager extends SimpleViewManager<RTNCenteredText>
     @NonNull
     @Override
     public String getName() {
-        return RTNCenteredTextManager.NAME;
+        return CenteredTextManager.NAME;
     }
 
     @NonNull
@@ -739,15 +804,57 @@ public class RTNCenteredTextManager extends SimpleViewManager<RTNCenteredText>
 }
 ```
 
-The `RTNCenteredTextManager` is a class used by React Native to instantiate the native component. It is the class that implements the interfaces generated by **Codegen** (see the `RTNCenteredTextManagerInterface` interface in the `implements` clause) and it uses the `RTNCenteredTextManagerDelegate` class.
+</TabItem>
+<TabItem value="kotlin">
+
+```kotlin title="CenteredTextManager.kt"
+package com.rtncenteredtext
+
+import com.facebook.react.bridge.ReactApplicationContext
+import com.facebook.react.module.annotations.ReactModule
+import com.facebook.react.uimanager.SimpleViewManager
+import com.facebook.react.uimanager.ThemedReactContext
+import com.facebook.react.uimanager.ViewManagerDelegate
+import com.facebook.react.uimanager.annotations.ReactProp
+import com.facebook.react.viewmanagers.RTNCenteredTextManagerInterface
+import com.facebook.react.viewmanagers.RTNCenteredTextManagerDelegate
+
+@ReactModule(name = CenteredTextManager.NAME)
+class CenteredTextManager(context: ReactApplicationContext) : SimpleViewManager<CenteredText>(), RTNCenteredTextManagerInterface<CenteredText> {
+  private val delegate: RTNCenteredTextManagerDelegate<CenteredText> = RTNCenteredTextManagerDelegate(this)
+
+  override fun getDelegate(): ViewManagerDelegate<CenteredText> = delegate
+
+  override fun getName(): String = NAME
+
+  override fun createViewInstance(context: ThemedReactContext): CenteredText = CenteredText(context)
+
+  @ReactProp(name = "text")
+  override fun setText(view: CenteredText, text: String?) {
+    view.text = text
+  }
+
+  companion object {
+    const val NAME = "RTNCenteredText"
+  }
+}
+```
+
+</TabItem>
+</Tabs>
+
+The `CenteredTextManager` is a class used by React Native to instantiate the native component. It is the class that implements the interfaces generated by **Codegen** (see the `RTNCenteredTextManagerInterface` interface in the `implements` clause) and it uses the `RTNCenteredTextManagerDelegate` class.
 
 It is also responsible for exporting all the constructs required by React Native: the class itself is annotated with `@ReactModule` and the `setText` method is annotated with `@ReactProp`.
 
-##### RTNCenteredTextPackage.java
+##### CenteredTextPackage.java
 
-Finally, open the `RTNCenteredTextPackage.java` file in the `android/src/main/java/com/rtncenteredtext` folder and update it with the following lines
+Finally, open the `CenteredTextPackage.java` file in the `android/src/main/java/com/rtncenteredtext` folder and update it with the following lines
 
-```diff title="RTNCenteredTextPackage update"
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="java">
+
+```diff title="CenteredTextPackage.java update"
 package com.rtncenteredtext;
 
 import com.facebook.react.ReactPackage;
@@ -758,11 +865,11 @@ import com.facebook.react.uimanager.ViewManager;
 import java.util.Collections;
 import java.util.List;
 
-public class RTNCenteredTextPackage implements ReactPackage {
+public class CenteredTextPackage implements ReactPackage {
 
     @Override
     public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
-+        return Collections.singletonList(new RTNCenteredTextManager(reactContext));;
++        return Collections.singletonList(new CenteredTextManager(reactContext));
     }
 
     @Override
@@ -772,6 +879,30 @@ public class RTNCenteredTextPackage implements ReactPackage {
 
 }
 ```
+
+</TabItem>
+<TabItem value="kotlin">
+
+```diff title="CenteredTextPackage.kt update"
+package com.rtncenteredtext
+
+import com.facebook.react.ReactPackage
+import com.facebook.react.bridge.NativeModule
+import com.facebook.react.bridge.ReactApplicationContext
+import com.facebook.react.uimanager.ViewManager
+
+class CenteredTextPackage : ReactPackage {
+  override fun createViewManagers(reactContext: ReactApplicationContext): List<ViewManager<*, *>> =
+-   emptyList()
++   listOf(CenteredTextManager(reactContext))
+
+  override fun createNativeModules(reactContext: ReactApplicationContext): List<NativeModule> =
+    emptyList()
+}
+```
+
+</TabItem>
+</Tabs>
 
 The added lines instantiate a new `RTNCenteredTextManager` object so that the React Native runtime can use it to render our Fabric Native Component.
 
