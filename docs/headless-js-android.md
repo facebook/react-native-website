@@ -56,7 +56,7 @@ public class MyTaskService extends HeadlessJsTaskService {
           "SomeTaskName",
           Arguments.fromBundle(extras),
           5000, // timeout for the task
-          false // optional: defines whether or not  the task is allowed in foreground. Default is false
+          false // optional: defines whether or not the task is allowed in foreground. Default is false
         );
     }
     return null;
@@ -79,10 +79,10 @@ class MyTaskService : HeadlessJsTaskService() {
     override fun getTaskConfig(intent: Intent): HeadlessJsTaskConfig? {
         return intent.extras?.let {
             HeadlessJsTaskConfig(
-                "SomeT  askName",
+                "SomeTaskName",
                 Arguments.fromBundle(it),
                 5000, // timeout for the task
-                false // optional: defines whether or not  the task is allowed in foreground.
+                false // optional: defines whether or not the task is allowed in foreground.
                 // Default is false
             )
         }
