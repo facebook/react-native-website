@@ -138,7 +138,7 @@ Out of the box, transforming your files to JavaScript works via the same [Babel 
 
 ## What does React Native + TypeScript look like
 
-You can provide an interface for a React Functional Component's [Props](props) via `React.FC<Props>` which will provide type-checking and editor auto-completing when working with that component in JSX.
+You can provide an interface for a React Function Component's [Props](props) via `React.FC<Props>` which will provide type-checking and editor auto-completing when working with that component in JSX.
 
 ```tsx title="components/Hello.tsx"
 import React from 'react';
