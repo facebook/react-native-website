@@ -48,7 +48,7 @@ After upgrading the project, there are a few changes you need to apply:
 + platform :ios, '12.4'
 ```
 
-2. Create an `.xcode.env` file to export the locaion of the NODE_BINARY. Navigate to the `ios` folder and run this command:
+2. Create a `.xcode.env` file to export the location of the NODE_BINARY. Navigate to the `ios` folder and run this command:
 
 ```sh
 echo 'export NODE_BINARY=$(command -v node)' > .xcode.env
