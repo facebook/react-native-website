@@ -93,7 +93,6 @@ Version mismatch can result in instant crash of your apps in the worst case scen
 Hermes requires [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/en-us/download/details.aspx?id=48145).
 :::
 
-
 ### Android
 
 Edit your `android/app/build.gradle` file and make the change illustrated below:
