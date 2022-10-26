@@ -288,6 +288,28 @@ Wire up the new link in the main menu to the newly added event handler method.
 
 > One of the easier ways to do this is to open the view in the storyboard and right click on the new link. Select something such as the `Touch Up Inside` event, drag that to the storyboard and then select the created method from the list provided.
 
+##### 3. Window Reference
+
+Add an window reference to your AppDelegate.swift file. Ultimately, your AppDelegate should look something similar to this:
+
+```
+import UIKit
+
+@main
+class AppDelegate: UIResponder, UIApplicationDelegate {
+
+    // Add window reference
+    var window: UIWindow?
+
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // Override point for customization after application launch.
+        return true
+    }
+
+    ....
+}
+```
+
 ### Test your integration
 
 You have now done all the basic steps to integrate React Native with your current application. Now we will start the [Metro bundler][metro] to build the `index.bundle` package and the server running on `localhost` to serve it.
