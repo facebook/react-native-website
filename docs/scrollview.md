@@ -669,7 +669,7 @@ Use in conjunction with `snapToOffsets`. By default, the end of the list counts 
 
 ### `snapToInterval`
 
-When set, causes the scroll view to stop at multiples of the value of `snapToInterval`. This can be used for paginating through children that have lengths smaller than the scroll view. Typically used in combination with `snapToAlignment` and `decelerationRate="fast"`. Overrides less configurable `pagingEnabled` prop.
+When set, causes the scroll view to stop at multiples of the value of `snapToInterval`. This can be used for paginating through children that have lengths smaller than the scroll view. Typically used in combination with `snapToAlignment` and `decelerationRate="fast"`. Overrides less configurable `pagingEnabled` prop on iOS and Android (not web).
 
 | Type   |
 | ------ |
@@ -679,7 +679,7 @@ When set, causes the scroll view to stop at multiples of the value of `snapToInt
 
 ### `snapToOffsets`
 
-When set, causes the scroll view to stop at the defined offsets. This can be used for paginating through variously sized children that have lengths smaller than the scroll view. Typically used in combination with `decelerationRate="fast"`. Overrides less configurable `pagingEnabled` and `snapToInterval` props.
+When set, causes the scroll view to stop at the defined offsets. This can be used for paginating through variously sized children that have lengths smaller than the scroll view. Typically used in combination with `decelerationRate="fast"`. Overrides less configurable `pagingEnabled` and `snapToInterval` props on iOS and Android (not web).
 
 | Type            |
 | --------------- |
