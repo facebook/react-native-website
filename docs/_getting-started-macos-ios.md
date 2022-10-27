@@ -70,8 +70,6 @@ To install a simulator, open <strong>Xcode > Preferences...</strong> and select 
 
 For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
 
-<M1Cocoapods />
-
 ### React Native Command Line Interface
 
 React Native has a built-in command line interface. Rather than install and manage a specific version of the CLI globally, we recommend you access the current version at runtime using `npx`, which ships with Node.js. With `npx react-native <command>`, the current stable version of the CLI will be downloaded and executed at the time the command is run.
