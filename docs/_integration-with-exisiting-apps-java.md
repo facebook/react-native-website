@@ -41,7 +41,7 @@ $ yarn add react-native
 
 This will print a message similar to the following (scroll up in the yarn output to see it):
 
-> warning "react-native@0.52.2" has unmet peer dependency "react@16.2.0".
+> warning "react-native@0.70.3" has unmet peer dependency "react@18.1.0".
 
 This is OK, it means we also need to install React:
 
@@ -57,14 +57,27 @@ Add `node_modules/` to your `.gitignore` file.
 
 ### Configuring maven
 
-Add the React Native and JSC dependency to your app's `build.gradle` file:
+Add the React Native and JavaScript engine dependencies to your `app/build.gradle` file:
 
 ```gradle
+project.ext.react = [
+    enableHermes: true,
+]
+
+def enableHermes = project.ext.react.get("enableHermes", false);
+
 dependencies {
-    implementation "com.android.support:appcompat-v7:27.1.1"
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
     ...
     implementation "com.facebook.react:react-native:+" // From node_modules
-    implementation "org.webkit:android-jsc:+"
+    if (enableHermes) {
+        //noinspection GradleDynamicVersion
+        implementation("com.facebook.react:hermes-engine:+") { // From node_modules
+            exclude group:'com.facebook.fbjni'
+        }
+    } else {
+        implementation "org.webkit:android-jsc:+"
+    }
 }
 ```
 
@@ -371,13 +384,11 @@ Once you reach your React-powered activity inside the app, it should load the Ja
 
 ### Creating a release build in Android Studio
 
-You can use Android Studio to create your release builds too! It’s as quick as creating release builds of your previously-existing native Android app. There’s one additional step, which you’ll have to do before every release build. You need to execute the following to create a React Native bundle, which will be included with your native Android app:
+You can use Android Studio to create your release builds too! It’s just as quick as creating release builds of your previously-existing native Android app. You just need to apply the `react.gradle` script in your `app/build.gradle`:
 
-```shell
-$ npx react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/com/your-company-name/app-package-name/src/main/assets/index.android.bundle --assets-dest android/com/your-company-name/app-package-name/src/main/res/
+```groovy
+apply from: "../../node_modules/react-native/react.gradle"
 ```
-
-> Don’t forget to replace the paths with correct ones and create the assets folder if it doesn’t exist.
 
 Now, create a release build of your native app from within Android Studio as usual and you should be good to go!
 

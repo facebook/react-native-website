@@ -45,7 +45,7 @@ $ yarn add react-native
 
 This will print a message similar to the following (scroll up in the yarn output to see it):
 
-> warning "react-native@0.52.2" has unmet peer dependency "react@16.2.0".
+> warning "react-native@0.70.3" has unmet peer dependency "react@18.1.0".
 
 This is OK, it means we also need to install React:
 
@@ -93,41 +93,44 @@ You can specify which `subspec`s your app will depend on in a `Podfile` file. Th
 $ pod init
 ```
 
-The `Podfile` will contain a boilerplate setup that you will tweak for your integration purposes.
+The `Podfile` contains a boilerplate setup that you need to tweak for your integration purposes. It's also a place that includes scripts necessary to support [autolinking](https://github.com/react-native-community/cli/blob/master/docs/autolinking.md).
 
 > The `Podfile` version changes depending on your version of `react-native`. Refer to https://react-native-community.github.io/upgrade-helper/ for the specific version of `Podfile` you should be using.
 
 Ultimately, your `Podfile` should look something similar to this:
 
-```
-source 'https://github.com/CocoaPods/Specs.git'
+```ruby
+require_relative '../node_modules/react-native/scripts/react_native_pods'
+require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
-# Required for Swift apps
-platform :ios, '8.0'
-use_frameworks!
+platform :ios, '12.4'
+install! 'cocoapods', :deterministic_uuids => false
 
 # The target name is most likely the name of your project.
-target 'swift-2048' do
+target 'MyReactNativeApp' do
+  config = use_native_modules!
 
-  # Your 'node_modules' directory is probably in the root of your project,
-  # but if not, adjust the `:path` accordingly
-  pod 'React', :path => '../node_modules/react-native', :subspecs => [
-    'Core',
-    'CxxBridge', # Include this for RN >= 0.47
-    'DevSupport', # Include this to enable In-App Devmenu if RN >= 0.43
-    'RCTText',
-    'RCTNetwork',
-    'RCTWebSocket', # needed for debugging
-    # Add any other subspecs you want to use in your project
-  ]
-  # Explicitly include Yoga if you are using RN >= 0.42.0
-  pod "Yoga", :path => "../node_modules/react-native/ReactCommon/yoga"
+  # Flags change depending on the env values.
+  flags = get_default_flags()
 
-  # Third party deps podspec link
-  pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
-  pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
-  pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
+  use_react_native!(
+    :path => config[:reactNativePath],
+    :hermes_enabled => true,
+    :fabric_enabled => false,
+    :flipper_configuration => FlipperConfiguration.disabled,
+    # An absolute path to your application root.
+    :app_path => "#{Pod::Config.instance.installation_root}/.."
+  )
 
+  post_install do |installer|
+    react_native_post_install(
+      installer,
+      # Set `mac_catalyst_enabled` to `true` in order to apply patches
+      # necessary for Mac Catalyst builds
+      :mac_catalyst_enabled => false
+    )
+    __apply_Xcode_12_5_M1_post_install_workaround(installer)
+  end
 end
 ```
 
@@ -139,11 +142,18 @@ $ pod install
 
 You should see output such as:
 
-```
+```text
 Analyzing dependencies
-Fetching podspec for `React` from `../node_modules/react-native`
+Analyzing dependencies
+Fetching podspec for `DoubleConversion` from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`
+[Codegen] Found FBReactNativeSpec
+...
 Downloading dependencies
-Installing React (0.62.0)
+...
+Installing React (0.70.3)
+Installing React-Codegen (0.70.3)
+Installing React-Core (0.70.3)
+...
 Generating Pods project
 Integrating client project
 Sending stats
@@ -241,7 +251,7 @@ You can add a new link on the main game menu to go to the "High Score" React Nat
 
 We will now add an event handler from the menu link. A method will be added to the main `ViewController` of your application. This is where `RCTRootView` comes into play.
 
-When you build a React Native application, you use the [Metro bundler][metro] to create an `index.bundle` that will be served by the React Native server. Inside `index.bundle` will be our `RNHighScore` module. So, we need to point our `RCTRootView` to the location of the `index.bundle` resource (via `NSURL`) and tie it to the module.
+When you build a React Native application, you use the [Metro bundler][metro] to create an `index.bundle` that will be served by the React Native server. Inside the `index.bundle` will be our `RNHighScore` module. So, we need to point our `RCTRootView` to the location of the `index.bundle` resource (via `NSURL`) and tie it to the module. In the development mode, the bundle will be fetched from the localhost development server, while in the release mode it will be read from the file system.
 
 We will, for debugging purposes, log that the event handler was invoked. Then, we will create a string with the location of our React Native code that exists inside the `index.bundle`. Finally, we will create the main `RCTRootView`. Notice how we provide `RNHighScores` as the `moduleName` that we created [above](#the-react-native-component) when writing the code for our React Native component.
 
@@ -256,7 +266,6 @@ import React
 ```swift
 @IBAction func highScoreButtonTapped(sender : UIButton) {
   NSLog("Hello")
-  let jsCodeLocation = URL(string: "http://localhost:8081/index.bundle?platform=ios")
   let mockData:NSDictionary = ["scores":
       [
           ["name":"Alex", "value":"42"],
@@ -265,7 +274,7 @@ import React
   ]
 
   let rootView = RCTRootView(
-      bundleURL: jsCodeLocation,
+      bundleURL: jsCodeLocation(),
       moduleName: "RNHighScores",
       initialProperties: mockData as [NSObject : AnyObject],
       launchOptions: nil
@@ -273,6 +282,14 @@ import React
   let vc = UIViewController()
   vc.view = rootView
   self.present(vc, animated: true, completion: nil)
+}
+
+func jsCodeLocation() -> URL! {
+  #if DEBUG
+    return RCTBundleURLProvider.sharedSettings().jsBundleURL(forBundleRoot: "index")
+  #else
+    return NSBundle.main.url(forResource: "main", withExtension: "jsbundle")
+  #endif
 }
 ```
 
@@ -340,6 +357,21 @@ Here is the _React Native_ high score screen:
 ![High Scores](/docs/assets/react-native-add-react-native-integration-example-high-scores.png)
 
 > If you are getting module resolution issues when running your application please see [this GitHub issue](https://github.com/facebook/react-native/issues/4968) for information and possible resolution. [This comment](https://github.com/facebook/react-native/issues/4968#issuecomment-220941717) seemed to be the latest possible resolution.
+
+### Creating a release build
+
+In order to support bundling creating release builds in Xcode, we need to add a new Run Script Build Phase. Head to the `Target > Build Phases` in Xcode, press on the `+` button and choose `New Run Script Phase`. As it will `Bundle React Native code and images`, we can name it just that. It should invoke the `react-native-xcode.sh` script from node modules. Here are the exact script contents:
+
+```bash
+set -e
+
+WITH_ENVIRONMENT="../node_modules/react-native/scripts/xcode/with-environment.sh"
+REACT_NATIVE_XCODE="../node_modules/react-native/scripts/react-native-xcode.sh"
+
+/bin/sh -c "$WITH_ENVIRONMENT $REACT_NATIVE_XCODE"
+```
+
+Now, if you choose the `Release` scheme, you should be able to build the app without any problems.
 
 ### Now what?
 
