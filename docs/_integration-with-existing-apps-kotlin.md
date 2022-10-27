@@ -377,7 +377,7 @@ Once you reach your React-powered activity inside the app, it should load the Ja
 
 ### Creating a release build in Android Studio
 
-You can use Android Studio to create your release builds too! It’s just as quick as creating release builds of your previously-existing native Android app. You just need to apply the `react.gradle` script in your `app/build.gradle`:
+You can use Android Studio to create your release builds too! It’s as quick as creating release builds of your previously-existing native Android app. You need to apply the `react.gradle` script in your `app/build.gradle`:
 
 ```groovy
 apply from: "../../node_modules/react-native/react.gradle"

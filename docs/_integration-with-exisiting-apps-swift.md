@@ -360,7 +360,7 @@ Here is the _React Native_ high score screen:
 
 ### Creating a release build
 
-In order to support bundling creating release builds in Xcode, we need to add a new Run Script Build Phase. Head to the `Target > Build Phases` in Xcode, press on the `+` button and choose `New Run Script Phase`. As it will `Bundle React Native code and images`, we can name it just that. It should invoke the `react-native-xcode.sh` script from node modules. Here are the exact script contents:
+In order to support bundling creating release builds in Xcode, we need to add a new Run Script Build Phase. Head to the `Target > Build Phases` in Xcode, press on the `+` button and choose `New Run Script Phase`. As it will `Bundle React Native code and images`, we can name it like that. It should invoke the `react-native-xcode.sh` script from node modules. Here are the exact script contents:
 
 ```bash
 set -e
