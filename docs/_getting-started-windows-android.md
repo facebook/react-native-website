@@ -17,7 +17,7 @@ React Native also requires [Java SE Development Kit (JDK)](https://openjdk.java.
 Open an Administrator Command Prompt (right click Command Prompt and select "Run as Administrator"), then run the following command:
 
 ```powershell
-choco install -y nodejs-lts openjdk11
+choco install -y nodejs-lts microsoft-openjdk11
 ```
 
 If you have already installed Node on your system, make sure it is Node 14 or newer. If you already have a JDK on your system, we recommend JDK11. You may encounter problems using higher JDK versions.
