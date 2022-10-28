@@ -9,9 +9,78 @@ import M1Cocoapods from './\_markdown-m1-cocoapods.mdx';
 <img width={300} height={300} className="hermes-logo" src="/docs/assets/HermesLogo.svg" />
 </a>
 
-[Hermes](https://hermesengine.dev) is an open-source JavaScript engine optimized for React Native. For many apps, enabling Hermes will result in improved start-up time, decreased memory usage, and smaller app size. At this time Hermes is an **opt-in** React Native feature, and this guide explains how to enable it.
+[Hermes](https://hermesengine.dev) is an open-source JavaScript engine optimized for React Native. For many apps, enabling Hermes will result in improved start-up time, decreased memory usage, and smaller app size.
+As of React Native 0.70, Hermes is the default engine and no additional configuration is required to enable it.
 
-First, ensure you're using at least version 0.60.4 of React Native.
+## Bundled Hermes
+
+Starting with React Native 0.69.0, every version of React Native will come with a **bundled version** of Hermes.
+We will be building a version of Hermes for you whenever we release a new version of React Native. This will make sure you're consuming a version of Hermes which is fully compatible with the version of React Native you're using.
+
+Historically, we had problems with matching versions of Hermes with versions of React Native. This fully eliminates this problem, and offers users a JS engine that is compatible with the specific React Native version.
+
+This change is fully transparent to users of React Native. You can still enable/disable Hermes using the command described in this page.
+You can [read more about the technical implementation on this page](/architecture/bundled-hermes).
+
+## Confirming Hermes is in use
+
+If you've recently created a new app from scratch, you should see if Hermes is enabled in the welcome view:
+
+![Where to find JS engine status in AwesomeProject](/docs/assets/HermesApp.jpg)
+
+A `HermesInternal` global variable will be available in JavaScript that can be used to verify that Hermes is in use:
+
+```jsx
+const isHermes = () => !!global.HermesInternal;
+```
+
+:::caution
+If you are using a non-standard way of loading the JS bundle, it is possible that the `HermesInternal` variable is available but you aren't using the highly optimised pre-compiled bytecode.
+Confirm that you are using the `.hbc` file and also benchmark the before/after as detailed below.
+:::
+
+To see the benefits of Hermes, try making a release build/deployment of your app to compare. For example:
+
+```shell
+$ npx react-native run-android --variant release
+```
+
+or for iOS:
+
+```shell
+$ npx react-native run-ios --configuration Release
+```
+
+This will compile JavaScript to bytecode during build time which will improve your app's startup speed on device.
+
+## Debugging JS on Hermes using Google Chrome's DevTools
+
+Hermes supports the Chrome debugger by implementing the Chrome inspector protocol. This means Chrome's tools can be used to directly debug JavaScript running on Hermes, on an emulator or on a real, physical, device.
+
+:::info
+Note that this is very different with the "Remote JS Debugging" from the In-App Developer Menu documented in the [Debugging](debugging#debugging-using-a-custom-javascript-debugger) section, which actually runs the JS code on Chrome's V8 on your development machine (laptop or desktop).
+:::
+
+Chrome connects to Hermes running on device via Metro, so you'll need to know where Metro is listening. Typically this will be on `localhost:8081`, but this is [configurable](https://facebook.github.io/metro/docs/configuration). When running `yarn start` the address is written to stdout on startup.
+
+Once you know where the Metro server is listening, you can connect with Chrome using the following steps:
+
+1. Navigate to `chrome://inspect` in a Chrome browser instance.
+
+2. Use the `Configure...` button to add the Metro server address (typically `localhost:8081` as described above).
+
+![Configure button in Chrome DevTools devices page](/docs/assets/HermesDebugChromeConfig.png)
+
+![Dialog for adding Chrome DevTools network targets](/docs/assets/HermesDebugChromeMetroAddress.png)
+
+3. You should now see a "Hermes React Native" target with an "inspect" link which can be used to bring up debugger. If you don't see the "inspect" link, make sure the Metro server is running. ![Target inspect link](/docs/assets/HermesDebugChromeInspect.png)
+
+4. You can now use the Chrome debug tools. For example, to breakpoint the next time some JavaScript is run, click on the pause button and trigger an action in your app which would cause JavaScript to execute. ![Pause button in debug tools](/docs/assets/HermesDebugChromePause.png)
+
+## Enabling Hermes on Older Versions of React Native
+
+Hermes is the default engine as of React Native 0.70. This section explains how to enable Hermes on older versions of React Native.
+First, ensure you're using at least version 0.60.4 of React Native to enable Hermes on Android or 0.64 of React Native to enable Hermes on iOS.
 
 If you have an existing app based on an earlier version of React Native, you will have to upgrade it first. See [Upgrading to new React Native Versions](/docs/upgrading) for how to do this. After upgrading the app, make sure everything works before trying to switch to Hermes.
 
@@ -24,8 +93,6 @@ Version mismatch can result in instant crash of your apps in the worst case scen
 Hermes requires [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/en-us/download/details.aspx?id=48145).
 :::
 
-## Enabling Hermes
-
 ### Android
 
 Edit your `android/app/build.gradle` file and make the change illustrated below:
@@ -36,6 +103,18 @@ Edit your `android/app/build.gradle` file and make the change illustrated below:
 -     enableHermes: false  // clean and rebuild if changing
 +     enableHermes: true  // clean and rebuild if changing
   ]
+
+// ...
+
+if (enableHermes) {
+-    def hermesPath = "../../node_modules/hermes-engine/android/";
+-    debugImplementation files(hermesPath + "hermes-debug.aar")
+-    releaseImplementation files(hermesPath + "hermes-release.aar")
++    //noinspection GradleDynamicVersion
++    implementation("com.facebook.react:hermes-engine:+") { // From node_modules
++        exclude group:'com.facebook.fbjni'
++    }
+} else {
 ```
 
 Also, if you're using ProGuard, you will need to add these rules in `proguard-rules.pro` :
@@ -93,67 +172,32 @@ That's it! You should now be able to develop and deploy your app as usual:
 $ npx react-native run-ios
 ```
 
-## Confirming Hermes is in use
+## Switching back to JavaScriptCore
 
-If you've recently created a new app from scratch, you should see if Hermes is enabled in the welcome view:
+React Native also supports using JavaScriptCore as the JS engine. Follow these instructions to opt-out of Hermes.
 
-![Where to find JS engine status in AwesomeProject](/docs/assets/HermesApp.jpg)
+### Android
 
-A `HermesInternal` global variable will be available in JavaScript that can be used to verify that Hermes is in use:
+Edit your `android/app/build.gradle` file and make the change illustrated below:
 
-```jsx
-const isHermes = () => !!global.HermesInternal;
+```diff
+  project.ext.react = [
+-     enableHermes: true,  // clean and rebuild if changing
++     enableHermes: false,  // clean and rebuild if changing
+  ]
 ```
 
-:::caution
-If you are using a non-standard way of loading the JS bundle, it is possible that the `HermesInternal` variable is available but you aren't using the highly optimised pre-compiled bytecode.
-Confirm that you are using the `.hbc` file and also benchmark the before/after as detailed below.
-:::
+### iOS
 
-To see the benefits of Hermes, try making a release build/deployment of your app to compare. For example:
+Edit your `ios/Podfile` file and make the change illustrated below:
 
-```shell
-$ npx react-native run-android --variant release
+```diff
+   use_react_native!(
+     :path => config[:reactNativePath],
+     # Hermes is now enabled by default. Disable by setting this flag to false.
+     # Upcoming versions of React Native may rely on get_default_flags(), but
+     # we make it explicit here to aid in the React Native upgrade process.
+-    :hermes_enabled => flags[:hermes_enabled],
++    :hermes_enabled => false,
+   )
 ```
-
-or for iOS:
-
-```shell
-$ npx react-native run-ios --configuration Release
-```
-
-This will compile JavaScript to bytecode during build time which will improve your app's startup speed on device.
-
-## Bundled Hermes
-
-Starting with React Native 0.69.0, every version of React Native will come with a **bundled version** of Hermes.
-We will be building a version of Hermes for you whenever we release a new version of React Native. This will make sure you're consuming a version of Hermes which is fully compatible with the version of React Native you're using.
-
-Historically, we had problems with matching versions of Hermes with versions of React Native. This fully eliminates this problem, and offers users a JS engine that is compatible with the specific React Native version.
-
-This change is fully transparent to users of React Native. You can still enable/disable Hermes using the command described in this page.
-You can [read more about the technical implementation on this page](/architecture/bundled-hermes).
-
-## Debugging JS on Hermes using Google Chrome's DevTools
-
-Hermes supports the Chrome debugger by implementing the Chrome inspector protocol. This means Chrome's tools can be used to directly debug JavaScript running on Hermes, on an emulator or on a real, physical, device.
-
-:::info
-Note that this is very different with the "Remote JS Debugging" from the In-App Developer Menu documented in the [Debugging](debugging#debugging-using-a-custom-javascript-debugger) section, which actually runs the JS code on Chrome's V8 on your development machine (laptop or desktop).
-:::
-
-Chrome connects to Hermes running on device via Metro, so you'll need to know where Metro is listening. Typically this will be on `localhost:8081`, but this is [configurable](https://facebook.github.io/metro/docs/configuration). When running `yarn start` the address is written to stdout on startup.
-
-Once you know where the Metro server is listening, you can connect with Chrome using the following steps:
-
-1. Navigate to `chrome://inspect` in a Chrome browser instance.
-
-2. Use the `Configure...` button to add the Metro server address (typically `localhost:8081` as described above).
-
-![Configure button in Chrome DevTools devices page](/docs/assets/HermesDebugChromeConfig.png)
-
-![Dialog for adding Chrome DevTools network targets](/docs/assets/HermesDebugChromeMetroAddress.png)
-
-3. You should now see a "Hermes React Native" target with an "inspect" link which can be used to bring up debugger. If you don't see the "inspect" link, make sure the Metro server is running. ![Target inspect link](/docs/assets/HermesDebugChromeInspect.png)
-
-4. You can now use the Chrome debug tools. For example, to breakpoint the next time some JavaScript is run, click on the pause button and trigger an action in your app which would cause JavaScript to execute. ![Pause button in debug tools](/docs/assets/HermesDebugChromePause.png)
