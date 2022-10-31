@@ -31,10 +31,10 @@ const App = () => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={styles.container}>
-        <TouchableOpacity onPress={() => copyToClipboard()}>
+        <TouchableOpacity onPress={copyToClipboard}>
           <Text>Click here to copy to Clipboard</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => fetchCopiedText()}>
+        <TouchableOpacity onPress={fetchCopiedText}>
           <Text>View copied text</Text>
         </TouchableOpacity>
 
