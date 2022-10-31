@@ -78,14 +78,14 @@ ignite new MyTSProject
 <TabItem value="npm">
 
 ```shell
-npm install -D typescript @types/jest @types/react @types/react-native @types/react-test-renderer
+npm install -D typescript @types/jest @types/react @types/react-native @types/react-test-renderer @tsconfig/react-native
 ```
 
 </TabItem>
 <TabItem value="yarn">
 
 ```shell
-yarn add -D typescript @types/jest @types/react @types/react-native @types/react-test-renderer
+yarn add -D typescript @types/jest @types/react @types/react-native @types/react-test-renderer @tsconfig/react-native
 ```
 
 </TabItem>
@@ -95,25 +95,7 @@ yarn add -D typescript @types/jest @types/react @types/react-native @types/react
 
 ```json
 {
-  "compilerOptions": {
-    "allowJs": true,
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "isolatedModules": true,
-    "jsx": "react-native",
-    "lib": ["es2017"],
-    "types": ["react-native", "jest"],
-    "moduleResolution": "node",
-    "noEmit": true,
-    "strict": true,
-    "target": "esnext"
-  },
-  "exclude": [
-    "node_modules",
-    "babel.config.js",
-    "metro.config.js",
-    "jest.config.js"
-  ]
+  "extends": "@tsconfig/react-native/tsconfig.json"
 }
 ```
 
