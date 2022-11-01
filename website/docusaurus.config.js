@@ -16,7 +16,7 @@ const commonDocsOptions = {
   showLastUpdateAuthor: false,
   showLastUpdateTime: true,
   editUrl:
-    'https://github.com/facebook/react-native-website/blob/master/website/',
+    'https://github.com/facebook/react-native-website/blob/main/website/',
   remarkPlugins: [require('@react-native-website/remark-snackplayer')],
 };
 
