@@ -9,8 +9,8 @@ import M1Cocoapods from './\_markdown-m1-cocoapods.mdx';
 <img width={300} height={300} className="hermes-logo" src="/docs/assets/HermesLogo.svg" />
 </a>
 
-[Hermes](https://hermesengine.dev) is an open-source JavaScript engine optimized for React Native. For many apps, enabling Hermes will result in improved start-up time, decreased memory usage, and smaller app size.
-Hermes is now the default engine and no additional configuration is required to enable it.
+[Hermes](https://hermesengine.dev) is an open-source JavaScript engine optimized for React Native. For many apps, using Hermes will result in improved start-up time, decreased memory usage, and smaller app size when compared to JavaScriptCore.
+Hermes is used by default by React Native and no additional configuration is required to enable it.
 
 ## Bundled Hermes
 
@@ -174,7 +174,7 @@ $ npx react-native run-ios
 
 ## Switching back to JavaScriptCore
 
-React Native also supports using JavaScriptCore as the JS engine. Follow these instructions to opt-out of Hermes.
+React Native also supports using JavaScriptCore as the [JavaScript engine](javascript-environment). Follow these instructions to opt-out of Hermes.
 
 ### Android
 

@@ -40,7 +40,7 @@ On iOS, we've moved the `hermes-engine` you're using.
 Prior to React Native 0.69, users would download a pod (here you can find the [podspec](https://github.com/CocoaPods/Specs/blob/master/Specs/5/d/0/hermes-engine/0.11.0/hermes-engine.podspec.json)).
 
 On React Native 0.69, users would instead use a podspec that is defined inside the `sdks/hermes-engine/hermes-engine.podspec` file in the `react-native` NPM package.
-That podspec relies on a pre-built tarball of Hermes that we upload on GitHub Releases, as part of the React Native release process (i.e. [see the assets of this release](https://github.com/facebook/react-native/releases/tag/v0.69.0-rc.6)).
+That podspec relies on a pre-built tarball of Hermes that we upload to Maven and to the React Native GitHub Release, as part of the React Native release process (i.e. [see the assets of this release](https://github.com/facebook/react-native/releases/tag/v0.70.4)).
 
 ### Android Users
 
@@ -81,21 +81,20 @@ You can find instructions to optimize your build time and reduce the impact on y
 
 Users building React Native App, with the New Architecture, on Windows machines need to follow those extra steps to let the build work correctly:
 
-* Make sure the [environment is configured properly](https://reactnative.dev/docs/environment-setup), with Android SDK & node.
-* Install [cmake](https://community.chocolatey.org/packages/cmake) with Chocolatey
-* Install either:
-  * [Build Tools for Visual Studio 2022](https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2022).
-  * [Visual Studio 22 Community Edition](https://visualstudio.microsoft.com/vs/community/) - Picking only the C++ desktop development is sufficient.
-* Make sure the [Visual Studio Command Prompt](https://docs.microsoft.com/en-us/visualstudio/ide/reference/command-prompt-powershell?view=vs-2022) is configured correctly. This is required as the proper C++ compiler environment variable is configured in those command prompt.
-* Run the app with `npx react-native run-android` inside a Visual Studio Command Prompt.
+- Make sure the [environment is configured properly](https://reactnative.dev/docs/environment-setup), with Android SDK & node.
+- Install [cmake](https://community.chocolatey.org/packages/cmake) with Chocolatey
+- Install either:
+  - [Build Tools for Visual Studio 2022](https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2022).
+  - [Visual Studio 22 Community Edition](https://visualstudio.microsoft.com/vs/community/) - Picking only the C++ desktop development is sufficient.
+- Make sure the [Visual Studio Command Prompt](https://docs.microsoft.com/en-us/visualstudio/ide/reference/command-prompt-powershell?view=vs-2022) is configured correctly. This is required as the proper C++ compiler environment variable is configured in those command prompt.
+- Run the app with `npx react-native run-android` inside a Visual Studio Command Prompt.
 
 ### Can users still use another engine?
 
 Yes, users are free to enable/disable Hermes (with the `enableHermes` variable on Android, `hermes_enabled` on iOS).
 The 'Bundled Hermes' change will impact only **how Hermes is built and bundled** for you.
 
-Please note that, at the time of writing, the default for `enableHermes`/`hermes_enabled` is `false`.
-We're looking into updating the template to have it default to `true` in the near future.
+Starting with React Native 0.70, the default for `enableHermes`/`hermes_enabled` is `true`.
 
 ## How this will impact contributor and extension developers
 
@@ -107,7 +106,7 @@ This mechanism relies on **downloading a tarball** with the Hermes source code f
 
 When building React Native from `main`, we will be fetching a tarball of `main` of facebook/hermes and building it as part of the build process of React Native.
 
-When building React Native from a release branch (say `0.69-stable`), we will instead use a **tag** on the Hermes repo to **syncronize the code** between the two repos. The specific tag name used will then be stored inside the `sdks/.hermesversion` file inside React Native in the release branch (e.g. [this is the file](https://github.com/facebook/react-native/blob/0.69-stable/sdks/.hermesversion) on the 0.69 release branch).
+When building React Native from a release branch (say `0.69-stable`), we will instead use a **tag** on the Hermes repo to **synchronize the code** between the two repos. The specific tag name used will then be stored inside the `sdks/.hermesversion` file inside React Native in the release branch (e.g. [this is the file](https://github.com/facebook/react-native/blob/0.69-stable/sdks/.hermesversion) on the 0.69 release branch).
 
 In a sense, you can think of this approach similarly to a **git submodule**.
 
@@ -144,10 +143,22 @@ This is needed as React Native is consuming `fbjni` using the non-prefab approac
 
 The iOS implementation relies on a series of scripts that lives in the following locations:
 
-* [`/scripts/hermes`](https://github.com/facebook/react-native/tree/main/scripts/hermes). Those scripts contain logic to download the hermes tarball, unzip it, and configure the iOS build. They're invoked at `pod install` time if you have the `hermes_enabled` field set to `true`.
-* [`/sdks/hermes-engine`](https://github.com/facebook/react-native/tree/main/sdks/hermes-engine). Those scripts contain the build logic that is effectively building Hermes. They were copied and adapted from the `facebook/hermes` repo to properly work within React Native. Specifically, the scripts inside the `utils` folder are responsible of building Hermes for all the Mac platforms.
+- [`/scripts/hermes`](https://github.com/facebook/react-native/tree/main/scripts/hermes). Those scripts contain logic to download the Hermes tarball, unzip it, and configure the iOS build. They're invoked at `pod install` time if you have the `hermes_enabled` field set to `true`.
+- [`/sdks/hermes-engine`](https://github.com/facebook/react-native/tree/main/sdks/hermes-engine). Those scripts contain the build logic that is effectively building Hermes. They were copied and adapted from the `facebook/hermes` repo to properly work within React Native. Specifically, the scripts inside the `utils` folder are responsible of building Hermes for all the Mac platforms.
 
-To distribute a prebuilt for iOS, we rely on the `build_hermes_macos` Job on CircleCI. The job will produce as artifact a tarball which will be downloaded by the `hermes-engine` podspec (i.e. [those are the artifacts for an execution for React Native 0.69](https://app.circleci.com/pipelines/github/facebook/react-native/13679/workflows/5172f8e4-6b02-4ccb-ab97-7cb954911fae/jobs/258701/artifacts)).
+Hermes is built as part of the `build_hermes_macos` Job on CircleCI. The job will produce as artifact a tarball which will be downloaded by the `hermes-engine` podspec when using a published React Native release ([here is an example of the artifacts created for React Native 0.69 in `build_hermes_macos`](https://app.circleci.com/pipelines/github/facebook/react-native/13679/workflows/5172f8e4-6b02-4ccb-ab97-7cb954911fae/jobs/258701/artifacts)).
+
+##### Prebuilt Hermes
+
+If there are no prebuilt artifacts for the React Native version that is being used (i.e. you may be working with React Native from the `main` branch), then Hermes will need to be built from source. First, the Hermes compiler, `hermesc`, will be built for macOS during `pod install`, then Hermes itself will be built as part of the Xcode build pipeline using the `build-hermes-xcode.sh` script.
+
+##### Building Hermes from source
+
+Hermes is always built from source when using React Native from the `main` branch. If you are using a stable React Native version, you can force Hermes to be built from source by setting the `CI` envvar to `true` when using CocoaPods: `CI=true pod install`.
+
+##### Debug symbols
+
+The prebuilt artifacts for Hermes do not contain debug symbols (dSYMs) by default. We're planning on distributing these debug symbols for each release in the future. Until then, if you need the debug symbols for Hermes, you will need to build Hermes from source. A `hermes.framework.dSYM` will be created in the build directory alongside each of the Hermes frameworks.
 
 ### I'm afraid this change is impacting me
 
