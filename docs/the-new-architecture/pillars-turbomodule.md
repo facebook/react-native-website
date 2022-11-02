@@ -127,6 +127,9 @@ The shared configuration is a `package.json` file used by yarn when installing y
   "description": "Add numbers with Turbo Native Modules",
   "react-native": "js/index",
   "source": "js/index",
+  "scripts": {
+    "preinstall": "rm -rf node_modules"
+  },
   "files": [
     "js",
     "android",
@@ -163,6 +166,10 @@ The shared configuration is a `package.json` file used by yarn when installing y
 ```
 
 The upper part of the file contains some descriptive information like the name of the component, its version, and its source files. Make sure to update the various placeholders which are wrapped in `<>`: replace all the occurrences of the `<your_github_handle>`, `<Your Name>`, and `<your_email@your_provider.com>` tokens.
+
+:::note
+The `scripts` field is optional. Without the lifecycle script `preinstall`, `node_modules` in this package might be copied to the App when using `yarn add`. If you add `react-native` to `dependencies` or `devDependencies`, there will be another React Native in your package. This might cause your module could not receive events from the native.
+:::
 
 Then there are the dependencies for this package. For this guide, you need `react` and `react-native`.
 
