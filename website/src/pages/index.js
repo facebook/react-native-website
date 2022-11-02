@@ -33,7 +33,7 @@ same native platform APIs other apps do.
 <br/><br/>
 <strong>Many platforms</strong>, one React. Create platform-specific versions of components
 so a single codebase can share code across platforms. With React Native,
-one team can maintain two platforms and share a common technology—React.
+one team can maintain multiple platforms and share a common technology—React.
   `,
   codeExample: `
 import React from 'react';
@@ -288,7 +288,7 @@ function NativeApps() {
         reverse
         columnOne={
           <TextColumn
-            title="Create native apps for Android and iOS using React"
+            title="Create native apps for Android, iOS, and more using React"
             text={textContent.intro}
           />
         }
