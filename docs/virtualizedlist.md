@@ -514,25 +514,6 @@ flashScrollIndicators();
 
 ---
 
-### `getChildContext()`
-
-```jsx
-getChildContext () => Object;
-```
-
-The `Object` returned consist of:
-
-- 'virtualizedList' (Object). This object consist of the following
-  - getScrollMetrics' (Function). Returns an object with following properties: `{ contentLength: number, dOffset: number, dt: number, offset: number, timestamp: number, velocity: number, visibleLength: number }`.
-  - 'horizontal' (boolean) - Optional.
-  - 'getOutermostParentListRef' (Function).
-  - 'getNestedChildState' (Function) - Returns ChildListState .
-  - 'registerAsNestedChild' (Function). This accept an object with following properties `{ cellKey: string, key: string, ref: VirtualizedList, parentDebugInfo: ListDebugInfo }`. It returns a ChildListState
-  - 'unregisterAsNestedChild' (Function). This takes an object with following properties, `{ key: string, state: ChildListState }`
-  - 'debugInfo' (ListDebugInfo).
-
----
-
 ### `getScrollableNode()`
 
 ```jsx
