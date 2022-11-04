@@ -303,7 +303,7 @@ See https://developer.mozilla.org/en-US/docs/Web/CSS/bottom for more details of 
 
 ### `columnGap`
 
-`columnGap` property sets the size of the gap (gutter) between an element's rows. It works like `column-gap` in CSS. See https://developer.mozilla.org/en-US/docs/Web/CSS/column-gap for more details.
+`columnGap` property sets the size of the gap (gutter) between an element's columns. It works like `column-gap` in CSS. See https://developer.mozilla.org/en-US/docs/Web/CSS/column-gap for more details.
 
 | Type   | Required |
 | ------ | -------- |
