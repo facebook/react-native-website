@@ -301,6 +301,16 @@ See https://developer.mozilla.org/en-US/docs/Web/CSS/bottom for more details of 
 
 ---
 
+### `columnGap`
+
+`columnGap` property sets the size of the gap (gutter) between an element's rows. It works like `column-gap` in CSS. See https://developer.mozilla.org/en-US/docs/Web/CSS/column-gap for more details.
+
+| Type   | Required |
+| ------ | -------- |
+| number | No       |
+
+---
+
 ### `direction`
 
 `direction` specifies the directional flow of the user interface. The default is `inherit`, except for root node which will have value based on the current locale. See https://yogalayout.com/docs/layout-direction for more details.
@@ -404,6 +414,16 @@ When `flex` is -1, the component is normally sized according to `width` and `hei
 | Type                                   | Required |
 | -------------------------------------- | -------- |
 | enum('wrap', 'nowrap', 'wrap-reverse') | No       |
+
+---
+
+### `gap`
+
+`gap` property sets the size of the gap (gutter) between rows and columns. It is a shorthand for `rowGap` and `columnGap`. It works like `gap` in CSS. See https://developer.mozilla.org/en-US/docs/Web/CSS/gap for more details.
+
+| Type   | Required |
+| ------ | -------- |
+| number | No       |
 
 ---
 
@@ -716,6 +736,16 @@ See https://developer.mozilla.org/en-US/docs/Web/CSS/right for more details of h
 | Type           | Required |
 | -------------- | -------- |
 | number, string | No       |
+
+---
+
+### `rowGap`
+
+`rowGap` property sets the size of the gap (gutter) between an element's rows. It works like `row-gap` in CSS. See https://developer.mozilla.org/en-US/docs/Web/CSS/row-gap for more details.
+
+| Type   | Required |
+| ------ | -------- |
+| number | No       |
 
 ---
 
