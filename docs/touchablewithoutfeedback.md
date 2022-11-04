@@ -251,7 +251,7 @@ Represents the current value for range-based components, such as sliders and pro
 
 ### `aria-valuetext`
 
-Repersents the textual description of the component. Has precedence over the `text` value in the `accessibilityValue` prop.
+Represents the textual description of the component. Has precedence over the `text` value in the `accessibilityValue` prop.
 
 | Type   |
 | ------ |

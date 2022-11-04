@@ -273,7 +273,7 @@ A static image to display while loading the image source.
 
 ### `fadeDuration` <div class="label android">Android</div>
 
-Fade animation duration in miliseconds.
+Fade animation duration in milliseconds.
 
 | Type   | Default |
 | ------ | ------- |

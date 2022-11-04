@@ -218,7 +218,7 @@ Represents the current value for range-based components, such as sliders and pro
 
 ### `aria-valuetext`
 
-Repersents the textual description of the component.
+Represents the textual description of the component.
 
 ### `aria-modal` <div class="label ios">iOS</div>
 
