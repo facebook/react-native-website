@@ -76,44 +76,17 @@ if an intermediate compilation result was originally stored.
 To install it, you can follow the [official installation instructions](https://github.com/ccache/ccache/blob/master/doc/INSTALL.md).
 
 On Mac OS, we can install ccache with `brew install ccache`.
-Once installed you can configure it as follows to cache NDK compile results:
+
+To install symlinks for compilers that will automatically use
+ccache, prepend this directory to your PATH by adding to your .zshrc:
 
 ```
-ln -s ccache /usr/local/bin/gcc
-ln -s ccache /usr/local/bin/g++
-ln -s ccache /usr/local/bin/cc
-ln -s ccache /usr/local/bin/c++
-ln -s ccache /usr/local/bin/clang
-ln -s ccache /usr/local/bin/clang++
+# ccache setup
+export PATH=$(brew --prefix)/opt/ccache/libexec:$PATH
 ```
-
-This will create symbolic links to `ccache` inside the `/usr/local/bin/` which are called `gcc`, `g++`, and so on.
-
-This works as long as `/usr/local/bin/` comes first than `/usr/bin/` inside your `$PATH` variable, which is the default.
-
-You can verify that it works using the `which` command:
-
-```
-$ which gcc
-/usr/local/bin/gcc
-```
-
-If the results is `/usr/local/bin/gcc`, then you're effectively calling `ccache` which will wrap the `gcc` calls.
 
 :::caution
-Please note that this setup of `ccache` will affect all the compilations that you're running on your machine, not only those related to React Native. Use it at your own risk. If you're failing to install/compile other software, this might be the reason. If that is the case, you can remove the symlink you created with:
-
-```
-unlink /usr/local/bin/gcc
-unlink /usr/local/bin/g++
-unlink /usr/local/bin/cc
-unlink /usr/local/bin/c++
-unlink /usr/local/bin/clang
-unlink /usr/local/bin/clang++
-```
-
-to revert your machine to the original status and use the default compilers.
-:::
+Please note that this setup of `ccache` will affect all the compilations that you're running on your machine, not only those related to React Native. Use it at your own risk. If you're failing to install/compile other software, this might be the reason. If that is the case, you can remove modification of the PATH mentioned above.
 
 You can then do two clean builds (e.g. on Android you can first run `yarn react-native run-android`, delete the `android/app/build` folder and run the first command once more). You will notice that the second build was way faster than the first one (it should take seconds rather than minutes).
 While building, you can verify that `ccache` works correctly and check the cache hits/miss rate `ccache -s`
