@@ -127,6 +127,16 @@ export default ViewStyleProps;
 
 ---
 
+### `borderCurve` <div class="label ios">iOS</div>
+
+On iOS 13+, it is possible to change the corner curve of borders.
+
+| Type                               |
+| ---------------------------------- |
+| enum(`'circular'`, `'continuous'`) |
+
+---
+
 ### `borderEndColor`
 
 | Type               |
