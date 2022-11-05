@@ -419,9 +419,7 @@ When `flex` is -1, the component is normally sized according to `width` and `hei
 
 ### `gap`
 
-`gap` property sets the size of the gap (gutter) between rows and columns. It is a shorthand for `rowGap` and `columnGap`. It works similar to `gap` in CSS, but in React Native you must use points. Percentage unit is not supported.
-
-See https://developer.mozilla.org/en-US/docs/Web/CSS/gap for more details.
+`gap` works like `gap` in CSS. Only pixel units are supported in React Native. See https://developer.mozilla.org/en-US/docs/Web/CSS/gap for more details.
 
 | Type   | Required |
 | ------ | -------- |
