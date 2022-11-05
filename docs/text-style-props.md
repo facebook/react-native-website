@@ -405,9 +405,11 @@ Set to `false` to remove extra font padding intended to make space for certain a
 
 ### `fontVariant`
 
-| Type                                                                                                       | Default |
-| ---------------------------------------------------------------------------------------------------------- | ------- |
-| array of enum(`'small-caps'`, `'oldstyle-nums'`, `'lining-nums'`, `'tabular-nums'`, `'proportional-nums'`) | `[]`    |
+Allows you to set all the font variants for a font. Can be set by using an array of enums or a space-separated string e.g. `'small-caps common-ligatures'`.
+
+| Type                                                                                                                 | Default |
+| -------------------------------------------------------------------------------------------------------------------- | ------- |
+| array of enum(`'small-caps'`, `'oldstyle-nums'`, `'lining-nums'`, `'tabular-nums'`, `'proportional-nums'`) or string | `[]`    |
 
 ---
 
