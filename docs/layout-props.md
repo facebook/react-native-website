@@ -303,9 +303,7 @@ See https://developer.mozilla.org/en-US/docs/Web/CSS/bottom for more details of 
 
 ### `columnGap`
 
-`columnGap` property sets the size of the gap (gutter) between an element's columns. It works similar to `column-gap` in CSS, but in React Native you must use points. Percentage unit is not supported.
-
-See https://developer.mozilla.org/en-US/docs/Web/CSS/column-gap for more details.
+`columnGap` works like `column-gap` in CSS. Only pixel units are supported in React Native. See https://developer.mozilla.org/en-US/docs/Web/CSS/column-gap for more details.
 
 | Type   | Required |
 | ------ | -------- |
