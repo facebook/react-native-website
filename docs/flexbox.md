@@ -1199,11 +1199,11 @@ export default App;
 
 ## Row Gap, Column Gap and Gap
 
-- [`rowGap`](layout-props#rowgap) property sets the size of the gap (gutter) between an element's rows.
+- [`rowGap`](layout-props#rowgap) sets the size of the gap (gutter) between an element's rows.
 
-- [`columnGap`](layout-props#columngap) property sets the size of the gap (gutter) between an element's columns.
+- [`columnGap`](layout-props#columngap) sets the size of the gap (gutter) between an element's columns.
 
-- [`gap`](layout-props#gap) property sets the size of the gap (gutter) between rows and columns. It is a shorthand for `rowGap` and `columnGap`.
+- [`gap`](layout-props#gap) sets the size of the gap (gutter) between rows and columns. It is a shorthand for `rowGap` and `columnGap`.
 
 You can use `flexWrap` and `alignContent` alongwith `gap` to add consistent spacing between items.
 
@@ -1222,11 +1222,11 @@ const RowGapAndColumnGap = () => {
       rowGap={rowGap}
       handleRowGapChange={setRowGap}
     >
-      <View style={[styles.box, { backgroundColor: "orangered" }]} />
-      <View style={[styles.box, { backgroundColor: "orange" }]} />
-      <View style={[styles.box, { backgroundColor: "mediumseagreen" }]} />
-      <View style={[styles.box, { backgroundColor: "deepskyblue" }]} />
-      <View style={[styles.box, { backgroundColor: "mediumturquoise" }]} />
+      <View style={[styles.box, styles.box1]} />
+      <View style={[styles.box, styles.box2]} />
+      <View style={[styles.box, styles.box3]} />
+      <View style={[styles.box, styles.box4]} />
+      <View style={[styles.box, styles.box5]} />
     </PreviewLayout>
   );
 };
@@ -1242,6 +1242,72 @@ const PreviewLayout = ({
     <View style={styles.inputContainer}>
       <View style={styles.itemsCenter}>
         <Text>Row Gap</Text>
+        <TextInput
+          style={styles.input}
+          value={rowGap}
+          onChangeText={(v) => handleRowGapChange(Number(v))}
+        />
+      </View>
+      <View style={styles.itemsCenter}>
+        <Text>Column Gap</Text>
+        <TextInput
+          style={styles.input}
+          value={columnGap}
+          onChangeText={(v) => handleColumnGapChange(Number(v))}
+        />
+      </View>
+    </View>
+    <View style={[styles.container, { rowGap, columnGap }]}>
+      {children}
+    </View>
+  </View>
+);
+
+const styles = StyleSheet.create({
+  itemsCenter: { alignItems: "center" },
+  inputContainer: {
+    gap: 4,
+    flexDirection: "row",
+    justifyContent: "space-around",
+  },
+  previewContainer: { padding: 10, flex: 1 },
+  input: {
+    borderBottomWidth: 1,
+    paddingVertical: 3,
+    width: 50,
+    textAlign: "center",
+  },
+  container: {
+    flex: 1,
+    marginTop: 8,
+    backgroundColor: "aliceblue",
+    maxHeight: 400,
+    flexWrap: "wrap",
+    alignContent: "flex-start",
+  },
+  box: {
+    width: 50,
+    height: 80,
+  },
+  box1: {
+    backgroundColor: "orangered",
+  },
+  box2: {
+    backgroundColor: "orange",
+  },
+  box3: {
+    backgroundColor: "mediumseagreen",
+  },
+  box4: {
+    backgroundColor: "deepskyblue",
+  },
+  box5: {
+    backgroundColor: "mediumturquoise",
+  },
+});
+
+export default RowGapAndColumnGap;
+
         <TextInput
           style={styles.input}
           value={rowGap}
