@@ -303,7 +303,9 @@ See https://developer.mozilla.org/en-US/docs/Web/CSS/bottom for more details of 
 
 ### `columnGap`
 
-`columnGap` property sets the size of the gap (gutter) between an element's columns. It works like `column-gap` in CSS. See https://developer.mozilla.org/en-US/docs/Web/CSS/column-gap for more details.
+`columnGap` property sets the size of the gap (gutter) between an element's columns. It works similar to `column-gap` in CSS, but in React Native you must use points. Percentage unit is not supported.
+
+See https://developer.mozilla.org/en-US/docs/Web/CSS/column-gap for more details.
 
 | Type   | Required |
 | ------ | -------- |
@@ -419,7 +421,9 @@ When `flex` is -1, the component is normally sized according to `width` and `hei
 
 ### `gap`
 
-`gap` property sets the size of the gap (gutter) between rows and columns. It is a shorthand for `rowGap` and `columnGap`. It works like `gap` in CSS. See https://developer.mozilla.org/en-US/docs/Web/CSS/gap for more details.
+`gap` property sets the size of the gap (gutter) between rows and columns. It is a shorthand for `rowGap` and `columnGap`. It works similar to `gap` in CSS, but in React Native you must use points. Percentage unit is not supported.
+
+See https://developer.mozilla.org/en-US/docs/Web/CSS/gap for more details.
 
 | Type   | Required |
 | ------ | -------- |
@@ -741,7 +745,9 @@ See https://developer.mozilla.org/en-US/docs/Web/CSS/right for more details of h
 
 ### `rowGap`
 
-`rowGap` property sets the size of the gap (gutter) between an element's rows. It works like `row-gap` in CSS. See https://developer.mozilla.org/en-US/docs/Web/CSS/row-gap for more details.
+`rowGap` property sets the size of the gap (gutter) between an element's rows. It works similar to `row-gap` in CSS, but in React Native you must use points. Percentage unit is not supported.
+
+See https://developer.mozilla.org/en-US/docs/Web/CSS/row-gap for more details.
 
 | Type   | Required |
 | ------ | -------- |

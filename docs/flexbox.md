@@ -1197,59 +1197,78 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-## Gap, Row Gap and Column Gap
+## Row Gap, Column Gap and Gap
 
-- [`rowGap`](layout-props#rowGap) property sets the size of the gap (gutter) between an element's rows.
+- [`rowGap`](layout-props#rowgap) property sets the size of the gap (gutter) between an element's rows.
 
-```SnackPlayer name=Row%20Gap
+- [`columnGap`](layout-props#columngap) property sets the size of the gap (gutter) between an element's columns.
+
+- [`gap`](layout-props#gap) property sets the size of the gap (gutter) between rows and columns. It is a shorthand for `rowGap` and `columnGap`.
+
+You can use `flexWrap` and `alignContent` alongwith `gap` to add consistent spacing between items.
+
+```SnackPlayer name=Row%20Gap%20and%20Column%20Gap
 import React, { useState } from "react";
-import { View, TouchableOpacity, Text, StyleSheet, TextInput } from "react-native";
+import { View, Text, StyleSheet, TextInput } from "react-native";
 
-const RowGap = () => {
+const RowGapAndColumnGap = () => {
   const [rowGap, setRowGap] = useState(10);
+  const [columnGap, setColumnGap] = useState(10);
 
   return (
     <PreviewLayout
-      label="rowGap"
+      columnGap={columnGap}
+      handleColumnGapChange={setColumnGap}
+      rowGap={rowGap}
       handleRowGapChange={setRowGap}
-      rowGap={rowGap}>
-      <View
-        style={[styles.box, { backgroundColor: "orangered" }]}
-      />
-      <View
-        style={[styles.box, { backgroundColor: "orange" }]}
-      />
+    >
+      <View style={[styles.box, { backgroundColor: "orangered" }]} />
+      <View style={[styles.box, { backgroundColor: "orange" }]} />
+      <View style={[styles.box, { backgroundColor: "mediumseagreen" }]} />
+      <View style={[styles.box, { backgroundColor: "deepskyblue" }]} />
+      <View style={[styles.box, { backgroundColor: "mediumturquoise" }]} />
     </PreviewLayout>
   );
 };
 
 const PreviewLayout = ({
-  label,
   children,
-  values,
-  selectedValue,
-  setSelectedValue,
+  handleColumnGapChange,
   handleRowGapChange,
-  rowGap
+  rowGap,
+  columnGap,
 }) => (
-  <View style={{ padding: 10, flex: 1 }}>
-    <Text style={styles.label}>{label}</Text>
-    <View style={{rowGap: 4}}>
-      <Text>Edit Row Gap</Text>
-      <TextInput style={styles.input} value={rowGap} onChangeText={(v) => handleRowGapChange(Number(v)) } />
+  <View style={styles.previewContainer}>
+    <View style={styles.inputContainer}>
+      <View style={styles.itemsCenter}>
+        <Text>Row Gap</Text>
+        <TextInput
+          style={styles.input}
+          value={rowGap}
+          onChangeText={(v) => handleRowGapChange(Number(v))}
+        />
+      </View>
+      <View style={styles.itemsCenter}>
+        <Text>Column Gap</Text>
+        <TextInput
+          style={styles.input}
+          value={columnGap}
+          onChangeText={(v) => handleColumnGapChange(Number(v))}
+        />
+      </View>
     </View>
-    <View
-      style={[
-        styles.container,
-        {rowGap},
-      ]}
-    >
-      {children}
-    </View>
+    <View style={[styles.container, { rowGap, columnGap }]}>{children}</View>
   </View>
 );
 
 const styles = StyleSheet.create({
+  itemsCenter: { alignItems: "center" },
+  inputContainer: {
+    gap: 4,
+    flexDirection: "row",
+    justifyContent: "space-around",
+  },
+  previewContainer: { padding: 10, flex: 1 },
   input: {
     borderBottomWidth: 1,
     paddingVertical: 3,
@@ -1261,22 +1280,17 @@ const styles = StyleSheet.create({
     marginTop: 8,
     backgroundColor: "aliceblue",
     maxHeight: 400,
+    flexWrap: "wrap",
+    alignContent: "flex-start",
   },
   box: {
     width: 50,
     height: 80,
   },
-  label: {
-    textAlign: "center",
-    marginBottom: 10,
-    fontSize: 24,
-  },
 });
 
-export default RowGap;
+export default RowGapAndColumnGap;
 ```
-
-- [`columnGap`](layout-props#columnGap) property sets the size of the gap (gutter) between an element's columns.
 
 ```SnackPlayer name=Column%20Gap
 import React, { useState } from "react";
@@ -1352,8 +1366,6 @@ const styles = StyleSheet.create({
 
 export default ColumnGap;
 ```
-
-- [`gap`](layout-props#gap) property sets the size of the gap (gutter) between rows and columns. It is a shorthand for `rowGap` and `columnGap`. You can use `flexWrap` and `alignContent` alongwith `gap` to add consistent space between items.
 
 ```SnackPlayer name=Gap
 import React, { useState } from "react";
