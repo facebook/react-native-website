@@ -61,112 +61,105 @@ You can learn more [here](https://yogalayout.com/docs/flex-direction).
 
 ```SnackPlayer name=Flex%20Direction
 import React, { useState } from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { View, Text, StyleSheet, TextInput } from "react-native";
 
-const FlexDirectionBasics = () => {
-  const [flexDirection, setflexDirection] = useState("column");
+const RowGapAndColumnGap = () => {
+  const [rowGap, setRowGap] = useState(10);
+  const [columnGap, setColumnGap] = useState(10);
 
   return (
     <PreviewLayout
-      label="flexDirection"
-      values={["column", "row", "row-reverse", "column-reverse"]}
-      selectedValue={flexDirection}
-      setSelectedValue={setflexDirection}
+      columnGap={columnGap}
+      handleColumnGapChange={setColumnGap}
+      rowGap={rowGap}
+      handleRowGapChange={setRowGap}
     >
-      <View
-        style={[styles.box, { backgroundColor: "powderblue" }]}
-      />
-      <View
-        style={[styles.box, { backgroundColor: "skyblue" }]}
-      />
-      <View
-        style={[styles.box, { backgroundColor: "steelblue" }]}
-      />
+      <View style={[styles.box, styles.box1]} />
+      <View style={[styles.box, styles.box2]} />
+      <View style={[styles.box, styles.box3]} />
+      <View style={[styles.box, styles.box4]} />
+      <View style={[styles.box, styles.box5]} />
     </PreviewLayout>
   );
 };
 
 const PreviewLayout = ({
-  label,
   children,
-  values,
-  selectedValue,
-  setSelectedValue,
+  handleColumnGapChange,
+  handleRowGapChange,
+  rowGap,
+  columnGap,
 }) => (
-  <View style={{ padding: 10, flex: 1 }}>
-    <Text style={styles.label}>{label}</Text>
-    <View style={styles.row}>
-      {values.map((value) => (
-        <TouchableOpacity
-          key={value}
-          onPress={() => setSelectedValue(value)}
-          style={[
-            styles.button,
-            selectedValue === value && styles.selected,
-          ]}
-        >
-          <Text
-            style={[
-              styles.buttonLabel,
-              selectedValue === value && styles.selectedLabel,
-            ]}
-          >
-            {value}
-          </Text>
-        </TouchableOpacity>
-      ))}
+  <View style={styles.previewContainer}>
+    <View style={styles.inputContainer}>
+      <View style={styles.itemsCenter}>
+        <Text>Row Gap</Text>
+        <TextInput
+          style={styles.input}
+          value={rowGap}
+          onChangeText={(v) => handleRowGapChange(Number(v))}
+        />
+      </View>
+      <View style={styles.itemsCenter}>
+        <Text>Column Gap</Text>
+        <TextInput
+          style={styles.input}
+          value={columnGap}
+          onChangeText={(v) => handleColumnGapChange(Number(v))}
+        />
+      </View>
     </View>
-    <View style={[styles.container, { [label]: selectedValue }]}>
+    <View style={[styles.container, { rowGap, columnGap }]}>
       {children}
     </View>
   </View>
 );
 
 const styles = StyleSheet.create({
+  itemsCenter: { alignItems: "center" },
+  inputContainer: {
+    gap: 4,
+    flexDirection: "row",
+    justifyContent: "space-around",
+  },
+  previewContainer: { padding: 10, flex: 1 },
+  input: {
+    borderBottomWidth: 1,
+    paddingVertical: 3,
+    width: 50,
+    textAlign: "center",
+  },
   container: {
     flex: 1,
     marginTop: 8,
     backgroundColor: "aliceblue",
+    maxHeight: 400,
+    flexWrap: "wrap",
+    alignContent: "flex-start",
   },
   box: {
     width: 50,
-    height: 50,
+    height: 80,
   },
-  row: {
-    flexDirection: "row",
-    flexWrap: "wrap",
+  box1: {
+    backgroundColor: "orangered",
   },
-  button: {
-    paddingHorizontal: 8,
-    paddingVertical: 6,
-    borderRadius: 4,
-    backgroundColor: "oldlace",
-    alignSelf: "flex-start",
-    marginHorizontal: "1%",
-    marginBottom: 6,
-    minWidth: "48%",
-    textAlign: "center",
+  box2: {
+    backgroundColor: "orange",
   },
-  selected: {
-    backgroundColor: "coral",
-    borderWidth: 0,
+  box3: {
+    backgroundColor: "mediumseagreen",
   },
-  buttonLabel: {
-    fontSize: 12,
-    fontWeight: "500",
-    color: "coral",
+  box4: {
+    backgroundColor: "deepskyblue",
   },
-  selectedLabel: {
-    color: "white",
-  },
-  label: {
-    textAlign: "center",
-    marginBottom: 10,
-    fontSize: 24,
+  box5: {
+    backgroundColor: "mediumturquoise",
   },
 });
 
-export default FlexDirectionBasics;
+export default RowGapAndColumnGap;
+
 ```
 
 ## Layout Direction
