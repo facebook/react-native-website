@@ -61,105 +61,112 @@ You can learn more [here](https://yogalayout.com/docs/flex-direction).
 
 ```SnackPlayer name=Flex%20Direction
 import React, { useState } from "react";
-import { View, Text, StyleSheet, TextInput } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-const RowGapAndColumnGap = () => {
-  const [rowGap, setRowGap] = useState(10);
-  const [columnGap, setColumnGap] = useState(10);
+const FlexDirectionBasics = () => {
+  const [flexDirection, setflexDirection] = useState("column");
 
   return (
     <PreviewLayout
-      columnGap={columnGap}
-      handleColumnGapChange={setColumnGap}
-      rowGap={rowGap}
-      handleRowGapChange={setRowGap}
+      label="flexDirection"
+      values={["column", "row", "row-reverse", "column-reverse"]}
+      selectedValue={flexDirection}
+      setSelectedValue={setflexDirection}
     >
-      <View style={[styles.box, styles.box1]} />
-      <View style={[styles.box, styles.box2]} />
-      <View style={[styles.box, styles.box3]} />
-      <View style={[styles.box, styles.box4]} />
-      <View style={[styles.box, styles.box5]} />
+      <View
+        style={[styles.box, { backgroundColor: "powderblue" }]}
+      />
+      <View
+        style={[styles.box, { backgroundColor: "skyblue" }]}
+      />
+      <View
+        style={[styles.box, { backgroundColor: "steelblue" }]}
+      />
     </PreviewLayout>
   );
 };
 
 const PreviewLayout = ({
+  label,
   children,
-  handleColumnGapChange,
-  handleRowGapChange,
-  rowGap,
-  columnGap,
+  values,
+  selectedValue,
+  setSelectedValue,
 }) => (
-  <View style={styles.previewContainer}>
-    <View style={styles.inputContainer}>
-      <View style={styles.itemsCenter}>
-        <Text>Row Gap</Text>
-        <TextInput
-          style={styles.input}
-          value={rowGap}
-          onChangeText={(v) => handleRowGapChange(Number(v))}
-        />
-      </View>
-      <View style={styles.itemsCenter}>
-        <Text>Column Gap</Text>
-        <TextInput
-          style={styles.input}
-          value={columnGap}
-          onChangeText={(v) => handleColumnGapChange(Number(v))}
-        />
-      </View>
+  <View style={{ padding: 10, flex: 1 }}>
+    <Text style={styles.label}>{label}</Text>
+    <View style={styles.row}>
+      {values.map((value) => (
+        <TouchableOpacity
+          key={value}
+          onPress={() => setSelectedValue(value)}
+          style={[
+            styles.button,
+            selectedValue === value && styles.selected,
+          ]}
+        >
+          <Text
+            style={[
+              styles.buttonLabel,
+              selectedValue === value && styles.selectedLabel,
+            ]}
+          >
+            {value}
+          </Text>
+        </TouchableOpacity>
+      ))}
     </View>
-    <View style={[styles.container, { rowGap, columnGap }]}>
+    <View style={[styles.container, { [label]: selectedValue }]}>
       {children}
     </View>
   </View>
 );
 
 const styles = StyleSheet.create({
-  itemsCenter: { alignItems: "center" },
-  inputContainer: {
-    gap: 4,
-    flexDirection: "row",
-    justifyContent: "space-around",
-  },
-  previewContainer: { padding: 10, flex: 1 },
-  input: {
-    borderBottomWidth: 1,
-    paddingVertical: 3,
-    width: 50,
-    textAlign: "center",
-  },
   container: {
     flex: 1,
     marginTop: 8,
     backgroundColor: "aliceblue",
-    maxHeight: 400,
-    flexWrap: "wrap",
-    alignContent: "flex-start",
   },
   box: {
     width: 50,
-    height: 80,
+    height: 50,
   },
-  box1: {
-    backgroundColor: "orangered",
+  row: {
+    flexDirection: "row",
+    flexWrap: "wrap",
   },
-  box2: {
-    backgroundColor: "orange",
+  button: {
+    paddingHorizontal: 8,
+    paddingVertical: 6,
+    borderRadius: 4,
+    backgroundColor: "oldlace",
+    alignSelf: "flex-start",
+    marginHorizontal: "1%",
+    marginBottom: 6,
+    minWidth: "48%",
+    textAlign: "center",
   },
-  box3: {
-    backgroundColor: "mediumseagreen",
+  selected: {
+    backgroundColor: "coral",
+    borderWidth: 0,
   },
-  box4: {
-    backgroundColor: "deepskyblue",
+  buttonLabel: {
+    fontSize: 12,
+    fontWeight: "500",
+    color: "coral",
   },
-  box5: {
-    backgroundColor: "mediumturquoise",
+  selectedLabel: {
+    color: "white",
+  },
+  label: {
+    textAlign: "center",
+    marginBottom: 10,
+    fontSize: 24,
   },
 });
 
-export default RowGapAndColumnGap;
-
+export default FlexDirectionBasics;
 ```
 
 ## Layout Direction
@@ -1296,55 +1303,6 @@ const styles = StyleSheet.create({
   },
   box5: {
     backgroundColor: "mediumturquoise",
-  },
-});
-
-export default RowGapAndColumnGap;
-
-        <TextInput
-          style={styles.input}
-          value={rowGap}
-          onChangeText={(v) => handleRowGapChange(Number(v))}
-        />
-      </View>
-      <View style={styles.itemsCenter}>
-        <Text>Column Gap</Text>
-        <TextInput
-          style={styles.input}
-          value={columnGap}
-          onChangeText={(v) => handleColumnGapChange(Number(v))}
-        />
-      </View>
-    </View>
-    <View style={[styles.container, { rowGap, columnGap }]}>{children}</View>
-  </View>
-);
-
-const styles = StyleSheet.create({
-  itemsCenter: { alignItems: "center" },
-  inputContainer: {
-    gap: 4,
-    flexDirection: "row",
-    justifyContent: "space-around",
-  },
-  previewContainer: { padding: 10, flex: 1 },
-  input: {
-    borderBottomWidth: 1,
-    paddingVertical: 3,
-    width: 50,
-    textAlign: "center",
-  },
-  container: {
-    flex: 1,
-    marginTop: 8,
-    backgroundColor: "aliceblue",
-    maxHeight: 400,
-    flexWrap: "wrap",
-    alignContent: "flex-start",
-  },
-  box: {
-    width: 50,
-    height: 80,
   },
 });
 
