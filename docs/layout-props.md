@@ -741,9 +741,7 @@ See https://developer.mozilla.org/en-US/docs/Web/CSS/right for more details of h
 
 ### `rowGap`
 
-`rowGap` property sets the size of the gap (gutter) between an element's rows. It works similar to `row-gap` in CSS, but in React Native you must use points. Percentage unit is not supported.
-
-See https://developer.mozilla.org/en-US/docs/Web/CSS/row-gap for more details.
+`rowGap` works like `row-gap` in CSS. Only pixel units are supported in React Native. See https://developer.mozilla.org/en-US/docs/Web/CSS/row-gap for more details.
 
 | Type   | Required |
 | ------ | -------- |
