@@ -659,6 +659,16 @@ It allows the user to select text and to use the native copy and paste functiona
 | -------------------------------------------------------- | ------- |
 | enum(`'auto'`, `'text'`, `'none'`, `'contain'`, `'all'`) | `none`  |
 
+---
+
+### `lineBreakStrategyIOS` <div class="label ios">iOS</div>
+
+Set line break strategy on iOS 14+. Possible values are `none`, `standard`, `hangul-word` and `push-out`.
+
+| Type                                                        | Default  |
+| ----------------------------------------------------------- | -------- |
+| enum(`'none'`, `'standard'`, `'hangul-word'`, `'push-out'`) | `'none'` |
+
 ## Type Definitions
 
 ### TextLayout
