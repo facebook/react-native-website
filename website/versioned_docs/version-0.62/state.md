@@ -16,31 +16,33 @@ import { Text, View } from 'react-native';
 const Blink = (props) => {
   const [isShowingText, setIsShowingText] = useState(true);
 
-   useEffect(() => {
-     const toggle = setInterval(() => {
-       setIsShowingText(!isShowingText);
-     }, 1000);
+  useEffect(() => {
+    const toggle = setInterval(() => {
+      setIsShowingText(!isShowingText);
+    }, 1000);
 
-     return () => clearInterval(toggle);
-  })
+    return () => clearInterval(toggle);
+  });
 
   if (!isShowingText) {
     return null;
   }
 
   return <Text>{props.text}</Text>;
-}
+};
 
-export default function BlinkApp() {
+const BlinkApp = () => {
   return (
-    <View style={{marginTop: 50}}>
-      <Blink text='I love to blink' />
-      <Blink text='Yes blinking is so great' />
-      <Blink text='Why did they ever take this out of HTML' />
-      <Blink text='Look at me look at me look at me' />
+    <View style={{ marginTop: 50 }}>
+      <Blink text="I love to blink" />
+      <Blink text="Yes blinking is so great" />
+      <Blink text="Why did they ever take this out of HTML" />
+      <Blink text="Look at me look at me look at me" />
     </View>
   );
-}
+};
+
+export default BlinkApp;
 ```
 
 In a real application, you probably won't be setting state with a timer. You might set state when you have new data from the server, or from user input. You can also use a state container like [Redux](https://redux.js.org/) or [MobX](https://mobx.js.org/) to control your data flow. In that case you would use Redux or MobX to modify your state rather than calling `setState` directly.
