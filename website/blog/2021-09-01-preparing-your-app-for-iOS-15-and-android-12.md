@@ -4,8 +4,6 @@ authors: [SamuelSusla]
 tags: [engineering]
 ---
 
-# Preparing Your App for iOS 15 and Android 12
-
 Hello everyone!
 
 With new mobile OS versions releasing late this year, we recommend preparing your React Native apps beforehand to avoid regressions when the releases become generally available.

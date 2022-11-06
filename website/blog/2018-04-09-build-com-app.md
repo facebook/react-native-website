@@ -23,7 +23,7 @@ Our app is full featured and includes everything that you’d expect from an e-c
 A few standout features you might not expect include:
 
 1. 3D models available for around 40 products with 90 finishes
-2. Augmented Reality (AR) to allow the user to see how lights and faucets will look in their home at 98% size accuracy. The Build.com React Native App is featured in the Apple App store for AR Shopping! AR is now available for Android and iOS!
+2. Augmented Reality (AR) to allow the user to see how lights and faucets will look in their home at 98% size accuracy. The Build.com React Native App is featured in the Apple App Store for AR Shopping! AR is now available for Android and iOS!
 3. Collaborative project management features that allow people to put together shopping lists for the different phases of their project and collaborate around selection
 
 We’re working on many new and exciting features that will continue to improve our app experience including the next phase of Immersive Shopping with AR.

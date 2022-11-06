@@ -281,6 +281,16 @@ Provides an initial value that will change when the user starts typing. Useful f
 
 ---
 
+### `cursorColor` <div class="label android">Android</div>
+
+When provided it will set the color of the cursor (or "caret") in the component. Unlike the behavior of `selectionColor` the cursor color will be set independently from the color of the text selection box.
+
+| Type               |
+| ------------------ |
+| [color](colors.md) |
+
+---
+
 ### `disableFullscreenUI` <div class="label android">Android</div>
 
 When `false`, if there is a small amount of space available around a text input (e.g. landscape orientation on a phone), the OS may choose to have the user edit the text inside of a full screen text input mode. When `true`, this feature is disabled and users will always edit the text directly inside of the text input. Defaults to `false`.
@@ -308,6 +318,30 @@ If `true`, the keyboard disables the return key when there is no text and automa
 | Type |
 | ---- |
 | bool |
+
+---
+
+### `enterKeyHint`
+
+Determines what text should be shown to the return key. Has precedence over the `returnKeyType` prop.
+
+The following values work across platforms:
+
+- `enter`
+- `done`
+- `next`
+- `search`
+- `send`
+
+_Android Only_
+
+The following values work on Android only:
+
+- `previous`
+
+| Type                                                        |
+| ----------------------------------------------------------- |
+| enum('enter', 'done', 'next', 'previous', 'search', 'send') |
 
 ---
 
@@ -360,6 +394,27 @@ An optional identifier which links a custom [InputAccessoryView](inputaccessoryv
 | Type   |
 | ------ |
 | string |
+
+---
+
+### `inputMode`
+
+Works like the `inputmode` attribute in HTML, it determines which keyboard to open, e.g. `numeric` and has precedence over `keyboardType`.
+
+Support the following values:
+
+- `none`
+- `text`
+- `decimal`
+- `numeric`
+- `tel`
+- `search`
+- `email`
+- `url`
+
+| Type                                                                        |
+| --------------------------------------------------------------------------- |
+| enum('decimal', 'email', 'none', 'numeric', 'search', 'tel', 'text', 'url') |
 
 ---
 
@@ -437,7 +492,11 @@ Limits the maximum number of characters that can be entered. Use this instead of
 
 ### `multiline`
 
-If `true`, the text input can be multiple lines. The default value is `false`. It is important to note that this aligns the text to the top on iOS, and centers it on Android. Use with `textAlignVertical` set to `top` for the same behavior in both platforms.
+If `true`, the text input can be multiple lines. The default value is `false`.
+
+:::note
+It is important to note that this aligns the text to the top on iOS, and centers it on Android. Use with `textAlignVertical` set to `top` for the same behavior in both platforms.
+:::
 
 | Type |
 | ---- |
@@ -611,6 +670,16 @@ The text color of the placeholder string.
 
 ---
 
+### `readOnly`
+
+If `true`, text is not editable. The default value is `false`.
+
+| Type |
+| ---- |
+| bool |
+
+---
+
 ### `returnKeyLabel` <div class="label android">Android</div>
 
 Sets the return key to the label. Use it instead of `returnKeyType`.
@@ -664,6 +733,16 @@ If `true`, allows TextInput to pass touch events to the parent component. This a
 | Type |
 | ---- |
 | bool |
+
+---
+
+### `rows` <div class="label android">Android</div>
+
+Sets the number of lines for a `TextInput`. Use it with multiline set to `true` to be able to fill the lines.
+
+| Type   |
+| ------ |
+| number |
 
 ---
 
@@ -840,15 +919,11 @@ see [Issue#7070](https://github.com/facebook/react-native/issues/7070) for more 
 
 ### `textBreakStrategy` <div class="label android">Android</div>
 
-<!-- alex disable simple -->
-
 Set text break strategy on Android API Level 23+, possible values are `simple`, `highQuality`, `balanced` The default value is `simple`.
 
 | Type                                      |
 | ----------------------------------------- |
 | enum('simple', 'highQuality', 'balanced') |
-
-<!-- alex enable simple -->
 
 ---
 

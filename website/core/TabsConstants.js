@@ -1,3 +1,10 @@
+/**
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
 
 const isMacOS = ExecutionEnvironment.canUseDOM
@@ -32,7 +39,7 @@ const javaScriptSpecLanguages = [
 const defaultJavaScriptSpecLanguages = 'flow';
 
 const guides = [
-  {label: 'Expo CLI Quickstart', value: 'quickstart'},
+  {label: 'Expo Go Quickstart', value: 'quickstart'},
   {label: 'React Native CLI Quickstart', value: 'native'},
 ];
 const defaultGuide = 'quickstart';
@@ -65,7 +72,6 @@ export default {
   defaultPlatform,
   defaultSyntax,
   defaultAndroidLanguage,
-  javaScriptSpecLanguages,
   defaultJavaScriptSpecLanguages,
   getDevNotesTabs,
   guides,
@@ -74,4 +80,5 @@ export default {
   platforms,
   syntax,
   androidLanguages,
+  javaScriptSpecLanguages,
 };

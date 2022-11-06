@@ -7,13 +7,16 @@ A component can specify the layout of its children using the Flexbox algorithm. 
 
 You will normally use a combination of `flexDirection`, `alignItems`, and `justifyContent` to achieve the right layout.
 
-> Flexbox works the same way in React Native as it does in CSS on the web, with a few exceptions. The defaults are different, with `flexDirection` defaulting to `column` instead of `row`, `alignContent` defaulting to `flex-start` instead of `stretch`, `flexShrink` defaulting to `0` instead of `1`, the `flex` parameter only supporting a single number.
+:::caution
+Flexbox works the same way in React Native as it does in CSS on the web, with a few exceptions.
+The defaults are different, with `flexDirection` defaulting to `column` instead of `row`, `alignContent` defaulting to `flex-start` instead of `stretch`, `flexShrink` defaulting to `0` instead of `1`, the `flex` parameter only supporting a single number.
+:::
 
 ## Flex
 
 [`flex`](layout-props#flex) will define how your items are going to **“fill”** over the available space along your main axis. Space will be divided according to each element's flex property.
 
-In the following example, the red, yellow, and green views are all children in the container view that has `flex: 1` set. The red view uses `flex: 1` , the yellow view uses `flex: 2`, and the green view uses `flex: 3` . **1+2+3 = 6**, which means that the red view will get `1/6` of the space, the yellow `2/6` of the space, and the green `3/6` of the space.
+In the following example, the red, orange, and green views are all children in the container view that has `flex: 1` set. The red view uses `flex: 1` , the orange view uses `flex: 2`, and the green view uses `flex: 3` . **1+2+3 = 6**, which means that the red view will get `1/6` of the space, the orange `2/6` of the space, and the green `3/6` of the space.
 
 ```SnackPlayer name=Flex%20Example
 import React from "react";
@@ -429,7 +432,9 @@ export default JustifyContentBasics;
 
 - `baseline` Align children of a container along a common baseline. Individual children can be set to be the reference baseline for their parents.
 
-> For `stretch` to have an effect, children must not have a fixed dimension along the secondary axis. In the following example, setting `alignItems: stretch` does nothing until the `width: 50` is removed from the children.
+:::info
+For `stretch` to have an effect, children must not have a fixed dimension along the secondary axis. In the following example, setting `alignItems: stretch` does nothing until the `width: 50` is removed from the children.
+:::
 
 You can learn more [here](https://yogalayout.com/docs/align-items).
 

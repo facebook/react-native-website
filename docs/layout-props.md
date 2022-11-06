@@ -60,8 +60,8 @@ const App = () => {
       <View style={[styles.container, styles.playingSpace, hookedStyles]}>
         {squares.map(elem => elem)}
       </View>
-      <ScrollView style={[styles.container]}>
-        <View style={[styles.controlSpace]}>
+      <ScrollView style={styles.container}>
+        <View style={styles.controlSpace}>
           <View style={styles.buttonView}>
             <Button
               title="Change Flex Direction"
@@ -211,9 +211,9 @@ Aspect ratio controls the size of the undefined dimension of a node. See https:/
 - On a node with flex grow/shrink, aspect ratio controls the size of the node in the cross axis if unset
 - Aspect ratio takes min/max dimensions into account
 
-| Type   | Required |
-| ------ | -------- |
-| number | No       |
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
 
 ---
 

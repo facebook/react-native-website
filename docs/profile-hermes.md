@@ -7,7 +7,9 @@ You can visualize JavaScript's performance in a React Native app using [Hermes](
 
 In this section, you will learn how to profile your React Native app running on Hermes and how to visualize the profile using [the Performance tab on Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/reference)
 
-> Be sure to [enable hermes in your app](hermes) before you get started!
+:::caution
+Be sure to [enable Hermes in your app](Hermes) before you get started!
+:::
 
 Follow the instructions below to get started profiling:
 
@@ -40,29 +42,9 @@ npx react-native profile-hermes [destinationDir]
 
 ### Enabling source map
 
-A source map is used to enhance the profile and associate trace events with the application code. You can automatically generate a source map when converting the Hermes tracing profile to a Chrome tracing profile by enabling `bundleInDebug` if the app is running in development mode. This allows React Native to build the bundle during its running process. Here's how:
-
-1. In your app's `android/app/build.gradle` file, add:
-
-```java
-project.ext.react = [
-  bundleInDebug: true,
-]
-```
-
-> Be sure to clean the build whenever you make any changes to `build.gradle`
-
-2. Clean the build by running:
-
-```sh
-cd android && ./gradlew clean
-```
-
-3. Run your app:
-
-```sh
-npx react-native run-android
-```
+:::info
+You may read about source maps on the [source maps](sourcemaps.md) page.
+:::
 
 ### Common errors
 

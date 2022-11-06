@@ -1,3 +1,5 @@
+import RemoveGlobalCLI from './\_remove-global-cli.md';
+
 ## Installing dependencies
 
 You will need Node, Watchman, the React Native command line interface, a JDK, and Android Studio.
@@ -26,9 +28,9 @@ brew tap homebrew/cask-versions
 brew install --cask zulu11
 ```
 
-The Zulu OpenJDK distribution offers JDKs for **both Intel and M1 Macs**. This will make sure your build are faster on M1 Macs compared to using an Intel-based JDK.
+The Zulu OpenJDK distribution offers JDKs for **both Intel and M1 Macs**. This will make sure your builds are faster on M1 Macs compared to using an Intel-based JDK.
 
-If you have already installed JDK on your system, make sure it is JDK 11 or newer.
+If you have already installed JDK on your system, we recommend JDK 11. You may encounter problems using higher JDK versions.
 
 <h3>Android development environment</h3>
 
@@ -50,20 +52,20 @@ Once setup has finalized and you're presented with the Welcome screen, proceed t
 
 <h4>2. Install the Android SDK</h4>
 
-Android Studio installs the latest Android SDK by default. Building a React Native app with native code, however, requires the `Android 11 (R)` SDK in particular. Additional Android SDKs can be installed through the SDK Manager in Android Studio.
+Android Studio installs the latest Android SDK by default. Building a React Native app with native code, however, requires the `Android 12 (S)` SDK in particular. Additional Android SDKs can be installed through the SDK Manager in Android Studio.
 
-To do that, open Android Studio, click on "Configure" button and select "SDK Manager".
+To do that, open Android Studio, click on "More Actions" button and select "SDK Manager".
 
 ![Android Studio Welcome](/docs/assets/GettingStartedAndroidStudioWelcomeMacOS.png)
 
 > The SDK Manager can also be found within the Android Studio "Preferences" dialog, under **Appearance & Behavior** → **System Settings** → **Android SDK**.
 
-Select the "SDK Platforms" tab from within the SDK Manager, then check the box next to "Show Package Details" in the bottom right corner. Look for and expand the `Android 11 (R)` entry, then make sure the following items are checked:
+Select the "SDK Platforms" tab from within the SDK Manager, then check the box next to "Show Package Details" in the bottom right corner. Look for and expand the `Android 12 (S)` entry, then make sure the following items are checked:
 
-- `Android SDK Platform 30`
+- `Android SDK Platform 31`
 - `Intel x86 Atom_64 System Image` or `Google APIs Intel x86 Atom System Image` or (for Apple M1 Silicon) `Google APIs ARM 64 v8a System Image`
 
-Next, select the "SDK Tools" tab and check the box next to "Show Package Details" here as well. Look for and expand the "Android SDK Build-Tools" entry, then make sure that `30.0.2` is selected.
+Next, select the "SDK Tools" tab and check the box next to "Show Package Details" here as well. Look for and expand the "Android SDK Build-Tools" entry, then make sure that `31.0.0` is selected.
 
 Finally, click "Apply" to download and install the Android SDK and related build tools.
 
@@ -71,7 +73,7 @@ Finally, click "Apply" to download and install the Android SDK and related build
 
 The React Native tools require some environment variables to be set up in order to build apps with native code.
 
-Add the following lines to your `$HOME/.bash_profile` or `$HOME/.bashrc` (if you are using `zsh` then `~/.zprofile` or `~/.zshrc`) config file:
+Add the following lines to your `~/.zprofile` or `~/.zshrc` (if you are using `bash`, then `~/.bash_profile` or `~/.bashrc`) config file:
 
 ```shell
 export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
@@ -79,9 +81,7 @@ export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
 export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 ```
 
-> `.bash_profile` is specific to `bash`. If you're using another shell, you will need to edit the appropriate shell-specific config file.
-
-Type `source $HOME/.bash_profile` for `bash` or `source $HOME/.zprofile` to load the config into your current shell. Verify that ANDROID_SDK_ROOT has been set by running `echo $ANDROID_SDK_ROOT` and the appropriate directories have been added to your path by running `echo $PATH`.
+Run `source ~/.zprofile` (or `source ~/.bash_profile` for `bash`) to load the config into your current shell. Verify that ANDROID_SDK_ROOT has been set by running `echo $ANDROID_SDK_ROOT` and the appropriate directories have been added to your path by running `echo $PATH`.
 
 > Please make sure you use the correct Android SDK path. You can find the actual location of the SDK in the Android Studio "Preferences" dialog, under **Appearance & Behavior** → **System Settings** → **Android SDK**.
 
@@ -91,7 +91,7 @@ React Native has a built-in command line interface. Rather than install and mana
 
 <h2>Creating a new application</h2>
 
-> If you previously installed a global `react-native-cli` package, please remove it as it may cause unexpected issues.
+<RemoveGlobalCLI />
 
 React Native has a built-in command line interface, which you can use to generate a new project. You can access it without installing anything globally using `npx`, which ships with Node.js. Let's create a new React Native project called "AwesomeProject":
 
@@ -131,7 +131,7 @@ If you use Android Studio to open `./AwesomeProject/android`, you can see the li
 
 ![Android Studio AVD Manager](/docs/assets/GettingStartedAndroidStudioAVD.png)
 
-If you have recently installed Android Studio, you will likely need to [create a new AVD](https://developer.android.com/studio/run/managing-avds.html). Select "Create Virtual Device...", then pick any Phone from the list and click "Next", then select the **R** API Level 30 image.
+If you have recently installed Android Studio, you will likely need to [create a new AVD](https://developer.android.com/studio/run/managing-avds.html). Select "Create Virtual Device...", then pick any Phone from the list and click "Next", then select the **S** API Level 31 image.
 
 Click "Next" then "Finish" to create your AVD. At this point you should be able to click on the green triangle button next to your AVD to launch it, then proceed to the next step.
 

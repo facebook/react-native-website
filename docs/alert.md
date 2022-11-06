@@ -142,7 +142,7 @@ export default App;
 
 ## iOS
 
-On iOS you can specify any number of buttons. Each button can optionally specify a style, available options are represented by the [AlertButtonStyle](#alertbuttonstyle-ios) enum.
+On iOS you can specify any number of buttons. Each button can optionally specify a style or be emphasized, available options are represented by the [AlertButtonStyle](#alertbuttonstyle-ios) enum and the `isPreferred` field on [Buttons](alert#buttons).
 
 ## Android
 
@@ -152,7 +152,7 @@ On Android at most three buttons can be specified. Android has a concept of a ne
 - Two buttons mean 'negative', 'positive' (such as 'Cancel', 'OK')
 - Three buttons mean 'neutral', 'negative', 'positive' (such as 'Later', 'Cancel', 'OK')
 
-Alerts on Android can be dismissed by tapping outside of the alert box. It is disabled by default and can be enabled by providing an optional [Options](alert#options-android) parameter with the cancelable property set to `true` i.e.<br/>`{ cancelable: true }`.
+Alerts on Android can be dismissed by tapping outside of the alert box. It is disabled by default and can be enabled by providing an optional [Options](alert#options) parameter with the cancelable property set to `true` i.e.<br/>`{ cancelable: true }`.
 
 The cancel event can be handled by providing an `onDismiss` callback property inside the `options` parameter.
 
@@ -213,12 +213,12 @@ static alert(title, message?, buttons?, options?)
 
 **Parameters:**
 
-| Name                                                   | Type                             | Description                                                             |
-| ------------------------------------------------------ | -------------------------------- | ----------------------------------------------------------------------- |
-| title <div class="label basic required">Required</div> | string                           | The dialog's title. Passing `null` or empty string will hide the title. |
-| message                                                | string                           | An optional message that appears below the dialog's title.              |
-| buttons                                                | [Buttons](alert#buttons)         | An optional array containing buttons configuration.                     |
-| options <div class="label android">Android</div>       | [Options](alert#options-android) | An optional Alert configuration for the Android.                        |
+| Name                                                   | Type                     | Description                                                             |
+| ------------------------------------------------------ | ------------------------ | ----------------------------------------------------------------------- |
+| title <div class="label basic required">Required</div> | string                   | The dialog's title. Passing `null` or empty string will hide the title. |
+| message                                                | string                   | An optional message that appears below the dialog's title.              |
+| buttons                                                | [Buttons](alert#buttons) | An optional array containing buttons configuration.                     |
+| options                                                | [Options](alert#options) | An optional Alert configuration.                                        |
 
 ---
 
@@ -240,6 +240,7 @@ Create and display a prompt to enter some text in form of Alert.
 | type                                                   | [AlertType](alert#alerttype-ios)      | This configures the text input.                                                                                                                                                                       |
 | defaultValue                                           | string                                | The default text in text input.                                                                                                                                                                       |
 | keyboardType                                           | string                                | The keyboard type of first text field (if exists). One of TextInput [keyboardTypes](textinput#keyboardtype).                                                                                          |
+| options                                                | [Options](alert#options)              | An optional Alert configuration.                                                                                                                                                                      |
 
 ---
 
@@ -292,15 +293,16 @@ Array of objects containing Alert buttons configuration.
 
 **Objects properties:**
 
-| Name                                   | Type                                           | Description                                             |
-| -------------------------------------- | ---------------------------------------------- | ------------------------------------------------------- |
-| text                                   | string                                         | Button label.                                           |
-| onPress                                | function                                       | Callback function when button is pressed.               |
-| style <div class="label ios">iOS</div> | [AlertButtonStyle](alert#alertbuttonstyle-ios) | Button style, on Android this property will be ignored. |
+| Name                                         | Type                                           | Description                                                                    |
+| -------------------------------------------- | ---------------------------------------------- | ------------------------------------------------------------------------------ |
+| text                                         | string                                         | Button label.                                                                  |
+| onPress                                      | function                                       | Callback function when button is pressed.                                      |
+| style <div class="label ios">iOS</div>       | [AlertButtonStyle](alert#alertbuttonstyle-ios) | Button style, on Android this property will be ignored.                        |
+| isPreferred <div class="label ios">iOS</div> | boolean                                        | Whether button should be emphasized, on Android this property will be ignored. |
 
 ---
 
-### Options <div class="label android">Android</div>
+### Options
 
 | Type   |
 | ------ |
@@ -308,7 +310,8 @@ Array of objects containing Alert buttons configuration.
 
 **Properties:**
 
-| Name       | Type     | Description                                                            |
-| ---------- | -------- | ---------------------------------------------------------------------- |
-| cancelable | boolean  | Defines if alert can be dismissed by tapping outside of the alert box. |
-| onDismiss  | function | Callback function fired when alert has been dismissed.                 |
+| Name                                                | Type     | Description                                                                                                               |
+| --------------------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------- |
+| cancelable <div class="label android">Android</div> | boolean  | Defines if alert can be dismissed by tapping outside of the alert box.                                                    |
+| userInterfaceStyle <div class="label ios">iOS</div> | string   | The interface style used for the alert, can be set to `light` or `dark`, otherwise the default system style will be used. |
+| onDismiss <div class="label android">Android</div>  | function | Callback function fired when alert has been dismissed.                                                                    |

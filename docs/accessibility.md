@@ -6,7 +6,9 @@ description: Create mobile apps accessible to assistive technology with React Na
 
 Both Android and iOS provide APIs for integrating apps with assistive technologies like the bundled screen readers VoiceOver (iOS) and TalkBack (Android). React Native has complementary APIs that let your app accommodate all users.
 
-> Android and iOS differ slightly in their approaches, and thus the React Native implementations may vary by platform.
+:::info
+Android and iOS differ slightly in their approaches, and thus the React Native implementations may vary by platform.
+:::
 
 ## Accessibility properties
 
@@ -43,6 +45,23 @@ To use, set the `accessibilityLabel` property to a custom string on your View, T
 ```
 
 In the above example, the `accessibilityLabel` on the TouchableOpacity element would default to "Press me!". The label is constructed by concatenating all Text node children separated by spaces.
+
+### `accessibilityLabelledBy` <div class="label android">Android</div>
+
+A reference to another element [nativeID](view.md#nativeid) used to build complex forms.
+The value of `accessibilityLabelledBy` should match the `nativeID` of the related element:
+
+```jsx
+<View>
+  <Text nativeID="formLabel">Label for Input Field</Text>
+  <TextInput
+    accessibilityLabel="input"
+    accessibilityLabelledBy="formLabel"
+  />
+</View>
+```
+
+In the above example, the screenreader announces `Input, Edit Box for Label for Input Field` when focusing on the TextInput.
 
 ### `accessibilityHint`
 
@@ -85,7 +104,7 @@ By using the `accessibilityLanguage` property, the screen reader will understand
 
 ### `accessibilityIgnoresInvertColors` <div class="label ios">iOS</div>
 
-Inverting screen colors is an Accessibility feature that makes the iPhone and iPad easier on the eyes for some people with a sensitivity to brightness, easier to distinguish for some people with color blindness, and easier to make out for some people with low vision. However, sometimes you have views such as photos that you don't want to be inverted. In this case, you can set this property to be false so that these specific views won't have their colors inverted.
+Inverting screen colors is an Accessibility feature that makes the iPhone and iPad easier on the eyes for some people with a sensitivity to brightness, easier to distinguish for some people with color blindness, and easier to make out for some people with low vision. However, sometimes you have views such as photos that you don't want to be inverted. In this case, you can set this property to be `true` so that these specific views won't have their colors inverted.
 
 ### `accessibilityLiveRegion` <div class="label android">Android</div>
 
@@ -142,6 +161,7 @@ In the above example method `addOne` changes the state variable `count`. As soon
 - **timer** Used to represent a timer.
 - **togglebutton** Used to represent a toggle button. Should be used with accessibilityState checked to indicate if the button is toggled on or off.
 - **toolbar** Used to represent a tool bar (a container of action buttons or components).
+- **grid** Used with ScrollView, VirtualizedList, FlatList, or SectionList to represent a grid. Adds the in/out of grid announcements to the android GridView.
 
 ### `accessibilityState`
 
@@ -183,6 +203,111 @@ For example, in a window that contains sibling views `A` and `B`, setting `acces
 A Boolean value indicating whether the accessibility elements contained within this accessibility element are hidden.
 
 For example, in a window that contains sibling views `A` and `B`, setting `accessibilityElementsHidden` to `true` on view `B` causes VoiceOver to ignore the elements in the view `B`. This is similar to the Android property `importantForAccessibility="no-hide-descendants"`.
+
+### `aria-valuemax`
+
+Represents the maximum value for range-based components, such as sliders and progress bars.
+
+### `aria-valuemin`
+
+Represents the maximum value for range-based components, such as sliders and progress bars.
+
+### `aria-valuenow`
+
+Represents the current value for range-based components, such as sliders and progress bars.
+
+### `aria-valuetext`
+
+Represents the textual description of the component.
+
+### `aria-busy`
+
+Indicates an element is being modified and that assistive technologies may want to wait until the changes are complete before informing the user about the update.
+
+| Type    | Default |
+| ------- | ------- |
+| boolean | false   |
+
+### `aria-checked`
+
+Indicates the state of a checkable element. This field can either take a boolean or the "mixed" string to represent mixed checkboxes.
+
+| Type             | Default |
+| ---------------- | ------- |
+| boolean, 'mixed' | false   |
+
+### `aria-disabled`
+
+Indicates that the element is perceivable but disabled, so it is not editable or otherwise operable.
+
+| Type    | Default |
+| ------- | ------- |
+| boolean | false   |
+
+### `aria-expanded`
+
+Indicates whether an expandable element is currently expanded or collapsed.
+
+| Type    | Default |
+| ------- | ------- |
+| boolean | false   |
+
+### `aria-hidden`
+
+Indicates whether the accessibility elements contained within this accessibility element are hidden.
+
+For example, in a window that contains sibling views `A` and `B`, setting `aria-hidden` to `true` on view `B` causes VoiceOver to ignore the elements in the view `B`.
+
+| Type    | Default |
+| ------- | ------- |
+| boolean | false   |
+
+### `aria-label`
+
+Defines a string value that labels an interactive element.
+
+| Type   |
+| ------ |
+| string |
+
+### `aria-labelledby` <div class="label android">Android</div>
+
+Identifies the element that labels the element it is applied to. The value of `aria-labelledby` should match the [`nativeID`](view.md#nativeid) of the related element:
+
+```jsx
+<View>
+  <Text nativeID="formLabel">Label for Input Field</Text>
+  <TextInput aria-label="input" aria-labelledby="formLabel" />
+</View>
+```
+
+| Type   |
+| ------ |
+| string |
+
+### `aria-live` <div class="label android">Android</div>
+
+Indicates that an element will be updated, and describes the types of updates the user agents, assistive technologies, and user can expect from the live region.
+
+- **off** Accessibility services should not announce changes to this view.
+- **polite** Accessibility services should announce changes to this view.
+- **assertive** Accessibility services should interrupt ongoing speech to immediately announce changes to this view.
+
+### `aria-modal` <div class="label ios">iOS</div>
+
+Boolean value indicating whether VoiceOver should ignore the elements within views that are siblings of the receiver.
+
+| Type    | Default |
+| ------- | ------- |
+| boolean | false   |
+
+### `aria-selected`
+
+Indicates whether a selectable element is currently selected or not.
+
+| Type    |
+| ------- |
+| boolean |
 
 ### `importantForAccessibility` <div class="label android">Android</div>
 

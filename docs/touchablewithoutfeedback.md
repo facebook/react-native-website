@@ -219,6 +219,46 @@ See the [Accessibility guide](accessibility.md#accessibilityvalue-ios-android) f
 
 ---
 
+### `aria-valuemax`
+
+Represents the maximum value for range-based components, such as sliders and progress bars. Has precedence over the `max` value in the `accessibilityValue` prop.
+
+| Type   |
+| ------ |
+| number |
+
+---
+
+### `aria-valuemin`
+
+Represents the maximum value for range-based components, such as sliders and progress bars. Has precedence over the `min` value in the `accessibilityValue` prop.
+
+| Type   |
+| ------ |
+| number |
+
+---
+
+### `aria-valuenow`
+
+Represents the current value for range-based components, such as sliders and progress bars. Has precedence over the `now` value in the `accessibilityValue` prop.
+
+| Type   |
+| ------ |
+| number |
+
+---
+
+### `aria-valuetext`
+
+Represents the textual description of the component. Has precedence over the `text` value in the `accessibilityValue` prop.
+
+| Type   |
+| ------ |
+| string |
+
+---
+
 ### `delayLongPress`
 
 Duration (in milliseconds) from `onPressIn` before `onLongPress` is called.
@@ -268,6 +308,16 @@ This defines how far your touch can start away from the button. This is added to
 | Type                   |
 | ---------------------- |
 | [Rect](rect) or number |
+
+### `id`
+
+Used to locate this view from native code. Has precedence over `nativeID` prop.
+
+| Type   |
+| ------ |
+| string |
+
+---
 
 ### `onBlur`
 

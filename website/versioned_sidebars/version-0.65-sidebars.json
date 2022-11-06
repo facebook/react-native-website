@@ -285,6 +285,10 @@
         {
           "type": "doc",
           "id": "version-0.65/signed-apk-android"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.65/communication-android"
         }
       ]
     },
