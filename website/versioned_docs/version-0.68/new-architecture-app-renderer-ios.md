@@ -3,7 +3,6 @@ id: new-architecture-app-renderer-ios
 title: Enabling Fabric on iOS
 ---
 
-import M1Cocoapods from './\_markdown-m1-cocoapods.mdx';
 import NewArchitectureWarning from './\_markdown-new-architecture-warning.mdx';
 
 <NewArchitectureWarning/>
@@ -103,5 +102,3 @@ module.exports = {
 // Run pod install with the flags
 USE_FABRIC=1 RCT_NEW_ARCH_ENABLED=1 pod install
 ```
-
-<M1Cocoapods />

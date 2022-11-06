@@ -3,8 +3,6 @@ id: hermes
 title: Using Hermes
 ---
 
-import M1Cocoapods from './\_markdown-m1-cocoapods.mdx';
-
 <a href="https://hermesengine.dev">
 <img width={300} height={300} className="hermes-logo" src="/docs/assets/HermesLogo.svg" />
 </a>
@@ -84,8 +82,6 @@ Once you've configured it, you can install the Hermes pods with:
 ```shell
 $ cd ios && pod install
 ```
-
-<M1Cocoapods />
 
 That's it! You should now be able to develop and deploy your app as usual:
 

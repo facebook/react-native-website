@@ -3,7 +3,6 @@ id: new-architecture-library-ios
 title: Enabling in iOS Library
 ---
 
-import M1Cocoapods from './\_markdown-m1-cocoapods.mdx';
 import NewArchitectureWarning from './\_markdown-new-architecture-warning.mdx';
 
 <NewArchitectureWarning/>
@@ -48,8 +47,6 @@ end
 :::caution
 
 Currently, the Folly version used here must match the Folly version used by React Native. A version mismatch here may lead to errors when running `pod install`. If CocoaPods flags an issue with your Folly version, then you may have a version mismatch. Check which version is used by the core modules Podspecs (e.g. FBReactNativeSpec.podspec), and try running `pod install` again after editing your podspec with the correct Folly version.
-
-<M1Cocoapods />
 
 :::
 
