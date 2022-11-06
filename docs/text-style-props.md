@@ -387,9 +387,9 @@ export default App;
 
 Specifies font weight. The values `'normal'` and `'bold'` are supported for most fonts. Not all fonts have a variant for each of the numeric values, in that case the closest one is chosen.
 
-| Type                                                                                                        | Default    |
-| ----------------------------------------------------------------------------------------------------------- | ---------- |
-| enum(`'normal'`, `'bold'`, `'100'`, `'200'`, `'300'`, `'400'`, `'500'`, `'600'`, `'700'`, `'800'`, `'900'`) | `'normal'` |
+| Type                                                                                                                  | Default    |
+| --------------------------------------------------------------------------------------------------------------------- | ---------- |
+| enum(`'normal'`, `'bold'`, `'100'`, `'200'`, `'300'`, `'400'`, `'500'`, `'600'`, `'700'`, `'800'`, `'900'`) or number | `'normal'` |
 
 ---
 
