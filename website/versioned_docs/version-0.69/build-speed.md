@@ -76,16 +76,16 @@ if an intermediate compilation result was originally stored.
 
 To install it, you can follow the [official installation instructions](https://github.com/ccache/ccache/blob/master/doc/INSTALL.md).
 
-On Mac OS, we can install ccache with `brew install ccache`.
+On macOS, we can install ccache with `brew install ccache`.
 Once installed you can configure it as follows to cache NDK compile results:
 
 ```
-ln -s ccache /usr/local/bin/gcc
-ln -s ccache /usr/local/bin/g++
-ln -s ccache /usr/local/bin/cc
-ln -s ccache /usr/local/bin/c++
-ln -s ccache /usr/local/bin/clang
-ln -s ccache /usr/local/bin/clang++
+ln -s $(which ccache) /usr/local/bin/gcc
+ln -s $(which ccache) /usr/local/bin/g++
+ln -s $(which ccache) /usr/local/bin/cc
+ln -s $(which ccache) /usr/local/bin/c++
+ln -s $(which ccache) /usr/local/bin/clang
+ln -s $(which ccache) /usr/local/bin/clang++
 ```
 
 This will create symbolic links to `ccache` inside the `/usr/local/bin/` which are called `gcc`, `g++`, and so on.
