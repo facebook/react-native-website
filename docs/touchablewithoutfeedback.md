@@ -195,6 +195,100 @@ See the [Accessibility guide](accessibility.md#accessibility-actions) for more i
 
 ---
 
+### `aria-busy`
+
+Indicates an element is being modified and that assistive technologies may want to wait until the changes are complete before informing the user about the update.
+
+| Type    | Default |
+| ------- | ------- |
+| boolean | false   |
+
+---
+
+### `aria-checked`
+
+Indicates the state of a checkable element. This field can either take a boolean or the "mixed" string to represent mixed checkboxes.
+
+| Type             | Default |
+| ---------------- | ------- |
+| boolean, 'mixed' | false   |
+
+---
+
+### `aria-disabled`
+
+Indicates that the element is perceivable but disabled, so it is not editable or otherwise operable.
+
+| Type    | Default |
+| ------- | ------- |
+| boolean | false   |
+
+---
+
+### `aria-expanded`
+
+Indicates whether an expandable element is currently expanded or collapsed.
+
+| Type    | Default |
+| ------- | ------- |
+| boolean | false   |
+
+---
+
+### `aria-hidden`
+
+Indicates whether the accessibility elements contained within this accessibility element are hidden.
+
+For example, in a window that contains sibling views `A` and `B`, setting `aria-hidden` to `true` on view `B` causes VoiceOver to ignore the elements in the view `B`.
+
+| Type    | Default |
+| ------- | ------- |
+| boolean | false   |
+
+---
+
+### `aria-label`
+
+Defines a string value that labels an interactive element.
+
+| Type   |
+| ------ |
+| string |
+
+---
+
+### `aria-live` <div class="label android">Android</div>
+
+Indicates that an element will be updated, and describes the types of updates the user agents, assistive technologies, and user can expect from the live region.
+
+- **off** Accessibility services should not announce changes to this view.
+- **polite** Accessibility services should announce changes to this view.
+- **assertive** Accessibility services should interrupt ongoing speech to immediately announce changes to this view.
+
+| Type                                     | Default |
+| ---------------------------------------- | ------- |
+| enum(`'assertive'`, `'off'`, `'polite'`) | `'off'` |
+
+---
+
+### `aria-modal` <div class="label ios">iOS</div>
+
+Boolean value indicating whether VoiceOver should ignore the elements within views that are siblings of the receiver. Has precedence over the [`accessibilityViewIsModal`](#accessibilityviewismodal-ios) prop.
+
+| Type    | Default |
+| ------- | ------- |
+| boolean | false   |
+
+---
+
+### `aria-selected`
+
+Indicates whether a selectable element is currently selected or not.
+
+| Type    |
+| ------- |
+| boolean |
+
 ### `onAccessibilityAction`
 
 Invoked when the user performs the accessibility actions. The only argument to this function is an event containing the name of the action to perform.
