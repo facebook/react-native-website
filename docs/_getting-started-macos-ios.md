@@ -1,4 +1,4 @@
-import M1Cocoapods from './\_markdown-m1-cocoapods.mdx'; import RemoveGlobalCLI from './\_remove-global-cli.md';
+import RemoveGlobalCLI from './\_remove-global-cli.md';
 
 ## Installing dependencies
 
@@ -69,8 +69,6 @@ To install a simulator, open <strong>Xcode > Preferences...</strong> and select 
 [CocoaPods](https://cocoapods.org/) is one of the dependency management system available for iOS. It is built with Ruby and you can install it using the version of Ruby you configured with in the previous steps.
 
 For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-<M1Cocoapods />
 
 ### React Native Command Line Interface
 
