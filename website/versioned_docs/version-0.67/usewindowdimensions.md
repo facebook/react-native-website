@@ -7,7 +7,7 @@ title: useWindowDimensions
 import { useWindowDimensions } from 'react-native';
 ```
 
-`useWindowDimensions` automatically updates `width` and `height` values when screen size changes. You can get your application window's width and height like so:
+`useWindowDimensions` hook automatically updates all of its values when screen size or font scale changes. You can get your application window's width and height like so:
 
 ```jsx
 const { height, width } = useWindowDimensions();
@@ -20,10 +20,16 @@ import React from "react";
 import { View, StyleSheet, Text, useWindowDimensions } from "react-native";
 
 const App = () => {
-  const window = useWindowDimensions();
+  const { height, width, scale, fontScale } = useWindowDimensions();
   return (
     <View style={styles.container}>
-      <Text>{`Window Dimensions: height - ${window.height}, width - ${window.width}`}</Text>
+      <Text style={styles.header}>
+        Window Dimension Data
+      </Text>
+      <Text>Height: {height}</Text>
+      <Text>Width: {width}</Text>
+      <Text>Font scale: {fontScale}</Text>
+      <Text>Pixel ratio: {scale}</Text>
     </View>
   );
 }
@@ -32,14 +38,18 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center"
+  },
+  header: {
+    fontSize: 20,
+    marginBottom: 12
   }
 });
 
 export default App;
 ```
 
-- The [useDimensions](https://github.com/react-native-community/react-native-hooks#usedimensions) hook from the community [React Native hooks](https://github.com/react-native-community/react-native-hooks) library aims to make handling screen/window size changes easier to work with.
-- [React Native Responsive Dimensions](https://github.com/DaniAkash/react-native-responsive-dimensions) also comes with responsive hooks.
+- The [`useDimensions`](https://github.com/react-native-community/hooks#usedimensions) hook from the community [React Native Hooks](https://github.com/react-native-community/hooks) library aims to make handling screen/window size changes easier to work with.
+- [React Native Responsive Dimensions](https://github.com/react-native-toolkit/react-native-responsive-dimensions) also comes with responsive hooks.
 
 ## Properties
 
@@ -69,9 +79,10 @@ The height in pixels of the window or screen your app occupies.
 useWindowDimensions().scale;
 ```
 
-The pixel ratio of the device your app is running on.
+The pixel ratio of the device your app is running on. The values can be:
 
-> A value of `1` indicates PPI/DPI of 96 (76 on some platforms). `2` indicates a Retina or high DPI display.
+- `1` which indicates that one point equals one pixel (usually PPI/DPI of 96, 76 on some platforms).
+- `2` or `3` which indicates a Retina or high DPI display.
 
 ---
 
