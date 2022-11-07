@@ -110,7 +110,7 @@ BigButton.ios.js
 BigButton.android.js
 ```
 
-You can then require the component as follows:
+You can then import the component as follows:
 
 ```jsx
 import BigButton from './BigButton';
@@ -129,7 +129,7 @@ Container.js # picked up by Webpack, Rollup or any other Web bundler
 Container.native.js # picked up by the React Native bundler for both Android and iOS (Metro)
 ```
 
-You can still require it without the `.native` extension, as follows:
+You can still import it without the `.native` extension, as follows:
 
 ```jsx
 import Container from './Container';
