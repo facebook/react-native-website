@@ -75,7 +75,7 @@ if an intermediate compilation result was originally stored.
 
 To install it, you can follow the [official installation instructions](https://github.com/ccache/ccache/blob/master/doc/INSTALL.md).
 
-On Mac OS, we can install ccache with `brew install ccache`.
+On macOS, we can install ccache with `brew install ccache`.
 Once installed you can configure it as follows to cache NDK compile results:
 
 ```
