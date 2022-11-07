@@ -195,8 +195,6 @@ See the [Accessibility guide](accessibility.md#accessibility-actions) for more i
 
 ---
 
-'aria-selected'?: ?boolean,
-
 ### `aria-busy`
 
 Indicates an element is being modified and that assistive technologies may want to wait until the changes are complete before informing the user about the update.
