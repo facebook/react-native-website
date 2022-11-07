@@ -249,44 +249,6 @@ When `true`, indicates that the view is an accessibility element. By default, al
 
 ---
 
-### `aria-valuemax`
-
-Represents the maximum value for range-based components, such as sliders and progress bars. Has precedence over the `max` value in the `accessibilityValue` prop.
-
-| Type   |
-| ------ |
-| number |
-
----
-
-### `aria-valuemin`
-
-Represents the maximum value for range-based components, such as sliders and progress bars. Has precedence over the `min` value in the `accessibilityValue` prop.
-
-| Type   |
-| ------ |
-| number |
-
----
-
-### `aria-valuenow`
-
-Represents the current value for range-based components, such as sliders and progress bars. Has precedence over the `now` value in the `accessibilityValue` prop.
-
-| Type   |
-| ------ |
-| number |
-
----
-
-### `aria-valuetext`
-
-Represents the textual description of the component. Has precedence over the `text` value in the `accessibilityValue` prop.
-
-| Type   |
-| ------ |
-| string |
-
 ### `aria-busy`
 
 Indicates an element is being modified and that assistive technologies may want to wait until the changes are complete before informing the user about the update.
@@ -393,6 +355,46 @@ Indicates whether a selectable element is currently selected or not.
 | Type    |
 | ------- |
 | boolean |
+
+### `aria-valuemax`
+
+Represents the maximum value for range-based components, such as sliders and progress bars. Has precedence over the `max` value in the `accessibilityValue` prop.
+
+| Type   |
+| ------ |
+| number |
+
+---
+
+### `aria-valuemin`
+
+Represents the maximum value for range-based components, such as sliders and progress bars. Has precedence over the `min` value in the `accessibilityValue` prop.
+
+| Type   |
+| ------ |
+| number |
+
+---
+
+### `aria-valuenow`
+
+Represents the current value for range-based components, such as sliders and progress bars. Has precedence over the `now` value in the `accessibilityValue` prop.
+
+| Type   |
+| ------ |
+| number |
+
+---
+
+### `aria-valuetext`
+
+Represents the textual description of the component. Has precedence over the `text` value in the `accessibilityValue` prop.
+
+| Type   |
+| ------ |
+| string |
+
+---
 
 ### `collapsable` <div class="label android">Android</div>
 
