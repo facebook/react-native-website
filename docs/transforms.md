@@ -270,12 +270,18 @@ export default App;
 
 ### `transform()`
 
-`transform` accepts an array of transformation objects. Each object specifies the property that will be transformed as the key, and the value to use in the transformation. Objects should not be combined. Use a single key/value pair per object.
+`transform` accepts an array of transformation objects or space-separated string values. Each object specifies the property that will be transformed as the key, and the value to use in the transformation. Objects should not be combined. Use a single key/value pair per object.
 
 The rotate transformations require a string so that the transform may be expressed in degrees (deg) or radians (rad). For example:
 
 ```js
 transform([{ rotateX: '45deg' }, { rotateZ: '0.785398rad' }]);
+```
+
+The same could also be achieved using a space-separated string:
+
+```js
+transform('rotateX(45deg) rotateZ(0.785398rad)');
 ```
 
 The skew transformations require a string so that the transform may be expressed in degrees (deg). For example:
@@ -284,9 +290,9 @@ The skew transformations require a string so that the transform may be expressed
 transform([{ skewX: '45deg' }]);
 ```
 
-| Type                                                                                                                                                                                                                                                                      | Required |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| array of objects: {matrix: number[]}, {perspective: number}, {rotate: string}, {rotateX: string}, {rotateY: string}, {rotateZ: string}, {scale: number}, {scaleX: number}, {scaleY: number}, {translateX: number}, {translateY: number}, {skewX: string}, {skewY: string} | No       |
+| Type                                                                                                                                                                                                                                                                                | Required |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| array of objects: {matrix: number[]}, {perspective: number}, {rotate: string}, {rotateX: string}, {rotateY: string}, {rotateZ: string}, {scale: number}, {scaleX: number}, {scaleY: number}, {translateX: number}, {translateY: number}, {skewX: string}, {skewY: string} or string | No       |
 
 ---
 

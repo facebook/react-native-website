@@ -618,8 +618,6 @@ Controls whether the `View` can be the target of touch events.
 }
 ```
 
-> Since `pointerEvents` does not affect layout/appearance, and we are already deviating from the spec by adding additional modes, we opt to not include `pointerEvents` on `style`. On some platforms, we would need to implement it as a `className` anyways. Using `style` or not is an implementation detail of the platform.
-
 | Type                                         |
 | -------------------------------------------- |
 | enum('box-none', 'none', 'box-only', 'auto') |
