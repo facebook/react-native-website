@@ -301,6 +301,16 @@ See https://developer.mozilla.org/en-US/docs/Web/CSS/bottom for more details of 
 
 ---
 
+### `columnGap`
+
+`columnGap` works like `column-gap` in CSS. Only pixel units are supported in React Native. See https://developer.mozilla.org/en-US/docs/Web/CSS/column-gap for more details.
+
+| Type   | Required |
+| ------ | -------- |
+| number | No       |
+
+---
+
 ### `direction`
 
 `direction` specifies the directional flow of the user interface. The default is `inherit`, except for root node which will have value based on the current locale. See https://yogalayout.com/docs/layout-direction for more details.
@@ -404,6 +414,16 @@ When `flex` is -1, the component is normally sized according to `width` and `hei
 | Type                                   | Required |
 | -------------------------------------- | -------- |
 | enum('wrap', 'nowrap', 'wrap-reverse') | No       |
+
+---
+
+### `gap`
+
+`gap` works like `gap` in CSS. Only pixel units are supported in React Native. See https://developer.mozilla.org/en-US/docs/Web/CSS/gap for more details.
+
+| Type   | Required |
+| ------ | -------- |
+| number | No       |
 
 ---
 
@@ -716,6 +736,16 @@ See https://developer.mozilla.org/en-US/docs/Web/CSS/right for more details of h
 | Type           | Required |
 | -------------- | -------- |
 | number, string | No       |
+
+---
+
+### `rowGap`
+
+`rowGap` works like `row-gap` in CSS. Only pixel units are supported in React Native. See https://developer.mozilla.org/en-US/docs/Web/CSS/row-gap for more details.
+
+| Type   | Required |
+| ------ | -------- |
+| number | No       |
 
 ---
 
