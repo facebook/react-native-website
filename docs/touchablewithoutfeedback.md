@@ -265,11 +265,15 @@ Indicates that an element will be updated, and describes the types of updates th
 - **polite** Accessibility services should announce changes to this view.
 - **assertive** Accessibility services should interrupt ongoing speech to immediately announce changes to this view.
 
+| Type                                     | Default |
+| ---------------------------------------- | ------- |
+| enum(`'assertive'`, `'off'`, `'polite'`) | `'off'` |
+
 ---
 
 ### `aria-modal` <div class="label ios">iOS</div>
 
-Boolean value indicating whether VoiceOver should ignore the elements within views that are siblings of the receiver. Has precedence over the `accessibilityViewIsModal` prop.
+Boolean value indicating whether VoiceOver should ignore the elements within views that are siblings of the receiver. Has precedence over the [`accessibilityViewIsModal`](#accessibilityviewismodal-ios) prop.
 
 | Type    | Default |
 | ------- | ------- |
