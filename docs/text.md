@@ -651,6 +651,16 @@ When the scroll view is disabled, this defines how far your touch may move off o
 
 ---
 
+### `role`
+
+`role` communicates the purpose of a component to the user of an assistive technology. Has precedence over the [`accessibilityRole`](text#accessibilityrole) prop.
+
+| Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| enum(`'alert'`, `'alertdialog'`, `'application'`, `'article'`, `'banner'`, `'button'`, `'cell'`, `'checkbox'`, `'columnheader'`, `'combobox'`, `'complementary'`,`'contentinfo'`,`'definition'`, `'dialog'`, `'directory'`, `'document'`, `'feed'`, `'figure'`, `'form'`, `'grid'`, `'group'`, `'heading'`, `'img'`, `'link'`, `'list'`, `'listitem'`, `'log'`, `'main'`, `'marquee'`, `'math'`, `'menu'`, `'menubar'`, `'menuitem'`, `'meter'`, `'navigation'`, `'none'`, `'note'`, `'option'`, `'presentation'`, `'progressbar'`, `'radio'`, `'radiogroup'`, `'region'`, `'row'`, `'rowgroup'`, `'rowheader'`, `'scrollbar'`, `'searchbox'`, `'separator'`, `'slider'`, `'spinbutton'`, `'status'`, `'summary'`, `'switch'`, `'tab'`, `'table'`, `'tablist'`, `'tabpanel'`, `'term'`, `'timer'`, `'toolbar'`, `'tooltip'`, `'tree'`, `'treegrid'`, `'treeitem'`) |
+
+---
+
 ### `selectable`
 
 Lets the user select text, to use the native copy and paste functionality.
