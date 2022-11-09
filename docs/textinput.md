@@ -130,11 +130,44 @@ Tells `TextInput` to automatically capitalize certain characters. This property 
 
 ---
 
-### `autoComplete` <div class="label android">Android</div>
+### `autoComplete`
 
 Specifies autocomplete hints for the system, so it can provide autofill. On Android, the system will always attempt to offer autofill by using heuristics to identify the type of content. To disable autocomplete, set `autoComplete` to `off`.
 
-Possible values for `autoComplete` are:
+The following values work across platforms:
+
+- `additional-name`
+- `address-line1`
+- `address-line2`
+- `cc-number`
+- `country`
+- `current-password`
+- `email`
+- `family-name`
+- `given-name`
+- `honorific-prefix`
+- `honorific-suffix`
+- `name`
+- `new-password`
+- `off`
+- `one-time-code`
+- `postal-code`
+- `street-address`
+- `tel`
+- `username`
+
+<div class="label basic ios">iOS</div>
+
+The following values work on iOS only:
+
+- `nickname`
+- `organization`
+- `organization-title`
+- `url`
+
+<div class="label basic android">Android</div>
+
+The following values work on Android only:
 
 - `birthdate-day`
 - `birthdate-full`
@@ -145,10 +178,7 @@ Possible values for `autoComplete` are:
 - `cc-exp-day`
 - `cc-exp-month`
 - `cc-exp-year`
-- `cc-number`
-- `email`
 - `gender`
-- `name`
 - `name-family`
 - `name-given`
 - `name-middle`
@@ -163,20 +193,15 @@ Possible values for `autoComplete` are:
 - `postal-address-extended-postal-code`
 - `postal-address-locality`
 - `postal-address-region`
-- `postal-code`
-- `street-address`
 - `sms-otp`
-- `tel`
 - `tel-country-code`
 - `tel-national`
 - `tel-device`
-- `username`
 - `username-new`
-- `off`
 
-| Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| enum('birthdate-day', 'birthdate-full', 'birthdate-month', 'birthdate-year', 'cc-csc', 'cc-exp', 'cc-exp-day', 'cc-exp-month', 'cc-exp-year', 'cc-number', 'email', 'gender', 'name', 'name-family', 'name-given', 'name-middle', 'name-middle-initial', 'name-prefix', 'name-suffix', 'password', 'password-new', 'postal-address', 'postal-address-country', 'postal-address-extended', 'postal-address-extended-postal-code', 'postal-address-locality', 'postal-address-region', 'postal-code', 'street-address', 'sms-otp', 'tel', 'tel-country-code', 'tel-national', 'tel-device', 'username', 'username-new', 'off') |
+| Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| enum('additional-name', 'address-line1', 'address-line2', 'birthdate-day', 'birthdate-full', 'birthdate-month', 'birthdate-year', 'cc-csc', 'cc-exp', 'cc-exp-day', 'cc-exp-month', 'cc-exp-year', 'cc-number', 'country', 'current-password', 'email', 'family-name', 'gender', 'given-name', 'honorific-prefix', 'honorific-suffix', 'name', 'name-family', 'name-given', 'name-middle', 'name-middle-initial', 'name-prefix', 'name-suffix', 'new-password', 'nickname', 'one-time-code', 'organization', 'organization-title', 'password', 'password-new', 'postal-address', 'postal-address-country', 'postal-address-extended', 'postal-address-extended-postal-code', 'postal-address-locality', 'postal-address-region', 'postal-code', 'street-address', 'sms-otp', 'tel', 'tel-country-code', 'tel-national', 'tel-device', 'url', 'username', 'username-new', 'off') |
 
 ---
 
