@@ -156,7 +156,7 @@ The following values work across platforms:
 - `tel`
 - `username`
 
-_iOS Only_
+<div class="label basic ios">iOS</div>
 
 The following values work on iOS only:
 
@@ -165,7 +165,7 @@ The following values work on iOS only:
 - `organization-title`
 - `url`
 
-_Android Only_
+<div class="label basic android">Android</div>
 
 The following values work on Android only:
 
