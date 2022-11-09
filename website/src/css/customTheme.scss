@@ -135,6 +135,10 @@ main[class^="docMainContainer"] > .container {
   padding-top: 2rem !important;
 }
 
+div[class^="generatedIndexPage"] {
+  max-width: 1080px !important;
+}
+
 @media (max-width: 1416px) {
   .main-wrapper {
     max-width: 100%;
@@ -803,11 +807,23 @@ aside[class^="theme-doc-sidebar-container"] {
     }
   }
 
-  .menu__list-item-collapsible:hover {
-    background: none !important;
+  .menu__list-item-collapsible {
+    .menu__caret {
+      padding: 0 6px;
 
-    .menu__link--sublist-caret:hover {
-      background: var(--ifm-menu-color-background-hover) !important;
+      &:before {
+        display: block;
+        background-size: 1.66rem 1.66rem;
+        margin-top: -1px;
+      }
+    }
+
+    &:hover {
+      background: none !important;
+
+      .menu__link--sublist-caret:hover {
+        background: var(--ifm-menu-color-background-hover) !important;
+      }
     }
   }
 
@@ -894,7 +910,7 @@ aside[class^="theme-doc-sidebar-container"] {
     border-left-width: 0;
   }
 
-  a[href].menu__link.menu__link--active {
+  a[href].menu__link.menu__link--active:not(.menu__link--sublist) {
     background: var(--ifm-code-background);
     padding-left: 8px !important;
     border-left-width: 4px;
@@ -1029,6 +1045,19 @@ button[class*="tocCollapsibleButton"] {
 .navbar-sidebar__back {
   color: var(--ifm-color-content-secondary);
   background: var(--ifm-footer-background-color);
+}
+
+.card {
+  padding: 1.5rem !important;
+  border: 1px solid var(--ifm-color-emphasis-300) !important;
+  box-shadow: none !important;
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out !important;
+  background-color: var(--ifm-background-color);
+
+  &:hover {
+    border-color: var(--ifm-color-emphasis-400) !important;
+    background-color: var(--ifm-menu-color-background-hover);
+  }
 }
 
 /* Doc Item footer metadata */
