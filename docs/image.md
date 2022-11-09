@@ -237,6 +237,16 @@ The text that's read by the screen reader when the user interacts with the image
 
 ---
 
+### `alt`
+
+A string that defines an alternative text description of the image, which will be read by the screen reader when the user interacts with it. Using this will automatically mark this element as accessible.
+
+| Type   |
+| ------ |
+| string |
+
+---
+
 ### `blurRadius`
 
 blurRadius: the blur radius of the blur filter added to the image.
