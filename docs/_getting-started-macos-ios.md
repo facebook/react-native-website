@@ -38,7 +38,7 @@ To check what is your current version of Ruby, you can run this command:
 ruby --version
 ```
 
-React Native uses [this version](https://github.com/facebook/react-native/blob/main/template/_ruby-version) of Ruby. You can also find which version your specific project needs in the `.ruby-version` file at root of your RN project.
+React Native uses [this version](https://github.com/facebook/react-native/blob/latest/template/_ruby-version) of Ruby. You can also find which version your specific project needs in the `.ruby-version` file at root of your RN project.
 
 ### Ruby's Bundler
 
