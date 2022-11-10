@@ -3,6 +3,12 @@ id: release-faq
 title: Release FAQ
 ---
 
+### Which versions are currently supported?
+
+We are supporting the latest version, and the two previous minor series. We also work on the next version being developed, which will become the new stable after its 0.Y.0 release.
+
+You can learn more about the [release support policy](https://github.com/reactwg/react-native-releases#releases-support-policy) in the releases repository.
+
 ### What is a qualified pick request?
 
 Judgement call, but using these dimensions to evaluate:
@@ -16,11 +22,6 @@ Judgement call, but using these dimensions to evaluate:
 
 - Is it a new issue on the release candidate?
 - Is it breaking a core experience of working in React Native?
-
-### What versions does the release community commit to supporting?
-
-We commit to handling issues on the current release and release candidate.
-Any versions prior to this, we cannot commit to supporting.
 
 ### When will my fix make it into a release?
 
