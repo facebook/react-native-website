@@ -148,11 +148,11 @@ render(){
 <TabItem value="functional">
 
 ```jsx
-const renderItem = ({ item }) => (
+const renderItem = useCallback(({ item }) => (
    <View key={item.key}>
       <Text>{item.title}</Text>
    </View>
- );
+ ), []);
 
 return (
   // ...
