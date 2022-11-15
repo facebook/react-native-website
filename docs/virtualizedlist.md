@@ -123,6 +123,20 @@ Determines how many items are in the data blob.
 
 ---
 
+### **`getCellsInItemCount`**
+
+```jsx
+(data: any) => number;
+```
+
+Determines how many cells are in the data blob
+
+| Type     |
+| -------- |
+| function |
+
+---
+
 ### <div class="label required basic">Required</div> **`renderItem`**
 
 ```jsx
@@ -644,3 +658,26 @@ recordInteraction();
 ```jsx
 setNativeProps((props: Object));
 ```
+
+## Type Definitions
+
+### AccessibilityCollectionItem
+
+Used by TalkBack to announce the position of the item of a collection (row and column numbers).
+Information if a node is a collection item. A collection item is contained in a collection, it starts at a given row and column in the collection, and spans one or
+more rows and columns. For example, a header of two related table columns starts at the first row and the first column, spans one row and two columns.
+
+| Type   |
+| ------ |
+| object |
+
+| <div className="wideColumn">Name</div> | Type   | Description                                                  |
+| -------------------------------------- | ------ | ------------------------------------------------------------ |
+| itemIndex                              | string | The index of the item in the collection (index of prop.data) |
+| rowIndex                               | string | The row index at which the item is located                   |
+| rowSpan                                | string | The number of rows the item spans                            |
+| columnIndex                            | string | The column index at which the item is located                |
+| columnIndex                            | string | The column index at which the item is located                |
+| columnIndex                            | string | The column index at which the item is located                |
+| columnSpan                             | string | The number of columns the item spans                         |
+| heading                                | string | Whether the item is a heading                                |
