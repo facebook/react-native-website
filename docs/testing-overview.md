@@ -73,7 +73,7 @@ If your test has many steps or many expectations, you probably want to split it 
 
 Lastly, as developers we like when our code works great and doesn't crash. With tests, this is often the opposite. Think of a failed test as of a _good thing!_ When a test fails, it often means something is not right. This gives you an opportunity to fix the problem before it impacts the users.
 
-## Unit tests
+## Unit Tests
 
 Unit tests cover the smallest parts of code, like individual functions or classes.
 

@@ -7,23 +7,23 @@ import NewArchitectureWarning from '../\_markdown-new-architecture-warning.mdx';
 
 <NewArchitectureWarning/>
 
-Starting from version 0.68, React Native provides the New Architecture, which offers developers new capabilities for building highly performant and responsive apps. Visit [Why a New Architecture](why) to learn more about what drove the decision to re-architect, and the benefits it provides.
+Starting from version 0.68, React Native provides the New Architecture, which offers developers new capabilities for building highly performant and responsive apps. Visit [Why a New Architecture](why) to learn more about what drove the decision to re-architect and the benefits it provides.
 
-In order to achieve these benefits, we had to rethink how Native Modules and Native Components work. This led us to develop the [Pillars of the New Architecture](pillars):
+To achieve these benefits, we had to rethink how Native Modules and Native Components work. This led us to develop the [Pillars of the New Architecture](pillars):
 
-- [TurboModules](pillars-turbomodules), a framework to support efficient and flexible integration with native code
-- [Fabric renderer and components](pillars-fabric-components), which offer improved capabilities, cross-platform consistency, and performance in rendering
-- [Codegen](pillars-codegen), which generates boilerplate C++ required by the New Architecture, via static typing in JavaScript
+- [The New Native Module System - Turbo Modules](pillars-turbomodules), a framework to support efficient and flexible integration with native code
+- [The New Native Renderer - Fabric](pillars-fabric-components), which offer improved capabilities, cross-platform consistency, and performance in rendering
+- [The Codegen](pillars-codegen), which generates boilerplate C++ required by the New Architecture via static typing in JavaScript
 
-## Get started with the New Architecture
+## Get Started with the New Architecture
 
-### For app developers
+### For App Developers
 
 To **create a new app** using the New Architecture, head over to [Creating a New Architecture App](use-app-template), which will get you up and running in a few quick steps with the new app template.
 
 To **migrate an existing app** to the New Architecture, follow [Adopting the New Architecture](../new-architecture-intro).
 
-### For library maintainers
+### For Library Maintainers
 
 First, read up on the core concepts outlined in the [Pillars](pillars) section.
 

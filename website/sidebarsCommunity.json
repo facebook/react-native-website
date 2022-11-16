@@ -1,0 +1,11 @@
+{
+  "community": [
+    {
+      "type": "category",
+      "label": "Community",
+      "collapsed": false,
+      "collapsible": false,
+      "items": ["overview", "staying-updated", "communities", "support"]
+    }
+  ]
+}

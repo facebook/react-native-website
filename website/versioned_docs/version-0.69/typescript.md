@@ -30,22 +30,20 @@ Optionally, you can also use the command given below to get started with your te
 
 :::
 
-You can use [Expo][expo] which has two TypeScript templates:
+You can use [Expo][expo], which maintains TypeScript templates, or will prompt you to automatically install and configure TypeScript when a `.ts` or `.tsx` file is added to your project:
 
 <Tabs groupId="package-manager" defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
 <TabItem value="npm">
 
 ```shell
-npm install -g expo-cli
-expo init MyTSProject
+npx create-expo-app --template
 ```
 
 </TabItem>
 <TabItem value="yarn">
 
 ```shell
-yarn global add expo-cli
-expo init MyTSProject
+yarn create expo-app --template
 ```
 
 </TabItem>
@@ -80,14 +78,14 @@ ignite new MyTSProject
 <TabItem value="npm">
 
 ```shell
-npm install -D typescript @types/jest @types/react @types/react-native @types/react-test-renderer
+npm install -D typescript @types/jest @types/react @types/react-native @types/react-test-renderer @tsconfig/react-native
 ```
 
 </TabItem>
 <TabItem value="yarn">
 
 ```shell
-yarn add -D typescript @types/jest @types/react @types/react-native @types/react-test-renderer
+yarn add -D typescript @types/jest @types/react @types/react-native @types/react-test-renderer @tsconfig/react-native
 ```
 
 </TabItem>
@@ -97,24 +95,7 @@ yarn add -D typescript @types/jest @types/react @types/react-native @types/react
 
 ```json
 {
-  "compilerOptions": {
-    "allowJs": true,
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "isolatedModules": true,
-    "jsx": "react-native",
-    "lib": ["es2017"],
-    "moduleResolution": "node",
-    "noEmit": true,
-    "strict": true,
-    "target": "esnext"
-  },
-  "exclude": [
-    "node_modules",
-    "babel.config.js",
-    "metro.config.js",
-    "jest.config.js"
-  ]
+  "extends": "@tsconfig/react-native/tsconfig.json"
 }
 ```
 

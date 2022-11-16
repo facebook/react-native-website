@@ -1,5 +1,3 @@
-import M1Cocoapods from './\_markdown-m1-cocoapods.mdx';
-
 ## Installing dependencies
 
 You will need Node, Watchman, the React Native command line interface, Xcode and CocoaPods.
@@ -46,8 +44,6 @@ sudo gem install cocoapods
 ```
 
 For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-<M1Cocoapods />
 
 ### React Native Command Line Interface
 

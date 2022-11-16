@@ -127,6 +127,16 @@ export default ViewStyleProps;
 
 ---
 
+### `borderCurve` <div class="label ios">iOS</div>
+
+On iOS 13+, it is possible to change the corner curve of borders.
+
+| Type                               |
+| ---------------------------------- |
+| enum(`'circular'`, `'continuous'`) |
+
+---
+
 ### `borderEndColor`
 
 | Type               |
@@ -264,3 +274,16 @@ Sets the elevation of a view, using Android's underlying [elevation API](https:/
 | Type   |
 | ------ |
 | number |
+
+### `pointerEvents`
+
+Controls whether the `View` can be the target of touch events.
+
+- `'auto'`: The View can be the target of touch events.
+- `'none'`: The View is never the target of touch events.
+- `'box-none'`: The View is never the target of touch events but its subviews can be.
+- `'box-only'`: The view can be the target of touch events but its subviews cannot be.
+
+| Type                                          |
+| --------------------------------------------- |
+| enum('auto', 'box-none', 'box-only', 'none' ) |

@@ -1,5 +1,5 @@
 /**
- * Copyright (c) Facebook, Inc. and its affiliates.
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
@@ -60,21 +60,18 @@ const Versions = () => {
     <Layout title="Versions" wrapperClassName="versions-page">
       <h1>React Native versions</h1>
       <p>
-        Open source React Native releases follow a monthly release train that is
+        Open source React Native releases follow a release train that is
         coordinated on GitHub through the{' '}
         <a
-          href={
-            'https://github.com/react-native-community/react-native-releases'
-          }>
+          href={'https://github.com/reactwg/react-native-releases/discussions'}>
           <code>react-native-releases</code>
         </a>{' '}
-        repository. At the beginning of each month, a new release candidate is
-        created off the <code>main</code> branch of{' '}
+        repository. New releases are created off the <code>main</code> branch of{' '}
         <a href={'https://github.com/facebook/react-native'}>
           <code>facebook/react-native</code>
         </a>
-        . The release candidate will soak for a month to allow contributors like
-        yourself to{' '}
+        . They will follow a Release Candidate process to allow contributors
+        like yourself to{' '}
         <a href={useBaseUrl('docs/upgrading')}>verify the changes</a> and to
         identify any issues by{' '}
         <a href="https://github.com/facebook/react-native/issues">

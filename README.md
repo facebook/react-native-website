@@ -36,7 +36,7 @@ If you are looking for the source code of the [React Native Archive website](htt
 ## 📖 Overview
 
 If you would like to **_contribute an edit or addition to the docs,_** read through our [style guide](STYLEGUIDE.md) before you write anything.
-Almost all our content is generated from markdown files you can find in the `docs`, `website/architecure` and `website/contibuting` directories.
+Almost all our content is generated from markdown files you can find in the `docs`, `website/architecture` and `website/contributing` directories.
 
 **_To edit the internals of how the site is built,_** you may want to get familiarized with how the site is built. The React Native website is a static site generated using [Docusaurus](https://docusaurus.io/).
 The website configuration can be found in the `website` directory. Visit the Docusaurus website to learn more about all the available configuration options.
@@ -100,7 +100,7 @@ As mentioned above, the `docs` folder contains the source files for docs from "G
 The doc files for the "Architecture" and "Contribution" tabs are located inside `website` in the respective directories (unversioned/static docs).
 In most cases, you will only want to edit the files within those directories.
 
-If you're adding a new doc or you need to alter the order the docs appear in the sidebar, take a look at the `sidebars.json`, `sidebarsArchitecture.json` and `sidebarsContributing.json` files in the `website` directory. The sidebar files contains a list of document ids that should match those defined in the header metadata (aka frontmatter) of the docs markdown files.
+If you're adding a new doc or you need to alter the order the docs appear in the sidebar, take a look at the `sidebars.json`, `sidebarsArchitecture.json` and `sidebarsContributing.json` files in the `website` directory. The sidebar files contain a list of document ids that should match those defined in the header metadata (aka frontmatter) of the docs markdown files.
 
 ### Versioned docs
 
@@ -108,7 +108,7 @@ Part of the React Native website is versioned to allow users to go back and see 
 
 > **_Note:_** Do not edit the auto-generated files within `versioned_docs` or `versioned_sidebars` unless you are sure it is necessary. Edits made to older versions will not be propagated to newer versions of the versioned docs.
 
-Docusaurus keeps track of the list of versions for the site in the `website/versions.json` file. The ordering of the versions in this file should be in reverse chronological order.
+Docusaurus keeps track of the list of versions for the site in the `website/versions.json` file. The ordering of versions in this file should be in reverse chronological order.
 
 #### Cutting a new version
 

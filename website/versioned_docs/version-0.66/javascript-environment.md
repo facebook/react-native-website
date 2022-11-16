@@ -7,12 +7,13 @@ import TableRow from '@site/core/TableRowWithCodeBlock';
 
 ## JavaScript Runtime
 
-When using React Native, you're going to be running your JavaScript code in two environments:
+When using React Native, you're going to be running your JavaScript code in up to three environments:
 
 - In most cases, React Native will use [JavaScriptCore](http://trac.webkit.org/wiki/JavaScriptCore), the JavaScript engine that powers Safari. Note that on iOS, JavaScriptCore does not use JIT due to the absence of writable executable memory in iOS apps.
+- If enabled, React Native will use [Hermes](hermes), an open-source JavaScript engine optimized for React Native.
 - When using Chrome debugging, all JavaScript code runs within Chrome itself, communicating with native code via WebSockets. Chrome uses [V8](https://v8.dev/) as its JavaScript engine.
 
-While both environments are very similar, you may end up hitting some inconsistencies. We're likely going to experiment with other JavaScript engines in the future, so it's best to avoid relying on specifics of any runtime.
+While these environments are very similar, you may end up hitting some inconsistencies. It is best to avoid relying on specifics of any runtime.
 
 ## JavaScript Syntax Transformers
 
@@ -65,7 +66,7 @@ A full list of React Native's enabled transformations can be found in [metro-rea
   <tr><td className="table-heading" colSpan="2">ECMAScript 2022 (ES13)</td></tr>
   <TableRow name="Class Fields" code="class Bork { static a = 'foo'; static b; x = 'bar'; y; }" url="https://babeljs.io/docs/en/babel-plugin-proposal-class-properties" />
   <tr><td className="table-heading" colSpan="2">Stage 1 Proposal</td></tr>
-  <TableRow name="Export Default From" code="export v from 'mod';" url="https://babeljs.io/docs/en/babel-plugin-proposal-export-default-from" />  
+  <TableRow name="Export Default From" code="export v from 'mod';" url="https://babeljs.io/docs/en/babel-plugin-proposal-export-default-from" />
   <tr><td className="table-heading" colSpan="2">Miscellaneous</td></tr>
   <TableRow name="Babel Template" code="template(`const %%importName%% = require(%%source%%);`);" url="https://babeljs.io/docs/en/babel-template" />
   <TableRow name="Flow" code="function foo(x: ?number): string {};" url="https://flowtype.org/" />

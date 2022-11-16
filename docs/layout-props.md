@@ -60,8 +60,8 @@ const App = () => {
       <View style={[styles.container, styles.playingSpace, hookedStyles]}>
         {squares.map(elem => elem)}
       </View>
-      <ScrollView style={[styles.container]}>
-        <View style={[styles.controlSpace]}>
+      <ScrollView style={styles.container}>
+        <View style={styles.controlSpace}>
           <View style={styles.buttonView}>
             <Button
               title="Change Flex Direction"
@@ -211,9 +211,9 @@ Aspect ratio controls the size of the undefined dimension of a node. See https:/
 - On a node with flex grow/shrink, aspect ratio controls the size of the node in the cross axis if unset
 - Aspect ratio takes min/max dimensions into account
 
-| Type   | Required |
-| ------ | -------- |
-| number | No       |
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
 
 ---
 
@@ -298,6 +298,16 @@ See https://developer.mozilla.org/en-US/docs/Web/CSS/bottom for more details of 
 | Type           | Required |
 | -------------- | -------- |
 | number, string | No       |
+
+---
+
+### `columnGap`
+
+`columnGap` works like `column-gap` in CSS. Only pixel units are supported in React Native. See https://developer.mozilla.org/en-US/docs/Web/CSS/column-gap for more details.
+
+| Type   | Required |
+| ------ | -------- |
+| number | No       |
 
 ---
 
@@ -404,6 +414,16 @@ When `flex` is -1, the component is normally sized according to `width` and `hei
 | Type                                   | Required |
 | -------------------------------------- | -------- |
 | enum('wrap', 'nowrap', 'wrap-reverse') | No       |
+
+---
+
+### `gap`
+
+`gap` works like `gap` in CSS. Only pixel units are supported in React Native. See https://developer.mozilla.org/en-US/docs/Web/CSS/gap for more details.
+
+| Type   | Required |
+| ------ | -------- |
+| number | No       |
 
 ---
 
@@ -716,6 +736,16 @@ See https://developer.mozilla.org/en-US/docs/Web/CSS/right for more details of h
 | Type           | Required |
 | -------------- | -------- |
 | number, string | No       |
+
+---
+
+### `rowGap`
+
+`rowGap` works like `row-gap` in CSS. Only pixel units are supported in React Native. See https://developer.mozilla.org/en-US/docs/Web/CSS/row-gap for more details.
+
+| Type   | Required |
+| ------ | -------- |
+| number | No       |
 
 ---
 

@@ -123,4 +123,4 @@ After creating it, make sure to link it in the relevant GitHub Release you creat
 Once all the steps above have been completed, it's time to signal to the community that RC0 is available for testing! Do so in the following channels:
 
 - [@reactnative](https://twitter.com/reactnative) on twitter
-- RN Discord `#releases-coordination` and to the testers in `#testers-feedback`
+- RN Discord `#releases-coordination`

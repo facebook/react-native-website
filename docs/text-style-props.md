@@ -387,9 +387,9 @@ export default App;
 
 Specifies font weight. The values `'normal'` and `'bold'` are supported for most fonts. Not all fonts have a variant for each of the numeric values, in that case the closest one is chosen.
 
-| Type                                                                                                        | Default    |
-| ----------------------------------------------------------------------------------------------------------- | ---------- |
-| enum(`'normal'`, `'bold'`, `'100'`, `'200'`, `'300'`, `'400'`, `'500'`, `'600'`, `'700'`, `'800'`, `'900'`) | `'normal'` |
+| Type                                                                                                                  | Default    |
+| --------------------------------------------------------------------------------------------------------------------- | ---------- |
+| enum(`'normal'`, `'bold'`, `'100'`, `'200'`, `'300'`, `'400'`, `'500'`, `'600'`, `'700'`, `'800'`, `'900'`) or number | `'normal'` |
 
 ---
 
@@ -405,9 +405,11 @@ Set to `false` to remove extra font padding intended to make space for certain a
 
 ### `fontVariant`
 
-| Type                                                                                                       | Default |
-| ---------------------------------------------------------------------------------------------------------- | ------- |
-| array of enum(`'small-caps'`, `'oldstyle-nums'`, `'lining-nums'`, `'tabular-nums'`, `'proportional-nums'`) | `[]`    |
+Allows you to set all the font variants for a font. Can be set by using an array of enums or a space-separated string e.g. `'small-caps common-ligatures'`.
+
+| Type                                                                                                                 | Default |
+| -------------------------------------------------------------------------------------------------------------------- | ------- |
+| array of enum(`'small-caps'`, `'oldstyle-nums'`, `'lining-nums'`, `'tabular-nums'`, `'proportional-nums'`) or string | `[]`    |
 
 ---
 
@@ -500,6 +502,14 @@ Specifies text alignment. On Android, the value 'justify' is only supported on O
 | Type                                                         | Default  |
 | ------------------------------------------------------------ | -------- |
 | enum(`'none'`, `'uppercase'`, `'lowercase'`, `'capitalize'`) | `'none'` |
+
+---
+
+### `verticalAlign` <div class="label android">Android</div>
+
+| Type                                            | Default  |
+| ----------------------------------------------- | -------- |
+| enum(`'auto'`, `'top'`, `'bottom'`, `'middle'`) | `'auto'` |
 
 ---
 

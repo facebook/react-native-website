@@ -6,7 +6,7 @@ title: Speeding up your Build phase
 Building your React Native app could be **expensive** and take several minutes of developers time.
 This can be problematic as your project grows and generally in bigger organizations with multiple React Native developers.
 
-With [the New React Native Architecture](/docs/next/new-architecture-app-modules-android), this problem is becoming more critical
+With [the New React Native Architecture](/docs/new-architecture-app-modules-android), this problem is becoming more critical
 as you might have to compile some native C++ code in your project with the Android NDK in addition to the native code already necessary for the iOS and Android platforms.
 
 To mitigate this performance hit, this page shares some suggestions on how to **improve your build time**.
@@ -76,16 +76,16 @@ if an intermediate compilation result was originally stored.
 
 To install it, you can follow the [official installation instructions](https://github.com/ccache/ccache/blob/master/doc/INSTALL.md).
 
-On Mac OS, we can install ccache with `brew install ccache`.
+On macOS, we can install ccache with `brew install ccache`.
 Once installed you can configure it as follows to cache NDK compile results:
 
 ```
-ln -s ccache /usr/local/bin/gcc
-ln -s ccache /usr/local/bin/g++
-ln -s ccache /usr/local/bin/cc
-ln -s ccache /usr/local/bin/c++
-ln -s ccache /usr/local/bin/clang
-ln -s ccache /usr/local/bin/clang++
+ln -s $(which ccache) /usr/local/bin/gcc
+ln -s $(which ccache) /usr/local/bin/g++
+ln -s $(which ccache) /usr/local/bin/cc
+ln -s $(which ccache) /usr/local/bin/c++
+ln -s $(which ccache) /usr/local/bin/clang
+ln -s $(which ccache) /usr/local/bin/clang++
 ```
 
 This will create symbolic links to `ccache` inside the `/usr/local/bin/` which are called `gcc`, `g++`, and so on.

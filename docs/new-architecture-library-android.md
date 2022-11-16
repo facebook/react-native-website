@@ -7,11 +7,11 @@ import NewArchitectureWarning from './\_markdown-new-architecture-warning.mdx'; 
 
 <NewArchitectureWarning/>
 
-Once you have defined the JavaScript specs for your native modules as part of the [prerequisites](new-architecture-library-intro), setup the configuration of the Codegen, and followed the Android/Gradle setup, you are now ready to migrate your library to the new architecture. Here are the steps you can follow to accomplish this.
+Once you have defined the JavaScript specs for your native modules as part of the [prerequisites](new-architecture-library-intro), set up the configuration of the Codegen, and follow the Android/Gradle setup, you are now ready to migrate your library to the new architecture. Here are the steps you can follow to accomplish this.
 
-## 1. Extend or implement the code-generated native interfaces
+## 1. Extend or Implement the Code-generated Native Interfaces
 
-The JavaScript spec for your native module or component will be used to generate native interface code for each supported platform (i.e. Android and iOS). These native interface files will be generated **when a React Native application that depends on your library is built**.
+The JavaScript spec for your native module or component will be used to generate native interface code for each supported platform (i.e., Android and iOS). These native interface files will be generated **when a React Native application that depends on your library is built**.
 
 While this generated native interface code **will not ship as part of your library**, you do need to make sure your Java/Kotlin code conforms to the protocols provided by these native interface files.
 
@@ -23,7 +23,7 @@ You can invoke the `generateCodegenArtifactsFromSchema` Gradle task to generate 
 
 The files that are output can be found inside `build/generated/source/codegen` and **should not be committed**, but you’ll need to refer to them to determine what changes you need to make to your native modules in order for them to provide an implementation for each generated interface.
 
-The output of the codegen for a module called `NativeAwesomeManager` will look like this:
+The output of the Codegen for a module called `NativeAwesomeManager` will look like this:
 
 ```
 app/build/generated/source/codegen
@@ -34,6 +34,7 @@ app/build/generated/source/codegen
 │               └── NativeAwesomeManagerSpec.java
 ├── jni
 │   ├── Android.mk
+│   ├── CMakeLists.txt
 │   ├── react
 │   │   └── renderer
 │   │       └── components
@@ -50,9 +51,9 @@ app/build/generated/source/codegen
 └── schema.json
 ```
 
-### Extends the abstract class provided by the codegen
+### Extends the Abstract Class Provided by the Codegen
 
-Update your native module or component to ensure it **extends the abstract class** that has been code-generated from your JavaScript specs (i.e. the `NativeAwesomeManagerSpec.java` file from the previous example).
+Update your native module or component to ensure it **extends the abstract class** that has been code-generated from your JavaScript specs (i.e., the `NativeAwesomeManagerSpec.java` file from the previous example).
 
 Following the example set forth in the previous section, your library might import `NativeAwesomeManagerSpec`, implement the relevant native interface and the necessary methods for it:
 
@@ -114,4 +115,4 @@ class NativeAwesomeManager(reactContext: ReactApplicationContext) :
 </TabItem>
 </Tabs>
 
-Please note that the **generated abstract class** that you’re now extending (`MyAwesomeSpec` in this example), is itself extending `ReactContextBaseJavaModule`. Therefore you should not use access to any of the method/fields you were previously using (e.g. the `ReactApplicationContext` and so on). Moreover the generated class will now also implement the `TurboModule` interface for you.
+Please note that the **generated abstract class** that you’re now extending (`MyAwesomeSpec` in this example) is itself extending `ReactContextBaseJavaModule`. Therefore you should not use access to any of the method/fields you were previously using (e.g., the `ReactApplicationContext` and so on). Moreover, the generated class will now also implement the `TurboModule` interface for you.

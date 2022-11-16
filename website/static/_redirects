@@ -15,6 +15,12 @@
 # Changed blog post dates
 /blog/2021/03/11/version-0.64   /blog/2021/03/12/version-0.64
 
+# Removed pages
+/docs/new-architecture-app-modules-android   /docs/new-architecture-intro
+/docs/new-architecture-app-renderer-android  /docs/new-architecture-intro
+/docs/new-architecture-app-modules-ios       /docs/new-architecture-intro
+/docs/new-architecture-app-renderer-ios      /docs/new-architecture-intro
+
 # Architecture pages move to unversioned docs
 /docs/architecture-overview             /architecture/overview
 /docs/fabric-renderer                   /architecture/fabric-renderer
@@ -39,3 +45,6 @@
 /docs/0.66/view-flattening                   /architecture/view-flattening
 /docs/0.66/threading-model                   /architecture/threading-model
 /docs/0.66/architecture-glossary             /architecture/glossary
+
+# Rework of the community
+/help         /community/overview

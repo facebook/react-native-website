@@ -1,6 +1,6 @@
 ---
 id: backward-compatibility-fabric-components
-title: Fabric Components as Native Components
+title: Fabric Components as Legacy Native Components
 ---
 
 import Tabs from '@theme/Tabs';
@@ -12,28 +12,39 @@ import NewArchitectureWarning from '../\_markdown-new-architecture-warning.mdx';
 <NewArchitectureWarning/>
 
 :::info
-The creation of a backward compatible Fabric Component requires the knowledge of how to create a Fabric Component. To recall these concepts, have a look at this [guide](pillars-fabric-components).
+Creating a backward compatible Fabric Native Component requires the knowledge of how to create a Legacy Native Component. To recall these concepts, have a look at this [guide](pillars-fabric-components).
 
-Fabric Components only work when the New Architecture is properly setup. If you already have a library that you want to migrate to the New Architecture, have a look at the [migration guide](../new-architecture-intro) as well.
+Fabric Native Components only work when the New Architecture is properly set up. If you already have a library that you want to migrate to the New Architecture, have a look at the [migration guide](../new-architecture-intro) as well.
 :::
 
-Creating a backward compatible Fabric Component lets your users continue leverage your library, independently from the architecture they use. The creation of such a component requires a few steps:
+Creating a backward compatible Fabric Native Component lets your users continue to leverage your library independently from the architecture they use. The creation of such a component requires a few steps:
 
-1. Configure the library so that dependencies are prepared set up properly for both the Old and the New Architecture.
+1. Configure the library so that dependencies are prepared to set up properly for both the Old and the New Architecture.
 1. Update the codebase so that the New Architecture types are not compiled when not available.
 1. Uniform the JavaScript API so that your user code won't need changes.
+
+:::info
+
+For the sake of this guide we're going to use the following **terminology**:
+
+- **Legacy Native Components** - To refer to Components which are running on the old React Native architecture.
+- **Fabric Native Components** - To refer to Components which have been adapted to work well with the New Native Renderer, Fabric. For brevity you might find them referred as **Fabric Components**.
+
+:::
 
 <BetaTS />
 
 While the last step is the same for all the platforms, the first two steps are different for iOS and Android.
 
-## Configure the Fabric Component Dependencies
+## Configure the Fabric Native Component Dependencies
 
 ### <a name="dependencies-ios" />iOS
 
-The Apple platform installs Fabric Components using [Cocoapods](https://cocoapods.org) as dependency manager.
+The Apple platform installs Fabric Native Components using [Cocoapods](https://cocoapods.org) as a dependency manager.
 
-Every Fabric Component defines a `podspec` that looks like this:
+If you are already using the [`install_module_dependencies`](https://github.com/facebook/react-native/blob/82e9c6ad611f1fb816de056ff031716f8cb24b4e/scripts/react_native_pods.rb#L145) function, then **there is nothing to do**. The function already takes care of installing the proper dependencies when the New Architecture is enabled and avoiding them when it is not enabled.
+
+Otherwise, your Fabric Native Component's `podspec` should look like this:
 
 ```ruby
 require "json"
@@ -76,41 +87,59 @@ Pod::Spec.new do |s|
 end
 ```
 
-The **goal** is to avoid installing the dependencies when the app is prepared for the Old Architecture.
-
-When we want to install the dependencies, we use the following commands depending on the architecture:
-
-```sh
-# For the Old Architecture, we use:
-pod install
-
-# For the New Architecture, we use:
-RCT_NEW_ARCH_ENABLED=1 pod install
-```
-
-Therefore, we can leverage this environment variable in the `podspec` to exclude the settings and the dependencies that are related to the New Architecture:
+You should install the extra dependencies when the New Architecture is enabled, and avoid installing them when it's not.
+To achieve this, you can use the [`install_modules_dependencies`](https://github.com/facebook/react-native/blob/82e9c6ad611f1fb816de056ff031716f8cb24b4e/scripts/react_native_pods.rb#L145). Update the `.podspec` file as it follows:
 
 ```diff
-+ if ENV['RCT_NEW_ARCH_ENABLED'] == '1' then
-    # The following lines are required by the New Architecture.
-    s.compiler_flags = folly_compiler_flags + " -DRCT_NEW_ARCH_ENABLED=1"
-    # ... other dependencies ...
-    s.dependency "ReactCommon/turbomodule/core"
-+ end
+require "json"
+
+package = JSON.parse(File.read(File.join(__dir__, "package.json")))
+
+- folly_version = '2021.07.22.00'
+- folly_compiler_flags = '-DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1 -Wno-comma -Wno-shorten-64-to-32'
+
+Pod::Spec.new do |s|
+  # Default fields for a valid podspec
+  s.name            = "<FC Name>"
+  s.version         = package["version"]
+  s.summary         = package["description"]
+  s.description     = package["description"]
+  s.homepage        = package["homepage"]
+  s.license         = package["license"]
+  s.platforms       = { :ios => "11.0" }
+  s.author          = package["author"]
+  s.source          = { :git => package["repository"], :tag => "#{s.version}" }
+
+  s.source_files    = "ios/**/*.{h,m,mm,swift}"
+  # React Native Core dependency
++  install_modules_dependencies(s)
+-  s.dependency "React-Core"
+-  # The following lines are required by the New Architecture.
+-  s.compiler_flags = folly_compiler_flags + " -DRCT_NEW_ARCH_ENABLED=1"
+-  s.pod_target_xcconfig    = {
+-      "HEADER_SEARCH_PATHS" => "\"$(PODS_ROOT)/boost\"",
+-      "OTHER_CPLUSPLUSFLAGS" => "-DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1",
+-      "CLANG_CXX_LANGUAGE_STANDARD" => "c++17"
+-  }
+-
+-  s.dependency "React-RCTFabric"
+-  s.dependency "React-Codegen"
+-  s.dependency "RCT-Folly", folly_version
+-  s.dependency "RCTRequired"
+-  s.dependency "RCTTypeSafety"
+-  s.dependency "ReactCommon/turbomodule/core"
 end
 ```
 
-This `if` guard prevents the dependencies from being installed when the environment variable is not set.
-
 ### Android
 
-To create a module that can work with both architectures, you need to configure Gradle to choose which files need to be compiled depending on the chosen architecture. This can be achieved by using **different source sets** in the Gradle configuration.
+To create a Native Component that can work with both architectures, you need to configure Gradle to choose which files need to be compiled depending on the chosen architecture. This can be achieved by using **different source sets** in the Gradle configuration.
 
 :::note
-Please note that this is currently the suggested approach. While it might lead to some code duplication, it will ensure the maximum compatibility with both architectures. You will see how to reduce the duplication in the next section.
+Please note that this is currently the suggested approach. While it might lead to some code duplication, it will ensure maximum compatibility with both architectures. You will see how to reduce the duplication in the next section.
 :::
 
-To configure the Fabric Component so that it picks the proper sourceset, you have to update the `build.gradle` file in the following way:
+To configure the Fabric Native Component so that it picks the proper sourceset, you have to update the `build.gradle` file in the following way:
 
 ```diff title="build.gradle"
 +// Add this function in case you don't have it already
@@ -136,11 +165,11 @@ defaultConfig {
 }
 ```
 
-This changes do three main things:
+These changes do three main things:
 
 1. The first lines define a function that returns whether the New Architecture is enabled or not.
 2. The `buildConfigField` line defines a build configuration boolean field called `IS_NEW_ARCHITECTURE_ENABLED`, and initialize it using the function declared in the first step. This allows you to check at runtime if a user has specified the `newArchEnabled` property or not.
-3. The last lines leverage the function declared in step one to decide which source sets we need to build, depending on the choosen architecture.
+3. The last lines leverage the function declared in step one to decide which source sets we need to build, depending on the chosen architecture.
 
 ## Update the codebase
 
@@ -148,7 +177,7 @@ This changes do three main things:
 
 The second step is to instruct Xcode to avoid compiling all the lines using the New Architecture types and files when we are building an app with the Old Architecture.
 
-A Fabric Component requires an header file and an implementation file to add the actual `View` to the module.
+A Fabric Native Component requires an header file and an implementation file to add the actual `View` to the module.
 
 For example, the `RNMyComponentView.h` header file could look like this:
 
@@ -236,15 +265,15 @@ As we can't use conditional compilation blocks on Android, we will define two di
 
 Therefore, you have to:
 
-1. Create a Native Component in the `src/oldarch` path. See [this guide](../native-components-android) to learn how to create a Native Component.
-2. Create a Fabric Component in the `src/newarch` path. See [this guide](pillars-fabric-components) to learn how to create a Fabric Component.
+1. Create a Legacy Native Component in the `src/oldarch` path. See [this guide](../native-components-android) to learn how to create a Legacy Native Component.
+2. Create a Fabric Native Component in the `src/newarch` path. See [this guide](pillars-fabric-components) to learn how to create a Fabric Native Component.
 
 and then instruct Gradle to decide which implementation to pick.
 
-Some files can be shared between a Native and a Fabric Component: these should be created or moved into a folder that is loaded by both the architectures. These files are:
+Some files can be shared between a Legacy and a Fabric Component: these should be created or moved into a folder that is loaded by both the architectures. These files are:
 
 - the `<MyComponentView>.java` that instantiate and configure the Android View for both the components.
-- the `<MyComponentView>ManagerImpl.java` file where which contains the logic of the ViewManager that can be shared between the Native and the Fabric Component.
+- the `<MyComponentView>ManagerImpl.java` file where which contains the logic of the ViewManager that can be shared between the Legacy and the Fabric Component.
 - the `<MyComponentView>Package.java` file used to load the component.
 
 The final folder structure looks like this:
@@ -258,7 +287,7 @@ my-component
 │       │   ├── AndroidManifest.xml
 │       │   └── java
 │       │       └── com
-│       │           └── MyComponent
+│       │           └── mycomponent
 │       │               ├── MyComponentView.java
 │       │               ├── MyComponentViewManagerImpl.java
 │       │               └── MyComponentViewPackage.java
@@ -275,10 +304,14 @@ my-component
 └── package.json
 ```
 
-The code that should go in the `MyComponentViewManagerImpl.java` and that can be shared between the Native Component and the Fabric Component is, for example:
+The code that should go in the `MyComponentViewManagerImpl.java` and that can be shared between the Native Component and the Fabric Native Component is, for example:
+
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="java">
 
 ```java title="example of MyComponentViewManager.java"
-package com.MyComponent;
+package com.mycomponent;
+
 import androidx.annotation.Nullable;
 import com.facebook.react.uimanager.ThemedReactContext;
 
@@ -296,9 +329,33 @@ public class MyComponentViewManagerImpl {
 }
 ```
 
-Then, the Native Component and the Fabric Component can be updated using the function declared in the shared manager.
+</TabItem>
+<TabItem value="kotlin">
+
+```kotlin title="example of MyComponentViewManager.kt"
+package com.mycomponent
+
+import com.facebook.react.uimanager.ThemedReactContext
+
+object MyComponentViewManagerImpl {
+  const val NAME = "MyComponent"
+  fun createViewInstance(context: ThemedReactContext?) = MyComponentView(context)
+
+  fun setFoo(view: MyComponentView, param: String) {
+    // implement the logic of the foo function using the view and the param passed.
+  }
+}
+```
+
+</TabItem>
+</Tabs>
+
+Then, the Native Component and the Fabric Native Component can be updated using the function declared in the shared manager.
 
 For example, for a Native Component:
+
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="java">
 
 ```java title="Native Component using the ViewManagerImpl"
 public class MyComponentViewManager extends SimpleViewManager<MyComponentView> {
@@ -330,7 +387,33 @@ public class MyComponentViewManager extends SimpleViewManager<MyComponentView> {
 }
 ```
 
-And, for a Fabric Component:
+</TabItem>
+<TabItem value="kotlin">
+
+```kotlin title="Native Component using the ViewManagerImpl"
+class MyComponentViewManager(var context: ReactApplicationContext) : SimpleViewManager<MyComponentView>() {
+  // Use the static NAME property from the shared implementation
+  override fun getName() = MyComponentViewManagerImpl.NAME
+
+  public override fun createViewInstance(context: ThemedReactContext): MyComponentView =
+    // static createViewInstance function from the shared implementation
+    MyComponentViewManagerImpl.createViewInstance(context)
+
+  @ReactProp(name = "foo")
+  fun setFoo(view: MyComponentView, param: String) {
+    // static custom function from the shared implementation
+    MyComponentViewManagerImpl.setFoo(view, param)
+  }
+}
+```
+
+</TabItem>
+</Tabs>
+
+And, for a Fabric Native Component:
+
+<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="java">
 
 ```java title="Fabric Component using the ViewManagerImpl"
 // Use the static NAME property from the shared implementation
@@ -368,10 +451,39 @@ public class MyComponentViewManager extends SimpleViewManager<MyComponentView>
     @ReactProp(name = "foo")
     public void setFoo(MyComponentView view, @Nullable String param) {
         // static custom function from the shared implementation
-        MyComponentViewManagerImpl.setFoo(view, param]);
+        MyComponentViewManagerImpl.setFoo(view, param);
     }
 }
 ```
+
+</TabItem>
+<TabItem value="kotlin">
+
+```kotlin title="Fabric Component using the ViewManagerImpl"
+// Use the static NAME property from the shared implementation
+@ReactModule(name = MyComponentViewManagerImpl.NAME)
+class MyComponentViewManager(context: ReactApplicationContext) : SimpleViewManager<MyComponentView>(), MyComponentViewManagerInterface<MyComponentView> {
+  private val delegate: ViewManagerDelegate<MyComponentView> = MyComponentViewManagerDelegate(this)
+
+  override fun getDelegate(): ViewManagerDelegate<MyComponentView> = delegate
+
+  // Use the static NAME property from the shared implementation
+  override fun getName(): String = MyComponentViewManagerImpl.NAME
+
+  override fun createViewInstance(context: ThemedReactContext): MyComponentView =
+    // static createViewInstance function from the shared implementation
+    MyComponentViewManagerImpl.createViewInstance(context)
+
+  @ReactProp(name = "foo")
+  override fun setFoo(view: MyComponentView, text: String) {
+    // static custom function from the shared implementation
+    MyComponentViewManagerImpl.setFoo(view, param);
+  }
+}
+```
+
+</TabItem>
+</Tabs>
 
 For a step-by-step example on how to achieve this, have a look at [this repo](https://github.com/react-native-community/RNNewArchitectureLibraries/tree/feat/back-fabric-comp).
 
@@ -381,13 +493,13 @@ For a step-by-step example on how to achieve this, have a look at [this repo](ht
 
 The last step makes sure that the JavaScript behaves transparently to chosen architecture.
 
-For a Fabric Component, the source of truth is the `<YourModule>NativeComponent.js` (or `.ts`) spec file. The app accesses the spec file like this:
+For a Fabric Native Component, the source of truth is the `<YourModule>NativeComponent.js` (or `.ts`) spec file. The app accesses the spec file like this:
 
 ```ts
 import MyComponent from 'your-component/src/index';
 ```
 
-The **goal** is to conditionally `export` from the `index` file the proper object, given the architecture chosen by the user. We can achieve this with a code that looks like this:
+Since `codegenNativeComponent` is calling the `requireNativeComponent` under the hood, we need to re-export our component, to avoid registering it multiple times.
 
 <Tabs groupId="fabric-component-backward-compatibility"
       defaultValue={constants.defaultFabricComponentSpecLanguage}
@@ -396,40 +508,15 @@ The **goal** is to conditionally `export` from the `index` file the proper objec
 
 ```ts
 // @flow
-import { requireNativeComponent } from 'react-native';
-
-const isFabricEnabled = global.nativeFabricUIManager != null;
-
-const myComponent = isFabricEnabled
-  ? require('./MyComponentNativeComponent').default
-  : requireNativeComponent('MyComponent');
-
-export default myComponent;
+export default require('./MyComponentNativeComponent').default;
 ```
 
 </TabItem>
 <TabItem value="TypeScript">
 
 ```ts
-import requireNativeComponent from 'react-native/Libraries/ReactNative/requireNativeComponent';
-
-const isFabricEnabled = global.nativeFabricUIManager != null;
-
-const myComponent = isFabricEnabled
-  ? require('./MyComponentNativeComponent').default
-  : requireNativeComponent('MyComponent');
-
-export default myComponent;
+export default require('./MyComponentNativeComponent').default;
 ```
 
 </TabItem>
 </Tabs>
-
-Whether you are using Flow or TypeScript for your specs, we understand which architecture is running by checking if the `global.nativeFabricUIManager` object has been set or not.
-
-:::caution
-Please note that the New Architecture is still experimental. The `global.nativeFabricUIManager` API might change in the future for a function that encapsulate this check.
-:::
-
-- If that object is `null`, the app has not enabled the Fabric feature. It's running on the Old Architecture, and the fallback is to use the default Native Components implementation ([iOS](../native-components-ios) or [Android](../native-components-android)).
-- If that object is set, the app is running with Fabric enabled and it should use the `<MyComponent>NativeComponent` spec to access the Fabric Component.

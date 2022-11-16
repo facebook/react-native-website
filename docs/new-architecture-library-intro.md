@@ -14,20 +14,20 @@ The following steps will help ensure your modules and components are ready for t
 
 ## Define Specs in JavaScript
 
-The JavaScript specs serve as the source of truth for the methods that are provided by each native module. They defines all APIs that are provided by the native module, along with the types of those constants and functions.
-Using a **typed** spec file allows to be intentional and declare all the input arguments and outputs of your native module’s methods.
+The JavaScript specs serve as the source of truth for the methods provided by each native module. They define all APIs provided by the native module, along with the types of those constants and functions.
+Using a **typed** spec file allows you to be intentional and declare all the input arguments and outputs of your native module’s methods.
 
 :::info
-Currently, this guide is written under the assumption that you will be using [Flow](https://flow.org/). The `react-native-codegen` package is also currently working only with Flow source as input. **TypeScript** support is in beta right now.
+**TypeScript** support is in beta right now.
 :::
 
-To adopt the New Architecture, you start by creating these specs for your native modules and native components. You can do this prior to actually migrating to the New Architecture: the specs will be used later on to generate native interface code for all the supported platforms, as a way to enforce uniform APIs across platforms.
+To adopt the New Architecture, you start by creating these specs for your native modules and native components. You can do this before migrating to the New Architecture: the specs will be used later on to generate native interface code for all the supported platforms as a way to enforce uniform APIs across platforms.
 
-#### Turbomodules
+#### Turbo Native Modules
 
-JavaScript spec files **must** be named `Native<MODULE_NAME>.js` and they export a `TurboModuleRegistry` `Spec` object. The name convention is important because the Codegen process looks for modules whose `js` (`jsx`, `ts`, or `tsx`) spec file starts with the keyword `Native`.
+JavaScript spec files **must** be named `Native<MODULE_NAME>.js`, and they export a `TurboModuleRegistry` `Spec` object. The name convention is important because the Codegen process looks for modules whose `js` (`jsx`, `ts`, or `tsx`) spec file starts with the keyword `Native`.
 
-The following is a basic JavaScript spec template, written using the [Flow](https://flow.org/) syntax as well as [TypeScript](https://www.typescriptlang.org/).
+The following is a basic JavaScript spec template, written using the [Flow](https://flow.org/) and [TypeScript](https://www.typescriptlang.org/) syntax.
 
 <Tabs groupId="fabric-component-backward-compatibility"
       defaultValue={constants.defaultFabricComponentSpecLanguage}
@@ -70,7 +70,7 @@ export default TurboModuleRegistry.get<Spec>('<MODULE_NAME>');
 </TabItem>
 </Tabs>
 
-#### Fabric Components
+#### Fabric Native Components
 
 JavaScript spec files **must** be named `<FABRIC COMPONENT>NativeComponent.js` (for TypeScript use extension `.ts` or `.tsx`) and they export a `HostComponent` object. The name convention is important: the Codegen process looks for components whose spec file (either JavaScript or TypeScript) ends with the suffix `NativeComponent`.
 
@@ -120,16 +120,16 @@ export default codegenNativeComponent<NativeProps>(
 
 ### Supported Types
 
-When using Flow or TypeScript, you will be using [type annotations](https://flow.org/en/docs/types/) to define your spec. Keeping in mind that the goal of defining a JavaScript spec is to ensure the generated native interface code is type safe, the set of supported types will be those that can be mapped one-to-one to a corresponding type on the native platform.
+When using Flow or TypeScript, you will be using [type annotations](https://flow.org/en/docs/types/) to define your spec. Keeping in mind that the goal of defining a JavaScript spec is to ensure the generated native interface code is type-safe, the set of supported types will be those that can be mapped one-to-one to a corresponding type on the native platform.
 
 <!-- alex ignore primitive -->
 
-In general, this means you can use primitive types (strings, numbers, booleans), as well as function types, object types, and array types. Union types, on the other hand, are not supported. All types must be read-only. For Flow: either `+` or `$ReadOnly<>` or `{||}` objects. For TypeScript: `readonly` for properties, `Readonly<>` for objects, and `ReadonlyArray<>` for arrays.
+In general, this means you can use primitive types (strings, numbers, booleans), function types, object types, and array types. Union types, on the other hand, are not supported. All types must be read-only. For Flow: either `+` or `$ReadOnly<>` or `{||}` objects. For TypeScript: `readonly` for properties, `Readonly<>` for objects, and `ReadonlyArray<>` for arrays.
 
-> See Appendix [I. Flow Type to Native Type Mapping](#i-flow-type-to-native-type-mapping).
-> See Appendix [II. TypeScript to Native Type Mapping](#ii-typescript-to-native-type-mapping).
+> See Appendix [II. Flow Type to Native Type Mapping](new-architecture-appendix#ii-flow-type-to-native-type-mapping).
+> See Appendix [III. TypeScript to Native Type Mapping](new-architecture-appendix#iii-typescript-to-native-type-mapping).
 
-### Codegen helper types
+### Codegen Helper Types
 
 You can use predefined types for your JavaScript spec, here is a list of them:
 
@@ -144,21 +144,21 @@ Later on those types are compiled to coresponding equivalents on target platform
 
 ### Be Consistent Across Platforms and Eliminate Type Ambiguity
 
-Before adopting the New Architecture in your native module, you will need to ensure your methods are consistent across platforms. This is something you will realize as you set out to write the JavaScript spec for your native module - remember, that JavaScript spec defines what the methods will look like on all supported platforms.
+Before adopting the New Architecture in your native module, you should ensure your methods are consistent across platforms. You will realize this as you set out to write the JavaScript spec for your native module - remember that JavaScript spec defines what the methods will look like on all supported platforms.
 
-If your existing native module has methods with the same name on multiple platforms, but with different numbers or types of arguments across platforms, you will need to find a way to make these consistent. If you have methods that can take two or more different types for the same argument, you will also need to find a way to resolve this type ambiguity as type unions are intentionally not supported.
+If your existing native module has methods with the same name on multiple platforms, but with different numbers or types of arguments across platforms, you will need to find a way to make these consistent. If you have methods that can take two or more different types for the same argument, then you need to find a way to resolve this type of ambiguity as type unions are intentionally not supported.
 
-## Make sure _autolinking_ is enabled
+## Make Sure _autolinking_ is Enabled
 
 <!-- alex ignore master -->
 
-[Autolinking](https://github.com/react-native-community/cli/blob/master/docs/autolinking.md) is a feature of the React Native CLI that simplifies the installation of third-party React Native libraries. Instructions to enable _autolinking_ are available at https://github.com/react-native-community/cli/blob/master/docs/autolinking.md.
+[Autolinking](https://github.com/react-native-community/cli/blob/master/docs/autolinking.md) is a feature of the React Native CLI that simplifies the installation of third-party React Native libraries. Instructions to enable _autolinking_ are available in the [React Native CLI docs](https://github.com/react-native-community/cli/blob/master/docs/autolinking.md).
 
 ### Android
 
 On Android, this generally requires you to include `native_modules.gradle` in both your `settings.gradle[.kts]` and `build.gradle[.kts]`.
 
-If you used the default template provided with React Native (i.e. you used `yarn react-native init <Project>`), then you have autolinking already enabled.
+If you used the default template provided with React Native (i.e., `yarn react-native init <Project>`), then autolinking is already enabled.
 
 You can anyway verify that you have it enabled with:
 
@@ -195,7 +195,7 @@ To determine if your library is set up for autolinking, check the CocoaPods outp
 
 ## Configure Codegen
 
-[Codegen](the-new-architecture/pillars-codegen) is a tool that runs when you build an Android app or when you install the dependencies of an iOS app. It creates some scaffolding code that you won't have to create manually.
+[Codegen](the-new-architecture/pillars-codegen) is a tool that runs when you build an Android app or install the dependencies of an iOS app. It creates some scaffolding code that you won't have to create manually.
 
 Codegen can be configured in the `package.json` file of your Library. Add the following JSON object at the end of it.
 
@@ -213,18 +213,18 @@ Codegen can be configured in the `package.json` file of your Library. Add the fo
 ```
 
 - The `codegenConfig` is the key used by the Codegen to verify that there is some code to generate.
-- The `name` field, is the name of the library.
-- The `type` field is used to identify the type of module we want to create. Our suggestions is to keep `all` to support libraries that contains both TurboModule and Fabric Components.
+- The `name` field is the name of the library.
+- The `type` field is used to identify the type of module we want to create. We suggest keeping `all` to support libraries that contain both Turbo Native Module and Fabric Native Components.
 - The `jsSrcsDir` is the directory where the codegen will start looking for JavaScript specs.
-- The `android.javaPackageName` is the name of the package where the generated code wil end up.
+- The `android.javaPackageName` is the name of the package where the generated code ends up.
 
 Android also requires to have the [React Gradle Plugin properly configured](new-architecture-app-intro#android-specifics) in your app.
 
-## Preparing your JavaScript codebase for the new React Native Renderer (Fabric)
+## Preparing your JavaScript Codebase for the new React Native Renderer (Fabric)
 
-The new renderer also known as Fabric doesn’t use the UIManager so direct calls to UIManager will need to be migrated. Historically, calls to UIManager had some pretty complicated patterns. Fortunately, we’ve created new APIs that are much cleaner. These new APIs are forwards compatible with Fabric so you can migrate your code today and they will work properly when you turn on Fabric!
+The new renderer, Fabric, doesn’t use the UIManager, so direct calls to UIManager will need to be migrated. Historically, calls to UIManager had some pretty complicated patterns. Fortunately, we’ve created new APIs that are much cleaner. These new APIs are forward compatible with Fabric, so you can migrate your code today, and the APIs will work properly when you turn on Fabric!
 
-Fabric will be providing new type safe JS APIs that are much more ergonomic than some of the patterns we've seen in product code today. These APIs require references to the underlying component, no longer using the result of `findNodeHandle`. `findNodeHandle` is used to search the tree for a native component given a class instance. This was breaking the React abstraction model. `findNodeHandle` is not compatible with React 18. Deprecation of `findNodeHandle` in React Native is similar to the [deprecation of `findDOMNode` in React DOM](https://reactjs.org/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage).
+Fabric will be providing new type-safe JS APIs that are much more ergonomic than some of the patterns we've seen in product code today. These APIs require references to the underlying component, no longer using the result of `findNodeHandle`. `findNodeHandle` is used to search the tree for a native component given a class instance. This was breaking the React abstraction model. `findNodeHandle` is not compatible with React 18. Deprecation of `findNodeHandle` in React Native is similar to the [deprecation of `findDOMNode` in React DOM](https://reactjs.org/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage).
 
 While we know that all deprecations are a hassle, this guide is intended to help people update components as smoothly as possible. Here are the steps you need to take to get your JS codebase ready for Fabric:
 
@@ -237,7 +237,7 @@ While we know that all deprecations are a hassle, this guide is intended to help
 
 ### Migrating `findNodeHandle` / getting a `HostComponent`
 
-Much of the migration work requires a HostComponent ref to access certain APIs that are only attached to host components (like View, Text, or ScrollView). HostComponents are the return value of calls to `requireNativeComponent`. `findNodeHandle` tunnels through multiple levels of component hierarchy to find the nearest native component.
+Most of the migration work requires a HostComponent ref to access certain APIs that are only attached to host components (like View, Text, or ScrollView). HostComponents are the return value of calls to `requireNativeComponent`. `findNodeHandle` tunnels through multiple levels of component hierarchy to find the nearest native component.
 
 As a concrete example, this code uses `findNodeHandle` to tunnel from `ParentComponent` through to the `View` rendered by `ChildComponent`.
 
@@ -275,9 +275,9 @@ class ChildComponent extends React.Component<Props> {
 
 We can’t convert this call to `this._ref.measure` because `this._ref` is an instance to `ChildComponent`, which is not a HostComponent and thus does not have a `measure` function.
 
-`ChildComponent` renders a `View`, which is a HostComponent, so we need to get a reference to `View` instead. There are typically two approaches to get what we need. If the component we need to get the ref from is a function component using `forwardRef` is probably the right choice. If it is a class component with other public methods, adding a public method for getting the ref is an option. Here are examples of those two forms:
+`ChildComponent` renders a `View`, which is a HostComponent, so we need to get a reference to `View` instead. There are typically two approaches to getting what we need. If the component we need to get the ref from is a function component, using `forwardRef` is probably the right choice. If it is a class component with other public methods, adding a public method for getting the ref is an option. Here are examples of those two forms:
 
-### Using `forwardRef`
+#### Using `forwardRef`
 
 ```jsx
 class ParentComponent extends React.Component<Props> {
@@ -307,7 +307,7 @@ const ChildComponent = React.forwardRef((props, forwardedRef) => {
 });
 ```
 
-### Using a getter, (note the addition of `getViewRef`)
+#### Using a getter, (note the addition of `getViewRef`)
 
 ```tsx
 class ParentComponent extends React.Component<Props> {
@@ -412,11 +412,11 @@ const styles = StyleSheet.create({
 });
 ```
 
-In this example when the View is pressed there is a `setNativeProps` call to update the style and accessibility props of the component. To migrate this component it’s important to understand its current behavior using `setNativeProps`.
+In this example, when the View is pressed, there is a `setNativeProps` call to update the style and accessibility props of the component. To migrate this component, it’s important to understand its current behavior using `setNativeProps`.
 
-### Pre-Fabric, Component Props Persist
+#### Pre-Fabric, Component Props Persist
 
-On first render, the component props are those declared in the render function. After the View is pressed `_onSubmit` calls `setNativeProps` with updated prop values.
+On the first render, the component props are those declared in the render function. After the View is pressed `_onSubmit` calls `setNativeProps` with updated prop values.
 The resulting component can be represented as such:
 
 ```jsx
@@ -429,17 +429,17 @@ The resulting component can be represented as such:
 />
 ```
 
-Note that all prop values set in the render function are unchanged even though `setNativeProps` didn’t pass those props. Also, `style` is now the merged value of its value prior to `_onSubmit` and `styles.submittedView`. This is the important takeaway: in our current pre-Fabric world, **component props persist.** The platform view caches the prop values its passed from the JS side. If this wasn’t the case then following the setNativeProps call, React Native would have rendered a component like this:
+Note that all prop values set in the render function are unchanged even though `setNativeProps` didn’t pass those props. Also, `style` is now the merged value of its value prior to `_onSubmit` and `styles.submittedView`. This is the important takeaway: in our current pre-Fabric world, **component props persist.** The platform view caches the prop values it's passed from the JS side. If this wasn’t the case, then following the setNativeProps call, React Native would have rendered a component like this:
 
 ```jsx
 <View accessibility={true} style={styles.submittedView} />
 ```
 
-The fact that React Native stores some internal state of each component that isn’t explicitly declared in last render is what Fabric intends to fix.
+The fact that React Native stores some internal state of each component that isn’t explicitly declared in the last render is what Fabric intends to fix.
 
-### Moving `setNativeProps` to state
+#### Moving `setNativeProps` to state
 
-Taking those caveats into account, a proper migration would look like this:
+Taking the above caveats into account, a proper migration would look like this:
 
 ```tsx
 class MyComponent extends React.Component<Props> {
@@ -471,10 +471,10 @@ const styles = StyleSheet.create({
 });
 ```
 
-- We are using the `hasSubmitted` flag to represent whether or not we want to apply `styles.submittedView`. If the style was dynamic then it makes sense to store the style object in state
-- `accessibility` is now explicitly passed to the View component as a boolean. This differs from the prior implementation where `accessibility` wasn’t passed as a prop in initial render but in this case we know the non-specification of `accessibility` is handled in the same way as `accessibilty={false}`
+- We are using the `hasSubmitted` flag to represent whether or not we want to apply `styles.submittedView`. If the style was dynamic, then it makes sense to store the style object in state.
+- `accessibility` is now explicitly passed to the View component as a boolean. This differs from the prior implementation where `accessibility` wasn’t passed as a prop in the initial render, but in this case, we know the non-specification of `accessibility` is handled in the same way as `accessibilty={false}`.
 
-Be wary of your assumptions as uncaught subtleties can introduce differences in behavior! It’s a good idea to have snapshot tests of your component as they will highlight any differences pre and post your migration.
+Be wary of your assumptions, as uncaught subtleties can introduce differences in behavior! It’s a good idea to have snapshot tests of your component as they will highlight any differences pre and post your migration.
 
 ### Move the call to `requireNativeComponent` to a separate file
 
@@ -540,7 +540,7 @@ export default require('./RNTMyNativeViewNativeComponent')
 
 ### Migrating off `dispatchViewManagerCommand`
 
-Similar to one above, in an effort to avoid calling methods on the UIManager, all view manager methods are now called through an instance of `NativeCommands`. `codegenNativeCommands` is a new API to code-generate `NativeCommands` given an interface of your view manager’s commands.
+Similar to the one above, in an effort to avoid calling methods on the UIManager, all view manager methods are now called through an instance of `NativeCommands`. `codegenNativeCommands` is a new API to code-generate `NativeCommands` given an interface of your view manager’s commands.
 
 **Before**
 
@@ -586,9 +586,9 @@ Note:
 - The first argument in the `moveToRegion` command is a HostComponent ref of the native component
 - The arguments to the `moveToRegion` command are enumerated in the signature
 - The command definition is co-located with the native component. This is an encouraged pattern
-- Ensure you have included your command name in `supportedCommands` array
+- Ensure you have included your command name in the `supportedCommands` array
 
-### Using Your Command
+#### Using Your Command
 
 ```tsx
 import {Commands, ... } from './MyCustomMapNativeComponent';
@@ -614,9 +614,9 @@ class MyComponent extends React.Component<Props> {
 }
 ```
 
-### Updating Native implementation
+#### Updating Native Implementation
 
-In the example the code-generated `Commands` will dispatch `moveToRegion` call to the native component’s view manager. In addition to writing the JS interface, you’ll need to update your native implementation signatures to match the dispatched method call. See the mapping for [Android argument types](https://facebook.github.io/react-native/docs/native-modules-android#argument-types) and[iOS argument types](https://facebook.github.io/react-native/docs/native-modules-ios#argument-types) for reference.
+In the example, the code-generated `Commands` will dispatch `moveToRegion` call to the native component’s view manager. In addition to writing the JS interface, you’ll need to update your native implementation signatures to match the dispatched method call. See the mapping for [Android argument types](https://facebook.github.io/react-native/docs/native-modules-android#argument-types) and[iOS argument types](https://facebook.github.io/react-native/docs/native-modules-ios#argument-types) for reference.
 
 **iOS**
 

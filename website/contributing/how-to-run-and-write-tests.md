@@ -48,6 +48,7 @@ Xcode also allows running individual tests through its Test Navigator. You can a
 If you are making modifications to `Podfile` configurations then there are Ruby tests that can verify these.
 
 To run the ruby tests:
+
 ```bash
 cd scripts
 sh run_ruby_tests.sh
@@ -78,16 +79,6 @@ Then, run the Android integration tests:
 ```bash
 ./scripts/run-android-local-integration-tests.sh
 ```
-
-### End-to-end Tests
-
-Finally, make sure end-to-end tests run successfully by executing the following script:
-
-```bash
-./scripts/test-manual-e2e.sh
-```
-
-This script will make you select to run the RNTester app (that lives within `packages/rn-tester`) or it will generate a fresh new project in `/tmp/RNTestProject`. Follow the step-by-step instructions from the script to test successfully if your changes.
 
 ## Writing Tests
 

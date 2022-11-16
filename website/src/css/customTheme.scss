@@ -1,3 +1,10 @@
+/**
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 @import "shared";
 
 :root {
@@ -126,6 +133,10 @@ html[data-theme="dark"] {
 
 main[class^="docMainContainer"] > .container {
   padding-top: 2rem !important;
+}
+
+div[class^="generatedIndexPage"] {
+  max-width: 1080px !important;
 }
 
 @media (max-width: 1416px) {
@@ -379,11 +390,9 @@ html[data-theme="dark"] {
 div[class^="docPage"] .hash-link,
 article[itemprop="blogPost"] .hash-link,
 .mdx-page .hash-link,
-.community-page .hash-link,
 html[data-theme="dark"] div[class^="docPage"] .hash-link,
 html[data-theme="dark"] article[itemprop="blogPost"] .hash-link,
-html[data-theme="dark"].mdx-page .hash-link,
-html[data-theme="dark"].community-page .hash-link {
+html[data-theme="dark"].mdx-page .hash-link {
   @extend %hash-link-style;
 }
 
@@ -438,52 +447,6 @@ html[data-theme="dark"] .alert--secondary {
 
     .prism-code {
       font-size: 90%;
-    }
-  }
-}
-
-/* Community page */
-
-.community-page {
-  h1 {
-    font-size: 2.8rem;
-  }
-
-  h2 {
-    font-size: 2rem;
-    margin-top: 36px;
-  }
-
-  h3 {
-    font-size: 1.5rem;
-    margin-top: 16px;
-    display: inline-block;
-  }
-
-  .row .col p a {
-    @extend %link-style;
-  }
-
-  .row .col.col--2 {
-    --ifm-col-width: calc(3 / 12 * 100%) !important;
-  }
-
-  .col--offset-2 {
-    --ifm-col-width: calc(9 / 12 * 100%) !important;
-    margin-left: 0 !important;
-  }
-}
-
-html[data-theme="dark"].community-page {
-  .row .col p a {
-    @extend %link-style-dark;
-  }
-}
-
-@media (max-width: 996px) {
-  .community-page {
-    .col--offset-2 {
-      --ifm-col-width: 100% !important;
     }
   }
 }
@@ -596,7 +559,7 @@ a[class*="tagRegular"] {
       user-select: none;
     }
 
-    &.dropdown {
+    &.dropdown:not(.dropdown--right) {
       a {
         font-weight: 400;
         font-size: 14px;
@@ -607,6 +570,18 @@ a[class*="tagRegular"] {
         left: 0;
       }
     }
+
+    &.dropdown--right {
+      .dropdown__menu {
+        min-width: 168px;
+      }
+    }
+  }
+
+  .dropdown > .navbar__link:after {
+    margin-left: 8px;
+    top: 1px;
+    opacity: 0.75;
   }
 
   .navbar__logo {
@@ -832,11 +807,23 @@ aside[class^="theme-doc-sidebar-container"] {
     }
   }
 
-  .menu__list-item-collapsible:hover {
-    background: none !important;
+  .menu__list-item-collapsible {
+    .menu__caret {
+      padding: 0 6px;
 
-    .menu__link--sublist-caret:hover {
-      background: var(--ifm-menu-color-background-hover) !important;
+      &:before {
+        display: block;
+        background-size: 1.66rem 1.66rem;
+        margin-top: -1px;
+      }
+    }
+
+    &:hover {
+      background: none !important;
+
+      .menu__link--sublist-caret:hover {
+        background: var(--ifm-menu-color-background-hover) !important;
+      }
     }
   }
 
@@ -887,7 +874,6 @@ aside[class^="theme-doc-sidebar-container"] {
 
   .menu__link--sublist {
     font-size: 15px;
-    font-weight: 600;
     padding: 4px 12px !important;
     color: var(--light);
 
@@ -895,6 +881,10 @@ aside[class^="theme-doc-sidebar-container"] {
       background-size: 1.66rem 1.66rem;
       margin-right: -6px;
     }
+  }
+
+  .menu__link--sublist-caret {
+    font-size: 17px;
   }
 
   .menu__list {
@@ -920,7 +910,7 @@ aside[class^="theme-doc-sidebar-container"] {
     border-left-width: 0;
   }
 
-  a[href].menu__link.menu__link--active {
+  a[href].menu__link.menu__link--active:not(.menu__link--sublist) {
     background: var(--ifm-code-background);
     padding-left: 8px !important;
     border-left-width: 4px;
@@ -1055,6 +1045,19 @@ button[class*="tocCollapsibleButton"] {
 .navbar-sidebar__back {
   color: var(--ifm-color-content-secondary);
   background: var(--ifm-footer-background-color);
+}
+
+.card {
+  padding: 1.5rem !important;
+  border: 1px solid var(--ifm-color-emphasis-300) !important;
+  box-shadow: none !important;
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out !important;
+  background-color: var(--ifm-background-color);
+
+  &:hover {
+    border-color: var(--ifm-color-emphasis-400) !important;
+    background-color: var(--ifm-menu-color-background-hover);
+  }
 }
 
 /* Doc Item footer metadata */
@@ -1836,7 +1839,7 @@ html[data-theme="light"].blog-wrapper {
     padding: 24px 16px !important;
   }
 
-  html:not(.community-page) .main-wrapper {
+  .main-wrapper {
     .container.margin-vert--lg {
       max-width: 96% !important;
     }

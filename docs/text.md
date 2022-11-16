@@ -376,6 +376,64 @@ Sets the frequency of automatic hyphenation to use when determining word breaks 
 
 ---
 
+### `aria-busy`
+
+Indicates an element is being modified and that assistive technologies may want to wait until the changes are complete before informing the user about the update.
+
+| Type    | Default |
+| ------- | ------- |
+| boolean | false   |
+
+---
+
+### `aria-checked`
+
+Indicates the state of a checkable element. This field can either take a boolean or the "mixed" string to represent mixed checkboxes.
+
+| Type             | Default |
+| ---------------- | ------- |
+| boolean, 'mixed' | false   |
+
+---
+
+### `aria-disabled`
+
+Indicates that the element is perceivable but disabled, so it is not editable or otherwise operable.
+
+| Type    | Default |
+| ------- | ------- |
+| boolean | false   |
+
+---
+
+### `aria-expanded`
+
+Indicates whether an expandable element is currently expanded or collapsed.
+
+| Type    | Default |
+| ------- | ------- |
+| boolean | false   |
+
+---
+
+### `aria-label`
+
+Defines a string value that labels an interactive element.
+
+| Type   |
+| ------ |
+| string |
+
+---
+
+### `aria-selected`
+
+Indicates whether a selectable element is currently selected or not.
+
+| Type    |
+| ------- |
+| boolean |
+
 ### `dataDetectorType` <div class="label android">Android</div>
 
 Determines the types of data converted to clickable URLs in the text element. By default, no data types are detected.
@@ -414,6 +472,16 @@ This can be one of the following values:
 | Type                                           | Default |
 | ---------------------------------------------- | ------- |
 | enum(`'head'`, `'middle'`, `'tail'`, `'clip'`) | `tail`  |
+
+---
+
+### `id`
+
+Used to locate this view from native code. Has precedence over `nativeID` prop.
+
+| Type   |
+| ------ |
+| string |
 
 ---
 
@@ -638,6 +706,26 @@ Set text break strategy on Android API Level 23+, possible values are `simple`, 
 | Type                                            | Default       |
 | ----------------------------------------------- | ------------- |
 | enum(`'simple'`, `'highQuality'`, `'balanced'`) | `highQuality` |
+
+---
+
+### `userSelect`
+
+It allows the user to select text and to use the native copy and paste functionality. Has precedence over the `selectable` prop.
+
+| Type                                                     | Default |
+| -------------------------------------------------------- | ------- |
+| enum(`'auto'`, `'text'`, `'none'`, `'contain'`, `'all'`) | `none`  |
+
+---
+
+### `lineBreakStrategyIOS` <div class="label ios">iOS</div>
+
+Set line break strategy on iOS 14+. Possible values are `none`, `standard`, `hangul-word` and `push-out`.
+
+| Type                                                        | Default  |
+| ----------------------------------------------------------- | -------- |
+| enum(`'none'`, `'standard'`, `'hangul-word'`, `'push-out'`) | `'none'` |
 
 ## Type Definitions
 

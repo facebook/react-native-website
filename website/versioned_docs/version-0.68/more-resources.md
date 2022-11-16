@@ -12,7 +12,7 @@ There’s always more to learn: developer workflows, shipping to app stores, int
 - [Design and layout your app](flexbox)
 - [Debug your app](debugging)
 - [Make your app cross platform](platform-specific-code)
-- [Get involved in the React Native community](/help)
+- [Get involved in the React Native community](/community/overview)
 
 ## Dive deep
 

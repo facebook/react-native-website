@@ -17,14 +17,14 @@ React Native also requires [Java SE Development Kit (JDK)](https://openjdk.java.
 Open an Administrator Command Prompt (right click Command Prompt and select "Run as Administrator"), then run the following command:
 
 ```powershell
-choco install -y nodejs-lts openjdk11
+choco install -y nodejs-lts microsoft-openjdk11
 ```
 
 If you have already installed Node on your system, make sure it is Node 14 or newer. If you already have a JDK on your system, we recommend JDK11. You may encounter problems using higher JDK versions.
 
 > You can find additional installation options on [Node's Downloads page](https://nodejs.org/en/download/).
 
-> If you're using the latest version of Java Development Kit, you'll need to change the Gradle version of your project so it can recognize the JDK. You can do that by going to `{project root folder}\android\gradle\wrapper\gradle-wrapper.properties` and changing the `distributionUrl` value to upgrade the Gradle version. You can check out [here the lastest releases of Gradle](https://gradle.org/releases/).
+> If you're using the latest version of Java Development Kit, you'll need to change the Gradle version of your project so it can recognize the JDK. You can do that by going to `{project root folder}\android\gradle\wrapper\gradle-wrapper.properties` and changing the `distributionUrl` value to upgrade the Gradle version. You can check out [here the latest releases of Gradle](https://gradle.org/releases/).
 
 <h3>Android development environment</h3>
 

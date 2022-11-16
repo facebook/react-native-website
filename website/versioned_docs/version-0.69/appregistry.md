@@ -6,7 +6,7 @@ title: AppRegistry
 <div className="banner-native-code-required">
   <h3>Project with Native Code Required</h3>
   <p>
-    If you are using the managed <code>expo-cli</code> workflow there is only ever one entry component registered with <code>AppRegistry</code> and it is handled automatically, you do not need to use this API.
+    If you are using the managed Expo workflow there is only ever one entry component registered with <code>AppRegistry</code> and it is handled automatically (or through <a href="https://docs.expo.dev/versions/latest/sdk/register-root-component/">registerRootComponent</a>). You do not need to use this API.
   </p>
 </div>
 

@@ -199,6 +199,7 @@ See the [Android `View` docs](http://developer.android.com/reference/android/vie
 - `'tablist'` - Used to represent a list of tabs.
 - `'timer'` - Used to represent a timer.
 - `'toolbar'` - Used to represent a tool bar (a container of action buttons or components).
+- `'grid'` - Used with ScrollView, VirtualizedList, FlatList, or SectionList to represent a grid. Adds the in/out of grid announcements to the android GridView.
 
 | Type   |
 | ------ |
@@ -248,6 +249,157 @@ When `true`, indicates that the view is an accessibility element. By default, al
 
 ---
 
+### `aria-busy`
+
+Indicates an element is being modified and that assistive technologies may want to wait until the changes are complete before informing the user about the update.
+
+| Type    | Default |
+| ------- | ------- |
+| boolean | false   |
+
+---
+
+### `aria-checked`
+
+Indicates the state of a checkable element. This field can either take a boolean or the "mixed" string to represent mixed checkboxes.
+
+| Type             | Default |
+| ---------------- | ------- |
+| boolean, 'mixed' | false   |
+
+---
+
+### `aria-disabled`
+
+Indicates that the element is perceivable but disabled, so it is not editable or otherwise operable.
+
+| Type    | Default |
+| ------- | ------- |
+| boolean | false   |
+
+---
+
+### `aria-expanded`
+
+Indicates whether an expandable element is currently expanded or collapsed.
+
+| Type    | Default |
+| ------- | ------- |
+| boolean | false   |
+
+---
+
+### `aria-hidden`
+
+Indicates whether the accessibility elements contained within this accessibility element are hidden.
+
+For example, in a window that contains sibling views `A` and `B`, setting `aria-hidden` to `true` on view `B` causes VoiceOver to ignore the elements in the view `B`.
+
+| Type    | Default |
+| ------- | ------- |
+| boolean | false   |
+
+---
+
+### `aria-label`
+
+Defines a string value that labels an interactive element.
+
+| Type   |
+| ------ |
+| string |
+
+---
+
+### `aria-labelledby` <div class="label android">Android</div>
+
+Identifies the element that labels the element it is applied to. The value of `aria-labelledby` should match the [`nativeID`](view.md#nativeid) of the related element:
+
+```jsx
+<View>
+  <Text nativeID="formLabel">Label for Input Field</Text>
+  <TextInput aria-label="input" aria-labelledby="formLabel" />
+</View>
+```
+
+| Type   |
+| ------ |
+| string |
+
+---
+
+### `aria-live` <div class="label android">Android</div>
+
+Indicates that an element will be updated, and describes the types of updates the user agents, assistive technologies, and user can expect from the live region.
+
+- **off** Accessibility services should not announce changes to this view.
+- **polite** Accessibility services should announce changes to this view.
+- **assertive** Accessibility services should interrupt ongoing speech to immediately announce changes to this view.
+
+| Type                                     | Default |
+| ---------------------------------------- | ------- |
+| enum(`'assertive'`, `'off'`, `'polite'`) | `'off'` |
+
+---
+
+### `aria-modal` <div class="label ios">iOS</div>
+
+Boolean value indicating whether VoiceOver should ignore the elements within views that are siblings of the receiver. Has precedence over the [`accessibilityViewIsModal`](#accessibilityviewismodal-ios) prop.
+
+| Type    | Default |
+| ------- | ------- |
+| boolean | false   |
+
+---
+
+### `aria-selected`
+
+Indicates whether a selectable element is currently selected or not.
+
+| Type    |
+| ------- |
+| boolean |
+
+### `aria-valuemax`
+
+Represents the maximum value for range-based components, such as sliders and progress bars. Has precedence over the `max` value in the `accessibilityValue` prop.
+
+| Type   |
+| ------ |
+| number |
+
+---
+
+### `aria-valuemin`
+
+Represents the maximum value for range-based components, such as sliders and progress bars. Has precedence over the `min` value in the `accessibilityValue` prop.
+
+| Type   |
+| ------ |
+| number |
+
+---
+
+### `aria-valuenow`
+
+Represents the current value for range-based components, such as sliders and progress bars. Has precedence over the `now` value in the `accessibilityValue` prop.
+
+| Type   |
+| ------ |
+| number |
+
+---
+
+### `aria-valuetext`
+
+Represents the textual description of the component. Has precedence over the `text` value in the `accessibilityValue` prop.
+
+| Type   |
+| ------ |
+| string |
+
+---
+
 ### `collapsable` <div class="label android">Android</div>
 
 Views that are only used to layout their children or otherwise don't draw anything may be automatically removed from the native hierarchy as an optimization. Set this property to `false` to disable this optimization and ensure that this `View` exists in the native view hierarchy.
@@ -279,6 +431,18 @@ For example, if a touchable view has a height of 20 the touchable height can be 
 | Type                                                               |
 | ------------------------------------------------------------------ |
 | object: {top: number, left: number, bottom: number, right: number} |
+
+---
+
+### `id`
+
+Used to locate this view from native classes. Has precedence over `nativeID` prop.
+
+> This disables the 'layout-only view removal' optimization for this view!
+
+| Type   |
+| ------ |
+| string |
 
 ---
 
@@ -557,8 +721,6 @@ Controls whether the `View` can be the target of touch events.
 }
 ```
 
-> Since `pointerEvents` does not affect layout/appearance, and we are already deviating from the spec by adding additional modes, we opt to not include `pointerEvents` on `style`. On some platforms, we would need to implement it as a `className` anyways. Using `style` or not is an implementation detail of the platform.
-
 | Type                                         |
 | -------------------------------------------- |
 | enum('box-none', 'none', 'box-only', 'auto') |
@@ -606,6 +768,20 @@ Rasterization incurs an off-screen drawing pass and the bitmap consumes memory. 
 | Type                           |
 | ------------------------------ |
 | [View Style](view-style-props) |
+
+---
+
+### `tabIndex` <div class="label android">Android</div>
+
+Whether this `View` should be focusable with a non-touch input device, eg. receive focus with a hardware keyboard.
+Supports the following values:
+
+- `0` - View is focusable
+- `-1` - View is not focusable
+
+| Type        |
+| ----------- |
+| enum(0, -1) |
 
 ---
 

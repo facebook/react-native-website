@@ -1,3 +1,10 @@
+/**
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 const users = require('./showcase.json');
 const versions = require('./versions.json');
 
@@ -9,7 +16,7 @@ const commonDocsOptions = {
   showLastUpdateAuthor: false,
   showLastUpdateTime: true,
   editUrl:
-    'https://github.com/facebook/react-native-website/blob/master/website/',
+    'https://github.com/facebook/react-native-website/blob/main/website/',
   remarkPlugins: [require('@react-native-website/remark-snackplayer')],
 };
 
@@ -126,6 +133,17 @@ module.exports = {
       }),
     ],
     [
+      'content-docs',
+      /** @type {import('@docusaurus/plugin-content-docs').Options} */
+      ({
+        id: 'community',
+        path: 'community',
+        routeBasePath: '/community',
+        sidebarPath: require.resolve('./sidebarsCommunity.json'),
+        ...commonDocsOptions,
+      }),
+    ],
+    [
       '@docusaurus/plugin-pwa',
       {
         debug: true,
@@ -214,29 +232,32 @@ module.exports = {
         style: 'dark',
         items: [
           {
-            label: 'Guides',
-            type: 'doc',
-            docId: 'getting-started',
+            label: 'Development',
+            type: 'dropdown',
             position: 'right',
-          },
-          {
-            label: 'Components',
-            type: 'doc',
-            docId: 'components-and-apis',
-            position: 'right',
-          },
-          {
-            label: 'API',
-            type: 'doc',
-            docId: 'accessibilityinfo',
-            position: 'right',
-          },
-          {
-            label: 'Architecture',
-            type: 'doc',
-            docId: 'architecture-overview',
-            position: 'right',
-            docsPluginId: 'architecture',
+            items: [
+              {
+                label: 'Guides',
+                type: 'doc',
+                docId: 'getting-started',
+              },
+              {
+                label: 'Components',
+                type: 'doc',
+                docId: 'components-and-apis',
+              },
+              {
+                label: 'APIs',
+                type: 'doc',
+                docId: 'accessibilityinfo',
+              },
+              {
+                label: 'Architecture',
+                type: 'doc',
+                docId: 'architecture-overview',
+                docsPluginId: 'architecture',
+              },
+            ],
           },
           {
             type: 'doc',
@@ -244,6 +265,18 @@ module.exports = {
             label: 'Contributing',
             position: 'right',
             docsPluginId: 'contributing',
+          },
+          {
+            type: 'doc',
+            docId: 'overview',
+            label: 'Community',
+            position: 'right',
+            docsPluginId: 'community',
+          },
+          {
+            to: '/showcase',
+            label: 'Showcase',
+            position: 'right',
           },
           {
             to: '/blog',
@@ -274,44 +307,48 @@ module.exports = {
         style: 'dark',
         links: [
           {
-            title: 'Docs',
+            title: 'Develop',
             items: [
               {
-                label: 'Getting Started',
+                label: 'Guides',
                 to: 'docs/getting-started',
               },
               {
-                label: 'Tutorial',
-                to: 'docs/tutorial',
-              },
-              {
-                label: 'Components and APIs',
+                label: 'Components',
                 to: 'docs/components-and-apis',
               },
               {
-                label: 'More Resources',
-                to: 'docs/more-resources',
+                label: 'APIs',
+                to: 'docs/accessibilityinfo',
+              },
+              {
+                label: 'Architecture',
+                to: 'architecture/overview',
               },
             ],
           },
           {
-            title: 'Community',
+            title: 'Participate',
             items: [
               {
-                label: 'The React Native Community',
-                to: 'help',
-              },
-              {
-                label: "Who's using React Native?",
+                label: 'Showcase',
                 to: 'showcase',
               },
               {
-                label: 'Ask Questions on Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/react-native',
+                label: 'Contributing',
+                to: 'contributing/overview',
               },
               {
-                label: 'DEV Community',
-                href: 'https://dev.to/t/reactnative',
+                label: 'Community',
+                to: 'community/overview',
+              },
+              {
+                label: 'Directory',
+                href: 'https://reactnative.directory/',
+              },
+              {
+                label: 'Stack Overflow',
+                href: 'https://stackoverflow.com/questions/tagged/react-native',
               },
             ],
           },
@@ -333,10 +370,10 @@ module.exports = {
             ],
           },
           {
-            title: 'More',
+            title: 'Explore More',
             items: [
               {
-                label: 'React',
+                label: 'ReactJS',
                 href: 'https://reactjs.org/',
               },
               {

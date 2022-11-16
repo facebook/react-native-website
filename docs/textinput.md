@@ -130,11 +130,44 @@ Tells `TextInput` to automatically capitalize certain characters. This property 
 
 ---
 
-### `autoComplete` <div class="label android">Android</div>
+### `autoComplete`
 
 Specifies autocomplete hints for the system, so it can provide autofill. On Android, the system will always attempt to offer autofill by using heuristics to identify the type of content. To disable autocomplete, set `autoComplete` to `off`.
 
-Possible values for `autoComplete` are:
+The following values work across platforms:
+
+- `additional-name`
+- `address-line1`
+- `address-line2`
+- `cc-number`
+- `country`
+- `current-password`
+- `email`
+- `family-name`
+- `given-name`
+- `honorific-prefix`
+- `honorific-suffix`
+- `name`
+- `new-password`
+- `off`
+- `one-time-code`
+- `postal-code`
+- `street-address`
+- `tel`
+- `username`
+
+<div class="label basic ios">iOS</div>
+
+The following values work on iOS only:
+
+- `nickname`
+- `organization`
+- `organization-title`
+- `url`
+
+<div class="label basic android">Android</div>
+
+The following values work on Android only:
 
 - `birthdate-day`
 - `birthdate-full`
@@ -145,10 +178,7 @@ Possible values for `autoComplete` are:
 - `cc-exp-day`
 - `cc-exp-month`
 - `cc-exp-year`
-- `cc-number`
-- `email`
 - `gender`
-- `name`
 - `name-family`
 - `name-given`
 - `name-middle`
@@ -163,20 +193,15 @@ Possible values for `autoComplete` are:
 - `postal-address-extended-postal-code`
 - `postal-address-locality`
 - `postal-address-region`
-- `postal-code`
-- `street-address`
 - `sms-otp`
-- `tel`
 - `tel-country-code`
 - `tel-national`
 - `tel-device`
-- `username`
 - `username-new`
-- `off`
 
-| Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| enum('birthdate-day', 'birthdate-full', 'birthdate-month', 'birthdate-year', 'cc-csc', 'cc-exp', 'cc-exp-day', 'cc-exp-month', 'cc-exp-year', 'cc-number', 'email', 'gender', 'name', 'name-family', 'name-given', 'name-middle', 'name-middle-initial', 'name-prefix', 'name-suffix', 'password', 'password-new', 'postal-address', 'postal-address-country', 'postal-address-extended', 'postal-address-extended-postal-code', 'postal-address-locality', 'postal-address-region', 'postal-code', 'street-address', 'sms-otp', 'tel', 'tel-country-code', 'tel-national', 'tel-device', 'username', 'username-new', 'off') |
+| Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| enum('additional-name', 'address-line1', 'address-line2', 'birthdate-day', 'birthdate-full', 'birthdate-month', 'birthdate-year', 'cc-csc', 'cc-exp', 'cc-exp-day', 'cc-exp-month', 'cc-exp-year', 'cc-number', 'country', 'current-password', 'email', 'family-name', 'gender', 'given-name', 'honorific-prefix', 'honorific-suffix', 'name', 'name-family', 'name-given', 'name-middle', 'name-middle-initial', 'name-prefix', 'name-suffix', 'new-password', 'nickname', 'one-time-code', 'organization', 'organization-title', 'password', 'password-new', 'postal-address', 'postal-address-country', 'postal-address-extended', 'postal-address-extended-postal-code', 'postal-address-locality', 'postal-address-region', 'postal-code', 'street-address', 'sms-otp', 'tel', 'tel-country-code', 'tel-national', 'tel-device', 'url', 'username', 'username-new', 'off') |
 
 ---
 
@@ -321,6 +346,30 @@ If `true`, the keyboard disables the return key when there is no text and automa
 
 ---
 
+### `enterKeyHint`
+
+Determines what text should be shown to the return key. Has precedence over the `returnKeyType` prop.
+
+The following values work across platforms:
+
+- `enter`
+- `done`
+- `next`
+- `search`
+- `send`
+
+_Android Only_
+
+The following values work on Android only:
+
+- `previous`
+
+| Type                                                        |
+| ----------------------------------------------------------- |
+| enum('enter', 'done', 'next', 'previous', 'search', 'send') |
+
+---
+
 ### `importantForAutofill` <div class="label android">Android</div>
 
 Tells the operating system whether the individual fields in your app should be included in a view structure for autofill purposes on Android API Level 26+. Possible values are `auto`, `no`, `noExcludeDescendants`, `yes`, and `yesExcludeDescendants`. The default value is `auto`.
@@ -370,6 +419,27 @@ An optional identifier which links a custom [InputAccessoryView](inputaccessoryv
 | Type   |
 | ------ |
 | string |
+
+---
+
+### `inputMode`
+
+Works like the `inputmode` attribute in HTML, it determines which keyboard to open, e.g. `numeric` and has precedence over `keyboardType`.
+
+Support the following values:
+
+- `none`
+- `text`
+- `decimal`
+- `numeric`
+- `tel`
+- `search`
+- `email`
+- `url`
+
+| Type                                                                        |
+| --------------------------------------------------------------------------- |
+| enum('decimal', 'email', 'none', 'numeric', 'search', 'tel', 'text', 'url') |
 
 ---
 
@@ -625,6 +695,16 @@ The text color of the placeholder string.
 
 ---
 
+### `readOnly`
+
+If `true`, text is not editable. The default value is `false`.
+
+| Type |
+| ---- |
+| bool |
+
+---
+
 ### `returnKeyLabel` <div class="label android">Android</div>
 
 Sets the return key to the label. Use it instead of `returnKeyType`.
@@ -678,6 +758,16 @@ If `true`, allows TextInput to pass touch events to the parent component. This a
 | Type |
 | ---- |
 | bool |
+
+---
+
+### `rows` <div class="label android">Android</div>
+
+Sets the number of lines for a `TextInput`. Use it with multiline set to `true` to be able to fill the lines.
+
+| Type   |
+| ------ |
+| number |
 
 ---
 
@@ -879,6 +969,16 @@ The value to show for the text input. `TextInput` is a controlled component, whi
 | Type   |
 | ------ |
 | string |
+
+---
+
+### `lineBreakStrategyIOS` <div class="label ios">iOS</div>
+
+Set line break strategy on iOS 14+. Possible values are `none`, `standard`, `hangul-word` and `push-out`.
+
+| Type                                                        | Default  |
+| ----------------------------------------------------------- | -------- |
+| enum(`'none'`, `'standard'`, `'hangul-word'`, `'push-out'`) | `'none'` |
 
 ## Methods
 

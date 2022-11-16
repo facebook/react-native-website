@@ -16,7 +16,7 @@ The defaults are different, with `flexDirection` defaulting to `column` instead 
 
 [`flex`](layout-props#flex) will define how your items are going to **“fill”** over the available space along your main axis. Space will be divided according to each element's flex property.
 
-In the following example, the red, yellow, and green views are all children in the container view that has `flex: 1` set. The red view uses `flex: 1` , the yellow view uses `flex: 2`, and the green view uses `flex: 3` . **1+2+3 = 6**, which means that the red view will get `1/6` of the space, the yellow `2/6` of the space, and the green `3/6` of the space.
+In the following example, the red, orange, and green views are all children in the container view that has `flex: 1` set. The red view uses `flex: 1` , the orange view uses `flex: 2`, and the green view uses `flex: 3` . **1+2+3 = 6**, which means that the red view will get `1/6` of the space, the orange `2/6` of the space, and the green `3/6` of the space.
 
 ```SnackPlayer name=Flex%20Example
 import React from "react";
@@ -1195,6 +1195,118 @@ const styles = StyleSheet.create({
 });
 
 export default App;
+```
+
+## Row Gap, Column Gap and Gap
+
+- [`rowGap`](layout-props#rowgap) sets the size of the gap (gutter) between an element's rows.
+
+- [`columnGap`](layout-props#columngap) sets the size of the gap (gutter) between an element's columns.
+
+- [`gap`](layout-props#gap) sets the size of the gap (gutter) between rows and columns. It is a shorthand for `rowGap` and `columnGap`.
+
+You can use `flexWrap` and `alignContent` alongwith `gap` to add consistent spacing between items.
+
+```SnackPlayer name=Row%20Gap%20and%20Column%20Gap
+import React, { useState } from "react";
+import { View, Text, StyleSheet, TextInput } from "react-native";
+
+const RowGapAndColumnGap = () => {
+  const [rowGap, setRowGap] = useState(10);
+  const [columnGap, setColumnGap] = useState(10);
+
+  return (
+    <PreviewLayout
+      columnGap={columnGap}
+      handleColumnGapChange={setColumnGap}
+      rowGap={rowGap}
+      handleRowGapChange={setRowGap}
+    >
+      <View style={[styles.box, styles.box1]} />
+      <View style={[styles.box, styles.box2]} />
+      <View style={[styles.box, styles.box3]} />
+      <View style={[styles.box, styles.box4]} />
+      <View style={[styles.box, styles.box5]} />
+    </PreviewLayout>
+  );
+};
+
+const PreviewLayout = ({
+  children,
+  handleColumnGapChange,
+  handleRowGapChange,
+  rowGap,
+  columnGap,
+}) => (
+  <View style={styles.previewContainer}>
+    <View style={styles.inputContainer}>
+      <View style={styles.itemsCenter}>
+        <Text>Row Gap</Text>
+        <TextInput
+          style={styles.input}
+          value={rowGap}
+          onChangeText={(v) => handleRowGapChange(Number(v))}
+        />
+      </View>
+      <View style={styles.itemsCenter}>
+        <Text>Column Gap</Text>
+        <TextInput
+          style={styles.input}
+          value={columnGap}
+          onChangeText={(v) => handleColumnGapChange(Number(v))}
+        />
+      </View>
+    </View>
+    <View style={[styles.container, { rowGap, columnGap }]}>
+      {children}
+    </View>
+  </View>
+);
+
+const styles = StyleSheet.create({
+  itemsCenter: { alignItems: "center" },
+  inputContainer: {
+    gap: 4,
+    flexDirection: "row",
+    justifyContent: "space-around",
+  },
+  previewContainer: { padding: 10, flex: 1 },
+  input: {
+    borderBottomWidth: 1,
+    paddingVertical: 3,
+    width: 50,
+    textAlign: "center",
+  },
+  container: {
+    flex: 1,
+    marginTop: 8,
+    backgroundColor: "aliceblue",
+    maxHeight: 400,
+    flexWrap: "wrap",
+    alignContent: "flex-start",
+  },
+  box: {
+    width: 50,
+    height: 80,
+  },
+  box1: {
+    backgroundColor: "orangered",
+  },
+  box2: {
+    backgroundColor: "orange",
+  },
+  box3: {
+    backgroundColor: "mediumseagreen",
+  },
+  box4: {
+    backgroundColor: "deepskyblue",
+  },
+  box5: {
+    backgroundColor: "mediumturquoise",
+  },
+});
+
+export default RowGapAndColumnGap;
 ```
 
 ## Width and Height

@@ -11,17 +11,17 @@ import NewArchitectureWarning from '../\_markdown-new-architecture-warning.mdx';
 
 This page will help you create a new React Native app that uses the New Architecture.
 
-## Development environment
+## Development Environment
 
-Before continuing, make sure you've followed all the steps in [Setting up the development environment](getting-started.md), under the **React Native CLI Quickstart** tab.
+Before continuing, make sure you've followed all the steps in the [Setting up the development environment](getting-started.md) section under the **React Native CLI Quickstart** tab.
 
 If following the setup guide, stop when you reach the section **Running your React Native Application**, and resume following this guide.
 
 :::caution
-If you're using Expo, you can't enable the New Architecture at the moment, and will have to wait for a future release of the Expo SDK.
+If you're using Expo, you can't enable the New Architecture at the moment and will have to wait for a future release of the Expo SDK.
 :::
 
-## Creating a new application
+## Creating a New Application
 
 <RemoveGlobalCLI />
 
@@ -43,7 +43,7 @@ Follow the steps below to enable the New Architecture and build the app.
 
 Hermes is an open-source JavaScript engine optimized for React Native. [Hermes will be the default engine in the future](https://github.com/reactwg/react-native-new-architecture/discussions/4), and we highly recommend you use it.
 
-Please [follow the instructions on the React Native website](hermes.md) in order to enable Hermes in your application.
+Please [follow the instructions on the React Native website](hermes.md) to enable Hermes in your application.
 
 ### Enable the New Architecture
 
@@ -103,30 +103,20 @@ yarn android
 ```
 
 :::note
-You may notice longer build times with the New Architecture, due to additional step of C++ compilation with the Android NDK. To improve your build time, see [Speeding Up Your Build Phase](build-speed.md).
+You may notice longer build times with the New Architecture due to additional step of C++ compilation with the Android NDK. To improve your build time, see [Speeding Up Your Build Phase](build-speed.md).
 :::
 
 </TabItem>
 </Tabs>
 
-### Confirming the New Architecture is in use
+### Confirming the New Architecture is in Use
 
-After you build and run the app, when Metro serves the JavaScript bundle, you should see `"fabric": true` in the Metro logs:
+After you build and run the app when Metro serves the JavaScript bundle, you should see `"fabric": true` in the Metro logs:
 
 <img src="/docs/assets/metro-new-arch.png" alt="Metro shows fabric: true" width="600" />
 
-### Want to know more?
+### Want to Know More?
 
-If you'd like to view the code changes relevant for the New Architecture, take a look at the [upgrade helper from version 0.67.4 to 0.68.0](https://react-native-community.github.io/upgrade-helper/?from=0.67.4&to=0.68.0). Files that were added for the New Architecture are marked with a yellow banner.
+If you'd like to view the code changes relevant to the New Architecture, take a look at the [upgrade helper from version 0.67.4 to 0.68.0](https://react-native-community.github.io/upgrade-helper/?from=0.67.4&to=0.68.0). Files that were added for the New Architecture are marked with a yellow banner.
 
-For further explanations of what each file is doing, check out these guides to walk through the changes step-by-step:
-
-#### Android
-
-- [Enabling TurboModules on Android](new-architecture-app-modules-android.md)
-- [Enabling Fabric on Android](new-architecture-app-renderer-android.md)
-
-#### iOS
-
-- [Enabling TurboModules on iOS](new-architecture-app-modules-ios.md)
-- [Enabling Fabric on iOS](new-architecture-app-renderer-ios.md)
+For further explanations of what each file is doing, check out these guides to walk through the changes step-by-step: [Enabling The New Architecture in Your App](new-architecture-app-intro.md)

@@ -3,17 +3,11 @@ id: hermes
 title: Using Hermes
 ---
 
-import M1Cocoapods from './\_markdown-m1-cocoapods.mdx';
-
 <a href="https://hermesengine.dev">
 <img width={300} height={300} className="hermes-logo" src="/docs/assets/HermesLogo.svg" />
 </a>
 
 [Hermes](https://hermesengine.dev) is an open-source JavaScript engine optimized for React Native. For many apps, enabling Hermes will result in improved start-up time, decreased memory usage, and smaller app size. At this time Hermes is an **opt-in** React Native feature, and this guide explains how to enable it.
-
-First, ensure you're using at least version 0.60.4 of React Native.
-
-If you have an existing app based on an earlier version of React Native, you will have to upgrade it first. See [Upgrading to new React Native Versions](/docs/upgrading) for how to do this. After upgrading the app, make sure everything works before trying to switch to Hermes.
 
 :::caution Note for React Native compatibility
 Each Hermes release is aimed at a specific RN version. The rule of thumb is to always follow [Hermes releases](https://github.com/facebook/hermes/releases) strictly.
@@ -85,8 +79,6 @@ Once you've configured it, you can install the Hermes pods with:
 $ cd ios && pod install
 ```
 
-<M1Cocoapods />
-
 That's it! You should now be able to develop and deploy your app as usual:
 
 ```shell
@@ -126,7 +118,7 @@ This will compile JavaScript to bytecode during build time which will improve yo
 
 ## Bundled Hermes
 
-Starting with React Native 0.69.0, every version of React Native will come with a **bundled version** of Hermes.
+React Native comes with a **bundled version** of Hermes.
 We will be building a version of Hermes for you whenever we release a new version of React Native. This will make sure you're consuming a version of Hermes which is fully compatible with the version of React Native you're using.
 
 Historically, we had problems with matching versions of Hermes with versions of React Native. This fully eliminates this problem, and offers users a JS engine that is compatible with the specific React Native version.
