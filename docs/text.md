@@ -651,6 +651,16 @@ When the scroll view is disabled, this defines how far your touch may move off o
 
 ---
 
+### `role`
+
+`role` communicates the purpose of a component to the user of an assistive technology. Has precedence over the [`accessibilityRole`](text#accessibilityrole) prop.
+
+| Type                       |
+| -------------------------- |
+| [Role](accessibility#role) |
+
+---
+
 ### `selectable`
 
 Lets the user select text, to use the native copy and paste functionality.

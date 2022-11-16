@@ -348,6 +348,40 @@ Use this property to assign a custom function to be called when someone activate
 
 Assign this property to a custom function which will be called when someone performs the "magic tap" gesture, which is a double-tap with two fingers. A magic tap function should perform the most relevant action a user could take on a component. In the Phone app on iPhone, a magic tap answers a phone call, or ends the current one. If the selected element does not have an `onMagicTap` function, the system will traverse up the view hierarchy until it finds a view that does.
 
+### `role`
+
+`role` communicates the purpose of a component to the user of an assistive technology. Has precedence over the [`accessibilityRole`](accessibility#accessibilityrole) prop.
+
+`role` can be one of the following:
+
+- **alert** Used when an element contains important text to be presented to the user.
+- **button** Used when the element should be treated as a button.
+- **checkbox** Used when an element represents a checkbox which can be checked, unchecked, or have mixed checked state.
+- **combobox** Used when an element represents a combo box, which allows the user to select among several choices.
+- **grid** Used with ScrollView, VirtualizedList, FlatList, or SectionList to represent a grid. Adds the in/out of grid announcements to the android GridView.
+- **heading** Used when an element acts as a header for a content section (e.g. the title of a navigation bar).
+- **img** Used when the element should be treated as an image. Can be combined with button or link, for example.
+- **link** Used when the element should be treated as a link.
+- **list** Used to identify a list of items.
+- **menu** Used when the component is a menu of choices.
+- **menubar** Used when a component is a container of multiple menus.
+- **menuitem** Used to represent an item within a menu.
+- **none** Used when the element has no role.
+- **presentation** Used when the element has no role.
+- **progressbar** Used to represent a component which indicates progress of a task.
+- **radio** Used to represent a radio button.
+- **radiogroup** Used to represent a group of radio buttons.
+- **scrollbar** Used to represent a scroll bar.
+- **searchbox** Used when the text field element should also be treated as a search field.
+- **slider** Used when an element can be "adjusted" (e.g. a slider).
+- **spinbutton** Used to represent a button which opens a list of choices.
+- **summary** Used when an element can be used to provide a quick summary of current conditions in the app when the app first launches.
+- **switch** Used to represent a switch which can be turned on and off.
+- **tab** Used to represent a tab.
+- **tablist** Used to represent a list of tabs.
+- **timer** Used to represent a timer.
+- **toolbar** Used to represent a tool bar (a container of action buttons or components).
+
 ## Accessibility Actions
 
 Accessibility actions allow an assistive technology to programmatically invoke the actions of a component. In order to support accessibility actions, a component must do two things:

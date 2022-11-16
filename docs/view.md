@@ -749,6 +749,16 @@ On Android, this is useful for animations and interactions that only modify opac
 
 ---
 
+### `role`
+
+`role` communicates the purpose of a component to the user of an assistive technology. Has precedence over the [`accessibilityRole`](view#accessibilityrole) prop.
+
+| Type                       |
+| -------------------------- |
+| [Role](accessibility#role) |
+
+---
+
 ### `shouldRasterizeIOS` <div class="label ios">iOS</div>
 
 Whether this `View` should be rendered as a bitmap before compositing.
