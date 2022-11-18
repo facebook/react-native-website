@@ -43,8 +43,8 @@ Fingers are not the most precise instruments, and it is common for users to acci
 ## Example
 
 ```SnackPlayer name=Pressable
-import React, { useState } from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import React, {useState} from 'react';
+import {Pressable, StyleSheet, Text, View} from 'react-native';
 
 const App = () => {
   const [timesPressed, setTimesPressed] = useState(0);
@@ -60,17 +60,15 @@ const App = () => {
     <View style={styles.container}>
       <Pressable
         onPress={() => {
-          setTimesPressed((current) => current + 1);
+          setTimesPressed(current => current + 1);
         }}
-        style={({ pressed }) => [
+        style={({pressed}) => [
           {
-            backgroundColor: pressed
-              ? 'rgb(210, 230, 255)'
-              : 'white'
+            backgroundColor: pressed ? 'rgb(210, 230, 255)' : 'white',
           },
-          styles.wrapperCustom
+          styles.wrapperCustom,
         ]}>
-        {({ pressed }) => (
+        {({pressed}) => (
           <Text style={styles.text}>
             {pressed ? 'Pressed!' : 'Press Me'}
           </Text>
@@ -86,22 +84,22 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
+    justifyContent: 'center',
   },
   text: {
-    fontSize: 16
+    fontSize: 16,
   },
   wrapperCustom: {
     borderRadius: 8,
-    padding: 6
+    padding: 6,
   },
   logBox: {
     padding: 20,
     margin: 10,
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: '#f0f0f0',
-    backgroundColor: '#f9f9f9'
-  }
+    backgroundColor: '#f9f9f9',
+  },
 });
 
 export default App;

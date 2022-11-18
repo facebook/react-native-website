@@ -18,44 +18,52 @@ The [`Animated`](animated) API is designed to concisely express a wide variety o
 For example, a container view that fades in when it is mounted may look like this:
 
 ```SnackPlayer
-import React, { useRef, useEffect } from 'react';
-import { Animated, Text, View } from 'react-native';
+import React, {useRef, useEffect} from 'react';
+import {Animated, Text, View} from 'react-native';
 
-const FadeInView = (props) => {
-  const fadeAnim = useRef(new Animated.Value(0)).current  // Initial value for opacity: 0
+const FadeInView = props => {
+  const fadeAnim = useRef(new Animated.Value(0)).current; // Initial value for opacity: 0
 
   useEffect(() => {
-    Animated.timing(
-      fadeAnim,
-      {
-        toValue: 1,
-        duration: 10000,
-      }
-    ).start();
-  }, [fadeAnim])
+    Animated.timing(fadeAnim, {
+      toValue: 1,
+      duration: 10000,
+    }).start();
+  }, [fadeAnim]);
 
   return (
-    <Animated.View                 // Special animatable View
+    <Animated.View // Special animatable View
       style={{
         ...props.style,
-        opacity: fadeAnim,         // Bind opacity to animated value
-      }}
-    >
+        opacity: fadeAnim, // Bind opacity to animated value
+      }}>
       {props.children}
     </Animated.View>
   );
-}
+};
 
 // You can then use your `FadeInView` in place of a `View` in your components:
 export default () => {
   return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <FadeInView style={{width: 250, height: 50, backgroundColor: 'powderblue'}}>
-        <Text style={{fontSize: 28, textAlign: 'center', margin: 10}}>Fading in</Text>
+    <View
+      style={{
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}>
+      <FadeInView
+        style={{
+          width: 250,
+          height: 50,
+          backgroundColor: 'powderblue',
+        }}>
+        <Text style={{fontSize: 28, textAlign: 'center', margin: 10}}>
+          Fading in
+        </Text>
       </FadeInView>
     </View>
-  )
-}
+  );
+};
 ```
 
 Let's break down what's happening here. In the `FadeInView` constructor, a new `Animated.Value` called `fadeAnim` is initialized as part of `state`. The opacity property on the `View` is mapped to this animated value. Behind the scenes, the numeric value is extracted and used to set opacity.
@@ -236,7 +244,7 @@ The following example implements a horizontal scrolling carousel where the scrol
 <TabItem value="functional">
 
 ```SnackPlayer name=Animated&supportedPlatforms=ios,android
-import React, { useRef } from "react";
+import React, {useRef} from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -245,15 +253,17 @@ import {
   View,
   ImageBackground,
   Animated,
-  useWindowDimensions
-} from "react-native";
+  useWindowDimensions,
+} from 'react-native';
 
-const images = new Array(6).fill('https://images.unsplash.com/photo-1556740749-887f6717d7e4');
+const images = new Array(6).fill(
+  'https://images.unsplash.com/photo-1556740749-887f6717d7e4'
+);
 
 const App = () => {
   const scrollX = useRef(new Animated.Value(0)).current;
 
-  const { width: windowWidth } = useWindowDimensions();
+  const {width: windowWidth} = useWindowDimensions();
 
   return (
     <SafeAreaView style={styles.container}>
@@ -266,23 +276,23 @@ const App = () => {
             {
               nativeEvent: {
                 contentOffset: {
-                  x: scrollX
-                }
-              }
-            }
+                  x: scrollX,
+                },
+              },
+            },
           ])}
-          scrollEventThrottle={1}
-        >
+          scrollEventThrottle={1}>
           {images.map((image, imageIndex) => {
             return (
               <View
-                style={{ width: windowWidth, height: 250 }}
-                key={imageIndex}
-              >
-                <ImageBackground source={{ uri: image }} style={styles.card}>
+                style={{width: windowWidth, height: 250}}
+                key={imageIndex}>
+                <ImageBackground
+                  source={{uri: image}}
+                  style={styles.card}>
                   <View style={styles.textContainer}>
                     <Text style={styles.infoText}>
-                      {"Image - " + imageIndex}
+                      {'Image - ' + imageIndex}
                     </Text>
                   </View>
                 </ImageBackground>
@@ -296,15 +306,15 @@ const App = () => {
               inputRange: [
                 windowWidth * (imageIndex - 1),
                 windowWidth * imageIndex,
-                windowWidth * (imageIndex + 1)
+                windowWidth * (imageIndex + 1),
               ],
               outputRange: [8, 16, 8],
-              extrapolate: "clamp"
+              extrapolate: 'clamp',
             });
             return (
               <Animated.View
                 key={imageIndex}
-                style={[styles.normalDot, { width }]}
+                style={[styles.normalDot, {width}]}
               />
             );
           })}
@@ -312,51 +322,51 @@ const App = () => {
       </View>
     </SafeAreaView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   scrollContainer: {
     height: 300,
-    alignItems: "center",
-    justifyContent: "center"
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   card: {
     flex: 1,
     marginVertical: 4,
     marginHorizontal: 16,
     borderRadius: 5,
-    overflow: "hidden",
-    alignItems: "center",
-    justifyContent: "center"
+    overflow: 'hidden',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   textContainer: {
-    backgroundColor: "rgba(0,0,0, 0.7)",
+    backgroundColor: 'rgba(0,0,0, 0.7)',
     paddingHorizontal: 24,
     paddingVertical: 8,
-    borderRadius: 5
+    borderRadius: 5,
   },
   infoText: {
-    color: "white",
+    color: 'white',
     fontSize: 16,
-    fontWeight: "bold"
+    fontWeight: 'bold',
   },
   normalDot: {
     height: 8,
     width: 8,
     borderRadius: 4,
-    backgroundColor: "silver",
-    marginHorizontal: 4
+    backgroundColor: 'silver',
+    marginHorizontal: 4,
   },
   indicatorContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center"
-  }
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 });
 
 export default App;
@@ -366,7 +376,7 @@ export default App;
 <TabItem value="classical">
 
 ```SnackPlayer name=Animated&supportedPlatforms=ios,android
-import React, { Component } from "react";
+import React, {Component} from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -375,32 +385,34 @@ import {
   View,
   ImageBackground,
   Animated,
-  Dimensions
-} from "react-native";
+  Dimensions,
+} from 'react-native';
 
-const images = new Array(6).fill('https://images.unsplash.com/photo-1556740749-887f6717d7e4');
+const images = new Array(6).fill(
+  'https://images.unsplash.com/photo-1556740749-887f6717d7e4'
+);
 
-const window = Dimensions.get("window");
+const window = Dimensions.get('window');
 
 export default class App extends Component {
   scrollX = new Animated.Value(0);
 
   state = {
     dimensions: {
-      window
-    }
+      window,
+    },
   };
 
-  onDimensionsChange = ({ window }) => {
-    this.setState({ dimensions: { window } });
+  onDimensionsChange = ({window}) => {
+    this.setState({dimensions: {window}});
   };
 
   componentDidMount() {
-    Dimensions.addEventListener("change", this.onDimensionsChange);
+    Dimensions.addEventListener('change', this.onDimensionsChange);
   }
 
   componentWillUnmount() {
-    Dimensions.removeEventListener("change", this.onDimensionsChange);
+    Dimensions.removeEventListener('change', this.onDimensionsChange);
   }
 
   render() {
@@ -417,26 +429,26 @@ export default class App extends Component {
               {
                 nativeEvent: {
                   contentOffset: {
-                    x: this.scrollX
-                  }
-                }
-              }
+                    x: this.scrollX,
+                  },
+                },
+              },
             ])}
-            scrollEventThrottle={1}
-          >
+            scrollEventThrottle={1}>
             {images.map((image, imageIndex) => {
               return (
                 <View
                   style={{
                     width: windowWidth,
-                    height: 250
+                    height: 250,
                   }}
-                  key={imageIndex}
-                >
-                  <ImageBackground source={{ uri: image }} style={styles.card}>
+                  key={imageIndex}>
+                  <ImageBackground
+                    source={{uri: image}}
+                    style={styles.card}>
                     <View style={styles.textContainer}>
                       <Text style={styles.infoText}>
-                        {"Image - " + imageIndex}
+                        {'Image - ' + imageIndex}
                       </Text>
                     </View>
                   </ImageBackground>
@@ -450,15 +462,15 @@ export default class App extends Component {
                 inputRange: [
                   windowWidth * (imageIndex - 1),
                   windowWidth * imageIndex,
-                  windowWidth * (imageIndex + 1)
+                  windowWidth * (imageIndex + 1),
                 ],
                 outputRange: [8, 16, 8],
-                extrapolate: "clamp"
+                extrapolate: 'clamp',
               });
               return (
                 <Animated.View
                   key={imageIndex}
-                  style={[styles.normalDot, { width }]}
+                  style={[styles.normalDot, {width}]}
                 />
               );
             })}
@@ -472,46 +484,46 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   scrollContainer: {
     height: 300,
-    alignItems: "center",
-    justifyContent: "center"
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   card: {
     flex: 1,
     marginVertical: 4,
     marginHorizontal: 16,
     borderRadius: 5,
-    overflow: "hidden",
-    alignItems: "center",
-    justifyContent: "center"
+    overflow: 'hidden',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   textContainer: {
-    backgroundColor: "rgba(0,0,0, 0.7)",
+    backgroundColor: 'rgba(0,0,0, 0.7)',
     paddingHorizontal: 24,
     paddingVertical: 8,
-    borderRadius: 5
+    borderRadius: 5,
   },
   infoText: {
-    color: "white",
+    color: 'white',
     fontSize: 16,
-    fontWeight: "bold"
+    fontWeight: 'bold',
   },
   normalDot: {
     height: 8,
     width: 8,
     borderRadius: 4,
-    backgroundColor: "silver",
-    marginHorizontal: 4
+    backgroundColor: 'silver',
+    marginHorizontal: 4,
   },
   indicatorContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center"
-  }
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 });
 ```
 
@@ -535,8 +547,14 @@ onPanResponderMove={Animated.event(
 <TabItem value="functional">
 
 ```SnackPlayer name=Animated
-import React, { useRef } from "react";
-import { Animated, View, StyleSheet, PanResponder, Text } from "react-native";
+import React, {useRef} from 'react';
+import {
+  Animated,
+  View,
+  StyleSheet,
+  PanResponder,
+  Text,
+} from 'react-native';
 
 const App = () => {
   const pan = useRef(new Animated.ValueXY()).current;
@@ -545,11 +563,11 @@ const App = () => {
       onMoveShouldSetPanResponder: () => true,
       onPanResponderMove: Animated.event([
         null,
-        { dx: pan.x, dy: pan.y }
+        {dx: pan.x, dy: pan.y},
       ]),
       onPanResponderRelease: () => {
-        Animated.spring(pan, { toValue: { x: 0, y: 0 } }).start();
-      }
+        Animated.spring(pan, {toValue: {x: 0, y: 0}}).start();
+      },
     })
   ).current;
 
@@ -558,33 +576,32 @@ const App = () => {
       <Text style={styles.titleText}>Drag & Release this box!</Text>
       <Animated.View
         style={{
-          transform: [{ translateX: pan.x }, { translateY: pan.y }]
+          transform: [{translateX: pan.x}, {translateY: pan.y}],
         }}
-        {...panResponder.panHandlers}
-      >
+        {...panResponder.panHandlers}>
         <View style={styles.box} />
       </Animated.View>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   titleText: {
     fontSize: 14,
     lineHeight: 24,
-    fontWeight: "bold"
+    fontWeight: 'bold',
   },
   box: {
     height: 150,
     width: 150,
-    backgroundColor: "blue",
-    borderRadius: 5
-  }
+    backgroundColor: 'blue',
+    borderRadius: 5,
+  },
 });
 
 export default App;
@@ -594,8 +611,14 @@ export default App;
 <TabItem value="classical">
 
 ```SnackPlayer name=Animated
-import React, { Component } from "react";
-import { Animated, View, StyleSheet, PanResponder, Text } from "react-native";
+import React, {Component} from 'react';
+import {
+  Animated,
+  View,
+  StyleSheet,
+  PanResponder,
+  Text,
+} from 'react-native';
 
 export default class App extends Component {
   pan = new Animated.ValueXY();
@@ -603,11 +626,11 @@ export default class App extends Component {
     onMoveShouldSetPanResponder: () => true,
     onPanResponderMove: Animated.event([
       null,
-      { dx: this.pan.x, dy: this.pan.y }
+      {dx: this.pan.x, dy: this.pan.y},
     ]),
     onPanResponderRelease: () => {
-      Animated.spring(this.pan, { toValue: { x: 0, y: 0 } }).start();
-    }
+      Animated.spring(this.pan, {toValue: {x: 0, y: 0}}).start();
+    },
   });
 
   render() {
@@ -616,10 +639,12 @@ export default class App extends Component {
         <Text style={styles.titleText}>Drag & Release this box!</Text>
         <Animated.View
           style={{
-            transform: [{ translateX: this.pan.x }, { translateY: this.pan.y }]
+            transform: [
+              {translateX: this.pan.x},
+              {translateY: this.pan.y},
+            ],
           }}
-          {...this.panResponder.panHandlers}
-        >
+          {...this.panResponder.panHandlers}>
           <View style={styles.box} />
         </Animated.View>
       </View>
@@ -630,20 +655,20 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   titleText: {
     fontSize: 14,
     lineHeight: 24,
-    fontWeight: "bold"
+    fontWeight: 'bold',
   },
   box: {
     height: 150,
     width: 150,
-    backgroundColor: "blue",
-    borderRadius: 5
-  }
+    backgroundColor: 'blue',
+    borderRadius: 5,
+  },
 });
 ```
 
@@ -749,7 +774,7 @@ import {
   View,
 } from 'react-native';
 
-const { UIManager } = NativeModules;
+const {UIManager} = NativeModules;
 
 UIManager.setLayoutAnimationEnabledExperimental &&
   UIManager.setLayoutAnimationEnabledExperimental(true);
@@ -763,13 +788,18 @@ export default class App extends React.Component {
   _onPress = () => {
     // Animate the update
     LayoutAnimation.spring();
-    this.setState({w: this.state.w + 15, h: this.state.h + 15})
-  }
+    this.setState({w: this.state.w + 15, h: this.state.h + 15});
+  };
 
   render() {
     return (
       <View style={styles.container}>
-        <View style={[styles.box, {width: this.state.w, height: this.state.h}]} />
+        <View
+          style={[
+            styles.box,
+            {width: this.state.w, height: this.state.h},
+          ]}
+        />
         <TouchableOpacity onPress={this._onPress}>
           <View style={styles.button}>
             <Text style={styles.buttonText}>Press me!</Text>

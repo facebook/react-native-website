@@ -49,25 +49,31 @@ The following example implements a scenario where you confirm if the user wants 
 <TabItem value="functional">
 
 ```SnackPlayer name=BackHandler&supportedPlatforms=android
-import React, { useEffect } from "react";
-import { Text, View, StyleSheet, BackHandler, Alert } from "react-native";
+import React, {useEffect} from 'react';
+import {
+  Text,
+  View,
+  StyleSheet,
+  BackHandler,
+  Alert,
+} from 'react-native';
 
 const App = () => {
   useEffect(() => {
     const backAction = () => {
-      Alert.alert("Hold on!", "Are you sure you want to go back?", [
+      Alert.alert('Hold on!', 'Are you sure you want to go back?', [
         {
-          text: "Cancel",
+          text: 'Cancel',
           onPress: () => null,
-          style: "cancel"
+          style: 'cancel',
         },
-        { text: "YES", onPress: () => BackHandler.exitApp() }
+        {text: 'YES', onPress: () => BackHandler.exitApp()},
       ]);
       return true;
     };
 
     const backHandler = BackHandler.addEventListener(
-      "hardwareBackPress",
+      'hardwareBackPress',
       backAction
     );
 
@@ -84,13 +90,13 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   text: {
     fontSize: 18,
-    fontWeight: "bold"
-  }
+    fontWeight: 'bold',
+  },
 });
 
 export default App;
@@ -100,25 +106,31 @@ export default App;
 <TabItem value="classical">
 
 ```SnackPlayer name=BackHandler&supportedPlatforms=android
-import React, { Component } from "react";
-import { Text, View, StyleSheet, BackHandler, Alert } from "react-native";
+import React, {Component} from 'react';
+import {
+  Text,
+  View,
+  StyleSheet,
+  BackHandler,
+  Alert,
+} from 'react-native';
 
 class App extends Component {
   backAction = () => {
-    Alert.alert("Hold on!", "Are you sure you want to go back?", [
+    Alert.alert('Hold on!', 'Are you sure you want to go back?', [
       {
-        text: "Cancel",
+        text: 'Cancel',
         onPress: () => null,
-        style: "cancel"
+        style: 'cancel',
       },
-      { text: "YES", onPress: () => BackHandler.exitApp() }
+      {text: 'YES', onPress: () => BackHandler.exitApp()},
     ]);
     return true;
   };
 
   componentDidMount() {
     this.backHandler = BackHandler.addEventListener(
-      "hardwareBackPress",
+      'hardwareBackPress',
       this.backAction
     );
   }
@@ -134,18 +146,18 @@ class App extends Component {
       </View>
     );
   }
-};
+}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   text: {
     fontSize: 18,
-    fontWeight: "bold"
-  }
+    fontWeight: 'bold',
+  },
 });
 
 export default App;
@@ -162,27 +174,36 @@ Additionally `BackHandler.removeEventListener` can also be used to clear the eve
 <TabItem value="functional">
 
 ```SnackPlayer name=BackHandler&supportedPlatforms=android
-import React, { useEffect } from "react";
-import { Text, View, StyleSheet, BackHandler, Alert } from "react-native";
+import React, {useEffect} from 'react';
+import {
+  Text,
+  View,
+  StyleSheet,
+  BackHandler,
+  Alert,
+} from 'react-native';
 
 const App = () => {
   const backAction = () => {
-    Alert.alert("Hold on!", "Are you sure you want to go back?", [
+    Alert.alert('Hold on!', 'Are you sure you want to go back?', [
       {
-        text: "Cancel",
+        text: 'Cancel',
         onPress: () => null,
-        style: "cancel"
+        style: 'cancel',
       },
-      { text: "YES", onPress: () => BackHandler.exitApp() }
+      {text: 'YES', onPress: () => BackHandler.exitApp()},
     ]);
     return true;
   };
 
   useEffect(() => {
-    BackHandler.addEventListener("hardwareBackPress", backAction);
+    BackHandler.addEventListener('hardwareBackPress', backAction);
 
     return () =>
-      BackHandler.removeEventListener("hardwareBackPress", backAction);
+      BackHandler.removeEventListener(
+        'hardwareBackPress',
+        backAction
+      );
   }, []);
 
   return (
@@ -195,13 +216,13 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   text: {
     fontSize: 18,
-    fontWeight: "bold"
-  }
+    fontWeight: 'bold',
+  },
 });
 
 export default App;
@@ -211,28 +232,40 @@ export default App;
 <TabItem value="classical">
 
 ```SnackPlayer name=BackHandler&supportedPlatforms=android
-import React, { Component } from "react";
-import { Text, View, StyleSheet, BackHandler, Alert } from "react-native";
+import React, {Component} from 'react';
+import {
+  Text,
+  View,
+  StyleSheet,
+  BackHandler,
+  Alert,
+} from 'react-native';
 
 class App extends Component {
   backAction = () => {
-    Alert.alert("Hold on!", "Are you sure you want to go back?", [
+    Alert.alert('Hold on!', 'Are you sure you want to go back?', [
       {
-        text: "Cancel",
+        text: 'Cancel',
         onPress: () => null,
-        style: "cancel"
+        style: 'cancel',
       },
-      { text: "YES", onPress: () => BackHandler.exitApp() }
+      {text: 'YES', onPress: () => BackHandler.exitApp()},
     ]);
     return true;
   };
 
   componentDidMount() {
-    BackHandler.addEventListener("hardwareBackPress", this.backAction);
+    BackHandler.addEventListener(
+      'hardwareBackPress',
+      this.backAction
+    );
   }
 
   componentWillUnmount() {
-    BackHandler.removeEventListener("hardwareBackPress", this.backAction);
+    BackHandler.removeEventListener(
+      'hardwareBackPress',
+      this.backAction
+    );
   }
 
   render() {
@@ -242,18 +275,18 @@ class App extends Component {
       </View>
     );
   }
-};
+}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   text: {
     fontSize: 18,
-    fontWeight: "bold"
-  }
+    fontWeight: 'bold',
+  },
 });
 
 export default App;

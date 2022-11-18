@@ -14,8 +14,14 @@ Background drawable of native feedback touchable can be customized with `backgro
 ## Example
 
 ```SnackPlayer name=TouchableNativeFeedback%20Android%20Component%20Example&supportedPlatforms=android
-import React, { useState } from "react";
-import { Text, View, StyleSheet, TouchableNativeFeedback, StatusBar } from "react-native";
+import React, {useState} from 'react';
+import {
+  Text,
+  View,
+  StyleSheet,
+  TouchableNativeFeedback,
+  StatusBar,
+} from 'react-native';
 
 const App = () => {
   const [rippleColor, setRippleColor] = useState(randomHexColor());
@@ -27,8 +33,10 @@ const App = () => {
           setRippleColor(randomHexColor());
           setRippleOverflow(!rippleOverflow);
         }}
-        background={TouchableNativeFeedback.Ripple(rippleColor, rippleOverflow)}
-      >
+        background={TouchableNativeFeedback.Ripple(
+          rippleColor,
+          rippleOverflow
+        )}>
         <View style={styles.touchable}>
           <Text style={styles.text}>TouchableNativeFeedback</Text>
         </View>
@@ -38,7 +46,7 @@ const App = () => {
 };
 
 const randomHexColor = () => {
-  return "#000000".replace(/0/g, function() {
+  return '#000000'.replace(/0/g, function () {
     return (~~(Math.random() * 16)).toString(16);
   });
 };
@@ -46,13 +54,13 @@ const randomHexColor = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
+    justifyContent: 'center',
     paddingTop: StatusBar.currentHeight,
-    backgroundColor: "#ecf0f1",
-    padding: 8
+    backgroundColor: '#ecf0f1',
+    padding: 8,
   },
-  touchable: { flex: 0.5, borderColor: "black", borderWidth: 1 },
-  text: { alignSelf: "center" }
+  touchable: {flex: 0.5, borderColor: 'black', borderWidth: 1},
+  text: {alignSelf: 'center'},
 });
 
 export default App;

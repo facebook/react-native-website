@@ -114,14 +114,20 @@ You may have noticed that we passed all of the props down to the child view usin
 Another very common use case of `setNativeProps` is to edit the value of the TextInput. The `controlled` prop of TextInput can sometimes drop characters when the `bufferDelay` is low and the user types very quickly. Some developers prefer to skip this prop entirely and instead use `setNativeProps` to directly manipulate the TextInput value when necessary. For example, the following code demonstrates editing the input when you tap a button:
 
 ```SnackPlayer name=Clear%20text
-import React from "react";
-import { useCallback, useRef } from "react";
-import { StyleSheet, TextInput, Text, TouchableOpacity, View } from "react-native";
+import React from 'react';
+import {useCallback, useRef} from 'react';
+import {
+  StyleSheet,
+  TextInput,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 
 const App = () => {
   const inputRef = useRef();
   const editText = useCallback(() => {
-    inputRef.current.setNativeProps({ text: "Edited Text" });
+    inputRef.current.setNativeProps({text: 'Edited Text'});
   }, []);
 
   return (
@@ -137,15 +143,15 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   input: {
     height: 50,
     width: 200,
     marginHorizontal: 20,
     borderWidth: 1,
-    borderColor: "#ccc",
+    borderColor: '#ccc',
   },
 });
 
@@ -199,8 +205,8 @@ This method can also be called with a `relativeToNativeNode` handler (instead of
 :::
 
 ```SnackPlayer name=measureLayout%20example&supportedPlatforms=android,ios
-import React, { useEffect, useRef, useState } from "react";
-import { Text, View, StyleSheet } from "react-native";
+import React, {useEffect, useRef, useState} from 'react';
+import {Text, View, StyleSheet} from 'react-native';
 
 const App = () => {
   const textContainerRef = useRef(null);
@@ -212,7 +218,7 @@ const App = () => {
       textRef.current.measureLayout(
         textContainerRef.current,
         (left, top, width, height) => {
-          setMeasure({ left, top, width, height });
+          setMeasure({left, top, width, height});
         }
       );
     }
@@ -220,17 +226,12 @@ const App = () => {
 
   return (
     <View style={styles.container}>
-      <View
-        ref={textContainerRef}
-        style={styles.textContainer}
-      >
+      <View ref={textContainerRef} style={styles.textContainer}>
         <Text ref={textRef}>
           Where am I? (relative to the text container)
         </Text>
       </View>
-      <Text style={styles.measure}>
-        {JSON.stringify(measure)}
-      </Text>
+      <Text style={styles.measure}>{JSON.stringify(measure)}</Text>
     </View>
   );
 };
@@ -238,16 +239,16 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
+    justifyContent: 'center',
   },
   textContainer: {
-    backgroundColor: "#61dafb",
-    justifyContent: "center",
-    alignItems: "center",
+    backgroundColor: '#61dafb',
+    justifyContent: 'center',
+    alignItems: 'center',
     padding: 12,
   },
   measure: {
-    textAlign: "center",
+    textAlign: 'center',
     padding: 12,
   },
 });

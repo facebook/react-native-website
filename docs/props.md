@@ -9,16 +9,19 @@ For example, one basic React Native component is the `Image`. When you create an
 
 ```SnackPlayer name=Props
 import React from 'react';
-import { Image } from 'react-native';
+import {Image} from 'react-native';
 
 const Bananas = () => {
-    let pic = {
-      uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
-    };
-    return (
-      <Image source={pic} style={{width: 193, height: 110, marginTop:50}}/>
-    );
-}
+  let pic = {
+    uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg',
+  };
+  return (
+    <Image
+      source={pic}
+      style={{width: 193, height: 110, marginTop: 50}}
+    />
+  );
+};
 
 export default Bananas;
 ```

@@ -16,9 +16,15 @@ Entering text on touch phone is a challenge - small screen, software keyboard. B
 Check out [`TextInput` docs](textinput.md) for more configuration options.
 
 ```SnackPlayer name=TextInput%20form%20example
-import React, { useState, useRef } from 'react';
-import { Text, StatusBar, TextInput, View, StyleSheet } from 'react-native';
-import { Constants } from 'expo';
+import React, {useState, useRef} from 'react';
+import {
+  Text,
+  StatusBar,
+  TextInput,
+  View,
+  StyleSheet,
+} from 'react-native';
+import {Constants} from 'expo';
 
 const App = () => {
   const emailInput = useRef(null);
@@ -26,7 +32,9 @@ const App = () => {
   const [email, setEmail] = useState('');
 
   const submit = () => {
-    alert(`Welcome, ${name}! Confirmation email has been sent to ${email}`);
+    alert(
+      `Welcome, ${name}! Confirmation email has been sent to ${email}`
+    );
   };
 
   return (
@@ -34,16 +42,17 @@ const App = () => {
       <StatusBar barStyle="light-content" />
       <View style={styles.header}>
         <Text style={styles.description}>
-          This demo shows how using available TextInput customizations can make
-          forms much easier to use. Try completing the form and notice that
-          different fields have specific optimizations and the return key
-          changes from focusing next input to submitting the form.
+          This demo shows how using available TextInput customizations
+          can make forms much easier to use. Try completing the form
+          and notice that different fields have specific optimizations
+          and the return key changes from focusing next input to
+          submitting the form.
         </Text>
       </View>
       <TextInput
         style={styles.input}
         value={name}
-        onChangeText={(name) => setName(name)}
+        onChangeText={name => setName(name)}
         placeholder="Full Name"
         autoFocus={true}
         autoCapitalize="words"
@@ -56,7 +65,7 @@ const App = () => {
       <TextInput
         style={styles.input}
         value={email}
-        onChangeText={(email) => setEmail(email)}
+        onChangeText={email => setEmail(email)}
         ref={emailInput}
         placeholder="email@example.com"
         autoCapitalize="none"
@@ -103,7 +112,7 @@ export default App;
 Software keyboard takes almost half of the screen. If you have interactive elements that can get covered by the keyboard, make sure they are still accessible by using the [`KeyboardAvoidingView` component](keyboardavoidingview.md).
 
 ```SnackPlayer name=KeyboardAvoidingView%20example
-import React, { useState, useRef } from 'react';
+import React, {useState, useRef} from 'react';
 import {
   Text,
   Button,
@@ -128,17 +137,18 @@ const App = () => {
       <StatusBar barStyle="light-content" />
       <View style={styles.header}>
         <Text style={styles.description}>
-          This demo shows how to avoid covering important UI elements with the
-          software keyboard. Focus the email input below and notice that the
-          Sign Up button and the text adjusted positions to make sure they are
-          not hidden under the keyboard.
+          This demo shows how to avoid covering important UI elements
+          with the software keyboard. Focus the email input below and
+          notice that the Sign Up button and the text adjusted
+          positions to make sure they are not hidden under the
+          keyboard.
         </Text>
       </View>
       <KeyboardAvoidingView behavior="padding" style={styles.form}>
         <TextInput
           style={styles.input}
           value={email}
-          onChangeText={(email) => setEmail(email)}
+          onChangeText={email => setEmail(email)}
           ref={emailInput}
           placeholder="email@example.com"
           autoCapitalize="none"
@@ -150,7 +160,9 @@ const App = () => {
         />
         <View>
           <Button title="Sign Up" onPress={submit} />
-          <Text style={styles.legal}>Some important legal fine print here</Text>
+          <Text style={styles.legal}>
+            Some important legal fine print here
+          </Text>
         </View>
       </KeyboardAvoidingView>
     </View>
@@ -200,7 +212,7 @@ export default App;
 On mobile phones it's hard to be very precise when pressing buttons. Make sure all interactive elements are 44x44 or larger. One way to do this is to leave enough space for the element, `padding`, `minWidth` and `minHeight` style values can be useful for that. Alternatively, you can use [`hitSlop` prop](touchablewithoutfeedback.md#hitslop) to increase interactive area without affecting the layout. Here's a demo:
 
 ```SnackPlayer name=HitSlop%20example
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {
   Text,
   StatusBar,
@@ -215,10 +227,10 @@ const App = () => {
       <StatusBar barStyle="light-content" />
       <View style={styles.header}>
         <Text style={styles.description}>
-          This demo shows how using hitSlop can make interactive elements much
-          easier to tap without changing their layout and size. Try pressing
-          each button quickly multiple times and notice which one is easier to
-          hit.
+          This demo shows how using hitSlop can make interactive
+          elements much easier to tap without changing their layout
+          and size. Try pressing each button quickly multiple times
+          and notice which one is easier to hit.
         </Text>
       </View>
       <View style={styles.content}>
@@ -228,7 +240,7 @@ const App = () => {
         <View style={styles.separator} />
         <View style={styles.preview}>
           <TouchableOpacity
-            hitSlop={{ top: 20, left: 20, bottom: 20, right: 20 }}>
+            hitSlop={{top: 20, left: 20, bottom: 20, right: 20}}>
             <Text style={styles.label}>With hitSlop</Text>
           </TouchableOpacity>
         </View>
@@ -294,7 +306,7 @@ const SUPPORTS_NATIVE_FEEDBACK =
   Platform.OS === 'android' && Platform.Version >= 21;
 
 const noop = () => {};
-const defaultHitSlop = { top: 15, bottom: 15, right: 15, left: 15 };
+const defaultHitSlop = {top: 15, bottom: 15, right: 15, left: 15};
 
 const ButtonsWithNativeFeedback = () => (
   <View style={styles.buttonContainer}>
@@ -303,7 +315,9 @@ const ButtonsWithNativeFeedback = () => (
       background={TouchableNativeFeedback.Ripple('#06bcee', false)}
       hitSlop={defaultHitSlop}>
       <View style={styles.button}>
-        <Text style={styles.text}>This is a ripple respecting borders</Text>
+        <Text style={styles.text}>
+          This is a ripple respecting borders
+        </Text>
       </View>
     </TouchableNativeFeedback>
     <TouchableNativeFeedback
@@ -312,8 +326,8 @@ const ButtonsWithNativeFeedback = () => (
       hitSlop={defaultHitSlop}>
       <View style={styles.button}>
         <Text style={styles.text}>
-          This is ripple without borders, this is more useful for icons, eg: in
-          tab bar
+          This is ripple without borders, this is more useful for
+          icons, eg: in tab bar
         </Text>
       </View>
     </TouchableNativeFeedback>
@@ -340,7 +354,11 @@ const Buttons = () => (
 
 const App = () => (
   <View style={styles.container}>
-    {SUPPORTS_NATIVE_FEEDBACK ? <ButtonsWithNativeFeedback /> : <Buttons />}
+    {SUPPORTS_NATIVE_FEEDBACK ? (
+      <ButtonsWithNativeFeedback />
+    ) : (
+      <Buttons />
+    )}
   </View>
 );
 

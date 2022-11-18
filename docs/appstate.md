@@ -28,26 +28,31 @@ To see the current state, you can check `AppState.currentState`, which will be k
 <TabItem value="functional">
 
 ```SnackPlayer name=AppState%20Function%20Component%20Example
-import React, { useRef, useState, useEffect } from "react";
-import { AppState, StyleSheet, Text, View } from "react-native";
+import React, {useRef, useState, useEffect} from 'react';
+import {AppState, StyleSheet, Text, View} from 'react-native';
 
 const AppStateExample = () => {
   const appState = useRef(AppState.currentState);
-  const [appStateVisible, setAppStateVisible] = useState(appState.current);
+  const [appStateVisible, setAppStateVisible] = useState(
+    appState.current
+  );
 
   useEffect(() => {
-    const subscription = AppState.addEventListener("change", nextAppState => {
-      if (
-        appState.current.match(/inactive|background/) &&
-        nextAppState === "active"
-      ) {
-        console.log("App has come to the foreground!");
-      }
+    const subscription = AppState.addEventListener(
+      'change',
+      nextAppState => {
+        if (
+          appState.current.match(/inactive|background/) &&
+          nextAppState === 'active'
+        ) {
+          console.log('App has come to the foreground!');
+        }
 
-      appState.current = nextAppState;
-      setAppStateVisible(appState.current);
-      console.log("AppState", appState.current);
-    });
+        appState.current = nextAppState;
+        setAppStateVisible(appState.current);
+        console.log('AppState', appState.current);
+      }
+    );
 
     return () => {
       subscription.remove();
@@ -64,8 +69,8 @@ const AppStateExample = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 
@@ -78,25 +83,25 @@ If you don't want to see the AppState update from `active` to `inactive` on iOS 
 <TabItem value="classical">
 
 ```SnackPlayer name=AppState%20Class%20Component%20Example
-import React, { Component } from "react";
-import { AppState, StyleSheet, Text, View } from "react-native";
+import React, {Component} from 'react';
+import {AppState, StyleSheet, Text, View} from 'react-native';
 
 class AppStateExample extends Component {
   state = {
-    appState: AppState.currentState
+    appState: AppState.currentState,
   };
 
   componentDidMount() {
     this.appStateSubscription = AppState.addEventListener(
-      "change",
+      'change',
       nextAppState => {
         if (
           this.state.appState.match(/inactive|background/) &&
-          nextAppState === "active"
+          nextAppState === 'active'
         ) {
-          console.log("App has come to the foreground!");
+          console.log('App has come to the foreground!');
         }
-        this.setState({ appState: nextAppState });
+        this.setState({appState: nextAppState});
       }
     );
   }
@@ -117,9 +122,9 @@ class AppStateExample extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center"
-  }
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });
 
 export default AppStateExample;

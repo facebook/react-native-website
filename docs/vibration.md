@@ -13,44 +13,62 @@ Vibrates the device.
 <TabItem value="functional">
 
 ```SnackPlayer name=Vibration&supportedPlatforms=ios,android
-import React from "react";
-import { Button, Platform, Text, Vibration, View, SafeAreaView, StyleSheet } from "react-native";
+import React from 'react';
+import {
+  Button,
+  Platform,
+  Text,
+  Vibration,
+  View,
+  SafeAreaView,
+  StyleSheet,
+} from 'react-native';
 
 const Separator = () => {
-  return <View style={Platform.OS === "android" ? styles.separator : null} />;
-}
+  return (
+    <View
+      style={Platform.OS === 'android' ? styles.separator : null}
+    />
+  );
+};
 
 const App = () => {
-
   const ONE_SECOND_IN_MS = 1000;
 
   const PATTERN = [
     1 * ONE_SECOND_IN_MS,
     2 * ONE_SECOND_IN_MS,
-    3 * ONE_SECOND_IN_MS
+    3 * ONE_SECOND_IN_MS,
   ];
 
   const PATTERN_DESC =
-    Platform.OS === "android"
-      ? "wait 1s, vibrate 2s, wait 3s"
-      : "wait 1s, vibrate, wait 2s, vibrate, wait 3s";
+    Platform.OS === 'android'
+      ? 'wait 1s, vibrate 2s, wait 3s'
+      : 'wait 1s, vibrate, wait 2s, vibrate, wait 3s';
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={[styles.header, styles.paragraph]}>Vibration API</Text>
+      <Text style={[styles.header, styles.paragraph]}>
+        Vibration API
+      </Text>
       <View>
-        <Button title="Vibrate once" onPress={() => Vibration.vibrate()} />
+        <Button
+          title="Vibrate once"
+          onPress={() => Vibration.vibrate()}
+        />
       </View>
       <Separator />
-      {Platform.OS == "android"
+      {Platform.OS == 'android'
         ? [
             <View>
               <Button
                 title="Vibrate for 10 seconds"
-                onPress={() => Vibration.vibrate(10 * ONE_SECOND_IN_MS)}
+                onPress={() =>
+                  Vibration.vibrate(10 * ONE_SECOND_IN_MS)
+                }
               />
             </View>,
-            <Separator />
+            <Separator />,
           ]
         : null}
       <Text style={styles.paragraph}>Pattern: {PATTERN_DESC}</Text>
@@ -71,29 +89,29 @@ const App = () => {
       />
     </SafeAreaView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
+    justifyContent: 'center',
     paddingTop: 44,
-    padding: 8
+    padding: 8,
   },
   header: {
     fontSize: 18,
-    fontWeight: "bold",
-    textAlign: "center"
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
   paragraph: {
     margin: 24,
-    textAlign: "center"
+    textAlign: 'center',
   },
   separator: {
     marginVertical: 8,
-    borderBottomColor: "#737373",
-    borderBottomWidth: StyleSheet.hairlineWidth
-  }
+    borderBottomColor: '#737373',
+    borderBottomWidth: StyleSheet.hairlineWidth,
+  },
 });
 
 export default App;
@@ -103,12 +121,24 @@ export default App;
 <TabItem value="classical">
 
 ```SnackPlayer name=Vibration&supportedPlatforms=ios,android
-import React, { Component } from "react";
-import { Button, Platform, Text, Vibration, View, SafeAreaView, StyleSheet } from "react-native";
+import React, {Component} from 'react';
+import {
+  Button,
+  Platform,
+  Text,
+  Vibration,
+  View,
+  SafeAreaView,
+  StyleSheet,
+} from 'react-native';
 
 const Separator = () => {
-  return <View style={Platform.OS === "android" ? styles.separator : null} />;
-}
+  return (
+    <View
+      style={Platform.OS === 'android' ? styles.separator : null}
+    />
+  );
+};
 
 class App extends Component {
   render() {
@@ -117,30 +147,37 @@ class App extends Component {
     const PATTERN = [
       1 * ONE_SECOND_IN_MS,
       2 * ONE_SECOND_IN_MS,
-      3 * ONE_SECOND_IN_MS
+      3 * ONE_SECOND_IN_MS,
     ];
 
     const PATTERN_DESC =
-      Platform.OS === "android"
-        ? "wait 1s, vibrate 2s, wait 3s"
-        : "wait 1s, vibrate, wait 2s, vibrate, wait 3s";
+      Platform.OS === 'android'
+        ? 'wait 1s, vibrate 2s, wait 3s'
+        : 'wait 1s, vibrate, wait 2s, vibrate, wait 3s';
 
     return (
       <SafeAreaView style={styles.container}>
-        <Text style={[styles.header, styles.paragraph]}>Vibration API</Text>
+        <Text style={[styles.header, styles.paragraph]}>
+          Vibration API
+        </Text>
         <View>
-          <Button title="Vibrate once" onPress={() => Vibration.vibrate()} />
+          <Button
+            title="Vibrate once"
+            onPress={() => Vibration.vibrate()}
+          />
         </View>
         <Separator />
-        {Platform.OS == "android"
+        {Platform.OS == 'android'
           ? [
               <View>
                 <Button
                   title="Vibrate for 10 seconds"
-                  onPress={() => Vibration.vibrate(10 * ONE_SECOND_IN_MS)}
+                  onPress={() =>
+                    Vibration.vibrate(10 * ONE_SECOND_IN_MS)
+                  }
                 />
               </View>,
-              <Separator />
+              <Separator />,
             ]
           : null}
         <Text style={styles.paragraph}>Pattern: {PATTERN_DESC}</Text>
@@ -167,24 +204,24 @@ class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
+    justifyContent: 'center',
     paddingTop: 44,
-    padding: 8
+    padding: 8,
   },
   header: {
     fontSize: 18,
-    fontWeight: "bold",
-    textAlign: "center"
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
   paragraph: {
     margin: 24,
-    textAlign: "center"
+    textAlign: 'center',
   },
   separator: {
     marginVertical: 8,
-    borderBottomColor: "#737373",
-    borderBottomWidth: StyleSheet.hairlineWidth
-  }
+    borderBottomColor: '#737373',
+    borderBottomWidth: StyleSheet.hairlineWidth,
+  },
 });
 
 export default App;

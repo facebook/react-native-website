@@ -13,8 +13,13 @@ Displays a circular loading indicator.
 <TabItem value="functional">
 
 ```SnackPlayer name=ActivityIndicator%20Function%20Component%20Example
-import React from "react";
-import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
+import React from 'react';
+import {
+  ActivityIndicator,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 
 const App = () => (
   <View style={[styles.container, styles.horizontal]}>
@@ -28,13 +33,13 @@ const App = () => (
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center"
+    justifyContent: 'center',
   },
   horizontal: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    padding: 10
-  }
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    padding: 10,
+  },
 });
 
 export default App;
@@ -44,8 +49,13 @@ export default App;
 <TabItem value="classical">
 
 ```SnackPlayer name=ActivityIndicator%20Class%20Component%20Example
-import React, { Component } from "react";
-import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
+import React, {Component} from 'react';
+import {
+  ActivityIndicator,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 
 class App extends Component {
   render() {
@@ -63,13 +73,13 @@ class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center"
+    justifyContent: 'center',
   },
   horizontal: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    padding: 10
-  }
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    padding: 10,
+  },
 });
 
 export default App;

@@ -15,12 +15,12 @@ In the following example, the nested title and body text will inherit the `fontF
 <TabItem value="functional">
 
 ```SnackPlayer name=Text%20Functional%20Component%20Example
-import React, { useState } from "react";
-import { Text, StyleSheet } from "react-native";
+import React, {useState} from 'react';
+import {Text, StyleSheet} from 'react-native';
 
 const TextInANest = () => {
   const [titleText, setTitleText] = useState("Bird's Nest");
-  const bodyText = "This is not really a bird nest.";
+  const bodyText = 'This is not really a bird nest.';
 
   const onPressTitle = () => {
     setTitleText("Bird's Nest [pressed]");
@@ -30,8 +30,8 @@ const TextInANest = () => {
     <Text style={styles.baseText}>
       <Text style={styles.titleText} onPress={onPressTitle}>
         {titleText}
-        {"\n"}
-        {"\n"}
+        {'\n'}
+        {'\n'}
       </Text>
       <Text numberOfLines={5}>{bodyText}</Text>
     </Text>
@@ -40,12 +40,12 @@ const TextInANest = () => {
 
 const styles = StyleSheet.create({
   baseText: {
-    fontFamily: "Cochin"
+    fontFamily: 'Cochin',
   },
   titleText: {
     fontSize: 20,
-    fontWeight: "bold"
-  }
+    fontWeight: 'bold',
+  },
 });
 
 export default TextInANest;
@@ -55,32 +55,29 @@ export default TextInANest;
 <TabItem value="classical">
 
 ```SnackPlayer name=Text%20Class%20Component%20Example
-import React, { Component } from "react";
-import { Text, StyleSheet } from "react-native";
+import React, {Component} from 'react';
+import {Text, StyleSheet} from 'react-native';
 
 class TextInANest extends Component {
   constructor(props) {
     super(props);
     this.state = {
       titleText: "Bird's Nest",
-      bodyText: "This is not really a bird nest."
+      bodyText: 'This is not really a bird nest.',
     };
   }
 
   onPressTitle = () => {
-    this.setState({ titleText: "Bird's Nest [pressed]" });
+    this.setState({titleText: "Bird's Nest [pressed]"});
   };
 
   render() {
     return (
       <Text style={styles.baseText}>
-        <Text
-          style={styles.titleText}
-          onPress={this.onPressTitle}
-        >
+        <Text style={styles.titleText} onPress={this.onPressTitle}>
           {this.state.titleText}
-          {"\n"}
-          {"\n"}
+          {'\n'}
+          {'\n'}
         </Text>
         <Text numberOfLines={5}>{this.state.bodyText}</Text>
       </Text>
@@ -90,12 +87,12 @@ class TextInANest extends Component {
 
 const styles = StyleSheet.create({
   baseText: {
-    fontFamily: "Cochin"
+    fontFamily: 'Cochin',
   },
   titleText: {
     fontSize: 20,
-    fontWeight: "bold"
-  }
+    fontWeight: 'bold',
+  },
 });
 
 export default TextInANest;
@@ -110,7 +107,7 @@ Both Android and iOS allow you to display formatted text by annotating ranges of
 
 ```SnackPlayer name=Nested%20Text%20Example
 import React from 'react';
-import { Text, StyleSheet } from 'react-native';
+import {Text, StyleSheet} from 'react-native';
 
 const BoldAndBeautiful = () => {
   return (
@@ -123,11 +120,11 @@ const BoldAndBeautiful = () => {
 
 const styles = StyleSheet.create({
   baseText: {
-    fontWeight: 'bold'
+    fontWeight: 'bold',
   },
   innerText: {
-    color: 'red'
-  }
+    color: 'red',
+  },
 });
 
 export default BoldAndBeautiful;

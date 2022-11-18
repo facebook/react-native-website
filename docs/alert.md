@@ -17,56 +17,54 @@ This is an API that works both on Android and iOS and can show static alerts. Al
 <TabItem value="functional">
 
 ```SnackPlayer name=Alert%20Function%20Component%20Example&supportedPlatforms=ios,android
-import React, { useState } from "react";
-import { View, StyleSheet, Button, Alert } from "react-native";
+import React, {useState} from 'react';
+import {View, StyleSheet, Button, Alert} from 'react-native';
 
 const App = () => {
   const createTwoButtonAlert = () =>
-    Alert.alert(
-      "Alert Title",
-      "My Alert Msg",
-      [
-        {
-          text: "Cancel",
-          onPress: () => console.log("Cancel Pressed"),
-          style: "cancel"
-        },
-        { text: "OK", onPress: () => console.log("OK Pressed") }
-      ]
-    );
+    Alert.alert('Alert Title', 'My Alert Msg', [
+      {
+        text: 'Cancel',
+        onPress: () => console.log('Cancel Pressed'),
+        style: 'cancel',
+      },
+      {text: 'OK', onPress: () => console.log('OK Pressed')},
+    ]);
 
   const createThreeButtonAlert = () =>
-    Alert.alert(
-      "Alert Title",
-      "My Alert Msg",
-      [
-        {
-          text: "Ask me later",
-          onPress: () => console.log("Ask me later pressed")
-        },
-        {
-          text: "Cancel",
-          onPress: () => console.log("Cancel Pressed"),
-          style: "cancel"
-        },
-        { text: "OK", onPress: () => console.log("OK Pressed") }
-      ]
-    );
+    Alert.alert('Alert Title', 'My Alert Msg', [
+      {
+        text: 'Ask me later',
+        onPress: () => console.log('Ask me later pressed'),
+      },
+      {
+        text: 'Cancel',
+        onPress: () => console.log('Cancel Pressed'),
+        style: 'cancel',
+      },
+      {text: 'OK', onPress: () => console.log('OK Pressed')},
+    ]);
 
   return (
     <View style={styles.container}>
-      <Button title={"2-Button Alert"} onPress={createTwoButtonAlert} />
-      <Button title={"3-Button Alert"} onPress={createThreeButtonAlert} />
+      <Button
+        title={'2-Button Alert'}
+        onPress={createTwoButtonAlert}
+      />
+      <Button
+        title={'3-Button Alert'}
+        onPress={createThreeButtonAlert}
+      />
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "space-around",
-    alignItems: "center"
-  }
+    justifyContent: 'space-around',
+    alignItems: 'center',
+  },
 });
 
 export default App;
@@ -76,49 +74,44 @@ export default App;
 <TabItem value="classical">
 
 ```SnackPlayer name=Alert%20Class%20Component%20Example&supportedPlatforms=ios,android
-import React, { Component } from "react";
-import { View, StyleSheet, Button, Alert } from "react-native";
+import React, {Component} from 'react';
+import {View, StyleSheet, Button, Alert} from 'react-native';
 
 class App extends Component {
   createTwoButtonAlert = () =>
-    Alert.alert(
-      "Alert Title",
-      "My Alert Msg",
-      [
-        {
-          text: "Cancel",
-          onPress: () => console.log("Cancel Pressed"),
-          style: "cancel"
-        },
-        { text: "OK", onPress: () => console.log("OK Pressed") }
-      ]
-    );
+    Alert.alert('Alert Title', 'My Alert Msg', [
+      {
+        text: 'Cancel',
+        onPress: () => console.log('Cancel Pressed'),
+        style: 'cancel',
+      },
+      {text: 'OK', onPress: () => console.log('OK Pressed')},
+    ]);
 
   createThreeButtonAlert = () =>
-    Alert.alert(
-      "Alert Title",
-      "My Alert Msg",
-      [
-        {
-          text: "Ask me later",
-          onPress: () => console.log("Ask me later pressed")
-        },
-        {
-          text: "Cancel",
-          onPress: () => console.log("Cancel Pressed"),
-          style: "cancel"
-        },
-        { text: "OK", onPress: () => console.log("OK Pressed") }
-      ]
-    );
+    Alert.alert('Alert Title', 'My Alert Msg', [
+      {
+        text: 'Ask me later',
+        onPress: () => console.log('Ask me later pressed'),
+      },
+      {
+        text: 'Cancel',
+        onPress: () => console.log('Cancel Pressed'),
+        style: 'cancel',
+      },
+      {text: 'OK', onPress: () => console.log('OK Pressed')},
+    ]);
 
   render() {
     return (
       <View style={styles.container}>
-        <Button title={"2-Button Alert"} onPress={this.createTwoButtonAlert} />
+        <Button
+          title={'2-Button Alert'}
+          onPress={this.createTwoButtonAlert}
+        />
 
         <Button
-          title={"3-Button Alert"}
+          title={'3-Button Alert'}
           onPress={this.createThreeButtonAlert}
         />
       </View>
@@ -129,9 +122,9 @@ class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "space-around",
-    alignItems: "center"
-  }
+    justifyContent: 'space-around',
+    alignItems: 'center',
+  },
 });
 
 export default App;
@@ -159,25 +152,25 @@ The cancel event can be handled by providing an `onDismiss` callback property in
 ### Example <div class="label android">Android</div>
 
 ```SnackPlayer name=Alert%20Android%20Dissmissable%20Example&supportedPlatforms=android
-import React from "react";
-import { View, StyleSheet, Button, Alert } from "react-native";
+import React from 'react';
+import {View, StyleSheet, Button, Alert} from 'react-native';
 
 const showAlert = () =>
   Alert.alert(
-    "Alert Title",
-    "My Alert Msg",
+    'Alert Title',
+    'My Alert Msg',
     [
       {
-        text: "Cancel",
-        onPress: () => Alert.alert("Cancel Pressed"),
-        style: "cancel",
+        text: 'Cancel',
+        onPress: () => Alert.alert('Cancel Pressed'),
+        style: 'cancel',
       },
     ],
     {
       cancelable: true,
       onDismiss: () =>
         Alert.alert(
-          "This alert was dismissed by tapping outside of the alert dialog."
+          'This alert was dismissed by tapping outside of the alert dialog.'
         ),
     }
   );
@@ -191,9 +184,9 @@ const App = () => (
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center"
-  }
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });
 
 export default App;

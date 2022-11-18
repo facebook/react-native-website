@@ -13,12 +13,12 @@ This example creates a basic `FlatList` of hardcoded data. Each item in the `dat
 
 ```SnackPlayer name=FlatList%20Basics
 import React from 'react';
-import { FlatList, StyleSheet, Text, View } from 'react-native';
+import {FlatList, StyleSheet, Text, View} from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
-   flex: 1,
-   paddingTop: 22
+    flex: 1,
+    paddingTop: 22,
   },
   item: {
     padding: 10,
@@ -43,11 +43,13 @@ const FlatListBasics = () => {
           {key: 'Jimmy'},
           {key: 'Julie'},
         ]}
-        renderItem={({item}) => <Text style={styles.item}>{item.key}</Text>}
+        renderItem={({item}) => (
+          <Text style={styles.item}>{item.key}</Text>
+        )}
       />
     </View>
   );
-}
+};
 
 export default FlatListBasics;
 ```
@@ -56,12 +58,12 @@ If you want to render a set of data broken into logical sections, maybe with sec
 
 ```SnackPlayer name=SectionList%20Basics
 import React from 'react';
-import { SectionList, StyleSheet, Text, View } from 'react-native';
+import {SectionList, StyleSheet, Text, View} from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
-   flex: 1,
-   paddingTop: 22
+    flex: 1,
+    paddingTop: 22,
   },
   sectionHeader: {
     paddingTop: 2,
@@ -77,23 +79,38 @@ const styles = StyleSheet.create({
     fontSize: 18,
     height: 44,
   },
-})
+});
 
 const SectionListBasics = () => {
-    return (
-      <View style={styles.container}>
-        <SectionList
-          sections={[
-            {title: 'D', data: ['Devin', 'Dan', 'Dominic']},
-            {title: 'J', data: ['Jackson', 'James', 'Jillian', 'Jimmy', 'Joel', 'John', 'Julie']},
-          ]}
-          renderItem={({item}) => <Text style={styles.item}>{item}</Text>}
-          renderSectionHeader={({section}) => <Text style={styles.sectionHeader}>{section.title}</Text>}
-          keyExtractor={(item, index) => `basicListEntry-${item.title}`}
-        />
-      </View>
-    );
-}
+  return (
+    <View style={styles.container}>
+      <SectionList
+        sections={[
+          {title: 'D', data: ['Devin', 'Dan', 'Dominic']},
+          {
+            title: 'J',
+            data: [
+              'Jackson',
+              'James',
+              'Jillian',
+              'Jimmy',
+              'Joel',
+              'John',
+              'Julie',
+            ],
+          },
+        ]}
+        renderItem={({item}) => (
+          <Text style={styles.item}>{item}</Text>
+        )}
+        renderSectionHeader={({section}) => (
+          <Text style={styles.sectionHeader}>{section.title}</Text>
+        )}
+        keyExtractor={(item, index) => `basicListEntry-${item.title}`}
+      />
+    </View>
+  );
+};
 
 export default SectionListBasics;
 ```

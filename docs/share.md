@@ -12,7 +12,7 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import con
 
 ```SnackPlayer name=Function%20Component%20Example&supportedPlatforms=ios,android
 import React from 'react';
-import { Share, View, Button } from 'react-native';
+import {Share, View, Button} from 'react-native';
 
 const ShareExample = () => {
   const onShare = async () => {
@@ -35,7 +35,7 @@ const ShareExample = () => {
     }
   };
   return (
-    <View style={{ marginTop: 50 }}>
+    <View style={{marginTop: 50}}>
       <Button onPress={onShare} title="Share" />
     </View>
   );
@@ -48,8 +48,8 @@ export default ShareExample;
 <TabItem value="classical">
 
 ```SnackPlayer name=Class%20Component%20Example&supportedPlatforms=ios,android
-import React, { Component } from 'react';
-import { Share, View, Button } from 'react-native';
+import React, {Component} from 'react';
+import {Share, View, Button} from 'react-native';
 
 class ShareExample extends Component {
   onShare = async () => {
@@ -75,7 +75,7 @@ class ShareExample extends Component {
 
   render() {
     return (
-      <View style={{ marginTop: 50 }}>
+      <View style={{marginTop: 50}}>
         <Button onPress={this.onShare} title="Share" />
       </View>
     );

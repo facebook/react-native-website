@@ -11,18 +11,25 @@ Virtualization massively improves memory consumption and performance of large li
 
 ```SnackPlayer name=VirtualizedListExample
 import React from 'react';
-import { SafeAreaView, View, VirtualizedList, StyleSheet, Text, StatusBar } from 'react-native';
+import {
+  SafeAreaView,
+  View,
+  VirtualizedList,
+  StyleSheet,
+  Text,
+  StatusBar,
+} from 'react-native';
 
 const DATA = [];
 
 const getItem = (data, index) => ({
   id: Math.random().toString(12).substring(0),
-  title: `Item ${index+1}`
+  title: `Item ${index + 1}`,
 });
 
-const getItemCount = (data) => 50;
+const getItemCount = data => 50;
 
-const Item = ({ title }) => (
+const Item = ({title}) => (
   <View style={styles.item}>
     <Text style={styles.title}>{title}</Text>
   </View>
@@ -34,14 +41,14 @@ const App = () => {
       <VirtualizedList
         data={DATA}
         initialNumToRender={4}
-        renderItem={({ item }) => <Item title={item.title} />}
+        renderItem={({item}) => <Item title={item.title} />}
         keyExtractor={item => item.key}
         getItemCount={getItemCount}
         getItem={getItem}
       />
     </SafeAreaView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {

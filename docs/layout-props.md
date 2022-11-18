@@ -10,11 +10,23 @@ title: Layout Props
 The following example shows how different properties can affect or shape a React Native layout. You can try for example to add or remove squares from the UI while changing the values of the property `flexWrap`.
 
 ```SnackPlayer name=LayoutProps%20Example
-import React, { useState } from 'react';
-import { Button, ScrollView, StatusBar, StyleSheet, Text, View } from 'react-native';
+import React, {useState} from 'react';
+import {
+  Button,
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 
 const App = () => {
-  const flexDirections = ['row', 'row-reverse', 'column', 'column-reverse'];
+  const flexDirections = [
+    'row',
+    'row-reverse',
+    'column',
+    'column-reverse',
+  ];
   const justifyContents = [
     'flex-start',
     'flex-end',
@@ -53,11 +65,16 @@ const App = () => {
     }
     setterFunction(value + 1);
   };
-  const [squares, setSquares] = useState([<Square />, <Square />, <Square />]);
+  const [squares, setSquares] = useState([
+    <Square />,
+    <Square />,
+    <Square />,
+  ]);
   return (
     <>
-      <View style={{ paddingTop: StatusBar.currentHeight }} />
-      <View style={[styles.container, styles.playingSpace, hookedStyles]}>
+      <View style={{paddingTop: StatusBar.currentHeight}} />
+      <View
+        style={[styles.container, styles.playingSpace, hookedStyles]}>
         {squares.map(elem => elem)}
       </View>
       <ScrollView style={styles.container}>
@@ -66,10 +83,16 @@ const App = () => {
             <Button
               title="Change Flex Direction"
               onPress={() =>
-                changeSetting(flexDirection, flexDirections, setFlexDirection)
+                changeSetting(
+                  flexDirection,
+                  flexDirections,
+                  setFlexDirection
+                )
               }
             />
-            <Text style={styles.text}>{flexDirections[flexDirection]}</Text>
+            <Text style={styles.text}>
+              {flexDirections[flexDirection]}
+            </Text>
           </View>
           <View style={styles.buttonView}>
             <Button
@@ -82,21 +105,31 @@ const App = () => {
                 )
               }
             />
-            <Text style={styles.text}>{justifyContents[justifyContent]}</Text>
+            <Text style={styles.text}>
+              {justifyContents[justifyContent]}
+            </Text>
           </View>
           <View style={styles.buttonView}>
             <Button
               title="Change Align Items"
               onPress={() =>
-                changeSetting(alignItems, alignItemsArr, setAlignItems)
+                changeSetting(
+                  alignItems,
+                  alignItemsArr,
+                  setAlignItems
+                )
               }
             />
-            <Text style={styles.text}>{alignItemsArr[alignItems]}</Text>
+            <Text style={styles.text}>
+              {alignItemsArr[alignItems]}
+            </Text>
           </View>
           <View style={styles.buttonView}>
             <Button
               title="Change Direction"
-              onPress={() => changeSetting(direction, directions, setDirection)}
+              onPress={() =>
+                changeSetting(direction, directions, setDirection)
+              }
             />
             <Text style={styles.text}>{directions[direction]}</Text>
           </View>
@@ -110,14 +143,16 @@ const App = () => {
           <View style={styles.buttonView}>
             <Button
               title="Add Square"
-              onPress={() => setSquares([...squares, <Square/>])}
+              onPress={() => setSquares([...squares, <Square />])}
             />
           </View>
           <View style={styles.buttonView}>
             <Button
               title="Delete Square"
               onPress={() =>
-                setSquares(squares.filter((v, i) => i != squares.length - 1))
+                setSquares(
+                  squares.filter((v, i) => i != squares.length - 1)
+                )
               }
             />
           </View>
@@ -145,15 +180,17 @@ const styles = StyleSheet.create({
     width: '50%',
     padding: 10,
   },
-  text: { textAlign: 'center' },
+  text: {textAlign: 'center'},
 });
 
 const Square = () => (
-  <View style={{
-    width: 50,
-    height: 50,
-    backgroundColor: randomHexColor(),
-  }} />
+  <View
+    style={{
+      width: 50,
+      height: 50,
+      backgroundColor: randomHexColor(),
+    }}
+  />
 );
 
 const randomHexColor = () => {

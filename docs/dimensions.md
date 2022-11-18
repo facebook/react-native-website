@@ -28,20 +28,20 @@ If you are targeting foldable devices or devices which can change the screen siz
 <TabItem value="functional">
 
 ```SnackPlayer name=Dimensions
-import React, { useState, useEffect } from "react";
-import { View, StyleSheet, Text, Dimensions } from "react-native";
+import React, {useState, useEffect} from 'react';
+import {View, StyleSheet, Text, Dimensions} from 'react-native';
 
-const window = Dimensions.get("window");
-const screen = Dimensions.get("screen");
+const window = Dimensions.get('window');
+const screen = Dimensions.get('screen');
 
 const App = () => {
-  const [dimensions, setDimensions] = useState({ window, screen });
+  const [dimensions, setDimensions] = useState({window, screen});
 
   useEffect(() => {
     const subscription = Dimensions.addEventListener(
-      "change",
-      ({ window, screen }) => {
-        setDimensions({ window, screen });
+      'change',
+      ({window, screen}) => {
+        setDimensions({window, screen});
       }
     );
     return () => subscription?.remove();
@@ -51,26 +51,30 @@ const App = () => {
     <View style={styles.container}>
       <Text style={styles.header}>Window Dimensions</Text>
       {Object.entries(dimensions.window).map(([key, value]) => (
-        <Text>{key} - {value}</Text>
+        <Text>
+          {key} - {value}
+        </Text>
       ))}
       <Text style={styles.header}>Screen Dimensions</Text>
       {Object.entries(dimensions.screen).map(([key, value]) => (
-        <Text>{key} - {value}</Text>
+        <Text>
+          {key} - {value}
+        </Text>
       ))}
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center"
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   header: {
     fontSize: 16,
-    marginVertical: 10
-  }
+    marginVertical: 10,
+  },
 });
 
 export default App;
@@ -80,26 +84,29 @@ export default App;
 <TabItem value="classical">
 
 ```SnackPlayer name=Dimensions
-import React, { Component } from "react";
-import { View, StyleSheet, Text, Dimensions } from "react-native";
+import React, {Component} from 'react';
+import {View, StyleSheet, Text, Dimensions} from 'react-native';
 
-const window = Dimensions.get("window");
-const screen = Dimensions.get("screen");
+const window = Dimensions.get('window');
+const screen = Dimensions.get('screen');
 
 class App extends Component {
   state = {
     dimensions: {
       window,
-      screen
-    }
+      screen,
+    },
   };
 
-  onChange = ({ window, screen }) => {
-    this.setState({ dimensions: { window, screen } });
+  onChange = ({window, screen}) => {
+    this.setState({dimensions: {window, screen}});
   };
 
   componentDidMount() {
-    this.dimensionsSubscription = Dimensions.addEventListener("change", this.onChange);
+    this.dimensionsSubscription = Dimensions.addEventListener(
+      'change',
+      this.onChange
+    );
   }
 
   componentWillUnmount() {
@@ -107,17 +114,23 @@ class App extends Component {
   }
 
   render() {
-    const { dimensions: { window, screen } } = this.state;
+    const {
+      dimensions: {window, screen},
+    } = this.state;
 
     return (
       <View style={styles.container}>
         <Text style={styles.header}>Window Dimensions</Text>
         {Object.entries(window).map(([key, value]) => (
-          <Text>{key} - {value}</Text>
+          <Text>
+            {key} - {value}
+          </Text>
         ))}
         <Text style={styles.header}>Screen Dimensions</Text>
         {Object.entries(screen).map(([key, value]) => (
-          <Text>{key} - {value}</Text>
+          <Text>
+            {key} - {value}
+          </Text>
         ))}
       </View>
     );
@@ -127,13 +140,13 @@ class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center"
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   header: {
     fontSize: 16,
-    marginVertical: 10
-  }
+    marginVertical: 10,
+  },
 });
 
 export default App;

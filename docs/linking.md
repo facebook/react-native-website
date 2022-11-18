@@ -115,14 +115,14 @@ You can handle these events with `Linking.getInitialURL()` - it returns a Promis
 ### Open Links and Deep Links (Universal Links)
 
 ```SnackPlayer name=Linking%20Function%20Component%20Example&supportedPlatforms=ios,android
-import React, { useCallback } from "react";
-import { Alert, Button, Linking, StyleSheet, View } from "react-native";
+import React, {useCallback} from 'react';
+import {Alert, Button, Linking, StyleSheet, View} from 'react-native';
 
-const supportedURL = "https://google.com";
+const supportedURL = 'https://google.com';
 
-const unsupportedURL = "slack://open?team=123456";
+const unsupportedURL = 'slack://open?team=123456';
 
-const OpenURLButton = ({ url, children }) => {
+const OpenURLButton = ({url, children}) => {
   const handlePress = useCallback(async () => {
     // Checking if the link is supported for links with custom URL scheme.
     const supported = await Linking.canOpenURL(url);
@@ -142,14 +142,22 @@ const OpenURLButton = ({ url, children }) => {
 const App = () => {
   return (
     <View style={styles.container}>
-      <OpenURLButton url={supportedURL}>Open Supported URL</OpenURLButton>
-      <OpenURLButton url={unsupportedURL}>Open Unsupported URL</OpenURLButton>
+      <OpenURLButton url={supportedURL}>
+        Open Supported URL
+      </OpenURLButton>
+      <OpenURLButton url={unsupportedURL}>
+        Open Unsupported URL
+      </OpenURLButton>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: { flex: 1, justifyContent: "center", alignItems: "center" },
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });
 
 export default App;
@@ -158,10 +166,10 @@ export default App;
 ### Open Custom Settings
 
 ```SnackPlayer name=Linking%20Function%20Component%20Example&supportedPlatforms=ios,android
-import React, { useCallback } from "react";
-import { Button, Linking, StyleSheet, View } from "react-native";
+import React, {useCallback} from 'react';
+import {Button, Linking, StyleSheet, View} from 'react-native';
 
-const OpenSettingsButton = ({ children }) => {
+const OpenSettingsButton = ({children}) => {
   const handlePress = useCallback(async () => {
     // Open the custom settings if the app has one
     await Linking.openSettings();
@@ -179,7 +187,11 @@ const App = () => {
 };
 
 const styles = StyleSheet.create({
-  container: { flex: 1, justifyContent: "center", alignItems: "center" },
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });
 
 export default App;
@@ -239,10 +251,10 @@ export default App;
 ### Send Intents (Android)
 
 ```SnackPlayer name=Linking%20Function%20Component%20Example&supportedPlatforms=android
-import React, { useCallback } from "react";
-import { Alert, Button, Linking, StyleSheet, View } from "react-native";
+import React, {useCallback} from 'react';
+import {Alert, Button, Linking, StyleSheet, View} from 'react-native';
 
-const SendIntentButton = ({ action, extras, children }) => {
+const SendIntentButton = ({action, extras, children}) => {
   const handlePress = useCallback(async () => {
     try {
       await Linking.sendIntent(action, extras);
@@ -263,9 +275,11 @@ const App = () => {
       <SendIntentButton
         action="android.settings.APP_NOTIFICATION_SETTINGS"
         extras={[
-          { "android.provider.extra.APP_PACKAGE": "com.facebook.katana" },
-        ]}
-      >
+          {
+            'android.provider.extra.APP_PACKAGE':
+              'com.facebook.katana',
+          },
+        ]}>
         App Notification Settings
       </SendIntentButton>
     </View>
@@ -273,7 +287,11 @@ const App = () => {
 };
 
 const styles = StyleSheet.create({
-  container: { flex: 1, justifyContent: "center", alignItems: "center" },
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });
 
 export default App;

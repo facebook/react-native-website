@@ -13,20 +13,20 @@ In accordance with the ancient traditions of our people, we must first build an 
 
 ```SnackPlayer name=Hello%20World
 import React from 'react';
-import { Text, View } from 'react-native';
+import {Text, View} from 'react-native';
 
 const HelloWorldApp = () => {
   return (
     <View
       style={{
         flex: 1,
-        justifyContent: "center",
-        alignItems: "center"
+        justifyContent: 'center',
+        alignItems: 'center',
       }}>
       <Text>Hello, world!</Text>
     </View>
-  )
-}
+  );
+};
 export default HelloWorldApp;
 ```
 
@@ -63,31 +63,31 @@ Your own components can also use `props`. This lets you make a single component 
 
 ```SnackPlayer name=Hello%20Props
 import React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import {Text, View, StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   center: {
-    alignItems: 'center'
-  }
-})
+    alignItems: 'center',
+  },
+});
 
-const Greeting = (props) => {
+const Greeting = props => {
   return (
     <View style={styles.center}>
       <Text>Hello {props.name}!</Text>
     </View>
   );
-}
+};
 
 const LotsOfGreetings = () => {
   return (
     <View style={[styles.center, {top: 50}]}>
-      <Greeting name='Rexxar' />
-      <Greeting name='Jaina' />
-      <Greeting name='Valeera' />
+      <Greeting name="Rexxar" />
+      <Greeting name="Jaina" />
+      <Greeting name="Valeera" />
     </View>
   );
-}
+};
 
 export default LotsOfGreetings;
 ```
@@ -178,41 +178,33 @@ As shown above, there is no difference in handling the `state` between [React](h
 In the following example we will show the same above counter example using classes.
 
 ```SnackPlayer name=Hello%20Classes
-import React, { Component } from 'react'
-import {
-  StyleSheet,
-  TouchableOpacity,
-  Text,
-  View,
-} from 'react-native'
+import React, {Component} from 'react';
+import {StyleSheet, TouchableOpacity, Text, View} from 'react-native';
 
 class App extends Component {
   state = {
-    count: 0
-  }
+    count: 0,
+  };
 
   onPress = () => {
     this.setState({
-      count: this.state.count + 1
-    })
-  }
+      count: this.state.count + 1,
+    });
+  };
 
- render() {
+  render() {
     return (
       <View style={styles.container}>
         <TouchableOpacity
-         style={styles.button}
-         onPress={this.onPress}
-        >
-         <Text>Click me</Text>
+          style={styles.button}
+          onPress={this.onPress}>
+          <Text>Click me</Text>
         </TouchableOpacity>
         <View>
-          <Text>
-            You clicked { this.state.count } times
-          </Text>
+          <Text>You clicked {this.state.count} times</Text>
         </View>
       </View>
-    )
+    );
   }
 }
 
@@ -226,9 +218,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#DDDDDD',
     padding: 10,
-    marginBottom: 10
-  }
-})
+    marginBottom: 10,
+  },
+});
 
 export default App;
 ```

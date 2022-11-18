@@ -6,8 +6,8 @@ title: StyleSheet
 A StyleSheet is an abstraction similar to CSS StyleSheets
 
 ```SnackPlayer name=StyleSheet
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import React from 'react';
+import {StyleSheet, Text, View} from 'react-native';
 
 const App = () => (
   <View style={styles.container}>
@@ -19,20 +19,20 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 24,
-    backgroundColor: "#eaeaea"
+    backgroundColor: '#eaeaea',
   },
   title: {
     marginTop: 16,
     paddingVertical: 8,
     borderWidth: 4,
-    borderColor: "#20232a",
+    borderColor: '#20232a',
     borderRadius: 6,
-    backgroundColor: "#61dafb",
-    color: "#20232a",
-    textAlign: "center",
+    backgroundColor: '#61dafb',
+    color: '#20232a',
+    textAlign: 'center',
     fontSize: 30,
-    fontWeight: "bold"
-  }
+    fontWeight: 'bold',
+  },
 });
 
 export default App;
@@ -59,7 +59,7 @@ Combines two styles such that `style2` will override any styles in `style1`. If 
 
 ```SnackPlayer name=Compose
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 
 const App = () => (
   <View style={container}>
@@ -75,7 +75,7 @@ const page = StyleSheet.create({
   },
   text: {
     fontSize: 30,
-    color: '#000'
+    color: '#000',
   },
 });
 
@@ -86,11 +86,14 @@ const lists = StyleSheet.create({
   },
   listItem: {
     fontStyle: 'italic',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
   },
 });
 
-const container = StyleSheet.compose(page.container, lists.listContainer);
+const container = StyleSheet.compose(
+  page.container,
+  lists.listContainer
+);
 const text = StyleSheet.compose(page.text, lists.listItem);
 
 export default App;
@@ -119,8 +122,8 @@ Flattens an array of style objects, into one aggregated style object. Alternativ
 > **NOTE:** Exercise caution as abusing this can tax you in terms of optimizations. IDs enable optimizations through the bridge and memory in general. Referring to style objects directly will deprive you of these optimizations.
 
 ```SnackPlayer name=Flatten
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import React from 'react';
+import {StyleSheet, Text, View} from 'react-native';
 
 const App = () => (
   <View style={page.container}>
@@ -136,33 +139,33 @@ const page = StyleSheet.create({
   container: {
     flex: 1,
     padding: 24,
-    alignItems: "center"
+    alignItems: 'center',
   },
   text: {
-    color: "#000",
+    color: '#000',
     fontSize: 14,
-    fontWeight: "bold"
+    fontWeight: 'bold',
   },
   code: {
     marginTop: 12,
     padding: 12,
     borderRadius: 8,
-    color: "#666",
-    backgroundColor: "#eaeaea"
-  }
+    color: '#666',
+    backgroundColor: '#eaeaea',
+  },
 });
 
 const typography = StyleSheet.create({
   header: {
-    color: "#61dafb",
+    color: '#61dafb',
     fontSize: 30,
-    marginBottom: 36
-  }
+    marginBottom: 36,
+  },
 });
 
 const flattenStyle = StyleSheet.flatten([
   page.text,
-  typography.header
+  typography.header,
 ]);
 
 export default App;
@@ -192,7 +195,7 @@ A very common pattern is to create overlays with position absolute and zero posi
 
 ```SnackPlayer name=absoluteFill
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 
 const App = () => (
   <View style={styles.container}>
@@ -210,7 +213,7 @@ const App = () => (
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
   },
   box1: {
     position: 'absolute',
@@ -218,13 +221,13 @@ const styles = StyleSheet.create({
     left: 40,
     width: 100,
     height: 100,
-    backgroundColor: 'red'
+    backgroundColor: 'red',
   },
   box2: {
     ...StyleSheet.absoluteFill,
     width: 100,
     height: 100,
-    backgroundColor: 'blue'
+    backgroundColor: 'blue',
   },
   box3: {
     position: 'absolute',
@@ -232,12 +235,12 @@ const styles = StyleSheet.create({
     left: 120,
     width: 100,
     height: 100,
-    backgroundColor: 'green'
+    backgroundColor: 'green',
   },
   text: {
     color: '#FFF',
-    fontSize: 80
-  }
+    fontSize: 80,
+  },
 });
 
 export default App;
@@ -251,7 +254,7 @@ Sometimes you may want `absoluteFill` but with a couple tweaks - `absoluteFillOb
 
 ```SnackPlayer name=absoluteFillObject
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 
 const App = () => (
   <View style={styles.container}>
@@ -269,7 +272,7 @@ const App = () => (
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
   },
   box1: {
     position: 'absolute',
@@ -277,7 +280,7 @@ const styles = StyleSheet.create({
     left: 40,
     width: 100,
     height: 100,
-    backgroundColor: 'red'
+    backgroundColor: 'red',
   },
   box2: {
     ...StyleSheet.absoluteFill,
@@ -285,7 +288,7 @@ const styles = StyleSheet.create({
     left: 50,
     width: 100,
     height: 100,
-    backgroundColor: 'blue'
+    backgroundColor: 'blue',
   },
   box3: {
     ...StyleSheet.absoluteFillObject,
@@ -293,12 +296,12 @@ const styles = StyleSheet.create({
     left: 120,
     width: 100,
     height: 100,
-    backgroundColor: 'green'
+    backgroundColor: 'green',
   },
   text: {
     color: '#FFF',
-    fontSize: 80
-  }
+    fontSize: 80,
+  },
 });
 
 export default App;
@@ -311,8 +314,8 @@ export default App;
 This is defined as the width of a thin line on the platform. It can be used as the thickness of a border or division between two elements. Example:
 
 ```SnackPlayer name=hairlineWidth
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import React from 'react';
+import {StyleSheet, Text, View} from 'react-native';
 
 const App = () => (
   <View style={styles.container}>
@@ -324,13 +327,13 @@ const App = () => (
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 24
+    padding: 24,
   },
   row: {
     padding: 4,
-    borderBottomColor: "red",
-    borderBottomWidth: StyleSheet.hairlineWidth
-  }
+    borderBottomColor: 'red',
+    borderBottomWidth: StyleSheet.hairlineWidth,
+  },
 });
 
 export default App;

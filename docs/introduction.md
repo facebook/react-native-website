@@ -31,17 +31,20 @@ This introduction lets you get started immediately in your browser with interact
 
 ```SnackPlayer name=Hello%20World
 import React from 'react';
-import { Text, View } from 'react-native';
+import {Text, View} from 'react-native';
 
 const YourApp = () => {
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>
-        Try editing me! 🎉
-      </Text>
+    <View
+      style={{
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}>
+      <Text>Try editing me! 🎉</Text>
     </View>
   );
-}
+};
 
 export default YourApp;
 ```
@@ -61,19 +64,20 @@ With React, you can make components using either classes or functions. Originall
 
 ```SnackPlayer name=Hello%20World%20Function%20Component
 import React from 'react';
-import { Text, View } from 'react-native';
+import {Text, View} from 'react-native';
 
 const HelloWorldApp = () => {
   return (
-    <View style={{
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center'
-    }}>
+    <View
+      style={{
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}>
       <Text>Hello, world!</Text>
     </View>
   );
-}
+};
 
 export default HelloWorldApp;
 ```
@@ -82,16 +86,17 @@ export default HelloWorldApp;
 <TabItem value="classical">
 
 ```SnackPlayer name=Hello%20World%20Class%20Component
-import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import React, {Component} from 'react';
+import {Text, View} from 'react-native';
 
 class HelloWorldApp extends Component {
   render() {
     return (
-      <View style={{
+      <View
+        style={{
           flex: 1,
-          justifyContent: "center",
-          alignItems: "center"
+          justifyContent: 'center',
+          alignItems: 'center',
         }}>
         <Text>Hello, world!</Text>
       </View>

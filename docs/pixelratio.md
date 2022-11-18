@@ -30,14 +30,21 @@ In React Native, everything in JavaScript and within the layout engine works wit
 ## Example
 
 ```SnackPlayer name=PixelRatio%20Example
-import React from "react";
-import { Image, PixelRatio, ScrollView, StyleSheet, Text, View } from "react-native";
+import React from 'react';
+import {
+  Image,
+  PixelRatio,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 
 const size = 50;
 const cat = {
-  uri: "https://reactnative.dev/docs/assets/p_cat1.png",
+  uri: 'https://reactnative.dev/docs/assets/p_cat1.png',
   width: size,
-  height: size
+  height: size,
 };
 
 const App = () => (
@@ -64,7 +71,7 @@ const App = () => (
         source={cat}
         style={{
           width: PixelRatio.getPixelSizeForLayoutSize(size),
-          height: PixelRatio.getPixelSizeForLayoutSize(size)
+          height: PixelRatio.getPixelSizeForLayoutSize(size),
         }}
       />
     </View>
@@ -76,14 +83,14 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   container: {
-    justifyContent: "center",
-    alignItems: "center"
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   value: {
     fontSize: 24,
     marginBottom: 12,
-    marginTop: 4
-  }
+    marginTop: 4,
+  },
 });
 
 export default App;

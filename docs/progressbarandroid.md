@@ -11,7 +11,12 @@ Android-only React component used to indicate that the app is loading or there i
 
 ```SnackPlayer name=ProgressBarAndroid&supportedPlatforms=android
 import React from 'react';
-import {View, StyleSheet, ProgressBarAndroid, Text} from 'react-native';
+import {
+  View,
+  StyleSheet,
+  ProgressBarAndroid,
+  Text,
+} from 'react-native';
 
 const App = () => {
   return (
@@ -38,7 +43,7 @@ const App = () => {
       </View>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {

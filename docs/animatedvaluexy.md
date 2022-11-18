@@ -8,8 +8,8 @@ title: Animated.ValueXY
 ## Example
 
 ```SnackPlayer name=Animated.ValueXY
-import React, { useRef } from "react";
-import { Animated, PanResponder, StyleSheet, View } from "react-native";
+import React, {useRef} from 'react';
+import {Animated, PanResponder, StyleSheet, View} from 'react-native';
 
 const DraggableView = () => {
   const pan = useRef(new Animated.ValueXY()).current;
@@ -26,7 +26,7 @@ const DraggableView = () => {
     onPanResponderRelease: () => {
       Animated.spring(
         pan, // Auto-multiplexed
-        { toValue: { x: 0, y: 0 } } // Back to zero
+        {toValue: {x: 0, y: 0}} // Back to zero
       ).start();
     },
   });
@@ -44,11 +44,11 @@ const DraggableView = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   box: {
-    backgroundColor: "#61dafb",
+    backgroundColor: '#61dafb',
     width: 80,
     height: 80,
     borderRadius: 4,
