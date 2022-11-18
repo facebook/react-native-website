@@ -9,16 +9,16 @@ For example, one basic React Native component is the `Image`. When you create an
 
 ```SnackPlayer name=Props
 import React from 'react';
-import { Image } from 'react-native';
+import {Image} from 'react-native';
 
 const Bananas = () => {
-    let pic = {
-      uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
-    };
-    return (
-      <Image source={pic} style={{width: 193, height: 110, marginTop:50}}/>
-    );
-}
+  let pic = {
+    uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg',
+  };
+  return (
+    <Image source={pic} style={{width: 193, height: 110, marginTop: 50}} />
+  );
+};
 
 export default Bananas;
 ```
@@ -29,25 +29,27 @@ Your own components can also use `props`. This lets you make a single component 
 
 ```SnackPlayer name=Props
 import React from 'react';
-import { Text, View } from 'react-native';
+import {Text, View} from 'react-native';
 
-const Greeting = (props) => {
-    return (
-      <View style={{alignItems: 'center'}}>
-        <Text>Hello {props.name}!</Text>
-      </View>
-    );
-}
+const Greeting = props => {
+  return (
+    <View style={{alignItems: 'center'}}>
+      <Text>Hello {props.name}!</Text>
+    </View>
+  );
+};
 
-export default LotsOfGreetings = () => {
-    return (
-      <View style={{alignItems: 'center', top: 50}}>
-        <Greeting name='Rexxar' />
-        <Greeting name='Jaina' />
-        <Greeting name='Valeera' />
-      </View>
-    );
-}
+const LotsOfGreetings = () => {
+  return (
+    <View style={{alignItems: 'center', top: 50}}>
+      <Greeting name="Rexxar" />
+      <Greeting name="Jaina" />
+      <Greeting name="Valeera" />
+    </View>
+  );
+};
+
+export default LotsOfGreetings;
 ```
 
 Using `name` as a prop lets us customize the `Greeting` component, so we can reuse that component for each of our greetings. This example also uses the `Greeting` component in JSX, similar to the [Core Components](intro-react-native-components). The power to do this is what makes React so cool - if you find yourself wishing that you had a different set of UI primitives to work with, you can invent new ones.

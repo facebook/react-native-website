@@ -15,31 +15,46 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import con
 <TabItem value="functional">
 
 ```SnackPlayer name=Systrace%20Function%20Component%20Example
-import React from "react";
-import { Button, Text, View, SafeAreaView, StyleSheet, Systrace } from "react-native";
+import React from 'react';
+import {
+  Button,
+  Text,
+  View,
+  SafeAreaView,
+  StyleSheet,
+  Systrace,
+} from 'react-native';
 
-const App = () =>  {
-
+const App = () => {
   const enableProfiling = () => {
     Systrace.setEnabled(true); // Call setEnabled to turn on the profiling.
-    Systrace.beginEvent('event_label')
+    Systrace.beginEvent('event_label');
     Systrace.counterEvent('event_label', 10);
-  }
+  };
 
   const stopProfiling = () => {
-    Systrace.endEvent()
-  }
+    Systrace.endEvent();
+  };
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={[styles.header, styles.paragraph]}>React Native Systrace API</Text>
-    <View style={styles.buttonRow}>
-      <Button title="Capture the non-Timed JS events in EasyProfiler" onPress={()=> enableProfiling()}/>
-      <Button title="Stop capturing" onPress={()=> stopProfiling()} color="#FF0000"/>
-    </View>
+      <Text style={[styles.header, styles.paragraph]}>
+        React Native Systrace API
+      </Text>
+      <View style={styles.buttonRow}>
+        <Button
+          title="Capture the non-Timed JS events in EasyProfiler"
+          onPress={() => enableProfiling()}
+        />
+        <Button
+          title="Stop capturing"
+          onPress={() => stopProfiling()}
+          color="#FF0000"
+        />
+      </View>
     </SafeAreaView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -48,23 +63,23 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingTop: 44,
-    padding: 8
+    padding: 8,
   },
-   header: {
+  header: {
     fontSize: 18,
-    fontWeight: "bold",
-    textAlign: "center"
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
   paragraph: {
     margin: 24,
     fontSize: 25,
-    textAlign: "center"
+    textAlign: 'center',
   },
   buttonRow: {
     flexBasis: 150,
     marginVertical: 16,
-    justifyContent: 'space-evenly'
-  }
+    justifyContent: 'space-evenly',
+  },
 });
 
 export default App;
@@ -74,29 +89,44 @@ export default App;
 <TabItem value="classical">
 
 ```SnackPlayer name=Systrace%20Class%20Component%20Example
-import React, { Component } from "react";
-import { Button, Text, View, SafeAreaView, StyleSheet, Systrace } from "react-native";
+import React, {Component} from 'react';
+import {
+  Button,
+  Text,
+  View,
+  SafeAreaView,
+  StyleSheet,
+  Systrace,
+} from 'react-native';
 
 class App extends Component {
-
   enableProfiling = () => {
     Systrace.setEnabled(true); // Call setEnabled to turn on the profiling.
-    Systrace.beginEvent('event_label')
+    Systrace.beginEvent('event_label');
     Systrace.counterEvent('event_label', 10);
-  }
+  };
 
   stopProfiling = () => {
-    Systrace.endEvent()
-  }
+    Systrace.endEvent();
+  };
 
   render() {
     return (
       <SafeAreaView style={styles.container}>
-        <Text style={[styles.header, styles.paragraph]}>React Native Systrace API</Text>
-      <View style={styles.buttonRow}>
-        <Button title="Capture the non-Timed JS events in EasyProfiler" onPress={()=> this.enableProfiling()}/>
-        <Button title="Stop capturing" onPress={()=> this.stopProfiling()} color="#FF0000"/>
-      </View>
+        <Text style={[styles.header, styles.paragraph]}>
+          React Native Systrace API
+        </Text>
+        <View style={styles.buttonRow}>
+          <Button
+            title="Capture the non-Timed JS events in EasyProfiler"
+            onPress={() => this.enableProfiling()}
+          />
+          <Button
+            title="Stop capturing"
+            onPress={() => this.stopProfiling()}
+            color="#FF0000"
+          />
+        </View>
       </SafeAreaView>
     );
   }
@@ -109,23 +139,23 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingTop: 44,
-    padding: 8
+    padding: 8,
   },
-   header: {
+  header: {
     fontSize: 18,
-    fontWeight: "bold",
-    textAlign: "center"
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
   paragraph: {
     margin: 24,
     fontSize: 25,
-    textAlign: "center"
+    textAlign: 'center',
   },
   buttonRow: {
     flexBasis: 150,
     marginVertical: 16,
-    justifyContent: 'space-evenly'
-  }
+    justifyContent: 'space-evenly',
+  },
 });
 
 export default App;

@@ -4,10 +4,10 @@ title: Shadow Props
 ---
 
 ```SnackPlayer name=Shadow%20Props&supportedPlatforms=ios
-import React, { useState } from "react";
-import { Text, View, StyleSheet, Slider } from "react-native";
+import React, {useState} from 'react';
+import {Text, View, StyleSheet, Slider} from 'react-native';
 
-const ShadowPropSlider = ({ label, value, ...props }) => {
+const ShadowPropSlider = ({label, value, ...props}) => {
   return (
     <>
       <Text>
@@ -16,7 +16,7 @@ const ShadowPropSlider = ({ label, value, ...props }) => {
       <Slider step={1} value={value} {...props} />
     </>
   );
-}
+};
 
 const App = () => {
   const [shadowOffsetWidth, setShadowOffsetWidth] = useState(0);
@@ -32,11 +32,11 @@ const App = () => {
           {
             shadowOffset: {
               width: shadowOffsetWidth,
-              height: -shadowOffsetHeight
+              height: -shadowOffsetHeight,
             },
             shadowOpacity,
-            shadowRadius
-          }
+            shadowRadius,
+          },
         ]}
       />
       <View style={styles.controls}>
@@ -72,26 +72,26 @@ const App = () => {
       </View>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "space-around",
-    backgroundColor: "#ecf0f1",
-    padding: 8
+    justifyContent: 'space-around',
+    backgroundColor: '#ecf0f1',
+    padding: 8,
   },
   square: {
-    alignSelf: "center",
-    backgroundColor: "white",
+    alignSelf: 'center',
+    backgroundColor: 'white',
     borderRadius: 4,
     height: 150,
-    shadowColor: "black",
-    width: 150
+    shadowColor: 'black',
+    width: 150,
   },
   controls: {
-    paddingHorizontal: 12
-  }
+    paddingHorizontal: 12,
+  },
 });
 
 export default App;

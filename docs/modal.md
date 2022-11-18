@@ -13,8 +13,8 @@ The Modal component is a basic way to present content above an enclosing view.
 <TabItem value="functional">
 
 ```SnackPlayer name=Modal&supportedPlatforms=android,ios
-import React, { useState } from "react";
-import { Alert, Modal, StyleSheet, Text, Pressable, View } from "react-native";
+import React, {useState} from 'react';
+import {Alert, Modal, StyleSheet, Text, Pressable, View} from 'react-native';
 
 const App = () => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -25,17 +25,15 @@ const App = () => {
         transparent={true}
         visible={modalVisible}
         onRequestClose={() => {
-          Alert.alert("Modal has been closed.");
+          Alert.alert('Modal has been closed.');
           setModalVisible(!modalVisible);
-        }}
-      >
+        }}>
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
             <Text style={styles.modalText}>Hello World!</Text>
             <Pressable
               style={[styles.button, styles.buttonClose]}
-              onPress={() => setModalVisible(!modalVisible)}
-            >
+              onPress={() => setModalVisible(!modalVisible)}>
               <Text style={styles.textStyle}>Hide Modal</Text>
             </Pressable>
           </View>
@@ -43,8 +41,7 @@ const App = () => {
       </Modal>
       <Pressable
         style={[styles.button, styles.buttonOpen]}
-        onPress={() => setModalVisible(true)}
-      >
+        onPress={() => setModalVisible(true)}>
         <Text style={styles.textStyle}>Show Modal</Text>
       </Pressable>
     </View>
@@ -54,45 +51,45 @@ const App = () => {
 const styles = StyleSheet.create({
   centeredView: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 22
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 22,
   },
   modalView: {
     margin: 20,
-    backgroundColor: "white",
+    backgroundColor: 'white',
     borderRadius: 20,
     padding: 35,
-    alignItems: "center",
-    shadowColor: "#000",
+    alignItems: 'center',
+    shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 2
+      height: 2,
     },
     shadowOpacity: 0.25,
     shadowRadius: 4,
-    elevation: 5
+    elevation: 5,
   },
   button: {
     borderRadius: 20,
     padding: 10,
-    elevation: 2
+    elevation: 2,
   },
   buttonOpen: {
-    backgroundColor: "#F194FF",
+    backgroundColor: '#F194FF',
   },
   buttonClose: {
-    backgroundColor: "#2196F3",
+    backgroundColor: '#2196F3',
   },
   textStyle: {
-    color: "white",
-    fontWeight: "bold",
-    textAlign: "center"
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
   modalText: {
     marginBottom: 15,
-    textAlign: "center"
-  }
+    textAlign: 'center',
+  },
 });
 
 export default App;
@@ -102,20 +99,20 @@ export default App;
 <TabItem value="classical">
 
 ```SnackPlayer name=Modal&supportedPlatforms=android,ios
-import React, { Component } from "react";
-import { Alert, Modal, StyleSheet, Text, Pressable, View } from "react-native";
+import React, {Component} from 'react';
+import {Alert, Modal, StyleSheet, Text, Pressable, View} from 'react-native';
 
 class App extends Component {
   state = {
-    modalVisible: false
+    modalVisible: false,
   };
 
-  setModalVisible = (visible) => {
-    this.setState({ modalVisible: visible });
-  }
+  setModalVisible = visible => {
+    this.setState({modalVisible: visible});
+  };
 
   render() {
-    const { modalVisible } = this.state;
+    const {modalVisible} = this.state;
     return (
       <View style={styles.centeredView}>
         <Modal
@@ -123,17 +120,15 @@ class App extends Component {
           transparent={true}
           visible={modalVisible}
           onRequestClose={() => {
-            Alert.alert("Modal has been closed.");
+            Alert.alert('Modal has been closed.');
             this.setModalVisible(!modalVisible);
-          }}
-        >
+          }}>
           <View style={styles.centeredView}>
             <View style={styles.modalView}>
               <Text style={styles.modalText}>Hello World!</Text>
               <Pressable
                 style={[styles.button, styles.buttonClose]}
-                onPress={() => this.setModalVisible(!modalVisible)}
-              >
+                onPress={() => this.setModalVisible(!modalVisible)}>
                 <Text style={styles.textStyle}>Hide Modal</Text>
               </Pressable>
             </View>
@@ -141,8 +136,7 @@ class App extends Component {
         </Modal>
         <Pressable
           style={[styles.button, styles.buttonOpen]}
-          onPress={() => this.setModalVisible(true)}
-        >
+          onPress={() => this.setModalVisible(true)}>
           <Text style={styles.textStyle}>Show Modal</Text>
         </Pressable>
       </View>
@@ -153,45 +147,45 @@ class App extends Component {
 const styles = StyleSheet.create({
   centeredView: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 22
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 22,
   },
   modalView: {
     margin: 20,
-    backgroundColor: "white",
+    backgroundColor: 'white',
     borderRadius: 20,
     padding: 35,
-    alignItems: "center",
-    shadowColor: "#000",
+    alignItems: 'center',
+    shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 2
+      height: 2,
     },
     shadowOpacity: 0.25,
     shadowRadius: 4,
-    elevation: 5
+    elevation: 5,
   },
   button: {
     borderRadius: 20,
     padding: 10,
-    elevation: 2
+    elevation: 2,
   },
   buttonOpen: {
-    backgroundColor: "#F194FF",
+    backgroundColor: '#F194FF',
   },
   buttonClose: {
-    backgroundColor: "#2196F3",
+    backgroundColor: '#2196F3',
   },
   textStyle: {
-    color: "white",
-    fontWeight: "bold",
-    textAlign: "center"
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
   modalText: {
     marginBottom: 15,
-    textAlign: "center"
-  }
+    textAlign: 'center',
+  },
 });
 
 export default App;

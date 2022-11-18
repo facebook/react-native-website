@@ -10,8 +10,16 @@ Component to control the app's status bar. The status bar is the zone, typically
 It is possible to have multiple `StatusBar` components mounted at the same time. The props will be merged in the order the `StatusBar` components were mounted.
 
 ```SnackPlayer name=StatusBar%20Component%20Example&supportedPlatforms=android,ios
-import React, { useState } from 'react';
-import { Button, Platform, SafeAreaView, StatusBar, StyleSheet, Text, View } from 'react-native';
+import React, {useState} from 'react';
+import {
+  Button,
+  Platform,
+  SafeAreaView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 
 const STYLES = ['default', 'dark-content', 'light-content'];
 const TRANSITIONS = ['fade', 'slide', 'none'];
@@ -19,7 +27,9 @@ const TRANSITIONS = ['fade', 'slide', 'none'];
 const App = () => {
   const [hidden, setHidden] = useState(false);
   const [statusBarStyle, setStatusBarStyle] = useState(STYLES[0]);
-  const [statusBarTransition, setStatusBarTransition] = useState(TRANSITIONS[0]);
+  const [statusBarTransition, setStatusBarTransition] = useState(
+    TRANSITIONS[0],
+  );
 
   const changeStatusBarVisibility = () => setHidden(!hidden);
 
@@ -48,7 +58,8 @@ const App = () => {
         backgroundColor="#61dafb"
         barStyle={statusBarStyle}
         showHideTransition={statusBarTransition}
-        hidden={hidden} />
+        hidden={hidden}
+      />
       <Text style={styles.textStyle}>
         StatusBar Visibility:{'\n'}
         {hidden ? 'Hidden' : 'Visible'}
@@ -64,16 +75,13 @@ const App = () => {
         </Text>
       ) : null}
       <View style={styles.buttonsContainer}>
-        <Button
-          title="Toggle StatusBar"
-          onPress={changeStatusBarVisibility} />
-        <Button
-          title="Change StatusBar Style"
-          onPress={changeStatusBarStyle} />
+        <Button title="Toggle StatusBar" onPress={changeStatusBarVisibility} />
+        <Button title="Change StatusBar Style" onPress={changeStatusBarStyle} />
         {Platform.OS === 'ios' ? (
           <Button
             title="Change StatusBar Transition"
-            onPress={changeStatusBarTransition} />
+            onPress={changeStatusBarTransition}
+          />
         ) : null}
       </View>
     </SafeAreaView>
@@ -84,15 +92,15 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: '#ECF0F1'
+    backgroundColor: '#ECF0F1',
   },
   buttonsContainer: {
-    padding: 10
+    padding: 10,
   },
   textStyle: {
     textAlign: 'center',
-    marginBottom: 8
-  }
+    marginBottom: 8,
+  },
 });
 
 export default App;

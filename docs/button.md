@@ -20,17 +20,23 @@ If this button doesn't look right for your app, you can build your own button us
 
 ```SnackPlayer name=Button%20Example
 import React from 'react';
-import { StyleSheet, Button, View, SafeAreaView, Text, Alert } from 'react-native';
+import {
+  StyleSheet,
+  Button,
+  View,
+  SafeAreaView,
+  Text,
+  Alert,
+} from 'react-native';
 
-const Separator = () => (
-  <View style={styles.separator} />
-);
+const Separator = () => <View style={styles.separator} />;
 
 const App = () => (
   <SafeAreaView style={styles.container}>
     <View>
       <Text style={styles.title}>
-        The title and onPress handler are required. It is recommended to set accessibilityLabel to help make your app usable by everyone.
+        The title and onPress handler are required. It is recommended to set
+        accessibilityLabel to help make your app usable by everyone.
       </Text>
       <Button
         title="Press me"
@@ -40,7 +46,9 @@ const App = () => (
     <Separator />
     <View>
       <Text style={styles.title}>
-        Adjust the color in a way that looks standard on each platform. On  iOS, the color prop controls the color of the text. On Android, the color adjusts the background color of the button.
+        Adjust the color in a way that looks standard on each platform. On iOS,
+        the color prop controls the color of the text. On Android, the color
+        adjusts the background color of the button.
       </Text>
       <Button
         title="Press me"

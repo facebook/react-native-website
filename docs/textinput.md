@@ -8,11 +8,11 @@ A foundational component for inputting text into the app via a keyboard. Props p
 The most basic use case is to plop down a `TextInput` and subscribe to the `onChangeText` events to read the user input. There are also other events, such as `onSubmitEditing` and `onFocus` that can be subscribed to. A minimal example:
 
 ```SnackPlayer name=TextInput
-import React from "react";
-import { SafeAreaView, StyleSheet, TextInput } from "react-native";
+import React from 'react';
+import {SafeAreaView, StyleSheet, TextInput} from 'react-native';
 
 const UselessTextInput = () => {
-  const [text, onChangeText] = React.useState("Useless Text");
+  const [text, onChangeText] = React.useState('Useless Text');
   const [number, onChangeNumber] = React.useState(null);
 
   return (
@@ -51,9 +51,9 @@ Note that some props are only available with `multiline={true/false}`. Additiona
 
 ```SnackPlayer name=TextInput
 import React from 'react';
-import { View, TextInput } from 'react-native';
+import {View, TextInput} from 'react-native';
 
-const UselessTextInput = (props) => {
+const UselessTextInput = props => {
   return (
     <TextInput
       {...props} // Inherit any props passed to it; e.g., multiline, numberOfLines below
@@ -61,7 +61,7 @@ const UselessTextInput = (props) => {
       maxLength={40}
     />
   );
-}
+};
 
 const UselessTextInputMultiline = () => {
   const [value, onChangeText] = React.useState('Useless Multiline Placeholder');
@@ -84,7 +84,7 @@ const UselessTextInputMultiline = () => {
       />
     </View>
   );
-}
+};
 
 export default UselessTextInputMultiline;
 ```

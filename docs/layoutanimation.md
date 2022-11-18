@@ -22,11 +22,19 @@ if (Platform.OS === 'android') {
 ## Example
 
 ```SnackPlayer name=LayoutAnimation&supportedPlatforms=android,ios
-import React, { useState } from "react";
-import { LayoutAnimation, Platform, StyleSheet, Text, TouchableOpacity, UIManager, View } from "react-native";
+import React, {useState} from 'react';
+import {
+  LayoutAnimation,
+  Platform,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  UIManager,
+  View,
+} from 'react-native';
 
 if (
-  Platform.OS === "android" &&
+  Platform.OS === 'android' &&
   UIManager.setLayoutAnimationEnabledExperimental
 ) {
   UIManager.setLayoutAnimationEnabledExperimental(true);
@@ -40,9 +48,8 @@ const App = () => {
         onPress={() => {
           LayoutAnimation.configureNext(LayoutAnimation.Presets.spring);
           setExpanded(!expanded);
-        }}
-      >
-        <Text>Press me to {expanded ? "collapse" : "expand"}!</Text>
+        }}>
+        <Text>Press me to {expanded ? 'collapse' : 'expand'}!</Text>
       </TouchableOpacity>
       {expanded && (
         <View style={style.tile}>
@@ -55,16 +62,16 @@ const App = () => {
 
 const style = StyleSheet.create({
   tile: {
-    backgroundColor: "lightgrey",
+    backgroundColor: 'lightgrey',
     borderWidth: 0.5,
-    borderColor: "#d6d7da"
+    borderColor: '#d6d7da',
   },
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    overflow: "hidden"
-  }
+    justifyContent: 'center',
+    alignItems: 'center',
+    overflow: 'hidden',
+  },
 });
 
 export default App;
@@ -124,34 +131,34 @@ Helper that creates an object (with `create`, `update`, and `delete` fields) to 
 <TabItem value="functional">
 
 ```SnackPlayer name=LayoutAnimation&supportedPlatforms=android,ios
-import React, { useState } from "react";
+import React, {useState} from 'react';
 import {
   View,
   Platform,
   UIManager,
   LayoutAnimation,
   StyleSheet,
-  Button
-} from "react-native";
+  Button,
+} from 'react-native';
 
 if (
-  Platform.OS === "android" &&
+  Platform.OS === 'android' &&
   UIManager.setLayoutAnimationEnabledExperimental
 ) {
   UIManager.setLayoutAnimationEnabledExperimental(true);
 }
 
 const App = () => {
-  const [boxPosition, setBoxPosition] = useState("left");
+  const [boxPosition, setBoxPosition] = useState('left');
 
   const toggleBox = () => {
     LayoutAnimation.configureNext({
       duration: 500,
-      create: { type: "linear", property: "opacity" },
-      update: { type: "spring", springDamping: 0.4 },
-      delete: { type: "linear", property: "opacity" }
+      create: {type: 'linear', property: 'opacity'},
+      update: {type: 'spring', springDamping: 0.4},
+      delete: {type: 'linear', property: 'opacity'},
     });
-    setBoxPosition(boxPosition === "left" ? "right" : "left");
+    setBoxPosition(boxPosition === 'left' ? 'right' : 'left');
   };
 
   return (
@@ -160,33 +167,33 @@ const App = () => {
         <Button title="Toggle Layout" onPress={toggleBox} />
       </View>
       <View
-        style={[styles.box, boxPosition === "left" ? null : styles.moveRight]}
+        style={[styles.box, boxPosition === 'left' ? null : styles.moveRight]}
       />
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "flex-start",
-    justifyContent: "center"
+    alignItems: 'flex-start',
+    justifyContent: 'center',
   },
   box: {
     height: 100,
     width: 100,
     borderRadius: 5,
     margin: 8,
-    backgroundColor: "blue"
+    backgroundColor: 'blue',
   },
   moveRight: {
-    alignSelf: "flex-end",
+    alignSelf: 'flex-end',
     height: 200,
-    width: 200
+    width: 200,
   },
   buttonContainer: {
-    alignSelf: "center"
-  }
+    alignSelf: 'center',
+  },
 });
 
 export default App;
@@ -196,18 +203,18 @@ export default App;
 <TabItem value="classical">
 
 ```SnackPlayer name=LayoutAnimation&supportedPlatforms=android,ios
-import React, { Component } from "react";
+import React, {Component} from 'react';
 import {
   View,
   Platform,
   UIManager,
   LayoutAnimation,
   StyleSheet,
-  Button
-} from "react-native";
+  Button,
+} from 'react-native';
 
 if (
-  Platform.OS === "android" &&
+  Platform.OS === 'android' &&
   UIManager.setLayoutAnimationEnabledExperimental
 ) {
   UIManager.setLayoutAnimationEnabledExperimental(true);
@@ -215,18 +222,18 @@ if (
 
 class App extends Component {
   state = {
-    boxPosition: "left"
+    boxPosition: 'left',
   };
 
   toggleBox = () => {
     LayoutAnimation.configureNext({
       duration: 500,
-      create: { type: "linear", property: "opacity" },
-      update: { type: "spring", springDamping: 0.4 },
-      delete: { type: "linear", property: "opacity" }
+      create: {type: 'linear', property: 'opacity'},
+      update: {type: 'spring', springDamping: 0.4},
+      delete: {type: 'linear', property: 'opacity'},
     });
     this.setState({
-      boxPosition: this.state.boxPosition === "left" ? "right" : "left"
+      boxPosition: this.state.boxPosition === 'left' ? 'right' : 'left',
     });
   };
 
@@ -239,7 +246,7 @@ class App extends Component {
         <View
           style={[
             styles.box,
-            this.state.boxPosition === "left" ? null : styles.moveRight
+            this.state.boxPosition === 'left' ? null : styles.moveRight,
           ]}
         />
       </View>
@@ -250,24 +257,24 @@ class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "flex-start",
-    justifyContent: "center"
+    alignItems: 'flex-start',
+    justifyContent: 'center',
   },
   box: {
     height: 100,
     width: 100,
     borderRadius: 5,
     margin: 8,
-    backgroundColor: "blue"
+    backgroundColor: 'blue',
   },
   moveRight: {
-    alignSelf: "flex-end",
+    alignSelf: 'flex-end',
     height: 200,
-    width: 200
+    width: 200,
   },
   buttonContainer: {
-    alignSelf: "center"
-  }
+    alignSelf: 'center',
+  },
 });
 
 export default App;
@@ -340,41 +347,41 @@ Calls `configureNext()` with `Presets.spring`.
 <TabItem value="functional">
 
 ```SnackPlayer name=LayoutAnimation&supportedPlatforms=android,ios
-import React, { useState } from "react";
+import React, {useState} from 'react';
 import {
   View,
   Platform,
   UIManager,
   LayoutAnimation,
   StyleSheet,
-  Button
-} from "react-native";
+  Button,
+} from 'react-native';
 
 if (
-  Platform.OS === "android" &&
+  Platform.OS === 'android' &&
   UIManager.setLayoutAnimationEnabledExperimental
 ) {
   UIManager.setLayoutAnimationEnabledExperimental(true);
 }
 
 const App = () => {
-  const [firstBoxPosition, setFirstBoxPosition] = useState("left");
-  const [secondBoxPosition, setSecondBoxPosition] = useState("left");
-  const [thirdBoxPosition, setThirdBoxPosition] = useState("left");
+  const [firstBoxPosition, setFirstBoxPosition] = useState('left');
+  const [secondBoxPosition, setSecondBoxPosition] = useState('left');
+  const [thirdBoxPosition, setThirdBoxPosition] = useState('left');
 
   const toggleFirstBox = () => {
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
-    setFirstBoxPosition(firstBoxPosition === "left" ? "right" : "left");
+    setFirstBoxPosition(firstBoxPosition === 'left' ? 'right' : 'left');
   };
 
   const toggleSecondBox = () => {
     LayoutAnimation.configureNext(LayoutAnimation.Presets.linear);
-    setSecondBoxPosition(secondBoxPosition === "left" ? "right" : "left");
+    setSecondBoxPosition(secondBoxPosition === 'left' ? 'right' : 'left');
   };
 
   const toggleThirdBox = () => {
     LayoutAnimation.configureNext(LayoutAnimation.Presets.spring);
-    setThirdBoxPosition(thirdBoxPosition === "left" ? "right" : "left");
+    setThirdBoxPosition(thirdBoxPosition === 'left' ? 'right' : 'left');
   };
 
   return (
@@ -385,7 +392,7 @@ const App = () => {
       <View
         style={[
           styles.box,
-          firstBoxPosition === "left" ? null : styles.moveRight
+          firstBoxPosition === 'left' ? null : styles.moveRight,
         ]}
       />
       <View style={styles.buttonContainer}>
@@ -394,7 +401,7 @@ const App = () => {
       <View
         style={[
           styles.box,
-          secondBoxPosition === "left" ? null : styles.moveRight
+          secondBoxPosition === 'left' ? null : styles.moveRight,
         ]}
       />
       <View style={styles.buttonContainer}>
@@ -403,32 +410,32 @@ const App = () => {
       <View
         style={[
           styles.box,
-          thirdBoxPosition === "left" ? null : styles.moveRight
+          thirdBoxPosition === 'left' ? null : styles.moveRight,
         ]}
       />
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "flex-start",
-    justifyContent: "center"
+    alignItems: 'flex-start',
+    justifyContent: 'center',
   },
   box: {
     height: 100,
     width: 100,
     borderRadius: 5,
     margin: 8,
-    backgroundColor: "blue"
+    backgroundColor: 'blue',
   },
   moveRight: {
-    alignSelf: "flex-end"
+    alignSelf: 'flex-end',
   },
   buttonContainer: {
-    alignSelf: "center"
-  }
+    alignSelf: 'center',
+  },
 });
 
 export default App;
@@ -438,18 +445,18 @@ export default App;
 <TabItem value="classical">
 
 ```SnackPlayer name=LayoutAnimation&supportedPlatforms=android,ios
-import React, { Component } from "react";
+import React, {Component} from 'react';
 import {
   View,
   Platform,
   UIManager,
   LayoutAnimation,
   StyleSheet,
-  Button
-} from "react-native";
+  Button,
+} from 'react-native';
 
 if (
-  Platform.OS === "android" &&
+  Platform.OS === 'android' &&
   UIManager.setLayoutAnimationEnabledExperimental
 ) {
   UIManager.setLayoutAnimationEnabledExperimental(true);
@@ -457,16 +464,16 @@ if (
 
 class App extends Component {
   state = {
-    firstBoxPosition: "left",
-    secondBoxPosition: "left",
-    thirdBoxPosition: "left"
+    firstBoxPosition: 'left',
+    secondBoxPosition: 'left',
+    thirdBoxPosition: 'left',
   };
 
   toggleFirstBox = () => {
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
     this.setState({
       firstBoxPosition:
-        this.state.firstBoxPosition === "left" ? "right" : "left"
+        this.state.firstBoxPosition === 'left' ? 'right' : 'left',
     });
   };
 
@@ -474,7 +481,7 @@ class App extends Component {
     LayoutAnimation.configureNext(LayoutAnimation.Presets.linear);
     this.setState({
       secondBoxPosition:
-        this.state.secondBoxPosition === "left" ? "right" : "left"
+        this.state.secondBoxPosition === 'left' ? 'right' : 'left',
     });
   };
 
@@ -482,7 +489,7 @@ class App extends Component {
     LayoutAnimation.configureNext(LayoutAnimation.Presets.spring);
     this.setState({
       thirdBoxPosition:
-        this.state.thirdBoxPosition === "left" ? "right" : "left"
+        this.state.thirdBoxPosition === 'left' ? 'right' : 'left',
     });
   };
 
@@ -495,7 +502,7 @@ class App extends Component {
         <View
           style={[
             styles.box,
-            this.state.firstBoxPosition === "left" ? null : styles.moveRight
+            this.state.firstBoxPosition === 'left' ? null : styles.moveRight,
           ]}
         />
         <View style={styles.buttonContainer}>
@@ -504,7 +511,7 @@ class App extends Component {
         <View
           style={[
             styles.box,
-            this.state.secondBoxPosition === "left" ? null : styles.moveRight
+            this.state.secondBoxPosition === 'left' ? null : styles.moveRight,
           ]}
         />
         <View style={styles.buttonContainer}>
@@ -513,7 +520,7 @@ class App extends Component {
         <View
           style={[
             styles.box,
-            this.state.thirdBoxPosition === "left" ? null : styles.moveRight
+            this.state.thirdBoxPosition === 'left' ? null : styles.moveRight,
           ]}
         />
       </View>
@@ -524,22 +531,22 @@ class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "flex-start",
-    justifyContent: "center"
+    alignItems: 'flex-start',
+    justifyContent: 'center',
   },
   box: {
     height: 100,
     width: 100,
     borderRadius: 5,
     margin: 8,
-    backgroundColor: "blue"
+    backgroundColor: 'blue',
   },
   moveRight: {
-    alignSelf: "flex-end"
+    alignSelf: 'flex-end',
   },
   buttonContainer: {
-    alignSelf: "center"
-  }
+    alignSelf: 'center',
+  },
 });
 
 export default App;
