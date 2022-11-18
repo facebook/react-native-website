@@ -49,6 +49,7 @@ async function extractExamples() {
   const documents = await glob('**/*.md', {cwd: documentsRoot, absolute: true});
   const mappings = [];
 
+  await fs.mkdir(outputRoot, {recursive: true});
   await fs.rm(outputRoot, {recursive: true});
 
   await Promise.all(
@@ -81,7 +82,10 @@ async function extractExamplesFromDocument(filename) {
       const exampleName = new URLSearchParams(snackURLParams).get('name');
       const content = match[3];
 
-      const baseFileName = filename.replace(/\.md$/, '');
+      const baseFileName = path.relative(
+        documentsRoot,
+        filename.replace(/\.md$/, '')
+      );
       const outFile = path.join(
         outputRoot,
         `${baseFileName}-${++matchIndex}${
