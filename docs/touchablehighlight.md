@@ -37,12 +37,7 @@ function MyComponent(props) {
 
 ```SnackPlayer name=TouchableHighlight%20Function%20Component%20Example
 import React, {useState} from 'react';
-import {
-  StyleSheet,
-  Text,
-  TouchableHighlight,
-  View,
-} from 'react-native';
+import {StyleSheet, Text, TouchableHighlight, View} from 'react-native';
 
 const TouchableHighlightExample = () => {
   const [count, setCount] = useState(0);
@@ -90,12 +85,7 @@ export default TouchableHighlightExample;
 
 ```SnackPlayer name=TouchableHighlight%20Class%20Component%20Example
 import React, {Component} from 'react';
-import {
-  StyleSheet,
-  Text,
-  TouchableHighlight,
-  View,
-} from 'react-native';
+import {StyleSheet, Text, TouchableHighlight, View} from 'react-native';
 
 class App extends Component {
   constructor(props) {

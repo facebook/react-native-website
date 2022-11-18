@@ -85,9 +85,7 @@ const App = () => {
   return (
     <View style={styles.container}>
       <StatusBar hidden={true} />
-      <Text style={styles.title}>
-        Press rows below to preview the Easing!
-      </Text>
+      <Text style={styles.title}>Press rows below to preview the Easing!</Text>
       <View style={styles.boxContainer}>
         <Animated.View style={animatedStyles} />
       </View>

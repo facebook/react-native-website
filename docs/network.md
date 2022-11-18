@@ -87,9 +87,7 @@ export default App = () => {
 
   const getMovies = async () => {
     try {
-      const response = await fetch(
-        'https://reactnative.dev/movies.json'
-      );
+      const response = await fetch('https://reactnative.dev/movies.json');
       const json = await response.json();
       setData(json.movies);
     } catch (error) {
@@ -142,9 +140,7 @@ export default class App extends Component {
 
   async getMovies() {
     try {
-      const response = await fetch(
-        'https://reactnative.dev/movies.json'
-      );
+      const response = await fetch('https://reactnative.dev/movies.json');
       const json = await response.json();
       this.setState({data: json.movies});
     } catch (error) {

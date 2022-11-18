@@ -97,10 +97,7 @@ const PreviewLayout = ({
         <TouchableOpacity
           key={value}
           onPress={() => setSelectedValue(value)}
-          style={[
-            styles.button,
-            selectedValue === value && styles.selected,
-          ]}>
+          style={[styles.button, selectedValue === value && styles.selected]}>
           <Text
             style={[
               styles.buttonLabel,
@@ -111,9 +108,7 @@ const PreviewLayout = ({
         </TouchableOpacity>
       ))}
     </View>
-    <View style={[styles.container, {[label]: selectedValue}]}>
-      {children}
-    </View>
+    <View style={[styles.container, {[label]: selectedValue}]}>{children}</View>
   </View>
 );
 
@@ -206,10 +201,7 @@ const PreviewLayout = ({
         <TouchableOpacity
           key={value}
           onPress={() => setSelectedValue(value)}
-          style={[
-            styles.button,
-            selectedValue === value && styles.selected,
-          ]}>
+          style={[styles.button, selectedValue === value && styles.selected]}>
           <Text
             style={[
               styles.buttonLabel,
@@ -220,9 +212,7 @@ const PreviewLayout = ({
         </TouchableOpacity>
       ))}
     </View>
-    <View style={[styles.container, {[label]: selectedValue}]}>
-      {children}
-    </View>
+    <View style={[styles.container, {[label]: selectedValue}]}>{children}</View>
   </View>
 );
 
@@ -332,10 +322,7 @@ const PreviewLayout = ({
         <TouchableOpacity
           key={value}
           onPress={() => setSelectedValue(value)}
-          style={[
-            styles.button,
-            selectedValue === value && styles.selected,
-          ]}>
+          style={[styles.button, selectedValue === value && styles.selected]}>
           <Text
             style={[
               styles.buttonLabel,
@@ -346,9 +333,7 @@ const PreviewLayout = ({
         </TouchableOpacity>
       ))}
     </View>
-    <View style={[styles.container, {[label]: selectedValue}]}>
-      {children}
-    </View>
+    <View style={[styles.container, {[label]: selectedValue}]}>{children}</View>
   </View>
 );
 
@@ -430,13 +415,7 @@ const AlignItemsLayout = () => {
     <PreviewLayout
       label="alignItems"
       selectedValue={alignItems}
-      values={[
-        'stretch',
-        'flex-start',
-        'flex-end',
-        'center',
-        'baseline',
-      ]}
+      values={['stretch', 'flex-start', 'flex-end', 'center', 'baseline']}
       setSelectedValue={setAlignItems}>
       <View style={[styles.box, {backgroundColor: 'powderblue'}]} />
       <View style={[styles.box, {backgroundColor: 'skyblue'}]} />
@@ -468,10 +447,7 @@ const PreviewLayout = ({
         <TouchableOpacity
           key={value}
           onPress={() => setSelectedValue(value)}
-          style={[
-            styles.button,
-            selectedValue === value && styles.selected,
-          ]}>
+          style={[styles.button, selectedValue === value && styles.selected]}>
           <Text
             style={[
               styles.buttonLabel,
@@ -482,9 +458,7 @@ const PreviewLayout = ({
         </TouchableOpacity>
       ))}
     </View>
-    <View style={[styles.container, {[label]: selectedValue}]}>
-      {children}
-    </View>
+    <View style={[styles.container, {[label]: selectedValue}]}>{children}</View>
   </View>
 );
 
@@ -551,13 +525,7 @@ const AlignSelfLayout = () => {
     <PreviewLayout
       label="alignSelf"
       selectedValue={alignSelf}
-      values={[
-        'stretch',
-        'flex-start',
-        'flex-end',
-        'center',
-        'baseline',
-      ]}
+      values={['stretch', 'flex-start', 'flex-end', 'center', 'baseline']}
       setSelectedValue={setAlignSelf}>
       <View
         style={[
@@ -590,10 +558,7 @@ const PreviewLayout = ({
         <TouchableOpacity
           key={value}
           onPress={() => setSelectedValue(value)}
-          style={[
-            styles.button,
-            selectedValue === value && styles.selected,
-          ]}>
+          style={[styles.button, selectedValue === value && styles.selected]}>
           <Text
             style={[
               styles.buttonLabel,
@@ -696,16 +661,10 @@ const AlignContentLayout = () => {
       setSelectedValue={setAlignContent}>
       <View style={[styles.box, {backgroundColor: 'orangered'}]} />
       <View style={[styles.box, {backgroundColor: 'orange'}]} />
-      <View
-        style={[styles.box, {backgroundColor: 'mediumseagreen'}]}
-      />
+      <View style={[styles.box, {backgroundColor: 'mediumseagreen'}]} />
       <View style={[styles.box, {backgroundColor: 'deepskyblue'}]} />
-      <View
-        style={[styles.box, {backgroundColor: 'mediumturquoise'}]}
-      />
-      <View
-        style={[styles.box, {backgroundColor: 'mediumslateblue'}]}
-      />
+      <View style={[styles.box, {backgroundColor: 'mediumturquoise'}]} />
+      <View style={[styles.box, {backgroundColor: 'mediumslateblue'}]} />
       <View style={[styles.box, {backgroundColor: 'purple'}]} />
     </PreviewLayout>
   );
@@ -725,10 +684,7 @@ const PreviewLayout = ({
         <TouchableOpacity
           key={value}
           onPress={() => setSelectedValue(value)}
-          style={[
-            styles.button,
-            selectedValue === value && styles.selected,
-          ]}>
+          style={[styles.button, selectedValue === value && styles.selected]}>
           <Text
             style={[
               styles.buttonLabel,
@@ -739,9 +695,7 @@ const PreviewLayout = ({
         </TouchableOpacity>
       ))}
     </View>
-    <View style={[styles.container, {[label]: selectedValue}]}>
-      {children}
-    </View>
+    <View style={[styles.container, {[label]: selectedValue}]}>{children}</View>
   </View>
 );
 
@@ -815,16 +769,10 @@ const FlexWrapLayout = () => {
       setSelectedValue={setFlexWrap}>
       <View style={[styles.box, {backgroundColor: 'orangered'}]} />
       <View style={[styles.box, {backgroundColor: 'orange'}]} />
-      <View
-        style={[styles.box, {backgroundColor: 'mediumseagreen'}]}
-      />
+      <View style={[styles.box, {backgroundColor: 'mediumseagreen'}]} />
       <View style={[styles.box, {backgroundColor: 'deepskyblue'}]} />
-      <View
-        style={[styles.box, {backgroundColor: 'mediumturquoise'}]}
-      />
-      <View
-        style={[styles.box, {backgroundColor: 'mediumslateblue'}]}
-      />
+      <View style={[styles.box, {backgroundColor: 'mediumturquoise'}]} />
+      <View style={[styles.box, {backgroundColor: 'mediumslateblue'}]} />
       <View style={[styles.box, {backgroundColor: 'purple'}]} />
     </PreviewLayout>
   );
@@ -844,10 +792,7 @@ const PreviewLayout = ({
         <TouchableOpacity
           key={value}
           onPress={() => setSelectedValue(value)}
-          style={[
-            styles.button,
-            selectedValue === value && styles.selected,
-          ]}>
+          style={[styles.button, selectedValue === value && styles.selected]}>
           <Text
             style={[
               styles.buttonLabel,
@@ -858,9 +803,7 @@ const PreviewLayout = ({
         </TouchableOpacity>
       ))}
     </View>
-    <View style={[styles.container, {[label]: selectedValue}]}>
-      {children}
-    </View>
+    <View style={[styles.container, {[label]: selectedValue}]}>{children}</View>
   </View>
 );
 
@@ -955,17 +898,9 @@ const App = () => {
             alignContent: 'space-between',
           },
         ]}>
-        <BoxInfo
-          color="powderblue"
-          {...powderblue}
-          setStyle={setPowderblue}
-        />
+        <BoxInfo color="powderblue" {...powderblue} setStyle={setPowderblue} />
         <BoxInfo color="skyblue" {...skyblue} setStyle={setSkyblue} />
-        <BoxInfo
-          color="steelblue"
-          {...steelblue}
-          setStyle={setSteelblue}
-        />
+        <BoxInfo color="steelblue" {...steelblue} setStyle={setSteelblue} />
       </View>
       <View style={styles.previewContainer}>
         <View
@@ -1006,13 +941,7 @@ const App = () => {
   );
 };
 
-const BoxInfo = ({
-  color,
-  flexBasis,
-  flexShrink,
-  setStyle,
-  flexGrow,
-}) => (
+const BoxInfo = ({color, flexBasis, flexShrink, setStyle, flexGrow}) => (
   <View style={[styles.row, {flexDirection: 'column'}]}>
     <View
       style={[
@@ -1169,9 +1098,7 @@ const PreviewLayout = ({
         />
       </View>
     </View>
-    <View style={[styles.container, {rowGap, columnGap}]}>
-      {children}
-    </View>
+    <View style={[styles.container, {rowGap, columnGap}]}>{children}</View>
   </View>
 );
 
@@ -1287,10 +1214,7 @@ const PreviewLayout = ({
         <TouchableOpacity
           key={value}
           onPress={() => setWidthType(value)}
-          style={[
-            styles.button,
-            widthType === value && styles.selected,
-          ]}>
+          style={[styles.button, widthType === value && styles.selected]}>
           <Text
             style={[
               styles.buttonLabel,
@@ -1307,10 +1231,7 @@ const PreviewLayout = ({
         <TouchableOpacity
           key={value}
           onPress={() => setHeightType(value)}
-          style={[
-            styles.button,
-            heightType === value && styles.selected,
-          ]}>
+          style={[styles.button, heightType === value && styles.selected]}>
           <Text
             style={[
               styles.buttonLabel,
@@ -1443,10 +1364,7 @@ const PreviewLayout = ({
         <TouchableOpacity
           key={value}
           onPress={() => setSelectedValue(value)}
-          style={[
-            styles.button,
-            selectedValue === value && styles.selected,
-          ]}>
+          style={[styles.button, selectedValue === value && styles.selected]}>
           <Text
             style={[
               styles.buttonLabel,

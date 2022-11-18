@@ -25,11 +25,7 @@ import {
 } from 'react-native';
 
 const Separator = () => {
-  return (
-    <View
-      style={Platform.OS === 'android' ? styles.separator : null}
-    />
-  );
+  return <View style={Platform.OS === 'android' ? styles.separator : null} />;
 };
 
 const App = () => {
@@ -48,14 +44,9 @@ const App = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={[styles.header, styles.paragraph]}>
-        Vibration API
-      </Text>
+      <Text style={[styles.header, styles.paragraph]}>Vibration API</Text>
       <View>
-        <Button
-          title="Vibrate once"
-          onPress={() => Vibration.vibrate()}
-        />
+        <Button title="Vibrate once" onPress={() => Vibration.vibrate()} />
       </View>
       <Separator />
       {Platform.OS == 'android'
@@ -63,9 +54,7 @@ const App = () => {
             <View>
               <Button
                 title="Vibrate for 10 seconds"
-                onPress={() =>
-                  Vibration.vibrate(10 * ONE_SECOND_IN_MS)
-                }
+                onPress={() => Vibration.vibrate(10 * ONE_SECOND_IN_MS)}
               />
             </View>,
             <Separator />,
@@ -133,11 +122,7 @@ import {
 } from 'react-native';
 
 const Separator = () => {
-  return (
-    <View
-      style={Platform.OS === 'android' ? styles.separator : null}
-    />
-  );
+  return <View style={Platform.OS === 'android' ? styles.separator : null} />;
 };
 
 class App extends Component {
@@ -157,14 +142,9 @@ class App extends Component {
 
     return (
       <SafeAreaView style={styles.container}>
-        <Text style={[styles.header, styles.paragraph]}>
-          Vibration API
-        </Text>
+        <Text style={[styles.header, styles.paragraph]}>Vibration API</Text>
         <View>
-          <Button
-            title="Vibrate once"
-            onPress={() => Vibration.vibrate()}
-          />
+          <Button title="Vibrate once" onPress={() => Vibration.vibrate()} />
         </View>
         <Separator />
         {Platform.OS == 'android'
@@ -172,9 +152,7 @@ class App extends Component {
               <View>
                 <Button
                   title="Vibrate for 10 seconds"
-                  onPress={() =>
-                    Vibration.vibrate(10 * ONE_SECOND_IN_MS)
-                  }
+                  onPress={() => Vibration.vibrate(10 * ONE_SECOND_IN_MS)}
                 />
               </View>,
               <Separator />,

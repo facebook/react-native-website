@@ -14,20 +14,11 @@ The 'showWithGravityAndOffset(message, duration, gravity, xOffset, yOffset)' met
 
 ```SnackPlayer name=Toast%20Android%20API%20Example&supportedPlatforms=android
 import React from 'react';
-import {
-  View,
-  StyleSheet,
-  ToastAndroid,
-  Button,
-  StatusBar,
-} from 'react-native';
+import {View, StyleSheet, ToastAndroid, Button, StatusBar} from 'react-native';
 
 const App = () => {
   const showToast = () => {
-    ToastAndroid.show(
-      'A pikachu appeared nearby !',
-      ToastAndroid.SHORT
-    );
+    ToastAndroid.show('A pikachu appeared nearby !', ToastAndroid.SHORT);
   };
 
   const showToastWithGravity = () => {
@@ -82,13 +73,7 @@ The ToastAndroid API is imperative, but there is a way to expose a declarative c
 
 ```SnackPlayer name=Advanced%20Toast%20Android%20API%20Example&supportedPlatforms=android
 import React, {useState, useEffect} from 'react';
-import {
-  View,
-  StyleSheet,
-  ToastAndroid,
-  Button,
-  StatusBar,
-} from 'react-native';
+import {View, StyleSheet, ToastAndroid, Button, StatusBar} from 'react-native';
 
 const Toast = ({visible, message}) => {
   if (visible) {
@@ -116,10 +101,7 @@ const App = () => {
   return (
     <View style={styles.container}>
       <Toast visible={visibleToast} message="Example" />
-      <Button
-        title="Toggle Toast"
-        onPress={() => handleButtonPress()}
-      />
+      <Button title="Toggle Toast" onPress={() => handleButtonPress()} />
     </View>
   );
 };

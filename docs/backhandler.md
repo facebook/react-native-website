@@ -50,13 +50,7 @@ The following example implements a scenario where you confirm if the user wants 
 
 ```SnackPlayer name=BackHandler&supportedPlatforms=android
 import React, {useEffect} from 'react';
-import {
-  Text,
-  View,
-  StyleSheet,
-  BackHandler,
-  Alert,
-} from 'react-native';
+import {Text, View, StyleSheet, BackHandler, Alert} from 'react-native';
 
 const App = () => {
   useEffect(() => {
@@ -107,13 +101,7 @@ export default App;
 
 ```SnackPlayer name=BackHandler&supportedPlatforms=android
 import React, {Component} from 'react';
-import {
-  Text,
-  View,
-  StyleSheet,
-  BackHandler,
-  Alert,
-} from 'react-native';
+import {Text, View, StyleSheet, BackHandler, Alert} from 'react-native';
 
 class App extends Component {
   backAction = () => {
@@ -175,13 +163,7 @@ Additionally `BackHandler.removeEventListener` can also be used to clear the eve
 
 ```SnackPlayer name=BackHandler&supportedPlatforms=android
 import React, {useEffect} from 'react';
-import {
-  Text,
-  View,
-  StyleSheet,
-  BackHandler,
-  Alert,
-} from 'react-native';
+import {Text, View, StyleSheet, BackHandler, Alert} from 'react-native';
 
 const App = () => {
   const backAction = () => {
@@ -200,10 +182,7 @@ const App = () => {
     BackHandler.addEventListener('hardwareBackPress', backAction);
 
     return () =>
-      BackHandler.removeEventListener(
-        'hardwareBackPress',
-        backAction
-      );
+      BackHandler.removeEventListener('hardwareBackPress', backAction);
   }, []);
 
   return (
@@ -233,13 +212,7 @@ export default App;
 
 ```SnackPlayer name=BackHandler&supportedPlatforms=android
 import React, {Component} from 'react';
-import {
-  Text,
-  View,
-  StyleSheet,
-  BackHandler,
-  Alert,
-} from 'react-native';
+import {Text, View, StyleSheet, BackHandler, Alert} from 'react-native';
 
 class App extends Component {
   backAction = () => {
@@ -255,17 +228,11 @@ class App extends Component {
   };
 
   componentDidMount() {
-    BackHandler.addEventListener(
-      'hardwareBackPress',
-      this.backAction
-    );
+    BackHandler.addEventListener('hardwareBackPress', this.backAction);
   }
 
   componentWillUnmount() {
-    BackHandler.removeEventListener(
-      'hardwareBackPress',
-      this.backAction
-    );
+    BackHandler.removeEventListener('hardwareBackPress', this.backAction);
   }
 
   render() {

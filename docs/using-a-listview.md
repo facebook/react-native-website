@@ -43,9 +43,7 @@ const FlatListBasics = () => {
           {key: 'Jimmy'},
           {key: 'Julie'},
         ]}
-        renderItem={({item}) => (
-          <Text style={styles.item}>{item.key}</Text>
-        )}
+        renderItem={({item}) => <Text style={styles.item}>{item.key}</Text>}
       />
     </View>
   );
@@ -100,9 +98,7 @@ const SectionListBasics = () => {
             ],
           },
         ]}
-        renderItem={({item}) => (
-          <Text style={styles.item}>{item}</Text>
-        )}
+        renderItem={({item}) => <Text style={styles.item}>{item}</Text>}
         renderSectionHeader={({section}) => (
           <Text style={styles.sectionHeader}>{section.title}</Text>
         )}

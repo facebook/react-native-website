@@ -9,12 +9,7 @@ To use this component wrap your custom toolbar with the InputAccessoryView compo
 
 ```SnackPlayer name=InputAccessoryView&supportedPlatforms=ios
 import React, {useState} from 'react';
-import {
-  Button,
-  InputAccessoryView,
-  ScrollView,
-  TextInput,
-} from 'react-native';
+import {Button, InputAccessoryView, ScrollView, TextInput} from 'react-native';
 
 export default App = () => {
   const inputAccessoryViewID = 'uniqueID';
@@ -36,10 +31,7 @@ export default App = () => {
         />
       </ScrollView>
       <InputAccessoryView nativeID={inputAccessoryViewID}>
-        <Button
-          onPress={() => setText(initialText)}
-          title="Clear text"
-        />
+        <Button onPress={() => setText(initialText)} title="Clear text" />
       </InputAccessoryView>
     </>
   );

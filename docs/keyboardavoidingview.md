@@ -29,10 +29,7 @@ const KeyboardAvoidingComponent = () => {
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.inner}>
           <Text style={styles.header}>Header</Text>
-          <TextInput
-            placeholder="Username"
-            style={styles.textInput}
-          />
+          <TextInput placeholder="Username" style={styles.textInput} />
           <View style={styles.btnContainer}>
             <Button title="Submit" onPress={() => null} />
           </View>

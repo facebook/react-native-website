@@ -227,9 +227,7 @@ const App = () => {
   return (
     <View style={styles.container}>
       <View ref={textContainerRef} style={styles.textContainer}>
-        <Text ref={textRef}>
-          Where am I? (relative to the text container)
-        </Text>
+        <Text ref={textRef}>Where am I? (relative to the text container)</Text>
       </View>
       <Text style={styles.measure}>{JSON.stringify(measure)}</Text>
     </View>

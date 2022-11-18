@@ -75,14 +75,8 @@ const App = () => {
         </Text>
       ) : null}
       <View style={styles.buttonsContainer}>
-        <Button
-          title="Toggle StatusBar"
-          onPress={changeStatusBarVisibility}
-        />
-        <Button
-          title="Change StatusBar Style"
-          onPress={changeStatusBarStyle}
-        />
+        <Button title="Toggle StatusBar" onPress={changeStatusBarVisibility} />
+        <Button title="Change StatusBar Style" onPress={changeStatusBarStyle} />
         {Platform.OS === 'ios' ? (
           <Button
             title="Change StatusBar Transition"

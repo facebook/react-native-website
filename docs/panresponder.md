@@ -85,13 +85,7 @@ const ExampleComponent = () => {
 
 ```SnackPlayer name=PanResponder
 import React, {useRef} from 'react';
-import {
-  Animated,
-  View,
-  StyleSheet,
-  PanResponder,
-  Text,
-} from 'react-native';
+import {Animated, View, StyleSheet, PanResponder, Text} from 'react-native';
 
 const App = () => {
   const pan = useRef(new Animated.ValueXY()).current;
@@ -105,10 +99,7 @@ const App = () => {
           y: pan.y._value,
         });
       },
-      onPanResponderMove: Animated.event([
-        null,
-        {dx: pan.x, dy: pan.y},
-      ]),
+      onPanResponderMove: Animated.event([null, {dx: pan.x, dy: pan.y}]),
       onPanResponderRelease: () => {
         pan.flattenOffset();
       },
@@ -156,13 +147,7 @@ export default App;
 
 ```SnackPlayer name=PanResponder
 import React, {Component} from 'react';
-import {
-  Animated,
-  View,
-  StyleSheet,
-  PanResponder,
-  Text,
-} from 'react-native';
+import {Animated, View, StyleSheet, PanResponder, Text} from 'react-native';
 
 class App extends Component {
   pan = new Animated.ValueXY();
@@ -189,10 +174,7 @@ class App extends Component {
         <Text style={styles.titleText}>Drag this box!</Text>
         <Animated.View
           style={{
-            transform: [
-              {translateX: this.pan.x},
-              {translateY: this.pan.y},
-            ],
+            transform: [{translateX: this.pan.x}, {translateY: this.pan.y}],
           }}
           {...this.panResponder.panHandlers}>
           <View style={styles.box} />

@@ -195,9 +195,7 @@ class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={this.onPress}>
+        <TouchableOpacity style={styles.button} onPress={this.onPress}>
           <Text>Click me</Text>
         </TouchableOpacity>
         <View>

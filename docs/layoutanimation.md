@@ -46,9 +46,7 @@ const App = () => {
     <View style={style.container}>
       <TouchableOpacity
         onPress={() => {
-          LayoutAnimation.configureNext(
-            LayoutAnimation.Presets.spring
-          );
+          LayoutAnimation.configureNext(LayoutAnimation.Presets.spring);
           setExpanded(!expanded);
         }}>
         <Text>Press me to {expanded ? 'collapse' : 'expand'}!</Text>
@@ -169,10 +167,7 @@ const App = () => {
         <Button title="Toggle Layout" onPress={toggleBox} />
       </View>
       <View
-        style={[
-          styles.box,
-          boxPosition === 'left' ? null : styles.moveRight,
-        ]}
+        style={[styles.box, boxPosition === 'left' ? null : styles.moveRight]}
       />
     </View>
   );
@@ -238,8 +233,7 @@ class App extends Component {
       delete: {type: 'linear', property: 'opacity'},
     });
     this.setState({
-      boxPosition:
-        this.state.boxPosition === 'left' ? 'right' : 'left',
+      boxPosition: this.state.boxPosition === 'left' ? 'right' : 'left',
     });
   };
 
@@ -252,9 +246,7 @@ class App extends Component {
         <View
           style={[
             styles.box,
-            this.state.boxPosition === 'left'
-              ? null
-              : styles.moveRight,
+            this.state.boxPosition === 'left' ? null : styles.moveRight,
           ]}
         />
       </View>
@@ -378,26 +370,18 @@ const App = () => {
   const [thirdBoxPosition, setThirdBoxPosition] = useState('left');
 
   const toggleFirstBox = () => {
-    LayoutAnimation.configureNext(
-      LayoutAnimation.Presets.easeInEaseOut
-    );
-    setFirstBoxPosition(
-      firstBoxPosition === 'left' ? 'right' : 'left'
-    );
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+    setFirstBoxPosition(firstBoxPosition === 'left' ? 'right' : 'left');
   };
 
   const toggleSecondBox = () => {
     LayoutAnimation.configureNext(LayoutAnimation.Presets.linear);
-    setSecondBoxPosition(
-      secondBoxPosition === 'left' ? 'right' : 'left'
-    );
+    setSecondBoxPosition(secondBoxPosition === 'left' ? 'right' : 'left');
   };
 
   const toggleThirdBox = () => {
     LayoutAnimation.configureNext(LayoutAnimation.Presets.spring);
-    setThirdBoxPosition(
-      thirdBoxPosition === 'left' ? 'right' : 'left'
-    );
+    setThirdBoxPosition(thirdBoxPosition === 'left' ? 'right' : 'left');
   };
 
   return (
@@ -486,9 +470,7 @@ class App extends Component {
   };
 
   toggleFirstBox = () => {
-    LayoutAnimation.configureNext(
-      LayoutAnimation.Presets.easeInEaseOut
-    );
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
     this.setState({
       firstBoxPosition:
         this.state.firstBoxPosition === 'left' ? 'right' : 'left',
@@ -515,17 +497,12 @@ class App extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.buttonContainer}>
-          <Button
-            title="EaseInEaseOut"
-            onPress={this.toggleFirstBox}
-          />
+          <Button title="EaseInEaseOut" onPress={this.toggleFirstBox} />
         </View>
         <View
           style={[
             styles.box,
-            this.state.firstBoxPosition === 'left'
-              ? null
-              : styles.moveRight,
+            this.state.firstBoxPosition === 'left' ? null : styles.moveRight,
           ]}
         />
         <View style={styles.buttonContainer}>
@@ -534,9 +511,7 @@ class App extends Component {
         <View
           style={[
             styles.box,
-            this.state.secondBoxPosition === 'left'
-              ? null
-              : styles.moveRight,
+            this.state.secondBoxPosition === 'left' ? null : styles.moveRight,
           ]}
         />
         <View style={styles.buttonContainer}>
@@ -545,9 +520,7 @@ class App extends Component {
         <View
           style={[
             styles.box,
-            this.state.thirdBoxPosition === 'left'
-              ? null
-              : styles.moveRight,
+            this.state.thirdBoxPosition === 'left' ? null : styles.moveRight,
           ]}
         />
       </View>

@@ -21,9 +21,7 @@ const App = () => {
       {Platform.OS === 'ios' && (
         <>
           <Text>isPad</Text>
-          <Text style={styles.value}>
-            {Platform.isPad.toString()}
-          </Text>
+          <Text style={styles.value}>{Platform.isPad.toString()}</Text>
         </>
       )}
       <Text>Constants</Text>

@@ -16,30 +16,18 @@ The Keyboard module allows you to listen for native events and react to them, as
 
 ```SnackPlayer name=Keyboard%20Function%20Component%20Example&supportedPlatforms=ios,android
 import React, {useState, useEffect} from 'react';
-import {
-  Keyboard,
-  Text,
-  TextInput,
-  StyleSheet,
-  View,
-} from 'react-native';
+import {Keyboard, Text, TextInput, StyleSheet, View} from 'react-native';
 
 const Example = () => {
   const [keyboardStatus, setKeyboardStatus] = useState(undefined);
 
   useEffect(() => {
-    const showSubscription = Keyboard.addListener(
-      'keyboardDidShow',
-      () => {
-        setKeyboardStatus('Keyboard Shown');
-      }
-    );
-    const hideSubscription = Keyboard.addListener(
-      'keyboardDidHide',
-      () => {
-        setKeyboardStatus('Keyboard Hidden');
-      }
-    );
+    const showSubscription = Keyboard.addListener('keyboardDidShow', () => {
+      setKeyboardStatus('Keyboard Shown');
+    });
+    const hideSubscription = Keyboard.addListener('keyboardDidHide', () => {
+      setKeyboardStatus('Keyboard Hidden');
+    });
 
     return () => {
       showSubscription.remove();
@@ -83,13 +71,7 @@ export default Example;
 
 ```SnackPlayer name=Keyboard%20Class%20Component%20Example&supportedPlatforms=ios,android
 import React, {Component} from 'react';
-import {
-  Keyboard,
-  Text,
-  TextInput,
-  StyleSheet,
-  View,
-} from 'react-native';
+import {Keyboard, Text, TextInput, StyleSheet, View} from 'react-native';
 
 class Example extends Component {
   state = {

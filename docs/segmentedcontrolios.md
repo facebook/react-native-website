@@ -15,12 +15,7 @@ The selected index can be changed on the fly by assigning the selectedIndex prop
 
 ```SnackPlayer name=SegmentedControlIOS%20Example&supportedPlatforms=ios
 import React, {useState} from 'react';
-import {
-  SegmentedControlIOS,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import {SegmentedControlIOS, StyleSheet, Text, View} from 'react-native';
 
 export default App = () => {
   const [index, setIndex] = useState(0);

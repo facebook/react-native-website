@@ -19,10 +19,7 @@ const image = {uri: 'https://reactjs.org/logo-og.png'};
 
 const App = () => (
   <View style={styles.container}>
-    <ImageBackground
-      source={image}
-      resizeMode="cover"
-      style={styles.image}>
+    <ImageBackground source={image} resizeMode="cover" style={styles.image}>
       <Text style={styles.text}>Inside</Text>
     </ImageBackground>
   </View>

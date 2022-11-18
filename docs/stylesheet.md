@@ -90,10 +90,7 @@ const lists = StyleSheet.create({
   },
 });
 
-const container = StyleSheet.compose(
-  page.container,
-  lists.listContainer
-);
+const container = StyleSheet.compose(page.container, lists.listContainer);
 const text = StyleSheet.compose(page.text, lists.listItem);
 
 export default App;
@@ -129,9 +126,7 @@ const App = () => (
   <View style={page.container}>
     <Text style={flattenStyle}>React Native</Text>
     <Text>Flatten Style</Text>
-    <Text style={page.code}>
-      {JSON.stringify(flattenStyle, null, 2)}
-    </Text>
+    <Text style={page.code}>{JSON.stringify(flattenStyle, null, 2)}</Text>
   </View>
 );
 
@@ -163,10 +158,7 @@ const typography = StyleSheet.create({
   },
 });
 
-const flattenStyle = StyleSheet.flatten([
-  page.text,
-  typography.header,
-]);
+const flattenStyle = StyleSheet.flatten([page.text, typography.header]);
 
 export default App;
 ```

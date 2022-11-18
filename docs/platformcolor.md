@@ -45,13 +45,7 @@ For a full list of the types of system colors supported, see:
 
 ```SnackPlayer name=PlatformColor%20Example&supportedPlatforms=android,ios
 import React from 'react';
-import {
-  Platform,
-  PlatformColor,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import {Platform, PlatformColor, StyleSheet, Text, View} from 'react-native';
 
 const App = () => (
   <View style={styles.container}>
@@ -69,9 +63,7 @@ const styles = StyleSheet.create({
       },
       android: {
         color: PlatformColor('?android:attr/textColor'),
-        backgroundColor: PlatformColor(
-          '@android:color/holo_blue_bright'
-        ),
+        backgroundColor: PlatformColor('@android:color/holo_blue_bright'),
       },
       default: {color: 'black'},
     }),

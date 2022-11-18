@@ -47,14 +47,8 @@ const App = () => {
 
   return (
     <View style={styles.container}>
-      <Button
-        title={'2-Button Alert'}
-        onPress={createTwoButtonAlert}
-      />
-      <Button
-        title={'3-Button Alert'}
-        onPress={createThreeButtonAlert}
-      />
+      <Button title={'2-Button Alert'} onPress={createTwoButtonAlert} />
+      <Button title={'3-Button Alert'} onPress={createThreeButtonAlert} />
     </View>
   );
 };
@@ -105,10 +99,7 @@ class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Button
-          title={'2-Button Alert'}
-          onPress={this.createTwoButtonAlert}
-        />
+        <Button title={'2-Button Alert'} onPress={this.createTwoButtonAlert} />
 
         <Button
           title={'3-Button Alert'}

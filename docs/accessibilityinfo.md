@@ -14,45 +14,32 @@ Sometimes it's useful to know whether or not the device has a screen reader that
 
 ```SnackPlayer name=AccessibilityInfo%20Function%20Component%20Example&supportedPlatforms=android,ios
 import React, {useState, useEffect} from 'react';
-import {
-  AccessibilityInfo,
-  View,
-  Text,
-  StyleSheet,
-} from 'react-native';
+import {AccessibilityInfo, View, Text, StyleSheet} from 'react-native';
 
 const App = () => {
-  const [reduceMotionEnabled, setReduceMotionEnabled] =
-    useState(false);
-  const [screenReaderEnabled, setScreenReaderEnabled] =
-    useState(false);
+  const [reduceMotionEnabled, setReduceMotionEnabled] = useState(false);
+  const [screenReaderEnabled, setScreenReaderEnabled] = useState(false);
 
   useEffect(() => {
-    const reduceMotionChangedSubscription =
-      AccessibilityInfo.addEventListener(
-        'reduceMotionChanged',
-        reduceMotionEnabled => {
-          setReduceMotionEnabled(reduceMotionEnabled);
-        }
-      );
-    const screenReaderChangedSubscription =
-      AccessibilityInfo.addEventListener(
-        'screenReaderChanged',
-        screenReaderEnabled => {
-          setScreenReaderEnabled(screenReaderEnabled);
-        }
-      );
-
-    AccessibilityInfo.isReduceMotionEnabled().then(
+    const reduceMotionChangedSubscription = AccessibilityInfo.addEventListener(
+      'reduceMotionChanged',
       reduceMotionEnabled => {
         setReduceMotionEnabled(reduceMotionEnabled);
       }
     );
-    AccessibilityInfo.isScreenReaderEnabled().then(
+    const screenReaderChangedSubscription = AccessibilityInfo.addEventListener(
+      'screenReaderChanged',
       screenReaderEnabled => {
         setScreenReaderEnabled(screenReaderEnabled);
       }
     );
+
+    AccessibilityInfo.isReduceMotionEnabled().then(reduceMotionEnabled => {
+      setReduceMotionEnabled(reduceMotionEnabled);
+    });
+    AccessibilityInfo.isScreenReaderEnabled().then(screenReaderEnabled => {
+      setScreenReaderEnabled(screenReaderEnabled);
+    });
 
     return () => {
       reduceMotionChangedSubscription.remove();
@@ -63,12 +50,10 @@ const App = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.status}>
-        The reduce motion is{' '}
-        {reduceMotionEnabled ? 'enabled' : 'disabled'}.
+        The reduce motion is {reduceMotionEnabled ? 'enabled' : 'disabled'}.
       </Text>
       <Text style={styles.status}>
-        The screen reader is{' '}
-        {screenReaderEnabled ? 'enabled' : 'disabled'}.
+        The screen reader is {screenReaderEnabled ? 'enabled' : 'disabled'}.
       </Text>
     </View>
   );
@@ -93,12 +78,7 @@ export default App;
 
 ```SnackPlayer name=AccessibilityInfo%20Class%20Component%20Example&supportedPlatforms=android,ios
 import React, {Component} from 'react';
-import {
-  AccessibilityInfo,
-  View,
-  Text,
-  StyleSheet,
-} from 'react-native';
+import {AccessibilityInfo, View, Text, StyleSheet} from 'react-native';
 
 class AccessibilityStatusExample extends Component {
   state = {
@@ -107,31 +87,25 @@ class AccessibilityStatusExample extends Component {
   };
 
   componentDidMount() {
-    this.reduceMotionChangedSubscription =
-      AccessibilityInfo.addEventListener(
-        'reduceMotionChanged',
-        reduceMotionEnabled => {
-          this.setState({reduceMotionEnabled});
-        }
-      );
-    this.screenReaderChangedSubscription =
-      AccessibilityInfo.addEventListener(
-        'screenReaderChanged',
-        screenReaderEnabled => {
-          this.setState({screenReaderEnabled});
-        }
-      );
-
-    AccessibilityInfo.isReduceMotionEnabled().then(
+    this.reduceMotionChangedSubscription = AccessibilityInfo.addEventListener(
+      'reduceMotionChanged',
       reduceMotionEnabled => {
         this.setState({reduceMotionEnabled});
       }
     );
-    AccessibilityInfo.isScreenReaderEnabled().then(
+    this.screenReaderChangedSubscription = AccessibilityInfo.addEventListener(
+      'screenReaderChanged',
       screenReaderEnabled => {
         this.setState({screenReaderEnabled});
       }
     );
+
+    AccessibilityInfo.isReduceMotionEnabled().then(reduceMotionEnabled => {
+      this.setState({reduceMotionEnabled});
+    });
+    AccessibilityInfo.isScreenReaderEnabled().then(screenReaderEnabled => {
+      this.setState({screenReaderEnabled});
+    });
   }
 
   componentWillUnmount() {

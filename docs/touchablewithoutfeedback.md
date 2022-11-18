@@ -29,12 +29,7 @@ function MyComponent(props) {
 
 ```SnackPlayer name=TouchableWithoutFeedback
 import React, {useState} from 'react';
-import {
-  StyleSheet,
-  TouchableWithoutFeedback,
-  Text,
-  View,
-} from 'react-native';
+import {StyleSheet, TouchableWithoutFeedback, Text, View} from 'react-native';
 
 const TouchableWithoutFeedbackExample = () => {
   const [count, setCount] = useState(0);

@@ -17,12 +17,7 @@ const { height, width } = useWindowDimensions();
 
 ```SnackPlayer name=useWindowDimensions&supportedPlatforms=ios,android
 import React from 'react';
-import {
-  View,
-  StyleSheet,
-  Text,
-  useWindowDimensions,
-} from 'react-native';
+import {View, StyleSheet, Text, useWindowDimensions} from 'react-native';
 
 const App = () => {
   const {height, width, scale, fontScale} = useWindowDimensions();

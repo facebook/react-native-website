@@ -14,14 +14,7 @@ The Modal component is a basic way to present content above an enclosing view.
 
 ```SnackPlayer name=Modal&supportedPlatforms=android,ios
 import React, {useState} from 'react';
-import {
-  Alert,
-  Modal,
-  StyleSheet,
-  Text,
-  Pressable,
-  View,
-} from 'react-native';
+import {Alert, Modal, StyleSheet, Text, Pressable, View} from 'react-native';
 
 const App = () => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -107,14 +100,7 @@ export default App;
 
 ```SnackPlayer name=Modal&supportedPlatforms=android,ios
 import React, {Component} from 'react';
-import {
-  Alert,
-  Modal,
-  StyleSheet,
-  Text,
-  Pressable,
-  View,
-} from 'react-native';
+import {Alert, Modal, StyleSheet, Text, Pressable, View} from 'react-native';
 
 class App extends Component {
   state = {

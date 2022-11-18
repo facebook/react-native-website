@@ -83,8 +83,9 @@ const Ball = ({onShown}) => {
 
   // Running a method after the animation
   useMount(() => {
-    const interactionPromise =
-      InteractionManager.runAfterInteractions(() => onShown());
+    const interactionPromise = InteractionManager.runAfterInteractions(() =>
+      onShown()
+    );
     return () => interactionPromise.cancel();
   });
 
@@ -160,9 +161,7 @@ const Ball = ({onInteractionIsDone}) => {
 
   // Running a method after the interaction
   useMount(() => {
-    InteractionManager.runAfterInteractions(() =>
-      onInteractionIsDone()
-    );
+    InteractionManager.runAfterInteractions(() => onInteractionIsDone());
   });
 
   return <Animated.View style={[styles.ball]} />;
@@ -172,9 +171,7 @@ const App = () => {
   return (
     <View style={styles.container}>
       <Text>{instructions}</Text>
-      <Ball
-        onInteractionIsDone={() => Alert.alert('Interaction is done')}
-      />
+      <Ball onInteractionIsDone={() => Alert.alert('Interaction is done')} />
     </View>
   );
 };

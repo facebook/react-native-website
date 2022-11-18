@@ -14,13 +14,7 @@ Transforms are style properties that will help you modify the appearance and pos
 
 ```SnackPlayer name=Transforms
 import React from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import {SafeAreaView, ScrollView, StyleSheet, Text, View} from 'react-native';
 
 const App = () => (
   <SafeAreaView style={styles.container}>
@@ -176,20 +170,13 @@ export default App;
 
 ```SnackPlayer name=Transforms
 import React, {Component} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import {SafeAreaView, ScrollView, StyleSheet, Text, View} from 'react-native';
 
 class App extends Component {
   render() {
     return (
       <SafeAreaView style={styles.container}>
-        <ScrollView
-          contentContainerStyle={styles.scrollContentContainer}>
+        <ScrollView contentContainerStyle={styles.scrollContentContainer}>
           <View style={styles.box}>
             <Text style={styles.text}>Original Object</Text>
           </View>

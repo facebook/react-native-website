@@ -82,9 +82,7 @@ class App extends Component {
         <View style={styles.countContainer}>
           <Text>Count: {count}</Text>
         </View>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={this.onPress}>
+        <TouchableOpacity style={styles.button} onPress={this.onPress}>
           <Text>Press Here</Text>
         </TouchableOpacity>
       </View>

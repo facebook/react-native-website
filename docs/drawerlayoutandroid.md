@@ -45,9 +45,7 @@ const App = () => {
       drawerPosition={drawerPosition}
       renderNavigationView={navigationView}>
       <View style={styles.container}>
-        <Text style={styles.paragraph}>
-          Drawer on the {drawerPosition}!
-        </Text>
+        <Text style={styles.paragraph}>Drawer on the {drawerPosition}!</Text>
         <Button
           title="Change Drawer Position"
           onPress={() => changeDrawerPosition()}

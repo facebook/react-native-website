@@ -34,10 +34,7 @@ const App = () => {
       <ScrollView
         contentContainerStyle={styles.scrollView}
         refreshControl={
-          <RefreshControl
-            refreshing={refreshing}
-            onRefresh={onRefresh}
-          />
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
         }>
         <Text>Pull down to see RefreshControl indicator</Text>
       </ScrollView>

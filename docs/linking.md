@@ -142,12 +142,8 @@ const OpenURLButton = ({url, children}) => {
 const App = () => {
   return (
     <View style={styles.container}>
-      <OpenURLButton url={supportedURL}>
-        Open Supported URL
-      </OpenURLButton>
-      <OpenURLButton url={unsupportedURL}>
-        Open Unsupported URL
-      </OpenURLButton>
+      <OpenURLButton url={supportedURL}>Open Supported URL</OpenURLButton>
+      <OpenURLButton url={unsupportedURL}>Open Unsupported URL</OpenURLButton>
     </View>
   );
 };
@@ -280,8 +276,7 @@ const App = () => {
         action="android.settings.APP_NOTIFICATION_SETTINGS"
         extras={[
           {
-            'android.provider.extra.APP_PACKAGE':
-              'com.facebook.katana',
+            'android.provider.extra.APP_PACKAGE': 'com.facebook.katana',
           },
         ]}>
         App Notification Settings

@@ -154,9 +154,7 @@ const getFullName = (firstName, secondName, thirdName) => {
 };
 
 const Cat = () => {
-  return (
-    <Text>Hello, I am {getFullName('Rum', 'Tum', 'Tugger')}!</Text>
-  );
+  return <Text>Hello, I am {getFullName('Rum', 'Tum', 'Tugger')}!</Text>;
 };
 
 export default Cat;
@@ -434,9 +432,7 @@ class Cat extends Component {
           }}
           disabled={!this.state.isHungry}
           title={
-            this.state.isHungry
-              ? 'Pour me some milk, please!'
-              : 'Thank you!'
+            this.state.isHungry ? 'Pour me some milk, please!' : 'Thank you!'
           }
         />
       </View>

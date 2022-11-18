@@ -47,15 +47,8 @@ export default class ButtonBasics extends Component {
           />
         </View>
         <View style={styles.alternativeLayoutButtonContainer}>
-          <Button
-            onPress={this._onPressButton}
-            title="This looks great!"
-          />
-          <Button
-            onPress={this._onPressButton}
-            title="OK!"
-            color="#841584"
-          />
+          <Button onPress={this._onPressButton} title="This looks great!" />
+          <Button onPress={this._onPressButton} title="OK!" color="#841584" />
         </View>
       </View>
     );
@@ -121,9 +114,7 @@ export default class Touchables extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <TouchableHighlight
-          onPress={this._onPressButton}
-          underlayColor="white">
+        <TouchableHighlight onPress={this._onPressButton} underlayColor="white">
           <View style={styles.button}>
             <Text style={styles.buttonText}>TouchableHighlight</Text>
           </View>
@@ -149,9 +140,7 @@ export default class Touchables extends Component {
         </TouchableNativeFeedback>
         <TouchableWithoutFeedback onPress={this._onPressButton}>
           <View style={styles.button}>
-            <Text style={styles.buttonText}>
-              TouchableWithoutFeedback
-            </Text>
+            <Text style={styles.buttonText}>TouchableWithoutFeedback</Text>
           </View>
         </TouchableWithoutFeedback>
         <TouchableHighlight
@@ -159,9 +148,7 @@ export default class Touchables extends Component {
           onLongPress={this._onLongPressButton}
           underlayColor="white">
           <View style={styles.button}>
-            <Text style={styles.buttonText}>
-              Touchable with Long Press
-            </Text>
+            <Text style={styles.buttonText}>Touchable with Long Press</Text>
           </View>
         </TouchableHighlight>
       </View>

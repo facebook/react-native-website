@@ -62,10 +62,7 @@ const requestCameraPermission = async () => {
 const App = () => (
   <View style={styles.container}>
     <Text style={styles.item}>Try permissions</Text>
-    <Button
-      title="request permissions"
-      onPress={requestCameraPermission}
-    />
+    <Button title="request permissions" onPress={requestCameraPermission} />
   </View>
 );
 
@@ -132,10 +129,7 @@ class App extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.item}>Try permissions</Text>
-        <Button
-          title="request permissions"
-          onPress={requestCameraPermission}
-        />
+        <Button title="request permissions" onPress={requestCameraPermission} />
       </View>
     );
   }

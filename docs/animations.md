@@ -284,12 +284,8 @@ const App = () => {
           scrollEventThrottle={1}>
           {images.map((image, imageIndex) => {
             return (
-              <View
-                style={{width: windowWidth, height: 250}}
-                key={imageIndex}>
-                <ImageBackground
-                  source={{uri: image}}
-                  style={styles.card}>
+              <View style={{width: windowWidth, height: 250}} key={imageIndex}>
+                <ImageBackground source={{uri: image}} style={styles.card}>
                   <View style={styles.textContainer}>
                     <Text style={styles.infoText}>
                       {'Image - ' + imageIndex}
@@ -443,9 +439,7 @@ export default class App extends Component {
                     height: 250,
                   }}
                   key={imageIndex}>
-                  <ImageBackground
-                    source={{uri: image}}
-                    style={styles.card}>
+                  <ImageBackground source={{uri: image}} style={styles.card}>
                     <View style={styles.textContainer}>
                       <Text style={styles.infoText}>
                         {'Image - ' + imageIndex}
@@ -548,23 +542,14 @@ onPanResponderMove={Animated.event(
 
 ```SnackPlayer name=Animated
 import React, {useRef} from 'react';
-import {
-  Animated,
-  View,
-  StyleSheet,
-  PanResponder,
-  Text,
-} from 'react-native';
+import {Animated, View, StyleSheet, PanResponder, Text} from 'react-native';
 
 const App = () => {
   const pan = useRef(new Animated.ValueXY()).current;
   const panResponder = useRef(
     PanResponder.create({
       onMoveShouldSetPanResponder: () => true,
-      onPanResponderMove: Animated.event([
-        null,
-        {dx: pan.x, dy: pan.y},
-      ]),
+      onPanResponderMove: Animated.event([null, {dx: pan.x, dy: pan.y}]),
       onPanResponderRelease: () => {
         Animated.spring(pan, {toValue: {x: 0, y: 0}}).start();
       },
@@ -612,13 +597,7 @@ export default App;
 
 ```SnackPlayer name=Animated
 import React, {Component} from 'react';
-import {
-  Animated,
-  View,
-  StyleSheet,
-  PanResponder,
-  Text,
-} from 'react-native';
+import {Animated, View, StyleSheet, PanResponder, Text} from 'react-native';
 
 export default class App extends Component {
   pan = new Animated.ValueXY();
@@ -639,10 +618,7 @@ export default class App extends Component {
         <Text style={styles.titleText}>Drag & Release this box!</Text>
         <Animated.View
           style={{
-            transform: [
-              {translateX: this.pan.x},
-              {translateY: this.pan.y},
-            ],
+            transform: [{translateX: this.pan.x}, {translateY: this.pan.y}],
           }}
           {...this.panResponder.panHandlers}>
           <View style={styles.box} />
@@ -795,10 +771,7 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
         <View
-          style={[
-            styles.box,
-            {width: this.state.w, height: this.state.h},
-          ]}
+          style={[styles.box, {width: this.state.w, height: this.state.h}]}
         />
         <TouchableOpacity onPress={this._onPress}>
           <View style={styles.button}>

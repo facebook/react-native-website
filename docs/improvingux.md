@@ -17,13 +17,7 @@ Check out [`TextInput` docs](textinput.md) for more configuration options.
 
 ```SnackPlayer name=TextInput%20form%20example
 import React, {useState, useRef} from 'react';
-import {
-  Text,
-  StatusBar,
-  TextInput,
-  View,
-  StyleSheet,
-} from 'react-native';
+import {Text, StatusBar, TextInput, View, StyleSheet} from 'react-native';
 import {Constants} from 'expo';
 
 const App = () => {
@@ -32,9 +26,7 @@ const App = () => {
   const [email, setEmail] = useState('');
 
   const submit = () => {
-    alert(
-      `Welcome, ${name}! Confirmation email has been sent to ${email}`
-    );
+    alert(`Welcome, ${name}! Confirmation email has been sent to ${email}`);
   };
 
   return (
@@ -42,11 +34,10 @@ const App = () => {
       <StatusBar barStyle="light-content" />
       <View style={styles.header}>
         <Text style={styles.description}>
-          This demo shows how using available TextInput customizations
-          can make forms much easier to use. Try completing the form
-          and notice that different fields have specific optimizations
-          and the return key changes from focusing next input to
-          submitting the form.
+          This demo shows how using available TextInput customizations can make
+          forms much easier to use. Try completing the form and notice that
+          different fields have specific optimizations and the return key
+          changes from focusing next input to submitting the form.
         </Text>
       </View>
       <TextInput
@@ -137,11 +128,10 @@ const App = () => {
       <StatusBar barStyle="light-content" />
       <View style={styles.header}>
         <Text style={styles.description}>
-          This demo shows how to avoid covering important UI elements
-          with the software keyboard. Focus the email input below and
-          notice that the Sign Up button and the text adjusted
-          positions to make sure they are not hidden under the
-          keyboard.
+          This demo shows how to avoid covering important UI elements with the
+          software keyboard. Focus the email input below and notice that the
+          Sign Up button and the text adjusted positions to make sure they are
+          not hidden under the keyboard.
         </Text>
       </View>
       <KeyboardAvoidingView behavior="padding" style={styles.form}>
@@ -160,9 +150,7 @@ const App = () => {
         />
         <View>
           <Button title="Sign Up" onPress={submit} />
-          <Text style={styles.legal}>
-            Some important legal fine print here
-          </Text>
+          <Text style={styles.legal}>Some important legal fine print here</Text>
         </View>
       </KeyboardAvoidingView>
     </View>
@@ -227,10 +215,10 @@ const App = () => {
       <StatusBar barStyle="light-content" />
       <View style={styles.header}>
         <Text style={styles.description}>
-          This demo shows how using hitSlop can make interactive
-          elements much easier to tap without changing their layout
-          and size. Try pressing each button quickly multiple times
-          and notice which one is easier to hit.
+          This demo shows how using hitSlop can make interactive elements much
+          easier to tap without changing their layout and size. Try pressing
+          each button quickly multiple times and notice which one is easier to
+          hit.
         </Text>
       </View>
       <View style={styles.content}>
@@ -315,9 +303,7 @@ const ButtonsWithNativeFeedback = () => (
       background={TouchableNativeFeedback.Ripple('#06bcee', false)}
       hitSlop={defaultHitSlop}>
       <View style={styles.button}>
-        <Text style={styles.text}>
-          This is a ripple respecting borders
-        </Text>
+        <Text style={styles.text}>This is a ripple respecting borders</Text>
       </View>
     </TouchableNativeFeedback>
     <TouchableNativeFeedback
@@ -326,8 +312,8 @@ const ButtonsWithNativeFeedback = () => (
       hitSlop={defaultHitSlop}>
       <View style={styles.button}>
         <Text style={styles.text}>
-          This is ripple without borders, this is more useful for
-          icons, eg: in tab bar
+          This is ripple without borders, this is more useful for icons, eg: in
+          tab bar
         </Text>
       </View>
     </TouchableNativeFeedback>
@@ -354,11 +340,7 @@ const Buttons = () => (
 
 const App = () => (
   <View style={styles.container}>
-    {SUPPORTS_NATIVE_FEEDBACK ? (
-      <ButtonsWithNativeFeedback />
-    ) : (
-      <Buttons />
-    )}
+    {SUPPORTS_NATIVE_FEEDBACK ? <ButtonsWithNativeFeedback /> : <Buttons />}
   </View>
 );
 

@@ -50,12 +50,7 @@ const textDecorationLines = [
   'underline line-through',
 ];
 const textDecorationStyles = ['solid', 'double', 'dotted', 'dashed'];
-const textTransformations = [
-  'none',
-  'uppercase',
-  'lowercase',
-  'capitalize',
-];
+const textTransformations = ['none', 'uppercase', 'lowercase', 'capitalize'];
 const textAlignmentsVertical = ['auto', 'top', 'bottom', 'center'];
 const writingDirections = ['auto', 'ltr', 'rtl'];
 
@@ -65,14 +60,12 @@ const App = () => {
   const [fontWeightIdx, setFontWeightIdx] = useState(0);
   const [lineHeight, setLineHeight] = useState(10);
   const [textAlignIdx, setTextAlignIdx] = useState(0);
-  const [textDecorationLineIdx, setTextDecorationLineIdx] =
-    useState(0);
+  const [textDecorationLineIdx, setTextDecorationLineIdx] = useState(0);
   const [includeFontPadding, setIncludeFontPadding] = useState(false);
   const [textVerticalAlignIdx, setTextVerticalAlignIdx] = useState(0);
   const [fontVariantIdx, setFontVariantIdx] = useState(0);
   const [letterSpacing, setLetterSpacing] = useState(0);
-  const [textDecorationStyleIdx, setTextDecorationStyleIdx] =
-    useState(0);
+  const [textDecorationStyleIdx, setTextDecorationStyleIdx] = useState(0);
   const [textTransformIdx, setTextTransformIdx] = useState(0);
   const [writingDirectionIdx, setWritingDirectionIdx] = useState(0);
   const [textShadowRadius, setTextShadowRadius] = useState(0);
@@ -92,23 +85,20 @@ const App = () => {
             fontWeight: fontWeights[fontWeightIdx],
             lineHeight,
             textAlign: textAlignments[textAlignIdx],
-            textDecorationLine:
-              textDecorationLines[textDecorationLineIdx],
+            textDecorationLine: textDecorationLines[textDecorationLineIdx],
             textTransform: textTransformations[textTransformIdx],
-            textAlignVertical:
-              textAlignmentsVertical[textVerticalAlignIdx],
+            textAlignVertical: textAlignmentsVertical[textVerticalAlignIdx],
             fontVariant: [fontVariants[fontVariantIdx]],
             letterSpacing,
             includeFontPadding,
-            textDecorationStyle:
-              textDecorationStyles[textDecorationStyleIdx],
+            textDecorationStyle: textDecorationStyles[textDecorationStyleIdx],
             writingDirection: writingDirections[writingDirectionIdx],
             textShadowOffset,
             textShadowRadius,
           },
         ]}>
-        Lorem Ipsum is simply dummy text of the printing and
-        typesetting industry. 112 Likes
+        Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry. 112 Likes
       </Text>
       <ScrollView>
         <View>
@@ -261,9 +251,7 @@ const CustomSlider = ({
   return (
     <>
       {label && (
-        <Text style={styles.title}>{`${label} (${value.toFixed(
-          2
-        )})`}</Text>
+        <Text style={styles.title}>{`${label} (${value.toFixed(2)})`}</Text>
       )}
       <View style={styles.wrapperHorizontal}>
         <Slider
@@ -293,8 +281,7 @@ const CustomPicker = ({label, data, currentIndex, onSelected}) => {
           renderItem={({item, index}) => {
             const selected = index === currentIndex;
             return (
-              <TouchableWithoutFeedback
-                onPress={() => onSelected(index)}>
+              <TouchableWithoutFeedback onPress={() => onSelected(index)}>
                 <View
                   style={[
                     styles.itemStyleHorizontal,
