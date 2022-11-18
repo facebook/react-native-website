@@ -200,8 +200,8 @@ export default App;
 ### Get the Deep Link
 
 ```SnackPlayer name=Linking%20Function%20Component%20Example&supportedPlatforms=ios,android
-import React, { useState, useEffect } from "react";
-import { Linking, StyleSheet, Text, View } from "react-native";
+import React, {useState, useEffect} from 'react';
+import {Linking, StyleSheet, Text, View} from 'react-native';
 
 const useMount = func => useEffect(() => func(), []);
 
@@ -224,25 +224,29 @@ const useInitialURL = () => {
     getUrlAsync();
   });
 
-  return { url, processing };
+  return {url, processing};
 };
 
 const App = () => {
-  const { url: initialUrl, processing } = useInitialURL();
+  const {url: initialUrl, processing} = useInitialURL();
 
   return (
     <View style={styles.container}>
       <Text>
         {processing
-          ? `Processing the initial url from a deep link`
-          : `The deep link is: ${initialUrl || "None"}`}
+          ? 'Processing the initial url from a deep link'
+          : `The deep link is: ${initialUrl || 'None'}`}
       </Text>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: { flex: 1, justifyContent: "center", alignItems: "center" },
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });
 
 export default App;

@@ -66,11 +66,11 @@ If you look at the implementation of `setNativeProps` in [NativeMethodsMixin](ht
 Composite components are not backed by a native view, so you cannot call `setNativeProps` on them. Consider this example:
 
 ```SnackPlayer name=setNativeProps%20with%20Composite%20Components
-import React from "react";
-import { Text, TouchableOpacity, View } from "react-native";
+import React from 'react';
+import {Text, TouchableOpacity, View} from 'react-native';
 
-const MyButton = (props) => (
-  <View style={{ marginTop: 50 }}>
+const MyButton = props => (
+  <View style={{marginTop: 50}}>
     <Text>{props.label}</Text>
   </View>
 );
@@ -89,11 +89,11 @@ If you run this you will immediately see this error: `Touchable child must eithe
 Since the `setNativeProps` method exists on any ref to a `View` component, it is enough to forward a ref on your custom component to one of the `<View />` components that it renders. This means that a call to `setNativeProps` on the custom component will have the same effect as if you called `setNativeProps` on the wrapped `View` component itself.
 
 ```SnackPlayer name=Forwarding%20setNativeProps
-import React from "react";
-import { Text, TouchableOpacity, View } from "react-native";
+import React from 'react';
+import {Text, TouchableOpacity, View} from 'react-native';
 
 const MyButton = React.forwardRef((props, ref) => (
-  <View {...props} ref={ref} style={{ marginTop: 50 }}>
+  <View {...props} ref={ref} style={{marginTop: 50}}>
     <Text>{props.label}</Text>
   </View>
 ));
