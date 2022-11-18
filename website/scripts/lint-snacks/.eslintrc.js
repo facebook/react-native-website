@@ -1,7 +1,8 @@
+// @format
 module.exports = {
   root: true,
   extends: '@react-native-community',
-  "ignorePatterns": ["!**/tmp/**"],
+  ignorePatterns: ['!**/tmp/**'],
   rules: {
     'prettier/prettier': [
       'error',

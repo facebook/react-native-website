@@ -5,7 +5,6 @@
 const {execSync} = require('child_process');
 const {randomBytes} = require('crypto');
 const fs = require('fs');
-const os = require('os');
 const path = require('path');
 
 walk(path.join(__dirname, '../../..', 'docs'));
