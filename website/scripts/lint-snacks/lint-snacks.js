@@ -46,7 +46,10 @@ const args = process.argv.slice(2);
  * markdown.
  */
 async function extractExamples() {
-  const documents = await glob('**/*.md', {cwd: documentsRoot, absolute: true});
+  const documents = await glob('**/*.md', {
+    cwd: documentsRoot,
+    absolute: true,
+  });
   const mappings = [];
 
   await fs.mkdir(outputRoot, {recursive: true});
@@ -68,9 +71,9 @@ async function extractExamples() {
  * @param filename absolute filename of the documents root
  */
 async function extractExamplesFromDocument(filename) {
-  const mappings = [];
-
-  const fileContents = await fs.readFile(filename, {encoding: 'utf-8'});
+  const fileContents = await fs.readFile(filename, {
+    encoding: 'utf-8',
+  });
   const snackRegex = /(```SnackPlayer(.*)\n)((((?!```).)*\n)+)```/g;
   const matches = [...fileContents.matchAll(snackRegex)];
 
@@ -79,7 +82,9 @@ async function extractExamplesFromDocument(filename) {
     matches.map(async match => {
       const contentOffset = match.index + match[1].length;
       const snackURLParams = match[2].trim();
-      const exampleName = new URLSearchParams(snackURLParams).get('name');
+      const exampleName = new URLSearchParams(snackURLParams).get(
+        'name'
+      );
       const content = match[3];
 
       const baseFileName = path.relative(
@@ -138,19 +143,26 @@ async function updateDocuments(mappings) {
   const documents = Object.keys(mappingsByDocument);
   await Promise.all(
     documents.map(async doc => {
-      const mappings = mappingsByDocument[doc];
-      mappings.sort((m1, m2) => m2.offset - m1.offset);
+      const documentMappings = mappingsByDocument[doc];
+      documentMappings.sort((m1, m2) => m2.offset - m1.offset);
 
-      const origDocumentContents = await fs.readFile(doc, {encoding: 'utf-8'});
+      const origDocumentContents = await fs.readFile(doc, {
+        encoding: 'utf-8',
+      });
       let newDocumentContents = origDocumentContents;
-      for (const mapping of mappings) {
-        const exampleContents = await fs.readFile(mapping.examplePath, {
-          encoding: 'utf-8',
-        });
+      for (const mapping of documentMappings) {
+        const exampleContents = await fs.readFile(
+          mapping.examplePath,
+          {
+            encoding: 'utf-8',
+          }
+        );
         newDocumentContents =
           newDocumentContents.substring(0, mapping.offset) +
           exampleContents +
-          newDocumentContents.substring(mapping.offset + mapping.length);
+          newDocumentContents.substring(
+            mapping.offset + mapping.length
+          );
       }
 
       if (newDocumentContents !== origDocumentContents) {
