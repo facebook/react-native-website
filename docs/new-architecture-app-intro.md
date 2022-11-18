@@ -78,7 +78,7 @@ Turbo Native Modules can be written using Objective-C or C++. In order to suppor
 
 ## iOS - Make your AppDelegate conform to `RCTAppDelegate`
 
-The final step to configure iOS for the New Architecture is to extend a base class proided by React Native, called `RCTAppDelegate`.
+The final step to configure iOS for the New Architecture is to extend a base class provided by React Native, called `RCTAppDelegate`.
 
 This class provides a base implementation for all the required functionalities of the new architecture. If you need to customize some of them, you can override those methods, invoke `[super methodNameWith:parameters:];` collecting the returned value and customize the bits you need to customize.
 
