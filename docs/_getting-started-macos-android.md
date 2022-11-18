@@ -69,19 +69,19 @@ Next, select the "SDK Tools" tab and check the box next to "Show Package Details
 
 Finally, click "Apply" to download and install the Android SDK and related build tools.
 
-<h4>3. Configure the ANDROID_SDK_ROOT environment variable</h4>
+<h4>3. Configure the ANDROID_HOME environment variable</h4>
 
 The React Native tools require some environment variables to be set up in order to build apps with native code.
 
 Add the following lines to your `~/.zprofile` or `~/.zshrc` (if you are using `bash`, then `~/.bash_profile` or `~/.bashrc`) config file:
 
 ```shell
-export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
-export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
-export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
 ```
 
-Run `source ~/.zprofile` (or `source ~/.bash_profile` for `bash`) to load the config into your current shell. Verify that ANDROID_SDK_ROOT has been set by running `echo $ANDROID_SDK_ROOT` and the appropriate directories have been added to your path by running `echo $PATH`.
+Run `source ~/.zprofile` (or `source ~/.bash_profile` for `bash`) to load the config into your current shell. Verify that ANDROID_HOME has been set by running `echo $ANDROID_HOME` and the appropriate directories have been added to your path by running `echo $PATH`.
 
 > Please make sure you use the correct Android SDK path. You can find the actual location of the SDK in the Android Studio "Preferences" dialog, under **Appearance & Behavior** → **System Settings** → **Android SDK**.
 
