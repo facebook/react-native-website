@@ -154,7 +154,7 @@ The shared configuration is a `package.json` file that will be used by yarn when
     "type": "modules",
     "jsSrcsDir": "js",
     "android": {
-      "javaPackageName": "com.calculator"
+      "javaPackageName": "com.rtncalculator"
     }
   }
 }
@@ -237,7 +237,7 @@ android
         └── java
             └── com
                 └── rtncalculator
-                    └── RTNCalculatorPackage.java
+                    └── CalculatorPackage.java
 ```
 
 #### The `build.gradle` file
@@ -285,7 +285,7 @@ Second, create an `android/src/main` folder. Inside that folder, create a `Andro
 
 ```xml title="AndroidManifest.xml"
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.RTNCalculator">
+          package="com.rtncalculator">
 </manifest>
 ```
 
@@ -295,10 +295,10 @@ This is a small manifest file that defines the package for your module.
 
 Finally, you need a class that extends the `TurboReactPackage` interface. To run the **Codegen** process, you don't have to completely implement the package class: an empty implementation is enough for the app to pick up the module as a proper React Native dependency and to try and generate the scaffolding code.
 
-Create an `android/src/main/java/com/rtncalculator` folder and, inside that folder, create a `RTNCalculatorPackage.java` file.
+Create an `android/src/main/java/com/rtncalculator` folder and, inside that folder, create a `CalculatorPackage.java` file.
 
-```java title="RTNCalculatorPackage.java"
-package com.RTNCalculator;
+```java title="CalculatorPackage.java"
+package com.rtncalculator;
 
 import androidx.annotation.Nullable;
 import com.facebook.react.bridge.NativeModule;
@@ -488,7 +488,7 @@ The generated code is stored in the `MyApp/node_modules/rtn-calculator/android/b
 codegen
 ├── java
 │   └── com
-│       └── RTNCalculator
+│       └── calculator
 │           └── NativeCalculatorSpec.java
 ├── jni
 │   ├── Android.mk
@@ -513,8 +513,8 @@ codegen
 
 The native code for the Android side of a Turbo Native Module requires:
 
-1. to create a `RTNCalculatorModule.java` that implements the module.
-2. to update the `RTNCalculatorPackage.java` created in the previous step.
+1. to create a `CalculatorModule.java` that implements the module.
+2. to update the `CalculatorPackage.java` created in the previous step.
 
 The final structure within the Android library should look like this:
 
@@ -526,7 +526,7 @@ android
         ├── AndroidManifest.xml
         └── java
             └── com
-                └── RTNCalculator
+                └── rtncalculator
                     ├── CalculatorModule.java
                     └── CalculatorPackage.java
 ```
@@ -534,7 +534,7 @@ android
 ##### Creating the `CalculatorModule.java`
 
 ```java title="CalculatorModule.java"
-package com.RTNCalculator;
+package com.rtncalculator;
 
 import androidx.annotation.NonNull;
 import com.facebook.react.bridge.NativeModule;
@@ -572,7 +572,7 @@ This class implements the module itself, which extends the `NativeCalculatorSpec
 ##### Updating the `CalculatorPackage.java`
 
 ```diff title="CalculatorPackage.java"
-package com.RTNCalculator;
+package com.rtncalculator;
 
 import androidx.annotation.Nullable;
 import com.facebook.react.bridge.NativeModule;
