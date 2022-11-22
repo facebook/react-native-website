@@ -180,7 +180,7 @@ The final step is to register the ViewManager to the application, this happens i
 
 ### 5. Implement the JavaScript module
 
-The very final step is to create the JavaScript module that defines the interface layer between Java/Kotlin and JavaScript for the users of your new view. It is recommended for you to document the component interface in this module (e.g. using Flow, TypeScript, or plain old comments).
+The very final step is to create the JavaScript module that defines the interface layer between Java/Kotlin and JavaScript for the users of your new view. It is recommended for you to document the component interface in this module (e.g. using TypeScript, Flow, or plain old comments).
 
 ```jsx title="ImageView.js"
 import { requireNativeComponent } from 'react-native';

@@ -128,11 +128,7 @@ If you want to start a new project with a specific React Native version, you can
 npx react-native init AwesomeProject --version X.XX.X
 ```
 
-You can also start a project with a custom React Native template, like TypeScript, with `--template` argument:
-
-```shell
-npx react-native init AwesomeTSProject --template react-native-template-typescript
-```
+You can also start a project with a custom React Native template with the `--template` argument.
 
 <h2>Preparing the Android device</h2>
 

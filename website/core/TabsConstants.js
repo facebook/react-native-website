@@ -36,7 +36,7 @@ const javaScriptSpecLanguages = [
   {label: 'Flow', value: 'flow'},
   {label: 'TypeScript', value: 'typescript'},
 ];
-const defaultJavaScriptSpecLanguages = 'flow';
+const defaultJavaScriptSpecLanguages = 'typescript';
 
 const guides = [
   {label: 'Expo Go Quickstart', value: 'quickstart'},
