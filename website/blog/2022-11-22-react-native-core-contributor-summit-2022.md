@@ -2,7 +2,7 @@
 title: React Native Core Contributor Summit 2022
 authors: [thymikee, cortinico]
 tags: [announcement]
-date: 2022-11-21
+date: 2022-11-22
 ---
 
 # React Native Core Contributor Summit 2022
