@@ -33,7 +33,7 @@ In this session, we took the opportunity to onboard new contributors to Codegen,
 
 A team of a few people moved into a meeting room to tackle this task. They encountered and overcame some difficulties along the way, like how to run unit tests for Codegen. They spent quite some time understanding the code execution flow before starting to deal with the code. After some hours of collaborative work, they ended up with the first prototype that was able to recognize string unions. This experience was extremely useful in discussing design patterns and the ideal architecture we may want in the future.
 
-2. Improving **[auto-linking for iOS](https://github.com/facebook/react-native/pull/34580)**, which was missing a use case.
+#### 2. Improving **[auto-linking for iOS](https://github.com/facebook/react-native/pull/34580)**, which was missing a use case.
 
 Specifically, auto-linking could not work well in scenarios where libraries and the app were living together in a monorepo. Android already supported this use case but it was missing for iOS.
 
