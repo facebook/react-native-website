@@ -73,7 +73,7 @@ You can track the status of this effort under this [umbrella issue](https://gith
 
 The focus of this session was to discuss improving Metro's feature set to work better for web use cases and with the npm and bundler ecosystem. Two major areas of discussion:
 
-1. Adopting the `"exports"` ([package entry points](https://nodejs.org/api/packages.html#package-entry-points)) specification
+#### 1. Adopting the `"exports"` ([package entry points](https://nodejs.org/api/packages.html#package-entry-points)) specification
 
 From the [Node.js documentation](https://nodejs.org/api/packages.html#package-entry-points):
 
@@ -89,7 +89,8 @@ This discussion resulted in:
 
 1. An [RFC](https://github.com/react-native-community/discussions-and-proposals/pull/534) for Metro on how package exports would work with React Native.
 2. An [RFC](https://github.com/nodejs/node/pull/45367) for Node.js to include “react-native” as a Community Condition.
-3. Web and bundler ecosystem
+
+#### 2. Web and bundler ecosystem
 
 The Metro team shared progress from their partnership with Expo and the intent to continue this working model for upcoming bundle splitting and tree-shaking support. We touched again on ES module support and considered potential future features such as Yarn PnP and output optimization on the web. We discussed how Metro’s core shares logic and data structures with Jest and opportunities for more reuse.
 
