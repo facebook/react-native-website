@@ -7,7 +7,6 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import con
 
 [TypeScript][ts] is a language which extends JavaScript by adding type definitions. New React Native projects target TypeScript by default, but also support JavaScript and Flow.
 
-
 ## Getting Started with TypeScript
 
 New projects created by the [React Native CLI](http://localhost:3000/docs/next/environment-setup#creating-a-new-application) or popular templates like [Ignite][ignite] will use TypeScript by default.
