@@ -25,7 +25,7 @@ We were impressed by the amount of knowledge-sharing and collaboration over thos
 
 ### React Native Codegen & TypeScript Support
 
-[React Native’s Codegen](https://reactnative.dev/docs/the-new-architecture/pillars-codegen) is a fundamental part of the New Architecture of React Native. Supporting and improving it is among our top priorities for the future of React Native. For instance, earlier this year, we added support for generic code starting from TypeScript specs rather than Flow.
+[React Native’s Codegen](/docs/the-new-architecture/pillars-codegen) is a fundamental part of the New Architecture of React Native. Supporting and improving it is among our top priorities for the future of React Native. For instance, earlier this year, we added support for generic code starting from TypeScript specs rather than Flow.
 
 In this session, we took the opportunity to onboard new contributors to Codegen, by explaining its core concept and describing how it works. We then focused on two major areas:
 
@@ -47,7 +47,7 @@ This initiative also contributed to the [Hacktoberfest](https://hacktoberfest.co
 
 ### ​​React Native New Architecture Library Migration
 
-The hot topic in the React Native space is the New Architecture. Having **libraries** that support the New Architecture is a crucial point in the [migration for the whole ecosystem](https://reactnative.dev/blog/2022/06/16/resources-migrating-your-react-native-library-to-the-new-architecture). Therefore, we want to support library maintainers in migrating to the New Architectures.
+The hot topic in the React Native space is the New Architecture. Having **libraries** that support the New Architecture is a crucial point in the [migration for the whole ecosystem](/blog/2022/06/16/resources-migrating-your-react-native-library-to-the-new-architecture). Therefore, we want to support library maintainers in migrating to the New Architectures.
 
 Initially, this session started as a brainstorming, where the core contributors had the opportunity to ask the React Native team all the questions they had related to the New Architecture. This in-person feedback loop was crucial for both the core contributors to bring clarity and for the React Native team to collect feedback. Some of the shared feedback and concerns will end up being implemented in React Native 0.71.
 
@@ -73,21 +73,22 @@ You can track the status of this effort under this [umbrella issue](https://gith
 
 The focus of this session was to discuss improving Metro's feature set to work better for web use cases and with the npm and bundler ecosystem. Two major areas of discussion:
 
-1. Adopting the `”exports”` ([package entry points](https://nodejs.org/api/packages.html#package-entry-points)) specification
+1. Adopting the `"exports"` ([package entry points](https://nodejs.org/api/packages.html#package-entry-points)) specification
 
 From the [Node.js documentation](https://nodejs.org/api/packages.html#package-entry-points):
 
 <!-- alex ignore clearly -->
 
-> The ["exports"](https://nodejs.org/api/packages.html#exports) provides a modern alternative to ["main"](https://nodejs.org/api/packages.html#main) allowing multiple entry points to be defined, conditional entry resolution support between environments, and **preventing any other entry points besides those defined in ["exports"](https://nodejs.org/api/packages.html#exports)**. This encapsulation allows module authors to define the public interface for their package clearly.\_
+:::info
+The ["exports"](https://nodejs.org/api/packages.html#exports) provides a modern alternative to ["main"](https://nodejs.org/api/packages.html#main) allowing multiple entry points to be defined, conditional entry resolution support between environments, and **preventing any other entry points besides those defined in ["exports"](https://nodejs.org/api/packages.html#exports)**. This encapsulation allows module authors to define the public interface for their package clearly.
+:::
 
-Adopting the `“exports”` specification has a lot of potential. In this session, we debated on how to handle [Platform Specific Code](https://reactnative.dev/docs/platform-specific-code#platform-specific-extensions) with `“exports”`. Considering many factors, we came up with a fairly non-breaking rollout plan for `“exports”`, by adding a `“strict”` and `“non-strict”` mode to Metro resolver. We discussed how leveraging [builder-bob](https://github.com/callstack/react-native-builder-bob) would help library creators adopt the strict mode without friction.
+Adopting the `"exports"` specification has a lot of potential. In this session, we debated on how to handle [Platform Specific Code](/docs/platform-specific-code#platform-specific-extensions) with `"exports"`. Considering many factors, we came up with a fairly non-breaking rollout plan for `"exports"`, by adding a `"strict"` and `"non-strict"` mode to Metro resolver. We discussed how leveraging [builder-bob](https://github.com/callstack/react-native-builder-bob) would help library creators adopt the strict mode without friction.
 
 This discussion resulted in:
 
 1. An [RFC](https://github.com/react-native-community/discussions-and-proposals/pull/534) for Metro on how package exports would work with React Native.
 2. An [RFC](https://github.com/nodejs/node/pull/45367) for Node.js to include “react-native” as a Community Condition.
-
 3. Web and bundler ecosystem
 
 The Metro team shared progress from their partnership with Expo and the intent to continue this working model for upcoming bundle splitting and tree-shaking support. We touched again on ES module support and considered potential future features such as Yarn PnP and output optimization on the web. We discussed how Metro’s core shares logic and data structures with Jest and opportunities for more reuse.
@@ -104,7 +105,7 @@ Things get harder as we need to release React Native, the React Native CLI, and 
 
 Currently, we manage this through direct communication and synchronized releases, but there is space for improvement.
 
-In this session, we reconsidered the** dependencies** between React Native, Metro, and the CLI. We uncovered how some design decisions during the [“Lean Core” effort](https://github.com/react-native-community/discussions-and-proposals/issues/6), when we extracted the CLI from React Native, made these two projects codependent with some functionalities duplicated among efforts. The decisions back then made sense and allowed the CLI team to iterate faster than ever.
+In this session, we reconsidered the **dependencies** between React Native, Metro, and the CLI. We uncovered how some design decisions during the [“Lean Core” effort](https://github.com/react-native-community/discussions-and-proposals/issues/6), when we extracted the CLI from React Native, made these two projects codependent with some functionalities duplicated among efforts. The decisions back then made sense and allowed the CLI team to iterate faster than ever.
 
 It was about time to revisit them and take the experience of both teams to figure out the way through. As a result, the Metro team will take over the [`@react-native-community/cli-plugin-metro`](https://github.com/react-native-community/cli/tree/main/packages/cli-plugin-metro) development, temporarily moving it back to the core of React Native, and then most likely to the Metro monorepo.
 
