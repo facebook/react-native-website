@@ -69,7 +69,7 @@ module.exports = {
 
 ## Using JavaScript Instead of TypeScript
 
-React Native defaults new applications to TypeScript, but JavaScript may still be used by default. Files with a `.jsx` extension are treated as JavaScript instead of TypeScript, and will not be typechecked. JavaScript modules may still be imported by TypeScript modules, along with the reverse.
+React Native defaults new applications to TypeScript, but JavaScript may still be used. Files with a `.jsx` extension are treated as JavaScript instead of TypeScript, and will not be typechecked. JavaScript modules may still be imported by TypeScript modules, along with the reverse.
 
 ## How TypeScript and React Native works
 
