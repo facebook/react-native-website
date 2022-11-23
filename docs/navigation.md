@@ -26,7 +26,7 @@ Next, install the required peer dependencies. You need to run different commands
 - If you have an Expo managed project, install the dependencies with `expo`:
 
   ```shell
-  expo install react-native-screens react-native-safe-area-context
+  npx expo install react-native-screens react-native-safe-area-context
   ```
 
 - If you have a bare React Native project, install the dependencies with `npm`:
