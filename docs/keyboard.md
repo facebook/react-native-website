@@ -172,6 +172,17 @@ This can be any of the following:
 
 > Note that only `keyboardDidShow` and `keyboardDidHide` events are available on Android. The events will not be fired when using Android 10 and under if your activity has `android:windowSoftInputMode` set to `adjustNothing`.
 
+** Event callback parameters ***
+For `keyboardDidShow` and `keyboardDidHide` events the callback will return the following object:
+| Name | Type     | Description |
+ | duration | number   | The duration of keyboard animation |
+ | easing | string   | Easing function for keyboard animation  |
+ | endCoordinates | object   | Dimensions of keyboard on screen |
+ | `endCoordinates`.height | number   | Height of keyboard|
+ | `endCoordinates`.width | number   | Width of keyboard |
+ | `endCoordinates`.screenX | number   | X position of keyboard |
+ | `endCoordinates`.screenY | number   | Y position of keyboard | 
+
 ---
 
 ### `removeListener()`
