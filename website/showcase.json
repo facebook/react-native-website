@@ -27,6 +27,7 @@
       "icon": "officemobile.png",
       "linkAppStore": "https://apps.apple.com/gb/app/microsoft-office/id541164041",
       "linkPlayStore": "https://play.google.com/store/apps/details?id=com.microsoft.office.officehubrow",
+      "infoLink": "https://devblogs.microsoft.com/react-native/",
       "pinned": true
     },
     {
@@ -34,6 +35,7 @@
       "icon": "outlookmobile.png",
       "linkAppStore": "https://apps.apple.com/us/app/microsoft-outlook/id951937596",
       "linkPlayStore": "https://play.google.com/store/apps/details?id=com.microsoft.office.outlook",
+      "infoLink": "https://devblogs.microsoft.com/react-native/",
       "pinned": true
     },
     {
@@ -41,6 +43,7 @@
       "icon": "teamsmobile.png",
       "linkAppStore": "https://apps.apple.com/gb/app/microsoft-teams/id1113153706",
       "linkPlayStore": "https://play.google.com/store/apps/details?id=com.microsoft.teams",
+      "infoLink": "https://devblogs.microsoft.com/react-native/",
       "pinned": true
     },
     {
@@ -48,6 +51,7 @@
       "icon": "xboxgamepass.png",
       "linkAppStore": "https://apps.apple.com/gb/app/xbox-game-pass/id1374542474",
       "linkPlayStore": "https://play.google.com/store/apps/details?id=com.gamepass",
+      "infoLink": "https://devblogs.microsoft.com/react-native/",
       "pinned": true
     },
     {
@@ -55,6 +59,7 @@
       "icon": "skype.webp",
       "linkAppStore": "https://apps.apple.com/us/app/skype-for-iphone/id304878510",
       "linkPlayStore": "https://play.google.com/store/apps/details?id=com.skype.raider",
+      "infoLink": "https://devblogs.microsoft.com/react-native/",
       "pinned": true
     }
   ],
