@@ -230,6 +230,7 @@ Useful for syncing TextInput (or other keyboard accessory view) size of position
 ### KeyboardMetrics
 `KeyboardMetrics` object is part of [`Keyboard`](text#addListener) callback and contains the measurement data of `Keyboard`.
 
+
 #### Example
 
 ```js
@@ -243,12 +244,12 @@ Useful for syncing TextInput (or other keyboard accessory view) size of position
 
 #### Properties
 
-| Name      | Type   | Optional | Description                                                         |
-| --------- | ------ | -------- | ------------------------------------------------------------------- |
-| screenX   | number | No       | Virtual keyboard X position on screen in pixels.                    |
-| screenY   | number | No       | Virtual keyboard Y position on screen in pixels.                    |
-| width     | number | No       | Virtual keyboard width in pixels.                                   |
-| height    | number | No       | Virtual keyboard height in pixels.                                  |
+| Name      | Type    | Optional  | Description                                                         |
+| --------- | ------- | --------- | ------------------------------------------------------------------- |
+| screenX   | number  | No        | Virtual keyboard X position on screen in pixels.                    |
+| screenY   | number  | No        | Virtual keyboard Y position on screen in pixels.                    |
+| width     | number  | No        | Virtual keyboard width in pixels.                                   |
+| height    | number  | No        | Virtual keyboard height in pixels.                                  |
 
 ### KeyboardEvent
 
