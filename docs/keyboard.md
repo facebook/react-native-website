@@ -172,17 +172,6 @@ This can be any of the following:
 
 > Note that only `keyboardDidShow` and `keyboardDidHide` events are available on Android. The events will not be fired when using Android 10 and under if your activity has `android:windowSoftInputMode` set to `adjustNothing`.
 
-** Event callback parameters ***
-For `keyboardDidShow` and `keyboardDidHide` events the callback will return the following object:
-| Name | Type     | Description |
- | duration | number   | The duration of keyboard animation |
- | easing | string   | Easing function for keyboard animation  |
- | endCoordinates | object   | Dimensions of keyboard on screen |
- | `endCoordinates`.height | number   | Height of keyboard|
- | `endCoordinates`.width | number   | Width of keyboard |
- | `endCoordinates`.screenX | number   | X position of keyboard |
- | `endCoordinates`.screenY | number   | Y position of keyboard | 
-
 ---
 
 ### `removeListener()`
@@ -235,3 +224,50 @@ static scheduleLayoutAnimation(event)
 ```
 
 Useful for syncing TextInput (or other keyboard accessory view) size of position changes with keyboard movements.
+
+## Type Definitions
+
+### KeyboardMetrics
+`KeyboardMetrics` object is part of [`Keyboard`](text#addListener) callback and contains the measurement data of `Keyboard`.
+
+#### Example
+
+```js
+{
+  screenX: 0,
+  screenY: 401.1428527832031,
+  width: 411.4285583496094,
+  height: 282.28570556640625,
+}
+```
+
+#### Properties
+
+| Name      | Type   | Optional | Description                                                         |
+| --------- | ------ | -------- | ------------------------------------------------------------------- |
+| screenX   | number | No       | Virtual keyboard X position on screen in pixels.                    |
+| screenY   | number | No       | Virtual keyboard Y position on screen in pixels.                    |
+| width     | number | No       | Virtual keyboard width in pixels.                                   |
+| height    | number | No       | Virtual keyboard height in pixels.                                  |
+
+### KeyboardEvent
+
+`KeyboardEvent` object is returned in the callback as a result of a [`Keyboard`](text#addListener) event. It contains a key called `endCoordinates` with a value which is an object of type [`KeyboardMetrics`](text#KeyboardMetrics).
+
+#### Example
+
+```js
+{
+  duration: 0,
+  easing: "keyboard",
+  endCoordinates: KeyboardMetrics
+}
+```
+
+#### Properties
+
+| Name           | Type                                                                       | Optional | Description                                    |
+| -------------- | -------------------------------------------------------------------------- | -------- | ---------------------------------------------- |
+| duration       | number                                                                     | No       | Virtual keyboard animation duration.           |
+| easing         | enum(`"easeIn"`, `"easeInEaseOut"`, `"easeOut"`, `"linear"`, `"keyboard"`) | No       | Virtual keyboard animation easing function.    |
+| endCoordinates | [KeyboardMetrics](text#KeyboardMetrics) object                             | No       | Object containing `Keyboard` measurement data. |
