@@ -51,15 +51,12 @@ const processNode = (node, parent) => {
 
       // Generate Node for SnackPlayer
       // See https://github.com/expo/snack/blob/main/docs/embedding-snacks.md
-      // An empty data-snack-code must be given to workaround the issue fixed
-      // by https://github.com/expo/snack/pull/361
       const snackPlayerDiv = u('html', {
         value: dedent`
           <div
             class="snack-player"
             data-snack-name="${name}"
             data-snack-description="${description}"
-            data-snack-code=""
             data-snack-files="${files}"
             data-snack-dependencies="${dependencies}"
             data-snack-platform="${platform}"
