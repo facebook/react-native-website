@@ -429,7 +429,7 @@ This folder contains all the generated code required by your Component.
 See the [Codegen](./pillars-codegen) section for further details on the generated files.
 
 :::note
-When generating the scaffolding code using **Codegen**, iOS does not clean the `build` folder automatically. If you changed a the Spec name, for example, and then run **Codegen** again, the old files will be retained.
+When generating the scaffolding code using **Codegen**, iOS does not clean the `build` folder automatically. If you changed the Spec name, for example, and then run **Codegen** again, the old files will be retained.
 If that happens, remember to remove the `build` folder before running the **Codegen** again.
 
 ```
