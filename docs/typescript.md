@@ -5,91 +5,42 @@ title: Using TypeScript
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
-[TypeScript][ts] is a language which extends JavaScript by adding type definitions, much like [Flow][flow]. While React Native is built in Flow, it supports both TypeScript _and_ Flow by default.
+[TypeScript][ts] is a language which extends JavaScript by adding type definitions. New React Native projects target TypeScript by default, but also support JavaScript and Flow.
 
 ## Getting Started with TypeScript
 
-If you're starting a new project, there are a few different ways to get started.
+New projects created by the [React Native CLI](http://localhost:3000/docs/next/environment-setup#creating-a-new-application) or popular templates like [Ignite][ignite] will use TypeScript by default.
 
-You can use the [TypeScript template][ts-template]:
-
-```shell
-npx react-native init MyApp --template react-native-template-typescript
-```
-
-:::note
-
-If the above command is failing, you may have an old version of `react-native` or `react-native-cli` installed globally on your system. To fix the issue try uninstalling the CLI:
-
-- `npm uninstall -g react-native-cli` or `yarn global remove react-native-cli`
-
-and then run the `npx` command again.
-Optionally, you can also use the command given below to get started with your template.
-
-- `npx react-native --ignore-existing init MyApp --template react-native-template-typescript`
-
-:::
-
-You can use [Expo][expo], which maintains TypeScript templates, or will prompt you to automatically install and configure TypeScript when a `.ts` or `.tsx` file is added to your project:
-
-<Tabs groupId="package-manager" defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
-<TabItem value="npm">
+TypeScript may also be used with [Expo][expo], which maintains TypeScript templates, or will prompt you to automatically install and configure TypeScript when a `.ts` or `.tsx` file is added to your project.
 
 ```shell
 npx create-expo-app --template
 ```
 
-</TabItem>
-<TabItem value="yarn">
-
-```shell
-yarn create expo-app --template
-```
-
-</TabItem>
-</Tabs>
-
-Or you could use [Ignite][ignite], which also has a TypeScript template:
-
-<Tabs groupId="package-manager" defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
-<TabItem value="npm">
-
-```shell
-npm install -g ignite-cli
-ignite new MyTSProject
-```
-
-</TabItem>
-<TabItem value="yarn">
-
-```shell
-yarn global add ignite-cli
-ignite new MyTSProject
-```
-
-</TabItem>
-</Tabs>
-
 ## Adding TypeScript to an Existing Project
 
-1. Add TypeScript and the types for React Native and Jest to your project.
+1. Add TypeScript, types, and ESLint plugins to your project.
 
 <Tabs groupId="package-manager" defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
 <TabItem value="npm">
 
 ```shell
-npm install -D typescript @types/jest @types/react @types/react-native @types/react-test-renderer @tsconfig/react-native
+npm install -D @tsconfig/react-native @types/jest @types/react @types/react-test-renderer @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript
 ```
 
 </TabItem>
 <TabItem value="yarn">
 
 ```shell
-yarn add -D typescript @types/jest @types/react @types/react-native @types/react-test-renderer @tsconfig/react-native
+yarn add --dev @tsconfig/react-native @types/jest @types/react @types/react-test-renderer @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript
 ```
 
 </TabItem>
 </Tabs>
+
+:::note
+This command adds the latest version of every dependency. The versions may need to be changed to match the existing packages used by your project. You can use a tool like [React Native Upgrade Helper](https://react-native-community.github.io) to see the versions shipped by React Native.
+:::
 
 2. Add a TypeScript config file. Create a `tsconfig.json` in the root of your project:
 
@@ -99,12 +50,14 @@ yarn add -D typescript @types/jest @types/react @types/react-native @types/react
 }
 ```
 
-3. Create a `jest.config.js` file to configure Jest to use TypeScript
+3. Update your `.eslintrc.js` to enable TypeScript specific linting rules:
 
-```js
+```diff
 module.exports = {
-  preset: 'react-native',
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node']
+  root: true,
+  extends: '@react-native-community',
++  parser: '@typescript-eslint/parser',
++  plugins: ['@typescript-eslint'],
 };
 ```
 
@@ -114,9 +67,13 @@ module.exports = {
 
 5. Run `yarn tsc` to type-check your new TypeScript files.
 
+## Using JavaScript Instead of TypeScript
+
+React Native defaults new applications to TypeScript, but JavaScript may still be used. Files with a `.jsx` extension are treated as JavaScript instead of TypeScript, and will not be typechecked. JavaScript modules may still be imported by TypeScript modules, along with the reverse.
+
 ## How TypeScript and React Native works
 
-Out of the box, transforming your files to JavaScript works via the same [Babel infrastructure][babel] as a non-TypeScript React Native project. We recommend that you use the TypeScript compiler only for type checking. If you have existing TypeScript code being ported to React Native, there are [one or two caveats][babel-7-caveats] to using Babel instead of TypeScript.
+Out of the box, TypeScript sources are transformed by [Babel][babel] during bundling. We recommend that you use the TypeScript compiler only for type checking. This is the default behavior of `tsc` for newly created applications. If you have existing TypeScript code being ported to React Native, there are [one or two caveats][babel-7-caveats] to using Babel instead of TypeScript.
 
 ## What does React Native + TypeScript look like
 
