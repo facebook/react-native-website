@@ -20,6 +20,8 @@ The "Category" field may be one of:
 
 - **Android**, for changes that affect Android.
 - **iOS**, for changes that affect iOS.
+- **JavaScript**, for changes that affect JavaScript.
+- **JS**, for changes that affect JavaScript.
 - **General**, for changes that do not fit any of the other categories.
 - **Internal**, for changes that would not be relevant to developers consuming the release notes.
 
