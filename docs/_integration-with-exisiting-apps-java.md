@@ -61,7 +61,7 @@ Add the React Native and JSC dependency to your app's `build.gradle` file:
 
 ```gradle
 dependencies {
-    implementation "com.android.support:appcompat-v7:27.1.1"
+    implementation 'androidx.appcompat:appcompat:1.3.0' // no need to duplicate this line if it already exists
     ...
     implementation "com.facebook.react:react-native:+" // From node_modules
     implementation "org.webkit:android-jsc:+"
@@ -84,12 +84,27 @@ allprojects {
             url("$rootDir/../node_modules/jsc-android/dist")
         }
         ...
+
+        mavenCentral {
+            // We don't want to fetch react-native from Maven Central as there are
+            // older versions over there.
+            content {
+                excludeGroup "com.facebook.react"
+            }
+        }
+        google()
+        maven { url 'https://www.jitpack.io' }
+
     }
     ...
 }
 ```
 
 > Make sure that the path is correct! You shouldn’t run into any “Failed to resolve: com.facebook.react:react-native:0.x.x" errors after running Gradle sync in Android Studio.
+
+If you have the following error: `Build was configured to prefer settings repositories over project repositories but repository 'maven' was added by build file 'build.gradle'`, then you need to update the `settings.gradle` file by replacing `RepositoriesMode.FAIL_ON_PROJECT_REPOS` by `RepositoriesMode.PREFER_PROJECT`.
+
+If you have the following error: `Caused by: java.io.IOException: Cannot run program “node”: error=2, No such file or directory`, then you need to give the execution permission to the printenv script. You can do this by executing: `chmod +x /Applications/Android\ Studio.app/Contents/bin/printenv`
 
 ### Enable native modules autolinking
 
@@ -104,6 +119,8 @@ Next add the following entry at the very bottom of the `app/build.gradle`:
 ```gradle
 apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)
 ```
+
+> You need to run `yarn react-native run-android` to generate some classes. Even if this command fails the first time, it is needed to generate the necessary files to remove the Android Studio's error about the `PackageList` instantiation.
 
 ### Configuring permissions
 
