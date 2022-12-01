@@ -32,6 +32,7 @@ The "Type" field may be one of:
 - **Removed**, for now removed features.
 - **Fixed**, for any bug fixes.
 - **Security**, in case of vulnerabilities.
+- **Breaking**, for breaking changes.
 
 Finally, the "Message" field may answer "what and why" on a feature level. Use this to briefly tell React Native users about notable changes.
 
