@@ -17,7 +17,7 @@ const glob = require('glob-promise');
 /**
  * The root document to search for documents
  */
-const documentsRoot = path.join(__dirname, '../..', 'docs');
+const documentsRoot = path.join(__dirname, '..', '..', 'docs');
 
 /**
  * The directory to output generated files to
@@ -74,7 +74,7 @@ async function extractExamplesFromDocument(filename) {
   const fileContents = await fs.readFile(filename, {
     encoding: 'utf-8',
   });
-  const snackRegex = /(```SnackPlayer(.*)\n)((((?!```).)*\n)+)```/g;
+  const snackRegex = /(```SnackPlayer(.*)\r?\n)((((?!```).)*\r?\n)+)```/g;
   const matches = [...fileContents.matchAll(snackRegex)];
 
   let matchIndex = 0;
@@ -110,7 +110,7 @@ async function extractExamplesFromDocument(filename) {
  */
 async function lintExamples() {
   try {
-    execSync(`npx eslint ${args.join(' ')} '${outputRoot}/**'`, {
+    execSync(`npx eslint ${args.join(' ')} ${path.join(outputRoot, '**')}`, {
       cwd: __dirname,
       stdio: 'inherit',
     });
