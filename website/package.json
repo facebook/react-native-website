@@ -23,7 +23,7 @@
     "format:style": "prettier --write src/**/*.{scss,css}",
     "format:examples": "lint-examples --fix",
     "prettier": "yarn format:source && yarn format:markdown && yarn format:style",
-    "lint": "eslint ../docs/** blog/** core/** scripts/**/*.js src/**/*.js ./*.js",
+    "lint": "eslint ../docs/** blog/** core/** src/**/*.js ./*.js",
     "lint:examples": "lint-examples",
     "lint:versioned": "eslint versioned_docs/**",
     "language:lint": "cd ../ && alex && case-police 'docs/*.md' -p brands,general,products,softwares",
