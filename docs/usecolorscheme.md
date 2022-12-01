@@ -23,7 +23,7 @@ The `useColorScheme` React hook provides and subscribes to color scheme updates 
 
 ```SnackPlayer
 import React from 'react';
-import { Text, StyleSheet, useColorScheme, View } from 'react-native';
+import {Text, StyleSheet, useColorScheme, View} from 'react-native';
 
 const App = () => {
   const colorScheme = useColorScheme();
@@ -37,8 +37,8 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 

@@ -45,19 +45,11 @@ For a full list of the types of system colors supported, see:
 
 ```SnackPlayer name=PlatformColor%20Example&supportedPlatforms=android,ios
 import React from 'react';
-import {
-  Platform,
-  PlatformColor,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+import {Platform, PlatformColor, StyleSheet, Text, View} from 'react-native';
 
 const App = () => (
   <View style={styles.container}>
-    <Text style={styles.label}>
-      I am a special label color!
-    </Text>
+    <Text style={styles.label}>I am a special label color!</Text>
   </View>
 );
 
@@ -67,22 +59,20 @@ const styles = StyleSheet.create({
     ...Platform.select({
       ios: {
         color: PlatformColor('label'),
-        backgroundColor:
-          PlatformColor('systemTealColor'),
+        backgroundColor: PlatformColor('systemTealColor'),
       },
       android: {
         color: PlatformColor('?android:attr/textColor'),
-        backgroundColor:
-          PlatformColor('@android:color/holo_blue_bright'),
+        backgroundColor: PlatformColor('@android:color/holo_blue_bright'),
       },
-      default: { color: 'black' }
-    })
+      default: {color: 'black'},
+    }),
   },
   container: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-  }
+  },
 });
 
 export default App;

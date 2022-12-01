@@ -30,8 +30,15 @@ The following example contains a `View` which will fade in and fade out based on
 <TabItem value="functional">
 
 ```SnackPlayer name=Animated
-import React, { useRef } from "react";
-import { Animated, Text, View, StyleSheet, Button, SafeAreaView } from "react-native";
+import React, {useRef} from 'react';
+import {
+  Animated,
+  Text,
+  View,
+  StyleSheet,
+  Button,
+  SafeAreaView,
+} from 'react-native';
 
 const App = () => {
   // fadeAnim will be used as the value for opacity. Initial Value: 0
@@ -41,7 +48,7 @@ const App = () => {
     // Will change fadeAnim value to 1 in 5 seconds
     Animated.timing(fadeAnim, {
       toValue: 1,
-      duration: 5000
+      duration: 5000,
     }).start();
   };
 
@@ -49,7 +56,7 @@ const App = () => {
     // Will change fadeAnim value to 0 in 3 seconds
     Animated.timing(fadeAnim, {
       toValue: 0,
-      duration: 3000
+      duration: 3000,
     }).start();
   };
 
@@ -60,10 +67,9 @@ const App = () => {
           styles.fadingContainer,
           {
             // Bind opacity to animated value
-            opacity: fadeAnim
-          }
-        ]}
-      >
+            opacity: fadeAnim,
+          },
+        ]}>
         <Text style={styles.fadingText}>Fading View!</Text>
       </Animated.View>
       <View style={styles.buttonRow}>
@@ -72,26 +78,26 @@ const App = () => {
       </View>
     </SafeAreaView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   fadingContainer: {
     padding: 20,
-    backgroundColor: "powderblue"
+    backgroundColor: 'powderblue',
   },
   fadingText: {
-    fontSize: 28
+    fontSize: 28,
   },
   buttonRow: {
     flexBasis: 100,
-    justifyContent: "space-evenly",
-    marginVertical: 16
-  }
+    justifyContent: 'space-evenly',
+    marginVertical: 16,
+  },
 });
 
 export default App;
@@ -101,20 +107,27 @@ export default App;
 <TabItem value="classical">
 
 ```SnackPlayer name=Animated
-import React, { Component } from "react";
-import { Animated, Text, View, StyleSheet, Button, SafeAreaView } from "react-native";
+import React, {Component} from 'react';
+import {
+  Animated,
+  Text,
+  View,
+  StyleSheet,
+  Button,
+  SafeAreaView,
+} from 'react-native';
 
 class App extends Component {
   // fadeAnim will be used as the value for opacity. Initial Value: 0
   state = {
-    fadeAnim: new Animated.Value(0)
+    fadeAnim: new Animated.Value(0),
   };
 
   fadeIn = () => {
     // Will change fadeAnim value to 1 in 5 seconds
     Animated.timing(this.state.fadeAnim, {
       toValue: 1,
-      duration: 5000
+      duration: 5000,
     }).start();
   };
 
@@ -122,7 +135,7 @@ class App extends Component {
     // Will change fadeAnim value to 0 in 3 seconds
     Animated.timing(this.state.fadeAnim, {
       toValue: 0,
-      duration: 3000
+      duration: 3000,
     }).start();
   };
 
@@ -134,10 +147,9 @@ class App extends Component {
             styles.fadingContainer,
             {
               // Bind opacity to animated value
-              opacity: this.state.fadeAnim
-            }
-          ]}
-        >
+              opacity: this.state.fadeAnim,
+            },
+          ]}>
           <Text style={styles.fadingText}>Fading View!</Text>
         </Animated.View>
         <View style={styles.buttonRow}>
@@ -152,21 +164,21 @@ class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   fadingContainer: {
     padding: 20,
-    backgroundColor: "powderblue"
+    backgroundColor: 'powderblue',
   },
   fadingText: {
-    fontSize: 28
+    fontSize: 28,
   },
   buttonRow: {
     flexBasis: 100,
-    justifyContent: "space-evenly",
-    marginVertical: 16
-  }
+    justifyContent: 'space-evenly',
+    marginVertical: 16,
+  },
 });
 
 export default App;

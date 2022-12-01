@@ -17,9 +17,8 @@ This example shows fetching and displaying an image from local storage as well a
 <TabItem value="functional">
 
 ```SnackPlayer name=Function%20Component%20Example
-
 import React from 'react';
-import { View, Image, StyleSheet } from 'react-native';
+import {View, Image, StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -56,7 +55,7 @@ const DisplayAnImage = () => {
       />
     </View>
   );
-}
+};
 
 export default DisplayAnImage;
 ```
@@ -65,9 +64,8 @@ export default DisplayAnImage;
 <TabItem value="classical">
 
 ```SnackPlayer name=Class%20Component%20Example
-
-import React, { Component } from 'react';
-import { AppRegistry, View, Image, StyleSheet } from 'react-native';
+import React, {Component} from 'react';
+import {AppRegistry, View, Image, StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -97,7 +95,9 @@ class DisplayAnImage extends Component {
         />
         <Image
           style={styles.logo}
-          source={{uri: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAzCAYAAAA6oTAqAAAAEXRFWHRTb2Z0d2FyZQBwbmdjcnVzaEB1SfMAAABQSURBVGje7dSxCQBACARB+2/ab8BEeQNhFi6WSYzYLYudDQYGBgYGBgYGBgYGBgYGBgZmcvDqYGBgmhivGQYGBgYGBgYGBgYGBgYGBgbmQw+P/eMrC5UTVAAAAABJRU5ErkJggg=='}}
+          source={{
+            uri: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAzCAYAAAA6oTAqAAAAEXRFWHRTb2Z0d2FyZQBwbmdjcnVzaEB1SfMAAABQSURBVGje7dSxCQBACARB+2/ab8BEeQNhFi6WSYzYLYudDQYGBgYGBgYGBgYGBgYGBgZmcvDqYGBgmhivGQYGBgYGBgYGBgYGBgYGBgbmQw+P/eMrC5UTVAAAAABJRU5ErkJggg==',
+          }}
         />
       </View>
     );
@@ -116,9 +116,8 @@ You can also add `style` to an image:
 <TabItem value="functional">
 
 ```SnackPlayer name=Function%20Component%20Example
-
 import React from 'react';
-import { View, Image, StyleSheet } from 'react-native';
+import {View, Image, StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -140,7 +139,7 @@ const DisplayAnImageWithStyle = () => {
       />
     </View>
   );
-}
+};
 
 export default DisplayAnImageWithStyle;
 ```
@@ -149,16 +148,15 @@ export default DisplayAnImageWithStyle;
 <TabItem value="classical">
 
 ```SnackPlayer name=Class%20Component%20Example
-
-import React, { Component } from 'react';
-import { View, Image, StyleSheet } from 'react-native';
+import React, {Component} from 'react';
+import {View, Image, StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   stretch: {
     width: 50,
     height: 200,
-    resizeMode: 'stretch'
-  }
+    resizeMode: 'stretch',
+  },
 });
 
 class DisplayAnImageWithStyle extends Component {

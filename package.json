@@ -4,6 +4,7 @@
   "workspaces": [
     "website",
     "plugins/*",
+    "scripts/*",
     "sync-api-docs"
   ],
   "scripts": {

@@ -15,20 +15,19 @@ This example creates a `View` that wraps two boxes with color and a text compone
 <TabItem value="functional">
 
 ```SnackPlayer name=View%20Function%20Component%20Example
-import React from "react";
-import { View, Text } from "react-native";
+import React from 'react';
+import {View, Text} from 'react-native';
 
 const ViewBoxesWithColorAndText = () => {
   return (
     <View
       style={{
-        flexDirection: "row",
+        flexDirection: 'row',
         height: 100,
-        padding: 20
-      }}
-    >
-      <View style={{ backgroundColor: "blue", flex: 0.3 }} />
-      <View style={{ backgroundColor: "red", flex: 0.5 }} />
+        padding: 20,
+      }}>
+      <View style={{backgroundColor: 'blue', flex: 0.3}} />
+      <View style={{backgroundColor: 'red', flex: 0.5}} />
       <Text>Hello World!</Text>
     </View>
   );
@@ -41,21 +40,20 @@ export default ViewBoxesWithColorAndText;
 <TabItem value="classical">
 
 ```SnackPlayer name=View%20Class%20Component%20Example
-import React, { Component } from "react";
-import { View, Text } from "react-native";
+import React, {Component} from 'react';
+import {View, Text} from 'react-native';
 
 class App extends Component {
   render() {
     return (
       <View
         style={{
-          flexDirection: "row",
+          flexDirection: 'row',
           height: 100,
-          padding: 20
-        }}
-      >
-        <View style={{ backgroundColor: "blue", flex: 0.3 }} />
-        <View style={{ backgroundColor: "red", flex: 0.5 }} />
+          padding: 20,
+        }}>
+        <View style={{backgroundColor: 'blue', flex: 0.3}} />
+        <View style={{backgroundColor: 'red', flex: 0.5}} />
         <Text>Hello World!</Text>
       </View>
     );

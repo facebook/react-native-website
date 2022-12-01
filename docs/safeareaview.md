@@ -13,7 +13,7 @@ To use, wrap your top level view with a `SafeAreaView` with a `flex: 1` style ap
 
 ```SnackPlayer name=SafeAreaView&supportedPlatforms=ios
 import React from 'react';
-import { StyleSheet, Text, SafeAreaView } from 'react-native';
+import {StyleSheet, Text, SafeAreaView} from 'react-native';
 
 const App = () => {
   return (
@@ -21,7 +21,7 @@ const App = () => {
       <Text style={styles.text}>Page content</Text>
     </SafeAreaView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 25,
     fontWeight: '500',
-  }
+  },
 });
 
 export default App;

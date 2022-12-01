@@ -1,0 +1,23 @@
+{
+  "name": "@react-native-website/lint-examples",
+  "version": "0.0.0",
+  "private": true,
+  "bin": {
+    "lint-examples": "./lint-examples.js"
+  },
+  "dependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/preset-env": "^7.14.0",
+    "@babel/runtime": "^7.12.5",
+    "@react-native-community/eslint-config": "^3.0.0",
+    "@tsconfig/react-native": "^2.0.2",
+    "@types/react": "^18.0.24",
+    "eslint": "^8.19.0",
+    "glob-promise": "^4.2.2",
+    "metro-react-native-babel-preset": "0.73.3",
+    "prettier": "^2.4.1",
+    "react": "18.2.0",
+    "react-native": "^0.71.0-0",
+    "typescript": "4.8.4"
+  }
+}

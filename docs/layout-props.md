@@ -10,8 +10,15 @@ title: Layout Props
 The following example shows how different properties can affect or shape a React Native layout. You can try for example to add or remove squares from the UI while changing the values of the property `flexWrap`.
 
 ```SnackPlayer name=LayoutProps%20Example
-import React, { useState } from 'react';
-import { Button, ScrollView, StatusBar, StyleSheet, Text, View } from 'react-native';
+import React, {useState} from 'react';
+import {
+  Button,
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 
 const App = () => {
   const flexDirections = ['row', 'row-reverse', 'column', 'column-reverse'];
@@ -56,7 +63,7 @@ const App = () => {
   const [squares, setSquares] = useState([<Square />, <Square />, <Square />]);
   return (
     <>
-      <View style={{ paddingTop: StatusBar.currentHeight }} />
+      <View style={{paddingTop: StatusBar.currentHeight}} />
       <View style={[styles.container, styles.playingSpace, hookedStyles]}>
         {squares.map(elem => elem)}
       </View>
@@ -78,7 +85,7 @@ const App = () => {
                 changeSetting(
                   justifyContent,
                   justifyContents,
-                  setJustifyContent
+                  setJustifyContent,
                 )
               }
             />
@@ -110,7 +117,7 @@ const App = () => {
           <View style={styles.buttonView}>
             <Button
               title="Add Square"
-              onPress={() => setSquares([...squares, <Square/>])}
+              onPress={() => setSquares([...squares, <Square />])}
             />
           </View>
           <View style={styles.buttonView}>
@@ -145,15 +152,17 @@ const styles = StyleSheet.create({
     width: '50%',
     padding: 10,
   },
-  text: { textAlign: 'center' },
+  text: {textAlign: 'center'},
 });
 
 const Square = () => (
-  <View style={{
-    width: 50,
-    height: 50,
-    backgroundColor: randomHexColor(),
-  }} />
+  <View
+    style={{
+      width: 50,
+      height: 50,
+      backgroundColor: randomHexColor(),
+    }}
+  />
 );
 
 const randomHexColor = () => {
