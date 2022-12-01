@@ -22,6 +22,7 @@ The "Category" field may be one of:
 - **iOS**, for changes that affect iOS.
 - **JavaScript** or **JS** for changes that affect JavaScript.
 - **General**, for changes that do not fit any of the other categories.
+- **Breaking**, for breaking changes.
 - **Internal**, for changes that would not be relevant to developers consuming the release notes.
 
 The "Type" field may be one of:
