@@ -41,7 +41,7 @@ $ yarn add react-native
 
 This will print a message similar to the following (scroll up in the yarn output to see it):
 
-> warning "react-native@0.52.2" has unmet peer dependency "react@16.2.0".
+> warning "react-native@0.70.5" has unmet peer dependency "react@18.1.0"
 
 This is OK, it means we also need to install React:
 
@@ -55,41 +55,54 @@ Add `node_modules/` to your `.gitignore` file.
 
 ## Adding React Native to your app
 
-### Configuring maven
+### Configuring Gradle
 
-Add the React Native and JSC dependency to your app's `build.gradle` file:
+React Native uses the React Native Gradle Plugin to configure your dependencies and project setup.
 
-```gradle
-dependencies {
-    implementation "com.android.support:appcompat-v7:27.1.1"
-    ...
-    implementation "com.facebook.react:react-native:+" // From node_modules
-    implementation "org.webkit:android-jsc:+"
-}
+First, let's edit your `settings.gradle` file by adding this line:
+
+```groovy
+includeBuild('../node_modules/react-native-gradle-plugin')
 ```
 
-> If you want to ensure that you are always using a specific React Native version in your native build, replace `+` with an actual React Native version you've downloaded from `npm`.
+Then you need to open your top level `build.gradle` and include this line:
 
-Add an entry for the local React Native and JSC maven directories to the top-level `build.gradle`. Be sure to add it to the “allprojects” block, above other maven repositories:
-
-```gradle
-allprojects {
+```diff
+buildscript {
     repositories {
-        maven {
-            // All of React Native (JS, Android binaries) is installed from npm
-            url "$rootDir/../node_modules/react-native/android"
-        }
-        maven {
-            // Android JSC is installed from npm
-            url("$rootDir/../node_modules/jsc-android/dist")
-        }
-        ...
+        google()
+        mavenCentral()
     }
-    ...
+    dependencies {
+        classpath("com.android.tools.build:gradle:7.3.1")
++       classpath("com.facebook.react:react-native-gradle-plugin")
+    }
 }
 ```
 
-> Make sure that the path is correct! You shouldn’t run into any “Failed to resolve: com.facebook.react:react-native:0.x.x" errors after running Gradle sync in Android Studio.
+This makes sure the React Native Gradle Plugin is available inside your project.
+Finally, add those lines inside your app's `build.gradle` file (it's a different `build.gradle` file inside your app folder):
+
+```diff
+apply plugin: "com.android.application"
++apply plugin: "com.facebook.react"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Other dependencies here
++   implementation "com.facebook.react:react-android"
++   implementation "com.facebook.react:hermes-android"
+}
+```
+
+Those depedencies are available on `mavenCentral()` so make sure you have it defined in your `repositories{}` block.
+
+:::info
+We intentionally don't specify the version for those `implementation` dependencies as the React Native Gradle Plugin will take care of it. If you don't use the React Native Gradle Plugin, you'll have to specify version manually.
+:::
 
 ### Enable native modules autolinking
 
@@ -371,7 +384,11 @@ Once you reach your React-powered activity inside the app, it should load the Ja
 
 ### Creating a release build in Android Studio
 
-You can use Android Studio to create your release builds too! It’s as quick as creating release builds of your previously-existing native Android app. There’s one additional step, which you’ll have to do before every release build. You need to execute the following to create a React Native bundle, which will be included with your native Android app:
+You can use Android Studio to create your release builds too! It’s as quick as creating release builds of your previously-existing native Android app.
+
+If you use the React Native Gradle Plugin as described above, everything should work when running app from Android Studio.
+
+If you're not using the React Native Gradle Plugin, there’s one additional step which you’ll have to do before every release build. You need to execute the following to create a React Native bundle, which will be included with your native Android app:
 
 ```shell
 $ npx react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/com/your-company-name/app-package-name/src/main/assets/index.android.bundle --assets-dest android/com/your-company-name/app-package-name/src/main/res/
