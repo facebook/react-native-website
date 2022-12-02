@@ -386,7 +386,7 @@ Once you reach your React-powered activity inside the app, it should load the Ja
 
 You can use Android Studio to create your release builds too! It’s as quick as creating release builds of your previously-existing native Android app.
 
-If you use the React Native Gradle Plugin as described above, everything will just work from Android Studio.
+If you use the React Native Gradle Plugin as described above, everything should work when running app from Android Studio.
 
 If you're not using the React Native Gradle Plugin, there’s one additional step which you’ll have to do before every release build. You need to execute the following to create a React Native bundle, which will be included with your native Android app:
 
