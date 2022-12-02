@@ -25,14 +25,14 @@ npx create-expo-app --template
 <TabItem value="npm">
 
 ```shell
-npm install -D @tsconfig/react-native @types/jest @types/react @types/react-test-renderer @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript
+npm install -D @tsconfig/react-native @types/jest @types/react @types/react-test-renderer typescript
 ```
 
 </TabItem>
 <TabItem value="yarn">
 
 ```shell
-yarn add --dev @tsconfig/react-native @types/jest @types/react @types/react-test-renderer @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript
+yarn add --dev @tsconfig/react-native @types/jest @types/react @types/react-test-renderer typescript
 ```
 
 </TabItem>
@@ -50,22 +50,11 @@ This command adds the latest version of every dependency. The versions may need 
 }
 ```
 
-3. Update your `.eslintrc.js` to enable TypeScript specific linting rules:
-
-```diff
-module.exports = {
-  root: true,
-  extends: '@react-native-community',
-+  parser: '@typescript-eslint/parser',
-+  plugins: ['@typescript-eslint'],
-};
-```
-
-4. Rename a JavaScript file to be `*.tsx`
+3. Rename a JavaScript file to be `*.tsx`
 
 > You should leave the `./index.js` entrypoint file as it is otherwise you may run into an issue when it comes to bundling a production build.
 
-5. Run `yarn tsc` to type-check your new TypeScript files.
+4. Run `yarn tsc` to type-check your new TypeScript files.
 
 ## Using JavaScript Instead of TypeScript
 
