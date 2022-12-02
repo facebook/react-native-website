@@ -6,10 +6,11 @@ title: Speeding up your Build phase
 Building your React Native app could be **expensive** and take several minutes of developers time.
 This can be problematic as your project grows and generally in bigger organizations with multiple React Native developers.
 
-With [the New React Native Architecture](new-architecture-app-intro), this problem is becoming more critical
-as you might have to compile some native C++ code in your project with the Android NDK in addition to the native code already necessary for the iOS and Android platforms.
-
 To mitigate this performance hit, this page shares some suggestions on how to **improve your build time**.
+
+:::info
+If you're noticing slower build time with the **New Architecture on Android**, we recommend to upgrade to React Native 0.71
+:::
 
 ## Build only one ABI during development (Android-only)
 
@@ -17,11 +18,9 @@ When building your android app locally, by default you build all the 4 [Applicat
 
 However, you probably don't need to build all of them if you're building locally and testing your emulator or on a physical device.
 
-This should reduce your build time by a **~75% factor**.
+This should reduce your **native build time** by a ~75% factor.
 
-If you're using the React Native CLI, you can use the `--active-arch-only` flag together with the `run-android` command.
-This flag will make sure the correct ABI is picked up from either the running emulator or the plugged in phone.
-To confirm that this approach is working fine, you'll see a message like `info Detected architectures arm64-v8a` on console.
+If you're using the React Native CLI, you can add the `--active-arch-only` flag to the `run-android` command. This flag will make sure the correct ABI is picked up from either the running emulator or the plugged in phone. To confirm that this approach is working fine, you'll see a message like `info Detected architectures arm64-v8a` on console.
 
 ```
 $ yarn react-native run-android --active-arch-only
