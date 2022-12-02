@@ -41,7 +41,7 @@ $ yarn add react-native
 
 This will print a message similar to the following (scroll up in the yarn output to see it):
 
-> warning "react-native@0.52.2" has unmet peer dependency "react@16.2.0".
+> warning "react-native@0.70.5" has unmet peer dependency "react@18.1.0"
 
 This is OK, it means we also need to install React:
 
@@ -54,8 +54,6 @@ Yarn has created a new `/node_modules` folder. This folder stores all the JavaSc
 Add `node_modules/` to your `.gitignore` file.
 
 ## Adding React Native to your app
-
-### Configuring Gradle
 
 ### Configuring Gradle
 
