@@ -13,5 +13,5 @@ const lintExamples = require('../src/lintExamples');
 lintExamples({
   command: 'tsc',
   extension: 'tsx',
-  writeBack: true,
+  writeBack: false,
 });
