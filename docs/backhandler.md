@@ -99,7 +99,10 @@ export default App;
 </TabItem>
 <TabItem value="classical">
 
-```SnackPlayer name=BackHandler&supportedPlatforms=android
+<Tabs groupId="language" defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
+<TabItem value="javascript">
+
+```SnackPlayer name=BackHandler&supportedPlatforms=android&ext=js
 import React, {Component} from 'react';
 import {Text, View, StyleSheet, BackHandler, Alert} from 'react-native';
 
@@ -152,69 +155,16 @@ export default App;
 ```
 
 </TabItem>
-</Tabs>
+<TabItem value="typescript">
 
-`BackHandler.addEventListener` creates an event listener & returns a `NativeEventSubscription` object which should be cleared using `NativeEventSubscription.remove` method.
-
-Additionally `BackHandler.removeEventListener` can also be used to clear the event listener. Ensure the callback has the reference to the same function used in the `addEventListener` call as shown the following example ﹣
-
-<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
-<TabItem value="functional">
-
-```SnackPlayer name=BackHandler&supportedPlatforms=android
-import React, {useEffect} from 'react';
-import {Text, View, StyleSheet, BackHandler, Alert} from 'react-native';
-
-const App = () => {
-  const backAction = () => {
-    Alert.alert('Hold on!', 'Are you sure you want to go back?', [
-      {
-        text: 'Cancel',
-        onPress: () => null,
-        style: 'cancel',
-      },
-      {text: 'YES', onPress: () => BackHandler.exitApp()},
-    ]);
-    return true;
-  };
-
-  useEffect(() => {
-    BackHandler.addEventListener('hardwareBackPress', backAction);
-
-    return () =>
-      BackHandler.removeEventListener('hardwareBackPress', backAction);
-  }, []);
-
-  return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Click Back button!</Text>
-    </View>
-  );
-};
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  text: {
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
-});
-
-export default App;
-```
-
-</TabItem>
-<TabItem value="classical">
-
-```SnackPlayer name=BackHandler&supportedPlatforms=android
+```SnackPlayer name=BackHandler&supportedPlatforms=android&ext=tsx
 import React, {Component} from 'react';
 import {Text, View, StyleSheet, BackHandler, Alert} from 'react-native';
+import type {NativeEventSubscription} from 'react-native';
 
 class App extends Component {
+  backHandler?: NativeEventSubscription;
+
   backAction = () => {
     Alert.alert('Hold on!', 'Are you sure you want to go back?', [
       {
@@ -228,11 +178,14 @@ class App extends Component {
   };
 
   componentDidMount() {
-    BackHandler.addEventListener('hardwareBackPress', this.backAction);
+    this.backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      this.backAction,
+    );
   }
 
   componentWillUnmount() {
-    BackHandler.removeEventListener('hardwareBackPress', this.backAction);
+    this.backHandler?.remove();
   }
 
   render() {
@@ -261,6 +214,10 @@ export default App;
 
 </TabItem>
 </Tabs>
+</TabItem>
+</Tabs>
+
+`BackHandler.addEventListener` creates an event listener & returns a `NativeEventSubscription` object which should be cleared using `NativeEventSubscription.remove` method.
 
 ## Usage with React Navigation
 

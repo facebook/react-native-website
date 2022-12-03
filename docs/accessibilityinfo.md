@@ -23,22 +23,22 @@ const App = () => {
   useEffect(() => {
     const reduceMotionChangedSubscription = AccessibilityInfo.addEventListener(
       'reduceMotionChanged',
-      reduceMotionEnabled => {
-        setReduceMotionEnabled(reduceMotionEnabled);
+      isReduceMotionEnabled => {
+        setReduceMotionEnabled(isReduceMotionEnabled);
       },
     );
     const screenReaderChangedSubscription = AccessibilityInfo.addEventListener(
       'screenReaderChanged',
-      screenReaderEnabled => {
-        setScreenReaderEnabled(screenReaderEnabled);
+      isScreenReaderEnabled => {
+        setScreenReaderEnabled(isScreenReaderEnabled);
       },
     );
 
-    AccessibilityInfo.isReduceMotionEnabled().then(reduceMotionEnabled => {
-      setReduceMotionEnabled(reduceMotionEnabled);
+    AccessibilityInfo.isReduceMotionEnabled().then(isReduceMotionEnabled => {
+      setReduceMotionEnabled(isReduceMotionEnabled);
     });
-    AccessibilityInfo.isScreenReaderEnabled().then(screenReaderEnabled => {
-      setScreenReaderEnabled(screenReaderEnabled);
+    AccessibilityInfo.isScreenReaderEnabled().then(isScreenReaderEnabled => {
+      setScreenReaderEnabled(isScreenReaderEnabled);
     });
 
     return () => {
@@ -76,7 +76,10 @@ export default App;
 </TabItem>
 <TabItem value="classical">
 
-```SnackPlayer name=AccessibilityInfo%20Class%20Component%20Example&supportedPlatforms=android,ios
+<Tabs groupId="language" defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
+<TabItem value="javascript">
+
+```SnackPlayer name=AccessibilityInfo%20Class%20Component%20Example&supportedPlatforms=android,ios&ext=js
 import React, {Component} from 'react';
 import {AccessibilityInfo, View, Text, StyleSheet} from 'react-native';
 
@@ -142,6 +145,83 @@ const styles = StyleSheet.create({
 
 export default AccessibilityStatusExample;
 ```
+
+</TabItem>
+<TabItem value="typescript">
+
+```SnackPlayer name=AccessibilityInfo%20Class%20Component%20Example&supportedPlatforms=android,ios&ext=tsx
+import React, {Component} from 'react';
+import {AccessibilityInfo, View, Text, StyleSheet} from 'react-native';
+import type {EmitterSubscription} from 'react-native';
+
+class AccessibilityStatusExample extends Component {
+  reduceMotionChangedSubscription?: EmitterSubscription;
+  screenReaderChangedSubscription?: EmitterSubscription;
+
+  state = {
+    reduceMotionEnabled: false,
+    screenReaderEnabled: false,
+  };
+
+  componentDidMount() {
+    this.reduceMotionChangedSubscription = AccessibilityInfo.addEventListener(
+      'reduceMotionChanged',
+      reduceMotionEnabled => {
+        this.setState({reduceMotionEnabled});
+      },
+    );
+    this.screenReaderChangedSubscription = AccessibilityInfo.addEventListener(
+      'screenReaderChanged',
+      screenReaderEnabled => {
+        this.setState({screenReaderEnabled});
+      },
+    );
+
+    AccessibilityInfo.isReduceMotionEnabled().then(reduceMotionEnabled => {
+      this.setState({reduceMotionEnabled});
+    });
+    AccessibilityInfo.isScreenReaderEnabled().then(screenReaderEnabled => {
+      this.setState({screenReaderEnabled});
+    });
+  }
+
+  componentWillUnmount() {
+    this.reduceMotionChangedSubscription?.remove();
+    this.screenReaderChangedSubscription?.remove();
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.status}>
+          The reduce motion is{' '}
+          {this.state.reduceMotionEnabled ? 'enabled' : 'disabled'}.
+        </Text>
+        <Text style={styles.status}>
+          The screen reader is{' '}
+          {this.state.screenReaderEnabled ? 'enabled' : 'disabled'}.
+        </Text>
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  status: {
+    margin: 30,
+  },
+});
+
+export default AccessibilityStatusExample;
+```
+
+</TabItem>
+</Tabs>
 
 </TabItem>
 </Tabs>

@@ -26,7 +26,7 @@ const App = () => {
         if (buttonIndex === 0) {
           // cancel action
         } else if (buttonIndex === 1) {
-          setResult(Math.floor(Math.random() * 100) + 1);
+          setResult(String(Math.floor(Math.random() * 100) + 1));
         } else if (buttonIndex === 2) {
           setResult('🔮');
         }

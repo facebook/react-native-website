@@ -17,7 +17,7 @@ This is an API that works both on Android and iOS and can show static alerts. Al
 <TabItem value="functional">
 
 ```SnackPlayer name=Alert%20Function%20Component%20Example&supportedPlatforms=ios,android
-import React, {useState} from 'react';
+import React from 'react';
 import {View, StyleSheet, Button, Alert} from 'react-native';
 
 const App = () => {

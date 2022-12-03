@@ -3,7 +3,7 @@ id: direct-manipulation
 title: Direct Manipulation
 ---
 
-import NativeDeprecated from './the-new-architecture/\_markdown_native_deprecation.mdx'
+import NativeDeprecated from './the-new-architecture/\_markdown_native_deprecation.mdx'; import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 <NativeDeprecated />
 
@@ -65,7 +65,10 @@ If you look at the implementation of `setNativeProps` in [NativeMethodsMixin](ht
 
 Composite components are not backed by a native view, so you cannot call `setNativeProps` on them. Consider this example:
 
-```SnackPlayer name=setNativeProps%20with%20Composite%20Components
+<Tabs groupId="language" defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
+<TabItem value="javascript">
+
+```SnackPlayer name=setNativeProps%20with%20Composite%20Components&ext=js
 import React from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 
@@ -84,13 +87,41 @@ const App = () => (
 export default App;
 ```
 
+</TabItem>
+<TabItem value="typescript">
+
+```SnackPlayer name=setNativeProps%20with%20Composite%20Components&ext=tsx
+import React from 'react';
+import {Text, TouchableOpacity, View} from 'react-native';
+
+const MyButton = (props: {label: string}) => (
+  <View style={{marginTop: 50}}>
+    <Text>{props.label}</Text>
+  </View>
+);
+
+const App = () => (
+  <TouchableOpacity>
+    <MyButton label="Press me!" />
+  </TouchableOpacity>
+);
+
+export default App;
+```
+
+</TabItem>
+</Tabs>
+
 If you run this you will immediately see this error: `Touchable child must either be native or forward setNativeProps to a native component`. This occurs because `MyButton` isn't directly backed by a native view whose opacity should be set. You can think about it like this: if you define a component with `createReactClass` you would not expect to be able to set a style prop on it and have that work - you would need to pass the style prop down to a child, unless you are wrapping a native component. Similarly, we are going to forward `setNativeProps` to a native-backed child component.
 
 #### Forward setNativeProps to a child
 
 Since the `setNativeProps` method exists on any ref to a `View` component, it is enough to forward a ref on your custom component to one of the `<View />` components that it renders. This means that a call to `setNativeProps` on the custom component will have the same effect as if you called `setNativeProps` on the wrapped `View` component itself.
 
-```SnackPlayer name=Forwarding%20setNativeProps
+<Tabs groupId="language" defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
+<TabItem value="javascript">
+
+```SnackPlayer name=Forwarding%20setNativeProps&ext=js
 import React from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 
@@ -108,6 +139,31 @@ const App = () => (
 
 export default App;
 ```
+
+</TabItem>
+<TabItem value="typescript">
+
+```SnackPlayer name=Forwarding%20setNativeProps&ext=tsx
+import React from 'react';
+import {Text, TouchableOpacity, View} from 'react-native';
+
+const MyButton = React.forwardRef<View, {label: string}>((props, ref) => (
+  <View {...props} ref={ref} style={{marginTop: 50}}>
+    <Text>{props.label}</Text>
+  </View>
+));
+
+const App = () => (
+  <TouchableOpacity>
+    <MyButton label="Press me!" />
+  </TouchableOpacity>
+);
+
+export default App;
+```
+
+</TabItem>
+</Tabs>
 
 You can now use `MyButton` inside of `TouchableOpacity`!
 

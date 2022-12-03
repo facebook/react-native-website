@@ -49,6 +49,7 @@ const App = () => {
     Animated.timing(fadeAnim, {
       toValue: 1,
       duration: 5000,
+      useNativeDriver: true,
     }).start();
   };
 
@@ -57,6 +58,7 @@ const App = () => {
     Animated.timing(fadeAnim, {
       toValue: 0,
       duration: 3000,
+      useNativeDriver: true,
     }).start();
   };
 
@@ -128,6 +130,7 @@ class App extends Component {
     Animated.timing(this.state.fadeAnim, {
       toValue: 1,
       duration: 5000,
+      useNativeDriver: true,
     }).start();
   };
 
@@ -136,6 +139,7 @@ class App extends Component {
     Animated.timing(this.state.fadeAnim, {
       toValue: 0,
       duration: 3000,
+      useNativeDriver: true,
     }).start();
   };
 
@@ -311,7 +315,7 @@ Config is an object that may have the following options:
 - `velocity`: Initial velocity. Required.
 - `deceleration`: Rate of decay. Default 0.997.
 - `isInteraction`: Whether or not this animation creates an "interaction handle" on the `InteractionManager`. Default true.
-- `useNativeDriver`: Uses the native driver when true. Default false.
+- `useNativeDriver`: Uses the native driver when true. Required.
 
 ---
 
@@ -329,7 +333,7 @@ Config is an object that may have the following options:
 - `easing`: Easing function to define curve. Default is `Easing.inOut(Easing.ease)`.
 - `delay`: Start the animation after delay (milliseconds). Default 0.
 - `isInteraction`: Whether or not this animation creates an "interaction handle" on the `InteractionManager`. Default true.
-- `useNativeDriver`: Uses the native driver when true. Default false.
+- `useNativeDriver`: Uses the native driver when true. Required.
 
 ---
 
@@ -366,7 +370,7 @@ Other configuration options are as follows:
 - `restSpeedThreshold`: The speed at which the spring should be considered at rest in pixels per second. Default 0.001.
 - `delay`: Start the animation after delay (milliseconds). Default 0.
 - `isInteraction`: Whether or not this animation creates an "interaction handle" on the `InteractionManager`. Default true.
-- `useNativeDriver`: Uses the native driver when true. Default false.
+- `useNativeDriver`: Uses the native driver when true. Required.
 
 ---
 
@@ -510,7 +514,7 @@ Takes an array of mappings and extracts values from each arg accordingly, then c
 Config is an object that may have the following options:
 
 - `listener`: Optional async listener.
-- `useNativeDriver`: Uses the native driver when true. Default false.
+- `useNativeDriver`: Uses the native driver when true. Required.
 
 ---
 

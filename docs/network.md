@@ -108,7 +108,7 @@ const App = () => {
       ) : (
         <FlatList
           data={data}
-          keyExtractor={({id}, index) => id}
+          keyExtractor={({id}) => id}
           renderItem={({item}) => (
             <Text>
               {item.title}, {item.releaseYear}
@@ -166,7 +166,7 @@ export default class App extends Component {
         ) : (
           <FlatList
             data={data}
-            keyExtractor={({id}, index) => id}
+            keyExtractor={({id}) => id}
             renderItem={({item}) => (
               <Text>
                 {item.title}, {item.releaseYear}

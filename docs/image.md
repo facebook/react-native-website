@@ -65,7 +65,7 @@ export default DisplayAnImage;
 
 ```SnackPlayer name=Class%20Component%20Example
 import React, {Component} from 'react';
-import {AppRegistry, View, Image, StyleSheet} from 'react-native';
+import {View, Image, StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   container: {

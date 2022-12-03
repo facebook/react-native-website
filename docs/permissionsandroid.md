@@ -28,7 +28,6 @@ import React from 'react';
 import {
   Button,
   PermissionsAndroid,
-  SafeAreaView,
   StatusBar,
   StyleSheet,
   Text,
@@ -93,7 +92,6 @@ import React, {Component} from 'react';
 import {
   Button,
   PermissionsAndroid,
-  SafeAreaView,
   StatusBar,
   StyleSheet,
   Text,

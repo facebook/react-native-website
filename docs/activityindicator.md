@@ -14,7 +14,7 @@ Displays a circular loading indicator.
 
 ```SnackPlayer name=ActivityIndicator%20Function%20Component%20Example
 import React from 'react';
-import {ActivityIndicator, StyleSheet, Text, View} from 'react-native';
+import {ActivityIndicator, StyleSheet, View} from 'react-native';
 
 const App = () => (
   <View style={[styles.container, styles.horizontal]}>
@@ -45,7 +45,7 @@ export default App;
 
 ```SnackPlayer name=ActivityIndicator%20Class%20Component%20Example
 import React, {Component} from 'react';
-import {ActivityIndicator, StyleSheet, Text, View} from 'react-native';
+import {ActivityIndicator, StyleSheet, View} from 'react-native';
 
 class App extends Component {
   render() {

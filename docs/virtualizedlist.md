@@ -22,12 +22,12 @@ import {
 
 const DATA = [];
 
-const getItem = (data, index) => ({
+const getItem = (_data, index) => ({
   id: Math.random().toString(12).substring(0),
   title: `Item ${index + 1}`,
 });
 
-const getItemCount = data => 50;
+const getItemCount = _data => 50;
 
 const Item = ({title}) => (
   <View style={styles.item}>

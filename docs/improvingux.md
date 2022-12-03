@@ -17,8 +17,14 @@ Check out [`TextInput` docs](textinput.md) for more configuration options.
 
 ```SnackPlayer name=TextInput%20form%20example
 import React, {useState, useRef} from 'react';
-import {Text, StatusBar, TextInput, View, StyleSheet} from 'react-native';
-import {Constants} from 'expo';
+import {
+  Alert,
+  Text,
+  StatusBar,
+  TextInput,
+  View,
+  StyleSheet,
+} from 'react-native';
 
 const App = () => {
   const emailInput = useRef(null);
@@ -26,7 +32,9 @@ const App = () => {
   const [email, setEmail] = useState('');
 
   const submit = () => {
-    alert(`Welcome, ${name}! Confirmation email has been sent to ${email}`);
+    Alert.alert(
+      `Welcome, ${name}! Confirmation email has been sent to ${email}`,
+    );
   };
 
   return (
@@ -43,7 +51,7 @@ const App = () => {
       <TextInput
         style={styles.input}
         value={name}
-        onChangeText={name => setName(name)}
+        onChangeText={text => setName(text)}
         placeholder="Full Name"
         autoFocus={true}
         autoCapitalize="words"
@@ -56,7 +64,7 @@ const App = () => {
       <TextInput
         style={styles.input}
         value={email}
-        onChangeText={email => setEmail(email)}
+        onChangeText={text => setEmail(text)}
         ref={emailInput}
         placeholder="email@example.com"
         autoCapitalize="none"
@@ -105,6 +113,7 @@ Software keyboard takes almost half of the screen. If you have interactive eleme
 ```SnackPlayer name=KeyboardAvoidingView%20example
 import React, {useState, useRef} from 'react';
 import {
+  Alert,
   Text,
   Button,
   StatusBar,
@@ -120,7 +129,7 @@ const App = () => {
 
   const submit = () => {
     emailInput.current.blur();
-    alert(`Confirmation email has been sent to ${email}`);
+    Alert.alert(`Confirmation email has been sent to ${email}`);
   };
 
   return (
@@ -138,7 +147,7 @@ const App = () => {
         <TextInput
           style={styles.input}
           value={email}
-          onChangeText={email => setEmail(email)}
+          onChangeText={text => setEmail(text)}
           ref={emailInput}
           placeholder="email@example.com"
           autoCapitalize="none"
@@ -200,7 +209,7 @@ export default App;
 On mobile phones it's hard to be very precise when pressing buttons. Make sure all interactive elements are 44x44 or larger. One way to do this is to leave enough space for the element, `padding`, `minWidth` and `minHeight` style values can be useful for that. Alternatively, you can use [`hitSlop` prop](touchablewithoutfeedback.md#hitslop) to increase interactive area without affecting the layout. Here's a demo:
 
 ```SnackPlayer name=HitSlop%20example
-import React, {Component} from 'react';
+import React from 'react';
 import {
   Text,
   StatusBar,

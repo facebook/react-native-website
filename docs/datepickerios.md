@@ -46,23 +46,16 @@ import React, {Component} from 'react';
 import {DatePickerIOS, View, StyleSheet} from 'react-native';
 
 export default class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {chosenDate: new Date()};
-
-    this.setDate = this.setDate.bind(this);
-  }
-
-  setDate(newDate) {
-    this.setState({chosenDate: newDate});
-  }
+  state = {
+    chosenDate: new Date(),
+  };
 
   render() {
     return (
       <View style={styles.container}>
         <DatePickerIOS
           date={this.state.chosenDate}
-          onDateChange={this.setDate}
+          onDateChange={newDate => this.setState({chosenDate: newDate})}
         />
       </View>
     );

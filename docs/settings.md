@@ -14,8 +14,8 @@ import {Button, Settings, StyleSheet, Text, View} from 'react-native';
 const App = () => {
   const [data, setData] = useState(Settings.get('data'));
 
-  const storeData = data => {
-    Settings.set(data);
+  const storeData = inputData => {
+    Settings.set(inputData);
     setData(Settings.get('data'));
   };
 

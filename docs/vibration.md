@@ -49,7 +49,7 @@ const App = () => {
         <Button title="Vibrate once" onPress={() => Vibration.vibrate()} />
       </View>
       <Separator />
-      {Platform.OS == 'android'
+      {Platform.OS === 'android'
         ? [
             <View>
               <Button
@@ -147,7 +147,7 @@ class App extends Component {
           <Button title="Vibrate once" onPress={() => Vibration.vibrate()} />
         </View>
         <Separator />
-        {Platform.OS == 'android'
+        {Platform.OS === 'android'
           ? [
               <View>
                 <Button

@@ -77,7 +77,10 @@ If you don't want to see the AppState update from `active` to `inactive` on iOS 
 </TabItem>
 <TabItem value="classical">
 
-```SnackPlayer name=AppState%20Class%20Component%20Example
+<Tabs groupId="language" defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
+<TabItem value="javascript">
+
+```SnackPlayer name=AppState%20Class%20Component%20Example&ext=js
 import React, {Component} from 'react';
 import {AppState, StyleSheet, Text, View} from 'react-native';
 
@@ -124,6 +127,62 @@ const styles = StyleSheet.create({
 
 export default AppStateExample;
 ```
+
+</TabItem>
+<TabItem value="typescript">
+
+```SnackPlayer name=AppState%20Class%20Component%20Example&ext=tsx
+import React, {Component} from 'react';
+import {AppState, StyleSheet, Text, View} from 'react-native';
+import type {NativeEventSubscription} from 'react-native';
+
+class AppStateExample extends Component {
+  appStateSubscription?: NativeEventSubscription;
+  state = {
+    appState: AppState.currentState,
+  };
+
+  componentDidMount() {
+    this.appStateSubscription = AppState.addEventListener(
+      'change',
+      nextAppState => {
+        if (
+          this.state.appState.match(/inactive|background/) &&
+          nextAppState === 'active'
+        ) {
+          console.log('App has come to the foreground!');
+        }
+        this.setState({appState: nextAppState});
+      },
+    );
+  }
+
+  componentWillUnmount() {
+    this.appStateSubscription?.remove();
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text>Current state is: {this.state.appState}</Text>
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
+
+export default AppStateExample;
+```
+
+</TabItem>
+</Tabs>
 
 </TabItem>
 </Tabs>
