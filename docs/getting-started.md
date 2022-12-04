@@ -17,12 +17,13 @@ This page will help you install and build your first React Native app.
 <Tabs groupId="guide" defaultValue={constants.defaultGuide} values={constants.guides}>
 <TabItem value="quickstart">
 
-Run the following command to create a new React Native project called "AwesomeProject":
+Run the following command to install expo cli and create a new React Native project called "AwesomeProject":
 
 <Tabs groupId="package-manager" defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
 <TabItem value="npm">
 
 ```shell
+npm i -g expo-cli
 npx create-expo-app AwesomeProject
 
 cd AwesomeProject
