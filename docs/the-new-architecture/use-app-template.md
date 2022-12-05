@@ -32,7 +32,7 @@ npx react-native init AwesomeProject
 ```
 
 :::caution
-The New Architecture is available in React Native version 0.68 or later.
+The New Architecture is available in React Native version 0.71.0-rc.3 or later. Available through `yarn add react-native@latest`
 :::
 
 ## Configuration
