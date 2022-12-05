@@ -23,7 +23,7 @@ Run the following command to install expo cli and create a new React Native proj
 <TabItem value="npm">
 
 ```shell
-npm i -g expo-cli
+npx expo start
 npx create-expo-app AwesomeProject
 
 cd AwesomeProject
