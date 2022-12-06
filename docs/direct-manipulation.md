@@ -173,7 +173,10 @@ You may have noticed that we passed all of the props down to the child view usin
 
 Another very common use case of `setNativeProps` is to edit the value of the TextInput. The `controlled` prop of TextInput can sometimes drop characters when the `bufferDelay` is low and the user types very quickly. Some developers prefer to skip this prop entirely and instead use `setNativeProps` to directly manipulate the TextInput value when necessary. For example, the following code demonstrates editing the input when you tap a button:
 
-```SnackPlayer name=Clear%20text
+<Tabs groupId="language" defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
+<TabItem value="javascript">
+
+```SnackPlayer name=Clear%20text&ext=js
 import React from 'react';
 import {useCallback, useRef} from 'react';
 import {
@@ -185,7 +188,7 @@ import {
 } from 'react-native';
 
 const App = () => {
-  const inputRef = useRef();
+  const inputRef = useRef(null);
   const editText = useCallback(() => {
     inputRef.current.setNativeProps({text: 'Edited Text'});
   }, []);
@@ -217,6 +220,57 @@ const styles = StyleSheet.create({
 
 export default App;
 ```
+
+</TabItem>
+<TabItem value="typescript">
+
+```SnackPlayer name=Clear%20text&ext=tsx
+import React from 'react';
+import {useCallback, useRef} from 'react';
+import {
+  StyleSheet,
+  TextInput,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+
+const App = () => {
+  const inputRef = useRef<TextInput>(null);
+  const editText = useCallback(() => {
+    inputRef.current?.setNativeProps({text: 'Edited Text'});
+  }, []);
+
+  return (
+    <View style={styles.container}>
+      <TextInput ref={inputRef} style={styles.input} />
+      <TouchableOpacity onPress={editText}>
+        <Text>Edit text</Text>
+      </TouchableOpacity>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  input: {
+    height: 50,
+    width: 200,
+    marginHorizontal: 20,
+    borderWidth: 1,
+    borderColor: '#ccc',
+  },
+});
+
+export default App;
+```
+
+</TabItem>
+</Tabs>
 
 You can use the [`clear`](textinput#clear) method to clear the `TextInput` which clears the current input text using the same approach.
 
@@ -264,7 +318,10 @@ Like `measure()`, but measures the view relative to an ancestor, specified with 
 This method can also be called with a `relativeToNativeNode` handler (instead of reference), but this variant is deprecated.
 :::
 
-```SnackPlayer name=measureLayout%20example&supportedPlatforms=android,ios
+<Tabs groupId="language" defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
+<TabItem value="javascript">
+
+```SnackPlayer name=measureLayout%20example&supportedPlatforms=android,ios&ext=js
 import React, {useEffect, useRef, useState} from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 
@@ -313,6 +370,72 @@ const styles = StyleSheet.create({
 
 export default App;
 ```
+
+</TabItem>
+<TabItem value="typescript">
+
+```SnackPlayer name=measureLayout%20example&ext=tsx
+import React, {useEffect, useRef, useState} from 'react';
+import {Text, View, StyleSheet} from 'react-native';
+
+type Measurements = {
+  left: number;
+  top: number;
+  width: number;
+  height: number;
+};
+
+const App = () => {
+  const textContainerRef = useRef<View>(null);
+  const textRef = useRef<Text>(null);
+  const [measure, setMeasure] = useState<Measurements | null>(null);
+
+  useEffect(() => {
+    if (textRef.current && textContainerRef.current) {
+      textRef.current?.measureLayout(
+        textContainerRef.current,
+        (left, top, width, height) => {
+          setMeasure({left, top, width, height});
+        },
+        () => {
+          console.error('measurement failed');
+        },
+      );
+    }
+  }, [measure]);
+
+  return (
+    <View style={styles.container}>
+      <View ref={textContainerRef} style={styles.textContainer}>
+        <Text ref={textRef}>Where am I? (relative to the text container)</Text>
+      </View>
+      <Text style={styles.measure}>{JSON.stringify(measure)}</Text>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+  textContainer: {
+    backgroundColor: '#61dafb',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 12,
+  },
+  measure: {
+    textAlign: 'center',
+    padding: 12,
+  },
+});
+
+export default App;
+```
+
+</TabItem>
+</Tabs>
 
 ### focus()
 
