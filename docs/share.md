@@ -12,7 +12,7 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import con
 
 ```SnackPlayer name=Function%20Component%20Example&supportedPlatforms=ios,android
 import React from 'react';
-import {Share, View, Button} from 'react-native';
+import {Alert, Share, View, Button} from 'react-native';
 
 const ShareExample = () => {
   const onShare = async () => {
@@ -31,7 +31,7 @@ const ShareExample = () => {
         // dismissed
       }
     } catch (error) {
-      alert(error.message);
+      Alert.alert(error.message);
     }
   };
   return (
@@ -49,7 +49,7 @@ export default ShareExample;
 
 ```SnackPlayer name=Class%20Component%20Example&supportedPlatforms=ios,android
 import React, {Component} from 'react';
-import {Share, View, Button} from 'react-native';
+import {Alert, Share, View, Button} from 'react-native';
 
 class ShareExample extends Component {
   onShare = async () => {
@@ -69,7 +69,7 @@ class ShareExample extends Component {
         // dismissed
       }
     } catch (error) {
-      alert(error.message);
+      Alert.alert(error.message);
     }
   };
 

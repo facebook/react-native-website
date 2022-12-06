@@ -47,7 +47,7 @@ const App = () => {
 
 const randomHexColor = () => {
   return '#000000'.replace(/0/g, function () {
-    return (~~(Math.random() * 16)).toString(16);
+    return Math.round(Math.random() * 16).toString(16);
   });
 };
 

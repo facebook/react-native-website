@@ -26,7 +26,7 @@ const DraggableView = () => {
     onPanResponderRelease: () => {
       Animated.spring(
         pan, // Auto-multiplexed
-        {toValue: {x: 0, y: 0}}, // Back to zero
+        {toValue: {x: 0, y: 0}, useNativeDriver: true}, // Back to zero
       ).start();
     },
   });

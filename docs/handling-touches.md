@@ -12,7 +12,7 @@ Users interact with mobile apps mainly through touch. They can use a combination
 ```jsx
 <Button
   onPress={() => {
-    alert('You tapped the button!');
+    consoele.log('You tapped the button!');
   }}
   title="Press Me"
 />
@@ -26,11 +26,11 @@ Go ahead and play around with the `Button` component using the example below. Yo
 
 ```SnackPlayer name=Button%20Basics
 import React, {Component} from 'react';
-import {Button, StyleSheet, View} from 'react-native';
+import {Alert, Button, StyleSheet, View} from 'react-native';
 
 export default class ButtonBasics extends Component {
   _onPressButton() {
-    alert('You tapped the button!');
+    Alert.alert('You tapped the button!');
   }
 
   render() {
@@ -92,6 +92,7 @@ Let's see all of these in action:
 ```SnackPlayer name=Touchables
 import React, {Component} from 'react';
 import {
+  Alert,
   Platform,
   StyleSheet,
   Text,
@@ -104,11 +105,11 @@ import {
 
 export default class Touchables extends Component {
   _onPressButton() {
-    alert('You tapped the button!');
+    Alert.alert('You tapped the button!');
   }
 
   _onLongPressButton() {
-    alert('You long-pressed the button!');
+    Alert.alert('You long-pressed the button!');
   }
 
   render() {

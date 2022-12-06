@@ -3,14 +3,17 @@
   "version": "0.0.0",
   "private": true,
   "bin": {
-    "lint-examples": "./lint-examples.js"
+    "eslint-examples-js": "./bin/eslint-examples-js.js",
+    "eslint-examples-tsx": "./bin/eslint-examples-tsx.js",
+    "tsc-examples": "./bin/tsc-examples.js"
   },
-  "dependencies": {
+  "devDependencies": {
     "@babel/core": "^7.12.9",
     "@babel/preset-env": "^7.14.0",
     "@babel/runtime": "^7.12.5",
     "@react-native-community/eslint-config": "^3.0.0",
     "@tsconfig/react-native": "^2.0.2",
+    "@types/jest": "^29.2.3",
     "@types/react": "^18.0.24",
     "eslint": "^8.19.0",
     "glob-promise": "^4.2.2",

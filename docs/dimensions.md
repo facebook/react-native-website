@@ -31,11 +31,14 @@ If you are targeting foldable devices or devices which can change the screen siz
 import React, {useState, useEffect} from 'react';
 import {View, StyleSheet, Text, Dimensions} from 'react-native';
 
-const window = Dimensions.get('window');
-const screen = Dimensions.get('screen');
+const windowDimensions = Dimensions.get('window');
+const screenDimensions = Dimensions.get('screen');
 
 const App = () => {
-  const [dimensions, setDimensions] = useState({window, screen});
+  const [dimensions, setDimensions] = useState({
+    window: windowDimensions,
+    screen: screenDimensions,
+  });
 
   useEffect(() => {
     const subscription = Dimensions.addEventListener(
@@ -83,18 +86,21 @@ export default App;
 </TabItem>
 <TabItem value="classical">
 
-```SnackPlayer name=Dimensions
+<Tabs groupId="language" defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
+<TabItem value="javascript">
+
+```SnackPlayer name=Dimensions&ext=js
 import React, {Component} from 'react';
 import {View, StyleSheet, Text, Dimensions} from 'react-native';
 
-const window = Dimensions.get('window');
-const screen = Dimensions.get('screen');
+const windowDimensions = Dimensions.get('window');
+const screenDimensions = Dimensions.get('screen');
 
 class App extends Component {
   state = {
     dimensions: {
-      window,
-      screen,
+      window: windowDimensions,
+      screen: screenDimensions,
     },
   };
 
@@ -151,6 +157,83 @@ const styles = StyleSheet.create({
 
 export default App;
 ```
+
+</TabItem>
+<TabItem value="typescript">
+
+```SnackPlayer name=Dimensions&ext=tsx
+import React, {Component} from 'react';
+import {View, StyleSheet, Text, Dimensions} from 'react-native';
+import type {EmitterSubscription, ScaledSize} from 'react-native';
+
+const windowDimensions = Dimensions.get('window');
+const screenDimensions = Dimensions.get('screen');
+
+class App extends Component {
+  dimensionsSubscription?: EmitterSubscription;
+  state = {
+    dimensions: {
+      window: windowDimensions,
+      screen: screenDimensions,
+    },
+  };
+
+  onChange = ({window, screen}: {window: ScaledSize; screen: ScaledSize}) => {
+    this.setState({dimensions: {window, screen}});
+  };
+
+  componentDidMount() {
+    this.dimensionsSubscription = Dimensions.addEventListener(
+      'change',
+      this.onChange,
+    );
+  }
+
+  componentWillUnmount() {
+    this.dimensionsSubscription?.remove();
+  }
+
+  render() {
+    const {
+      dimensions: {window, screen},
+    } = this.state;
+
+    return (
+      <View style={styles.container}>
+        <Text style={styles.header}>Window Dimensions</Text>
+        {Object.entries(window).map(([key, value]) => (
+          <Text>
+            {key} - {value}
+          </Text>
+        ))}
+        <Text style={styles.header}>Screen Dimensions</Text>
+        {Object.entries(screen).map(([key, value]) => (
+          <Text>
+            {key} - {value}
+          </Text>
+        ))}
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  header: {
+    fontSize: 16,
+    marginVertical: 10,
+  },
+});
+
+export default App;
+```
+
+</TabItem>
+</Tabs>
 
 </TabItem>
 </Tabs>

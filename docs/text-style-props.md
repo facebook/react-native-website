@@ -277,7 +277,7 @@ const CustomPicker = ({label, data, currentIndex, onSelected}) => {
           bounces
           horizontal
           data={data}
-          keyExtractor={(item, idx) => String(item)}
+          keyExtractor={item => String(item)}
           renderItem={({item, index}) => {
             const selected = index === currentIndex;
             return (

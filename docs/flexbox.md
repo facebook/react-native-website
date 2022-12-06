@@ -20,7 +20,7 @@ In the following example, the red, orange, and green views are all children in t
 
 ```SnackPlayer name=Flex%20Example
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 
 const Flex = () => {
   return (
@@ -966,7 +966,7 @@ const BoxInfo = ({color, flexBasis, flexShrink, setStyle, flexGrow}) => (
       onChangeText={fB =>
         setStyle(value => ({
           ...value,
-          flexBasis: isNaN(parseInt(fB)) ? 'auto' : parseInt(fB),
+          flexBasis: isNaN(parseInt(fB, 10)) ? 'auto' : parseInt(fB, 10),
         }))
       }
     />
@@ -977,7 +977,7 @@ const BoxInfo = ({color, flexBasis, flexShrink, setStyle, flexGrow}) => (
       onChangeText={fS =>
         setStyle(value => ({
           ...value,
-          flexShrink: isNaN(parseInt(fS)) ? '' : parseInt(fS),
+          flexShrink: isNaN(parseInt(fS, 10)) ? '' : parseInt(fS, 10),
         }))
       }
     />
@@ -988,7 +988,7 @@ const BoxInfo = ({color, flexBasis, flexShrink, setStyle, flexGrow}) => (
       onChangeText={fG =>
         setStyle(value => ({
           ...value,
-          flexGrow: isNaN(parseInt(fG)) ? '' : parseInt(fG),
+          flexGrow: isNaN(parseInt(fG, 10)) ? '' : parseInt(fG, 10),
         }))
       }
     />
@@ -1296,13 +1296,7 @@ The `position` type of an element defines how it is positioned within its parent
 
 ```SnackPlayer name=Absolute%20%26%20Relative%20Layout
 import React, {useState} from 'react';
-import {
-  View,
-  SafeAreaView,
-  TouchableOpacity,
-  Text,
-  StyleSheet,
-} from 'react-native';
+import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 
 const PositionLayout = () => {
   const [position, setPosition] = useState('relative');

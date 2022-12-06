@@ -54,7 +54,7 @@ const App = () => {
   };
 
   const changeSetting = (value, options, setterFunction) => {
-    if (value == options.length - 1) {
+    if (value === options.length - 1) {
       setterFunction(0);
       return;
     }
@@ -124,7 +124,7 @@ const App = () => {
             <Button
               title="Delete Square"
               onPress={() =>
-                setSquares(squares.filter((v, i) => i != squares.length - 1))
+                setSquares(squares.filter((v, i) => i !== squares.length - 1))
               }
             />
           </View>
@@ -167,7 +167,7 @@ const Square = () => (
 
 const randomHexColor = () => {
   return '#000000'.replace(/0/g, () => {
-    return (~~(Math.random() * 16)).toString(16);
+    return Math.round(Math.random() * 16).toString(16);
   });
 };
 
