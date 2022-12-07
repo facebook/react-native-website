@@ -26,7 +26,7 @@ Run the following command to create a new React Native project called "AwesomePr
 npx create-expo-app AwesomeProject
 
 cd AwesomeProject
-npm start # you can also use: npx expo start
+npx expo start
 ```
 
 </TabItem>
@@ -36,7 +36,7 @@ npm start # you can also use: npx expo start
 yarn create expo-app AwesomeProject
 
 cd AwesomeProject
-yarn start # you can also use: yarn expo start
+yarn expo start
 ```
 
 </TabItem>
