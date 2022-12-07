@@ -8,7 +8,7 @@
     "sync-api-docs"
   ],
   "scripts": {
-    "postinstall": "yarn update-lock",
+    "postinstall": "yarn update-lock && patch-package",
     "update-lock": "yarn-deduplicate"
   },
   "husky": {
@@ -26,6 +26,7 @@
     "eslint-plugin-yml": "^1.2.0",
     "husky": "^4.3.8",
     "netlify-plugin-cache": "^1.0.3",
+    "patch-package": "^6.5.0",
     "prettier": "^2.7.1",
     "pretty-quick": "^3.1.3",
     "yarn-deduplicate": "^5.0.0"
