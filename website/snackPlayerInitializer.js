@@ -73,15 +73,11 @@ export default (() => {
   setupThemeSynchronization();
 
   return {
-    onRouteUpdate({location}) {
+    onRouteDidUpdate({location}) {
       // console.log('onRouteUpdate', {location});
 
-      // TODO temporary, because onRouteUpdate fires before the new route renders...
-      // see https://github.com/facebook/docusaurus/issues/3399#issuecomment-704401189
-      setTimeout(() => {
-        initSnackPlayers();
-        setupTabPanelsMutationObservers();
-      }, 0);
+      initSnackPlayers();
+      setupTabPanelsMutationObservers();
     },
   };
 })();
