@@ -77,7 +77,10 @@ Don't forget to catch any errors that may be thrown by `fetch`, otherwise they w
 <Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
 <TabItem value="functional">
 
-```SnackPlayer name=Fetch%20Example
+<Tabs groupId="language" defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
+<TabItem value="javascript">
+
+```SnackPlayer name=Fetch%20Example&ext=js
 import React, {useEffect, useState} from 'react';
 import {ActivityIndicator, FlatList, Text, View} from 'react-native';
 
@@ -124,9 +127,70 @@ export default App;
 ```
 
 </TabItem>
+<TabItem value="typescript">
+
+```SnackPlayer name=Fetch%20Example&ext=tsx
+import React, {useEffect, useState} from 'react';
+import {ActivityIndicator, FlatList, Text, View} from 'react-native';
+
+type Movie = {
+  id: string;
+  title: string;
+  releaseYear: string;
+};
+
+const App = () => {
+  const [isLoading, setLoading] = useState(true);
+  const [data, setData] = useState<Movie[]>([]);
+
+  const getMovies = async () => {
+    try {
+      const response = await fetch('https://reactnative.dev/movies.json');
+      const json = await response.json();
+      setData(json.movies);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    getMovies();
+  }, []);
+
+  return (
+    <View style={{flex: 1, padding: 24}}>
+      {isLoading ? (
+        <ActivityIndicator />
+      ) : (
+        <FlatList
+          data={data}
+          keyExtractor={({id}) => id}
+          renderItem={({item}) => (
+            <Text>
+              {item.title}, {item.releaseYear}
+            </Text>
+          )}
+        />
+      )}
+    </View>
+  );
+};
+
+export default App;
+```
+
+</TabItem>
+</Tabs>
+
+</TabItem>
 <TabItem value="classical">
 
-```SnackPlayer name=Fetch%20Example
+<Tabs groupId="language" defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
+<TabItem value="javascript">
+
+```SnackPlayer name=Fetch%20Example&ext=js
 import React, {Component} from 'react';
 import {ActivityIndicator, FlatList, Text, View} from 'react-native';
 
@@ -179,6 +243,73 @@ export default class App extends Component {
   }
 }
 ```
+
+</TabItem>
+<TabItem value="typescript">
+
+```SnackPlayer name=Fetch%20Example&ext=tsx
+import React, {Component} from 'react';
+import {ActivityIndicator, FlatList, Text, View} from 'react-native';
+
+type Movie = {
+  id: string;
+  title: string;
+  releaseYear: string;
+};
+
+type AppState = {
+  data: Movie[];
+  isLoading: boolean;
+};
+
+export default class App extends Component {
+  state: AppState = {
+    data: [],
+    isLoading: true,
+  };
+
+  async getMovies() {
+    try {
+      const response = await fetch('https://reactnative.dev/movies.json');
+      const json = await response.json();
+      this.setState({data: json.movies});
+    } catch (error) {
+      console.log(error);
+    } finally {
+      this.setState({isLoading: false});
+    }
+  }
+
+  componentDidMount() {
+    this.getMovies();
+  }
+
+  render() {
+    const {data, isLoading} = this.state;
+
+    return (
+      <View style={{flex: 1, padding: 24}}>
+        {isLoading ? (
+          <ActivityIndicator />
+        ) : (
+          <FlatList
+            data={data}
+            keyExtractor={({id}) => id}
+            renderItem={({item}) => (
+              <Text>
+                {item.title}, {item.releaseYear}
+              </Text>
+            )}
+          />
+        )}
+      </View>
+    );
+  }
+}
+```
+
+</TabItem>
+</Tabs>
 
 </TabItem>
 </Tabs>

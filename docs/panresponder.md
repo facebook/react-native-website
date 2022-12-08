@@ -93,15 +93,9 @@ const App = () => {
   const panResponder = useRef(
     PanResponder.create({
       onMoveShouldSetPanResponder: () => true,
-      onPanResponderGrant: () => {
-        pan.setOffset({
-          x: pan.x._value,
-          y: pan.y._value,
-        });
-      },
       onPanResponderMove: Animated.event([null, {dx: pan.x, dy: pan.y}]),
       onPanResponderRelease: () => {
-        pan.flattenOffset();
+        pan.extractOffset();
       },
     }),
   ).current;
@@ -153,18 +147,12 @@ class App extends Component {
   pan = new Animated.ValueXY();
   panResponder = PanResponder.create({
     onMoveShouldSetPanResponder: () => true,
-    onPanResponderGrant: () => {
-      this.pan.setOffset({
-        x: this.pan.x._value,
-        y: this.pan.y._value,
-      });
-    },
     onPanResponderMove: Animated.event([
       null,
       {dx: this.pan.x, dy: this.pan.y},
     ]),
     onPanResponderRelease: () => {
-      this.pan.flattenOffset();
+      this.pan.extractOffset();
     },
   });
 

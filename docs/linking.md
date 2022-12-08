@@ -114,7 +114,10 @@ You can handle these events with `Linking.getInitialURL()` - it returns a Promis
 
 ### Open Links and Deep Links (Universal Links)
 
-```SnackPlayer name=Linking%20Function%20Component%20Example&supportedPlatforms=ios,android
+<Tabs groupId="language" defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
+<TabItem value="javascript">
+
+```SnackPlayer name=Linking%20Function%20Component%20Example&supportedPlatforms=ios,android&ext=js
 import React, {useCallback} from 'react';
 import {Alert, Button, Linking, StyleSheet, View} from 'react-native';
 
@@ -159,9 +162,68 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
+</TabItem>
+<TabItem value="typescript">
+
+```SnackPlayer name=Linking%20Function%20Component%20Example&supportedPlatforms=ios,android&ext=tsx
+import React, {useCallback} from 'react';
+import {Alert, Button, Linking, StyleSheet, View} from 'react-native';
+
+const supportedURL = 'https://google.com';
+
+const unsupportedURL = 'slack://open?team=123456';
+
+type OpenURLButtonProps = {
+  url: string;
+  children: string;
+};
+
+const OpenURLButton = ({url, children}: OpenURLButtonProps) => {
+  const handlePress = useCallback(async () => {
+    // Checking if the link is supported for links with custom URL scheme.
+    const supported = await Linking.canOpenURL(url);
+
+    if (supported) {
+      // Opening the link with some app, if the URL scheme is "http" the web link should be opened
+      // by some browser in the mobile
+      await Linking.openURL(url);
+    } else {
+      Alert.alert(`Don't know how to open this URL: ${url}`);
+    }
+  }, [url]);
+
+  return <Button title={children} onPress={handlePress} />;
+};
+
+const App = () => {
+  return (
+    <View style={styles.container}>
+      <OpenURLButton url={supportedURL}>Open Supported URL</OpenURLButton>
+      <OpenURLButton url={unsupportedURL}>Open Unsupported URL</OpenURLButton>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
+
+export default App;
+```
+
+</TabItem>
+</Tabs>
+
 ### Open Custom Settings
 
-```SnackPlayer name=Linking%20Function%20Component%20Example&supportedPlatforms=ios,android
+<Tabs groupId="language" defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
+<TabItem value="javascript">
+
+```SnackPlayer name=Linking%20Function%20Component%20Example&supportedPlatforms=ios,android&ext=js
 import React, {useCallback} from 'react';
 import {Button, Linking, StyleSheet, View} from 'react-native';
 
@@ -193,9 +255,54 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
+</TabItem>
+<TabItem value="typescript">
+
+```SnackPlayer name=Linking%20Function%20Component%20Example&supportedPlatforms=ios,android&ext=tsx
+import React, {useCallback} from 'react';
+import {Button, Linking, StyleSheet, View} from 'react-native';
+
+type OpenSettingsButtonProps = {
+  children: string;
+};
+
+const OpenSettingsButton = ({children}: OpenSettingsButtonProps) => {
+  const handlePress = useCallback(async () => {
+    // Open the custom settings if the app has one
+    await Linking.openSettings();
+  }, []);
+
+  return <Button title={children} onPress={handlePress} />;
+};
+
+const App = () => {
+  return (
+    <View style={styles.container}>
+      <OpenSettingsButton>Open Settings</OpenSettingsButton>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
+
+export default App;
+```
+
+</TabItem>
+</Tabs>
+
 ### Get the Deep Link
 
-```SnackPlayer name=Linking%20Function%20Component%20Example&supportedPlatforms=ios,android
+<Tabs groupId="language" defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
+<TabItem value="javascript">
+
+```SnackPlayer name=Linking%20Function%20Component%20Example&supportedPlatforms=ios,android&ext=js
 import React, {useState, useEffect} from 'react';
 import {Linking, StyleSheet, Text, View} from 'react-native';
 
@@ -246,9 +353,69 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
+</TabItem>
+<TabItem value="typescript">
+
+```SnackPlayer name=Linking%20Function%20Component%20Example&supportedPlatforms=ios,android&ext=tsx
+import React, {useState, useEffect} from 'react';
+import {Linking, StyleSheet, Text, View} from 'react-native';
+
+const useInitialURL = () => {
+  const [url, setUrl] = useState<string | null>(null);
+  const [processing, setProcessing] = useState(true);
+
+  useEffect(() => {
+    const getUrlAsync = async () => {
+      // Get the deep link used to open the app
+      const initialUrl = await Linking.getInitialURL();
+
+      // The setTimeout is just for testing purpose
+      setTimeout(() => {
+        setUrl(initialUrl);
+        setProcessing(false);
+      }, 1000);
+    };
+
+    getUrlAsync();
+  }, []);
+
+  return {url, processing};
+};
+
+const App = () => {
+  const {url: initialUrl, processing} = useInitialURL();
+
+  return (
+    <View style={styles.container}>
+      <Text>
+        {processing
+          ? 'Processing the initial url from a deep link'
+          : `The deep link is: ${initialUrl || 'None'}`}
+      </Text>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
+
+export default App;
+```
+
+</TabItem>
+</Tabs>
+
 ### Send Intents (Android)
 
-```SnackPlayer name=Linking%20Function%20Component%20Example&supportedPlatforms=android
+<Tabs groupId="language" defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
+<TabItem value="javascript">
+
+```SnackPlayer name=Linking%20Function%20Component%20Example&supportedPlatforms=android&ext=js
 import React, {useCallback} from 'react';
 import {Alert, Button, Linking, StyleSheet, View} from 'react-native';
 
@@ -274,7 +441,8 @@ const App = () => {
         action="android.settings.APP_NOTIFICATION_SETTINGS"
         extras={[
           {
-            'android.provider.extra.APP_PACKAGE': 'com.facebook.katana',
+            key: 'android.provider.extra.APP_PACKAGE',
+            value: 'com.facebook.katana',
           },
         ]}>
         App Notification Settings
@@ -293,6 +461,72 @@ const styles = StyleSheet.create({
 
 export default App;
 ```
+
+</TabItem>
+<TabItem value="typescript">
+
+```SnackPlayer name=Linking%20Function%20Component%20Example&ext=tsx
+import React, {useCallback} from 'react';
+import {Alert, Button, Linking, StyleSheet, View} from 'react-native';
+
+type SendIntentButtonProps = {
+  action: string;
+  children: string;
+  extras?: Array<{
+    key: string;
+    value: string | number | boolean;
+  }>;
+};
+
+const SendIntentButton = ({
+  action,
+  extras,
+  children,
+}: SendIntentButtonProps) => {
+  const handlePress = useCallback(async () => {
+    try {
+      await Linking.sendIntent(action, extras);
+    } catch (e: any) {
+      Alert.alert(e.message);
+    }
+  }, [action, extras]);
+
+  return <Button title={children} onPress={handlePress} />;
+};
+
+const App = () => {
+  return (
+    <View style={styles.container}>
+      <SendIntentButton action="android.intent.action.POWER_USAGE_SUMMARY">
+        Power Usage Summary
+      </SendIntentButton>
+      <SendIntentButton
+        action="android.settings.APP_NOTIFICATION_SETTINGS"
+        extras={[
+          {
+            key: 'android.provider.extra.APP_PACKAGE',
+            value: 'com.facebook.katana',
+          },
+        ]}>
+        App Notification Settings
+      </SendIntentButton>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
+
+export default App;
+```
+
+</TabItem>
+</Tabs>
 
 # Reference
 

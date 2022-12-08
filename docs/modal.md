@@ -107,10 +107,6 @@ class App extends Component {
     modalVisible: false,
   };
 
-  setModalVisible = visible => {
-    this.setState({modalVisible: visible});
-  };
-
   render() {
     const {modalVisible} = this.state;
     return (
@@ -121,14 +117,14 @@ class App extends Component {
           visible={modalVisible}
           onRequestClose={() => {
             Alert.alert('Modal has been closed.');
-            this.setModalVisible(!modalVisible);
+            this.setState({modalVisible: !modalVisible});
           }}>
           <View style={styles.centeredView}>
             <View style={styles.modalView}>
               <Text style={styles.modalText}>Hello World!</Text>
               <Pressable
                 style={[styles.button, styles.buttonClose]}
-                onPress={() => this.setModalVisible(!modalVisible)}>
+                onPress={() => this.setState({modalVisible: !modalVisible})}>
                 <Text style={styles.textStyle}>Hide Modal</Text>
               </Pressable>
             </View>
@@ -136,7 +132,7 @@ class App extends Component {
         </Modal>
         <Pressable
           style={[styles.button, styles.buttonOpen]}
-          onPress={() => this.setModalVisible(true)}>
+          onPress={() => this.setState({modalVisible: true})}>
           <Text style={styles.textStyle}>Show Modal</Text>
         </Pressable>
       </View>

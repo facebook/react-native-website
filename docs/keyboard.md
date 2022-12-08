@@ -19,7 +19,7 @@ import React, {useState, useEffect} from 'react';
 import {Keyboard, Text, TextInput, StyleSheet, View} from 'react-native';
 
 const Example = () => {
-  const [keyboardStatus, setKeyboardStatus] = useState(undefined);
+  const [keyboardStatus, setKeyboardStatus] = useState('');
 
   useEffect(() => {
     const showSubscription = Keyboard.addListener('keyboardDidShow', () => {
@@ -69,13 +69,16 @@ export default Example;
 </TabItem>
 <TabItem value="classical">
 
-```SnackPlayer name=Keyboard%20Class%20Component%20Example&supportedPlatforms=ios,android
+<Tabs groupId="language" defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
+<TabItem value="javascript">
+
+```SnackPlayer name=Keyboard%20Class%20Component%20Example&supportedPlatforms=ios,android&ext=js
 import React, {Component} from 'react';
 import {Keyboard, Text, TextInput, StyleSheet, View} from 'react-native';
 
 class Example extends Component {
   state = {
-    keyboardStatus: undefined,
+    keyboardStatus: '',
   };
 
   componentDidMount() {
@@ -130,6 +133,78 @@ const style = StyleSheet.create({
 
 export default Example;
 ```
+
+</TabItem>
+<TabItem value="typescript">
+
+```SnackPlayer name=Keyboard%20Class%20Component%20Example&supportedPlatforms=ios,android&ext=tsx
+import React, {Component} from 'react';
+import {Keyboard, Text, TextInput, StyleSheet, View} from 'react-native';
+import type {EmitterSubscription} from 'react-native';
+
+class Example extends Component {
+  keyboardDidShowSubscription?: EmitterSubscription;
+  keyboardDidHideSubscription?: EmitterSubscription;
+
+  state = {
+    keyboardStatus: undefined,
+  };
+
+  componentDidMount() {
+    this.keyboardDidShowSubscription = Keyboard.addListener(
+      'keyboardDidShow',
+      () => {
+        this.setState({keyboardStatus: 'Keyboard Shown'});
+      },
+    );
+    this.keyboardDidHideSubscription = Keyboard.addListener(
+      'keyboardDidHide',
+      () => {
+        this.setState({keyboardStatus: 'Keyboard Hidden'});
+      },
+    );
+  }
+
+  componentWillUnmount() {
+    this.keyboardDidShowSubscription?.remove();
+    this.keyboardDidHideSubscription?.remove();
+  }
+
+  render() {
+    return (
+      <View style={style.container}>
+        <TextInput
+          style={style.input}
+          placeholder="Click here…"
+          onSubmitEditing={Keyboard.dismiss}
+        />
+        <Text style={style.status}>{this.state.keyboardStatus}</Text>
+      </View>
+    );
+  }
+}
+
+const style = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 36,
+  },
+  input: {
+    padding: 10,
+    borderWidth: 0.5,
+    borderRadius: 4,
+  },
+  status: {
+    padding: 10,
+    textAlign: 'center',
+  },
+});
+
+export default Example;
+```
+
+</TabItem>
+</Tabs>
 
 </TabItem>
 </Tabs>
