@@ -64,7 +64,7 @@ There are two requirements the file containing this specification must meet:
 1. The file **must** be named `<MODULE_NAME>NativeComponent`, with a `.js` or `.jsx` extension when using Flow, or a `.ts`, or `.tsx` extension when using TypeScript. **Codegen** only looks for files matching this pattern.
 2. The file must export a `HostComponent` object.
 
-Below are specifications of the `RTNCenteredText` component in both Flow and TypeScript. Create a `RTNCenteredText` file with the proper extension in the `js` folder.
+Below are specifications of the `RTNCenteredText` component in both Flow and TypeScript. Create a `RTNCenteredTextNativeComponent` file with the proper extension in the `js` folder.
 
 <Tabs groupId="fabric-component-specs" defaultValue={constants.defaultJavaScriptSpecLanguages} values={constants.javaScriptSpecLanguages}>
 <TabItem value='flow'>
