@@ -130,7 +130,7 @@ export default class Touchables extends Component {
           background={
             Platform.OS === 'android'
               ? TouchableNativeFeedback.SelectableBackground()
-              : ''
+              : undefined
           }>
           <View style={styles.button}>
             <Text style={styles.buttonText}>

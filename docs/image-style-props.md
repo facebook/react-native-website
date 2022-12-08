@@ -81,7 +81,7 @@ const DisplayAnImageWithStyle = () => {
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
-    flexDirection: 'vertical',
+    flexDirection: 'column',
     justifyContent: 'space-around',
     alignItems: 'center',
     height: '100%',
@@ -166,7 +166,7 @@ class DisplayAnImageWithStyle extends Component {
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
-    flexDirection: 'vertical',
+    flexDirection: 'column',
     justifyContent: 'space-around',
     alignItems: 'center',
     height: '100%',
@@ -209,7 +209,7 @@ const DisplayAnImageWithStyle = () => {
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
-    flexDirection: 'vertical',
+    flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
     height: '100%',
@@ -249,7 +249,7 @@ class DisplayAnImageWithStyle extends Component {
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
-    flexDirection: 'vertical',
+    flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
     height: '100%',
@@ -326,7 +326,7 @@ const DisplayAnImageWithStyle = () => {
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
-    flexDirection: 'vertical',
+    flexDirection: 'column',
     justifyContent: 'space-around',
     alignItems: 'center',
     height: '100%',
@@ -400,7 +400,7 @@ class DisplayAnImageWithStyle extends Component {
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
-    flexDirection: 'vertical',
+    flexDirection: 'column',
     justifyContent: 'space-around',
     alignItems: 'center',
     height: '100%',
@@ -443,7 +443,7 @@ const DisplayAnImageWithStyle = () => {
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
-    flexDirection: 'vertical',
+    flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
     height: '100%',
@@ -483,7 +483,7 @@ class DisplayAnImageWithStyle extends Component {
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
-    flexDirection: 'vertical',
+    flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
     height: '100%',

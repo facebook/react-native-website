@@ -3,6 +3,8 @@ id: improvingux
 title: Improving User Experience
 ---
 
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+
 ## Configure text inputs
 
 Entering text on touch phone is a challenge - small screen, software keyboard. But based on what kind of data you need, you can make it easier by properly configuring the text inputs:
@@ -15,7 +17,10 @@ Entering text on touch phone is a challenge - small screen, software keyboard. B
 
 Check out [`TextInput` docs](textinput.md) for more configuration options.
 
-```SnackPlayer name=TextInput%20form%20example
+<Tabs groupId="language" defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
+<TabItem value="javascript">
+
+```SnackPlayer name=TextInput%20form%20example&ext=js
 import React, {useState, useRef} from 'react';
 import {
   Alert,
@@ -106,11 +111,111 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
+</TabItem>
+<TabItem value="typescript">
+
+```SnackPlayer name=TextInput%20form%20example&ext=tsx
+import React, {useState, useRef} from 'react';
+import {
+  Alert,
+  Text,
+  StatusBar,
+  TextInput,
+  View,
+  StyleSheet,
+} from 'react-native';
+
+const App = () => {
+  const emailInput = useRef<TextInput>(null);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+
+  const submit = () => {
+    Alert.alert(
+      `Welcome, ${name}! Confirmation email has been sent to ${email}`,
+    );
+  };
+
+  return (
+    <View style={styles.container}>
+      <StatusBar barStyle="light-content" />
+      <View style={styles.header}>
+        <Text style={styles.description}>
+          This demo shows how using available TextInput customizations can make
+          forms much easier to use. Try completing the form and notice that
+          different fields have specific optimizations and the return key
+          changes from focusing next input to submitting the form.
+        </Text>
+      </View>
+      <TextInput
+        style={styles.input}
+        value={name}
+        onChangeText={text => setName(text)}
+        placeholder="Full Name"
+        autoFocus={true}
+        autoCapitalize="words"
+        autoCorrect={true}
+        keyboardType="default"
+        returnKeyType="next"
+        onSubmitEditing={() => emailInput.current?.focus()}
+        blurOnSubmit={false}
+      />
+      <TextInput
+        style={styles.input}
+        value={email}
+        onChangeText={text => setEmail(text)}
+        ref={emailInput}
+        placeholder="email@example.com"
+        autoCapitalize="none"
+        autoCorrect={false}
+        keyboardType="email-address"
+        returnKeyType="send"
+        onSubmitEditing={submit}
+        blurOnSubmit={true}
+      />
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  header: {
+    paddingTop: 64,
+    padding: 20,
+    backgroundColor: '#282c34',
+  },
+  description: {
+    fontSize: 14,
+    color: 'white',
+  },
+  input: {
+    margin: 20,
+    marginBottom: 0,
+    height: 34,
+    paddingHorizontal: 10,
+    borderRadius: 4,
+    borderColor: '#ccc',
+    borderWidth: 1,
+    fontSize: 16,
+  },
+});
+
+export default App;
+```
+
+</TabItem>
+</Tabs>
+
 ## Manage layout when keyboard is visible
 
 Software keyboard takes almost half of the screen. If you have interactive elements that can get covered by the keyboard, make sure they are still accessible by using the [`KeyboardAvoidingView` component](keyboardavoidingview.md).
 
-```SnackPlayer name=KeyboardAvoidingView%20example
+<Tabs groupId="language" defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
+<TabItem value="javascript">
+
+```SnackPlayer name=KeyboardAvoidingView%20example&ext=js
 import React, {useState, useRef} from 'react';
 import {
   Alert,
@@ -203,6 +308,106 @@ const styles = StyleSheet.create({
 
 export default App;
 ```
+
+</TabItem>
+<TabItem value="typescript">
+
+```SnackPlayer name=KeyboardAvoidingView%20example&ext=tsx
+import React, {useState, useRef} from 'react';
+import {
+  Alert,
+  Text,
+  Button,
+  StatusBar,
+  TextInput,
+  KeyboardAvoidingView,
+  View,
+  StyleSheet,
+} from 'react-native';
+
+const App = () => {
+  const emailInput = useRef<TextInput>(null);
+  const [email, setEmail] = useState('');
+
+  const submit = () => {
+    emailInput.current?.blur();
+    Alert.alert(`Confirmation email has been sent to ${email}`);
+  };
+
+  return (
+    <View style={styles.container}>
+      <StatusBar barStyle="light-content" />
+      <View style={styles.header}>
+        <Text style={styles.description}>
+          This demo shows how to avoid covering important UI elements with the
+          software keyboard. Focus the email input below and notice that the
+          Sign Up button and the text adjusted positions to make sure they are
+          not hidden under the keyboard.
+        </Text>
+      </View>
+      <KeyboardAvoidingView behavior="padding" style={styles.form}>
+        <TextInput
+          style={styles.input}
+          value={email}
+          onChangeText={text => setEmail(text)}
+          ref={emailInput}
+          placeholder="email@example.com"
+          autoCapitalize="none"
+          autoCorrect={false}
+          keyboardType="email-address"
+          returnKeyType="send"
+          onSubmitEditing={submit}
+          blurOnSubmit={true}
+        />
+        <View>
+          <Button title="Sign Up" onPress={submit} />
+          <Text style={styles.legal}>Some important legal fine print here</Text>
+        </View>
+      </KeyboardAvoidingView>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  header: {
+    paddingTop: 64,
+    padding: 20,
+    backgroundColor: '#282c34',
+  },
+  description: {
+    fontSize: 14,
+    color: 'white',
+  },
+  input: {
+    margin: 20,
+    marginBottom: 0,
+    height: 34,
+    paddingHorizontal: 10,
+    borderRadius: 4,
+    borderColor: '#ccc',
+    borderWidth: 1,
+    fontSize: 16,
+  },
+  legal: {
+    margin: 10,
+    color: '#333',
+    fontSize: 12,
+    textAlign: 'center',
+  },
+  form: {
+    flex: 1,
+    justifyContent: 'space-between',
+  },
+});
+
+export default App;
+```
+
+</TabItem>
+</Tabs>
 
 ## Make tappable areas larger
 
