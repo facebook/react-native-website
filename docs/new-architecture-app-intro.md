@@ -17,7 +17,7 @@ React Native released the support for the New Architecture with the release `0.6
 
 This guide is written with the expectation that you’re using the **latest** React Native release. At the moment of writing, this is `0.71.0`.
 
-You can find instructions on how to upgrade in the page [upgrading to new versions](/docs/upgrading.md).
+You can find instructions on how to upgrade in the page [upgrading to new versions](/docs/upgrading).
 
 ## Use Hermes
 
