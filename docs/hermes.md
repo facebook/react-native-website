@@ -93,27 +93,17 @@ Hermes requires [Microsoft Visual C++ 2015 Redistributable](https://www.microsof
 
 ### Android
 
-Edit your `android/app/build.gradle` file and make the change illustrated below:
+Edit your `android/app/gradle.properties` file and make sure `hermesEnabled` is true:
 
 ```diff
-  project.ext.react = [
-      entryFile: "index.js",
--     enableHermes: false  // clean and rebuild if changing
-+     enableHermes: true  // clean and rebuild if changing
-  ]
-
-// ...
-
-if (enableHermes) {
--    def hermesPath = "../../node_modules/hermes-engine/android/";
--    debugImplementation files(hermesPath + "hermes-debug.aar")
--    releaseImplementation files(hermesPath + "hermes-release.aar")
-+    //noinspection GradleDynamicVersion
-+    implementation("com.facebook.react:hermes-engine:+") { // From node_modules
-+        exclude group:'com.facebook.fbjni'
-+    }
-} else {
+# Use this property to enable or disable the Hermes JS engine.
+# If set to false, you will be using JSC instead.
+hermesEnabled=true
 ```
+
+:::note
+This property was added in React Native 0.71. If you can't find it in your `gradle.properties` file, please refer to the documentation for the corresponding React Native version you're using.
+:::
 
 Also, if you're using ProGuard, you will need to add these rules in `proguard-rules.pro` :
 
@@ -133,10 +123,6 @@ That's it! You should now be able to develop and deploy your app as usual:
 ```shell
 $ npx react-native run-android
 ```
-
-:::note Note about Android App Bundles
-Android app bundles are supported from React Native 0.62 and up.
-:::
 
 ### iOS
 
