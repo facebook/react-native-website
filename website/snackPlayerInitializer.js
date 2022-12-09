@@ -74,7 +74,7 @@ export default (() => {
 
   return {
     onRouteDidUpdate({location}) {
-      // console.log('onRouteUpdate', {location});
+      // console.log('onRouteDidUpdate', {location});
 
       initSnackPlayers();
       setupTabPanelsMutationObservers();
