@@ -102,7 +102,7 @@ const SectionListBasics = () => {
         renderSectionHeader={({section}) => (
           <Text style={styles.sectionHeader}>{section.title}</Text>
         )}
-        keyExtractor={item => `basicListEntry-${item.title}`}
+        keyExtractor={item => `basicListEntry-${item}`}
       />
     </View>
   );

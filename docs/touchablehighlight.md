@@ -88,10 +88,9 @@ import React, {Component} from 'react';
 import {StyleSheet, Text, TouchableHighlight, View} from 'react-native';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {count: 0};
-  }
+  state = {
+    count: 0,
+  };
 
   onPress = () => {
     this.setState({

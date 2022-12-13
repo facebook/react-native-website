@@ -59,13 +59,10 @@ import React, {Component} from 'react';
 import {Text, StyleSheet} from 'react-native';
 
 class TextInANest extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      titleText: "Bird's Nest",
-      bodyText: 'This is not really a bird nest.',
-    };
-  }
+  state = {
+    titleText: "Bird's Nest",
+    bodyText: 'This is not really a bird nest.',
+  };
 
   onPressTitle = () => {
     this.setState({titleText: "Bird's Nest [pressed]"});

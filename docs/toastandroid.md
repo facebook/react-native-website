@@ -67,58 +67,6 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-### Imperative hack
-
-The ToastAndroid API is imperative, but there is a way to expose a declarative component from it as in this example:
-
-```SnackPlayer name=Advanced%20Toast%20Android%20API%20Example&supportedPlatforms=android
-import React, {useState, useEffect} from 'react';
-import {View, StyleSheet, ToastAndroid, Button, StatusBar} from 'react-native';
-
-const Toast = ({visible, message}) => {
-  if (visible) {
-    ToastAndroid.showWithGravityAndOffset(
-      message,
-      ToastAndroid.LONG,
-      ToastAndroid.BOTTOM,
-      25,
-      50,
-    );
-    return null;
-  }
-  return null;
-};
-
-const App = () => {
-  const [visibleToast, setVisibleToast] = useState(false);
-
-  useEffect(() => setVisibleToast(false), [visibleToast]);
-
-  const handleButtonPress = () => {
-    setVisibleToast(true);
-  };
-
-  return (
-    <View style={styles.container}>
-      <Toast visible={visibleToast} message="Example" />
-      <Button title="Toggle Toast" onPress={() => handleButtonPress()} />
-    </View>
-  );
-};
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    paddingTop: StatusBar.currentHeight,
-    backgroundColor: '#888888',
-    padding: 8,
-  },
-});
-
-export default App;
-```
-
 ---
 
 # Reference
