@@ -12,23 +12,24 @@ import React, {useState} from 'react';
 import {Button, Settings, StyleSheet, Text, View} from 'react-native';
 
 const App = () => {
-  const [data, setData] = useState(Settings.get('data'));
-
-  const storeData = inputData => {
-    Settings.set(inputData);
-    setData(Settings.get('data'));
-  };
+  const [data, setData] = useState(() => Settings.get('data'));
 
   return (
     <View style={styles.container}>
       <Text>Stored value:</Text>
       <Text style={styles.value}>{data}</Text>
       <Button
-        onPress={() => storeData({data: 'React'})}
+        onPress={() => {
+          Settings.set({data: 'React'});
+          setData(Settings.get('data'));
+        }}
         title="Store 'React'"
       />
       <Button
-        onPress={() => storeData({data: 'Native'})}
+        onPress={() => {
+          Settings.set({data: 'Native'});
+          setData(Settings.get('data'));
+        }}
         title="Store 'Native'"
       />
     </View>
