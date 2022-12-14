@@ -15,7 +15,7 @@ If you're integrating React Native into an existing project, please refer to [th
 
 ## Configuring the plugin
 
-By default, the plugin should just work **out of the box** with sensible defaults. You should refer to this guide and customize the behavior only if you need it.
+By default, the plugin will work **out of the box** with sensible defaults. You should refer to this guide and customize the behavior only if you need it.
 
 To configure the plugin, inside your `android/app/build.gradle` you'll find the following lines:
 
@@ -92,7 +92,7 @@ debuggableVariants = ["liteDebug", "prodDebug"]
 
 ### `nodeExecutableAndArgs`
 
-This is the list of node command and arguments that should be invoked for all the scripts. By default is just `[node]` but can be customized to add extra flags as follows:
+This is the list of node command and arguments that should be invoked for all the scripts. By default is `[node]` but can be customized to add extra flags as follows:
 
 ```groovy
 nodeExecutableAndArgs = ["node"]
@@ -100,7 +100,7 @@ nodeExecutableAndArgs = ["node"]
 
 ### `bundleCommand`
 
-This is the name of the `bundle` command to be invoked when creating the bundle for your app. That's useful if you're using [RAM Bundles](/docs/ram-bundles-inline-requires). By default is just `bundle` but can be customized to add extra flags as follows:
+This is the name of the `bundle` command to be invoked when creating the bundle for your app. That's useful if you're using [RAM Bundles](/docs/ram-bundles-inline-requires). By default is `bundle` but can be customized to add extra flags as follows:
 
 ```groovy
 bundleCommand = "ram-bundle"
@@ -144,7 +144,7 @@ The path to the `hermesc` command (the Hermes Compiler). React Native comes with
 
 ### `hermesFlags`
 
-The list of flags to pass to `hermesc`. By default is just `["-O", "-output-source-map"]`. You can customize it as follows
+The list of flags to pass to `hermesc`. By default is `["-O", "-output-source-map"]`. You can customize it as follows
 
 ```groovy
 hermesFlags = ["-O", "-output-source-map"]
