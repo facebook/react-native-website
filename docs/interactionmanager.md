@@ -65,7 +65,7 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
-const useFadeIn = duration = 5000 => {
+const useFadeIn = (duration = 5000) => {
   const [opacity] = useState(new Animated.Value(0));
 
   // Running the animation when the component is mounted
@@ -144,7 +144,7 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
-const useFadeIn = duration = 5000 => {
+const useFadeIn = (duration = 5000) => {
   const [opacity] = useState(new Animated.Value(0));
 
   // Running the animation when the component is mounted
@@ -234,7 +234,7 @@ const instructions = Platform.select({
 
 // You can create a custom interaction/animation and add
 // support for InteractionManager
-const useCustomInteraction = timeLocked = 2000 => {
+const useCustomInteraction = (timeLocked = 2000) => {
   useEffect(() => {
     const handle = InteractionManager.createInteractionHandle();
 
@@ -308,7 +308,7 @@ const instructions = Platform.select({
 
 // You can create a custom interaction/animation and add
 // support for InteractionManager
-const useCustomInteraction = timeLocked = 2000 => {
+const useCustomInteraction = (timeLocked = 2000) => {
   useEffect(() => {
     const handle = InteractionManager.createInteractionHandle();
 
