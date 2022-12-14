@@ -186,7 +186,7 @@ Inherits [View Props](view.md#props).
 
 Specifies the background color of the drawer. The default value is `white`. If you want to set the opacity of the drawer, use rgba. Example:
 
-```jsx
+```tsx
 return (
   <DrawerLayoutAndroid drawerBackgroundColor="rgba(0,0,0,0.5)" />
 );
@@ -311,7 +311,7 @@ Make the drawer take the entire screen and draw the background of the status bar
 
 ### `closeDrawer()`
 
-```jsx
+```tsx
 closeDrawer();
 ```
 
@@ -321,7 +321,7 @@ Closes the drawer.
 
 ### `openDrawer()`
 
-```jsx
+```tsx
 openDrawer();
 ```
 

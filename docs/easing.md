@@ -367,8 +367,8 @@ export default App;
 
 ### `step0()`
 
-```jsx
-static step0(n)
+```tsx
+static step0(n: number);
 ```
 
 A stepping function, returns 1 for any positive value of `n`.
@@ -377,8 +377,8 @@ A stepping function, returns 1 for any positive value of `n`.
 
 ### `step1()`
 
-```jsx
-static step1(n)
+```tsx
+static step1(n: number);
 ```
 
 A stepping function, returns 1 if `n` is greater than or equal to 1.
@@ -387,8 +387,8 @@ A stepping function, returns 1 if `n` is greater than or equal to 1.
 
 ### `linear()`
 
-```jsx
-static linear(t)
+```tsx
+static linear(t: number);
 ```
 
 A linear function, `f(t) = t`. Position correlates to elapsed time one to one.
@@ -399,8 +399,8 @@ http://cubic-bezier.com/#0,0,1,1
 
 ### `ease()`
 
-```jsx
-static ease(t)
+```tsx
+static ease(t: number);
 ```
 
 A basic inertial interaction, similar to an object slowly accelerating to speed.
@@ -411,8 +411,8 @@ http://cubic-bezier.com/#.42,0,1,1
 
 ### `quad()`
 
-```jsx
-static quad(t)
+```tsx
+static quad(t: number);
 ```
 
 A quadratic function, `f(t) = t * t`. Position equals the square of elapsed time.
@@ -423,8 +423,8 @@ http://easings.net/#easeInQuad
 
 ### `cubic()`
 
-```jsx
-static cubic(t)
+```tsx
+static cubic(t: number);
 ```
 
 A cubic function, `f(t) = t * t * t`. Position equals the cube of elapsed time.
@@ -435,8 +435,8 @@ http://easings.net/#easeInCubic
 
 ### `poly()`
 
-```jsx
-static poly(n)
+```tsx
+static poly(n: number);
 ```
 
 A power function. Position is equal to the Nth power of elapsed time.
@@ -447,8 +447,8 @@ n = 4: http://easings.net/#easeInQuart n = 5: http://easings.net/#easeInQuint
 
 ### `sin()`
 
-```jsx
-static sin(t)
+```tsx
+static sin(t: number);
 ```
 
 A sinusoidal function.
@@ -459,8 +459,8 @@ http://easings.net/#easeInSine
 
 ### `circle()`
 
-```jsx
-static circle(t)
+```tsx
+static circle(t: number);
 ```
 
 A circular function.
@@ -471,8 +471,8 @@ http://easings.net/#easeInCirc
 
 ### `exp()`
 
-```jsx
-static exp(t)
+```tsx
+static exp(t: number);
 ```
 
 An exponential function.
@@ -483,8 +483,8 @@ http://easings.net/#easeInExpo
 
 ### `elastic()`
 
-```jsx
-static elastic(bounciness)
+```tsx
+static elastic(bounciness: number);
 ```
 
 A basic elastic interaction, similar to a spring oscillating back and forth.
@@ -497,7 +497,7 @@ http://easings.net/#easeInElastic
 
 ### `back()`
 
-```jsx
+```tsx
 static back(s)
 ```
 
@@ -507,8 +507,8 @@ Use with `Animated.parallel()` to create a basic effect where the object animate
 
 ### `bounce()`
 
-```jsx
-static bounce(t)
+```tsx
+static bounce(t: number);
 ```
 
 Provides a basic bouncing effect.
@@ -519,8 +519,8 @@ http://easings.net/#easeInBounce
 
 ### `bezier()`
 
-```jsx
-static bezier(x1, y1, x2, y2)
+```tsx
+static bezier(x1: number, y1: number, x2: number, y2: number);
 ```
 
 Provides a cubic bezier curve, equivalent to CSS Transitions' `transition-timing-function`.
@@ -531,11 +531,9 @@ A useful tool to visualize cubic bezier curves can be found at http://cubic-bezi
 
 ### `in()`
 
-<!-- prettier-ignore-start -->
-```jsx
-static in(easing);
+```tsx
+static in(easing: number);
 ```
-<!-- prettier-ignore-end -->
 
 Runs an easing function forwards.
 
@@ -543,8 +541,8 @@ Runs an easing function forwards.
 
 ### `out()`
 
-```jsx
-static out(easing)
+```tsx
+static out(easing: number);
 ```
 
 Runs an easing function backwards.
@@ -553,8 +551,8 @@ Runs an easing function backwards.
 
 ### `inOut()`
 
-```jsx
-static inOut(easing)
+```tsx
+static inOut(easing: number);
 ```
 
 Makes any easing function symmetrical. The easing function will run forwards for half of the duration, then backwards for the rest of the duration.

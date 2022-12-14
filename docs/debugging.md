@@ -35,7 +35,7 @@ These notifications can be hidden using `LogBox.ignoreAllLogs()`. This is useful
 
 > Ignore logs as a last resort and create a task to fix any logs that are ignored.
 
-```jsx
+```tsx
 import { LogBox } from 'react-native';
 
 // Ignore log notification by message:

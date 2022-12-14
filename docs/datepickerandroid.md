@@ -3,7 +3,7 @@ id: datepickerandroid
 title: '🚧 DatePickerAndroid'
 ---
 
-> **Deprecated.** Use one of the [community packages](https://reactnative.directory/?search=datepicker) instead.
+> **Removed.** Use one of the [community packages](https://reactnative.directory/?search=datepicker) instead.
 
 Opens the standard Android date picker dialog.
 

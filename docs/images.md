@@ -7,7 +7,7 @@ title: Images
 
 React Native provides a unified way of managing images and other media assets in your Android and iOS apps. To add a static image to your app, place it somewhere in your source code tree and reference it like this:
 
-```jsx
+```tsx
 <Image source={require('./my-icon.png')} />
 ```
 
@@ -26,7 +26,7 @@ You can use the `@2x` and `@3x` suffixes to provide images for different screen 
 
 ...and `button.js` code contains:
 
-```jsx
+```tsx
 <Image source={require('./img/check.png')} />
 ```
 
@@ -46,7 +46,7 @@ Here are some benefits that you get:
 
 In order for this to work, the image name in `require` has to be known statically.
 
-```jsx
+```tsx
 // GOOD
 <Image source={require('./my-icon.png')} />;
 
@@ -63,7 +63,7 @@ var icon = this.props.active
 <Image source={icon} />;
 ```
 
-Note that image sources required this way include size (width, height) info for the Image. If you need to scale the image dynamically (i.e. via flex), you may need to manually set `{ width: undefined, height: undefined }` on the style attribute.
+Note that image sources required this way include size (width, height) info for the Image. If you need to scale the image dynamically (i.e. via flex), you may need to manually set `{width: undefined, height: undefined}` on the style attribute.
 
 ## Static Non-Image Resources
 
@@ -79,7 +79,7 @@ If you are building a hybrid app (some UIs in React Native, some UIs in platform
 
 For images included via Xcode asset catalogs or in the Android drawable folder, use the image name without the extension:
 
-```jsx
+```tsx
 <Image
   source={{ uri: 'app_icon' }}
   style={{ width: 40, height: 40 }}
@@ -88,7 +88,7 @@ For images included via Xcode asset catalogs or in the Android drawable folder, 
 
 For images in the Android assets folder, use the `asset:/` scheme:
 
-```jsx
+```tsx
 <Image
   source={{ uri: 'asset:/app_icon.png' }}
   style={{ width: 40, height: 40 }}
@@ -101,7 +101,7 @@ These approaches provide no safety checks. It's up to you to guarantee that thos
 
 Many of the images you will display in your app will not be available at compile time, or you will want to load some dynamically to keep the binary size down. Unlike with static resources, _you will need to manually specify the dimensions of your image_. It's highly recommended that you use https as well in order to satisfy [App Transport Security](publishing-to-app-store.md#1-enable-app-transport-security) requirements on iOS.
 
-```jsx
+```tsx
 // GOOD
 <Image source={{uri: 'https://reactjs.org/logo-og.png'}}
        style={{width: 400, height: 400}} />
@@ -114,7 +114,7 @@ Many of the images you will display in your app will not be available at compile
 
 If you would like to set such things as the HTTP-Verb, Headers or a Body along with the image request, you may do this by defining these properties on the source object:
 
-```jsx
+```tsx
 <Image
   source={{
     uri: 'https://reactjs.org/logo-og.png',
@@ -136,7 +136,7 @@ Sometimes, you might be getting encoded image data from a REST API call. You can
 This is recommended for very small and dynamic images only, like icons in a list from a DB.
 :::
 
-```jsx
+```tsx
 // include at least width and height!
 <Image
   style={{
@@ -159,7 +159,7 @@ In some cases you might only want to display an image if it is already in the lo
 - `force-cache`: The existing cached data will be used to satisfy the request, regardless of its age or expiration date. If there is no existing data in the cache corresponding the request, the data is loaded from the originating source.
 - `only-if-cached`: The existing cache data will be used to satisfy a request, regardless of its age or expiration date. If there is no existing data in the cache corresponding to a URL load request, no attempt is made to load the data from the originating source, and the load is considered to have failed.
 
-```jsx
+```tsx
 <Image
   source={{
     uri: 'https://reactjs.org/logo-og.png',
@@ -185,7 +185,7 @@ _In React Native_ this behavior is intentionally not implemented. It is more wor
 
 For example, the result of `require('./my-icon.png')` might be:
 
-```jsx
+```tsx
 {"__packager_asset":true,"uri":"my-icon.png","width":591,"height":573}
 ```
 
@@ -193,7 +193,7 @@ For example, the result of `require('./my-icon.png')` might be:
 
 In React Native, one interesting decision is that the `src` attribute is named `source` and doesn't take a string but an object with a `uri` attribute.
 
-```jsx
+```tsx
 <Image source={{ uri: 'something.jpg' }} />
 ```
 
@@ -207,7 +207,7 @@ A common feature request from developers familiar with the web is `background-im
 
 You might not want to use `<ImageBackground>` in some cases, since the implementation is basic. Refer to `<ImageBackground>`'s [documentation](imagebackground.md) for more insight, and create your own custom component when needed.
 
-```jsx
+```tsx
 return (
   <ImageBackground source={...} style={{width: '100%', height: '100%'}}>
     <Text>Inside</Text>

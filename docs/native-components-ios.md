@@ -57,20 +57,20 @@ Apple frameworks use two-letter prefixes, and React Native uses `RCT` as a prefi
 
 Then you need a little bit of JavaScript to make this a usable React component:
 
-```jsx title='MapView.js'
+```tsx title="MapView.tsx"
 import { requireNativeComponent } from 'react-native';
 
 // requireNativeComponent automatically resolves 'RNTMap' to 'RNTMapManager'
 module.exports = requireNativeComponent('RNTMap');
 ```
 
-```jsx title='MyApp.js'
+```tsx title="MyApp.tsx"
 import MapView from './MapView.js';
 
 ...
 
 render() {
-  return <MapView style={{ flex: 1 }} />;
+  return <MapView style={{flex: 1}} />;
 }
 ```
 
@@ -80,7 +80,7 @@ Make sure to use `RNTMap` here. We want to require the manager here, which will 
 When rendering, don't forget to stretch the view, otherwise you'll be staring at a blank screen.
 :::
 
-```jsx
+```tsx
   render() {
     return <MapView style={{flex: 1}} />;
   }
@@ -100,13 +100,13 @@ Note that we explicitly specify the type as `BOOL` - React Native uses `RCTConve
 
 Now to actually disable zooming, we set the property in JS:
 
-```jsx title='MyApp.js'
+```tsx title="MyApp.tsx"
 <MapView zoomEnabled={false} style={{ flex: 1 }} />
 ```
 
 To document the properties (and which values they accept) of our MapView component we'll add a wrapper component and document the interface with React `PropTypes`:
 
-```jsx title='MapView.js'
+```tsx title="MapView.tsx"
 import PropTypes from 'prop-types';
 import React from 'react';
 import { requireNativeComponent } from 'react-native';
@@ -188,7 +188,7 @@ These conversion functions are designed to safely process any JSON that the JS m
 
 To finish up support for the `region` prop, we need to document it in `propTypes`:
 
-```jsx title='MapView.js'
+```tsx title="MapView.tsx"
 MapView.propTypes = {
   /**
    * A Boolean value that determines whether the user may use pinch
@@ -219,7 +219,7 @@ MapView.propTypes = {
 };
 ```
 
-```jsx title='MyApp.js'
+```tsx title="MyApp.tsx"
 render() {
   var region = {
     latitude: 37.48,
@@ -231,7 +231,7 @@ render() {
     <MapView
       region={region}
       zoomEnabled={false}
-      style={{ flex: 1 }}
+      style={{flex: 1}}
     />
   );
 }
@@ -319,9 +319,9 @@ RCT_CUSTOM_VIEW_PROPERTY(region, MKCoordinateRegion, MKMapView)
 
 In the delegate method `-mapView:regionDidChangeAnimated:` the event handler block is called on the corresponding view with the region data. Calling the `onRegionChange` event handler block results in calling the same callback prop in JavaScript. This callback is invoked with the raw event, which we typically process in the wrapper component to simplify the API:
 
-```jsx title='MapView.js'
+```tsx title="MapView.tsx"
 class MapView extends React.Component {
-  _onRegionChange = (event) => {
+  _onRegionChange = event => {
     if (!this.props.onRegionChange) {
       return;
     }
@@ -347,7 +347,7 @@ MapView.propTypes = {
 };
 ```
 
-```jsx title='MyApp.js'
+```tsx title="MyApp.tsx"
 class MyApp extends React.Component {
   onRegionChange(event) {
     // Do stuff with event.region.latitude, etc.
@@ -375,7 +375,7 @@ class MyApp extends React.Component {
 
 A React Native view can have more than one child view in the view tree eg.
 
-```jsx
+```tsx
 <View>
   <MyNativeView />
   <MyNativeView />
@@ -387,7 +387,7 @@ In this example, the class `MyNativeView` is a wrapper for a `NativeComponent` a
 
 When the user interacts with the component, like clicking the button, the `backgroundColor` of `MyNativeView` changes. In this case `UIManager` would not know which `MyNativeView` should be handled and which one should change `backgroundColor`. Below you will find a solution to this problem:
 
-```jsx
+```tsx
 <View>
   <MyNativeView ref={this.myNativeReference} />
   <MyNativeView ref={this.myNativeReference2} />
@@ -401,7 +401,7 @@ When the user interacts with the component, like clicking the button, the `backg
 
 Now the above component has a reference to a particular `MyNativeView` which allows us to use a specific instance of `MyNativeView`. Now the button can control which `MyNativeView` should change its `backgroundColor`. In this example let's assume that `callNativeMethod` changes `backgroundColor`.
 
-```jsx title='MyNativeView.ios.js'
+```tsx title="MyNativeView.ios.tsx"
 class MyNativeView extends React.Component {
   callNativeMethod = () => {
     UIManager.dispatchViewManagerCommand(
@@ -448,8 +448,8 @@ Here the `callNativeMethod` is defined in the `RNCMyNativeViewManager.m` file an
 
 Since all our native react views are subclasses of `UIView`, most style attributes will work like you would expect out of the box. Some components will want a default style, however, for example `UIDatePicker` which is a fixed size. This default style is important for the layout algorithm to work as expected, but we also want to be able to override the default style when using the component. `DatePickerIOS` does this by wrapping the native component in an extra view, which has flexible styling, and using a fixed style (which is generated with constants passed in from native) on the inner native component:
 
-```jsx title='DatePickerIOS.ios.js'
-import { UIManager } from 'react-native';
+```tsx title="DatePickerIOS.ios.tsx"
+import {UIManager} from 'react-native';
 var RCTDatePickerIOSConsts = UIManager.RCTDatePicker.Constants;
 ...
   render: function() {

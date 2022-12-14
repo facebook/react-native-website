@@ -182,7 +182,7 @@ The final step is to register the ViewManager to the application, this happens i
 
 The very final step is to create the JavaScript module that defines the interface layer between Java/Kotlin and JavaScript for the users of your new view. It is recommended for you to document the component interface in this module (e.g. using TypeScript, Flow, or plain old comments).
 
-```jsx title="ImageView.js"
+```tsx title="ImageView.tsx"
 import { requireNativeComponent } from 'react-native';
 
 /**
@@ -282,7 +282,7 @@ public class ReactImageManager extends SimpleViewManager<MyCustomView> {
 
 This callback is invoked with the raw event, which we typically process in the wrapper component to make a simpler API:
 
-```jsx title="MyCustomView.js"
+```tsx title="MyCustomView.tsx"
 class MyCustomView extends React.Component {
   constructor(props) {
     super(props);
@@ -815,7 +815,7 @@ public class MyPackage implements ReactPackage {
 
 I. Start with custom View manager:
 
-```jsx title="MyViewManager.jsx"
+```tsx title="MyViewManager.jsx"
 import { requireNativeComponent } from 'react-native';
 
 export const MyViewManager =
@@ -824,7 +824,7 @@ export const MyViewManager =
 
 II. Then implement custom View calling the `create` method:
 
-```jsx title="MyView.jsx"
+```tsx title="MyView.jsx"
 import React, { useEffect, useRef } from 'react';
 import {
   PixelRatio,

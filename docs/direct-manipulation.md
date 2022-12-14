@@ -22,8 +22,8 @@ Before you use it, try to solve your problem with `setState` and [`shouldCompone
 
 [TouchableOpacity](https://github.com/facebook/react-native/blob/master/Libraries/Components/Touchable/TouchableOpacity.js) uses `setNativeProps` internally to update the opacity of its child component:
 
-```jsx
-const viewRef = useRef();
+```tsx
+const viewRef = useRef<View>();
 const setOpacityTo = useCallback((value) => {
   // Redacted: animation related code
   viewRef.current.setNativeProps({
@@ -34,7 +34,7 @@ const setOpacityTo = useCallback((value) => {
 
 This allows us to write the following code and know that the child will have its opacity updated in response to taps, without the child having any knowledge of that fact or requiring any changes to its implementation:
 
-```jsx
+```tsx
 <TouchableOpacity onPress={handlePress}>
   <View>
     <Text>Press me!</Text>
@@ -44,7 +44,7 @@ This allows us to write the following code and know that the child will have its
 
 Let's imagine that `setNativeProps` was not available. One way that we might implement it with that constraint is to store the opacity value in the state, then update that value whenever `onPress` is fired:
 
-```jsx
+```tsx
 const [buttonOpacity, setButtonOpacity] = useState(1);
 return (
   <TouchableOpacity

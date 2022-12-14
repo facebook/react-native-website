@@ -7,7 +7,7 @@ A basic button component that should render nicely on any platform. Supports a m
 
 If this button doesn't look right for your app, you can build your own button using [Pressable](pressable). For inspiration, look at the [source code for the Button component](https://github.com/facebook/react-native/blob/main/Libraries/Components/Button.js).
 
-```jsx
+```tsx
 <Button
   onPress={onPressLearnMore}
   title="Learn More"
@@ -120,9 +120,9 @@ export default App;
 
 Handler to be called when the user taps the button.
 
-| Type                                        |
-| ------------------------------------------- |
-| ({ nativeEvent: [PressEvent](pressevent) }) |
+| Type                                      |
+| ----------------------------------------- |
+| ({nativeEvent: [PressEvent](pressevent)}) |
 
 ---
 
