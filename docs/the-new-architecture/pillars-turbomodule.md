@@ -67,8 +67,8 @@ There are two requirements the file containing this specification must meet:
 
 ```typescript title="NativeCalculator.js"
 // @flow
-import type { TurboModule } from 'react-native/Libraries/TurboModule/RCTExport';
-import { TurboModuleRegistry } from 'react-native';
+import type {TurboModule} from 'react-native/Libraries/TurboModule/RCTExport';
+import {TurboModuleRegistry} from 'react-native';
 
 export interface Spec extends TurboModule {
   add(a: number, b: number): Promise<number>;

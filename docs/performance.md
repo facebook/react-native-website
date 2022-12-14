@@ -91,7 +91,7 @@ On iOS, each time you adjust the width or height of an Image component it is re-
 
 Sometimes, if we do an action in the same frame that we are adjusting the opacity or highlight of a component that is responding to a touch, we won't see that effect until after the `onPress` function has returned. If `onPress` does a `setState` that results in a lot of work and a few frames dropped, this may occur. A solution to this is to wrap any action inside of your `onPress` handler in `requestAnimationFrame`:
 
-```jsx
+```tsx
 handleOnPress() {
   requestAnimationFrame(() => {
     this.doExpensiveAction();

@@ -127,24 +127,30 @@ export default App;
 
 ### `show()`
 
-```jsx
-static show(message, duration)
+```tsx
+static show(message: string, duration: number);
 ```
 
 ---
 
 ### `showWithGravity()`
 
-```jsx
-static showWithGravity(message, duration, gravity)
+```tsx
+static showWithGravity(message: string, duration: number, gravity: number);
 ```
 
 ---
 
 ### `showWithGravityAndOffset()`
 
-```jsx
-static showWithGravityAndOffset(message, duration, gravity, xOffset, yOffset)
+```tsx
+static showWithGravityAndOffset(
+  message: string,
+  duration: number,
+  gravity: number,
+  xOffset: number,
+  yOffset: number,
+);
 ```
 
 ## Properties
@@ -153,8 +159,8 @@ static showWithGravityAndOffset(message, duration, gravity, xOffset, yOffset)
 
 Indicates the duration on the screen.
 
-```jsx
-ToastAndroid.SHORT;
+```tsx
+static SHORT: number;
 ```
 
 ---
@@ -163,7 +169,7 @@ ToastAndroid.SHORT;
 
 Indicates the duration on the screen.
 
-```jsx
+```tsx
 ToastAndroid.LONG;
 ```
 
@@ -173,8 +179,8 @@ ToastAndroid.LONG;
 
 Indicates the position on the screen.
 
-```jsx
-ToastAndroid.TOP;
+```tsx
+static TOP: number;
 ```
 
 ---
@@ -183,8 +189,8 @@ ToastAndroid.TOP;
 
 Indicates the position on the screen.
 
-```jsx
-ToastAndroid.BOTTOM;
+```tsx
+static BOTTOM: number;
 ```
 
 ---
@@ -193,6 +199,6 @@ ToastAndroid.BOTTOM;
 
 Indicates the position on the screen.
 
-```jsx
-ToastAndroid.CENTER;
+```tsx
+static CENTER: number;
 ```

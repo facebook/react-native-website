@@ -104,8 +104,8 @@ The default accessor functions assume this is an array of objects with shape `{k
 
 ### <div class="label required basic">Required</div> **`getItem`**
 
-```jsx
-(data: any, index: number) => object;
+```tsx
+(data: any, index: number) => any;
 ```
 
 A generic accessor for extracting an item from any sort of data blob.
@@ -118,7 +118,7 @@ A generic accessor for extracting an item from any sort of data blob.
 
 ### <div class="label required basic">Required</div> **`getItemCount`**
 
-```jsx
+```tsx
 (data: any) => number;
 ```
 
@@ -132,7 +132,7 @@ Determines how many items are in the data blob.
 
 ### <div class="label required basic">Required</div> **`renderItem`**
 
-```jsx
+```tsx
 (info: any) => ?React.Element<any>
 ```
 
@@ -256,7 +256,7 @@ A marker property for telling the list to re-render (since it implements `PureCo
 
 ### `getItemLayout`
 
-```jsx
+```tsx
 (
     data: any,
     index: number,
@@ -321,8 +321,8 @@ A unique identifier for this list. If there are multiple VirtualizedLists at the
 
 ### `keyExtractor`
 
-```jsx
-(item: object, index: number) => string;
+```tsx
+(item: any, index: number) => string;
 ```
 
 Used to extract a unique key for a given item at the specified index. Key is used for caching and as the react key to track item re-ordering. The default extractor checks `item.key`, then `item.id`, and then falls back to using the index, like React does.
@@ -345,8 +345,8 @@ The maximum number of items to render in each incremental render batch. The more
 
 ### `onEndReached`
 
-```jsx
-(info: {distanceFromEnd: number}) => void
+```tsx
+(info: {distanceFromEnd: number}) => void;
 ```
 
 Called once when the scroll position gets within `onEndReachedThreshold` of the rendered content.
@@ -369,8 +369,8 @@ How far from the end (in units of visible length of the list) the bottom edge of
 
 ### `onRefresh`
 
-```jsx
-() => void
+```tsx
+() => void;
 ```
 
 If provided, a standard `RefreshControl` will be added for "Pull to Refresh" functionality. Make sure to also set the `refreshing` prop correctly.
@@ -383,12 +383,12 @@ If provided, a standard `RefreshControl` will be added for "Pull to Refresh" fun
 
 ### `onScrollToIndexFailed`
 
-```jsx
+```tsx
 (info: {
-    index: number,
-    highestMeasuredFrameIndex: number,
-    averageItemLength: number,
-  }) => void
+  index: number,
+  highestMeasuredFrameIndex: number,
+  averageItemLength: number,
+}) => void;
 ```
 
 Used to handle failures when scrolling to an index that has not been measured yet. Recommended action is to either compute your own offset and `scrollTo` it, or scroll as far as possible and then try again after more items have been rendered.
@@ -403,9 +403,9 @@ Used to handle failures when scrolling to an index that has not been measured ye
 
 Called when the viewability of rows changes, as defined by the `viewabilityConfig` prop.
 
-| Type                                                                                                               |
-| ------------------------------------------------------------------------------------------------------------------ |
-| (callback: { changed: array of [ViewToken](viewtoken)s, viewableItems: array of [ViewToken](viewtoken)s }) => void |
+| Type                                                                                                             |
+| ---------------------------------------------------------------------------------------------------------------- |
+| (callback: {changed: array of [ViewToken](viewtoken)s, viewableItems: array of [ViewToken](viewtoken)s}) => void |
 
 ---
 
@@ -461,7 +461,7 @@ This may improve scroll performance for large lists.
 
 ### `renderScrollComponent`
 
-```jsx
+```tsx
 (props: object) => element;
 ```
 
@@ -515,7 +515,7 @@ Determines the maximum number of items rendered outside of the visible area, in 
 
 ### `flashScrollIndicators()`
 
-```jsx
+```tsx
 flashScrollIndicators();
 ```
 
@@ -523,43 +523,37 @@ flashScrollIndicators();
 
 ### `getScrollableNode()`
 
-```jsx
-getScrollableNode () => ?number;
+```tsx
+getScrollableNode(): any;
 ```
 
 ---
 
 ### `getScrollRef()`
 
-```jsx
-getScrollRef () => | ?React.ElementRef<typeof ScrollView>
-    | ?React.ElementRef<typeof View>;
+```tsx
+getScrollRef():
+  | React.ElementRef<typeof ScrollView>
+  | React.ElementRef<typeof View>
+  | null;
 ```
 
 ---
 
 ### `getScrollResponder()`
 
-```jsx
-getScrollResponder () => ?ScrollResponderType;
+```tsx
+getScrollResponder () => ScrollResponderMixin | null;
 ```
 
 Provides a handle to the underlying scroll responder. Note that `this._scrollRef` might not be a `ScrollView`, so we need to check that it responds to `getScrollResponder` before calling it.
 
 ---
 
-### `hasMore()`
-
-```jsx
-hasMore () => boolean;
-```
-
----
-
 ### `scrollToEnd()`
 
-```jsx
-scrollToEnd(([options]: { animated: boolean }));
+```tsx
+scrollToEnd(arams?: {animated?: boolean});
 ```
 
 Scrolls to the end of the content. May be janky without `getItemLayout` prop.
@@ -578,14 +572,19 @@ Valid `params` keys are:
 
 ### `scrollToIndex()`
 
-```jsx
-scrollToIndex((params: object));
+```tsx
+scrollToIndex(params: {
+  index: number;
+  animated?: boolean;
+  viewOffset?: number;
+  viewPosition?: number;
+});
 ```
 
 Valid `params` consist of:
 
-- 'animated' (boolean). Optional.
 - 'index' (number). Required.
+- 'animated' (boolean). Optional.
 - 'viewOffset' (number). Optional.
 - 'viewPosition' (number). Optional.
 
@@ -593,22 +592,31 @@ Valid `params` consist of:
 
 ### `scrollToItem()`
 
-```jsx
-scrollToItem((params: object));
+```tsx
+scrollToItem(params: {
+  item: ItemT;
+  animated?: boolean;
+  viewOffset?: number;
+  viewPosition?: number;
+);
 ```
 
 Valid `params` consist of:
 
-- 'animated' (boolean). Optional.
 - 'item' (Item). Required.
+- 'animated' (boolean). Optional.
+- 'viewOffset' (number). Optional.
 - 'viewPosition' (number). Optional.
 
 ---
 
 ### `scrollToOffset()`
 
-```jsx
-scrollToOffset((params: object));
+```tsx
+scrollToOffset(arams: {
+  offset: number;
+  animated?: boolean;
+});
 ```
 
 Scroll to a specific content pixel offset in the list.
@@ -616,19 +624,3 @@ Scroll to a specific content pixel offset in the list.
 Param `offset` expects the offset to scroll to. In case of `horizontal` is true, the offset is the x-value, in any other case the offset is the y-value.
 
 Param `animated` (`true` by default) defines whether the list should do an animation while scrolling.
-
----
-
-### `recordInteraction()`
-
-```jsx
-recordInteraction();
-```
-
----
-
-### `setNativeProps()`
-
-```jsx
-setNativeProps((props: Object));
-```

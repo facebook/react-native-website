@@ -5,7 +5,7 @@ title: Pressable
 
 Pressable is a Core Component wrapper that can detect various stages of press interactions on any of its defined children.
 
-```jsx
+```tsx
 <Pressable onPress={onPressFunction}>
   <Text>I'm pressable!</Text>
 </Pressable>
@@ -165,41 +165,41 @@ Sets additional distance outside of element in which a press can be detected.
 
 Called if the time after `onPressIn` lasts longer than 500 milliseconds. This time period can be customized with [`delayLongPress`](#delaylongpress).
 
-| Type                                                |
-| --------------------------------------------------- |
-| ({ nativeEvent: [PressEvent](pressevent) }) => void |
+| Type                                              |
+| ------------------------------------------------- |
+| ({nativeEvent: [PressEvent](pressevent)}) => void |
 
 ### `onPress`
 
 Called after `onPressOut`.
 
-| Type                                                |
-| --------------------------------------------------- |
-| ({ nativeEvent: [PressEvent](pressevent) }) => void |
+| Type                                              |
+| ------------------------------------------------- |
+| ({nativeEvent: [PressEvent](pressevent)}) => void |
 
 ### `onPressIn`
 
 Called immediately when a touch is engaged, before `onPressOut` and `onPress`.
 
-| Type                                                |
-| --------------------------------------------------- |
-| ({ nativeEvent: [PressEvent](pressevent) }) => void |
+| Type                                              |
+| ------------------------------------------------- |
+| ({nativeEvent: [PressEvent](pressevent)}) => void |
 
 ### `onPressOut`
 
 Called when a touch is released.
 
-| Type                                                |
-| --------------------------------------------------- |
-| ({ nativeEvent: [PressEvent](pressevent) }) => void |
+| Type                                              |
+| ------------------------------------------------- |
+| ({nativeEvent: [PressEvent](pressevent)}) => void |
 
 ### `pressRetentionOffset`
 
 Additional distance outside of this view in which a touch is considered a press before `onPressOut` is triggered.
 
-| Type                   | Default                                        |
-| ---------------------- | ---------------------------------------------- |
-| [Rect](rect) or number | `{ bottom: 30, left: 20, right: 20, top: 20 }` |
+| Type                   | Default                                      |
+| ---------------------- | -------------------------------------------- |
+| [Rect](rect) or number | `{bottom: 30, left: 20, right: 20, top: 20}` |
 
 ### `style`
 

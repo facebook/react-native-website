@@ -9,7 +9,7 @@ title: ViewToken Object Type
 
 ```js
 {
-  item: { key: "key-12" },
+  item: {key: "key-12"},
   key: "key-12",
   index: 11,
   isViewable: true

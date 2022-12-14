@@ -314,9 +314,9 @@ Rendered at the very beginning of the list. Can be a React Component (e.g. `Some
 
 Called once when the scroll position gets within `onEndReachedThreshold` of the rendered content.
 
-| Type                                        |
-| ------------------------------------------- |
-| (info: { distanceFromEnd: number }) => void |
+| Type                                      |
+| ----------------------------------------- |
+| (info: {distanceFromEnd: number}) => void |
 
 ---
 
@@ -344,9 +344,9 @@ If provided, a standard RefreshControl will be added for "Pull to Refresh" funct
 
 Called when the viewability of rows changes, as defined by the `viewabilityConfig` prop.
 
-| Type                                                                                                               |
-| ------------------------------------------------------------------------------------------------------------------ |
-| (callback: { changed: array of [ViewToken](viewtoken)s, viewableItems: array of [ViewToken](viewtoken)s }) => void |
+| Type                                                                                                             |
+| ---------------------------------------------------------------------------------------------------------------- |
+| (callback: {changed: array of [ViewToken](viewtoken)s, viewableItems: array of [ViewToken](viewtoken)s}) => void |
 
 ---
 
@@ -376,9 +376,9 @@ This may improve scroll performance for large lists.
 
 Rendered at the bottom of each section.
 
-| Type                                                                   |
-| ---------------------------------------------------------------------- |
-| (info: { section: [Section](sectionlist#section) }) => element, `null` |
+| Type                                                                 |
+| -------------------------------------------------------------------- |
+| (info: {section: [Section](sectionlist#section)}) => element, `null` |
 
 ---
 
@@ -386,9 +386,9 @@ Rendered at the bottom of each section.
 
 Rendered at the top of each section. These stick to the top of the `ScrollView` by default on iOS. See `stickySectionHeadersEnabled`.
 
-| Type                                                                   |
-| ---------------------------------------------------------------------- |
-| (info: { section: [Section](sectionlist#section) }) => element, `null` |
+| Type                                                                 |
+| -------------------------------------------------------------------- |
+| (info: {section: [Section](sectionlist#section)}) => element, `null` |
 
 ---
 
@@ -414,7 +414,7 @@ Makes section headers stick to the top of the screen until the next one pushes i
 
 ### `flashScrollIndicators()` <div class="label ios">iOS</div>
 
-```jsx
+```tsx
 flashScrollIndicators();
 ```
 
@@ -424,7 +424,7 @@ Displays the scroll indicators momentarily.
 
 ### `recordInteraction()`
 
-```jsx
+```tsx
 recordInteraction();
 ```
 
@@ -434,8 +434,8 @@ Tells the list an interaction has occurred, which should trigger viewability cal
 
 ### `scrollToLocation()`
 
-```jsx
-scrollToLocation(params);
+```tsx
+scrollToLocation(params: SectionListScrollParams);
 ```
 
 Scrolls to the item at the specified `sectionIndex` and `itemIndex` (within the section) positioned in the viewable area such that `viewPosition` 0 places it at the top (and may be covered by a sticky header), 1 at the bottom, and 0.5 centered in the middle.

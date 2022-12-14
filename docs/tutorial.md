@@ -110,10 +110,10 @@ In a React component, the props are the variables that we pass from a parent com
 
 <div className="two-columns">
 
-```jsx
+```tsx
 // ReactJS Counter Example using Hooks!
 
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 
 
 
@@ -141,7 +141,7 @@ const App = () => {
 
 ```
 
-```jsx
+```tsx
 // React Native Counter Example using Hooks!
 
 import React, { useState } from 'react';

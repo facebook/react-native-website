@@ -132,7 +132,7 @@ export default BoldAndBeautiful;
 
 Behind the scenes, React Native converts this to a flat `NSAttributedString` or `SpannableString` that contains the following information:
 
-```jsx
+```
 "I am bold and red"
 0-9: bold
 9-17: bold, red
@@ -142,7 +142,7 @@ Behind the scenes, React Native converts this to a flat `NSAttributedString` or 
 
 The `<Text>` element is unique relative to layout: everything inside is no longer using the Flexbox layout but using text layout. This means that elements inside of a `<Text>` are no longer rectangles, but wrap when they see the end of the line.
 
-```jsx
+```tsx
 <Text>
   <Text>First part and </Text>
   <Text>second part</Text>
@@ -185,7 +185,7 @@ All elements in the document will inherit this font unless they or one of their 
 
 In React Native, we are more strict about it: **you must wrap all the text nodes inside of a `<Text>` component**. You cannot have a text node directly under a `<View>`.
 
-```jsx
+```tsx
 // BAD: will raise exception, can't have a text node as child of a <View>
 <View>
   Some text
@@ -201,7 +201,7 @@ In React Native, we are more strict about it: **you must wrap all the text nodes
 
 You also lose the ability to set up a default font for an entire subtree. Meanwhile, `fontFamily` only accepts a single font name, which is different from `font-family` in CSS. The recommended way to use consistent fonts and sizes across your application is to create a component `MyAppText` that includes them and use this component across your app. You can also use this component to make more specific components like `MyAppHeaderText` for other kinds of text.
 
-```jsx
+```tsx
 <View>
   <MyAppText>
     Text styled with the default font for the entire application
@@ -212,7 +212,7 @@ You also lose the ability to set up a default font for an entire subtree. Meanwh
 
 Assuming that `MyAppText` is a component that only renders out its children into a `Text` component with styling, then `MyAppHeaderText` can be defined as follows:
 
-```jsx
+```tsx
 class MyAppHeaderText extends Component {
   render() {
     return (
@@ -230,7 +230,7 @@ Composing `MyAppText` in this way ensures that we get the styles from a top-leve
 
 React Native still has the concept of style inheritance, but limited to text subtrees. In this case, the second part will be both bold and red.
 
-```jsx
+```tsx
 <Text style={{ fontWeight: 'bold' }}>
   I am bold
   <Text style={{ color: 'red' }}>and red</Text>
@@ -532,9 +532,9 @@ This prop is commonly used with `ellipsizeMode`.
 
 Invoked on mount and on layout changes.
 
-| Type                                                  |
-| ----------------------------------------------------- |
-| ({ nativeEvent: [LayoutEvent](layoutevent) }) => void |
+| Type                                                |
+| --------------------------------------------------- |
+| ({nativeEvent: [LayoutEvent](layoutevent)}) => void |
 
 ---
 
@@ -542,9 +542,9 @@ Invoked on mount and on layout changes.
 
 This function is called on long press.
 
-| Type                                                |
-| --------------------------------------------------- |
-| ({ nativeEvent: [PressEvent](pressevent) }) => void |
+| Type                                              |
+| ------------------------------------------------- |
+| ({nativeEvent: [PressEvent](pressevent)}) => void |
 
 ---
 
@@ -552,9 +552,9 @@ This function is called on long press.
 
 Does this view want to "claim" touch responsiveness? This is called for every touch move on the `View` when it is not the responder.
 
-| Type                                                   |
-| ------------------------------------------------------ |
-| ({ nativeEvent: [PressEvent](pressevent) }) => boolean |
+| Type                                                 |
+| ---------------------------------------------------- |
+| ({nativeEvent: [PressEvent](pressevent)}) => boolean |
 
 ---
 
@@ -562,9 +562,9 @@ Does this view want to "claim" touch responsiveness? This is called for every to
 
 This function is called on press.
 
-| Type                                                |
-| --------------------------------------------------- |
-| ({ nativeEvent: [PressEvent](pressevent) }) => void |
+| Type                                              |
+| ------------------------------------------------- |
+| ({nativeEvent: [PressEvent](pressevent)}) => void |
 
 ---
 
@@ -572,9 +572,9 @@ This function is called on press.
 
 The View is now responding to touch events. This is the time to highlight and show the user what is happening.
 
-| Type                                                |
-| --------------------------------------------------- |
-| ({ nativeEvent: [PressEvent](pressevent) }) => void |
+| Type                                              |
+| ------------------------------------------------- |
+| ({nativeEvent: [PressEvent](pressevent)}) => void |
 
 ---
 
@@ -582,9 +582,9 @@ The View is now responding to touch events. This is the time to highlight and sh
 
 The user is moving their finger.
 
-| Type                                                |
-| --------------------------------------------------- |
-| ({ nativeEvent: [PressEvent](pressevent) }) => void |
+| Type                                              |
+| ------------------------------------------------- |
+| ({nativeEvent: [PressEvent](pressevent)}) => void |
 
 ---
 
@@ -592,9 +592,9 @@ The user is moving their finger.
 
 Fired at the end of the touch.
 
-| Type                                                |
-| --------------------------------------------------- |
-| ({ nativeEvent: [PressEvent](pressevent) }) => void |
+| Type                                              |
+| ------------------------------------------------- |
+| ({nativeEvent: [PressEvent](pressevent)}) => void |
 
 ---
 
@@ -602,9 +602,9 @@ Fired at the end of the touch.
 
 The responder has been taken from the `View`. Might be taken by other views after a call to `onResponderTerminationRequest`, or might be taken by the OS without asking (e.g., happens with control center/ notification center on iOS)
 
-| Type                                                |
-| --------------------------------------------------- |
-| ({ nativeEvent: [PressEvent](pressevent) }) => void |
+| Type                                              |
+| ------------------------------------------------- |
+| ({nativeEvent: [PressEvent](pressevent)}) => void |
 
 ---
 
@@ -612,9 +612,9 @@ The responder has been taken from the `View`. Might be taken by other views afte
 
 Some other `View` wants to become a responder and is asking this `View` to release its responder. Returning `true` allows its release.
 
-| Type                                                   |
-| ------------------------------------------------------ |
-| ({ nativeEvent: [PressEvent](pressevent) }) => boolean |
+| Type                                                 |
+| ---------------------------------------------------- |
+| ({nativeEvent: [PressEvent](pressevent)}) => boolean |
 
 ---
 
@@ -622,9 +622,9 @@ Some other `View` wants to become a responder and is asking this `View` to relea
 
 If a parent `View` wants to prevent a child `View` from becoming a responder on a touch start, it should have this handler which returns `true`.
 
-| Type                                                   |
-| ------------------------------------------------------ |
-| ({ nativeEvent: [PressEvent](pressevent) }) => boolean |
+| Type                                                 |
+| ---------------------------------------------------- |
+| ({nativeEvent: [PressEvent](pressevent)}) => boolean |
 
 ---
 

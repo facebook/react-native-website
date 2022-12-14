@@ -491,9 +491,9 @@ Specifies text alignment. On Android, the value 'justify' is only supported on O
 
 ### `textShadowOffset`
 
-| Type                                        |
-| ------------------------------------------- |
-| object: { width?: number, height?: number } |
+| Type                                      |
+| ----------------------------------------- |
+| object: {width?: number, height?: number} |
 
 ---
 
