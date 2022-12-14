@@ -3,7 +3,7 @@ id: segmentedcontrolios
 title: '🚧 SegmentedControlIOS'
 ---
 
-> **Deprecated.** Use one of the [community packages](https://reactnative.directory/?search=segmentedcontrol) instead.
+> **Removed from React Native.** Use one of the [community packages](https://reactnative.directory/?search=segmentedcontrol) instead.
 
 Uses `SegmentedControlIOS` to render a UISegmentedControl iOS.
 
@@ -13,7 +13,7 @@ The selected index can be changed on the fly by assigning the selectedIndex prop
 
 ## Example
 
-```SnackPlayer name=SegmentedControlIOS%20Example&supportedPlatforms=ios
+```SnackPlayer name=SegmentedControlIOS%20Example&supportedPlatforms=ios&ext=js
 import React, {useState} from 'react';
 import {SegmentedControlIOS, StyleSheet, Text, View} from 'react-native';
 
