@@ -209,9 +209,9 @@ All the requirements for the New Architecture have been encapsulated in the [`in
 
 ### Android: `build.gradle` and `ReactPackage` class
 
-To prepare Android to run **Codegen** you have to create two files:
+To prepare Android to run **Codegen** you have to:
 
-1. The `build.gradle` with the **Codegen** configuration
+1. Update the `build.gradle` file.
 2. A Java/Kotlin class that implements the `ReactPackage` interface
 
 At the end of these steps, the `android` folder should look like this:
