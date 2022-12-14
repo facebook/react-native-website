@@ -19,7 +19,7 @@ Turbo Native Modules are the next iteration on Native Modules that provide a few
 - Lazy loading of modules, allowing for faster app startup
 - The use of JSI, a JavaScript interface for native code, allows for more efficient communication between native and JavaScript code than the bridge
 
-This guide will show you how to create a basic Turbo Native Module compatible with React Native 0.70.0.
+This guide will show you how to create a basic Turbo Native Module compatible with the latest version of React Native.
 
 :::caution
 Turbo Native Modules only work with the **New Architecture** enabled.
@@ -207,13 +207,12 @@ The first part of the file prepares some variables that we use throughout the fi
 
 All the requirements for the New Architecture have been encapsulated in the [`install_modules_dependencies`](https://github.com/facebook/react-native/blob/82e9c6ad611f1fb816de056ff031716f8cb24b4e/scripts/react_native_pods.rb#L145). It takes care of installing the proper dependencies based on which architecture is currently enabled. It also automatically installs the `React-Core` dependency in the old architecture.
 
-### Android: `build.gradle`, `AndroidManifest.xml`, a `ReactPackage` class
+### Android: `build.gradle` and `ReactPackage` class
 
-To prepare Android to run **Codegen** you have to create three files:
+To prepare Android to run **Codegen** you have to:
 
-1. The `build.gradle` with the **Codegen** configuration
-1. The `AndroidManifest.xml` file
-1. A Java/Kotlin class that implements the `ReactPackage` interface
+1. Update the `build.gradle` file.
+2. A Java/Kotlin class that implements the `ReactPackage` interface
 
 At the end of these steps, the `android` folder should look like this:
 
@@ -222,7 +221,6 @@ android
 ├── build.gradle
 └── src
     └── main
-        ├── AndroidManifest.xml
         └── java
             └── com
                 └── rtncalculator
@@ -243,7 +241,7 @@ buildscript {
     gradlePluginPortal()
   }
   dependencies {
-    classpath("com.android.tools.build:gradle:7.1.1")
+    classpath("com.android.tools.build:gradle:7.3.1")
   }
 }
 
@@ -251,38 +249,23 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.facebook.react'
 
 android {
-  compileSdkVersion safeExtGet('compileSdkVersion', 31)
+  compileSdkVersion safeExtGet('compileSdkVersion', 33)
+  namespace "com.rtncalculator"
 }
 
 repositories {
-  maven {
-    // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
-    url "$projectDir/../node_modules/react-native/android"
-  }
   mavenCentral()
   google()
 }
 
 dependencies {
-  implementation 'com.facebook.react:react-native:+'
+  implementation 'com.facebook.react:react-native'
 }
 ```
 
-#### The `AndroidManifest.xml`
-
-Second, create an `android/src/main` folder. Inside that folder, create a `AndroidManifest.xml` file, with the following code:
-
-```xml title="AndroidManifest.xml"
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.rtncalculator">
-</manifest>
-```
-
-This is a small manifest file that defines the package for your module.
-
 #### The `ReactPackage` class
 
-Finally, you need a class that extends the `TurboReactPackage` interface. To run the **Codegen** process, you don't have to completely implement the package class: an empty implementation is enough for the app to pick up the module as a proper React Native dependency and to try and generate the scaffolding code.
+Then, you need a class that extends the `TurboReactPackage` interface. To run the **Codegen** process, you don't have to completely implement the package class: an empty implementation is enough for the app to pick up the module as a proper React Native dependency and to try and generate the scaffolding code.
 
 Create an `android/src/main/java/com/rtncalculator` folder and, inside that folder, create a `CalculatorPackage.java` file.
 
@@ -536,7 +519,6 @@ android
 ├── build.gradle
 └── src
     └── main
-        ├── AndroidManifest.xml
         └── java
             └── com
                 └── rtncalculator
@@ -723,7 +705,6 @@ TurboModulesGuide
     │   ├── build.gradle
     │   └── src
     │       └── main
-    │           ├── AndroidManifest.xml
     │           └── java
     │               └── com
     │                   └── rtncalculator
