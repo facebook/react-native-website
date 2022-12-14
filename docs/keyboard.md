@@ -218,7 +218,7 @@ export default Example;
 ### `addListener()`
 
 ```tsx
-static   addListener: (
+static addListener: (
   eventType: KeyboardEventName,
   listener: KeyboardEventListener,
 ) => EmitterSubscription;
