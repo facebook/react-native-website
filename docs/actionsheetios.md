@@ -65,7 +65,7 @@ export default App;
 static showActionSheetWithOptions: (
   options: ActionSheetIOSOptions,
   callback: (buttonIndex: number) => void,
-)
+);
 ```
 
 Display an iOS action sheet. The `options` object must contain one or more of:

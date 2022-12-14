@@ -305,7 +305,7 @@ When the given value is a ValueXY instead of a Value, each config option may be 
 ### `decay()`
 
 ```tsx
-static decay(value, config): CompositeAnimation
+static decay(value, config): CompositeAnimation;
 ```
 
 Animates a value from an initial velocity to zero based on a decay coefficient.
@@ -322,7 +322,7 @@ Config is an object that may have the following options:
 ### `timing()`
 
 ```tsx
-static timing(value, config): CompositeAnimation
+static timing(value, config): CompositeAnimation;
 ```
 
 Animates a value along a timed easing curve. The [`Easing`](easing) module has tons of predefined curves, or you can use your own function.
@@ -340,7 +340,7 @@ Config is an object that may have the following options:
 ### `spring()`
 
 ```tsx
-static spring(value, config): CompositeAnimation
+static spring(value, config): CompositeAnimation;
 ```
 
 Animates a value according to an analytical spring model based on [damped harmonic oscillation](https://en.wikipedia.org/wiki/Harmonic_oscillator#Damped_harmonic_oscillator). Tracks velocity state to create fluid motions as the `toValue` updates, and can be chained together.
@@ -377,7 +377,7 @@ Other configuration options are as follows:
 ### `add()`
 
 ```tsx
-static add(a: Animated, b: Animated): AnimatedAddition
+static add(a: Animated, b: Animated): AnimatedAddition;
 ```
 
 Creates a new Animated value composed from two Animated values added together.
@@ -387,7 +387,7 @@ Creates a new Animated value composed from two Animated values added together.
 ### `subtract()`
 
 ```tsx
-static subtract(a: Animated, b: Animated): AnimatedSubtraction
+static subtract(a: Animated, b: Animated): AnimatedSubtraction;
 ```
 
 Creates a new Animated value composed by subtracting the second Animated value from the first Animated value.
@@ -397,7 +397,7 @@ Creates a new Animated value composed by subtracting the second Animated value f
 ### `divide()`
 
 ```tsx
-static divide(a: Animated, b: Animated): AnimatedDivision
+static divide(a: Animated, b: Animated): AnimatedDivision;
 ```
 
 Creates a new Animated value composed by dividing the first Animated value by the second Animated value.
@@ -407,7 +407,7 @@ Creates a new Animated value composed by dividing the first Animated value by th
 ### `multiply()`
 
 ```tsx
-static multiply(a: Animated, b: Animated): AnimatedMultiplication
+static multiply(a: Animated, b: Animated): AnimatedMultiplication;
 ```
 
 Creates a new Animated value composed from two Animated values multiplied together.
@@ -417,7 +417,7 @@ Creates a new Animated value composed from two Animated values multiplied togeth
 ### `modulo()`
 
 ```tsx
-static modulo(a: Animated, modulus: number): AnimatedModulo
+static modulo(a: Animated, modulus: number): AnimatedModulo;
 ```
 
 Creates a new Animated value that is the (non-negative) modulo of the provided Animated value
@@ -427,7 +427,7 @@ Creates a new Animated value that is the (non-negative) modulo of the provided A
 ### `diffClamp()`
 
 ```tsx
-static diffClamp(a: Animated, min: number, max: number): AnimatedDiffClamp
+static diffClamp(a: Animated, min: number, max: number): AnimatedDiffClamp;
 ```
 
 Create a new Animated value that is limited between 2 values. It uses the difference between the last value so even if the value is far from the bounds it will start changing when the value starts getting closer again. (`value = clamp(value + diff, min, max)`).
@@ -439,7 +439,7 @@ This is useful with scroll events, for example, to show the navbar when scrollin
 ### `delay()`
 
 ```tsx
-static delay(time: number): CompositeAnimation
+static delay(time: number): CompositeAnimation;
 ```
 
 Starts an animation after the given delay.
@@ -449,7 +449,7 @@ Starts an animation after the given delay.
 ### `sequence()`
 
 ```tsx
-static sequence(animations: CompositeAnimation[]): CompositeAnimation
+static sequence(animations: CompositeAnimation[]): CompositeAnimation;
 ```
 
 Starts an array of animations in order, waiting for each to complete before starting the next. If the current running animation is stopped, no following animations will be started.
@@ -462,7 +462,7 @@ Starts an array of animations in order, waiting for each to complete before star
 static parallel(
   animations: CompositeAnimation[],
   config?: ParallelConfig
-): CompositeAnimation
+): CompositeAnimation;
 ```
 
 Starts an array of animations all at the same time. By default, if one of the animations is stopped, they will all be stopped. You can override this with the `stopTogether` flag.
@@ -475,7 +475,7 @@ Starts an array of animations all at the same time. By default, if one of the an
 static stagger(
   time: number,
   animations: CompositeAnimation[]
-): CompositeAnimation
+): CompositeAnimation;
 ```
 
 Array of animations may run in parallel (overlap), but are started in sequence with successive delays. Nice for doing trailing effects.
@@ -488,7 +488,7 @@ Array of animations may run in parallel (overlap), but are started in sequence w
 static loop(
   animation: CompositeAnimation[],
   config?: LoopAnimationConfig
-): CompositeAnimation
+): CompositeAnimation;
 ```
 
 Loops a given animation continuously, so that each time it reaches the end, it resets and begins again from the start. Will loop without blocking the JS thread if the child animation is set to `useNativeDriver: true`. In addition, loops can prevent `VirtualizedList`-based components from rendering more rows while the animation is running. You can pass `isInteraction: false` in the child animation config to fix this.
@@ -505,7 +505,7 @@ Config is an object that may have the following options:
 static event(
   argMapping: Mapping[],
   config?: EventConfig
-): (...args: any[]) => void
+): (...args: any[]) => void;
 ```
 
 Takes an array of mappings and extracts values from each arg accordingly, then calls `setValue` on the mapped outputs. e.g.
@@ -540,7 +540,7 @@ Config is an object that may have the following options:
 ### `forkEvent()`
 
 ```jsx
-static forkEvent(event: AnimatedEvent, listener: Function): AnimatedEvent
+static forkEvent(event: AnimatedEvent, listener: Function): AnimatedEvent;
 ```
 
 Advanced imperative API for snooping on animated events that are passed in through props. It permits to add a new javascript listener to an existing `AnimatedEvent`. If `animatedEvent` is a javascript listener, it will merge the 2 listeners into a single one, and if `animatedEvent` is null/undefined, it will assign the javascript listener directly. Use values directly where possible.
@@ -550,7 +550,7 @@ Advanced imperative API for snooping on animated events that are passed in throu
 ### `unforkEvent()`
 
 ```jsx
-static unforkEvent(event: AnimatedEvent, listener: Function)
+static unforkEvent(event: AnimatedEvent, listener: Function);
 ```
 
 ---
@@ -558,7 +558,7 @@ static unforkEvent(event: AnimatedEvent, listener: Function)
 ### `start()`
 
 ```tsx
-static start(callback?: (result: {finished: boolean}) => void)
+static start(callback?: (result: {finished: boolean}) => void);
 ```
 
 Animations are started by calling start() on your animation. start() takes a completion callback that will be called when the animation is done or when the animation is done because stop() was called on it before it could finish.
@@ -582,7 +582,7 @@ Animated.timing({}).start(({ finished }) => {
 ### `stop()`
 
 ```tsx
-static stop()
+static stop();
 ```
 
 Stops any running animation.
@@ -592,7 +592,7 @@ Stops any running animation.
 ### `reset()`
 
 ```tsx
-static reset()
+static reset();
 ```
 
 Stops any running animation and resets the value to its original.

@@ -263,7 +263,7 @@ Add an event handler. Supported events:
 ### `get()`
 
 ```tsx
-static get(dim)
+static get(dim: 'window' | 'screen'): ScaledSize;
 ```
 
 Initial dimensions are set before `runApplication` is called so they should be available before any other require's are run, but may be updated later.
