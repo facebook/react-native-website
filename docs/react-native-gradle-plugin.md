@@ -3,21 +3,21 @@ id: react-native-gradle-plugin
 title: React Native Gradle Plugin
 ---
 
-This guide describes how to configure the **React Native Gradle Plugin** (often referred as RNGP), when building your Android application that uses React Native.
+This guide describes how to configure the **React Native Gradle Plugin** (often referred as RNGP), when building your React Native application for Android.
 
 ## Using the plugin
 
 The React Native Gradle Plugin is distributed as a separate NPM package which is installed automatically with `react-native`.
 
-The plugin is **already configured** for new projects that are created using `npx react-native init`, you don't need to do any extra steps to install it.
+The plugin is **already configured** for new projects created using `npx react-native init`. You don't need to do any extra steps to install it if you created your app with this command.
 
-If you're integrating React Native into an existing project, please refer to [the corresponding page](/docs/next/integration-with-existing-apps#configuring-gradle) that contains specific instructions on how to install the plugin.
+If you're integrating React Native into an existing project, please refer to [the corresponding page](/docs/next/integration-with-existing-apps#configuring-gradle): it contains specific instructions on how to install the plugin.
 
 ## Configuring the plugin
 
 By default, the plugin will work **out of the box** with sensible defaults. You should refer to this guide and customize the behavior only if you need it.
 
-To configure the plugin, inside your `android/app/build.gradle` you'll find the following lines:
+To configure the plugin you can modify a the `react` block, inside your `android/app/build.gradle`:
 
 ```groovy
 apply plugin: "com.facebook.react"
@@ -55,7 +55,7 @@ reactNativeDir = file("../node_modules/react-native")
 ### `codegenDir`
 
 This is the folder where the `react-native-codegen` package lives. Default is `../node_modules/react-native-codegen`.
-If you're in a monorepo or using a different package manager, you can use adjust `codegenDir` to your setup.
+If you're in a monorepo or using a different package manager, you can adjust `codegenDir` to your setup.
 
 You can customize it as follows:
 
@@ -68,7 +68,7 @@ reactNativeDir = file("../node_modules/@react-native/codegen")
 This is the entrypoint file for the React Native CLI. Default is `../node_modules/react-native/cli.js`.
 The entrypoint file is needed as the plugin needs to invoke the CLI for bundling and creating your app.
 
-If you're in a monorepo or using a different package manager, you can use adjust `cliFile` to your setup.
+If you're in a monorepo or using a different package manager, you can adjust `cliFile` to your setup.
 You can customize it as follows:
 
 ```groovy
@@ -77,7 +77,7 @@ cliFile = file("../node_modules/react-native/cli.js")
 
 ### `debuggableVariants`
 
-This is the list of variant that are debuggable (see [using variants](#using-variants) for more context on variants).
+This is the list of variants that are debuggable (see [using variants](#using-variants) for more context on variants).
 
 By default the plugin is considering as `debuggableVariants` only `debug`, while `release` is not. If you have other
 variants (like `staging`, `lite`, etc.) you'll need to adjust this accordingly.
@@ -140,7 +140,7 @@ extraPackagerArgs = []
 
 ### `hermesCommand`
 
-The path to the `hermesc` command (the Hermes Compiler). React Native comes with a version of the Hermes compiler bundled it with, so you generally won't be needing to customize this, by default the plugin will use the correct compiler for your system.
+The path to the `hermesc` command (the Hermes Compiler). React Native comes with a version of the Hermes compiler bundled with it, so you generally won't be needing to customize this. The plugin will use the correct compiler for your system by default.
 
 ### `hermesFlags`
 
@@ -169,11 +169,11 @@ react {
 }
 ```
 
-This is necessary as for `debuggableVariants`, the plugin will skip the JS bundling, so you'll need Metro to run them. So if you list `fullStaging` in the `debuggableVariants`, you won't be able to publish it to a store as it will be missing the bundle.
+This is necessary because the plugin will skip the JS bundling for all the `debuggableVariants`: you'll need Metro to run them. For example, if you list `fullStaging` in the `debuggableVariants`, you won't be able to publish it to a store as it will be missing the bundle.
 
 ## What is the plugin doing under the hood?
 
-The React Native Gradle Plugin is responsible of configuring your Application build so that you can ship React Native applications to production.
+The React Native Gradle Plugin is responsible for configuring your Application build to ship React Native applications to production.
 The plugin is also used inside 3rd party libraries, to run the [Codegen](/docs/the-new-architecture/pillars-codegen) used for the New Architecture.
 
 Here is a summary of the plugin responsibilities:
