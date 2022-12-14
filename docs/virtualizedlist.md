@@ -553,7 +553,7 @@ Provides a handle to the underlying scroll responder. Note that `this._scrollRef
 ### `scrollToEnd()`
 
 ```tsx
-scrollToEnd(arams?: {animated?: boolean});
+scrollToEnd(params?: {animated?: boolean});
 ```
 
 Scrolls to the end of the content. May be janky without `getItemLayout` prop.
