@@ -1,3 +1,21 @@
+diff --git a/node_modules/react-native/Libraries/StyleSheet/StyleSheet.d.ts b/node_modules/react-native/Libraries/StyleSheet/StyleSheet.d.ts
+index 95ad0dd..b332509 100644
+--- a/node_modules/react-native/Libraries/StyleSheet/StyleSheet.d.ts
++++ b/node_modules/react-native/Libraries/StyleSheet/StyleSheet.d.ts
+@@ -87,10 +87,10 @@ export namespace StyleSheet {
+    * an array, saving allocations and maintaining reference equality for
+    * PureComponent checks.
+    */
+-  export function compose<T>(
++  export function compose<T, U>(
+     style1: StyleProp<T> | Array<StyleProp<T>>,
+-    style2: StyleProp<T> | Array<StyleProp<T>>,
+-  ): StyleProp<T>;
++    style2: StyleProp<U> | Array<StyleProp<U>>,
++  ): StyleProp<T & U>;
+ 
+   /**
+    * WARNING: EXPERIMENTAL. Breaking changes will probably happen a lot and will
 diff --git a/node_modules/react-native/types/public/ReactNativeTypes.d.ts b/node_modules/react-native/types/public/ReactNativeTypes.d.ts
 index 38e00e1..3acd235 100644
 --- a/node_modules/react-native/types/public/ReactNativeTypes.d.ts

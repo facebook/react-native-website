@@ -194,7 +194,7 @@ const App = () => (
     <View style={styles.box1}>
       <Text style={styles.text}>1</Text>
     </View>
-    <View style={styles.box2}>
+    <View style={[styles.box2, StyleSheet.absoluteFill]}>
       <Text style={styles.text}>2</Text>
     </View>
     <View style={styles.box3}>
@@ -216,7 +216,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'red',
   },
   box2: {
-    ...StyleSheet.absoluteFill,
     width: 100,
     height: 100,
     backgroundColor: 'blue',
@@ -275,7 +274,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'red',
   },
   box2: {
-    ...StyleSheet.absoluteFill,
+    ...StyleSheet.absoluteFillObject,
     top: 120,
     left: 50,
     width: 100,
@@ -334,9 +333,3 @@ export default App;
 This constant will always be a round number of pixels (so a line defined by it can look crisp) and will try to match the standard width of a thin line on the underlying platform. However, you should not rely on it being a constant size, because on different platforms and screen densities its value may be calculated differently.
 
 A line with hairline width may not be visible if your simulator is downscaled.
-
----
-
-## `absoluteFill` vs. `absoluteFillObject`
-
-Currently, there is no difference between using `absoluteFill` vs. `absoluteFillObject`.
