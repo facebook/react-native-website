@@ -137,7 +137,8 @@
         "items": [
           "headless-js-android",
           "signed-apk-android",
-          "communication-android"
+          "communication-android",
+          "react-native-gradle-plugin"
         ]
       },
       {
