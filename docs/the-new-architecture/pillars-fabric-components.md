@@ -17,7 +17,7 @@ A Fabric Native Component is a Native Component rendered on the screen using the
 
 A Fabric Native Component is created starting from a **JavaScript specification**. Then [**Codegen**](./pillars-codegen) creates some C++ scaffolding code to connect the component-specific logic (for example, accessing some native platform capability) to the rest of the React Native infrastructure. The C++ code is the same for all the platforms. Once the component is properly connected with the scaffolding code, it is ready to be imported and used by an app.
 
-The following section guides you through the creation of a Fabric Native Component, step-by-step, targeting React Native 0.71.0.
+The following section guides you through the creation of a Fabric Native Component, step-by-step, targeting the latest version of React Native.
 
 :::caution
 Fabric Native Components only works with the **New Architecture** enabled.
@@ -220,7 +220,7 @@ All the requirements for the New Architecture have been encapsulated in the [`in
 To prepare Android to run **Codegen** you have to create two files:
 
 1. The `build.gradle` with the **Codegen** configuration
-2. A Java/Kotlin class that implements the `ReactPackage` interface.
+2. Create a Java/Kotlin class that implements the `ReactPackage` interface.
 
 At the end of these steps, the `android` folder should look like this:
 

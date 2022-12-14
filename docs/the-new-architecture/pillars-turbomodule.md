@@ -19,7 +19,7 @@ Turbo Native Modules are the next iteration on Native Modules that provide a few
 - Lazy loading of modules, allowing for faster app startup
 - The use of JSI, a JavaScript interface for native code, allows for more efficient communication between native and JavaScript code than the bridge
 
-This guide will show you how to create a basic Turbo Native Module compatible with React Native 0.71.0.
+This guide will show you how to create a basic Turbo Native Module compatible with the latest version of React Native.
 
 :::caution
 Turbo Native Modules only work with the **New Architecture** enabled.
