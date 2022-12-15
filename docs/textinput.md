@@ -547,9 +547,9 @@ Callback that is called when the text input is blurred.
 
 Callback that is called when the text input's text changes.
 
-| Type                                                     |
-| -------------------------------------------------------- |
-| (`{ nativeEvent: { eventCount, target, text} }`) => void |
+| Type                                                  |
+| ----------------------------------------------------- |
+| (`{nativeEvent: {eventCount, target, text}}`) => void |
 
 ---
 
@@ -569,9 +569,9 @@ Callback that is called when the text input's content size changes.
 
 Only called for multiline text inputs.
 
-| Type                                                            |
-| --------------------------------------------------------------- |
-| (`{ nativeEvent: { contentSize: { width, height } } }`) => void |
+| Type                                                       |
+| ---------------------------------------------------------- |
+| (`{nativeEvent: {contentSize: {width, height} }}`) => void |
 
 ---
 
@@ -589,9 +589,9 @@ Callback that is called when text input ends.
 
 Callback that is called when a touch is engaged.
 
-| Type                                                |
-| --------------------------------------------------- |
-| ({ nativeEvent: [PressEvent](pressevent) }) => void |
+| Type                                              |
+| ------------------------------------------------- |
+| ({nativeEvent: [PressEvent](pressevent)}) => void |
 
 ---
 
@@ -599,9 +599,9 @@ Callback that is called when a touch is engaged.
 
 Callback that is called when a touch is released.
 
-| Type                                                |
-| --------------------------------------------------- |
-| ({ nativeEvent: [PressEvent](pressevent) }) => void |
+| Type                                              |
+| ------------------------------------------------- |
+| ({nativeEvent: [PressEvent](pressevent)}) => void |
 
 ---
 
@@ -609,9 +609,9 @@ Callback that is called when a touch is released.
 
 Callback that is called when the text input is focused.
 
-| Type                                                  |
-| ----------------------------------------------------- |
-| ({ nativeEvent: [LayoutEvent](layoutevent) }) => void |
+| Type                                                |
+| --------------------------------------------------- |
+| ({nativeEvent: [LayoutEvent](layoutevent)}) => void |
 
 ---
 
@@ -619,9 +619,9 @@ Callback that is called when the text input is focused.
 
 Callback that is called when a key is pressed. This will be called with object where `keyValue` is `'Enter'` or `'Backspace'` for respective keys and the typed-in character otherwise including `' '` for space. Fires before `onChange` callbacks. Note: on Android only the inputs from soft keyboard are handled, not the hardware keyboard inputs.
 
-| Type                                           |
-| ---------------------------------------------- |
-| (`{ nativeEvent: { key: keyValue } }`) => void |
+| Type                                        |
+| ------------------------------------------- |
+| (`{nativeEvent: {key: keyValue} }`) => void |
 
 ---
 
@@ -629,9 +629,9 @@ Callback that is called when a key is pressed. This will be called with object w
 
 Invoked on mount and on layout changes.
 
-| Type                                                  |
-| ----------------------------------------------------- |
-| ({ nativeEvent: [LayoutEvent](layoutevent) }) => void |
+| Type                                                |
+| --------------------------------------------------- |
+| ({nativeEvent: [LayoutEvent](layoutevent)}) => void |
 
 ---
 
@@ -639,9 +639,9 @@ Invoked on mount and on layout changes.
 
 Invoked on content scroll. May also contain other properties from `ScrollEvent` but on Android `contentSize` is not provided for performance reasons.
 
-| Type                                                     |
-| -------------------------------------------------------- |
-| (`{ nativeEvent: { contentOffset: { x, y } } }`) => void |
+| Type                                                |
+| --------------------------------------------------- |
+| (`{nativeEvent: {contentOffset: {x, y} }}`) => void |
 
 ---
 
@@ -649,9 +649,9 @@ Invoked on content scroll. May also contain other properties from `ScrollEvent` 
 
 Callback that is called when the text input selection is changed.
 
-| Type                                                       |
-| ---------------------------------------------------------- |
-| (`{ nativeEvent: { selection: { start, end } } }`) => void |
+| Type                                                  |
+| ----------------------------------------------------- |
+| (`{nativeEvent: {selection: {start, end} }}`) => void |
 
 ---
 
@@ -659,9 +659,9 @@ Callback that is called when the text input selection is changed.
 
 Callback that is called when the text input's submit button is pressed.
 
-| Type                                                     |
-| -------------------------------------------------------- |
-| (`{ nativeEvent: { text, eventCount, target }}`) => void |
+| Type                                                  |
+| ----------------------------------------------------- |
+| (`{nativeEvent: {text, eventCount, target}}`) => void |
 
 Note that on iOS this method isn't called when using `keyboardType="phone-pad"`.
 
@@ -976,7 +976,7 @@ Set line break strategy on iOS 14+. Possible values are `none`, `standard`, `han
 
 ### `.focus()`
 
-```jsx
+```tsx
 focus();
 ```
 
@@ -984,7 +984,7 @@ Makes the native input request focus.
 
 ### `.blur()`
 
-```jsx
+```tsx
 blur();
 ```
 
@@ -992,7 +992,7 @@ Makes the native input lose focus.
 
 ### `clear()`
 
-```jsx
+```tsx
 clear();
 ```
 
@@ -1002,8 +1002,8 @@ Removes all text from the `TextInput`.
 
 ### `isFocused()`
 
-```jsx
-isFocused();
+```tsx
+isFocused(): boolean;
 ```
 
 Returns `true` if the input is currently focused; `false` otherwise.

@@ -51,8 +51,8 @@ Code quality tips:
 
 ### `compose()`
 
-```jsx
-static compose(style1: object, style2: object): object | array<object>
+```tsx
+static compose(style1: Object, style2: Object): Object | Object[];
 ```
 
 Combines two styles such that `style2` will override any styles in `style1`. If either style is falsy, the other one is returned without allocating an array, saving allocations and maintaining reference equality for PureComponent checks.
@@ -100,8 +100,8 @@ export default App;
 
 ### `create()`
 
-```jsx
-static create(obj: object): object
+```tsx
+static create(styles: Object): Object;
 ```
 
 Creates a StyleSheet style reference from the given object.
@@ -110,8 +110,8 @@ Creates a StyleSheet style reference from the given object.
 
 ### `flatten()`
 
-```jsx
-static flatten(style: array<object>): object
+```tsx
+static flatten(style: Object[]): Object;
 ```
 
 Flattens an array of style objects, into one aggregated style object. Alternatively, this method can be used to lookup IDs, returned by `StyleSheet.register`.
@@ -171,8 +171,11 @@ This method internally uses `StyleSheetRegistry.getStyleByID(style)` to resolve 
 
 > **WARNING: EXPERIMENTAL.** Breaking changes will probably happen a lot and will not be reliably announced. The whole thing might be deleted, who knows? Use at your own risk.
 
-```jsx
-static setStyleAttributePreprocessor(property: string, process: (propValue: any) => any)
+```tsx
+static setStyleAttributePreprocessor(
+  property: string,
+  process: (propValue: any) => any,
+);
 ```
 
 Sets a function to use to pre-process a style property value. This is used internally to process color and transform values. You should not use this unless you really know what you are doing and have exhausted other options.

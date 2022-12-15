@@ -930,14 +930,14 @@ Android configuration requires to enable the **New Architecture**.
 Finally, you can read the Component in your JavaScript application.
 To do so, you have to:
 
-1. Import the Component in the js file that uses it. So, if you want to use it in the `App.js`, you need to add this line:
+1. Import the Component in the js file that uses it. So, if you want to use it in the `App.tsx`, you need to add this line:
 
-   ```js title="App.js"
+   ```tsx title="App.tsx"
    import RTNCenteredText from 'rtn-centered-text/js/RTNCenteredTextNativeComponent';
    ```
 
 2. Then, you need to use it in another React Native component. The syntax is the same as for any other component:
-   ```js title="App.js"
+   ```tsx title="App.tsx"
    // ... other code
    const App: () => Node = () => {
      // ... other App code ...

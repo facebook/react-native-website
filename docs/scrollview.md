@@ -373,9 +373,9 @@ Caveat 1: Reordering elements in the scrollview with this enabled will probably 
 
 Caveat 2: This uses `contentOffset` and `frame.origin` in native code to compute visibility. Occlusion, transforms, and other complexity won't be taken into account as to whether content is "visible" or not.
 
-| Type                                                                     |
-| ------------------------------------------------------------------------ |
-| object: { minIndexForVisible: number, autoscrollToTopThreshold: number } |
+| Type                                                                   |
+| ---------------------------------------------------------------------- |
+| object: {minIndexForVisible: number, autoscrollToTopThreshold: number} |
 
 ---
 
@@ -737,7 +737,7 @@ The current scale of the scroll view content.
 
 ### `flashScrollIndicators()`
 
-```jsx
+```tsx
 flashScrollIndicators();
 ```
 
@@ -747,9 +747,9 @@ Displays the scroll indicators momentarily.
 
 ### `scrollTo()`
 
-```jsx
+```tsx
 scrollTo(
-  options?: { x?: number, y?: number, animated?: boolean } | number,
+  options?: {x?: number, y?: number, animated?: boolean} | number,
   deprecatedX?: number,
 	deprecatedAnimated?: boolean,
 );
@@ -759,7 +759,7 @@ Scrolls to a given x, y offset, either immediately, with a smooth animation.
 
 **Example:**
 
-`scrollTo({ x: 0, y: 0, animated: true })`
+`scrollTo({x: 0, y: 0, animated: true})`
 
 > Note: The weird function signature is due to the fact that, for historical reasons, the function also accepts separate arguments as an alternative to the options object. This is deprecated due to ambiguity (y before x), and SHOULD NOT BE USED.
 
@@ -767,10 +767,10 @@ Scrolls to a given x, y offset, either immediately, with a smooth animation.
 
 ### `scrollToEnd()`
 
-```jsx
-scrollToEnd(([options]: {animated: boolean}));
+```tsx
+scrollToEnd(options?: {animated?: boolean});
 ```
 
 If this is a vertical ScrollView scrolls to the bottom. If this is a horizontal ScrollView scrolls to the right.
 
-Use `scrollToEnd({ animated: true })` for smooth animated scrolling, `scrollToEnd({ animated: false })` for immediate scrolling. If no options are passed, `animated` defaults to `true`.
+Use `scrollToEnd({animated: true})` for smooth animated scrolling, `scrollToEnd({animated: false})` for immediate scrolling. If no options are passed, `animated` defaults to `true`.

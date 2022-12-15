@@ -170,34 +170,18 @@ export default App;
 
 ## Methods
 
-### `installReactHook()`
-
-```jsx
-static installReactHook(useFiber)
-```
-
----
-
-### `setEnabled()`
-
-```jsx
-static setEnabled(enabled)
-```
-
----
-
 ### `isEnabled()`
 
-```jsx
-static isEnabled()
+```tsx
+static isEnabled(): boolean;
 ```
 
 ---
 
 ### `beginEvent()`
 
-```jsx
-static beginEvent(profileName?, args?)
+```tsx
+static beginEvent(eventName: string | (() => string), args?: EventArgs);
 ```
 
 beginEvent/endEvent for starting and then ending a profile within the same call stack frame.
@@ -206,16 +190,19 @@ beginEvent/endEvent for starting and then ending a profile within the same call 
 
 ### `endEvent()`
 
-```jsx
-static endEvent()
+```tsx
+static endEvent(args?: EventArgs);
 ```
 
 ---
 
 ### `beginAsyncEvent()`
 
-```jsx
-static beginAsyncEvent(profileName?)
+```tsx
+static beginAsyncEvent(
+  eventName: string | (() => string),
+  args?: EventArgs,
+): number;
 ```
 
 beginAsyncEvent/endAsyncEvent for starting and then ending a profile where the end can either occur on another thread or out of the current stack frame, eg await the returned cookie variable should be used as input into the endAsyncEvent call to end the profile.
@@ -224,16 +211,20 @@ beginAsyncEvent/endAsyncEvent for starting and then ending a profile where the e
 
 ### `endAsyncEvent()`
 
-```jsx
-static endAsyncEvent(profileName?, cookie?)
+```tsx
+static endAsyncEvent(
+  eventName: EventName,
+  cookie: number,
+  args?: EventArgs,
+);
 ```
 
 ---
 
 ### `counterEvent()`
 
-```jsx
-static counterEvent(profileName?, value?)
+```tsx
+static counterEvent(eventName: string | (() => string), value: number);
 ```
 
 Register the value to the profileName on the systrace timeline.

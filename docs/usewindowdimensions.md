@@ -3,13 +3,13 @@ id: usewindowdimensions
 title: useWindowDimensions
 ---
 
-```jsx
+```tsx
 import {useWindowDimensions} from 'react-native';
 ```
 
 `useWindowDimensions` automatically updates all of its values when screen size or font scale changes. You can get your application window's width and height like so:
 
-```jsx
+```tsx
 const {height, width} = useWindowDimensions();
 ```
 
@@ -53,7 +53,7 @@ export default App;
 
 ### `fontScale`
 
-```jsx
+```tsx
 useWindowDimensions().fontScale;
 ```
 
@@ -63,7 +63,7 @@ The scale of the font currently used. Some operating systems allow users to scal
 
 ### `height`
 
-```jsx
+```tsx
 useWindowDimensions().height;
 ```
 
@@ -73,7 +73,7 @@ The height in pixels of the window or screen your app occupies.
 
 ### `scale`
 
-```jsx
+```tsx
 useWindowDimensions().scale;
 ```
 
@@ -86,7 +86,7 @@ The pixel ratio of the device your app is running on. The values can be:
 
 ### `width`
 
-```jsx
+```tsx
 useWindowDimensions().width;
 ```
 

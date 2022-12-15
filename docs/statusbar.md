@@ -309,8 +309,8 @@ If the status bar is translucent. When translucent is set to `true`, the app wil
 
 ### `popStackEntry()`
 
-```jsx
-static popStackEntry(entry: any)
+```tsx
+static popStackEntry(entry: StatusBarProps);
 ```
 
 Get and remove the last StatusBar entry from the stack.
@@ -325,8 +325,8 @@ Get and remove the last StatusBar entry from the stack.
 
 ### `pushStackEntry()`
 
-```jsx
-static pushStackEntry(props: any)
+```tsx
+static pushStackEntry(props: StatusBarProps): StatusBarProps;
 ```
 
 Push a StatusBar entry onto the stack. The return value should be passed to `popStackEntry` when complete.
@@ -341,8 +341,11 @@ Push a StatusBar entry onto the stack. The return value should be passed to `pop
 
 ### `replaceStackEntry()`
 
-```jsx
-static replaceStackEntry(entry: any, props: any)
+```tsx
+static replaceStackEntry(
+  entry: StatusBarProps,
+  props: StatusBarProps
+): StatusBarProps;
 ```
 
 Replace an existing StatusBar stack entry with new props.
@@ -358,8 +361,8 @@ Replace an existing StatusBar stack entry with new props.
 
 ### `setBackgroundColor()` <div class="label android">Android</div>
 
-```jsx
-static setBackgroundColor(color: string, [animated]: boolean)
+```tsx
+static setBackgroundColor(color: ColorValue, animated?: boolean);
 ```
 
 Set the background color for the status bar.
@@ -375,8 +378,8 @@ Set the background color for the status bar.
 
 ### `setBarStyle()`
 
-```jsx
-static setBarStyle(style: StatusBarStyle, [animated]: boolean)
+```tsx
+static setBarStyle(style: StatusBarStyle, animated?: boolean);
 ```
 
 Set the status bar style.
@@ -392,8 +395,8 @@ Set the status bar style.
 
 ### `setHidden()`
 
-```jsx
-static setHidden(hidden: boolean, [animation]: StatusBarAnimation)
+```tsx
+static setHidden(hidden: boolean, animation?: StatusBarAnimation);
 ```
 
 Show or hide the status bar.
@@ -409,8 +412,8 @@ Show or hide the status bar.
 
 ### `setNetworkActivityIndicatorVisible()` <div class="label ios">iOS</div>
 
-```jsx
-static setNetworkActivityIndicatorVisible(visible: boolean)
+```tsx
+static setNetworkActivityIndicatorVisible(visible: boolean);
 ```
 
 Control the visibility of the network activity indicator.
@@ -425,8 +428,8 @@ Control the visibility of the network activity indicator.
 
 ### `setTranslucent()` <div class="label android">Android</div>
 
-```jsx
-static setTranslucent(translucent: boolean)
+```tsx
+static setTranslucent(translucent: boolean);
 ```
 
 Control the translucency of the status bar.

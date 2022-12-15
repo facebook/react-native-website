@@ -241,15 +241,15 @@ Most of the migration work requires a HostComponent ref to access certain APIs t
 
 As a concrete example, this code uses `findNodeHandle` to tunnel from `ParentComponent` through to the `View` rendered by `ChildComponent`.
 
-```jsx
+```tsx
 class ParentComponent extends React.Component<Props> {
-  _ref: ?React.ElementRef<typeof ChildComponent>;
+  _ref?: React.ElementRef<typeof ChildComponent>;
 
   render() {
     return <ChildComponent ref={this._captureRef} onSubmit={this._onSubmit} />
   }
 
-  _captureRef: (ref) => {
+  _captureRef: (ref: React.ElementRef<typeof ChildComponent>) => {
     this._ref = ref;
   }
 
@@ -279,15 +279,15 @@ We can’t convert this call to `this._ref.measure` because `this._ref` is an in
 
 #### Using `forwardRef`
 
-```jsx
+```tsx
 class ParentComponent extends React.Component<Props> {
-  _ref: ?React.ElementRef<typeof ChildComponent>;
+  _ref?: React.ElementRef<typeof ChildComponent>;
 
   render() {
     return <ChildComponent ref={this._captureRef} onSubmit={this._onSubmit} />
   }
 
-  _captureRef: (ref) => {
+  _captureRef: (ref: React.ElementRef<typeof ChildComponent>) => {
     this._ref = ref;
   }
 
@@ -311,13 +311,13 @@ const ChildComponent = React.forwardRef((props, forwardedRef) => {
 
 ```tsx
 class ParentComponent extends React.Component<Props> {
-  _ref: ?React.ElementRef<typeof ChildComponent>;
+  _ref?: React.ElementRef<typeof ChildComponent>;
 
   render() {
     return <ChildComponent ref={this._captureRef} onSubmit={this._onSubmit} />
   }
 
-  _captureRef: (ref) => {
+  _captureRef: (ref: React.ElementRef<typeof ChildComponent>) => {
     this._ref = ref;
   }
 
@@ -329,7 +329,7 @@ class ParentComponent extends React.Component<Props> {
 }
 
 class ChildComponent extends React.Component<Props> {
-  _ref: ?React.ElementRef<typeof View>;
+  _ref?: React.ElementRef<typeof View>;
 
   render() {
     return (
@@ -343,7 +343,7 @@ class ChildComponent extends React.Component<Props> {
     return this._ref;
   }
 
-  _captureRef: (ref) => {
+  _captureRef: (ref: React.ElementRef<typeof View>) => {
     this._ref = ref;
   }
 }
@@ -393,7 +393,7 @@ class MyComponent extends React.Component<Props> {
        style={styles.view} />
   }
 
-  _captureRef: (ref) => {
+  _captureRef: (ref: React.ElementRef<typeof View>) => {
     this._viewRef = ref;
   }
 
@@ -407,7 +407,7 @@ class MyComponent extends React.Component<Props> {
 }
 
 const styles = StyleSheet.create({
-  view: { backgroundColor: 'white'},
+  view: {backgroundColor: 'white'},
   submittedView: {borderWidth: 1}
 });
 ```
@@ -419,7 +419,7 @@ In this example, when the View is pressed, there is a `setNativeProps` call to u
 On the first render, the component props are those declared in the render function. After the View is pressed `_onSubmit` calls `setNativeProps` with updated prop values.
 The resulting component can be represented as such:
 
-```jsx
+```tsx
 <View
   accessibility={true}
   onPress={this._onSubmit}
@@ -431,7 +431,7 @@ The resulting component can be represented as such:
 
 Note that all prop values set in the render function are unchanged even though `setNativeProps` didn’t pass those props. Also, `style` is now the merged value of its value prior to `_onSubmit` and `styles.submittedView`. This is the important takeaway: in our current pre-Fabric world, **component props persist.** The platform view caches the prop values it's passed from the JS side. If this wasn’t the case, then following the setNativeProps call, React Native would have rendered a component like this:
 
-```jsx
+```tsx
 <View accessibility={true} style={styles.submittedView} />
 ```
 
@@ -459,14 +459,14 @@ class MyComponent extends React.Component<Props> {
   }
 
   _onSubmit: () => {
-    this.setState(state => ({ ...state, hasSubmitted: true }));
+    this.setState(state => ({...state, hasSubmitted: true}));
     // ...other logic for onSubmit
   }
 }
 
 
 const styles = StyleSheet.create({
-  view: { backgroundColor: 'white'},
+  view: {backgroundColor: 'white'},
   submittedView: {borderWidth: 1}
 });
 ```
@@ -492,7 +492,7 @@ return <RNTMyNativeView />;
 
 #### New way
 
-```js title="RNTMyNativeNativeComponent.js"
+```tsx title="RNTMyNativeNativeComponent.tsx"
 import RNTMyNativeViewNativeComponent from './RNTMyNativeViewNativeComponent';
 
 [...]
@@ -500,7 +500,7 @@ import RNTMyNativeViewNativeComponent from './RNTMyNativeViewNativeComponent';
 return <RNTMyNativeViewNativeComponent />;
 ```
 
-```js title="RNTMyNativeViewNativeComponent.js"
+```tsx title="RNTMyNativeViewNativeComponent.tsx"
 import {requireNativeComponent} from 'react-native';
 
 const RNTMyNativeViewNativeComponent = requireNativeComponent(
@@ -525,7 +525,7 @@ const RCTWebViewNativeComponent: HostComponent<mixed> =
 
 When you are ready to migrate to Fabric you can replace `requireNativeComponent` with `codegenNativeComponent`:
 
-```ts title="RNTMyNativeViewNativeComponent.js"
+```ts title="RNTMyNativeViewNativeComponent.ts"
 export default (codegenNativeComponent<NativeProps>(
    'RNTMyNativeView',
 ): HostComponent<NativeProps>);
@@ -533,7 +533,7 @@ export default (codegenNativeComponent<NativeProps>(
 
 And update the main file:
 
-```ts title="RNTMyNativeNativeComponent.js"
+```ts title="RNTMyNativeNativeComponent.ts"
 export default require('./RNTMyNativeViewNativeComponent')
   .default;
 ```
@@ -562,9 +562,9 @@ class MyComponent extends React.Component<Props> {
 
 **Creating NativeCommands with `codegenNativeCommands`**
 
-```ts title="MyCustomMapNativeComponent.js"
+```ts title="MyCustomMapNativeComponent.ts"
 import codegenNativeCommands from 'react-native/Libraries/Utilities/codegenNativeCommands';
-import type { HostComponent } from 'react-native/Libraries/Renderer/shims/ReactNativeTypes';
+import type {HostComponent} from 'react-native/Libraries/Renderer/shims/ReactNativeTypes';
 
 type MyCustomMapNativeComponentType = HostComponent<NativeProps>;
 
@@ -591,12 +591,12 @@ Note:
 #### Using Your Command
 
 ```tsx
-import {Commands, ... } from './MyCustomMapNativeComponent';
+import {Commands, ...} from './MyCustomMapNativeComponent';
 
 class MyComponent extends React.Component<Props> {
-  _ref: ?React.ElementRef<typeof MyCustomMapNativeComponent>;
+  _ref?: React.ElementRef<typeof MyCustomMapNativeComponent>;
 
-  _captureRef: (ref) => {
+  _captureRef: (ref: React.ElementRef<typeof MyCustomMapNativeComponent>) => {
     this._ref = ref;
   }
 

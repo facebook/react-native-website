@@ -16,7 +16,7 @@ Certain components may have properties that work on one platform only. All of th
 
 React Native provides a module that detects the platform in which the app is running. You can use the detection logic to implement platform-specific code. Use this option when only small parts of a component are platform-specific.
 
-```jsx
+```tsx
 import {Platform, StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
 
 There is also a `Platform.select` method available, that given an object where keys can be one of `'ios' | 'android' | 'native' | 'default'`, returns the most fitting value for the platform you are currently running on. That is, if you're running on a phone, `ios` and `android` keys will take preference. If those are not specified, `native` key will be used and then the `default` key.
 
-```jsx
+```tsx
 import {Platform, StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
@@ -54,7 +54,7 @@ This will result in a container having `flex: 1` on all platforms, a red backgro
 
 Since it accepts `any` value, you can also use it to return platform-specific components, like below:
 
-```jsx
+```tsx
 const Component = Platform.select({
   ios: () => require('ComponentIOS'),
   android: () => require('ComponentAndroid'),
@@ -63,7 +63,7 @@ const Component = Platform.select({
 <Component />;
 ```
 
-```jsx
+```tsx
 const Component = Platform.select({
   native: () => require('ComponentForNative'),
   default: () => require('ComponentForWeb'),
@@ -76,7 +76,7 @@ const Component = Platform.select({
 
 On Android, the `Platform` module can also be used to detect the version of the Android Platform in which the app is running:
 
-```jsx
+```tsx
 import {Platform} from 'react-native';
 
 if (Platform.Version === 25) {
@@ -90,7 +90,7 @@ if (Platform.Version === 25) {
 
 On iOS, the `Version` is a result of `-[UIDevice systemVersion]`, which is a string with the current version of the operating system. An example of the system version is "10.3". For example, to detect the major version number on iOS:
 
-```jsx
+```tsx
 import {Platform} from 'react-native';
 
 const majorVersionIOS = parseInt(Platform.Version, 10);
@@ -112,7 +112,7 @@ BigButton.android.js
 
 You can then import the component as follows:
 
-```jsx
+```tsx
 import BigButton from './BigButton';
 ```
 
@@ -131,7 +131,7 @@ Container.native.js # picked up by the React Native bundler for both Android and
 
 You can still import it without the `.native` extension, as follows:
 
-```jsx
+```tsx
 import Container from './Container';
 ```
 

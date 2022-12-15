@@ -184,8 +184,8 @@ export default ShareExample;
 
 ### `share()`
 
-```jsx
-static share(content, options)
+```tsx
+static share(content: ShareContent, options?: ShareOptions);
 ```
 
 Open a dialog to share text content.
@@ -207,8 +207,8 @@ In Android, returns a Promise which will always be resolved with action being `S
 
 ### `sharedAction`
 
-```jsx
-static sharedAction
+```tsx
+static sharedAction: 'sharedAction';
 ```
 
 The content was successfully shared.
@@ -217,8 +217,8 @@ The content was successfully shared.
 
 ### `dismissedAction` <div class="label ios">iOS</div>
 
-```jsx
-static dismissedAction
+```tsx
+static dismissedAction: 'dismissedAction';
 ```
 
 The dialog has been dismissed.

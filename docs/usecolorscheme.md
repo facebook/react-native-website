@@ -3,7 +3,7 @@ id: usecolorscheme
 title: useColorScheme
 ---
 
-```jsx
+```tsx
 import {useColorScheme} from 'react-native';
 ```
 

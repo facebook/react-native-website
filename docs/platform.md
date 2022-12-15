@@ -56,8 +56,8 @@ export default App;
 
 ### `constants`
 
-```jsx
-Platform.constants;
+```tsx
+static constants: PlatformConstants;
 ```
 
 Returns an object which contains all available common and specific constants related to the platform.
@@ -86,8 +86,8 @@ Returns an object which contains all available common and specific constants rel
 
 ### `isPad` <div class="label ios">iOS</div>
 
-```jsx
-Platform.isPad;
+```tsx
+static isPad: boolean;
 ```
 
 Returns a boolean which defines if device is an iPad.
@@ -100,8 +100,8 @@ Returns a boolean which defines if device is an iPad.
 
 ### `isTV`
 
-```jsx
-Platform.isTV;
+```tsx
+static isTV: boolean;
 ```
 
 Returns a boolean which defines if device is a TV.
@@ -114,8 +114,8 @@ Returns a boolean which defines if device is a TV.
 
 ### `isTesting`
 
-```jsx
-Platform.isTesting;
+```tsx
+static isTesting: boolean;
 ```
 
 Returns a boolean which defines if application is running in Developer Mode with testing flag set.
@@ -128,8 +128,8 @@ Returns a boolean which defines if application is running in Developer Mode with
 
 ### `OS`
 
-```jsx
-static Platform.OS
+```tsx
+static OS: 'android' | 'ios';
 ```
 
 Returns string value representing the current OS.
@@ -142,8 +142,8 @@ Returns string value representing the current OS.
 
 ### `Version`
 
-```jsx
-Platform.Version;
+```tsx
+static Version: 'number' | 'string';
 ```
 
 Returns the version of the OS.
@@ -156,8 +156,8 @@ Returns the version of the OS.
 
 ### `select()`
 
-```jsx
-static select(config: object): any
+```tsx
+static select(config: Record<string, T>): T;
 ```
 
 Returns the most fitting value for the platform you are currently running on.
@@ -179,7 +179,7 @@ The `config` parameter is an object with the following keys:
 
 **Example usage:**
 
-```jsx
+```tsx
 import {Platform, StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
@@ -205,7 +205,7 @@ This will result in a container having `flex: 1` on all platforms, a green backg
 
 Since the value of the corresponding platform key can be of type `any`, [`select`](platform.md#select) method can also be used to return platform-specific components, like below:
 
-```jsx
+```tsx
 const Component = Platform.select({
   ios: () => require('ComponentIOS'),
   android: () => require('ComponentAndroid'),
@@ -214,7 +214,7 @@ const Component = Platform.select({
 <Component />;
 ```
 
-```jsx
+```tsx
 const Component = Platform.select({
   native: () => require('ComponentForNative'),
   default: () => require('ComponentForWeb'),

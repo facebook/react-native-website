@@ -220,8 +220,8 @@ export default App;
 
 ### `cancel()`
 
-```jsx
-Vibration.cancel();
+```tsx
+static cancel();
 ```
 
 Call this to stop vibrating after having invoked `vibrate()` with repetition enabled.
@@ -230,8 +230,11 @@ Call this to stop vibrating after having invoked `vibrate()` with repetition ena
 
 ### `vibrate()`
 
-```jsx
-Vibration.vibrate(pattern, repeat);
+```tsx
+static vibrate(
+  pattern?: number | number[],
+  repeat?: boolean
+);
 ```
 
 Triggers a vibration with a fixed duration.

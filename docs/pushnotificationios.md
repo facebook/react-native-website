@@ -112,8 +112,8 @@ Then enable Background Modes/Remote notifications to be able to use remote notif
 
 ### `presentLocalNotification()`
 
-```jsx
-PushNotificationIOS.presentLocalNotification(details);
+```tsx
+static presentLocalNotification(details: PresentLocalNotificationDetails);
 ```
 
 Schedules the localNotification for immediate presentation.
@@ -139,8 +139,8 @@ details is an object containing:
 
 ### `scheduleLocalNotification()`
 
-```jsx
-PushNotificationIOS.scheduleLocalNotification(details);
+```tsx
+static scheduleLocalNotification(details: ScheduleLocalNotificationDetails);
 ```
 
 Schedules the localNotification for future presentation.
@@ -168,8 +168,8 @@ details is an object containing:
 
 ### `cancelAllLocalNotifications()`
 
-```jsx
-PushNotificationIOS.cancelAllLocalNotifications();
+```tsx
+static cancelAllLocalNotifications();
 ```
 
 Cancels all scheduled localNotifications
@@ -178,8 +178,8 @@ Cancels all scheduled localNotifications
 
 ### `removeAllDeliveredNotifications()`
 
-```jsx
-PushNotificationIOS.removeAllDeliveredNotifications();
+```tsx
+static removeAllDeliveredNotifications();
 ```
 
 Remove all delivered notifications from Notification Center
@@ -188,8 +188,8 @@ Remove all delivered notifications from Notification Center
 
 ### `getDeliveredNotifications()`
 
-```jsx
-PushNotificationIOS.getDeliveredNotifications(callback);
+```tsx
+static getDeliveredNotifications(callback: (notifications: Object[]) => void);
 ```
 
 Provides you with a list of the app’s notifications that are still displayed in Notification Center
@@ -213,8 +213,8 @@ A delivered notification is an object containing:
 
 ### `removeDeliveredNotifications()`
 
-```jsx
-PushNotificationIOS.removeDeliveredNotifications(identifiers);
+```tsx
+static removeDeliveredNotifications(identifiers: string[]);
 ```
 
 Removes the specified notifications from Notification Center
@@ -229,8 +229,8 @@ Removes the specified notifications from Notification Center
 
 ### `setApplicationIconBadgeNumber()`
 
-```jsx
-PushNotificationIOS.setApplicationIconBadgeNumber(number);
+```tsx
+static setApplicationIconBadgeNumber(number: number);
 ```
 
 Sets the badge number for the app icon on the home screen
@@ -245,8 +245,8 @@ Sets the badge number for the app icon on the home screen
 
 ### `getApplicationIconBadgeNumber()`
 
-```jsx
-PushNotificationIOS.getApplicationIconBadgeNumber(callback);
+```tsx
+static getApplicationIconBadgeNumber(callback: (badge: number) => void);
 ```
 
 Gets the current badge number for the app icon on the home screen
@@ -261,8 +261,8 @@ Gets the current badge number for the app icon on the home screen
 
 ### `cancelLocalNotifications()`
 
-```jsx
-PushNotificationIOS.cancelLocalNotifications(userInfo);
+```tsx
+static cancelLocalNotifications(userInfo: Object);
 ```
 
 Cancel local notifications.
@@ -279,8 +279,10 @@ Optionally restricts the set of canceled notifications to those notifications wh
 
 ### `getScheduledLocalNotifications()`
 
-```jsx
-PushNotificationIOS.getScheduledLocalNotifications(callback);
+```tsx
+static getScheduledLocalNotifications(
+  callback: (notifications: ScheduleLocalNotificationDetails[]) => void,
+);
 ```
 
 Gets the local notifications that are currently scheduled.
@@ -295,8 +297,14 @@ Gets the local notifications that are currently scheduled.
 
 ### `addEventListener()`
 
-```jsx
-PushNotificationIOS.addEventListener(type, handler);
+```tsx
+static addEventListener(
+  type: PushNotificationEventName,
+  handler:
+    | ((notification: PushNotification) => void)
+    | ((deviceToken: string) => void)
+    | ((error: {message: string; code: number; details: any}) => void),
+);
 ```
 
 Attaches a listener to remote or local notification events while the app is running in the foreground or the background.
@@ -319,8 +327,14 @@ Valid events are:
 
 ### `removeEventListener()`
 
-```jsx
-PushNotificationIOS.removeEventListener(type, handler);
+```tsx
+static removeEventListener(
+  type: PushNotificationEventName,
+  handler:
+    | ((notification: PushNotification) => void)
+    | ((deviceToken: string) => void)
+    | ((error: {message: string; code: number; details: any}) => void),
+);
 ```
 
 Removes the event listener. Do this in `componentWillUnmount` to prevent memory leaks
@@ -336,8 +350,8 @@ Removes the event listener. Do this in `componentWillUnmount` to prevent memory 
 
 ### `requestPermissions()`
 
-```jsx
-PushNotificationIOS.requestPermissions([permissions]);
+```tsx
+static requestPermissions(permissions?: PushNotificationPermissions[]);
 ```
 
 Requests notification permissions from iOS, prompting the user's dialog box. By default, it will request all notification permissions, but a subset of these can be requested by passing a map of requested permissions. The following permissions are supported:
@@ -360,8 +374,8 @@ This method returns a promise that will resolve when the user accepts, rejects, 
 
 ### `abandonPermissions()`
 
-```jsx
-PushNotificationIOS.abandonPermissions();
+```tsx
+static abandonPermissions();
 ```
 
 Unregister for all remote notifications received via Apple Push Notification service.
@@ -372,8 +386,10 @@ You should call this method in rare circumstances only, such as when a new versi
 
 ### `checkPermissions()`
 
-```jsx
-PushNotificationIOS.checkPermissions(callback);
+```tsx
+static checkPermissions(
+  callback: (permissions: PushNotificationPermissions) => void,
+);
 ```
 
 See what push permissions are currently enabled.
@@ -394,28 +410,18 @@ See what push permissions are currently enabled.
 
 ### `getInitialNotification()`
 
-```jsx
-PushNotificationIOS.getInitialNotification();
+```tsx
+static getInitialNotification(): Promise<PushNotification | null>;
 ```
 
 This method returns a promise. If the app was launched by a push notification, this promise resolves to an object of type `PushNotificationIOS`. Otherwise, it resolves to `null`.
 
 ---
 
-### `constructor()`
-
-```jsx
-constructor(nativeNotif);
-```
-
-You will never need to instantiate `PushNotificationIOS` yourself. Listening to the `notification` event and invoking `getInitialNotification` is sufficient.
-
----
-
 ### `finish()`
 
-```jsx
-finish(fetchResult);
+```tsx
+finish(result: string);
 ```
 
 This method is available for remote notifications that have been received via: `application:didReceiveRemoteNotification:fetchCompletionHandler:` https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623013-application?language=objc
@@ -428,8 +434,8 @@ If you do not call this method your background remote notifications could be thr
 
 ### `getMessage()`
 
-```jsx
-getMessage();
+```tsx
+getMessage(): string | Object;
 ```
 
 An alias for `getAlert` to get the notification's main message string
@@ -438,8 +444,8 @@ An alias for `getAlert` to get the notification's main message string
 
 ### `getSound()`
 
-```jsx
-getSound();
+```tsx
+getSound(): string;
 ```
 
 Gets the sound string from the `aps` object
@@ -448,8 +454,8 @@ Gets the sound string from the `aps` object
 
 ### `getCategory()`
 
-```jsx
-getCategory();
+```tsx
+getCategory(): string;
 ```
 
 Gets the category string from the `aps` object
@@ -458,8 +464,8 @@ Gets the category string from the `aps` object
 
 ### `getAlert()`
 
-```jsx
-getAlert();
+```tsx
+getAlert(): string | Object;
 ```
 
 Gets the notification's main message from the `aps` object
@@ -468,8 +474,8 @@ Gets the notification's main message from the `aps` object
 
 ### `getContentAvailable()`
 
-```jsx
-getContentAvailable();
+```tsx
+getContentAvailable(): number;
 ```
 
 Gets the content-available number from the `aps` object
@@ -478,8 +484,8 @@ Gets the content-available number from the `aps` object
 
 ### `getBadgeCount()`
 
-```jsx
-getBadgeCount();
+```tsx
+getBadgeCount(): number;
 ```
 
 Gets the badge count number from the `aps` object
@@ -488,8 +494,8 @@ Gets the badge count number from the `aps` object
 
 ### `getData()`
 
-```jsx
-getData();
+```tsx
+getData(): Object;
 ```
 
 Gets the data object on the notification
@@ -498,7 +504,7 @@ Gets the data object on the notification
 
 ### `getThreadID()`
 
-```jsx
+```tsx
 getThreadID();
 ```
 

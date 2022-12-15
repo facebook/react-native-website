@@ -32,7 +32,7 @@ A `gestureState` object has the following:
 
 ## Usage Pattern
 
-```jsx
+```tsx
 const ExampleComponent = () => {
   const panResponder = React.useRef(
     PanResponder.create({
@@ -207,8 +207,8 @@ Try the [PanResponder example in RNTester](https://github.com/facebook/react-nat
 
 ### `create()`
 
-```jsx
-static create(config)
+```tsx
+static create(config: PanResponderCallbacks): PanResponderInstance;
 ```
 
 **Parameters:**

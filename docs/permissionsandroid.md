@@ -216,18 +216,10 @@ Available as constants under `PermissionsAndroid.RESULTS`:
 
 ## Methods
 
-### `constructor()`
-
-```jsx
-constructor();
-```
-
----
-
 ### `check()`
 
-```jsx
-check(permission);
+```tsx
+static check(permission: Permission): Promise<boolean>;
 ```
 
 Returns a promise resolving to a boolean value as to whether the specified permissions has been granted.
@@ -242,8 +234,11 @@ Returns a promise resolving to a boolean value as to whether the specified permi
 
 ### `request()`
 
-```jsx
-request(permission, [rationale]);
+```tsx
+static request(
+  permission: Permission,
+  rationale?: Rationale,
+): Promise<PermissionStatus>;
 ```
 
 Prompts the user to enable a permission and returns a promise resolving to a string value (see result strings above) indicating whether the user allowed or denied the request or does not want to be asked again.
@@ -271,8 +266,10 @@ If `rationale` is provided, this function checks with the OS whether it is neces
 
 ### `requestMultiple()`
 
-```jsx
-requestMultiple(permissions);
+```tsx
+static requestMultiple(
+  permissions: Permission[],
+): Promise<{[key in Permission]: PermissionStatus}>;
 ```
 
 Prompts the user to enable multiple permissions in the same dialog and returns an object with the permissions as keys and strings as values (see result strings above) indicating whether the user allowed or denied the request or does not want to be asked again.

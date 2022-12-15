@@ -138,10 +138,10 @@ There are several libraries that can help you testing these:
 
 Aside from rendering some UI, your components handle events like `onChangeText` for `TextInput` or `onPress` for `Button`. They may also contain other functions and event callbacks. Consider the following example:
 
-```jsx
+```tsx
 function GroceryShoppingList() {
   const [groceryItem, setGroceryItem] = useState('');
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState<string[]>([]);
 
   const addNewItemToShoppingList = useCallback(() => {
     setItems([groceryItem, ...items]);
@@ -184,7 +184,7 @@ Avoid testing implementation details like props or state—while such tests work
 
 Component testing libraries such as [React Native Testing Library](https://callstack.github.io/react-native-testing-library/) facilitate writing user-centric tests by careful choice of provided APIs. The following example uses `fireEvent` methods `changeText` and `press` that simulate a user interacting with the component and a query function `getAllByText` that finds matching `Text` nodes in the rendered output.
 
-```jsx
+```tsx
 test('given empty GroceryShoppingList, user can add an item to it', () => {
   const {getByPlaceholder, getByText, getAllByText} = render(
     <GroceryShoppingList />,
@@ -209,7 +209,7 @@ This example is not testing how some state changes when you call a function. It 
 
 A "component snapshot" is a JSX-like string created by a custom React serializer built into Jest. This serializer lets Jest translate React component trees to string that's human-readable. Put another way: a component snapshot is a textual representation of your component’s render output _generated_ during a test run. It may look like this:
 
-```jsx
+```tsx
 <Text
   style={
     Object {

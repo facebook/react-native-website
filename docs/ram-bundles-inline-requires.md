@@ -13,7 +13,7 @@ Before react-native can execute JS code, that code must be loaded into memory an
 
 Inline requires delay the requiring of a module or file until that file is actually needed. A basic example would look like this:
 
-```js title='VeryExpensive.js'
+```tsx title="VeryExpensive.tsx"
 import React, {Component} from 'react';
 import {Text} from 'react-native';
 // ... import some very expensive modules
@@ -29,7 +29,7 @@ export default class VeryExpensive extends Component {
 }
 ```
 
-```js title='Optimized.js'
+```tsx title="Optimized.tsx"
 import React, {Component} from 'react';
 import {TouchableOpacity, View, Text} from 'react-native';
 

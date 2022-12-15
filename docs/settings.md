@@ -59,8 +59,8 @@ export default App;
 
 ### `clearWatch()`
 
-```jsx
-static clearWatch(watchId: number)
+```tsx
+static clearWatch(watchId: number);
 ```
 
 `watchId` is the number returned by `watchKeys()` when the subscription was originally configured.
@@ -69,8 +69,8 @@ static clearWatch(watchId: number)
 
 ### `get()`
 
-```jsx
-static get(key: string): mixed
+```tsx
+static get(key: string): any;
 ```
 
 Get the current value for a given `key` in `NSUserDefaults`.
@@ -79,8 +79,8 @@ Get the current value for a given `key` in `NSUserDefaults`.
 
 ### `set()`
 
-```jsx
-static set(settings: object)
+```tsx
+static set(settings: Record<string, any>);
 ```
 
 Set one or more values in `NSUserDefaults`.
@@ -89,8 +89,8 @@ Set one or more values in `NSUserDefaults`.
 
 ### `watchKeys()`
 
-```jsx
-static watchKeys(keys: string | array<string>, callback: function): number
+```tsx
+static watchKeys(keys: string | array<string>, callback: () => void): number;
 ```
 
 Subscribe to be notified when the value for any of the keys specified by the `keys` parameter has been changed in `NSUserDefaults`. Returns a `watchId` number that may be used with `clearWatch()` to unsubscribe.

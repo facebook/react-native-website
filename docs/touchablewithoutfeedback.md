@@ -11,8 +11,8 @@ Do not use unless you have a very good reason. All elements that respond to pres
 
 ## Usage Pattern
 
-```jsx
-function MyComponent(props) {
+```tsx
+function MyComponent(props: MyComponentProps) {
   return (
     <View {...props} style={{flex: 1, backgroundColor: '#fff'}}>
       <Text>My Component</Text>
@@ -437,9 +437,9 @@ Invoked when the item receives focus.
 
 Invoked on mount and on layout changes.
 
-| Type                                                  |
-| ----------------------------------------------------- |
-| ({ nativeEvent: [LayoutEvent](layoutevent) }) => void |
+| Type                                                |
+| --------------------------------------------------- |
+| ({nativeEvent: [LayoutEvent](layoutevent)}) => void |
 
 ---
 

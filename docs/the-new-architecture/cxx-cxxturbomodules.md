@@ -72,7 +72,7 @@ Create the following spec inside the `tm` folder:
 
 ```typescript title="NativeSampleModule.ts"
 import type {TurboModule} from 'react-native/Libraries/TurboModule/RCTExport';
-// import type { TurboModule } from 'react-native'; in future versions
+// import type {TurboModule} from 'react-native'; in future versions
 import {TurboModuleRegistry} from 'react-native';
 
 export interface Spec extends TurboModule {
@@ -90,7 +90,7 @@ export default TurboModuleRegistry.getEnforcing<Spec>(
 ```js title="NativeSampleModule.js"
 // @flow
 import type {TurboModule} from 'react-native/Libraries/TurboModule/RCTExport';
-// import type { TurboModule } from 'react-native'; in future versions
+// import type {TurboModule} from 'react-native'; in future versions
 import {TurboModuleRegistry} from 'react-native';
 
 export interface Spec extends TurboModule {
