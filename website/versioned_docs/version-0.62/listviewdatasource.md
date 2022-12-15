@@ -92,7 +92,7 @@ Note: This function does NOT clone the data in this data source. It only passes 
 cloneWithRowsAndSections(
   dataBlob,
   sectionIdentities,
-  rowIdentities
+  rowIdentities,
 );
 ```
 

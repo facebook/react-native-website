@@ -156,12 +156,7 @@ In your `index.js`, create your component. In our sample here, we will add a `<T
 
 ```jsx
 import React from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+import {AppRegistry, StyleSheet, Text, View} from 'react-native';
 
 const HelloWorld = () => {
   return (
@@ -173,18 +168,18 @@ const HelloWorld = () => {
 var styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   hello: {
     fontSize: 20,
     textAlign: 'center',
-    margin: 10
-  }
+    margin: 10,
+  },
 });
 
 AppRegistry.registerComponent(
   'MyReactNativeApp',
-  () => HelloWorld
+  () => HelloWorld,
 );
 ```
 

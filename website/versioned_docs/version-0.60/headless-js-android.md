@@ -11,14 +11,14 @@ A task is an async function that you register on `AppRegistry`, similar to regis
 
 ```jsx
 AppRegistry.registerHeadlessTask('SomeTaskName', () =>
-  require('SomeTaskName')
+  require('SomeTaskName'),
 );
 ```
 
 Then, in `SomeTaskName.js`:
 
 ```jsx
-module.exports = async (taskData) => {
+module.exports = async taskData => {
   // do stuff
 };
 ```

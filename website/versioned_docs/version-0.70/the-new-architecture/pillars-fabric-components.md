@@ -91,8 +91,8 @@ export default (codegenNativeComponent<NativeProps>(
 <TabItem value='typescript'>
 
 ```typescript
-import type { ViewProps } from 'ViewPropTypes';
-import type { HostComponent } from 'react-native';
+import type {ViewProps} from 'ViewPropTypes';
+import type {HostComponent} from 'react-native';
 import codegenNativeComponent from 'react-native/Libraries/Utilities/codegenNativeComponent';
 
 export interface NativeProps extends ViewProps {
@@ -101,7 +101,7 @@ export interface NativeProps extends ViewProps {
 }
 
 export default codegenNativeComponent<NativeProps>(
-  'RTNCenteredText'
+  'RTNCenteredText',
 ) as HostComponent<NativeProps>;
 ```
 
@@ -846,7 +846,7 @@ To do so, you have to:
        // ...other React Native elements...
        <RTNCenteredText
          text="Hello World!"
-         style={{ width: '100%', height: 30 }}
+         style={{width: '100%', height: 30}}
        />
        // ...other React Native Elements
      );

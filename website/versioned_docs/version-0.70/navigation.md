@@ -51,7 +51,7 @@ Now, you need to wrap the whole app in `NavigationContainer`. Usually you'd do t
 
 ```jsx
 import * as React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
+import {NavigationContainer} from '@react-navigation/native';
 
 const App = () => {
   return (
@@ -72,8 +72,8 @@ Now you can create an app with a home screen and a profile screen:
 
 ```jsx
 import * as React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 const Stack = createNativeStackNavigator();
 
@@ -84,7 +84,7 @@ const MyStack = () => {
         <Stack.Screen
           name="Home"
           component={HomeScreen}
-          options={{ title: 'Welcome' }}
+          options={{title: 'Welcome'}}
         />
         <Stack.Screen name="Profile" component={ProfileScreen} />
       </Stack.Navigator>
@@ -100,17 +100,17 @@ You can set options such as the screen title for each screen in the `options` pr
 Each screen takes a `component` prop that is a React component. Those components receive a prop called `navigation` which has various methods to link to other screens. For example, you can use `navigation.navigate` to go to the `Profile` screen:
 
 ```jsx
-const HomeScreen = ({ navigation }) => {
+const HomeScreen = ({navigation}) => {
   return (
     <Button
       title="Go to Jane's profile"
       onPress={() =>
-        navigation.navigate('Profile', { name: 'Jane' })
+        navigation.navigate('Profile', {name: 'Jane'})
       }
     />
   );
 };
-const ProfileScreen = ({ navigation, route }) => {
+const ProfileScreen = ({navigation, route}) => {
   return <Text>This is {route.params.name}'s profile</Text>;
 };
 ```

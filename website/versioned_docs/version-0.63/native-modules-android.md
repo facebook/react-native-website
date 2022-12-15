@@ -72,7 +72,7 @@ public String getName() {
 The native module can then be accessed in JS like this:
 
 ```jsx
-const { CalendarModule } = ReactNative.NativeModules;
+const {CalendarModule} = ReactNative.NativeModules;
 ```
 
 ### Export a Native Method to JavaScript
@@ -182,7 +182,7 @@ Find a place in your application where you would like to add a call to the nativ
 
 ```jsx
 import React from 'react';
-import { NativeModules, Button } from 'react-native';
+import {NativeModules, Button} from 'react-native';
 
 const NewModuleButton = () => {
   const onPress = () => {
@@ -204,13 +204,13 @@ export default NewModuleButton;
 In order to access your native module from JavaScript you need to first import `NativeModules` from React Native:
 
 ```jsx
-import { NativeModules } from 'react-native';
+import {NativeModules} from 'react-native';
 ```
 
 You can then access the `CalendarModule` native module off of `NativeModules`.
 
 ```jsx
-const { CalendarModule } = NativeModules;
+const {CalendarModule} = NativeModules;
 ```
 
 Now that you have the CalendarModule native module available, you can invoke your native method `createCalendarEvent()`. Below it is added to the `onPress()` method in `NewModuleButton`:
@@ -258,8 +258,8 @@ To save consumers of your native module from needing to do that each time they w
 * 1. String name: A string representing the name of the event
 * 2. String location: A string representing the location of the event
 */
-import { NativeModules } from 'react-native';
-const { CalendarModule } = NativeModules;
+import {NativeModules} from 'react-native';
+const {CalendarModule} = NativeModules;
 export default CalendarModule;
 ```
 
@@ -340,7 +340,7 @@ public Map<String, Object> getConstants() {
 The constant can then be accessed by invoking `getConstants` on the native module in JS:
 
 ```jsx
-const { DEFAULT_EVENT_NAME } = CalendarModule.getConstants();
+const {DEFAULT_EVENT_NAME} = CalendarModule.getConstants();
 console.log(DEFAULT_EVENT_NAME);
 ```
 
@@ -379,9 +379,9 @@ const onPress = () => {
   CalendarModule.createCalendarEvent(
     'Party',
     'My House',
-    (eventId) => {
+    eventId => {
       console.log(`Created a new event with id ${eventId}`);
-    }
+    },
   );
 };
 ```
@@ -410,7 +410,7 @@ const onPress = () => {
         console.error(`Error found! ${error}`);
       }
       console.log(`event id ${eventId} returned`);
-    }
+    },
   );
 };
 ```
@@ -430,12 +430,12 @@ const onPress = () => {
   CalendarModule.createCalendarEventCallback(
     'testName',
     'testLocation',
-    (error) => {
+    error => {
       console.error(`Error found! ${error}`);
     },
-    (eventId) => {
+    eventId => {
       console.log(`event id ${eventId} returned`);
-    }
+    },
   );
 };
 ```
@@ -469,7 +469,7 @@ const onSubmit = async () => {
   try {
     const eventId = await CalendarModule.createCalendarEvent(
       'Party',
-      'My House'
+      'My House',
     );
     console.log(`Created a new event with id ${eventId}`);
   } catch (e) {
