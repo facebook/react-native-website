@@ -562,7 +562,7 @@ class MyComponent extends React.Component<Props> {
 
 **Creating NativeCommands with `codegenNativeCommands`**
 
-```ts title="MyCustomMapNativeComponent.tsx"
+```ts title="MyCustomMapNativeComponent.ts"
 import codegenNativeCommands from 'react-native/Libraries/Utilities/codegenNativeCommands';
 import type {HostComponent} from 'react-native/Libraries/Renderer/shims/ReactNativeTypes';
 
