@@ -118,7 +118,7 @@ static SHORT: number;
 Indicates the duration on the screen.
 
 ```tsx
-ToastAndroid.LONG;
+static LONG: number;
 ```
 
 ---
