@@ -126,7 +126,7 @@ async function extractExamplesFromDocument(filename, extension) {
       if (exampleExt) {
         if (!validExtensions.includes(exampleExt)) {
           console.error(
-            `Invalid extension "${extension}" encountered while parsing ${filename} (should be one of ${JSON.stringify(
+            `Invalid extension "${exampleExt}" encountered while parsing ${filename} (should be one of ${JSON.stringify(
               validExtensions,
             )})`,
           );
