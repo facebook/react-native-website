@@ -929,7 +929,7 @@ Let's implement a basic image picker to demonstrate this. The image picker will 
 <Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
 <TabItem value="java">
 
-```kt
+```kotlin
 public class ImagePickerModule extends ReactContextBaseJavaModule {
 
   private static final int IMAGE_PICKER_REQUEST = 1;

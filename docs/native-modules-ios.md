@@ -287,7 +287,7 @@ A native module can export constants by overriding the native method `constantsT
 The constant can then be accessed by invoking `getConstants()` on the native module in JS like so:
 
 ```tsx
-const {DEFAULT_EVENT_NAME} = CalendarModule.getConstants();
+const { DEFAULT_EVENT_NAME } = CalendarModule.getConstants();
 console.log(DEFAULT_EVENT_NAME);
 ```
 
