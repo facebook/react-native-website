@@ -231,7 +231,7 @@ Call this to stop vibrating after having invoked `vibrate()` with repetition ena
 ### `vibrate()`
 
 ```tsx
-Vibration.vibrate(
+static vibrate(
   pattern?: number | number[],
   repeat?: boolean
 );
