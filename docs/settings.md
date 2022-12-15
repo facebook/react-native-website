@@ -80,7 +80,7 @@ Get the current value for a given `key` in `NSUserDefaults`.
 ### `set()`
 
 ```tsx
-static set(settings: Object);
+static set(settings: Record<string, any>);
 ```
 
 Set one or more values in `NSUserDefaults`.
