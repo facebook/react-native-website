@@ -362,7 +362,7 @@ Replace an existing StatusBar stack entry with new props.
 ### `setBackgroundColor()` <div class="label android">Android</div>
 
 ```tsx
-static setBackgroundColor(color: string, [animated]: boolean)
+static setBackgroundColor(color: ColorValue, animated?: boolean);
 ```
 
 Set the background color for the status bar.
