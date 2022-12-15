@@ -55,7 +55,7 @@ class MainActivity : ReactActivity() {
         return object : ReactActivityDelegate(this, mainComponentName) {
             override fun getLaunchOptions(): Bundle {
                 val imageList = arrayListOf("http://foo.com/bar1.png", "http://foo.com/bar2.png")
-                val initialProperties = Bundle().apply {putStringArrayList("images", imageList)}
+                val initialProperties = Bundle().apply { putStringArrayList("images", imageList) }
                 return initialProperties
             }
         }

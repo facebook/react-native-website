@@ -216,7 +216,7 @@ Received when the user is not actively interacting with the app. Useful in situa
 ### `addEventListener()`
 
 ```tsx
-addEventListener(
+static addEventListener(
   type: AppStateEvent,
   listener: (state: AppStateStatus) => void,
 ): NativeEventSubscription;
@@ -230,5 +230,5 @@ Sets up a function that will be called whenever the specified event type on AppS
 ### `currentState`
 
 ```tsx
-AppState.currentState;
+static currentState: AppStateStatus;
 ```

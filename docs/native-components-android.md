@@ -815,7 +815,7 @@ public class MyPackage implements ReactPackage {
 
 I. Start with custom View manager:
 
-```tsx title="MyViewManager.jsx"
+```tsx title="MyViewManager.tsx"
 import { requireNativeComponent } from 'react-native';
 
 export const MyViewManager =
@@ -824,7 +824,7 @@ export const MyViewManager =
 
 II. Then implement custom View calling the `create` method:
 
-```tsx title="MyView.jsx"
+```tsx title="MyView.tsx"
 import React, { useEffect, useRef } from 'react';
 import {
   PixelRatio,

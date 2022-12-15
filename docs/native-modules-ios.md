@@ -280,7 +280,7 @@ A native module can export constants by overriding the native method `constantsT
 ```objectivec
 - (NSDictionary *)constantsToExport
 {
- return @{@"DEFAULT_EVENT_NAME": @"New Event"};
+ return @{ @"DEFAULT_EVENT_NAME": @"New Event" };
 }
 ```
 
