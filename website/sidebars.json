@@ -93,9 +93,19 @@
         "collapsed": false,
         "items": [
           "the-new-architecture/pillars",
-          "the-new-architecture/pillars-turbomodules",
+          "the-new-architecture/pillars-turbomodules",          
           "the-new-architecture/pillars-fabric-components",
           "the-new-architecture/pillars-codegen"
+        ]
+      },
+      {
+        "type": "category",
+        "label": "C++",
+        "collapsible": false,
+        "collapsed": false,
+        "items": [
+          "the-new-architecture/cxx-cxxturbomodules",
+          "the-new-architecture/cxx-custom-types"
         ]
       },
       {
@@ -137,7 +147,8 @@
         "items": [
           "headless-js-android",
           "signed-apk-android",
-          "communication-android"
+          "communication-android",
+          "react-native-gradle-plugin"
         ]
       },
       {

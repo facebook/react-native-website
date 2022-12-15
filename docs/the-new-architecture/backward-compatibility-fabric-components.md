@@ -51,7 +51,6 @@ require "json"
 
 package = JSON.parse(File.read(File.join(__dir__, "package.json")))
 
-folly_version = '2021.07.22.00'
 folly_compiler_flags = '-DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1 -Wno-comma -Wno-shorten-64-to-32'
 
 Pod::Spec.new do |s|
@@ -80,7 +79,7 @@ Pod::Spec.new do |s|
 
   s.dependency "React-RCTFabric"
   s.dependency "React-Codegen"
-  s.dependency "RCT-Folly", folly_version
+  s.dependency "RCT-Folly"
   s.dependency "RCTRequired"
   s.dependency "RCTTypeSafety"
   s.dependency "ReactCommon/turbomodule/core"
@@ -95,7 +94,6 @@ require "json"
 
 package = JSON.parse(File.read(File.join(__dir__, "package.json")))
 
-- folly_version = '2021.07.22.00'
 - folly_compiler_flags = '-DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1 -Wno-comma -Wno-shorten-64-to-32'
 
 Pod::Spec.new do |s|
@@ -124,7 +122,7 @@ Pod::Spec.new do |s|
 -
 -  s.dependency "React-RCTFabric"
 -  s.dependency "React-Codegen"
--  s.dependency "RCT-Folly", folly_version
+-  s.dependency "RCT-Folly"
 -  s.dependency "RCTRequired"
 -  s.dependency "RCTTypeSafety"
 -  s.dependency "ReactCommon/turbomodule/core"
@@ -181,7 +179,7 @@ A Fabric Native Component requires an header file and an implementation file to 
 
 For example, the `RNMyComponentView.h` header file could look like this:
 
-```objective-c
+```objectivec title='RNMyComponentView.h'
 #import <React/RCTViewComponentView.h>
 #import <UIKit/UIKit.h>
 
@@ -200,7 +198,7 @@ NS_ASSUME_NONNULL_END
 
 The implementation `RNMyComponentView.mm` file, instead, could look like this:
 
-```objective-c
+```objectivec title='RNMyComponentView.mm'
 #import "RNMyComponentView.h"
 
 // <react/renderer imports>

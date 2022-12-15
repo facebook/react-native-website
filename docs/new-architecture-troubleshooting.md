@@ -57,7 +57,6 @@ Make sure to uncomment the line and set the preferred memory size with the `-Xmx
 ## Android NDK and Mac with M1 Apple Silicon CPUs
 
 We're aware of a series of incompatibilities between the Android NDK and Macs on M1 CPUs ([here](https://github.com/android/ndk/issues/1299) and [here](https://github.com/android/ndk/issues/1410)).
-As you need to enable the NDK when building from source, you might face problems during your build.
+As the New Architectecture relies on the NDK, you might face problems during your build.
 
-The workaround at this stage is [suggested here](https://github.com/android/ndk/issues/1299).
-As newer version of the Android SDK/NDK are released, we will update the documentation with the necessary steps.
+React Native version 0.70 and 0.71 contains fixes for those build failures, and we invite you to update to those versions whenever possible.

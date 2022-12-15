@@ -8,7 +8,7 @@
     "sync-api-docs"
   ],
   "scripts": {
-    "postinstall": "yarn update-lock && patch-package",
+    "postinstall": "yarn update-lock && yarn workspace @react-native-website/lint-examples run patch-package",
     "update-lock": "yarn-deduplicate"
   },
   "husky": {

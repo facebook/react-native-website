@@ -3,6 +3,8 @@ id: tutorial
 title: Learn the Basics
 ---
 
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+
 React Native is like React, but it uses native components instead of web components as building blocks. So to understand the basic structure of a React Native app, you need to understand some of the basic React concepts, like JSX, components, `state`, and `props`. If you already know React, you still need to learn some React Native specific stuff, like the native components. This tutorial is aimed at all audiences, whether you have React experience or not.
 
 Let's do this thing.
@@ -61,7 +63,10 @@ Most components can be customized when they are created, with different paramete
 
 Your own components can also use `props`. This lets you make a single component that is used in many different places in your app, with slightly different properties in each place. Refer to `props.YOUR_PROP_NAME` in your functional components or `this.props.YOUR_PROP_NAME` in your class components. Here's an example:
 
-```SnackPlayer name=Hello%20Props
+<Tabs groupId="language" defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
+<TabItem value="javascript">
+
+```SnackPlayer name=Hello%20Props&ext=js
 import React from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 
@@ -91,6 +96,47 @@ const LotsOfGreetings = () => {
 
 export default LotsOfGreetings;
 ```
+
+</TabItem>
+<TabItem value="typescript">
+
+```SnackPlayer name=Hello%20Props&ext=tsx
+import React from 'react';
+import {Text, View, StyleSheet} from 'react-native';
+
+const styles = StyleSheet.create({
+  center: {
+    alignItems: 'center',
+  },
+});
+
+type GreetingProps = {
+  name: string;
+};
+
+const Greeting = (props: GreetingProps) => {
+  return (
+    <View style={styles.center}>
+      <Text>Hello {props.name}!</Text>
+    </View>
+  );
+};
+
+const LotsOfGreetings = () => {
+  return (
+    <View style={[styles.center, {top: 50}]}>
+      <Greeting name="Rexxar" />
+      <Greeting name="Jaina" />
+      <Greeting name="Valeera" />
+    </View>
+  );
+};
+
+export default LotsOfGreetings;
+```
+
+</TabItem>
+</Tabs>
 
 Using `name` as a prop lets us customize the `Greeting` component, so we can reuse that component for each of our greetings. This example also uses the `Greeting` component in JSX. The power to do this is what makes React so cool.
 
