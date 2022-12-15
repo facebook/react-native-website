@@ -393,7 +393,7 @@ class MyComponent extends React.Component<Props> {
        style={styles.view} />
   }
 
-  _captureRef: (red: React.ElementRef<typeof View>) => {
+  _captureRef: (ref: React.ElementRef<typeof View>) => {
     this._viewRef = ref;
   }
 
