@@ -525,7 +525,7 @@ const RCTWebViewNativeComponent: HostComponent<mixed> =
 
 When you are ready to migrate to Fabric you can replace `requireNativeComponent` with `codegenNativeComponent`:
 
-```ts title="RNTMyNativeViewNativeComponent.tsx"
+```ts title="RNTMyNativeViewNativeComponent.ts"
 export default (codegenNativeComponent<NativeProps>(
    'RNTMyNativeView',
 ): HostComponent<NativeProps>);
