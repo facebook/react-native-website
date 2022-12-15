@@ -156,7 +156,7 @@ If your existing native module has methods with the same name on multiple platfo
 
 ### Android
 
-On Android, this generally requires you to include `native_modules.gradle` in both your `settings.gradle[.kts]` and `build.gradle[.kts]`.
+On Android, this generally requires you to include `native_modules.gradle` in both your `settings.gradle` and `build.gradle`.
 
 If you used the default template provided with React Native (i.e., `yarn react-native init <Project>`), then autolinking is already enabled.
 

@@ -11,9 +11,9 @@ The most basic use case is to plop down a `TextInput` and subscribe to the `onCh
 import React from 'react';
 import {SafeAreaView, StyleSheet, TextInput} from 'react-native';
 
-const UselessTextInput = () => {
+const TextInputExample = () => {
   const [text, onChangeText] = React.useState('Useless Text');
-  const [number, onChangeNumber] = React.useState(null);
+  const [number, onChangeNumber] = React.useState('');
 
   return (
     <SafeAreaView>
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default UselessTextInput;
+export default TextInputExample;
 ```
 
 Two methods exposed via the native element are .focus() and .blur() that will focus or blur the TextInput programmatically.
@@ -53,17 +53,7 @@ Note that some props are only available with `multiline={true/false}`. Additiona
 import React from 'react';
 import {View, TextInput} from 'react-native';
 
-const UselessTextInput = props => {
-  return (
-    <TextInput
-      {...props} // Inherit any props passed to it; e.g., multiline, numberOfLines below
-      editable
-      maxLength={40}
-    />
-  );
-};
-
-const UselessTextInputMultiline = () => {
+const MultilineTextInputExample = () => {
   const [value, onChangeText] = React.useState('Useless Multiline Placeholder');
 
   // If you type something in the text box that is a color, the background will change to that
@@ -75,9 +65,11 @@ const UselessTextInputMultiline = () => {
         borderBottomColor: '#000000',
         borderBottomWidth: 1,
       }}>
-      <UselessTextInput
+      <TextInput
+        editable
         multiline
         numberOfLines={4}
+        maxLength={40}
         onChangeText={text => onChangeText(text)}
         value={value}
         style={{padding: 10}}
@@ -86,7 +78,7 @@ const UselessTextInputMultiline = () => {
   );
 };
 
-export default UselessTextInputMultiline;
+export default MultilineTextInputExample;
 ```
 
 `TextInput` has by default a border at the bottom of its view. This border has its padding set by the background image provided by the system, and it cannot be changed. Solutions to avoid this are to either not set height explicitly, in which case the system will take care of displaying the border in the correct position, or to not display the border by setting `underlineColorAndroid` to transparent.

@@ -3,13 +3,18 @@ id: virtualizedlist
 title: VirtualizedList
 ---
 
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+
 Base implementation for the more convenient [`<FlatList>`](flatlist.md) and [`<SectionList>`](sectionlist.md) components, which are also better documented. In general, this should only really be used if you need more flexibility than [`FlatList`](flatlist.md) provides, e.g. for use with immutable data instead of plain arrays.
 
 Virtualization massively improves memory consumption and performance of large lists by maintaining a finite render window of active items and replacing all items outside of the render window with appropriately sized blank space. The window adapts to scrolling behavior, and items are rendered incrementally with low-pri (after any running interactions) if they are far from the visible area, or with hi-pri otherwise to minimize the potential of seeing blank space.
 
 ## Example
 
-```SnackPlayer name=VirtualizedListExample
+<Tabs groupId="language" defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
+<TabItem value="javascript">
+
+```SnackPlayer name=VirtualizedListExample&ext=js
 import React from 'react';
 import {
   SafeAreaView,
@@ -19,8 +24,6 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
-
-const DATA = [];
 
 const getItem = (_data, index) => ({
   id: Math.random().toString(12).substring(0),
@@ -39,10 +42,9 @@ const App = () => {
   return (
     <SafeAreaView style={styles.container}>
       <VirtualizedList
-        data={DATA}
         initialNumToRender={4}
         renderItem={({item}) => <Item title={item.title} />}
-        keyExtractor={item => item.key}
+        keyExtractor={item => item.id}
         getItemCount={getItemCount}
         getItem={getItem}
       />
@@ -71,6 +73,80 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
+</TabItem>
+<TabItem value="typescript">
+
+```SnackPlayer name=VirtualizedListExample&ext=tsx
+import React from 'react';
+import {
+  SafeAreaView,
+  View,
+  VirtualizedList,
+  StyleSheet,
+  Text,
+  StatusBar,
+} from 'react-native';
+
+type ItemData = {
+  id: string;
+  title: string;
+};
+
+const getItem = (_data: unknown, index: number): ItemData => ({
+  id: Math.random().toString(12).substring(0),
+  title: `Item ${index + 1}`,
+});
+
+const getItemCount = (_data: unknown) => 50;
+
+type ItemProps = {
+  title: string;
+};
+
+const Item = ({title}: ItemProps) => (
+  <View style={styles.item}>
+    <Text style={styles.title}>{title}</Text>
+  </View>
+);
+
+const App = () => {
+  return (
+    <SafeAreaView style={styles.container}>
+      <VirtualizedList
+        initialNumToRender={4}
+        renderItem={({item}) => <Item title={item.title} />}
+        keyExtractor={item => item.id}
+        getItemCount={getItemCount}
+        getItem={getItem}
+      />
+    </SafeAreaView>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: StatusBar.currentHeight,
+  },
+  item: {
+    backgroundColor: '#f9c2ff',
+    height: 150,
+    justifyContent: 'center',
+    marginVertical: 8,
+    marginHorizontal: 16,
+    padding: 20,
+  },
+  title: {
+    fontSize: 32,
+  },
+});
+
+export default App;
+```
+
+</TabItem>
+</Tabs>
+
 ---
 
 Some caveats:
@@ -92,9 +168,9 @@ Inherits [ScrollView Props](scrollview.md#props).
 
 ---
 
-### <div class="label required basic">Required</div> **`data`**
+### `data`
 
-The default accessor functions assume this is an array of objects with shape `{key: string}` but you can override `getItem`, `getItemCount`, and `keyExtractor` to handle any type of index-based data.
+Opaque data type passed to `getItem` and `getItemCount` to retrieve items.
 
 | Type |
 | ---- |

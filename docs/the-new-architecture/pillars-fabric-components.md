@@ -17,7 +17,7 @@ A Fabric Native Component is a Native Component rendered on the screen using the
 
 A Fabric Native Component is created starting from a **JavaScript specification**. Then [**Codegen**](./pillars-codegen) creates some C++ scaffolding code to connect the component-specific logic (for example, accessing some native platform capability) to the rest of the React Native infrastructure. The C++ code is the same for all the platforms. Once the component is properly connected with the scaffolding code, it is ready to be imported and used by an app.
 
-The following section guides you through the creation of a Fabric Native Component, step-by-step, targeting React Native 0.70.0.
+The following section guides you through the creation of a Fabric Native Component, step-by-step, targeting the latest version of React Native.
 
 :::caution
 Fabric Native Components only works with the **New Architecture** enabled.
@@ -215,13 +215,12 @@ The first part of the file prepares some variables that we use throughout the fi
 
 All the requirements for the New Architecture have been encapsulated in the [`install_modules_dependencies`](https://github.com/facebook/react-native/blob/82e9c6ad611f1fb816de056ff031716f8cb24b4e/scripts/react_native_pods.rb#L145). It takes care of installing the proper dependencies based on which architecture is currently enabled. It also automatically installs the `React-Core` dependency in the old architecture.
 
-### Android: `build.gradle`, `AndroidManifest.xml`, a `ReactPackage` class
+### Android: `build.gradle` and the `ReactPackage` class
 
-To prepare Android to run **Codegen** you have to create three files:
+To prepare Android to run **Codegen** you have to:
 
-1. The `build.gradle` with the **Codegen** configuration
-1. The `AndroidManifest.xml` file
-1. A Java/Kotlin class that implements the `ReactPackage` interface.
+1. Update the `build.gradle` file.
+2. Create a Java/Kotlin class that implements the `ReactPackage` interface.
 
 At the end of these steps, the `android` folder should look like this:
 
@@ -230,7 +229,6 @@ android
 ├── build.gradle
 └── src
     └── main
-        ├── AndroidManifest.xml
         └── java
             └── com
                 └── rtncenteredtext
@@ -251,7 +249,7 @@ buildscript {
     gradlePluginPortal()
   }
   dependencies {
-    classpath("com.android.tools.build:gradle:7.1.1")
+    classpath("com.android.tools.build:gradle:7.3.1")
   }
 }
 
@@ -259,44 +257,29 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.facebook.react'
 
 android {
-  compileSdkVersion safeExtGet('compileSdkVersion', 31)
+  compileSdkVersion safeExtGet('compileSdkVersion', 33)
+  namespace "com.rtncenteredtext"
 
   defaultConfig {
     minSdkVersion safeExtGet('minSdkVersion', 21)
-    targetSdkVersion safeExtGet('targetSdkVersion', 31)
+    targetSdkVersion safeExtGet('targetSdkVersion', 33)
     buildConfigField("boolean", "IS_NEW_ARCHITECTURE_ENABLED", "true")
   }
 }
 
 repositories {
-  maven {
-    // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
-    url "$projectDir/../node_modules/react-native/android"
-  }
   mavenCentral()
   google()
 }
 
 dependencies {
-  implementation 'com.facebook.react:react-native:+'
+  implementation 'com.facebook.react:react-native'
 }
 ```
 
-#### The `AndroidManifest.xml`
-
-Second, create an `android/src/main` folder. Inside that folder, create a `AndroidManifest.xml` file, with the following code:
-
-```xml title="AndroidManifest.xml"
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.rtncenteredtext">
-</manifest>
-```
-
-This is a small manifest file that defines the package for your module.
-
 #### The `ReactPackage` class
 
-Finally, you need a class that implements the `ReactPackage` interface. To run the **Codegen** process, you don't have to completely implement the Package class: an empty implementation is enough for the app to pick up the module as a proper React Native dependency and to try and generate the scaffolding code.
+Then, you need a class that implements the `ReactPackage` interface. To run the **Codegen** process, you don't have to completely implement the Package class: an empty implementation is enough for the app to pick up the module as a proper React Native dependency and to try and generate the scaffolding code.
 
 Create an `android/src/main/java/com/rtncenteredtext` folder and, inside that folder, create a `CenteredTextPackage.java` file.
 
@@ -660,7 +643,6 @@ android
 ├── build.gradle
 └── src
     └── main
-        ├── AndroidManifest.xml
         └── java
             └── com
                 └── rtncenteredtext
