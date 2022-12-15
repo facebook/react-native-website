@@ -334,9 +334,9 @@ A marker property for telling the list to re-render (since it implements `PureCo
 
 ```tsx
 (
-    data: any,
-    index: number,
-  ) => {length: number, offset: number, index: number}
+  data: any,
+  index: number,
+) => {length: number, offset: number, index: number}
 ```
 
 | Type     |
