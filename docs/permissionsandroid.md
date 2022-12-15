@@ -268,7 +268,7 @@ If `rationale` is provided, this function checks with the OS whether it is neces
 
 ```tsx
 static requestMultiple(
-  permissions: Array<Permission>,
+  permissions: Permission[],
 ): Promise<{[key in Permission]: PermissionStatus}>;
 ```
 
