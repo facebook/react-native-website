@@ -533,7 +533,7 @@ export default (codegenNativeComponent<NativeProps>(
 
 And update the main file:
 
-```ts title="RNTMyNativeNativeComponent.tsx"
+```ts title="RNTMyNativeNativeComponent.ts"
 export default require('./RNTMyNativeViewNativeComponent')
   .default;
 ```
