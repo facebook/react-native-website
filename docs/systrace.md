@@ -173,7 +173,7 @@ export default App;
 ### `isEnabled()`
 
 ```tsx
-static isEnabled(): boolean
+static isEnabled(): boolean;
 ```
 
 ---
