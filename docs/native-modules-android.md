@@ -109,8 +109,8 @@ override fun getName() = "CalendarModule"
 
 The native module can then be accessed in JS like this:
 
-```jsx
-const { CalendarModule } = ReactNative.NativeModules;
+```tsx
+const {CalendarModule} = ReactNative.NativeModules;
 ```
 
 ### Export a Native Method to JavaScript
@@ -310,9 +310,9 @@ At this point, you have set up the basic scaffolding for your native module in A
 
 Find a place in your application where you would like to add a call to the native module’s `createCalendarEvent()` method. Below is an example of a component, `NewModuleButton` you can add in your app. You can invoke the native module inside `NewModuleButton`'s `onPress()` function.
 
-```jsx
+```tsx
 import React from 'react';
-import { NativeModules, Button } from 'react-native';
+import {NativeModules, Button} from 'react-native';
 
 const NewModuleButton = () => {
   const onPress = () => {
@@ -333,19 +333,19 @@ export default NewModuleButton;
 
 In order to access your native module from JavaScript you need to first import `NativeModules` from React Native:
 
-```jsx
-import { NativeModules } from 'react-native';
+```tsx
+import {NativeModules} from 'react-native';
 ```
 
 You can then access the `CalendarModule` native module off of `NativeModules`.
 
-```jsx
-const { CalendarModule } = NativeModules;
+```tsx
+const {CalendarModule} = NativeModules;
 ```
 
 Now that you have the CalendarModule native module available, you can invoke your native method `createCalendarEvent()`. Below it is added to the `onPress()` method in `NewModuleButton`:
 
-```jsx
+```tsx
 const onPress = () => {
   CalendarModule.createCalendarEvent('testName', 'testLocation');
 };
@@ -380,7 +380,7 @@ Importing your native module by pulling it off of `NativeModules` like above is 
 
 To save consumers of your native module from needing to do that each time they want to access your native module, you can create a JavaScript wrapper for the module. Create a new JavaScript file named `CalendarModule.js` with the following content:
 
-```jsx
+```tsx
 /**
 * This exposes the native CalendarModule module as a JS module. This has a
 * function 'createCalendarEvent' which takes the following parameters:
@@ -388,32 +388,32 @@ To save consumers of your native module from needing to do that each time they w
 * 1. String name: A string representing the name of the event
 * 2. String location: A string representing the location of the event
 */
-import { NativeModules } from 'react-native';
-const { CalendarModule } = NativeModules;
+import {NativeModules} from 'react-native';
+const {CalendarModule} = NativeModules;
 export default CalendarModule;
 ```
 
 This JavaScript file also becomes a good location for you to add any JavaScript side functionality. For example, if you use a type system like TypeScript you can add type annotations for your native module here. While React Native does not yet support Native to JS type safety, all your JS code will be type safe. Doing so will also make it easier for you to switch to type-safe native modules down the line. Below is an example of adding type safety to the CalendarModule:
 
-```jsx
+```tsx
 /**
-* This exposes the native CalendarModule module as a JS module. This has a
-* function 'createCalendarEvent' which takes the following parameters:
-*
-* 1. String name: A string representing the name of the event
-* 2. String location: A string representing the location of the event
-*/
-import { NativeModules } from 'react-native';
-const { CalendarModule } = NativeModules;
+ * This exposes the native CalendarModule module as a JS module. This has a
+ * function 'createCalendarEvent' which takes the following parameters:
+ *
+ * 1. String name: A string representing the name of the event
+ * 2. String location: A string representing the location of the event
+ */
+import {NativeModules} from 'react-native';
+const {CalendarModule} = NativeModules;
 interface CalendarInterface {
-   createCalendarEvent(name: string, location: string): void;
+  createCalendarEvent(name: string, location: string): void;
 }
 export default CalendarModule as CalendarInterface;
 ```
 
 In your other JavaScript files you can access the native module and invoke its method like this:
 
-```jsx
+```tsx
 import CalendarModule from './CalendarModule';
 CalendarModule.createCalendarEvent('foo', 'bar');
 ```
@@ -503,8 +503,8 @@ override fun getConstants(): MutableMap<String, Any> =
 
 The constant can then be accessed by invoking `getConstants` on the native module in JS:
 
-```jsx
-const { DEFAULT_EVENT_NAME } = CalendarModule.getConstants();
+```tsx
+const {DEFAULT_EVENT_NAME} = CalendarModule.getConstants();
 console.log(DEFAULT_EVENT_NAME);
 ```
 
@@ -570,14 +570,14 @@ You can invoke the callback in your Java/Kotlin method, providing whatever data 
 
 This method could then be accessed in JavaScript using:
 
-```jsx
+```tsx
 const onPress = () => {
   CalendarModule.createCalendarEvent(
     'Party',
     'My House',
-    (eventId) => {
+    eventId => {
       console.log(`Created a new event with id ${eventId}`);
-    }
+    },
   );
 };
 ```
@@ -613,7 +613,7 @@ There are two approaches to error handling with callbacks. The first is to follo
 
 In JavaScript, you can then check the first argument to see if an error was passed through:
 
-```jsx
+```tsx
 const onPress = () => {
   CalendarModule.createCalendarEvent(
     'testName',
@@ -623,7 +623,7 @@ const onPress = () => {
         console.error(`Error found! ${error}`);
       }
       console.log(`event id ${eventId} returned`);
-    }
+    },
   );
 };
 ```
@@ -657,17 +657,17 @@ public void createCalendarEvent(String name, String location, Callback myFailure
 
 Then in JavaScript you can add a separate callback for error and success responses:
 
-```jsx
+```tsx
 const onPress = () => {
   CalendarModule.createCalendarEvent(
     'testName',
     'testLocation',
-    (error) => {
+    error => {
       console.error(`Error found! ${error}`);
     },
-    (eventId) => {
+    eventId => {
       console.log(`event id ${eventId} returned`);
-    }
+    },
   );
 };
 ```
@@ -717,12 +717,12 @@ fun createCalendarEvent(name: String, location: String, promise: Promise) {
 
 The JavaScript counterpart of this method returns a Promise. This means you can use the `await` keyword within an async function to call it and wait for its result:
 
-```jsx
+```tsx
 const onSubmit = async () => {
   try {
     const eventId = await CalendarModule.createCalendarEvent(
       'Party',
-      'My House'
+      'My House',
     );
     console.log(`Created a new event with id ${eventId}`);
   } catch (e) {
@@ -852,14 +852,14 @@ sendEvent(reactContext, "EventReminder", params)
 
 JavaScript modules can then register to receive events by `addListener` on the [NativeEventEmitter](https://github.com/facebook/react-native/blob/master/Libraries/EventEmitter/NativeEventEmitter.js) class.
 
-```jsx
-import { NativeEventEmitter, NativeModules } from 'react-native';
+```tsx
+import {NativeEventEmitter, NativeModules} from 'react-native';
 ...
 
  componentDidMount() {
    ...
    const eventEmitter = new NativeEventEmitter(NativeModules.ToastExample);
-   this.eventListener = eventEmitter.addListener('EventReminder', (event) => {
+   this.eventListener = eventEmitter.addListener('EventReminder', event => {
       console.log(event.eventProperty) // "someValue"
    });
    ...
@@ -929,7 +929,7 @@ Let's implement a basic image picker to demonstrate this. The image picker will 
 <Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
 <TabItem value="java">
 
-```jsx
+```kotlin
 public class ImagePickerModule extends ReactContextBaseJavaModule {
 
   private static final int IMAGE_PICKER_REQUEST = 1;
@@ -1029,7 +1029,7 @@ class ImagePickerModule(reactContext: ReactApplicationContext) :
                             Activity.RESULT_OK -> {
                                 val uri = intent?.data
 
-                                uri?.let { promise.resolve(uri.toString()) }
+                                uri?.let { promise.resolve(uri.toString())}
                                     ?: promise.reject(E_NO_IMAGE_DATA_FOUND, "No image data found")
                             }
                         }

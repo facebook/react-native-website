@@ -3,7 +3,7 @@ id: imagepickerios
 title: '🚧 ImagePickerIOS'
 ---
 
-> **Deprecated.** Use one of the [community packages](https://reactnative.directory/?search=image+picker) instead.
+> **Removed.** Use one of the [community packages](https://reactnative.directory/?search=image+picker) instead.
 
 ---
 

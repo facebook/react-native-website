@@ -146,12 +146,12 @@ By default, `timing` will use an easeInOut curve that conveys gradual accelerati
 
 For example, if we want to create a 2-second long animation of an object that slightly backs up before moving to its final position:
 
-```jsx
+```tsx
 Animated.timing(this.state.xPosition, {
   toValue: 100,
   easing: Easing.back(),
   duration: 2000,
-  useNativeDriver: true
+  useNativeDriver: true,
 }).start();
 ```
 
@@ -163,27 +163,27 @@ Animations can be combined and played in sequence or in parallel. Sequential ani
 
 For example, the following animation coasts to a stop, then it springs back while twirling in parallel:
 
-```jsx
+```tsx
 Animated.sequence([
   // decay, then spring to start and twirl
   Animated.decay(position, {
     // coast to a stop
-    velocity: { x: gestureState.vx, y: gestureState.vy }, // velocity from gesture release
+    velocity: {x: gestureState.vx, y: gestureState.vy}, // velocity from gesture release
     deceleration: 0.997,
-    useNativeDriver: true
+    useNativeDriver: true,
   }),
   Animated.parallel([
     // after decay, in parallel:
     Animated.spring(position, {
-      toValue: { x: 0, y: 0 }, // return to start
-      useNativeDriver: true
+      toValue: {x: 0, y: 0}, // return to start
+      useNativeDriver: true,
     }),
     Animated.timing(twirl, {
       // and twirl
       toValue: 360,
-      useNativeDriver: true
-    })
-  ])
+      useNativeDriver: true,
+    }),
+  ]),
 ]).start(); // start the sequence group
 ```
 
@@ -197,13 +197,13 @@ You can [combine two animated values](animated#combining-animated-values) via ad
 
 There are some cases where an animated value needs to invert another animated value for calculation. An example is inverting a scale (2x --> 0.5x):
 
-```jsx
+```tsx
 const a = new Animated.Value(1);
 const b = Animated.divide(1, a);
 
 Animated.spring(a, {
   toValue: 2,
-  useNativeDriver: true
+  useNativeDriver: true,
 }).start();
 ```
 
@@ -213,16 +213,16 @@ Each property can be run through an interpolation first. An interpolation maps i
 
 A basic mapping to convert a 0-1 range to a 0-100 range would be:
 
-```jsx
+```tsx
 value.interpolate({
   inputRange: [0, 1],
-  outputRange: [0, 100]
+  outputRange: [0, 100],
 });
 ```
 
 For example, you may want to think about your `Animated.Value` as going from 0 to 1, but animate the position from 150px to 0px and the opacity from 0 to 1. This can be done by modifying `style` from the example above like so:
 
-```jsx
+```tsx
   style={{
     opacity: this.state.fadeAnim, // Binds directly
     transform: [{
@@ -236,10 +236,10 @@ For example, you may want to think about your `Animated.Value` as going from 0 t
 
 [`interpolate()`](animated#interpolate) supports multiple range segments as well, which is handy for defining dead zones and other handy tricks. For example, to get a negation relationship at -300 that goes to 0 at -100, then back up to 1 at 0, and then back down to zero at 100 followed by a dead-zone that remains at 0 for everything beyond that, you could do:
 
-```jsx
+```tsx
 value.interpolate({
   inputRange: [-300, -100, 0, 100, 101],
-  outputRange: [300, 0, 1, 0, 0]
+  outputRange: [300, 0, 1, 0, 0],
 });
 ```
 
@@ -262,10 +262,10 @@ Input | Output
 
 `interpolate()` also supports mapping to strings, allowing you to animate colors as well as values with units. For example, if you wanted to animate a rotation you could do:
 
-```jsx
+```tsx
 value.interpolate({
   inputRange: [0, 360],
-  outputRange: ['0deg', '360deg']
+  outputRange: ['0deg', '360deg'],
 });
 ```
 
@@ -275,14 +275,14 @@ value.interpolate({
 
 Animated values can also track other values by setting the `toValue` of an animation to another animated value instead of a plain number. For example, a "Chat Heads" animation like the one used by Messenger on Android could be implemented with a `spring()` pinned on another animated value, or with `timing()` and a `duration` of 0 for rigid tracking. They can also be composed with interpolations:
 
-```jsx
-Animated.spring(follower, { toValue: leader }).start();
+```tsx
+Animated.spring(follower, {toValue: leader}).start();
 Animated.timing(opacity, {
   toValue: pan.x.interpolate({
     inputRange: [0, 300],
     outputRange: [1, 0],
-    useNativeDriver: true
-  })
+    useNativeDriver: true,
+  }),
 }).start();
 ```
 
@@ -294,10 +294,10 @@ Gestures, like panning or scrolling, and other events can map directly to animat
 
 For example, when working with horizontal scrolling gestures, you would do the following in order to map `event.nativeEvent.contentOffset.x` to `scrollX` (an `Animated.Value`):
 
-```jsx
+```tsx
  onScroll={Animated.event(
    // scrollX = e.nativeEvent.contentOffset.x
-   [{ nativeEvent: {
+   [{nativeEvent: {
         contentOffset: {
           x: scrollX
         }
@@ -763,7 +763,7 @@ const styles = StyleSheet.create({
 
 When using `PanResponder`, you could use the following code to extract the x and y positions from `gestureState.dx` and `gestureState.dy`. We use a `null` in the first position of the array, as we are only interested in the second argument passed to the `PanResponder` handler, which is the `gestureState`.
 
-```jsx
+```tsx
 onPanResponderMove={Animated.event(
   [null, // ignore the native event
   // extract dx and dy from gestureState
@@ -909,11 +909,11 @@ The `Animated` API is designed to be serializable. By using the [native driver](
 
 Using the native driver for normal animations can be accomplished by setting `useNativeDriver: true` in animation config when starting it. Animations without a `useNativeDriver` property will default to false for legacy reasons, but emit a warning (and typechecking error in TypeScript).
 
-```jsx
+```tsx
 Animated.timing(this.state.animatedValue, {
   toValue: 1,
   duration: 500,
-  useNativeDriver: true // <-- Set this to true
+  useNativeDriver: true, // <-- Set this to true
 }).start();
 ```
 
@@ -921,18 +921,18 @@ Animated values are only compatible with one driver so if you use native driver 
 
 The native driver also works with `Animated.event`. This is especially useful for animations that follow the scroll position as without the native driver, the animation will always run a frame behind the gesture due to the async nature of React Native.
 
-```jsx
+```tsx
 <Animated.ScrollView // <-- Use the Animated ScrollView wrapper
   scrollEventThrottle={1} // <-- Use 1 here to make sure no events are ever missed
   onScroll={Animated.event(
     [
       {
         nativeEvent: {
-          contentOffset: { y: this.state.animatedValue }
-        }
-      }
+          contentOffset: {y: this.state.animatedValue},
+        },
+      },
     ],
-    { useNativeDriver: true } // <-- Set this to true
+    {useNativeDriver: true}, // <-- Set this to true
   )}>
   {content}
 </Animated.ScrollView>
@@ -950,14 +950,14 @@ When an animation is running, it can prevent `VirtualizedList` components from r
 
 While using transform styles such as `rotateY`, `rotateX`, and others ensure the transform style `perspective` is in place. At this time some animations may not render on Android without it. Example below.
 
-```jsx
+```tsx
 <Animated.View
   style={{
     transform: [
-      { scale: this.state.scale },
-      { rotateY: this.state.rotateY },
-      { perspective: 1000 } // without this line this Animation will not render on Android while working fine on iOS
-    ]
+      {scale: this.state.scale},
+      {rotateY: this.state.rotateY},
+      {perspective: 1000}, // without this line this Animation will not render on Android while working fine on iOS
+    ],
   }}
 />
 ```
@@ -977,9 +977,8 @@ Note that although `LayoutAnimation` is very powerful and can be quite useful, i
 
 Note that in order to get this to work on **Android** you need to set the following flags via `UIManager`:
 
-```jsx
-UIManager.setLayoutAnimationEnabledExperimental &&
-  UIManager.setLayoutAnimationEnabledExperimental(true);
+```tsx
+UIManager.setLayoutAnimationEnabledExperimental(true);
 ```
 
 ```SnackPlayer name=LayoutAnimations&supportedPlatforms=ios,android

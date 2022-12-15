@@ -80,15 +80,15 @@ export default (TurboModuleRegistry.get<Spec>(
 <TabItem value="typescript">
 
 ```typescript title="NativeCalculator.ts"
-import type { TurboModule } from 'react-native/Libraries/TurboModule/RCTExport';
-import { TurboModuleRegistry } from 'react-native';
+import type {TurboModule} from 'react-native/Libraries/TurboModule/RCTExport';
+import {TurboModuleRegistry} from 'react-native';
 
 export interface Spec extends TurboModule {
   add(a: number, b: number): Promise<number>;
 }
 
 export default TurboModuleRegistry.get<Spec>(
-  'RTNCalculator'
+  'RTNCalculator',
 ) as Spec | null;
 ```
 
@@ -675,13 +675,13 @@ Here's an example App.js file using the `add` method:
  * @flow strict-local
  */
 import React from 'react';
-import { useState } from 'react';
-import type { Node } from 'react';
+import {useState} from 'react';
+import type {Node} from 'react';
 import {
   SafeAreaView,
   StatusBar,
   Text,
-  Button
+  Button,
 } from 'react-native';
 import RTNCalculator from 'rtn-calculator/js/NativeCalculator.js';
 
@@ -690,7 +690,7 @@ const App: () => Node = () => {
   return (
     <SafeAreaView>
       <StatusBar barStyle={'dark-content'} />
-      <Text style={{ marginLeft: 20, marginTop: 20 }}>
+      <Text style={{marginLeft: 20, marginTop: 20}}>
         3+7={result ?? '??'}
       </Text>
       <Button

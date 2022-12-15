@@ -14,10 +14,10 @@ class MyComponent extends Component {
   constructor() {
     super();
     const ds = new ListView.DataSource({
-      rowHasChanged: (r1, r2) => r1 !== r2
+      rowHasChanged: (r1, r2) => r1 !== r2,
     });
     this.state = {
-      dataSource: ds.cloneWithRows(['row 1', 'row 2'])
+      dataSource: ds.cloneWithRows(['row 1', 'row 2']),
     };
   }
 
@@ -25,7 +25,7 @@ class MyComponent extends Component {
     return (
       <ListView
         dataSource={this.state.dataSource}
-        renderRow={(rowData) => <Text>{rowData}</Text>}
+        renderRow={rowData => <Text>{rowData}</Text>}
       />
     );
   }
@@ -249,7 +249,7 @@ See `ScrollView#scrollTo`.
 ### `scrollToEnd()`
 
 ```jsx
-scrollToEnd(([options]: { animated: boolean }));
+scrollToEnd(([options]: {animated: boolean}));
 ```
 
 If this is a vertical ListView scrolls to the bottom. If this is a horizontal ListView scrolls to the right.

@@ -14,7 +14,7 @@ Do not use unless you have a very good reason. All elements that respond to pres
 ```tsx
 function MyComponent(props: MyComponentProps) {
   return (
-    <View {...props} style={{ flex: 1, backgroundColor: '#fff' }}>
+    <View {...props} style={{flex: 1, backgroundColor: '#fff'}}>
       <Text>My Component</Text>
     </View>
   );

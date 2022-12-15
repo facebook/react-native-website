@@ -37,14 +37,14 @@ export default Cat;
 
 Here is how you do it: To define your `Cat` component, first use JavaScript’s [`import`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) to import React and React Native’s [`Text`](/docs/next/text) Core Component:
 
-```jsx
+```tsx
 import React from 'react';
-import { Text } from 'react-native';
+import {Text} from 'react-native';
 ```
 
 Your component starts as a function:
 
-```jsx
+```tsx
 const Cat = () => {};
 ```
 
@@ -52,7 +52,7 @@ You can think of components as blueprints. Whatever a function component returns
 
 Here the `Cat` component will render a `<Text>` element:
 
-```jsx
+```tsx
 const Cat = () => {
   return <Text>Hello, I am your cat!</Text>;
 };
@@ -60,7 +60,7 @@ const Cat = () => {
 
 You can export your function component with JavaScript’s [`export default`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export) for use throughout your app like so:
 
-```jsx
+```tsx
 const Cat = () => {
   return <Text>Hello, I am your cat!</Text>;
 };
@@ -88,19 +88,19 @@ export default Cat;
 
 You additionally import `Component` from React:
 
-```jsx
-import React, { Component } from 'react';
+```tsx
+import React, {Component} from 'react';
 ```
 
 Your component starts as a class extending `Component` instead of as a function:
 
-```jsx
+```tsx
 class Cat extends Component {}
 ```
 
 Class components have a `render()` function. Whatever is returned inside it is rendered as a React element:
 
-```jsx
+```tsx
 class Cat extends Component {
   render() {
     return <Text>Hello, I am your cat!</Text>;
@@ -110,7 +110,7 @@ class Cat extends Component {
 
 And as with function components, you can export your class component:
 
-```jsx
+```tsx
 class Cat extends Component {
   render() {
     return <Text>Hello, I am your cat!</Text>;
@@ -463,8 +463,8 @@ export default Cafe;
 
 First, you will want to import `useState` from React like so:
 
-```jsx
-import React, { useState } from 'react';
+```tsx
+import React, {useState} from 'react';
 ```
 
 Then you declare the component’s state by calling `useState` inside its function. In this example, `useState` creates an `isHungry` state variable:
@@ -487,7 +487,7 @@ It doesn’t matter what names you use. But it can be handy to think of the patt
 
 Next you add the [`Button`](button) Core Component and give it an `onPress` prop:
 
-```jsx
+```tsx
 <Button
   onPress={() => {
     setIsHungry(false);
@@ -498,7 +498,7 @@ Next you add the [`Button`](button) Core Component and give it an `onPress` prop
 
 Now, when someone presses the button, `onPress` will fire, calling the `setIsHungry(false)`. This sets the state variable `isHungry` to `false`. When `isHungry` is false, the `Button`’s `disabled` prop is set to `true` and its `title` also changes:
 
-```jsx
+```tsx
 <Button
   //..
   disabled={!isHungry}
@@ -510,7 +510,7 @@ Now, when someone presses the button, `onPress` will fire, calling the `setIsHun
 
 Finally, put your cats inside a `Cafe` component:
 
-```jsx
+```tsx
 const Cafe = () => {
   return (
     <>
@@ -625,22 +625,22 @@ export default Cafe;
 
 As always with class components, you must import the `Component` class from React:
 
-```jsx
-import React, { Component } from 'react';
+```tsx
+import React, {Component} from 'react';
 ```
 
 In class components, state is stored in a state object:
 
-```jsx
+```tsx
 export class Cat extends Component {
-  state = { isHungry: true };
+  state = {isHungry: true};
   //..
 }
 ```
 
 As with accessing props with `this.props`, you access this object inside your component with `this.state`:
 
-```jsx
+```tsx
 <Text>
   I am {this.props.name}, and I am
   {this.state.isHungry ? ' hungry' : ' full'}!
@@ -649,10 +649,10 @@ As with accessing props with `this.props`, you access this object inside your co
 
 And you set individual values inside the state object by passing an object with the key value pair for state and its new value to `this.setState()`:
 
-```jsx
+```tsx
 <Button
   onPress={() => {
-    this.setState({ isHungry: false });
+    this.setState({isHungry: false});
   }}
   // ..
 />
@@ -662,7 +662,7 @@ And you set individual values inside the state object by passing an object with 
 
 When `this.state.isHungry` is false, the `Button`’s `disabled` prop is set to `true` and its `title` also changes:
 
-```jsx
+```tsx
 <Button
   // ..
   disabled={!this.state.isHungry}
@@ -676,7 +676,7 @@ When `this.state.isHungry` is false, the `Button`’s `disabled` prop is set to 
 
 Finally, put your cats inside a `Cafe` component:
 
-```jsx
+```tsx
 class Cafe extends Component {
   render() {
     return (

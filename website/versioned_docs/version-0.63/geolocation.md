@@ -98,7 +98,7 @@ Request suitable Location permission based on the key configured on pList. If NS
 geolocation.getCurrentPosition(
   geo_success,
   [geo_error],
-  [geo_options]
+  [geo_options],
 );
 ```
 

@@ -206,15 +206,10 @@ In your `index.js`, create your component. In our sample here, we will add a `<T
 
 ```jsx
 import React from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+import {AppRegistry, StyleSheet, Text, View} from 'react-native';
 
-const RNHighScores = ({ scores }) => {
-  const contents = scores.map((score) => (
+const RNHighScores = ({scores}) => {
+  const contents = scores.map(score => (
     <Text key={score.name}>
       {score.name}:{score.value}
       {'\n'}
@@ -235,18 +230,18 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#FFFFFF'
+    backgroundColor: '#FFFFFF',
   },
   highScoresTitle: {
     fontSize: 20,
     textAlign: 'center',
-    margin: 10
+    margin: 10,
   },
   scores: {
     textAlign: 'center',
     color: '#333333',
-    marginBottom: 5
-  }
+    marginBottom: 5,
+  },
 });
 
 // Module name

@@ -20,13 +20,13 @@ if (Platform.OS === 'android') {
 Example usage:
 
 ```jsx
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {
   View,
   Text,
   TouchableOpacity,
   Platform,
-  UIManager
+  UIManager,
 } from 'react-native';
 
 if (
@@ -36,16 +36,16 @@ if (
   UIManager.setLayoutAnimationEnabledExperimental(true);
 }
 class AnimatedCollapsible extends React.Component {
-  state = { expanded: false };
+  state = {expanded: false};
   render() {
     return (
-      <View style={{ overflow: 'hidden' }}>
+      <View style={{overflow: 'hidden'}}>
         <TouchableOpacity
           onPress={() => {
             LayoutAnimation.configureNext(
-              LayoutAnimation.Presets.spring
+              LayoutAnimation.Presets.spring,
             );
-            this.setState({ expanded: !this.state.expanded });
+            this.setState({expanded: !this.state.expanded});
           }}>
           <Text>
             Press me to{' '}
@@ -115,8 +115,8 @@ LayoutAnimation.configureNext(
   LayoutAnimation.create(
     500,
     LayoutAnimation.Types.spring,
-    LayoutAnimation.Properties.scaleXY
-  )
+    LayoutAnimation.Properties.scaleXY,
+  ),
 );
 ```
 

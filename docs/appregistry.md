@@ -12,10 +12,10 @@ title: AppRegistry
 
 `AppRegistry` is the JS entry point to running all React Native apps. App root components should register themselves with `AppRegistry.registerComponent`, then the native system can load the bundle for the app and then actually run the app when it's ready by invoking `AppRegistry.runApplication`.
 
-```jsx
-import { Text, AppRegistry } from 'react-native';
+```tsx
+import {Text, AppRegistry} from 'react-native';
 
-const App = (props) => (
+const App = () => (
   <View>
     <Text>App1</Text>
   </View>
@@ -34,41 +34,10 @@ To "stop" an application when a view should be destroyed, call `AppRegistry.unmo
 
 ## Methods
 
-### `cancelHeadlessTask()`
-
-```jsx
-static cancelHeadlessTask(taskId, taskKey)
-```
-
-Only called from native code. Cancels a headless task.
-
-**Parameters:**
-
-| Name                                                         | Type   | Description                                                                             |
-| ------------------------------------------------------------ | ------ | --------------------------------------------------------------------------------------- |
-| taskId <div className="label basic required">Required</div>  | number | The native id for this task instance that was used when `startHeadlessTask` was called. |
-| taskKey <div className="label basic required">Required</div> | string | The key for the task that was used when `startHeadlessTask` was called.                 |
-
----
-
-### `enableArchitectureIndicator()`
-
-```jsx
-static enableArchitectureIndicator(enabled)
-```
-
-**Parameters:**
-
-| Name                                                         | Type    |
-| ------------------------------------------------------------ | ------- |
-| enabled <div className="label basic required">Required</div> | boolean |
-
----
-
 ### `getAppKeys()`
 
-```jsx
-static getAppKeys()
+```tsx
+static getAppKeys(): string[];
 ```
 
 Returns an array of strings.
@@ -77,8 +46,8 @@ Returns an array of strings.
 
 ### `getRegistry()`
 
-```jsx
-static getRegistry()
+```tsx
+static getRegistry(): {sections: string[]; runnables: Runnable[]};
 ```
 
 Returns a [Registry](appregistry#registry) object.
@@ -87,8 +56,8 @@ Returns a [Registry](appregistry#registry) object.
 
 ### `getRunnable()`
 
-```jsx
-static getRunnable(appKey)
+```tsx
+static getRunnable(appKey: string): : Runnable | undefined;
 ```
 
 Returns a [Runnable](appregistry#runnable) object.
@@ -103,8 +72,8 @@ Returns a [Runnable](appregistry#runnable) object.
 
 ### `getSectionKeys()`
 
-```jsx
-static getSectionKeys()
+```tsx
+static getSectionKeys(): string[];
 ```
 
 Returns an array of strings.
@@ -113,8 +82,8 @@ Returns an array of strings.
 
 ### `getSections()`
 
-```jsx
-static getSections()
+```tsx
+static getSections(): Record<string, Runnable>;
 ```
 
 Returns a [Runnables](appregistry#runnables) object.
@@ -123,8 +92,12 @@ Returns a [Runnables](appregistry#runnables) object.
 
 ### `registerCancellableHeadlessTask()`
 
-```jsx
-static registerCancellableHeadlessTask(taskKey, taskProvider, taskCancelProvider)
+```tsx
+static registerCancellableHeadlessTask(
+  taskKey: string,
+  taskProvider: TaskProvider,
+  taskCancelProvider: TaskCancelProvider,
+);
 ```
 
 Register a headless task which can be cancelled. A headless task is a bit of code that runs without a UI.
@@ -141,8 +114,12 @@ Register a headless task which can be cancelled. A headless task is a bit of cod
 
 ### `registerComponent()`
 
-```jsx
-static registerComponent(appKey, componentProvider, section?)
+```tsx
+static registerComponent(
+  appKey: string,
+  getComponentFunc: ComponentProvider,
+  section?: boolean,
+): string;
 ```
 
 **Parameters:**
@@ -157,22 +134,25 @@ static registerComponent(appKey, componentProvider, section?)
 
 ### `registerConfig()`
 
-```jsx
-static registerConfig(config)
+```tsx
+static registerConfig(config: AppConfig[]);
 ```
 
 **Parameters:**
 
-| Name                                                        | Type                               |
-| ----------------------------------------------------------- | ---------------------------------- |
-| config <div className="label basic required">Required</div> | [AppConfig](appregistry#appconfig) |
+| Name                                                        | Type                                 |
+| ----------------------------------------------------------- | ------------------------------------ |
+| config <div className="label basic required">Required</div> | [AppConfig](appregistry#appconfig)[] |
 
 ---
 
 ### `registerHeadlessTask()`
 
-```jsx
-static registerHeadlessTask(taskKey, taskProvider)
+```tsx
+static registerHeadlessTask(
+  taskKey: string,
+  taskProvider: TaskProvider,
+);
 ```
 
 Register a headless task. A headless task is a bit of code that runs without a UI.
@@ -190,8 +170,8 @@ This is a way to run tasks in JavaScript while your app is in the background. It
 
 ### `registerRunnable()`
 
-```jsx
-static registerRunnable(appKey, run)
+```tsx
+static registerRunnable(appKey: string, func: Runnable): string;
 ```
 
 **Parameters:**
@@ -205,8 +185,11 @@ static registerRunnable(appKey, run)
 
 ### `registerSection()`
 
-```jsx
-static registerSection(appKey, component)
+```tsx
+static registerSection(
+  appKey: string,
+  component: ComponentProvider,
+);
 ```
 
 **Parameters:**
@@ -220,8 +203,8 @@ static registerSection(appKey, component)
 
 ### `runApplication()`
 
-```jsx
-static runApplication(appKey, appParameters)
+```tsx
+static runApplication(appKey: string, appParameters: any): void;
 ```
 
 Loads the JavaScript bundle and runs the app.
@@ -237,8 +220,10 @@ Loads the JavaScript bundle and runs the app.
 
 ### `setComponentProviderInstrumentationHook()`
 
-```jsx
-static setComponentProviderInstrumentationHook(hook)
+```tsx
+static setComponentProviderInstrumentationHook(
+  hook: ComponentProviderInstrumentationHook,
+);
 ```
 
 **Parameters:**
@@ -260,8 +245,10 @@ The function must also return a React Component.
 
 ### `setWrapperComponentProvider()`
 
-```jsx
-static setWrapperComponentProvider(provider)
+```tsx
+static setWrapperComponentProvider(
+  provider: WrapperComponentProvider,
+);
 ```
 
 **Parameters:**
@@ -274,8 +261,12 @@ static setWrapperComponentProvider(provider)
 
 ### `startHeadlessTask()`
 
-```jsx
-static startHeadlessTask(taskId, taskKey, data)
+```tsx
+static startHeadlessTask(
+  taskId: number,
+  taskKey: string,
+  data: any,
+);
 ```
 
 Only called from native code. Starts a headless task.
@@ -292,8 +283,8 @@ Only called from native code. Starts a headless task.
 
 ### `unmountApplicationComponentAtRootTag()`
 
-```jsx
-static unmountApplicationComponentAtRootTag(rootTag)
+```tsx
+static unmountApplicationComponentAtRootTag(rootTag: number);
 ```
 
 Stops an application when a view should be destroyed.

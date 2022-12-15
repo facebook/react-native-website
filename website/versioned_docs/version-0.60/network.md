@@ -24,12 +24,12 @@ fetch('https://mywebsite.com/endpoint/', {
   method: 'POST',
   headers: {
     Accept: 'application/json',
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
   },
   body: JSON.stringify({
     firstParam: 'yourValue',
-    secondParam: 'yourOtherValue'
-  })
+    secondParam: 'yourOtherValue',
+  }),
 });
 ```
 
@@ -44,11 +44,11 @@ Networking is an inherently asynchronous operation. Fetch methods will return a 
 ```jsx
 function getMoviesFromApiAsync() {
   return fetch('https://reactnative.dev/movies.json')
-    .then((response) => response.json())
-    .then((responseJson) => {
+    .then(response => response.json())
+    .then(responseJson => {
       return responseJson.movies;
     })
-    .catch((error) => {
+    .catch(error => {
       console.error(error);
     });
 }
@@ -60,7 +60,7 @@ You can also use the proposed ES2017 `async`/`await` syntax in a React Native ap
 async function getMoviesFromApi() {
   try {
     let response = await fetch(
-      'https://reactnative.dev/movies.json'
+      'https://reactnative.dev/movies.json',
     );
     let responseJson = await response.json();
     return responseJson.movies;
@@ -134,7 +134,7 @@ The [XMLHttpRequest API](https://developer.mozilla.org/en-US/docs/Web/API/XMLHtt
 
 ```jsx
 var request = new XMLHttpRequest();
-request.onreadystatechange = (e) => {
+request.onreadystatechange = e => {
   if (request.readyState !== 4) {
     return;
   }
@@ -164,17 +164,17 @@ ws.onopen = () => {
   ws.send('something'); // send a message
 };
 
-ws.onmessage = (e) => {
+ws.onmessage = e => {
   // a message was received
   console.log(e.data);
 };
 
-ws.onerror = (e) => {
+ws.onerror = e => {
   // an error occurred
   console.log(e.message);
 };
 
-ws.onclose = (e) => {
+ws.onclose = e => {
   // connection closed
   console.log(e.code, e.reason);
 };

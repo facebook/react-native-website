@@ -517,7 +517,7 @@ Set this when offset is needed for the loading indicator to show correctly.
 ### `scrollToEnd()`
 
 ```jsx
-scrollToEnd(([options]: { animated: boolean }));
+scrollToEnd(([options]: {animated: boolean}));
 ```
 
 Scrolls to the end of the content. May be janky without `getItemLayout` prop.

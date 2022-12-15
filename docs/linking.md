@@ -102,7 +102,7 @@ There are two ways to handle URLs that open your app.
 
 #### 1. If the app is already open, the app is foregrounded and a Linking 'url' event is fired
 
-You can handle these events with `Linking.addEventListener('url', callback)` - it calls `callback({ url })` with the linked URL
+You can handle these events with `Linking.addEventListener('url', callback)` - it calls `callback({url})` with the linked URL
 
 #### 2. If the app is not already open, it is opened and the url is passed in as the initialURL
 
@@ -534,8 +534,11 @@ export default App;
 
 ### `addEventListener()`
 
-```jsx
-addEventListener(type, handler);
+```tsx
+static addEventListener(
+  type: 'url',
+  handler: (event: {url: string}) => void,
+): EmitterSubscription;
 ```
 
 Add a handler to Linking changes by listening to the `url` event type and providing the handler.
@@ -544,8 +547,8 @@ Add a handler to Linking changes by listening to the `url` event type and provid
 
 ### `canOpenURL()`
 
-```jsx
-canOpenURL(url);
+```tsx
+static canOpenURL(url: string): Promise<boolean>;
 ```
 
 Determine whether or not an installed app can handle a given URL.
@@ -587,8 +590,8 @@ The `Promise` will reject on Android if it was impossible to check if the URL ca
 
 ### `getInitialURL()`
 
-```jsx
-getInitialURL();
+```tsx
+static getInitialURL(): Promise<string | null>;
 ```
 
 If the app launch was triggered by an app link, it will give the link url, otherwise it will give `null`.
@@ -601,8 +604,8 @@ If the app launch was triggered by an app link, it will give the link url, other
 
 ### `openSettings()`
 
-```jsx
-openSettings();
+```tsx
+static openSettings(): Promise<void>;
 ```
 
 Open the Settings app and displays the app’s custom settings, if it has any.
@@ -611,8 +614,8 @@ Open the Settings app and displays the app’s custom settings, if it has any.
 
 ### `openURL()`
 
-```jsx
-openURL(url);
+```tsx
+static openURL(url: string): Promise<any>;
 ```
 
 Try to open the given `url` with any of the installed apps.
@@ -635,20 +638,13 @@ The method returns a `Promise` object. If the user confirms the open dialog or t
 
 ---
 
-### `removeEventListener()`
-
-```jsx
-removeEventListener(type, handler);
-```
-
-> **Deprecated.** Use the `remove()` method on the event subscription returned by [`addEventListener()`](#addeventlistener).
-
----
-
 ### `sendIntent()` <div class="label android">Android</div>
 
-```jsx
-sendIntent(action, extras);
+```tsx
+static sendIntent(
+  action: string,
+  extras?: Array<{key: string; value: string | number | boolean}>,
+): Promise<void>;
 ```
 
 Launch an Android intent with extras.

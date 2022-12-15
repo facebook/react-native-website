@@ -6,7 +6,7 @@ title: Appearance
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 ```jsx
-import { Appearance } from 'react-native';
+import {Appearance} from 'react-native';
 ```
 
 #### Developer notes

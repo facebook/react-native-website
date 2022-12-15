@@ -9,7 +9,7 @@ Users interact with mobile apps mainly through touch. They can use a combination
 
 [Button](button.md) provides a basic button component that is rendered nicely on all platforms. The minimal example to display a button looks like this:
 
-```jsx
+```tsx
 <Button
   onPress={() => {
     consoele.log('You tapped the button!');

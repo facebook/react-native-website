@@ -75,8 +75,8 @@ RCT_EXPORT_MODULE(CalendarModuleFoo);
 
 The native module can then be accessed in JS like this:
 
-```jsx
-const { CalendarModuleFoo } = ReactNative.NativeModules;
+```tsx
+const {CalendarModuleFoo} = ReactNative.NativeModules;
 ```
 
 If you do not specify a name, the JavaScript module name will match the Objective-C class name, with any "RCT" or "RK" prefixes removed.
@@ -90,8 +90,8 @@ RCT_EXPORT_MODULE();
 
 The native module can then be accessed in JS like this:
 
-```jsx
-const { CalendarModule } = ReactNative.NativeModules;
+```tsx
+const {CalendarModule} = ReactNative.NativeModules;
 ```
 
 ### Export a Native Method to JavaScript
@@ -137,9 +137,9 @@ At this point you have set up the basic scaffolding for your native module in iO
 
 Find a place in your application where you would like to add a call to the native module’s `createCalendarEvent()` method. Below is an example of a component, `NewModuleButton` you can add in your app. You can invoke the native module inside `NewModuleButton`'s `onPress()` function.
 
-```jsx
+```tsx
 import React from 'react';
-import { NativeModules, Button } from 'react-native';
+import {NativeModules, Button} from 'react-native';
 
 const NewModuleButton = () => {
   const onPress = () => {
@@ -160,19 +160,19 @@ export default NewModuleButton;
 
 In order to access your native module from JavaScript you need to first import `NativeModules` from React Native:
 
-```jsx
-import { NativeModules } from 'react-native';
+```tsx
+import {NativeModules} from 'react-native';
 ```
 
 You can then access the `CalendarModule` native module off of `NativeModules`.
 
-```jsx
-const { CalendarModule } = NativeModules;
+```tsx
+const {CalendarModule} = NativeModules;
 ```
 
 Now that you have the CalendarModule native module available, you can invoke your native method `createCalendarEvent()`. Below it is added to the `onPress()` method in `NewModuleButton`:
 
-```jsx
+```tsx
 const onPress = () => {
   CalendarModule.createCalendarEvent('testName', 'testLocation');
 };
@@ -207,7 +207,7 @@ Importing your native module by pulling it off of `NativeModules` like above is 
 
 To save consumers of your native module from needing to do that each time they want to access your native module, you can create a JavaScript wrapper for the module. Create a new JavaScript file named NativeCalendarModule.js with the following content:
 
-```jsx
+```tsx
 /**
 * This exposes the native CalendarModule module as a JS module. This has a
 * function 'createCalendarEvent' which takes the following parameters:
@@ -215,32 +215,32 @@ To save consumers of your native module from needing to do that each time they w
 * 1. String name: A string representing the name of the event
 * 2. String location: A string representing the location of the event
 */
-import { NativeModules } from 'react-native';
-const { CalendarModule } = NativeModules;
+import {NativeModules} from 'react-native';
+const {CalendarModule} = NativeModules;
 export default CalendarModule;
 ```
 
 This JavaScript file also becomes a good location for you to add any JavaScript side functionality. For example, if you use a type system like TypeScript you can add type annotations for your native module here. While React Native does not yet support Native to JS type safety, with these type annotations, all your JS code will be type safe. These annotations will also make it easier for you to switch to type-safe native modules down the line. Below is an example of adding type safety to the Calendar Module:
 
-```jsx
+```tsx
 /**
-* This exposes the native CalendarModule module as a JS module. This has a
-* function 'createCalendarEvent' which takes the following parameters:
-*
-* 1. String name: A string representing the name of the event
-* 2. String location: A string representing the location of the event
-*/
-import { NativeModules } from 'react-native';
-const { CalendarModule } = NativeModules;
+ * This exposes the native CalendarModule module as a JS module. This has a
+ * function 'createCalendarEvent' which takes the following parameters:
+ *
+ * 1. String name: A string representing the name of the event
+ * 2. String location: A string representing the location of the event
+ */
+import {NativeModules} from 'react-native';
+const {CalendarModule} = NativeModules;
 interface CalendarInterface {
-   createCalendarEvent(name: string, location: string): void;
+  createCalendarEvent(name: string, location: string): void;
 }
 export default CalendarModule as CalendarInterface;
 ```
 
 In your other JavaScript files you can access the native module and invoke its method like this:
 
-```jsx
+```tsx
 import NativeCalendarModule from './NativeCalendarModule';
 NativeCalendarModule.createCalendarEvent('foo', 'bar');
 ```
@@ -286,8 +286,8 @@ A native module can export constants by overriding the native method `constantsT
 
 The constant can then be accessed by invoking `getConstants()` on the native module in JS like so:
 
-```objectivec
-const { DEFAULT_EVENT_NAME } = CalendarModule.getConstants();
+```tsx
+const {DEFAULT_EVENT_NAME} = CalendarModule.getConstants();
 console.log(DEFAULT_EVENT_NAME);
 ```
 
@@ -327,14 +327,14 @@ RCT_EXPORT_METHOD(createCalendarEvent:(NSString *)title location:(NSString *)loc
 
 This method could then be accessed in JavaScript using the following:
 
-```jsx
+```tsx
 const onSubmit = () => {
   CalendarModule.createCalendarEvent(
     'Party',
     '04-12-2020',
-    (eventId) => {
+    eventId => {
       console.log(`Created a new event with id ${eventId}`);
-    }
+    },
   );
 };
 ```
@@ -353,7 +353,7 @@ RCT_EXPORT_METHOD(createCalendarEventCallback:(NSString *)title location:(NSStri
 
 In JavaScript, you can then check the first argument to see if an error was passed through:
 
-```jsx
+```tsx
 const onPress = () => {
   CalendarModule.createCalendarEventCallback(
     'testName',
@@ -363,7 +363,7 @@ const onPress = () => {
         console.error(`Error found! ${error}`);
       }
       console.log(`event id ${eventId} returned`);
-    }
+    },
   );
 };
 ```
@@ -389,17 +389,17 @@ RCT_EXPORT_METHOD(createCalendarEventCallback:(NSString *)title
 
 Then in JavaScript you can add a separate callback for error and success responses:
 
-```jsx
+```tsx
 const onPress = () => {
   CalendarModule.createCalendarEventCallback(
     'testName',
     'testLocation',
-    (error) => {
+    error => {
       console.error(`Error found! ${error}`);
     },
-    (eventId) => {
+    eventId => {
       console.log(`event id ${eventId} returned`);
-    }
+    },
   );
 };
 ```
@@ -430,12 +430,12 @@ RCT_EXPORT_METHOD(createCalendarEvent:(NSString *)title
 
 The JavaScript counterpart of this method returns a Promise. This means you can use the `await` keyword within an async function to call it and wait for its result:
 
-```jsx
+```tsx
 const onSubmit = async () => {
   try {
     const eventId = await CalendarModule.createCalendarEvent(
       'Party',
-      'my house'
+      'my house',
     );
     console.log(`Created a new event with id ${eventId}`);
   } catch (e) {
@@ -486,7 +486,7 @@ You will receive a warning if you expend resources unnecessarily by emitting an 
 - (void)calendarEventReminderReceived:(NSNotification *)notification
 {
   NSString *eventName = notification.userInfo[@"name"];
-  if (hasListeners) { // Only send events if anyone is listening
+  if (hasListeners) {// Only send events if anyone is listening
     [self sendEventWithName:@"EventReminder" body:@{@"name": eventName}];
   }
 }

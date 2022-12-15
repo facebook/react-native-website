@@ -54,7 +54,7 @@ Apple frameworks use two-letter prefixes, and React Native uses `RCT` as a prefi
 Then you need a little bit of JavaScript to make this a usable React component:
 
 ```jsx title='MapView.js'
-import { requireNativeComponent } from 'react-native';
+import {requireNativeComponent} from 'react-native';
 
 // requireNativeComponent automatically resolves 'RNTMap' to 'RNTMapManager'
 module.exports = requireNativeComponent('RNTMap');
@@ -97,7 +97,7 @@ Note that we explicitly specify the type as `BOOL` - React Native uses `RCTConve
 Now to actually disable zooming, we set the property in JS:
 
 ```jsx title='MyApp.js'
-<MapView zoomEnabled={false} style={{ flex: 1 }} />
+<MapView zoomEnabled={false} style={{flex: 1}} />
 ```
 
 To document the properties (and which values they accept) of our MapView component we'll add a wrapper component and document the interface with React `PropTypes`:
@@ -105,7 +105,7 @@ To document the properties (and which values they accept) of our MapView compone
 ```jsx title='MapView.js'
 import PropTypes from 'prop-types';
 import React from 'react';
-import { requireNativeComponent } from 'react-native';
+import {requireNativeComponent} from 'react-native';
 
 class MapView extends React.Component {
   render() {
@@ -118,7 +118,7 @@ MapView.propTypes = {
    * A Boolean value that determines whether the user may use pinch
    * gestures to zoom in and out of the map.
    */
-  zoomEnabled: PropTypes.bool
+  zoomEnabled: PropTypes.bool,
 };
 
 var RNTMap = requireNativeComponent('RNTMap');
@@ -210,8 +210,8 @@ MapView.propTypes = {
      * to be displayed.
      */
     latitudeDelta: PropTypes.number.isRequired,
-    longitudeDelta: PropTypes.number.isRequired
-  })
+    longitudeDelta: PropTypes.number.isRequired,
+  }),
 };
 ```
 
@@ -354,7 +354,7 @@ class MyApp extends React.Component {
       latitude: 37.48,
       longitude: -122.16,
       latitudeDelta: 0.1,
-      longitudeDelta: 0.1
+      longitudeDelta: 0.1,
     };
     return (
       <MapView
@@ -404,7 +404,7 @@ class MyNativeView extends React.Component {
       ReactNative.findNodeHandle(this),
       UIManager.getViewManagerConfig('RNCMyNativeView').Commands
         .callNativeMethod,
-      []
+      [],
     );
   };
 

@@ -16,7 +16,7 @@ The event subscriptions are called in reverse order (i.e. the last registered su
 
 ## Pattern
 
-```jsx
+```tsx
 BackHandler.addEventListener('hardwareBackPress', function () {
   /**
    * this.onMainScreen and this.goBack are just examples,
@@ -235,22 +235,28 @@ If you are using React Navigation to navigate across different screens, you can 
 
 ### `addEventListener()`
 
-```jsx
-static addEventListener(eventName, handler)
+```tsx
+static addEventListener(
+  eventName: BackPressEventName,
+  handler: () => boolean | null | undefined,
+): NativeEventSubscription;
 ```
 
 ---
 
 ### `exitApp()`
 
-```jsx
-static exitApp()
+```tsx
+static exitApp();
 ```
 
 ---
 
 ### `removeEventListener()`
 
-```jsx
-static removeEventListener(eventName, handler)
+```tsx
+static removeEventListener(
+  eventName: BackPressEventName,
+  handler: () => boolean | null | undefined,
+);
 ```

@@ -13,8 +13,8 @@ The `DevSettings` module exposes methods for customizing settings for developers
 
 ### `addMenuItem()`
 
-```jsx
-static addMenuItem(title, handler)
+```tsx
+static addMenuItem(title: string, handler: () => any);
 ```
 
 Add a custom menu item to the developer menu.
@@ -28,7 +28,7 @@ Add a custom menu item to the developer menu.
 
 **Example:**
 
-```jsx
+```tsx
 DevSettings.addMenuItem('Show Secret Dev Screen', () => {
   Alert.alert('Showing secret dev screen!');
 });
@@ -38,14 +38,14 @@ DevSettings.addMenuItem('Show Secret Dev Screen', () => {
 
 ### `reload()`
 
-```jsx
-static reload()
+```tsx
+static reload(reason?: string): void;
 ```
 
 Reload the application. Can be invoked directly or on user interaction.
 
 **Example:**
 
-```jsx
+```tsx
 <Button title="Reload" onPress={() => DevSettings.reload()} />
 ```

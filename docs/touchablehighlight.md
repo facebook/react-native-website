@@ -16,7 +16,7 @@ TouchableHighlight must have one child (not zero or more than one). If you wish 
 ```tsx
 function MyComponent(props: MyComponentProps) {
   return (
-    <View {...props} style={{ flex: 1, backgroundColor: '#fff' }}>
+    <View {...props} style={{flex: 1, backgroundColor: '#fff'}}>
       <Text>My Component</Text>
     </View>
   );

@@ -49,7 +49,7 @@ var running_on_android_tv = Platform.isTV;
 
 - _TV remote/keyboard input_: A new native class, `ReactAndroidTVRootViewHelper`, sets up key events handlers for TV remote events. When TV remote events occur, this class fires a JS event. This event will be picked up by instances of the `TVEventHandler` JavaScript object. Application code that needs to implement custom handling of TV remote events can create an instance of `TVEventHandler` and listen for these events, as in the following code:
 
-```jsx
+```tsx
 var TVEventHandler = require('TVEventHandler');
 
 class Game2048 extends React.Component {
@@ -59,13 +59,13 @@ class Game2048 extends React.Component {
     this._tvEventHandler = new TVEventHandler();
     this._tvEventHandler.enable(this, function (cmp, evt) {
       if (evt && evt.eventType === 'right') {
-        cmp.setState({ board: cmp.state.board.move(2) });
+        cmp.setState({board: cmp.state.board.move(2)});
       } else if (evt && evt.eventType === 'up') {
-        cmp.setState({ board: cmp.state.board.move(1) });
+        cmp.setState({board: cmp.state.board.move(1)});
       } else if (evt && evt.eventType === 'left') {
-        cmp.setState({ board: cmp.state.board.move(0) });
+        cmp.setState({board: cmp.state.board.move(0)});
       } else if (evt && evt.eventType === 'down') {
-        cmp.setState({ board: cmp.state.board.move(3) });
+        cmp.setState({board: cmp.state.board.move(3)});
       } else if (evt && evt.eventType === 'playPause') {
         cmp.restartGame();
       }
@@ -112,7 +112,7 @@ class Game2048 extends React.Component {
 
 - _JavaScript layer_: Support for Apple TV has been added to `Platform.ios.js`. You can check whether code is running on AppleTV by doing
 
-```jsx
+```tsx
 var Platform = require('Platform');
 var running_on_tv = Platform.isTV;
 
@@ -135,7 +135,7 @@ var running_on_apple_tv = Platform.isTVOS;
 
 - _TV remote/keyboard input_: A new native class, `RCTTVRemoteHandler`, sets up gesture recognizers for TV remote events. When TV remote events occur, this class fires notifications that are picked up by `RCTTVNavigationEventEmitter` (a subclass of `RCTEventEmitter`), that fires a JS event. This event will be picked up by instances of the `TVEventHandler` JavaScript object. Application code that needs to implement custom handling of TV remote events can create an instance of `TVEventHandler` and listen for these events, as in the following code:
 
-```jsx
+```tsx
 var TVEventHandler = require('TVEventHandler');
 
 class Game2048 extends React.Component {
@@ -145,13 +145,13 @@ class Game2048 extends React.Component {
     this._tvEventHandler = new TVEventHandler();
     this._tvEventHandler.enable(this, function (cmp, evt) {
       if (evt && evt.eventType === 'right') {
-        cmp.setState({ board: cmp.state.board.move(2) });
+        cmp.setState({board: cmp.state.board.move(2)});
       } else if (evt && evt.eventType === 'up') {
-        cmp.setState({ board: cmp.state.board.move(1) });
+        cmp.setState({board: cmp.state.board.move(1)});
       } else if (evt && evt.eventType === 'left') {
-        cmp.setState({ board: cmp.state.board.move(0) });
+        cmp.setState({board: cmp.state.board.move(0)});
       } else if (evt && evt.eventType === 'down') {
-        cmp.setState({ board: cmp.state.board.move(3) });
+        cmp.setState({board: cmp.state.board.move(3)});
       } else if (evt && evt.eventType === 'playPause') {
         cmp.restartGame();
       }
