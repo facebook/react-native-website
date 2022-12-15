@@ -166,14 +166,14 @@ function onPointerOver(event) {
   console.log(
     'Over blue box offset: ',
     event.nativeEvent.offsetX,
-    event.nativeEvent.offsetY
+    event.nativeEvent.offsetY,
   );
 }
 
 // ... in some component
 <View
   onPointerOver={onPointerOver}
-  style={{ height: 100, width: 100, backgroundColor: 'blue' }}
+  style={{height: 100, width: 100, backgroundColor: 'blue'}}
 />;
 ```
 

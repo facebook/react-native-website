@@ -110,7 +110,7 @@ override fun getName() = "CalendarModule"
 The native module can then be accessed in JS like this:
 
 ```tsx
-const { CalendarModule } = ReactNative.NativeModules;
+const {CalendarModule} = ReactNative.NativeModules;
 ```
 
 ### Export a Native Method to JavaScript
@@ -312,7 +312,7 @@ Find a place in your application where you would like to add a call to the nativ
 
 ```tsx
 import React from 'react';
-import { NativeModules, Button } from 'react-native';
+import {NativeModules, Button} from 'react-native';
 
 const NewModuleButton = () => {
   const onPress = () => {
@@ -334,13 +334,13 @@ export default NewModuleButton;
 In order to access your native module from JavaScript you need to first import `NativeModules` from React Native:
 
 ```tsx
-import { NativeModules } from 'react-native';
+import {NativeModules} from 'react-native';
 ```
 
 You can then access the `CalendarModule` native module off of `NativeModules`.
 
 ```tsx
-const { CalendarModule } = NativeModules;
+const {CalendarModule} = NativeModules;
 ```
 
 Now that you have the CalendarModule native module available, you can invoke your native method `createCalendarEvent()`. Below it is added to the `onPress()` method in `NewModuleButton`:
@@ -388,8 +388,8 @@ To save consumers of your native module from needing to do that each time they w
 * 1. String name: A string representing the name of the event
 * 2. String location: A string representing the location of the event
 */
-import { NativeModules } from 'react-native';
-const { CalendarModule } = NativeModules;
+import {NativeModules} from 'react-native';
+const {CalendarModule} = NativeModules;
 export default CalendarModule;
 ```
 
@@ -403,8 +403,8 @@ This JavaScript file also becomes a good location for you to add any JavaScript 
  * 1. String name: A string representing the name of the event
  * 2. String location: A string representing the location of the event
  */
-import { NativeModules } from 'react-native';
-const { CalendarModule } = NativeModules;
+import {NativeModules} from 'react-native';
+const {CalendarModule} = NativeModules;
 interface CalendarInterface {
   createCalendarEvent(name: string, location: string): void;
 }
@@ -504,7 +504,7 @@ override fun getConstants(): MutableMap<String, Any> =
 The constant can then be accessed by invoking `getConstants` on the native module in JS:
 
 ```tsx
-const { DEFAULT_EVENT_NAME } = CalendarModule.getConstants();
+const {DEFAULT_EVENT_NAME} = CalendarModule.getConstants();
 console.log(DEFAULT_EVENT_NAME);
 ```
 
@@ -575,9 +575,9 @@ const onPress = () => {
   CalendarModule.createCalendarEvent(
     'Party',
     'My House',
-    (eventId) => {
+    eventId => {
       console.log(`Created a new event with id ${eventId}`);
-    }
+    },
   );
 };
 ```
@@ -623,7 +623,7 @@ const onPress = () => {
         console.error(`Error found! ${error}`);
       }
       console.log(`event id ${eventId} returned`);
-    }
+    },
   );
 };
 ```
@@ -662,12 +662,12 @@ const onPress = () => {
   CalendarModule.createCalendarEvent(
     'testName',
     'testLocation',
-    (error) => {
+    error => {
       console.error(`Error found! ${error}`);
     },
-    (eventId) => {
+    eventId => {
       console.log(`event id ${eventId} returned`);
-    }
+    },
   );
 };
 ```
@@ -722,7 +722,7 @@ const onSubmit = async () => {
   try {
     const eventId = await CalendarModule.createCalendarEvent(
       'Party',
-      'My House'
+      'My House',
     );
     console.log(`Created a new event with id ${eventId}`);
   } catch (e) {
