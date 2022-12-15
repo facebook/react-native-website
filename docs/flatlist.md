@@ -765,7 +765,7 @@ Displays the scroll indicators momentarily.
 ### `getNativeScrollRef()`
 
 ```tsx
-getNativeScrollRef(): React.ElementRef<ScrollViewComponent>;
+getNativeScrollRef(): React.ElementRef<typeof ScrollViewComponent>;
 ```
 
 Provides a reference to the underlying scroll component

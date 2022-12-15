@@ -929,7 +929,7 @@ Let's implement a basic image picker to demonstrate this. The image picker will 
 <Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
 <TabItem value="java">
 
-```tsx
+```kt
 public class ImagePickerModule extends ReactContextBaseJavaModule {
 
   private static final int IMAGE_PICKER_REQUEST = 1;
@@ -1022,14 +1022,14 @@ class ImagePickerModule(reactContext: ReactApplicationContext) :
                 intent: Intent?
             ) {
                 if (requestCode == IMAGE_PICKER_REQUEST) {
-                    pickerPromise?.let {promise ->
+                    pickerPromise?.let { promise ->
                         when (resultCode) {
                             Activity.RESULT_CANCELED ->
                                 promise.reject(E_PICKER_CANCELLED, "Image picker was cancelled")
                             Activity.RESULT_OK -> {
                                 val uri = intent?.data
 
-                                uri?.let {promise.resolve(uri.toString())}
+                                uri?.let { promise.resolve(uri.toString())}
                                     ?: promise.reject(E_NO_IMAGE_DATA_FOUND, "No image data found")
                             }
                         }
@@ -1058,7 +1058,7 @@ class ImagePickerModule(reactContext: ReactApplicationContext) :
         pickerPromise = promise
 
         try {
-            val galleryIntent = Intent(Intent.ACTION_PICK).apply {type = "image\/*"}
+            val galleryIntent = Intent(Intent.ACTION_PICK).apply { type = "image\/*" }
 
             val chooserIntent = Intent.createChooser(galleryIntent, "Pick an image")
 

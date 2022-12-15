@@ -119,7 +119,7 @@ static showShareActionSheetWithOptions: (
   options: ShareActionSheetIOSOptions,
   failureCallback: (error: Error) => void,
   successCallback: (success: boolean, method: string) => void,
-)
+);
 ```
 
 Display the iOS share sheet. The `options` object should contain one or both of `message` and `url` and can additionally have a `subject` or `excludedActivityTypes`:

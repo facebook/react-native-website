@@ -280,13 +280,13 @@ A native module can export constants by overriding the native method `constantsT
 ```objectivec
 - (NSDictionary *)constantsToExport
 {
- return @{@"DEFAULT_EVENT_NAME": @"New Event"};
+ return @{ @"DEFAULT_EVENT_NAME": @"New Event" };
 }
 ```
 
 The constant can then be accessed by invoking `getConstants()` on the native module in JS like so:
 
-```objectivec
+```tsx
 const {DEFAULT_EVENT_NAME} = CalendarModule.getConstants();
 console.log(DEFAULT_EVENT_NAME);
 ```
