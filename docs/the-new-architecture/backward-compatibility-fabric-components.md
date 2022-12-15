@@ -179,7 +179,7 @@ A Fabric Native Component requires an header file and an implementation file to 
 
 For example, the `RNMyComponentView.h` header file could look like this:
 
-```objective-c
+```objectivec title='RNMyComponentView.h'
 #import <React/RCTViewComponentView.h>
 #import <UIKit/UIKit.h>
 
@@ -198,7 +198,7 @@ NS_ASSUME_NONNULL_END
 
 The implementation `RNMyComponentView.mm` file, instead, could look like this:
 
-```objective-c
+```objectivec title='RNMyComponentView.mm'
 #import "RNMyComponentView.h"
 
 // <react/renderer imports>
