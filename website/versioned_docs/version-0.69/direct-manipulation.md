@@ -20,10 +20,10 @@ Before you use it, try to solve your problem with `setState` and [`shouldCompone
 
 ```jsx
 const viewRef = useRef();
-const setOpacityTo = useCallback((value) => {
+const setOpacityTo = useCallback(value => {
   // Redacted: animation related code
   viewRef.current.setNativeProps({
-    opacity: value
+    opacity: value,
   });
 }, []);
 ```
@@ -46,7 +46,7 @@ return (
   <TouchableOpacity
     onPressIn={() => setButtonOpacity(0.5)}
     onPressOut={() => setButtonOpacity(1)}>
-    <View style={{ opacity: buttonOpacity }}>
+    <View style={{opacity: buttonOpacity}}>
       <Text>Press me!</Text>
     </View>
   </TouchableOpacity>

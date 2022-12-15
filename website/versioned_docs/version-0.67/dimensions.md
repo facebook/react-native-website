@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import con
 > [`useWindowDimensions`](usewindowdimensions) is the preferred API for React components. Unlike `Dimensions`, it updates as the window's dimensions update. This works nicely with the React paradigm.
 
 ```jsx
-import { Dimensions } from 'react-native';
+import {Dimensions} from 'react-native';
 ```
 
 You can get the application window's width and height using the following code:

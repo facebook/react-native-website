@@ -85,8 +85,12 @@ export default App;
 
 ### `configureNext()`
 
-```jsx
-static configureNext(config, onAnimationDidEnd?, onAnimationDidFail?)
+```tsx
+static configureNext(
+  config: LayoutAnimationConfig,
+  onAnimationDidEnd?: () => void,
+  onAnimationDidFail?: () => void,
+);
 ```
 
 Schedules an animation to happen on the next layout.
@@ -119,7 +123,7 @@ The config that's passed to `create`, `update`, or `delete` has the following ke
 
 ### `create()`
 
-```jsx
+```tsx
 static create(duration, type, creationProp)
 ```
 
@@ -317,11 +321,11 @@ An enumeration of layout properties to be animated to be used in the [`create`](
 
 A set of predefined animation configs to pass into [`configureNext`](layoutanimation.md#configurenext).
 
-| Presets       | Value                                                                                                                                                                 |
-| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| easeInEaseOut | `create(300, 'easeInEaseOut', 'opacity')`                                                                                                                             |
-| linear        | `create(500, 'linear', 'opacity')`                                                                                                                                    |
-| spring        | `{ duration: 700, create: { type: 'linear', property: 'opacity' }, update: { type: 'spring', springDamping: 0.4 }, delete: { type: 'linear', property: 'opacity' } }` |
+| Presets       | Value                                                                                                                                                          |
+| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| easeInEaseOut | `create(300, 'easeInEaseOut', 'opacity')`                                                                                                                      |
+| linear        | `create(500, 'linear', 'opacity')`                                                                                                                             |
+| spring        | `{duration: 700, create: {type: 'linear', property: 'opacity'}, update: {type: 'spring', springDamping: 0.4}, delete: {type: 'linear', property: 'opacity'} }` |
 
 ---
 

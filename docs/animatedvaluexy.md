@@ -66,39 +66,39 @@ export default DraggableView;
 
 ### `setValue()`
 
-```jsx
-setValue(value);
+```tsx
+setValue(value: {x: number; y: number});
 ```
 
 Directly set the value. This will stop any animations running on the value and update all the bound properties.
 
 **Parameters:**
 
-| Name  | Type   | Required | Description |
-| ----- | ------ | -------- | ----------- |
-| value | number | Yes      | Value       |
+| Name  | Type                   | Required | Description |
+| ----- | ---------------------- | -------- | ----------- |
+| value | {x: number; y: number} | Yes      | Value       |
 
 ---
 
 ### `setOffset()`
 
-```jsx
-setOffset(offset);
+```tsx
+setOffset(offset: {x: number; y: number});
 ```
 
 Sets an offset that is applied on top of whatever value is set, whether via `setValue`, an animation, or `Animated.event`. Useful for compensating things like the start of a pan gesture.
 
 **Parameters:**
 
-| Name   | Type   | Required | Description  |
-| ------ | ------ | -------- | ------------ |
-| offset | number | Yes      | Offset value |
+| Name   | Type                   | Required | Description  |
+| ------ | ---------------------- | -------- | ------------ |
+| offset | {x: number; y: number} | Yes      | Offset value |
 
 ---
 
 ### `flattenOffset()`
 
-```jsx
+```tsx
 flattenOffset();
 ```
 
@@ -108,7 +108,7 @@ Merges the offset value into the base value and resets the offset to zero. The f
 
 ### `extractOffset()`
 
-```jsx
+```tsx
 extractOffset();
 ```
 
@@ -118,8 +118,8 @@ Sets the offset value to the base value, and resets the base value to zero. The 
 
 ### `addListener()`
 
-```jsx
-addListener(callback);
+```tsx
+addListener(callback: (value: {x: number; y: number}) => void);
 ```
 
 Adds an asynchronous listener to the value so you can observe updates from animations. This is useful because there is no way to synchronously read the value because it might be driven natively.
@@ -136,8 +136,8 @@ Returns a string that serves as an identifier for the listener.
 
 ### `removeListener()`
 
-```jsx
-removeListener(id);
+```tsx
+removeListener(id: string);
 ```
 
 Unregister a listener. The `id` param shall match the identifier previously returned by `addListener()`.
@@ -152,7 +152,7 @@ Unregister a listener. The `id` param shall match the identifier previously retu
 
 ### `removeAllListeners()`
 
-```jsx
+```tsx
 removeAllListeners();
 ```
 
@@ -162,8 +162,8 @@ Remove all registered listeners.
 
 ### `stopAnimation()`
 
-```jsx
-stopAnimation([callback]);
+```tsx
+stopAnimation(callback?: (value: {x: number; y: number}) => void);
 ```
 
 Stops any running animation or tracking. `callback` is invoked with the final value after stopping the animation, which is useful for updating state to match the animation position with layout.
@@ -178,8 +178,8 @@ Stops any running animation or tracking. `callback` is invoked with the final va
 
 ### `resetAnimation()`
 
-```jsx
-resetAnimation([callback]);
+```tsx
+resetAnimation(callback?: (value: {x: number; y: number}) => void);
 ```
 
 Stops any animation and resets the value to its original.
@@ -194,13 +194,13 @@ Stops any animation and resets the value to its original.
 
 ### `getLayout()`
 
-```jsx
-getLayout();
+```tsx
+getLayout(): {left: Animated.Value, top: Animated.Value};
 ```
 
 Converts `{x, y}` into `{left, top}` for use in style, e.g.
 
-```jsx
+```tsx
 style={this.state.anim.getLayout()}
 ```
 
@@ -208,13 +208,16 @@ style={this.state.anim.getLayout()}
 
 ### `getTranslateTransform()`
 
-```jsx
-getTranslateTransform();
+```tsx
+getTranslateTransform(): [
+  {translateX: Animated.Value},
+  {translateY: Animated.Value},
+];
 ```
 
 Converts `{x, y}` into a useable translation transform, e.g.
 
-```jsx
+```tsx
 style={{
   transform: this.state.anim.getTranslateTransform()
 }}

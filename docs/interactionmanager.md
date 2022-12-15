@@ -9,7 +9,7 @@ InteractionManager allows long-running work to be scheduled after any interactio
 
 Applications can schedule tasks to run after interactions with the following:
 
-```jsx
+```tsx
 InteractionManager.runAfterInteractions(() => {
   // ...long-running synchronous task...
 });
@@ -25,7 +25,7 @@ The touch handling system considers one or more active touches to be an 'interac
 
 InteractionManager also allows applications to register animations by creating an interaction 'handle' on animation start, and clearing it upon completion:
 
-```jsx
+```tsx
 var handle = InteractionManager.createInteractionHandle();
 // run animation... (`runAfterInteractions` tasks are queued)
 // later, on animation completion:
@@ -373,8 +373,8 @@ export default App;
 
 ### `runAfterInteractions()`
 
-```jsx
-static runAfterInteractions(task)
+```tsx
+static runAfterInteractions(task?: (() => any) | SimpleTask | PromiseTask);
 ```
 
 Schedule a function to run after all interactions have completed. Returns a cancellable "promise".
@@ -383,8 +383,8 @@ Schedule a function to run after all interactions have completed. Returns a canc
 
 ### `createInteractionHandle()`
 
-```jsx
-static createInteractionHandle()
+```tsx
+static createInteractionHandle(): Handle;
 ```
 
 Notify manager that an interaction has started.
@@ -393,8 +393,8 @@ Notify manager that an interaction has started.
 
 ### `clearInteractionHandle()`
 
-```jsx
-static clearInteractionHandle(handle)
+```tsx
+static clearInteractionHandle(handle: Handle);
 ```
 
 Notify manager that an interaction has completed.
@@ -403,8 +403,8 @@ Notify manager that an interaction has completed.
 
 ### `setDeadline()`
 
-```jsx
-static setDeadline(deadline)
+```tsx
+static setDeadline(deadline: number);
 ```
 
 A positive number will use setTimeout to schedule any tasks after the eventLoopRunningTime hits the deadline value, otherwise all tasks will be executed in one setImmediate batch (default).

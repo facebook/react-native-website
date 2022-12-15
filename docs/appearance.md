@@ -5,8 +5,8 @@ title: Appearance
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
-```jsx
-import { Appearance } from 'react-native';
+```tsx
+import {Appearance} from 'react-native';
 ```
 
 The `Appearance` module exposes information about the user's appearance preferences, such as their preferred color scheme (light or dark).
@@ -36,7 +36,7 @@ The `Appearance` module exposes information about the user's appearance preferen
 
 You can use the `Appearance` module to determine if the user prefers a dark color scheme:
 
-```jsx
+```tsx
 const colorScheme = Appearance.getColorScheme();
 if (colorScheme === 'dark') {
   // Use dark color scheme
@@ -53,8 +53,8 @@ Although the color scheme is available immediately, this may change (e.g. schedu
 
 ### `getColorScheme()`
 
-```jsx
-static getColorScheme()
+```tsx
+static getColorScheme(): 'light' | 'dark' | null;
 ```
 
 Indicates the current user preferred color scheme. The value may be updated later, either through direct user action (e.g. theme selection in device settings) or on a schedule (e.g. light and dark themes that follow the day/night cycle).
@@ -73,18 +73,10 @@ See also: `useColorScheme` hook.
 
 ### `addChangeListener()`
 
-```jsx
-static addChangeListener(listener)
+```tsx
+static addChangeListener(
+  listener: (preferences: {colorScheme: 'light' | 'dark' | null}) => void,
+): NativeEventSubscription;
 ```
 
 Add an event handler that is fired when appearance preferences change.
-
----
-
-### `removeChangeListener()`
-
-```jsx
-static removeChangeListener(listener)
-```
-
-> **Deprecated.** Use the `remove()` method on the event subscription returned by [`addChangeListener()`](#addchangelistener).

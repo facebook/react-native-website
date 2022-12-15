@@ -9,7 +9,7 @@ While the built-in web view has a lot of features, it is not possible to handle 
 
 :::info
 The React Native WebView component has been extracted to [`react-native-webview`](https://github.com/react-native-webview/react-native-webview) package as part of the [Lean Core effort](https://github.com/facebook/react-native/issues/23313).
-That is the recommended way to use WebView in React Native as of today. You should not use the [WebView](https://reactnative.dev/docs/0.61/webview) component as that was deprecated and removed from React Native.  
+That is the recommended way to use WebView in React Native as of today. You should not use the [WebView](https://reactnative.dev/docs/0.61/webview) component as that was deprecated and removed from React Native.
 :::
 
 Before you do this, you should be familiar with the concepts in [native UI components](native-components-android). You should also familiarise yourself with the [native code for web views](https://github.com/react-native-webview/react-native-webview/blob/master/android/src/main/java/com/reactnativecommunity/webview/RNCWebViewManager.java), as you will have to use this as a reference when implementing new features—although a deep understanding is not required.
@@ -321,8 +321,8 @@ To use your custom web view, you'll need to create a class for it. Your class mu
 To get your native component, you must use `requireNativeComponent`: the same as for regular custom components. However, you must pass in an extra third argument, `WebView.extraNativeComponentConfig`. This third argument contains prop types that are only required for native code.
 
 ```jsx
-import React, { Component, PropTypes } from 'react';
-import { WebView, requireNativeComponent } from 'react-native';
+import React, {Component, PropTypes} from 'react';
+import {WebView, requireNativeComponent} from 'react-native';
 
 export default class CustomWebView extends Component {
   static propTypes = WebView.propTypes;
@@ -331,7 +331,7 @@ export default class CustomWebView extends Component {
     return (
       <WebView
         {...this.props}
-        nativeConfig={{ component: RCTCustomWebView }}
+        nativeConfig={{component: RCTCustomWebView}}
       />
     );
   }
@@ -340,7 +340,7 @@ export default class CustomWebView extends Component {
 const RCTCustomWebView = requireNativeComponent(
   'RCTCustomWebView',
   CustomWebView,
-  WebView.extraNativeComponentConfig
+  WebView.extraNativeComponentConfig,
 );
 ```
 
@@ -355,15 +355,15 @@ export default class CustomWebView extends Component {
   static propTypes = {
     ...WebView.propTypes,
     finalUrl: PropTypes.string,
-    onNavigationCompleted: PropTypes.func
+    onNavigationCompleted: PropTypes.func,
   };
 
   static defaultProps = {
-    finalUrl: 'about:blank'
+    finalUrl: 'about:blank',
   };
 
-  _onNavigationCompleted = (event) => {
-    const { onNavigationCompleted } = this.props;
+  _onNavigationCompleted = event => {
+    const {onNavigationCompleted} = this.props;
     onNavigationCompleted && onNavigationCompleted(event);
   };
 
@@ -375,8 +375,8 @@ export default class CustomWebView extends Component {
           component: RCTCustomWebView,
           props: {
             finalUrl: this.props.finalUrl,
-            onNavigationCompleted: this._onNavigationCompleted
-          }
+            onNavigationCompleted: this._onNavigationCompleted,
+          },
         }}
       />
     );
@@ -396,8 +396,8 @@ const RCTCustomWebView = requireNativeComponent(
     ...WebView.extraNativeComponentConfig,
     nativeOnly: {
       ...WebView.extraNativeComponentConfig.nativeOnly,
-      onScrollToBottom: true
-    }
-  }
+      onScrollToBottom: true,
+    },
+  },
 );
 ```

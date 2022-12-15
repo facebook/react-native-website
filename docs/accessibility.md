@@ -18,7 +18,7 @@ When `true`, indicates that the view is an accessibility element. When a view is
 
 On Android, `accessible={true}` property for a react-native View will be translated into native `focusable={true}`.
 
-```jsx
+```tsx
 <View accessible={true}>
   <Text>text one</Text>
   <Text>text two</Text>
@@ -33,7 +33,7 @@ When a view is marked as accessible, it is a good practice to set an accessibili
 
 To use, set the `accessibilityLabel` property to a custom string on your View, Text or Touchable:
 
-```jsx
+```tsx
 <TouchableOpacity
   accessible={true}
   accessibilityLabel="Tap me!"
@@ -51,7 +51,7 @@ In the above example, the `accessibilityLabel` on the TouchableOpacity element w
 A reference to another element [nativeID](view.md#nativeid) used to build complex forms.
 The value of `accessibilityLabelledBy` should match the `nativeID` of the related element:
 
-```jsx
+```tsx
 <View>
   <Text nativeID="formLabel">Label for Input Field</Text>
   <TextInput
@@ -69,7 +69,7 @@ An accessibility hint helps users understand what will happen when they perform 
 
 To use, set the `accessibilityHint` property to a custom string on your View, Text or Touchable:
 
-```jsx
+```tsx
 <TouchableOpacity
   accessible={true}
   accessibilityLabel="Go back"
@@ -93,7 +93,7 @@ In the above example, TalkBack will read the hint after the label. At this time,
 
 By using the `accessibilityLanguage` property, the screen reader will understand which language to use while reading the element's **label**, **value** and **hint**. The provided string value must follow the [BCP 47 specification](https://www.rfc-editor.org/info/bcp47).
 
-```jsx
+```tsx
 <View
   accessible={true}
   accessibilityLabel="Pizza"
@@ -114,7 +114,7 @@ When components dynamically change, we want TalkBack to alert the end user. This
 - **polite** Accessibility services should announce changes to this view.
 - **assertive** Accessibility services should interrupt ongoing speech to immediately announce changes to this view.
 
-```jsx
+```tsx
 <TouchableWithoutFeedback onPress={addOne}>
   <View style={styles.embedded}>
     <Text>Click me</Text>
@@ -274,7 +274,7 @@ Defines a string value that labels an interactive element.
 
 Identifies the element that labels the element it is applied to. The value of `aria-labelledby` should match the [`nativeID`](view.md#nativeid) of the related element:
 
-```jsx
+```tsx
 <View>
   <Text nativeID="formLabel">Label for Input Field</Text>
   <TextInput aria-label="input" aria-labelledby="formLabel" />
@@ -319,15 +319,15 @@ Indicates whether a selectable element is currently selected or not.
 
 In the case of two overlapping UI components with the same parent, default accessibility focus can have unpredictable behavior. The `importantForAccessibility` property will resolve this by controlling if a view fires accessibility events and if it is reported to accessibility services. It can be set to `auto`, `yes`, `no` and `no-hide-descendants` (the last value will force accessibility services to ignore the component and all of its children).
 
-```jsx
+```tsx
 <View style={styles.container}>
   <View
-    style={[styles.layout, { backgroundColor: 'green' }]}
+    style={[styles.layout, {backgroundColor: 'green'}]}
     importantForAccessibility="yes">
     <Text>First layout</Text>
   </View>
   <View
-    style={[styles.layout, { backgroundColor: 'yellow' }]}
+    style={[styles.layout, {backgroundColor: 'yellow'}]}
     importantForAccessibility="no-hide-descendants">
     <Text>Second layout</Text>
   </View>
@@ -411,15 +411,15 @@ The `label` field is optional for standard actions, and is often unused by assis
 
 To handle action requests, a component must implement an `onAccessibilityAction` function. The only argument to this function is an event containing the name of the action to perform. The below example from RNTester shows how to create a component which defines and handles several custom actions.
 
-```jsx
+```tsx
 <View
   accessible={true}
   accessibilityActions={[
-    { name: 'cut', label: 'cut' },
-    { name: 'copy', label: 'copy' },
-    { name: 'paste', label: 'paste' }
+    {name: 'cut', label: 'cut'},
+    {name: 'copy', label: 'copy'},
+    {name: 'paste', label: 'paste'},
   ]}
-  onAccessibilityAction={(event) => {
+  onAccessibilityAction={event => {
     switch (event.nativeEvent.actionName) {
       case 'cut':
         Alert.alert('Alert', 'cut action success');
@@ -443,17 +443,13 @@ The `AccessibilityInfo` API allows you to determine whether or not a screen read
 
 Sometimes it is useful to trigger an accessibility event on a UI component (i.e. when a custom view appears on a screen or set accessibility focus to a view). Native UIManager module exposes a method ‘sendAccessibilityEvent’ for this purpose. It takes two arguments: view tag and a type of an event. The supported event types are `typeWindowStateChanged`, `typeViewFocused` and `typeViewClicked`.
 
-```jsx
-import {
-  Platform,
-  UIManager,
-  findNodeHandle
-} from 'react-native';
+```tsx
+import {Platform, UIManager, findNodeHandle} from 'react-native';
 
 if (Platform.OS === 'android') {
   UIManager.sendAccessibilityEvent(
     findNodeHandle(this),
-    UIManager.AccessibilityEventTypes.typeViewFocused
+    UIManager.AccessibilityEventTypes.typeViewFocused,
   );
 }
 ```

@@ -183,7 +183,7 @@ The final step is to register the ViewManager to the application, this happens i
 The very final step is to create the JavaScript module that defines the interface layer between Java/Kotlin and JavaScript for the users of your new view. It is recommended for you to document the component interface in this module (e.g. using Flow, TypeScript, or plain old comments).
 
 ```jsx title="ImageView.js"
-import { requireNativeComponent } from 'react-native';
+import {requireNativeComponent} from 'react-native';
 
 /**
  * Composes `View`.
@@ -816,7 +816,7 @@ public class MyPackage implements ReactPackage {
 I. Start with custom View manager:
 
 ```jsx title="MyViewManager.jsx"
-import { requireNativeComponent } from 'react-native';
+import {requireNativeComponent} from 'react-native';
 
 export const MyViewManager =
   requireNativeComponent('MyViewManager');
@@ -825,21 +825,21 @@ export const MyViewManager =
 II. Then implement custom View calling the `create` method:
 
 ```jsx title="MyView.jsx"
-import React, { useEffect, useRef } from 'react';
+import React, {useEffect, useRef} from 'react';
 import {
   PixelRatio,
   UIManager,
-  findNodeHandle
+  findNodeHandle,
 } from 'react-native';
 
-import { MyViewManager } from './my-view-manager';
+import {MyViewManager} from './my-view-manager';
 
-const createFragment = (viewId) =>
+const createFragment = viewId =>
   UIManager.dispatchViewManagerCommand(
     viewId,
     // we are calling the 'create' command
     UIManager.MyViewManager.Commands.create.toString(),
-    [viewId]
+    [viewId],
   );
 
 export const MyView = () => {
@@ -856,7 +856,7 @@ export const MyView = () => {
         // converts dpi to px, provide desired height
         height: PixelRatio.getPixelSizeForLayoutSize(200),
         // converts dpi to px, provide desired width
-        width: PixelRatio.getPixelSizeForLayoutSize(200)
+        width: PixelRatio.getPixelSizeForLayoutSize(200),
       }}
       ref={ref}
     />

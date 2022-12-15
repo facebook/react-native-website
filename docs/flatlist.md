@@ -366,8 +366,16 @@ Inherits [ScrollView Props](scrollview.md#props), unless it is nested in another
 
 ### <div class="label required basic">Required</div> **`renderItem`**
 
-```jsx
-renderItem({ item, index, separators });
+```tsx
+renderItem({
+  item: ItemT,
+  index: number,
+  separators: {
+    highlight: () => void;
+    unhighlight: () => void;
+    updateProps: (select: 'leading' | 'trailing', newProps: any) => void;
+  }
+}): JSX.Element;
 ```
 
 Takes an item from `data` and renders it into the list.
@@ -389,27 +397,24 @@ Provides additional metadata like `index` if you need it, as well as a more gene
 
 Example usage:
 
-```jsx
+```tsx
 <FlatList
   ItemSeparatorComponent={
     Platform.OS !== 'android' &&
-    (({ highlighted }) => (
+    (({highlighted}) => (
       <View
-        style={[
-          style.separator,
-          highlighted && { marginLeft: 0 }
-        ]}
+        style={[style.separator, highlighted && {marginLeft: 0}]}
       />
     ))
   }
-  data={[{ title: 'Title Text', key: 'item1' }]}
-  renderItem={({ item, index, separators }) => (
+  data={[{title: 'Title Text', key: 'item1'}]}
+  renderItem={({item, index, separators}) => (
     <TouchableHighlight
       key={item.key}
       onPress={() => this._onPress(item)}
       onShowUnderlay={separators.highlight}
       onHideUnderlay={separators.unhighlight}>
-      <View style={{ backgroundColor: 'white' }}>
+      <View style={{backgroundColor: 'white'}}>
         <Text>{item.title}</Text>
       </View>
     </TouchableHighlight>
@@ -511,13 +516,13 @@ A marker property for telling the list to re-render (since it implements `PureCo
 
 ### `getItemLayout`
 
-```jsx
+```tsx
 (data, index) => {length: number, offset: number, index: number}
 ```
 
 `getItemLayout` is an optional optimization that allows skipping the measurement of dynamic content if you know the size (height or width) of items ahead of time. `getItemLayout` is efficient if you have fixed size items, for example:
 
-```jsx
+```tsx
   getItemLayout={(data, index) => (
     {length: ITEM_HEIGHT, offset: ITEM_HEIGHT * index, index}
   )}
@@ -573,8 +578,8 @@ Reverses the direction of scroll. Uses scale transforms of `-1`.
 
 ### `keyExtractor`
 
-```jsx
-(item: object, index: number) => string;
+```tsx
+(item: ItemT, index: number) => string;
 ```
 
 Used to extract a unique key for a given item at the specified index. Key is used for caching and as the react key to track item re-ordering. The default extractor checks `item.key`, then `item.id`, and then falls back to using the index, like React does.
@@ -597,8 +602,8 @@ Multiple columns can only be rendered with `horizontal={false}` and will zig-zag
 
 ### `onEndReached`
 
-```jsx
-(info: {distanceFromEnd: number}) => void
+```tsx
+(info: {distanceFromEnd: number}) => void;
 ```
 
 Called once when the scroll position gets within `onEndReachedThreshold` of the rendered content.
@@ -621,8 +626,8 @@ How far from the end (in units of visible length of the list) the bottom edge of
 
 ### `onRefresh`
 
-```jsx
-() => void
+```tsx
+() => void;
 ```
 
 If provided, a standard RefreshControl will be added for "Pull to Refresh" functionality. Make sure to also set the `refreshing` prop correctly.
@@ -637,9 +642,10 @@ If provided, a standard RefreshControl will be added for "Pull to Refresh" funct
 
 Called when the viewability of rows changes, as defined by the `viewabilityConfig` prop.
 
-| Type                                                                                                               |
-| ------------------------------------------------------------------------------------------------------------------ |
-| (callback: { changed: array of [ViewToken](viewtoken)s, viewableItems: array of [ViewToken](viewtoken)s }) => void |
+| Type |
+| ---- |
+
+| (callback: {changed: [ViewToken](viewtoken)[], viewableItems: [ViewToken](viewtoken)[]} => void;
 
 ---
 
@@ -698,7 +704,7 @@ At least one of the `viewAreaCoveragePercentThreshold` or `itemVisiblePercentThr
   Error: Changing viewabilityConfig on the fly is not supported
 ```
 
-```jsx
+```tsx
 constructor (props) {
   super(props)
 
@@ -709,7 +715,7 @@ constructor (props) {
 }
 ```
 
-```jsx
+```tsx
 <FlatList
     viewabilityConfig={this.viewabilityConfig}
   ...
@@ -745,7 +751,7 @@ List of `ViewabilityConfig`/`onViewableItemsChanged` pairs. A specific `onViewab
 
 ### `flashScrollIndicators()`
 
-```jsx
+```tsx
 flashScrollIndicators();
 ```
 
@@ -755,8 +761,8 @@ Displays the scroll indicators momentarily.
 
 ### `getNativeScrollRef()`
 
-```jsx
-getNativeScrollRef();
+```tsx
+getNativeScrollRef(): React.ElementRef<typeof ScrollViewComponent>;
 ```
 
 Provides a reference to the underlying scroll component
@@ -765,8 +771,8 @@ Provides a reference to the underlying scroll component
 
 ### `getScrollResponder()`
 
-```jsx
-getScrollResponder();
+```tsx
+getScrollResponder(): ScrollResponderMixin;
 ```
 
 Provides a handle to the underlying scroll responder.
@@ -775,28 +781,16 @@ Provides a handle to the underlying scroll responder.
 
 ### `getScrollableNode()`
 
-```jsx
-getScrollableNode();
+```tsx
+getScrollableNode(): any;
 ```
 
 Provides a handle to the underlying scroll node.
 
----
-
-### `recordInteraction()`
-
-```jsx
-recordInteraction();
-```
-
-Tells the list an interaction has occurred, which should trigger viewability calculations, e.g. if `waitForInteractions` is true and the user has not scrolled. This is typically called by taps on items or by navigation actions.
-
----
-
 ### `scrollToEnd()`
 
-```jsx
-scrollToEnd(params);
+```tsx
+scrollToEnd(params?: {animated?: boolean});
 ```
 
 Scrolls to the end of the content. May be janky without `getItemLayout` prop.
@@ -815,8 +809,13 @@ Valid `params` keys are:
 
 ### `scrollToIndex()`
 
-```jsx
-scrollToIndex(params);
+```tsx
+scrollToIndex: (params: {
+  index: number;
+  animated?: boolean;
+  viewOffset?: number;
+  viewPosition?: number;
+});
 ```
 
 Scrolls to the item at the specified index such that it is positioned in the viewable area such that `viewPosition` 0 places it at the top, 1 at the bottom, and 0.5 centered in the middle.
@@ -840,8 +839,12 @@ Valid `params` keys are:
 
 ### `scrollToItem()`
 
-```jsx
-scrollToItem(params);
+```tsx
+scrollToItem(params: {
+  animated?: ?boolean,
+  item: Item,
+  viewPosition?: number,
+});
 ```
 
 Requires linear scan through data - use `scrollToIndex` instead if possible.
@@ -864,8 +867,11 @@ Valid `params` keys are:
 
 ### `scrollToOffset()`
 
-```jsx
-scrollToOffset(params);
+```tsx
+scrollToOffset(params: {
+  offset: number;
+  animated?: boolean;
+});
 ```
 
 Scroll to a specific content pixel offset in the list.

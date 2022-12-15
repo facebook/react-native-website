@@ -215,27 +215,20 @@ Received when the user is not actively interacting with the app. Useful in situa
 
 ### `addEventListener()`
 
-```jsx
-addEventListener(eventType, listener);
+```tsx
+static addEventListener(
+  type: AppStateEvent,
+  listener: (state: AppStateStatus) => void,
+): NativeEventSubscription;
 ```
 
 Sets up a function that will be called whenever the specified event type on AppState occurs. Valid values for `eventType` are
 [listed above](#events). Returns the `EventSubscription`.
 
----
-
-### `removeEventListener()`
-
-```jsx
-removeEventListener(eventType, listener);
-```
-
-> **Deprecated.** Use the `remove()` method on the `EventSubscription` returned by [`addEventListener()`](#addeventlistener).
-
 ## Properties
 
 ### `currentState`
 
-```jsx
-AppState.currentState;
+```tsx
+static currentState: AppStateStatus;
 ```

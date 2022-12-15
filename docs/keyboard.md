@@ -217,8 +217,11 @@ export default Example;
 
 ### `addListener()`
 
-```jsx
-static addListener(eventName, callback)
+```tsx
+static addListener: (
+  eventType: KeyboardEventName,
+  listener: KeyboardEventListener,
+) => EmitterSubscription;
 ```
 
 The `addListener` function connects a JavaScript function to an identified native keyboard notification event.
@@ -247,43 +250,10 @@ This can be any of the following:
 
 ---
 
-### `removeListener()`
-
-```jsx
-static removeListener(eventName, callback)
-```
-
-> **Deprecated.** Use the `remove()` method on the event subscription returned by [`addListener()`](#addlistener).
-
-**Parameters:**
-
-| Name      | Type     | Required | Description                                                                    |
-| --------- | -------- | -------- | ------------------------------------------------------------------------------ |
-| eventName | string   | Yes      | The `nativeEvent` is the string that identifies the event you're listening for |
-| callback  | function | Yes      | The function to be called when the event fires                                 |
-
----
-
-### `removeAllListeners()`
-
-```jsx
-static removeAllListeners(eventName)
-```
-
-Removes all listeners for a specific event type.
-
-**Parameters:**
-
-| Name      | Type   | Required | Description                                                          |
-| --------- | ------ | -------- | -------------------------------------------------------------------- |
-| eventType | string | Yes      | The native event string listeners are watching which will be removed |
-
----
-
 ### `dismiss()`
 
-```jsx
-static dismiss()
+```tsx
+static dismiss();
 ```
 
 Dismisses the active keyboard and removes focus.
@@ -292,8 +262,28 @@ Dismisses the active keyboard and removes focus.
 
 ### `scheduleLayoutAnimation`
 
-```jsx
-static scheduleLayoutAnimation(event)
+```tsx
+static scheduleLayoutAnimation(event: KeyboardEvent);
 ```
 
 Useful for syncing TextInput (or other keyboard accessory view) size of position changes with keyboard movements.
+
+---
+
+### `dismiss()`
+
+```tsx
+static isVisible(): boolean;
+```
+
+Whether the keyboard is last known to be visible.
+
+---
+
+### `dismiss()`
+
+```tsx
+static metrics(): KeyboardMetrics | undefined;
+```
+
+Return the metrics of the soft-keyboard if visible.

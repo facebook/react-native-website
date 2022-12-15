@@ -110,7 +110,7 @@ In your app you can call this new native function via:
 <Section title="Cxx TurboModule">
   NativeSampleModule.cubicRoot(...) ={' '}
   {JSON.stringify(
-    NativeSampleModule.cubicRoot('9223372036854775807')
+    NativeSampleModule.cubicRoot('9223372036854775807'),
   )}
 </Section>
 ```
@@ -151,7 +151,7 @@ You can use the same approach for you custom types in JavaScript such as this on
 export type CustomType = {
   key: string,
   enabled: boolean,
-  time?: number
+  time?: number,
 };
 ```
 
@@ -242,8 +242,8 @@ In your app you can call this new native function via:
     NativeSampleModule.passCustomType({
       key: '123',
       enabled: true,
-      time: undefined
-    })
+      time: undefined,
+    }),
   )}
 </Section>
 ```

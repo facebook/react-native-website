@@ -191,7 +191,7 @@ Inherits [ScrollView Props](scrollview.md#props), unless it is nested in another
 ### `renderItem`
 
 ```jsx
-renderItem({ item, index, separators });
+renderItem({item, index, separators});
 ```
 
 Takes an item from `data` and renders it into the list.
@@ -578,7 +578,7 @@ List of `ViewabilityConfig`/`onViewableItemsChanged` pairs. A specific `onViewab
 ### `scrollToEnd()`
 
 ```jsx
-scrollToEnd(([options]: { animated: boolean }));
+scrollToEnd(([options]: {animated: boolean}));
 ```
 
 Scrolls to the end of the content. May be janky without `getItemLayout` prop.

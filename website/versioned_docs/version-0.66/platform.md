@@ -178,24 +178,24 @@ The `config` parameter is an object with the following keys:
 **Example usage:**
 
 ```jsx
-import { Platform, StyleSheet } from 'react-native';
+import {Platform, StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     ...Platform.select({
       android: {
-        backgroundColor: 'green'
+        backgroundColor: 'green',
       },
       ios: {
-        backgroundColor: 'red'
+        backgroundColor: 'red',
       },
       default: {
         // other platforms, web for example
-        backgroundColor: 'blue'
-      }
-    })
-  }
+        backgroundColor: 'blue',
+      },
+    }),
+  },
 });
 ```
 
@@ -206,7 +206,7 @@ Since the value of the corresponding platform key can be of type `any`, [`select
 ```jsx
 const Component = Platform.select({
   ios: () => require('ComponentIOS'),
-  android: () => require('ComponentAndroid')
+  android: () => require('ComponentAndroid'),
 })();
 
 <Component />;
@@ -215,7 +215,7 @@ const Component = Platform.select({
 ```jsx
 const Component = Platform.select({
   native: () => require('ComponentForNative'),
-  default: () => require('ComponentForWeb')
+  default: () => require('ComponentForWeb'),
 })();
 
 <Component />;

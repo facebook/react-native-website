@@ -15,8 +15,8 @@ Typically initialized with `new Animated.Value(0);`
 
 ### `setValue()`
 
-```jsx
-setValue(value);
+```tsx
+setValue(value: number);
 ```
 
 Directly set the value. This will stop any animations running on the value and update all the bound properties.
@@ -31,8 +31,8 @@ Directly set the value. This will stop any animations running on the value and u
 
 ### `setOffset()`
 
-```jsx
-setOffset(offset);
+```tsx
+setOffset(offset: number);
 ```
 
 Sets an offset that is applied on top of whatever value is set, whether via `setValue`, an animation, or `Animated.event`. Useful for compensating things like the start of a pan gesture.
@@ -47,7 +47,7 @@ Sets an offset that is applied on top of whatever value is set, whether via `set
 
 ### `flattenOffset()`
 
-```jsx
+```tsx
 flattenOffset();
 ```
 
@@ -57,7 +57,7 @@ Merges the offset value into the base value and resets the offset to zero. The f
 
 ### `extractOffset()`
 
-```jsx
+```tsx
 extractOffset();
 ```
 
@@ -67,8 +67,8 @@ Sets the offset value to the base value, and resets the base value to zero. The 
 
 ### `addListener()`
 
-```jsx
-addListener(callback);
+```tsx
+addListener(callback: (state: {value: number}) => void): string;
 ```
 
 Adds an asynchronous listener to the value so you can observe updates from animations. This is useful because there is no way to synchronously read the value because it might be driven natively.
@@ -85,8 +85,8 @@ Returns a string that serves as an identifier for the listener.
 
 ### `removeListener()`
 
-```jsx
-removeListener(id);
+```tsx
+removeListener(id: string);
 ```
 
 Unregister a listener. The `id` param shall match the identifier previously returned by `addListener()`.
@@ -101,7 +101,7 @@ Unregister a listener. The `id` param shall match the identifier previously retu
 
 ### `removeAllListeners()`
 
-```jsx
+```tsx
 removeAllListeners();
 ```
 
@@ -111,8 +111,8 @@ Remove all registered listeners.
 
 ### `stopAnimation()`
 
-```jsx
-stopAnimation([callback]);
+```tsx
+stopAnimation(callback?: (value: number) => void);
 ```
 
 Stops any running animation or tracking. `callback` is invoked with the final value after stopping the animation, which is useful for updating state to match the animation position with layout.
@@ -127,8 +127,8 @@ Stops any running animation or tracking. `callback` is invoked with the final va
 
 ### `resetAnimation()`
 
-```jsx
-resetAnimation([callback]);
+```tsx
+resetAnimation(callback?: (value: number) => void);
 ```
 
 Stops any animation and resets the value to its original.
@@ -143,8 +143,8 @@ Stops any animation and resets the value to its original.
 
 ### `interpolate()`
 
-```jsx
-interpolate(config);
+```tsx
+interpolate(config: InterpolationConfigType);
 ```
 
 Interpolates the value before updating the property, e.g. mapping 0-1 to 0-10.
@@ -170,7 +170,7 @@ The `config` object is composed of the following keys:
 
 ### `animate()`
 
-```jsx
+```tsx
 animate(animation, callback);
 ```
 
@@ -182,29 +182,3 @@ Typically only used internally, but could be used by a custom Animation class.
 | --------- | --------- | -------- | ------------------- |
 | animation | Animation | Yes      | See `Animation.js`. |
 | callback  | function  | Yes      | Callback function.  |
-
----
-
-### `stopTracking()`
-
-```jsx
-stopTracking();
-```
-
-Typically only used internally.
-
----
-
-### `track()`
-
-```jsx
-track(tracking);
-```
-
-Typically only used internally.
-
-**Parameters:**
-
-| Name     | Type         | Required | Description           |
-| -------- | ------------ | -------- | --------------------- |
-| tracking | AnimatedNode | Yes      | See `AnimatedNode.js` |
