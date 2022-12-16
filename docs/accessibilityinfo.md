@@ -234,8 +234,13 @@ export default AccessibilityStatusExample;
 
 ### `addEventListener()`
 
-```jsx
-static addEventListener(eventName, handler)
+```tsx
+static addEventListener(
+  eventName: AccessibilityChangeEventName | AccessibilityAnnouncementEventName,
+  handler: (
+    event: AccessibilityChangeEvent | AccessibilityAnnouncementFinishedEvent,
+  ) => void,
+): EmitterSubscription;
 ```
 
 Add an event handler. Supported events:
@@ -255,8 +260,8 @@ Add an event handler. Supported events:
 
 ### `announceForAccessibility()`
 
-```jsx
-static announceForAccessibility(announcement)
+```tsx
+static announceForAccessibility(announcement: string);
 ```
 
 Post a string to be announced by the screen reader.
@@ -265,8 +270,11 @@ Post a string to be announced by the screen reader.
 
 ### `announceForAccessibilityWithOptions()`
 
-```jsx
-static announceForAccessibilityWithOptions(announcement, options)
+```tsx
+static announceForAccessibilityWithOptions(
+  announcement: string,
+  options: options: {queue?: boolean},
+);
 ```
 
 Post a string to be announced by the screen reader with modification options. By default announcements will interrupt any existing speech, but on iOS they can be queued behind existing speech by setting `queue` to `true` in the options object.
@@ -282,8 +290,8 @@ Post a string to be announced by the screen reader with modification options. By
 
 ### `getRecommendedTimeoutMillis()` <div class="label android">Android</div>
 
-```jsx
-static getRecommendedTimeoutMillis(originalTimeout)
+```tsx
+static getRecommendedTimeoutMillis(originalTimeout: number): Promise<number>;
 ```
 
 Gets the timeout in millisecond that the user needs.
@@ -299,8 +307,8 @@ This value is set in "Time to take action (Accessibility timeout)" of "Accessibi
 
 ### `isAccessibilityServiceEnabled()` <div class="label android">Android</div>
 
-```jsx
-static isAccessibilityServiceEnabled(): Promise<boolean>
+```tsx
+static isAccessibilityServiceEnabled(): Promise<boolean>;
 ```
 
 Check whether any accessibility service is enabled. This includes TalkBack but also any third-party accessibility app that may be installed. To only check whether TalkBack is enabled, use [isScreenReaderEnabled](#isscreenreaderenabled). Returns a promise which resolves to a boolean. The result is `true` when some accessibility services is enabled and `false` otherwise.
@@ -311,8 +319,8 @@ Check whether any accessibility service is enabled. This includes TalkBack but a
 
 ### `isBoldTextEnabled()` <div class="label ios">iOS</div>
 
-```jsx
-static isBoldTextEnabled()
+```tsx
+static isBoldTextEnabled(): Promise<boolean>:
 ```
 
 Query whether a bold text is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when bold text is enabled and `false` otherwise.
@@ -321,8 +329,8 @@ Query whether a bold text is currently enabled. Returns a promise which resolves
 
 ### `isGrayscaleEnabled()` <div class="label ios">iOS</div>
 
-```jsx
-static isGrayscaleEnabled()
+```tsx
+static isGrayscaleEnabled(): Promise<boolean>;
 ```
 
 Query whether grayscale is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when grayscale is enabled and `false` otherwise.
@@ -331,8 +339,8 @@ Query whether grayscale is currently enabled. Returns a promise which resolves t
 
 ### `isInvertColorsEnabled()` <div class="label ios">iOS</div>
 
-```jsx
-static isInvertColorsEnabled()
+```tsx
+static isInvertColorsEnabled(): Promise<boolean>;
 ```
 
 Query whether invert colors is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when invert colors is enabled and `false` otherwise.
@@ -341,8 +349,8 @@ Query whether invert colors is currently enabled. Returns a promise which resolv
 
 ### `isReduceMotionEnabled()`
 
-```jsx
-static isReduceMotionEnabled()
+```tsx
+static isReduceMotionEnabled(): Promise<boolean>;
 ```
 
 Query whether reduce motion is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when reduce motion is enabled and `false` otherwise.
@@ -351,8 +359,8 @@ Query whether reduce motion is currently enabled. Returns a promise which resolv
 
 ### `isReduceTransparencyEnabled()` <div class="label ios">iOS</div>
 
-```jsx
-static isReduceTransparencyEnabled()
+```tsx
+static isReduceTransparencyEnabled(): Promise<boolean>;
 ```
 
 Query whether reduce transparency is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when a reduce transparency is enabled and `false` otherwise.
@@ -361,8 +369,8 @@ Query whether reduce transparency is currently enabled. Returns a promise which 
 
 ### `isScreenReaderEnabled()`
 
-```jsx
-static isScreenReaderEnabled()
+```tsx
+static isScreenReaderEnabled(): Promise<boolean>;
 ```
 
 Query whether a screen reader is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when a screen reader is enabled and `false` otherwise.
@@ -371,28 +379,18 @@ Query whether a screen reader is currently enabled. Returns a promise which reso
 
 ### `prefersCrossFadeTransitions()` <div class="label ios">iOS</div>
 
-```jsx
-static prefersCrossFadeTransitions()
+```tsx
+static prefersCrossFadeTransitions(): Promise<boolean>;
 ```
 
 Query whether reduce motion and prefer cross-fade transitions settings are currently enabled. Returns a promise which resolves to a boolean. The result is `true` when prefer cross-fade transitions is enabled and `false` otherwise.
 
 ---
 
-### `removeEventListener()`
-
-```jsx
-static removeEventListener(eventName, handler)
-```
-
-> **Deprecated.** Use the `remove()` method on the event subscription returned by [`addEventListener()`](#addeventlistener).
-
----
-
 ### `setAccessibilityFocus()`
 
-```jsx
-static setAccessibilityFocus(reactTag)
+```tsx
+static setAccessibilityFocus(reactTag: number);
 ```
 
 Set accessibility focus to a React component.
