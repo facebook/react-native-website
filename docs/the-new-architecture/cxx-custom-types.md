@@ -196,11 +196,11 @@ struct Bridging<CustomType> {
       const jsi::Object &value,
       const std::shared_ptr<CallInvoker> &jsInvoker) {
     return CustomType{
-        .key = bridging::fromJs<std::string>(
+        bridging::fromJs<std::string>(
             rt, value.getProperty(rt, "key"), jsInvoker),
-        .enabled = bridging::fromJs<bool>(
+        bridging::fromJs<bool>(
             rt, value.getProperty(rt, "enabled"), jsInvoker),
-        .time = bridging::fromJs<std::optional<int32_t>>(
+        bridging::fromJs<std::optional<int32_t>>(
             rt, value.getProperty(rt, "time"), jsInvoker)};
   }
 
