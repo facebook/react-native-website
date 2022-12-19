@@ -197,7 +197,7 @@ Available as constants under `PermissionsAndroid.PERMISSIONS`:
 - `READ_MEDIA_IMAGES`: 'android.permission.READ_MEDIA_IMAGES'
 - `READ_MEDIA_VIDEO`: 'android.permission.READ_MEDIA_VIDEO'
 - `READ_MEDIA_AUDIO`: 'android.permission.READ_MEDIA_AUDIO'
-- `POST_NOTIFICATION`: 'android.permission.POST_NOTIFICATIONS'
+- `POST_NOTIFICATIONS`: 'android.permission.POST_NOTIFICATIONS'
 - `NEARBY_WIFI_DEVICES`: 'android.permission.NEARBY_WIFI_DEVICES'
 - `READ_VOICEMAIL`: 'com.android.voicemail.permission.READ_VOICEMAIL',
 - `WRITE_VOICEMAIL`: 'com.android.voicemail.permission.WRITE_VOICEMAIL',
