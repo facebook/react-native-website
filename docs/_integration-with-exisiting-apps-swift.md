@@ -101,48 +101,48 @@ Ultimately, your `Podfile` should look something similar to this:
 
 ```
 require_relative '../node_modules/react-native/scripts/react_native_pods'
-require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
+ require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
-platform :ios, '12.4'
-install! 'cocoapods', :deterministic_uuids => false
+ platform :ios, '12.4'
+ install! 'cocoapods', :deterministic_uuids => false
 
-target 'MyReactNativeApp' do
-  config = use_native_modules!
+ target 'MyReactNativeApp' do
+   config = use_native_modules!
 
-  # Flags change depending on the env values.
-  flags = get_default_flags()
+   # Flags change depending on the env values.
+   flags = get_default_flags()
 
-  use_react_native!(
-    :path => config[:reactNativePath],
-    # Hermes is now enabled by default. Disable by setting this flag to false.
-    # Upcoming versions of React Native may rely on get_default_flags(), but
-    # we make it explicit here to aid in the React Native upgrade process.
-    :hermes_enabled => true,
-    :fabric_enabled => flags[:fabric_enabled],
-    # Enables Flipper.
-    #
-    # Note that if you have use_frameworks! enabled, Flipper will not work and
-    # you should disable the next line.
-    :flipper_configuration => FlipperConfiguration.enabled,
-    # An absolute path to your application root.
-    :app_path => "#{Pod::Config.instance.installation_root}/.."
-  )
+   use_react_native!(
+     :path => config[:reactNativePath],
+     # Hermes is now enabled by default. Disable by setting this flag to false.
+     # Upcoming versions of React Native may rely on get_default_flags(), but
+     # we make it explicit here to aid in the React Native upgrade process.
+     :hermes_enabled => true,
+     :fabric_enabled => flags[:fabric_enabled],
+     # Enables Flipper.
+     #
+     # Note that if you have use_frameworks! enabled, Flipper will not work and
+     # you should disable the next line.
+     :flipper_configuration => FlipperConfiguration.enabled,
+     # An absolute path to your application root.
+     :app_path => "#{Pod::Config.instance.installation_root}/.."
+   )
 
-  target 'MyReactNativeApp' do
-    inherit! :complete
-    # Pods for testing
-  end
+   target 'MyReactNativeApp' do
+     inherit! :complete
+     # Pods for testing
+   end
 
-  post_install do |installer|
-    react_native_post_install(
-      installer,
-      # Set `mac_catalyst_enabled` to `true` in order to apply patches
-      # necessary for Mac Catalyst builds
-      :mac_catalyst_enabled => false
-    )
-    __apply_Xcode_12_5_M1_post_install_workaround(installer)
-  end
-end
+   post_install do |installer|
+     react_native_post_install(
+       installer,
+       # Set `mac_catalyst_enabled` to `true` in order to apply patches
+       # necessary for Mac Catalyst builds
+       :mac_catalyst_enabled => false
+     )
+     __apply_Xcode_12_5_M1_post_install_workaround(installer)
+   end
+ end
 ```
 
 After you have created your `Podfile`, you are ready to install the React Native pod.
@@ -304,24 +304,24 @@ Wire up the new link in the main menu to the newly added event handler method.
 
 ##### 3. Window Reference
 
-Add an window reference to your AppDelegate.swift file. Ultimately, your AppDelegate should look something similar to this:
+ Add an window reference to your AppDelegate.swift file. Ultimately, your AppDelegate should look something similar to this:
 
-```
+ ```
 import UIKit
 
-@main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+ @main
+ class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    // Add window reference
-    var window: UIWindow?
+     // Add window reference
+     var window: UIWindow?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        return true
-    }
+     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+         // Override point for customization after application launch.
+         return true
+     }
 
-    ....
-}
+     ....
+ }
 ```
 
 ### Test your integration
