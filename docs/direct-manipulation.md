@@ -3,9 +3,7 @@ id: direct-manipulation
 title: Direct Manipulation
 ---
 
-import NativeDeprecated from './the-new-architecture/\_markdown_native_deprecation.mdx'; import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
-
-<NativeDeprecated />
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 It is sometimes necessary to make changes directly to a component without using state/props to trigger a re-render of the entire subtree. When using React in the browser for example, you sometimes need to directly modify a DOM node, and the same is true for views in mobile apps. `setNativeProps` is the React Native equivalent to setting properties directly on a DOM node.
 
