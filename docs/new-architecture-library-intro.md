@@ -220,159 +220,38 @@ Codegen can be configured in the `package.json` file of your Library. Add the fo
 
 Android also requires to have the [React Gradle Plugin properly configured](new-architecture-app-intro#android-specifics) in your app.
 
-## Preparing your JavaScript Codebase for the new React Native Renderer (Fabric)
+## Migrating from `UIManager` JavaScript APIs
 
-The new renderer, Fabric, doesn’t use the UIManager, so direct calls to UIManager will need to be migrated. Historically, calls to UIManager had some pretty complicated patterns. Fortunately, we’ve created new APIs that are much cleaner. These new APIs are forward compatible with Fabric, so you can migrate your code today, and the APIs will work properly when you turn on Fabric!
+In the New Architecture, most `UIManager` methods will become available as instance methods on native component instances obtained via `ref`:
 
-Fabric will be providing new type-safe JS APIs that are much more ergonomic than some of the patterns we've seen in product code today. These APIs require references to the underlying component, no longer using the result of `findNodeHandle`. `findNodeHandle` is used to search the tree for a native component given a class instance. This was breaking the React abstraction model. `findNodeHandle` is not compatible with React 18. Deprecation of `findNodeHandle` in React Native is similar to the [deprecation of `findDOMNode` in React DOM](https://reactjs.org/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage).
+```ts
+function MyComponent(props: Props) {
+  const viewRef = useRef(null);
 
-While we know that all deprecations are a hassle, this guide is intended to help people update components as smoothly as possible. Here are the steps you need to take to get your JS codebase ready for Fabric:
+  useEffect(() => {
+    viewRef.current.measure(((left, top, width, height, pageX, pageY) => {
+      // ...
+    });
+  }, []);
 
-1. Migrating findNodeHandle / getting a HostComponent
-2. Migrating `.measure*()`
-3. Migrating off `setNativeProps`
-4. Move the call to `requireNativeComponent` to a separate file
-5. Migrating off `dispatchViewManagerCommand`
-6. Creating NativeCommands with `codegenNativeCommands`
-
-### Migrating `findNodeHandle` / getting a `HostComponent`
-
-Most of the migration work requires a HostComponent ref to access certain APIs that are only attached to host components (like View, Text, or ScrollView). HostComponents are the return value of calls to `requireNativeComponent`. `findNodeHandle` tunnels through multiple levels of component hierarchy to find the nearest native component.
-
-As a concrete example, this code uses `findNodeHandle` to tunnel from `ParentComponent` through to the `View` rendered by `ChildComponent`.
-
-```tsx
-class ParentComponent extends React.Component<Props> {
-  _ref?: React.ElementRef<typeof ChildComponent>;
-
-  render() {
-    return <ChildComponent ref={this._captureRef} onSubmit={this._onSubmit} />
-  }
-
-  _captureRef: (ref: React.ElementRef<typeof ChildComponent>) => {
-    this._ref = ref;
-  }
-
-  _onSubmit: () => {
-    const nodeHandle = findNodeHandle(this._ref);
-
-    if (nodeHandle) {
-      UIManager.measure(nodeHandle, () => {});
-    }
-  }
-}
-
-class ChildComponent extends React.Component<Props> {
-  render() {
-    return (
-      <View>
-        <SubmitButton onSubmit={props.onSubmit} />
-      </View>
-    );
-  }
+  return <View ref={viewRef} />;
 }
 ```
 
-We can’t convert this call to `this._ref.measure` because `this._ref` is an instance to `ChildComponent`, which is not a HostComponent and thus does not have a `measure` function.
+This new API design provides several benefits:
 
-`ChildComponent` renders a `View`, which is a HostComponent, so we need to get a reference to `View` instead. There are typically two approaches to getting what we need. If the component we need to get the ref from is a function component, using `forwardRef` is probably the right choice. If it is a class component with other public methods, adding a public method for getting the ref is an option. Here are examples of those two forms:
+- Better developer ergonomics by removing the need for separately importing `UIManager` or calling `findNodeHandle`.
+- Better performance by avoiding the node handle lookup step.
+- Directionally aligned with [the analogous deprecation of `findDOMNode`](https://reactjs.org/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage).
 
-#### Using `forwardRef`
+We will eventually deprecate `UIManager`. However, we recognize that migrations demand a high cost for many application and library authors. In order to minimize this cost, we plan to continue supporting as many of the methods on `UIManager` as possible in the New Architecture.
 
-```tsx
-class ParentComponent extends React.Component<Props> {
-  _ref?: React.ElementRef<typeof ChildComponent>;
+**Support for `UIManager` methods in the New Architecture is actively being developed.** While we make progress here, early adopters can still experiment with the New Architecture by following these steps to migrate off common `UIManager` APIs:
 
-  render() {
-    return <ChildComponent ref={this._captureRef} onSubmit={this._onSubmit} />
-  }
-
-  _captureRef: (ref: React.ElementRef<typeof ChildComponent>) => {
-    this._ref = ref;
-  }
-
-  _onSubmit: () => {
-    if (this._ref != null)
-      this._ref.measure(() => {});
-    }
-  }
-}
-
-const ChildComponent = React.forwardRef((props, forwardedRef) => {
-  return (
-    <View ref={forwardedRef}>
-      <SubmitButton onSubmit={props.onSubmit} />
-    </View>
-  );
-});
-```
-
-#### Using a getter, (note the addition of `getViewRef`)
-
-```tsx
-class ParentComponent extends React.Component<Props> {
-  _ref?: React.ElementRef<typeof ChildComponent>;
-
-  render() {
-    return <ChildComponent ref={this._captureRef} onSubmit={this._onSubmit} />
-  }
-
-  _captureRef: (ref: React.ElementRef<typeof ChildComponent>) => {
-    this._ref = ref;
-  }
-
-  _onSubmit: () => {
-    if (this._ref != null)
-      this._ref.getViewRef().measure(() => {});
-    }
-  }
-}
-
-class ChildComponent extends React.Component<Props> {
-  _ref?: React.ElementRef<typeof View>;
-
-  render() {
-    return (
-      <View ref={this._captureRef}>
-        <SubmitButton onSubmit={props.onSubmit} />
-      </View>
-    );
-  }
-
-  getViewRef(): ?React.ElementRef<typeof View> {
-    return this._ref;
-  }
-
-  _captureRef: (ref: React.ElementRef<typeof View>) => {
-    this._ref = ref;
-  }
-}
-```
-
-### Migrating `.measure*()`
-
-Let’s take a look at an example calling `UIManager.measure`. This code might look something like this
-
-```js
-const viewRef: React.ElementRef<typeof View> =  /* ... */;
-const viewHandle = ReactNative.findNodeHandle(viewRef);
-
-UIManager.measure(viewHandle, (x, y, width, height) => {
-  // Use layout metrics.
-});
-```
-
-In order to call `UIManager.measure*` we need to call `findNodeHandle` first and pass in those handles. With the new API, we instead call `measure` directly on native refs without `findNodeHandle`. The example above with the new API looks like this:
-
-```js
-const viewRef: React.ElementRef<typeof View> = /* ... */;
-
-viewRef.measure((x, y, width, height) => {
-  // Use layout metrics.
-});
-```
-
-`findNodeHandle` can be called with any component as an argument, but the new `.measure*` can only be called on native refs. If the ref originally passed into `findNodeHandle` is not a native ref to start with, use the strategies above in _getting a HostComponent_ to find the native ref.
+1. Migrating off `setNativeProps`
+2. Move the call to `requireNativeComponent` to a separate file
+3. Migrating off `dispatchViewManagerCommand`
+4. Creating NativeCommands with `codegenNativeCommands`
 
 ### Migrating off `setNativeProps`
 
