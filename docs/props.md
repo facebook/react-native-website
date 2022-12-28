@@ -36,7 +36,11 @@ Your own components can also use `props`. This lets you make a single component 
 import React from 'react';
 import {Text, View} from 'react-native';
 
-const Greeting = props => {
+type props= {
+  name: string;
+}
+  
+const Greeting = (props: props) => {
   return (
     <View style={{alignItems: 'center'}}>
       <Text>Hello {props.name}!</Text>
