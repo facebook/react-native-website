@@ -108,7 +108,7 @@ Our Pointer Events implementation is still experimental but we’re interested i
 
 :::note
 
-Pointer Events are only implemented for the New Architecture and are only available for React Native 0.71+ which at the time of writing is a release candidate.
+Pointer Events are only implemented for the [New Architecture (Fabric)](https://reactnative.dev/docs/the-new-architecture/use-app-template) and are only available for React Native 0.71+ which at the time of writing is a release candidate.
 
 :::
 
