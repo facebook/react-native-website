@@ -78,7 +78,7 @@ If you need to start a new React Native app in Flow, you can reference the [new 
 
 ### What if I find a bug in the TypeScript declaration?
 
-Regardless of whether you’re using built-in TS types or `@types/react-native`, if you find a bug please submit a PR to both [React Native](https://github.com/facebook/react-native) and [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped) repositories . If you don’t know how to fix it, please file a Github issue in the React Native repository and mention [@lunaleaps](https://github.com/lunaleaps) on the issue.
+Regardless of whether you’re using built-in TS types or `@types/react-native`, if you find a bug please submit a PR to both [React Native](https://github.com/facebook/react-native) and [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped) repositories. If you don’t know how to fix it, please file a Github issue in the React Native repository and mention [@lunaleaps](https://github.com/lunaleaps) on the issue.
 
 ## Documentation is TypeScript First
 
