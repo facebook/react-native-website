@@ -72,7 +72,7 @@ Check out the [breaking changes introduced with 0.71](https://github.com/faceboo
 
 Flow users can continue to typecheck applications targeting 0.71+ but configuration logic for it is no longer included out-of-the box in the template.
 
-Flow users have previously upgraded React Native’s Flow types by merging in the `.flowconfig` from the new app template and manually updating `flow-bin`. The new app template no longer has a `.flowconfig`, but [one is still packaged within React Native](https://github.com/facebook/react-native/blob/main/.flowconfig) that can be used as a basis for your app.
+Flow users have previously upgraded React Native’s Flow types by merging in the `.flowconfig` from the new app template and manually updating `flow-bin`. The new app template no longer has a `.flowconfig`, but [one is still present in the React Native repository](https://github.com/facebook/react-native/blob/main/.flowconfig) that can be used as a basis for your app.
 
 If you need to start a new React Native app in Flow, you can reference the [new app template from 0.70](https://github.com/facebook/react-native/tree/0.70-stable/template).
 
