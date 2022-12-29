@@ -78,7 +78,7 @@ If you need to start a new React Native app in Flow, you can reference the [new 
 
 ### What if I find a bug in the TypeScript declaration?
 
-Regardless of whether you’re using built-in TS types or `@types/react-native`, if you find a bug please submit a PR to both [React Native](https://github.com/facebook/react-native) and [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped) repositories. If you don’t know how to fix it, please file a Github issue in the React Native repository and mention [@lunaleaps](https://github.com/lunaleaps) on the issue.
+Regardless of whether you’re using built-in TS types or `@types/react-native`, if you find a bug please submit a PR to both [React Native](https://github.com/facebook/react-native) and [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped) repositories. If you don’t know how to fix it, please file a GitHub issue in the React Native repository and mention [@lunaleaps](https://github.com/lunaleaps) on the issue.
 
 ## Documentation is TypeScript First
 
@@ -94,7 +94,7 @@ In closing, we want to recognize all the work done over the years by the communi
 
 We want to thank all the [contributors](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/react-native/index.d.ts#L3) that have been maintaining `@types/react-native` since [2015](https://github.com/DefinitelyTyped/DefinitelyTyped/commit/efce0c25ec532a4651859f10eda49e97a5716a42)! We see the effort and care you all have put into making sure React Native users have the best experience.
 
-Thank you to [@acoates](https://github.com/acoates), [@eps1lon](https://github.com/eps1lon), [kelset](https://github/kelset), [@tido64](https://github.com/tido64), [@Titozzz](https://github.com/Titozzz), and [@ZihanChen-MSFT](https://github.com/ZihanChen-MSFT) for your help consulting, questioning, communicating and reviewing changes to move the TypeScript types to React Native.
+Thank you to [@acoates](https://github.com/acoates), [@eps1lon](https://github.com/eps1lon), [@kelset](https://github/kelset), [@tido64](https://github.com/tido64), [@Titozzz](https://github.com/Titozzz), and [@ZihanChen-MSFT](https://github.com/ZihanChen-MSFT) for your help consulting, questioning, communicating and reviewing changes to move the TypeScript types to React Native.
 
 Similarly, we want to thank the [maintainers of `ts-template`](https://github.com/react-native-community/react-native-template-typescript/graphs/contributors) for supporting the TypeScript experience for new app development in React Native since day one.
 
