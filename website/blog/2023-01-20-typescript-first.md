@@ -31,7 +31,7 @@ The starting point of a newly generated app will be `App.tsx` instead of `App.js
 
 ## Declarations Shipped with React Native
 
-0.71 is the first release with built-in Typescript (TS) declarations.
+0.71 is the first release with built-in TypeScript (TS) declarations.
 
 Prior, TypeScript declarations for React Native were provided by [`@types/react-native`](https://www.npmjs.com/package/@types/react-native) hosted in the [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped) repository. The decision to co-locate TypeScript types with React Native source was for improved correctness and maintenance.
 
