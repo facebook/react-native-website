@@ -259,24 +259,24 @@ Wire up the new link in the main menu to the newly added event handler method.
 
 ##### 3. Window Reference
 
- Add an window reference to your AppDelegate.swift file. Ultimately, your AppDelegate should look something similar to this:
+Add an window reference to your AppDelegate.swift file. Ultimately, your AppDelegate should look something similar to this:
 
- ```swift
+```swift
 import UIKit
 
- @main
- class AppDelegate: UIResponder, UIApplicationDelegate {
+@main
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
-     // Add window reference
-     var window: UIWindow?
+    // Add window reference
+    var window: UIWindow?
 
-     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-         // Override point for customization after application launch.
-         return true
-     }
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // Override point for customization after application launch.
+        return true
+    }
 
-     ....
- }
+    ....
+}
 ```
 
 ### Test your integration
