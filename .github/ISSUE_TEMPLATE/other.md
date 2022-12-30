@@ -1,7 +1,11 @@
 ---
-name: '💡 Website Other'
-about: Post an idea, propose improvement, start discussion or put a request according to React Native website.
+name: "\U0001F4A1 Website Other"
+about: Post an idea, propose improvement, start discussion or put a request according
+  to React Native website.
 title: ''
+labels: ''
+assignees: ''
+
 ---
 
 ## Description
