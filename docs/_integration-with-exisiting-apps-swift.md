@@ -96,38 +96,7 @@ The `Podfile` will contain a boilerplate setup that you will tweak for your inte
 > The `Podfile` version changes depending on your version of `react-native`. Refer to https://react-native-community.github.io/upgrade-helper/ for the specific version of `Podfile` you should be using.
 
 Ultimately, your `Podfile` should look something similar to this:
-
-```
-source 'https://github.com/CocoaPods/Specs.git'
-
-# Required for Swift apps
-platform :ios, '8.0'
-use_frameworks!
-
-# The target name is most likely the name of your project.
-target 'swift-2048' do
-
-  # Your 'node_modules' directory is probably in the root of your project,
-  # but if not, adjust the `:path` accordingly
-  pod 'React', :path => '../node_modules/react-native', :subspecs => [
-    'Core',
-    'CxxBridge', # Include this for RN >= 0.47
-    'DevSupport', # Include this to enable In-App Devmenu if RN >= 0.43
-    'RCTText',
-    'RCTNetwork',
-    'RCTWebSocket', # needed for debugging
-    # Add any other subspecs you want to use in your project
-  ]
-  # Explicitly include Yoga if you are using RN >= 0.42.0
-  pod "Yoga", :path => "../node_modules/react-native/ReactCommon/yoga"
-
-  # Third party deps podspec link
-  pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
-  pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
-  pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
-
-end
-```
+[Podfile Template](https://github.com/facebook/react-native/blob/main/template/ios/Podfile)
 
 After you have created your `Podfile`, you are ready to install the React Native pod.
 
@@ -278,6 +247,28 @@ Wire up the new link in the main menu to the newly added event handler method.
 ![Event Path](/docs/assets/react-native-add-react-native-integration-wire-up.png)
 
 > One of the easier ways to do this is to open the view in the storyboard and right click on the new link. Select something such as the `Touch Up Inside` event, drag that to the storyboard and then select the created method from the list provided.
+
+##### 3. Window Reference
+
+Add an window reference to your AppDelegate.swift file. Ultimately, your AppDelegate should look something similar to this:
+
+```swift
+import UIKit
+
+@main
+class AppDelegate: UIResponder, UIApplicationDelegate {
+
+    // Add window reference
+    var window: UIWindow?
+
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // Override point for customization after application launch.
+        return true
+    }
+
+    ....
+}
+```
 
 ### Test your integration
 
