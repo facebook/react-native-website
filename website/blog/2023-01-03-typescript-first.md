@@ -2,7 +2,7 @@
 title: First-class Support for TypeScript
 authors: [lunaleaps, NickGerleman]
 tags: [typescript, engineering]
-date: 2023-01-20
+date: 2023-01-03
 ---
 
 # First-class Support for TypeScript
@@ -15,9 +15,9 @@ This post covers TypeScript features in React Native 0.71 which is currently a r
 
 With the release of 0.71, React Native is investing in the TypeScript experience with the following changes:
 
-- [New app template is TypeScript by default](/blog/2023/01/20/typescript-first#new-app-template-is-typescript-by-default)
-- [TypeScript declarations shipped with React Native](/blog/2023/01/20/typescript-first#declarations-shipped-with-react-native)
-- [React Native documentation is TypeScript First](/blog/2023/01/20/typescript-first#documentation-is-typescript-first)
+- [New app template is TypeScript by default](/blog/2023/01/03/typescript-first#new-app-template-is-typescript-by-default)
+- [TypeScript declarations shipped with React Native](/blog/2023/01/03/typescript-first#declarations-shipped-with-react-native)
+- [React Native documentation is TypeScript First](/blog/2023/01/03/typescript-first#documentation-is-typescript-first)
 
 In this post we’ll cover what these changes mean for you as a TypeScript or Flow user.
 
@@ -95,6 +95,12 @@ Regardless of whether you’re using built-in TS types or `@types/react-native`,
 ## Documentation is TypeScript First
 
 To ensure a consistent TypeScript experience, we have made several updates to the React Native documentation to reflect TypeScript as the new default language.
+
+:::note
+
+These documentation updates refer to the 0.71 docs which are labelled as [`next`](/docs/next/getting-started) while 0.71 is in pre-release.
+
+:::
 
 Code examples now allow inline TypeScript and over 170 interactive code examples have been updated to pass linting, formatting, and type-checking in the new template. Most examples are valid as both TypeScript and JavaScript. Where they are incompatible, you can view the example in either language.
 
