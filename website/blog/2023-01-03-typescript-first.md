@@ -112,7 +112,7 @@ In closing, we want to recognize all the work done over the years by the communi
 
 We want to thank all the [contributors](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/react-native/index.d.ts#L3) that have been maintaining `@types/react-native` since [2015](https://github.com/DefinitelyTyped/DefinitelyTyped/commit/efce0c25ec532a4651859f10eda49e97a5716a42)! We see the effort and care you all have put into making sure React Native users have the best experience.
 
-Thank you to [@acoates](https://github.com/acoates), [@eps1lon](https://github.com/eps1lon), [@kelset](https://github/kelset), [@tido64](https://github.com/tido64), [@Titozzz](https://github.com/Titozzz), and [@ZihanChen-MSFT](https://github.com/ZihanChen-MSFT) for your help consulting, questioning, communicating and reviewing changes to move the TypeScript types to React Native.
+Thank you to [@acoates](https://github.com/acoates), [@eps1lon](https://github.com/eps1lon), [@kelset](https://github.com/kelset), [@tido64](https://github.com/tido64), [@Titozzz](https://github.com/Titozzz), and [@ZihanChen-MSFT](https://github.com/ZihanChen-MSFT) for your help consulting, questioning, communicating and reviewing changes to move the TypeScript types to React Native.
 
 Similarly, we want to thank the [maintainers of `react-native-template-typescript`](https://github.com/react-native-community/react-native-template-typescript/graphs/contributors) for supporting the TypeScript experience for new app development in React Native since day one.
 
