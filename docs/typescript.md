@@ -145,19 +145,21 @@ You can explore the syntax more in the [TypeScript playground][tsplay].
 
 ## Using Custom Path Aliases with TypeScript
 
-To use custom path aliases with TypeScript, you need to set the path aliases to work from both Babel and TypeScript. Here's how:
+To use custom path aliases with TypeScript, you need to set the path aliases to work from both Metro and TypeScript. Here's how:
 
 1. Edit your `tsconfig.json` to have your [custom path mappings][path-map]. Set anything in the root of `src` to be available with no preceding path reference, and allow any test file to be accessed by using `tests/File.tsx`:
 
-```diff {2-7}
-    "target": "esnext",
-+     "baseUrl": ".",
-+     "paths": {
-+       "*": ["src/*"],
-+       "tests": ["tests/*"],
-+       "@components/*": ["src/components/*"],
-+     },
-    }
+```diff
+{
+-  "extends": "@tsconfig/react-native/tsconfig.json"
++  "extends": "@tsconfig/react-native/tsconfig.json",
++  "baseUrl": ".",
++  "paths": {
++    "*": ["src/*"],
++    "tests": ["tests/*"],
++    "@components/*": ["src/components/*"],
++  },
+}
 ```
 
 2. Add [`babel-plugin-module-resolver`][bpmr] as a development package to your project:
@@ -183,7 +185,8 @@ yarn add --dev babel-plugin-module-resolver
 
 ```diff {3-13}
 {
-  plugins: [
+  presets: ['module:metro-react-native-babel-preset'],
++  plugins: [
 +    [
 +       'module-resolver',
 +       {
