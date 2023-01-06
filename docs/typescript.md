@@ -183,7 +183,7 @@ yarn add --dev babel-plugin-module-resolver
 
 3. Finally, configure your `babel.config.js` (note that the syntax for your `babel.config.js` is different from your `tsconfig.json`):
 
-```diff {3-13}
+```diff
 {
   presets: ['module:metro-react-native-babel-preset'],
 +  plugins: [
