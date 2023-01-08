@@ -12,7 +12,7 @@ Users interact with mobile apps mainly through touch. They can use a combination
 ```tsx
 <Button
   onPress={() => {
-    consoele.log('You tapped the button!');
+    console.log('You tapped the button!');
   }}
   title="Press Me"
 />
