@@ -25,9 +25,9 @@ Here are a list of props that can help to improve `FlatList` performance:
 
 ### removeClippedSubviews
 
-| Type    | Default                     |
-| ------- | --------------------------- |
-| Boolean | False (iOS), True (Android) |
+| Type    | Default                              |
+| ------- | ------------------------------------ |
+| Boolean | `true` on Android, otherwise `false` |
 
 If `true`, views that are outside of the viewport are detached from the native view hierarchy.
 
