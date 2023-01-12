@@ -57,11 +57,7 @@ You can find the whole changelog history in the [changelog.md file](https://gith
 
 It's likely that when you post this GitHub release, the PRs for changelog, blog post and documentation are still in the rollout phase. You can start publishing the release anyway (to do step #3) with placeholders instead of links - but make sure to come back and update them once everything is out!
 
-### 3. Upload prebuilt Hermes binary
-
-In the `publish_release` CI workflow, the `build_hermes_macos` step produces a `tmp/hermes/output/hermes-runtime-darwin-vx.y.z.tar.gz` artifact, for example [here](https://app.circleci.com/pipelines/github/facebook/react-native/13933/workflows/5f2ad198-2264-4e7e-8c62-7b28e97532d8/jobs/262322/artifacts) are the artifacts for `0.69.0` release. Download it and attach it to the GitHub release.
-
-### 4. Create a new patch post for your new version
+### 3. Create a new patch post for your new version
 
 In the [releases working group](https://github.com/reactwg/react-native-releases/discussions), lock the relevant "road to 0.Y.0" discussion, unpin it and label it as "Released". Then, open a new discussion of the "Patches" type, with this text:
 
@@ -91,13 +87,37 @@ If the issue is a [major release issues](https://reactnative.dev/contributing/re
 1.
 ```
 
-### 4. Verify that Upgrade Helper GitHub action has fired
+### 4. Update the Support policy
+
+Update the [support policy](https://github.com/reactwg/react-native-releases#releases-support-policy) for the new version.
+
+- The first line should contain the `Next Release` and the status must be `Not Started`
+- The other lines must be updated by bumping the versions in the first column by 1 minor
+
+So, for example, if the table contains:
+
+```diff
+| Version    | Type                  | Status           |
+| ---------- | --------------------- | ---------------- |
+-| 0.72.x     | Next version          | Not started      |
+-| 0.71.x     | Latest stable         | In support       |
+-| 0.70.x     | Previous minor series | In support       |
+-| 0.69.x     | Previous minor series | In support       |
+-| <=0.68.x   | Old minor series      | Unsupported      |
++| 0.73.x     | Next version          | Not started      |
++| 0.72.x     | Latest stable         | In support       |
++| 0.71.x     | Previous minor series | In support       |
++| 0.70.x     | Previous minor series | In support       |
++| <=0.69.x   | Old minor series      | Unsupported      |
+```
+
+### 5. Verify that Upgrade Helper GitHub action has fired
 
 - You should see a [new publish job here](https://github.com/react-native-community/rn-diff-purge/actions).
 - Once it has finished, you should be able to see that the [Upgrade Helper](https://react-native-community.github.io/upgrade-helper/) presents the option to target the new minor.
 - If not, check out the guide on [how to update Upgrade Helper](/contributing/updating-upgrade-helper).
 
-### 5. Communicate the new release
+### 6. Communicate the new release
 
 Once all the steps above have been completed, it's time to signal to the community that latest minor is available! Do so in the following channels:
 
