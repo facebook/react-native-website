@@ -7,12 +7,6 @@ date: 2023-01-03
 
 # First-class Support for TypeScript
 
-:::caution
-
-This post covers TypeScript features in React Native 0.71 which is currently a release candidate. You can check its [release status here](https://github.com/reactwg/react-native-releases/discussions/41?sort=new#discussion-4499027).
-
-:::
-
 With the release of 0.71, React Native is investing in the TypeScript experience with the following changes:
 
 - [New app template is TypeScript by default](/blog/2023/01/03/typescript-first#new-app-template-is-typescript-by-default)
