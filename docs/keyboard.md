@@ -270,7 +270,7 @@ Useful for syncing TextInput (or other keyboard accessory view) size of position
 
 ---
 
-### `dismiss()`
+### `isVisible()`
 
 ```tsx
 static isVisible(): boolean;
@@ -280,7 +280,7 @@ Whether the keyboard is last known to be visible.
 
 ---
 
-### `dismiss()`
+### `metrics()`
 
 ```tsx
 static metrics(): KeyboardMetrics | undefined;
