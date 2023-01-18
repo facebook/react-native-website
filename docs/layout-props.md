@@ -633,7 +633,7 @@ It works similarly to `height` in CSS, but in React Native you must use points o
 
 ---
 
-### `inset`
+### `inset` <div class="label fabric">Fabric</div>
 
 `inset` is a shorthand that corresponds to the `top`, `right`, `bottom`, and/or `left` properties.
 
@@ -647,7 +647,7 @@ See https://developer.mozilla.org/en-US/docs/Web/CSS/inset for more details of h
 
 ---
 
-### `insetBlock`
+### `insetBlock` <div class="label fabric">Fabric</div>
 
 `insetBlock` is a shorthand that corresponds to the `insetBlockStart` and `insetBlockEnd` properties.
 
@@ -661,7 +661,7 @@ See https://developer.mozilla.org/en-US/docs/Web/CSS/inset-block for more detail
 
 ---
 
-### `insetBlockEnd`
+### `insetBlockEnd` <div class="label fabric">Fabric</div>
 
 `insetBlockEnd` is a logical property that sets the length that an element is offset in the block direction from its ending edge.
 
@@ -675,7 +675,7 @@ See https://developer.mozilla.org/en-US/docs/Web/CSS/inset-block-end for more de
 
 ---
 
-### `insetBlockStart`
+### `insetBlockStart` <div class="label fabric">Fabric</div>
 
 `insetBlockStart` is a logical property that sets the length that an element is offset in the block direction from its starting edge.
 
@@ -689,7 +689,7 @@ See https://developer.mozilla.org/en-US/docs/Web/CSS/inset-block-start for more 
 
 ---
 
-### `insetInline`
+### `insetInline` <div class="label fabric">Fabric</div>
 
 `insetInline` is a shorthand that corresponds to the `insetInlineStart` and `insetInlineEnd` properties.
 
@@ -703,7 +703,7 @@ See https://developer.mozilla.org/en-US/docs/Web/CSS/inset-inline for more detai
 
 ---
 
-### `insetInlineEnd`
+### `insetInlineEnd` <div class="label fabric">Fabric</div>
 
 `insetInlineEnd` is a logical property that sets the length that an element is offset in the starting inline direction.
 
@@ -717,7 +717,7 @@ See https://developer.mozilla.org/en-US/docs/Web/CSS/inset-inline-end for more d
 
 ---
 
-### `insetInlineEnd`
+### `insetInlineEnd` <div class="label fabric">Fabric</div>
 
 `insetInlineEnd` is a logical property that sets the length that an element is offset in the starting inline direction.
 
@@ -731,7 +731,7 @@ See https://developer.mozilla.org/en-US/docs/Web/CSS/inset-inline-end for more d
 
 ---
 
-### `insetInlineStart`
+### `insetInlineStart` <div class="label fabric">Fabric</div>
 
 `insetInlineStart` is a logical property that sets the length that an element is offset in the starting inline direction.
 
