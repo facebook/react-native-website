@@ -347,12 +347,12 @@ To run Codegen for the iOS platform, we need to open a terminal and run the foll
 cd MyApp
 yarn add ../RTNCalculator
 cd ..
-node MyApp/node_modules/react-native/scripts/generate-artifacts.js \
+node MyApp/node_modules/react-native/scripts/generate-codegen-artifacts.js \
   --path MyApp/ \
   --outputPath RTNCalculator/generated/
 ```
 
-This script first adds the `RTNCalculator` module to the app with `yarn add`. Then, it invokes Codegen via the `generate-artifacts.js` script.
+This script first adds the `RTNCalculator` module to the app with `yarn add`. Then, it invokes Codegen via the `generate-codegen-artifacts.js` script.
 
 The `--path` option specifies the path to the app, while the `--outputPath` option tells Codegen where to output the generated code.
 
