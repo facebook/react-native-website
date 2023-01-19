@@ -683,7 +683,7 @@ import {
   Text,
   Button,
 } from 'react-native';
-import RTNCalculator from 'rtn-calculator/js/NativeCalculator.js';
+import RTNCalculator from 'rtn-calculator/js/NativeCalculator';
 
 const App: () => Node = () => {
   const [result, setResult] = useState<number | null>(null);
