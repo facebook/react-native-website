@@ -6,7 +6,7 @@ description: Create mobile apps accessible to assistive technology with React Na
 
 Both Android and iOS provide APIs for integrating apps with assistive technologies like the bundled screen readers VoiceOver (iOS) and TalkBack (Android). React Native has complementary APIs that let your app accommodate all users.
 
-:::info
+::: info
 Android and iOS differ slightly in their approaches, and thus the React Native implementations may vary by platform.
 :::
 
@@ -25,7 +25,7 @@ On Android, `accessible={true}` property for a react-native View will be transla
 </View>
 ```
 
-In the above example, we can't get accessibility focus separately on 'text one' and 'text two'. Instead we get focus on a parent view with 'accessible' property.
+In the example above, we can't get accessibility focus separately on 'text one' and 'text two'. Instead we get focus on a parent view with 'accessible' property.
 
 ### `accessibilityLabel`
 
