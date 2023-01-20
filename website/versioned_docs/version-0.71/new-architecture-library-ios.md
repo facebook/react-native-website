@@ -37,7 +37,7 @@ While this generated native interface code **will not ship as part of your libra
 
 ```sh
 cd <path/to/your/app>
-node node_modules/react-native/scripts/generate-artifacts.js \
+node node_modules/react-native/scripts/generate-codegen-artifacts.js \
     --path <your app>/ \
     --outputPath <an/output/path> \
 ```

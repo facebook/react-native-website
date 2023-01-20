@@ -362,12 +362,12 @@ To run Codegen for the iOS platform, open a terminal and run the following comma
 cd MyApp
 yarn add ../RTNCenteredText
 cd ..
-node MyApp/node_modules/react-native/scripts/generate-artifacts.js \
+node MyApp/node_modules/react-native/scripts/generate-codegen-artifacts.js \
   --path MyApp/ \
   --outputPath RTNCenteredText/generated/
 ```
 
-This script first adds the `RTNCenteredText` module to the app with `yarn add`. Then, it invokes **Codegen** via the `generate-artifacts.js` script.
+This script first adds the `RTNCenteredText` module to the app with `yarn add`. Then, it invokes **Codegen** via the `generate-codegen-artifacts.js` script.
 
 The `--path` option specifies the path to the app, while the `--outputPath` option tells the script where to output the generated code.
 
