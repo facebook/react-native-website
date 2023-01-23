@@ -90,10 +90,16 @@ This is not necessary if you are integrating React Native into an existing appli
 
 If you are having trouble with iOS, try to reinstall the dependencies by running:
 
-1. `cd ios` to navigate to the
+1. `cd ios` to navigate to the ios folder
 2. `bundle install` to install Bundler
    1. If needed: install a [Ruby Version Manager](#ruby) and update the Ruby version
 3. `bundle exec pod install` to install the iOS dependencies.
+
+On M1 chip, if you get ```Multiple Podfiles were found``` error, try this instead:
+
+1. `cd ios` to navigate to the ios folder
+2. `arch -arm64 bundle install` to install Bundler
+3. `arch -arm64 bundle exec pod install` to install the iOS dependencies
 
 :::
 
