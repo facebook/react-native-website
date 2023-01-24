@@ -113,7 +113,7 @@ Enabled or disabled KeyboardAvoidingView.
 
 ### `keyboardVerticalOffset`
 
-This is the distance between the top of the user screen and the react native view, may be non-zero in some use cases.
+This is the distance between the top of the keyboard and the `children` view when keyboard is visible, may be non-zero in some use cases.
 
 | Type   | Default |
 | ------ | ------- |
