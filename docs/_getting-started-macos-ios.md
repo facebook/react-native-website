@@ -118,6 +118,17 @@ This is the **suggested approach** to decouple the build infrastructure from the
 
 On top of this, it's possible to add any other environment variable and to source the `.xcode.env` file in your build script phases. If you need to run script that requires some specific environment, this is the **suggested approach**: it allows to decouple the build phases from a specific environment.
 
+:::info
+If you are already using [NVM](http://nvm.sh/) (a command which helps you install and switch between versions of Node.js) and [zsh](https://ohmyz.sh/), you might want to move the code that initialize NVM from your `~/.zshrc` into a `~/.zshenv` file to help Xcode find your Node executable:
+
+```
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+```
+
+You might also want to ensure that all "shell script build phase" of your Xcode project, is using `/bin/zsh` as its shell.
+:::
+
 ## Running your React Native application
 
 ### Step 1: Start Metro
