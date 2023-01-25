@@ -9,7 +9,7 @@ Once you have your React Native project initialized, you can run `npx react-nati
 
 ## Choosing a specific simulator or device
 
-The easiest way to specify a device is by passing the `--list-devices` flag. This will provide an interactive list of all devices and simulators available. For example, if you wish to run on your connected iPhone, you can run `npx react native run-ios --list-devices` and then simply select your iPhone from the list.
+The easiest way to specify a device is by passing the `--list-devices` flag. This will provide an interactive list of all devices and simulators available. For example, if you wish to run on your connected iPhone, you can run `npx react native run-ios --list-devices` and then simply select your iPhone from the list. This works for both simulators and connected physical devices.
 
 ## Manually specifying a device
 
