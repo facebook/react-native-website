@@ -7,7 +7,11 @@ title: Running On Simulator
 
 Once you have your React Native project initialized, you can run `npx react-native run-ios` inside the newly created project directory. If everything is set up correctly, you should see your new app running in the iOS Simulator shortly.
 
-## Specifying a device
+## Choosing a specific simulator or device
+
+The easiest way to specify a device is by passing the `--list-devices` flag. This will provide an interactive list of all devices and simulators available. For example, if you wish to run on your connected iPhone, you can run `npx react native run-ios --list-devices` and then simply select your iPhone from the list.
+
+## Manually specifying a device
 
 You can specify the device the simulator should run with the `--simulator` flag, followed by the device name as a string. The default is `"iPhone 14"`. If you wish to run your app on an iPhone SE (3rd generation), run `npx react-native run-ios --simulator='iPhone SE (3rd generation)'`.
 
