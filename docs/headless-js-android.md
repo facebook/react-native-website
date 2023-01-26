@@ -55,7 +55,7 @@ public class MyTaskService extends HeadlessJsTaskService {
       return new HeadlessJsTaskConfig(
           "SomeTaskName",
           Arguments.fromBundle(extras),
-          5000, // timeout for the task
+          5000, // timeout in milliseconds for the task
           false // optional: defines whether or not the task is allowed in foreground. Default is false
         );
     }
