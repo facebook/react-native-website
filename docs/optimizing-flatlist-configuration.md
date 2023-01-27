@@ -123,7 +123,9 @@ You can also use a `key` prop in your item component.
 
 ### Avoid anonymous function on renderItem
 
-Move out the `renderItem` function to the outside of render function, so it won't recreate itself each time render function called.
+For functional components, move the `renderItem` function outside of the returned JSX. Also, ensure that it is wrapped in a `useCallback` hook to prevent it from being recreated each render.
+
+For class componenents, move the `renderItem` function outside of the render function, so it won't recreate itself each time the render function is called.
 
 <Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
 <TabItem value="classical">
