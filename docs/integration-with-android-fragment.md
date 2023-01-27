@@ -48,7 +48,7 @@ class MyReactApplication : Application(), ReactApplication {
         SoLoader.init(this, false)
     }
     private val reactNativeHost =
-        object : ReactNativeHost(this) {
+        object : DefaultReactNativeHost(this) {
             override fun getUseDeveloperSupport() = BuildConfig.DEBUG
             override fun getPackages(): List<ReactPackage> {
                 val packages = PackageList(this).getPackages().toMutableList()
@@ -71,7 +71,7 @@ public class MyReactApplication extends Application implements ReactApplication 
         SoLoader.init(this, false);
     }
 
-    private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
+    private final ReactNativeHost mReactNativeHost = new DefaultReactNativeHost(this) {
         @Override
         public boolean getUseDeveloperSupport() {
             return BuildConfig.DEBUG;
@@ -106,6 +106,7 @@ import com.facebook.react.PackageList
 import com.facebook.react.ReactApplication
 import com.facebook.react.ReactNativeHost
 import com.facebook.react.ReactPackage
+import com.facebook.react.defaults.DefaultReactNativeHost
 import com.facebook.soloader.SoLoader
 ```
 
@@ -119,6 +120,7 @@ import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
+import com.facebook.react.defaults.DefaultReactNativeHost;
 import com.facebook.soloader.SoLoader;
 
 import java.util.List;
