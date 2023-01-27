@@ -34,9 +34,9 @@ Further technical details on this event area are also available [on this GitHub 
 
 # How we mitigated & resolved
 
-As soon as we identified the issue on November 4th, we shared a manual workaround to fix the issue which would pin React Native to a specific, correcting the mistake.
+As soon as we identified the issue on November 4th, the community found and shared a manual workaround to fix the issue which would pin React Native to a specific, correcting the mistake.
 
-Then, over the weekend of November 5th and 6th, we shipped patch releases for all previous React Native versions down to 0.63 which automatically applied the patch, so that users could update to a fixed version of React Native.
+Then, over the weekend of November 5th and 6th, the release crew shipped patch releases for all previous React Native versions down to 0.63 which automatically applied the patch, so that users could update to a fixed version of React Native.
 
 At the same time, we [reached out to Sonatype](https://issues.sonatype.org/browse/OSSRH-86006) to ask for the removal of the offending artifacts.
 
@@ -53,7 +53,7 @@ _This section contains a brief timeline of the events. All times are GMT/UTC +0_
 - Nov 5th - 03:04 AM: [New issue is open to communicate status and workarounds](https://github.com/facebook/react-native/issues/35210).
 - Nov 6th - 04:11 PM: [Ticket to SonaType](https://issues.sonatype.org/browse/OSSRH-86006?focusedCommentId=1216303&page=com.atlassian.jira.plugin.system.issuetabpanels%3Acomment-tabpanel#comment-1216303) asking for removal of the artifacts is open.
 - Nov 6th - 04:40 PM: [First tweet](https://twitter.com/reactnative/status/1589296764678705155) from @reactnative with ack + link to issue.
-- Nov 6th - 07:05 PM: Decision to patch React Native versions back to 0.63..
+- Nov 6th - 07:05 PM: Decision to patch React Native versions back to 0.63.
 - Nov 7th - 12:47 AM: Last patched release is released: [0.63.5](https://github.com/facebook/react-native/releases/tag/v0.63.5).
 - Nov 8th - 08:04 PM: Artifacts on Maven Central are [fully removed](https://issues.sonatype.org/browse/OSSRH-86006?focusedCommentId=1216303&page=com.atlassian.jira.plugin.system.issuetabpanels%3Acomment-tabpanel#comment-1216303).
 - Nov 10th - 11:51 AM: Issue about the [incident is closed](https://github.com/facebook/react-native/issues/35210#issuecomment-1310170361).
@@ -74,15 +74,15 @@ We will be revisiting our processes for when to rely on developer-applied-workar
 
 ### Release Support Policy
 
-As visualized in the [rn-versions tool](https://rn-versions.github.io/), to cover more than 90% of the developer base of React Native at the time of the incident, we had to release patches all the way down to version 0.63.0.
+As visualized in the [rn-versions tool](https://rn-versions.github.io/), to cover more than 90% of the developer base of React Native at the time of the incident, we had to release patches all the way down to version 0.63.
 
-We believe this is caused by the React Native upgrade experience which was historically full of frictions. We are currently looking into ways to improve the upgrade experience to make it smoother and faster to mitigate this fragmentation of the ecosystem.
+We believe this is caused by the React Native upgrade experience which has historically been full of frictions. We are currently looking into ways to improve the upgrade experience to make it smoother and faster to mitigate this fragmentation of the ecosystem.
 
 Releasing a newer version of React Native should never have an impact on users on older versions, and we want to apologize for the disruption we caused to your workflow.
 
 Similarly, we want to also stress the importance of being up to date with the latest version of your dependencies and React Native to benefit from the improvements and the safeguards we introduced. This incident happened during a time in which an official [release support policy](https://github.com/reactwg/react-native-releases#releases-support-policy) was getting defined and wasn’t broadcasted or enforced yet.
 
-In the future, we’ll communicate our support policy over our communication channels and we’ll consider [deprecating older versions of React Native on npm](https://docs.npmjs.com/deprecating-and-undeprecating-packages-or-package-versions).
+In the future, we will communicate our support policy over our communication channels and we will consider [deprecating older versions of React Native on npm](https://docs.npmjs.com/deprecating-and-undeprecating-packages-or-package-versions).
 
 ### Improved testing and best practices for 3rd party libraries
 
@@ -90,9 +90,9 @@ This incident highlighted the importance of having better release testing and be
 
 On the testing side, releasing versions down to `0.63.x` proved to be challenging due to the lack of automation and testing we now have in place for stable releases. We recognize the importance of our release and testing infrastructure and we’re going to invest further in it in the future.
 
-Specifically, we’re now incorporating 3rd party library testing as part of the [release of react native](https://github.com/reactwg/react-native-releases/discussions/41). We’re also adding some new channels and roles in the [Core Contributors Discord Server](https://github.com/facebook/react-native/blob/main/ECOSYSTEM.md#core-contributors).
+Specifically, we are now encouraging and supporting 3rd party library testing as part of the [release of react native](https://github.com/reactwg/react-native-releases/discussions/41). We’re also adding some new channels and roles in the [Core Contributors Discord Server](https://github.com/facebook/react-native/blob/main/ECOSYSTEM.md#core-contributors).
 
-On top of this, we started a closer collaboration with Callstack, the maintainers of [create-react-native-library](https://github.com/callstack/react-native-builder-bob/tree/main/packages/create-react-native-library), to improve the library template and make sure it follows all the necessary best practices to integrate with React Native projects. The newer version of create-react-native-library is now fully compatible with 0.71 projects while still offering backward compatibility.
+On top of this, we started a closer collaboration with Callstack, the maintainers of [create-react-native-library](https://github.com/callstack/react-native-builder-bob/tree/main/packages/create-react-native-library), to improve the library template and make sure it follows all the necessary best practices to integrate with React Native projects. The newer version of `create-react-native-library` is now fully compatible with 0.71 projects while still offering backward compatibility.
 
 # Conclusions
 
