@@ -754,7 +754,7 @@ public class CenteredTextManager extends SimpleViewManager<CenteredText>
 
     private final ViewManagerDelegate<CenteredText> mDelegate;
 
-    static final String NAME = "CenteredText";
+    static final String NAME = "RTNCenteredText";
 
     public CenteredTextManager(ReactApplicationContext context) {
         mDelegate = new RTNCenteredTextManagerDelegate<>(this);
