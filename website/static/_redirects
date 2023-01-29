@@ -21,30 +21,110 @@
 /docs/new-architecture-app-modules-ios       /docs/new-architecture-intro
 /docs/new-architecture-app-renderer-ios      /docs/new-architecture-intro
 
-# Architecture pages move to unversioned docs
-/docs/architecture-overview             /architecture/overview
-/docs/fabric-renderer                   /architecture/fabric-renderer
-/docs/render-pipeline                   /architecture/render-pipeline
-/docs/xplat-implementation              /architecture/xplat-implementation
-/docs/view-flattening                   /architecture/view-flattening
-/docs/threading-model                   /architecture/threading-model
-/docs/architecture-glossary             /architecture/glossary
+# Architecture pages move to un-versioned docs
+/docs/architecture-overview             /docs/experimental/architecture/overview
+/docs/fabric-renderer                   /docs/experimental/architecture/fabric-renderer
+/docs/render-pipeline                   /docs/experimental/architecture/render-pipeline
+/docs/xplat-implementation              /docs/experimental/architecture/xplat-implementation
+/docs/view-flattening                   /docs/experimental/architecture/view-fattening
+/docs/threading-model                   /docs/experimental/architecture/threading-model
+/docs/architecture-glossary             /docs/experimental/architecture/glossary
 
-/docs/next/architecture-overview             /architecture/overview
-/docs/next/fabric-renderer                   /architecture/fabric-renderer
-/docs/next/render-pipeline                   /architecture/render-pipeline
-/docs/next/xplat-implementation              /architecture/xplat-implementation
-/docs/next/view-flattening                   /architecture/view-flattening
-/docs/next/threading-model                   /architecture/threading-model
-/docs/next/architecture-glossary             /architecture/glossary
+/docs/next/architecture-overview             /docs/experimental/architecture/overview
+/docs/next/fabric-renderer                   /docs/experimental/architecture/fabric-renderer
+/docs/next/render-pipeline                   /docs/experimental/architecture/render-pipeline
+/docs/next/xplat-implementation              /docs/experimental/architecture/xplat-implementation
+/docs/next/view-flattening                   /docs/experimental/architecture/view-flattening
+/docs/next/threading-model                   /docs/experimental/architecture/threading-model
+/docs/next/architecture-glossary             /docs/experimental/architecture/glossary
 
-/docs/0.66/architecture-overview             /architecture/overview
-/docs/0.66/fabric-renderer                   /architecture/fabric-renderer
-/docs/0.66/render-pipeline                   /architecture/render-pipeline
-/docs/0.66/xplat-implementation              /architecture/xplat-implementation
-/docs/0.66/view-flattening                   /architecture/view-flattening
-/docs/0.66/threading-model                   /architecture/threading-model
-/docs/0.66/architecture-glossary             /architecture/glossary
+/docs/0.66/architecture-overview             /docs/experimental/architecture/overview
+/docs/0.66/fabric-renderer                   /docs/experimental/architecture/fabric-renderer
+/docs/0.66/render-pipeline                   /docs/experimental/architecture/render-pipeline
+/docs/0.66/xplat-implementation              /docs/experimental/architecture/xplat-implementation
+/docs/0.66/view-flattening                   /docs/experimental/architecture/view-flattening
+/docs/0.66/threading-model                   /docs/experimental/architecture/threading-model
+/docs/0.66/architecture-glossary             /docs/experimental/architecture/glossary
+
+/architecture/overview                       /docs/experimental/architecture/overview
+/architecture/fabric-renderer                /docs/experimental/architecture/fabric-renderer
+/architecture/render-pipeline                /docs/experimental/architecture/render-pipeline
+/architecture/xplat-implementation           /docs/experimental/architecture/xplat-implementation
+/architecture/view-flattening                /docs/experimental/architecture/view-flattening
+/architecture/threading-model                /docs/experimental/architecture/threading-model
+/architecture/bundled-hermes                 /docs/experimental/architecture/bundled-hermes
+/architecture/glossary                       /docs/experimental/architecture/glossary
+
+# Redirect the old versioned New Architecture docs to the experimental docs.
+/docs/0.68/new-architecture-intro                   /docs/experimental/the-new-architecture/landing-page
+/docs/0.68/new-architecture-library-intro           /docs/experimental/new-architecture-library-intro
+/docs/0.68/new-architecture-library-android         /docs/experimental/new-architecture-library-android
+/docs/0.68/new-architecture-library-ios             /docs/experimental/new-architecture-library-ios
+/docs/0.68/new-architecture-app-intro               /docs/experimental/the-new-architecture/use-app-template
+/docs/0.68/new-architecture-app-modules-android     /docs/experimental/the-new-architecture/use-app-template
+/docs/0.68/new-architecture-app-modules-ios         /docs/experimental/the-new-architecture/use-app-template
+/docs/0.68/new-architecture-app-renderer-android    /docs/experimental/the-new-architecture/landing-page
+/docs/0.68/new-architecture-app-renderer-ios        /docs/experimental/the-new-architecture/landing-page
+/docs/0.68/new-architecture-troubleshooting         /docs/experimental/new-architecture-troubleshooting
+/docs/0.68/new-architecture-appendix                /docs/experimental/new-architecture-appendix
+
+/docs/0.69/new-architecture-intro                   /docs/experimental/the-new-architecture/landing-page
+/docs/0.69/new-architecture-library-intro           /docs/experimental/new-architecture-library-intro
+/docs/0.69/new-architecture-library-android         /docs/experimental/new-architecture-library-android
+/docs/0.69/new-architecture-library-ios             /docs/experimental/new-architecture-library-ios
+/docs/0.69/new-architecture-app-intro               /docs/experimental/the-new-architecture/use-app-template
+/docs/0.69/new-architecture-app-modules-android     /docs/experimental/the-new-architecture/use-app-template
+/docs/0.69/new-architecture-app-modules-ios         /docs/experimental/the-new-architecture/use-app-template
+/docs/0.69/new-architecture-app-renderer-android    /docs/experimental/the-new-architecture/landing-page
+/docs/0.69/new-architecture-app-renderer-ios        /docs/experimental/the-new-architecture/landing-page
+/docs/0.69/new-architecture-troubleshooting         /docs/experimental/new-architecture-troubleshooting
+/docs/0.69/new-architecture-appendix                /docs/experimental/new-architecture-appendix
+
+/docs/0.70/the-new-architecture/landing-page                                /docs/experimental/the-new-architecture/landing-page
+/docs/0.70/the-new-architecture/why                                         /docs/experimental/the-new-architecture/why
+/docs/0.70/the-new-architecture/use-app-template                            /docs/experimental/the-new-architecture/use-app-template
+/docs/0.70/the-new-architecture/pillars                                     /docs/experimental/the-new-architecture/pillars
+/docs/0.70/the-new-architecture/pillars-turbomodules                        /docs/experimental/the-new-architecture/pillars-turbomodules
+/docs/0.70/the-new-architecture/pillars-fabric-components                   /docs/experimental/the-new-architecture/pillars-fabric-components
+/docs/0.70/the-new-architecture/pillars-codegen                             /docs/experimental/the-new-architecture/pillars-codegen
+/docs/0.70/the-new-architecture/backward-compatibility                      /docs/experimental/the-new-architecture/backward-compatibility
+/docs/0.70/the-new-architecture/backward-compatibility-turbomodules         /docs/experimental/the-new-architecture/backward-compatibility-turbomodules
+/docs/0.70/the-new-architecture/backward-compatibility-fabric-components    /docs/experimental/the-new-architecture/backward-compatibility-fabric-components
+/docs/0.70/new-architecture-intro                                           /docs/experimental/the-new-architecture/landing-page
+/docs/0.70/new-architecture-library-intro                                   /docs/experimental/new-architecture-library-intro
+/docs/0.70/new-architecture-library-android                                 /docs/experimental/new-architecture-library-android
+/docs/0.70/new-architecture-library-ios                                     /docs/experimental/new-architecture-library-ios
+/docs/0.70/new-architecture-app-intro                                       /docs/experimental/the-new-architecture/use-app-template
+/docs/0.70/new-architecture-app-modules-android                             /docs/experimental/the-new-architecture/use-app-template
+/docs/0.70/new-architecture-app-modules-ios                                 /docs/experimental/the-new-architecture/use-app-template
+/docs/0.70/new-architecture-app-renderer-android                            /docs/experimental/the-new-architecture/landing-page
+/docs/0.70/new-architecture-app-renderer-ios                                /docs/experimental/the-new-architecture/landing-page
+/docs/0.70/new-architecture-troubleshooting                                 /docs/experimental/new-architecture-troubleshooting
+/docs/0.70/new-architecture-appendix                                        /docs/experimental/new-architecture-appendix
+
+/docs/the-new-architecture/landing-page                                /docs/experimental/the-new-architecture/landing-page
+/docs/the-new-architecture/why                                         /docs/experimental/the-new-architecture/why
+/docs/the-new-architecture/use-app-template                            /docs/experimental/the-new-architecture/use-app-template
+/docs/the-new-architecture/pillars                                     /docs/experimental/the-new-architecture/pillars
+/docs/the-new-architecture/pillars-turbomodules                        /docs/experimental/the-new-architecture/pillars-turbomodules
+/docs/the-new-architecture/pillars-fabric-components                   /docs/experimental/the-new-architecture/pillars-fabric-components
+/docs/the-new-architecture/pillars-codegen                             /docs/experimental/the-new-architecture/pillars-codegen
+/docs/the-new-architecture/backward-compatibility                      /docs/experimental/the-new-architecture/backward-compatibility
+/docs/the-new-architecture/backward-compatibility-turbomodules         /docs/experimental/the-new-architecture/backward-compatibility-turbomodules
+/docs/the-new-architecture/backward-compatibility-fabric-components    /docs/experimental/the-new-architecture/backward-compatibility-fabric-components
+/docs/the-new-architecture/cxx-cxxturbomodules                         /docs/experimental/the-new-architecture/cxx-cxxturbomodules
+/docs/the-new-architecture/cxx-custom-types                            /docs/experimental/the-new-architecture/cxx-custom-types
+/docs/new-architecture-intro                                           /docs/experimental/the-new-architecture/landing-page
+/docs/new-architecture-library-intro                                   /docs/experimental/new-architecture-library-intro
+/docs/new-architecture-library-android                                 /docs/experimental/new-architecture-library-android
+/docs/new-architecture-library-ios                                     /docs/experimental/new-architecture-library-ios
+/docs/new-architecture-app-intro                                       /docs/experimental/the-new-architecture/use-app-template
+/docs/new-architecture-app-modules-android                             /docs/experimental/the-new-architecture/use-app-template
+/docs/new-architecture-app-modules-ios                                 /docs/experimental/the-new-architecture/use-app-template
+/docs/new-architecture-app-renderer-android                            /docs/experimental/the-new-architecture/landing-page
+/docs/new-architecture-app-renderer-ios                                /docs/experimental/the-new-architecture/landing-page
+/docs/new-architecture-troubleshooting                                 /docs/experimental/new-architecture-troubleshooting
+/docs/new-architecture-appendix                                        /docs/experimental/new-architecture-appendix
 
 # Rework of the community
 /help         /community/overview

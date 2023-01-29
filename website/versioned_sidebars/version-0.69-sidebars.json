@@ -32,10 +32,7 @@
         "label": "Connectivity",
         "collapsible": false,
         "collapsed": false,
-        "items": [
-          "network",
-          "security"
-        ]
+        "items": ["network", "security"]
       }
     ],
     "Design": [
@@ -61,9 +58,7 @@
         "label": "Inclusion",
         "collapsible": false,
         "collapsed": false,
-        "items": [
-          "accessibility"
-        ]
+        "items": ["accessibility"]
       }
     ],
     "Performance": [
@@ -74,11 +69,7 @@
       "profiling",
       "profile-hermes"
     ],
-    "JavaScript Runtime": [
-      "javascript-environment",
-      "timers",
-      "hermes"
-    ],
+    "JavaScript Runtime": ["javascript-environment", "timers", "hermes"],
     "Native Modules": [
       "native-modules-intro",
       "native-modules-android",
@@ -89,36 +80,6 @@
       "native-components-android",
       "native-components-ios",
       "direct-manipulation"
-    ],
-    "The New Architecture": [
-      "new-architecture-intro",
-      {
-        "type": "category",
-        "label": "Supporting in your Library",
-        "collapsible": false,
-        "collapsed": false,
-        "items": [
-          "new-architecture-library-intro",
-          "new-architecture-library-android",
-          "new-architecture-library-ios"
-        ]
-      },
-      {
-        "type": "category",
-        "label": "Supporting in your App",
-        "collapsible": false,
-        "collapsed": false,
-        "items": [
-          "new-architecture-app-intro",
-          "new-architecture-app-modules-android",
-          "new-architecture-app-modules-ios",
-          "new-architecture-app-renderer-android",
-          "new-architecture-app-renderer-ios"
-        ]
-      },
-      "react-18-and-react-native",
-      "new-architecture-troubleshooting",
-      "new-architecture-appendix"
     ],
     "Android and iOS guides": [
       {
@@ -178,30 +139,19 @@
         "type": "category",
         "label": "Hooks",
         "collapsed": false,
-        "items": [
-          "usecolorscheme",
-          "usewindowdimensions"
-        ]
+        "items": ["usecolorscheme", "usewindowdimensions"]
       },
       {
         "type": "category",
         "label": "Android APIs",
         "collapsed": false,
-        "items": [
-          "backhandler",
-          "permissionsandroid",
-          "toastandroid"
-        ]
+        "items": ["backhandler", "permissionsandroid", "toastandroid"]
       },
       {
         "type": "category",
         "label": "iOS APIs",
         "collapsed": false,
-        "items": [
-          "actionsheetios",
-          "dynamiccolorios",
-          "settings"
-        ]
+        "items": ["actionsheetios", "dynamiccolorios", "settings"]
       }
     ]
   },
@@ -232,19 +182,13 @@
         "type": "category",
         "label": "Android Components",
         "collapsed": false,
-        "items": [
-          "drawerlayoutandroid",
-          "touchablenativefeedback"
-        ]
+        "items": ["drawerlayoutandroid", "touchablenativefeedback"]
       },
       {
         "type": "category",
         "label": "iOS Components",
         "collapsed": false,
-        "items": [
-          "inputaccessoryview",
-          "safeareaview"
-        ]
+        "items": ["inputaccessoryview", "safeareaview"]
       }
     ],
     "Props": [

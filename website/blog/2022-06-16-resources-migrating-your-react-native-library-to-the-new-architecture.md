@@ -25,7 +25,7 @@ In this post, we will dig deeper into these resources and explain in more detail
 
 ### Documentation
 
-In the past 6 months, we’ve added a [guide on adopting the New Architecture](/docs/new-architecture-intro) and an [architecture deep-dive](/architecture/overview) on Fabric. We plan to expand this to include more guides and documentation around creating TurboModules, understanding CodeGen, and more. We plan to have updates to share by the 0.70 release.
+In the past 6 months, we’ve added a [guide on adopting the New Architecture](/docs/new-architecture-intro) and an [architecture deep-dive](/docs/experimental/architecture/overview) on Fabric. We plan to expand this to include more guides and documentation around creating TurboModules, understanding CodeGen, and more. We plan to have updates to share by the 0.70 release.
 
 Currently, the **New Architecture** guide covers how to [migrate your app](/docs/new-architecture-app-intro) and [your libraries](/docs/new-architecture-library-intro) to support the New Architecture properly.
 

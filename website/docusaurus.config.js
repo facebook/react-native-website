@@ -8,7 +8,7 @@
 const users = require('./showcase.json');
 const versions = require('./versions.json');
 
-const lastVersion = versions[0];
+const lastVersion = versions[1];
 const copyright = `Copyright © ${new Date().getFullYear()} Meta Platforms, Inc.`;
 
 const commonDocsOptions = {
@@ -75,9 +75,16 @@ module.exports = {
             process.env.PREVIEW_DEPLOY === 'true'
               ? ['current', ...versions.slice(0, 2)]
               : undefined,
+          lastVersion: lastVersion,
           versions: {
             [lastVersion]: {
               badge: false, // Do not show version badge for last RN version
+            },
+            experimental: {
+              label: 'Experimental',
+              path: 'experimental',
+              banner: 'unreleased',
+              badge: true,
             },
           },
           ...commonDocsOptions,
@@ -110,17 +117,6 @@ module.exports = {
   ],
   plugins: [
     'docusaurus-plugin-sass',
-    [
-      'content-docs',
-      /** @type {import('@docusaurus/plugin-content-docs').Options} */
-      ({
-        id: 'architecture',
-        path: 'architecture',
-        routeBasePath: '/architecture',
-        sidebarPath: require.resolve('./sidebarsArchitecture.json'),
-        ...commonDocsOptions,
-      }),
-    ],
     [
       'content-docs',
       /** @type {import('@docusaurus/plugin-content-docs').Options} */
@@ -251,12 +247,6 @@ module.exports = {
                 type: 'doc',
                 docId: 'accessibilityinfo',
               },
-              {
-                label: 'Architecture',
-                type: 'doc',
-                docId: 'architecture-overview',
-                docsPluginId: 'architecture',
-              },
             ],
           },
           {
@@ -320,10 +310,6 @@ module.exports = {
               {
                 label: 'APIs',
                 to: 'docs/accessibilityinfo',
-              },
-              {
-                label: 'Architecture',
-                to: 'architecture/overview',
               },
             ],
           },

@@ -36,7 +36,7 @@ After several rounds of review & feedback, we finally merged **the Migration Gui
 
 This Migration Guide will show you **how to create a custom Fabric component or a TurboModule** with a step-by-step approach. The guide will also show you how to **adapt your existing app or library** to use the New Architecture.
 
-Moreover, we would like to remind you the brand-new [Architecture section](/architecture/overview) of our website. There you can find several in-depth articles and explanation of the React Native internals. Specifically, [the Fabric section](/architecture/fabric-renderer) can help you understand the rendering pipeline in the New Architecture world.
+Moreover, we would like to remind you the brand-new [Architecture section](/docs/experimental/architecture/overview) of our website. There you can find several in-depth articles and explanation of the React Native internals. Specifically, [the Fabric section](/architecture/fabric-renderer) can help you understand the rendering pipeline in the New Architecture world.
 
 Finally, please consider **sharing your feedback** to this documentation material [on the working group](https://github.com/reactwg/react-native-new-architecture/discussions/7). We’re constantly looking for developer’s opinion, and we want to make sure we’re delivering the content that you find most useful.
 
