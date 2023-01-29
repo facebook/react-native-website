@@ -153,12 +153,14 @@ To use custom path aliases with TypeScript, you need to set the path aliases to 
 {
 -  "extends": "@tsconfig/react-native/tsconfig.json"
 +  "extends": "@tsconfig/react-native/tsconfig.json",
-+  "baseUrl": ".",
-+  "paths": {
-+    "*": ["src/*"],
-+    "tests": ["tests/*"],
-+    "@components/*": ["src/components/*"],
-+  },
++  "compilerOptions": {
++    "baseUrl": ".",
++    "paths": {
++      "*": ["src/*"],
++      "tests": ["tests/*"],
++      "@components/*": ["src/components/*"],
++    },
++  }
 }
 ```
 
@@ -185,7 +187,7 @@ yarn add --dev babel-plugin-module-resolver
 
 ```diff
 {
-  presets: ['module:metro-react-native-babel-preset'],
+   presets: ['module:metro-react-native-babel-preset'],
 +  plugins: [
 +    [
 +       'module-resolver',
@@ -198,7 +200,7 @@ yarn add --dev babel-plugin-module-resolver
 +         }
 +       }
 +    ]
-  ]
++  ]
 }
 ```
 
