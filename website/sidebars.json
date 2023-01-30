@@ -65,6 +65,7 @@
     "Performance": [
       "performance",
       "build-speed",
+      "speeding-ci-builds",
       "optimizing-flatlist-configuration",
       "ram-bundles-inline-requires",
       "profiling",
@@ -93,7 +94,7 @@
         "collapsed": false,
         "items": [
           "the-new-architecture/pillars",
-          "the-new-architecture/pillars-turbomodules",          
+          "the-new-architecture/pillars-turbomodules",
           "the-new-architecture/pillars-fabric-components",
           "the-new-architecture/pillars-codegen"
         ]
