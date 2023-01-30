@@ -68,12 +68,6 @@ Libraries that target versions of React Native below 0.71 may use a `peerDepende
 
 Check out the [breaking changes introduced with 0.71](https://github.com/facebook/react-native/blob/main/CHANGELOG.md) to see if you’re ready to migrate.
 
-:::note
-
-While 0.71 is in release candidate, you can reference the [changelog PR](https://github.com/facebook/react-native/pull/35200/files).
-
-:::
-
 ### What if I use Flow?
 
 Flow users can continue to typecheck applications targeting 0.71+ but configuration logic for it is no longer included out-of-the box in the template.
@@ -89,12 +83,6 @@ Regardless of whether you’re using built-in TS types or `@types/react-native`,
 ## Documentation is TypeScript First
 
 To ensure a consistent TypeScript experience, we have made several updates to the React Native documentation to reflect TypeScript as the new default language.
-
-:::note
-
-These documentation updates refer to the 0.71 docs which are labelled as [`next`](/docs/next/getting-started) while 0.71 is in pre-release.
-
-:::
 
 Code examples now allow inline TypeScript and over 170 interactive code examples have been updated to pass linting, formatting, and type-checking in the new template. Most examples are valid as both TypeScript and JavaScript. Where they are incompatible, you can view the example in either language.
 
