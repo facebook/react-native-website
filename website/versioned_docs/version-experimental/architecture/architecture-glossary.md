@@ -1,7 +1,7 @@
 ---
 id: architecture-glossary
 title: Glossary
-slug: /glossary
+slug: /architecture/glossary
 ---
 
 ## Fabric Renderer

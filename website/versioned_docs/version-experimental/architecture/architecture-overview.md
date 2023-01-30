@@ -22,4 +22,4 @@ Architecture Overview is intended to share conceptual overview of how React Nati
   - [Threading Model](threading-model)
 - Build Tools
   - [Bundled Hermes](bundled-hermes)
-- [Glossary](architecture-glossary)
+- [Glossary](glossary)
