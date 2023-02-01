@@ -452,9 +452,9 @@ Specifies the disabled state of the text view for testing purposes.
 
 The [Dynamic Type](https://developer.apple.com/documentation/uikit/uifont/scaling_fonts_automatically) ramp to apply to this element on iOS.
 
-| Type | Default |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| enum(`'caption2'`, `'caption1'`, `'footnote'`, `'subheadline'`, `'callout'`, `'body'`, `'headline'`, `'title3'`, `'title2'`, `'title1'`, `'largeTitle'`) | `'body'` |, 
+| Type                                                                                                                                                     | Default  |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| enum(`'caption2'`, `'caption1'`, `'footnote'`, `'subheadline'`, `'callout'`, `'body'`, `'headline'`, `'title3'`, `'title2'`, `'title1'`, `'largeTitle'`) | `'body'` |
 
 ---
 
