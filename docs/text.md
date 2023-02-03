@@ -448,6 +448,16 @@ Specifies the disabled state of the text view for testing purposes.
 
 ---
 
+### `dynamicTypeRamp` <div class="label ios">iOS</div>
+
+The [Dynamic Type](https://developer.apple.com/documentation/uikit/uifont/scaling_fonts_automatically) ramp to apply to this element on iOS.
+
+| Type                                                                                                                                                     | Default  |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| enum(`'caption2'`, `'caption1'`, `'footnote'`, `'subheadline'`, `'callout'`, `'body'`, `'headline'`, `'title3'`, `'title2'`, `'title1'`, `'largeTitle'`) | `'body'` |
+
+---
+
 ### `ellipsizeMode`
 
 When `numberOfLines` is set, this prop defines how the text will be truncated. `numberOfLines` must be set in conjunction with this prop.
