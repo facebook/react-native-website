@@ -124,7 +124,7 @@ We will be building a version of Hermes for you whenever we release a new versio
 Historically, we had problems with matching versions of Hermes with versions of React Native. This fully eliminates this problem, and offers users a JS engine that is compatible with the specific React Native version.
 
 This change is fully transparent to users of React Native. You can still enable/disable Hermes using the command described in this page.
-You can [read more about the technical implementation on this page](/docs/experimental/architecture/bundled-hermes).
+You can [read more about the technical implementation on this page](/experimental/architecture/bundled-hermes).
 
 ## Debugging JS on Hermes using Google Chrome's DevTools
 

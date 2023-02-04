@@ -9,7 +9,7 @@ import NewArchitectureWarning from '../\_markdown-new-architecture-warning.mdx';
 
 The goal of the New Architecture is to solve some of the issues that afflicted the Old Architecture in terms of performance and flexibility. This section provides the basic context to understand the Old Architecture's limitations and how it has been possible to overcome them with the New Architecture.
 
-This is not a technical deep dive: for further technical information, refer to the [Architecture](/docs/experimental/architecture/overview) tab of the website.
+This is not a technical deep dive: for further technical information, refer to the [Architecture](/experimental/architecture/overview) tab of the website.
 
 ## Old Architecture's Issues
 
@@ -35,10 +35,10 @@ This idea allowed the unlocking of several benefits:
 - **Code sharing:** by introducing C++, it is now possible to abstract all the platform agnostic code and to share it with ease between the platforms.
 - **Type safety:** to make sure that JS can properly invoke methods on C++ objects and vice-versa, a layer of code automatically generated has been added. The code is generated starting from some JS specification that must be typed through Flow or TypeScript.
 
-These advantages are the foundations of the [New Native Module System](pillars-turbomodules) and a jumping stone to further enhancements. For example, it has been possible to develop a [new renderer](/docs/experimental/architecture/fabric-renderer) which offers faster and more performant [Native Components](pillars-fabric-components).
+These advantages are the foundations of the [New Native Module System](pillars-turbomodules) and a jumping stone to further enhancements. For example, it has been possible to develop a [new renderer](/experimental/architecture/fabric-renderer) which offers faster and more performant [Native Components](pillars-fabric-components).
 
 ## Further Reading
 
-For a technical overview of the New Architecture, read the [Architecture tab](/docs/experimental/architecture/overview).
+For a technical overview of the New Architecture, read the [Architecture tab](/experimental/architecture/overview).
 
-For more information on the Fabric Renderer, read the [Fabric section](/docs/experimental/architecture/fabric-renderer).
+For more information on the Fabric Renderer, read the [Fabric section](/experimental/architecture/fabric-renderer).

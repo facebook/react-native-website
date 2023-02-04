@@ -124,7 +124,7 @@ The content of each Fabric Native Component folder contains several files. The b
 
 Additionally, the **Codegen** also creates a `ComponentDescriptor.h` and an `RCTComponentViewHelpers.h` files: the first one is used by React Native and Fabric to properly get a reference to the Fabric Native Component, while the latter contains some helper methods and protocols that can be implemented by the Native View to properly respond to JSI invocations.
 
-For further details about how Fabric works, have a look at the [Renderer](/docs/experimental/architecture/fabric-renderer) section.
+For further details about how Fabric works, have a look at the [Renderer](/experimental/architecture/fabric-renderer) section.
 
 ### RCTThirdPartyFabricComponentsProvider
 
