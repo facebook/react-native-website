@@ -8,7 +8,7 @@
 const users = require('./showcase.json');
 const versions = require('./versions.json');
 
-const lastVersion = versions[1];
+const lastVersion = versions[0];
 const copyright = `Copyright © ${new Date().getFullYear()} Meta Platforms, Inc.`;
 
 const commonDocsOptions = {
@@ -74,17 +74,11 @@ module.exports = {
           onlyIncludeVersions:
             process.env.PREVIEW_DEPLOY === 'true'
               ? ['current', ...versions.slice(0, 2)]
-              : undefined,
+              : ['current', ...versions.slice(0, 6)],
           lastVersion: lastVersion,
           versions: {
             [lastVersion]: {
               badge: false, // Do not show version badge for last RN version
-            },
-            experimental: {
-              label: 'Experimental',
-              path: 'experimental',
-              banner: 'unreleased',
-              badge: true,
             },
           },
           ...commonDocsOptions,
@@ -117,6 +111,24 @@ module.exports = {
   ],
   plugins: [
     'docusaurus-plugin-sass',
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'experimental',
+        path: '../docs_new_arch',
+        routeBasePath: 'experimental',
+        sidebarPath: require.resolve('./sidebarsExperimental.json'),
+        editCurrentVersion: true,
+        // onlyIncludeVersions: ['current', lastVersion],
+        lastVersion: lastVersion,
+        versions: {
+          [lastVersion]: {
+            badge: false, // Do not show version badge for last RN version
+          },
+        },
+        ...commonDocsOptions,
+      },
+    ],
     [
       'content-docs',
       /** @type {import('@docusaurus/plugin-content-docs').Options} */
@@ -228,6 +240,7 @@ module.exports = {
         style: 'dark',
         items: [
           {
+            docsPluginId: 'default',
             label: 'Development',
             type: 'dropdown',
             position: 'right',
@@ -246,6 +259,50 @@ module.exports = {
                 label: 'APIs',
                 type: 'doc',
                 docId: 'accessibilityinfo',
+              },
+            ],
+          },
+          {
+            docsPluginId: 'experimental',
+            label: 'Development',
+            type: 'dropdown',
+            position: 'right',
+            items: [
+              {
+                label: 'Guides',
+                to: 'experimental/getting-started',
+              },
+              {
+                label: 'Components',
+                to: 'experimental/components-and-apis',
+              },
+              {
+                label: 'APIs',
+                to: 'experimental/accessibilityinfo',
+              },
+            ],
+          },
+          {
+            docsPluginId: 'experimental',
+            label: 'New Architecture',
+            type: 'dropdown',
+            position: 'left',
+            items: [
+              {
+                label: 'Stable',
+                to: '/docs/getting-started',
+              },
+            ],
+          },
+          {
+            docsPluginId: 'default',
+            label: 'Stable',
+            type: 'dropdown',
+            position: 'left',
+            items: [
+              {
+                label: 'New Architecture',
+                to: 'experimental/the-new-architecture/landing-page',
               },
             ],
           },
@@ -285,6 +342,17 @@ module.exports = {
             ],
           },
           {
+            type: 'docsVersionDropdown',
+            position: 'left',
+            docsPluginId: 'experimental',
+            dropdownItemsAfter: [
+              {
+                to: '/versions',
+                label: 'All other versions',
+              },
+            ],
+          },
+          {
             href: 'https://github.com/facebook/react-native',
             'aria-label': 'GitHub repository',
             position: 'right',
@@ -310,6 +378,10 @@ module.exports = {
               {
                 label: 'APIs',
                 to: 'docs/accessibilityinfo',
+              },
+              {
+                label: 'New Architecture',
+                to: 'experimental/getting-started',
               },
             ],
           },
