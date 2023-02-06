@@ -167,7 +167,7 @@ const App = () => {
 
   const toggleBox = () => {
     LayoutAnimation.configureNext(
-      LayoutAnimation.create(500, 'linear', 'spring'),
+      LayoutAnimation.create(500, 'linear', 'opacity'),
     );
     setBoxPosition(boxPosition === 'left' ? 'right' : 'left');
   };
