@@ -880,7 +880,7 @@ useEffect(() => {
       console.log(event.eventProperty) // "someValue"
     });
 
-    //cut the listening at unmounted
+    // Removes the listener once unmounted
     return () => {
       eventListener.remove();
     };
