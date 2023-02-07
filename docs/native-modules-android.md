@@ -875,10 +875,9 @@ JavaScript modules can then register to receive events by `addListener` on the [
 import {NativeEventEmitter, NativeModules} from 'react-native';
 ...
 useEffect(() => {
-     const eventEmitter = new NativeEventEmitter(NativeModules.ToastExample);
-    //treat the message return :
+    const eventEmitter = new NativeEventEmitter(NativeModules.ToastExample);
     let eventListener = eventEmitter.addListener('EventReminder', event => {
-      console.log('the bundle:', event); // the bundle sent by module
+      console.log(event.eventProperty) // "someValue"
     });
 
     //cut the listening at unmounted
