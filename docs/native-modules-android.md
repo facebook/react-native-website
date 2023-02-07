@@ -874,19 +874,18 @@ JavaScript modules can then register to receive events by `addListener` on the [
 ```tsx
 import {NativeEventEmitter, NativeModules} from 'react-native';
 ...
+useEffect(() => {
+     const eventEmitter = new NativeEventEmitter(NativeModules.ToastExample);
+    //treat the message return :
+    let eventListener = eventEmitter.addListener('EventReminder', event => {
+      console.log('the bundle:', event); // the bundle sent by module
+    });
 
- componentDidMount() {
-   ...
-   const eventEmitter = new NativeEventEmitter(NativeModules.ToastExample);
-   this.eventListener = eventEmitter.addListener('EventReminder', event => {
-      console.log(event.eventProperty) // "someValue"
-   });
-   ...
- }
-
- componentWillUnmount() {
-   this.eventListener.remove(); //Removes the listener
- }
+    //cut the listening at unmounted
+    return () => {
+      eventListener.remove();
+    };
+  }, []);
 ```
 
 ### Getting Activity Result from startActivityForResult
