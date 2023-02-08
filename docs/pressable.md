@@ -167,7 +167,7 @@ Called when the hover is activated to provide visual feedback.
 
 | Type                                                |
 | --------------------------------------------------- |
-| ({ nativeEvent: MouseEvent }) => void |
+| ({ nativeEvent: [MouseEvent](https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent) }) => void |
 
 ### `onHoverOut`
 
@@ -175,7 +175,7 @@ Called when the hover is deactivated to undo visual feedback.
 
 | Type                                                |
 | --------------------------------------------------- |
-| ({ nativeEvent: MouseEvent }) => void |
+| ({ nativeEvent: [MouseEvent](https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent) }) => void |
 
 ### `onLongPress`
 
