@@ -972,6 +972,18 @@ Set line break strategy on iOS 14+. Possible values are `none`, `standard`, `han
 | ----------------------------------------------------------- | -------- |
 | enum(`'none'`, `'standard'`, `'hangul-word'`, `'push-out'`) | `'none'` |
 
+---
+
+### `smartInsertDelete` <div class="label ios">iOS</div>
+
+If `false`, the iOS system will not insert an extra space after a paste operation neither delete one or two spaces after a cut or delete operation.
+
+The default value is `true`.
+
+| Type |
+| ---- |
+| bool |
+
 ## Methods
 
 ### `.focus()`
