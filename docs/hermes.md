@@ -163,8 +163,10 @@ React Native also supports using JavaScriptCore as the [JavaScript engine](javas
 Edit your `android/gradle.properties` file and make the change illustrated below:
 
 ```diff
--   enableHermes: true,  // clean and rebuild if changing
-+   enableHermes: false,  // clean and rebuild if changing
+  # Use this property to enable or disable the Hermes JS engine.
+  # If set to false, you will be using JSC instead.
+- hermesEnabled=false
++ hermesEnabled=true  
 ```
 
 ### iOS
