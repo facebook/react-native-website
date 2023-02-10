@@ -160,13 +160,11 @@ React Native also supports using JavaScriptCore as the [JavaScript engine](javas
 
 ### Android
 
-Edit your `android/app/build.gradle` file and make the change illustrated below:
+Edit your `android/gradle.properties` file and make the change illustrated below:
 
 ```diff
-  project.ext.react = [
--     enableHermes: true,  // clean and rebuild if changing
-+     enableHermes: false,  // clean and rebuild if changing
-  ]
+-   enableHermes: true,  // clean and rebuild if changing
++   enableHermes: false,  // clean and rebuild if changing
 ```
 
 ### iOS
