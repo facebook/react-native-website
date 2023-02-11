@@ -21,7 +21,7 @@ If you have already installed Node on your system, make sure it is Node 14 or ne
 
 ### Ruby
 
-[Ruby](https://www.ruby-lang.org/en/) is a general-purpose programming language. React Native uses in some scripts related to the iOS dependency management. As every programming language, there are different versions of Ruby that have been developed during the years.
+[Ruby](https://www.ruby-lang.org/en/) is a general-purpose programming language. React Native uses it in some scripts related to iOS dependency management. As every programming language, there are different versions of Ruby that have been developed during the years.
 
 React Native uses a `.ruby-version` file to make sure that your version of Ruby is aligned with what is needed. Currently, macOS 12.5.1 is shipped with Ruby 2.6.8, which is **not** what is required by React Native. Our suggestion is to install a Ruby version manager and to install the proper version of Ruby in your system.
 
