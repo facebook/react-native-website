@@ -565,7 +565,7 @@ Does this view want to "claim" touch responsiveness? This is called for every to
 
 ### `onPress`
 
-Called after `onPressOut`.
+Function called on user press, triggered after `onPressOut`.
 
 | Type                                              |
 | ------------------------------------------------- |
