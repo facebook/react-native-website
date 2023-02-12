@@ -565,7 +565,27 @@ Does this view want to "claim" touch responsiveness? This is called for every to
 
 ### `onPress`
 
-This function is called on press.
+Function called on user press, triggered after `onPressOut`.
+
+| Type                                              |
+| ------------------------------------------------- |
+| ({nativeEvent: [PressEvent](pressevent)}) => void |
+
+---
+
+### `onPressIn`
+
+Called immediately when a touch is engaged, before `onPressOut` and `onPress`.
+
+| Type                                              |
+| ------------------------------------------------- |
+| ({nativeEvent: [PressEvent](pressevent)}) => void |
+
+---
+
+### `onPressOut`
+
+Called when a touch is released.
 
 | Type                                              |
 | ------------------------------------------------- |
