@@ -96,7 +96,7 @@ AppName
 └── ...
 ```
 
-All the `.m` files within the `AppName` inner folder should be renamed from `.m` to `.mm`. If yuo have packages that contains Objective-C code at the same level of the `AppName` folder, they should be renamed from `.m` to `.mm` too.
+All the `.m` files within the `AppName` inner folder should be renamed from `.m` to `.mm`. If you have packages that contains Objective-C code at the same level of the `AppName` folder, they should be renamed from `.m` to `.mm` too.
 
 ## iOS - Make your AppDelegate conform to `RCTAppDelegate`
 
