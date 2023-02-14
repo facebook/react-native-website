@@ -89,7 +89,7 @@ You can use predefined types for your JavaScript spec, here is a list of them:
 - `UnsafeObject`
 - `WithDefault<Type, Value>` - Sets default value for type
 - `BubblingEventHandler<T>` - For events that are propagated (bubbled) up the component tree from child to parent (eg: `onStartShouldSetResponder`).
-- `DirectEventHandler<T>` - For events that are called only on element recieving the event (eg: `onClick`).
+- `DirectEventHandler<T>` - For events that are called only on element recieving the event (eg: `onClick`) and don't bubble.
 
 Later on those types are compiled to coresponding equivalents on target platforms.
 
