@@ -20,7 +20,7 @@ To use the latest fixes and features of React Native, you can update your projec
 yarn add react-native@nightly
 ```
 
-This will update your project to use a nightly version of React Native that gets release every night with the latest changes.
+This will update your project to use a nightly version of React Native that gets released every night with the latest changes.
 
 ### Update your project to build from source
 
