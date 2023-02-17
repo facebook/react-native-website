@@ -397,12 +397,12 @@ export default RNTMyNativeViewNativeComponent;
 If `requireNativeComponent` is not typed, you can temporarily use the `mixed` type to fix the Flow warning, for example:
 
 ```js
-// @flow strict
+// @flow strict-local
 
 import type {HostComponent} from 'react-native/Libraries/Renderer/shims/ReactNativeTypes';
 // ...
 const RCTWebViewNativeComponent: HostComponent<mixed> =
-  requireNativeComponent < mixed > 'RNTMyNativeView';
+  requireNativeComponent<mixed>('RNTMyNativeView');
 ```
 
 #### Later on you can replace `requireNativeComponent`
