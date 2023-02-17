@@ -32,6 +32,7 @@
   },
   "resolutions": {
     "trim": "^1.0.1",
-    "update-notifier": "^6.0.2"
+    "update-notifier": "^6.0.2",
+    "@sideway/formula": ">=3.0.1"
   }
 }

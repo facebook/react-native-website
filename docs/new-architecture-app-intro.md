@@ -64,7 +64,7 @@ React Native also supports a local version of this file `.xcode.env.local`. This
 
 ## iOS - Use Objective-C++ (`.mm` extension)
 
-Turbo Native Modules can be written using Objective-C or C++. In order to support both cases, any source files that include C++ code should use the `.mm` file extension. This extension corresponds to Objective-C++, a language variant that allows for the use of a combination of C++ and Objective-C in source files.
+Turbo Native Modules can be written using Objective-C or C++. In order to support both cases, any source files in the user project space that include C++ code should use the `.mm` file extension. This extension corresponds to Objective-C++, a language variant that allows for the use of a combination of C++ and Objective-C in source files.
 
 :::important
 
@@ -72,17 +72,43 @@ Turbo Native Modules can be written using Objective-C or C++. In order to suppor
 
 :::
 
+For example, if you use the template, your project structure for what concerns iOS should look like this:
+
+```
+AppName
+├── ...
+├── ios
+│   ├── Podfile
+│   ├── Podfile.lock
+│   ├── Pods
+│   │   └── ...
+│   ├── AppName
+│   │   ├── AppDelegate.h
+│   │   ├── AppDelegate.mm
+│   │   ├── Images.xcassets
+│   │   ├── Info.plist
+│   │   ├── LaunchScreen.storyboard
+│   │   └── main.m
+│   ├── AppName.xcodeproj
+│   ├── AppName.xcworkspace
+│   ├── AppNameTests
+│   └── build
+└── ...
+```
+
+All the `.m` files within the `AppName` inner folder should be renamed from `.m` to `.mm`. If you have packages that contains Objective-C code at the same level of the `AppName` folder, they should be renamed from `.m` to `.mm` too.
+
 ## iOS - Make your AppDelegate conform to `RCTAppDelegate`
 
 The final step to configure iOS for the New Architecture is to extend a base class provided by React Native, called `RCTAppDelegate`.
 
 This class provides a base implementation for all the required functionalities of the new architecture. If you need to customize some of them, you can override those methods, invoke `[super methodNameWith:parameters:];` collecting the returned value and customize the bits you need to customize.
 
-1. Open the `ios/AppDelegate.h` file and update it as it follows:
+1. Open the `ios/<AppName>/AppDelegate.h` file and update it as it follows:
 
 ```diff
 - #import <React/RCTBridgeDelegate.h>
-+ #import <React-RCTAppDelegate/RCTAppDelegate.h>
++ #import <RCTAppDelegate.h>
 #import <UIKit/UIKit.h>
 
 - @interface AppDelegate : UIResponder <UIApplicationDelegate, RCTBridgeDelegate>
@@ -93,7 +119,7 @@ This class provides a base implementation for all the required functionalities o
 @end
 ```
 
-2. Open the `ios/AppDelegate.mm` file and replace its content with the following:
+2. Open the `ios/<AppName>/AppDelegate.mm` (remember that you have to rename the `AppDelegate.m` to `AppDelegate.mm` first) file and replace its content with the following:
 
 ```objc
 #import "AppDelegate.h"

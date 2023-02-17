@@ -64,11 +64,11 @@ export default LotsOfGreetings;
 import React from 'react';
 import {Text, View} from 'react-native';
 
-type GreetingsProps = {
+type GreetingProps = {
   name: string;
 };
 
-const Greeting = (props: GreetingsProps) => {
+const Greeting = (props: GreetingProps) => {
   return (
     <View style={{alignItems: 'center'}}>
       <Text>Hello {props.name}!</Text>
