@@ -410,7 +410,7 @@ const RCTWebViewNativeComponent: HostComponent<mixed> =
 When you are ready to migrate to Fabric you can replace `requireNativeComponent` with `codegenNativeComponent`:
 
 ```js title="RNTMyNativeViewNativeComponent.js"
-// @flow strict
+// @flow strict-local
 
 export default (codegenNativeComponent<NativeProps>(
   'RNTMyNativeView',
@@ -420,7 +420,7 @@ export default (codegenNativeComponent<NativeProps>(
 And update the main file:
 
 ```js title="RNTMyNativeNativeComponent.js"
-// @flow strict
+// @flow strict-local
 
 export default require('./RNTMyNativeViewNativeComponent')
   .default;
