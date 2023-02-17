@@ -10,12 +10,17 @@ import {
   isRegexpStringMatch,
   useCollapsible,
   Collapsible,
+  useDocsPreferredVersion,
 } from '@docusaurus/theme-common';
 import {isSamePath, useLocalPathname} from '@docusaurus/theme-common/internal';
 import NavbarNavLink from '@theme/NavbarItem/NavbarNavLink';
 import NavbarItem from '@theme/NavbarItem';
 import {useLocation} from '@docusaurus/router';
-import {useActiveDocContext} from '@docusaurus/plugin-content-docs/client';
+import {
+  useActiveDocContext,
+  useDocsData,
+  useLatestVersion,
+} from '@docusaurus/plugin-content-docs/client';
 function isItemActive(item, localPathname) {
   if (isSamePath(item.to, localPathname)) {
     return true;
@@ -39,30 +44,6 @@ function DropdownNavbarItemDesktop({
   onClick,
   ...props
 }) {
-  const activeDocContext = useActiveDocContext(docsPluginId);
-
-  // (CUSTOM) Switch Development based on docsPluginId.
-  // This allows "Guides", "Components", and "APIs" to direct to the correct version.
-  if (docsPluginId !== null) {
-    const {pathname} = useLocation();
-
-    if (
-      !activeDocContext.activeDoc &&
-      (props.label == 'Stable' || props.label == 'New Architecture')
-    ) {
-      return null;
-    }
-
-    if (docsPluginId === 'experimental' && !pathname.includes('experimental')) {
-      return null;
-    } else if (
-      docsPluginId === 'default' &&
-      pathname.includes('experimental')
-    ) {
-      return null;
-    }
-  }
-
   const dropdownRef = useRef(null);
   const [showDropdown, setShowDropdown] = useState(false);
   useEffect(() => {
@@ -139,31 +120,13 @@ function DropdownNavbarItemMobile({
   docsPluginId,
   ...props
 }) {
-  // (CUSTOM) Switch Development based on docsPluginId.
-  // This allows "Guides", "Components", and "APIs" to direct to the correct version.
-  const activeDocContext = useActiveDocContext(docsPluginId);
-  if (docsPluginId !== null) {
-    const {pathname} = useLocation();
-
-    if (
-      !activeDocContext.activeDoc &&
-      (props.label == 'Stable' || props.label == 'New Architecture')
-    ) {
-      return null;
-    }
-
-    if (docsPluginId === 'experimental' && !pathname.includes('experimental')) {
-      return null;
-    } else if (
-      docsPluginId === 'default' &&
-      pathname.includes('experimental')
-    ) {
-      return null;
-    }
-  }
-
   const localPathname = useLocalPathname();
-  const containsActive = containsActiveItems(items, localPathname);
+
+  // (CUSTOM) Always expand the channel toggle.
+  const containsActive =
+    containsActiveItems(items, localPathname) ||
+    props.label == 'Stable' ||
+    props.label == 'New Architecture';
   const {collapsed, toggleCollapsed, setCollapsed} = useCollapsible({
     initialState: () => !containsActive,
   });
@@ -206,7 +169,71 @@ function DropdownNavbarItemMobile({
     </li>
   );
 }
-export default function DropdownNavbarItem({mobile = false, ...props}) {
+export default function DropdownNavbarItem({
+  mobile = false,
+  docsPluginId,
+  items,
+  ...props
+}) {
+  // (CUSTOM) Custom behavior for the channel dropdown.
+  // This allows "Guides", "Components", and "APIs" to direct to the correct version.
+  // Also allows the channel toggle to redirect to the current doc.
+  const activeDocContext = useActiveDocContext(docsPluginId);
+  const latestVersion = useLatestVersion(docsPluginId);
+  const {preferredVersion, savePreferredVersionName} =
+    useDocsPreferredVersion(docsPluginId);
+  const docsDataExperimental = useDocsData('experimental');
+  const docsDataDefault = useDocsData();
+
+  const modifiedItems = items;
+  if (docsPluginId !== null) {
+    const {pathname} = useLocation();
+
+    if (
+      !activeDocContext.activeDoc &&
+      (props.label == 'Stable' || props.label == 'New Architecture')
+    ) {
+      return null;
+    }
+
+    if (docsPluginId === 'experimental' && !pathname.includes('experimental')) {
+      return null;
+    } else if (
+      docsPluginId === 'default' &&
+      pathname.includes('experimental')
+    ) {
+      return null;
+    }
+
+    const dropdownVersion =
+      activeDocContext.activeVersion ?? preferredVersion ?? latestVersion;
+
+    // Allows the channel toggle to redirect to the current doc.
+    if (props.label == 'Stable' || props.label == 'New Architecture') {
+      modifiedItems.forEach(item => {
+        if (props.label == 'New Architecture') {
+          const possibleTo = pathname.replace('/experimental', '/docs');
+          const hasDoc = docsDataDefault.versions
+            .find(version => version.name === dropdownVersion.name)
+            .docs.find(doc => doc.path === possibleTo);
+          item.to = hasDoc ? possibleTo : '/docs/getting-started';
+        } else {
+          const possibleTo = pathname.replace('/docs', '/experimental');
+          let foundVersion = docsDataExperimental.versions.find(
+            version => version.name === dropdownVersion.name
+          );
+          if (foundVersion == null) {
+            foundVersion = docsDataExperimental.versions.find(
+              version => version.name === latestVersion.name
+            );
+          }
+          const hasDoc = foundVersion.docs.find(doc => doc.path === possibleTo);
+          item.to = hasDoc ? possibleTo : '/experimental/getting-started';
+        }
+      });
+    }
+  }
+
   const Comp = mobile ? DropdownNavbarItemMobile : DropdownNavbarItemDesktop;
-  return <Comp {...props} />;
+  return <Comp {...props} docsPluginId={docsPluginId} items={modifiedItems} />;
 }

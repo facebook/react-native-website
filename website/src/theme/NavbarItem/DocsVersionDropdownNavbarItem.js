@@ -27,6 +27,7 @@ export default function DocsVersionDropdownNavbarItem({
   dropdownItemsAfter,
   ...props
 }) {
+  console.log('HIT');
   const activeDocContext = useActiveDocContext(docsPluginId);
   const versions = useVersions(docsPluginId);
   const latestVersion = useLatestVersion(docsPluginId);

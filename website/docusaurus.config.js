@@ -282,30 +282,7 @@ module.exports = {
               },
             ],
           },
-          {
-            docsPluginId: 'experimental',
-            label: 'New Architecture',
-            type: 'dropdown',
-            position: 'left',
-            items: [
-              {
-                label: 'Stable',
-                to: '/docs/getting-started',
-              },
-            ],
-          },
-          {
-            docsPluginId: 'default',
-            label: 'Stable',
-            type: 'dropdown',
-            position: 'left',
-            items: [
-              {
-                label: 'New Architecture',
-                to: 'experimental/the-new-architecture/landing-page',
-              },
-            ],
-          },
+
           {
             type: 'doc',
             docId: 'overview',
@@ -329,6 +306,30 @@ module.exports = {
             to: '/blog',
             label: 'Blog',
             position: 'right',
+          },
+          {
+            docsPluginId: 'experimental',
+            label: 'New Architecture',
+            type: 'dropdown',
+            position: 'left',
+            items: [
+              {
+                label: 'Stable',
+                to: '/docs/getting-started',
+              },
+            ],
+          },
+          {
+            docsPluginId: 'default',
+            label: 'Stable',
+            type: 'dropdown',
+            position: 'left',
+            items: [
+              {
+                label: 'New Architecture',
+                to: 'experimental/the-new-architecture/landing-page',
+              },
+            ],
           },
           {
             type: 'docsVersionDropdown',
