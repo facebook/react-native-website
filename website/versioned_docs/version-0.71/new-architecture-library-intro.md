@@ -482,7 +482,7 @@ Note:
 #### Using Your Command
 
 ```js
-// @flow strict
+// @flow strict-local
 
 import {Commands, ...} from './MyCustomMapNativeComponent';
 
