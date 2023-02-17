@@ -1,6 +1,7 @@
----
+z---
 id: new-architecture-library-intro
 title: Prerequisites for Libraries
+
 ---
 
 import Tabs from '@theme/Tabs';
