@@ -36,7 +36,7 @@ The first step is to create the CalendarModule.java Java file inside `android/ap
 Then add the following content:
 
 ```java
-package com.your-app-name; // replace com.your-app-name with your app’s name
+package com.your-apps-package-name; // replace your-apps-package-name with your app’s package name
 import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContext;
