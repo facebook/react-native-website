@@ -387,6 +387,22 @@ Query whether reduce motion and prefer cross-fade transitions settings are curre
 
 ---
 
+### `sendAccessibilityEvent()`
+
+```jsx
+static sendAccessibilityEvent(node, eventType)
+```
+
+Sometimes it is helpful to trigger an accessibility event on a UI component (i.e. when a custom view appears on a screen or set accessibility focus to a view). Native FabricUIManager module exposes a method `sendAccessibilityEvent` for this purpose. It takes two arguments: `node` and `eventType`.
+
+The supported event types are `typeWindowStateChanged`, `typeViewFocused`, and `typeViewClicked`.
+Android also supports `viewHoverEnter`.
+
+> **Notes**: Make sure that any `View` you want to receive the accessibility focus has `accessible={true}`.
+> To avoid issues with TalkBack and Modal component, use `viewHoverEnter` (more info in issue [#30097](https://github.com/facebook/react-native/issues/30097#issuecomment-1285927266)).
+
+---
+
 ### `setAccessibilityFocus()`
 
 ```tsx
