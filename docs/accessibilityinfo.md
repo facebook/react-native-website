@@ -311,13 +311,13 @@ static removeEventListener(eventName, handler)
 
 > **Deprecated.** Use the `remove()` method on the event subscription returned by [`addEventListener()`](#addeventlistener).
 
-### `sendAccessibilityEvent()`
+### `sendAccessibilityEvent()` <div class="label android">Android</div>
 
 ```jsx
-static sendAccessibilityEvent(node, eventType)
+static sendAccessibilityEvent(handle, eventType)
 ```
 
-Sometimes it is helpful to trigger an accessibility event on a UI component (i.e. when a custom view appears on a screen or set accessibility focus to a view). Native FabricUIManager module exposes a method `sendAccessibilityEvent` for this purpose. It takes two arguments: `node` and `eventType`.
+Sometimes it is helpful to trigger an accessibility event on a UI component (i.e. when a custom view appears on a screen or set accessibility focus to a view). Native FabricUIManager module exposes a method `sendAccessibilityEvent` for this purpose. It takes two arguments: `handle` and `eventType`.
 
 The supported event types are `typeWindowStateChanged`, `typeViewFocused`, and `typeViewClicked`.
 Android also supports `viewHoverEnter`.

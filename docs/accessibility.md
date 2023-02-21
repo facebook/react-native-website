@@ -441,11 +441,11 @@ The `AccessibilityInfo` API allows you to determine whether or not a screen read
 
 ## Sending Accessibility Events <div class="label android">Android</div>
 
-Sometimes it is useful to trigger an accessibility event on a UI component (i.e. when a custom view appears on a screen or set accessibility focus to a view). Native FabricUIManager module exposes a method `sendAccessibilityEvent` for this purpose. It takes two arguments: `node` and `eventType`.
+Sometimes it is useful to trigger an accessibility event on a UI component (i.e. when a custom view appears on a screen or set accessibility focus to a view). Native FabricUIManager module exposes a method `sendAccessibilityEvent` for this purpose. It takes two arguments: `handle` and `eventType`.
 The supported event types are `typeWindowStateChanged`, `typeViewFocused`, and `typeViewClicked`.
 Android also supports `viewHoverEnter`.
 
-```javascript
+```jsx
 function SetAccessibilityFocusExample(props) {
   const myRef = React.useRef(null);
 
