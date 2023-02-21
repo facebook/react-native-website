@@ -81,7 +81,7 @@ React Native has a built-in command line interface. Rather than install and mana
 You can use React Native's built-in command line interface to generate a new project. Let's create a new React Native project called "AwesomeProject":
 
 ```shell
-npx react-native init AwesomeProject
+npx react-native@latest init AwesomeProject
 ```
 
 This is not necessary if you are integrating React Native into an existing application, if you "ejected" from Expo, or if you're adding iOS support to an existing React Native project (see [Integration with Existing Apps](integration-with-existing-apps.md)). You can also use a third-party CLI to init your React Native app, such as [Ignite CLI](https://github.com/infinitered/ignite).
@@ -102,7 +102,7 @@ If you are having trouble with iOS, try to reinstall the dependencies by running
 If you want to start a new project with a specific React Native version, you can use the `--version` argument:
 
 ```shell
-npx react-native init AwesomeProject --version X.XX.X
+npx react-native@X.XX.X init AwesomeProject --version X.XX.X
 ```
 
 You can also start a project with a custom React Native template with the `--template` argument.
