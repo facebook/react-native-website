@@ -319,8 +319,6 @@ static sendAccessibilityEvent(node, eventType)
 
 Sometimes it is helpful to trigger an accessibility event on a UI component (i.e. when a custom view appears on a screen or set accessibility focus to a view). Native FabricUIManager module exposes a method `sendAccessibilityEvent` for this purpose. It takes two arguments: `node` and `eventType`.
 
-The node is a ref to a HostComponent retrieved using `forwardRef` (more info [here](https://reactnative.dev/docs/next/new-architecture-library-intro#migrating-findnodehandle--getting-a-hostcomponent)).
-
 The supported event types are `typeWindowStateChanged`, `typeViewFocused`, and `typeViewClicked`.
 Android also supports `viewHoverEnter`.
 

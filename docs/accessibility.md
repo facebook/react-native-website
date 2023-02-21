@@ -445,23 +445,26 @@ Sometimes it is useful to trigger an accessibility event on a UI component (i.e.
 The supported event types are `typeWindowStateChanged`, `typeViewFocused`, and `typeViewClicked`.
 Android also supports `viewHoverEnter`.
 
-```jsx
-function SetAccessibilityFocusExample(props: {}): React.Node {
-  const myRef = React.useRef<?React.ElementRef<typeof Text>>(null);
+```javascript
+function SetAccessibilityFocusExample(props) {
+  const myRef = React.useRef(null);
 
   const onPress = () => {
     if (myRef && myRef.current) {
-      AccessibilityInfo.sendAccessibilityEvent(myRef.current, 'focus');
+      AccessibilityInfo.sendAccessibilityEvent(
+        myRef.current,
+        'focus'
+      );
     }
   };
 
   return (
     <View>
       <Text ref={myRef}>
-        SetAccessibilityFocus on native element. This should get focus after
-        clicking the button!
+        SetAccessibilityFocus on native element. This should get
+        focus after clicking the button!
       </Text>
-      <Text onPress={onPress}>CLICK</Text>
+      <Button title={'Click'} onPress={onPress} />
     </View>
   );
 }
