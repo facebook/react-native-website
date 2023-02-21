@@ -446,28 +446,23 @@ The supported event types are `typeWindowStateChanged`, `typeViewFocused`, and `
 Android also supports `viewHoverEnter`.
 
 ```jsx
-const TitleComponent = React.forwardRef((props, forwardedRef) => {
-  return <Text ref={forwardedRef}>My custom text</Text>;
-});
+function SetAccessibilityFocusExample(props: {}): React.Node {
+  const myRef = React.useRef<?React.ElementRef<typeof Text>>(null);
 
-function HeaderComponent() {
-  let ref = React.useRef(null);
-  const changeFocus = () => {
-    if (ref != null && ref.current != null) {
-      AccessibilityInfo.sendAccessibilityEvent(
-        ref.current,
-        'focus'
-      );
+  const onPress = () => {
+    if (myRef && myRef.current) {
+      AccessibilityInfo.sendAccessibilityEvent(myRef.current, 'focus');
     }
   };
+
   return (
-    <>
-      <Button
-        onPress={() => changeFocus()}
-        title="change focus"
-      />
-      <TitleComponent ref={ref} />
-    </>
+    <View>
+      <Text ref={myRef}>
+        SetAccessibilityFocus on native element. This should get focus after
+        clicking the button!
+      </Text>
+      <Text onPress={onPress}>CLICK</Text>
+    </View>
   );
 }
 ```
