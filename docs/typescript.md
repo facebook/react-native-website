@@ -9,7 +9,7 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import con
 
 ## Getting Started with TypeScript
 
-New projects created by the [React Native CLI](http://localhost:3000/docs/next/environment-setup#creating-a-new-application) or popular templates like [Ignite][ignite] will use TypeScript by default.
+New projects created by the [React Native CLI](/docs/environment-setup#creating-a-new-application) or popular templates like [Ignite][ignite] will use TypeScript by default.
 
 TypeScript may also be used with [Expo][expo], which maintains TypeScript templates, or will prompt you to automatically install and configure TypeScript when a `.ts` or `.tsx` file is added to your project.
 
@@ -25,14 +25,14 @@ npx create-expo-app --template
 <TabItem value="npm">
 
 ```shell
-npm install -D @tsconfig/react-native @types/jest @types/react @types/react-test-renderer @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript
+npm install -D @tsconfig/react-native @types/jest @types/react @types/react-test-renderer typescript
 ```
 
 </TabItem>
 <TabItem value="yarn">
 
 ```shell
-yarn add --dev @tsconfig/react-native @types/jest @types/react @types/react-test-renderer @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript
+yarn add --dev @tsconfig/react-native @types/jest @types/react @types/react-test-renderer typescript
 ```
 
 </TabItem>
@@ -50,22 +50,11 @@ This command adds the latest version of every dependency. The versions may need 
 }
 ```
 
-3. Update your `.eslintrc.js` to enable TypeScript specific linting rules:
-
-```diff
-module.exports = {
-  root: true,
-  extends: '@react-native-community',
-+  parser: '@typescript-eslint/parser',
-+  plugins: ['@typescript-eslint'],
-};
-```
-
-4. Rename a JavaScript file to be `*.tsx`
+3. Rename a JavaScript file to be `*.tsx`
 
 > You should leave the `./index.js` entrypoint file as it is otherwise you may run into an issue when it comes to bundling a production build.
 
-5. Run `yarn tsc` to type-check your new TypeScript files.
+4. Run `yarn tsc` to type-check your new TypeScript files.
 
 ## Using JavaScript Instead of TypeScript
 
@@ -81,7 +70,7 @@ You can provide an interface for a React Component's [Props](props) and [State](
 
 ```tsx title="components/Hello.tsx"
 import React from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import {Button, StyleSheet, Text, View} from 'react-native';
 
 export type Props = {
   name: string;
@@ -90,17 +79,17 @@ export type Props = {
 
 const Hello: React.FC<Props> = ({
   name,
-  baseEnthusiasmLevel = 0
+  baseEnthusiasmLevel = 0,
 }) => {
   const [enthusiasmLevel, setEnthusiasmLevel] = React.useState(
-    baseEnthusiasmLevel
+    baseEnthusiasmLevel,
   );
 
   const onIncrement = () =>
     setEnthusiasmLevel(enthusiasmLevel + 1);
   const onDecrement = () =>
     setEnthusiasmLevel(
-      enthusiasmLevel > 0 ? enthusiasmLevel - 1 : 0
+      enthusiasmLevel > 0 ? enthusiasmLevel - 1 : 0,
     );
 
   const getExclamationMarks = (numChars: number) =>
@@ -134,13 +123,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   greeting: {
     fontSize: 20,
     fontWeight: 'bold',
-    margin: 16
-  }
+    margin: 16,
+  },
 });
 
 export default Hello;
@@ -160,15 +149,19 @@ To use custom path aliases with TypeScript, you need to set the path aliases to 
 
 1. Edit your `tsconfig.json` to have your [custom path mappings][path-map]. Set anything in the root of `src` to be available with no preceding path reference, and allow any test file to be accessed by using `tests/File.tsx`:
 
-```diff {2-7}
-    "target": "esnext",
-+     "baseUrl": ".",
-+     "paths": {
-+       "*": ["src/*"],
-+       "tests": ["tests/*"],
-+       "@components/*": ["src/components/*"],
-+     },
-    }
+```diff
+{
+-  "extends": "@tsconfig/react-native/tsconfig.json"
++  "extends": "@tsconfig/react-native/tsconfig.json",
++  "compilerOptions": {
++    "baseUrl": ".",
++    "paths": {
++      "*": ["src/*"],
++      "tests": ["tests/*"],
++      "@components/*": ["src/components/*"],
++    },
++  }
+}
 ```
 
 2. Add [`babel-plugin-module-resolver`][bpmr] as a development package to your project:
@@ -192,9 +185,10 @@ yarn add --dev babel-plugin-module-resolver
 
 3. Finally, configure your `babel.config.js` (note that the syntax for your `babel.config.js` is different from your `tsconfig.json`):
 
-```diff {3-13}
+```diff
 {
-  plugins: [
+   presets: ['module:metro-react-native-babel-preset'],
++  plugins: [
 +    [
 +       'module-resolver',
 +       {
@@ -206,7 +200,7 @@ yarn add --dev babel-plugin-module-resolver
 +         }
 +       }
 +    ]
-  ]
++  ]
 }
 ```
 

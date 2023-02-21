@@ -13,8 +13,8 @@ Sometimes it's useful to know whether or not the device has a screen reader that
 <TabItem value="functional">
 
 ```SnackPlayer name=AccessibilityInfo%20Function%20Component%20Example&supportedPlatforms=android,ios
-import React, { useState, useEffect } from "react";
-import { AccessibilityInfo, View, Text, StyleSheet } from "react-native";
+import React, {useState, useEffect} from 'react';
+import {AccessibilityInfo, View, Text, StyleSheet} from 'react-native';
 
 const App = () => {
   const [reduceMotionEnabled, setReduceMotionEnabled] = useState(false);
@@ -22,28 +22,24 @@ const App = () => {
 
   useEffect(() => {
     const reduceMotionChangedSubscription = AccessibilityInfo.addEventListener(
-      "reduceMotionChanged",
-      reduceMotionEnabled => {
-        setReduceMotionEnabled(reduceMotionEnabled);
-      }
+      'reduceMotionChanged',
+      isReduceMotionEnabled => {
+        setReduceMotionEnabled(isReduceMotionEnabled);
+      },
     );
     const screenReaderChangedSubscription = AccessibilityInfo.addEventListener(
-      "screenReaderChanged",
-      screenReaderEnabled => {
-        setScreenReaderEnabled(screenReaderEnabled);
-      }
+      'screenReaderChanged',
+      isScreenReaderEnabled => {
+        setScreenReaderEnabled(isScreenReaderEnabled);
+      },
     );
 
-    AccessibilityInfo.isReduceMotionEnabled().then(
-      reduceMotionEnabled => {
-        setReduceMotionEnabled(reduceMotionEnabled);
-      }
-    );
-    AccessibilityInfo.isScreenReaderEnabled().then(
-      screenReaderEnabled => {
-        setScreenReaderEnabled(screenReaderEnabled);
-      }
-    );
+    AccessibilityInfo.isReduceMotionEnabled().then(isReduceMotionEnabled => {
+      setReduceMotionEnabled(isReduceMotionEnabled);
+    });
+    AccessibilityInfo.isScreenReaderEnabled().then(isScreenReaderEnabled => {
+      setScreenReaderEnabled(isScreenReaderEnabled);
+    });
 
     return () => {
       reduceMotionChangedSubscription.remove();
@@ -54,24 +50,24 @@ const App = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.status}>
-        The reduce motion is {reduceMotionEnabled ? "enabled" : "disabled"}.
+        The reduce motion is {reduceMotionEnabled ? 'enabled' : 'disabled'}.
       </Text>
       <Text style={styles.status}>
-        The screen reader is {screenReaderEnabled ? "enabled" : "disabled"}.
+        The screen reader is {screenReaderEnabled ? 'enabled' : 'disabled'}.
       </Text>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   status: {
-    margin: 30
-  }
+    margin: 30,
+  },
 });
 
 export default App;
@@ -80,9 +76,12 @@ export default App;
 </TabItem>
 <TabItem value="classical">
 
-```SnackPlayer name=AccessibilityInfo%20Class%20Component%20Example&supportedPlatforms=android,ios
-import React, { Component } from 'react';
-import { AccessibilityInfo, View, Text, StyleSheet } from 'react-native';
+<Tabs groupId="language" defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
+<TabItem value="javascript">
+
+```SnackPlayer name=AccessibilityInfo%20Class%20Component%20Example&supportedPlatforms=android,ios&ext=js
+import React, {Component} from 'react';
+import {AccessibilityInfo, View, Text, StyleSheet} from 'react-native';
 
 class AccessibilityStatusExample extends Component {
   state = {
@@ -94,21 +93,21 @@ class AccessibilityStatusExample extends Component {
     this.reduceMotionChangedSubscription = AccessibilityInfo.addEventListener(
       'reduceMotionChanged',
       reduceMotionEnabled => {
-        this.setState({ reduceMotionEnabled });
-      }
+        this.setState({reduceMotionEnabled});
+      },
     );
     this.screenReaderChangedSubscription = AccessibilityInfo.addEventListener(
       'screenReaderChanged',
       screenReaderEnabled => {
-        this.setState({ screenReaderEnabled });
-      }
+        this.setState({screenReaderEnabled});
+      },
     );
 
     AccessibilityInfo.isReduceMotionEnabled().then(reduceMotionEnabled => {
-      this.setState({ reduceMotionEnabled });
+      this.setState({reduceMotionEnabled});
     });
     AccessibilityInfo.isScreenReaderEnabled().then(screenReaderEnabled => {
-      this.setState({ screenReaderEnabled });
+      this.setState({screenReaderEnabled});
     });
   }
 
@@ -148,6 +147,83 @@ export default AccessibilityStatusExample;
 ```
 
 </TabItem>
+<TabItem value="typescript">
+
+```SnackPlayer name=AccessibilityInfo%20Class%20Component%20Example&supportedPlatforms=android,ios&ext=tsx
+import React, {Component} from 'react';
+import {AccessibilityInfo, View, Text, StyleSheet} from 'react-native';
+import type {EmitterSubscription} from 'react-native';
+
+class AccessibilityStatusExample extends Component {
+  reduceMotionChangedSubscription?: EmitterSubscription;
+  screenReaderChangedSubscription?: EmitterSubscription;
+
+  state = {
+    reduceMotionEnabled: false,
+    screenReaderEnabled: false,
+  };
+
+  componentDidMount() {
+    this.reduceMotionChangedSubscription = AccessibilityInfo.addEventListener(
+      'reduceMotionChanged',
+      reduceMotionEnabled => {
+        this.setState({reduceMotionEnabled});
+      },
+    );
+    this.screenReaderChangedSubscription = AccessibilityInfo.addEventListener(
+      'screenReaderChanged',
+      screenReaderEnabled => {
+        this.setState({screenReaderEnabled});
+      },
+    );
+
+    AccessibilityInfo.isReduceMotionEnabled().then(reduceMotionEnabled => {
+      this.setState({reduceMotionEnabled});
+    });
+    AccessibilityInfo.isScreenReaderEnabled().then(screenReaderEnabled => {
+      this.setState({screenReaderEnabled});
+    });
+  }
+
+  componentWillUnmount() {
+    this.reduceMotionChangedSubscription?.remove();
+    this.screenReaderChangedSubscription?.remove();
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.status}>
+          The reduce motion is{' '}
+          {this.state.reduceMotionEnabled ? 'enabled' : 'disabled'}.
+        </Text>
+        <Text style={styles.status}>
+          The screen reader is{' '}
+          {this.state.screenReaderEnabled ? 'enabled' : 'disabled'}.
+        </Text>
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  status: {
+    margin: 30,
+  },
+});
+
+export default AccessibilityStatusExample;
+```
+
+</TabItem>
+</Tabs>
+
+</TabItem>
 </Tabs>
 
 ---
@@ -158,8 +234,13 @@ export default AccessibilityStatusExample;
 
 ### `addEventListener()`
 
-```jsx
-static addEventListener(eventName, handler)
+```tsx
+static addEventListener(
+  eventName: AccessibilityChangeEventName | AccessibilityAnnouncementEventName,
+  handler: (
+    event: AccessibilityChangeEvent | AccessibilityAnnouncementFinishedEvent,
+  ) => void,
+): EmitterSubscription;
 ```
 
 Add an event handler. Supported events:
@@ -179,8 +260,8 @@ Add an event handler. Supported events:
 
 ### `announceForAccessibility()`
 
-```jsx
-static announceForAccessibility(announcement)
+```tsx
+static announceForAccessibility(announcement: string);
 ```
 
 Post a string to be announced by the screen reader.
@@ -189,8 +270,11 @@ Post a string to be announced by the screen reader.
 
 ### `announceForAccessibilityWithOptions()`
 
-```jsx
-static announceForAccessibilityWithOptions(announcement, options)
+```tsx
+static announceForAccessibilityWithOptions(
+  announcement: string,
+  options: options: {queue?: boolean},
+);
 ```
 
 Post a string to be announced by the screen reader with modification options. By default announcements will interrupt any existing speech, but on iOS they can be queued behind existing speech by setting `queue` to `true` in the options object.
@@ -206,8 +290,8 @@ Post a string to be announced by the screen reader with modification options. By
 
 ### `getRecommendedTimeoutMillis()` <div class="label android">Android</div>
 
-```jsx
-static getRecommendedTimeoutMillis(originalTimeout)
+```tsx
+static getRecommendedTimeoutMillis(originalTimeout: number): Promise<number>;
 ```
 
 Gets the timeout in millisecond that the user needs.
@@ -223,8 +307,8 @@ This value is set in "Time to take action (Accessibility timeout)" of "Accessibi
 
 ### `isAccessibilityServiceEnabled()` <div class="label android">Android</div>
 
-```jsx
-static isAccessibilityServiceEnabled(): Promise<boolean>
+```tsx
+static isAccessibilityServiceEnabled(): Promise<boolean>;
 ```
 
 Check whether any accessibility service is enabled. This includes TalkBack but also any third-party accessibility app that may be installed. To only check whether TalkBack is enabled, use [isScreenReaderEnabled](#isscreenreaderenabled). Returns a promise which resolves to a boolean. The result is `true` when some accessibility services is enabled and `false` otherwise.
@@ -235,8 +319,8 @@ Check whether any accessibility service is enabled. This includes TalkBack but a
 
 ### `isBoldTextEnabled()` <div class="label ios">iOS</div>
 
-```jsx
-static isBoldTextEnabled()
+```tsx
+static isBoldTextEnabled(): Promise<boolean>:
 ```
 
 Query whether a bold text is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when bold text is enabled and `false` otherwise.
@@ -245,8 +329,8 @@ Query whether a bold text is currently enabled. Returns a promise which resolves
 
 ### `isGrayscaleEnabled()` <div class="label ios">iOS</div>
 
-```jsx
-static isGrayscaleEnabled()
+```tsx
+static isGrayscaleEnabled(): Promise<boolean>;
 ```
 
 Query whether grayscale is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when grayscale is enabled and `false` otherwise.
@@ -255,8 +339,8 @@ Query whether grayscale is currently enabled. Returns a promise which resolves t
 
 ### `isInvertColorsEnabled()` <div class="label ios">iOS</div>
 
-```jsx
-static isInvertColorsEnabled()
+```tsx
+static isInvertColorsEnabled(): Promise<boolean>;
 ```
 
 Query whether invert colors is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when invert colors is enabled and `false` otherwise.
@@ -265,8 +349,8 @@ Query whether invert colors is currently enabled. Returns a promise which resolv
 
 ### `isReduceMotionEnabled()`
 
-```jsx
-static isReduceMotionEnabled()
+```tsx
+static isReduceMotionEnabled(): Promise<boolean>;
 ```
 
 Query whether reduce motion is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when reduce motion is enabled and `false` otherwise.
@@ -275,8 +359,8 @@ Query whether reduce motion is currently enabled. Returns a promise which resolv
 
 ### `isReduceTransparencyEnabled()` <div class="label ios">iOS</div>
 
-```jsx
-static isReduceTransparencyEnabled()
+```tsx
+static isReduceTransparencyEnabled(): Promise<boolean>;
 ```
 
 Query whether reduce transparency is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when a reduce transparency is enabled and `false` otherwise.
@@ -285,8 +369,8 @@ Query whether reduce transparency is currently enabled. Returns a promise which 
 
 ### `isScreenReaderEnabled()`
 
-```jsx
-static isScreenReaderEnabled()
+```tsx
+static isScreenReaderEnabled(): Promise<boolean>;
 ```
 
 Query whether a screen reader is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when a screen reader is enabled and `false` otherwise.
@@ -295,42 +379,18 @@ Query whether a screen reader is currently enabled. Returns a promise which reso
 
 ### `prefersCrossFadeTransitions()` <div class="label ios">iOS</div>
 
-```jsx
-static prefersCrossFadeTransitions()
+```tsx
+static prefersCrossFadeTransitions(): Promise<boolean>;
 ```
 
 Query whether reduce motion and prefer cross-fade transitions settings are currently enabled. Returns a promise which resolves to a boolean. The result is `true` when prefer cross-fade transitions is enabled and `false` otherwise.
 
 ---
 
-### `removeEventListener()`
-
-```jsx
-static removeEventListener(eventName, handler)
-```
-
-> **Deprecated.** Use the `remove()` method on the event subscription returned by [`addEventListener()`](#addeventlistener).
-
-### `sendAccessibilityEvent()` <div class="label android">Android</div>
-
-```jsx
-static sendAccessibilityEvent(handle, eventType)
-```
-
-Sometimes it is helpful to trigger an accessibility event on a UI component (i.e. when a custom view appears on a screen or set accessibility focus to a view). Native FabricUIManager module exposes a method `sendAccessibilityEvent` for this purpose. It takes two arguments: `handle` and `eventType`.
-
-The supported event types are `typeWindowStateChanged`, `typeViewFocused`, and `typeViewClicked`.
-Android also supports `viewHoverEnter`.
-
-> **Notes**: Make sure that any `View` you want to receive the accessibility focus has `accessible={true}`.
-> To avoid issues with TalkBack and Modal component, use `viewHoverEnter` (more info in issue [#30097](https://github.com/facebook/react-native/issues/30097#issuecomment-1285927266)).
-
----
-
 ### `setAccessibilityFocus()`
 
-```jsx
-static setAccessibilityFocus(reactTag)
+```tsx
+static setAccessibilityFocus(reactTag: number);
 ```
 
 Set accessibility focus to a React component.

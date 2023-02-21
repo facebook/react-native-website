@@ -24,7 +24,7 @@ There is [an ECMAScript proposal to introduce the existential operator](https://
 We came up with an existential _function_ we call `idx`.
 
 ```jsx
-idx(props, (_) => _.user.friends[0].friends);
+idx(props, _ => _.user.friends[0].friends);
 ```
 
 The invocation in this code snippet behaves similarly to the boolean expression in the code snippet above, except with significantly less repetition. The `idx` function takes exactly two arguments:

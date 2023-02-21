@@ -3,11 +3,16 @@ id: shadow-props
 title: Shadow Props
 ---
 
-```SnackPlayer name=Shadow%20Props&supportedPlatforms=ios
-import React, { useState } from "react";
-import { Text, View, StyleSheet, Slider } from "react-native";
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
-const ShadowPropSlider = ({ label, value, ...props }) => {
+<Tabs groupId="language" defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
+<TabItem value="javascript">
+
+```SnackPlayer name=Shadow%20Props&supportedPlatforms=ios&ext=js
+import React, {useState} from 'react';
+import {Text, View, StyleSheet, Slider} from 'react-native';
+
+const ShadowPropSlider = ({label, value, ...props}) => {
   return (
     <>
       <Text>
@@ -16,7 +21,7 @@ const ShadowPropSlider = ({ label, value, ...props }) => {
       <Slider step={1} value={value} {...props} />
     </>
   );
-}
+};
 
 const App = () => {
   const [shadowOffsetWidth, setShadowOffsetWidth] = useState(0);
@@ -32,11 +37,11 @@ const App = () => {
           {
             shadowOffset: {
               width: shadowOffsetWidth,
-              height: -shadowOffsetHeight
+              height: -shadowOffsetHeight,
             },
             shadowOpacity,
-            shadowRadius
-          }
+            shadowRadius,
+          },
         ]}
       />
       <View style={styles.controls}>
@@ -45,21 +50,21 @@ const App = () => {
           minimumValue={-50}
           maximumValue={50}
           value={shadowOffsetWidth}
-          onValueChange={val => setShadowOffsetWidth(val)}
+          onValueChange={setShadowOffsetWidth}
         />
         <ShadowPropSlider
           label="shadowOffset - Y"
           minimumValue={-50}
           maximumValue={50}
           value={shadowOffsetHeight}
-          onValueChange={val => setShadowOffsetHeight(val)}
+          onValueChange={setShadowOffsetHeight}
         />
         <ShadowPropSlider
           label="shadowRadius"
           minimumValue={0}
           maximumValue={100}
           value={shadowRadius}
-          onValueChange={val => setShadowRadius(val)}
+          onValueChange={setShadowRadius}
         />
         <ShadowPropSlider
           label="shadowOpacity"
@@ -72,30 +77,135 @@ const App = () => {
       </View>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "space-around",
-    backgroundColor: "#ecf0f1",
-    padding: 8
+    justifyContent: 'space-around',
+    backgroundColor: '#ecf0f1',
+    padding: 8,
   },
   square: {
-    alignSelf: "center",
-    backgroundColor: "white",
+    alignSelf: 'center',
+    backgroundColor: 'white',
     borderRadius: 4,
     height: 150,
-    shadowColor: "black",
-    width: 150
+    shadowColor: 'black',
+    width: 150,
   },
   controls: {
-    paddingHorizontal: 12
-  }
+    paddingHorizontal: 12,
+  },
 });
 
 export default App;
 ```
+
+</TabItem>
+<TabItem value="typescript">
+
+```SnackPlayer name=Shadow%20Props&supportedPlatforms=ios&ext=tsx
+import React, {useState} from 'react';
+import {Text, View, StyleSheet, Slider} from 'react-native';
+import type {SliderProps} from 'react-native';
+
+type ShadowPropSliderProps = SliderProps & {
+  label: string;
+};
+
+const ShadowPropSlider = ({label, value, ...props}: ShadowPropSliderProps) => {
+  return (
+    <>
+      <Text>
+        {label} ({value?.toFixed(2)})
+      </Text>
+      <Slider step={1} value={value} {...props} />
+    </>
+  );
+};
+
+const App = () => {
+  const [shadowOffsetWidth, setShadowOffsetWidth] = useState(0);
+  const [shadowOffsetHeight, setShadowOffsetHeight] = useState(0);
+  const [shadowRadius, setShadowRadius] = useState(0);
+  const [shadowOpacity, setShadowOpacity] = useState(0.1);
+
+  return (
+    <View style={styles.container}>
+      <View
+        style={[
+          styles.square,
+          {
+            shadowOffset: {
+              width: shadowOffsetWidth,
+              height: -shadowOffsetHeight,
+            },
+            shadowOpacity,
+            shadowRadius,
+          },
+        ]}
+      />
+      <View style={styles.controls}>
+        <ShadowPropSlider
+          label="shadowOffset - X"
+          minimumValue={-50}
+          maximumValue={50}
+          value={shadowOffsetWidth}
+          onValueChange={setShadowOffsetWidth}
+        />
+        <ShadowPropSlider
+          label="shadowOffset - Y"
+          minimumValue={-50}
+          maximumValue={50}
+          value={shadowOffsetHeight}
+          onValueChange={setShadowOffsetHeight}
+        />
+        <ShadowPropSlider
+          label="shadowRadius"
+          minimumValue={0}
+          maximumValue={100}
+          value={shadowRadius}
+          onValueChange={setShadowRadius}
+        />
+        <ShadowPropSlider
+          label="shadowOpacity"
+          minimumValue={0}
+          maximumValue={1}
+          step={0.05}
+          value={shadowOpacity}
+          onValueChange={val => setShadowOpacity(val)}
+        />
+      </View>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'space-around',
+    backgroundColor: '#ecf0f1',
+    padding: 8,
+  },
+  square: {
+    alignSelf: 'center',
+    backgroundColor: 'white',
+    borderRadius: 4,
+    height: 150,
+    shadowColor: 'black',
+    width: 150,
+  },
+  controls: {
+    paddingHorizontal: 12,
+  },
+});
+
+export default App;
+```
+
+</TabItem>
+</Tabs>
 
 # Reference
 
@@ -105,7 +215,7 @@ export default App;
 
 Sets the drop shadow color.
 
-This property will only work on Android API 28 and above. For similar functionality on lower Android APIs, use the [`elevation` property](view-style-props#elevation).
+This property will only work on Android API 28 and above. For similar functionality on lower Android APIs, use the [`elevation` property](view-style-props#elevation-android).
 
 | Type               |
 | ------------------ |

@@ -15,13 +15,13 @@ brew install node
 brew install watchman
 ```
 
-If you have already installed Node on your system, make sure it is Node 14 or newer.
+If you have already installed Node on your system, make sure it is Node 16 or newer.
 
 [Watchman](https://facebook.github.io/watchman) is a tool by Facebook for watching changes in the filesystem. It is highly recommended you install it for better performance.
 
 ### Ruby
 
-[Ruby](https://www.ruby-lang.org/en/) is a general-purpose programming language. React Native uses in some scripts related to the iOS dependency management. As every programming language, there are different versions of Ruby that have been developed during the years.
+[Ruby](https://www.ruby-lang.org/en/) is a general-purpose programming language. React Native uses it in some scripts related to iOS dependency management. As every programming language, there are different versions of Ruby that have been developed during the years.
 
 React Native uses a `.ruby-version` file to make sure that your version of Ruby is aligned with what is needed. Currently, macOS 12.5.1 is shipped with Ruby 2.6.8, which is **not** what is required by React Native. Our suggestion is to install a Ruby version manager and to install the proper version of Ruby in your system.
 
@@ -117,6 +117,17 @@ The `.xcode.env` file contains an environment variable to export the path to the
 This is the **suggested approach** to decouple the build infrastructure from the system version of `node`. You should customize this variable with your own path or your own `node` version manager, if it differs from the default.
 
 On top of this, it's possible to add any other environment variable and to source the `.xcode.env` file in your build script phases. If you need to run script that requires some specific environment, this is the **suggested approach**: it allows to decouple the build phases from a specific environment.
+
+:::info
+If you are already using [NVM](http://nvm.sh/) (a command which helps you install and switch between versions of Node.js) and [zsh](https://ohmyz.sh/), you might want to move the code that initialize NVM from your `~/.zshrc` into a `~/.zshenv` file to help Xcode find your Node executable:
+
+```
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+```
+
+You might also want to ensure that all "shell script build phase" of your Xcode project, is using `/bin/zsh` as its shell.
+:::
 
 ## Running your React Native application
 

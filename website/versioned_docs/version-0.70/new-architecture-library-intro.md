@@ -54,8 +54,8 @@ export default (TurboModuleRegistry.get<Spec>('<MODULE_NAME>'): ?Spec);
 <TabItem value="TypeScript">
 
 ```ts
-import type { TurboModule } from 'react-native';
-import { TurboModuleRegistry } from 'react-native';
+import type {TurboModule} from 'react-native';
+import {TurboModuleRegistry} from 'react-native';
 
 export interface Spec extends TurboModule {
   readonly getConstants: () => {};
@@ -102,8 +102,8 @@ export default (codegenNativeComponent<NativeProps>(
 <TabItem value="TypeScript">
 
 ```ts
-import type { ViewProps } from 'ViewPropTypes';
-import type { HostComponent } from 'react-native';
+import type {ViewProps} from 'ViewPropTypes';
+import type {HostComponent} from 'react-native';
 import codegenNativeComponent from 'react-native/Libraries/Utilities/codegenNativeComponent';
 
 export interface NativeProps extends ViewProps {
@@ -111,7 +111,7 @@ export interface NativeProps extends ViewProps {
 }
 
 export default codegenNativeComponent<NativeProps>(
-  '<FABRIC COMPONENT>'
+  '<FABRIC COMPONENT>',
 ) as HostComponent<NativeProps>;
 ```
 
@@ -136,9 +136,10 @@ You can use predefined types for your JavaScript spec, here is a list of them:
 - `Double`
 - `Float`
 - `Int32`
+- `UnsafeObject`
 - `WithDefault<Type, Value>` - Sets default value for type
-- `BubblingEventHandler<T>` - For bubbling events (eg: `onChange`).
-- `DirectEventHandler<T>` - For direct events (eg: `onClick`).
+- `BubblingEventHandler<T>` - For events that are propagated (bubbled) up the component tree from child to parent up to the root (eg: `onStartShouldSetResponder`).
+- `DirectEventHandler<T>` - For events that are called only on element recieving the event (eg: `onClick`) and don't bubble.
 
 Later on those types are compiled to coresponding equivalents on target platforms.
 
@@ -501,10 +502,10 @@ return <RNTMyNativeViewNativeComponent />;
 ```
 
 ```js title="RNTMyNativeViewNativeComponent.js"
-import { requireNativeComponent } from 'react-native';
+import {requireNativeComponent} from 'react-native';
 
 const RNTMyNativeViewNativeComponent = requireNativeComponent(
-  'RNTMyNativeView'
+  'RNTMyNativeView',
 );
 
 export default RNTMyNativeViewNativeComponent;
@@ -515,7 +516,7 @@ export default RNTMyNativeViewNativeComponent;
 If `requireNativeComponent` is not typed, you can temporarily use the `mixed` type to fix the Flow warning, for example:
 
 ```js
-import type { HostComponent } from 'react-native/Libraries/Renderer/shims/ReactNativeTypes';
+import type {HostComponent} from 'react-native/Libraries/Renderer/shims/ReactNativeTypes';
 // ...
 const RCTWebViewNativeComponent: HostComponent<mixed> =
   requireNativeComponent < mixed > 'RNTMyNativeView';

@@ -33,10 +33,16 @@ const androidLanguages = [
 const defaultAndroidLanguage = 'java';
 
 const javaScriptSpecLanguages = [
-  {label: 'Flow', value: 'flow'},
   {label: 'TypeScript', value: 'typescript'},
+  {label: 'Flow', value: 'flow'},
 ];
 const defaultJavaScriptSpecLanguages = 'typescript';
+
+const snackLanguages = [
+  {label: 'TypeScript', value: 'typescript'},
+  {label: 'JavaScript', value: 'javascript'},
+];
+const defaultSnackLanguage = 'typescript';
 
 const guides = [
   {label: 'Expo Go Quickstart', value: 'quickstart'},
@@ -81,4 +87,6 @@ export default {
   syntax,
   androidLanguages,
   javaScriptSpecLanguages,
+  snackLanguages,
+  defaultSnackLanguage,
 };

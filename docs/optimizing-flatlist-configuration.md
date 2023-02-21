@@ -99,7 +99,7 @@ The heavier your components are, the slower they render. Avoid heavy images (use
 
 Implement update verification to your components. React's `PureComponent` implement a [`shouldComponentUpdate`](https://reactjs.org/docs/react-component.html#shouldcomponentupdate) with shallow comparison. This is expensive here because it needs to check all your props. If you want a good bit-level performance, create the strictest rules for your list item components, checking only props that could potentially change. If your list is basic enough, you could even use
 
-```jsx
+```tsx
 shouldComponentUpdate() {
   return false
 }
@@ -123,13 +123,15 @@ You can also use a `key` prop in your item component.
 
 ### Avoid anonymous function on renderItem
 
-Move out the `renderItem` function to the outside of render function, so it won't recreate itself each time render function called.
+For functional components, move the `renderItem` function outside of the returned JSX. Also, ensure that it is wrapped in a `useCallback` hook to prevent it from being recreated each render.
+
+For class componenents, move the `renderItem` function outside of the render function, so it won't recreate itself each time the render function is called.
 
 <Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
 <TabItem value="classical">
 
-```jsx
-renderItem = ({ item }) => (<View key={item.key}><Text>{item.title}</Text></View>);
+```tsx
+renderItem = ({item}) => (<View key={item.key}><Text>{item.title}</Text></View>);
 
 render(){
   // ...
@@ -147,8 +149,8 @@ render(){
 </TabItem>
 <TabItem value="functional">
 
-```jsx
-const renderItem = useCallback(({ item }) => (
+```tsx
+const renderItem = useCallback(({item}) => (
    <View key={item.key}>
       <Text>{item.title}</Text>
    </View>

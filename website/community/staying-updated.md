@@ -7,7 +7,7 @@ description: The React Native Community
 
 Twitter is one of the main communication channels used by the team to communicate updates, news and request for participation: follow the [React Native account](https://twitter.com/reactnative) to stay up to date - the [ReactJS account](https://twitter.com/reactjs) covers both React and React Native.
 
-For long form news and announcements, keep an eye on the [blog](blog) to find out what is happening in the world of React Native.
+For long form news and announcements, keep an eye on the [blog](/blog) to find out what is happening in the world of React Native.
 
 ### Discussions and efforts
 

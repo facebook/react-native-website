@@ -103,7 +103,7 @@ The Hermes Sample Profile is of the `JSON object format`, while the format that 
 export interface HermesCPUProfile {
   traceEvents: SharedEventProperties[];
   samples: HermesSample[];
-  stackFrames: { [key in string]: HermesStackFrame };
+  stackFrames: {[key in string]: HermesStackFrame};
 }
 ```
 

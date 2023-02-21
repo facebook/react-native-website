@@ -30,8 +30,15 @@ The following example contains a `View` which will fade in and fade out based on
 <TabItem value="functional">
 
 ```SnackPlayer name=Animated
-import React, { useRef } from "react";
-import { Animated, Text, View, StyleSheet, Button, SafeAreaView } from "react-native";
+import React, {useRef} from 'react';
+import {
+  Animated,
+  Text,
+  View,
+  StyleSheet,
+  Button,
+  SafeAreaView,
+} from 'react-native';
 
 const App = () => {
   // fadeAnim will be used as the value for opacity. Initial Value: 0
@@ -41,7 +48,8 @@ const App = () => {
     // Will change fadeAnim value to 1 in 5 seconds
     Animated.timing(fadeAnim, {
       toValue: 1,
-      duration: 5000
+      duration: 5000,
+      useNativeDriver: true,
     }).start();
   };
 
@@ -49,7 +57,8 @@ const App = () => {
     // Will change fadeAnim value to 0 in 3 seconds
     Animated.timing(fadeAnim, {
       toValue: 0,
-      duration: 3000
+      duration: 3000,
+      useNativeDriver: true,
     }).start();
   };
 
@@ -60,10 +69,9 @@ const App = () => {
           styles.fadingContainer,
           {
             // Bind opacity to animated value
-            opacity: fadeAnim
-          }
-        ]}
-      >
+            opacity: fadeAnim,
+          },
+        ]}>
         <Text style={styles.fadingText}>Fading View!</Text>
       </Animated.View>
       <View style={styles.buttonRow}>
@@ -72,26 +80,26 @@ const App = () => {
       </View>
     </SafeAreaView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   fadingContainer: {
     padding: 20,
-    backgroundColor: "powderblue"
+    backgroundColor: 'powderblue',
   },
   fadingText: {
-    fontSize: 28
+    fontSize: 28,
   },
   buttonRow: {
     flexBasis: 100,
-    justifyContent: "space-evenly",
-    marginVertical: 16
-  }
+    justifyContent: 'space-evenly',
+    marginVertical: 16,
+  },
 });
 
 export default App;
@@ -101,20 +109,28 @@ export default App;
 <TabItem value="classical">
 
 ```SnackPlayer name=Animated
-import React, { Component } from "react";
-import { Animated, Text, View, StyleSheet, Button, SafeAreaView } from "react-native";
+import React, {Component} from 'react';
+import {
+  Animated,
+  Text,
+  View,
+  StyleSheet,
+  Button,
+  SafeAreaView,
+} from 'react-native';
 
 class App extends Component {
   // fadeAnim will be used as the value for opacity. Initial Value: 0
   state = {
-    fadeAnim: new Animated.Value(0)
+    fadeAnim: new Animated.Value(0),
   };
 
   fadeIn = () => {
     // Will change fadeAnim value to 1 in 5 seconds
     Animated.timing(this.state.fadeAnim, {
       toValue: 1,
-      duration: 5000
+      duration: 5000,
+      useNativeDriver: true,
     }).start();
   };
 
@@ -122,7 +138,8 @@ class App extends Component {
     // Will change fadeAnim value to 0 in 3 seconds
     Animated.timing(this.state.fadeAnim, {
       toValue: 0,
-      duration: 3000
+      duration: 3000,
+      useNativeDriver: true,
     }).start();
   };
 
@@ -134,10 +151,9 @@ class App extends Component {
             styles.fadingContainer,
             {
               // Bind opacity to animated value
-              opacity: this.state.fadeAnim
-            }
-          ]}
-        >
+              opacity: this.state.fadeAnim,
+            },
+          ]}>
           <Text style={styles.fadingText}>Fading View!</Text>
         </Animated.View>
         <View style={styles.buttonRow}>
@@ -152,21 +168,21 @@ class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   fadingContainer: {
     padding: 20,
-    backgroundColor: "powderblue"
+    backgroundColor: 'powderblue',
   },
   fadingText: {
-    fontSize: 28
+    fontSize: 28,
   },
   buttonRow: {
     flexBasis: 100,
-    justifyContent: "space-evenly",
-    marginVertical: 16
-  }
+    justifyContent: 'space-evenly',
+    marginVertical: 16,
+  },
 });
 
 export default App;
@@ -200,8 +216,8 @@ In most cases, you will be using `timing()`. By default, it uses a symmetric eas
 
 Animations are started by calling `start()` on your animation. `start()` takes a completion callback that will be called when the animation is done. If the animation finished running normally, the completion callback will be invoked with `{finished: true}`. If the animation is done because `stop()` was called on it before it could finish (e.g. because it was interrupted by a gesture or another animation), then it will receive `{finished: false}`.
 
-```jsx
-Animated.timing({}).start(({ finished }) => {
+```tsx
+Animated.timing({}).start(({finished}) => {
   /* completion callback */
 });
 ```
@@ -266,10 +282,10 @@ Gestures, like panning or scrolling, and other events can map directly to animat
 
 For example, when working with horizontal scrolling gestures, you would do the following in order to map `event.nativeEvent.contentOffset.x` to `scrollX` (an `Animated.Value`):
 
-```jsx
+```tsx
  onScroll={Animated.event(
    // scrollX = e.nativeEvent.contentOffset.x
-   [{ nativeEvent: {
+   [{nativeEvent: {
         contentOffset: {
           x: scrollX
         }
@@ -288,8 +304,8 @@ When the given value is a ValueXY instead of a Value, each config option may be 
 
 ### `decay()`
 
-```jsx
-static decay(value, config)
+```tsx
+static decay(value, config): CompositeAnimation;
 ```
 
 Animates a value from an initial velocity to zero based on a decay coefficient.
@@ -299,14 +315,14 @@ Config is an object that may have the following options:
 - `velocity`: Initial velocity. Required.
 - `deceleration`: Rate of decay. Default 0.997.
 - `isInteraction`: Whether or not this animation creates an "interaction handle" on the `InteractionManager`. Default true.
-- `useNativeDriver`: Uses the native driver when true. Default false.
+- `useNativeDriver`: Uses the native driver when true. Required.
 
 ---
 
 ### `timing()`
 
-```jsx
-static timing(value, config)
+```tsx
+static timing(value, config): CompositeAnimation;
 ```
 
 Animates a value along a timed easing curve. The [`Easing`](easing) module has tons of predefined curves, or you can use your own function.
@@ -317,14 +333,14 @@ Config is an object that may have the following options:
 - `easing`: Easing function to define curve. Default is `Easing.inOut(Easing.ease)`.
 - `delay`: Start the animation after delay (milliseconds). Default 0.
 - `isInteraction`: Whether or not this animation creates an "interaction handle" on the `InteractionManager`. Default true.
-- `useNativeDriver`: Uses the native driver when true. Default false.
+- `useNativeDriver`: Uses the native driver when true. Required.
 
 ---
 
 ### `spring()`
 
-```jsx
-static spring(value, config)
+```tsx
+static spring(value, config): CompositeAnimation;
 ```
 
 Animates a value according to an analytical spring model based on [damped harmonic oscillation](https://en.wikipedia.org/wiki/Harmonic_oscillator#Damped_harmonic_oscillator). Tracks velocity state to create fluid motions as the `toValue` updates, and can be chained together.
@@ -354,14 +370,14 @@ Other configuration options are as follows:
 - `restSpeedThreshold`: The speed at which the spring should be considered at rest in pixels per second. Default 0.001.
 - `delay`: Start the animation after delay (milliseconds). Default 0.
 - `isInteraction`: Whether or not this animation creates an "interaction handle" on the `InteractionManager`. Default true.
-- `useNativeDriver`: Uses the native driver when true. Default false.
+- `useNativeDriver`: Uses the native driver when true. Required.
 
 ---
 
 ### `add()`
 
-```jsx
-static add(a, b)
+```tsx
+static add(a: Animated, b: Animated): AnimatedAddition;
 ```
 
 Creates a new Animated value composed from two Animated values added together.
@@ -370,8 +386,8 @@ Creates a new Animated value composed from two Animated values added together.
 
 ### `subtract()`
 
-```jsx
-static subtract(a, b)
+```tsx
+static subtract(a: Animated, b: Animated): AnimatedSubtraction;
 ```
 
 Creates a new Animated value composed by subtracting the second Animated value from the first Animated value.
@@ -380,8 +396,8 @@ Creates a new Animated value composed by subtracting the second Animated value f
 
 ### `divide()`
 
-```jsx
-static divide(a, b)
+```tsx
+static divide(a: Animated, b: Animated): AnimatedDivision;
 ```
 
 Creates a new Animated value composed by dividing the first Animated value by the second Animated value.
@@ -390,8 +406,8 @@ Creates a new Animated value composed by dividing the first Animated value by th
 
 ### `multiply()`
 
-```jsx
-static multiply(a, b)
+```tsx
+static multiply(a: Animated, b: Animated): AnimatedMultiplication;
 ```
 
 Creates a new Animated value composed from two Animated values multiplied together.
@@ -400,8 +416,8 @@ Creates a new Animated value composed from two Animated values multiplied togeth
 
 ### `modulo()`
 
-```jsx
-static modulo(a, modulus)
+```tsx
+static modulo(a: Animated, modulus: number): AnimatedModulo;
 ```
 
 Creates a new Animated value that is the (non-negative) modulo of the provided Animated value
@@ -410,8 +426,8 @@ Creates a new Animated value that is the (non-negative) modulo of the provided A
 
 ### `diffClamp()`
 
-```jsx
-static diffClamp(a, min, max)
+```tsx
+static diffClamp(a: Animated, min: number, max: number): AnimatedDiffClamp;
 ```
 
 Create a new Animated value that is limited between 2 values. It uses the difference between the last value so even if the value is far from the bounds it will start changing when the value starts getting closer again. (`value = clamp(value + diff, min, max)`).
@@ -422,8 +438,8 @@ This is useful with scroll events, for example, to show the navbar when scrollin
 
 ### `delay()`
 
-```jsx
-static delay(time)
+```tsx
+static delay(time: number): CompositeAnimation;
 ```
 
 Starts an animation after the given delay.
@@ -432,8 +448,8 @@ Starts an animation after the given delay.
 
 ### `sequence()`
 
-```jsx
-static sequence(animations)
+```tsx
+static sequence(animations: CompositeAnimation[]): CompositeAnimation;
 ```
 
 Starts an array of animations in order, waiting for each to complete before starting the next. If the current running animation is stopped, no following animations will be started.
@@ -442,8 +458,11 @@ Starts an array of animations in order, waiting for each to complete before star
 
 ### `parallel()`
 
-```jsx
-static parallel(animations, config?)
+```tsx
+static parallel(
+  animations: CompositeAnimation[],
+  config?: ParallelConfig
+): CompositeAnimation;
 ```
 
 Starts an array of animations all at the same time. By default, if one of the animations is stopped, they will all be stopped. You can override this with the `stopTogether` flag.
@@ -452,8 +471,11 @@ Starts an array of animations all at the same time. By default, if one of the an
 
 ### `stagger()`
 
-```jsx
-static stagger(time, animations)
+```tsx
+static stagger(
+  time: number,
+  animations: CompositeAnimation[]
+): CompositeAnimation;
 ```
 
 Array of animations may run in parallel (overlap), but are started in sequence with successive delays. Nice for doing trailing effects.
@@ -462,8 +484,11 @@ Array of animations may run in parallel (overlap), but are started in sequence w
 
 ### `loop()`
 
-```jsx
-static loop(animation, config?)
+```tsx
+static loop(
+  animation: CompositeAnimation[],
+  config?: LoopAnimationConfig
+): CompositeAnimation;
 ```
 
 Loops a given animation continuously, so that each time it reaches the end, it resets and begins again from the start. Will loop without blocking the JS thread if the child animation is set to `useNativeDriver: true`. In addition, loops can prevent `VirtualizedList`-based components from rendering more rows while the animation is running. You can pass `isInteraction: false` in the child animation config to fix this.
@@ -476,36 +501,46 @@ Config is an object that may have the following options:
 
 ### `event()`
 
-```jsx
-static event(argMapping, config?)
+```tsx
+static event(
+  argMapping: Mapping[],
+  config?: EventConfig
+): (...args: any[]) => void;
 ```
 
 Takes an array of mappings and extracts values from each arg accordingly, then calls `setValue` on the mapped outputs. e.g.
 
-```jsx
- onScroll={Animated.event(
-   [{nativeEvent: {contentOffset: {x: this._scrollX}}}],
-   {listener: (event) => console.log(event)}, // Optional async listener
- )}
+```tsx
+onScroll={Animated.event(
+  [{nativeEvent: {contentOffset: {x: this._scrollX}}}],
+  {listener: (event: ScrollEvent) => console.log(event)}, // Optional async listener
+)}
  ...
- onPanResponderMove: Animated.event([
-   null,                // raw event arg ignored
-   {dx: this._panX}],    // gestureState arg
-{listener: (event, gestureState) => console.log(event, gestureState)}, // Optional async listener
- ),
+onPanResponderMove: Animated.event(
+  [
+    null, // raw event arg ignored
+    {dx: this._panX},
+  ], // gestureState arg
+  {
+    listener: (
+      event: GestureResponderEvent,
+      gestureState: PanResponderGestureState
+    ) => console.log(event, gestureState),
+  } // Optional async listener
+);
 ```
 
 Config is an object that may have the following options:
 
 - `listener`: Optional async listener.
-- `useNativeDriver`: Uses the native driver when true. Default false.
+- `useNativeDriver`: Uses the native driver when true. Required.
 
 ---
 
 ### `forkEvent()`
 
 ```jsx
-static forkEvent(event, listener)
+static forkEvent(event: AnimatedEvent, listener: Function): AnimatedEvent;
 ```
 
 Advanced imperative API for snooping on animated events that are passed in through props. It permits to add a new javascript listener to an existing `AnimatedEvent`. If `animatedEvent` is a javascript listener, it will merge the 2 listeners into a single one, and if `animatedEvent` is null/undefined, it will assign the javascript listener directly. Use values directly where possible.
@@ -515,29 +550,29 @@ Advanced imperative API for snooping on animated events that are passed in throu
 ### `unforkEvent()`
 
 ```jsx
-static unforkEvent(event, listener)
+static unforkEvent(event: AnimatedEvent, listener: Function);
 ```
 
 ---
 
 ### `start()`
 
-```jsx
-static start([callback]: ?(result?: {finished: boolean}) => void)
+```tsx
+static start(callback?: (result: {finished: boolean}) => void);
 ```
 
 Animations are started by calling start() on your animation. start() takes a completion callback that will be called when the animation is done or when the animation is done because stop() was called on it before it could finish.
 
 **Parameters:**
 
-| Name     | Type                            | Required | Description                                                                                                                                                     |
-| -------- | ------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| callback | ?(result?: {finished: boolean}) | No       | Function that will be called after the animation finished running normally or when the animation is done because stop() was called on it before it could finish |
+| Name     | Type                                  | Required | Description                                                                                                                                                     |
+| -------- | ------------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| callback | (result: {finished: boolean}) => void | No       | Function that will be called after the animation finished running normally or when the animation is done because stop() was called on it before it could finish |
 
 Start example with callback:
 
-```jsx
-Animated.timing({}).start(({ finished }) => {
+```tsx
+Animated.timing({}).start(({finished}) => {
   /* completion callback */
 });
 ```
@@ -546,8 +581,8 @@ Animated.timing({}).start(({ finished }) => {
 
 ### `stop()`
 
-```jsx
-static stop()
+```tsx
+static stop();
 ```
 
 Stops any running animation.
@@ -556,8 +591,8 @@ Stops any running animation.
 
 ### `reset()`
 
-```jsx
-static reset()
+```tsx
+static reset();
 ```
 
 Stops any running animation and resets the value to its original.
@@ -600,4 +635,4 @@ Make any React component Animatable. Used to create `Animated.View`, etc.
 
 ### `attachNativeEvent`
 
-Imperative API to attach an animated value to an event on a view. Prefer using `Animated.event` with `useNativeDrive: true` if possible.
+Imperative API to attach an animated value to an event on a view. Prefer using `Animated.event` with `useNativeDriver: true` if possible.

@@ -144,8 +144,8 @@ const App = () => {
 ```jsx
 // React Native Counter Example using Hooks!
 
-import React, { useState } from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
+import React, {useState} from 'react';
+import {View, Text, Button, StyleSheet} from 'react-native';
 
 const App = () => {
   const [count, setCount] = useState(0);
@@ -166,8 +166,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
-  }
+    alignItems: 'center',
+  },
 });
 ```
 

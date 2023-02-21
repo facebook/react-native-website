@@ -28,7 +28,7 @@ Documents in this section go over steps to run different types of React Native r
   git checkout -b 0.69-stable
   ```
 
-- Head to the [Publish Tag](https://github.com/facebook/hermes/actions/workflows/create-tag.yml) workflow in the Hermes repo. Click the "Run Workflow" button and input the RN stable version you are targetting (e.g. 0.69.0). You need to have write access to the facebook/hermes repo to do so or ask a Meta employee to help you on this step.
+- Head to the [Publish Tag](https://github.com/facebook/hermes/actions/workflows/create-tag.yml) workflow in the Hermes repo. Click the "Run Workflow" button and input the RN stable version you are targeting (e.g. 0.69.0). You need to have write access to the facebook/hermes repo to do so or ask a Meta employee to help you on this step.
 
 - Bump the Hermes version on the release branch using this command:
 
@@ -93,6 +93,21 @@ npx @rnx-kit/rn-changelog-generator --base v0.68.2 --compare v0.69.0-rc.0 \
 ```
 
 Create a pull request of this change to `react-native` repo and add the `Changelog` label.
+
+#### Manually Adjust the Changelog
+
+At the end of the generated Changelog, there could be two additional sections: the **Failed to Parse** section and the **Unknown** section.
+
+The **Failed to Parse** section contains commits that has a `## Changelog:` entry in their summary but, due to typos or other problems, the tool was not able to parse and automatically attribute them to the right section.
+
+The **Unknown** section is populated with commit that landed without the `## Changelog:` entry in the summary.
+
+For both these categories, we have to manually go through the listed commits and move them to the right section, based on the actual change they introduce. The following are a set of heuristic we follow to manually update the changelog:
+
+- Commit of internal changes can be **deleted** from the Changelog.
+  - Examples: commit on BUCK files or code refactoring that do not change behaviours or interfaces
+- Commit which bumps dependencies should be **moved to the `Changed`** section
+  - For each dependency, there should be a single entry with the most recent bump. Commits that bumps the dependencies to lower versions can be **removed**
 
 ### 5. Create a GitHub Release
 

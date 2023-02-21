@@ -97,8 +97,8 @@ _handleOpenURL(event) {
 To start the corresponding activity for a link (web URL, email, contact etc.), call:
 
 ```jsx
-Linking.openURL(url).catch((err) =>
-  console.error('An error occurred', err)
+Linking.openURL(url).catch(err =>
+  console.error('An error occurred', err),
 );
 ```
 
@@ -106,14 +106,14 @@ If you want to check if any installed app can handle a given URL beforehand you 
 
 ```jsx
 Linking.canOpenURL(url)
-  .then((supported) => {
+  .then(supported => {
     if (!supported) {
       console.log("Can't handle url: " + url);
     } else {
       return Linking.openURL(url);
     }
   })
-  .catch((err) => console.error('An error occurred', err));
+  .catch(err => console.error('An error occurred', err));
 ```
 
 ---

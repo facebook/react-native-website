@@ -25,6 +25,7 @@ The "Category" field may be one of:
 
 The "Type" field may be one of:
 
+- **Breaking**, for breaking changes.
 - **Added**, for new features.
 - **Changed**, for changes in existing functionality.
 - **Deprecated**, for soon-to-be removed features.
@@ -58,8 +59,8 @@ Use the General category if the change is made in a single pull request.
 
 #### What if...?
 
-Any changelog entry is better than none. If you are unsure if you have picked the right category, use the "message" field to succinctly describe your change. 
+Any changelog entry is better than none. If you are unsure if you have picked the right category, use the "message" field to succinctly describe your change.
 
-These entries are used by the [`@rnx-kit/rn-changelog-generator`](https://github.com/microsoft/rnx-kit/tree/main/incubator/rn-changelog-generator) script to build a rough draft, which is then edited by a release coordinator. 
+These entries are used by the [`@rnx-kit/rn-changelog-generator`](https://github.com/microsoft/rnx-kit/tree/main/incubator/rn-changelog-generator) script to build a rough draft, which is then edited by a release coordinator.
 
 Your notes will be used to add your change to the correct location in the final release notes.
