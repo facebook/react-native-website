@@ -21,7 +21,8 @@ For the sake of this guide we're going to use the following **terminology**:
 
 - **Legacy Native Components** & **Legacy Native Modules** - To refer to Modules and Components which are running on the old React Native architecture.
 - **Fabric Native Components** & **Turbo Native Modules** - To refer to Modules and Components which have been adapted to work well with the New Architecture, namely the new renderer and the new Native Module System. For brevity you might find them referred as **Fabric Components** and **Turbo Modules**
-  :::
+
+:::
 
 The next sections contain a high-level overview of the pillars and the steps to create them. To create one of these pillars, the steps are:
 
