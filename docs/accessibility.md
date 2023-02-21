@@ -446,8 +446,10 @@ The supported event types are `typeWindowStateChanged`, `typeViewFocused`, and `
 Android also supports `viewHoverEnter`.
 
 ```tsx
-function SetAccessibilityFocusExample(props) {
-  const myRef = React.useRef(null);
+function SetAccessibilityFocusExample(props: Props) {
+  const myRef = React.useRef<React.ElementRef<
+    typeof Text
+  > | null>(null);
 
   const onPress = () => {
     if (myRef && myRef.current) {
