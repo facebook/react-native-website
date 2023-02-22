@@ -171,7 +171,7 @@ The above command will automatically run your app on the iOS Simulator by defaul
 
 Now that you have successfully run the app, let's modify it.
 
-- Open `App.js` in your text editor of choice and edit some lines.
+- Open `App.tsx` in your text editor of choice and edit some lines.
 - Hit `⌘R` in your iOS Simulator to reload the app and see your changes!
 
 ### That's it!

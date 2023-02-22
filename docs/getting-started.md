@@ -50,7 +50,7 @@ Install the [Expo Go](https://expo.dev/client) app on your iOS or Android phone 
 
 <h3>Modifying your app</h3>
 
-Now that you have successfully run the app, let's modify it. Open `App.tsx` in your text editor of choice and edit some lines. The application should reload automatically once you save your changes.
+Now that you have successfully run the app, let's modify it. Open `App.js` in your text editor of choice and edit some lines. The application should reload automatically once you save your changes.
 
 <h3>That's it!</h3>
 
