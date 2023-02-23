@@ -12,7 +12,7 @@ The code analysis bot collects feedback from tools such as Prettier, eslint, and
 
 ## label-actions
 
-A bot that acts on an issue or pull request based on a label. Configured in [`.github/respond-to-issue-based-on-label.yml`](https://github.com/facebook/react-native/blob/main/.github/respond-to-issue-based-on-label.yml).
+A bot that acts on an issue or pull request based on a label. Configured in [`.github/workflows/on-issue-labeled.yml`](https://github.com/facebook/react-native/blob/main/.github/workflows/on-issue-labeled.yml).
 
 ## github-actions
 
