@@ -927,7 +927,7 @@ Android configuration requires to enable the **New Architecture**.
 
 ### JavaScript
 
-Finally, you can read the Component in your JavaScript application.
+Finally, you can use the component in your JavaScript application.
 
 <Tabs groupId="final-app" defaultValue={constants.defaultJavaScriptSpecLanguages} values={constants.javaScriptSpecLanguages}>
 <TabItem value="flow">
