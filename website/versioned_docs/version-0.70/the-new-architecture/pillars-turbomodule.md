@@ -712,7 +712,7 @@ export default App;
 </TabItem>
 <TabItem value="typescript">
 
-```typescript title="NativeCalculator.ts"
+```typescript title="NativeCalculator.tsx"
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
