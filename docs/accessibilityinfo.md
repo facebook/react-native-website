@@ -387,7 +387,7 @@ Query whether reduce motion and prefer cross-fade transitions settings are curre
 
 ---
 
-### `sendAccessibilityEvent()`
+### `sendAccessibilityEvent()` <div class="label android">Android</div>
 
 ```jsx
 static sendAccessibilityEvent(handle, eventType)
