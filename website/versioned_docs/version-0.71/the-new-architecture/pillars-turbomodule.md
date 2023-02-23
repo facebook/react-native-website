@@ -763,7 +763,10 @@ Now you can use your Turbo Native Module calculator in your app!
 
 Here's an example App.js file using the `add` method:
 
-```js title="App.js"
+<Tabs groupId="final-app" defaultValue={constants.defaultJavaScriptSpecLanguages} values={constants.javaScriptSpecLanguages}>
+<TabItem value="flow">
+
+```typescript title="App.js"
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
@@ -802,5 +805,49 @@ const App: () => Node = () => {
 };
 export default App;
 ```
+
+</TabItem>
+<TabItem value="typescript">
+
+```typescript title="App.tsx"
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ *
+ * @format
+ */
+import React from 'react';
+import {useState} from 'react';
+import {
+  SafeAreaView,
+  StatusBar,
+  Text,
+  Button,
+} from 'react-native';
+import RTNCalculator from 'rtn-calculator/js/NativeCalculator';
+
+const App: () => JSX.Element = () => {
+  const [result, setResult] = useState<number | null>(null);
+  return (
+    <SafeAreaView>
+      <StatusBar barStyle={'dark-content'} />
+      <Text style={{marginLeft: 20, marginTop: 20}}>
+        3+7={result ?? '??'}
+      </Text>
+      <Button
+        title="Compute"
+        onPress={async () => {
+          const value = await RTNCalculator?.add(3, 7);
+          setResult(value ?? null);
+        }}
+      />
+    </SafeAreaView>
+  );
+};
+export default App;
+```
+
+</TabItem>
+</Tabs>
 
 Try this out to see your Turbo Native Module in action!

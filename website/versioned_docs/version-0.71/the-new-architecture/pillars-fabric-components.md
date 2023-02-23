@@ -927,29 +927,59 @@ Android configuration requires to enable the **New Architecture**.
 
 ### JavaScript
 
-Finally, you can read the Component in your JavaScript application.
-To do so, you have to:
+Finally, you can use the component in your JavaScript application.
 
-1. Import the Component in the js file that uses it. So, if you want to use it in the `App.tsx`, you need to add this line:
+<Tabs groupId="final-app" defaultValue={constants.defaultJavaScriptSpecLanguages} values={constants.javaScriptSpecLanguages}>
+<TabItem value="flow">
 
-   ```tsx title="App.tsx"
-   import RTNCenteredText from 'rtn-centered-text/js/RTNCenteredTextNativeComponent';
-   ```
+```typescript title="App.js"
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ *
+ * @format
+ * @flow strict-local
+ */
+import React from 'react';
+import type {Node} from 'react';
+import RTNCalculator from 'rtn-calculator/js/NativeCalculator';
 
-2. Then, you need to use it in another React Native component. The syntax is the same as for any other component:
-   ```tsx title="App.tsx"
-   // ... other code
-   const App: () => Node = () => {
-     // ... other App code ...
-     return (
-       // ...other React Native elements...
-       <RTNCenteredText
-         text="Hello World!"
-         style={{width: '100%', height: 30}}
-       />
-       // ...other React Native Elements
-     );
-   };
-   ```
+const App: () => Node = () => {
+  return (
+    <RTNCenteredText
+      text="Hello World!"
+      style={{width: '100%', height: 30}}
+    />
+  );
+};
+export default App;
+```
+
+</TabItem>
+<TabItem value="typescript">
+
+```typescript title="App.tsx"
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ *
+ * @format
+ */
+import React from 'react';
+import RTNCalculator from 'rtn-calculator/js/NativeCalculator';
+
+const App: () => JSX.Element = () => {
+  return (
+    <RTNCenteredText
+      text="Hello World!"
+      style={{width: '100%', height: 30}}
+    />
+  );
+};
+export default App;
+```
+
+</TabItem>
+</Tabs>
 
 Now, you can run the React Native app and see your Component on the screen.
