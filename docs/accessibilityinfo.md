@@ -390,7 +390,7 @@ Query whether reduce motion and prefer cross-fade transitions settings are curre
 ### `sendAccessibilityEvent()`
 
 ```jsx
-static sendAccessibilityEvent(node, eventType)
+static sendAccessibilityEvent(handle, eventType)
 ```
 
 Sometimes it is helpful to trigger an accessibility event on a UI component (i.e. when a custom view appears on a screen or set accessibility focus to a view). Native FabricUIManager module exposes a method `sendAccessibilityEvent` for this purpose. It takes two arguments: `node` and `eventType`.
