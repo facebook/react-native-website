@@ -135,8 +135,6 @@ To mitigate this, you should:
 - investigate using `renderToHardwareTextureAndroid` for complex, static content that is being animated/transformed (e.g. the `Navigator` slide/alpha animations)
 - make sure that you are **not** using `needsOffscreenAlphaCompositing`, which is disabled by default, as it greatly increases the per-frame load on the GPU in most cases.
 
-If these don't help and you want to dig deeper into what the GPU is actually doing, you can check out [Tracer for OpenGL ES](http://www.androiddocs.com/tools/help/gltracer.html).
-
 ### Creating new views on the UI thread
 
 In the second scenario, you'll see something more like this:

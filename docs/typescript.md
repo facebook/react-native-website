@@ -39,7 +39,7 @@ yarn add --dev @tsconfig/react-native @types/jest @types/react @types/react-test
 </Tabs>
 
 :::note
-This command adds the latest version of every dependency. The versions may need to be changed to match the existing packages used by your project. You can use a tool like [React Native Upgrade Helper](https://react-native-community.github.io) to see the versions shipped by React Native.
+This command adds the latest version of every dependency. The versions may need to be changed to match the existing packages used by your project. You can use a tool like [React Native Upgrade Helper](https://react-native-community.github.io/upgrade-helper/) to see the versions shipped by React Native.
 :::
 
 2. Add a TypeScript config file. Create a `tsconfig.json` in the root of your project:

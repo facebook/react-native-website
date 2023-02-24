@@ -26,9 +26,10 @@
     "lint": "eslint ../docs/** blog/** core/** src/**/*.js ./*.js",
     "lint:examples": "eslint-examples-js && eslint-examples-tsx && tsc-examples",
     "lint:versioned": "eslint versioned_docs/**",
+    "lint:markdown": "remark ../docs --quiet -r .remarkrc.mjs",
     "language:lint": "cd ../ && alex && case-police 'docs/*.md' -p brands,general,products,softwares",
     "language:lint:versioned": "cd ../ && alex . && case-police '**/*.md' -p brands,general,products,softwares",
-    "ci:lint": "yarn lint && yarn lint:examples && yarn lint:versioned && yarn language:lint:versioned",
+    "ci:lint": "yarn lint && yarn lint:examples && yarn lint:versioned && yarn language:lint:versioned && yarn lint:markdown",
     "pwa:generate": "npx pwa-asset-generator ./static/img/header_logo.svg ./static/img/pwa --padding '40px' --background 'rgb(32, 35, 42)' --icon-only --opaque true"
   },
   "browserslist": {
@@ -61,6 +62,8 @@
     "fs-extra": "^10.1.0",
     "glob": "^8.0.3",
     "glob-promise": "^4.2.2",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "remark-cli": "^11.0.0",
+    "remark-lint-no-dead-urls": "^1.1.0"
   }
 }
