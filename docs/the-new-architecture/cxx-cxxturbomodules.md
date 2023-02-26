@@ -413,7 +413,7 @@ CxxTurboModulesGuide
 │       └── build.gradle (updated)
 ├── ios
 │   └── CxxTurboModulesGuide
-│       └── AppDelegate.mm (updated)│
+│       └── AppDelegate.mm (updated)
 ├── js
 │   └── App.tsx|jsx (updated)
 └── tm
