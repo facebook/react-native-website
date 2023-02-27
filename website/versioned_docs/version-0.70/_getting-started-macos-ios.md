@@ -21,7 +21,7 @@ If you have already installed Node on your system, make sure it is Node 14 or ne
 
 ### Ruby
 
-React Native uses a `.ruby-version` file to make sure that your version of Ruby is aligned with what is needed. Currently, macOS 12.5.1 is shipped with Ruby 2.6.8, which is **not** what is required by React Native. Our suggestion is to install a Ruby version manager and to install the proper version of Ruby in your system.
+React Native uses a `.ruby-version` file to make sure that your version of Ruby is aligned with what is needed. Currently, macOS 13.2 is shipped with Ruby 2.6.10, which is **not** what is required by this version of React Native (2.7.5). Our suggestion is to install a Ruby version manager and to install the proper version of Ruby in your system.
 
 Some common Ruby version manager are:
 
@@ -36,7 +36,7 @@ To check what is your current version of Ruby, you can run this command:
 ruby --version
 ```
 
-React Native uses [this version](https://github.com/facebook/react-native/blob/main/template/_ruby-version) of Ruby. You can also find which version your specific project needs in the `.ruby-version` file at root of your RN project.
+React Native uses [this version](https://github.com/facebook/react-native/blob/v0.70.7/.ruby-version) of Ruby. You can also find which version your specific project needs in the `.ruby-version` file at root of your RN project.
 
 ### Bundler
 
