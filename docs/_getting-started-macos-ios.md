@@ -23,7 +23,7 @@ If you have already installed Node on your system, make sure it is Node 16 or ne
 
 [Ruby](https://www.ruby-lang.org/en/) is a general-purpose programming language. React Native uses it in some scripts related to iOS dependency management. As every programming language, there are different versions of Ruby that have been developed during the years.
 
-React Native uses a `.ruby-version` file to make sure that your version of Ruby is aligned with what is needed. Currently, macOS 12.5.1 is shipped with Ruby 2.6.8, which is **not** what is required by React Native. Our suggestion is to install a Ruby version manager and to install the proper version of Ruby in your system.
+React Native uses a `Gemfile` to make sure that your version of Ruby is aligned with what is needed. Currently, macOS 13.2 is shipped with Ruby 2.6.10, which is the **minimum** version required by React Native. Our suggestion is to install a Ruby version manager and to install the most recent matching version of Ruby in your system.
 
 Some common Ruby version manager are:
 
@@ -38,7 +38,7 @@ To check what is your current version of Ruby, you can run this command:
 ruby --version
 ```
 
-React Native uses [this version](https://github.com/facebook/react-native/blob/main/template/_ruby-version) of Ruby. You can also find which version your specific project needs in the `.ruby-version` file at root of your RN project.
+To use React Native your version of Ruby must meet the requirements defined in the [Gemfile](https://github.com/facebook/react-native/blob/main/Gemfile#L4).
 
 ### Ruby's Bundler
 
