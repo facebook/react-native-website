@@ -38,13 +38,13 @@ While the last step is the same for all the platforms, the first two steps are d
 
 ### <a name="dependencies-ios" />iOS
 
-The Apple platform installs Turbo Native Modules using [Cocoapods](https://cocoapods.org) as a dependency manager.
+The Apple platform installs Turbo Native Modules using [CocoaPods](https://cocoapods.org) as a dependency manager.
 
 Every Turbo Native Module defines a `podspec` that looks like this:
 
 ### <a name="dependencies-ios" />iOS
 
-The Apple platform installs TurboModules using [Cocoapods](https://cocoapods.org) as dependency manager.
+The Apple platform installs TurboModules using [CocoaPods](https://cocoapods.org) as dependency manager.
 
 Every TurboModule defines a `podspec` that looks like this:
 
