@@ -42,9 +42,9 @@ React Native uses [this version](https://github.com/facebook/react-native/blob/v
 
 ### Ruby's Bundler
 
-Ruby uses the concept of **gems** to handle its own dependencies. You can think of a gem as a package in NPM, a formula in Homebrew or a single pod in Cocoapods.
+Ruby uses the concept of **gems** to handle its own dependencies. You can think of a gem as a package in NPM, a formula in Homebrew or a single pod in CocoaPods.
 
-Ruby's [Bundler](https://bundler.io/) is a Ruby gem that helps managing the Ruby dependencies of your project. We need Ruby to install Cocoapods and using Bundler will make sure that all the dependencies are aligned and that the project works properly.
+Ruby's [Bundler](https://bundler.io/) is a Ruby gem that helps managing the Ruby dependencies of your project. We need Ruby to install CocoaPods and using Bundler will make sure that all the dependencies are aligned and that the project works properly.
 
 If you want to learn more about why we need this tool, you can read [this article](https://bundler.io/guides/rationale.html#bundlers-purpose-and-rationale).
 
