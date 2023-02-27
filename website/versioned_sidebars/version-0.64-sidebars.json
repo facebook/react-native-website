@@ -314,6 +314,17 @@
           "id": "version-0.64/publishing-to-app-store"
         }
       ]
+    },
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "CI/CD",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-0.64/ci-cd"
+        }
+      ]
     }
   ],
   "version-0.64/api": [

@@ -215,6 +215,17 @@
           "id": "version-0.61/hermes"
         }
       ]
+    },
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "CI/CD",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-0.61/ci-cd"
+        }
+      ]
     }
   ],
   "version-0.61/components": [

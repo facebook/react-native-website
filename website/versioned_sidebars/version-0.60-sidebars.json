@@ -203,6 +203,17 @@
           "id": "version-0.60/hermes"
         }
       ]
+    },
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "CI/CD",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-0.60/ci-cd"
+        }
+      ]
     }
   ],
   "version-0.60/components": [
