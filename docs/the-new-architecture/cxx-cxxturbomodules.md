@@ -415,7 +415,7 @@ CxxTurboModulesGuide
 │   └── CxxTurboModulesGuide
 │       └── AppDelegate.mm (updated)
 ├── js
-    └── App.tsx|jsx (updated)
+│   └── App.tsx|jsx (updated)
 └── tm
     ├── CMakeLists.txt
     ├── NativeSampleModule.h
