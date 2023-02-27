@@ -2,7 +2,7 @@ import RemoveGlobalCLI from './\_remove-global-cli.md';
 
 ## Installing dependencies
 
-You will need Node, Watchman, the React Native command line interface, a Ruby version manager, Xcode and CocoaPods.
+You will need Node, Watchman, the React Native command line interface, Xcode and CocoaPods.
 
 While you can use any editor of your choice to develop your app, you will need to install Xcode in order to set up the necessary tooling to build your React Native app for iOS.
 
@@ -18,35 +18,6 @@ brew install watchman
 If you have already installed Node on your system, make sure it is Node 16 or newer.
 
 [Watchman](https://facebook.github.io/watchman) is a tool by Facebook for watching changes in the filesystem. It is highly recommended you install it for better performance.
-
-### Ruby
-
-[Ruby](https://www.ruby-lang.org/en/) is a general-purpose programming language. React Native uses it in some scripts related to iOS dependency management. As every programming language, there are different versions of Ruby that have been developed during the years.
-
-React Native uses a `Gemfile` to make sure that your version of Ruby is aligned with what is needed. Currently, macOS 13.2 is shipped with Ruby 2.6.10, which is the **minimum** version required by React Native. Our suggestion is to install a Ruby version manager and to install the most recent matching version of Ruby in your system.
-
-Some common Ruby version manager are:
-
-- [rbenv](https://github.com/rbenv/rbenv)
-- [RVM](https://rvm.io/)
-- [chruby](https://github.com/postmodern/chruby)
-- [asdf-vm](https://github.com/asdf-vm) with the [asdf-ruby](https://github.com/asdf-vm/asdf-ruby) plugin
-
-To check what is your current version of Ruby, you can run this command:
-
-```
-ruby --version
-```
-
-To use React Native your version of Ruby must meet the requirements defined in the [Gemfile](https://github.com/facebook/react-native/blob/main/Gemfile#L4).
-
-### Ruby's Bundler
-
-Ruby uses the concept of **gems** to handle its own dependencies. You can think of a gem as a package in NPM, a formula in Homebrew or a single pod in Cocoapods.
-
-Ruby's [Bundler](https://bundler.io/) is a Ruby gem that helps managing the Ruby dependencies of your project. We need Ruby to install Cocoapods and using Bundler will make sure that all the dependencies are aligned and that the project works properly.
-
-If you want to learn more about why we need this tool, you can read [this article](https://bundler.io/guides/rationale.html#bundlers-purpose-and-rationale).
 
 ### Xcode
 
@@ -91,9 +62,8 @@ This is not necessary if you are integrating React Native into an existing appli
 If you are having trouble with iOS, try to reinstall the dependencies by running:
 
 1. `cd ios` to navigate to the
-2. `bundle install` to install Bundler
-   1. If needed: install a [Ruby Version Manager](#ruby) and update the Ruby version
-3. `bundle exec pod install` to install the iOS dependencies.
+2. `bundle install` to install [Bundler](https://bundler.io/)
+3. `bundle exec pod install` to install the iOS dependencies managed by CocoaPods.
 
 :::
 
