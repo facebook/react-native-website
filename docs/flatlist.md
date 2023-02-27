@@ -428,8 +428,8 @@ Example usage:
 
 An array (or array-like list) of items to render. Other data types can be used by targetting [`VirtualizedList`](virtualizedlist.md) directly.
 
-| Type  |
-| ----- |
+| Type      |
+| --------- |
 | ArrayLike |
 
 ---
