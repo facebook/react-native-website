@@ -18,6 +18,14 @@ On devices before SDK version 23, the permissions are automatically granted if t
 
 If a user has previously turned off a permission that you prompt for, the OS will advise your app to show a rationale for needing the permission. The optional `rationale` argument will show a dialog prompt only if necessary - otherwise the normal permission prompt will appear.
 
+Some permssions, e.g. `POST_NOTIFICATIONS` should ONLY be requested on ceratin Android API levels. Requesting such a permisson on earlier versions might return unexpected results. An example follolws. 
+
+```javascript
+if (Platform.OS === "android" && Platform.Version >= 33) {
+   PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS);
+}
+```
+
 ### Example
 
 <Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
