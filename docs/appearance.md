@@ -57,7 +57,7 @@ Although the color scheme is available immediately, this may change (e.g. schedu
 static getColorScheme(): 'light' | 'dark' | null;
 ```
 
-Indicates the current user preferred color scheme. The value may be updated later, either through direct user action (e.g. theme selection in device settings) or on a schedule (e.g. light and dark themes that follow the day/night cycle).
+Indicates the current user preferred color scheme. The value may be updated later, either through direct user action (e.g. theme selection in device settings or application-level selected user interface style via `setColorScheme`) or on a schedule (e.g. light and dark themes that follow the day/night cycle).
 
 Supported color schemes:
 
@@ -68,6 +68,24 @@ Supported color schemes:
 See also: `useColorScheme` hook.
 
 > Note: `getColorScheme()` will always return `light` when debugging with Chrome.
+
+---
+
+### `setColorScheme()`
+
+```tsx
+static setColorScheme('light' | 'dark' | null): void;
+```
+
+Force the application to always adopt a light or dark interface style. The default value is `null` which causes the application to inherit the system's interface style. If you assign a different value, the new style applies to the application and all native elements within the application (Alerts, Pickers etc).
+
+Supported color schemes:
+
+- `light`: Apply light user interface style.
+- `dark`: Apply dark user interface style.
+- null: Follow the system's interface style.
+
+> Note: The change will not affect the system's selected interface style or any style set in other applications.
 
 ---
 
