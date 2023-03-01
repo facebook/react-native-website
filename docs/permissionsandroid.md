@@ -18,7 +18,7 @@ On devices before SDK version 23, the permissions are automatically granted if t
 
 If a user has previously turned off a permission that you prompt for, the OS will advise your app to show a rationale for needing the permission. The optional `rationale` argument will show a dialog prompt only if necessary - otherwise the normal permission prompt will appear.
 
-Some permssions, e.g. `POST_NOTIFICATIONS` should ONLY be requested on ceratin Android API levels. Requesting such a permisson on earlier versions might return unexpected results. An example follolws. 
+Some permssions, e.g. `POST_NOTIFICATIONS` should ONLY be requested on ceratin Android API levels. Requesting such a permisson on earlier versions might return unexpected results. For example, on Android API 31, it returns `NEVER_ASK_AGAIN`. An example follows. 
 
 ```javascript
 if (Platform.OS === "android" && Platform.Version >= 33) {
