@@ -618,6 +618,16 @@ For details of how this works under the hood, see [Fresco documentation](https:/
 
 ---
 
+### `objectFit`
+
+Determines how to resize the image when the frame doesn't match the raw image dimensions.
+
+| Type                                                   | Default   |
+| ------------------------------------------------------ | --------- |
+| enum(`'cover'`, `'contain'`, `'fill'`, `'scale-down'`) | `'cover'` |
+
+---
+
 ### `tintColor`
 
 Changes the color of all the non-transparent pixels to the tintColor.

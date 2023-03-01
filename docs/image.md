@@ -322,16 +322,6 @@ Similarly to `source`, this property represents the resource used to render the 
 
 ---
 
-### `objectFit`
-
-Determines how to resize the image when the frame doesn't match the raw image dimensions.
-
-| Type                                                   | Default   |
-| ------------------------------------------------------ | --------- |
-| enum(`'cover'`, `'contain'`, `'fill'`, `'scale-down'`) | `'cover'` |
-
----
-
 ### `onError`
 
 Invoked on load error.
