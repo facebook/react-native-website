@@ -85,6 +85,15 @@ Specify how to react to the presence of the keyboard.
 
 > Android and iOS both interact with this prop differently. On both iOS and Android, setting `behavior` is recommended.
 
+- `height`: Scale the image uniformly (maintain the image's aspect ratio) so that
+
+  - both dimensions (width and height) of the image will be equal to or larger than the corresponding dimension of the view (minus padding)
+  - at least one dimension of the scaled image will be equal to the corresponding dimension of the view (minus padding)
+
+- `position`: Scale the image uniformly (maintain the image's aspect ratio) so that both dimensions (width and height) of the image will be equal to or less than the corresponding dimension of the view (minus padding).
+
+- `padding`: Scale width and height independently, This may change the aspect ratio of the src.
+
 | Type                                        |
 | ------------------------------------------- |
 | enum(`'height'`, `'position'`, `'padding'`) |
