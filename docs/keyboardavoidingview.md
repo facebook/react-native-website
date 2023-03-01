@@ -81,22 +81,19 @@ Inherits [View Props](view.md#props).
 
 ### `behavior`
 
-Specify how to react to the presence of the keyboard.
+Specify how to react to the presence of the keyboard. More specifically, it wraps the `'children'` property within a `'View'` where the size and placement of it is defined by the below:
+
+- `height`: The `'View'` has a fixed defined `height` style attribute equals to the substraction of the frame heigth and the size of the keyboard.
+
+- `position`: The `'View'` has an absolute placement of the size of the keyboard regardless of the other components.
+
+- `padding`: The `'View'` with a bottom padding large enough to welcome the keyboard
 
 > Android and iOS both interact with this prop differently. On both iOS and Android, setting `behavior` is recommended.
 
-- `height`: Scale the image uniformly (maintain the image's aspect ratio) so that
-
-  - both dimensions (width and height) of the image will be equal to or larger than the corresponding dimension of the view (minus padding)
-  - at least one dimension of the scaled image will be equal to the corresponding dimension of the view (minus padding)
-
-- `position`: Scale the image uniformly (maintain the image's aspect ratio) so that both dimensions (width and height) of the image will be equal to or less than the corresponding dimension of the view (minus padding).
-
-- `padding`: Scale width and height independently, This may change the aspect ratio of the src.
-
-| Type                                        |
-| ------------------------------------------- |
-| enum(`'height'`, `'position'`, `'padding'`) |
+| Type                                        | Required |
+| ------------------------------------------- | -------- |
+| enum(`'height'`, `'position'`, `'padding'`) | No       |
 
 ---
 
