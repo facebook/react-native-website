@@ -81,13 +81,13 @@ Inherits [View Props](view.md#props).
 
 ### `behavior`
 
-Specify how to react to the presence of the keyboard. More specifically, it wraps the `'children'` property within a `'View'` where the size and placement of it is defined by the below:
+Specify how to react to the presence of the keyboard. More specifically, it creates a `View` where the size and placement of it is defined by the below:
 
 - `height`: The `'View'` has a fixed defined `height` style attribute equals to the substraction of the frame heigth and the size of the keyboard.
 
-- `position`: The `'View'` has an absolute placement of the size of the keyboard regardless of the other components.
+- `position`: Add an additional nested `View` with a fixed position (brought by the `bottom` style attribute) equals to the height of the keyboard.
 
-- `padding`: The `'View'` with a bottom padding large enough to welcome the keyboard
+- `padding`: The `'View'` has a `paddingBottom` style attribute equals to the size of the keyboard.
 
 > Android and iOS both interact with this prop differently. On both iOS and Android, setting `behavior` is recommended.
 
