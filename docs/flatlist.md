@@ -644,8 +644,7 @@ Called when the viewability of rows changes, as defined by the `viewabilityConfi
 
 | Type |
 | ---- |
-
-| (callback: {changed: [ViewToken](viewtoken)[], viewableItems: [ViewToken](viewtoken)[]} => void;
+| (callback: {changed: [ViewToken](viewtoken)[], viewableItems: [ViewToken](viewtoken)[]} => void; |
 
 ---
 
