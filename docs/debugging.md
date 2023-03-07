@@ -204,7 +204,9 @@ When working with native code, such as when writing native modules, you can laun
 Another option is to run your application using the React Native CLI and attach the native debugger of the native IDE (Android Studio or XCode) to the process.
 
 ### Android Studio
+
 On Android Studio you can do this by going on the "Run" option on the menu bar, clicking on "Attach to Process..." and selecting the running React Native App.
 
 ### XCode
+
 On XCode click on "Debug" on the top menu bar, select the "Attach to process" option, and select the application in the list of "Likely Targets".
