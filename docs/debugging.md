@@ -209,4 +209,4 @@ On Android Studio you can do this by going on the "Run" option on the menu bar, 
 
 ### XCode
 
-On XCode click on "Debug" on the top menu bar, select the "Attach to process" option, and select the application in the list of "Likely Targets".
+On Xcode click on "Debug" on the top menu bar, select the "Attach to process" option, and select the application in the list of "Likely Targets".
