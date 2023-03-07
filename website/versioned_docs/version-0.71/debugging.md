@@ -207,6 +207,6 @@ Another option is to run your application using the React Native CLI and attach 
 
 On Android Studio you can do this by going on the "Run" option on the menu bar, clicking on "Attach to Process..." and selecting the running React Native app.
 
-### XCode
+### Xcode
 
 On Xcode click on "Debug" on the top menu bar, select the "Attach to process" option, and select the application in the list of "Likely Targets".
