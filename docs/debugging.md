@@ -201,7 +201,7 @@ Alternatively, select "Dev Settings" from the Developer Menu, then update the "D
 
 When working with native code, such as when writing native modules, you can launch the app from Android Studio or Xcode and take advantage of the native debugging features (setting up breakpoints, etc.) as you would in case of building a standard native app.
 
-Another option is to run your application using the React Native CLI and attach the native debugger of the native IDE (Android Studio or XCode) to the process.
+Another option is to run your application using the React Native CLI and attach the native debugger of the native IDE (Android Studio or Xcode) to the process.
 
 ### Android Studio
 
