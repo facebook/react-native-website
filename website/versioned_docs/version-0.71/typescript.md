@@ -21,7 +21,7 @@ npx create-expo-app --template
 
 1. Add TypeScript, types, and ESLint plugins to your project.
 
-<Tabs groupId="package-manager" defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
 <TabItem value="npm">
 
 ```shell
@@ -164,7 +164,7 @@ To use custom path aliases with TypeScript, you need to set the path aliases to 
 
 2. Add [`babel-plugin-module-resolver`][bpmr] as a development package to your project:
 
-<Tabs groupId="package-manager" defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
 <TabItem value="npm">
 
 ```shell

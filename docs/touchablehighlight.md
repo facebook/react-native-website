@@ -32,7 +32,7 @@ function MyComponent(props: MyComponentProps) {
 
 ## Example
 
-<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<Tabs groupId="syntax" queryString defaultValue={constants.defaultSyntax} values={constants.syntax}>
 <TabItem value="functional">
 
 ```SnackPlayer name=TouchableHighlight%20Function%20Component%20Example

@@ -13,7 +13,7 @@ This example shows fetching and displaying an image from local storage as well a
 
 ## Examples
 
-<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<Tabs groupId="syntax" queryString defaultValue={constants.defaultSyntax} values={constants.syntax}>
 <TabItem value="functional">
 
 ```SnackPlayer name=Function%20Component%20Example
@@ -112,7 +112,7 @@ export default class DisplayAnImage extends Component {
 
 You can also add `style` to an image:
 
-<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<Tabs groupId="syntax" queryString defaultValue={constants.defaultSyntax} values={constants.syntax}>
 <TabItem value="functional">
 
 ```SnackPlayer name=Function%20Component%20Example

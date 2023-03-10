@@ -32,7 +32,7 @@ If you must have an API key or a secret to access some resource from your app, t
 
 #### Developer Notes
 
-<Tabs groupId="guide" defaultValue="web" values={constants.getDevNotesTabs(["web"])}>
+<Tabs groupId="guide" queryString defaultValue="web" values={constants.getDevNotesTabs(["web"])}>
 
 <TabItem value="web">
 

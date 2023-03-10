@@ -272,7 +272,7 @@ my-module
 
 The code that should go in the `MyModuleImpl.java`, and that can be shared by the Legacy Native Module and the Turbo Native Module is, for example:
 
-<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<Tabs groupId="android-language" queryString defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
 <TabItem value="java">
 
 ```java title="example of MyModuleImpl.java"
@@ -325,7 +325,7 @@ Then, the Legacy Native Module and the Turbo Native Module can be updated with t
 
 For example, for a Legacy Native Module:
 
-<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<Tabs groupId="android-language" queryString defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
 <TabItem value="java">
 
 ```java title="Native Module using the Impl module"
@@ -377,7 +377,7 @@ class MyModule(context: ReactApplicationContext) : ReactContextBaseJavaModule(co
 
 And, for a Turbo Native Module:
 
-<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<Tabs groupId="android-language" queryString defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
 <TabItem value="java">
 
 ```java title="TurboModule using the Impl module"
@@ -441,7 +441,7 @@ import MyModule from 'your-module/src/index';
 
 Since `TurboModuleRegistry.get` taps into the old Native Modules API under the hood, we need to re-export our module, to avoid registering it multiple times.
 
-<Tabs groupId="turbomodule-backward-compatibility"
+<Tabs groupId="turbomodule-backward-compatibility" queryString
       defaultValue={constants.defaultTurboModuleSpecLanguage}
       values={constants.turboModuleSpecLanguages}>
 <TabItem value="Flow">

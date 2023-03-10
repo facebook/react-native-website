@@ -45,7 +45,7 @@ BackHandler.addEventListener('hardwareBackPress', function () {
 
 The following example implements a scenario where you confirm if the user wants to exit the app:
 
-<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<Tabs groupId="syntax" queryString defaultValue={constants.defaultSyntax} values={constants.syntax}>
 <TabItem value="functional">
 
 ```SnackPlayer name=BackHandler&supportedPlatforms=android
@@ -99,7 +99,7 @@ export default App;
 </TabItem>
 <TabItem value="classical">
 
-<Tabs groupId="language" defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
+<Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
 ```SnackPlayer name=BackHandler&supportedPlatforms=android&ext=js

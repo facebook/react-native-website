@@ -17,7 +17,7 @@ The [`Animated`](animated) API is designed to concisely express a wide variety o
 
 For example, a container view that fades in when it is mounted may look like this:
 
-<Tabs groupId="language" defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
+<Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
 ```SnackPlayer ext=js
@@ -310,7 +310,7 @@ The following example implements a horizontal scrolling carousel where the scrol
 
 #### ScrollView with Animated Event Example
 
-<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<Tabs groupId="syntax" queryString defaultValue={constants.defaultSyntax} values={constants.syntax}>
 <TabItem value="functional">
 
 ```SnackPlayer name=Animated&supportedPlatforms=ios,android
@@ -441,7 +441,7 @@ export default App;
 </TabItem>
 <TabItem value="classical">
 
-<Tabs groupId="language" defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
+<Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
 ```SnackPlayer name=Animated&supportedPlatforms=ios,android&ext=js
@@ -774,7 +774,7 @@ onPanResponderMove={Animated.event(
 
 #### PanResponder with Animated Event Example
 
-<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<Tabs groupId="syntax" queryString defaultValue={constants.defaultSyntax} values={constants.syntax}>
 <TabItem value="functional">
 
 ```SnackPlayer name=Animated

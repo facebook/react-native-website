@@ -151,7 +151,7 @@ These tasks invoke the `generateCodegenArtifactsFromSchema` on all the the impor
 
 Once the Gradle task completes, you can see different structures for a Turbo Native Module or for a Fabric Native Component. The following tab shows how they appear:
 
-<Tabs groupId="android-codegen" defaultValue={constants.defaultNewArchFeature} values={constants.newArchFeatures}>
+<Tabs groupId="android-codegen" queryString defaultValue={constants.defaultNewArchFeature} values={constants.newArchFeatures}>
 <TabItem value="turbomodules">
 
 ```sh

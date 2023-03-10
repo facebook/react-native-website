@@ -37,7 +37,7 @@ As mentioned in the introduction, there are some URL schemes for core functional
 
 If you want to enable deep links in your app, please read the below guide:
 
-<Tabs groupId="syntax" defaultValue={constants.defaultPlatform} values={constants.platforms}>
+<Tabs groupId="syntax" queryString defaultValue={constants.defaultPlatform} values={constants.platforms}>
 <TabItem value="android">
 
 > For instructions on how to add support for deep linking on Android, refer to [Enabling Deep Links for App Content - Add Intent Filters for Your Deep Links](http://developer.android.com/training/app-indexing/deep-linking.html#adding-filters).
@@ -114,7 +114,7 @@ You can handle these events with `Linking.getInitialURL()` - it returns a Promis
 
 ### Open Links and Deep Links (Universal Links)
 
-<Tabs groupId="language" defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
+<Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
 ```SnackPlayer name=Linking%20Function%20Component%20Example&supportedPlatforms=ios,android&ext=js
@@ -220,7 +220,7 @@ export default App;
 
 ### Open Custom Settings
 
-<Tabs groupId="language" defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
+<Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
 ```SnackPlayer name=Linking%20Function%20Component%20Example&supportedPlatforms=ios,android&ext=js
@@ -299,7 +299,7 @@ export default App;
 
 ### Get the Deep Link
 
-<Tabs groupId="language" defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
+<Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
 ```SnackPlayer name=Linking%20Function%20Component%20Example&supportedPlatforms=ios,android&ext=js
@@ -412,7 +412,7 @@ export default App;
 
 ### Send Intents (Android)
 
-<Tabs groupId="language" defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
+<Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
 ```SnackPlayer name=Linking%20Function%20Component%20Example&supportedPlatforms=android&ext=js

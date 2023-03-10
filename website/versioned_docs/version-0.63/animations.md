@@ -232,7 +232,7 @@ The following example implements a horizontal scrolling carousel where the scrol
 
 #### ScrollView with Animated Event Example
 
-<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<Tabs groupId="syntax" queryString defaultValue={constants.defaultSyntax} values={constants.syntax}>
 <TabItem value="functional">
 
 ```SnackPlayer name=Animated&supportedPlatforms=ios,android
@@ -533,7 +533,7 @@ onPanResponderMove={Animated.event(
 
 #### PanResponder with Animated Event Example
 
-<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<Tabs groupId="syntax" queryString defaultValue={constants.defaultSyntax} values={constants.syntax}>
 <TabItem value="functional">
 
 ```SnackPlayer name=Animated

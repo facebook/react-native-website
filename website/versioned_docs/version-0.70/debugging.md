@@ -90,7 +90,7 @@ You can use [the standalone version of React Developer Tools](https://github.com
 
 > Note: Version 4 of `react-devtools` requires `react-native` version 0.62 or higher to work properly.
 
-<Tabs groupId="package-manager" defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
 <TabItem value="npm">
 
 ```shell

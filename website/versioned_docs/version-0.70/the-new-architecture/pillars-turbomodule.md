@@ -60,7 +60,7 @@ There are two requirements the file containing this specification must meet:
 1. The file **must** be named `Native<MODULE_NAME>`, with a `.js` or `.jsx` extension when using Flow, or a `.ts`, or `.tsx` extension when using TypeScript. Codegen will only look for files matching this pattern.
 2. The file must export a `TurboModuleRegistrySpec` object.
 
-<Tabs groupId="turbomodule-specs" defaultValue={constants.defaultJavaScriptSpecLanguages} values={constants.javaScriptSpecLanguages}>
+<Tabs groupId="turbomodule-specs" queryString defaultValue={constants.defaultJavaScriptSpecLanguages} values={constants.javaScriptSpecLanguages}>
 <TabItem value="flow">
 
 ```typescript title="NativeCalculator.js"
@@ -666,7 +666,7 @@ Now you can use your Turbo Native Module calculator in your app!
 
 Here's an example App.js file using the `add` method:
 
-<Tabs groupId="final-app" defaultValue={constants.defaultJavaScriptSpecLanguages} values={constants.javaScriptSpecLanguages}>
+<Tabs groupId="final-app" queryString defaultValue={constants.defaultJavaScriptSpecLanguages} values={constants.javaScriptSpecLanguages}>
 <TabItem value="flow">
 
 ```typescript title="App.js"

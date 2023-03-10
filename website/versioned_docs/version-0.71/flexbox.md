@@ -65,7 +65,7 @@ export default Flex;
 
 You can learn more [here](https://yogalayout.com/docs/flex-direction).
 
-<Tabs groupId="language" defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
+<Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
 ```SnackPlayer name=Flex%20Direction&ext=js
@@ -282,7 +282,7 @@ Layout [`direction`](layout-props#direction) specifies the direction in which ch
 
 - `RTL` Text and children are laid out from right to left. Margin and padding applied to the start of an element are applied on the right side.
 
-<Tabs groupId="language" defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
+<Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
 ```SnackPlayer name=Flex%20Direction&ext=js
@@ -509,7 +509,7 @@ export default DirectionLayout;
 
 You can learn more [here](https://yogalayout.com/docs/justify-content).
 
-<Tabs groupId="language" defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
+<Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
 ```SnackPlayer name=Justify%20Content&ext=js
@@ -752,7 +752,7 @@ For `stretch` to have an effect, children must not have a fixed dimension along 
 
 You can learn more [here](https://yogalayout.com/docs/align-items).
 
-<Tabs groupId="language" defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
+<Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
 ```SnackPlayer name=Align%20Items&ext=js
@@ -985,7 +985,7 @@ export default AlignItemsLayout;
 
 [`alignSelf`](layout-props#alignself) has the same options and effect as `alignItems` but instead of affecting the children within a container, you can apply this property to a single child to change its alignment within its parent. `alignSelf` overrides any option set by the parent with `alignItems`.
 
-<Tabs groupId="language" defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
+<Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
 ```SnackPlayer name=Align%20Self&ext=js
@@ -1235,7 +1235,7 @@ export default AlignSelfLayout;
 
 You can learn more [here](https://yogalayout.com/docs/align-content).
 
-<Tabs groupId="language" defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
+<Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
 ```SnackPlayer name=Align%20Content&ext=js
@@ -1476,7 +1476,7 @@ The [`flexWrap`](layout-props#flexwrap) property is set on containers and it con
 
 When wrapping lines, `alignContent` can be used to specify how the lines are placed in the container. Learn more [here](https://yogalayout.com/docs/flex-wrap).
 
-<Tabs groupId="language" defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
+<Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
 ```SnackPlayer name=Flex%20Wrap&ext=js
@@ -1707,7 +1707,7 @@ export default FlexWrapLayout;
 
 You can learn more [here](https://yogalayout.com/docs/flex).
 
-<Tabs groupId="language" defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
+<Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
 ```SnackPlayer name=Flex%20Basis%2C%20Grow%2C%20and%20Shrink&ext=js
@@ -2080,7 +2080,7 @@ export default App;
 
 You can use `flexWrap` and `alignContent` alongwith `gap` to add consistent spacing between items.
 
-<Tabs groupId="language" defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
+<Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
 ```SnackPlayer name=Row%20Gap%20and%20Column%20Gap&ext=js
@@ -2307,7 +2307,7 @@ Both `width` and `height` can take the following values:
 
 - `percentage` Defines the width or height in percentage of its parent's width or height, respectively.
 
-<Tabs groupId="language" defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
+<Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
 ```SnackPlayer name=Width%20and%20Height&ext=js
@@ -2588,7 +2588,7 @@ The `position` type of an element defines how it is positioned within its parent
 
 - `absolute` When positioned absolutely, an element doesn't take part in the normal layout flow. It is instead laid out independent of its siblings. The position is determined based on the `top`, `right`, `bottom`, and `left` values.
 
-<Tabs groupId="language" defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
+<Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
 ```SnackPlayer name=Absolute%20%26%20Relative%20Layout&ext=js

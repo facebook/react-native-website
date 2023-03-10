@@ -7,7 +7,7 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import con
 
 ### Examples
 
-<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<Tabs groupId="syntax" queryString defaultValue={constants.defaultSyntax} values={constants.syntax}>
 <TabItem value="functional">
 
 ```SnackPlayer name=Image%20Style%20Props%20Function%20Component%20Example
@@ -176,7 +176,7 @@ const styles = StyleSheet.create({
 </TabItem>
 </Tabs>
 
-<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<Tabs groupId="syntax" queryString defaultValue={constants.defaultSyntax} values={constants.syntax}>
 <TabItem value="functional">
 
 ```SnackPlayer name=Style%20Border%20Radius%20Function%20Component%20Example
@@ -322,7 +322,7 @@ const styles = StyleSheet.create({
 </TabItem>
 </Tabs>
 
-<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<Tabs groupId="syntax" queryString defaultValue={constants.defaultSyntax} values={constants.syntax}>
 <TabItem value="functional">
 
 ```SnackPlayer name=Style%20BorderWidth%20and%20BorderColor%20Function%20Component%20Example
@@ -401,7 +401,7 @@ const styles = StyleSheet.create({
 </TabItem>
 </Tabs>
 
-<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<Tabs groupId="syntax" queryString defaultValue={constants.defaultSyntax} values={constants.syntax}>
 <TabItem value="functional">
 
 ```SnackPlayer name=Style%20tintColor%20Function%20Component

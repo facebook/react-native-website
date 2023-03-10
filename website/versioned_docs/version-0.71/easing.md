@@ -45,7 +45,7 @@ The following helpers are used to modify other easing functions.
 
 ## Example
 
-<Tabs groupId="language" defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
+<Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
 ```SnackPlayer name=Easing%20Demo&ext=js

@@ -49,7 +49,7 @@ Please [follow the instructions on the React Native website](hermes.md) to enabl
 
 #### Target OS
 
-<Tabs groupId="platform" defaultValue={constants.defaultPlatform} values={constants.platforms} className="pill-tabs">
+<Tabs groupId="platform" queryString defaultValue={constants.defaultPlatform} values={constants.platforms} className="pill-tabs">
 <TabItem value="ios">
 
 Navigate to the `ios` directory and run the following:

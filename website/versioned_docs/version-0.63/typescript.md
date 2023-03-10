@@ -25,7 +25,7 @@ npx react-native init MyApp --template react-native-template-typescript
 
 You can use [Expo][expo] which has two TypeScript templates:
 
-<Tabs groupId="package-manager" defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
 <TabItem value="npm">
 
 ```shell
@@ -46,7 +46,7 @@ expo init MyTSProject
 
 Or you could use [Ignite][ignite], which also has a TypeScript template:
 
-<Tabs groupId="package-manager" defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
 <TabItem value="npm">
 
 ```shell
@@ -69,7 +69,7 @@ ignite new MyTSProject
 
 1. Add TypeScript and the types for React Native and Jest to your project.
 
-<Tabs groupId="package-manager" defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
 <TabItem value="npm">
 
 ```shell
@@ -242,7 +242,7 @@ To use custom path aliases with TypeScript, you need to set the path aliases to 
 
 2. Add [`babel-plugin-module-resolver`][bpmr] as a development package to your project:
 
-<Tabs groupId="package-manager" defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
 <TabItem value="npm">
 
 ```shell

@@ -11,7 +11,7 @@ Opacity is controlled by wrapping the children in an `Animated.View`, which is a
 
 ## Example
 
-<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<Tabs groupId="syntax" queryString defaultValue={constants.defaultSyntax} values={constants.syntax}>
 <TabItem value="functional">
 
 ```SnackPlayer name=TouchableOpacity%20Function%20Component%20Example

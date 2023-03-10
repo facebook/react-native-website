@@ -9,7 +9,7 @@ The Modal component is a basic way to present content above an enclosing view.
 
 ## Example
 
-<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<Tabs groupId="syntax" queryString defaultValue={constants.defaultSyntax} values={constants.syntax}>
 <TabItem value="functional">
 
 ```SnackPlayer name=Modal&supportedPlatforms=android,ios

@@ -74,7 +74,7 @@ async function getMoviesFromApiAsync() {
 
 Don't forget to catch any errors that may be thrown by `fetch`, otherwise they will be dropped silently.
 
-<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<Tabs groupId="syntax" queryString defaultValue={constants.defaultSyntax} values={constants.syntax}>
 <TabItem value="functional">
 
 ```SnackPlayer name=Fetch%20Example

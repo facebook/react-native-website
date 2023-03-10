@@ -37,7 +37,7 @@ As mentioned in the introduction, there are some URL schemes for core functional
 
 If you want to enable deep links in your app, please read the below guide:
 
-<Tabs groupId="syntax" defaultValue={constants.defaultPlatform} values={constants.platforms}>
+<Tabs groupId="syntax" queryString defaultValue={constants.defaultPlatform} values={constants.platforms}>
 <TabItem value="android">
 
 > For instructions on how to add support for deep linking on Android, refer to [Enabling Deep Links for App Content - Add Intent Filters for Your Deep Links](http://developer.android.com/training/app-indexing/deep-linking.html#adding-filters).
