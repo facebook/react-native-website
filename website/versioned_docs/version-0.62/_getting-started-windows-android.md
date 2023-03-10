@@ -4,7 +4,7 @@ You will need Node, the React Native command line interface, Python2, a JDK, and
 
 While you can use any editor of your choice to develop your app, you will need to install Android Studio in order to set up the necessary tooling to build your React Native app for Android.
 
-<h3>Node, Python2, JDK</h3>
+<h3 id="jdk">Node, Python2, JDK</h3>
 
 We recommend installing Node and Python2 via [Chocolatey](https://chocolatey.org), a popular package manager for Windows.
 
