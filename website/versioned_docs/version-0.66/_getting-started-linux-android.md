@@ -16,7 +16,7 @@ React Native requires at least the version 8 of the Java SE Development Kit (JDK
 
 Setting up your development environment can be somewhat tedious if you're new to Android development. If you're already familiar with Android development, there are a few things you may need to configure. In either case, please make sure to carefully follow the next few steps.
 
-<h4>1. Install Android Studio</h4>
+<h4 id="android-studio">1. Install Android Studio</h4>
 
 [Download and install Android Studio](https://developer.android.com/studio/index.html). While on Android Studio installation wizard, make sure the boxes next to all of the following items are checked:
 
