@@ -115,7 +115,7 @@ If you use Android Studio to open `./AwesomeProject/android`, you can see the li
 
 ![Android Studio AVD Manager](/docs/assets/GettingStartedAndroidStudioAVD.png)
 
-If you have recently installed Android Studio, you will likely need to [create a new AVD](https://developer.android.com/studio/run/managing-avds.html). Select "Create Virtual Device...", then pick any Phone from the list and click "Next", then select the **S** API Level 31 image.
+If you have recently installed Android Studio, you will likely need to [create a new AVD](https://developer.android.com/studio/run/managing-avds.html). Select "Create Virtual Device...", then pick any Phone from the list and click "Next", then select the **Tiramisu** API Level 33 image.
 
 > We recommend configuring [VM acceleration](https://developer.android.com/studio/run/emulator-acceleration.html#vm-linux) on your system to improve performance. Once you've followed those instructions, go back to the AVD Manager.
 
