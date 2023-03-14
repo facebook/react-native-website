@@ -222,11 +222,11 @@ Takes an item from `data` and renders it into the list
 
 ### `CellRendererComponent`
 
-Each cell is rendered using this element. Can be a React Component Class, or a render function. Defaults to using [`View`](view.md).
+CellRendererComponent allows customizing how cells rendered by `renderItem`/`ListItemComponent` are wrapped when placed into the underlying ScrollView. This component must accept event handlers which notify VirtualizedList of changes within the cell.
 
-| Type                |
-| ------------------- |
-| component, function |
+| Type                                   |
+| -------------------------------------- |
+| React.ComponentType<CellRendererProps> |
 
 ---
 
