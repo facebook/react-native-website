@@ -853,6 +853,16 @@ Possible values for `textAlign` are:
 
 Give the keyboard and the system information about the expected semantic meaning for the content that users enter.
 
+:::note
+[`autoComplete`](#autocomplete), introduced to iOS in 0.71, provides the same functionality and is available for both platforms. You can use [`Platform.select`](/docs/platform#select) for differing platform behaviors.
+
+Avoid using both `textContentType` and `autoComplete`.
+:::
+
+:::caution
+In 0.71 a breaking change was introduced where the property `autoComplete` overrides `textContentType` on iOS when both are set. In 0.71.5, this was addressed so that `textContentType` takes precedence.
+:::
+
 For iOS 11+ you can set `textContentType` to `username` or `password` to enable autofill of login details from the device keychain.
 
 For iOS 12+ `newPassword` can be used to indicate a new password input the user may want to save in the keychain, and `oneTimeCode` can be used to indicate that a field can be autofilled by a code arriving in an SMS.
