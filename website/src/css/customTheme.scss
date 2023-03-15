@@ -1217,7 +1217,7 @@ button[class*="tocCollapsibleButton"] {
   --docusaurus-announcement-bar-height: auto !important;
 }
 
-div[class^="announcementBar"][role="banner"] {
+div[class*="announcementBar"][role="banner"] {
   border-bottom-color: var(--deepdark);
 
   button.close {
@@ -1227,7 +1227,7 @@ div[class^="announcementBar"][role="banner"] {
   }
 }
 
-div[class^="announcementBarContent"] {
+div[class*="announcementBarContent"] {
   line-height: 40px;
   font-size: 20px;
   font-weight: bold;
@@ -1245,13 +1245,13 @@ div[class^="announcementBarContent"] {
 }
 
 @media only screen and (max-width: 768px) {
-  div[class^="announcementBarContent"] {
+  div[class*="announcementBarContent"] {
     font-size: 18px;
   }
 }
 
 @media only screen and (max-width: 500px) {
-  div[class^="announcementBarContent"] {
+  div[class*="announcementBarContent"] {
     font-size: 15px;
     line-height: 22px;
     padding: 6px 30px;
