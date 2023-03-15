@@ -856,7 +856,7 @@ Give the keyboard and the system information about the expected semantic meaning
 :::note
 [`autoComplete`](#autocomplete), provides the same functionality and is available for both platforms. You can use [`Platform.select`](/docs/next/platform#select) for differing platform behaviors.
 
-Avoid using both `textContentType` and `autoComplete`. For backwards compatibility, when both are set, `textContentType` takes precedence.
+Avoid using both `textContentType` and `autoComplete`. For backwards compatibility, `textContentType` takes precedence when both properties are set.
 :::
 
 For iOS 11+ you can set `textContentType` to `username` or `password` to enable autofill of login details from the device keychain.
