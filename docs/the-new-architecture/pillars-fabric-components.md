@@ -749,10 +749,10 @@ import com.facebook.react.viewmanagers.RTNCenteredTextManagerInterface;
 import com.facebook.react.viewmanagers.RTNCenteredTextManagerDelegate;
 
 @ReactModule(name = CenteredTextManager.NAME)
-public class CenteredTextManager extends SimpleViewManager<RTNCenteredText>
-        implements RTNCenteredTextManagerInterface<RTNCenteredText> {
+public class CenteredTextManager extends SimpleViewManager<CenteredText>
+        implements RTNCenteredTextManagerInterface<CenteredText> {
 
-    private final ViewManagerDelegate<RTNCenteredText> mDelegate;
+    private final ViewManagerDelegate<CenteredText> mDelegate;
 
     static final String NAME = "RTNCenteredText";
 
@@ -762,7 +762,7 @@ public class CenteredTextManager extends SimpleViewManager<RTNCenteredText>
 
     @Nullable
     @Override
-    protected ViewManagerDelegate<RTNCenteredText> getDelegate() {
+    protected ViewManagerDelegate<CenteredText> getDelegate() {
         return mDelegate;
     }
 
@@ -774,13 +774,13 @@ public class CenteredTextManager extends SimpleViewManager<RTNCenteredText>
 
     @NonNull
     @Override
-    protected RTNCenteredText createViewInstance(@NonNull ThemedReactContext context) {
-        return new RTNCenteredText(context);
+    protected CenteredText createViewInstance(@NonNull ThemedReactContext context) {
+        return new CenteredText(context);
     }
 
     @Override
     @ReactProp(name = "text")
-    public void setText(RTNCenteredText view, @Nullable String text) {
+    public void setText(CenteredText view, @Nullable String text) {
         view.setText(text);
     }
 }
@@ -942,7 +942,7 @@ Finally, you can use the component in your JavaScript application.
  */
 import React from 'react';
 import type {Node} from 'react';
-import RTNCalculator from 'rtn-calculator/js/NativeCalculator';
+import RTNCenteredText from 'rtn-centered-text/js/RTNCenteredTextNativeComponent';
 
 const App: () => Node = () => {
   return (
@@ -966,7 +966,7 @@ export default App;
  * @format
  */
 import React from 'react';
-import RTNCalculator from 'rtn-calculator/js/NativeCalculator';
+import RTNCenteredText from 'rtn-centered-text/js/RTNCenteredTextNativeComponent';
 
 const App: () => JSX.Element = () => {
   return (
