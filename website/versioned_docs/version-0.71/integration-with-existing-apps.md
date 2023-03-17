@@ -13,7 +13,7 @@ React Native is great when you are starting a new mobile app from scratch. Howev
 
 The specific steps are different depending on what platform you're targeting.
 
-<Tabs groupId="language" defaultValue="java" values={[ {label: 'Android (Kotlin)', value: 'kotlin'}, {label: 'Android (Java)', value: 'java'}, {label: 'iOS (Objective-C)', value: 'objc'}, {label: 'iOS (Swift)', value: 'swift'}, ]}>
+<Tabs groupId="language" queryString defaultValue="java" values={[ {label: 'Android (Kotlin)', value: 'kotlin'}, {label: 'Android (Java)', value: 'java'}, {label: 'iOS (Objective-C)', value: 'objc'}, {label: 'iOS (Swift)', value: 'swift'}, ]}>
 
 <TabItem value="kotlin">
 

@@ -11,7 +11,7 @@ Virtualization massively improves memory consumption and performance of large li
 
 ## Example
 
-<Tabs groupId="language" defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
+<Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
 ```SnackPlayer name=VirtualizedListExample&ext=js

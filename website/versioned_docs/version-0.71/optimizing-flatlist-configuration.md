@@ -125,7 +125,7 @@ You can also use a `key` prop in your item component.
 
 Move out the `renderItem` function to the outside of render function, so it won't recreate itself each time render function called.
 
-<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<Tabs groupId="syntax" queryString defaultValue={constants.defaultSyntax} values={constants.syntax}>
 <TabItem value="classical">
 
 ```tsx

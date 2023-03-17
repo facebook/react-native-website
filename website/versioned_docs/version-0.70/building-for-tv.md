@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import con
 
 TV devices support has been implemented with the intention of making existing React Native applications work on Apple TV and Android TV, with few or no changes needed in the JavaScript code for the applications.
 
-<Tabs groupId="tv" defaultValue="androidtv" values={[ {label: 'Android TV', value: 'androidtv'}, {label: '🚧 tvOS', value: 'tvos'}, ]}>
+<Tabs groupId="tv" queryString defaultValue="androidtv" values={[ {label: 'Android TV', value: 'androidtv'}, {label: '🚧 tvOS', value: 'tvos'}, ]}>
 
 <TabItem value="androidtv">
 

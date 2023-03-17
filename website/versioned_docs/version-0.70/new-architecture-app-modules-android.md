@@ -103,7 +103,7 @@ yarn react-native run-android
 Now is time to actually use the Turbo Native Module.
 First, we will need to create a `ReactPackageTurboModuleManagerDelegate` subclass, like the following:
 
-<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<Tabs groupId="android-language" queryString defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
 <TabItem value="java">
 
 ```java
@@ -201,7 +201,7 @@ Then, you can provide the class you created to your `ReactNativeHost`. You can l
 
 Once you located it, you need to add the `getReactPackageTurboModuleManagerDelegateBuilder` method as from the snippet below:
 
-<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<Tabs groupId="android-language" queryString defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
 <TabItem value="java">
 
 ```java
@@ -261,7 +261,7 @@ class MyApplication : Application(), ReactApplication {
 
 Still on the `ReactNativeHost` , we need to extend the the `getPackages()` method to include the newly created Turbo Native Module. Update the method to include the following:
 
-<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<Tabs groupId="android-language" queryString defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
 <TabItem value="java">
 
 ```java
@@ -534,7 +534,7 @@ JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM *vm, void *) {
 
 Now you can finally enable the `Turbo Native Module` support in your Application. To do so, you need to turn on the `useTurboModule` flag inside your Application `onCreate` method.
 
-<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<Tabs groupId="android-language" queryString defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
 <TabItem value="java">
 
 ```java

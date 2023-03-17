@@ -32,7 +32,7 @@ For a full list of the types of system colors supported, see:
 
 #### Developer notes
 
-<Tabs groupId="guide" defaultValue="web" values={constants.getDevNotesTabs(["web"])}>
+<Tabs groupId="guide" queryString defaultValue="web" values={constants.getDevNotesTabs(["web"])}>
 
 <TabItem value="web">
 

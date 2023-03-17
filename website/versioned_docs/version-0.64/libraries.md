@@ -22,7 +22,7 @@ If you have Node.js installed on your computer then you already have the npm CLI
 
 To install a library in your project, navigate to your project directory in your terminal and run the installation command. Let's try this with `react-native-webview`:
 
-<Tabs groupId="package-manager" defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
 <TabItem value="npm">
 
 ```shell

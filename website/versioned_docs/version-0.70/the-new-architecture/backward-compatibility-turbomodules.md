@@ -355,7 +355,7 @@ import MyModule from 'your-module/src/index';
 
 Since `TurboModuleRegistry.get` taps into the old Native Modules API under the hood, we need to re-export our module, to avoid registering it multiple times.
 
-<Tabs groupId="turbomodule-backward-compatibility"
+<Tabs groupId="turbomodule-backward-compatibility" queryString
       defaultValue={constants.defaultTurboModuleSpecLanguage}
       values={constants.turboModuleSpecLanguages}>
 <TabItem value="Flow">

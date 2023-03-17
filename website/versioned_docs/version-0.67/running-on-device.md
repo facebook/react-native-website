@@ -10,14 +10,14 @@ It's always a good idea to test your app on an actual device before releasing it
 
 If you used Expo CLI or Create React Native App to set up your project, you can preview your app on a device by scanning the QR code with the Expo app—but in order to build and run your app on a device, you will need to eject and install the native code dependencies from the [environment setup guide](environment-setup).
 
-<Tabs groupId="platform" defaultValue={constants.defaultPlatform} values={constants.platforms} className="pill-tabs">
+<Tabs groupId="platform" queryString defaultValue={constants.defaultPlatform} values={constants.platforms} className="pill-tabs">
 <TabItem value="android">
 
 ## Running your app on Android devices
 
 #### Development OS
 
-<Tabs groupId="os" defaultValue={constants.defaultOs} values={constants.oses} className="pill-tabs">
+<Tabs groupId="os" queryString defaultValue={constants.defaultOs} values={constants.oses} className="pill-tabs">
 <TabItem value="macos">
 
 [//]: # 'macOS, Android'
@@ -310,7 +310,7 @@ You have built a great app using React Native, and you are now itching to releas
 
 #### Development OS
 
-<Tabs groupId="os" defaultValue={constants.defaultOs} values={constants.oses} className="pill-tabs">
+<Tabs groupId="os" queryString defaultValue={constants.defaultOs} values={constants.oses} className="pill-tabs">
 <TabItem value="macos">
 
 [//]: # 'macOS, iOS'

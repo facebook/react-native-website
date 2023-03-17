@@ -12,14 +12,14 @@ It's always a good idea to test your app on an actual device before releasing it
 If you used `create-expo-app` to set up your project, you can run your app on a device in Expo Go by scanning the QR code that is displayed when you run `npm start`. Refer to the Expo guide for [running your project on your device](https://docs.expo.dev/workflow/run-on-device/) for more information.
 :::
 
-<Tabs groupId="platform" defaultValue={constants.defaultPlatform} values={constants.platforms} className="pill-tabs">
+<Tabs groupId="platform" queryString defaultValue={constants.defaultPlatform} values={constants.platforms} className="pill-tabs">
 <TabItem value="android">
 
 ## Running your app on Android devices
 
 #### Development OS
 
-<Tabs groupId="os" defaultValue={constants.defaultOs} values={constants.oses} className="pill-tabs">
+<Tabs groupId="os" queryString defaultValue={constants.defaultOs} values={constants.oses} className="pill-tabs">
 <TabItem value="macos">
 
 [//]: # 'macOS, Android'
@@ -316,7 +316,7 @@ You have built a great app using React Native, and you are now itching to releas
 
 #### Development OS
 
-<Tabs groupId="os" defaultValue={constants.defaultOs} values={constants.oses} className="pill-tabs">
+<Tabs groupId="os" queryString defaultValue={constants.defaultOs} values={constants.oses} className="pill-tabs">
 <TabItem value="macos">
 
 [//]: # 'macOS, iOS'

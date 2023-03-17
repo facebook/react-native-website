@@ -127,7 +127,7 @@ For functional components, move the `renderItem` function outside of the returne
 
 For class componenents, move the `renderItem` function outside of the render function, so it won't recreate itself each time the render function is called.
 
-<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<Tabs groupId="syntax" queryString defaultValue={constants.defaultSyntax} values={constants.syntax}>
 <TabItem value="classical">
 
 ```tsx

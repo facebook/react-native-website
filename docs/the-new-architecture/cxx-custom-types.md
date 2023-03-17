@@ -63,7 +63,7 @@ Omitting either `fromJS` or `toJS` would make you `bridging` header either _read
 
 Now you can add the following function to your JavaScript spec:
 
-<Tabs groupId="turbomodule-specs" defaultValue={constants.defaultJavaScriptSpecLanguages} values={constants.javaScriptSpecLanguages}>
+<Tabs groupId="turbomodule-specs" queryString defaultValue={constants.defaultJavaScriptSpecLanguages} values={constants.javaScriptSpecLanguages}>
 <TabItem value="typescript">
 
 ```typescript title="NativeSampleModule.ts"
@@ -157,7 +157,7 @@ export type CustomType = {
 
 which can be exposed to your C++ Turbo Native Module via
 
-<Tabs groupId="turbomodule-specs" defaultValue={constants.defaultJavaScriptSpecLanguages} values={constants.javaScriptSpecLanguages}>
+<Tabs groupId="turbomodule-specs" queryString defaultValue={constants.defaultJavaScriptSpecLanguages} values={constants.javaScriptSpecLanguages}>
 <TabItem value="typescript">
 
 ```typescript title="NativeSampleModule.ts"

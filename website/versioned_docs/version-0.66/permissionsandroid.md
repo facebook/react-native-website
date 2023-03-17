@@ -20,7 +20,7 @@ If a user has previously turned off a permission that you prompt for, the OS wil
 
 ### Example
 
-<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<Tabs groupId="syntax" queryString defaultValue={constants.defaultSyntax} values={constants.syntax}>
 <TabItem value="functional">
 
 ```SnackPlayer name=PermissionsAndroid%20Example&supportedPlatforms=android

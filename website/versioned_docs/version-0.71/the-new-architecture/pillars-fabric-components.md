@@ -66,7 +66,7 @@ There are two requirements the file containing this specification must meet:
 
 Below are specifications of the `RTNCenteredText` component in both Flow and TypeScript. Create a `RTNCenteredTextNativeComponent` file with the proper extension in the `js` folder.
 
-<Tabs groupId="fabric-component-specs" defaultValue={constants.defaultJavaScriptSpecLanguages} values={constants.javaScriptSpecLanguages}>
+<Tabs groupId="fabric-component-specs" queryString defaultValue={constants.defaultJavaScriptSpecLanguages} values={constants.javaScriptSpecLanguages}>
 <TabItem value='flow'>
 
 ```typescript
@@ -283,7 +283,7 @@ Then, you need a class that implements the `ReactPackage` interface. To run the 
 
 Create an `android/src/main/java/com/rtncenteredtext` folder and, inside that folder, create a `CenteredTextPackage.java` file.
 
-<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<Tabs groupId="android-language" queryString defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
 <TabItem value="java">
 
 ```java title="CenteredTextPackage.java"
@@ -653,7 +653,7 @@ android
 
 ##### CenteredText.java
 
-<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<Tabs groupId="android-language" queryString defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
 <TabItem value="java">
 
 ```java title="CenteredText.java"
@@ -730,7 +730,7 @@ This class represents the actual view Android is going to represent on screen. I
 
 ##### CenteredTextManager.java
 
-<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<Tabs groupId="android-language" queryString defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
 <TabItem value="java">
 
 ```java title="CenteredTextManager.java"
@@ -833,7 +833,7 @@ It is also responsible for exporting all the constructs required by React Native
 
 Finally, open the `CenteredTextPackage.java` file in the `android/src/main/java/com/rtncenteredtext` folder and update it with the following lines
 
-<Tabs groupId="android-language" defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<Tabs groupId="android-language" queryString defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
 <TabItem value="java">
 
 ```diff title="CenteredTextPackage.java update"
@@ -929,7 +929,7 @@ Android configuration requires to enable the **New Architecture**.
 
 Finally, you can use the component in your JavaScript application.
 
-<Tabs groupId="final-app" defaultValue={constants.defaultJavaScriptSpecLanguages} values={constants.javaScriptSpecLanguages}>
+<Tabs groupId="final-app" queryString defaultValue={constants.defaultJavaScriptSpecLanguages} values={constants.javaScriptSpecLanguages}>
 <TabItem value="flow">
 
 ```typescript title="App.js"
