@@ -854,7 +854,7 @@ Possible values for `textAlign` are:
 Give the keyboard and the system information about the expected semantic meaning for the content that users enter.
 
 :::note
-[`autoComplete`](#autocomplete), provides the same functionality and is available for both platforms. You can use [`Platform.select`](/docs/next/platform#select) for differing platform behaviors.
+[`autoComplete`](#autocomplete), provides the same functionality and is available for all platforms. You can use [`Platform.select`](/docs/next/platform#select) for differing platform behaviors.
 
 Avoid using both `textContentType` and `autoComplete`. For backwards compatibility, `textContentType` takes precedence when both properties are set.
 :::
