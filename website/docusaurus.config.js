@@ -28,7 +28,10 @@ module.exports = {
   projectName: 'react-native',
   url: 'https://reactnative.dev',
   baseUrl: '/',
-  clientModules: [require.resolve('./snackPlayerInitializer.js')],
+  clientModules: [
+    require.resolve('./modules/snackPlayerInitializer.js'),
+    require.resolve('./modules/jumpToFragment.js'),
+  ],
   trailingSlash: false, // because trailing slashes can break some existing relative links
   scripts: [
     {
