@@ -854,7 +854,7 @@ Possible values for `textAlign` are:
 Give the keyboard and the system information about the expected semantic meaning for the content that users enter.
 
 :::note
-[`autoComplete`](#autocomplete), introduced to iOS in 0.71, provides the same functionality and is available for both platforms. You can use [`Platform.select`](/docs/platform#select) for differing platform behaviors.
+[`autoComplete`](#autocomplete), introduced to iOS in 0.71, provides the same functionality and is available for all platforms. You can use [`Platform.select`](/docs/platform#select) for differing platform behaviors.
 
 Avoid using both `textContentType` and `autoComplete`.
 :::
