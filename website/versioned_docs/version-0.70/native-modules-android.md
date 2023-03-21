@@ -869,7 +869,7 @@ sendEvent(reactContext, "EventReminder", params)
 </TabItem>
 </Tabs>
 
-JavaScript modules can then register to receive events by `addListener` on the [NativeEventEmitter](https://github.com/facebook/react-native/blob/master/Libraries/EventEmitter/NativeEventEmitter.js) class.
+JavaScript modules can then register to receive events by `addListener` on the [NativeEventEmitter](https://github.com/facebook/react-native/blob/main/packages/react-native/Libraries/EventEmitter/NativeEventEmitter.js) class.
 
 ```jsx
 import { NativeEventEmitter, NativeModules } from 'react-native';
