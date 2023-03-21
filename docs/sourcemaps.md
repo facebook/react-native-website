@@ -63,6 +63,7 @@ At the top of the file near the other export's, add an entry for `SOURCEMAP_FILE
 
 ```
 export SOURCEMAP_FILE="$(pwd)/../main.jsbundle.map";
+export EXTRA_PACKAGER_ARGS="--minify false"
 
 export NODE_BINARY=node
 ../node_modules/react-native/scripts/react-native-xcode.sh
