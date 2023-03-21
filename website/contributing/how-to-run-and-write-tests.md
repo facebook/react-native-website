@@ -88,7 +88,7 @@ Whenever you are fixing a bug or adding new functionality to React Native, it is
 
 The JavaScript tests can be found inside `__test__` directories, colocated next to the files that are being tested. See [`TouchableHighlight-test.js`][js-jest-test] for a basic example. You can also follow Jest's [Testing React Native Apps][jest-tutorial] tutorial to learn more.
 
-[js-jest-test]: https://github.com/facebook/react-native/blob/main/Libraries/Components/Touchable/__tests__/TouchableHighlight-test.js
+[js-jest-test]: https://github.com/facebook/react-native/blob/main/packages/react-native/Libraries/Components/Touchable/__tests__/TouchableHighlight-test.js
 [jest-tutorial]: https://jestjs.io/docs/en/tutorial-react-native
 
 ### iOS Integration Tests
