@@ -53,65 +53,6 @@ The above is a Snack Player. It’s a handy tool created by Expo to embed and ru
 
 > Optionally, if you want to setup a local development environment, [you can follow our guide to setting up your environment on your local machine](environment-setup) and paste the code examples into your `App.js` file there. (If you are a web developer, you may already have a local environment set up for mobile browser testing!)
 
-## Function Components and Class Components
-
-With React, you can make components using either classes or functions. Originally, class components were the only components that could have state. But since the introduction of React's Hooks API, you can add state and more to function components.
-
-[Hooks were introduced in React Native 0.59.](/blog/2019/03/12/releasing-react-native-059), and because Hooks are the future-facing way to write your React components, we wrote this introduction using function component examples. Where useful, we also cover class components under a toggle like so:
-
-<Tabs groupId="syntax" queryString defaultValue={constants.defaultSyntax} values={constants.syntax}>
-<TabItem value="functional">
-
-```SnackPlayer name=Hello%20World%20Function%20Component
-import React from 'react';
-import {Text, View} from 'react-native';
-
-const HelloWorldApp = () => {
-  return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}>
-      <Text>Hello, world!</Text>
-    </View>
-  );
-};
-
-export default HelloWorldApp;
-```
-
-</TabItem>
-<TabItem value="classical">
-
-```SnackPlayer name=Hello%20World%20Class%20Component
-import React, {Component} from 'react';
-import {Text, View} from 'react-native';
-
-class HelloWorldApp extends Component {
-  render() {
-    return (
-      <View
-        style={{
-          flex: 1,
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
-        <Text>Hello, world!</Text>
-      </View>
-    );
-  }
-}
-
-export default HelloWorldApp;
-```
-
-</TabItem>
-</Tabs>
-
-You can find more examples of class components in [previous versions of this documentation](/versions).
-
 ## Developer Notes
 
 People from many different development backgrounds are learning React Native. You may have experience with a range of technologies, from web to Android to iOS and more. We try to write for developers from all backgrounds. Sometimes we provide explanations specific to one platform or another like so:

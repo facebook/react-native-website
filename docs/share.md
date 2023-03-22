@@ -7,13 +7,10 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import con
 
 ## Example
 
-<Tabs groupId="syntax" queryString defaultValue={constants.defaultSyntax} values={constants.syntax}>
-<TabItem value="functional">
-
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
-```SnackPlayer name=Function%20Component%20Example&supportedPlatforms=ios,android&ext=js
+```SnackPlayer name=Example&supportedPlatforms=ios,android&ext=js
 import React from 'react';
 import {Alert, Share, View, Button} from 'react-native';
 
@@ -50,7 +47,7 @@ export default ShareExample;
 </TabItem>
 <TabItem value="typescript">
 
-```SnackPlayer name=Function%20Component%20Example&supportedPlatforms=ios,android&ext=tsx
+```SnackPlayer name=Example&supportedPlatforms=ios,android&ext=tsx
 import React from 'react';
 import {Alert, Share, View, Button} from 'react-native';
 
@@ -83,97 +80,6 @@ const ShareExample = () => {
 
 export default ShareExample;
 ```
-
-</TabItem>
-</Tabs>
-
-</TabItem>
-<TabItem value="classical">
-
-<Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
-<TabItem value="javascript">
-
-```SnackPlayer name=Class%20Component%20Example&supportedPlatforms=ios,android&ext=js
-import React, {Component} from 'react';
-import {Alert, Share, View, Button} from 'react-native';
-
-class ShareExample extends Component {
-  onShare = async () => {
-    try {
-      const result = await Share.share({
-        message:
-          'React Native | A framework for building native apps using React',
-      });
-
-      if (result.action === Share.sharedAction) {
-        if (result.activityType) {
-          // shared with activity type of result.activityType
-        } else {
-          // shared
-        }
-      } else if (result.action === Share.dismissedAction) {
-        // dismissed
-      }
-    } catch (error) {
-      Alert.alert(error.message);
-    }
-  };
-
-  render() {
-    return (
-      <View style={{marginTop: 50}}>
-        <Button onPress={this.onShare} title="Share" />
-      </View>
-    );
-  }
-}
-
-export default ShareExample;
-```
-
-</TabItem>
-<TabItem value="typescript">
-
-```SnackPlayer name=Class%20Component%20Example&supportedPlatforms=ios,android&ext=tsx
-import React, {Component} from 'react';
-import {Alert, Share, View, Button} from 'react-native';
-
-class ShareExample extends Component {
-  onShare = async () => {
-    try {
-      const result = await Share.share({
-        message:
-          'React Native | A framework for building native apps using React',
-      });
-
-      if (result.action === Share.sharedAction) {
-        if (result.activityType) {
-          // shared with activity type of result.activityType
-        } else {
-          // shared
-        }
-      } else if (result.action === Share.dismissedAction) {
-        // dismissed
-      }
-    } catch (error: any) {
-      Alert.alert(error.message);
-    }
-  };
-
-  render() {
-    return (
-      <View style={{marginTop: 50}}>
-        <Button onPress={this.onShare} title="Share" />
-      </View>
-    );
-  }
-}
-
-export default ShareExample;
-```
-
-</TabItem>
-</Tabs>
 
 </TabItem>
 </Tabs>

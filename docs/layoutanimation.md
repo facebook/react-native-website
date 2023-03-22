@@ -3,8 +3,6 @@ id: layoutanimation
 title: LayoutAnimation
 ---
 
-import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
-
 Automatically animates views to their new positions when the next layout happens.
 
 A common way to use this API is to call it before updating the state hook in functional components and calling `setState` in class components.
@@ -131,9 +129,6 @@ Helper that creates an object (with `create`, `update`, and `delete` fields) to 
 
 **Example:**
 
-<Tabs groupId="syntax" queryString defaultValue={constants.defaultSyntax} values={constants.syntax}>
-<TabItem value="functional">
-
 ```SnackPlayer name=LayoutAnimation&supportedPlatforms=android,ios
 import React, {useState} from 'react';
 import {
@@ -203,90 +198,6 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-</TabItem>
-<TabItem value="classical">
-
-```SnackPlayer name=LayoutAnimation&supportedPlatforms=android,ios
-import React, {Component} from 'react';
-import {
-  View,
-  Platform,
-  UIManager,
-  LayoutAnimation,
-  StyleSheet,
-  Button,
-} from 'react-native';
-
-if (
-  Platform.OS === 'android' &&
-  UIManager.setLayoutAnimationEnabledExperimental
-) {
-  UIManager.setLayoutAnimationEnabledExperimental(true);
-}
-
-class App extends Component {
-  state = {
-    boxPosition: 'left',
-  };
-
-  toggleBox = () => {
-    LayoutAnimation.configureNext({
-      duration: 500,
-      create: {type: 'linear', property: 'opacity'},
-      update: {type: 'spring', springDamping: 0.4},
-      delete: {type: 'linear', property: 'opacity'},
-    });
-    this.setState({
-      boxPosition: this.state.boxPosition === 'left' ? 'right' : 'left',
-    });
-  };
-
-  render() {
-    return (
-      <View style={styles.container}>
-        <View style={styles.buttonContainer}>
-          <Button title="Toggle Layout" onPress={this.toggleBox} />
-        </View>
-        <View
-          style={[
-            styles.box,
-            this.state.boxPosition === 'left' ? null : styles.moveRight,
-          ]}
-        />
-      </View>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'flex-start',
-    justifyContent: 'center',
-  },
-  box: {
-    height: 100,
-    width: 100,
-    borderRadius: 5,
-    margin: 8,
-    backgroundColor: 'blue',
-  },
-  moveRight: {
-    alignSelf: 'flex-end',
-    height: 200,
-    width: 200,
-  },
-  buttonContainer: {
-    alignSelf: 'center',
-  },
-});
-
-export default App;
-```
-
-</TabItem>
-</Tabs>
-
 ## Properties
 
 ### Types
@@ -346,9 +257,6 @@ Calls `configureNext()` with `Presets.linear`.
 Calls `configureNext()` with `Presets.spring`.
 
 **Example:**
-
-<Tabs groupId="syntax" queryString defaultValue={constants.defaultSyntax} values={constants.syntax}>
-<TabItem value="functional">
 
 ```SnackPlayer name=LayoutAnimation&supportedPlatforms=android,ios
 import React, {useState} from 'react';
@@ -444,117 +352,3 @@ const styles = StyleSheet.create({
 
 export default App;
 ```
-
-</TabItem>
-<TabItem value="classical">
-
-```SnackPlayer name=LayoutAnimation&supportedPlatforms=android,ios
-import React, {Component} from 'react';
-import {
-  View,
-  Platform,
-  UIManager,
-  LayoutAnimation,
-  StyleSheet,
-  Button,
-} from 'react-native';
-
-if (
-  Platform.OS === 'android' &&
-  UIManager.setLayoutAnimationEnabledExperimental
-) {
-  UIManager.setLayoutAnimationEnabledExperimental(true);
-}
-
-class App extends Component {
-  state = {
-    firstBoxPosition: 'left',
-    secondBoxPosition: 'left',
-    thirdBoxPosition: 'left',
-  };
-
-  toggleFirstBox = () => {
-    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
-    this.setState({
-      firstBoxPosition:
-        this.state.firstBoxPosition === 'left' ? 'right' : 'left',
-    });
-  };
-
-  toggleSecondBox = () => {
-    LayoutAnimation.configureNext(LayoutAnimation.Presets.linear);
-    this.setState({
-      secondBoxPosition:
-        this.state.secondBoxPosition === 'left' ? 'right' : 'left',
-    });
-  };
-
-  toggleThirdBox = () => {
-    LayoutAnimation.configureNext(LayoutAnimation.Presets.spring);
-    this.setState({
-      thirdBoxPosition:
-        this.state.thirdBoxPosition === 'left' ? 'right' : 'left',
-    });
-  };
-
-  render() {
-    return (
-      <View style={styles.container}>
-        <View style={styles.buttonContainer}>
-          <Button title="EaseInEaseOut" onPress={this.toggleFirstBox} />
-        </View>
-        <View
-          style={[
-            styles.box,
-            this.state.firstBoxPosition === 'left' ? null : styles.moveRight,
-          ]}
-        />
-        <View style={styles.buttonContainer}>
-          <Button title="Linear" onPress={this.toggleSecondBox} />
-        </View>
-        <View
-          style={[
-            styles.box,
-            this.state.secondBoxPosition === 'left' ? null : styles.moveRight,
-          ]}
-        />
-        <View style={styles.buttonContainer}>
-          <Button title="Spring" onPress={this.toggleThirdBox} />
-        </View>
-        <View
-          style={[
-            styles.box,
-            this.state.thirdBoxPosition === 'left' ? null : styles.moveRight,
-          ]}
-        />
-      </View>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'flex-start',
-    justifyContent: 'center',
-  },
-  box: {
-    height: 100,
-    width: 100,
-    borderRadius: 5,
-    margin: 8,
-    backgroundColor: 'blue',
-  },
-  moveRight: {
-    alignSelf: 'flex-end',
-  },
-  buttonContainer: {
-    alignSelf: 'center',
-  },
-});
-
-export default App;
-```
-
-</TabItem>
-</Tabs>
