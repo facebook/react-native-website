@@ -843,7 +843,7 @@ Finally, you can use the component in your JavaScript application.
  */
 import React from 'react';
 import type {Node} from 'react';
-import RTNCalculator from 'rtn-calculator/js/NativeCalculator';
+import RTNCenteredText from 'rtn-centered-text/js/RTNCenteredTextNativeComponent';
 
 const App: () => Node = () => {
   return (
@@ -867,7 +867,7 @@ export default App;
  * @format
  */
 import React from 'react';
-import RTNCalculator from 'rtn-calculator/js/NativeCalculator';
+import RTNCenteredText from 'rtn-centered-text/js/RTNCenteredTextNativeComponent';
 
 const App: () => JSX.Element = () => {
   return (
