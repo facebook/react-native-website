@@ -14,7 +14,7 @@ New projects created by the [React Native CLI](/docs/environment-setup#creating-
 TypeScript may also be used with [Expo][expo], which maintains TypeScript templates, or will prompt you to automatically install and configure TypeScript when a `.ts` or `.tsx` file is added to your project.
 
 ```shell
-npx create-expo-app --template
+npx create-expo-app --template react-native-template-typescript
 ```
 
 ## Adding TypeScript to an Existing Project
