@@ -804,6 +804,13 @@ yarn add ../RTNCenteredText
 
 This command adds the `RTNCenteredText` Component to the `node_modules` of your app.
 
+If the package was previously added to your app, you will need to update it:
+
+```sh
+cd MyApp
+yarn upgrade rtn-centered-text
+```
+
 ### iOS
 
 Then, you need to install the new dependencies in your iOS project. To do so, you need to run these commands:
