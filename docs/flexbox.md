@@ -2450,7 +2450,7 @@ import {
 } from 'react-native';
 import type {PropsWithChildren} from 'react';
 
-type Dimension = string | number;
+type Dimension = 'auto' | `${number}%` | number;
 
 const WidthHeightBasics = () => {
   const [widthType, setWidthType] = useState<Dimension>('auto');

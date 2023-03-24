@@ -3,13 +3,13 @@ id: progressviewios
 title: '🚧 ProgressViewIOS'
 ---
 
-> **Deprecated.** Use one of the [community packages](https://reactnative.directory/?search=progressview) instead.
+> **Removed.** Use one of the [community packages](https://reactnative.directory/?search=progressview) instead.
 
 Uses `ProgressViewIOS` to render a UIProgressView on iOS.
 
 ### Example
 
-```SnackPlayer name=ProgressViewIOS&supportedPlatforms=ios
+```SnackPlayer name=ProgressViewIOS&supportedPlatforms=ios&disableLinting=true
 import React from 'react';
 import {View, StyleSheet, ProgressViewIOS, Text} from 'react-native';
 
