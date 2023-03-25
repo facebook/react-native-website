@@ -124,10 +124,20 @@ The config that's passed to `create`, `update`, or `delete` has the following ke
 ### `create()`
 
 ```tsx
-static create(duration, type, creationProp)
+static create(duration, type, property)
 ```
 
-Helper that creates an object (with `create`, `update`, and `delete` fields) to pass into [`configureNext`](layoutanimation.md#configurenext). The `type` parameter is an [animation type](layoutanimation.md#types), and the `creationProp` parameter is a [layout property](layoutanimation.md#properties).
+Helper that creates an object (with `create`, `update`, and `delete` fields) to pass into [`configureNext`](layoutanimation.md#configurenext). The `type` parameter is an [animation type](layoutanimation.md#types), and the `property` parameter is a [layout property](layoutanimation.md#properties).
+
+#### Parameters:
+
+| Name     | Type                    | Required | Description                    |
+| -------- | ----------------------- | -------- | ------------------------------ |
+| duration | number                  | Yes      | The duration of the animation  |
+| type     | LayoutAnimationType     | Yes      | Animation type to use          |
+| property | LayoutAnimationProperty | Yes      | The layout property to animate |
+
+To check the exact object `create()` returns, see the React Natvie LayoutAnimation API [Source Code](https://github.com/facebook/react-native/blob/main/Libraries/LayoutAnimation/LayoutAnimation.js#L104-L115).
 
 **Example:**
 
@@ -156,12 +166,9 @@ const App = () => {
   const [boxPosition, setBoxPosition] = useState('left');
 
   const toggleBox = () => {
-    LayoutAnimation.configureNext({
-      duration: 500,
-      create: {type: 'linear', property: 'opacity'},
-      update: {type: 'spring', springDamping: 0.4},
-      delete: {type: 'linear', property: 'opacity'},
-    });
+    LayoutAnimation.configureNext(
+      LayoutAnimation.create(500, 'linear', 'opacity'),
+    );
     setBoxPosition(boxPosition === 'left' ? 'right' : 'left');
   };
 
@@ -230,12 +237,9 @@ class App extends Component {
   };
 
   toggleBox = () => {
-    LayoutAnimation.configureNext({
-      duration: 500,
-      create: {type: 'linear', property: 'opacity'},
-      update: {type: 'spring', springDamping: 0.4},
-      delete: {type: 'linear', property: 'opacity'},
-    });
+    LayoutAnimation.configureNext(
+      LayoutAnimation.create(500, 'linear', 'opacity'),
+    );
     this.setState({
       boxPosition: this.state.boxPosition === 'left' ? 'right' : 'left',
     });
