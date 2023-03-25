@@ -80,9 +80,6 @@ const ExampleComponent = () => {
 
 `PanResponder` works with `Animated` API to help build complex gestures in the UI. The following example contains an animated `View` component which can be dragged freely across the screen
 
-<Tabs groupId="syntax" queryString defaultValue={constants.defaultSyntax} values={constants.syntax}>
-<TabItem value="functional">
-
 ```SnackPlayer name=PanResponder
 import React, {useRef} from 'react';
 import {Animated, View, StyleSheet, PanResponder, Text} from 'react-native';
@@ -135,67 +132,6 @@ const styles = StyleSheet.create({
 
 export default App;
 ```
-
-</TabItem>
-<TabItem value="classical">
-
-```SnackPlayer name=PanResponder
-import React, {Component} from 'react';
-import {Animated, View, StyleSheet, PanResponder, Text} from 'react-native';
-
-class App extends Component {
-  pan = new Animated.ValueXY();
-  panResponder = PanResponder.create({
-    onMoveShouldSetPanResponder: () => true,
-    onPanResponderMove: Animated.event([
-      null,
-      {dx: this.pan.x, dy: this.pan.y},
-    ]),
-    onPanResponderRelease: () => {
-      this.pan.extractOffset();
-    },
-  });
-
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.titleText}>Drag this box!</Text>
-        <Animated.View
-          style={{
-            transform: [{translateX: this.pan.x}, {translateY: this.pan.y}],
-          }}
-          {...this.panResponder.panHandlers}>
-          <View style={styles.box} />
-        </Animated.View>
-      </View>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  titleText: {
-    fontSize: 14,
-    lineHeight: 24,
-    fontWeight: 'bold',
-  },
-  box: {
-    height: 150,
-    width: 150,
-    backgroundColor: 'blue',
-    borderRadius: 5,
-  },
-});
-
-export default App;
-```
-
-</TabItem>
-</Tabs>
 
 Try the [PanResponder example in RNTester](https://github.com/facebook/react-native/blob/master/packages/rn-tester/js/examples/PanResponder/PanResponderExample.js).
 

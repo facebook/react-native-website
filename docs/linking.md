@@ -117,7 +117,7 @@ You can handle these events with `Linking.getInitialURL()` - it returns a Promis
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
-```SnackPlayer name=Linking%20Function%20Component%20Example&supportedPlatforms=ios,android&ext=js
+```SnackPlayer name=Linking%20Example&supportedPlatforms=ios,android&ext=js
 import React, {useCallback} from 'react';
 import {Alert, Button, Linking, StyleSheet, View} from 'react-native';
 
@@ -165,7 +165,7 @@ export default App;
 </TabItem>
 <TabItem value="typescript">
 
-```SnackPlayer name=Linking%20Function%20Component%20Example&supportedPlatforms=ios,android&ext=tsx
+```SnackPlayer name=Linking%20Example&supportedPlatforms=ios,android&ext=tsx
 import React, {useCallback} from 'react';
 import {Alert, Button, Linking, StyleSheet, View} from 'react-native';
 
@@ -223,7 +223,7 @@ export default App;
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
-```SnackPlayer name=Linking%20Function%20Component%20Example&supportedPlatforms=ios,android&ext=js
+```SnackPlayer name=Linking%20Example&supportedPlatforms=ios,android&ext=js
 import React, {useCallback} from 'react';
 import {Button, Linking, StyleSheet, View} from 'react-native';
 
@@ -258,7 +258,7 @@ export default App;
 </TabItem>
 <TabItem value="typescript">
 
-```SnackPlayer name=Linking%20Function%20Component%20Example&supportedPlatforms=ios,android&ext=tsx
+```SnackPlayer name=Linking%20Example&supportedPlatforms=ios,android&ext=tsx
 import React, {useCallback} from 'react';
 import {Button, Linking, StyleSheet, View} from 'react-native';
 
@@ -302,7 +302,7 @@ export default App;
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
-```SnackPlayer name=Linking%20Function%20Component%20Example&supportedPlatforms=ios,android&ext=js
+```SnackPlayer name=Linking%20Example&supportedPlatforms=ios,android&ext=js
 import React, {useState, useEffect} from 'react';
 import {Linking, StyleSheet, Text, View} from 'react-native';
 
@@ -356,7 +356,7 @@ export default App;
 </TabItem>
 <TabItem value="typescript">
 
-```SnackPlayer name=Linking%20Function%20Component%20Example&supportedPlatforms=ios,android&ext=tsx
+```SnackPlayer name=Linking%20Example&supportedPlatforms=ios,android&ext=tsx
 import React, {useState, useEffect} from 'react';
 import {Linking, StyleSheet, Text, View} from 'react-native';
 
@@ -415,7 +415,7 @@ export default App;
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
-```SnackPlayer name=Linking%20Function%20Component%20Example&supportedPlatforms=android&ext=js
+```SnackPlayer name=Linking%20Example&supportedPlatforms=android&ext=js
 import React, {useCallback} from 'react';
 import {Alert, Button, Linking, StyleSheet, View} from 'react-native';
 
@@ -465,7 +465,7 @@ export default App;
 </TabItem>
 <TabItem value="typescript">
 
-```SnackPlayer name=Linking%20Function%20Component%20Example&ext=tsx
+```SnackPlayer name=Linking%20Example&ext=tsx
 import React, {useCallback} from 'react';
 import {Alert, Button, Linking, StyleSheet, View} from 'react-native';
 

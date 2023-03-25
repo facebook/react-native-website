@@ -3,8 +3,6 @@ id: optimizing-flatlist-configuration
 title: Optimizing Flatlist Configuration
 ---
 
-import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
-
 ## Terms
 
 - **VirtualizedList:** The component behind `FlatList` (React Native's implementation of the [`Virtual List`](https://bvaughn.github.io/react-virtualized/#/components/List) concept.)
@@ -127,28 +125,6 @@ For functional components, move the `renderItem` function outside of the returne
 
 For class componenents, move the `renderItem` function outside of the render function, so it won't recreate itself each time the render function is called.
 
-<Tabs groupId="syntax" queryString defaultValue={constants.defaultSyntax} values={constants.syntax}>
-<TabItem value="classical">
-
-```tsx
-renderItem = ({item}) => (<View key={item.key}><Text>{item.title}</Text></View>);
-
-render(){
-  // ...
-
-  <FlatList
-    data={items}
-    renderItem={this.renderItem}
-  />
-
-  // ...
-}
-
-```
-
-</TabItem>
-<TabItem value="functional">
-
 ```tsx
 const renderItem = useCallback(({item}) => (
    <View key={item.key}>
@@ -163,6 +139,3 @@ return (
   // ...
 );
 ```
-
-</TabItem>
-</Tabs>

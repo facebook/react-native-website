@@ -3,31 +3,15 @@ id: animated
 title: Animated
 ---
 
-import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
-
 The `Animated` library is designed to make animations fluid, powerful, and painless to build and maintain. `Animated` focuses on declarative relationships between inputs and outputs, configurable transforms in between, and `start`/`stop` methods to control time-based animation execution.
 
 The core workflow for creating an animation is to create an `Animated.Value`, hook it up to one or more style attributes of an animated component, and then drive updates via animations using `Animated.timing()`.
 
-<Tabs groupId="syntax" queryString defaultValue={constants.defaultSyntax} values={constants.syntax}>
-<TabItem value="functional">
-
 > Don't modify the animated value directly. You can use the [`useRef` Hook](https://reactjs.org/docs/hooks-reference.html#useref) to return a mutable ref object. This ref object's `current` property is initialized as the given argument and persists throughout the component lifecycle.
-
-</TabItem>
-<TabItem value="classical">
-
-> Don't modify the animated value directly. It is usually stored as a [state variable](intro-react#state) in class components.
-
-</TabItem>
-</Tabs>
 
 ## Example
 
 The following example contains a `View` which will fade in and fade out based on the animated value `fadeAnim`
-
-<Tabs groupId="syntax" queryString defaultValue={constants.defaultSyntax} values={constants.syntax}>
-<TabItem value="functional">
 
 ```SnackPlayer name=Animated
 import React, {useRef} from 'react';
@@ -104,92 +88,6 @@ const styles = StyleSheet.create({
 
 export default App;
 ```
-
-</TabItem>
-<TabItem value="classical">
-
-```SnackPlayer name=Animated
-import React, {Component} from 'react';
-import {
-  Animated,
-  Text,
-  View,
-  StyleSheet,
-  Button,
-  SafeAreaView,
-} from 'react-native';
-
-class App extends Component {
-  // fadeAnim will be used as the value for opacity. Initial Value: 0
-  state = {
-    fadeAnim: new Animated.Value(0),
-  };
-
-  fadeIn = () => {
-    // Will change fadeAnim value to 1 in 5 seconds
-    Animated.timing(this.state.fadeAnim, {
-      toValue: 1,
-      duration: 5000,
-      useNativeDriver: true,
-    }).start();
-  };
-
-  fadeOut = () => {
-    // Will change fadeAnim value to 0 in 3 seconds
-    Animated.timing(this.state.fadeAnim, {
-      toValue: 0,
-      duration: 3000,
-      useNativeDriver: true,
-    }).start();
-  };
-
-  render() {
-    return (
-      <SafeAreaView style={styles.container}>
-        <Animated.View
-          style={[
-            styles.fadingContainer,
-            {
-              // Bind opacity to animated value
-              opacity: this.state.fadeAnim,
-            },
-          ]}>
-          <Text style={styles.fadingText}>Fading View!</Text>
-        </Animated.View>
-        <View style={styles.buttonRow}>
-          <Button title="Fade In View" onPress={this.fadeIn} />
-          <Button title="Fade Out View" onPress={this.fadeOut} />
-        </View>
-      </SafeAreaView>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  fadingContainer: {
-    padding: 20,
-    backgroundColor: 'powderblue',
-  },
-  fadingText: {
-    fontSize: 28,
-  },
-  buttonRow: {
-    flexBasis: 100,
-    justifyContent: 'space-evenly',
-    marginVertical: 16,
-  },
-});
-
-export default App;
-```
-
-</TabItem>
-</Tabs>
 
 Refer to the [Animations](animations#animated-api) guide to see additional examples of `Animated` in action.
 

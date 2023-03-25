@@ -3,8 +3,6 @@ id: backhandler
 title: BackHandler
 ---
 
-import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
-
 The Backhandler API detects hardware button presses for back navigation, lets you register event listeners for the system's back action, and lets you control how your application responds. It is Android-only.
 
 The event subscriptions are called in reverse order (i.e. the last registered subscription is called first).
@@ -44,9 +42,6 @@ BackHandler.addEventListener('hardwareBackPress', function () {
 ## Example
 
 The following example implements a scenario where you confirm if the user wants to exit the app:
-
-<Tabs groupId="syntax" queryString defaultValue={constants.defaultSyntax} values={constants.syntax}>
-<TabItem value="functional">
 
 ```SnackPlayer name=BackHandler&supportedPlatforms=android
 import React, {useEffect} from 'react';
@@ -95,127 +90,6 @@ const styles = StyleSheet.create({
 
 export default App;
 ```
-
-</TabItem>
-<TabItem value="classical">
-
-<Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
-<TabItem value="javascript">
-
-```SnackPlayer name=BackHandler&supportedPlatforms=android&ext=js
-import React, {Component} from 'react';
-import {Text, View, StyleSheet, BackHandler, Alert} from 'react-native';
-
-class App extends Component {
-  backAction = () => {
-    Alert.alert('Hold on!', 'Are you sure you want to go back?', [
-      {
-        text: 'Cancel',
-        onPress: () => null,
-        style: 'cancel',
-      },
-      {text: 'YES', onPress: () => BackHandler.exitApp()},
-    ]);
-    return true;
-  };
-
-  componentDidMount() {
-    this.backHandler = BackHandler.addEventListener(
-      'hardwareBackPress',
-      this.backAction,
-    );
-  }
-
-  componentWillUnmount() {
-    this.backHandler.remove();
-  }
-
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.text}>Click Back button!</Text>
-      </View>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  text: {
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
-});
-
-export default App;
-```
-
-</TabItem>
-<TabItem value="typescript">
-
-```SnackPlayer name=BackHandler&supportedPlatforms=android&ext=tsx
-import React, {Component} from 'react';
-import {Text, View, StyleSheet, BackHandler, Alert} from 'react-native';
-import type {NativeEventSubscription} from 'react-native';
-
-class App extends Component {
-  backHandler?: NativeEventSubscription;
-
-  backAction = () => {
-    Alert.alert('Hold on!', 'Are you sure you want to go back?', [
-      {
-        text: 'Cancel',
-        onPress: () => null,
-        style: 'cancel',
-      },
-      {text: 'YES', onPress: () => BackHandler.exitApp()},
-    ]);
-    return true;
-  };
-
-  componentDidMount() {
-    this.backHandler = BackHandler.addEventListener(
-      'hardwareBackPress',
-      this.backAction,
-    );
-  }
-
-  componentWillUnmount() {
-    this.backHandler?.remove();
-  }
-
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.text}>Click Back button!</Text>
-      </View>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  text: {
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
-});
-
-export default App;
-```
-
-</TabItem>
-</Tabs>
-</TabItem>
-</Tabs>
 
 `BackHandler.addEventListener` creates an event listener & returns a `NativeEventSubscription` object which should be cleared using `NativeEventSubscription.remove` method.
 

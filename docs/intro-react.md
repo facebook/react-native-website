@@ -21,9 +21,6 @@ If you want to dig deeper, we encourage you to check out [React’s official doc
 
 The rest of this introduction to React uses cats in its examples: friendly, approachable creatures that need names and a cafe to work in. Here is your very first Cat component:
 
-<Tabs groupId="syntax" queryString defaultValue={constants.defaultSyntax} values={constants.syntax}>
-<TabItem value="functional">
-
 ```SnackPlayer name=Your%20Cat
 import React from 'react';
 import {Text} from 'react-native';
@@ -67,61 +64,6 @@ const Cat = () => {
 
 export default Cat;
 ```
-
-</TabItem>
-<TabItem value="classical">
-
-Class components tend to be a bit more verbose than function components.
-
-```SnackPlayer name=Your%20Cat
-import React, {Component} from 'react';
-import {Text} from 'react-native';
-
-class Cat extends Component {
-  render() {
-    return <Text>Hello, I am your cat!</Text>;
-  }
-}
-
-export default Cat;
-```
-
-You additionally import `Component` from React:
-
-```tsx
-import React, {Component} from 'react';
-```
-
-Your component starts as a class extending `Component` instead of as a function:
-
-```tsx
-class Cat extends Component {}
-```
-
-Class components have a `render()` function. Whatever is returned inside it is rendered as a React element:
-
-```tsx
-class Cat extends Component {
-  render() {
-    return <Text>Hello, I am your cat!</Text>;
-  }
-}
-```
-
-And as with function components, you can export your class component:
-
-```tsx
-class Cat extends Component {
-  render() {
-    return <Text>Hello, I am your cat!</Text>;
-  }
-}
-
-export default Cat;
-```
-
-</TabItem>
-</Tabs>
 
 > This is one of many ways to export your component. This kind of export works well with the Snack Player. However, depending on your app’s file structure, you might need to use a different convention. This [handy cheatsheet on JavaScript imports and exports](https://medium.com/dailyjs/javascript-module-cheatsheet-7bd474f1d829) can help.
 
@@ -373,9 +315,6 @@ While you can think of props as arguments you use to configure how components re
 
 The following example takes place in a cat cafe where two hungry cats are waiting to be fed. Their hunger, which we expect to change over time (unlike their names), is stored as state. To feed the cats, press their buttons—which will update their state.
 
-<Tabs groupId="syntax" queryString defaultValue={constants.defaultSyntax} values={constants.syntax}>
-<TabItem value="functional">
-
 You can add state to a component by calling [React’s `useState` Hook](https://reactjs.org/docs/hooks-state.html). A Hook is a kind of function that lets you “hook into” React features. For example, `useState` is a Hook that lets you add state to function components. You can learn more about [other kinds of Hooks in the React documentation.](https://reactjs.org/docs/hooks-intro.html)
 
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
@@ -520,179 +459,6 @@ const Cafe = () => {
   );
 };
 ```
-
-</TabItem>
-<TabItem value="classical">
-
-The older class components approach is a little different when it comes to state.
-
-<Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
-<TabItem value="javascript">
-
-```SnackPlayer name=State%20and%20Class%20Components&ext=js
-import React, {Component} from 'react';
-import {Button, Text, View} from 'react-native';
-
-class Cat extends Component {
-  state = {isHungry: true};
-
-  render() {
-    return (
-      <View>
-        <Text>
-          I am {this.props.name}, and I am
-          {this.state.isHungry ? ' hungry' : ' full'}!
-        </Text>
-        <Button
-          onPress={() => {
-            this.setState({isHungry: false});
-          }}
-          disabled={!this.state.isHungry}
-          title={
-            this.state.isHungry ? 'Pour me some milk, please!' : 'Thank you!'
-          }
-        />
-      </View>
-    );
-  }
-}
-
-class Cafe extends Component {
-  render() {
-    return (
-      <>
-        <Cat name="Munkustrap" />
-        <Cat name="Spot" />
-      </>
-    );
-  }
-}
-
-export default Cafe;
-```
-
-</TabItem>
-<TabItem value="typescript">
-
-```SnackPlayer name=State%20and%20Class%20Components&ext=tsx
-import React, {Component} from 'react';
-import {Button, Text, View} from 'react-native';
-
-type CatProps = {
-  name: string;
-};
-
-class Cat extends Component<CatProps> {
-  state = {isHungry: true};
-
-  render() {
-    return (
-      <View>
-        <Text>
-          I am {this.props.name}, and I am
-          {this.state.isHungry ? ' hungry' : ' full'}!
-        </Text>
-        <Button
-          onPress={() => {
-            this.setState({isHungry: false});
-          }}
-          disabled={!this.state.isHungry}
-          title={
-            this.state.isHungry ? 'Pour me some milk, please!' : 'Thank you!'
-          }
-        />
-      </View>
-    );
-  }
-}
-
-class Cafe extends Component {
-  render() {
-    return (
-      <>
-        <Cat name="Munkustrap" />
-        <Cat name="Spot" />
-      </>
-    );
-  }
-}
-
-export default Cafe;
-```
-
-</TabItem>
-</Tabs>
-
-As always with class components, you must import the `Component` class from React:
-
-```tsx
-import React, {Component} from 'react';
-```
-
-In class components, state is stored in a state object:
-
-```tsx
-export class Cat extends Component {
-  state = {isHungry: true};
-  //..
-}
-```
-
-As with accessing props with `this.props`, you access this object inside your component with `this.state`:
-
-```tsx
-<Text>
-  I am {this.props.name}, and I am
-  {this.state.isHungry ? ' hungry' : ' full'}!
-</Text>
-```
-
-And you set individual values inside the state object by passing an object with the key value pair for state and its new value to `this.setState()`:
-
-```tsx
-<Button
-  onPress={() => {
-    this.setState({isHungry: false});
-  }}
-  // ..
-/>
-```
-
-> Do not change your component's state directly by assigning it a new value with `this.state.isHungry = false`. Calling `this.setState()` allows React to track changes made to state that trigger rerendering. Setting state directly can break your app's reactivity!
-
-When `this.state.isHungry` is false, the `Button`’s `disabled` prop is set to `true` and its `title` also changes:
-
-```tsx
-<Button
-  // ..
-  disabled={!this.state.isHungry}
-  title={
-    this.state.isHungry
-      ? 'Pour me some milk, please!'
-      : 'Thank you!'
-  }
-/>
-```
-
-Finally, put your cats inside a `Cafe` component:
-
-```tsx
-class Cafe extends Component {
-  render() {
-    return (
-      <>
-        <Cat name="Munkustrap" />
-        <Cat name="Spot" />
-      </>
-    );
-  }
-}
-
-export default Cafe;
-```
-
-</TabItem>
-</Tabs>
 
 > See the `<>` and `</>` above? These bits of JSX are [fragments](https://reactjs.org/docs/fragments.html). Adjacent JSX elements must be wrapped in an enclosing tag. Fragments let you do that without nesting an extra, unnecessary wrapping element like `View`.
 

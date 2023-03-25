@@ -3,16 +3,11 @@ id: image-style-props
 title: Image Style Props
 ---
 
-import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
-
 ## Examples
 
 ### Image Resize Mode
 
-<Tabs groupId="syntax" queryString defaultValue={constants.defaultSyntax} values={constants.syntax}>
-<TabItem value="functional">
-
-```SnackPlayer name=Image%20Resize%20Modes%20Function%20Component%20Example
+```SnackPlayer name=Image%20Resize%20Modes%20Example
 import React from 'react';
 import {View, Image, Text, StyleSheet} from 'react-native';
 
@@ -92,100 +87,9 @@ const styles = StyleSheet.create({
 export default DisplayAnImageWithStyle;
 ```
 
-</TabItem>
-<TabItem value="classical">
-
-```SnackPlayer name=Image%20Resize%20Modes%20Class%20Component%20Example
-import React, {Component} from 'react';
-import {View, Image, StyleSheet, Text} from 'react-native';
-
-class DisplayAnImageWithStyle extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <View>
-          <Image
-            style={{
-              resizeMode: 'cover',
-              height: 100,
-              width: 200,
-            }}
-            source={require('@expo/snack-static/react-native-logo.png')}
-          />
-          <Text>resizeMode : cover</Text>
-        </View>
-        <View>
-          <Image
-            style={{
-              resizeMode: 'contain',
-              height: 100,
-              width: 200,
-            }}
-            source={require('@expo/snack-static/react-native-logo.png')}
-          />
-          <Text>resizeMode : contain</Text>
-        </View>
-        <View>
-          <Image
-            style={{
-              resizeMode: 'stretch',
-              height: 100,
-              width: 200,
-            }}
-            source={require('@expo/snack-static/react-native-logo.png')}
-          />
-          <Text>resizeMode : stretch</Text>
-        </View>
-        <View>
-          <Image
-            style={{
-              resizeMode: 'repeat',
-              height: 100,
-              width: 200,
-            }}
-            source={require('@expo/snack-static/react-native-logo.png')}
-          />
-          <Text>resizeMode : repeat</Text>
-        </View>
-        <View>
-          <Image
-            style={{
-              resizeMode: 'center',
-              height: 100,
-              width: 200,
-            }}
-            source={require('@expo/snack-static/react-native-logo.png')}
-          />
-          <Text>resizeMode : center</Text>
-        </View>
-      </View>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    height: '100%',
-    textAlign: 'center',
-  },
-});
-
-export default DisplayAnImageWithStyle;
-```
-
-</TabItem>
-</Tabs>
-
 ### Image Border
 
-<Tabs groupId="syntax" queryString defaultValue={constants.defaultSyntax} values={constants.syntax}>
-<TabItem value="functional">
-
-```SnackPlayer name=Style%20BorderWidth%20and%20BorderColor%20Function%20Component%20Example
+```SnackPlayer name=Style%20BorderWidth%20and%20BorderColor%20Example
 import React from 'react';
 import {View, Image, StyleSheet, Text} from 'react-native';
 
@@ -220,55 +124,9 @@ const styles = StyleSheet.create({
 export default DisplayAnImageWithStyle;
 ```
 
-</TabItem>
-<TabItem value="classical">
-
-```SnackPlayer name=Style%20BorderWidth%20and%20BorderColor%20Class%20Component%20Example
-import React, {Component} from 'react';
-import {View, Image, StyleSheet, Text} from 'react-native';
-
-class DisplayAnImageWithStyle extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Image
-          style={{
-            borderColor: 'red',
-            borderWidth: 5,
-            height: 100,
-            width: 200,
-          }}
-          source={require('@expo/snack-static/react-native-logo.png')}
-        />
-        <Text>borderColor & borderWidth</Text>
-      </View>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: '100%',
-    textAlign: 'center',
-  },
-});
-
-export default DisplayAnImageWithStyle;
-```
-
-</TabItem>
-</Tabs>
-
 ### Image Border Radius
 
-<Tabs groupId="syntax" queryString defaultValue={constants.defaultSyntax} values={constants.syntax}>
-<TabItem value="functional">
-
-```SnackPlayer name=Style%20Border%20Radius%20Function%20Component%20Example
+```SnackPlayer name=Style%20Border%20Radius%20Example
 import React from 'react';
 import {View, Image, StyleSheet, Text} from 'react-native';
 
@@ -337,87 +195,7 @@ const styles = StyleSheet.create({
 export default DisplayAnImageWithStyle;
 ```
 
-</TabItem>
-<TabItem value="classical">
-
-```SnackPlayer name=Style%20Border%20Radius%20Class%20Component%20Example
-import React, {Component} from 'react';
-import {View, Image, StyleSheet, Text} from 'react-native';
-
-class DisplayAnImageWithStyle extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <View>
-          <Image
-            style={{
-              borderTopRightRadius: 20,
-              height: 100,
-              width: 200,
-            }}
-            source={require('@expo/snack-static/react-native-logo.png')}
-          />
-          <Text>borderTopRightRadius</Text>
-        </View>
-        <View>
-          <Image
-            style={{
-              borderBottomRightRadius: 20,
-              height: 100,
-              width: 200,
-            }}
-            source={require('@expo/snack-static/react-native-logo.png')}
-          />
-          <Text>borderBottomRightRadius</Text>
-        </View>
-        <View>
-          <Image
-            style={{
-              borderBottomLeftRadius: 20,
-              height: 100,
-              width: 200,
-            }}
-            source={require('@expo/snack-static/react-native-logo.png')}
-          />
-          <Text>borderBottomLeftRadius</Text>
-        </View>
-        <View>
-          <Image
-            style={{
-              borderTopLeftRadius: 20,
-              height: 100,
-              width: 200,
-            }}
-            source={require('@expo/snack-static/react-native-logo.png')}
-          />
-          <Text>borderTopLeftRadius</Text>
-        </View>
-      </View>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    height: '100%',
-    textAlign: 'center',
-  },
-});
-
-export default DisplayAnImageWithStyle;
-```
-
-</TabItem>
-</Tabs>
-
 ### Image Tint
-
-<Tabs groupId="syntax" queryString defaultValue={constants.defaultSyntax} values={constants.syntax}>
-<TabItem value="functional">
 
 ```SnackPlayer name=Style%20tintColor%20Function%20Component
 import React from 'react';
@@ -453,49 +231,6 @@ const styles = StyleSheet.create({
 
 export default DisplayAnImageWithStyle;
 ```
-
-</TabItem>
-<TabItem value="classical">
-
-```SnackPlayer name=Style%20tintColor%20Class%20Component
-import React, {Component} from 'react';
-import {View, Image, StyleSheet, Text} from 'react-native';
-
-class DisplayAnImageWithStyle extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Image
-          style={{
-            tintColor: '#000000',
-            resizeMode: 'contain',
-            height: 100,
-            width: 200,
-          }}
-          source={require('@expo/snack-static/react-native-logo.png')}
-        />
-        <Text>tintColor</Text>
-      </View>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: '100%',
-    textAlign: 'center',
-  },
-});
-
-export default DisplayAnImageWithStyle;
-```
-
-</TabItem>
-</Tabs>
 
 # Reference
 

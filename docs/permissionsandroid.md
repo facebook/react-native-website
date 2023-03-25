@@ -3,8 +3,6 @@ id: permissionsandroid
 title: PermissionsAndroid
 ---
 
-import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
-
 <div className="banner-native-code-required">
   <h3>Project with Native Code Required</h3>
   <p>
@@ -19,9 +17,6 @@ On devices before SDK version 23, the permissions are automatically granted if t
 If a user has previously turned off a permission that you prompt for, the OS will advise your app to show a rationale for needing the permission. The optional `rationale` argument will show a dialog prompt only if necessary - otherwise the normal permission prompt will appear.
 
 ### Example
-
-<Tabs groupId="syntax" queryString defaultValue={constants.defaultSyntax} values={constants.syntax}>
-<TabItem value="functional">
 
 ```SnackPlayer name=PermissionsAndroid%20Example&supportedPlatforms=android
 import React from 'react';
@@ -83,77 +78,6 @@ const styles = StyleSheet.create({
 
 export default App;
 ```
-
-</TabItem>
-<TabItem value="classical">
-
-```SnackPlayer name=PermissionsAndroid%20Example&supportedPlatforms=android
-import React, {Component} from 'react';
-import {
-  Button,
-  PermissionsAndroid,
-  StatusBar,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
-
-const requestCameraPermission = async () => {
-  try {
-    const granted = await PermissionsAndroid.request(
-      PermissionsAndroid.PERMISSIONS.CAMERA,
-      {
-        title: 'Cool Photo App Camera Permission',
-        message:
-          'Cool Photo App needs access to your camera ' +
-          'so you can take awesome pictures.',
-        buttonNeutral: 'Ask Me Later',
-        buttonNegative: 'Cancel',
-        buttonPositive: 'OK',
-      },
-    );
-    if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-      console.log('You can use the camera');
-    } else {
-      console.log('Camera permission denied');
-    }
-  } catch (err) {
-    console.warn(err);
-  }
-};
-
-class App extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.item}>Try permissions</Text>
-        <Button title="request permissions" onPress={requestCameraPermission} />
-      </View>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    paddingTop: StatusBar.currentHeight,
-    backgroundColor: '#ecf0f1',
-    padding: 8,
-  },
-  item: {
-    margin: 24,
-    fontSize: 18,
-    fontWeight: 'bold',
-    textAlign: 'center',
-  },
-});
-
-export default App;
-```
-
-</TabItem>
-</Tabs>
 
 ### Permissions that require prompting the user
 
