@@ -9,7 +9,7 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import con
 React Native runs on [React](https://react.dev/), a popular open source library for building user interfaces with JavaScript. To make the most of React Native, it helps to understand React itself. This section can get you started or can serve as a refresher course.
 
 We’re going to cover the core concepts behind React:
- 
+
 - components
 - JSX
 - props
