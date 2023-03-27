@@ -804,6 +804,13 @@ yarn add ../RTNCenteredText
 
 This command adds the `RTNCenteredText` Component to the `node_modules` of your app.
 
+If the package was previously added to your app, you will need to update it:
+
+```sh
+cd MyApp
+yarn upgrade rtn-centered-text
+```
+
 ### iOS
 
 Then, you need to install the new dependencies in your iOS project. To do so, you need to run these commands:
@@ -843,7 +850,7 @@ Finally, you can use the component in your JavaScript application.
  */
 import React from 'react';
 import type {Node} from 'react';
-import RTNCalculator from 'rtn-calculator/js/NativeCalculator';
+import RTNCenteredText from 'rtn-centered-text/js/RTNCenteredTextNativeComponent';
 
 const App: () => Node = () => {
   return (
@@ -867,7 +874,7 @@ export default App;
  * @format
  */
 import React from 'react';
-import RTNCalculator from 'rtn-calculator/js/NativeCalculator';
+import RTNCenteredText from 'rtn-centered-text/js/RTNCenteredTextNativeComponent';
 
 const App: () => JSX.Element = () => {
   return (
