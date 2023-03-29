@@ -682,7 +682,7 @@ This may improve scroll performance for large lists. On Android the default valu
 
 ### `viewabilityConfig`
 
-See [`ViewabilityHelper.js`](https://github.com/facebook/react-native/blob/master/Libraries/Lists/ViewabilityHelper.js) for flow type and further documentation.
+See [`ViewabilityHelper.js`](https://github.com/facebook/react-native/blob/main/packages/virtualized-lists/Lists/ViewabilityHelper.js) for flow type and further documentation.
 
 | Type              |
 | ----------------- |
