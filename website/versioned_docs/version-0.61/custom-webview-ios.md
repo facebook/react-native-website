@@ -5,7 +5,7 @@ title: Custom WebView
 
 While the built-in web view has a lot of features, it is not possible to handle every use-case in React Native. You can, however, extend the web view with native code without forking React Native or duplicating all the existing web view code.
 
-Before you do this, you should be familiar with the concepts in [native UI components](native-components-ios). You should also familiarise yourself with the [native code for web views](https://github.com/facebook/react-native/blob/master/React/Views/RCTWebViewManager.m), as you will have to use this as a reference when implementing new features—although a deep understanding is not required.
+Before you do this, you should be familiar with the concepts in [native UI components](native-components-ios). You should also familiarise yourself with the [native code for web views](https://github.com/facebook/react-native/blob/0.61-stable/React/Views/RCTWebViewManager.m), as you will have to use this as a reference when implementing new features—although a deep understanding is not required.
 
 ## Native Code
 
@@ -94,7 +94,7 @@ RCT_EXPORT_VIEW_PROPERTY(finalUrl, NSString)
 
 ### Extending Existing Events
 
-You should refer to [RCTWebView.m](https://github.com/facebook/react-native/blob/master/React/Views/RCTWebView.m) in the React Native codebase to see what handlers are available and how they are implemented. You can extend any methods here to provide extra functionality.
+You should refer to [RCTWebView.m](https://github.com/facebook/react-native/blob/0.61-stable/React/Views/RCTWebView.m) in the React Native codebase to see what handlers are available and how they are implemented. You can extend any methods here to provide extra functionality.
 
 By default, most methods aren't exposed from RCTWebView. If you need to expose them, you need to create an [Objective C category](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/CustomizingExistingClasses/CustomizingExistingClasses.html), and then expose all the methods you need to use.
 
@@ -180,7 +180,7 @@ If you want to add custom props to your native component, you can use `nativeCon
 
 For events, the event handler must always be set to a function. This means it isn't safe to use the event handler directly from `this.props`, as the user might not have provided one. The standard approach is to create a event handler in your class, and then invoking the event handler given in `this.props` if it exists.
 
-If you are unsure how something should be implemented from the JS side, look at [WebView.ios.js](https://github.com/facebook/react-native/blob/master/Libraries/Components/WebView/WebView.ios.js) in the React Native source.
+If you are unsure how something should be implemented from the JS side, look at [WebView.ios.js](https://github.com/facebook/react-native/blob/0.61-stable/Libraries/Components/WebView/WebView.ios.js) in the React Native source.
 
 ```jsx
 export default class CustomWebView extends Component {
