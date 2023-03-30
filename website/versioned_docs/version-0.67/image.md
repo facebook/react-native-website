@@ -203,7 +203,7 @@ dependencies {
 }
 ```
 
-> Note: the version listed above may not be updated in time. Please check [`ReactAndroid/gradle.properties`](https://github.com/facebook/react-native/blob/main/ReactAndroid/gradle.properties) in the main repo to see which fresco version is being used in a specific tagged version.
+> Note: the version listed above may not be updated in time. Please check [`ReactAndroid/gradle.properties`](https://github.com/facebook/react-native/blob/0.67-stable/ReactAndroid/gradle.properties) in the main repo to see which fresco version is being used in a specific tagged version.
 
 ---
 

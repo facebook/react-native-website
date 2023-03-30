@@ -5,7 +5,7 @@ title: Button
 
 A basic button component that should render nicely on any platform. Supports a minimal level of customization.
 
-If this button doesn't look right for your app, you can build your own button using [Pressable](pressable). For inspiration, look at the [source code for the Button component](https://github.com/facebook/react-native/blob/main/Libraries/Components/Button.js).
+If this button doesn't look right for your app, you can build your own button using [Pressable](pressable). For inspiration, look at the [source code for the Button component](https://github.com/facebook/react-native/blob/0.71-stable/Libraries/Components/Button.js).
 
 ```tsx
 <Button

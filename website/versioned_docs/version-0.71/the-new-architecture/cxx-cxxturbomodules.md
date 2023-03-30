@@ -12,7 +12,7 @@ import NewArchitectureWarning from '../\_markdown-new-architecture-warning.mdx';
 
 This guide shows you how to implement a Turbo Native Module using C++ only, a way to share the same implementation with any supported platform (Android, iOS, macOS or Windows).
 
-Before continuing with this guide, please read the [Turbo Native Modules](./pillars-turbomodule.md) section. As a further reference, we prepared an example for the RNTester app ([NativeCxxModuleExample](https://github.com/facebook/react-native/tree/main/packages/rn-tester/NativeCxxModuleExample)) and a sample run in our community repository ([run/pure-cxx-module](https://github.com/react-native-community/RNNewArchitectureApp/tree/run/pure-cxx-module)).
+Before continuing with this guide, please read the [Turbo Native Modules](./pillars-turbomodule.md) section. As a further reference, we prepared an example for the RNTester app ([NativeCxxModuleExample](https://github.com/facebook/react-native/tree/0.71-stable/packages/rn-tester/NativeCxxModuleExample)) and a sample run in our community repository ([run/pure-cxx-module](https://github.com/react-native-community/RNNewArchitectureApp/tree/run/pure-cxx-module)).
 
 :::caution
 C++ Turbo Native Modules work with the **New Architecture** enabled.
