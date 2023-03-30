@@ -260,7 +260,7 @@ Android apps aren't setup for native code compilation by default.
 
 1.) Create the folder `android/app/src/main/jni`
 
-2.) Copy `CMakeLists.txt` and `Onload.cpp` from [node_modules/react-native/ReactAndroid/cmake-utils/default-app-setup](https://github.com/facebook/react-native/tree/0.71-stable/ReactAndroid/cmake-utils/default-app-setup) into the `android/app/src/main/jni` folder.
+2.) Copy `CMakeLists.txt` and `Onload.cpp` from [node_modules/react-native/ReactAndroid/cmake-utils/default-app-setup](https://github.com/facebook/react-native/tree/main/packages/react-native/ReactAndroid/cmake-utils/default-app-setup) into the `android/app/src/main/jni` folder.
 
 Update `Onload.cpp` with the following entries:
 

@@ -18,7 +18,7 @@ It is therefore important to try and minimize the time the CI environment spends
 
 For iOS apps, Flipper is built every time the React Native framework is built and it may require some time to build, and this is time you can save.
 
-Starting from React Native 0.71, we introduced a new flag in the template's Podfile: the [`NO_FLIPPER` flag](https://github.com/facebook/react-native/blob/main/template/ios/Podfile#L7).
+Starting from React Native 0.71, we introduced a new flag in the template's Podfile: the [`NO_FLIPPER` flag](https://github.com/facebook/react-native/blob/main/packages/react-native/template/ios/Podfile#L20).
 
 By default, the `NO_FLIPPER` flag is not set, therefore Flipper will be included by default in your app.
 
