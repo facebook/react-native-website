@@ -216,7 +216,7 @@ export default App;
 </TabItem>
 </Tabs>
 
-Try the [PanResponder example in RNTester](https://github.com/facebook/react-native/blob/master/packages/rn-tester/js/examples/PanResponder/PanResponderExample.js).
+Try the [PanResponder example in RNTester](https://github.com/facebook/react-native/blob/0.64-stable/packages/rn-tester/js/examples/PanResponder/PanResponderExample.js).
 
 ---
 

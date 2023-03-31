@@ -99,7 +99,7 @@ The fact that native modules are singletons limits the mechanism in the context 
 
 Although this solution is complex, it is used in `RCTUIManager`, which is an internal React Native class that manages all React Native views.
 
-Native modules can also be used to expose existing native libraries to JS. The [Geolocation library](https://github.com/facebook/react-native/tree/master/Libraries/Geolocation) is a living example of the idea.
+Native modules can also be used to expose existing native libraries to JS. The [Geolocation library](https://github.com/facebook/react-native/tree/0.60-stable/Libraries/Geolocation) is a living example of the idea.
 
 > **_Warning_**: All native modules share the same namespace. Watch out for name collisions when creating new ones.
 
@@ -191,7 +191,7 @@ Let's look at an example.
 
 In the example we have a `FlexibleSizeExampleView` view that holds a root view. We create the root view, initialize it and set the delegate. The delegate will handle size updates. Then, we set the root view's size flexibility to `RCTRootViewSizeFlexibilityHeight`, which means that `rootViewDidChangeIntrinsicSize:` method will be called every time the React Native content changes its height. Finally, we set the root view's width and position. Note that we set there height as well, but it has no effect as we made the height RN-dependent.
 
-You can checkout full source code of the example [here](https://github.com/facebook/react-native/blob/master/packages/rn-tester/RNTester/NativeExampleViews/FlexibleSizeExampleView.m).
+You can checkout full source code of the example [here](https://github.com/facebook/react-native/blob/0.60-stable/packages/rn-tester/RNTester/NativeExampleViews/FlexibleSizeExampleView.m).
 
 It's fine to change root view's size flexibility mode dynamically. Changing flexibility mode of a root view will schedule a layout recalculation and the delegate `rootViewDidChangeIntrinsicSize:` method will be called once the content size is known.
 
