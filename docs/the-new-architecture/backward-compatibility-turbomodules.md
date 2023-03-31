@@ -42,7 +42,7 @@ While the last step is the same for all the platforms, the first two steps are d
 
 The Apple platform installs Turbo Native Modules using [Cocoapods](https://cocoapods.org) as a dependency manager.
 
-If you are already using the [`install_module_dependencies`](https://github.com/facebook/react-native/blob/82e9c6ad611f1fb816de056ff031716f8cb24b4e/scripts/react_native_pods.rb#L145) function, then **there is nothing to do**. The function already takes care of installing the proper dependencies when the New Architecture is enabled and avoids them when it is not enabled.
+If you are already using the [`install_module_dependencies`](https://github.com/facebook/react-native/blob/main/packages/react-native/scripts/react_native_pods.rb#L198) function, then **there is nothing to do**. The function already takes care of installing the proper dependencies when the New Architecture is enabled and avoids them when it is not enabled.
 
 Otherwise, your Turbo Native Module's `podspec` should look like this:
 
@@ -86,7 +86,7 @@ end
 ```
 
 You should install the extra dependencies when the New Architecture is enabled, and avoid installing them when it's not.
-To achieve this, you can use the [`install_modules_dependencies`](https://github.com/facebook/react-native/blob/82e9c6ad611f1fb816de056ff031716f8cb24b4e/scripts/react_native_pods.rb#L145). Update the `.podspec` file as it follows:
+To achieve this, you can use the [`install_modules_dependencies`](https://github.com/facebook/react-native/blob/main/packages/react-native/scripts/react_native_pods.rb#L198). Update the `.podspec` file as it follows:
 
 ```diff
 require "json"
