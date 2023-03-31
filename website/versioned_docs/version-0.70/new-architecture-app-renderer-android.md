@@ -131,7 +131,7 @@ export default (codegenNativeComponent<NativeProps>(
 ): HostComponent<NativeProps>);
 ```
 
-4. **[Flow users]** Make sure your Native Component has Flow types for its props, since the JS codegen uses these types to generate the type-safe native implementation of the Component. The codegen generates C++ classes during the build time, which guarantees that the native implementation is always up-to-date with its JS interface. Use [these c++ compatible types](https://github.com/facebook/react-native/blob/main/Libraries/Types/CodegenTypes.js#L28-L30).
+4. **[Flow users]** Make sure your Native Component has Flow types for its props, since the JS codegen uses these types to generate the type-safe native implementation of the Component. The codegen generates C++ classes during the build time, which guarantees that the native implementation is always up-to-date with its JS interface. Use [these c++ compatible types](https://github.com/facebook/react-native/blob/0.70-stable/Libraries/Types/CodegenTypes.js#L28-L30).
 
 ```ts title="RNTMyNativeViewNativeComponent.js"
 import type {Int32} from 'react-native/Libraries/Types/CodegenTypes';

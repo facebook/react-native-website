@@ -11,7 +11,7 @@ This section will go over how to enable the new renderer in your app. Make sure 
 
 ## 1. Enable Fabric in Podfile
 
-Add changes to your Podfile. You can see some examples in [RNTester](https://github.com/facebook/react-native/blob/main/packages/rn-tester/Podfile) and [rn-demo-app](https://github.com/facebook/fbt/blob/rn-demo-app/ios/Podfile).
+Add changes to your Podfile. You can see some examples in [RNTester](https://github.com/facebook/react-native/blob/0.69-stable/packages/rn-tester/Podfile) and [rn-demo-app](https://github.com/facebook/fbt/blob/rn-demo-app/ios/Podfile).
 
 ```ruby title="Podfile"
 # Add the following line at the top of Podfile.
@@ -38,7 +38,7 @@ end
 
 ## 2. Update your root view
 
-The way to render your app with Fabric depends on your setup. Here is an example of how you can enable Fabric in your app with the `RN_FABRIC_ENABLED` compiler flag to enable/disable. Refer [RN-Tester’s AppDelegate](https://github.com/facebook/react-native/blob/main/packages/rn-tester/RNTester/AppDelegate.mm) as an example.
+The way to render your app with Fabric depends on your setup. Here is an example of how you can enable Fabric in your app with the `RN_FABRIC_ENABLED` compiler flag to enable/disable. Refer [RN-Tester’s AppDelegate](https://github.com/facebook/react-native/blob/0.69-stable/packages/rn-tester/RNTester/AppDelegate.mm) as an example.
 
 ```objc title="AppDelegate.mm"
 #ifdef RN_FABRIC_ENABLED

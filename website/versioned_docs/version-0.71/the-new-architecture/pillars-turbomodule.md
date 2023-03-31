@@ -454,7 +454,7 @@ Then the `add` method, whose signature must match the one specified by the Codeg
 Finally, the `getTurboModule` method gets an instance of the Turbo Native Module so that the JavaScript side can invoke its methods. The function is defined in (and requested by) the `RTNCalculatorSpec.h` file that was generated earlier by Codegen.
 
 :::info
-There are other macros that can be used to export modules and methods. You view the code that specifies them [here](https://github.com/facebook/react-native/blob/main/React/Base/RCTBridgeModule.h).
+There are other macros that can be used to export modules and methods. You view the code that specifies them [here](https://github.com/facebook/react-native/blob/0.71-stable/React/Base/RCTBridgeModule.h).
 :::
 
 ### Android

@@ -10,7 +10,7 @@ import NewArchitectureWarning from '../\_markdown-new-architecture-warning.mdx';
 
 <NewArchitectureWarning/>
 
-By default C++ Turbo Native Modules support [bridging functionality](https://github.com/facebook/react-native/tree/main/ReactCommon/react/bridging) for most `std::` standard types.
+By default C++ Turbo Native Modules support [bridging functionality](https://github.com/facebook/react-native/tree/0.71-stable/ReactCommon/react/bridging) for most `std::` standard types.
 
 If you want to add support for new / custom types in your app / library, you only need to provide the necessary `bridging` header file.
 
@@ -271,8 +271,8 @@ With `std::string, bool, std::optional<int32_t>` you define the property types o
 
 Without any custom conversion functions:
 
-- you can only `bridge` a JS string to a [std::string](https://github.com/facebook/react-native/blob/main/ReactCommon/react/bridging/AString.h) and a JS boolean to a [bool](https://github.com/facebook/react-native/blob/main/ReactCommon/react/bridging/Bool.h).
-- but you can choose different JS `number` [representations in C++](https://github.com/facebook/react-native/blob/main/ReactCommon/react/bridging/Number.h).
+- you can only `bridge` a JS string to a [std::string](https://github.com/facebook/react-native/blob/0.71-stable/ReactCommon/react/bridging/AString.h) and a JS boolean to a [bool](https://github.com/facebook/react-native/blob/0.71-stable/ReactCommon/react/bridging/Bool.h).
+- but you can choose different JS `number` [representations in C++](https://github.com/facebook/react-native/blob/0.71-stable/ReactCommon/react/bridging/Number.h).
 
 #### Base class
 
