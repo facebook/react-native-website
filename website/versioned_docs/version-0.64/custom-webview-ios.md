@@ -180,7 +180,7 @@ If you want to add custom props to your native component, you can use `nativeCon
 
 For events, the event handler must always be set to a function. This means it isn't safe to use the event handler directly from `this.props`, as the user might not have provided one. The standard approach is to create a event handler in your class, and then invoking the event handler given in `this.props` if it exists.
 
-If you are unsure how something should be implemented from the JS side, look at [WebView.ios.js](https://github.com/facebook/react-native/blob/master/Libraries/Components/WebView/WebView.ios.js) in the React Native source.
+If you are unsure how something should be implemented from the JS side, look at [WebView.ios.js](https://github.com/facebook/react-native/blob/main/packages/react-native/Libraries/Components/WebView/WebView.ios.js) in the React Native source.
 
 ```jsx
 export default class CustomWebView extends Component {
