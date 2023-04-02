@@ -15,7 +15,7 @@ Note that you must specify some width and height style attributes.
 import React from 'react';
 import {ImageBackground, StyleSheet, Text, View} from 'react-native';
 
-const image = {uri: 'https://reactjs.org/logo-og.png'};
+const image = {uri: 'https://legacy.reactjs.org/logo-og.png'};
 
 const App = () => (
   <View style={styles.container}>
