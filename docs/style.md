@@ -3,7 +3,7 @@ id: style
 title: Style
 ---
 
-With React Native, you style your application using JavaScript. All of the core components accept a prop named `style`. The style names and [values](colors.md) usually match how CSS works on the web, except names are written using camel casing, e.g. `backgroundColor` rather than `background-color`.
+With React Native, you style your application using JavaScript. All of the core components accept a prop named `style`. The style names and [values](colors.md) match how CSS works on the web for some properties, except names are written using camel casing, e.g. `backgroundColor` rather than `background-color`. Note that some properties simply do not exist, e.g. `display`, or work differently, for example there is no `margin` or `padding` shorthand property so you need to write `marginTop: 10, marginBottom: 10, marginLeft: 10, marginRight: 10`.
 
 The `style` prop can be a plain old JavaScript object. That's what we usually use for example code. You can also pass an array of styles - the last style in the array has precedence, so you can use this to inherit styles.
 
