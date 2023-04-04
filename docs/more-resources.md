@@ -16,7 +16,7 @@ There’s always more to learn: developer workflows, shipping to app stores, int
 
 ## Dive deep
 
-- [React’s Documentation](https://reactjs.org/docs/hello-world.html)
+- [React’s Documentation](https://react.dev/learn)
 - [MDN’s JavaScript tutorials, reference, and guides](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 - [Android](https://developer.android.com/docs) and [iOS](https://developer.apple.com/documentation/uikit) platform docs
 
