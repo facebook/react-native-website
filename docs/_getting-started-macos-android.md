@@ -78,6 +78,7 @@ Add the following lines to your `~/.zprofile` or `~/.zshrc` (if you are using `b
 ```shell
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 ```
 
