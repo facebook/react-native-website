@@ -104,9 +104,7 @@ You might also want to ensure that all "shell script build phase" of your Xcode 
 
 ### Step 1: Start Metro
 
-First, you will need to start Metro, the JavaScript bundler that ships with React Native. Metro "takes in an entry file and various options, and returns a single JavaScript file that includes all your code and its dependencies."—[Metro Docs](https://facebook.github.io/metro/docs/concepts)
-
-To start Metro, run following command inside your React Native project folder:
+[**Metro**](https://facebook.github.io/metro/) is the JavaScript build tool for React Native. To start the Metro development server, run the following from your project folder:
 
 <Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
 <TabItem value="npm">
@@ -125,7 +123,9 @@ yarn start
 </TabItem>
 </Tabs>
 
-> If you're familiar with web development, Metro is a lot like webpack—for React Native apps. Unlike Swift or Objective-C, JavaScript isn't compiled—and neither is React Native. Bundling isn't the same as compiling, but it can help improve startup performance and translate some platform-specific JavaScript into more widely supported JavaScript.
+:::note
+If you're familiar with web development, Metro is similar to bundlers such as Vite and Webpack, but is designed end-to-end for React Native. For instance, Metro uses [Babel](https://babel.dev/) to transform syntax such as JSX into executable JavaScript.
+:::
 
 ### Step 2: Start your application
 
