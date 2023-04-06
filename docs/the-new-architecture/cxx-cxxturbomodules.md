@@ -228,7 +228,7 @@ To register a C++ Turbo Native Module in your app you will need to update `ios/C
 #import <React/RCTBundleURLProvider.h>
 + #import <React/CoreModulesPlugins.h>
 + #import <ReactCommon/RCTTurboModuleManager.h>
-+ #import <TurboModules/NativeSampleModule.h>
++ #import <NativeSampleModule.h>
 
 + @interface AppDelegate () <RCTTurboModuleManagerDelegate> {}
 + @end
