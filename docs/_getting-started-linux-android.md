@@ -158,7 +158,7 @@ If everything is set up correctly, you should see your new app running in your A
 Now that you have successfully run the app, let's modify it.
 
 - Open `App.tsx` in your text editor of choice and edit some lines.
-- Press the `R` key twice or select `Reload` from the Developer Menu (`Ctrl + M`) to see your changes!
+- Press the `R` key twice or select `Reload` from the Dev Menu (`Ctrl + M`) to see your changes!
 
 <h3>That's it!</h3>
 

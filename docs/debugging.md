@@ -5,27 +5,32 @@ title: Debugging
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
-## Accessing the In-App Developer Menu
+## Accessing the Dev Menu
 
-You can access the developer menu by shaking your device or by selecting "Shake Gesture" inside the Hardware menu in the iOS Simulator. You can also use the `⌘D` keyboard shortcut when your app is running in the iOS Simulator, or `⌘M` when running in an Android emulator on macOS and `Ctrl+M` on Windows and Linux. Alternatively for Android, you can run the command `adb shell input keyevent 82` to open the dev menu (82 being the Menu key code).
+React Native provides an in-app developer menu which offers several debugging options. You can access the Dev Menu by shaking your device or via keyboard shortcuts:
 
-![](/docs/assets/DeveloperMenu.png)
+- iOS Simulator: <kbd>Cmd ⌘</kbd> + <kbd>D</kbd> (or Device > Shake)
+- Android emulators: <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS) or <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows and Linux)
 
-> The Developer Menu is disabled in release (production) builds.
+Alternatively for Android devices and emulators, you can run `adb shell input keyevent 82` in your terminal.
+
+![](/docs/assets/DevMenu.png)
+
+:::note
+The Dev Menu is disabled in release (production) builds.
+:::
 
 ## Enabling Fast Refresh
 
-Fast Refresh is a React Native feature that allows you to get near-instant feedback for changes in your React components. While debugging, it can help to have [Fast Refresh](fast-refresh.md) enabled. Fast Refresh is enabled by default, and you can toggle "Enable Fast Refresh" in the React Native developer menu. When enabled, most of your edits should be visible within a second or two.
-
-## Enabling Keyboard Shortcuts
-
-React Native supports a few keyboard shortcuts in the iOS Simulator. They are described below. To enable them on macOS, inside the Simulator app, open the I/O menu, select Keyboard, and make sure that "Connect Hardware Keyboard" is checked.
+Fast Refresh is a React Native feature that allows you to get near-instant feedback for changes in your React components. While debugging, it can help to have [Fast Refresh](fast-refresh.md) enabled. Fast Refresh is enabled by default, and you can toggle "Enable Fast Refresh" in the Dev Menu. When enabled, most of your edits should be visible within a second or two.
 
 ## LogBox
 
 Errors and warnings in development builds are displayed in LogBox inside your app.
 
-> LogBox is automatically disabled in release (production) builds.
+:::note
+LogBox is disabled in release (production) builds.
+:::
 
 ### Console Errors and Warnings
 
@@ -55,7 +60,7 @@ When syntax error occurs the full screen LogBox error will automatically open wi
 
 ## Chrome Developer Tools
 
-To debug the JavaScript code in Chrome, select "Debug JS Remotely" from the Developer Menu. This will open a new tab at [http://localhost:8081/debugger-ui](http://localhost:8081/debugger-ui).
+To debug the JavaScript code in Chrome, select "Open Debugger" from the Dev Menu. This will open a new tab at [http://localhost:8081/debugger-ui](http://localhost:8081/debugger-ui).
 
 Select `Tools → Developer Tools` from the Chrome Menu to open the [Developer Tools](https://developer.chrome.com/devtools). You may also access the DevTools using keyboard shortcuts (`⌘⌥I` on macOS, `Ctrl` `Shift` `I` on Windows). You may also want to enable [Pause On Caught Exceptions](http://stackoverflow.com/questions/2233339/javascript-is-there-a-way-to-get-chrome-to-break-on-all-errors/17324511#17324511) for a better debugging experience.
 
@@ -65,7 +70,7 @@ Select `Tools → Developer Tools` from the Chrome Menu to open the [Developer T
 
 ### Debugging using a custom JavaScript debugger
 
-To use a custom JavaScript debugger in place of Chrome Developer Tools, set the `REACT_DEBUGGER` environment variable to a command that will start your custom debugger. You can then select "Debug JS Remotely" from the Developer Menu to start debugging.
+To use a custom JavaScript debugger in place of Chrome Developer Tools, set the `REACT_DEBUGGER` environment variable to a command that will start your custom debugger. You can then select "Open Debugger" from the Dev Menu to start debugging.
 
 The debugger will receive a list of all project roots, separated by a space. For example, if you set `REACT_DEBUGGER="node /path/to/launchDebugger.js --port 2345 --type ReactNative"`, then the command `node /path/to/launchDebugger.js --port 2345 --type ReactNative /path/to/reactNative/app` will be used to start your debugger.
 
@@ -127,7 +132,7 @@ If you prefer to avoid global installations, you can add `react-devtools` as a p
 
 ### Integration with React Native Inspector
 
-Open the in-app developer menu and choose "Toggle Inspector". It will bring up an overlay that lets you tap on any UI element and see information about it:
+Open the Dev Menu and choose "Toggle Inspector". It will bring up an overlay that lets you tap on any UI element and see information about it:
 
 ![React Native Inspector](/docs/assets/Inspector.gif)
 
@@ -151,7 +156,7 @@ Then select a React component in React DevTools. There is a search box at the to
 
 ## Performance Monitor
 
-You can enable a performance overlay to help you debug performance problems by selecting "Perf Monitor" in the Developer Menu.
+You can enable a performance overlay to help you debug performance problems by selecting "Perf Monitor" in the Dev Menu.
 
 <hr style={{marginTop: 25, marginBottom: 25}} />
 
@@ -187,13 +192,13 @@ You may also access these through `Debug → Open System Log...` in the iOS Simu
 
 > If you're using Create React Native App or Expo CLI, this is configured for you already.
 
-On iOS devices, open the file [`RCTWebSocketExecutor.mm`](https://github.com/facebook/react-native/blob/main/packages/react-native/React/CoreModules/RCTWebSocketExecutor.mm) and change "localhost" to the IP address of your computer, then select "Debug JS Remotely" from the Developer Menu.
+On iOS devices, open the file [`RCTWebSocketExecutor.mm`](https://github.com/facebook/react-native/blob/main/packages/react-native/React/CoreModules/RCTWebSocketExecutor.mm) and change "localhost" to the IP address of your computer, then select "Debug JS Remotely" from the Dev Menu.
 
 On Android 5.0+ devices connected via USB, you can use the [`adb` command line tool](http://developer.android.com/tools/help/adb.html) to setup port forwarding from the device to your computer:
 
 `adb reverse tcp:8081 tcp:8081`
 
-Alternatively, select "Dev Settings" from the Developer Menu, then update the "Debug server host for device" setting to match the IP address of your computer.
+Alternatively, select "Settings" from the Dev Menu, then update the "Debug server host for device" setting to match the IP address of your computer.
 
 > If you run into any issues, it may be possible that one of your Chrome extensions is interacting in unexpected ways with the debugger. Try disabling all of your extensions and re-enabling them one-by-one until you find the problematic extension.
 
