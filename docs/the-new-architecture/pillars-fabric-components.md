@@ -780,7 +780,7 @@ public class CenteredTextManager extends SimpleViewManager<CenteredText>
 
     @Override
     @ReactProp(name = "text")
-    public void setText(CenteredText view, @Nullable String text) {
+    public void setText(RTNCenteredText view, @Nullable String text) {
         view.setText(text);
     }
 }
