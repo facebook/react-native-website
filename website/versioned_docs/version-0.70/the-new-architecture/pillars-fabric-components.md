@@ -716,10 +716,10 @@ import com.facebook.react.viewmanagers.RTNCenteredTextManagerDelegate;
 
 
 @ReactModule(name = RTNCenteredTextManager.NAME)
-public class RTNCenteredTextManager extends SimpleViewManager<RTNCenteredText>
-        implements RTNCenteredTextManagerInterface<RTNCenteredText> {
+public class RTNCenteredTextManager extends SimpleViewManager<CenteredText>
+        implements RTNCenteredTextManagerInterface<CenteredText> {
 
-    private final ViewManagerDelegate<RTNCenteredText> mDelegate;
+    private final ViewManagerDelegate<CenteredText> mDelegate;
 
     static final String NAME = "RTNCenteredText";
 
@@ -729,7 +729,7 @@ public class RTNCenteredTextManager extends SimpleViewManager<RTNCenteredText>
 
     @Nullable
     @Override
-    protected ViewManagerDelegate<RTNCenteredText> getDelegate() {
+    protected ViewManagerDelegate<CenteredText> getDelegate() {
         return mDelegate;
     }
 
@@ -741,13 +741,13 @@ public class RTNCenteredTextManager extends SimpleViewManager<RTNCenteredText>
 
     @NonNull
     @Override
-    protected RTNCenteredText createViewInstance(@NonNull ThemedReactContext context) {
-        return new RTNCenteredText(context);
+    protected CenteredText createViewInstance(@NonNull ThemedReactContext context) {
+        return new CenteredText(context);
     }
 
     @Override
     @ReactProp(name = "text")
-    public void setText(RTNCenteredText view, @Nullable String text) {
+    public void setText(CenteredText view, @Nullable String text) {
         view.setText(text);
     }
 }
