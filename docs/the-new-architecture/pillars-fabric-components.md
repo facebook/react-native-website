@@ -752,7 +752,7 @@ import com.facebook.react.viewmanagers.RTNCenteredTextManagerDelegate;
 public class CenteredTextManager extends SimpleViewManager<CenteredText>
         implements RTNCenteredTextManagerInterface<CenteredText> {
 
-    private final ViewManagerDelegate<RTNCenteredText> mDelegate;
+    private final ViewManagerDelegate<CenteredText> mDelegate;
 
     static final String NAME = "RTNCenteredText";
 
