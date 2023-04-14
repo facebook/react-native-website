@@ -363,7 +363,7 @@ Determines when the keyboard should stay visible after a tap.
 
 ---
 
-### `maintainVisibleContentPosition` <div class="label ios">iOS</div>
+### `maintainVisibleContentPosition`
 
 When set, the scroll view will adjust the scroll position so that the first child that is currently visible and at or beyond `minIndexForVisible` will not change position. This is useful for lists that are loading content in both directions, e.g. a chat thread, where new messages coming in might otherwise cause the scroll position to jump. A value of 0 is common, but other values such as 1 can be used to skip loading spinners or other content that should not maintain position.
 
