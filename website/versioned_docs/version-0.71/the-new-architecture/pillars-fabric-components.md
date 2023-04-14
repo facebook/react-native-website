@@ -849,7 +849,7 @@ import com.facebook.react.viewmanagers.RTNCenteredTextManagerDelegate
 
 @ReactModule(name = CenteredTextManager.NAME)
 class CenteredTextManager(context: ReactApplicationContext) : SimpleViewManager<CenteredText>(), RTNCenteredTextManagerInterface<CenteredText> {
-  private val delegate: RTNCenteredTextManagerDelegate<CenteredText> = RTNCenteredTextManagerDelegate(this)
+  private val delegate: ViewManagerDelegate<CenteredText> = RTNCenteredTextManagerDelegate(this)
 
   override fun getDelegate(): ViewManagerDelegate<CenteredText> = delegate
 
