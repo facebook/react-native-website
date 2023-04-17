@@ -689,7 +689,7 @@ Valid `params` consist of:
 ### `scrollToOffset()`
 
 ```tsx
-scrollToOffset(arams: {
+scrollToOffset(params: {
   offset: number;
   animated?: boolean;
 });
