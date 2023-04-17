@@ -370,7 +370,7 @@ Represents the maximum value for range-based components, such as sliders and pro
 
 ### `aria-valuemin`
 
-Represents the maximum value for range-based components, such as sliders and progress bars. Has precedence over the `min` value in the `accessibilityValue` prop.
+Represents the minimum value for range-based components, such as sliders and progress bars. Has precedence over the `min` value in the `accessibilityValue` prop.
 
 | Type   |
 | ------ |
