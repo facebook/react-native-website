@@ -48,3 +48,6 @@
 
 # Rework of the community
 /help         /community/overview
+
+# Latest version might be linked to directly and should redirect
+/docs/$LATEST_VERSION$/*  /docs/:splat
