@@ -49,7 +49,13 @@ React Native has a built-in command line interface. Rather than install and mana
 
 <RemoveGlobalCLI />
 
+
+
 You can use React Native's built-in command line interface to generate a new project. Let's create a new React Native project called "AwesomeProject":
+
+> Note: If you have both `yarn` and `npm` installed on your machine, React Native CLI will always try to use `yarn`, so even if you use `npx` utility, only `react-native` executable will be installed using `npm` and the rest of the work will be delegated to `yarn`. You can force usage of `npm` adding `--npm` flag to the command.
+
+> Note: for Yarn users, `yarn dlx` command similar to `npx` will be featured in Yarn 2.0: <https://github.com/yarnpkg/berry/pull/40> so we’ll be able to use it in a similar fashion.
 
 ```shell
 npx react-native@latest init AwesomeProject
