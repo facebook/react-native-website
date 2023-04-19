@@ -21,7 +21,13 @@
     "Workflow": [
       "running-on-device",
       "fast-refresh",
-      "debugging",
+      {
+        "type": "category",
+        "label": "Debugging",
+        "collapsible": false,
+        "collapsed": false,
+        "items": ["debugging", "react-devtools", "native-debugging"]
+      },
       "symbolication",
       "sourcemaps",
       "testing-overview",
