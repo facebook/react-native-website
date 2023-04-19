@@ -416,8 +416,9 @@ class MyModule(reactContext: ReactApplicationContext) : MyModuleSpec(reactContex
 
   override fun getName(): String = MyModuleImpl.NAME
 
-  override fun add(a: Double, b: Double, promise: Promise) {
-    implementation.add(a, b, promise)
+  override fun foo(a: Double, b: Double, promise: Promise) {
+    // Use the implementation instance to execute the function.
+    implementation.foo(a, b, promise)
   }
 }
 ```
