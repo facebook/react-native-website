@@ -81,7 +81,7 @@ To find the device name, run the following adb command:
 $ adb devices
 ```
 
-You can now enable Live reloading from the [Developer menu](debugging.md#accessing-the-in-app-developer-menu). Your app will reload whenever your JavaScript code has changed.
+You can now enable Live reloading from the [Dev Menu](debugging.md#accessing-the-dev-menu). Your app will reload whenever your JavaScript code has changed.
 
 ### Method 2: Connect via Wi-Fi
 
@@ -92,12 +92,12 @@ You can find the IP address in **System Preferences** → **Network**.
 1. Make sure your laptop and your phone are on the **same** Wi-Fi network.
 2. Open your React Native app on your device.
 3. You'll see a [red screen with an error](debugging.md#in-app-errors-and-warnings). This is OK. The following steps will fix that.
-4. Open the in-app [Developer menu](debugging.md#accessing-the-in-app-developer-menu).
+4. Open the in-app [Dev Menu](debugging.md#accessing-the-dev-menu).
 5. Go to **Dev Settings** → **Debug server host & port for device**.
 6. Type in your machine's IP address and the port of the local dev server (e.g. 10.0.1.1:8081).
-7. Go back to the **Developer menu** and select **Reload JS**.
+7. Go back to the **Dev Menu** and select **Reload JS**.
 
-You can now enable Live reloading from the [Developer menu](debugging.md#accessing-the-in-app-developer-menu). Your app will reload whenever your JavaScript code has changed.
+You can now enable Live reloading from the [Dev Menu](debugging.md#accessing-the-dev-menu). Your app will reload whenever your JavaScript code has changed.
 
 ## Building your app for production
 
@@ -159,7 +159,7 @@ To find the device name, run the following adb command:
 $ adb devices
 ```
 
-You can now enable Live reloading from the [Developer menu](debugging.md#accessing-the-in-app-developer-menu). Your app will reload whenever your JavaScript code has changed.
+You can now enable Live reloading from the [Dev Menu](debugging.md#accessing-the-dev-menu). Your app will reload whenever your JavaScript code has changed.
 
 ### Method 2: Connect via Wi-Fi
 
@@ -170,12 +170,12 @@ Open the command prompt and type `ipconfig` to find your machine's IP address ([
 1. Make sure your laptop and your phone are on the **same** Wi-Fi network.
 2. Open your React Native app on your device.
 3. You'll see a [red screen with an error](debugging.md#in-app-errors-and-warnings). This is OK. The following steps will fix that.
-4. Open the in-app [Developer menu](debugging.md#accessing-the-in-app-developer-menu).
+4. Open the in-app [Dev Menu](debugging.md#accessing-the-dev-menu).
 5. Go to **Dev Settings** → **Debug server host & port for device**.
 6. Type in your machine's IP address and the port of the local dev server (e.g. 10.0.1.1:8081).
-7. Go back to the **Developer menu** and select **Reload JS**.
+7. Go back to the **Dev Menu** and select **Reload JS**.
 
-You can now enable Live reloading from the [Developer menu](debugging.md#accessing-the-in-app-developer-menu). Your app will reload whenever your JavaScript code has changed.
+You can now enable Live reloading from the [Dev Menu](debugging.md#accessing-the-dev-menu). Your app will reload whenever your JavaScript code has changed.
 
 ## Building your app for production
 
@@ -284,7 +284,7 @@ To find the device name, run the following adb command:
 $ adb devices
 ```
 
-You can now enable Live reloading from the [Developer menu](debugging.md#accessing-the-in-app-developer-menu). Your app will reload whenever your JavaScript code has changed.
+You can now enable Live reloading from the [Dev Menu](debugging.md#accessing-the-dev-menu). Your app will reload whenever your JavaScript code has changed.
 
 ### Method 2: Connect via Wi-Fi
 
@@ -295,12 +295,12 @@ Open a terminal and type `/sbin/ifconfig` to find your machine's IP address.
 1. Make sure your laptop and your phone are on the **same** Wi-Fi network.
 2. Open your React Native app on your device.
 3. You'll see a [red screen with an error](debugging.md#in-app-errors-and-warnings). This is OK. The following steps will fix that.
-4. Open the in-app [Developer menu](debugging.md#accessing-the-in-app-developer-menu).
+4. Open the in-app [Dev Menu](debugging.md#accessing-the-dev-menu).
 5. Go to **Dev Settings** → **Debug server host & port for device**.
 6. Type in your machine's IP address and the port of the local dev server (e.g. 10.0.1.1:8081).
-7. Go back to the **Developer menu** and select **Reload JS**.
+7. Go back to the **Dev Menu** and select **Reload JS**.
 
-You can now enable Live reloading from the [Developer menu](debugging.md#accessing-the-in-app-developer-menu). Your app will reload whenever your JavaScript code has changed.
+You can now enable Live reloading from the [Dev Menu](debugging.md#accessing-the-dev-menu). Your app will reload whenever your JavaScript code has changed.
 
 ## Building your app for production
 
@@ -347,9 +347,9 @@ If everything is set up correctly, your device will be listed as the build targe
 
 <h2>Connecting to the development server</h2>
 
-You can also iterate quickly on a device using the development server. You only have to be on the same Wi-Fi network as your computer. Shake your device to open the [Developer menu](debugging.md#accessing-the-in-app-developer-menu), then enable Live Reload. Your app will reload whenever your JavaScript code has changed.
+You can also iterate quickly on a device using the development server. You only have to be on the same Wi-Fi network as your computer. Shake your device to open the [Dev Menu](debugging.md#accessing-the-dev-menu), then enable Live Reload. Your app will reload whenever your JavaScript code has changed.
 
-![](/docs/assets/DeveloperMenu.png)
+![](/docs/assets/DevMenu.png)
 
 ### Troubleshooting
 

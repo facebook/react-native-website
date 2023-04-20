@@ -17,7 +17,7 @@ The `DevSettings` module exposes methods for customizing settings for developers
 static addMenuItem(title: string, handler: () => any);
 ```
 
-Add a custom menu item to the developer menu.
+Add a custom menu item to the Dev Menu.
 
 **Parameters:**
 

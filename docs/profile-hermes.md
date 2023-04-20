@@ -19,13 +19,13 @@ Follow the instructions below to get started profiling:
 
 ## Record a Hermes sampling profile
 
-To record a sampling profiler from the Developer Menu:
+To record a sampling profiler from the Dev Menu:
 
 1. Navigate to your running Metro server terminal.
-2. Press `d` to open the **Developer Menu.**
+2. Press `d` to open the **Dev Menu.**
 3. Select **Enable Sampling Profiler.**
 4. Execute your JavaScript by in your app (press buttons, etc.)
-5. Open the **Developer Menu** by pressing `d` again.
+5. Open the **Dev Menu** by pressing `d` again.
 6. Select **Disable Sampling Profiler** to stop recording and save the sampling profiler.
 
 A toast will show the location where the sampling profiler has been saved, usually in `/data/user/0/com.appName/cache/*.cpuprofile`

@@ -89,7 +89,7 @@ class Game2048 extends React.Component {
 }
 ```
 
-- _Dev Menu support_: On the emulator, cmd-M will bring up the developer menu, similar to Android. To bring it up on a real Android TV device, press the menu button or long press the fast-forward button on the remote. (Please do not shake the Android TV device, that will not work :) )
+- _Dev Menu support_: On the emulator, cmd-M will bring up the Dev Menu, similar to Android. To bring it up on a real Android TV device, press the menu button or long press the fast-forward button on the remote. (Please do not shake the Android TV device, that will not work :) )
 
 - _Known issues_:
 
@@ -175,7 +175,7 @@ class Game2048 extends React.Component {
 }
 ```
 
-- _Dev Menu support_: On the simulator, cmd-D will bring up the developer menu, similar to iOS. To bring it up on a real Apple TV device, make a long press on the play/pause button on the remote. (Please do not shake the Apple TV device, that will not work :) )
+- _Dev Menu support_: On the simulator, cmd-D will bring up the Dev Menu, similar to iOS. To bring it up on a real Apple TV device, make a long press on the play/pause button on the remote. (Please do not shake the Apple TV device, that will not work :) )
 
 - _TV remote animations_: `RCTTVView` native code implements Apple-recommended parallax animations to help guide the eye as the user navigates through views. The animations can be disabled or adjusted with new optional view properties.
 
