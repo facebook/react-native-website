@@ -93,15 +93,25 @@ The more complex your components are, the slower they will render. Try to avoid 
 
 The heavier your components are, the slower they render. Avoid heavy images (use a cropped version or thumbnail for list items, as small as possible). Talk to your design team, use as little effects and interactions and information as possible in your list. Show them in your item's detail.
 
-### Use shouldComponentUpdate
+### Use Memo()
 
-Implement update verification to your components. React's `PureComponent` implement a [`shouldComponentUpdate`](https://reactjs.org/docs/react-component.html#shouldcomponentupdate) with shallow comparison. This is expensive here because it needs to check all your props. If you want a good bit-level performance, create the strictest rules for your list item components, checking only props that could potentially change. If your list is basic enough, you could even use
+`React.memo()` creates a memoized component that will be re-rendered only when the props passed to the component change. We can use this function to optimize the components in the FlatList.
 
 ```tsx
-shouldComponentUpdate() {
-  return false
-}
+import React, { memo } from 'react';
+import { View, Text } from 'react-native';
+
+const MyListItem = memo(({ title }) => (
+  <View>
+    <Text>{title}</Text>
+  </View>
+), (prevProps, nextProps) => {
+  return prevProps.title === nextProps.title;
+});
+
+export default MyListItem;
 ```
+In this example, we have determined that MyListItem should be re-rendered only when the title changes. We passed the comparison function as the second argument to React.memo() so that the component is re-rendered only when the specified prop is changed. If the comparison function returns true, the component will not be re-rendered.
 
 ### Use cached optimized images
 
