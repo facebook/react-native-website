@@ -17,10 +17,6 @@ Before continuing, make sure you've followed all the steps in the [Setting up th
 
 If following the setup guide, stop when you reach the section **Running your React Native Application**, and resume following this guide.
 
-:::caution
-If you're using Expo, you can't enable the New Architecture at the moment and will have to wait for a future release of the Expo SDK.
-:::
-
 ## Creating a New Application
 
 <RemoveGlobalCLI />
