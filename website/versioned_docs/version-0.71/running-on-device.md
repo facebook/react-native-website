@@ -59,7 +59,7 @@ $ npx react-native run-android
 
 > If you get a "bridge configuration isn't available" error, see [Using adb reverse](running-on-device.md#method-1-using-adb-reverse-recommended).
 
-> Hint: You can also use the `React Native CLI` to generate and run a `Release` build (e.g. `npx react-native run-android --variant=release`).
+> Hint: You can also use the `React Native CLI` to generate and run a `Release` build (e.g. `npx react-native run-android --mode=release`).
 
 <h2>Connecting to the development server</h2>
 
@@ -137,7 +137,7 @@ Type the following in your command prompt to install and launch your app on the 
 $ npx react-native run-android
 ```
 
-> Hint: You can also use the `React Native CLI` to generate and run a `Release` build (e.g. `npx react-native run-android --variant=release`).
+> Hint: You can also use the `React Native CLI` to generate and run a `Release` build (e.g. `npx react-native run-android --mode=release`).
 
 <h2>Connecting to the development server</h2>
 
@@ -262,7 +262,7 @@ $ npx react-native run-android
 
 > If you get a "bridge configuration isn't available" error, see [Using adb reverse](running-on-device.md#method-1-using-adb-reverse-recommended).
 
-> Hint: You can also use the `React Native CLI` to generate and run a `Release` build (e.g. `npx react-native run-android --variant=release`).
+> Hint: You can also use the `React Native CLI` to generate and run a `Release` build (e.g. `npx react-native run-android --mode=release`).
 
 <h2>Connecting to the development server</h2>
 

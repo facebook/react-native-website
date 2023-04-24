@@ -40,7 +40,7 @@ Confirm that you are using the `.hbc` file and also benchmark the before/after a
 To see the benefits of Hermes, try making a release build/deployment of your app to compare. For example:
 
 ```shell
-$ npx react-native run-android --variant release
+$ npx react-native run-android --mode release
 ```
 
 or for iOS:
