@@ -46,7 +46,7 @@ $ npx react-native run-android --mode release
 or for iOS:
 
 ```shell
-$ npx react-native run-ios --configuration Release
+$ npx react-native run-ios --mode Release
 ```
 
 This will compile JavaScript to bytecode during build time which will improve your app's startup speed on device.
