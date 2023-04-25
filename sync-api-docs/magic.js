@@ -5,10 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-// Hard-coded knowledge about the React Native codebase and how to document it,
-// beyond what is explicitly encoded in the react-docgen artifact
-// (generatedComponentApiDocs.js)
-
+// Hard-coded knowledge about the React Native codebase and how to document it
 // Ideally this file should go away.
 
 module.exports = {
