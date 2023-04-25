@@ -20,7 +20,7 @@ Open an Administrator Command Prompt (right click Command Prompt and select "Run
 choco install -y nodejs-lts openjdk11
 ```
 
-If you have already installed Node on your system, make sure it is Node 14 or newer. If you already have a JDK on your system, we recommend JDK11. You may encounter problems using higher JDK versions.
+If you have already installed Node on your system, make sure it is Node 16 or newer. If you already have a JDK on your system, we recommend JDK11. You may encounter problems using higher JDK versions.
 
 > You can find additional installation options on [Node's Downloads page](https://nodejs.org/en/download/).
 

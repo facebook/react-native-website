@@ -8,7 +8,7 @@ While you can use any editor of your choice to develop your app, you will need t
 
 <h3>Node</h3>
 
-Follow the [installation instructions for your Linux distribution](https://nodejs.org/en/download/package-manager/) to install Node 14 or newer.
+Follow the [installation instructions for your Linux distribution](https://nodejs.org/en/download/package-manager/) to install Node 16 or newer.
 
 <h3>Java Development Kit</h3>
 
