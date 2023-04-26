@@ -18,7 +18,7 @@ Before continuing, make sure you've followed all the steps in the [Setting up th
 If following the setup guide, stop when you reach the section **Running your React Native Application**, and resume following this guide.
 
 :::info Note for Expo projects
-If you're using Expo, you can enable the New Architecture at by the [expo-build-properties](https://docs.expo.dev/versions/latest/sdk/build-properties/) plugin.
+If you're using Expo, you can enable the New Architecture by the [expo-build-properties](https://docs.expo.dev/versions/latest/sdk/build-properties/) plugin.
 :::
 
 ## Creating a New Application
