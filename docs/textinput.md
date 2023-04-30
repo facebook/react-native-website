@@ -81,9 +81,59 @@ const MultilineTextInputExample = () => {
 export default MultilineTextInputExample;
 ```
 
+## Android quirks
+
+### Bottom border
+
 `TextInput` has by default a border at the bottom of its view. This border has its padding set by the background image provided by the system, and it cannot be changed. Solutions to avoid this are to either not set height explicitly, in which case the system will take care of displaying the border in the correct position, or to not display the border by setting `underlineColorAndroid` to transparent.
 
+### Text selection and `windowSoftInputMode`
+
 Note that on Android performing text selection in an input can change the app's activity `windowSoftInputMode` param to `adjustResize`. This may cause issues with components that have position: 'absolute' while the keyboard is active. To avoid this behavior either specify `windowSoftInputMode` in AndroidManifest.xml ( https://developer.android.com/guide/topics/manifest/activity-element.html ) or control this param programmatically with native code.
+
+### Text selection in `position: absolute` views
+
+On Android, pressing within the TextInput to move the cursor and long-pressing to select/paste are handled by native (Java/Kotlin) components rather than React components. Due to a limitation of how native components capture touches, only touches that are within all parents' bounds will apply.
+
+Notably, this means that a child view that uses `position: 'absolute'` that's positioned outside of a parent, then you won't be able to press to move the cursor or long-press to select/paste.
+
+If you have a TextInput where you want to allow moving the cursor or long-pressing, make sure the child is within the parents' dimensions. You may be able to use `pointerEvents: 'box-none'` to do this too.
+
+For example, instead of this example where the parent view has 0 height:
+
+```jsx
+function InputWithNotWorkingLongPress() {
+  return (
+    <SafeAreaView style={{ flex: 1 }}>
+      <View
+      // This view will implicitly have 0 height since its only child has
+      // `position: 'absolute'`. Because the TextInput is outside its bounds,
+      // the user can't long-press to select/paste text.
+      >
+        <View style={{ position: 'absolute', top: 50 }}>
+          <TextInput defaultValue="Some text that can't be selected" />
+        </View>
+      </View>
+    </SafeAreaView>
+  );
+}
+```
+
+Prefer this example where the parent view spans the entire height, but doesn't capture pointer events.
+
+```jsx
+function InputWithWorkingLongPress() {
+  return (
+    <SafeAreaView style={{ flex: 1 }}>
+      <View style={StyleSheet.absoluteFill} pointerEvents="box-none">
+        <View style={{ position: 'absolute', top: 50 }}>
+          <TextInput defaultValue="Some text that can't be selected" />
+        </View>
+      </View>
+    </SafeAreaView>
+  );
+}
+```
 
 ---
 
