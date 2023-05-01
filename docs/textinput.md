@@ -93,7 +93,7 @@ Note that on Android performing text selection in an input can change the app's 
 
 ### Text selection in `position: absolute` views
 
-On Android, pressing within the TextInput to move the cursor and long-pressing to select/paste are handled by native (Java/Kotlin) components rather than React components. Due to a limitation of how native components capture touches, only touches that are within all parents' bounds will apply.
+On Android, pressing within the TextInput to move the cursor and long-pressing to select/paste are handled by native (Java/Kotlin) components rather than React components. Due to a limitation of how native components capture touches ([details](https://github.com/facebook/react-native/issues/37181)), only touches that are within the bounds of every parent will apply.
 
 Notably, this means that a child view that uses `position: 'absolute'` that's positioned outside of a parent, then you won't be able to press to move the cursor or long-press to select/paste.
 
@@ -102,13 +102,16 @@ If you have a TextInput where you want to allow moving the cursor or long-pressi
 For example, instead of this example where the parent view has 0 height:
 
 ```jsx
-function InputWithNotWorkingLongPress() {
+import { TextInput, SafeAreaView, View } from 'react-native';
+
+export default function InputWithNotWorkingLongPress() {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View
       // This view will implicitly have 0 height since its only child has
       // `position: 'absolute'`. Because the TextInput is outside its bounds,
       // the user can't long-press to select/paste text.
+        collapsable={false}
       >
         <View style={{ position: 'absolute', top: 50 }}>
           <TextInput defaultValue="Some text that can't be selected" />
@@ -119,15 +122,21 @@ function InputWithNotWorkingLongPress() {
 }
 ```
 
-Prefer this example where the parent view spans the entire height, but doesn't capture pointer events.
+To workaround this, use this example where the parent view spans the entire height, but doesn't capture pointer events.
 
 ```jsx
-function InputWithWorkingLongPress() {
+import { TextInput, SafeAreaView, View, StyleSheet } from 'react-native';
+
+export default function InputWithWorkingLongPress() {
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <View style={StyleSheet.absoluteFill} pointerEvents="box-none">
+      <View
+        collapsable={false}
+        style={StyleSheet.absoluteFill}
+        pointerEvents="box-none"
+      >
         <View style={{ position: 'absolute', top: 50 }}>
-          <TextInput defaultValue="Some text that can't be selected" />
+          <TextInput defaultValue="Some text that can be selected" />
         </View>
       </View>
     </SafeAreaView>
