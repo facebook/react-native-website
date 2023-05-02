@@ -104,18 +104,17 @@ If you have a TextInput where you want to allow moving the cursor or long-pressi
 For example, instead of this example where the parent view has 0 height:
 
 ```jsx
-import { TextInput, SafeAreaView, View } from 'react-native';
+import {TextInput, SafeAreaView, View} from 'react-native';
 
 export default function InputWithNotWorkingLongPress() {
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView style={{flex: 1}}>
       <View
-      // This view will implicitly have 0 height since its only child has
-      // `position: 'absolute'`. Because the TextInput is outside its bounds,
-      // the user can't long-press to select/paste text.
-        collapsable={false}
-      >
-        <View style={{ position: 'absolute', top: 50 }}>
+        // This view will implicitly have 0 height since its only child has
+        // `position: 'absolute'`. Because the TextInput is outside its bounds,
+        // the user can't long-press to select/paste text.
+        collapsable={false}>
+        <View style={{position: 'absolute', top: 50}}>
           <TextInput defaultValue="Some text that can't be selected" />
         </View>
       </View>
@@ -127,17 +126,21 @@ export default function InputWithNotWorkingLongPress() {
 To workaround this, use this example where the parent view spans the entire height, but doesn't capture pointer events.
 
 ```jsx
-import { TextInput, SafeAreaView, View, StyleSheet } from 'react-native';
+import {
+  TextInput,
+  SafeAreaView,
+  View,
+  StyleSheet,
+} from 'react-native';
 
 export default function InputWithWorkingLongPress() {
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView style={{flex: 1}}>
       <View
         collapsable={false}
         style={StyleSheet.absoluteFill}
-        pointerEvents="box-none"
-      >
-        <View style={{ position: 'absolute', top: 50 }}>
+        pointerEvents="box-none">
+        <View style={{position: 'absolute', top: 50}}>
           <TextInput defaultValue="Some text that can be selected" />
         </View>
       </View>
