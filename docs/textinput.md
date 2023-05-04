@@ -227,19 +227,9 @@ If `true`, the text field will blur when submitted. The default value is true fo
 
 ---
 
-### `caretHidden`
-
-If `true`, caret is hidden. The default value is `false`.
-
-| Type |
-| ---- |
-| bool |
-
----
-
 ### `caretYOffset`
 
-Allows to adjust caret postiion relative to the Y axis. The default value is `0`
+Allows to adjust caret position relative to the Y axis. The default value is `0`.
 
 | Type   |
 | ------ |
@@ -249,11 +239,21 @@ Allows to adjust caret postiion relative to the Y axis. The default value is `0`
 
 ### `caretHeight`
 
-Allows to adjust caret height. The default value is `0`
+Allows to adjust caret height. The default value is `0`.
 
 | Type   |
 | ------ |
 | number |
+
+---
+
+### `caretHidden`
+
+If `true`, caret is hidden. The default value is `false`.
+
+| Type |
+| ---- |
+| bool |
 
 ---
 
