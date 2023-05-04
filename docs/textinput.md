@@ -237,6 +237,26 @@ If `true`, caret is hidden. The default value is `false`.
 
 ---
 
+### `caretYOffset`
+
+Allows to adjust caret postiion relative to the Y axis. The default value is `0`
+
+| Type   |
+| ------ |
+| number |
+
+---
+
+### `caretHeight`
+
+Allows to adjust caret height. The default value is `0`
+
+| Type   |
+| ------ |
+| number |
+
+---
+
 ### `clearButtonMode` <div class="label ios">iOS</div>
 
 When the clear button should appear on the right side of the text view. This property is supported only for single-line TextInput component. The default value is `never`.
