@@ -239,7 +239,10 @@ android
 
 First, create a `build.gradle` file in the `android` folder, with the following contents:
 
-```kotlin title="build.gradle"
+<Tabs groupId="android-language" queryString defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+<TabItem value="java">
+
+```java title="build.gradle"
 buildscript {
   ext.safeExtGet = {prop, fallback ->
     rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
@@ -276,6 +279,53 @@ dependencies {
   implementation 'com.facebook.react:react-native'
 }
 ```
+
+</TabItem>
+
+<TabItem value="kotlin">
+
+```kotlin title="build.gradle"
+buildscript {
+  ext.safeExtGet = {prop, fallback ->
+    rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
+  }
+  repositories {
+    google()
+    gradlePluginPortal()
+  }
+  dependencies {
+    classpath("com.android.tools.build:gradle:7.3.1")
+    classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.22")
+  }
+}
+
+apply plugin: 'com.android.library'
+apply plugin: 'com.facebook.react'
+apply plugin: 'org.jetbrains.kotlin.android'
+
+android {
+  compileSdkVersion safeExtGet('compileSdkVersion', 33)
+  namespace "com.rtncenteredtext"
+
+  defaultConfig {
+    minSdkVersion safeExtGet('minSdkVersion', 21)
+    targetSdkVersion safeExtGet('targetSdkVersion', 33)
+    buildConfigField("boolean", "IS_NEW_ARCHITECTURE_ENABLED", "true")
+  }
+}
+
+repositories {
+  mavenCentral()
+  google()
+}
+
+dependencies {
+  implementation 'com.facebook.react:react-native'
+}
+```
+
+</TabItem>
+</Tabs>
 
 #### The `ReactPackage` class
 
