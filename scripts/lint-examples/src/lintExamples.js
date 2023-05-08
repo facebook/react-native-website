@@ -113,7 +113,12 @@ async function extractExamplesFromDocument(filename, extension) {
       const snackParams = new URLSearchParams(match[2].trim());
       const exampleName = snackParams.get('name');
       const exampleExt = snackParams.get('ext');
+      const disableLinting = snackParams.get('disableLinting');
       const content = match[3];
+
+      if (disableLinting === 'true') {
+        return [];
+      }
 
       const baseFileName = path.relative(documentsRoot, filename);
       const outFile = path.join(

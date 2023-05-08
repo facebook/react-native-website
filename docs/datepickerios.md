@@ -3,13 +3,13 @@ id: datepickerios
 title: '🚧 DatePickerIOS'
 ---
 
-> **Deprecated.** Use one of the [community packages](https://reactnative.directory/?search=datepicker) instead.
+> **Removed.** Use one of the [community packages](https://reactnative.directory/?search=datepicker) instead.
 
 Use `DatePickerIOS` to render a date/time picker (selector) on iOS. This is a controlled component, so you must hook in to the `onDateChange` callback and update the `date` prop in order for the component to update, otherwise the user's change will be reverted immediately to reflect `props.date` as the source of truth.
 
 ### Example
 
-```SnackPlayer name=DatePickerIOS&supportedPlatforms=ios
+```SnackPlayer name=DatePickerIOS&supportedPlatforms=ios&disableLinting=true
 import React, {useState} from 'react';
 import {DatePickerIOS, View, StyleSheet} from 'react-native';
 
