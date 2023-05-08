@@ -12,6 +12,7 @@
     "@babel/preset-env": "^7.14.0",
     "@babel/runtime": "^7.12.5",
     "@react-native-community/eslint-config": "^3.0.0",
+    "@react-native-community/slider": "^4.4.2",
     "@tsconfig/react-native": "^2.0.2",
     "@types/jest": "^29.2.3",
     "@types/react": "^18.0.24",
