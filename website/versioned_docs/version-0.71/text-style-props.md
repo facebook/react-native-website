@@ -10,13 +10,12 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import con
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
-```SnackPlayer name=TextStyleProps&supportedPlatforms=ios,android&ext=js
+```SnackPlayer name=TextStyleProps&supportedPlatforms=ios,android&ext=js&dependencies=@react-native-community/slider
 import React, {useState} from 'react';
 import {
   FlatList,
   Platform,
   ScrollView,
-  Slider,
   StatusBar,
   StyleSheet,
   Switch,
@@ -24,6 +23,7 @@ import {
   TouchableWithoutFeedback,
   View,
 } from 'react-native';
+import Slider from '@react-native-community/slider';
 
 const fontStyles = ['normal', 'italic'];
 const fontVariants = [
@@ -368,13 +368,12 @@ export default App;
 </TabItem>
 <TabItem value="typescript">
 
-```SnackPlayer name=TextStyleProps&supportedPlatforms=ios,android&ext=tsx
+```SnackPlayer name=TextStyleProps&supportedPlatforms=ios,android&ext=tsx&dependencies=@react-native-community/slider
 import React, {useState} from 'react';
 import {
   FlatList,
   Platform,
   ScrollView,
-  Slider,
   StatusBar,
   StyleSheet,
   Switch,
@@ -382,6 +381,7 @@ import {
   TouchableWithoutFeedback,
   View,
 } from 'react-native';
+import Slider from '@react-native-community/slider';
 
 const fontStyles = ['normal', 'italic'] as const;
 const fontVariants = [

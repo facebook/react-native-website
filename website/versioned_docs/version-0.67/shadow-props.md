@@ -3,9 +3,10 @@ id: shadow-props
 title: Shadow Props
 ---
 
-```SnackPlayer name=Shadow%20Props&supportedPlatforms=ios
+```SnackPlayer name=Shadow%20Props&supportedPlatforms=ios&dependencies=@react-native-community/slider
 import React, { useState } from "react";
-import { Text, View, StyleSheet, Slider } from "react-native";
+import { Text, View, StyleSheet } from "react-native";
+import Slider from '@react-native-community/slider';
 
 const ShadowPropSlider = ({ label, value, ...props }) => {
   return (
