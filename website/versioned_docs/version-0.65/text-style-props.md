@@ -5,9 +5,10 @@ title: Text Style Props
 
 ### Example
 
-```SnackPlayer name=TextStyleProps&supportedPlatforms=ios,android
+```SnackPlayer name=TextStyleProps&supportedPlatforms=ios,android&dependencies=@react-native-community/slider
 import React, { useState } from "react";
-import { FlatList, Platform, ScrollView, Slider, StatusBar, StyleSheet, Switch, Text, TouchableWithoutFeedback, View } from "react-native";
+import { FlatList, Platform, ScrollView, StatusBar, StyleSheet, Switch, Text, TouchableWithoutFeedback, View } from "react-native";
+import Slider from '@react-native-community/slider';
 
 const fontStyles = ["normal", "italic"];
 const fontVariants = [
