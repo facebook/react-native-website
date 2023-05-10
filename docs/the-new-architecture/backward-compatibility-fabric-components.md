@@ -175,7 +175,7 @@ These changes do three main things:
 
 The second step is to instruct Xcode to avoid compiling all the lines using the New Architecture types and files when we are building an app with the Old Architecture.
 
-A Fabric Native Component requires an header file and an implementation file to add the actual `View` to the module.
+A Fabric Native Component requires a header file and an implementation file to add the actual `View` to the module.
 
 For example, the `RNMyComponentView.h` header file could look like this:
 
