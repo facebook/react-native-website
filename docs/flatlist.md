@@ -600,30 +600,6 @@ Multiple columns can only be rendered with `horizontal={false}` and will zig-zag
 
 ---
 
-### `onEndReached`
-
-```tsx
-(info: {distanceFromEnd: number}) => void;
-```
-
-Called once when the scroll position gets within `onEndReachedThreshold` of the rendered content.
-
-| Type     |
-| -------- |
-| function |
-
----
-
-### `onEndReachedThreshold`
-
-How far from the end (in units of visible length of the list) the bottom edge of the list must be from the end of the content to trigger the `onEndReached` callback. Thus a value of 0.5 will trigger `onEndReached` when the end of the content is within half the visible length of the list.
-
-| Type   |
-| ------ |
-| number |
-
----
-
 ### `onRefresh`
 
 ```tsx
