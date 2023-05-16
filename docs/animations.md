@@ -591,7 +591,7 @@ UIManager.setLayoutAnimationEnabledExperimental(true);
 ```
 
 ```SnackPlayer name=LayoutAnimations&supportedPlatforms=ios,android
-import React from 'react';
+import React, {useState} from 'react';
 import {
   NativeModules,
   LayoutAnimation,
@@ -607,7 +607,7 @@ UIManager.setLayoutAnimationEnabledExperimental &&
   UIManager.setLayoutAnimationEnabledExperimental(true);
 
 export default function App() {
-  const [size, setSize] = useState(100)
+  const [size, setSize] = useState(100);
 
   const onPress = () => {
     // Animate the update
@@ -617,9 +617,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <View
-        style={[styles.box, {width: size, height: size}]}
-      />
+      <View style={[styles.box, {width: size, height: size}]} />
       <TouchableOpacity onPress={onPress}>
         <View style={styles.button}>
           <Text style={styles.buttonText}>Press me!</Text>
