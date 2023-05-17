@@ -42,7 +42,7 @@ module.exports = {
       src: 'https://widget.surveymonkey.com/collect/website/js/tRaiETqnLgj758hTBazgd8ryO5qrZo8Exadq9qmt1wtm4_2FdZGEAKHDFEt_2BBlwwM4.js',
       defer: true,
     },
-    {src: 'https://snack.expo.dev/embed.js', defer: true},
+    {src: 'https://snack.expo.dev/embed.js?version=20230517', defer: true},
   ],
   favicon: 'img/favicon.ico',
   titleDelimiter: '·',
