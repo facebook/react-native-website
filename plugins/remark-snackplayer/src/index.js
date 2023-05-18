@@ -48,6 +48,8 @@ const processNode = (node, parent) => {
       const theme = params.theme || 'light';
       const preview = params.preview || 'true';
       const loading = params.loading || 'lazy';
+      const deviceAndroid = params.deviceAndroid || 'pixel4';
+      const deviceIos = params.deviceIos || 'iphone12';
 
       // Generate Node for SnackPlayer
       // See https://github.com/expo/snack/blob/main/docs/embedding-snacks.md
@@ -64,6 +66,8 @@ const processNode = (node, parent) => {
             data-snack-theme="${theme}"
             data-snack-preview="${preview}"
             data-snack-loading="${loading}"
+            data-snack-device-android="${deviceAndroid}"
+            data-snack-device-ios="${deviceIos}"
           ></div>
           `,
       });
