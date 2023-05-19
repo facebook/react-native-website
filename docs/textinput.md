@@ -123,7 +123,7 @@ export default function InputWithNotWorkingLongPress() {
 }
 ```
 
-To workaround this, use this example where the parent view spans the entire height, but doesn't capture pointer events.
+To work around this, use this example where the parent view spans the entire height, but doesn't capture pointer events.
 
 ```jsx
 import {
