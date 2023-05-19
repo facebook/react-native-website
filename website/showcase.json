@@ -75,7 +75,8 @@
       "name": "Shopify",
       "icon": "shopify.png",
       "linkAppStore": "https://apps.apple.com/us/app/shopify-your-ecommerce-store/id371294472",
-      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.shopify.mobile&hl=en_US&gl=US"
+      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.shopify.mobile&hl=en_US&gl=US",
+      "pinned": true
     },
     {
       "name": "Shop: All your favorite brands",
@@ -175,7 +176,8 @@
       "linkAppStore": "https://apps.apple.com/us/app/tableau-mobile/id434633927",
       "linkPlayStore": "https://play.google.com/store/apps/details?id=com.Tableau.TableauApp&hl=en_US",
       "infoLink": "https://engineering.tableau.com/react-native-at-tableau-3-years-in-89d43c38354c",
-      "infoTitle": "React Native at Tableau 3 Years in"
+      "infoTitle": "React Native at Tableau 3 Years in",
+      "pinned": true
     },
     {
       "name": "FlipKart",
@@ -245,7 +247,8 @@
       "linkAppStore": "https://apps.apple.com/us/app/walmart-app-shopping-savings/id338137227",
       "linkPlayStore": "https://play.google.com/store/apps/details?id=com.walmart.android",
       "infoLink": " https://medium.com/walmartlabs/react-native-at-walmartlabs-cdd140589560#.ueonqqloc",
-      "infoTitle": "React Native at Walmart Labs"
+      "infoTitle": "React Native at Walmart Labs",
+      "pinned": true
     },
     {
       "name": "Words with Friends 2",
@@ -339,7 +342,8 @@
       "icon": "mattermost.webp",
       "linkAppStore": "https://apps.apple.com/us/app/mattermost/id1257222717",
       "linkPlayStore": "https://play.google.com/store/apps/details?id=com.mattermost.rn",
-      "infoLink": "https://github.com/mattermost/mattermost-mobile"
+      "infoLink": "https://github.com/mattermost/mattermost-mobile",
+      "pinned": true
     },
     {
       "name": "Klarna | Shop now. Pay later.",
