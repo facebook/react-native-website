@@ -48,28 +48,33 @@ const AppBox = ({app}) => {
 };
 
 const renderLinks = app => {
-  if (!app.linkAppStore && !app.linkPlayStore) {
+  if (!app.linkAppStore && !app.linkPlayStore && !app.linkDesktop) {
     return <p />;
   }
 
-  const linkAppStore = app.linkAppStore ? (
-    <a href={app.linkAppStore} target="_blank">
-      iOS
-    </a>
-  ) : null;
-  const linkPlayStore = app.linkPlayStore ? (
-    <a href={app.linkPlayStore} target="_blank">
-      Android
-    </a>
-  ) : null;
+  const links = [
+    app.linkAppStore ? (
+      <a key="ios" href={app.linkAppStore} target="_blank">
+        iOS
+      </a>
+    ) : null,
+    app.linkPlayStore ? (
+      <a key="android" href={app.linkPlayStore} target="_blank">
+        Android
+      </a>
+    ) : null,
+    app.linkDesktop ? (
+      <a key="desktop" href={app.linkDesktop} target="_blank">
+        Desktop
+      </a>
+    ) : null,
+  ]
+    .filter(Boolean)
+    .flatMap((link, i) =>
+      i === 0 ? [link] : [<span key={i}> • </span>, link]
+    );
 
-  return (
-    <p className="showcaseLinks">
-      {linkPlayStore}
-      {linkPlayStore && linkAppStore ? <span> • </span> : ''}
-      {linkAppStore}
-    </p>
-  );
+  return <p className="showcaseLinks">{links}</p>;
 };
 
 const randomizeApps = apps =>

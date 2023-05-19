@@ -19,6 +19,13 @@
       "linkAppStore": "https://apps.apple.com/us/app/oculus/id1366478176",
       "linkPlayStore": "https://play.google.com/store/apps/details?id=com.oculus.twilight&hl=en_US",
       "pinned": true
+    },
+    {
+      "name": "Messenger Desktop",
+      "icon": "messengerdesktop.png",
+      "linkDesktop": "https://www.messenger.com/desktop",
+      "infoLink": "https://developers.facebook.com/blog/post/2023/05/17/messenger-desktop-faster-and-smaller-by-moving-to-react-native-from-electron/",
+      "pinned": true
     }
   ],
   "microsoft": [
