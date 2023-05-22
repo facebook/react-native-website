@@ -60,7 +60,7 @@ If you're in a monorepo or using a different package manager, you can adjust `co
 You can customize it as follows:
 
 ```groovy
-reactNativeDir = file("../node_modules/@react-native/codegen")
+codegenDir = file("../node_modules/@react-native/codegen")
 ```
 
 ### `cliFile`
