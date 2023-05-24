@@ -102,11 +102,12 @@ module.exports = {
             require.resolve('./src/css/versions.scss'),
           ],
         },
+        // TODO: GA is deprecated, remove once we're sure data is streaming in GA4 via gtag.
         googleAnalytics: {
           trackingID: 'UA-41298772-2',
         },
         gtag: {
-          trackingID: 'UA-41298772-2',
+          trackingID: 'G-58L13S6BDP',
         },
       }),
     ],
