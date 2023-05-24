@@ -93,7 +93,7 @@ Hermes requires [Microsoft Visual C++ 2015 Redistributable](https://www.microsof
 
 ### Android
 
-Edit your `android/app/gradle.properties` file and make sure `hermesEnabled` is true:
+Edit your `android/gradle.properties` file and make sure `hermesEnabled` is true:
 
 ```diff
 # Use this property to enable or disable the Hermes JS engine.
@@ -160,7 +160,7 @@ React Native also supports using JavaScriptCore as the [JavaScript engine](javas
 
 ### Android
 
-Edit your `android/app/gradle.properties` file and flip `hermesEnabled` back to false:
+Edit your `android/gradle.properties` file and flip `hermesEnabled` back to false:
 
 ```diff
 # Use this property to enable or disable the Hermes JS engine.
