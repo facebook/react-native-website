@@ -367,10 +367,22 @@ yarn start
 
 If you are using Xcode or your favorite editor, build and run your native iOS application as normal. Alternatively, you can run the app from the command line using:
 
+<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<TabItem value="npm">
+
+```shell
+npm run ios
 ```
-# From the root of your project
-$ npx react-native run-ios
+
+</TabItem>
+<TabItem value="yarn">
+
+```shell
+yarn ios
 ```
+
+</TabItem>
+</Tabs>
 
 In our sample application, you should see the link to the "High Scores" and then when you click on that you will see the rendering of your React Native component.
 

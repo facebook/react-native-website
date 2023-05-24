@@ -3,6 +3,8 @@ id: signed-apk-android
 title: Publishing to Google Play Store
 ---
 
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+
 Android requires that all apps be digitally signed with a certificate before they can be installed. In order to distribute your Android application via [Google Play store](https://play.google.com/store) it needs to be signed with a release key that then needs to be used for all future updates. Since 2017 it is possible for Google Play to manage signing releases automatically thanks to [App Signing by Google Play](https://developer.android.com/studio/publish/app-signing#app-signing-google-play) functionality. However, before your application binary is uploaded to Google Play it needs to be signed with an upload key. The [Signing Your Applications](https://developer.android.com/tools/publishing/app-signing.html) page on Android Developers documentation describes the topic in detail. This guide covers the process in brief, as well as lists the steps required to package the JavaScript bundle.
 
 :::info
@@ -17,7 +19,9 @@ You can generate a private signing key using `keytool`.
 
 On Windows `keytool` must be run from `C:\Program Files\Java\jdkx.x.x_x\bin`, as administrator.
 
-    keytool -genkeypair -v -storetype PKCS12 -keystore my-upload-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000
+```shell
+keytool -genkeypair -v -storetype PKCS12 -keystore my-upload-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000
+```
 
 This command prompts you for passwords for the keystore and key and for the Distinguished Name fields for your key. It then generates the keystore as a file called `my-upload-key.keystore`.
 
@@ -27,15 +31,21 @@ The keystore contains a single key, valid for 10000 days. The alias is a name th
 
 On macOS, if you're not sure where your JDK bin folder is, then perform the following command to find it:
 
-    /usr/libexec/java_home
+```shell
+/usr/libexec/java_home
+```
 
 It will output the directory of the JDK, which will look something like this:
 
-    /Library/Java/JavaVirtualMachines/jdkX.X.X_XXX.jdk/Contents/Home
+```shell
+/Library/Java/JavaVirtualMachines/jdkX.X.X_XXX.jdk/Contents/Home
+```
 
 Navigate to that directory by using the command `cd /your/jdk/path` and use the keytool command with sudo permission as shown below.
 
-    sudo keytool -genkey -v -keystore my-upload-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000
+```shell
+sudo keytool -genkey -v -keystore my-upload-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000
+```
 
 :::caution
 Remember to keep the keystore file private. In case you've lost upload key or it's been compromised you should [follow these instructions](https://support.google.com/googleplay/android-developer/answer/7384423#reset).
@@ -114,9 +124,22 @@ In order for Google Play to accept AAB format the App Signing by Google Play nee
 
 Before uploading the release build to the Play Store, make sure you test it thoroughly. First uninstall any previous version of the app you already have installed. Install it on the device using the following command in the project root:
 
+<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<TabItem value="npm">
+
 ```shell
-npx react-native run-android --mode=release
+npm run android -- --mode="release"
 ```
+
+</TabItem>
+<TabItem value="yarn">
+
+```shell
+yarn android --mode release
+```
+
+</TabItem>
+</Tabs>
 
 Note that `--mode release` is only available if you've set up signing as described above.
 

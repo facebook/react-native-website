@@ -16,9 +16,11 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import con
 
 You can display the console logs for an iOS or Android app by using the following commands in a terminal while the app is running:
 
-```sh
-npx react-native log-ios
+```shell
+# For Android:
 npx react-native log-android
+# Or, for iOS:
+npx react-native log-ios
 ```
 
 You may also access these through Debug > Open System Log… in the iOS Simulator or by running `adb logcat "*:S" ReactNative:V ReactNativeJS:V` in a terminal while an Android app is running on a device or emulator.

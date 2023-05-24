@@ -53,17 +53,43 @@ npx pod-install
 
 Once this is complete, re-build the app binary to start using your new library:
 
-```bash
-npx react-native run-ios
+<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<TabItem value="npm">
+
+```shell
+npm run ios
 ```
+
+</TabItem>
+<TabItem value="yarn">
+
+```shell
+yarn ios
+```
+
+</TabItem>
+</Tabs>
 
 ## Linking Native Code on Android
 
 React Native uses Gradle to manage Android project dependencies. After you install a library with native dependencies, you will need to re-build the app binary to use your new library:
 
-```bash
-npx react-native run-android
+<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<TabItem value="npm">
+
+```shell
+npm run android
 ```
+
+</TabItem>
+<TabItem value="yarn">
+
+```shell
+yarn android
+```
+
+</TabItem>
+</Tabs>
 
 ## Finding Libraries
 
