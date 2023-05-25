@@ -16,7 +16,7 @@ React Native is not only for Android and iOS devices - our partners and the comm
 - [React Native tvOS](https://github.com/react-native-tvos/react-native-tvos) - React Native for Apple TV and Android TV devices.
 - [React Native Web](https://github.com/necolas/react-native-web) - React Native on the web using React DOM.
 - [Valence Native](https://github.com/valence-native/valence-native) - A wrapper for React Native, using Qt to target Linux, macOS, and Windows. Forked from [Proton Native](https://github.com/kusti8/proton-native) which is no longer maintained.
-- [React Native Skia](https://github.com/react-native-skia/react-native-skia) - React Native using [Skia](https://skia.org/) as a renderer.  Currently supports Linux and macOS.
+- [React Native Skia](https://github.com/react-native-skia/react-native-skia) - React Native using [Skia](https://skia.org/) as a renderer. Currently supports Linux and macOS.
 
 ## Creating your own React Native platform
 
