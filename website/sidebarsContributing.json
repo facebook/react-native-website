@@ -49,7 +49,8 @@
             "release-candidate-patch",
             "release-stable-minor",
             "release-stable-patch",
-            "release-troubleshooting"
+            "release-troubleshooting",
+            "release-updating-packages"
           ]
         }
       ]
