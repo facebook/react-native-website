@@ -87,7 +87,7 @@ You can now enable Live reloading from the [Dev Menu](debugging.md#accessing-the
 
 You can also connect to the development server over Wi-Fi. You'll first need to install the app on your device using a USB cable, but once that has been done you can debug wirelessly by following these instructions. You'll need your development machine's current IP address before proceeding.
 
-You can find the IP address in **System Preferences** → **Network**.
+You can find the IP address in **System Settings (or System Preferences)** → **Network**.
 
 1. Make sure your laptop and your phone are on the **same** Wi-Fi network.
 2. Open your React Native app on your device.
