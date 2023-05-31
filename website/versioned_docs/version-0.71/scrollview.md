@@ -405,7 +405,7 @@ Enables nested scrolling for Android API level 21+.
 
 | Type | Default |
 | ---- | ------- |
-| bool | `true`  |
+| bool | `false` |
 
 ---
 
