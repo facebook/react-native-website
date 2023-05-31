@@ -120,7 +120,7 @@ Custom debugger commands executed this way should be short-lived processes, and 
 You can use Safari to debug the iOS version of your app without having to enable "Debug JS Remotely".
 
 - On a physical device go to: `Settings → Safari → Advanced → Make sure "Web Inspector" is turned on` (This step is not needed on the Simulator)
-- On your Mac enable Develop menu in Safari: `Settings (or Preferences) → Advanced → Select "Show Develop menu in menu bar"`
+- On your Mac enable Develop menu in Safari: `Settings... (or Preferences...) → Advanced → Select "Show Develop menu in menu bar"`
 - Select your app's JSContext: `Develop → Simulator (or other device) → JSContext`
 - Safari's Web Inspector should open which has a Console and a Debugger
 
