@@ -27,7 +27,7 @@ If you have already installed Xcode on your system, make sure it is version 10 o
 
 #### Command Line Tools
 
-You will also need to install the Xcode Command Line Tools. Open Xcode, then choose **Settings... (or Preferences ...)** from the Xcode menu. Go to the Locations panel and install the tools by selecting the most recent version in the Command Line Tools dropdown.
+You will also need to install the Xcode Command Line Tools. Open Xcode, then choose **Settings... (or Preferences...)** from the Xcode menu. Go to the Locations panel and install the tools by selecting the most recent version in the Command Line Tools dropdown.
 
 ![Xcode Command Line Tools](/docs/assets/GettingStartedXcodeCommandLineTools.png)
 
