@@ -27,13 +27,13 @@ If you have already installed Xcode on your system, make sure it is version 10 o
 
 #### Command Line Tools
 
-You will also need to install the Xcode Command Line Tools. Open Xcode, then choose "Preferences..." from the Xcode menu. Go to the Locations panel and install the tools by selecting the most recent version in the Command Line Tools dropdown.
+You will also need to install the Xcode Command Line Tools. Open Xcode, then choose **Settings... (or Preferences...)** from the Xcode menu. Go to the Locations panel and install the tools by selecting the most recent version in the Command Line Tools dropdown.
 
 ![Xcode Command Line Tools](/docs/assets/GettingStartedXcodeCommandLineTools.png)
 
 #### Installing an iOS Simulator in Xcode
 
-To install a simulator, open <strong>Xcode > Preferences...</strong> and select the <strong>Components</strong> tab. Select a simulator with the corresponding version of iOS you wish to use.
+To install a simulator, open **Xcode > Settings... (or Preferences...)** and select the **Platforms (or Components)** tab. Select a simulator with the corresponding version of iOS you wish to use.
 
 #### CocoaPods
 
