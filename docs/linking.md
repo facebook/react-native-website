@@ -25,6 +25,7 @@ As mentioned in the introduction, there are some URL schemes for core functional
 | `tel`            | Open phone app, eg: tel:+123456789         | ✅  | ✅      |
 | `sms`            | Open SMS app, eg: sms:+123456789           | ✅  | ✅      |
 | `https` / `http` | Open web browser app, eg: https://expo.io  | ✅  | ✅      |
+| `maps`           | Open Apple Maps with destination address or geo cooridnates, eg: maps://app?daddr=  | ✅  |         |
 
 ### Enabling Deep Links
 
