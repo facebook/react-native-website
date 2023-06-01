@@ -27,13 +27,42 @@ git pull origin <release-branch> --tags
 git cherry-pick <commit>
 ```
 
-### 2. Test the current changes
+### 2. Bump monorepo packages
+
+**For 0.72 and higher:**
+
+Update all packages in the monorepo that were modified by the cherry picks. You can do it by running:
+
+```sh
+yarn bump-all-updated-packages # All the package bumps should be on the patch level
+git push origin 0.XX-stable
+```
+
+After pushing, the CI will take care to publish the new packages automatically.
+
+**For 0.71:**
+
+```sh
+yarn bump-all-updated-packages
+git push origin 0.71-stable
+```
+
+This will trigger a CI pipeline that will publish the changed packages. Once those packages are published (the new versions are on npm), run:
+
+```sh
+yarn align-package-versions
+```
+
+**For 0.70:**
+For version 0.70, packages must be released manually by a Meta engineer.
+
+### 3. Test the current changes
 
 Before continuing further, follow the [testing guide](/contributing/release-testing) to ensure the source code doesn't have any major issues.
 
 <AsyncTestingNote/>
 
-### 3. Run `bump-oss-version` script
+### 4. Run `bump-oss-version` script
 
 ```bash
 # once verified all the cherry-picked commits, we can push them to remote
@@ -44,7 +73,7 @@ git push
 ./scripts/bump-oss-version.js --to-version x.y.z --token <YOUR_CIRCLE_CI_TOKEN>
 ```
 
-### 4. Watch CircleCI to ensure right jobs are being triggered
+### 5. Watch CircleCI to ensure right jobs are being triggered
 
 - Once you have run the bump script script, head to CircleCI and you should see under the releases workflow, a `prepare-package-for-release` job.
 
@@ -62,7 +91,7 @@ git push
   latest: 0.Y.Z            next: 0.Y.0-rc.X         nightly: 0.0.0-f617e022c
   ```
 
-### 5. Create a PR of the changelog using the generator
+### 6. Create a PR of the changelog using the generator
 
 To generate the changelog, we rely on a dedicated tool called [`@rnx-kit/rn-changelog-generator`](https://github.com/microsoft/rnx-kit/tree/main/incubator/rn-changelog-generator) that will parse the custom changelog messages that contributors write in their PRs.
 
@@ -78,7 +107,7 @@ npx @rnx-kit/rn-changelog-generator --base v0.68.2 --compare v0.68.3 \
 
 Create a pull request of this change to `react-native` repo and add the `Changelog` label.
 
-### 6. Create GitHub Release
+### 7. Create GitHub Release
 
 Use template below for the GitHub Release:
 
@@ -102,11 +131,11 @@ To help you upgrade to this version, you can use the [upgrade helper](https://re
 You can find the whole changelog history in the [changelog.md file](https://github.com/facebook/react-native/blob/main/CHANGELOG.md).
 ```
 
-### 7. Upload prebuilt Hermes binary
+### 8. Upload prebuilt Hermes binary
 
 In the `publish_release` CI workflow, the `build_hermes_macos` step produces a `tmp/hermes/output/hermes-runtime-darwin-vx.y.z.tar.gz` artifact, for example [here](https://app.circleci.com/pipelines/github/facebook/react-native/13933/workflows/5f2ad198-2264-4e7e-8c62-7b28e97532d8/jobs/262322/artifacts) are the artifacts for `0.69.0` release. Download it and attach it to the GitHub release.
 
-### 8. Create a new patch discussion post using template below
+### 9. Create a new patch discussion post using template below
 
 ```markdown
 <!-- Template for new patch -->
@@ -138,19 +167,19 @@ If the issue is a [major release issues](https://reactnative.dev/contributing/re
 1.
 ```
 
-### 9. Update "should we release 0.Y.Z?" discussion post
+### 10. Update "should we release 0.Y.Z?" discussion post
 
 - Label it `Released`.
 - Update the text body saying the patch has been released and link to new patch discussion.
 - Lock the discussion.
 
-### 10. Verify that Upgrade Helper GitHub action has fired
+### 11. Verify that Upgrade Helper GitHub action has fired
 
 - You should see a [new publish job here](https://github.com/react-native-community/rn-diff-purge/actions).
 - Once it has finished, you should be able to see that the [Upgrade Helper](https://react-native-community.github.io/upgrade-helper/) presents the option to target the new minor.
 - If not, check out the guide on [how to update Upgrade Helper](/contributing/updating-upgrade-helper).
 
-### 11. Communicate the new release
+### 12. Communicate the new release
 
 Once all the steps above have been completed, it's time to signal to the community that latest minor is available! Do so in the following channels:
 
