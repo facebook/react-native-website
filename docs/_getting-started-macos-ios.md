@@ -61,7 +61,7 @@ This is not necessary if you are integrating React Native into an existing appli
 
 If you are having trouble with iOS, try to reinstall the dependencies by running:
 
-1. `cd ios` to navigate to the
+1. `cd ios` to navigate to the `ios` folder.
 2. `bundle install` to install [Bundler](https://bundler.io/)
 3. `bundle exec pod install` to install the iOS dependencies managed by CocoaPods.
 
