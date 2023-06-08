@@ -34,7 +34,7 @@ git cherry-pick <commit>
 Update all packages in the monorepo that were modified by the cherry picks. You can do it by running:
 
 ```sh
-yarn bump-all-updated-packages # All the package bumps should be on the patch level
+yarn bump-all-updated-packages # All the package bumps must be on the patch level
 git push origin 0.XX-stable
 ```
 
