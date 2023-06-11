@@ -17,7 +17,7 @@ If you're integrating React Native into an existing project, please refer to [th
 
 By default, the plugin will work **out of the box** with sensible defaults. You should refer to this guide and customize the behavior only if you need it.
 
-To configure the plugin you can modify a the `react` block, inside your `android/app/build.gradle`:
+To configure the plugin you can modify the `react` block, inside your `android/app/build.gradle`:
 
 ```groovy
 apply plugin: "com.facebook.react"
