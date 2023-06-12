@@ -79,7 +79,7 @@ Get content of string type, this method returns a `Promise`, so you can use foll
 
 ```jsx
 async _getContent() {
-  var content = await Clipboard.getString();
+  const content = await Clipboard.getString();
 }
 ```
 
