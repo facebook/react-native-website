@@ -125,7 +125,7 @@ MapView.propTypes = {
   zoomEnabled: PropTypes.bool,
 };
 
-var RNTMap = requireNativeComponent('RNTMap');
+const RNTMap = requireNativeComponent('RNTMap');
 
 module.exports = MapView;
 ```
@@ -221,7 +221,7 @@ MapView.propTypes = {
 
 ```tsx title="MyApp.tsx"
 render() {
-  var region = {
+  const region = {
     latitude: 37.48,
     longitude: -122.16,
     latitudeDelta: 0.1,
@@ -354,7 +354,7 @@ class MyApp extends React.Component {
   }
 
   render() {
-    var region = {
+    const region = {
       latitude: 37.48,
       longitude: -122.16,
       latitudeDelta: 0.1,
@@ -450,7 +450,7 @@ Since all our native react views are subclasses of `UIView`, most style attribut
 
 ```tsx title="DatePickerIOS.ios.tsx"
 import {UIManager} from 'react-native';
-var RCTDatePickerIOSConsts = UIManager.RCTDatePicker.Constants;
+const RCTDatePickerIOSConsts = UIManager.RCTDatePicker.Constants;
 ...
   render: function() {
     return (
@@ -465,7 +465,7 @@ var RCTDatePickerIOSConsts = UIManager.RCTDatePicker.Constants;
   }
 });
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   rkDatePickerIOS: {
     height: RCTDatePickerIOSConsts.ComponentHeight,
     width: RCTDatePickerIOSConsts.ComponentWidth,
