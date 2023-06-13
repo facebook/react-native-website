@@ -421,25 +421,21 @@ The maximum number of items to render in each incremental render batch. The more
 
 ### `onEndReached`
 
-```tsx
-(info: {distanceFromEnd: number}) => void;
-```
+Called once when the scroll position gets within within `onEndReachedThreshold` from the logical end of the list.
 
-Called once when the scroll position gets within `onEndReachedThreshold` of the rendered content.
-
-| Type     |
-| -------- |
-| function |
+| Type                                      |
+| ----------------------------------------- |
+| (info: {distanceFromEnd: number}) => void |
 
 ---
 
 ### `onEndReachedThreshold`
 
-How far from the end (in units of visible length of the list) the bottom edge of the list must be from the end of the content to trigger the `onEndReached` callback. Thus a value of 0.5 will trigger `onEndReached` when the end of the content is within half the visible length of the list.
+How far from the end (in units of visible length of the list) the trailing edge of the list must be from the end of the content to trigger the `onEndReached` callback. Thus, a value of 0.5 will trigger `onEndReached` when the end of the content is within half the visible length of the list.
 
-| Type   |
-| ------ |
-| number |
+| Type   | Default |
+| ------ | ------- |
+| number | `2`     |
 
 ---
 
@@ -472,6 +468,26 @@ Used to handle failures when scrolling to an index that has not been measured ye
 | Type     |
 | -------- |
 | function |
+
+---
+
+### `onStartReached`
+
+Called once when the scroll position gets within within `onStartReachedThreshold` from the logical start of the list.
+
+| Type                                        |
+| ------------------------------------------- |
+| (info: {distanceFromStart: number}) => void |
+
+---
+
+### `onStartReachedThreshold`
+
+How far from the start (in units of visible length of the list) the leading edge of the list must be from the start of the content to trigger the `onStartReached` callback. Thus, a value of 0.5 will trigger `onStartReached` when the start of the content is within half the visible length of the list.
+
+| Type   | Default |
+| ------ | ------- |
+| number | `2`     |
 
 ---
 

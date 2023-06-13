@@ -221,26 +221,6 @@ Rendered at the very beginning of the list. Can be a React Component (e.g. `Some
 
 ---
 
-### `onEndReached`
-
-Called once when the scroll position gets within `onEndReachedThreshold` of the rendered content.
-
-| Type                                      |
-| ----------------------------------------- |
-| (info: {distanceFromEnd: number}) => void |
-
----
-
-### `onEndReachedThreshold`
-
-How far from the end (in units of visible length of the list) the bottom edge of the list must be from the end of the content to trigger the `onEndReached` callback. Thus a value of 0.5 will trigger `onEndReached` when the end of the content is within half the visible length of the list.
-
-| Type   | Default |
-| ------ | ------- |
-| number | `2`     |
-
----
-
 ### `onRefresh`
 
 If provided, a standard RefreshControl will be added for "Pull to Refresh" functionality. Make sure to also set the `refreshing` prop correctly. To offset the RefreshControl from the top (e.g. by 100 pts), use `progressViewOffset={100}`.
