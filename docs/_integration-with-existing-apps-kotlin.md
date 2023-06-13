@@ -319,7 +319,7 @@ override fun onBackPressed() {
 
 This allows JavaScript to control what happens when the user presses the hardware back button (e.g. to implement navigation). When JavaScript doesn't handle the back button press, your `invokeDefaultOnBackPressed` method will be called. By default this finishes your `Activity`.
 
-Finally, we need to hook up the dev menu. By default, this is activated by (rage) shaking the device, but this is not very useful in emulators. So we make it show when you press the hardware menu button (use `Ctrl + M` if you're using Android Studio emulator):
+Finally, we need to hook up the dev menu. By default, this is activated by (rage) shaking the device, but this is not very useful in emulators. So we make it show when you press the hardware menu button (use <kbd>Ctrl</kbd> + <kbd>M</kbd> if you're using Android Studio emulator):
 
 ```kotlin
 override fun onKeyUp(keyCode: Int, event: KeyEvent?): Boolean {
