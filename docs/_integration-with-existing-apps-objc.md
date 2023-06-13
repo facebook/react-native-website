@@ -58,7 +58,7 @@ yarn add react-native
 
 This will print a message similar to the following (scroll up in the yarn output to see it):
 
-> warning "react-native@0.52.2" has unmet peer dependency "react@16.2.0".
+> warning "`react-native@0.52.2`" has unmet peer dependency "`react@16.2.0`".
 
 This is OK, it means we also need to install React:
 
