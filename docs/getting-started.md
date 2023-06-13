@@ -47,6 +47,7 @@ This will start a development server for you.
 <h2>Running your React Native application</h2>
 
 Install the [Expo Go](https://expo.dev/client) app on your iOS or Android phone and connect to the same wireless network as your computer. On Android, use the Expo Go app to scan the QR code from your terminal to open your project. On iOS, use the built-in QR code scanner of the default iOS Camera app.
+(During scanning of QR Code, if you have issues displaying Expo Go (), in your mobile device, you may consider change your Wi-Fi settings from 'Public' to 'Private'. And, to ensure your network is safe, remember to switch back after you are done with development.)
 
 <h3>Modifying your app</h3>
 
