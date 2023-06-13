@@ -43,6 +43,8 @@ yarn expo start
 </Tabs>
 
 This will start a development server for you.
+If you have issues displaying in your mobile device, consider changing your computer Wi-Fi Settings from 'Public' to 'Private'.
+To ensure your network is safe, remember to change back when not in development.
 
 <h2>Running your React Native application</h2>
 
