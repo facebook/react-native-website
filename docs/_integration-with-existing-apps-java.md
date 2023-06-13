@@ -41,7 +41,7 @@ $ yarn add react-native
 
 This will print a message similar to the following (scroll up in the yarn output to see it):
 
-> warning "react-native@0.70.5" has unmet peer dependency "react@18.1.0"
+> warning "`react-native@0.70.5`" has unmet peer dependency "`react@18.1.0`"
 
 This is OK, it means we also need to install React:
 
