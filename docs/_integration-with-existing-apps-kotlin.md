@@ -1,3 +1,5 @@
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+
 ## Key Concepts
 
 The keys to integrating React Native components into your Android application are to:
@@ -31,13 +33,24 @@ Go to the root directory for your project and create a new `package.json` file w
 }
 ```
 
-Next, make sure you have [installed the yarn package manager](https://yarnpkg.com/lang/en/docs/install/).
+Next, install the `react` and `react-native` packages. Open a terminal or command prompt, then navigate to the directory with your `package.json` file and run:
 
-Install the `react` and `react-native` packages. Open a terminal or command prompt, then navigate to the directory with your `package.json` file and run:
+<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<TabItem value="npm">
 
 ```shell
-$ yarn add react-native
+npm install react-native
 ```
+
+</TabItem>
+<TabItem value="yarn">
+
+```shell
+yarn add react-native
+```
+
+</TabItem>
+</Tabs>
 
 This will print a message similar to the following (scroll up in the yarn output to see it):
 
@@ -45,9 +58,22 @@ This will print a message similar to the following (scroll up in the yarn output
 
 This is OK, it means we also need to install React:
 
+<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<TabItem value="npm">
+
 ```shell
-$ yarn add react@version_printed_above
+npm install react@version_printed_above
 ```
+
+</TabItem>
+<TabItem value="yarn">
+
+```shell
+yarn add react@version_printed_above
+```
+
+</TabItem>
+</Tabs>
 
 Yarn has created a new `/node_modules` folder. This folder stores all the JavaScript dependencies required to build your project.
 
@@ -122,11 +148,15 @@ apply from: file("../../node_modules/@react-native-community/cli-platform-androi
 
 Next, make sure you have the Internet permission in your `AndroidManifest.xml`:
 
-    <uses-permission android:name="android.permission.INTERNET" />
+```xml
+<uses-permission android:name="android.permission.INTERNET" />
+```
 
 If you need to access to the `DevSettingsActivity` add to your `AndroidManifest.xml`:
 
-    <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+```xml
+<activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+```
 
 This is only used in dev mode when reloading JavaScript from the development server, so you can strip this in release builds if you need to.
 
@@ -341,9 +371,22 @@ You have now done all the basic steps to integrate React Native with your curren
 
 To run your app, you need to first start the development server. To do this, run the following command in the root directory of your React Native project:
 
+<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<TabItem value="npm">
+
 ```shell
-$ yarn start
+npm start
 ```
+
+</TabItem>
+<TabItem value="yarn">
+
+```shell
+yarn start
+```
+
+</TabItem>
+</Tabs>
 
 ##### 2. Run the app
 

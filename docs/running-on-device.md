@@ -51,15 +51,28 @@ If you see `unauthorized` in the list you will need to run `adb reverse tcp:8081
 
 ### 3. Run your app
 
-Type the following in your command prompt to install and launch your app on the device:
+From the root of your project; type the following in your command prompt to install and launch your app on the device:
+
+<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<TabItem value="npm">
 
 ```shell
-$ npx react-native run-android
+npm run android
 ```
+
+</TabItem>
+<TabItem value="yarn">
+
+```shell
+yarn android
+```
+
+</TabItem>
+</Tabs>
 
 > If you get a "bridge configuration isn't available" error, see [Using adb reverse](running-on-device.md#method-1-using-adb-reverse-recommended).
 
-> Hint: You can also use the `React Native CLI` to generate and run a `Release` build (e.g. `npx react-native run-android --mode=release`).
+> Hint: You can also use the `React Native CLI` to generate and run a `release` build (e.g. from the root of your project: `yarn android --mode release`).
 
 <h2>Connecting to the development server</h2>
 
@@ -94,7 +107,7 @@ You can find the IP address in **System Settings (or System Preferences)** → *
 3. You'll see a [red screen with an error](debugging.md#in-app-errors-and-warnings). This is OK. The following steps will fix that.
 4. Open the in-app [Dev Menu](debugging.md#accessing-the-dev-menu).
 5. Go to **Dev Settings** → **Debug server host & port for device**.
-6. Type in your machine's IP address and the port of the local dev server (e.g. 10.0.1.1:8081).
+6. Type in your machine's IP address and the port of the local dev server (e.g. `10.0.1.1:8081`).
 7. Go back to the **Dev Menu** and select **Reload JS**.
 
 You can now enable Live reloading from the [Dev Menu](debugging.md#accessing-the-dev-menu). Your app will reload whenever your JavaScript code has changed.
@@ -131,13 +144,26 @@ Seeing `device` in the right column means the device is connected. You must have
 
 ### 3. Run your app
 
-Type the following in your command prompt to install and launch your app on the device:
+From the root of your project, run the following in your command prompt to install and launch your app on the device:
+
+<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<TabItem value="npm">
 
 ```shell
-$ npx react-native run-android
+npm run android
 ```
 
-> Hint: You can also use the `React Native CLI` to generate and run a `Release` build (e.g. `npx react-native run-android --mode=release`).
+</TabItem>
+<TabItem value="yarn">
+
+```shell
+yarn android
+```
+
+</TabItem>
+</Tabs>
+
+> Hint: You can also use the `React Native CLI` to generate and run a `release` build (e.g. from the root of your project: `yarn android --mode release`).
 
 <h2>Connecting to the development server</h2>
 
@@ -172,7 +198,7 @@ Open the command prompt and type `ipconfig` to find your machine's IP address ([
 3. You'll see a [red screen with an error](debugging.md#in-app-errors-and-warnings). This is OK. The following steps will fix that.
 4. Open the in-app [Dev Menu](debugging.md#accessing-the-dev-menu).
 5. Go to **Dev Settings** → **Debug server host & port for device**.
-6. Type in your machine's IP address and the port of the local dev server (e.g. 10.0.1.1:8081).
+6. Type in your machine's IP address and the port of the local dev server (e.g. `10.0.1.1:8081`).
 7. Go back to the **Dev Menu** and select **Reload JS**.
 
 You can now enable Live reloading from the [Dev Menu](debugging.md#accessing-the-dev-menu). Your app will reload whenever your JavaScript code has changed.
@@ -254,15 +280,28 @@ Seeing `device` in the right column means the device is connected. You must have
 
 ### 3. Run your app
 
-Type the following in your command prompt to install and launch your app on the device:
+From the root of your project, type the following in your command prompt to install and launch your app on the device:
+
+<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<TabItem value="npm">
 
 ```shell
-$ npx react-native run-android
+npm run android
 ```
+
+</TabItem>
+<TabItem value="yarn">
+
+```shell
+yarn android
+```
+
+</TabItem>
+</Tabs>
 
 > If you get a "bridge configuration isn't available" error, see [Using adb reverse](running-on-device.md#method-1-using-adb-reverse-recommended).
 
-> Hint: You can also use the `React Native CLI` to generate and run a `Release` build (e.g. `npx react-native run-android --mode=release`).
+> Hint: You can also use the `React Native CLI` to generate and run a `release` build (e.g. from the root of your project: `yarn android --mode release`).
 
 <h2>Connecting to the development server</h2>
 
@@ -297,7 +336,7 @@ Open a terminal and type `/sbin/ifconfig` to find your machine's IP address.
 3. You'll see a [red screen with an error](debugging.md#in-app-errors-and-warnings). This is OK. The following steps will fix that.
 4. Open the in-app [Dev Menu](debugging.md#accessing-the-dev-menu).
 5. Go to **Dev Settings** → **Debug server host & port for device**.
-6. Type in your machine's IP address and the port of the local dev server (e.g. 10.0.1.1:8081).
+6. Type in your machine's IP address and the port of the local dev server (e.g. `10.0.1.1:8081`).
 7. Go back to the **Dev Menu** and select **Reload JS**.
 
 You can now enable Live reloading from the [Dev Menu](debugging.md#accessing-the-dev-menu). Your app will reload whenever your JavaScript code has changed.
@@ -367,7 +406,7 @@ Make sure your laptop and your phone are on the **same** Wi-Fi network.
 
 #### 2. IP address
 
-Make sure that the build script detected the IP address of your machine correctly (e.g. 10.0.1.123).
+Make sure that the build script detected the IP address of your machine correctly (e.g. `10.0.1.123`).
 
 ![](/docs/assets/XcodeBuildIP.png)
 
