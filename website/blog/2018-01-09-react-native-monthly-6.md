@@ -20,8 +20,8 @@ The React Native monthly meeting is still going strong! Make sure to check a not
 ### Infinite Red
 
 - We have our Keynote speakers for [Chain React conf](https://infinite.red/ChainReactConf): [Kent C. Dodds](https://twitter.com/kentcdodds) and [Tracy Lee](https://twitter.com/ladyleet). We will be opening CFP very soon.
-- [Community chat](http://community.infinite.red/) now at 1600 people.
-- [React Native Newsletter](http://reactnative.cc/) now at 8500 subscribers.
+- [Community chat](https://community.infinite.red/) now at 1600 people.
+- [React Native Newsletter](https://reactnative.cc/) now at 8500 subscribers.
 - Currently researching best practice for making RN crash resistant, reports to follow.
 - Adding ability to report from [Solidarity](https://shift.infinite.red/effortless-environment-reports-d129d53eb405).
 - Published a HOW-TO for releasing on [React Native and Android](https://shift.infinite.red/simple-react-native-android-releases-319dc5e29605).

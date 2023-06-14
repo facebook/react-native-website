@@ -20,7 +20,7 @@ Many times, when upgrading your apps and libraries from a version of React Nativ
 
 ### Stack Overflow
 
-Many members of the community use Stack Overflow to ask questions. Read through the [existing questions](http://stackoverflow.com/questions/tagged/react-native?sort=frequent) tagged with **react-native** or [ask your own](http://stackoverflow.com/questions/ask?tags=react-native)!
+Many members of the community use Stack Overflow to ask questions. Read through the [existing questions](https://stackoverflow.com/questions/tagged/react-native?sort=frequent) tagged with **react-native** or [ask your own](https://stackoverflow.com/questions/ask?tags=react-native)!
 
 ### Reactiflux Chat
 

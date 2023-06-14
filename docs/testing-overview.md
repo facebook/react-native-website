@@ -251,7 +251,7 @@ E2E tests give you the highest possible confidence that part of your app is work
 
 Try to cover the vital parts of your app with E2E tests: authentication flow, core functionalities, payments, etc. Use faster JS tests for the non-vital parts of your app. The more tests you add, the higher your confidence, but also, the more time you'll spend maintaining and running them. Consider the tradeoffs and decide what's best for you.
 
-There are several E2E testing tools available: in the React Native community, [Detox](https://github.com/wix/detox/) is a popular framework because it’s tailored for React Native apps. Another popular library in the space of iOS and Android apps is [Appium](http://appium.io/) or [Maestro](https://maestro.mobile.dev/).
+There are several E2E testing tools available: in the React Native community, [Detox](https://github.com/wix/detox/) is a popular framework because it’s tailored for React Native apps. Another popular library in the space of iOS and Android apps is [Appium](https://appium.io/) or [Maestro](https://maestro.mobile.dev/).
 
 <img src="/docs/assets/p_tests-e2e.svg" alt=" " />
 
@@ -265,7 +265,7 @@ We hope you enjoyed reading and learned something from this guide. There are man
 - [React Native Testing Library](https://callstack.github.io/react-native-testing-library/)
 - [Jest docs](https://jestjs.io/docs/en/tutorial-react-native)
 - [Detox](https://github.com/wix/detox/)
-- [Appium](http://appium.io/)
+- [Appium](https://appium.io/)
 - [Maestro](https://maestro.mobile.dev/)
 
 ---

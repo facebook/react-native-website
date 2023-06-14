@@ -253,7 +253,7 @@ public class NetworkChangeReceiver extends BroadcastReceiver {
     private boolean isAppOnForeground(Context context) {
         /**
          We need to check if app is in foreground otherwise the app will crash.
-         http://stackoverflow.com/questions/8489993/check-android-application-is-in-foreground-or-not
+         https://stackoverflow.com/questions/8489993/check-android-application-is-in-foreground-or-not
          **/
         ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
         List<ActivityManager.RunningAppProcessInfo> appProcesses =
@@ -336,7 +336,7 @@ class NetworkChangeReceiver : BroadcastReceiver() {
     private fun isAppOnForeground(context: Context): Boolean {
         /**
          * We need to check if app is in foreground otherwise the app will crash.
-         * http://stackoverflow.com/questions/8489993/check-android-application-is-in-foreground-or-not
+         * https://stackoverflow.com/questions/8489993/check-android-application-is-in-foreground-or-not
          */
         val activityManager = context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
         val appProcesses = activityManager.runningAppProcesses ?: return false

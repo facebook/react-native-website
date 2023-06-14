@@ -13,25 +13,25 @@ Start out by looking at issues that need triage, as identified by the ["Needs: T
 We sometimes get issues that are quite not appropriate for the GitHub issue tracker. Add the "Type: Invalid" label, and a bot will close the issue automatically.
 :::
 
-Once you get to this point, you can transition to parsing the content of the issue itself. Does this issue include a **clear description** of the problem? 
+Once you get to this point, you can transition to parsing the content of the issue itself. Does this issue include a **clear description** of the problem?
 
-If not, _politely_ ask the issue author to update their issue with the necessary information, and apply a "Needs: Author Feedback" label. 
+If not, _politely_ ask the issue author to update their issue with the necessary information, and apply a "Needs: Author Feedback" label.
 
 We aim to always be friendly and helpful and expect the same from every member of our community.
 
 ## Improving an Issue
 
-If the issue contains all the necessary information, take a moment to consider if the issue can still be improved in some way. Is the formatting alright? You may lightly edit the issue to improve readability as needed. 
+If the issue contains all the necessary information, take a moment to consider if the issue can still be improved in some way. Is the formatting alright? You may lightly edit the issue to improve readability as needed.
 
-If the issue contains an unformatted block of code, surround it with three back ticks (```) to convert it into a markdown code block. 
+If the issue contains an unformatted block of code, surround it with three back ticks (```) to convert it into a markdown code block.
 
 Are there any labels you can add to help categorize it better? If the issue only affects Android apps, you may add a "Platform: Android" label. Perhaps the issue only manifests itself when developing on Windows, in which case you might add the "Platform: Windows" label.
 
-We have a long list of [labels](http://github.com/facebook/react-native/issues/labels), please take a look and see if anything might apply!
+We have a long list of [labels](https://github.com/facebook/react-native/issues/labels), please take a look and see if anything might apply!
 
 ## Handling Duplicates
 
-As you work through these issues, you will start to get a better understanding of the type of problems that get reported. You may even start noticing the same issue gets reported. 
+As you work through these issues, you will start to get a better understanding of the type of problems that get reported. You may even start noticing the same issue gets reported.
 
 In these cases, you can close the issue and add a comment that says "Duplicate of #issue". By following this convention, GitHub will automatically mark the issue as a duplicate.
 
@@ -41,7 +41,7 @@ Next up, we need to determine how severe the issue is.
 
 ### Is this a potential **release blocker**?
 
-These issues should be addressed within the next week or two, as they may prevent release coordinators from cutting a clean release candidate. 
+These issues should be addressed within the next week or two, as they may prevent release coordinators from cutting a clean release candidate.
 
 Issues that might be labeled as such could be regressions that break one of our pre-commit tests. Avoid flagging an issue as a release blocker if it has been around for some time (if the issue is already present in one or more releases, it cannot be a RC blocker by definition).
 
