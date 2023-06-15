@@ -13,57 +13,6 @@ Upgrading your Expo project to a new version of React Native requires updating t
 
 Because typical React Native projects are essentially made up of an Android project, an iOS project, and a JavaScript project, upgrading can be rather tricky. There's currently two ways for upgrading your React Native project: by using [React Native CLI](https://github.com/react-native-community/cli) or manually with [Upgrade Helper](https://react-native-community.github.io/upgrade-helper/).
 
-### React Native CLI
-
-The [React Native CLI](https://github.com/react-native-community/cli) comes with `upgrade` command that provides a one-step operation to upgrade the source files with a minimum of conflicts, it internally uses [rn-diff-purge](https://github.com/react-native-community/rn-diff-purge) project to find out which files need to be created, removed or modified.
-
-#### 1. Run the `upgrade` command
-
-> The `upgrade` command works on top of Git by using `git apply` with 3-way merge, therefore it's required to use Git in order for this to work, if you don't use Git but still want to use this solution then you can check out how to do it in the [Troubleshooting](#i-want-to-upgrade-with-react-native-cli-but-i-dont-use-git) section.
-
-Run the following command to start the process of upgrading to the latest version:
-
-```shell
-npx react-native upgrade
-```
-
-You may specify a React Native version by passing an argument, e.g. to upgrade to `0.61.0-rc.0` run:
-
-```shell
-npx react-native upgrade 0.61.0-rc.0
-```
-
-The project is upgraded using `git apply` with 3-way merge, it may happen that you'll need to resolve a few conflicts after it's finished.
-
-#### 2. Resolve the conflicts
-
-Conflicted files include delimiters which make very clear where the changes come from. For example:
-
-```
-13B07F951A680F5B00A75B9A /* Release */ = {
-  isa = XCBuildConfiguration;
-  buildSettings = {
-    ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-<<<<<<< ours
-    CODE_SIGN_IDENTITY = "iPhone Developer";
-    FRAMEWORK_SEARCH_PATHS = (
-      "$(inherited)",
-      "$(PROJECT_DIR)/HockeySDK.embeddedframework",
-      "$(PROJECT_DIR)/HockeySDK-iOS/HockeySDK.embeddedframework",
-    );
-=======
-    CURRENT_PROJECT_VERSION = 1;
->>>>>>> theirs
-    HEADER_SEARCH_PATHS = (
-      "$(inherited)",
-      /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-      "$(SRCROOT)/../node_modules/react-native/React/**",
-      "$(SRCROOT)/../node_modules/react-native-code-push/ios/CodePush/**",
-    );
-```
-
-You can think of "ours" as "your team" and "theirs" as "the React Native development team".
-
 ### Upgrade Helper
 
 The [Upgrade Helper](https://react-native-community.github.io/upgrade-helper/) is a web tool to help you out when upgrading your apps by providing the full set of changes happening between any two versions. It also shows comments on specific files to help understanding why that change is needed.
@@ -73,6 +22,8 @@ The [Upgrade Helper](https://react-native-community.github.io/upgrade-helper/) i
 You first need to select from and to which version you wish to upgrade, by default the latest major versions are selected. After selecting you can click the button "Show me how to upgrade".
 
 💡 Major updates will show an "useful content" section on the top with links to help you out when upgrading.
+
+> Or you can run the `npx react-native upgrade`, which will automatically check your current version and the latest version available and will show you the link to the Upgrade Helper page with the versions already selected.
 
 #### 2. Upgrade dependencies
 
