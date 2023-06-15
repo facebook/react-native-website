@@ -17,7 +17,7 @@ A Release Crew effort starts with the work on a new minor; meaning, at least one
 
 - 2 people per each release
 
-**Time commitment:** about 4 hours/week of work until the next crew starts working on a new minor release (muti month commitment).
+**Time commitment:** about 4 hours/week of work until the next crew starts working on a new minor release (multi month commitment).
 
 ### Role Responsibilities
 
@@ -52,7 +52,7 @@ A Release Crew effort starts with the work on a new minor; meaning, at least one
 
 - 2 people per each release
 
-**Time commitment:** flexible but, most likely, a few hours per week until next crew starts working on a new minor release (muti month commitment).
+**Time commitment:** flexible but, most likely, a few hours per week until next crew starts working on a new minor release (multi month commitment).
 
 ### Role Responsibilities
 
