@@ -125,7 +125,7 @@ If you wish to invoke the codegen manually, you have two options:
 1. Invoking a Gradle task directly (Android).
 2. Invoking a script manually.
 
-### Invoking a Gradle task directly
+### Android - Invoking a Gradle task directly
 
 You can trigger the Codegen by invoking the following task:
 

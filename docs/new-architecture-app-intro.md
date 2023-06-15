@@ -4,7 +4,8 @@ title: Prerequisites for Applications
 ---
 
 import NewArchitectureWarning from './\_markdown-new-architecture-warning.mdx';
-import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 import constants from '@site/core/TabsConstants';
 
 <NewArchitectureWarning/>
@@ -19,150 +20,17 @@ This guide is written with the expectation that you’re using the [**latest** R
 
 You can find instructions on how to upgrade in the page [upgrading to new versions](/docs/upgrading).
 
-## Use Hermes
-
-Hermes is an open-source JavaScript engine optimized for React Native. Hermes is enabled by default, and you have to explicitly disable it if you want to use JSC.
-
-We highly recommend using Hermes in your application. With Hermes enabled, you can use the JavaScript debugger in Flipper to directly debug your JavaScript code.
-
-Please [follow the instructions on the Hermes page](hermes) to learn how to enable/disable Hermes.
-
-:::caution
-
-**iOS:** If you opt out of using Hermes, you will need to replace `HermesExecutorFactory` with `JSCExecutorFactory` in any examples used throughout the rest of this guide.
-
-:::
-
-## iOS - Build the Project
-
-After upgrading the project, there are a few changes you need to apply:
-
-1. Target the proper iOS version. Open the `Podfile` and apply this change:
-
-```diff
-- platform :ios, '11.0'
-+ platform :ios, '12.4'
-```
-
-2. Create a `.xcode.env` file to export the location of the NODE_BINARY. Navigate to the `ios` folder and run this command:
-
-```sh
-echo 'export NODE_BINARY=$(command -v node)' > .xcode.env
-```
-
-If you need it, you can also open the file and replace the `$(command -v node)` with the path to the node executable.
-React Native also supports a local version of this file `.xcode.env.local`. This file is not synced with the repository to let you customize your local setup, if it differs from the Continuous Integration or the team one.
-
-2. Fix an API change in the `AppDelegate.m`. Open this file and apply this change:
-
-```diff
-#if DEBUG
--       return [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
-+       return [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index"];
-#else
-```
-
-## iOS - Use Objective-C++ (`.mm` extension)
-
-Turbo Native Modules can be written using Objective-C or C++. In order to support both cases, any source files in the user project space that include C++ code should use the `.mm` file extension. This extension corresponds to Objective-C++, a language variant that allows for the use of a combination of C++ and Objective-C in source files.
+Remember to re-install the dependencies after upgrading (run `npm install` or `yarn`).
 
 :::important
 
-**Use Xcode to rename existing files** to ensure file references persist in your project. You might need to clean the build folder (_Project → Clean Build Folder_) before re-building the app. If the file is renamed outside of Xcode, you may need to click on the old `.m` file reference and Locate the new file.
+Whenever you have to rename some files in the `ios` folder, please **use Xcode to rename them**. This ensure that the file references are updated in the Xcode project as well. You might need to clean the build folder (**Project** → **Clean Build Folder** or <kbd>Cmd ⌘</kbd> + <kbd>Shift ⇪</kbd> + <kbd>K</kbd>) before re-building the app. If the file is renamed outside of Xcode, you may need to click on the old `.m` file reference and Locate the new file.
 
 :::
 
-For example, if you use the template, your project structure for what concerns iOS should look like this:
+## Android - Enable the New Architecture
 
-```
-AppName
-├── ...
-├── ios
-│   ├── Podfile
-│   ├── Podfile.lock
-│   ├── Pods
-│   │   └── ...
-│   ├── AppName
-│   │   ├── AppDelegate.h
-│   │   ├── AppDelegate.mm
-│   │   ├── Images.xcassets
-│   │   ├── Info.plist
-│   │   ├── LaunchScreen.storyboard
-│   │   └── main.m
-│   ├── AppName.xcodeproj
-│   ├── AppName.xcworkspace
-│   ├── AppNameTests
-│   └── build
-└── ...
-```
-
-All the `.m` files within the `AppName` inner folder should be renamed from `.m` to `.mm`. If you have packages that contains Objective-C code at the same level of the `AppName` folder, they should be renamed from `.m` to `.mm` too.
-
-## iOS - Make your AppDelegate conform to `RCTAppDelegate`
-
-The final step to configure iOS for the New Architecture is to extend a base class provided by React Native, called `RCTAppDelegate`.
-
-This class provides a base implementation for all the required functionalities of the new architecture. If you need to customize some of them, you can override those methods, invoke `[super methodNameWith:parameters:];` collecting the returned value and customize the bits you need to customize.
-
-1. Open the `ios/<AppName>/AppDelegate.h` file and update it as it follows:
-
-```diff
-- #import <React/RCTBridgeDelegate.h>
-+ #import <RCTAppDelegate.h>
-#import <UIKit/UIKit.h>
-
-- @interface AppDelegate : UIResponder <UIApplicationDelegate, RCTBridgeDelegate>
-+ @interface AppDelegate : RCTAppDelegate
-
-- @property (nonatomic, strong) UIWindow *window;
-
-@end
-```
-
-2. Open the `ios/<AppName>/AppDelegate.mm` (remember that you have to rename the `AppDelegate.m` to `AppDelegate.mm` first) file and replace its content with the following:
-
-```objc
-#import "AppDelegate.h"
-#import <React/RCTBundleURLProvider.h>
-
-@implementation AppDelegate
-  - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-  self.moduleName = @"NameOfTheApp";
-  return [super application:application didFinishLaunchingWithOptions:launchOptions];
-}
-
-- (NSURL *)sourceURLForBridge:(RCTBridge *)bridge
-{
-#if DEBUG
-  return [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index"];
-#else
-  return [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
-#endif
-}
-
-- (BOOL)concurrentRootEnabled
-{
-  return true;
-}
-
-@end
-```
-
-:::note
-The `moduleName` has to be the same string used in the `[RCTRootView initWithBridge:moduleName:initialProperties]` call in the original `AppDelegate.mm` file.
-:::
-
-## iOS - Run pod install
-
-```bash
-// Run pod install with the flags
-RCT_NEW_ARCH_ENABLED=1 pod install
-```
-
-## Android - Prerequisites
-
-If you successfully updated your project to React Native `0.71.0`, you **already meet** all the prerequisites to use the New Architecture on Android.
+If you successfully updated your project to the latest version of React Native, you **already meet** all the prerequisites to use the New Architecture on Android.
 
 You will only need to update your `android/gradle.properties` file as follows:
 
@@ -176,17 +44,82 @@ You will only need to update your `android/gradle.properties` file as follows:
 +newArchEnabled=true
 ```
 
-That's it!
+## iOS - Enable the New Architecture
 
-It’s now time to run your Android app to verify that everything works correctly:
+If you successfully updated your project to the latest version of React Native, you **already meet** all the prerequisites to use the New Architecture on iOS.
+
+You will only need to reinstall your pods by running `pod install` with the right flag:
 
 ```bash
-yarn react-native run-android
+# Run pod install with the flag:
+RCT_NEW_ARCH_ENABLED=1 bundle exec pod install
 ```
+
+## Running the App
+
+It’s now time to run your app to verify that everything works correctly:
+
+<Tabs groupId="run-app" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers} >
+<TabItem value="yarn">
+
+```bash
+# To run android
+yarn android
+
+# To run iOS
+yarn ios
+```
+
+</TabItem>
+<TabItem value="npm">
+
+```bash
+# To run android
+npm run android
+
+# To run iOS
+npm run ios
+```
+
+</TabItem>
+</Tabs>
 
 In your Metro terminal log, you will now see the following log to confirm that Fabric is running correctly:
 
 ```
-BUNDLE ./App.js
+BUNDLE ./App.tsx
 LOG Running "App" with {"fabric":true,"initialProps":{"concurrentRoot": "true"},"rootTag":1}
 ```
+
+## Advanced - Pass your component in the interop layer
+
+If you followed the previous steps but your app uses some custom Native Components that have not been migrated to the New Architecture completely, you are going to see some reddish/pinkish boxes saying that the component is not compatible with Fabric. This is happening because custom Native Components written for the legacy architecture can't run as-is in the New Architecture.
+
+Starting from **React Native `0.72.0`**, we worked on a interoperability layer to let you use legacy components in the New Architecture without having to wait for them to be migrated.
+
+You can read more about the interoperability layer and how to use it [here](https://github.com/reactwg/react-native-new-architecture/discussions/135). Follow this guide to register your components and then rerun your app with the commands:
+
+<Tabs groupId="run-app" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers} >
+<TabItem value="yarn">
+
+```bash
+# To run android
+yarn android
+
+# To run iOS
+yarn ios
+```
+
+</TabItem>
+<TabItem value="npm">
+
+```bash
+# To run android
+npm run android
+
+# To run iOS
+npm run ios
+```
+
+</TabItem>
+</Tabs>
