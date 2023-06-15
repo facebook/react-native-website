@@ -11,7 +11,7 @@ Upgrading your Expo project to a new version of React Native requires updating t
 
 ## React Native projects
 
-Because typical React Native projects are essentially made up of an Android project, an iOS project, and a JavaScript project, upgrading can be rather tricky. There's currently two ways for upgrading your React Native project: by using [React Native CLI](https://github.com/react-native-community/cli) or manually with [Upgrade Helper](https://react-native-community.github.io/upgrade-helper/).
+Because typical React Native projects are essentially made up of an Android project, an iOS project, and a JavaScript project, upgrading can be rather tricky. There's currently one way for upgrading your React Native project by using [Upgrade Helper](https://react-native-community.github.io/upgrade-helper/).
 
 ### Upgrade Helper
 
@@ -23,7 +23,9 @@ You first need to select from and to which version you wish to upgrade, by defau
 
 💡 Major updates will show an "useful content" section on the top with links to help you out when upgrading.
 
-> Or you can run the `npx react-native upgrade`, which will automatically check your current version and the latest version available and will show you the link to the Upgrade Helper page with the versions already selected.
+:::tip
+Or you can run the `npx react-native upgrade`, which will automatically check your current version and the latest version available and will show you the link to the Upgrade Helper page with the versions already selected.
+:::
 
 #### 2. Upgrade dependencies
 
