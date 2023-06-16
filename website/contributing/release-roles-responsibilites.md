@@ -17,7 +17,7 @@ A Release Crew effort starts with the work on a new minor; meaning, at least one
 
 - 2 people per each release
 
-**Time commitment:** about 4 hours/week of work.
+**Time commitment:** about 4 hours/week of work until the next crew starts working on a new minor release (multi month commitment).
 
 ### Role Responsibilities
 
@@ -38,6 +38,7 @@ A Release Crew effort starts with the work on a new minor; meaning, at least one
   - When a security alert gets raised, communicates it quickly to relevant partners and internally
   - If the security fix commit lands and it’s important, coordinates with the release crew on which stable branches should get the releases and produces the patch releases accordingly
 - Can perform release or delegate release steps
+- Responsible for all active releases in the support window during the duration of the role [supported versions](https://github.com/reactwg/react-native-releases#which-versions-are-currently-supported)
 
 ### Who can fill it
 
@@ -51,7 +52,7 @@ A Release Crew effort starts with the work on a new minor; meaning, at least one
 
 - 2 people per each release
 
-**Time commitment:** flexible but, most likely, a few hours per week.
+**Time commitment:** flexible but, most likely, a few hours per week until next crew starts working on a new minor release (multi month commitment).
 
 ### Role Responsibilities
 
@@ -75,6 +76,7 @@ A Release Crew effort starts with the work on a new minor; meaning, at least one
   - Trigger the rn-diff-purge script to update upgrade-helper (this is automated for 0.68 onwards)
 - Coordinates the [release testing](/contributing/release-testing)
 - Runs a release retrospective after a new minor is released
+- Responsible for all active releases in the support window during the duration of the role [supported versions](https://github.com/reactwg/react-native-releases#which-versions-are-currently-supported)
 
 ### Who can fill it
 
