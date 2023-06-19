@@ -196,7 +196,7 @@ This is one way to run your app - you can also run it directly from within Andro
 Now that you have successfully run the app, let's modify it.
 
 - Open `App.tsx` in your text editor of choice and edit some lines.
-- Press the `R` key twice or select `Reload` from the Dev Menu (`⌘M`) to see your changes!
+- Press the <kbd>R</kbd> key twice or select `Reload` from the Dev Menu (<kbd>Cmd ⌘</kbd> + <kbd>M</kbd>) to see your changes!
 
 <h3>That's it!</h3>
 
