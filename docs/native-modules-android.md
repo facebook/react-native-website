@@ -353,13 +353,26 @@ const onPress = () => {
 
 The final step is to rebuild the React Native app so that you can have the latest native code (with your new native module!) available. In your command line, where the react native application is located, run the following:
 
+<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<TabItem value="npm">
+
 ```shell
-npx react-native run-android
+npm run android
 ```
+
+</TabItem>
+<TabItem value="yarn">
+
+```shell
+yarn android
+```
+
+</TabItem>
+</Tabs>
 
 ### Building as You Iterate
 
-As you work through these guides and iterate on your native module, you will need to do a native rebuild of your application to access your most recent changes from JavaScript. This is because the code that you are writing sits within the native part of your application. While React Native’s metro bundler can watch for changes in JavaScript and rebuild on the fly for you, it will not do so for native code. So if you want to test your latest native changes you need to rebuild by using the `npx react-native run-android` command.
+As you work through these guides and iterate on your native module, you will need to do a native rebuild of your application to access your most recent changes from JavaScript. This is because the code that you are writing sits within the native part of your application. While React Native’s metro bundler can watch for changes in JavaScript and rebuild on the fly for you, it will not do so for native code. So if you want to test your latest native changes you need to rebuild by using the above command.
 
 ### Recap✨
 

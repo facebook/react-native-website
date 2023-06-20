@@ -26,7 +26,7 @@ The touch handling system considers one or more active touches to be an 'interac
 InteractionManager also allows applications to register animations by creating an interaction 'handle' on animation start, and clearing it upon completion:
 
 ```tsx
-var handle = InteractionManager.createInteractionHandle();
+const handle = InteractionManager.createInteractionHandle();
 // run animation... (`runAfterInteractions` tasks are queued)
 // later, on animation completion:
 InteractionManager.clearInteractionHandle(handle);

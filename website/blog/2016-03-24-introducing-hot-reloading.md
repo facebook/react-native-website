@@ -85,10 +85,10 @@ This invocation wraps each module's code into an anonymous function which we gen
 
 So say you start your app and require `log`. At this point, neither `log` nor `time`'s factory functions have been executed so no exports have been cached. Then, the user modifies `time` to return the date in `MM/DD`:
 
-```
+```js
 // time.js
 function bar() {
-  var date = new Date();
+  const date = new Date();
   return `${date.getMonth() + 1}/${date.getDate()}`;
 }
 

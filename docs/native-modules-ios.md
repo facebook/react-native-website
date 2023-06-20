@@ -4,6 +4,7 @@ title: iOS Native Modules
 ---
 
 import NativeDeprecated from './the-new-architecture/\_markdown_native_deprecation.mdx'
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 <NativeDeprecated />
 
@@ -180,13 +181,26 @@ const onPress = () => {
 
 The final step is to rebuild the React Native app so that you can have the latest native code (with your new native module!) available. In your command line, where the react native application is located, run the following :
 
+<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<TabItem value="npm">
+
 ```shell
-npx react-native run-ios
+npm run ios
 ```
+
+</TabItem>
+<TabItem value="yarn">
+
+```shell
+yarn ios
+```
+
+</TabItem>
+</Tabs>
 
 ### Building as You Iterate
 
-As you work through these guides and iterate on your native module, you will need to do a native rebuild of your application to access your most recent changes from JavaScript. This is because the code that you are writing sits within the native part of your application. While React Native’s metro bundler can watch for changes in JavaScript and rebuild JS bundle on the fly for you, it will not do so for native code. So if you want to test your latest native changes you need to rebuild by using the `npx react-native run-ios` command.
+As you work through these guides and iterate on your native module, you will need to do a native rebuild of your application to access your most recent changes from JavaScript. This is because the code that you are writing sits within the native part of your application. While React Native’s metro bundler can watch for changes in JavaScript and rebuild JS bundle on the fly for you, it will not do so for native code. So if you want to test your latest native changes you need to rebuild by using the above command.
 
 ### Recap✨
 

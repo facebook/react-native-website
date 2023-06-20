@@ -1,4 +1,5 @@
 import RemoveGlobalCLI from './\_remove-global-cli.md';
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 ## Installing dependencies
 
@@ -61,7 +62,7 @@ This is not necessary if you are integrating React Native into an existing appli
 
 If you are having trouble with iOS, try to reinstall the dependencies by running:
 
-1. `cd ios` to navigate to the
+1. `cd ios` to navigate to the `ios` folder.
 2. `bundle install` to install [Bundler](https://bundler.io/)
 3. `bundle exec pod install` to install the iOS dependencies managed by CocoaPods.
 
@@ -91,7 +92,7 @@ On top of this, it's possible to add any other environment variable and to sourc
 :::info
 If you are already using [NVM](http://nvm.sh/) (a command which helps you install and switch between versions of Node.js) and [zsh](https://ohmyz.sh/), you might want to move the code that initialize NVM from your `~/.zshrc` into a `~/.zshenv` file to help Xcode find your Node executable:
 
-```
+```zsh
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 ```
@@ -105,15 +106,24 @@ You might also want to ensure that all "shell script build phase" of your Xcode 
 
 First, you will need to start Metro, the JavaScript bundler that ships with React Native. Metro "takes in an entry file and various options, and returns a single JavaScript file that includes all your code and its dependencies."—[Metro Docs](https://facebook.github.io/metro/docs/concepts)
 
-To start Metro, run `npx react-native start` inside your React Native project folder:
+To start Metro, run following command inside your React Native project folder:
+
+<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<TabItem value="npm">
 
 ```shell
-npx react-native start
+npm start
 ```
 
-`react-native start` starts Metro Bundler.
+</TabItem>
+<TabItem value="yarn">
 
-> If you use the Yarn package manager, you can use `yarn` instead of `npx` when running React Native commands inside an existing project.
+```shell
+yarn start
+```
+
+</TabItem>
+</Tabs>
 
 > If you're familiar with web development, Metro is a lot like webpack—for React Native apps. Unlike Swift or Objective-C, JavaScript isn't compiled—and neither is React Native. Bundling isn't the same as compiling, but it can help improve startup performance and translate some platform-specific JavaScript into more widely supported JavaScript.
 
@@ -121,15 +131,28 @@ npx react-native start
 
 Let Metro Bundler run in its own terminal. Open a new terminal inside your React Native project folder. Run the following:
 
+<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<TabItem value="npm">
+
 ```shell
-npx react-native run-ios
+npm run ios
 ```
+
+</TabItem>
+<TabItem value="yarn">
+
+```shell
+yarn ios
+```
+
+</TabItem>
+</Tabs>
 
 You should see your new app running in the iOS Simulator shortly.
 
 ![AwesomeProject on iOS](/docs/assets/GettingStartediOSSuccess.png)
 
-`npx react-native run-ios` is one way to run your app. You can also run it directly from within Xcode.
+This is one way to run your app. You can also run it directly from within Xcode.
 
 > If you can't get this to work, see the [Troubleshooting](troubleshooting.md) page.
 
@@ -142,7 +165,7 @@ The above command will automatically run your app on the iOS Simulator by defaul
 Now that you have successfully run the app, let's modify it.
 
 - Open `App.tsx` in your text editor of choice and edit some lines.
-- Hit `⌘R` in your iOS Simulator to reload the app and see your changes!
+- Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
 
 ### That's it!
 

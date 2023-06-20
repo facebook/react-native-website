@@ -3,6 +3,8 @@ id: troubleshooting
 title: Troubleshooting
 ---
 
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+
 These are some common issues you may run into while setting up React Native. If you encounter something that is not listed here, try [searching for the issue in GitHub](https://github.com/facebook/react-native/issues/).
 
 ### Port already in use
@@ -27,11 +29,24 @@ On Windows you can find the process using port 8081 using [Resource Monitor](htt
 
 #### Using a port other than 8081
 
-You can configure the bundler to use a port other than 8081 by using the `port` parameter:
+You can configure the bundler to use a port other than 8081 by using the `port` parameter, from the root of your project run:
+
+<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<TabItem value="npm">
 
 ```shell
-npx react-native start --port=8088
+npm start -- --port=8088
 ```
+
+</TabItem>
+<TabItem value="yarn">
+
+```shell
+yarn start --port 8088
+```
+
+</TabItem>
+</Tabs>
 
 You will also need to update your applications to load the JavaScript bundle from the new port. If running on device from Xcode, you can do this by updating occurrences of `8081` to your chosen port in the `ios/__App_Name__.xcodeproj/project.pbxproj` file.
 
@@ -101,11 +116,24 @@ npx react-native init --verbose
 
 When you're debugging a process or need to know a little more about the error being thrown, you may want to use the verbose option to output more logs and information to nail down your issue.
 
-Run the following command in your root directory.
+Run the following command in your project's root directory.
+
+<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<TabItem value="npm">
 
 ```shell
-npx react-native run-android --verbose
+npm run android -- --verbose
 ```
+
+</TabItem>
+<TabItem value="yarn">
+
+```shell
+yarn android --verbose
+```
+
+</TabItem>
+</Tabs>
 
 ## Unable to start react-native package manager (on Linux)
 
@@ -119,6 +147,6 @@ echo fs.inotify.max_user_watches=582222 | sudo tee -a /etc/sysctl.conf && sudo s
 
 ### Error: spawnSync ./gradlew EACCES
 
-If you run into issue where executing `npm run android` on macOS throws the above error, try to run `sudo chmod +x android/gradlew` command to make `gradlew` files into executable.
+If you run into issue where executing `npm run android` or `yarn android` on macOS throws the above error, try to run `sudo chmod +x android/gradlew` command to make `gradlew` files into executable.
 
 [metro]: https://facebook.github.io/metro/

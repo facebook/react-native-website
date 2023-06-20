@@ -48,10 +48,10 @@ The static bundle is built every time you target a physical device, even in Debu
 
 ### 3. Build app for release
 
-You can now build your app for release by tapping `⌘B` or selecting **Product** → **Build** from the menu bar. Once built for release, you'll be able to distribute the app to beta testers and submit the app to the App Store.
+You can now build your app for release by tapping <kbd>Cmd ⌘</kbd> + <kbd>B</kbd> or selecting **Product** → **Build** from the menu bar. Once built for release, you'll be able to distribute the app to beta testers and submit the app to the App Store.
 
 :::info
-You can also use the `React Native CLI` to perform this operation using the option `--mode` with the value `Release` (e.g. `npx react-native run-ios --mode Release`).
+You can also use the `React Native CLI` to perform this operation using the option `--mode` with the value `Release` (e.g. from the root of your project: `npm run ios -- --mode="Release"` or `yarn ios --mode Release`).
 :::
 
 Once you are done with the testing and ready to publish to App Store, follow along with this guide.

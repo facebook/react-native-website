@@ -58,7 +58,7 @@ yarn add react-native
 
 This will print a message similar to the following (scroll up in the yarn output to see it):
 
-> warning "react-native@0.52.2" has unmet peer dependency "react@16.2.0".
+> warning "`react-native@0.52.2`" has unmet peer dependency "`react@16.2.0`".
 
 This is OK, it means we also need to install React:
 
@@ -367,10 +367,22 @@ yarn start
 
 If you are using Xcode or your favorite editor, build and run your native iOS application as normal. Alternatively, you can run the app from the command line using:
 
+<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<TabItem value="npm">
+
+```shell
+npm run ios
 ```
-# From the root of your project
-$ npx react-native run-ios
+
+</TabItem>
+<TabItem value="yarn">
+
+```shell
+yarn ios
 ```
+
+</TabItem>
+</Tabs>
 
 In our sample application, you should see the link to the "High Scores" and then when you click on that you will see the rendering of your React Native component.
 

@@ -1,3 +1,5 @@
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+
 ## Key Concepts
 
 The keys to integrating React Native components into your iOS application are to:
@@ -33,23 +35,47 @@ Go to the root directory for your project and create a new `package.json` file w
 }
 ```
 
-Next, make sure you have [installed the yarn package manager](https://yarnpkg.com/lang/en/docs/install/).
+Next, install the `react` and `react-native` packages. Open a terminal or command prompt, then navigate to the directory with your `package.json` file and run:
 
-Install the `react` and `react-native` packages. Open a terminal or command prompt, then navigate to the directory with your `package.json` file and run:
+<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<TabItem value="npm">
 
 ```shell
-$ yarn add react-native
+npm install react-native
 ```
+
+</TabItem>
+<TabItem value="yarn">
+
+```shell
+yarn add react-native
+```
+
+</TabItem>
+</Tabs>
 
 This will print a message similar to the following (scroll up in the yarn output to see it):
 
-> warning "react-native@0.52.2" has unmet peer dependency "react@16.2.0".
+> warning "`react-native@0.52.2`" has unmet peer dependency "`react@16.2.0`".
 
 This is OK, it means we also need to install React:
 
+<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<TabItem value="npm">
+
 ```shell
-$ yarn add react@version_printed_above
+npm install react@version_printed_above
 ```
+
+</TabItem>
+<TabItem value="yarn">
+
+```shell
+yarn add react@version_printed_above
+```
+
+</TabItem>
+</Tabs>
 
 Yarn has created a new `/node_modules` folder. This folder stores all the JavaScript dependencies required to build your project.
 
@@ -298,18 +324,43 @@ Apple has blocked implicit cleartext HTTP resource loading. So we need to add th
 
 To run your app, you need to first start the development server. To do this, run the following command in the root directory of your React Native project:
 
+<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<TabItem value="npm">
+
 ```shell
-$ npm start
+npm start
 ```
+
+</TabItem>
+<TabItem value="yarn">
+
+```shell
+yarn start
+```
+
+</TabItem>
+</Tabs>
 
 ##### 3. Run the app
 
-If you are using Xcode or your favorite editor, build and run your native iOS application as normal. Alternatively, you can run the app from the command line using:
+If you are using Xcode or your favorite editor, build and run your native iOS application as normal. Alternatively, you can run the app from the command line using following command from the root directory of your React Native project:
 
+<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<TabItem value="npm">
+
+```shell
+npm run ios
 ```
-# From the root of your project
-$ npx react-native run-ios
+
+</TabItem>
+<TabItem value="yarn">
+
+```shell
+yarn ios
 ```
+
+</TabItem>
+</Tabs>
 
 In our sample application, you should see the link to the "High Scores" and then when you click on that you will see the rendering of your React Native component.
 

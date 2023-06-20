@@ -23,7 +23,7 @@ Using a **typed** spec file allows you to be intentional and declare all the inp
 
 To adopt the New Architecture, you start by creating these specs for your native modules and native components. You can do this before migrating to the New Architecture: the specs will be used later on to generate native interface code for all the supported platforms as a way to enforce uniform APIs across platforms.
 
-#### Turbo Native Modules
+### Turbo Native Modules
 
 JavaScript spec files **must** be named `Native<MODULE_NAME>.js`, and they export a `TurboModuleRegistry` `Spec` object. The name convention is important because the Codegen process looks for modules whose `js` (`jsx`, `ts`, or `tsx`) spec file starts with the keyword `Native`.
 
@@ -72,7 +72,7 @@ export default TurboModuleRegistry.get<Spec>('<MODULE_NAME>');
 </TabItem>
 </Tabs>
 
-#### Fabric Native Components
+### Fabric Native Components
 
 JavaScript spec files **must** be named `<FABRIC COMPONENT>NativeComponent.js` (for TypeScript use extension `.ts` or `.tsx`) and they export a `HostComponent` object. The name convention is important: the Codegen process looks for components whose spec file (either JavaScript or TypeScript) ends with the suffix `NativeComponent`.
 
@@ -151,51 +151,6 @@ Before adopting the New Architecture in your native module, you should ensure yo
 
 If your existing native module has methods with the same name on multiple platforms, but with different numbers or types of arguments across platforms, you will need to find a way to make these consistent. If you have methods that can take two or more different types for the same argument, then you need to find a way to resolve this type of ambiguity as type unions are intentionally not supported.
 
-## Make Sure _autolinking_ is Enabled
-
-<!-- alex ignore master -->
-
-[Autolinking](https://github.com/react-native-community/cli/blob/master/docs/autolinking.md) is a feature of the React Native CLI that simplifies the installation of third-party React Native libraries. Instructions to enable _autolinking_ are available in the [React Native CLI docs](https://github.com/react-native-community/cli/blob/master/docs/autolinking.md).
-
-### Android
-
-On Android, this generally requires you to include `native_modules.gradle` in both your `settings.gradle` and `build.gradle`.
-
-If you used the default template provided with React Native (i.e., `yarn react-native init <Project>`), then autolinking is already enabled.
-
-You can anyway verify that you have it enabled with:
-
-```bash
-$ grep -r "native_modules.gradle" android
-
-android/app/build.gradle:apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)
-android/settings.gradle:apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
-...
-```
-
-If you don't, open the `settings.gradle` file and add this line:
-
-```diff
-rootProject.name = <Your App Name>
-+ apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
-```
-
-Then, open your `android/app/build.gradle` file and add this line at the end of the file:
-
-```kotlin
-apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)
-```
-
-### iOS
-
-On iOS, make sure that your library provides a Podspec (see [`react-native-webview`](https://github.com/react-native-community/react-native-webview/blob/master/react-native-webview.podspec) for an example).
-
-:::info
-
-To determine if your library is set up for autolinking, check the CocoaPods output after running `pod install` (or `arch -x86_64 pod install` in case of a Mac M1) on an iOS project. If you see "auto linking library name", you are all set to go.
-
-:::
-
 ## Configure Codegen
 
 [Codegen](the-new-architecture/pillars-codegen) is a tool that runs when you build an Android app or install the dependencies of an iOS app. It creates some scaffolding code that you won't have to create manually.
@@ -251,112 +206,9 @@ We will eventually deprecate `UIManager`. However, we recognize that migrations 
 
 **Support for `UIManager` methods in the New Architecture is actively being developed.** While we make progress here, early adopters can still experiment with the New Architecture by following these steps to migrate off common `UIManager` APIs:
 
-1. Migrating off `setNativeProps`
-2. Move the call to `requireNativeComponent` to a separate file
-3. Migrating off `dispatchViewManagerCommand`
-4. Creating NativeCommands with `codegenNativeCommands`
-
-### Migrating off `setNativeProps`
-
-`setNativeProps` will not be supported in the post-Fabric world. To migrate, move all `setNativeProp` values to component state.
-
-**Example**
-
-```tsx
-class MyComponent extends React.Component<Props> {
-  _viewRef?: React.ElementRef<typeof View>;
-
-  render() {
-    const {somePropValue} = this.props;
-    return <View
-       onPress={this._onSubmit}
-       ref={this._captureRef}
-       someProp={somePropValue}
-       style={styles.view} />
-  }
-
-  _captureRef: (ref: React.ElementRef<typeof View>) => {
-    this._viewRef = ref;
-  }
-
-  _onSubmit: () => {
-    this._viewRef.setNativeProps({
-       style: styles.submittedView,
-       accessibility: true
-    });
-    // ...other logic for onSubmit
-  }
-}
-
-const styles = StyleSheet.create({
-  view: {backgroundColor: 'white'},
-  submittedView: {borderWidth: 1}
-});
-```
-
-In this example, when the View is pressed, there is a `setNativeProps` call to update the style and accessibility props of the component. To migrate this component, it’s important to understand its current behavior using `setNativeProps`.
-
-#### Pre-Fabric, Component Props Persist
-
-On the first render, the component props are those declared in the render function. After the View is pressed `_onSubmit` calls `setNativeProps` with updated prop values.
-The resulting component can be represented as such:
-
-```tsx
-<View
-  accessibility={true}
-  onPress={this._onSubmit}
-  ref={this._captureRef}
-  someProp={somePropValue}
-  style={[styles.view, styles.submittedView]}
-/>
-```
-
-Note that all prop values set in the render function are unchanged even though `setNativeProps` didn’t pass those props. Also, `style` is now the merged value of its value prior to `_onSubmit` and `styles.submittedView`. This is the important takeaway: in our current pre-Fabric world, **component props persist.** The platform view caches the prop values it's passed from the JS side. If this wasn’t the case, then following the setNativeProps call, React Native would have rendered a component like this:
-
-```tsx
-<View accessibility={true} style={styles.submittedView} />
-```
-
-The fact that React Native stores some internal state of each component that isn’t explicitly declared in the last render is what Fabric intends to fix.
-
-#### Moving `setNativeProps` to state
-
-Taking the above caveats into account, a proper migration would look like this:
-
-```tsx
-class MyComponent extends React.Component<Props> {
-  state = {
-    hasSubmitted: false,
-    accessibility: false
-  };
-
-  render() {
-    const {somePropValue} = this.props;
-    const submittedStyle = this.state.hasSubmitted ? styles.submittedView: null;
-    return <View
-       accessibility={this.state.accessibility}
-       onPress={this._onSubmit}
-       someProp={somePropValue}
-       style={[styles.view, submittedStyle]} />
-  }
-
-  _onSubmit: () => {
-    this.setState(state => ({...state, hasSubmitted: true}));
-    // ...other logic for onSubmit
-  }
-}
-
-
-const styles = StyleSheet.create({
-  view: {backgroundColor: 'white'},
-  submittedView: {borderWidth: 1}
-});
-```
-
-- We are using the `hasSubmitted` flag to represent whether or not we want to apply `styles.submittedView`. If the style was dynamic, then it makes sense to store the style object in state.
-- `accessibility` is now explicitly passed to the View component as a boolean. This differs from the prior implementation where `accessibility` wasn’t passed as a prop in the initial render, but in this case, we know the non-specification of `accessibility` is handled in the same way as `accessibilty={false}`.
-
-Be wary of your assumptions, as uncaught subtleties can introduce differences in behavior! It’s a good idea to have snapshot tests of your component as they will highlight any differences pre and post your migration.
+1. Move the call to `requireNativeComponent` to a separate file
+2. Migrating off `dispatchViewManagerCommand`
+3. Creating NativeCommands with `codegenNativeCommands`
 
 ### Move the call to `requireNativeComponent` to a separate file
 

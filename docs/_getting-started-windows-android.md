@@ -1,4 +1,5 @@
 import RemoveGlobalCLI from './\_remove-global-cli.md';
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 <h2>Installing dependencies</h2>
 
@@ -158,15 +159,24 @@ Click "Next" then "Finish" to create your AVD. At this point you should be able 
 
 First, you will need to start Metro, the JavaScript bundler that ships with React Native. Metro "takes in an entry file and various options, and returns a single JavaScript file that includes all your code and its dependencies."—[Metro Docs](https://facebook.github.io/metro/docs/concepts)
 
-To start Metro, run `npx react-native start` inside your React Native project folder:
+To start Metro, run following command inside your React Native project folder:
+
+<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<TabItem value="npm">
 
 ```shell
-npx react-native start
+npm start
 ```
 
-`react-native start` starts Metro Bundler.
+</TabItem>
+<TabItem value="yarn">
 
-> If you use the Yarn package manager, you can use `yarn` instead of `npx` when running React Native commands inside an existing project.
+```shell
+yarn start
+```
+
+</TabItem>
+</Tabs>
 
 > If you're familiar with web development, Metro is a lot like webpack—for React Native apps. Unlike Kotlin or Java, JavaScript isn't compiled—and neither is React Native. Bundling isn't the same as compiling, but it can help improve startup performance and translate some platform-specific JavaScript into more widely supported JavaScript.
 
@@ -174,15 +184,28 @@ npx react-native start
 
 Let Metro Bundler run in its own terminal. Open a new terminal inside your React Native project folder. Run the following:
 
+<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<TabItem value="npm">
+
 ```shell
-npx react-native run-android
+npm run android
 ```
+
+</TabItem>
+<TabItem value="yarn">
+
+```shell
+yarn android
+```
+
+</TabItem>
+</Tabs>
 
 If everything is set up correctly, you should see your new app running in your Android emulator shortly.
 
 ![AwesomeProject on Android](/docs/assets/GettingStartedAndroidSuccessWindows.png)
 
-`npx react-native run-android` is one way to run your app - you can also run it directly from within Android Studio.
+This is one way to run your app - you can also run it directly from within Android Studio.
 
 > If you can't get this to work, see the [Troubleshooting](troubleshooting.md) page.
 
@@ -191,7 +214,7 @@ If everything is set up correctly, you should see your new app running in your A
 Now that you have successfully run the app, let's modify it.
 
 - Open `App.tsx` in your text editor of choice and edit some lines.
-- Press the `R` key twice or select `Reload` from the Dev Menu (`Ctrl + M`) to see your changes!
+- Press the <kbd>R</kbd> key twice or select `Reload` from the Dev Menu (<kbd>Ctrl</kbd> + <kbd>M</kbd>) to see your changes!
 
 <h3>That's it!</h3>
 

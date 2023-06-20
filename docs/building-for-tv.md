@@ -35,8 +35,8 @@ TV devices support has been implemented with the intention of making existing Re
 - _JavaScript layer_: Support for Android TV has been added to `Platform.android.js`. You can check whether code is running on Android TV by doing
 
 ```js
-var Platform = require('Platform');
-var running_on_android_tv = Platform.isTV;
+const Platform = require('Platform');
+const running_on_android_tv = Platform.isTV;
 ```
 
 ## Code changes
@@ -50,7 +50,7 @@ var running_on_android_tv = Platform.isTV;
 - _TV remote/keyboard input_: A new native class, `ReactAndroidTVRootViewHelper`, sets up key events handlers for TV remote events. When TV remote events occur, this class fires a JS event. This event will be picked up by instances of the `TVEventHandler` JavaScript object. Application code that needs to implement custom handling of TV remote events can create an instance of `TVEventHandler` and listen for these events, as in the following code:
 
 ```tsx
-var TVEventHandler = require('TVEventHandler');
+const TVEventHandler = require('TVEventHandler');
 
 class Game2048 extends React.Component {
   _tvEventHandler: any;
@@ -113,12 +113,12 @@ class Game2048 extends React.Component {
 - _JavaScript layer_: Support for Apple TV has been added to `Platform.ios.js`. You can check whether code is running on AppleTV by doing
 
 ```tsx
-var Platform = require('Platform');
-var running_on_tv = Platform.isTV;
+const Platform = require('Platform');
+const running_on_tv = Platform.isTV;
 
 // If you want to be more specific and only detect devices running tvOS
 // (but no Android TV devices) you can use:
-var running_on_apple_tv = Platform.isTVOS;
+const running_on_apple_tv = Platform.isTVOS;
 ```
 
 ## Code changes
@@ -136,7 +136,7 @@ var running_on_apple_tv = Platform.isTVOS;
 - _TV remote/keyboard input_: A new native class, `RCTTVRemoteHandler`, sets up gesture recognizers for TV remote events. When TV remote events occur, this class fires notifications that are picked up by `RCTTVNavigationEventEmitter` (a subclass of `RCTEventEmitter`), that fires a JS event. This event will be picked up by instances of the `TVEventHandler` JavaScript object. Application code that needs to implement custom handling of TV remote events can create an instance of `TVEventHandler` and listen for these events, as in the following code:
 
 ```tsx
-var TVEventHandler = require('TVEventHandler');
+const TVEventHandler = require('TVEventHandler');
 
 class Game2048 extends React.Component {
   _tvEventHandler: any;
