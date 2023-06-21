@@ -7,7 +7,7 @@ date: 2023-06-21
 
 # Package Exports Support in React Native
 
-With the release of React Native 0.72, Metro — our JavaScript build tool — now includes experimental support for the `package.json` [`"exports"` field](https://nodejs.org/docs/latest-v18.x/api/packages.html#exports). [When enabled](/blog/2023/06/21/package-exports-support#enabling-package-exports-experimental), it adds the following functionality:
+With the release of [React Native 0.72](/blog/2023/06/21/0.72-metro-package-exports-symlinks), Metro — our JavaScript build tool — now includes beta support for the `package.json` [`"exports"`](https://nodejs.org/docs/latest-v18.x/api/packages.html#exports) field. When [enabled](/blog/2023/06/21/package-exports-support#enabling-package-exports-beta), it adds the following functionality:
 
 - [React Native projects will work with more npm packages out-of-the-box](/blog/2023/06/21/package-exports-support#for-app-developers)
 - [New capabilities for packages to define their API and target React Native](/blog/2023/06/21/package-exports-support#for-package-maintainers-preview)
@@ -73,7 +73,7 @@ Since these features overlap with existing React Native concepts (such as [platf
 
 ## For app developers
 
-Package Exports can be enabled today, experimentally.
+Package Exports can be enabled today, in beta.
 
 - Imports against packages that depend on Package Exports features (such as [**Firebase**](https://www.npmjs.com/package/firebase) and [**Storybook**](https://www.npmjs.com/search?q=%40storybook)) should now work as designed.
 - React Native for Web projects using Metro will now be able to use the `"browser"` conditional export, removing the need for workarounds.
@@ -82,7 +82,7 @@ Enabling Package Exports brings a few [edge-case breaking changes](#breaking-cha
 
 **In a future React Native release, Package Exports will be enabled by default**. In a chicken-and-egg situation, React Native apps were previously a holdout for some packages to migrate to `"exports"` — or used our `"react-native"` root field escape hatch. Supporting these features in Metro will allow the ecosystem to move forward.
 
-### Enabling Package Exports (experimental)
+### Enabling Package Exports (beta)
 
 Package Exports can be enabled in your app's [**metro.config.js**](https://github.com/facebook/react-native/blob/0.72-stable/packages/react-native/template/metro.config.js) file via the [`resolver.unstable_enablePackageExports`](https://facebook.github.io/metro/docs/configuration/#unstable_enablepackageexports-experimental) option.
 
