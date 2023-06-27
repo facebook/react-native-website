@@ -56,22 +56,43 @@ Unhandled JavaScript errors such as `undefined is not a function` will automatic
 
 When syntax error occurs the full screen LogBox error will automatically open with the stack trace and location of the syntax error. This error is not dismissable because it represents invalid JavaScript execution that must be fixed before continuing with your app. To dismiss these errors, fix the syntax error and either save to automatically dismiss (with Fast Refresh enabled) or <kbd>Cmd ⌘</kbd>/<kbd>Ctrl</kbd> + <kbd>R</kbd> to reload (with Fast Refresh disabled).
 
+## JavaScript debugging
+
+### Flipper
+
+To debug JavaScript code in Flipper, select "Open Debugger" from the Dev Menu. This will automatically open the debugger tab inside Flipper.
+
+To install and get started with Flipper, follow [this guide](https://fbflipper.com/docs/getting-started/).
+
+### Expo CLI
+
+If you're using Expo CLI in a project running with Hermes, you can debug your JavaScript code by starting your project with `npx expo start` and then pressing <kbd>j</kbd> to open the debugger in Google Chrome or Microsoft Edge.
+
 ## Chrome Developer Tools
 
-To debug JavaScript code in Chrome, select "Open Debugger" from the Dev Menu. This will open a new tab at [http://localhost:8081/debugger-ui](http://localhost:8081/debugger-ui).
-
-From here, select `More Tools → Developer Tools` from the Chrome menu to open [Chrome DevTools](https://developer.chrome.com/devtools). Alternatively, you can use the shortcut <kbd>⌥ Option</kbd> + <kbd>Cmd ⌘</kbd> + <kbd>I</kbd> (macOS) / <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd> (Windows and Linux).
-
-- If you're new to Chrome DevTools, we recommend learning about the [Console](https://developer.chrome.com/docs/devtools/#console) and [Sources](https://developer.chrome.com/docs/devtools/#sources) tabs in the docs.
-- You may want to enable [Pause on Caught Exceptions](https://developer.chrome.com/docs/devtools/javascript/breakpoints/#exceptions) for a better debugging experience.
-
 :::info
-The React Developer Tools Chrome extension does not work with React Native, but you can use its standalone version instead. Read [this section](debugging.md#react-developer-tools) to learn how.
+**Starting from version 0.73, Remote Debugging is deprecated.** These Chrome DevTools steps use the _Remote Debugging_ workflow, where JS code is executed in Chrome's V8 engine on the dev machine during debugging, instead of on-device. This method is incompatible with some New Architecture features such as JSI.
+
+Please prefer using Flipper or [direct debugging with Safari](#safari-developer-tools).
 :::
 
-:::note
-On Android, if the times between the debugger and device have drifted, things such as animations and event behavior might not work properly. This can be fixed by running `` adb shell "date `date +%m%d%H%M%Y.%S%3N`" ``. Root access is required if using a physical device.
-:::
+<details>
+<summary>Re-enabling Remote Debugging in React Native 0.73</summary>
+
+If your project still relies on this feature, you can manually enable it manually through the `NativeDevSettings.setIsDebuggingRemotely` function.
+
+```jsx
+import NativeDevSettings from 'react-native/Libraries/NativeModules/specs/NativeDevSettings';
+export default function App() {
+  useEffect(() => {
+    NativeDevSettings.setIsDebuggingRemotely(true);
+  }, []);
+
+  return <MyApp />;
+}
+```
+
+</details>
 
 ### Debugging on a physical device
 
@@ -117,7 +138,7 @@ Custom debugger commands executed this way should be short-lived processes, and 
 
 ## Safari Developer Tools
 
-You can use Safari to debug the iOS version of your app without having to enable "Debug JS Remotely".
+You can use Safari to debug the iOS version of your app when using JSC.
 
 - On a physical device go to: `Settings → Safari → Advanced → Make sure "Web Inspector" is turned on` (This step is not needed on the Simulator)
 - On your Mac enable Develop menu in Safari: `Settings... (or Preferences...) → Advanced → Select "Show Develop menu in menu bar"`
