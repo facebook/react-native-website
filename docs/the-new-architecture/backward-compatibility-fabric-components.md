@@ -257,6 +257,8 @@ The same two lines should be added in the implementation file, as first and last
 
 The above snippet uses the same `RCT_NEW_ARCH_ENABLED` flag used in the previous [section](#dependencies-ios). When this flag is not set, Xcode skips the lines within the `#ifdef` during compilation and it does not include them into the compiled binary. The compiled binary will have a the `RNMyComponentView.o` object but it will be an empty object.
 
+After wrapping the above components with a `#ifdef` pragma, you need to replicate the functionality of `RNMyComponentView.mm` inside `RNMyComponentViewManager.mm` to ensure the same functionality between architectures. For more information on how legacy components work, refer to [our documentation](https://reactnative.dev/docs/native-components-ios).
+
 ### Android
 
 As we can't use conditional compilation blocks on Android, we will define two different source sets. This will allow to create a backward compatible TurboModule with the proper source that is loaded and compiled depending on the used architecture.
