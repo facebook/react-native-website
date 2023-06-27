@@ -95,7 +95,7 @@ This will compile JavaScript to bytecode during build time which will improve yo
 Hermes supports the Chrome debugger by implementing the Chrome inspector protocol. This means Chrome's tools can be used to directly debug JavaScript running on Hermes, on an emulator or on a real, physical, device.
 
 :::info
-Note that this is very different with the "Remote JS Debugging" from the In-App Dev Menu documented in the [Debugging](debugging#debugging-using-a-custom-javascript-debugger) section, which actually runs the JS code on Chrome's V8 on your development machine (laptop or desktop).
+Note that this is very different with the deprecated "Remote JS Debugging" from the In-App Dev Menu documented in the [Debugging](debugging#remote-debugging) section, which actually runs the JS code on Chrome's V8 on your development machine (laptop or desktop) instead of connecting to the JS engine running the app on your device.
 :::
 
 Chrome connects to Hermes running on device via Metro, so you'll need to know where Metro is listening. Typically this will be on `localhost:8081`, but this is [configurable](https://facebook.github.io/metro/docs/configuration). When running `yarn start` the address is written to stdout on startup.
