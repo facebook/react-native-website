@@ -68,6 +68,7 @@ If you are having trouble with iOS, try to reinstall the dependencies by running
 3. `bundle exec pod install` to install the iOS dependencies managed by CocoaPods.
 
 :::
+
 ### [Optional] Using a specific version or template
 
 If you want to start a new project with a specific React Native version, you can use the `--version` argument:
