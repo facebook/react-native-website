@@ -618,9 +618,9 @@ If provided, a standard RefreshControl will be added for "Pull to Refresh" funct
 
 Called when the viewability of rows changes, as defined by the `viewabilityConfig` prop.
 
-| Type                                                                                             |
-| ------------------------------------------------------------------------------------------------ |
-| (callback: {changed: [ViewToken](viewtoken)[], viewableItems: [ViewToken](viewtoken)[]} => void; |
+| Type                                                                                              |
+| ------------------------------------------------------------------------------------------------- |
+| (callback: \{changed: [ViewToken](viewtoken)[], viewableItems: [ViewToken](viewtoken)[]} => void; |
 
 ---
 

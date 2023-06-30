@@ -72,8 +72,8 @@ They say a picture is worth 1,000 words. How many words is an interactive visual
   See the Pen{' '}
   <a href="https://codepen.io/TheSavior/pen/NXNoJM/">
     Loading Screen Animation Steps
-  </a>{' '}
-  by Eli White (
+  </a>
+  {' '}by Eli White (
   <a href="https://codepen.io/TheSavior">@TheSavior</a>) on{' '}
   <a href="https://codepen.io">CodePen</a>.
 </iframe>

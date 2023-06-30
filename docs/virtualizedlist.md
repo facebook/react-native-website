@@ -423,9 +423,9 @@ The maximum number of items to render in each incremental render batch. The more
 
 Called once when the scroll position gets within within `onEndReachedThreshold` from the logical end of the list.
 
-| Type                                      |
-| ----------------------------------------- |
-| (info: {distanceFromEnd: number}) => void |
+| Type                                       |
+| ------------------------------------------ |
+| (info: \{distanceFromEnd: number}) => void |
 
 ---
 
@@ -475,9 +475,9 @@ Used to handle failures when scrolling to an index that has not been measured ye
 
 Called once when the scroll position gets within within `onStartReachedThreshold` from the logical start of the list.
 
-| Type                                        |
-| ------------------------------------------- |
-| (info: {distanceFromStart: number}) => void |
+| Type                                         |
+| -------------------------------------------- |
+| (info: \{distanceFromStart: number}) => void |
 
 ---
 
@@ -495,9 +495,9 @@ How far from the start (in units of visible length of the list) the leading edge
 
 Called when the viewability of rows changes, as defined by the `viewabilityConfig` prop.
 
-| Type                                                                                                             |
-| ---------------------------------------------------------------------------------------------------------------- |
-| (callback: {changed: array of [ViewToken](viewtoken)s, viewableItems: array of [ViewToken](viewtoken)s}) => void |
+| Type                                                                                                              |
+| ----------------------------------------------------------------------------------------------------------------- |
+| (callback: \{changed: array of [ViewToken](viewtoken)s, viewableItems: array of [ViewToken](viewtoken)s}) => void |
 
 ---
 

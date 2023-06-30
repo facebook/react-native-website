@@ -20,11 +20,11 @@ The React Native source code is hosted on GitHub. You can interact with the git 
 
 While you can browse the source code for React Native on [GitHub](https://github.com/facebook/react-native), we recommend you set up a fork on your local machine.
 
-1. Go to <https://github.com/facebook/react-native>.
+1. Go to https://github.com/facebook/react-native.
 2. Click on "Fork" button on the upper right.
 3. When asked, select your username as the host for this fork.
 
-You will now have a fork of React Native on GitHub at <https://github.com/your_username/react-native>. Next, you will grab a copy of the source code for your local machine. Open a shell and type the following commands:
+You will now have a fork of React Native on GitHub at https://github.com/your_username/react-native. Next, you will grab a copy of the source code for your local machine. Open a shell and type the following commands:
 
 ```bash
 git clone https://github.com/facebook/react-native.git
@@ -62,7 +62,7 @@ Make sure your changes are correct and do not introduce any test failures. You c
 
 We understand it can take a while to ramp up and get a sense of the style followed for each of the languages in use in the core React Native repository. Developers should not need to worry about minor nits, so whenever possible, we use tools that automate the process of rewriting your code to follow conventions.
 
-For example, we use [Prettier](https://prettier.io/) to format our JavaScript code. This saves you time and energy as you can let Prettier fix up any formatting issues automatically through its editor integrations, or by manually running `yarn run prettier`. 
+For example, we use [Prettier](https://prettier.io/) to format our JavaScript code. This saves you time and energy as you can let Prettier fix up any formatting issues automatically through its editor integrations, or by manually running `yarn run prettier`.
 
 We also use a linter to catch styling issues that may exist in your code. You can check the status of your code styling by running `yarn run lint`.
 

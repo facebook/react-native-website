@@ -117,10 +117,10 @@ function MyComponent() {
   return (
     <View>
       <View
-        style={{ backgroundColor: 'red', height: 20, width: 20 }}
+        style={{backgroundColor: 'red', height: 20, width: 20}}
       />
       <View
-        style={{ backgroundColor: 'blue', height: 20, width: 20 }}
+        style={{backgroundColor: 'blue', height: 20, width: 20}}
       />
     </View>
   );
@@ -136,10 +136,10 @@ Notice that **Node 3** maps to a host view with a **red background**, and **Node
 ```jsx
 <View>
   <View
-    style={{ backgroundColor: 'yellow', height: 20, width: 20 }}
+    style={{backgroundColor: 'yellow', height: 20, width: 20}}
   />
   <View
-    style={{ backgroundColor: 'blue', height: 20, width: 20 }}
+    style={{backgroundColor: 'blue', height: 20, width: 20}}
   />
 </View>
 ```
@@ -160,7 +160,7 @@ React Native renderer leverages structural sharing to minimize the overhead of i
 
 In the above example, React creates the new tree using these operations:
 
-1. CloneNode(**Node 3**, {backgroundColor: 'yellow'}) → **Node 3'**
+1. CloneNode(**Node 3**, \{backgroundColor: 'yellow'}) → **Node 3'**
 2. CloneNode(**Node 2**) → **Node 2'**
 3. AppendChild(**Node 2'**, **Node 3'**)
 4. AppendChild(**Node 2'**, **Node 4**)

@@ -228,9 +228,9 @@ This property will only work on Android API 28 and above. For similar functional
 
 Sets the drop shadow offset.
 
-| Type                                   |
-| -------------------------------------- |
-| object: {width: number,height: number} |
+| Type                                    |
+| --------------------------------------- |
+| object: \{width: number,height: number} |
 
 ---
 

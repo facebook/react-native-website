@@ -109,9 +109,9 @@ Custom colors for the switch track.
 
 _iOS_: When the switch value is `false`, the track shrinks into the border. If you want to change the color of the background exposed by the shrunken track, use [`ios_backgroundColor`](switch.md#ios_backgroundColor).
 
-| Type                                                          |
-| ------------------------------------------------------------- |
-| object: {false: [color](colors.md), true: [color](colors.md)} |
+| Type                                                           |
+| -------------------------------------------------------------- |
+| object: \{false: [color](colors.md), true: [color](colors.md)} |
 
 ---
 

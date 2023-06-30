@@ -244,9 +244,9 @@ Invoked on load error.
 
 Invoked on mount and on layout changes.
 
-| Type                                              |
-| ------------------------------------------------- |
-| ({nativeEvent: [LayoutEvent]layoutevent)} => void |
+| Type                                               |
+| -------------------------------------------------- |
+| (\{nativeEvent: [LayoutEvent]layoutevent)} => void |
 
 ---
 
@@ -256,9 +256,9 @@ Invoked when load completes successfully.
 
 **Example:** `onLoad={({nativeEvent: {source: {width, height}}}) => setImageRealSize({width, height})}`
 
-| Type                                                          |
-| ------------------------------------------------------------- |
-| ({nativeEvent: [ImageLoadEvent]image#imageloadevent)} => void |
+| Type                                                           |
+| -------------------------------------------------------------- |
+| (\{nativeEvent: [ImageLoadEvent]image#imageloadevent)} => void |
 
 ---
 

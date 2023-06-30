@@ -264,7 +264,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
 Let's add some native code in order to start the React Native runtime and tell it to render our JS component. To do this, we're going to create an `Activity` that creates a `ReactRootView`, starts a React application inside it and sets it as the main content view.
 
-> If you are targeting Android version <5, use the `AppCompatActivity` class from the `com.android.support:appcompat` package instead of `Activity`.
+> If you are targeting Android version \<5, use the `AppCompatActivity` class from the `com.android.support:appcompat` package instead of `Activity`.
 
 ```java
 public class MyReactActivity extends Activity implements DefaultHardwareBackBtnHandler {

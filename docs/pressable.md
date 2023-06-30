@@ -165,49 +165,49 @@ Sets additional distance outside of element in which a press can be detected.
 
 Called when the hover is activated to provide visual feedback.
 
-| Type                                                                                                 |
-| ---------------------------------------------------------------------------------------------------- |
-| ({ nativeEvent: [MouseEvent](https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent) }) => void |
+| Type                                                                                                  |
+| ----------------------------------------------------------------------------------------------------- |
+| (\{ nativeEvent: [MouseEvent](https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent) }) => void |
 
 ### `onHoverOut`
 
 Called when the hover is deactivated to undo visual feedback.
 
-| Type                                                                                                 |
-| ---------------------------------------------------------------------------------------------------- |
-| ({ nativeEvent: [MouseEvent](https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent) }) => void |
+| Type                                                                                                  |
+| ----------------------------------------------------------------------------------------------------- |
+| (\{ nativeEvent: [MouseEvent](https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent) }) => void |
 
 ### `onLongPress`
 
 Called if the time after `onPressIn` lasts longer than 500 milliseconds. This time period can be customized with [`delayLongPress`](#delaylongpress).
 
-| Type                                              |
-| ------------------------------------------------- |
-| ({nativeEvent: [PressEvent](pressevent)}) => void |
+| Type                                               |
+| -------------------------------------------------- |
+| (\{nativeEvent: [PressEvent](pressevent)}) => void |
 
 ### `onPress`
 
 Called after `onPressOut`.
 
-| Type                                              |
-| ------------------------------------------------- |
-| ({nativeEvent: [PressEvent](pressevent)}) => void |
+| Type                                               |
+| -------------------------------------------------- |
+| (\{nativeEvent: [PressEvent](pressevent)}) => void |
 
 ### `onPressIn`
 
 Called immediately when a touch is engaged, before `onPressOut` and `onPress`.
 
-| Type                                              |
-| ------------------------------------------------- |
-| ({nativeEvent: [PressEvent](pressevent)}) => void |
+| Type                                               |
+| -------------------------------------------------- |
+| (\{nativeEvent: [PressEvent](pressevent)}) => void |
 
 ### `onPressOut`
 
 Called when a touch is released.
 
-| Type                                              |
-| ------------------------------------------------- |
-| ({nativeEvent: [PressEvent](pressevent)}) => void |
+| Type                                               |
+| -------------------------------------------------- |
+| (\{nativeEvent: [PressEvent](pressevent)}) => void |
 
 ### `pressRetentionOffset`
 
