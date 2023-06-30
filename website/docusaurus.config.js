@@ -20,6 +20,8 @@ const commonDocsOptions = {
   remarkPlugins: [require('@react-native-website/remark-snackplayer')],
 };
 
+const isDev = process.env.NODE_ENV === 'development';
+
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
   title: 'React Native',
@@ -75,7 +77,10 @@ module.exports = {
           sidebarPath: require.resolve('./sidebars.json'),
           editCurrentVersion: true,
           onlyIncludeVersions:
-            process.env.PREVIEW_DEPLOY === 'true'
+            // TODO temporary
+            isDev
+              ? ['current']
+              : process.env.PREVIEW_DEPLOY === 'true'
               ? ['current', ...versions.slice(0, 2)]
               : undefined,
           versions: {
