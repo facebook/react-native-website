@@ -59,7 +59,7 @@ Before continuing further, follow the [testing guide](/contributing/release-test
 
 <AsyncTestingNote/>
 
-### 5. Kick off the build of 0.{minor}.0-rc.0
+### 5. Kick off the build of 0.\{minor}.0-rc.0
 
 Once you're done with the testing, you can kick-off the bump and publishing of RC0:
 
