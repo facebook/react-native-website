@@ -8,8 +8,6 @@
 'use strict';
 
 const visit = require('unist-util-visit-parents');
-const u = require('unist-builder');
-const dedent = require('dedent');
 const fromEntries = require('object.fromentries');
 
 const parseParams = (paramString = '') => {
