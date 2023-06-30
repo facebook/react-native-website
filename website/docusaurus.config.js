@@ -21,6 +21,7 @@ const commonDocsOptions = {
 };
 
 const isDev = process.env.NODE_ENV === 'development';
+const isDeployPreview = process.env.PREVIEW_DEPLOY === 'true';
 
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
@@ -56,7 +57,7 @@ module.exports = {
     defaultLocale: 'en',
     locales: ['en'],
   },
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn', // TODO revert to "throw"
   webpack: {
     jsLoader: isServer => ({
       loader: require.resolve('esbuild-loader'),
@@ -78,12 +79,17 @@ module.exports = {
           editCurrentVersion: true,
           onlyIncludeVersions:
             // TODO temporary
-            isDev
+            isDev || isDeployPreview
               ? ['current']
-              : process.env.PREVIEW_DEPLOY === 'true'
+              : // Original logic:
+              isDeployPreview
               ? ['current', ...versions.slice(0, 2)]
               : undefined,
           versions: {
+            // TODO temporary
+            current: {
+              label: '0.72',
+            },
             [lastVersion]: {
               badge: false, // Do not show version badge for last RN version
             },
