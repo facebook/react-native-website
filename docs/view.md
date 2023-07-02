@@ -121,7 +121,7 @@ Indicates to accessibility services whether the user should be notified when thi
 - `'polite'`- Accessibility services should announce changes to this view.
 - `'assertive'` - Accessibility services should interrupt ongoing speech to immediately announce changes to this view.
 
-See the [Android `View` docs](http://developer.android.com/reference/android/view/View.html#attr_android:accessibilityLiveRegion) for reference.
+See the [Android `View` docs](https://developer.android.com/reference/android/view/View.html#attr_android:accessibilityLiveRegion) for reference.
 
 | Type                                |
 | ----------------------------------- |
@@ -420,7 +420,7 @@ Possible values:
 - `'no'` - The view is not important for accessibility.
 - `'no-hide-descendants'` - The view is not important for accessibility, nor are any of its descendant views.
 
-See the [Android `importantForAccessibility` docs](http://developer.android.com/reference/android/R.attr.html#importantForAccessibility) for reference.
+See the [Android `importantForAccessibility` docs](https://developer.android.com/reference/android/R.attr.html#importantForAccessibility) for reference.
 
 | Type                                             |
 | ------------------------------------------------ |

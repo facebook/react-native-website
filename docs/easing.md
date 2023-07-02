@@ -7,7 +7,7 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import con
 
 The `Easing` module implements common easing functions. This module is used by [`Animated.timing()`](animated.md#timing) to convey physically believable motion in animations.
 
-You can find a visualization of some common easing functions at http://easings.net/
+You can find a visualization of some common easing functions at https://easings.net/
 
 ### Predefined animations
 
@@ -393,7 +393,7 @@ static linear(t: number);
 
 A linear function, `f(t) = t`. Position correlates to elapsed time one to one.
 
-http://cubic-bezier.com/#0,0,1,1
+https://cubic-bezier.com/#0,0,1,1
 
 ---
 
@@ -405,7 +405,7 @@ static ease(t: number);
 
 A basic inertial interaction, similar to an object slowly accelerating to speed.
 
-http://cubic-bezier.com/#.42,0,1,1
+https://cubic-bezier.com/#.42,0,1,1
 
 ---
 
@@ -417,7 +417,7 @@ static quad(t: number);
 
 A quadratic function, `f(t) = t * t`. Position equals the square of elapsed time.
 
-http://easings.net/#easeInQuad
+https://easings.net/#easeInQuad
 
 ---
 
@@ -429,7 +429,7 @@ static cubic(t: number);
 
 A cubic function, `f(t) = t * t * t`. Position equals the cube of elapsed time.
 
-http://easings.net/#easeInCubic
+https://easings.net/#easeInCubic
 
 ---
 
@@ -441,7 +441,7 @@ static poly(n: number);
 
 A power function. Position is equal to the Nth power of elapsed time.
 
-n = 4: http://easings.net/#easeInQuart n = 5: http://easings.net/#easeInQuint
+n = 4: https://easings.net/#easeInQuart n = 5: https://easings.net/#easeInQuint
 
 ---
 
@@ -453,7 +453,7 @@ static sin(t: number);
 
 A sinusoidal function.
 
-http://easings.net/#easeInSine
+https://easings.net/#easeInSine
 
 ---
 
@@ -465,7 +465,7 @@ static circle(t: number);
 
 A circular function.
 
-http://easings.net/#easeInCirc
+https://easings.net/#easeInCirc
 
 ---
 
@@ -477,7 +477,7 @@ static exp(t: number);
 
 An exponential function.
 
-http://easings.net/#easeInExpo
+https://easings.net/#easeInExpo
 
 ---
 
@@ -491,7 +491,7 @@ A basic elastic interaction, similar to a spring oscillating back and forth.
 
 Default bounciness is 1, which overshoots a little bit once. 0 bounciness doesn't overshoot at all, and bounciness of N > 1 will overshoot about N times.
 
-http://easings.net/#easeInElastic
+https://easings.net/#easeInElastic
 
 ---
 
@@ -513,7 +513,7 @@ static bounce(t: number);
 
 Provides a basic bouncing effect.
 
-http://easings.net/#easeInBounce
+https://easings.net/#easeInBounce
 
 ---
 
@@ -525,7 +525,7 @@ static bezier(x1: number, y1: number, x2: number, y2: number);
 
 Provides a cubic bezier curve, equivalent to CSS Transitions' `transition-timing-function`.
 
-A useful tool to visualize cubic bezier curves can be found at http://cubic-bezier.com/
+A useful tool to visualize cubic bezier curves can be found at https://cubic-bezier.com/
 
 ---
 

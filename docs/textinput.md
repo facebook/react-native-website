@@ -449,7 +449,7 @@ Determines the color of the keyboard.
 
 Determines which keyboard to open, e.g.`numeric`.
 
-See screenshots of all the types [here](http://lefkowitz.me/2018/04/30/visual-guide-to-react-native-textinput-keyboardtype-options/).
+See screenshots of all the types [here](https://lefkowitz.me/2018/04/30/visual-guide-to-react-native-textinput-keyboardtype-options/).
 
 The following values work across platforms:
 

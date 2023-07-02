@@ -7,7 +7,7 @@ The React Native ecosystem is far and wide, and people can be part of it in many
 
 ### Local communities
 
-There are a lot of React Native gatherings that happen around the world. Often there is React Native content in React meetups as well, use tools like [Meetup](http://www.meetup.com/topics/react-native/) and [Eventbrite](https://www.eventbrite.co.uk/d/online/react-native/?page=1) to find out recent events in your area - or start one!
+There are a lot of React Native gatherings that happen around the world. Often there is React Native content in React meetups as well, use tools like [Meetup](https://www.meetup.com/topics/react-native/) and [Eventbrite](https://www.eventbrite.co.uk/d/online/react-native/?page=1) to find out recent events in your area - or start one!
 
 ### Company-based communities
 
@@ -15,7 +15,7 @@ Some companies actively involved in the React Native have also their own communi
 
 - [Callstack.io's](https://www.callstack.com/) [Discord server](https://discordapp.com/invite/zwR2Cdh)
 - [Invertase.io's (e.g. React Native Firebase)](https://invertase.io/) [Discord server](https://discord.gg/C9aK28N)
-- [Infinite Red's](https://infinite.red/) [Slack Group](http://community.infinite.red/)
+- [Infinite Red's](https://infinite.red/) [Slack Group](https://community.infinite.red/)
 - [Expo's](https://expo.dev/) [Discord server](https://chat.expo.dev/)
 
 ### Content sharing

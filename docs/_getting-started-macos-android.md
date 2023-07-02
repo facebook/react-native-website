@@ -9,7 +9,7 @@ While you can use any editor of your choice to develop your app, you will need t
 
 <h3>Node &amp; Watchman</h3>
 
-We recommend installing Node and Watchman using [Homebrew](http://brew.sh/). Run the following commands in a Terminal after installing Homebrew:
+We recommend installing Node and Watchman using [Homebrew](https://brew.sh/). Run the following commands in a Terminal after installing Homebrew:
 
 ```shell
 brew install node
@@ -22,7 +22,7 @@ If you have already installed Node on your system, make sure it is Node 16 or ne
 
 <h3>Java Development Kit</h3>
 
-We recommend installing the OpenJDK distribution called Azul **Zulu** using [Homebrew](http://brew.sh/). Run the following commands in a Terminal after installing Homebrew:
+We recommend installing the OpenJDK distribution called Azul **Zulu** using [Homebrew](https://brew.sh/). Run the following commands in a Terminal after installing Homebrew:
 
 ```shell
 brew tap homebrew/cask-versions
