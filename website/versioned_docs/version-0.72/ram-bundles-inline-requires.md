@@ -148,21 +148,20 @@ Every app is different, but it may make sense to only load the modules you need 
 
 We now need to update `metro.config.js` in the root of the project to use our newly generated `modulePaths.js` file:
 
+<!-- prettier-ignore -->
 ```js
-const modulePaths = require('./packager/modulePaths');
-const resolve = require('path').resolve;
+const {getDefaultConfig, mergeConfig} = require('@react-native/metro-config');
 const fs = require('fs');
-
-// Update the following line if the root folder of your app is somewhere else.
-const ROOT_FOLDER = resolve(__dirname, '..');
+const path = require('path');
+const modulePaths = require('./packager/modulePaths');
 
 const config = {
   transformer: {
     getTransformOptions: () => {
       const moduleMap = {};
-      modulePaths.forEach(path => {
-        if (fs.existsSync(path)) {
-          moduleMap[resolve(path)] = true;
+      modulePaths.forEach(modulePath => {
+        if (fs.existsSync(modulePath)) {
+          moduleMap[path.resolve(modulePath)] = true;
         }
       });
       return {
@@ -171,11 +170,12 @@ const config = {
       };
     },
   },
-  projectRoot: ROOT_FOLDER,
 };
 
-module.exports = config;
+module.exports = mergeConfig(getDefaultConfig(__dirname), config);
 ```
+
+See also [**Configuring Metro**](/docs/metro#configuring-metro).
 
 The `preloadedModules` entry in the config indicates which modules should be marked as preloaded when building a RAM bundle. When the bundle is loaded, those modules are immediately loaded, before any requires have even executed. The `blockList` entry indicates that those modules should not be required inline. Because they are preloaded, there is no performance benefit from using an inline require. In fact the generated JavaScript spends extra time resolving the inline require every time the imports are referenced.
 
