@@ -48,11 +48,24 @@ We recommend creating a new branch in your fork to keep track of your changes:
 git checkout --branch my_feature_branch --track origin/main
 ```
 
+### 4. Run `yarn` and build packages
+
+This will install all JavaScript dependencies, and build all necessary packages inside the repo. The following should be run from the repo root:
+
+```sh
+yarn
+yarn build
+```
+
+`yarn build` is also run as part of `yarn start`.
+
 ## Chapter II: Implementing your Changes
 
 ### 1. Make changes to the code
 
 You can now make any changes deemed necessary using your code editor of choice. [Visual Studio Code](https://code.visualstudio.com/) is popular with JavaScript developers. If you're mostly making changes to iOS or Android, using Xcode or Android Studio might provide a nicer integrated experience.
+
+If you are making changes inside a package with a JavaScript build, you can use `yarn watch` to continuously rebuild as you make changes.
 
 ### 2. Test your changes
 
@@ -62,7 +75,7 @@ Make sure your changes are correct and do not introduce any test failures. You c
 
 We understand it can take a while to ramp up and get a sense of the style followed for each of the languages in use in the core React Native repository. Developers should not need to worry about minor nits, so whenever possible, we use tools that automate the process of rewriting your code to follow conventions.
 
-For example, we use [Prettier](https://prettier.io/) to format our JavaScript code. This saves you time and energy as you can let Prettier fix up any formatting issues automatically through its editor integrations, or by manually running `yarn run prettier`. 
+For example, we use [Prettier](https://prettier.io/) to format our JavaScript code. This saves you time and energy as you can let Prettier fix up any formatting issues automatically through its editor integrations, or by manually running `yarn run prettier`.
 
 We also use a linter to catch styling issues that may exist in your code. You can check the status of your code styling by running `yarn run lint`.
 
