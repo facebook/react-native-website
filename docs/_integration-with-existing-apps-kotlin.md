@@ -1,4 +1,4 @@
-import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+<img width="1518" alt="image" src="https://github.com/facebook/react-native-website/assets/615282/7b388e99-f437-4d9c-8e02-56e67c2d2a21">import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 ## Key Concepts
 
@@ -88,7 +88,7 @@ React Native uses the React Native Gradle Plugin to configure your dependencies 
 First, let's edit your `settings.gradle` file by adding this line:
 
 ```groovy
-includeBuild('../node_modules/react-native-gradle-plugin')
+includeBuild('../node_modules/@react-native/gradle-plugin')
 ```
 
 Then you need to open your top level `build.gradle` and include this line:
