@@ -29,13 +29,14 @@ Both with stable releases and nightlies, you will be consuming **precompiled** a
 ```diff
   // ...
   include ':app'
-  includeBuild('../node_modules/react-native-gradle-plugin')
+  includeBuild('../node_modules/@react-native/gradle-plugin')
+  
 + includeBuild('../node_modules/react-native') {
 +     dependencySubstitution {
-+         substitute(module("com.facebook.react:react-android")).using(project(":ReactAndroid"))
-+         substitute(module("com.facebook.react:react-native")).using(project(":ReactAndroid"))
-+         substitute(module("com.facebook.react:hermes-android")).using(project(":ReactAndroid:hermes-engine"))
-+         substitute(module("com.facebook.react:hermes-engine")).using(project(":ReactAndroid:hermes-engine"))
++         substitute(module("com.facebook.react:react-android")).using(project(":packages:react-native:ReactAndroid"))
++         substitute(module("com.facebook.react:react-native")).using(project(":packages:react-native:ReactAndroid"))
++         substitute(module("com.facebook.react:hermes-android")).using(project(":packages:react-native:ReactAndroid:hermes-engine"))
++         substitute(module("com.facebook.react:hermes-engine")).using(project(":packages:react-native:ReactAndroid:hermes-engine"))
 +     }
 + }
 ```
