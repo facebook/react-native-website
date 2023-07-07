@@ -88,7 +88,7 @@ React Native uses the React Native Gradle Plugin to configure your dependencies 
 First, let's edit your `settings.gradle` file by adding this line:
 
 ```groovy
-includeBuild('../node_modules/react-native-gradle-plugin')
+includeBuild('../node_modules/@react-native/gradle-plugin')
 ```
 
 Then you need to open your top level `build.gradle` and include this line:
