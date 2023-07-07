@@ -151,14 +151,16 @@ The shared configuration is a `package.json` file used by yarn when installing y
     "react": "*",
     "react-native": "*"
   },
-  "codegenConfig": [{
-    "name": "RTNCalculatorSpec",
-    "type": "modules",
-    "jsSrcsDir": "js",
-    "android": {
-      "javaPackageName": "com.rtncalculator"
+  "codegenConfig": [
+    {
+      "name": "RTNCalculatorSpec",
+      "type": "modules",
+      "jsSrcsDir": "js",
+      "android": {
+        "javaPackageName": "com.rtncalculator"
+      }
     }
-  }]
+  ]
 }
 ```
 
