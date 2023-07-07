@@ -1,4 +1,4 @@
-<img width="1518" alt="image" src="https://github.com/facebook/react-native-website/assets/615282/7b388e99-f437-4d9c-8e02-56e67c2d2a21">import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 ## Key Concepts
 
