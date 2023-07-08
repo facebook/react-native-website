@@ -93,7 +93,7 @@ The more complex your components are, the slower they will render. Try to avoid 
 
 The heavier your components are, the slower they render. Avoid heavy images (use a cropped version or thumbnail for list items, as small as possible). Talk to your design team, use as little effects and interactions and information as possible in your list. Show them in your item's detail.
 
-### Use Memo()
+### Use `memo()`
 
 `React.memo()` creates a memoized component that will be re-rendered only when the props passed to the component change. We can use this function to optimize the components in the FlatList.
 
