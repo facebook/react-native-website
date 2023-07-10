@@ -62,15 +62,15 @@ const App = () => {
         onPress={() => {
           setTimesPressed(current => current + 1);
         }}
-        style={({pressed}) => [
+        style={[
           {
-            backgroundColor: pressed ? 'rgb(210, 230, 255)' : 'white',
+            backgroundColor: timesPressed !== 0 ? 'rgb(210, 230, 255)' : 'white',
           },
           styles.wrapperCustom,
         ]}>
-        {({pressed}) => (
-          <Text style={styles.text}>{pressed ? 'Pressed!' : 'Press Me'}</Text>
-        )}
+        {
+          <Text style={styles.text}>{timesPressed !== 0 ? 'Pressed!' : 'Press Me'}</Text>
+        }
       </Pressable>
       <View style={styles.logBox}>
         <Text testID="pressable_press_console">{textLog}</Text>
