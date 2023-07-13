@@ -10,8 +10,10 @@
     "url": "https://github.com/facebook/react-native-website/issues"
   },
   "scripts": {
+    "docusaurus": "docusaurus",
     "start": "docusaurus start",
     "build": "docusaurus build && yarn run update-redirect ./build/_redirects ./versions.json",
+    "build:fast": "PREVIEW_DEPLOY=true yarn run build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "serve": "docusaurus serve",
@@ -45,10 +47,10 @@
     ]
   },
   "dependencies": {
-    "@docusaurus/core": "^2.3.1",
+    "@docusaurus/core": "^2.4.1",
     "@docusaurus/plugin-google-gtag": "^2.4.1",
-    "@docusaurus/plugin-pwa": "^2.3.1",
-    "@docusaurus/preset-classic": "^2.3.1",
+    "@docusaurus/plugin-pwa": "^2.4.1",
+    "@docusaurus/preset-classic": "^2.4.1",
     "docusaurus-plugin-sass": "^0.2.2",
     "esbuild-loader": "^2.19.0",
     "react": "^18.2.0",
@@ -57,7 +59,7 @@
     "sass": "^1.53.0"
   },
   "devDependencies": {
-    "@docusaurus/types": "^2.3.1",
+    "@docusaurus/types": "^2.4.1",
     "@react-native-website/lint-examples": "0.0.0",
     "@react-native-website/update-redirects": "0.0.0",
     "alex": "^10.0.0",
