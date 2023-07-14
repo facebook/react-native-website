@@ -421,6 +421,8 @@ This prop can also contain several remote URLs, specified together with their wi
 
 The currently supported formats are `png`, `jpg`, `jpeg`, `bmp`, `gif`, `webp`, `psd` (iOS only). In addition, iOS supports several RAW image formats. Refer to Apple's documentation for the current list of supported camera models (for iOS 12, see https://support.apple.com/en-ca/HT208967).
 
+> Note: WebP support on iOS is only available starting from iOS 14. If your app targets a lower iOS version other than iOS 14 please consider adding a fallback image with format other than WebP.
+
 | Type                             |
 | -------------------------------- |
 | [ImageSource](image#imagesource) |
