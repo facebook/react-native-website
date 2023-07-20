@@ -257,7 +257,7 @@ The same two lines should be added in the implementation file, as first and last
 
 The above snippet uses the same `RCT_NEW_ARCH_ENABLED` flag used in the previous [section](#dependencies-ios). When this flag is not set, Xcode skips the lines within the `#ifdef` during compilation and it does not include them into the compiled binary. The compiled binary will have a the `RNMyComponentView.o` object but it will be an empty object.
 
-After wrapping the above components with a `#ifdef` pragma, you need to implement the component for the legacy architecture, following [the legacy Native Componente documentation](https://reactnative.dev/docs/native-components-ios). This is needed because the New Renderer works in a different way from the legacy one, and it is not able to follow the new code's paths of the New Renderer. 
+After wrapping the above components with a `#ifdef` pragma, you need to implement the component for the legacy architecture, following [the legacy Native Component documentation](https://reactnative.dev/docs/native-components-ios). This is needed because the New Renderer works in a different way from the legacy one, and it is not able to follow the new code's paths of the New Renderer.
 
 ### Android
 
