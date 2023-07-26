@@ -95,7 +95,17 @@ Invoked when the user tries to change the value of the switch. Receives the new 
 
 ### `thumbColor`
 
-Color of the foreground switch grip. If this is set on iOS, the switch grip will lose its drop shadow.
+Color of the default foreground switch grip. If this is set on iOS, the switch grip will lose its drop shadow.
+
+| Type               |
+| ------------------ |
+| [color](colors.md) |
+
+---
+
+### `activeThumbColor`
+
+Color of the active foreground switch grip. If this is set on iOS, the switch grip will lose its drop shadow.
 
 | Type               |
 | ------------------ |
