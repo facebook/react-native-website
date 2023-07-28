@@ -463,8 +463,8 @@ Animations are started by calling start() on your animation. start() takes a com
 
 **Parameters:**
 
-| Name     | Type                                  | Required | Description                                                                                                                                                     |
-| -------- | ------------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Name     | Type                                    | Required | Description                                                                                                                                                     |
+| -------- | --------------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | callback | `(result: {finished: boolean}) => void` | No       | Function that will be called after the animation finished running normally or when the animation is done because stop() was called on it before it could finish |
 
 Start example with callback:
