@@ -20,11 +20,11 @@ The React Native source code is hosted on GitHub. You can interact with the git 
 
 While you can browse the source code for React Native on [GitHub](https://github.com/facebook/react-native), we recommend you set up a fork on your local machine.
 
-1. Go to <https://github.com/facebook/react-native>.
+1. Go to https://github.com/facebook/react-native.
 2. Click on "Fork" button on the upper right.
 3. When asked, select your username as the host for this fork.
 
-You will now have a fork of React Native on GitHub at <https://github.com/your_username/react-native>. Next, you will grab a copy of the source code for your local machine. Open a shell and type the following commands:
+You will now have a fork of React Native on GitHub at https://github.com/your_username/react-native. Next, you will grab a copy of the source code for your local machine. Open a shell and type the following commands:
 
 ```bash
 git clone https://github.com/facebook/react-native.git

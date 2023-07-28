@@ -117,10 +117,10 @@ function MyComponent() {
   return (
     <View>
       <View
-        style={{ backgroundColor: 'red', height: 20, width: 20 }}
+        style={{backgroundColor: 'red', height: 20, width: 20}}
       />
       <View
-        style={{ backgroundColor: 'blue', height: 20, width: 20 }}
+        style={{backgroundColor: 'blue', height: 20, width: 20}}
       />
     </View>
   );
@@ -136,10 +136,10 @@ Notice that **Node 3** maps to a host view with a **red background**, and **Node
 ```jsx
 <View>
   <View
-    style={{ backgroundColor: 'yellow', height: 20, width: 20 }}
+    style={{backgroundColor: 'yellow', height: 20, width: 20}}
   />
   <View
-    style={{ backgroundColor: 'blue', height: 20, width: 20 }}
+    style={{backgroundColor: 'blue', height: 20, width: 20}}
   />
 </View>
 ```

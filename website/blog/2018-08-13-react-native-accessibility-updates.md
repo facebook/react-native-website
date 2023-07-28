@@ -109,12 +109,16 @@ The most simple use cases can be replaced by running a jscodeshift script.
 
 This [script](https://gist.github.com/ziqichen6/246e5778617224d2b4aff198dab0305d) replaces the following instances:
 
-    accessibilityTraits=“trait”
-    accessibilityTraits={[“trait”]}
+```
+accessibilityTraits=“trait”
+accessibilityTraits={[“trait”]}
+```
 
 With
 
-    accessibilityRole= “trait”
+```
+accessibilityRole= “trait”
+```
 
 This script also removes instances of `AccessibilityComponentType` (assuming everywhere you set `AccessibilityComponentType`, you would also set `AccessibilityTraits`).
 
@@ -124,12 +128,16 @@ For the cases that used `AccessibilityTraits` that don't have a corresponding va
 
 In general,
 
-    accessibilityTraits= {[“button”, “selected”]}
+```
+accessibilityTraits= {[“button”, “selected”]}
+```
 
 would be manually replaced with
 
-    accessibilityRole=“button”
-    accessibilityStates={[“selected”]}
+```
+accessibilityRole=“button”
+accessibilityStates={[“selected”]}
+```
 
 These properties are already being used in Facebook's codebase. The codemod for Facebook was surprisingly simple. The jscodeshift script fixed about half of our instances, and the other half was fixed manually. Overall, the entire process took less than a few hours.
 

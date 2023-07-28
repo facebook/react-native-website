@@ -1,4 +1,3 @@
-import Anchor from './Anchor.jsx';
 import RemoveGlobalCLI from './\_remove-global-cli.md';
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
