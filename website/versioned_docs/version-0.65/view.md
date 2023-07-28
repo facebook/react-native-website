@@ -373,9 +373,11 @@ If a parent `View` wants to prevent a child `View` from becoming responder on a 
 
 The View is now responding for touch events. This is the time to highlight and show the user what is happening.
 
-| Type                                                | Required |
-| --------------------------------------------------- | -------- |
-| ({ nativeEvent: [PressEvent](pressevent) }) => void | No       |
+On Android, return true from this callback to prevent any other native components from becoming responder until this responder terminates.
+
+| Type                                                           | Required |
+| -------------------------------------------------------------- | -------- |
+| ({ nativeEvent: [PressEvent](pressevent) }) => void \| boolean | No       |
 
 ---
 

@@ -324,7 +324,7 @@ The mechanism that should be used to resize the image when the image's dimension
 
 - `scale`: The image gets drawn downscaled or upscaled. Compared to `resize`, `scale` is faster (usually hardware accelerated) and produces higher quality images. This should be used if the image is smaller than the view. It should also be used if the image is slightly bigger than the view.
 
-More details about `resize` and `scale` can be found at http://frescolib.org/docs/resizing.
+More details about `resize` and `scale` can be found at https://frescolib.org/docs/resizing.
 
 | Type                                  | Default  |
 | ------------------------------------- | -------- |

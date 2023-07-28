@@ -5,6 +5,13 @@ title: Updating monorepo packages
 
 This page contains relevant information about how to update packages in the `react-native` [monorepo](https://github.com/react-native-community/discussions-and-proposals/pull/480).
 
+:::note
+
+From 0.72 onwards, all packages versions should be updated and aligned by using `bump-all-updated-packages` script, both in `main` and `*-stable` branches.
+Practically, this means that the secondary command `align-package-versions` is only present in the 0.71 branch - and neither are present in versions lower than that.
+
+:::
+
 ## Finding all packages that have unpublished changes
 
 #### Use case
@@ -70,8 +77,6 @@ Example script output, where no package versions were changed:
 <img width="800" alt="Screenshot 2023-01-03 at 12 21 01" src="https://user-images.githubusercontent.com/28902667/210362611-97530b4d-0405-499c-9a3c-5542e069e929.png" />
 
 ## Align package versions across monorepo
-
-> Side note: We do not anticipate that this script might be useful in future. With current monorepo setup, all packages versions should be updated and aligned by using `bump-all-updated-packages` script, both in `main` and `*-stable` branches.
 
 #### Use case
 

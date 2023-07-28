@@ -166,7 +166,7 @@ The upper part of the file contains some descriptive information like the name o
 
 Then there are the dependencies for this package. For this guide, you need `react` and `react-native`.
 
-Finally, the **Codegen** configuration is specified by the `codegenConfig` field. It contains an array of libraries, each of which is defined by three other fields:
+Finally, the **Codegen** configuration is specified by the `codegenConfig` field. It contains an object that defines the module through four fields:
 
 - `name`: The name of the library. By convention, you should add the `Spec` suffix.
 - `type`: The type of module contained by this package. In this case, it is a Turbo Native Module; thus, the value to use is `modules`.

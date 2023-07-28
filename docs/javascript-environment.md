@@ -10,7 +10,7 @@ import TableRow from '@site/core/TableRowWithCodeBlock';
 When using React Native, you're going to be running your JavaScript code in up to three environments:
 
 - In most cases, React Native will use [Hermes](hermes), an open-source JavaScript engine optimized for React Native.
-- If Hermes is disabled, React Native will use [JavaScriptCore](http://trac.webkit.org/wiki/JavaScriptCore), the JavaScript engine that powers Safari. Note that on iOS, JavaScriptCore does not use JIT due to the absence of writable executable memory in iOS apps.
+- If Hermes is disabled, React Native will use [JavaScriptCore](https://trac.webkit.org/wiki/JavaScriptCore), the JavaScript engine that powers Safari. Note that on iOS, JavaScriptCore does not use JIT due to the absence of writable executable memory in iOS apps.
 - When using Chrome debugging, all JavaScript code runs within Chrome itself, communicating with native code via WebSockets. Chrome uses [V8](https://v8.dev/) as its JavaScript engine.
 
 While these environments are very similar, you may end up hitting some inconsistencies. It is best to avoid relying on specifics of any runtime.
@@ -31,19 +31,19 @@ A full list of React Native's enabled transformations can be found in [metro-rea
   <tr><td className="table-heading" colSpan="2">ECMAScript 5</td></tr>
   <TableRow name="Reserved Words" code="promise.catch(function() {...});" />
   <tr><td className="table-heading" colSpan="2">ECMAScript 2015 (ES6)</td></tr>
-  <TableRow name="Arrow functions" code="<C onPress={() => this.setState({pressed: true})} />" url="http://babeljs.io/docs/learn-es2015/#arrows" />
+  <TableRow name="Arrow functions" code="<C onPress={() => this.setState({pressed: true})} />" url="https://babeljs.io/docs/learn-es2015/#arrows" />
   <TableRow name="Block scoping" code="let greeting = 'hi';" url="https://babeljs.io/docs/learn-es2015/#let-const" />
-  <TableRow name="Call spread" code="Math.max(...array);" url="http://babeljs.io/docs/learn-es2015/#default-rest-spread" />
-  <TableRow name="Classes" code="class C extends React.Component {render() { return <View />; }}" url="http://babeljs.io/docs/learn-es2015/#classes" />
-  <TableRow name="Computed Properties" code="const key = 'abc'; const obj = {[key]: 10};" url="http://babeljs.io/docs/learn-es2015/#enhanced-object-literals" />
+  <TableRow name="Call spread" code="Math.max(...array);" url="https://babeljs.io/docs/learn-es2015/#default-rest-spread" />
+  <TableRow name="Classes" code="class C extends React.Component {render() { return <View />; }}" url="https://babeljs.io/docs/learn-es2015/#classes" />
+  <TableRow name="Computed Properties" code="const key = 'abc'; const obj = {[key]: 10};" url="https://babeljs.io/docs/learn-es2015/#enhanced-object-literals" />
   <TableRow name="Constants" code="const answer = 42;" url="https://babeljs.io/docs/learn-es2015/#let-const" />
-  <TableRow name="Destructuring" code="const {isActive, style} = this.props;" url="http://babeljs.io/docs/learn-es2015/#destructuring" />
+  <TableRow name="Destructuring" code="const {isActive, style} = this.props;" url="https://babeljs.io/docs/learn-es2015/#destructuring" />
   <TableRow name="for…of" code="for (var num of [1, 2, 3]) {...};" url="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of" />
   <TableRow name="Function Name" code="let number = x => x;" url="https://babeljs.io/docs/en/babel-plugin-transform-function-name" />
   <TableRow name="Literals" code="const b = 0b11; const o = 0o7; const u = 'Hello\u{000A}\u{0009}!';" url="https://babeljs.io/docs/en/babel-plugin-transform-literals" />
-  <TableRow name="Modules" code="import React, {Component} from 'react';" url="http://babeljs.io/docs/learn-es2015/#modules" />
-  <TableRow name="Object Concise Method" code="const obj = {method() { return 10; }};" url="http://babeljs.io/docs/learn-es2015/#enhanced-object-literals" />
-  <TableRow name="Object Short Notation" code="const name = 'vjeux'; const obj = {name};" url="http://babeljs.io/docs/learn-es2015/#enhanced-object-literals" />
+  <TableRow name="Modules" code="import React, {Component} from 'react';" url="https://babeljs.io/docs/learn-es2015/#modules" />
+  <TableRow name="Object Concise Method" code="const obj = {method() { return 10; }};" url="https://babeljs.io/docs/learn-es2015/#enhanced-object-literals" />
+  <TableRow name="Object Short Notation" code="const name = 'vjeux'; const obj = {name};" url="https://babeljs.io/docs/learn-es2015/#enhanced-object-literals" />
   <TableRow name="Parameters" code="function test(x = 'hello', {a, b}, ...args) {}" url="https://babeljs.io/docs/en/babel-plugin-transform-parameters" />
   <TableRow name="Rest Params" code="function(type, ...args) {};" url="https://github.com/sebmarkbage/ecmascript-rest-spread" />
   <TableRow name="Shorthand Properties" code="const o = {a, b, c};" url="https://babeljs.io/docs/en/babel-plugin-transform-shorthand-properties" />

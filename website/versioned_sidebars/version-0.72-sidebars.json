@@ -21,6 +21,7 @@
     "Workflow": [
       "running-on-device",
       "fast-refresh",
+      "metro",
       {
         "type": "category",
         "label": "Debugging",

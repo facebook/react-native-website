@@ -108,7 +108,7 @@ On iOS devices, open the file [`RCTWebSocketExecutor.mm`](https://github.com/fac
 </TabItem>
 <TabItem value="android">
 
-On Android 5.0+ devices connected via USB, you can use the [`adb` command line tool](http://developer.android.com/tools/help/adb.html) to set up port forwarding from the device to your computer:
+On Android 5.0+ devices connected via USB, you can use the [`adb` command line tool](https://developer.android.com/tools/help/adb.html) to set up port forwarding from the device to your computer:
 
 ```sh
 adb reverse tcp:8081 tcp:8081
@@ -145,7 +145,7 @@ You can use Safari to debug the iOS version of your app when using JSC.
 - Select your app's JSContext: `Develop → Simulator (or other device) → JSContext`
 - Safari's Web Inspector should open which has a Console and a Debugger
 
-While sourcemaps may not be enabled by default, you can follow [this guide](http://blog.nparashuram.com/2019/10/debugging-react-native-ios-apps-with.html) or [video](https://www.youtube.com/watch?v=GrGqIIz51k4) to enable them and set break points at the right places in the source code.
+While sourcemaps may not be enabled by default, you can follow [this guide](https://blog.nparashuram.com/2019/10/debugging-react-native-ios-apps-with.html) or [video](https://www.youtube.com/watch?v=GrGqIIz51k4) to enable them and set break points at the right places in the source code.
 
 However, every time the app is reloaded (using live reload, or by manually reloading), a new JSContext is created. Choosing "Automatically Show Web Inspectors for JSContexts" saves you from having to select the latest JSContext manually.
 

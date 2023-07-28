@@ -48,11 +48,24 @@ We recommend creating a new branch in your fork to keep track of your changes:
 git checkout --branch my_feature_branch --track origin/main
 ```
 
+### 4. Run `yarn` and build packages
+
+This will install all JavaScript dependencies, and build all necessary packages inside the repo. The following should be run from the repo root:
+
+```sh
+yarn
+yarn build
+```
+
+`yarn build` is also run as part of `yarn start`.
+
 ## Chapter II: Implementing your Changes
 
 ### 1. Make changes to the code
 
 You can now make any changes deemed necessary using your code editor of choice. [Visual Studio Code](https://code.visualstudio.com/) is popular with JavaScript developers. If you're mostly making changes to iOS or Android, using Xcode or Android Studio might provide a nicer integrated experience.
+
+If you are making changes inside a package with a JavaScript build, you can use `yarn watch` to continuously rebuild as you make changes.
 
 ### 2. Test your changes
 

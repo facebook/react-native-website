@@ -469,9 +469,11 @@ This function is called on press.
 
 The View is now responding to touch events. This is the time to highlight and show the user what is happening.
 
-| Type                                                |
-| --------------------------------------------------- |
-| ({ nativeEvent: [PressEvent](pressevent) }) => void |
+On Android, return true from this callback to prevent any other native components from becoming responder until this responder terminates.
+
+| Type                                                           |
+| -------------------------------------------------------------- |
+| ({ nativeEvent: [PressEvent](pressevent) }) => void \| boolean |
 
 ---
 

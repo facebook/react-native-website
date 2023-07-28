@@ -85,9 +85,9 @@ Add `node_modules/` to your `.gitignore` file.
 
 ### 3. Install CocoaPods
 
-[CocoaPods](http://cocoapods.org) is a package management tool for iOS and macOS development. We use it to add the actual React Native framework code locally into your current project.
+[CocoaPods](https://cocoapods.org) is a package management tool for iOS and macOS development. We use it to add the actual React Native framework code locally into your current project.
 
-We recommend installing CocoaPods using [Homebrew](http://brew.sh/).
+We recommend installing CocoaPods using [Homebrew](https://brew.sh/).
 
 ```shell
 brew install cocoapods

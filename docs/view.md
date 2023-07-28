@@ -121,7 +121,7 @@ Indicates to accessibility services whether the user should be notified when thi
 - `'polite'`- Accessibility services should announce changes to this view.
 - `'assertive'` - Accessibility services should interrupt ongoing speech to immediately announce changes to this view.
 
-See the [Android `View` docs](http://developer.android.com/reference/android/view/View.html#attr_android:accessibilityLiveRegion) for reference.
+See the [Android `View` docs](https://developer.android.com/reference/android/view/View.html#attr_android:accessibilityLiveRegion) for reference.
 
 | Type                                |
 | ----------------------------------- |
@@ -420,7 +420,7 @@ Possible values:
 - `'no'` - The view is not important for accessibility.
 - `'no-hide-descendants'` - The view is not important for accessibility, nor are any of its descendant views.
 
-See the [Android `importantForAccessibility` docs](http://developer.android.com/reference/android/R.attr.html#importantForAccessibility) for reference.
+See the [Android `importantForAccessibility` docs](https://developer.android.com/reference/android/R.attr.html#importantForAccessibility) for reference.
 
 | Type                                             |
 | ------------------------------------------------ |
@@ -580,9 +580,17 @@ If a parent `View` wants to prevent a child `View` from becoming responder on a 
 
 The View is now responding for touch events. This is the time to highlight and show the user what is happening.
 
+<<<<<<< HEAD
 | Type                                               |
 | -------------------------------------------------- |
 | (\{nativeEvent: [PressEvent](pressevent)}) => void |
+=======
+On Android, return true from this callback to prevent any other native components from becoming responder until this responder terminates.
+
+| Type                                                         |
+| ------------------------------------------------------------ |
+| ({nativeEvent: [PressEvent](pressevent)}) => void \| boolean |
+>>>>>>> main
 
 ---
 

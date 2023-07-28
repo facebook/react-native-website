@@ -22,6 +22,10 @@ Now you are set up to run several commands:
 - `yarn start` starts the Metro packager server.
 - `yarn lint` checks the code style.
 - `yarn format` automatically formats your code.
+- `yarn build` builds all configured packages (also run by `yarn start`).
+  - `yarn watch` watches packages and rebuilds files on change.
+  - `yarn clean` cleans package build directories.
+  - Packages which require a build are configured in [scripts/build/config.js](https://github.com/facebook/react-native/blob/main/scripts/build/config.js).
 - `yarn test` runs the Jest-based JavaScript test suite.
   - `yarn test --watch` runs an interactive JavaScript test watcher.
   - `yarn test <pattern>` runs JavaScript tests with matching filenames.
