@@ -65,7 +65,7 @@ module.exports = requireNativeComponent('RNTMap');
 ```
 
 ```tsx title="MyApp.tsx"
-import MapView from './MapView.js';
+import MapView from './MapView.tsx';
 
 ...
 
