@@ -128,13 +128,13 @@ For the cases that used `AccessibilityTraits` that don't have a corresponding va
 
 In general,
 
-```
+```tsx
 accessibilityTraits= {[“button”, “selected”]}
 ```
 
 would be manually replaced with
 
-```
+```tsx
 accessibilityRole=“button”
 accessibilityStates={[“selected”]}
 ```
