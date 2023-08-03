@@ -29,7 +29,7 @@ We follow a release cycle that is not strictly monthly - you can read more [abou
 
 ### How do I know if my fix/feature is in a certain release?
 
-To determine whether a fix or feature is present in a given release, you will need the commit hash where the fix or feature was added to the `main` branch of the core `react-native` repo. If you know the PR, you can look for the comment from **@facebook-github-bot** that says `closed this in <COMMIT_HASH>`.
+To determine whether a fix or feature is present in a given release, you will need the commit hash where the fix or feature was added to the `main` branch of the core `react-native` repo. If you know the PR, you can look for the comment from **@facebook-github-bot** that says 'closed this in [COMMIT_HASH]'.
 
 Once you have the commit hash, navigate to `https://github.com/facebook/react-native/commit/<COMMIT_HASH>`. Look closely at the commit message, underneath which you will find a list of tags associated with the commit.
 These tags will tell you which releases contains this commit. For example, commit [a6768bfd70187634e587d7b2e92d2b6735a4037e](https://github.com/facebook/react-native/commit/a6768bfd70187634e587d7b2e92d2b6735a4037e) has the following tags as of this writing:
