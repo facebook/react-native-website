@@ -67,7 +67,7 @@ The scale of the font currently used. Some operating systems allow users to scal
 useWindowDimensions().height;
 ```
 
-The height in pixels of the window or screen your app occupies.
+The height in dps (Density-independent pixels) of the window or screen your app occupies.
 
 ---
 
@@ -90,4 +90,4 @@ The pixel ratio of the device your app is running on. The values can be:
 useWindowDimensions().width;
 ```
 
-The width in pixels of the window or screen your app occupies.
+The width in dps (Density-independent pixels) of the window or screen your app occupies.
