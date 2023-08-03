@@ -82,6 +82,7 @@ The pixel ratio of the device your app is running on. The values can be:
 - `1` which indicates that one point equals one pixel (usually PPI/DPI of 96, 76 on some platforms).
 - `2` or `3` which indicates a Retina or high DPI display.
 
+Formula behind pixel ratio: pixel ratio = DPI / 160
 ---
 
 ### `width`
