@@ -38,9 +38,9 @@ This is recommended over using plain `Object`, for type safety.
 
 **Example:** `{| foo: string, ... |}`
 
-| Nullable Support?                                  | Android (Java) | iOS |
-| -------------------------------------------------- | -------------- | --- |
-| <code>?&#123;&#124; foo: string, ...&#124;}</code> | -              | -   |
+| Nullable Support?                                       | Android (Java) | iOS |
+| ------------------------------------------------------- | -------------- | --- |
+| <code>?&#123;&#124; foo: string, ...&#124;&#125;</code> | -              | -   |
 
 ### `Object`
 
@@ -98,19 +98,19 @@ You may also find it useful to refer to the JavaScript specifications for the co
 
 You may use the following table as a reference for which types are supported and what they map to in each platform:
 
-| TypeScript Type                                    | Nullable Support?                                             | Android (Java)                       | iOS                                                            | Note                                                                           |
-| -------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------ | -------------------------------------------------------------- | ------------------------------------------------------------------------------ |
-| `string`                                           | <code>string &#124; null </code>                              | `String`                             | `NSString`                                                     |                                                                                |
-| `boolean`                                          | <code>boolean &#124; null </code>                             | `Boolean`                            | `NSNumber`                                                     |                                                                                |
-| `number`                                           | No                                                            | `double`                             | `NSNumber`                                                     |                                                                                |
-| <code>&#123;&#124; foo: string, ... &#124;}</code> | <code>&#123;&#124; foo: string, ...&#124;} &#124; null</code> |                                      |                                                                | Object literal. This is recommended over simply using Object, for type safety. |
-| `Object`                                           | <code>Object &#124; null </code>                              | `ReadableMap`                        | `@{} (untyped dictionary)`                                     | Recommended to use object literal (see above).                                 |
-| `Array<*>`                                         | <code>Array&#60;\*> &#124; null </code>                       | `ReadableArray`                      | `NSArray` (or `RCTConvertVecToArray` when used inside objects) |                                                                                |
-| `Function`                                         | <code>Function &#124; null </code>                            |                                      |                                                                |                                                                                |
-| `Promise<*>`                                       | <code>Promise&#60;\*> &#124; null </code>                     | `com.facebook.react.bridge.Promise`  | `RCTPromiseResolve` and `RCTPromiseRejectBlock`                |                                                                                |
-| Type aliases of the above                          | Yes                                                           |                                      |                                                                |                                                                                |
-| Type Unions <code>'SUCCESS'&#124;'FAIL'</code>     | Only as callbacks.                                            |                                      |                                                                | Type unions only supported as callbacks.                                       |
-| Callbacks: `( ) =>`                                | Yes                                                           | `com.facebook.react.bridge.Callback` | `RCTResponseSenderBlock`                                       | Callback functions are not type checked, and are generalized as Objects.       |
+| TypeScript Type                                         | Nullable Support?                                                  | Android (Java)                       | iOS                                                            | Note                                                                           |
+| ------------------------------------------------------- | ------------------------------------------------------------------ | ------------------------------------ | -------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| `string`                                                | <code>string &#124; null </code>                                   | `String`                             | `NSString`                                                     |                                                                                |
+| `boolean`                                               | <code>boolean &#124; null </code>                                  | `Boolean`                            | `NSNumber`                                                     |                                                                                |
+| `number`                                                | No                                                                 | `double`                             | `NSNumber`                                                     |                                                                                |
+| <code>&#123;&#124; foo: string, ... &#124;&#125;</code> | <code>&#123;&#124; foo: string, ...&#124;&#125; &#124; null</code> |                                      |                                                                | Object literal. This is recommended over simply using Object, for type safety. |
+| `Object`                                                | <code>Object &#124; null </code>                                   | `ReadableMap`                        | `@{} (untyped dictionary)`                                     | Recommended to use object literal (see above).                                 |
+| `Array<*>`                                              | <code>Array&#60;\*> &#124; null </code>                            | `ReadableArray`                      | `NSArray` (or `RCTConvertVecToArray` when used inside objects) |                                                                                |
+| `Function`                                              | <code>Function &#124; null </code>                                 |                                      |                                                                |                                                                                |
+| `Promise<*>`                                            | <code>Promise&#60;\*> &#124; null </code>                          | `com.facebook.react.bridge.Promise`  | `RCTPromiseResolve` and `RCTPromiseRejectBlock`                |                                                                                |
+| Type aliases of the above                               | Yes                                                                |                                      |                                                                |                                                                                |
+| Type Unions <code>'SUCCESS'&#124;'FAIL'</code>          | Only as callbacks.                                                 |                                      |                                                                | Type unions only supported as callbacks.                                       |
+| Callbacks: `( ) =>`                                     | Yes                                                                | `com.facebook.react.bridge.Callback` | `RCTResponseSenderBlock`                                       | Callback functions are not type checked, and are generalized as Objects.       |
 
 You may also find it useful to refer to the JavaScript specifications for the core modules in React Native. These are located inside the `Libraries/` directory in the React Native repository.
 
