@@ -52,7 +52,7 @@ function linkify(input) {
     links.push({link, text, url});
   }
 
-  const output = input.split(linkSplitRegExp).flatMap((text, i) => {
+  const output = input.split(linkSplitRegExp).map((text, i) => {
     // console.log(text);
     return (
       <React.Fragment key={i}>
