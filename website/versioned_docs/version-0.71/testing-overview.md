@@ -49,6 +49,8 @@ After writing testable code, it’s time to write some actual tests! The default
 
 > If you do test-driven development, you actually write tests first! That way, testability of your code is given.
 
+> Keep in mind that Jest runs using Node.js which uses the V8 JavaScript engine and React Native's default JavaScript engine is [Hermes](https://hermesengine.dev). Hermes could be missing some APIs available in V8 which could cause false positives when testing.
+
 ### Structuring Tests
 
 Your tests should be short and ideally test only one thing. Let's start with an example unit test written with Jest:
