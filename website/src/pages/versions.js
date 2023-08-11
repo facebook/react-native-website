@@ -7,11 +7,8 @@
 
 import React from 'react';
 import Layout from '@theme/Layout';
-
-import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 const versions = require('../../versions.json');
-
 // The versionsArchived mapping is a custom feature, NOT a Docusaurus feature
 const versionsArchived = require('../../versionsArchived.json');
 
@@ -24,13 +21,11 @@ const VersionItem = ({version, archivedDocumentationUrl, currentVersion}) => {
 
   const latestMajorVersion = versions[0].toUpperCase().replace('-RC', '');
 
-  const documentationLink = archivedDocumentationUrl ? (
-    <a href={archivedDocumentationUrl}>Documentation</a>
-  ) : (
-    <Link to={`/docs/${isCurrentVersion ? '' : version + '/'}getting-started`}>
-      Documentation
-    </Link>
+  const documentationUrl = useBaseUrl(
+    archivedDocumentationUrl ??
+      `/docs/${isCurrentVersion ? '' : version + '/'}getting-started`
   );
+  const documentationLink = <a href={documentationUrl}>Documentation</a>;
 
   let releaseNotesURL = 'https://github.com/facebook/react-native/releases';
   let releaseNotesTitle = 'Changelog';
