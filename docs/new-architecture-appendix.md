@@ -4,7 +4,7 @@ title: Appendix
 ---
 
 import NewArchitectureWarning from './\_markdown-new-architecture-warning.mdx';
-import VerticalTable from '../website/core/VerticalTable';
+import VerticalTable from '@site/core/VerticalTable';
 
 <NewArchitectureWarning/>
 
