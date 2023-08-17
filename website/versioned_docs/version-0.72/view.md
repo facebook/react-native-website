@@ -582,9 +582,9 @@ The View is now responding for touch events. This is the time to highlight and s
 
 On Android, return true from this callback to prevent any other native components from becoming responder until this responder terminates.
 
-| Type                                                         |
-| ------------------------------------------------------------ |
-| ({nativeEvent: [PressEvent](pressevent)}) => void \| boolean |
+| Type                                                              |
+| ----------------------------------------------------------------- |
+| `md ({nativeEvent: [PressEvent](pressevent)}) => void \| boolean` |
 
 ---
 
