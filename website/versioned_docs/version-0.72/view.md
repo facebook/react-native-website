@@ -391,9 +391,9 @@ For example, if a touchable view has a height of 20 the touchable height can be 
 
 > The touch area never extends past the parent view bounds and the Z-index of sibling views always takes precedence if a touch hits two overlapping views.
 
-| Type                                                               |
-| ------------------------------------------------------------------ |
-| object: {top: number, left: number, bottom: number, right: number} |
+| Type                                                                 |
+| -------------------------------------------------------------------- |
+| object: `{top: number, left: number, bottom: number, right: number}` |
 
 ---
 
