@@ -609,9 +609,9 @@ Callback that is called when a touch is released.
 
 Callback that is called when the text input is focused.
 
-| Type                                                |
-| --------------------------------------------------- |
-| ({nativeEvent: [LayoutEvent](layoutevent)}) => void |
+| Type                                                     |
+| -------------------------------------------------------- |
+| `md ({nativeEvent: [LayoutEvent](layoutevent)}) => void` |
 
 ---
 
@@ -629,9 +629,9 @@ Callback that is called when a key is pressed. This will be called with object w
 
 Invoked on mount and on layout changes.
 
-| Type                                                |
-| --------------------------------------------------- |
-| ({nativeEvent: [LayoutEvent](layoutevent)}) => void |
+| Type                                                     |
+| -------------------------------------------------------- |
+| `md ({nativeEvent: [LayoutEvent](layoutevent)}) => void` |
 
 ---
 
