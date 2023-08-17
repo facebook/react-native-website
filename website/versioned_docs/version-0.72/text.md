@@ -485,9 +485,9 @@ This prop is commonly used with `ellipsizeMode`.
 
 Invoked on mount and on layout changes.
 
-| Type                                                |
-| --------------------------------------------------- |
-| ({nativeEvent: [LayoutEvent](layoutevent)}) => void |
+| Type                                                     |
+| -------------------------------------------------------- |
+| `md ({nativeEvent: [LayoutEvent](layoutevent)}) => void` |
 
 ---
 
@@ -495,9 +495,9 @@ Invoked on mount and on layout changes.
 
 This function is called on long press.
 
-| Type                                              |
-| ------------------------------------------------- |
-| ({nativeEvent: [PressEvent](pressevent)}) => void |
+| Type                                                   |
+| ------------------------------------------------------ |
+| `md ({nativeEvent: [PressEvent](pressevent)}) => void` |
 
 ---
 
@@ -505,9 +505,9 @@ This function is called on long press.
 
 Does this view want to "claim" touch responsiveness? This is called for every touch move on the `View` when it is not the responder.
 
-| Type                                                 |
-| ---------------------------------------------------- |
-| ({nativeEvent: [PressEvent](pressevent)}) => boolean |
+| Type                                                      |
+| --------------------------------------------------------- |
+| `md ({nativeEvent: [PressEvent](pressevent)}) => boolean` |
 
 ---
 
@@ -515,9 +515,9 @@ Does this view want to "claim" touch responsiveness? This is called for every to
 
 Function called on user press, triggered after `onPressOut`.
 
-| Type                                              |
-| ------------------------------------------------- |
-| ({nativeEvent: [PressEvent](pressevent)}) => void |
+| Type                                                   |
+| ------------------------------------------------------ |
+| `md ({nativeEvent: [PressEvent](pressevent)}) => void` |
 
 ---
 
@@ -525,9 +525,9 @@ Function called on user press, triggered after `onPressOut`.
 
 Called immediately when a touch is engaged, before `onPressOut` and `onPress`.
 
-| Type                                              |
-| ------------------------------------------------- |
-| ({nativeEvent: [PressEvent](pressevent)}) => void |
+| Type                                                   |
+| ------------------------------------------------------ |
+| `md ({nativeEvent: [PressEvent](pressevent)}) => void` |
 
 ---
 
@@ -535,9 +535,9 @@ Called immediately when a touch is engaged, before `onPressOut` and `onPress`.
 
 Called when a touch is released.
 
-| Type                                              |
-| ------------------------------------------------- |
-| ({nativeEvent: [PressEvent](pressevent)}) => void |
+| Type                                                   |
+| ------------------------------------------------------ |
+| `md ({nativeEvent: [PressEvent](pressevent)}) => void` |
 
 ---
 
@@ -547,9 +547,9 @@ The View is now responding to touch events. This is the time to highlight and sh
 
 On Android, return true from this callback to prevent any other native components from becoming responder until this responder terminates.
 
-| Type                                                         |
-| ------------------------------------------------------------ |
-| ({nativeEvent: [PressEvent](pressevent)}) => void \| boolean |
+| Type                                                              |
+| ----------------------------------------------------------------- |
+| `md ({nativeEvent: [PressEvent](pressevent)}) => void ｜ boolean` |
 
 ---
 
@@ -557,9 +557,9 @@ On Android, return true from this callback to prevent any other native component
 
 The user is moving their finger.
 
-| Type                                              |
-| ------------------------------------------------- |
-| ({nativeEvent: [PressEvent](pressevent)}) => void |
+| Type                                                   |
+| ------------------------------------------------------ |
+| `md ({nativeEvent: [PressEvent](pressevent)}) => void` |
 
 ---
 
@@ -567,9 +567,9 @@ The user is moving their finger.
 
 Fired at the end of the touch.
 
-| Type                                              |
-| ------------------------------------------------- |
-| ({nativeEvent: [PressEvent](pressevent)}) => void |
+| Type                                                   |
+| ------------------------------------------------------ |
+| `md ({nativeEvent: [PressEvent](pressevent)}) => void` |
 
 ---
 
@@ -577,9 +577,9 @@ Fired at the end of the touch.
 
 The responder has been taken from the `View`. Might be taken by other views after a call to `onResponderTerminationRequest`, or might be taken by the OS without asking (e.g., happens with control center/ notification center on iOS)
 
-| Type                                              |
-| ------------------------------------------------- |
-| ({nativeEvent: [PressEvent](pressevent)}) => void |
+| Type                                                   |
+| ------------------------------------------------------ |
+| `md ({nativeEvent: [PressEvent](pressevent)}) => void` |
 
 ---
 
@@ -587,9 +587,9 @@ The responder has been taken from the `View`. Might be taken by other views afte
 
 Some other `View` wants to become a responder and is asking this `View` to release its responder. Returning `true` allows its release.
 
-| Type                                                 |
-| ---------------------------------------------------- |
-| ({nativeEvent: [PressEvent](pressevent)}) => boolean |
+| Type                                                      |
+| --------------------------------------------------------- |
+| `md ({nativeEvent: [PressEvent](pressevent)}) => boolean` |
 
 ---
 
@@ -597,9 +597,9 @@ Some other `View` wants to become a responder and is asking this `View` to relea
 
 If a parent `View` wants to prevent a child `View` from becoming a responder on a touch start, it should have this handler which returns `true`.
 
-| Type                                                 |
-| ---------------------------------------------------- |
-| ({nativeEvent: [PressEvent](pressevent)}) => boolean |
+| Type                                                      |
+| --------------------------------------------------------- |
+| `md ({nativeEvent: [PressEvent](pressevent)}) => boolean` |
 
 ---
 

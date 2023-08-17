@@ -651,7 +651,7 @@ Launch an Android intent with extras.
 
 **Parameters:**
 
-| Name                                                        | Type                                                         |
-| ----------------------------------------------------------- | ------------------------------------------------------------ |
-| action <div className="label basic required">Required</div> | string                                                       |
-| extras                                                      | array of `{key: string, value: string \| number \| boolean}` |
+| Name                                                        | Type                                                       |
+| ----------------------------------------------------------- | ---------------------------------------------------------- |
+| action <div className="label basic required">Required</div> | string                                                     |
+| extras                                                      | `Array<{key: string, value: string ｜ number ｜ boolean}>` |
