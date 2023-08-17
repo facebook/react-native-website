@@ -465,9 +465,9 @@ This prop is commonly used with `ellipsizeMode`.
 
 Invoked on mount and on layout changes.
 
-| Type                                                  |
-| ----------------------------------------------------- |
-| ({ nativeEvent: [LayoutEvent](layoutevent) }) => void |
+| Type                                                       |
+| ---------------------------------------------------------- |
+| `md ({ nativeEvent: [LayoutEvent](layoutevent) }) => void` |
 
 ---
 
