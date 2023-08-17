@@ -267,9 +267,9 @@ This may improve scroll performance for large lists.
 
 Rendered at the bottom of each section.
 
-| Type                                                                    | ----- |
-| ----------------------------------------------------------------------- | ----- |
-| `md (info: {section: [Section](sectionlist#section)}) => element, null` | ----- |
+| Type                                                                    |
+| ----------------------------------------------------------------------- |
+| `md (info: {section: [Section](sectionlist#section)}) => element, null` |
 
 ---
 
@@ -277,9 +277,9 @@ Rendered at the bottom of each section.
 
 Rendered at the top of each section. These stick to the top of the `ScrollView` by default on iOS. See `stickySectionHeadersEnabled`.
 
-| Type                                                                    | ----- |
-| ----------------------------------------------------------------------- | ----- |
-| `md (info: {section: [Section](sectionlist#section)}) => element, null` | ----- |
+| Type                                                                    |
+| ----------------------------------------------------------------------- |
+| `md (info: {section: [Section](sectionlist#section)}) => element, null` |
 
 ---
 
