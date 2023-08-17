@@ -36,7 +36,6 @@ function linkify(input) {
   const linkRegExp = /(?<link>\[(?<text>[^\]]+)?\]\((?<url>[^)]+)\))/g;
   const linkSplitRegExp = /\[[^\]]+?\]\([^)]+\)/g;
 
-  // console.log('input', input);
   const links = [];
   let match;
   while ((match = linkRegExp.exec(input)) !== null) {
@@ -52,8 +51,7 @@ function linkify(input) {
     links.push({link, text, url});
   }
 
-  const output = input.split(linkSplitRegExp).map((text, i) => {
-    // console.log(text);
+  return input.split(linkSplitRegExp).map((text, i) => {
     return (
       <React.Fragment key={i}>
         {text}
@@ -61,8 +59,4 @@ function linkify(input) {
       </React.Fragment>
     );
   });
-
-  // console.log('links', links);
-  // console.log('output', output);
-  return output;
 }
