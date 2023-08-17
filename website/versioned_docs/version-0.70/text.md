@@ -485,9 +485,9 @@ This function is called on long press.
 
 Does this view want to "claim" touch responsiveness? This is called for every touch move on the `View` when it is not the responder.
 
-| Type                                                   |
-| ------------------------------------------------------ |
-| ({ nativeEvent: [PressEvent](pressevent) }) => boolean |
+| Type                                                        |
+| ----------------------------------------------------------- |
+| `md ({ nativeEvent: [PressEvent](pressevent) }) => boolean` |
 
 ---
 
@@ -567,9 +567,9 @@ The responder has been taken from the `View`. Might be taken by other views afte
 
 Some other `View` wants to become a responder and is asking this `View` to release its responder. Returning `true` allows its release.
 
-| Type                                                   |
-| ------------------------------------------------------ |
-| ({ nativeEvent: [PressEvent](pressevent) }) => boolean |
+| Type                                                        |
+| ----------------------------------------------------------- |
+| `md ({ nativeEvent: [PressEvent](pressevent) }) => boolean` |
 
 ---
 
@@ -577,9 +577,9 @@ Some other `View` wants to become a responder and is asking this `View` to relea
 
 If a parent `View` wants to prevent a child `View` from becoming a responder on a touch start, it should have this handler which returns `true`.
 
-| Type                                                   |
-| ------------------------------------------------------ |
-| ({ nativeEvent: [PressEvent](pressevent) }) => boolean |
+| Type                                                        |
+| ----------------------------------------------------------- |
+| `md ({ nativeEvent: [PressEvent](pressevent) }) => boolean` |
 
 ---
 

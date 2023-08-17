@@ -433,9 +433,9 @@ When `accessible` is `true`, the system will invoke this function when the user 
 
 Does this view want to "claim" touch responsiveness? This is called for every touch move on the `View` when it is not the responder.
 
-| Type                                                   |
-| ------------------------------------------------------ |
-| ({ nativeEvent: [PressEvent](pressevent) }) => boolean |
+| Type                                                        |
+| ----------------------------------------------------------- |
+| `md ({ nativeEvent: [PressEvent](pressevent) }) => boolean` |
 
 ---
 
@@ -443,9 +443,9 @@ Does this view want to "claim" touch responsiveness? This is called for every to
 
 If a parent `View` wants to prevent a child `View` from becoming responder on a move, it should have this handler which returns `true`.
 
-| Type                                                   |
-| ------------------------------------------------------ |
-| ({ nativeEvent: [PressEvent](pressevent) }) => boolean |
+| Type                                                        |
+| ----------------------------------------------------------- |
+| `md ({ nativeEvent: [PressEvent](pressevent) }) => boolean` |
 
 ---
 
@@ -515,9 +515,9 @@ Some other `View` wants to become responder and is asking this `View` to release
 
 Does this view want to become responder on the start of a touch?
 
-| Type                                                   |
-| ------------------------------------------------------ |
-| ({ nativeEvent: [PressEvent](pressevent) }) => boolean |
+| Type                                                        |
+| ----------------------------------------------------------- |
+| `md ({ nativeEvent: [PressEvent](pressevent) }) => boolean` |
 
 ---
 
@@ -525,9 +525,9 @@ Does this view want to become responder on the start of a touch?
 
 If a parent `View` wants to prevent a child `View` from becoming responder on a touch start, it should have this handler which returns `true`.
 
-| Type                                                   |
-| ------------------------------------------------------ |
-| ({ nativeEvent: [PressEvent](pressevent) }) => boolean |
+| Type                                                        |
+| ----------------------------------------------------------- |
+| `md ({ nativeEvent: [PressEvent](pressevent) }) => boolean` |
 
 ---
 
