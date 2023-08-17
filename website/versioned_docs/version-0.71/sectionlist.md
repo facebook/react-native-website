@@ -310,9 +310,9 @@ Rendered at the very beginning of the list. Can be a React Component (e.g. `Some
 
 Called once when the scroll position gets within `onEndReachedThreshold` of the rendered content.
 
-| Type                                      |
-| ----------------------------------------- |
-| (info: {distanceFromEnd: number}) => void |
+| Type                                        |
+| ------------------------------------------- |
+| `(info: {distanceFromEnd: number}) => void` |
 
 ---
 
