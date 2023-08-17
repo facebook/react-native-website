@@ -484,7 +484,7 @@ Specifies text alignment. On Android, the value 'justify' is only supported on O
 
 | Type                                        |
 | ------------------------------------------- |
-| object: { width?: number, height?: number } |
+| object: `{width?: number, height?: number}` |
 
 ---
 
