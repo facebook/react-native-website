@@ -269,7 +269,7 @@ Rendered at the bottom of each section.
 
 | Type                                                                      |
 | ------------------------------------------------------------------------- |
-| `md (info: {section: [Section](sectionlist#section)}) => element \| null` |
+| `md (info: {section: [Section](sectionlist#section)}) => element ｜ null` |
 
 ---
 
@@ -279,7 +279,7 @@ Rendered at the top of each section. These stick to the top of the `ScrollView` 
 
 | Type                                                                      |
 | ------------------------------------------------------------------------- |
-| `md (info: {section: [Section](sectionlist#section)}) => element \| null` |
+| `md (info: {section: [Section](sectionlist#section)}) => element ｜ null` |
 
 ---
 

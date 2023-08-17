@@ -619,7 +619,7 @@ On Android, return true from this callback to prevent any other native component
 
 | Type                                                              |
 | ----------------------------------------------------------------- |
-| `md ({nativeEvent: [PressEvent](pressevent)}) => void \| boolean` |
+| `md ({nativeEvent: [PressEvent](pressevent)}) => void ｜ boolean` |
 
 ---
 

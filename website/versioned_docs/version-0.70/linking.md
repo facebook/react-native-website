@@ -409,4 +409,4 @@ Launch an Android intent with extras.
 | Name                                                        | Type                                                         |
 | ----------------------------------------------------------- | ------------------------------------------------------------ |
 | action <div className="label basic required">Required</div> | string                                                       |
-| extras                                                      | array of `{key: string, value: string \| number \| boolean}` |
+| extras                                                      | array of `{key: string, value: string ｜ number ｜ boolean}` |
