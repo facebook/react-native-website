@@ -212,9 +212,9 @@ Describes the current state of a component to the user of an assistive technolog
 
 See the [Accessibility guide](accessibility.md#accessibilitystate-ios-android) for more information.
 
-| Type                                                                                           |
-| ---------------------------------------------------------------------------------------------- |
-| object: {disabled: bool, selected: bool, checked: bool or 'mixed', busy: bool, expanded: bool} |
+| Type                                                                                             |
+| ------------------------------------------------------------------------------------------------ |
+| object: `{disabled: bool, selected: bool, checked: bool or 'mixed', busy: bool, expanded: bool}` |
 
 ---
 
@@ -224,9 +224,9 @@ Represents the current value of a component. It can be a textual description of 
 
 See the [Accessibility guide](accessibility.md#accessibilityvalue-ios-android) for more information.
 
-| Type                                                          |
-| ------------------------------------------------------------- |
-| object: {min: number, max: number, now: number, text: string} |
+| Type                                                            |
+| --------------------------------------------------------------- |
+| object: `{min: number, max: number, now: number, text: string}` |
 
 ---
 
