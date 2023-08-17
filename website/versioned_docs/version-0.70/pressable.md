@@ -185,33 +185,33 @@ Called when the hover is deactivated to undo visual feedback.
 
 Called if the time after `onPressIn` lasts longer than 500 milliseconds. This time period can be customized with [`delayLongPress`](#delaylongpress).
 
-| Type                                                |
-| --------------------------------------------------- |
-| ({ nativeEvent: [PressEvent](pressevent) }) => void |
+| Type                                                     |
+| -------------------------------------------------------- |
+| `md ({ nativeEvent: [PressEvent](pressevent) }) => void` |
 
 ### `onPress`
 
 Called after `onPressOut`.
 
-| Type                                                |
-| --------------------------------------------------- |
-| ({ nativeEvent: [PressEvent](pressevent) }) => void |
+| Type                                                     |
+| -------------------------------------------------------- |
+| `md ({ nativeEvent: [PressEvent](pressevent) }) => void` |
 
 ### `onPressIn`
 
 Called immediately when a touch is engaged, before `onPressOut` and `onPress`.
 
-| Type                                                |
-| --------------------------------------------------- |
-| ({ nativeEvent: [PressEvent](pressevent) }) => void |
+| Type                                                     |
+| -------------------------------------------------------- |
+| `md ({ nativeEvent: [PressEvent](pressevent) }) => void` |
 
 ### `onPressOut`
 
 Called when a touch is released.
 
-| Type                                                |
-| --------------------------------------------------- |
-| ({ nativeEvent: [PressEvent](pressevent) }) => void |
+| Type                                                     |
+| -------------------------------------------------------- |
+| `md ({ nativeEvent: [PressEvent](pressevent) }) => void` |
 
 ### `pressRetentionOffset`
 

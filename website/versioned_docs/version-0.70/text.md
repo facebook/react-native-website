@@ -475,9 +475,9 @@ Invoked on mount and on layout changes.
 
 This function is called on long press.
 
-| Type                                                |
-| --------------------------------------------------- |
-| ({ nativeEvent: [PressEvent](pressevent) }) => void |
+| Type                                                     |
+| -------------------------------------------------------- |
+| `md ({ nativeEvent: [PressEvent](pressevent) }) => void` |
 
 ---
 
@@ -537,9 +537,9 @@ On Android, return true from this callback to prevent any other native component
 
 The user is moving their finger.
 
-| Type                                                |
-| --------------------------------------------------- |
-| ({ nativeEvent: [PressEvent](pressevent) }) => void |
+| Type                                                     |
+| -------------------------------------------------------- |
+| `md ({ nativeEvent: [PressEvent](pressevent) }) => void` |
 
 ---
 
@@ -547,9 +547,9 @@ The user is moving their finger.
 
 Fired at the end of the touch.
 
-| Type                                                |
-| --------------------------------------------------- |
-| ({ nativeEvent: [PressEvent](pressevent) }) => void |
+| Type                                                     |
+| -------------------------------------------------------- |
+| `md ({ nativeEvent: [PressEvent](pressevent) }) => void` |
 
 ---
 
@@ -557,9 +557,9 @@ Fired at the end of the touch.
 
 The responder has been taken from the `View`. Might be taken by other views after a call to `onResponderTerminationRequest`, or might be taken by the OS without asking (e.g., happens with control center/ notification center on iOS)
 
-| Type                                                |
-| --------------------------------------------------- |
-| ({ nativeEvent: [PressEvent](pressevent) }) => void |
+| Type                                                     |
+| -------------------------------------------------------- |
+| `md ({ nativeEvent: [PressEvent](pressevent) }) => void` |
 
 ---
 
