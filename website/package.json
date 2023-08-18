@@ -47,10 +47,10 @@
     ]
   },
   "dependencies": {
-    "@docusaurus/core": "0.0.0-5645",
-    "@docusaurus/plugin-google-gtag": "0.0.0-5645",
-    "@docusaurus/plugin-pwa": "0.0.0-5645",
-    "@docusaurus/preset-classic": "0.0.0-5645",
+    "@docusaurus/core": "0.0.0-5649",
+    "@docusaurus/plugin-google-gtag": "0.0.0-5649",
+    "@docusaurus/plugin-pwa": "0.0.0-5649",
+    "@docusaurus/preset-classic": "0.0.0-5649",
     "docusaurus-plugin-sass": "^0.2.2",
     "esbuild-loader": "^2.19.0",
     "react": "^18.2.0",
@@ -59,7 +59,7 @@
     "sass": "^1.53.0"
   },
   "devDependencies": {
-    "@docusaurus/types": "0.0.0-5618",
+    "@docusaurus/types": "0.0.0-5649",
     "@react-native-website/lint-examples": "0.0.0",
     "@react-native-website/update-redirects": "0.0.0",
     "alex": "^10.0.0",
