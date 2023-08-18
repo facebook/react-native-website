@@ -47,10 +47,10 @@
     ]
   },
   "dependencies": {
-    "@docusaurus/core": "0.0.0-5618",
-    "@docusaurus/plugin-google-gtag": "0.0.0-5618",
-    "@docusaurus/plugin-pwa": "0.0.0-5618",
-    "@docusaurus/preset-classic": "0.0.0-5618",
+    "@docusaurus/core": "0.0.0-5645",
+    "@docusaurus/plugin-google-gtag": "0.0.0-5645",
+    "@docusaurus/plugin-pwa": "0.0.0-5645",
+    "@docusaurus/preset-classic": "0.0.0-5645",
     "docusaurus-plugin-sass": "^0.2.2",
     "esbuild-loader": "^2.19.0",
     "react": "^18.2.0",
