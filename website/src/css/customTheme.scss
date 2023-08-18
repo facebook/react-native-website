@@ -1865,3 +1865,13 @@ html[data-theme="light"].blog-wrapper {
     }
   }
 }
+
+/*
+Prevent useless bottom margin for multiline <figcaption> tags in MDX:
+<figcaption>
+  some paragraph text
+</figcaption>
+ */
+figcaption > p:last-child {
+  margin-bottom: 0;
+}
