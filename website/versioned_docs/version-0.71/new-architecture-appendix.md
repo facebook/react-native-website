@@ -4,6 +4,7 @@ title: Appendix
 ---
 
 import NewArchitectureWarning from './\_markdown-new-architecture-warning.mdx';
+import VerticalTable from '@site/core/VerticalTable';
 
 <NewArchitectureWarning/>
 
@@ -22,15 +23,19 @@ You may use the following table as a reference for which types are supported and
 
 ### `string`
 
-| Nullable Support? | Android (Java) | iOS        |
-| ----------------- | -------------- | ---------- |
-| `?string`         | `String`       | `NSString` |
+<VerticalTable data={[
+['Nullable Support?', <code>?string</code>],
+['Android (Java)', <code>String</code>],
+['iOS', <code>NSString</code>],
+]} />
 
 ### `boolean`
 
-| Nullable Support? | Android (Java) | iOS        |
-| ----------------- | -------------- | ---------- |
-| `?boolean`        | `Boolean`      | `NSNumber` |
+<VerticalTable data={[
+['Nullable Support?', <code>?boolean</code>],
+['Android (Java)', <code>Boolean</code>],
+['iOS', <code>NSNumber</code>],
+]} />
 
 ### Object literal
 
@@ -38,9 +43,11 @@ This is recommended over using plain `Object`, for type safety.
 
 **Example:** `{| foo: string, ... |}`
 
-| Nullable Support?                                       | Android (Java) | iOS |
-| ------------------------------------------------------- | -------------- | --- |
-| <code>?&#123;&#124; foo: string, ...&#124;&#125;</code> | -              | -   |
+<VerticalTable data={[
+['Nullable Support?', <code>{`?{| foo: string, ...|}`}</code>],
+['Android (Java)', '-'],
+['iOS', '-'],
+]} />
 
 ### `Object`
 
@@ -48,27 +55,35 @@ This is recommended over using plain `Object`, for type safety.
 Recommended to use [Object literal](#object-literal) instead.
 :::
 
-| Nullable Support? | Android (Java) | iOS                        |
-| ----------------- | -------------- | -------------------------- |
-| `?Object`         | `ReadableMap`  | `@{}` (untyped dictionary) |
+<VerticalTable data={[
+['Nullable Support?', <code>?Object</code>],
+['Android (Java)', <code>ReadableMap</code>],
+['iOS', <><code>@{}</code> (untyped dictionary)</>],
+]} />
 
 ### `Array<*>`
 
-| Nullable Support? | Android (Java)  | iOS                                                            |
-| ----------------- | --------------- | -------------------------------------------------------------- |
-| `?Array<*>`       | `ReadableArray` | `NSArray` (or `RCTConvertVecToArray` when used inside objects) |
+<VerticalTable data={[
+['Nullable Support?', <code>{`?Array<*>`}</code>],
+['Android (Java)', <code>ReadableArray</code>],
+['iOS', <><code>NSArray</code> (or <code>RCTConvertVecToArray</code> when used inside objects)</>],
+]} />
 
 ### `Function`
 
-| Nullable Support? | Android (Java) | iOS |
-| ----------------- | -------------- | --- |
-| `?Function`       | -              | -   |
+<VerticalTable data={[
+['Nullable Support?', <code>?Function</code>],
+['Android (Java)', '-'],
+['iOS', '-'],
+]} />
 
 ### `Promise<*>`
 
-| Nullable Support? | Android (Java)                      | iOS                                             |
-| ----------------- | ----------------------------------- | ----------------------------------------------- |
-| `?Promise<*>`     | `com.facebook.react.bridge.Promise` | `RCTPromiseResolve` and `RCTPromiseRejectBlock` |
+<VerticalTable data={[
+['Nullable Support?', <code>{`?Promise<*>`}</code>],
+['Android (Java)', <code>com.facebook.react.bridge.Promise</code>],
+['iOS', <><code>RCTPromiseResolve</code> and <code>RCTPromiseRejectBlock</code></>],
+]} />
 
 ### Type Unions
 
@@ -76,9 +91,11 @@ Type unions are only supported as callbacks.
 
 **Example:** `'SUCCESS' | 'FAIL'`
 
-| Nullable Support?  | Android (Java) | iOS |
-| ------------------ | -------------- | --- |
-| Only as callbacks. | -              | -   |
+<VerticalTable data={[
+['Nullable Support?', 'Only as callbacks.'],
+['Android (Java)', '-'],
+['iOS', '-'],
+]} />
 
 ### Callbacks
 
@@ -86,9 +103,11 @@ Callback functions are not type checked, and are generalized as `Object`s.
 
 **Example:** `() =>`
 
-| Nullable Support? | Android (Java)                       | iOS                      |
-| ----------------- | ------------------------------------ | ------------------------ |
-| Yes               | `com.facebook.react.bridge.Callback` | `RCTResponseSenderBlock` |
+<VerticalTable data={[
+['Nullable Support?', 'Yes'],
+['Android (Java)', <code>com.facebook.react.bridge.Callback</code>],
+['iOS', <code>RCTResponseSenderBlock</code>],
+]} />
 
 :::note
 You may also find it useful to refer to the JavaScript specifications for the core modules in React Native. These are located inside the `Libraries/` directory in the React Native repository.
@@ -98,19 +117,101 @@ You may also find it useful to refer to the JavaScript specifications for the co
 
 You may use the following table as a reference for which types are supported and what they map to in each platform:
 
-| TypeScript Type                                         | Nullable Support?                                                  | Android (Java)                       | iOS                                                            | Note                                                                           |
-| ------------------------------------------------------- | ------------------------------------------------------------------ | ------------------------------------ | -------------------------------------------------------------- | ------------------------------------------------------------------------------ |
-| `string`                                                | <code>string &#124; null </code>                                   | `String`                             | `NSString`                                                     |                                                                                |
-| `boolean`                                               | <code>boolean &#124; null </code>                                  | `Boolean`                            | `NSNumber`                                                     |                                                                                |
-| `Float`, `Double`, or `Int32`                           | No                                                                 | `double`                             | `NSNumber`                                                     |                                                                                |
-| <code>&#123;&#124; foo: string, ... &#124;&#125;</code> | <code>&#123;&#124; foo: string, ...&#124;&#125; &#124; null</code> |                                      |                                                                | Object literal. This is recommended over simply using Object, for type safety. |
-| `Object`                                                | <code>Object &#124; null </code>                                   | `ReadableMap`                        | `@{} (untyped dictionary)`                                     | Recommended to use object literal (see above).                                 |
-| `Array<*>`                                              | <code>Array&#60;\*> &#124; null </code>                            | `ReadableArray`                      | `NSArray` (or `RCTConvertVecToArray` when used inside objects) |                                                                                |
-| `Function`                                              | <code>Function &#124; null </code>                                 |                                      |                                                                |                                                                                |
-| `Promise<*>`                                            | <code>Promise&#60;\*> &#124; null </code>                          | `com.facebook.react.bridge.Promise`  | `RCTPromiseResolve` and `RCTPromiseRejectBlock`                |                                                                                |
-| Type aliases of the above                               | Yes                                                                |                                      |                                                                |                                                                                |
-| Type Unions <code>'SUCCESS'&#124;'FAIL'</code>          | Only as callbacks.                                                 |                                      |                                                                | Type unions only supported as callbacks.                                       |
-| Callbacks: `( ) =>`                                     | Yes                                                                | `com.facebook.react.bridge.Callback` | `RCTResponseSenderBlock`                                       | Callback functions are not type checked, and are generalized as Objects.       |
+### `string`
+
+<VerticalTable data={[
+['Nullable Support?', <code>{`string | null`}</code>],
+['Android (Java)', <code>String</code>],
+['iOS', <code>NSString</code>],
+]} />
+
+### `boolean`
+
+<VerticalTable data={[
+['Nullable Support?', <code>{`boolean | null`}</code>],
+['Android (Java)', <code>Boolean</code>],
+['iOS', <code>NSNumber</code>],
+]} />
+
+### `number`
+
+<VerticalTable data={[
+['Nullable Support?', 'No'],
+['Android (Java)', <code>double</code>],
+['iOS', <code>NSNumber</code>],
+]} />
+
+### Object literal
+
+This is recommended over using plain `Object`, for type safety.
+
+**Example:** `{| foo: string, ... |}`
+
+<VerticalTable data={[
+['Nullable Support?', <code>{`{| foo: string, ...|} | null`}</code>],
+['Android (Java)', '-'],
+['iOS', '-'],
+]} />
+
+### `Object`
+
+:::note
+Recommended to use [Object literal](#object-literal-1) instead.
+:::
+
+<VerticalTable data={[
+['Nullable Support?', <code>{`Object | null`}</code>],
+['Android (Java)', <code>ReadableMap</code>],
+['iOS', <><code>@{}</code> (untyped dictionary)</>],
+]} />
+
+### `Array<*>`
+
+<VerticalTable data={[
+['Nullable Support?', <code>{`Array<*> | null`}</code>],
+['Android (Java)', <code>ReadableArray</code>],
+['iOS', <><code>NSArray</code> (or <code>RCTConvertVecToArray</code> when used inside objects)</>],
+]} />
+
+### `Function`
+
+<VerticalTable data={[
+['Nullable Support?', <code>?{`Function | null`}</code>],
+['Android (Java)', '-'],
+['iOS', '-'],
+]} />
+
+### `Promise<*>`
+
+<VerticalTable data={[
+['Nullable Support?', <code>{`Promise<*> | null`}</code>],
+['Android (Java)', <code>com.facebook.react.bridge.Promise</code>],
+['iOS', <><code>RCTPromiseResolve</code> and <code>RCTPromiseRejectBlock</code></>],
+]} />
+
+### Type Unions
+
+Type unions are only supported as callbacks.
+
+**Example:** `'SUCCESS' | 'FAIL'`
+
+<VerticalTable data={[
+['Nullable Support?', 'Only as callbacks.'],
+['Android (Java)', '-'],
+['iOS', '-'],
+]} />
+
+### Callbacks
+
+Callback functions are not type checked, and are generalized as `Object`s.
+
+**Example:** `() =>`
+
+<VerticalTable data={[
+['Nullable Support?', 'Yes'],
+['Android (Java)', <code>com.facebook.react.bridge.Callback</code>],
+['iOS', <code>RCTResponseSenderBlock</code>],
+]} />
 
 You may also find it useful to refer to the JavaScript specifications for the core modules in React Native. These are located inside the `Libraries/` directory in the React Native repository.
 
