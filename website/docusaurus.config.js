@@ -57,7 +57,7 @@ module.exports = {
     defaultLocale: 'en',
     locales: ['en'],
   },
-  onBrokenLinks: 'warn', // TODO revert to "throw"
+  onBrokenLinks: 'throw',
   webpack: {
     jsLoader: isServer => ({
       loader: require.resolve('esbuild-loader'),
@@ -77,19 +77,10 @@ module.exports = {
           path: '../docs',
           sidebarPath: require.resolve('./sidebars.json'),
           editCurrentVersion: true,
-          onlyIncludeVersions:
-            // TODO temporary
-            isDev || isDeployPreview
-              ? ['current']
-              : // Original logic:
-              isDeployPreview
-              ? ['current', ...versions.slice(0, 2)]
-              : undefined,
+          onlyIncludeVersions: isDeployPreview
+            ? ['current', ...versions.slice(0, 2)]
+            : undefined,
           versions: {
-            // TODO temporary
-            current: {
-              label: '0.72',
-            },
             [lastVersion]: {
               badge: false, // Do not show version badge for last RN version
             },
