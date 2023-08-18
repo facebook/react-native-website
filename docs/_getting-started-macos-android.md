@@ -161,7 +161,7 @@ yarn start
 </Tabs>
 
 :::note
-If you're familiar with web development, Metro is similar to bundlers such as Vite and Webpack, but is designed end-to-end for React Native. For instance, Metro uses [Babel](https://babel.dev/) to transform syntax such as JSX into executable JavaScript.
+If you're familiar with web development, Metro is similar to bundlers such as Vite and webpack, but is designed end-to-end for React Native. For instance, Metro uses [Babel](https://babel.dev/) to transform syntax such as JSX into executable JavaScript.
 :::
 
 <h3>Step 2: Start your application</h3>

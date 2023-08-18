@@ -9,7 +9,7 @@ While the built-in web view has a lot of features, it is not possible to handle 
 
 :::info
 The React Native WebView component has been extracted to [`react-native-webview`](https://github.com/react-native-webview/react-native-webview) package as part of the [Lean Core effort](https://github.com/facebook/react-native/issues/23313).
-That is the recommended way to use WebView in React Native as of today. You should not use the [WebView](https://reactnative.dev/docs/0.61/webview) component as that was deprecated and removed from React Native.
+That is the recommended way to use WebView in React Native as of today. You should not use the [WebView](https://reactnative-archive-august-2023.netlify.app/docs/0.61/webview) component as that was deprecated and removed from React Native.
 :::
 
 Before you do this, you should be familiar with the concepts in [native UI components](native-components-android). You should also familiarise yourself with the [native code for web views](https://github.com/react-native-webview/react-native-webview/blob/master/android/src/main/java/com/reactnativecommunity/webview/RNCWebViewManager.java), as you will have to use this as a reference when implementing new features—although a deep understanding is not required.
