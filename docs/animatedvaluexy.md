@@ -67,16 +67,16 @@ export default DraggableView;
 ### `setValue()`
 
 ```tsx
-setValue(value: \{x: number; y: number});
+setValue(value: {x: number; y: number});
 ```
 
 Directly set the value. This will stop any animations running on the value and update all the bound properties.
 
 **Parameters:**
 
-| Name  | Type                    | Required | Description |
-| ----- | ----------------------- | -------- | ----------- |
-| value | \{x: number; y: number} | Yes      | Value       |
+| Name  | Type                     | Required | Description |
+| ----- | ------------------------ | -------- | ----------- |
+| value | `{x: number; y: number}` | Yes      | Value       |
 
 ---
 
@@ -90,9 +90,9 @@ Sets an offset that is applied on top of whatever value is set, whether via `set
 
 **Parameters:**
 
-| Name   | Type                    | Required | Description  |
-| ------ | ----------------------- | -------- | ------------ |
-| offset | \{x: number; y: number} | Yes      | Offset value |
+| Name   | Type                     | Required | Description  |
+| ------ | ------------------------ | -------- | ------------ |
+| offset | `{x: number; y: number}` | Yes      | Offset value |
 
 ---
 

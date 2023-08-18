@@ -188,9 +188,9 @@ The skew transformations require a string so that the transform may be expressed
 transform([{skewX: '45deg'}]);
 ```
 
-| Type                                                                                                                                                                                                                                                                                             | Required |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- |
-| array of objects: \{matrix: number[]}, \{perspective: number}, \{rotate: string}, \{rotateX: string}, \{rotateY: string}, \{rotateZ: string}, \{scale: number}, \{scaleX: number}, \{scaleY: number}, \{translateX: number}, \{translateY: number}, \{skewX: string}, \{skewY: string} or string | No       |
+| Type                                                                                                                                                                                                                                                                                                          | Required |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| array of objects: `{matrix: number[]}`, `{perspective: number}`, `{rotate: string}`, `{rotateX: string}`, `{rotateY: string}`, `{rotateZ: string}`, `{scale: number}`, `{scaleX: number}`, `{scaleY: number}`, `{translateX: number}`, `{translateY: number}`, `{skewX: string}`, `{skewY: string}` or string | No       |
 
 ---
 

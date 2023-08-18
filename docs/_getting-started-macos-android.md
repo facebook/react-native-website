@@ -26,17 +26,17 @@ We recommend installing the OpenJDK distribution called Azul **Zulu** using [Hom
 
 ```shell
 brew tap homebrew/cask-versions
-brew install --cask zulu11
+brew install --cask zulu17
 
 # Get path to where cask was installed to double-click installer
-brew info --cask zulu11
+brew info --cask zulu17
 ```
 
-After you install the JDK, update your `JAVA_HOME` environment variable. If you used above steps, JDK will likely be at `/Library/Java/JavaVirtualMachines/zulu-11.jdk/Contents/Home`
+After you install the JDK, update your `JAVA_HOME` environment variable. If you used above steps, JDK will likely be at `/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home`
 
 The Zulu OpenJDK distribution offers JDKs for **both Intel and M1 Macs**. This will make sure your builds are faster on M1 Macs compared to using an Intel-based JDK.
 
-If you have already installed JDK on your system, we recommend JDK 11. You may encounter problems using higher JDK versions.
+If you have already installed JDK on your system, we recommend JDK 17. You may encounter problems using higher JDK versions.
 
 <h3>Android development environment</h3>
 

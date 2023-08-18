@@ -17,7 +17,7 @@
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "serve": "docusaurus serve",
-    "clean": "docusaurus clear",
+    "clear": "docusaurus clear",
     "test": "yarn build",
     "version:cut": "docusaurus docs:version",
     "format:source": "prettier --write {{core,src}/**/*.js,*.js}",

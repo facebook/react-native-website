@@ -74,9 +74,9 @@ Directly set the value. This will stop any animations running on the value and u
 
 **Parameters:**
 
-| Name  | Type                   | Required | Description |
-| ----- | ---------------------- | -------- | ----------- |
-| value | {x: number; y: number} | Yes      | Value       |
+| Name  | Type                     | Required | Description |
+| ----- | ------------------------ | -------- | ----------- |
+| value | `{x: number; y: number}` | Yes      | Value       |
 
 ---
 
@@ -90,9 +90,9 @@ Sets an offset that is applied on top of whatever value is set, whether via `set
 
 **Parameters:**
 
-| Name   | Type                   | Required | Description  |
-| ------ | ---------------------- | -------- | ------------ |
-| offset | {x: number; y: number} | Yes      | Offset value |
+| Name   | Type                     | Required | Description  |
+| ------ | ------------------------ | -------- | ------------ |
+| offset | `{x: number; y: number}` | Yes      | Offset value |
 
 ---
 
