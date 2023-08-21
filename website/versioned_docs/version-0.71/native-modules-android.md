@@ -432,6 +432,7 @@ When a native module method is invoked in JavaScript, React Native converts the 
 | double        |               | number     |
 | String        | String        | string     |
 | Callback      | Callback      | Function   |
+| Promise       | Promise       | Promise    |
 | ReadableMap   | ReadableMap   | Object     |
 | ReadableArray | ReadableArray | Array      |
 
