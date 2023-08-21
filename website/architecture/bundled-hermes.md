@@ -114,7 +114,7 @@ If you're building on top of Hermes, you can rely on those tags to understand wh
 
 #### Android implementation details
 
-To implement this on Android, we've added a new build inside the `/ReactAndroid/hermes-engine` of React Native that will take care of building Hermes and packaging for consumption ((See here for more context)[https://github.com/facebook/react-native/pull/33396]).
+To implement this on Android, we've added a new build inside the `/ReactAndroid/hermes-engine` of React Native that will take care of building Hermes and packaging for consumption ([See here for more context](https://github.com/facebook/react-native/pull/33396)).
 
 You can now trigger a build of Hermes engine by invoking:
 
