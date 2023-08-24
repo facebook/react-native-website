@@ -35,7 +35,7 @@ Next, install the required peer dependencies. You need to run different commands
   npm install react-native-screens react-native-safe-area-context
   ```
 
-  For iOS with bare React Native project, make sure you have [Cocoapods](https://cocoapods.org/) installed. Then install the pods to complete the installation:
+  For iOS with bare React Native project, make sure you have [CocoaPods](https://cocoapods.org/) installed. Then install the pods to complete the installation:
 
   ```shell
   cd ios
