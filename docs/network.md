@@ -302,4 +302,3 @@ public void onCreate() {
   OkHttpClientProvider.setOkHttpClientFactory(new CustomOkHTTPClient());
 }
 ```
-
