@@ -40,7 +40,7 @@ While the last step is the same for all the platforms, the first two steps are d
 
 ### <a name="dependencies-ios" />iOS
 
-The Apple platform installs Fabric Native Components using [Cocoapods](https://cocoapods.org) as a dependency manager.
+The Apple platform installs Fabric Native Components using [CocoaPods](https://cocoapods.org) as a dependency manager.
 
 If you are already using the [`install_module_dependencies`](https://github.com/facebook/react-native/blob/main/packages/react-native/scripts/react_native_pods.rb#L198) function, then **there is nothing to do**. The function already takes care of installing the proper dependencies when the New Architecture is enabled and avoiding them when it is not enabled.
 

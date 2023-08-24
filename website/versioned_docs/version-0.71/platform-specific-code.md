@@ -125,7 +125,7 @@ You can also use the `.native.js` extension when a module needs to be shared bet
 For example, say you have the following files in your project:
 
 ```shell
-Container.js # picked up by Webpack, Rollup or any other Web bundler
+Container.js # picked up by webpack, Rollup or any other Web bundler
 Container.native.js # picked up by the React Native bundler for both Android and iOS (Metro)
 ```
 
