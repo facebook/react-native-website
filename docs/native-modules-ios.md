@@ -269,7 +269,6 @@ When a native module method is invoked in JavaScript, React Native converts the 
 | --------------------------------------------- | ------------------ |
 | NSString                                      | string, ?string    |
 | BOOL                                          | boolean            |
-| NSNumber                                      | ?boolean           |
 | double                                        | number             |
 | NSNumber                                      | ?number            |
 | NSArray                                       | Array, ?Array      |

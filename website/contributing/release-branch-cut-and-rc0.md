@@ -4,6 +4,7 @@ title: Branch Cut & RC0
 ---
 
 import AsyncTestingNote from './\_markdown-async-testing-note.mdx';
+import BumpOSSNote from './\_markdown-older-bump-script.mdx';
 import GHReleasesNotesPrerelease from './\_markdown-GH-release-notes-prerelease.mdx';
 import RoadToReleaseTemplate from './\_markdown-road-to-release-template.mdx';
 
@@ -63,10 +64,12 @@ Before continuing further, follow the [testing guide](/contributing/release-test
 
 Once you're done with the testing, you can kick-off the bump and publishing of RC0:
 
-```
+```bash
 # This will walk you through what version you are releasing
-./scripts/bump-oss-version.js --to-version 0.69.0-rc.0 --token <YOUR_CIRCLE_CI_TOKEN>
+yarn trigger-react-native-release --to-version 0.69.0-rc.0 --token <YOUR_CIRCLE_CI_TOKEN>
 ```
+
+<BumpOSSNote/>
 
 - Once you have run that script, head to CircleCI and you should see under the releases workflow, a `prepare-package-for-release` job.
 
