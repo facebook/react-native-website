@@ -116,7 +116,7 @@ html[data-theme="dark"] {
   align-self: center;
   font-weight: 300;
 
-  div[class*="docPage"] {
+  div[class*="docRoot"] {
     justify-content: center;
   }
 
@@ -387,10 +387,10 @@ html[data-theme="dark"] {
   }
 }
 
-div[class^="docPage"] .hash-link,
+div[class^="docRoot"] .hash-link,
 article[itemprop="blogPost"] .hash-link,
 .mdx-page .hash-link,
-html[data-theme="dark"] div[class^="docPage"] .hash-link,
+html[data-theme="dark"] div[class^="docRoot"] .hash-link,
 html[data-theme="dark"] article[itemprop="blogPost"] .hash-link,
 html[data-theme="dark"].mdx-page .hash-link {
   @extend %hash-link-style;
