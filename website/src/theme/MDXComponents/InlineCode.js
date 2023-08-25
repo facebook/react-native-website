@@ -1,6 +1,8 @@
 import React from 'react';
 import Link from '@docusaurus/Link';
 
+// Note: this component is a custom React-Native-Website feature
+
 const MarkdownInlineCodePrefix = 'md ';
 
 export default function InlineCode(props) {
