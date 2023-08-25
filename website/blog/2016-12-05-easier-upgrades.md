@@ -79,26 +79,26 @@ index e98ebb0..2fb6a11 100644
 All we need now is to apply this patch to your source files. While the old `react-native upgrade` process would have prompted you for any small difference, Git is able to merge most of the changes automatically using its 3-way merge algorithm and eventually leave us with familiar conflict delimiters:
 
 ```
-		13B07F951A680F5B00A75B9A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+    13B07F951A680F5B00A75B9A /* Release */ = {
+      isa = XCBuildConfiguration;
+      buildSettings = {
+        ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 <<<<<<< ours
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/HockeySDK.embeddedframework",
-					"$(PROJECT_DIR)/HockeySDK-iOS/HockeySDK.embeddedframework",
-				);
+        CODE_SIGN_IDENTITY = "iPhone Developer";
+        FRAMEWORK_SEARCH_PATHS = (
+          "$(inherited)",
+          "$(PROJECT_DIR)/HockeySDK.embeddedframework",
+          "$(PROJECT_DIR)/HockeySDK-iOS/HockeySDK.embeddedframework",
+        );
 =======
-				CURRENT_PROJECT_VERSION = 1;
+        CURRENT_PROJECT_VERSION = 1;
 >>>>>>> theirs
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"$(SRCROOT)/../node_modules/react-native/React/**",
-					"$(SRCROOT)/../node_modules/react-native-code-push/ios/CodePush/**",
-				);
+        HEADER_SEARCH_PATHS = (
+          "$(inherited)",
+          /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+          "$(SRCROOT)/../node_modules/react-native/React/**",
+          "$(SRCROOT)/../node_modules/react-native-code-push/ios/CodePush/**",
+        );
 ```
 
 These conflicts are generally easy to reason about. The delimiter **ours** stands for "your team" whereas **theirs** could be seen as "the React Native team".
