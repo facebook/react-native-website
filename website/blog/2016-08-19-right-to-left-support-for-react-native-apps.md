@@ -15,9 +15,10 @@ This involved changing [css-layout](https://github.com/facebook/css-layout), the
 
 To battle test the RTL support in production, the latest version of the **Facebook Ads Manager** app (the first cross-platform 100% RN app) is now available in Arabic and Hebrew with RTL layouts for both [iOS](https://itunes.apple.com/app/id964397083) and [Android](https://play.google.com/store/apps/details?id=com.facebook.adsmanager). Here is how it looks like in those RTL languages:
 
+<>
 <img src="/blog/assets/rtl-ama-ios-arabic.png" width={280} style={{ margin: 10 }} />
-
 <img src="/blog/assets/rtl-ama-android-hebrew.png" width={280} style={{ margin: 10 }} />
+</>
 
 ## Overview Changes in RN for RTL support
 
