@@ -6,7 +6,7 @@ title: Using Hermes
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 <a href="https://hermesengine.dev">
-<img width={300} height={300} className="hermes-logo" src="/docs/assets/HermesLogo.svg" />
+  <img width={300} height={300} className="hermes-logo" src="/docs/assets/HermesLogo.svg" style={{height: "auto"}}/>
 </a>
 
 [Hermes](https://hermesengine.dev) is an open-source JavaScript engine optimized for React Native. For many apps, using Hermes will result in improved start-up time, decreased memory usage, and smaller app size when compared to JavaScriptCore.
