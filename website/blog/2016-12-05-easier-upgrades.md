@@ -65,14 +65,14 @@ index e98ebb0..2fb6a11 100644
 --- a/ios/MyAwesomeApp/Info.plist
 +++ b/ios/MyAwesomeApp/Info.plist
 @@ -45,7 +45,7 @@
- 		<dict>
- 			<key>localhost</key>
- 			<dict>
--				<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
-+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
- 				<true/>
- 			</dict>
- 		</dict>
+        <dict>
+            <key>localhost</key>
+            <dict>
+-               <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
++               <key>NSExceptionAllowsInsecureHTTPLoads</key>
+                <true/>
+            </dict>
+        </dict>
 [...]
 ```
 
