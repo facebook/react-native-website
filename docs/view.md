@@ -31,7 +31,7 @@ const ViewBoxesWithColorAndText = () => {
 export default ViewBoxesWithColorAndText;
 ```
 
-> `View`s are designed to be used with [`StyleSheet`](style.md) for clarity and performance, although inline styles are also supported.
+> `Views` are designed to be used with [`StyleSheet`](style.md) for clarity and performance, although inline styles are also supported.
 
 ### Synthetic Touch Events
 
