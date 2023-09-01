@@ -200,7 +200,7 @@ transform([{skewX: '45deg'}]);
 
 ## Transform Origin
 
-The `transformOrigin` property sets the origin for an element's transformations. The transform origin is the point around which a transformation is applied. By default, the origin of a transform is `center`.
+The `transformOrigin` property sets the origin for a view's transformations. The transform origin is the point around which a transformation is applied. By default, the origin of a transform is `center`.
 
 # Example
 
