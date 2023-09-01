@@ -745,7 +745,7 @@ Displays the scroll indicators momentarily.
 scrollTo(
   options?: { x?: number, y?: number, animated?: boolean } | number,
   deprecatedX?: number,
-	deprecatedAnimated?: boolean,
+  deprecatedAnimated?: boolean,
 );
 ```
 

@@ -18,6 +18,12 @@ Some companies actively involved in the React Native have also their own communi
 - [Infinite Red's](https://infinite.red/) [Slack Group](https://community.infinite.red/)
 - [Expo's](https://expo.dev/) [Discord server](https://chat.expo.dev/)
 
+### Independent communities
+
+Organic communities of React Native developers, not sponsored by a business with a commercial interest.
+
+- [The Reactiflux community](https://reactiflux.com) on [Discord](https://discord.gg/reactiflux)
+
 ### Content sharing
 
 React Native tagged content can be found on many platforms, such as:

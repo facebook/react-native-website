@@ -402,9 +402,9 @@ See what push permissions are currently enabled.
 
 `callback` will be invoked with a `permissions` object:
 
-- `alert` :boolean
-- `badge` :boolean
-- `sound` :boolean
+- `alert: boolean`
+- `badge: boolean`
+- `sound: boolean`
 
 ---
 

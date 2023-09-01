@@ -93,7 +93,7 @@ To open the profile in Chrome DevTools:
 2. Select the **Performance** tab.
 3. Right click and choose **Load profile...**
 
- <img src="/docs/assets/openChromeProfile.png" alt="Loading a performance profile on Chrome DevTools" />
+<img src="/docs/assets/openChromeProfile.png" alt="Loading a performance profile on Chrome DevTools" />
 
 ## How does the Hermes Profile Transformer work?
 
