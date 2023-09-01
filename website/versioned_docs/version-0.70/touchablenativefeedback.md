@@ -158,7 +158,7 @@ TV next focus up (see documentation for the View component).
 static SelectableBackground(rippleRadius: ?number)
 ```
 
-Creates an object that represents android theme's default background for selectable elements (?android:attr/selectableItemBackground). `rippleRadius` parameter controls the radius of the ripple effect.
+Creates an object that represents android theme's default background for selectable elements (`?android:attr/selectableItemBackground`). `rippleRadius` parameter controls the radius of the ripple effect.
 
 ---
 
