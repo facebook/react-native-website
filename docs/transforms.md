@@ -197,3 +197,116 @@ transform([{skewX: '45deg'}]);
 ### `decomposedMatrix`, `rotation`, `scaleX`, `scaleY`, `transformMatrix`, `translateX`, `translateY`
 
 > **Deprecated.** Use the [`transform`](transforms#transform) prop instead.
+
+## Transform Origin
+
+The `transformOrigin` property sets the origin for an element's transformations. The transform origin is the point around which a transformation is applied. By default, the origin of a transform is `center`.
+
+# Example
+
+```SnackPlayer name=TransformOrigin
+import React, {useRef, useEffect} from 'react';
+import {
+  Animated,
+  View,
+  StyleSheet,
+  SafeAreaView,
+  Easing
+} from 'react-native';
+
+const App = () => {
+  const rotateAnim = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    Animated.loop(
+      Animated.timing(rotateAnim, {
+        toValue: 1,
+        duration: 5000,
+        easing: Easing.linear,
+        useNativeDriver: true,
+      }),
+    ).start();
+  }, [rotateAnim]);
+
+  const spin = rotateAnim.interpolate({
+    inputRange: [0, 1],
+    outputRange: ['0deg', '360deg'],
+  });
+
+  return (
+    <SafeAreaView style={styles.container}>
+      <View style={styles.transformOriginWrapper}>
+       <Animated.View
+        style={[
+  styles.transformOriginView,
+            {
+              transform: [{rotate: spin}],
+            },
+          ]}
+        />
+      </View>
+    </SafeAreaView>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  transformOriginWrapper: {
+    borderWidth: 1,
+    borderColor: "rgba(0, 0, 0, 0.5)"
+  },
+  transformOriginView: {
+    backgroundColor: 'pink',
+    width: 100,
+    height: 100,
+    transformOrigin: 'top',
+  },
+});
+
+export default App;
+```
+
+### Values
+
+Transform origin supports `px`, `percentage` and keywords `top`, `left`, `right`, `bottom`, `center` values.
+
+The `transformOrigin` property may be specified using one, two, or three values, where each value represents an offset.
+
+#### One-value syntax:
+
+- The value must be a `px`, a `percentage`, or one of the keywords `left`, `center`, `right`, `top`, and `bottom`.
+
+```
+/_ One-value syntax _/
+transformOrigin: "20px"
+transformOrigin: "bottom"
+```
+
+#### Two-value syntax:
+
+- One value must be a `px`, a `percentage`, or one of the keywords `left`, `center`, and `right`.
+- The other value must be a `px`, a `percentage`, or one of the keywords `top`, `center`, and `bottom`.
+
+```
+/_ x-offset | y-offset _/
+transformOrigin: "10px 2px"
+transformOrigin: "left top"
+transformOrigin: "top right"
+```
+
+#### Three-value syntax:
+
+- The first two values are the same as for the two-value syntax.
+- The third value must be a `px`. It always represents the Z offset.
+
+```
+/_ x-offset | y-offset | z-offset _/
+transformOrigin: "2px 30% 10px"
+transformOrigin: "right bottom 20px"
+```
+
+You may refer to MDN's guide on [Transform origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin) for additional information.
