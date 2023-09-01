@@ -11,13 +11,9 @@ Upgrading your Expo project to a new version of React Native requires updating t
 
 ## React Native projects
 
-Because typical React Native projects are essentially made up of an Android project, an iOS project, and a JavaScript project, upgrading can be rather tricky. There's currently one way for upgrading your React Native project by using [Upgrade Helper](https://react-native-community.github.io/upgrade-helper/).
+Because typical React Native projects are essentially made up of an Android project, an iOS project, and a JavaScript project, upgrading can be rather tricky. The [Upgrade Helper](https://react-native-community.github.io/upgrade-helper/) is a web tool to help you out when upgrading your apps by providing the full set of changes happening between any two versions. It also shows comments on specific files to help understanding why that change is needed.
 
-### Upgrade Helper
-
-The [Upgrade Helper](https://react-native-community.github.io/upgrade-helper/) is a web tool to help you out when upgrading your apps by providing the full set of changes happening between any two versions. It also shows comments on specific files to help understanding why that change is needed.
-
-#### 1. Select the versions
+### 1. Select the versions
 
 You first need to select from and to which version you wish to upgrade, by default the latest major versions are selected. After selecting you can click the button "Show me how to upgrade".
 
@@ -27,7 +23,7 @@ You first need to select from and to which version you wish to upgrade, by defau
 Or you can run the `npx react-native upgrade`, which will automatically check your current version and the latest version available and will show you the link to the Upgrade Helper page with the versions already selected.
 :::
 
-#### 2. Upgrade dependencies
+### 2. Upgrade dependencies
 
 The first file that is shown is the `package.json`, it's good to update the dependencies that are showing in there. For example, if `react-native` and `react` appears as changes then you can install it in your project by running `yarn add`:
 
@@ -37,7 +33,7 @@ yarn add react-native@{{VERSION}}
 yarn add react@{{REACT_VERSION}}
 ```
 
-#### 3. Upgrade your project files
+### 3. Upgrade your project files
 
 The new release may contain updates to other files that are generated when you run `npx react-native init`, those files are listed after the `package.json` in the Upgrade Helper page. If there aren't other changes then you only need to rebuild the project to continue developing.
 
@@ -56,18 +52,6 @@ This will check your files against the latest template and perform the following
 > Some upgrades won't be done automatically with the React Native CLI and require manual work, e.g. `0.28` to `0.29`, or `0.56` to `0.57`. Make sure to check the [release notes](https://github.com/facebook/react-native/releases) when upgrading so that you can identify any manual changes your particular project may require.
 
 ### Troubleshooting
-
-#### I want to upgrade with React Native CLI but I don't use Git
-
-While your project does not have to be handled by the Git versioning system -- you can use Mercurial, SVN, or nothing -- you will still need to [install Git](https://git-scm.com/downloads) on your system in order to use `npx react-native upgrade`. Git will also need to be available in the `PATH`. If your project doesn't use Git, initialize it and commit:
-
-```shell
-git init # Initialize a Git repository
-git add . # Stage all the current files
-git commit -m "Upgrade react-native" # Save the current files in a commit
-```
-
-After you finish upgrading you may remove the `.git` directory.
 
 #### I have done all the changes but my app is still using an old version
 
