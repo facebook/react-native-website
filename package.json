@@ -9,7 +9,12 @@
   ],
   "scripts": {
     "postinstall": "yarn update-lock",
-    "update-lock": "yarn-deduplicate"
+    "update-lock": "yarn-deduplicate",
+    "docusaurus": "yarn workspace react-native-website docusaurus",
+    "website:start": "yarn workspace react-native-website start",
+    "website:build": "yarn workspace react-native-website build",
+    "website:build:fast": "yarn workspace react-native-website build:fast",
+    "website:serve": "yarn workspace react-native-website serve"
   },
   "husky": {
     "hooks": {
@@ -18,7 +23,7 @@
   },
   "dependencies": {
     "babel-eslint": "^10.1.0",
-    "case-police": "^0.5.6",
+    "case-police": "^0.5.14",
     "eslint": "^8.20.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-mdx": "^1.16.0",

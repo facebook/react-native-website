@@ -58,7 +58,7 @@ yarn add react-native
 
 This will print a message similar to the following (scroll up in the yarn output to see it):
 
-> warning "react-native@0.52.2" has unmet peer dependency "react@16.2.0".
+> warning "`react-native@0.52.2`" has unmet peer dependency "`react@16.2.0`".
 
 This is OK, it means we also need to install React:
 
@@ -85,9 +85,9 @@ Add `node_modules/` to your `.gitignore` file.
 
 ### 3. Install CocoaPods
 
-[CocoaPods](http://cocoapods.org) is a package management tool for iOS and macOS development. We use it to add the actual React Native framework code locally into your current project.
+[CocoaPods](https://cocoapods.org) is a package management tool for iOS and macOS development. We use it to add the actual React Native framework code locally into your current project.
 
-We recommend installing CocoaPods using [Homebrew](http://brew.sh/).
+We recommend installing CocoaPods using [Homebrew](https://brew.sh/).
 
 ```shell
 brew install cocoapods
@@ -103,7 +103,7 @@ Assume the [app for integration](https://github.com/JoelMarcey/iOS-2048) is a [2
 
 ### Command Line Tools for Xcode
 
-Install the Command Line Tools. Choose "Preferences..." in the Xcode menu. Go to the Locations panel and install the tools by selecting the most recent version in the Command Line Tools dropdown.
+Install the Command Line Tools. Choose **Settings... (or Preferences...)** in the Xcode menu. Go to the Locations panel and install the tools by selecting the most recent version in the Command Line Tools dropdown.
 
 ![Xcode Command Line Tools](/docs/assets/GettingStartedXcodeCommandLineTools.png)
 
@@ -184,7 +184,7 @@ Sending stats
 Pod installation complete! There are 3 dependencies from the Podfile and 1 total pod installed.
 ```
 
-> If this fails with errors mentioning `xcrun`, make sure that in Xcode in **Preferences > Locations** the Command Line Tools are assigned.
+> If this fails with errors mentioning `xcrun`, make sure that in Xcode in **Settings... (or Preferences...) > Locations** the Command Line Tools are assigned.
 
 ### Code integration
 
@@ -367,10 +367,22 @@ yarn start
 
 If you are using Xcode or your favorite editor, build and run your native iOS application as normal. Alternatively, you can run the app from the command line using:
 
+<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<TabItem value="npm">
+
+```shell
+npm run ios
 ```
-# From the root of your project
-$ npx react-native run-ios
+
+</TabItem>
+<TabItem value="yarn">
+
+```shell
+yarn ios
 ```
+
+</TabItem>
+</Tabs>
 
 In our sample application, you should see the link to the "High Scores" and then when you click on that you will see the rendering of your React Native component.
 

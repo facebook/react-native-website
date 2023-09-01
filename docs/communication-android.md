@@ -34,8 +34,8 @@ public class MainActivity extends ReactActivity {
       protected Bundle getLaunchOptions() {
         Bundle initialProperties = new Bundle();
         ArrayList<String> imageList = new ArrayList<String>(Arrays.asList(
-                "http://foo.com/bar1.png",
-                "http://foo.com/bar2.png"
+                "https://dummyimage.com/600x400/ffffff/000000.png",
+                "https://dummyimage.com/600x400/000000/ffffff.png"
         ));
         initialProperties.putStringArrayList("images", imageList);
         return initialProperties;
@@ -54,7 +54,7 @@ class MainActivity : ReactActivity() {
     override fun createReactActivityDelegate(): ReactActivityDelegate {
         return object : ReactActivityDelegate(this, mainComponentName) {
             override fun getLaunchOptions(): Bundle {
-                val imageList = arrayListOf("http://foo.com/bar1.png", "http://foo.com/bar2.png")
+                val imageList = arrayListOf("https://dummyimage.com/600x400/ffffff/000000.png", "https://dummyimage.com/600x400/000000/ffffff.png")
                 val initialProperties = Bundle().apply { putStringArrayList("images", imageList) }
                 return initialProperties
             }
@@ -89,8 +89,8 @@ export default class ImageBrowserApp extends React.Component {
 ```java
 Bundle updatedProps = mReactRootView.getAppProperties();
 ArrayList<String> imageList = new ArrayList<String>(Arrays.asList(
-        "http://foo.com/bar3.png",
-        "http://foo.com/bar4.png"
+        "https://dummyimage.com/600x400/ff0000/000000.png",
+        "https://dummyimage.com/600x400/ffffff/ff0000.png"
 ));
 updatedProps.putStringArrayList("images", imageList);
 
@@ -103,7 +103,7 @@ mReactRootView.setAppProperties(updatedProps);
 
 ```kotlin
 var updatedProps: Bundle = reactRootView.getAppProperties()
-var imageList = arrayListOf("http://foo.com/bar3.png", "http://foo.com/bar4.png")
+var imageList = arrayListOf("https://dummyimage.com/600x400/ff0000/000000.png", "https://dummyimage.com/600x400/ffffff/ff0000.png")
 ```
 
 </TabItem>

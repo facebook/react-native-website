@@ -3,6 +3,8 @@ id: upgrading
 title: Upgrading to new versions
 ---
 
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+
 Upgrading to new versions of React Native will give you access to more APIs, views, developer tools and other goodies. Upgrading requires a small amount of effort, but we try to make it straightforward for you.
 
 ## Expo projects
@@ -25,13 +27,28 @@ Or you can run the `npx react-native upgrade`, which will automatically check yo
 
 ### 2. Upgrade dependencies
 
-The first file that is shown is the `package.json`, it's good to update the dependencies that are showing in there. For example, if `react-native` and `react` appears as changes then you can install it in your project by running `yarn add`:
+The first file that is shown is the `package.json`, it's good to update the dependencies that are showing in there. For example, if `react-native` and `react` appears as changes then you can install it in your project by running following commands:
+
+<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<TabItem value="npm">
+
+```shell
+# {{VERSION}} and {{REACT_VERSION}} are the release versions showing in the diff
+npm install react-native@{{VERSION}}
+npm install react@{{REACT_VERSION}}
+```
+
+</TabItem>
+<TabItem value="yarn">
 
 ```shell
 # {{VERSION}} and {{REACT_VERSION}} are the release versions showing in the diff
 yarn add react-native@{{VERSION}}
 yarn add react@{{REACT_VERSION}}
 ```
+
+</TabItem>
+</Tabs>
 
 ### 3. Upgrade your project files
 

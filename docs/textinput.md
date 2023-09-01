@@ -449,7 +449,7 @@ Determines the color of the keyboard.
 
 Determines which keyboard to open, e.g.`numeric`.
 
-See screenshots of all the types [here](http://lefkowitz.me/2018/04/30/visual-guide-to-react-native-textinput-keyboardtype-options/).
+See screenshots of all the types [here](https://lefkowitz.me/2018/04/30/visual-guide-to-react-native-textinput-keyboardtype-options/).
 
 The following values work across platforms:
 
@@ -589,9 +589,9 @@ Callback that is called when text input ends.
 
 Callback that is called when a touch is engaged.
 
-| Type                                              |
-| ------------------------------------------------- |
-| ({nativeEvent: [PressEvent](pressevent)}) => void |
+| Type                                                   |
+| ------------------------------------------------------ |
+| `md ({nativeEvent: [PressEvent](pressevent)}) => void` |
 
 ---
 
@@ -599,9 +599,9 @@ Callback that is called when a touch is engaged.
 
 Callback that is called when a touch is released.
 
-| Type                                              |
-| ------------------------------------------------- |
-| ({nativeEvent: [PressEvent](pressevent)}) => void |
+| Type                                                   |
+| ------------------------------------------------------ |
+| `md ({nativeEvent: [PressEvent](pressevent)}) => void` |
 
 ---
 
@@ -609,9 +609,9 @@ Callback that is called when a touch is released.
 
 Callback that is called when the text input is focused.
 
-| Type                                                |
-| --------------------------------------------------- |
-| ({nativeEvent: [LayoutEvent](layoutevent)}) => void |
+| Type                                                     |
+| -------------------------------------------------------- |
+| `md ({nativeEvent: [LayoutEvent](layoutevent)}) => void` |
 
 ---
 
@@ -629,9 +629,9 @@ Callback that is called when a key is pressed. This will be called with object w
 
 Invoked on mount and on layout changes.
 
-| Type                                                |
-| --------------------------------------------------- |
-| ({nativeEvent: [LayoutEvent](layoutevent)}) => void |
+| Type                                                     |
+| -------------------------------------------------------- |
+| `md ({nativeEvent: [LayoutEvent](layoutevent)}) => void` |
 
 ---
 
@@ -787,9 +787,9 @@ If `true`, the text input obscures the text entered so that sensitive text like 
 
 The start and end of the text input's selection. Set start and end to the same value to position the cursor.
 
-| Type                                |
-| ----------------------------------- |
-| object: {start: number,end: number} |
+| Type                                  |
+| ------------------------------------- |
+| object: `{start: number,end: number}` |
 
 ---
 

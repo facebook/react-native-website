@@ -3,6 +3,8 @@ id: release-stable-minor
 title: Minor Stable 0.Y.0
 ---
 
+import BumpOSSNote from './\_markdown-older-bump-script.mdx';
+
 :::info
 Documents in this section go over steps to run different types of React Native release updates. Its intended audience is those in [relevant release roles](./release-roles-responsibilites.md).
 :::
@@ -23,11 +25,13 @@ Documents in this section go over steps to run different types of React Native r
 # Make sure you are on the release branch of the version
 git checkout -b 0.Y-stable
 
-./scripts/bump-oss-version.js --to-version 0.Y.0 --token <YOUR_CIRCLE_CI_TOKEN>
+yarn trigger-react-native-release --to-version 0.Y.0 --token <YOUR_CIRCLE_CI_TOKEN>
 > Do you want this to be latest?
 # Reply to this prompt with "yes".
 # This updates npm registry to point to this version as "latest"
 ```
+
+<BumpOSSNote />
 
 When this is done, all the other PRs (changelog, documentation, blog post) should also get merged.
 

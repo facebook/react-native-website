@@ -1,0 +1,8 @@
+{
+  "name": "@react-native-website/update-redirects",
+  "version": "0.0.0",
+  "private": true,
+  "bin": {
+    "update-redirect": "./index.js"
+  }
+}

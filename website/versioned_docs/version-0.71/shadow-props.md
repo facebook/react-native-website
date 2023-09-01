@@ -8,9 +8,10 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import con
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
-```SnackPlayer name=Shadow%20Props&supportedPlatforms=ios&ext=js
+```SnackPlayer name=Shadow%20Props&supportedPlatforms=ios&ext=js&dependencies=@react-native-community/slider
 import React, {useState} from 'react';
-import {Text, View, StyleSheet, Slider} from 'react-native';
+import {Text, View, StyleSheet} from 'react-native';
+import Slider from '@react-native-community/slider';
 
 const ShadowPropSlider = ({label, value, ...props}) => {
   return (
@@ -105,10 +106,11 @@ export default App;
 </TabItem>
 <TabItem value="typescript">
 
-```SnackPlayer name=Shadow%20Props&supportedPlatforms=ios&ext=tsx
+```SnackPlayer name=Shadow%20Props&supportedPlatforms=ios&ext=tsx&dependencies=@react-native-community/slider
 import React, {useState} from 'react';
-import {Text, View, StyleSheet, Slider} from 'react-native';
-import type {SliderProps} from 'react-native';
+import {Text, View, StyleSheet} from 'react-native';
+import Slider from '@react-native-community/slider';
+import type {SliderProps} from '@react-native-community/slider';
 
 type ShadowPropSliderProps = SliderProps & {
   label: string;
@@ -227,9 +229,9 @@ This property will only work on Android API 28 and above. For similar functional
 
 Sets the drop shadow offset.
 
-| Type                                   |
-| -------------------------------------- |
-| object: {width: number,height: number} |
+| Type                                     |
+| ---------------------------------------- |
+| object: `{width: number,height: number}` |
 
 ---
 

@@ -177,9 +177,9 @@ Describes the current state of a component to the user of an assistive technolog
 
 See the [Accessibility guide](accessibility.md#accessibilitystate-ios-android) for more information.
 
-| Type                                                                                           |
-| ---------------------------------------------------------------------------------------------- |
-| object: {disabled: bool, selected: bool, checked: bool or 'mixed', busy: bool, expanded: bool} |
+| Type                                                                                             |
+| ------------------------------------------------------------------------------------------------ |
+| object: `{disabled: bool, selected: bool, checked: bool or 'mixed', busy: bool, expanded: bool}` |
 
 ---
 
@@ -307,9 +307,9 @@ Represents the current value of a component. It can be a textual description of 
 
 See the [Accessibility guide](accessibility.md#accessibilityvalue-ios-android) for more information.
 
-| Type                                                          |
-| ------------------------------------------------------------- |
-| object: {min: number, max: number, now: number, text: string} |
+| Type                                                            |
+| --------------------------------------------------------------- |
+| object: `{min: number, max: number, now: number, text: string}` |
 
 ---
 
@@ -325,7 +325,7 @@ Represents the maximum value for range-based components, such as sliders and pro
 
 ### `aria-valuemin`
 
-Represents the maximum value for range-based components, such as sliders and progress bars. Has precedence over the `min` value in the `accessibilityValue` prop.
+Represents the minimum value for range-based components, such as sliders and progress bars. Has precedence over the `min` value in the `accessibilityValue` prop.
 
 | Type   |
 | ------ |
@@ -437,9 +437,9 @@ Invoked when the item receives focus.
 
 Invoked on mount and on layout changes.
 
-| Type                                                |
-| --------------------------------------------------- |
-| ({nativeEvent: [LayoutEvent](layoutevent)}) => void |
+| Type                                                     |
+| -------------------------------------------------------- |
+| `md ({nativeEvent: [LayoutEvent](layoutevent)}) => void` |
 
 ---
 

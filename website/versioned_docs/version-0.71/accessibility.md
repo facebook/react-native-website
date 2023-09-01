@@ -210,7 +210,7 @@ Represents the maximum value for range-based components, such as sliders and pro
 
 ### `aria-valuemin`
 
-Represents the maximum value for range-based components, such as sliders and progress bars.
+Represents the minimum value for range-based components, such as sliders and progress bars.
 
 ### `aria-valuenow`
 

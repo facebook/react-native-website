@@ -40,13 +40,13 @@ Confirm that you are using the `.hbc` file and also benchmark the before/after a
 To see the benefits of Hermes, try making a release build/deployment of your app to compare. For example:
 
 ```shell
-$ npx react-native run-android --variant release
+$ npx react-native run-android --mode release
 ```
 
 or for iOS:
 
 ```shell
-$ npx react-native run-ios --configuration Release
+$ npx react-native run-ios --mode Release
 ```
 
 This will compile JavaScript to bytecode during build time which will improve your app's startup speed on device.
@@ -93,7 +93,7 @@ Hermes requires [Microsoft Visual C++ 2015 Redistributable](https://www.microsof
 
 ### Android
 
-Edit your `android/app/gradle.properties` file and make sure `hermesEnabled` is true:
+Edit your `android/gradle.properties` file and make sure `hermesEnabled` is true:
 
 ```diff
 # Use this property to enable or disable the Hermes JS engine.
@@ -160,7 +160,7 @@ React Native also supports using JavaScriptCore as the [JavaScript engine](javas
 
 ### Android
 
-Edit your `android/app/gradle.properties` file and flip `hermesEnabled` back to false:
+Edit your `android/gradle.properties` file and flip `hermesEnabled` back to false:
 
 ```diff
 # Use this property to enable or disable the Hermes JS engine.

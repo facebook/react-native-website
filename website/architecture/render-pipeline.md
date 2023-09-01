@@ -117,10 +117,10 @@ function MyComponent() {
   return (
     <View>
       <View
-        style={{ backgroundColor: 'red', height: 20, width: 20 }}
+        style={{backgroundColor: 'red', height: 20, width: 20}}
       />
       <View
-        style={{ backgroundColor: 'blue', height: 20, width: 20 }}
+        style={{backgroundColor: 'blue', height: 20, width: 20}}
       />
     </View>
   );
@@ -136,10 +136,10 @@ Notice that **Node 3** maps to a host view with a **red background**, and **Node
 ```jsx
 <View>
   <View
-    style={{ backgroundColor: 'yellow', height: 20, width: 20 }}
+    style={{backgroundColor: 'yellow', height: 20, width: 20}}
   />
   <View
-    style={{ backgroundColor: 'blue', height: 20, width: 20 }}
+    style={{backgroundColor: 'blue', height: 20, width: 20}}
   />
 </View>
 ```
@@ -182,15 +182,14 @@ After React creates the new _React Element Tree_ and _React Shadow Tree_, it mus
 - **Layout Calculation:** Similar to Layout Calculation during [Initial Render](#initial-render). One important difference is that layout calculation may cause shared _React Shadow Nodes_ to be cloned. This can happen because if the parent of a shared _React Shadow Node_ incurs a layout change, the layout of the shared _React Shadow Node_ may also change.
 - **Tree Promotion (New Tree → Next Tree):** Similar to Tree Promotion during [Initial Render](#initial-render).
 
-- **Tree Diffing:** This step computes the diff between the “previously rendered tree” (**T**) and the “next tree” (**T'**). The result is a list of atomic mutation operations to be performed on _host views_.
-  - In the above example, the operations consist of: `UpdateView(**Node 3'**, {backgroundColor: '“yellow“})`
-
 ### Phase 3. Mount
 
 ![Phase three: mount](/docs/assets/Architecture/renderer-pipeline/phase-three-mount.png)
 
 - **Tree Promotion (Next Tree → Rendered Tree)**: This step atomically promotes the “next tree” to “previously rendered tree” so that the next mount phase computes a diff against the proper tree.
-  Diff can be calculated for any currently mounted tree with any new tree. The renderer can skip some intermediate versions of the tree.
+- **Tree Diffing:** This step computes the diff between the “previously rendered tree” (**T**) and the “next tree” (**T'**). The result is a list of atomic mutation operations to be performed on _host views_.
+  - In the above example, the operations consist of: `UpdateView(**Node 3'**, {backgroundColor: '“yellow“})`
+    Diff can be calculated for any currently mounted tree with any new tree. The renderer can skip some intermediate versions of the tree.
 - **View Mounting**: This step applies the atomic mutation operations onto corresponding _host views_. In the above example, only the `backgroundColor` of **View 3** will be updated (to yellow).
 
 ![Render pipeline 6](/docs/assets/Architecture/renderer-pipeline/render-pipeline-6.png)

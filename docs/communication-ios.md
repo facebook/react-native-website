@@ -22,8 +22,8 @@ In order to embed a React Native view in a native component, we use `RCTRootView
 `RCTRootView` has an initializer that allows you to pass arbitrary properties down to the React Native app. The `initialProperties` parameter has to be an instance of `NSDictionary`. The dictionary is internally converted into a JSON object that the top-level JS component can reference.
 
 ```objectivec
-NSArray *imageList = @[@"http://foo.com/bar1.png",
-                       @"http://foo.com/bar2.png"];
+NSArray *imageList = @[@"https://dummyimage.com/600x400/ffffff/000000.png",
+                       @"https://dummyimage.com/600x400/000000/ffffff.png"];
 
 NSDictionary *props = @{@"images" : imageList};
 
@@ -49,8 +49,8 @@ export default class ImageBrowserApp extends React.Component {
 `RCTRootView` also provides a read-write property `appProperties`. After `appProperties` is set, the React Native app is re-rendered with new properties. The update is only performed when the new updated properties differ from the previous ones.
 
 ```objectivec
-NSArray *imageList = @[@"http://foo.com/bar3.png",
-                       @"http://foo.com/bar4.png"];
+NSArray *imageList = @[@"https://dummyimage.com/600x400/ff0000/000000.png",
+                       @"https://dummyimage.com/600x400/ffffff/ff0000.png"];
 
 rootView.appProperties = @{@"images" : imageList};
 ```
@@ -189,7 +189,7 @@ Let's look at an example.
 
 In the example we have a `FlexibleSizeExampleView` view that holds a root view. We create the root view, initialize it and set the delegate. The delegate will handle size updates. Then, we set the root view's size flexibility to `RCTRootViewSizeFlexibilityHeight`, which means that `rootViewDidChangeIntrinsicSize:` method will be called every time the React Native content changes its height. Finally, we set the root view's width and position. Note that we set there height as well, but it has no effect as we made the height RN-dependent.
 
-You can checkout full source code of the example [here](https://github.com/facebook/react-native/blob/main/packages/rn-tester/RNTester/NativeExampleViews/FlexibleSizeExampleView.m).
+You can checkout full source code of the example [here](https://github.com/facebook/react-native/blob/main/packages/rn-tester/RNTester/NativeExampleViews/FlexibleSizeExampleView.mm).
 
 It's fine to change root view's size flexibility mode dynamically. Changing flexibility mode of a root view will schedule a layout recalculation and the delegate `rootViewDidChangeIntrinsicSize:` method will be called once the content size is known.
 

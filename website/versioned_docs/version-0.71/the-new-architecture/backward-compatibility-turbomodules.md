@@ -385,7 +385,7 @@ public class MyModule extends MyModuleSpec {
     // declare an instance of the implementation
     private MyModuleImpl implementation;
 
-    CalculatorModule(ReactApplicationContext context) {
+    MyModule(ReactApplicationContext context) {
         super(context);
         // initialize the implementation of the module
         implementation = MyModuleImpl();
@@ -416,8 +416,9 @@ class MyModule(reactContext: ReactApplicationContext) : MyModuleSpec(reactContex
 
   override fun getName(): String = MyModuleImpl.NAME
 
-  override fun add(a: Double, b: Double, promise: Promise) {
-    implementation.add(a, b, promise)
+  override fun foo(a: Double, b: Double, promise: Promise) {
+    // Use the implementation instance to execute the function.
+    implementation.foo(a, b, promise)
   }
 }
 ```

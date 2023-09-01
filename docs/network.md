@@ -190,7 +190,7 @@ export default App;
 The [XMLHttpRequest API](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) is built into React Native. This means that you can use third party libraries such as [frisbee](https://github.com/niftylettuce/frisbee) or [axios](https://github.com/axios/axios) that depend on it, or you can use the XMLHttpRequest API directly if you prefer.
 
 ```tsx
-var request = new XMLHttpRequest();
+const request = new XMLHttpRequest();
 request.onreadystatechange = e => {
   if (request.readyState !== 4) {
     return;
@@ -207,14 +207,14 @@ request.open('GET', 'https://mywebsite.com/endpoint/');
 request.send();
 ```
 
-> The security model for XMLHttpRequest is different than on web as there is no concept of [CORS](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing) in native apps.
+> The security model for XMLHttpRequest is different than on web as there is no concept of [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) in native apps.
 
 ## WebSocket Support
 
 React Native also supports [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket), a protocol which provides full-duplex communication channels over a single TCP connection.
 
 ```tsx
-var ws = new WebSocket('ws://host.com/path');
+const ws = new WebSocket('ws://host.com/path');
 
 ws.onopen = () => {
   // connection opened
