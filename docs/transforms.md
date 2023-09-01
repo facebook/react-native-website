@@ -206,13 +206,7 @@ The `transformOrigin` property sets the origin for a view's transformations. The
 
 ```SnackPlayer name=TransformOrigin
 import React, {useRef, useEffect} from 'react';
-import {
-  Animated,
-  View,
-  StyleSheet,
-  SafeAreaView,
-  Easing
-} from 'react-native';
+import {Animated, View, StyleSheet, SafeAreaView, Easing} from 'react-native';
 
 const App = () => {
   const rotateAnim = useRef(new Animated.Value(0)).current;
@@ -236,9 +230,9 @@ const App = () => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.transformOriginWrapper}>
-       <Animated.View
-        style={[
-  styles.transformOriginView,
+        <Animated.View
+          style={[
+            styles.transformOriginView,
             {
               transform: [{rotate: spin}],
             },
@@ -257,7 +251,7 @@ const styles = StyleSheet.create({
   },
   transformOriginWrapper: {
     borderWidth: 1,
-    borderColor: "rgba(0, 0, 0, 0.5)"
+    borderColor: 'rgba(0, 0, 0, 0.5)',
   },
   transformOriginView: {
     backgroundColor: 'pink',
