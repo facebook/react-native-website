@@ -22,7 +22,7 @@ You can find instructions on how to upgrade in the page [upgrading to new versio
 
 Remember to re-install the dependencies after upgrading (run `npm install` or `yarn`).
 
-:::important
+:::info
 
 Whenever you have to rename some files in the `ios` folder, please **use Xcode to rename them**. This ensure that the file references are updated in the Xcode project as well. You might need to clean the build folder (**Project** → **Clean Build Folder** or <kbd>Cmd ⌘</kbd> + <kbd>Shift ⇪</kbd> + <kbd>K</kbd>) before re-building the app. If the file is renamed outside of Xcode, you may need to click on the old `.m` file reference and Locate the new file.
 
