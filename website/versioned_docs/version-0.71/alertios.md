@@ -132,9 +132,9 @@ AlertIOS.prompt(
 
 An Alert button type
 
-| Type   |
-| ------ |
-| \$Enum |
+| Type  |
+| ----- |
+| $Enum |
 
 **Constants:**
 
@@ -151,9 +151,9 @@ An Alert button type
 
 An Alert button style
 
-| Type   |
-| ------ |
-| \$Enum |
+| Type  |
+| ----- |
+| $Enum |
 
 **Constants:**
 
