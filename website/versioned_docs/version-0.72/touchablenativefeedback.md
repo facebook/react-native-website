@@ -180,7 +180,7 @@ static SelectableBackgroundBorderless(
 ): ThemeAttributeBackgroundPropType;
 ```
 
-Creates an object that represent android theme's default background for borderless selectable elements (?android:attr/selectableItemBackgroundBorderless). Available on android API level 21+. `rippleRadius` parameter controls the radius of the ripple effect.
+Creates an object that represent android theme's default background for borderless selectable elements (`?android:attr/selectableItemBackgroundBorderless`). Available on android API level 21+. `rippleRadius` parameter controls the radius of the ripple effect.
 
 ---
 

@@ -38,7 +38,7 @@ While the last step is the same for all the platforms, the first two steps are d
 
 ## Configure the Turbo Native Module Dependencies
 
-### <a name="dependencies-ios" />iOS
+### iOS {#dependencies-ios}
 
 The Apple platform installs Turbo Native Modules using [CocoaPods](https://cocoapods.org) as a dependency manager.
 
