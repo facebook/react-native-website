@@ -164,9 +164,7 @@ export default App;
 
 # Reference
 
-## Methods
-
-### `transform()`
+## `Transform`
 
 `transform` accepts an array of transformation objects or space-separated string values. Each object specifies the property that will be transformed as the key, and the value to use in the transformation. Objects should not be combined. Use a single key/value pair per object.
 
@@ -301,6 +299,20 @@ transformOrigin: "top right"
 /_ x-offset | y-offset | z-offset _/
 transformOrigin: "2px 30% 10px"
 transformOrigin: "right bottom 20px"
+```
+
+#### Array syntax
+
+- `transformOrigin` also supports an array syntax. It makes it convenient to use it with Animated APIs. It also avoids string parsing, so should be more efficient.
+
+```
+/_ x-offset | y-offset | z-offset _/
+
+// Using numeric values
+transformOrigin: [10, 30, 40]
+
+// Mixing numeric and percentage values
+transformOrigin: [10, "20%", 0]
 ```
 
 You may refer to MDN's guide on [Transform origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin) for additional information.
