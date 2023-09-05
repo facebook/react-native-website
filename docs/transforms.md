@@ -164,26 +164,32 @@ export default App;
 
 # Reference
 
-## `Transform`
+## Transform
 
 `transform` accepts an array of transformation objects or space-separated string values. Each object specifies the property that will be transformed as the key, and the value to use in the transformation. Objects should not be combined. Use a single key/value pair per object.
 
 The rotate transformations require a string so that the transform may be expressed in degrees (deg) or radians (rad). For example:
 
 ```js
-transform([{rotateX: '45deg'}, {rotateZ: '0.785398rad'}]);
+{
+  transform: [{rotateX: '45deg'}, {rotateZ: '0.785398rad'}],
+}
 ```
 
 The same could also be achieved using a space-separated string:
 
 ```js
-transform('rotateX(45deg) rotateZ(0.785398rad)');
+{
+  transform: 'rotateX(45deg) rotateZ(0.785398rad)',
+}
 ```
 
 The skew transformations require a string so that the transform may be expressed in degrees (deg). For example:
 
 ```js
-transform([{skewX: '45deg'}]);
+{
+  transform: [{skewX: '45deg'}],
+}
 ```
 
 | Type                                                                                                                                                                                                                                                                                                          | Required |
@@ -272,47 +278,49 @@ The `transformOrigin` property may be specified using one, two, or three values,
 
 - The value must be a `px`, a `percentage`, or one of the keywords `left`, `center`, `right`, `top`, and `bottom`.
 
-```
-/_ One-value syntax _/
-transformOrigin: "20px"
-transformOrigin: "bottom"
+```js
+{
+  transformOrigin: '20px',
+  transformOrigin: 'bottom',
+}
 ```
 
 #### Two-value syntax:
 
-- One value must be a `px`, a `percentage`, or one of the keywords `left`, `center`, and `right`.
-- The other value must be a `px`, a `percentage`, or one of the keywords `top`, `center`, and `bottom`.
+- First value (x-offset) must be a `px`, a `percentage`, or one of the keywords `left`, `center`, and `right`.
+- The second value (y-offset) must be a `px`, a `percentage`, or one of the keywords `top`, `center`, and `bottom`.
 
-```
-/_ x-offset | y-offset _/
-transformOrigin: "10px 2px"
-transformOrigin: "left top"
-transformOrigin: "top right"
+```js
+{
+  transformOrigin: '10px 2px',
+  transformOrigin: 'left top',
+  transformOrigin: 'top right',
+}
 ```
 
 #### Three-value syntax:
 
 - The first two values are the same as for the two-value syntax.
-- The third value must be a `px`. It always represents the Z offset.
+- The third value (z-offset) must be a `px`. It always represents the Z offset.
 
-```
-/_ x-offset | y-offset | z-offset _/
-transformOrigin: "2px 30% 10px"
-transformOrigin: "right bottom 20px"
+```js
+{
+  transformOrigin: '2px 30% 10px',
+  transformOrigin: 'right bottom 20px',
+}
 ```
 
 #### Array syntax
 
-- `transformOrigin` also supports an array syntax. It makes it convenient to use it with Animated APIs. It also avoids string parsing, so should be more efficient.
+`transformOrigin` also supports an array syntax. It makes it convenient to use it with Animated APIs. It also avoids string parsing, so should be more efficient.
 
-```
-/_ x-offset | y-offset | z-offset _/
-
-// Using numeric values
-transformOrigin: [10, 30, 40]
-
-// Mixing numeric and percentage values
-transformOrigin: [10, "20%", 0]
+```js
+{
+  // Using numeric values
+  transformOrigin: [10, 30, 40],
+  // Mixing numeric and percentage values
+  transformOrigin: [10, '20%', 0],
+}
 ```
 
 You may refer to MDN's guide on [Transform origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin) for additional information.
