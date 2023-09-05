@@ -178,9 +178,23 @@ See the [Accessibility guide](accessibility.md#accessibility-actions) for more i
 
 Color of the text (iOS), or background color of the button (Android).
 
-| Type            | Default                                                                                                                                                                                                                                   |
-| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [color](colors) | <ins style={{background: '#2196F3'}} className="color-box" /> `'#2196F3'` <div className="label android">Android</div><hr/><ins style={{background: '#007AFF'}} className="color-box" /> `'#007AFF'` <div className="label ios">iOS</div> |
+```mdx-code-block
+export function ColorDefaults() {
+  return (
+    <>
+      <ins style={{ background: "#2196F3" }} className="color-box" />{" "}<code>'#2196F3'</code>
+      {" "}<div className="label android">Android</div>
+      <hr />
+      <ins style={{ background: "#007AFF" }} className="color-box" />{" "}<code>'#007AFF'</code>
+      {" "}<div className="label ios">iOS</div>
+    </>
+  );
+}
+```
+
+| Type            | Default          |
+| --------------- | ---------------- |
+| [color](colors) | <ColorDefaults/> |
 
 ---
 
