@@ -131,6 +131,15 @@ The following values work across platforms:
 - `additional-name`
 - `address-line1`
 - `address-line2`
+- `birthdate-day` (iOS 17+)
+- `birthdate-full` (iOS 17+)
+- `birthdate-month` (iOS 17+)
+- `birthdate-year` (iOS 17+)
+- `cc-csc` (iOS 17+)
+- `cc-exp` (iOS 17+)
+- `cc-exp-day` (iOS 17+)
+- `cc-exp-month` (iOS 17+)
+- `cc-exp-year` (iOS 17+)
 - `cc-number`
 - `country`
 - `current-password`
@@ -152,6 +161,11 @@ The following values work across platforms:
 
 The following values work on iOS only:
 
+- `cc-family-name` (iOS 17+)
+- `cc-given-name` (iOS 17+)
+- `cc-middle-name` (iOS 17+)
+- `cc-name` (iOS 17+)
+- `cc-type` (iOS 17+)
 - `nickname`
 - `organization`
 - `organization-title`
@@ -161,15 +175,6 @@ The following values work on iOS only:
 
 The following values work on Android only:
 
-- `birthdate-day`
-- `birthdate-full`
-- `birthdate-month`
-- `birthdate-year`
-- `cc-csc`
-- `cc-exp`
-- `cc-exp-day`
-- `cc-exp-month`
-- `cc-exp-year`
 - `gender`
 - `name-family`
 - `name-given`
@@ -187,13 +192,13 @@ The following values work on Android only:
 - `postal-address-region`
 - `sms-otp`
 - `tel-country-code`
-- `tel-national`
 - `tel-device`
+- `tel-national`
 - `username-new`
 
-| Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| enum('additional-name', 'address-line1', 'address-line2', 'birthdate-day', 'birthdate-full', 'birthdate-month', 'birthdate-year', 'cc-csc', 'cc-exp', 'cc-exp-day', 'cc-exp-month', 'cc-exp-year', 'cc-number', 'country', 'current-password', 'email', 'family-name', 'gender', 'given-name', 'honorific-prefix', 'honorific-suffix', 'name', 'name-family', 'name-given', 'name-middle', 'name-middle-initial', 'name-prefix', 'name-suffix', 'new-password', 'nickname', 'one-time-code', 'organization', 'organization-title', 'password', 'password-new', 'postal-address', 'postal-address-country', 'postal-address-extended', 'postal-address-extended-postal-code', 'postal-address-locality', 'postal-address-region', 'postal-code', 'street-address', 'sms-otp', 'tel', 'tel-country-code', 'tel-national', 'tel-device', 'url', 'username', 'username-new', 'off') |
+| Type······················································································································································································································································································································································································································································································································································································································································································································································································································································································································································ |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| enum('additional-name', 'address-line1', 'address-line2', 'birthdate-day', 'birthdate-full', 'birthdate-month', 'birthdate-year', 'cc-csc', 'cc-exp', 'cc-exp-day', 'cc-exp-month', 'cc-exp-year', 'cc-number', 'country', 'current-password', 'email', 'family-name', 'given-name', 'honorific-prefix', 'honorific-suffix', 'name', 'new-password', 'off', 'one-time-code', 'postal-code', 'street-address', 'tel', 'username', 'cc-family-name', 'cc-given-name', 'cc-middle-name', 'cc-name', 'cc-type', 'nickname', 'organization', 'organization-title', 'url', 'gender', 'name-family', 'name-given', 'name-middle', 'name-middle-initial', 'name-prefix', 'name-suffix', 'password', 'password-new', 'postal-address', 'postal-address-country', 'postal-address-extended', 'postal-address-extended-postal-code', 'postal-address-locality', 'postal-address-region', 'sms-otp', 'tel-country-code', 'tel-device', 'tel-national', 'username-new') |
 
 ---
 
@@ -859,21 +864,33 @@ Give the keyboard and the system information about the expected semantic meaning
 Avoid using both `textContentType` and `autoComplete`. For backwards compatibility, `textContentType` takes precedence when both properties are set.
 :::
 
-For iOS 11+ you can set `textContentType` to `username` or `password` to enable autofill of login details from the device keychain.
+You can set `textContentType` to `username` or `password` to enable autofill of login details from the device keychain.
 
-For iOS 12+ `newPassword` can be used to indicate a new password input the user may want to save in the keychain, and `oneTimeCode` can be used to indicate that a field can be autofilled by a code arriving in an SMS.
+`newPassword` can be used to indicate a new password input the user may want to save in the keychain, and `oneTimeCode` can be used to indicate that a field can be autofilled by a code arriving in an SMS.
 
 To disable autofill, set `textContentType` to `none`.
 
 Possible values for `textContentType` are:
 
 - `none`
-- `URL`
 - `addressCity`
 - `addressCityAndState`
 - `addressState`
+- `birthdate` (iOS 17+)
+- `birthdateDay` (iOS 17+)
+- `birthdateMonth` (iOS 17+)
+- `birthdateYear` (iOS 17+)
 - `countryName`
+- `creditCardExpiration` (iOS 17+)
+- `creditCardExpirationMonth` (iOS 17+)
+- `creditCardExpirationYear` (iOS 17+)
+- `creditCardFamilyName` (iOS 17+)
+- `creditCardGivenName` (iOS 17+)
+- `creditCardMiddleName` (iOS 17+)
+- `creditCardName` (iOS 17+)
 - `creditCardNumber`
+- `creditCardSecurityCode` (iOS 17+)
+- `creditCardType` (iOS 17+)
 - `emailAddress`
 - `familyName`
 - `fullStreetAddress`
@@ -884,21 +901,22 @@ Possible values for `textContentType` are:
 - `name`
 - `namePrefix`
 - `nameSuffix`
+- `newPassword`
 - `nickname`
+- `oneTimeCode`
 - `organizationName`
+- `password`
 - `postalCode`
 - `streetAddressLine1`
 - `streetAddressLine2`
 - `sublocality`
 - `telephoneNumber`
+- `URL`
 - `username`
-- `password`
-- `newPassword`
-- `oneTimeCode`
 
-| Type                                                                                                                                                                                                                                                                                                                                                                                                       |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| enum('none', 'URL', 'addressCity', 'addressCityAndState', 'addressState', 'countryName', 'creditCardNumber', 'emailAddress', 'familyName', 'fullStreetAddress', 'givenName', 'jobTitle', 'location', 'middleName', 'name', 'namePrefix', 'nameSuffix', 'nickname', 'organizationName', 'postalCode', 'streetAddressLine1', 'streetAddressLine2', 'sublocality', 'telephoneNumber', 'username', 'password') |
+| Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| enum('none', 'addressCity', 'addressCityAndState', 'addressState', 'birthdate', 'birthdateDay', 'birthdateMonth', 'birthdateYear', 'countryName', 'creditCardExpiration', 'creditCardExpirationMonth', 'creditCardExpirationYear', 'creditCardFamilyName', 'creditCardGivenName', 'creditCardMiddleName', 'creditCardName', 'creditCardNumber', 'creditCardSecurityCode', 'creditCardType', 'emailAddress', 'familyName', 'fullStreetAddress', 'givenName', 'jobTitle', 'location', 'middleName', 'name', 'namePrefix', 'nameSuffix', 'newPassword', 'nickname', 'oneTimeCode', 'organizationName', 'password', 'postalCode', 'streetAddressLine1', 'streetAddressLine2', 'sublocality', 'telephoneNumber', 'URL', 'username') |
 
 ---
 
