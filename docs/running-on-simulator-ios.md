@@ -36,7 +36,7 @@ You can specify the device the simulator should run with the `--simulator` flag,
 <TabItem value="npm">
 
 ```shell
-npm run ios -- --simulator="iPhone SE (3rd generation)"
+npm run ios --simulator="iPhone SE (3rd generation)"
 ```
 
 </TabItem>
@@ -59,7 +59,7 @@ If you have multiple iOS versions installed, you also need to specify it's appro
 <TabItem value="npm">
 
 ```shell
-npm run ios -- --simulator="iPhone 14 Pro (16.0)"
+npm run ios --simulator="iPhone 14 Pro (16.0)"
 ```
 
 </TabItem>
@@ -80,7 +80,7 @@ You can specify the device UDID returned from `xcrun simctl list devices` comman
 <TabItem value="npm">
 
 ```shell
-npm run ios -- --udid="AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAAAA"
+npm run ios --udid="AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAAAA"
 ```
 
 </TabItem>
