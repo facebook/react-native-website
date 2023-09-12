@@ -20,7 +20,6 @@ const commonDocsOptions = {
   remarkPlugins: [require('@react-native-website/remark-snackplayer')],
 };
 
-const isDev = process.env.NODE_ENV === 'development';
 const isDeployPreview = process.env.PREVIEW_DEPLOY === 'true';
 
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
