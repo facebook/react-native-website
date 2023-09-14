@@ -20,6 +20,8 @@ const commonDocsOptions = {
   remarkPlugins: [require('@react-native-website/remark-snackplayer')],
 };
 
+const isDeployPreview = process.env.PREVIEW_DEPLOY === 'true';
+
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
   title: 'React Native',
@@ -74,10 +76,9 @@ module.exports = {
           path: '../docs',
           sidebarPath: require.resolve('./sidebars.json'),
           editCurrentVersion: true,
-          onlyIncludeVersions:
-            process.env.PREVIEW_DEPLOY === 'true'
-              ? ['current', ...versions.slice(0, 2)]
-              : undefined,
+          onlyIncludeVersions: isDeployPreview
+            ? ['current', ...versions.slice(0, 2)]
+            : undefined,
           versions: {
             [lastVersion]: {
               badge: false, // Do not show version badge for last RN version

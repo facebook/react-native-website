@@ -94,7 +94,7 @@ return <S3Album track/>
 
 AWS Amplify favors a convention over configuration style of development, with a global initialization routine or initialization at the category level. The quickest way to get started is with an [aws-exports file](https://aws.amazon.com/blogs/mobile/enhanced-javascript-development-with-aws-mobile-hub/). However, developers can also use the library independently with existing resources.
 
-For a deep dive into the philosophy and to see a full demo, check out the video from [AWS re:Invent](https://www.youtube.com/watch?v=vAjf3lyjf8c).
+For a deep dive into the philosophy and to see a full demo, check out the video from [AWS re\:Invent](https://www.youtube.com/watch?v=vAjf3lyjf8c).
 
 ## AWS AppSync
 

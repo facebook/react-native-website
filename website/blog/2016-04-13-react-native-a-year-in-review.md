@@ -16,9 +16,7 @@ It's been an epic ride — but we are only getting started. Here is a look back 
 <footer>
   <a
     href="https://code.facebook.com/posts/597378980427792/react-native-a-year-in-review/"
-    className="btn">
-    Read more
-  </a>
+    className="btn">Read more</a>
 </footer>
 
 > This is an excerpt. Read the rest of the post on [Facebook Code](https://code.facebook.com/posts/597378980427792/react-native-a-year-in-review/).
