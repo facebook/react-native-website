@@ -759,7 +759,7 @@ TurboModulesGuide
     │   ├── RTNCalculator.h
     │   └── RTNCalculator.mm
     ├── js
-    │   └── NativeCalculator.js
+    │   └── NativeCalculator.ts
     ├── package.json
     └── rtn-calculator.podspec
 ```
