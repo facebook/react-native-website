@@ -113,7 +113,7 @@ const PreviewLayout = ({
         </TouchableOpacity>
       ))}
     </View>
-    <View style={[styles.container, {[label]: selectedValue}]}>{children}</View>
+    <View style={[styles.container, {flexDirection: selectedValue}]}>{children}</View>
   </View>
 );
 
