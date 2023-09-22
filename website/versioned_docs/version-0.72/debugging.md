@@ -66,7 +66,7 @@ From here, select `More Tools → Developer Tools` from the Chrome menu to open 
 - You may want to enable [Pause on Caught Exceptions](https://developer.chrome.com/docs/devtools/javascript/breakpoints/#exceptions) for a better debugging experience.
 
 :::info
-The React Developer Tools Chrome extension does not work with React Native, but you can use its standalone version instead. Read [this section](debugging.md#react-developer-tools) to learn how.
+The React Developer Tools Chrome extension does not work with React Native, but you can use its standalone version instead. Read [this section](react-devtools) to learn how.
 :::
 
 :::note
