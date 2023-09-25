@@ -36,6 +36,8 @@ You will also need to install the Xcode Command Line Tools. Open Xcode, then cho
 
 To install a simulator, open **Xcode > Settings... (or Preferences...)** and select the **Platforms (or Components)** tab. Select a simulator with the corresponding version of iOS you wish to use.
 
+If you are using Xcode version 14.0 or greater than to install a simulator, open **Xcode > Settings > Platforms** tab, then click "+" icon and select **iOS…** option.
+
 #### CocoaPods
 
 [CocoaPods](https://cocoapods.org/) is one of the dependency management system available for iOS. CocoaPods is a Ruby [gem](https://en.wikipedia.org/wiki/RubyGems). You can install CocoaPods using the version of Ruby that ships with the latest version of macOS.
