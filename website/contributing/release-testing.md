@@ -129,16 +129,16 @@ To help provide the relevant information, we have prepared this template they ca
 | Debug/dev build on Simulator | ✅/🚨/🙅‍♂️                |
 | Debug/dev build on Device    | ✅/🚨/🙅‍♂️                |
 | Production build             | ✅/🚨/🙅‍♂️                |
-| Chrome remote debugger       | ✅/🚨/🙅‍♂️                |
-| Hermes debugger              | ✅/🚨/🙅‍♂️                |
-| Flipper debugger             | ✅/🚨/🙅‍♂️                |
+| Debugger (Hermes) | ✅/🚨/🙅‍♂️ |
+| Chrome remote debugger (deprecated) | ✅/🚨/🙅‍♂️ |
+| Flipper debugger (deprecated) | ✅/🚨/🙅‍♂️ |
 | Deploy to TestFlight         | ✅/🚨/🙅‍♂️                |
 | **Tested - Android**         |                         |
 | Fast Refresh                 | ✅/🚨/🙅‍♂️                |
 | Debug/dev build on Emulator  | ✅/🚨/🙅‍♂️                |
 | Debug/dev build on Device    | ✅/🚨/🙅‍♂️                |
 | Production build             | ✅/🚨/🙅‍♂️                |
-| Chrome remote debugger       | ✅/🚨/🙅‍♂️                |
-| Hermes debugger              | ✅/🚨/🙅‍♂️                |
-| Flipper debugger             | ✅/🚨/🙅‍♂️                |
+| Debugger (Hermes) | ✅/🚨/🙅‍♂️ |
+| Chrome remote debugger (deprecated) | ✅/🚨/🙅‍♂️ |
+| Flipper debugger (deprecated) | ✅/🚨/🙅‍♂️ |
 ```
