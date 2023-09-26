@@ -131,28 +131,27 @@ During the Release Candidate (RC) phase of a release cycle, we ask for the commu
 To help provide the relevant information, we have prepared this template they can use as blueprint for what is important to test - they can copy/pasted it in a comment and fill it accordingly.
 
 ```markdown
-| Link to branch:              |                         |
-| ---------------------------- | :---------------------- |
-| **Project info**             |                         |
-| Name                         |                         |
-| Starting RN version          | <add me, ex. RN 0.65.1> |
-| Hermes on iOS                | yes/no                  |
-| Hermes on Android            | yes/no                  |
-| **Tested - iOS**             |                         |
-| Fast Refresh                 | ✅/🚨/🙅‍♂️                |
-| Debug/dev build on Simulator | ✅/🚨/🙅‍♂️                |
-| Debug/dev build on Device    | ✅/🚨/🙅‍♂️                |
-| Production build             | ✅/🚨/🙅‍♂️                |
-| Debugger (Hermes) | ✅/🚨/🙅‍♂️ |
-| Chrome remote debugger (deprecated) | ✅/🚨/🙅‍♂️ |
-| Flipper debugger (deprecated) | ✅/🚨/🙅‍♂️ |
-| Deploy to TestFlight         | ✅/🚨/🙅‍♂️                |
-| **Tested - Android**         |                         |
-| Fast Refresh                 | ✅/🚨/🙅‍♂️                |
-| Debug/dev build on Emulator  | ✅/🚨/🙅‍♂️                |
-| Debug/dev build on Device    | ✅/🚨/🙅‍♂️                |
-| Production build             | ✅/🚨/🙅‍♂️                |
-| Debugger (Hermes) | ✅/🚨/🙅‍♂️ |
-| Chrome remote debugger (deprecated) | ✅/🚨/🙅‍♂️ |
-| Flipper debugger (deprecated) | ✅/🚨/🙅‍♂️ |
+| Link to branch:                      |                         |
+| -----------------------------------  | :---------------------- |
+| **Project info**                     |                         |
+| Name                                 |                         |
+| Starting RN version                  | <add me, ex. RN 0.65.1> |
+| Hermes on iOS                        | yes/no                  |
+| Hermes on Android                    | yes/no                  |
+| **Tested - iOS**                     |                         |
+| Fast Refresh                         | ✅/🚨/🙅‍♂️                 |
+| Debug/dev build on Simulator         | ✅/🚨/🙅‍♂️                 |
+| Debug/dev build on Device            | ✅/🚨/🙅‍♂️                 |
+| Production build                     | ✅/🚨/🙅‍♂️                 |
+| Debugger (Hermes)                    | ✅/🚨/🙅‍♂️                 |
+| Deploy to TestFlight                 | ✅/🚨/🙅‍♂️                 |
+| **Tested - Android**                 |                         |
+| Fast Refresh                         | ✅/🚨/🙅‍♂️                 |
+| Debug/dev build on Emulator          | ✅/🚨/🙅‍♂️                 |
+| Debug/dev build on Device            | ✅/🚨/🙅‍♂️                 |
+| Production build                     | ✅/🚨/🙅‍♂️                 |
+| Debugger (Hermes)                    | ✅/🚨/🙅‍♂️                 |
+| **Optional - Deprecated in 0.73**    |                         |
+| Chrome remote debugger (Android/iOS) | ✅/🚨/🙅‍♂️                 |
+| Flipper debugger (Android/iOS)       | ✅/🚨/🙅‍♂️                 |
 ```
