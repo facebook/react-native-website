@@ -47,6 +47,34 @@ Next, install the required peer dependencies. You need to run different commands
 You might get warnings related to peer dependencies after installation. They are usually caused by incorrect version ranges specified in some packages. You can safely ignore most warnings as long as your app builds.
 :::
 
+For Android devices, the `react-native-screens` package requires one additional configuration step to work properly.
+Edit `MainActivity.java` file which is located in `android/app/src/main/java/<your package name>/MainActivity.java`.
+
+Add the highlighted code to the body of `MainActivity` class:
+
+```java
+public class MainActivity extends ReactActivity {
+  // ...
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(null);
+  }
+  // ...
+}
+```
+
+and make sure to add the following import statement at the top of this file below your package statement:
+
+```java
+import android.os.Bundle;
+```
+
+This change is required to avoid crashes related to View state being not persisted consistently across Activity restarts.
+
+:::note
+When you use a navigator (such as stack navigator), you'll need to follow the installation instructions of that navigator for any additional dependencies. If you're getting an error "Unable to resolve module", you need to install that module in your project.
+:::
+
 Now, you need to wrap the whole app in `NavigationContainer`. Usually you'd do this in your entry file, such as `index.js` or `App.js`:
 
 ```tsx
