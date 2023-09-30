@@ -13,7 +13,7 @@ const versions = require('../../versions.json');
 const versionsArchived = require('../../versionsArchived.json');
 
 const VersionItem = ({version, archivedDocumentationUrl, currentVersion}) => {
-  const versionName = version === 'next' ? 'Master' : version;
+  const versionName = version === 'next' ? 'main' : version;
 
   const isCurrentVersion = currentVersion === version;
   const isNext = version === 'next';
@@ -125,6 +125,10 @@ const Versions = () => {
         </tbody>
       </table>
       <h2>Archived versions</h2>
+      <p>
+        The documentation for unmaintained versions can be found on website
+        archive snapshots, hosted as separate sites.
+      </p>
       <table className="versions">
         <tbody>
           {Object.entries(versionsArchived).map(
