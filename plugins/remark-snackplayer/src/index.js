@@ -52,8 +52,6 @@ async function toJsxNode(node) {
   const theme = params.theme || 'light';
   const preview = params.preview || 'true';
   const loading = params.loading || 'lazy';
-  const deviceAndroid = params.deviceAndroid || 'pixel4';
-  const deviceIos = params.deviceIos || 'iphone12';
 
   // Need help constructing this AST node?
   // Use the MDX Playground and explore what your output mdast should look like
@@ -72,8 +70,7 @@ async function toJsxNode(node) {
       attr('data-snack-theme', theme),
       attr('data-snack-preview', preview),
       attr('data-snack-loading', loading),
-      attr('data-snack-device-android', deviceAndroid),
-      attr('data-snack-device-ios', deviceIos),
+      attr('data-snack-device-frame', 'false'),
     ],
     children: [],
   };
