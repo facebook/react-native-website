@@ -26,13 +26,13 @@ Next, install the required peer dependencies. You need to run different commands
 - If you have an Expo managed project, install the dependencies with `expo`:
 
   ```shell
-  npx expo install react-native-screens react-native-safe-area-context
+  npx expo install @react-navigation/native @react-navigation/native-stack
   ```
 
 - If you have a bare React Native project, install the dependencies with `npm`:
 
   ```shell
-  npm install react-native-screens react-native-safe-area-context
+  npm install @react-navigation/native @react-navigation/native-stack
   ```
 
   For iOS with bare React Native project, make sure you have [CocoaPods](https://cocoapods.org/) installed. Then install the pods to complete the installation:
