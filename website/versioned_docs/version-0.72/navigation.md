@@ -17,7 +17,7 @@ For a complete intro to React Navigation, follow the [React Navigation Getting S
 
 ## React Native Navigation
 
-As stated above, [react-native-navigation](https://github.com/wix/react-native-navigation) is another solution for navigation in react native 
+As stated above, [react-native-navigation](https://github.com/wix/react-native-navigation) is another solution for navigation in react native
 applications. It is a library that offers solutions for both basic and advance navigations.
 
 For a complete intro to React Native Navigation, follow the [React Native Navigation Getting Started Guide](https://wix.github.io/react-native-navigation/docs/before-you-start).
