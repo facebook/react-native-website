@@ -12,6 +12,10 @@ There are tons of native UI widgets out there ready to be used in the latest app
 
 Like the native module guide, this too is a more advanced guide that assumes you are somewhat familiar with Android SDK programming. This guide will show you how to build a native UI component, walking you through the implementation of a subset of the existing `ImageView` component available in the core React Native library.
 
+:::info
+You can also setup local library containing native component with one command. Read the guide to [Local libraries setup](local-library-setup) for more details.
+:::
+
 ## ImageView example
 
 For this example we are going to walk through the implementation requirements to allow the use of ImageViews in JavaScript.

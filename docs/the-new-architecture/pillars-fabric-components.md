@@ -24,6 +24,10 @@ Fabric Native Components only works with the **New Architecture** enabled.
 To migrate to the **New Architecture**, follow the [Migration guide](../new-architecture-intro)
 :::
 
+:::info
+You can also setup local library containing Fabric Native Component with one command. Read the guide to [Local libraries setup](../local-library-setup) for more details.
+:::
+
 ## How to Create a Fabric Native Components
 
 To create a Fabric Native Component, you have to follow these steps:
