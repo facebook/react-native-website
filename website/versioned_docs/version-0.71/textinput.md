@@ -946,7 +946,7 @@ see [Issue#7070](https://github.com/facebook/react-native/issues/7070) for more 
 
 ### `textBreakStrategy` <div class="label android">Android</div>
 
-Set text break strategy on Android API Level 23+, possible values are `simple`, `highQuality`, `balanced` The default value is `simple`.
+Set text break strategy on Android API Level 23+, possible values are `simple`, `highQuality`, `balanced` The default value is `highQuality`.
 
 | Type                                      |
 | ----------------------------------------- |
