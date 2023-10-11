@@ -13,7 +13,21 @@ If you are using Expo, read the Expo guide for [Deploying to App Stores](https:/
 
 App Transport Security is a security feature introduced in iOS 9 that rejects all HTTP requests that are not sent over HTTPS. This can result in HTTP traffic being blocked, including the developer React Native server. ATS is disabled for `localhost` by default in React Native projects in order to make development easier.
 
-You should re-enable ATS prior to building your app for production by removing the `localhost` entry from the `NSExceptionDomains` dictionary and setting `NSAllowsArbitraryLoads` to `false` in your `Info.plist` file in the `ios/` folder. You can also re-enable ATS from within Xcode by opening your target properties under the Info pane and editing the App Transport Security Settings entry.
+You should re-enable ATS prior to building your app for production by opening your `ios/App/Info.plist` file and removing the `localhost` entry from the `NSExceptionDomains` dictionary and setting `NSAllowsArbitraryLoads` to `false` in the `NSAppTransportSecurity` dict. You can also re-enable ATS from within Xcode by opening your target properties under the Info pane and editing the App Transport Security Settings entry.
+
+![](/docs/assets/XCodeEnableATS.png)
+
+If you are editing Info.plist via plaintext rather than the XCode UI, the below is how the `NSAppTransportSecurity` entry would look like without an any domain exceptions.
+
+```xml
+<key>NSAppTransportSecurity</key>
+<dict>
+  <key>NSAllowsArbitraryLoads</key>
+  <false/>
+  <key>NSExceptionDomains</key>
+  <dict/>
+</dict>
+```
 
 :::note
 If your application needs to access HTTP resources on production, learn how to configure ATS on your project.
