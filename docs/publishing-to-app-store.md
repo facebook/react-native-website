@@ -19,6 +19,10 @@ You should re-enable ATS prior to building your app for production by removing t
 If your application needs to access HTTP resources on production, learn how to configure ATS on your project.
 :::
 
+#### Tip: Set App Uses Non-Exempt Encryption
+
+You may also want to set "ITSAppUsesNonExemptEncryption" to `<false/>` or `<true/>` in Info.plist to bypass Export Compliance Information in Apple Store Connect.
+
 ### 2. Configure release scheme
 
 Building an app for distribution in the App Store requires using the `Release` scheme in Xcode. Apps built for `Release` will automatically disable the in-app Dev Menu, which will prevent your users from inadvertently accessing the menu in production. It will also bundle the JavaScript locally, so you can put the app on a device and test whilst not connected to the computer.
