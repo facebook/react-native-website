@@ -72,3 +72,7 @@ Check your Bundle Identifier and make sure it is exactly same as the one you hav
 - Now you can find it in the App Store Connect under TestFlight.
 
 Now fill up the necessary information and in the Build Section, select the build of the app and click on `Save` → `Submit For Review`.
+
+### 4. Screenshots
+
+The Apple Store requires you have screenshots for the latest devices. The reference for such devices would be found [here](https://developer.apple.com/help/app-store-connect/reference/screenshot-specifications/). Note that screenshots for some display sizes are not required if they are provided for other sizes.
