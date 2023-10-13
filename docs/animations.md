@@ -33,7 +33,7 @@ const FadeInView = props => {
       duration: 10000,
       useNativeDriver: true,
     }).start();
-  }, [fadeAnim]);
+  }, []);
 
   return (
     <Animated.View // Special animatable View
@@ -90,7 +90,7 @@ const FadeInView: React.FC<FadeInViewProps> = props => {
       duration: 10000,
       useNativeDriver: true,
     }).start();
-  }, [fadeAnim]);
+  }, []);
 
   return (
     <Animated.View // Special animatable View
