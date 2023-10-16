@@ -33,10 +33,6 @@ react-devtools
 ![React DevTools](/docs/assets/ReactDevTools.png)
 
 :::info
-If connecting to the emulator proves troublesome (especially Android 12), try running `adb reverse tcp:8097 tcp:8097` in a new terminal.
-:::
-
-:::info
 If you prefer to avoid global installations, you can add `react-devtools` as a project dependency. Add the `react-devtools` package to your project using `npm install --save-dev react-devtools`, then add `"react-devtools": "react-devtools"` to the `scripts` section in your `package.json`, and then run `npm run react-devtools` from your project folder to open the DevTools.
 :::
 
@@ -52,20 +48,20 @@ However, when `react-devtools` is running, Inspector will enter a collapsed mode
 
 You can choose "Toggle Inspector" in the same menu to exit this mode.
 
-## Inspecting Component Instances
-
-When debugging JavaScript in Chrome, you can inspect the props and state of the React components in the browser console.
-
-First, follow the instructions for debugging in Chrome to open the Chrome console.
-
-Make sure that the dropdown in the top left corner of the Chrome console says `debuggerWorker.js`. **This step is essential.**
-
-Then select a React component in React DevTools. There is a search box at the top that helps you find one by name. As soon as you select it, it will be available as `$r` in the Chrome console, letting you inspect its props, state, and instance properties.
-
-![React DevTools Chrome Console Integration](/docs/assets/ReactDevToolsDollarR.gif)
-
 ## Debugging application state
 
 [Reactotron](https://github.com/infinitered/reactotron) is an open-source desktop app that allows you to inspect Redux or MobX-State-Tree application state as well as view custom logs, run custom commands such as resetting state, store and restore state snapshots, and other helpful debugging features for React Native apps.
 
 You can view installation instructions [in the README](https://github.com/infinitered/reactotron). If you're using Expo, here is an article detailing [how to install on Expo](https://shift.infinite.red/start-using-reactotron-in-your-expo-project-today-in-3-easy-steps-a03d11032a7a).
+
+## Troubleshooting
+
+:::tip
+Once you have React DevTools running, follow the instructions. If you had your application running prior to opening React DevTools, you may need to [open developer menu](/docs/debugging#accessing-the-dev-menu) to connect them.
+
+![React DevTools Connection](/docs/assets/ReactDevToolsConnection.gif)
+:::
+
+:::info
+If connecting to the emulator proves troublesome (especially Android 12), try running `adb reverse tcp:8097 tcp:8097` in a new terminal.
+:::
