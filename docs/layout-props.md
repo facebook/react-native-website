@@ -369,9 +369,9 @@ export default App;
 
 `alignContent` controls how rows align in the cross direction, overriding the `alignContent` of the parent. See https://developer.mozilla.org/en-US/docs/Web/CSS/align-content for more details.
 
-| Type                                                                                 | Required |
-| ------------------------------------------------------------------------------------ | -------- |
-| enum('flex-start', 'flex-end', 'center', 'stretch', 'space-between', 'space-around') | No       |
+| Type                                                                                                 | Required |
+| ---------------------------------------------------------------------------------------------------- | -------- |
+| enum('flex-start', 'flex-end', 'center', 'stretch', 'space-between', 'space-around', 'space-evenly') | No       |
 
 ---
 
