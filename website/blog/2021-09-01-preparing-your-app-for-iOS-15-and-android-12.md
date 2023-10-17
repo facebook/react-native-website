@@ -65,7 +65,7 @@ Android 12 introduces new [overscroll effect](https://developer.android.com/abou
 
 #### Permission Updates
 
-Android 12 allows users of your app to only provide access to the approximate location if you request it with **`ACCESS_FINE_LOCATION`** permission**.** Learn more about it [here](https://developer.android.com/about/versions/12/approximate-location).
+Android 12 allows users of your app to only provide access to the approximate location if you request it with **`ACCESS_FINE_LOCATION`** permission. Learn more about it [here](https://developer.android.com/about/versions/12/approximate-location).
 
 Check out Google’s [detailed behavior changes](https://developer.android.com/about/versions/12/behavior-changes-all) for all apps running on Android 12.
 

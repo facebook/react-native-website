@@ -38,9 +38,9 @@ While the last step is the same for all the platforms, the first two steps are d
 
 ## Configure the Fabric Native Component Dependencies
 
-### <a name="dependencies-ios" />iOS
+### iOS {#dependencies-ios}
 
-The Apple platform installs Fabric Native Components using [Cocoapods](https://cocoapods.org) as a dependency manager.
+The Apple platform installs Fabric Native Components using [CocoaPods](https://cocoapods.org) as a dependency manager.
 
 If you are already using the [`install_module_dependencies`](https://github.com/facebook/react-native/blob/main/packages/react-native/scripts/react_native_pods.rb#L198) function, then **there is nothing to do**. The function already takes care of installing the proper dependencies when the New Architecture is enabled and avoiding them when it is not enabled.
 
@@ -256,6 +256,8 @@ To make sure that Xcode skips these files, we can wrap **both** of them in some 
 The same two lines should be added in the implementation file, as first and last lines.
 
 The above snippet uses the same `RCT_NEW_ARCH_ENABLED` flag used in the previous [section](#dependencies-ios). When this flag is not set, Xcode skips the lines within the `#ifdef` during compilation and it does not include them into the compiled binary. The compiled binary will have a the `RNMyComponentView.o` object but it will be an empty object.
+
+After wrapping the above components with a `#ifdef` pragma, you need to implement the component for the legacy architecture, following [the legacy Native Component documentation](https://reactnative.dev/docs/native-components-ios). This is needed because the New Renderer works in a different way from the legacy one, and it is not able to follow the new code's paths of the New Renderer.
 
 ### Android
 

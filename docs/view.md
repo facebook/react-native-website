@@ -121,7 +121,7 @@ Indicates to accessibility services whether the user should be notified when thi
 - `'polite'`- Accessibility services should announce changes to this view.
 - `'assertive'` - Accessibility services should interrupt ongoing speech to immediately announce changes to this view.
 
-See the [Android `View` docs](http://developer.android.com/reference/android/view/View.html#attr_android:accessibilityLiveRegion) for reference.
+See the [Android `View` docs](https://developer.android.com/reference/android/view/View.html#attr_android:accessibilityLiveRegion) for reference.
 
 | Type                                |
 | ----------------------------------- |
@@ -176,9 +176,9 @@ Describes the current state of a component to the user of an assistive technolog
 
 See the [Accessibility guide](accessibility.md#accessibilitystate-ios-android) for more information.
 
-| Type                                                                                           |
-| ---------------------------------------------------------------------------------------------- |
-| object: {disabled: bool, selected: bool, checked: bool or 'mixed', busy: bool, expanded: bool} |
+| Type                                                                                             |
+| ------------------------------------------------------------------------------------------------ |
+| object: `{disabled: bool, selected: bool, checked: bool or 'mixed', busy: bool, expanded: bool}` |
 
 ---
 
@@ -188,9 +188,9 @@ Represents the current value of a component. It can be a textual description of 
 
 See the [Accessibility guide](accessibility.md#accessibilityvalue-ios-android) for more information.
 
-| Type                                                          |
-| ------------------------------------------------------------- |
-| object: {min: number, max: number, now: number, text: string} |
+| Type                                                            |
+| --------------------------------------------------------------- |
+| object: `{min: number, max: number, now: number, text: string}` |
 
 ---
 
@@ -391,9 +391,9 @@ For example, if a touchable view has a height of 20 the touchable height can be 
 
 > The touch area never extends past the parent view bounds and the Z-index of sibling views always takes precedence if a touch hits two overlapping views.
 
-| Type                                                               |
-| ------------------------------------------------------------------ |
-| object: {top: number, left: number, bottom: number, right: number} |
+| Type                                                                 |
+| -------------------------------------------------------------------- |
+| object: `{top: number, left: number, bottom: number, right: number}` |
 
 ---
 
@@ -420,7 +420,7 @@ Possible values:
 - `'no'` - The view is not important for accessibility.
 - `'no-hide-descendants'` - The view is not important for accessibility, nor are any of its descendant views.
 
-See the [Android `importantForAccessibility` docs](http://developer.android.com/reference/android/R.attr.html#importantForAccessibility) for reference.
+See the [Android `importantForAccessibility` docs](https://developer.android.com/reference/android/R.attr.html#importantForAccessibility) for reference.
 
 | Type                                             |
 | ------------------------------------------------ |
@@ -540,9 +540,9 @@ Invoked on mount and on layout changes.
 
 This event is fired immediately once the layout has been calculated, but the new layout may not yet be reflected on the screen at the time the event is received, especially if a layout animation is in progress.
 
-| Type                                                |
-| --------------------------------------------------- |
-| ({nativeEvent: [LayoutEvent](layoutevent)}) => void |
+| Type                                                     |
+| -------------------------------------------------------- |
+| `md ({nativeEvent: [LayoutEvent](layoutevent)}) => void` |
 
 ---
 
@@ -560,9 +560,9 @@ When `accessible` is `true`, the system will invoke this function when the user 
 
 Does this view want to "claim" touch responsiveness? This is called for every touch move on the `View` when it is not the responder.
 
-| Type                                                 |
-| ---------------------------------------------------- |
-| ({nativeEvent: [PressEvent](pressevent)}) => boolean |
+| Type                                                      |
+| --------------------------------------------------------- |
+| `md ({nativeEvent: [PressEvent](pressevent)}) => boolean` |
 
 ---
 
@@ -570,9 +570,9 @@ Does this view want to "claim" touch responsiveness? This is called for every to
 
 If a parent `View` wants to prevent a child `View` from becoming responder on a move, it should have this handler which returns `true`.
 
-| Type                                                 |
-| ---------------------------------------------------- |
-| ({nativeEvent: [PressEvent](pressevent)}) => boolean |
+| Type                                                      |
+| --------------------------------------------------------- |
+| `md ({nativeEvent: [PressEvent](pressevent)}) => boolean` |
 
 ---
 
@@ -580,9 +580,11 @@ If a parent `View` wants to prevent a child `View` from becoming responder on a 
 
 The View is now responding for touch events. This is the time to highlight and show the user what is happening.
 
-| Type                                              |
-| ------------------------------------------------- |
-| ({nativeEvent: [PressEvent](pressevent)}) => void |
+On Android, return true from this callback to prevent any other native components from becoming responder until this responder terminates.
+
+| Type                                                              |
+| ----------------------------------------------------------------- |
+| `md ({nativeEvent: [PressEvent](pressevent)}) => void ｜ boolean` |
 
 ---
 
@@ -590,9 +592,9 @@ The View is now responding for touch events. This is the time to highlight and s
 
 The user is moving their finger.
 
-| Type                                              |
-| ------------------------------------------------- |
-| ({nativeEvent: [PressEvent](pressevent)}) => void |
+| Type                                                   |
+| ------------------------------------------------------ |
+| `md ({nativeEvent: [PressEvent](pressevent)}) => void` |
 
 ---
 
@@ -600,9 +602,9 @@ The user is moving their finger.
 
 Another responder is already active and will not release it to that `View` asking to be the responder.
 
-| Type                                              |
-| ------------------------------------------------- |
-| ({nativeEvent: [PressEvent](pressevent)}) => void |
+| Type                                                   |
+| ------------------------------------------------------ |
+| `md ({nativeEvent: [PressEvent](pressevent)}) => void` |
 
 ---
 
@@ -610,9 +612,9 @@ Another responder is already active and will not release it to that `View` askin
 
 Fired at the end of the touch.
 
-| Type                                              |
-| ------------------------------------------------- |
-| ({nativeEvent: [PressEvent](pressevent)}) => void |
+| Type                                                   |
+| ------------------------------------------------------ |
+| `md ({nativeEvent: [PressEvent](pressevent)}) => void` |
 
 ---
 
@@ -620,9 +622,9 @@ Fired at the end of the touch.
 
 The responder has been taken from the `View`. Might be taken by other views after a call to `onResponderTerminationRequest`, or might be taken by the OS without asking (e.g., happens with control center/ notification center on iOS)
 
-| Type                                              |
-| ------------------------------------------------- |
-| ({nativeEvent: [PressEvent](pressevent)}) => void |
+| Type                                                   |
+| ------------------------------------------------------ |
+| `md ({nativeEvent: [PressEvent](pressevent)}) => void` |
 
 ---
 
@@ -630,9 +632,9 @@ The responder has been taken from the `View`. Might be taken by other views afte
 
 Some other `View` wants to become responder and is asking this `View` to release its responder. Returning `true` allows its release.
 
-| Type                                              |
-| ------------------------------------------------- |
-| ({nativeEvent: [PressEvent](pressevent)}) => void |
+| Type                                                   |
+| ------------------------------------------------------ |
+| `md ({nativeEvent: [PressEvent](pressevent)}) => void` |
 
 ---
 
@@ -640,9 +642,9 @@ Some other `View` wants to become responder and is asking this `View` to release
 
 Does this view want to become responder on the start of a touch?
 
-| Type                                                 |
-| ---------------------------------------------------- |
-| ({nativeEvent: [PressEvent](pressevent)}) => boolean |
+| Type                                                      |
+| --------------------------------------------------------- |
+| `md ({nativeEvent: [PressEvent](pressevent)}) => boolean` |
 
 ---
 
@@ -650,9 +652,9 @@ Does this view want to become responder on the start of a touch?
 
 If a parent `View` wants to prevent a child `View` from becoming responder on a touch start, it should have this handler which returns `true`.
 
-| Type                                                 |
-| ---------------------------------------------------- |
-| ({nativeEvent: [PressEvent](pressevent)}) => boolean |
+| Type                                                      |
+| --------------------------------------------------------- |
+| `md ({nativeEvent: [PressEvent](pressevent)}) => boolean` |
 
 ---
 

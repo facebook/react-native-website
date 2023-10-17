@@ -53,7 +53,7 @@ To do that, open Android Studio, click on "More Actions" button and select "SDK 
 
 ![Android Studio Welcome](/docs/assets/GettingStartedAndroidStudioWelcomeWindows.png)
 
-> The SDK Manager can also be found within the Android Studio "Preferences" dialog, under **Appearance & Behavior** → **System Settings** → **Android SDK**.
+> The SDK Manager can also be found within the Android Studio "Settings" dialog, under **Languages & Frameworks** → **Android SDK**.
 
 Select the "SDK Platforms" tab from within the SDK Manager, then check the box next to "Show Package Details" in the bottom right corner. Look for and expand the `Android 13 (Tiramisu)` entry, then make sure the following items are checked:
 
@@ -81,7 +81,7 @@ The SDK is installed, by default, at the following location:
 %LOCALAPPDATA%\Android\Sdk
 ```
 
-You can find the actual location of the SDK in the Android Studio "Settings" dialog, under **Appearance & Behavior** → **System Settings** → **Android SDK**.
+You can find the actual location of the SDK in the Android Studio "Settings" dialog, under **Languages & Frameworks** → **Android SDK**.
 
 Open a new Command Prompt window to ensure the new environment variable is loaded before proceeding to the next step.
 

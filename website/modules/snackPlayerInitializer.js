@@ -20,18 +20,15 @@ export default (() => {
   };
 
   const initSnackPlayers = () => {
-    // console.log('initSnackPlayers');
     updateSnacksTheme();
     window.ExpoSnack && window.ExpoSnack.initialize();
   };
 
   const setupTabPanelsMutationObservers = () => {
     const tabPanels = document.querySelectorAll('[role=tabpanel]');
-    // console.log('setupTabPanelsMutationObservers', {tabPanels});
     tabPanels.forEach(tabPanel => {
-      new MutationObserver((mutations, observer) => {
+      new MutationObserver(() => {
         initSnackPlayers();
-        // console.log('tabPanel MutationObserver triggered', {tabPanels});
       }).observe(tabPanel, {childList: true});
     });
   };
@@ -52,7 +49,7 @@ export default (() => {
   // Hacky, but no better solution for now
   // see https://github.com/expo/snack/blob/main/website/src/client/components/EmbedCode.tsx#L61
   const setupThemeSynchronization = () => {
-    new MutationObserver((mutations, observer) => {
+    new MutationObserver(() => {
       if ('ExpoSnack' in window) {
         document.querySelectorAll('.snack-player').forEach(container => {
           updateSnacksTheme();
@@ -73,9 +70,7 @@ export default (() => {
   setupThemeSynchronization();
 
   return {
-    onRouteDidUpdate({location}) {
-      // console.log('onRouteDidUpdate', {location});
-
+    onRouteDidUpdate() {
       initSnackPlayers();
       setupTabPanelsMutationObservers();
     },

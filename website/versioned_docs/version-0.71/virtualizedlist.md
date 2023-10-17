@@ -479,9 +479,9 @@ Used to handle failures when scrolling to an index that has not been measured ye
 
 Called when the viewability of rows changes, as defined by the `viewabilityConfig` prop.
 
-| Type                                                                                                             |
-| ---------------------------------------------------------------------------------------------------------------- |
-| (callback: {changed: array of [ViewToken](viewtoken)s, viewableItems: array of [ViewToken](viewtoken)s}) => void |
+| Type                                                                                                  |
+| ----------------------------------------------------------------------------------------------------- |
+| `md (callback: {changed: [ViewToken](viewtoken)[], viewableItems: [ViewToken](viewtoken)[]}) => void` |
 
 ---
 

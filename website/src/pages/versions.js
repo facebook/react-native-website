@@ -7,26 +7,26 @@
 
 import React from 'react';
 import Layout from '@theme/Layout';
-
 import useBaseUrl from '@docusaurus/useBaseUrl';
 const versions = require('../../versions.json');
+// The versionsArchived mapping is a custom feature, NOT a Docusaurus feature
+const versionsArchived = require('../../versionsArchived.json');
 
-const VersionItem = ({version, currentVersion}) => {
-  const versionName = version === 'next' ? 'Master' : version;
+const VersionItem = ({version, archivedDocumentationUrl, currentVersion}) => {
+  const versionName = version === 'next' ? 'main' : version;
 
   const isCurrentVersion = currentVersion === version;
   const isNext = version === 'next';
   const isRC = version.toUpperCase().indexOf('-RC') !== -1;
 
   const latestMajorVersion = versions[0].toUpperCase().replace('-RC', '');
-  const documentationLink = (
-    <a
-      href={useBaseUrl(
-        'docs/' + (isCurrentVersion ? '' : version + '/') + 'getting-started'
-      )}>
-      Documentation
-    </a>
+
+  const documentationUrl = useBaseUrl(
+    archivedDocumentationUrl ??
+      `/docs/${isCurrentVersion ? '' : version + '/'}getting-started`
   );
+  const documentationLink = <a href={documentationUrl}>Documentation</a>;
+
   let releaseNotesURL = 'https://github.com/facebook/react-native/releases';
   let releaseNotesTitle = 'Changelog';
   if (isNext) {
@@ -125,6 +125,24 @@ const Versions = () => {
         </tbody>
       </table>
       <h2>Archived versions</h2>
+      <p>
+        The documentation for unmaintained versions can be found on website
+        archive snapshots, hosted as separate sites.
+      </p>
+      <table className="versions">
+        <tbody>
+          {Object.entries(versionsArchived).map(
+            ([version, archivedDocumentationUrl]) => (
+              <VersionItem
+                key={'version_' + version}
+                version={version}
+                archivedDocumentationUrl={archivedDocumentationUrl}
+                currentVersion={currentVersion}
+              />
+            )
+          )}
+        </tbody>
+      </table>
       <p>
         The documentation for versions below <code>0.60</code> can be found on
         the separate website called{' '}

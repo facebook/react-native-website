@@ -166,7 +166,7 @@ The upper part of the file contains some descriptive information like the name o
 
 Then there are the dependencies for this package. For this guide, you need `react` and `react-native`.
 
-Finally, the **Codegen** configuration is specified by the `codegenConfig` field. It contains an array of libraries, each of which is defined by three other fields:
+Finally, the **Codegen** configuration is specified by the `codegenConfig` field. It contains an object that defines the module through four fields:
 
 - `name`: The name of the library. By convention, you should add the `Spec` suffix.
 - `type`: The type of module contained by this package. In this case, it is a Turbo Native Module; thus, the value to use is `modules`.
@@ -759,7 +759,7 @@ TurboModulesGuide
     │   ├── RTNCalculator.h
     │   └── RTNCalculator.mm
     ├── js
-    │   └── NativeCalculator.js
+    │   └── NativeCalculator.ts
     ├── package.json
     └── rtn-calculator.podspec
 ```
@@ -788,7 +788,7 @@ cd ios
 RCT_NEW_ARCH_ENABLED=1 bundle exec pod install
 ```
 
-This command will look for all the dependencies of the project and it will install the iOS ones. The `RCT_NEW_ARCH_ENABLED=1` instruct **Cocoapods** that it has to run some additional operations to run **Codegen**.
+This command will look for all the dependencies of the project and it will install the iOS ones. The `RCT_NEW_ARCH_ENABLED=1` instruct **CocoaPods** that it has to run some additional operations to run **Codegen**.
 
 :::note
 You may have to run `bundle install` once before you can use `RCT_NEW_ARCH_ENABLED=1 bundle exec pod install`. You won't need to run `bundle install` anymore, unless you need to change the Ruby dependencies.

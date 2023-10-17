@@ -5,11 +5,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
 import React, {useState} from 'react';
+import useIsBrowser from '@docusaurus/useIsBrowser';
 
 const DocsRating = ({label}) => {
-  if (!ExecutionEnvironment.canUseDOM) {
+  const isBrowser = useIsBrowser();
+  if (!isBrowser) {
     return null;
   }
 

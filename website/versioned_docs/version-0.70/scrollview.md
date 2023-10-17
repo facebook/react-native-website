@@ -199,9 +199,9 @@ const styles = StyleSheet.create({
 
 The amount by which the scroll view content is inset from the edges of the scroll view.
 
-| Type                                                               | Default                                  |
-| ------------------------------------------------------------------ | ---------------------------------------- |
-| object: {top: number, left: number, bottom: number, right: number} | `{top: 0, left: 0, bottom: 0, right: 0}` |
+| Type                                                                 | Default                                  |
+| -------------------------------------------------------------------- | ---------------------------------------- |
+| object: `{top: number, left: number, bottom: number, right: number}` | `{top: 0, left: 0, bottom: 0, right: 0}` |
 
 ---
 
@@ -369,7 +369,7 @@ Caveat 2: This uses `contentOffset` and `frame.origin` in native code to compute
 
 | Type                                                                     |
 | ------------------------------------------------------------------------ |
-| object: { minIndexForVisible: number, autoscrollToTopThreshold: number } |
+| object: `{minIndexForVisible: number, autoscrollToTopThreshold: number}` |
 
 ---
 
@@ -585,9 +585,9 @@ This controls how often the scroll event will be fired while scrolling (as a tim
 
 The amount by which the scroll view indicators are inset from the edges of the scroll view. This should normally be set to the same value as the `contentInset`.
 
-| Type                                                               | Default                                  |
-| ------------------------------------------------------------------ | ---------------------------------------- |
-| object: {top: number, left: number, bottom: number, right: number} | `{top: 0, left: 0, bottom: 0, right: 0}` |
+| Type                                                                 | Default                                  |
+| -------------------------------------------------------------------- | ---------------------------------------- |
+| object: `{top: number, left: number, bottom: number, right: number}` | `{top: 0, left: 0, bottom: 0, right: 0}` |
 
 ---
 
@@ -745,7 +745,7 @@ Displays the scroll indicators momentarily.
 scrollTo(
   options?: { x?: number, y?: number, animated?: boolean } | number,
   deprecatedX?: number,
-	deprecatedAnimated?: boolean,
+  deprecatedAnimated?: boolean,
 );
 ```
 

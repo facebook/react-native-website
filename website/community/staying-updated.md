@@ -41,6 +41,7 @@ Listed here are but a few of the main React Native related conferences, with lin
 
 #### [ChainReact](https://cr.infinite.red/), organized by [InfiniteRed](https://infinite.red/)
 
+- [ChainReact 2023](https://www.youtube.com/playlist?list=PLFHvL21g9bk30F2UaJfn6TqJn15MAoBOc)
 - [ChainReact 2019](https://www.youtube.com/playlist?list=PLFHvL21g9bk2bTWTCP1BueiiIz8q258z9)
 - [ChainReact 2018](https://www.youtube.com/playlist?list=PLFHvL21g9bk1skdjnKVGXREDmP_HVDj-u)
 - [ChainReact 2017](https://www.youtube.com/playlist?list=PLFHvL21g9bk3RxJ1Ut5nR_uTZFVOxu522)

@@ -3,8 +3,10 @@ id: hermes
 title: Using Hermes
 ---
 
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+
 <a href="https://hermesengine.dev">
-<img width={300} height={300} className="hermes-logo" src="/docs/assets/HermesLogo.svg" />
+  <img width={300} height={300} className="hermes-logo" src="/docs/assets/HermesLogo.svg" style={{height: "auto"}}/>
 </a>
 
 [Hermes](https://hermesengine.dev) is an open-source JavaScript engine optimized for React Native. For many apps, using Hermes will result in improved start-up time, decreased memory usage, and smaller app size when compared to JavaScriptCore.
@@ -37,17 +39,54 @@ If you are using a non-standard way of loading the JS bundle, it is possible tha
 Confirm that you are using the `.hbc` file and also benchmark the before/after as detailed below.
 :::
 
-To see the benefits of Hermes, try making a release build/deployment of your app to compare. For example:
+To see the benefits of Hermes, try making a release build/deployment of your app to compare. For example; from the root of your project:
+
+<Tabs groupId="platform" queryString defaultValue={constants.defaultPlatform} values={constants.platforms} className="pill-tabs">
+<TabItem value="android">
+
+[//]: # 'Android'
+
+<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<TabItem value="npm">
 
 ```shell
-$ npx react-native run-android --mode release
+npm run android -- --mode="release"
 ```
 
-or for iOS:
+</TabItem>
+<TabItem value="yarn">
 
 ```shell
-$ npx react-native run-ios --mode Release
+yarn android --mode release
 ```
+
+</TabItem>
+</Tabs>
+
+</TabItem>
+<TabItem value="ios">
+
+[//]: # 'iOS'
+
+<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<TabItem value="npm">
+
+```shell
+npm run ios -- --mode="Release"
+```
+
+</TabItem>
+<TabItem value="yarn">
+
+```shell
+yarn ios --mode Release
+```
+
+</TabItem>
+</Tabs>
+
+</TabItem>
+</Tabs>
 
 This will compile JavaScript to bytecode during build time which will improve your app's startup speed on device.
 
@@ -56,7 +95,7 @@ This will compile JavaScript to bytecode during build time which will improve yo
 Hermes supports the Chrome debugger by implementing the Chrome inspector protocol. This means Chrome's tools can be used to directly debug JavaScript running on Hermes, on an emulator or on a real, physical, device.
 
 :::info
-Note that this is very different with the "Remote JS Debugging" from the In-App Dev Menu documented in the [Debugging](debugging#debugging-using-a-custom-javascript-debugger) section, which actually runs the JS code on Chrome's V8 on your development machine (laptop or desktop).
+Note that this is very different with the deprecated "Remote JS Debugging" from the In-App Dev Menu documented in the [Debugging](debugging#remote-debugging) section, which actually runs the JS code on Chrome's V8 on your development machine (laptop or desktop) instead of connecting to the JS engine running the app on your device.
 :::
 
 Chrome connects to Hermes running on device via Metro, so you'll need to know where Metro is listening. Typically this will be on `localhost:8081`, but this is [configurable](https://facebook.github.io/metro/docs/configuration). When running `yarn start` the address is written to stdout on startup.
@@ -120,9 +159,22 @@ $ cd android && ./gradlew clean
 
 That's it! You should now be able to develop and deploy your app as usual:
 
+<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<TabItem value="npm">
+
 ```shell
-$ npx react-native run-android
+npm run android
 ```
+
+</TabItem>
+<TabItem value="yarn">
+
+```shell
+yarn android
+```
+
+</TabItem>
+</Tabs>
 
 ### iOS
 
@@ -150,9 +202,22 @@ $ cd ios && pod install
 
 That's it! You should now be able to develop and deploy your app as usual:
 
+<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<TabItem value="npm">
+
 ```shell
-$ npx react-native run-ios
+npm run ios
 ```
+
+</TabItem>
+<TabItem value="yarn">
+
+```shell
+yarn ios
+```
+
+</TabItem>
+</Tabs>
 
 ## Switching back to JavaScriptCore
 

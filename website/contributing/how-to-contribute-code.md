@@ -30,6 +30,8 @@ Now you are set up to run several commands:
   - `yarn flow-check-ios` does a full Flow check over `*.ios.js` files.
 - `yarn test-typescript` runs the [TypeScript](https://www.typescriptlang.org/) typechecks.
 - `yarn test-ios` runs the iOS test suite (macOS required).
+- `yarn build` builds all configured packages — in general, this command only needs to be run by CI ahead of publishing.
+    - Packages which require a build are configured in [scripts/build/config.js](https://github.com/facebook/react-native/blob/main/scripts/build/config.js).
 
 ## Testing your Changes
 

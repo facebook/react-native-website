@@ -54,7 +54,7 @@ You can learn more about the contribution process in the following documents:
 - [Triaging GitHub Issues](/contributing/triaging-github-issues)
 - [Managing Pull Requests](/contributing/managing-pull-requests)
 
-We also have a thriving community of contributors who would be happy to help you get set up. You can reach out to the React Native team through [@ReactNative](http://twitter.com/reactnative).
+We also have a thriving community of contributors who would be happy to help you get set up. You can reach out to the React Native team through [@ReactNative](https://twitter.com/reactnative).
 
 ### Repositories
 
@@ -89,7 +89,7 @@ If you are adding new functionality or introducing a change in behavior, we will
 
 The React Native blog is generated [from the Markdown sources for the blog](https://github.com/facebook/react-native-website/tree/HEAD/website/blog).
 
-Please open an issue in the React Native website repository or tag us on [@ReactNative on Twitter](http://twitter.com/reactnative) and get the go-ahead from a maintainer before writing an article intended for the React Native blog.
+Please open an issue in the React Native website repository or tag us on [@ReactNative on Twitter](https://twitter.com/reactnative) and get the go-ahead from a maintainer before writing an article intended for the React Native blog.
 In most cases, you might want to share your article on your own blog or writing medium instead. It's worth asking, though, in case we find your article is a good fit for the blog.
 
 We recommend referring to the `react-native-website` repository [Readme file](https://github.com/facebook/react-native-website#-contributing) to learn more about contributing to the website in general.

@@ -12,10 +12,8 @@ React Native is not only for Android and iOS devices - our partners and the comm
 
 **From Community**
 
-- [alita](https://github.com/areslabs/alita) - An experimental, comprehensive port of React Native to mini-program (微信小程序).
 - [React Native tvOS](https://github.com/react-native-tvos/react-native-tvos) - React Native for Apple TV and Android TV devices.
 - [React Native Web](https://github.com/necolas/react-native-web) - React Native on the web using React DOM.
-- [Valence Native](https://github.com/valence-native/valence-native) - A wrapper for React Native, using Qt to target Linux, macOS, and Windows. Forked from [Proton Native](https://github.com/kusti8/proton-native) which is no longer maintained.
 
 ## Creating your own React Native platform
 

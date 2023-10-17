@@ -16,7 +16,7 @@ You're not limited to the components and APIs bundled with React Native. React N
 
 ## Basic Components
 
-Most apps will end up using one of these basic components.
+Most apps will end up using one or more of these basic components.
 
 <div className="component-grid component-grid-border">
   <div className="component">

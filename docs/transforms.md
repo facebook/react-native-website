@@ -164,36 +164,163 @@ export default App;
 
 # Reference
 
-## Methods
-
-### `transform()`
+## Transform
 
 `transform` accepts an array of transformation objects or space-separated string values. Each object specifies the property that will be transformed as the key, and the value to use in the transformation. Objects should not be combined. Use a single key/value pair per object.
 
 The rotate transformations require a string so that the transform may be expressed in degrees (deg) or radians (rad). For example:
 
 ```js
-transform([{rotateX: '45deg'}, {rotateZ: '0.785398rad'}]);
+{
+  transform: [{rotateX: '45deg'}, {rotateZ: '0.785398rad'}],
+}
 ```
 
 The same could also be achieved using a space-separated string:
 
 ```js
-transform('rotateX(45deg) rotateZ(0.785398rad)');
+{
+  transform: 'rotateX(45deg) rotateZ(0.785398rad)',
+}
 ```
 
 The skew transformations require a string so that the transform may be expressed in degrees (deg). For example:
 
 ```js
-transform([{skewX: '45deg'}]);
+{
+  transform: [{skewX: '45deg'}],
+}
 ```
 
-| Type                                                                                                                                                                                                                                                                                | Required |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| array of objects: {matrix: number[]}, {perspective: number}, {rotate: string}, {rotateX: string}, {rotateY: string}, {rotateZ: string}, {scale: number}, {scaleX: number}, {scaleY: number}, {translateX: number}, {translateY: number}, {skewX: string}, {skewY: string} or string | No       |
+| Type                                                                                                                                                                                                                                                                                                          | Required |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| array of objects: `{matrix: number[]}`, `{perspective: number}`, `{rotate: string}`, `{rotateX: string}`, `{rotateY: string}`, `{rotateZ: string}`, `{scale: number}`, `{scaleX: number}`, `{scaleY: number}`, `{translateX: number}`, `{translateY: number}`, `{skewX: string}`, `{skewY: string}` or string | No       |
 
 ---
 
 ### `decomposedMatrix`, `rotation`, `scaleX`, `scaleY`, `transformMatrix`, `translateX`, `translateY`
 
 > **Deprecated.** Use the [`transform`](transforms#transform) prop instead.
+
+## Transform Origin
+
+The `transformOrigin` property sets the origin for a view's transformations. The transform origin is the point around which a transformation is applied. By default, the origin of a transform is `center`.
+
+# Example
+
+```SnackPlayer name=TransformOrigin
+import React, {useRef, useEffect} from 'react';
+import {Animated, View, StyleSheet, SafeAreaView, Easing} from 'react-native';
+
+const App = () => {
+  const rotateAnim = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    Animated.loop(
+      Animated.timing(rotateAnim, {
+        toValue: 1,
+        duration: 5000,
+        easing: Easing.linear,
+        useNativeDriver: true,
+      }),
+    ).start();
+  }, [rotateAnim]);
+
+  const spin = rotateAnim.interpolate({
+    inputRange: [0, 1],
+    outputRange: ['0deg', '360deg'],
+  });
+
+  return (
+    <SafeAreaView style={styles.container}>
+      <View style={styles.transformOriginWrapper}>
+        <Animated.View
+          style={[
+            styles.transformOriginView,
+            {
+              transform: [{rotate: spin}],
+            },
+          ]}
+        />
+      </View>
+    </SafeAreaView>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  transformOriginWrapper: {
+    borderWidth: 1,
+    borderColor: 'rgba(0, 0, 0, 0.5)',
+  },
+  transformOriginView: {
+    backgroundColor: 'pink',
+    width: 100,
+    height: 100,
+    transformOrigin: 'top',
+  },
+});
+
+export default App;
+```
+
+### Values
+
+Transform origin supports `px`, `percentage` and keywords `top`, `left`, `right`, `bottom`, `center` values.
+
+The `transformOrigin` property may be specified using one, two, or three values, where each value represents an offset.
+
+#### One-value syntax:
+
+- The value must be a `px`, a `percentage`, or one of the keywords `left`, `center`, `right`, `top`, and `bottom`.
+
+```js
+{
+  transformOrigin: '20px',
+  transformOrigin: 'bottom',
+}
+```
+
+#### Two-value syntax:
+
+- First value (x-offset) must be a `px`, a `percentage`, or one of the keywords `left`, `center`, and `right`.
+- The second value (y-offset) must be a `px`, a `percentage`, or one of the keywords `top`, `center`, and `bottom`.
+
+```js
+{
+  transformOrigin: '10px 2px',
+  transformOrigin: 'left top',
+  transformOrigin: 'top right',
+}
+```
+
+#### Three-value syntax:
+
+- The first two values are the same as for the two-value syntax.
+- The third value (z-offset) must be a `px`. It always represents the Z offset.
+
+```js
+{
+  transformOrigin: '2px 30% 10px',
+  transformOrigin: 'right bottom 20px',
+}
+```
+
+#### Array syntax
+
+`transformOrigin` also supports an array syntax. It makes it convenient to use it with Animated APIs. It also avoids string parsing, so should be more efficient.
+
+```js
+{
+  // Using numeric values
+  transformOrigin: [10, 30, 40],
+  // Mixing numeric and percentage values
+  transformOrigin: [10, '20%', 0],
+}
+```
+
+You may refer to MDN's guide on [Transform origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin) for additional information.

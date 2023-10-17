@@ -1,4 +1,5 @@
 import RemoveGlobalCLI from './\_remove-global-cli.md';
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 <h2>Installing dependencies</h2>
 
@@ -12,15 +13,15 @@ We recommend installing Node via [Chocolatey](https://chocolatey.org), a popular
 
 It is recommended to use an LTS version of Node. If you want to be able to switch between different versions, you might want to install Node via [nvm-windows](https://github.com/coreybutler/nvm-windows), a Node version manager for Windows.
 
-React Native also requires [Java SE Development Kit (JDK)](https://openjdk.java.net/projects/jdk/11/), which can be installed using Chocolatey as well.
+React Native also requires [Java SE Development Kit (JDK)](https://openjdk.java.net/projects/jdk/17/), which can be installed using Chocolatey as well.
 
 Open an Administrator Command Prompt (right click Command Prompt and select "Run as Administrator"), then run the following command:
 
 ```powershell
-choco install -y nodejs-lts microsoft-openjdk11
+choco install -y nodejs-lts microsoft-openjdk17
 ```
 
-If you have already installed Node on your system, make sure it is Node 18 or newer. If you already have a JDK on your system, we recommend JDK11. You may encounter problems using higher JDK versions.
+If you have already installed Node on your system, make sure it is Node 18 or newer. If you already have a JDK on your system, we recommend JDK17. You may encounter problems using higher JDK versions.
 
 > You can find additional installation options on [Node's Downloads page](https://nodejs.org/en/download/).
 
@@ -53,7 +54,7 @@ To do that, open Android Studio, click on "More Actions" button and select "SDK 
 
 ![Android Studio Welcome](/docs/assets/GettingStartedAndroidStudioWelcomeWindows.png)
 
-> The SDK Manager can also be found within the Android Studio "Preferences" dialog, under **Appearance & Behavior** → **System Settings** → **Android SDK**.
+> The SDK Manager can also be found within the Android Studio "Settings" dialog, under **Languages & Frameworks** → **Android SDK**.
 
 Select the "SDK Platforms" tab from within the SDK Manager, then check the box next to "Show Package Details" in the bottom right corner. Look for and expand the `Android 13 (Tiramisu)` entry, then make sure the following items are checked:
 
@@ -81,7 +82,7 @@ The SDK is installed, by default, at the following location:
 %LOCALAPPDATA%\Android\Sdk
 ```
 
-You can find the actual location of the SDK in the Android Studio "Settings" dialog, under **Appearance & Behavior** → **System Settings** → **Android SDK**.
+You can find the actual location of the SDK in the Android Studio "Settings" dialog, under **Languages & Frameworks** → **Android SDK**.
 
 Open a new Command Prompt window to ensure the new environment variable is loaded before proceeding to the next step.
 
@@ -156,33 +157,55 @@ Click "Next" then "Finish" to create your AVD. At this point you should be able 
 
 <h3>Step 1: Start Metro</h3>
 
-First, you will need to start Metro, the JavaScript bundler that ships with React Native. Metro "takes in an entry file and various options, and returns a single JavaScript file that includes all your code and its dependencies."—[Metro Docs](https://facebook.github.io/metro/docs/concepts)
+[**Metro**](https://facebook.github.io/metro/) is the JavaScript build tool for React Native. To start the Metro development server, run the following from your project folder:
 
-To start Metro, run `npx react-native start` inside your React Native project folder:
+<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<TabItem value="npm">
 
 ```shell
-npx react-native start
+npm start
 ```
 
-`react-native start` starts Metro Bundler.
+</TabItem>
+<TabItem value="yarn">
 
-> If you use the Yarn package manager, you can use `yarn` instead of `npx` when running React Native commands inside an existing project.
+```shell
+yarn start
+```
 
-> If you're familiar with web development, Metro is a lot like webpack—for React Native apps. Unlike Kotlin or Java, JavaScript isn't compiled—and neither is React Native. Bundling isn't the same as compiling, but it can help improve startup performance and translate some platform-specific JavaScript into more widely supported JavaScript.
+</TabItem>
+</Tabs>
+
+:::note
+If you're familiar with web development, Metro is similar to bundlers such as Vite and webpack, but is designed end-to-end for React Native. For instance, Metro uses [Babel](https://babel.dev/) to transform syntax such as JSX into executable JavaScript.
+:::
 
 <h3>Step 2: Start your application</h3>
 
 Let Metro Bundler run in its own terminal. Open a new terminal inside your React Native project folder. Run the following:
 
+<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<TabItem value="npm">
+
 ```shell
-npx react-native run-android
+npm run android
 ```
+
+</TabItem>
+<TabItem value="yarn">
+
+```shell
+yarn android
+```
+
+</TabItem>
+</Tabs>
 
 If everything is set up correctly, you should see your new app running in your Android emulator shortly.
 
 ![AwesomeProject on Android](/docs/assets/GettingStartedAndroidSuccessWindows.png)
 
-`npx react-native run-android` is one way to run your app - you can also run it directly from within Android Studio.
+This is one way to run your app - you can also run it directly from within Android Studio.
 
 > If you can't get this to work, see the [Troubleshooting](troubleshooting.md) page.
 
@@ -191,7 +214,7 @@ If everything is set up correctly, you should see your new app running in your A
 Now that you have successfully run the app, let's modify it.
 
 - Open `App.tsx` in your text editor of choice and edit some lines.
-- Press the `R` key twice or select `Reload` from the Dev Menu (`Ctrl + M`) to see your changes!
+- Press the <kbd>R</kbd> key twice or select `Reload` from the Dev Menu (<kbd>Ctrl</kbd> + <kbd>M</kbd>) to see your changes!
 
 <h3>That's it!</h3>
 

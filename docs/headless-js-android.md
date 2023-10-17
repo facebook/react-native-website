@@ -193,7 +193,6 @@ If you wish all errors to cause a retry attempt, you will need to catch them and
 
 ## Caveats
 
-- The function passed to `setTimeout` does not always behave as expected. Instead the function is called only when the application is launched again. If you only need to wait, use the retry functionality.
 - By default, your app will crash if you try to run a task while the app is in the foreground. This is to prevent developers from shooting themselves in the foot by doing a lot of work in a task and slowing the UI. You can pass a fourth `boolean` argument to control this behaviour.
 - If you start your service from a `BroadcastReceiver`, make sure to call `HeadlessJsTaskService.acquireWakeLockNow()` before returning from `onReceive()`.
 
@@ -253,7 +252,7 @@ public class NetworkChangeReceiver extends BroadcastReceiver {
     private boolean isAppOnForeground(Context context) {
         /**
          We need to check if app is in foreground otherwise the app will crash.
-         http://stackoverflow.com/questions/8489993/check-android-application-is-in-foreground-or-not
+         https://stackoverflow.com/questions/8489993/check-android-application-is-in-foreground-or-not
          **/
         ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
         List<ActivityManager.RunningAppProcessInfo> appProcesses =
@@ -336,7 +335,7 @@ class NetworkChangeReceiver : BroadcastReceiver() {
     private fun isAppOnForeground(context: Context): Boolean {
         /**
          * We need to check if app is in foreground otherwise the app will crash.
-         * http://stackoverflow.com/questions/8489993/check-android-application-is-in-foreground-or-not
+         * https://stackoverflow.com/questions/8489993/check-android-application-is-in-foreground-or-not
          */
         val activityManager = context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
         val appProcesses = activityManager.runningAppProcesses ?: return false
