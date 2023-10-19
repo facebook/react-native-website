@@ -22,8 +22,6 @@
       "running-on-device",
       "fast-refresh",
       "metro",
-      "symbolication",
-      "sourcemaps",
       "libraries",
       "typescript",
       "upgrading"
@@ -64,7 +62,8 @@
     "Debugging": [
       "debugging",
       "react-devtools",
-      "native-debugging"
+      "native-debugging",
+      "debugging-release-builds"
     ],
     "Testing": [
       "testing-overview"
