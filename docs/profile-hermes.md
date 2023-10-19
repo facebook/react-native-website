@@ -43,7 +43,7 @@ npx react-native profile-hermes [destinationDir]
 ### Enabling source map
 
 :::info
-You may read about source maps on the [source maps](sourcemaps.md) page.
+You may read about source maps on the [Debugging Release Builds](debugging-release-builds.md) page.
 :::
 
 ### Common errors
