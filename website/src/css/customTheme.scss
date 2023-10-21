@@ -1227,6 +1227,18 @@ div[class*="announcementBar"][role="banner"] {
   }
 }
 
+.close {
+  color: rgb(255, 255, 255);
+  float: right;
+  font-size: 1.5rem;
+  font-weight: var(--ifm-font-weight-bold);
+  line-height: 1;
+  opacity: 0.5;
+  padding: 1rem;
+  transition: opacity var(--ifm-transition-fast)
+    var(--ifm-transition-timing-default);
+}
+
 div[class*="announcementBarContent"] {
   line-height: 40px;
   font-size: 20px;

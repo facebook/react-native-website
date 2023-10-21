@@ -213,7 +213,7 @@ module.exports = {
           'Support Ukraine 🇺🇦 <a target="_blank" rel="noopener noreferrer" href="https://opensource.facebook.com/support-ukraine"> Help Provide Humanitarian Aid to Ukraine</a>.',
         backgroundColor: '#20232a',
         textColor: '#fff',
-        isCloseable: false,
+        isCloseable: true,
       },
       prism: {
         defaultLanguage: 'jsx',
