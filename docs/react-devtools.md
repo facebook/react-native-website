@@ -1,6 +1,6 @@
 ---
 id: react-devtools
-title: React Developer Tools
+title: React DevTools
 ---
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
