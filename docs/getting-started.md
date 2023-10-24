@@ -32,7 +32,7 @@ npx expo start
 </TabItem>
 <TabItem value="yarn">
 
-```shell
+``` shell
 yarn create expo-app AwesomeProject
 
 cd AwesomeProject
