@@ -44,6 +44,13 @@ const snackLanguages = [
 ];
 const defaultSnackLanguage = 'typescript';
 
+const jsDebuggers = [
+  {label: 'Hermes Debugger / Expo', value: 'hermes'},
+  {label: 'Flipper', value: 'flipper'},
+  {label: 'New Debugger (Experimental)', value: 'new-debugger'},
+];
+const defaultJsDebugger = 'flipper';
+
 const guides = [
   {label: 'Expo Go Quickstart', value: 'quickstart'},
   {label: 'React Native CLI Quickstart', value: 'native'},
@@ -73,6 +80,7 @@ const getDevNotesTabs = (tabs = ['android', 'ios', 'web', 'windows']) =>
 
 export default {
   defaultGuide,
+  defaultJsDebugger,
   defaultOs,
   defaultPackageManager,
   defaultPlatform,
@@ -87,6 +95,7 @@ export default {
   syntax,
   androidLanguages,
   javaScriptSpecLanguages,
+  jsDebuggers,
   snackLanguages,
   defaultSnackLanguage,
 };

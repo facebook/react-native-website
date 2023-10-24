@@ -14,15 +14,94 @@ React Native provides an in-app developer menu which offers several debugging op
 
 Alternatively for Android devices and emulators, you can run `adb shell input keyevent 82` in your terminal.
 
-![](/docs/assets/DevMenu.png)
+![The React Native Dev Menu](/docs/assets/debugging-dev-menu.jpg)
 
 :::note
 The Dev Menu is disabled in release (production) builds.
 :::
 
+## Opening the Debugger
+
+The debugger allows you to understand and debug how your JavaScript code is running, similar to a web browser.
+
+:::info
+**In Expo projects**, press <kbd>j</kbd> in the CLI to directly open the Hermes Debugger.
+:::
+
+<Tabs groupId="js-debugger" queryString defaultValue={constants.defaultJsDebugger} values={constants.jsDebuggers}>
+<TabItem value="hermes">
+
+Hermes supports the Chrome debugger by implementing the Chrome DevTools Protocol. This means Chrome's tools can be used to directly debug JavaScript running on Hermes, on an emulator or on a physical device.
+
+1. In a Chrome browser window, navigate to `chrome://inspect`.
+2. Use the "Configure..." button to add the dev server address (typically `localhost:8081`).
+3. You should now see a "Hermes React Native" target with an **"inspect"** link. Click this to open the debugger.
+
+![Overview of Chrome's inspect interface and a connected Hermes debugger window](/docs/assets/debugging-hermes-debugger-instructions.jpg)
+
+</TabItem>
+<TabItem value="flipper">
+
+[Flipper](https://fbflipper.com/) is a native debugging tool which provides JavaScript debugging capabilities for React Native via an embedded Chrome DevTools panel.
+
+To debug JavaScript code in Flipper, select **"Open Debugger"** from the Dev Menu. Learn more about Flipper [here](https://fbflipper.com/docs/features/react-native/).
+
+:::info
+To debug using Flipper, the Flipper app must be [installed on your system](https://fbflipper.com/docs/getting-started/).
+:::
+
+![The Flipper desktop app opened to the Hermes debugger panel](/docs/assets/debugging-flipper-console.jpg)
+
+:::warning
+Debugging React Native apps with Flipper is [deprecated in React Native 0.73](https://github.com/react-native-community/discussions-and-proposals/pull/641). We will eventually remove out-of-the box support for JS debugging via Flipper.
+:::
+
+</TabItem>
+<TabItem value="new-debugger">
+
+:::note
+**This is an experimental feature** and several features may not work reliably today. When this feature does launch in future, we intend for it to work more completely than the current debugging methods.
+:::
+
+The React Native team is working on a new JavaScript debugger experience, intended to replace Flipper, with a preview available as of React Native 0.73.
+
+The new debugger can be enabled via React Native CLI. This will also enable <kbd>j</kbd> to debug.
+
+```sh
+npx react-native start --experimental-debugger
+```
+
+When selecting **"Open Debugger"** in the Dev Menu, this will launch the new debugger using Google Chrome or Microsoft Edge.
+
+![The new debugger frontend opened to the "Welcome" pane](/docs/assets/debugging-debugger-welcome.jpg)
+
+</TabItem>
+</Tabs>
+
+## React DevTools
+
+You can use React DevTools to inspect the React element tree, props, and state.
+
+```sh
+npx react-devtools
+```
+
+![A React DevTools window](/docs/assets/debugging-react-devtools-blank.jpg)
+
+:::tip
+
+**Learn how to use React DevTools!**
+
+- [React DevTools guide](/docs/next/react-devtools)
+- [React Developer Tools on react.dev](https://react.dev/learn/react-developer-tools)
+
+:::
+
 ## LogBox
 
 Errors and warnings in development builds are displayed in LogBox inside your app.
+
+![A LogBox warning and an expanded LogBox syntax error](/docs/assets/debugging-logbox.jpg)
 
 :::note
 LogBox is disabled in release (production) builds.
@@ -30,125 +109,40 @@ LogBox is disabled in release (production) builds.
 
 ### Console Errors and Warnings
 
-Console errors and warnings are displayed as on-screen notifications with a red or yellow badge, and the number of errors or warning in the console respectively. To view a console error or warnings, tap the notification to view the full screen information about the log and to paginate through all of the logs in the console.
+Console errors and warnings are displayed as on-screen notifications with a red or yellow badge, and a notification count. To see more about an error or warning, tap the notification to see an expanded view and to paginate through other logs.
 
-These notifications can be hidden using `LogBox.ignoreAllLogs()`. This is useful when giving product demos, for example. Additionally, notifications can be hidden on a per-log basis via `LogBox.ignoreLogs()`. This is useful when there's a noisy warning that cannot be fixed, like those in a third-party dependency.
+LogBox notifications can be disabled using `LogBox.ignoreAllLogs()`. This can be useful when giving product demos, for example. Additionally, notifications can be disabled on a per-log basis via `LogBox.ignoreLogs()`. This can be useful for noisy warnings or those that cannot be fixed, e.g. in a third-party dependency.
 
 :::info
 Ignore logs as a last resort and create a task to fix any logs that are ignored.
 :::
 
-```tsx
+```js
 import {LogBox} from 'react-native';
 
-// Ignore log notification by message:
-LogBox.ignoreLogs(['Warning: ...']);
+// Ignore log notification by message
+LogBox.ignoreLogs([
+  // Exact message
+  'Warning: componentWillReceiveProps has been renamed',
 
-// Ignore all log notifications:
+  // Substring or regex match
+  /GraphQL error: .*/,
+]);
+
+// Ignore all log notifications
 LogBox.ignoreAllLogs();
 ```
 
-### Unhandled Errors
-
-Unhandled JavaScript errors such as `undefined is not a function` will automatically open a full screen LogBox error with the source of the error. These errors are dismissable and minimizable so that you can see the state of your app when these errors occur, but should always be addressed.
-
 ### Syntax Errors
 
-When syntax error occurs the full screen LogBox error will automatically open with the stack trace and location of the syntax error. This error is not dismissable because it represents invalid JavaScript execution that must be fixed before continuing with your app. To dismiss these errors, fix the syntax error and either save to automatically dismiss (with Fast Refresh enabled) or <kbd>Cmd ⌘</kbd>/<kbd>Ctrl</kbd> + <kbd>R</kbd> to reload (with Fast Refresh disabled).
-
-## JavaScript debugging
-
-### Flipper
-
-To debug JavaScript code in Flipper, select "Open Debugger" from the Dev Menu. This will automatically open the debugger tab inside Flipper.
-
-To install and get started with Flipper, follow [this guide](https://fbflipper.com/docs/getting-started/).
-
-### Expo CLI
-
-If you're using Expo CLI in a project running with Hermes, you can debug your JavaScript code by starting your project with `npx expo start` and then pressing <kbd>j</kbd> to open the debugger in Google Chrome or Microsoft Edge.
-
-## Chrome Developer Tools
-
-:::info
-**Starting from version 0.73, Remote Debugging is deprecated.** These Chrome DevTools steps use the _Remote Debugging_ workflow, where JS code is executed in Chrome's V8 engine on the dev machine during debugging, instead of on-device. This method is incompatible with some New Architecture features such as JSI.
-
-Please prefer using Flipper or [direct debugging with Safari](#safari-developer-tools).
-:::
-
-<details>
-<summary>Re-enabling Remote Debugging in React Native 0.73</summary>
-
-If your project still relies on this feature, you can manually enable it manually through the `NativeDevSettings.setIsDebuggingRemotely` function.
-
-```jsx
-import NativeDevSettings from 'react-native/Libraries/NativeModules/specs/NativeDevSettings';
-export default function App() {
-  useEffect(() => {
-    NativeDevSettings.setIsDebuggingRemotely(true);
-  }, []);
-
-  return <MyApp />;
-}
-```
-
-</details>
-
-### Debugging on a physical device
-
-:::info
-If you're using Expo CLI, this is configured for you already.
-:::
-
-<Tabs groupId="platform" defaultValue={constants.defaultPlatform} values={constants.platforms} className="pill-tabs">
-<TabItem value="ios">
-
-On iOS devices, open the file [`RCTWebSocketExecutor.mm`](https://github.com/facebook/react-native/blob/master/packages/react-native/React/CoreModules/RCTWebSocketExecutor.mm) and change "localhost" to the IP address of your computer, then select "Debug JS Remotely" from the Dev Menu.
-
-</TabItem>
-<TabItem value="android">
-
-On Android 5.0+ devices connected via USB, you can use the [`adb` command line tool](https://developer.android.com/tools/help/adb.html) to set up port forwarding from the device to your computer:
-
-```sh
-adb reverse tcp:8081 tcp:8081
-```
-
-Alternatively, select "Settings" from the Dev Menu, then update the "Debug server host for device" setting to match the IP address of your computer.
-
-</TabItem>
-</Tabs>
-
-:::note
-If you run into any issues, it may be possible that one of your Chrome extensions is interacting in unexpected ways with the debugger. Try disabling all of your extensions and re-enabling them one-by-one until you find the problematic extension.
-:::
-
-<details>
-<summary>Advanced: Debugging using a custom JavaScript debugger</summary>
-
-To use a custom JavaScript debugger in place of Chrome Developer Tools, set the `REACT_DEBUGGER` environment variable to a command that will start your custom debugger. You can then select "Open Debugger" from the Dev Menu to start debugging.
-
-The debugger will receive a list of all project roots, separated by a space. For example, if you set `REACT_DEBUGGER="node /path/to/launchDebugger.js --port 2345 --type ReactNative"`, then the command `node /path/to/launchDebugger.js --port 2345 --type ReactNative /path/to/reactNative/app` will be used to start your debugger.
-
-:::note
-Custom debugger commands executed this way should be short-lived processes, and they shouldn't produce more than 200 kilobytes of output.
-:::
-
-</details>
-
-## Safari Developer Tools
-
-You can use Safari to debug the iOS version of your app when using JSC.
-
-- On a physical device go to: `Settings → Safari → Advanced → Make sure "Web Inspector" is turned on` (This step is not needed on the Simulator)
-- On your Mac enable Develop menu in Safari: `Settings... (or Preferences...) → Advanced → Select "Show Develop menu in menu bar"`
-- Select your app's JSContext: `Develop → Simulator (or other device) → JSContext`
-- Safari's Web Inspector should open which has a Console and a Debugger
-
-While sourcemaps may not be enabled by default, you can follow [this guide](https://blog.nparashuram.com/2019/10/debugging-react-native-ios-apps-with.html) or [video](https://www.youtube.com/watch?v=GrGqIIz51k4) to enable them and set break points at the right places in the source code.
-
-However, every time the app is reloaded (using live reload, or by manually reloading), a new JSContext is created. Choosing "Automatically Show Web Inspectors for JSContexts" saves you from having to select the latest JSContext manually.
+When a JavaScript syntax error occurs, LogBox will open with the location of the error. In this state, LogBox is not dismissable since your code cannot be executed. LogBox will automatically dismiss once the syntax error is fixed — either via Fast Refresh or after a manual reload.
 
 ## Performance Monitor
 
-You can enable a performance overlay to help you debug performance problems by selecting "Perf Monitor" in the Dev Menu.
+On Android and iOS, an in-app performance overlay can be toggled during development by selecting **"Perf Monitor"** in the Dev Menu. Learn more about this feature [here](/docs/performance).
+
+![The Performance Monitor overlay on iOS and Android](/docs/assets/debugging-performance-monitor.jpg)
+
+:::info
+The Performance Monitor runs in-app and is a guide. We recommend investigating the native tooling under Android Studio and Xcode for accurate performance measurements.
+:::
