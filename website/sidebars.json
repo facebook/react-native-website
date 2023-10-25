@@ -63,7 +63,8 @@
       "debugging",
       "react-devtools",
       "native-debugging",
-      "debugging-release-builds"
+      "debugging-release-builds",
+      "other-debugging-methods"
     ],
     "Testing": [
       "testing-overview"
