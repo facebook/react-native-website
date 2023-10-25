@@ -5,12 +5,25 @@ title: React DevTools
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
-You can use [the standalone version of React Developer Tools](https://github.com/facebook/react/tree/main/packages/react-devtools) to debug the React component hierarchy. To use it, install the `react-devtools` package globally:
+[React DevTools](https://github.com/facebook/react/tree/main/packages/react-devtools) can be used to debug the React component hierarchy within your app.
+
+The standalone version of React DevTools allows connecting to React Native apps. To use it, install or run the `react-devtools` package. It should connect to your simulator within a few seconds.
+
+```sh
+npx react-devtools
+```
+
+![The React DevTools interface](/docs/assets/debugging-react-devtools-detail.jpg)
+
+<details>
+<summary>💡 Installing React DevTools globally</summary>
+
+We recommend running `react-devtools` via `npx`, but you can also install a given version globally.
 
 <Tabs groupId="package-manager" defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
 <TabItem value="npm">
 
-```shell
+```sh
 npm install -g react-devtools
 ```
 
@@ -24,29 +37,36 @@ yarn global add react-devtools
 </TabItem>
 </Tabs>
 
-Now run `react-devtools` from the terminal to launch the standalone DevTools app. It should connect to your simulator within a few seconds.
+Then, run the global `react-devtools` command:
 
-```shell
+```sh
 react-devtools
 ```
 
-![React DevTools](/docs/assets/ReactDevTools.png)
+</details>
 
-:::info
+<details>
+<summary>💡 Adding React DevTools as a project dependency</summary>
+
 If you prefer to avoid global installations, you can add `react-devtools` as a project dependency. Add the `react-devtools` package to your project using `npm install --save-dev react-devtools`, then add `"react-devtools": "react-devtools"` to the `scripts` section in your `package.json`, and then run `npm run react-devtools` from your project folder to open the DevTools.
+
+</details>
+
+:::tip
+Learn more about using DevTools in the [React Developer Tools guide on react.dev](https://react.dev/learn/react-developer-tools).
 :::
 
-## Integration with React Native Inspector
+## Integration with the Element Inspector
 
-Open the Dev Menu and choose "Toggle Inspector". It will bring up an overlay that lets you tap on any UI element and see information about it:
+React Native provides an Element Inspector, available under the Dev Menu as "Show Element Inspector". The inspector lets you tap on any UI element and see information about it.
 
-![React Native Inspector](/docs/assets/Inspector.gif)
+![Video of the Element Inspector interface](/docs/assets/debugging-element-inspector.gif)
 
-However, when `react-devtools` is running, Inspector will enter a collapsed mode, and instead use the DevTools as primary UI. In this mode, clicking on something in the simulator will bring up the relevant components in the DevTools:
+When React DevTools is connected, the Element Inspector will enter a **collapsed mode**, and instead use DevTools as the primary UI. In this mode, clicking on something in the simulator will navigate to the relevant component in DevTools.
 
-![React DevTools Inspector Integration](/docs/assets/ReactDevToolsInspector.gif)
+You can select "Hide Element Inspector" in the same menu to exit this mode.
 
-You can choose "Toggle Inspector" in the same menu to exit this mode.
+![React DevTools Element Inspector integration](/docs/assets/debugging-element-inspector-react-devtools.gif)
 
 ## Debugging application state
 
@@ -57,11 +77,11 @@ You can view installation instructions [in the README](https://github.com/infini
 ## Troubleshooting
 
 :::tip
-Once you have React DevTools running, follow the instructions. If you had your application running prior to opening React DevTools, you may need to [open developer menu](/docs/debugging#accessing-the-dev-menu) to connect them.
+Once you have React DevTools running, follow the instructions. If you had your application running prior to opening React DevTools, you may need to [open the Dev Menu](./debugging#accessing-the-dev-menu) to connect it.
 
-![React DevTools Connection](/docs/assets/ReactDevToolsConnection.gif)
+![React DevTools connection flow](/docs/assets/debugging-react-devtools-connection.gif)
 :::
 
 :::info
-If connecting to the emulator proves troublesome (especially Android 12), try running `adb reverse tcp:8097 tcp:8097` in a new terminal.
+If connecting to an Android emulator proves troublesome, try running `adb reverse tcp:8097 tcp:8097` in a new terminal.
 :::
