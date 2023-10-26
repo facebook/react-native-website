@@ -11,7 +11,7 @@ The contributors who helped tackle the incident recently attended a post-mortem 
 
 <!--truncate-->
 
-# What happened
+## What happened
 
 On November 4th 2022, we published the version `0.71.0-rc0` of React Native, the first release candidate for 0.71, on several public repositories.
 
@@ -19,7 +19,7 @@ A major change made in this release candidate helped to improve build times by p
 
 Unfortunately, because of the way we scaffolded new projects from the template, this caused build failures for any Android user on older versions because they would start downloading new artifacts for `0.71.0-rc0` instead of the version they were using in their project (like `0.68.0`).
 
-# Why this happened
+## Why this happened
 
 The React Native template provides a `build.gradle` file to build Android apps. This file contains a dependency on the React Native Android library as follows:
 `implementation("com.facebook.react:react-native:+")`.
@@ -32,7 +32,7 @@ This caused builds with React Native versions before `0.71.0-rc.0` to query all 
 
 Further technical details on this event area are also available [on this GitHub issue](https://github.com/facebook/react-native/issues/35210).
 
-# How we mitigated & resolved
+## How we mitigated & resolved
 
 As soon as we identified the issue on November 4th, the community found and shared a manual workaround to fix the issue which would pin React Native to a specific, correcting the mistake.
 
@@ -42,7 +42,7 @@ At the same time, we [reached out to Sonatype](https://issues.sonatype.org/brows
 
 The issue was fully resolved on November 8th when the artifacts were fully removed from Maven Central.
 
-# Timeline of events
+## Timeline of events
 
 _This section contains a brief timeline of the events. All times are GMT/UTC +0_
 
@@ -58,7 +58,7 @@ _This section contains a brief timeline of the events. All times are GMT/UTC +0_
 - Nov 8th - 08:04 PM: Artifacts on Maven Central are [fully removed](https://issues.sonatype.org/browse/OSSRH-86006?focusedCommentId=1216303&page=com.atlassian.jira.plugin.system.issuetabpanels%3Acomment-tabpanel#comment-1216303).
 - Nov 10th - 11:51 AM: Issue about the [incident is closed](https://github.com/facebook/react-native/issues/35210#issuecomment-1310170361).
 
-# Lessons Learned
+## Lessons Learned
 
 While in many ways the conditions to trigger this incident has existed since React Native 0.12.0, we want to ensure that the foundations on which we develop and release React Native moving forward are stronger. Here are some of the lessons learned and the actionables on how we’ll adapt our processes and infrastructure to respond faster and stronger in the future.
 
@@ -94,7 +94,7 @@ Specifically, we are now encouraging and supporting 3rd party library testing as
 
 On top of this, we started a closer collaboration with Callstack, the maintainers of [create-react-native-library](https://github.com/callstack/react-native-builder-bob/tree/main/packages/create-react-native-library), to improve the library template and make sure it follows all the necessary best practices to integrate with React Native projects. The newer version of `create-react-native-library` is now fully compatible with 0.71 projects while still offering backward compatibility.
 
-# Conclusions
+## Conclusions
 
 We want to apologize for the disruption this caused to the workflows of developers all around the world. As highlighted above, we have already started taking action to strengthen our foundation - and more work is due.
 
