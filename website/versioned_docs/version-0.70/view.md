@@ -76,7 +76,7 @@ For `View` responder props (e.g., `onResponderMove`), the synthetic touch event 
 
 ---
 
-# Reference
+<h1>Reference</h1>
 
 ## Props
 

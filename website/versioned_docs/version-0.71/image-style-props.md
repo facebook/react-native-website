@@ -497,7 +497,7 @@ export default DisplayAnImageWithStyle;
 </TabItem>
 </Tabs>
 
-# Reference
+<h1>Reference</h1>
 
 ## Props
 

@@ -104,7 +104,7 @@ For cases where using a component is not ideal, there is also an imperative API 
 
 ---
 
-# Reference
+<h1>Reference</h1>
 
 ## Constants
 

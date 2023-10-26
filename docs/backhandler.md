@@ -103,7 +103,7 @@ If you are using React Navigation to navigate across different screens, you can 
 
 ---
 
-# Reference
+<h1>Reference</h1>
 
 ## Methods
 

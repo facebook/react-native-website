@@ -194,7 +194,7 @@ For example, when working with horizontal scrolling gestures, you would do the f
 
 ---
 
-# Reference
+<h1>Reference</h1>
 
 ## Methods
 

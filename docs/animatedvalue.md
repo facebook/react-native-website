@@ -9,7 +9,7 @@ Typically initialized with `new Animated.Value(0);`
 
 ---
 
-# Reference
+<h1>Reference</h1>
 
 ## Methods
 

@@ -184,7 +184,7 @@ This is a convenience wrapper around [`<VirtualizedList>`](virtualizedlist.md), 
 
 ---
 
-# Reference
+<h1>Reference</h1>
 
 ## Props
 

@@ -69,7 +69,7 @@ export default KeyboardAvoidingComponent;
 
 ---
 
-# Reference
+<h1>Reference</h1>
 
 ## Props
 

@@ -28,7 +28,7 @@ We recommend using the [`Alert.alert`](alert) method for cross-platform support 
 
 ---
 
-# Reference
+<h1>Reference</h1>
 
 ## Methods
 

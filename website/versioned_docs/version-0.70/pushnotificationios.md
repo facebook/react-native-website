@@ -106,7 +106,7 @@ Then enable Background Modes/Remote notifications to be able to use remote notif
 
 ---
 
-# Reference
+<h1>Reference</h1>
 
 ## Methods
 

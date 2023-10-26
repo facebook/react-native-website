@@ -45,7 +45,7 @@ Code quality tips:
 
 ---
 
-# Reference
+<h1>Reference</h1>
 
 ## Methods
 

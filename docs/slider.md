@@ -9,7 +9,7 @@ A component used to select a single value from a range of values.
 
 ---
 
-# Reference
+<h1>Reference</h1>
 
 ## Props
 
