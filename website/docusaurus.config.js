@@ -219,6 +219,8 @@ module.exports = {
         defaultLanguage: 'jsx',
         theme: require('./core/PrismTheme'),
         additionalLanguages: [
+          'diff',
+          'bash',
           'java',
           'kotlin',
           'objectivec',
