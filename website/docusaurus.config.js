@@ -221,6 +221,7 @@ module.exports = {
         additionalLanguages: [
           'diff',
           'bash',
+          'json',
           'java',
           'kotlin',
           'objectivec',
