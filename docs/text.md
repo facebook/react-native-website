@@ -441,7 +441,7 @@ Specifies the largest possible scale a font can reach when `allowFontScaling` is
 
 - `null/undefined`: inherit from the parent node or the global default (0)
 - `0`: no max, ignore parent/global default
-- `>= 1`: sets the `maxFontSizeMultiplier` of this node to this value
+- `>= 1`: sets the `maxFontSizeMultiplier` of this node to this value (ex. 1.2 will limit the scale to 2X the default).
 
 | Type   | Default     |
 | ------ | ----------- |
