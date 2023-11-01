@@ -142,7 +142,7 @@ static alert (
 | title <div class="label basic required">Required</div> | string                             | The dialog's title. Passing `null` or empty string will hide the title. |
 | message                                                | string                             | An optional message that appears below the dialog's title.              |
 | buttons                                                | [AlertButton](alert#alertbutton)[] | An optional array containing buttons configuration.                     |
-| options                                                | [AlertOptions](alert#alertoptions)           | An optional Alert configuration.                                        |
+| options                                                | [AlertOptions](alert#alertoptions) | An optional Alert configuration.                                        |
 
 ---
 
@@ -171,7 +171,7 @@ Create and display a prompt to enter some text in form of Alert.
 | type                                                   | [AlertType](alert#alerttype-ios)                | This configures the text input.                                                                                                                                                                       |
 | defaultValue                                           | string                                          | The default text in text input.                                                                                                                                                                       |
 | keyboardType                                           | string                                          | The keyboard type of first text field (if exists). One of TextInput [keyboardTypes](textinput#keyboardtype).                                                                                          |
-| options                                                | [AlertOptions](alert#alertoptions)                        | An optional Alert configuration.                                                                                                                                                                      |
+| options                                                | [AlertOptions](alert#alertoptions)              | An optional Alert configuration.                                                                                                                                                                      |
 
 ---
 
