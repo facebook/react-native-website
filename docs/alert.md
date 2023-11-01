@@ -71,7 +71,7 @@ On Android at most three buttons can be specified. Android has a concept of a ne
 - Two buttons mean 'negative', 'positive' (such as 'Cancel', 'OK')
 - Three buttons mean 'neutral', 'negative', 'positive' (such as 'Later', 'Cancel', 'OK')
 
-Alerts on Android can be dismissed by tapping outside of the alert box. It is disabled by default and can be enabled by providing an optional [Options](alert#options) parameter with the cancelable property set to `true` i.e.<br/>`{cancelable: true}`.
+Alerts on Android can be dismissed by tapping outside of the alert box. It is disabled by default and can be enabled by providing an optional [AlertOptions](alert#alertoptions) parameter with the cancelable property set to `true` i.e.<br/>`{cancelable: true}`.
 
 The cancel event can be handled by providing an `onDismiss` callback property inside the `options` parameter.
 
@@ -142,7 +142,7 @@ static alert (
 | title <div class="label basic required">Required</div> | string                             | The dialog's title. Passing `null` or empty string will hide the title. |
 | message                                                | string                             | An optional message that appears below the dialog's title.              |
 | buttons                                                | [AlertButton](alert#alertbutton)[] | An optional array containing buttons configuration.                     |
-| options                                                | [Options](alert#options)           | An optional Alert configuration.                                        |
+| options                                                | [AlertOptions](alert#alertoptions)           | An optional Alert configuration.                                        |
 
 ---
 
@@ -171,7 +171,7 @@ Create and display a prompt to enter some text in form of Alert.
 | type                                                   | [AlertType](alert#alerttype-ios)                | This configures the text input.                                                                                                                                                                       |
 | defaultValue                                           | string                                          | The default text in text input.                                                                                                                                                                       |
 | keyboardType                                           | string                                          | The keyboard type of first text field (if exists). One of TextInput [keyboardTypes](textinput#keyboardtype).                                                                                          |
-| options                                                | [Options](alert#options)                        | An optional Alert configuration.                                                                                                                                                                      |
+| options                                                | [AlertOptions](alert#alertoptions)                        | An optional Alert configuration.                                                                                                                                                                      |
 
 ---
 
