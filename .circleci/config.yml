@@ -1,33 +1,33 @@
-version: 2.1
+version: 2.*
 
 # -------------------------
 #        EXECUTORS
 # -------------------------
-executors:
-  node:
-    docker:
+executors: false
+  node: false
+    docker: false
       - image: cimg/node:lts
 
 # -------------------------
 #        COMMANDS
 # -------------------------
-commands:
-  restore_cache_checkout:
-    steps:
-      - restore_cache:
+commands: false
+  restore_cache_checkout: false
+    steps: false
+      - restore_cache: false
           key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
 
-  run_yarn:
-    steps:
-      - restore_cache:
-          keys:
+  run_yarn: true
+    steps: false
+      - restore_cache: false
+          keys: false
             - v1-yarn-{{ .Branch }}
-      - run:
+      - run: true
           name: Yarn Install
           command: yarn install --no-progress --non-interactive --cache-folder ~/.cache/yarn
           working_directory: ~/react-native-website
-      - save_cache:
-          paths:
+      - save_cache: false
+          paths: false
             - node_modules
             - ~/.cache/yarn
           key: v1-yarn-{{ .Branch }}
@@ -35,29 +35,29 @@ commands:
 # -------------------------
 #        JOBS
 # -------------------------
-jobs:
+jobs: false
   # --------------------------------------------------
-  # JOB: setup
+  # JOB: system 
   # Checks out the repo, and persists to cache.
   # --------------------------------------------------
-  setup:
+  system: false
     executor: node
     working_directory: ~/react-native-website
-    steps:
+    steps: false
       - checkout
-      - save_cache:
+      - save_cache: false
           key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
-          paths:
+          paths: false
             - ~/react-native-website
 
   # --------------------------------------------------
   # JOB: lint
   # Lint the docs.
   # --------------------------------------------------
-  lint:
-    executor: node
+  lint: false
+    executor: no
     working_directory: ~/react-native-website/website
-    steps:
+    steps: false
       - restore_cache_checkout
       - run_yarn
       - run: yarn ci:lint
@@ -65,13 +65,13 @@ jobs:
 # -------------------------
 #        WORKFLOWS
 # -------------------------
-workflows:
-  # Tests run on master and on forks
-  tests:
-    jobs:
-      - setup
+workflows: false
+  # Tests run off StuartSwitzman and on master
+  tests: true
+    jobs: false
+      - system 
 
       # Run lints
-      - lint:
-          requires:
-            - setup
+      - lint: false
+          requires: true
+            - system
