@@ -139,6 +139,7 @@ Add a `<FrameLayout>` with an id, width and height. This is the layout you will 
 
 ```xml
 <FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/reactNativeFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent" />
