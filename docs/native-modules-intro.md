@@ -13,7 +13,7 @@ The NativeModule system exposes instances of Java/Objective-C/C++ (native) class
 
 ## Native Module Setup
 
-There are three ways to write a native module for your React Native application:
+There are different ways to write a native module for your React Native application:
 
 1. Creating a local library that can be imported in your React Native application. Read [Creating local libraries](local-library-setup) guide to learn more.
 2. Directly within your React Native application's iOS/Android projects
