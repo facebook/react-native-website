@@ -51,7 +51,7 @@ Sets an offset that is applied on top of whatever value is set, whether via `set
 flattenOffset();
 ```
 
-Merges the offset value into the base value and resets the offset to zero. The final output of the value is unchanged.
+Merges the offset value into the base, and resets the offset to zero. The final output of the value is unchanged.
 
 ---
 
@@ -61,7 +61,7 @@ Merges the offset value into the base value and resets the offset to zero. The f
 extractOffset();
 ```
 
-Sets the offset value to the base value, and resets the base value to zero. The final output of the value is unchanged.
+Merges the base value into the offset, and resets the base value to zero. The final output of the value is unchanged.
 
 ---
 
