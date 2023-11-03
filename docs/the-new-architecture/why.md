@@ -42,3 +42,4 @@ These advantages are the foundations of the [New Native Module System](pillars-t
 For a technical overview of the New Architecture, read the [Architecture tab](/architecture/overview).
 
 For more information on the Fabric Renderer, read the [Fabric section](/architecture/fabric-renderer).
+
