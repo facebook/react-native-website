@@ -929,3 +929,13 @@ Specifies text alignment. On Android, the value 'justify' is only supported on O
 | Type                             | Default  |
 | -------------------------------- | -------- |
 | enum(`'auto'`, `'ltr'`, `'rtl'`) | `'auto'` |
+
+---
+
+### `userSelect`
+
+It allows the user to select text and to use the native copy and paste functionality. Has precedence over the `selectable` prop.
+
+| Type                                                     | Default |
+| -------------------------------------------------------- | ------- |
+| enum(`'auto'`, `'text'`, `'none'`, `'contain'`, `'all'`) | `none`  |
