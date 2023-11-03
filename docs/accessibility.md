@@ -133,10 +133,11 @@ In the above example method `addOne` changes the state variable `count`. As soon
 
 `accessibilityRole` can be one of the following:
 
-- **adjustable** Used when an element can be "adjusted" (e.g. a slider).
+- **adjustable** Used when an element can be "adjusted" (e.g. a slider, seekcontrol).
 - **alert** Used when an element contains important text to be presented to the user.
 - **button** Used when the element should be treated as a button.
-- **checkbox** Used when an element represents a checkbox which can be checked, unchecked, or have mixed checked state.
+- **dropdownlist** Used to represent a dropdownlist (Spinner). A view that displays one child at a time and lets the user pick among them (Android).
+- **checkbox** Used when an element represents a checkbox which can be checked, unchecked, or have mixed checked state (Android).
 - **combobox** Used when an element represents a combo box, which allows the user to select among several choices.
 - **header** Used when an element acts as a header for a content section (e.g. the title of a navigation bar).
 - **image** Used when the element should be treated as an image. Can be combined with button or link, for example.
@@ -148,11 +149,11 @@ In the above example method `addOne` changes the state variable `count`. As soon
 - **menuitem** Used to represent an item within a menu.
 - **none** Used when the element has no role.
 - **progressbar** Used to represent a component which indicates progress of a task.
-- **radio** Used to represent a radio button.
+- **radio** Used to represent a radio button (Android).
 - **radiogroup** Used to represent a group of radio buttons.
 - **scrollbar** Used to represent a scroll bar.
 - **search** Used when the text field element should also be treated as a search field.
-- **spinbutton** Used to represent a button which opens a list of choices.
+- **spinbutton** Used to represent a button which opens a list of choices (Android).
 - **summary** Used when an element can be used to provide a quick summary of current conditions in the app when the app first launches.
 - **switch** Used to represent a switch which can be turned on and off.
 - **tab** Used to represent a tab.
@@ -161,7 +162,19 @@ In the above example method `addOne` changes the state variable `count`. As soon
 - **timer** Used to represent a timer.
 - **togglebutton** Used to represent a toggle button. Should be used with accessibilityState checked to indicate if the button is toggled on or off.
 - **toolbar** Used to represent a tool bar (a container of action buttons or components).
-- **grid** Used with ScrollView, VirtualizedList, FlatList, or SectionList to represent a grid. Adds the in/out of grid announcements to the android GridView.
+- **list** Base class that can be used to implement virtualized lists of items.
+  A list does not have a spatial definition here. For instance, subclasses of
+  this class can display the content of the list in a grid, in a carousel, as
+  stack, etc. (Android).
+- **grid** Used with ScrollView, VirtualizedList, FlatList, or SectionList to represent a grid. Adds the in/out of grid announcements to the android GridView (Android).
+- **pager** Used to represent a pager. Layout manager that allows the user to flip left and right through pages of data (Android).
+- **scrollview** Used to represent a ScrollView. ScrollView is a view group that allows the view hierarchy placed within it to be scrolled (Android).
+- **horizontalscrollview** Used to represent a HorizontalScrollView (Android).
+- **viewgroup** Used to represent a ViewGroup. ViewGroup is a special view that can contain other views (called children.) The view group is the base class for layouts and views containers (Android).
+- **webview** Used to represent a webview (Android).
+- **drawerlayout** Used to represent a drawerlayout. Announces Drawer on the left or right (Android).
+- **slidingdrawer** Used to represent a slidingdrawer. Announces Sliding drawer opened (Android).
+- **iconmenu** Used to represent a iconmenu. Announces Options, Drawer on the left or right (Android).
 
 ### `accessibilityState`
 
