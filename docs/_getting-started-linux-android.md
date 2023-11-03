@@ -183,6 +183,17 @@ Now that you have successfully run the app, let's modify it.
 - Open `App.tsx` in your text editor of choice and edit some lines.
 - Press the <kbd>R</kbd> key twice or select `Reload` from the Dev Menu (<kbd>Ctrl</kbd> + <kbd>M</kbd>) to see your changes!
 
+<h3>Running your app on a daily basis</h3>
+
+Once you have run your app for the first time, you don't necessarily have to run `npx react-native run-android` again the next morning to start it.
+
+`npx react-native run-android` builds a new app, and compiles the native code. If you haven't made any native change, you don't have to go through the native compilation again.
+
+To launch your app, you can:
+
+- Start Metro by running `react-native start`
+- Click on your app on your simulator
+
 <h3>That's it!</h3>
 
 Congratulations! You've successfully run and modified your first React Native app.
