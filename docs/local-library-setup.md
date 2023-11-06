@@ -73,7 +73,7 @@ yarn install
 
 ### Using module inside your app
 
-To use the module inside your app, you need to import it from the `node_modules` folder:
+To use the module inside your app, you can import it by its name:
 
 ```js
 import {multiply} from 'awesome-module';
