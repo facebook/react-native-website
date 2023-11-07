@@ -70,6 +70,38 @@
       "pinned": true
     }
   ],
+  "amazon": [
+    {
+      "name": "Amazon Shopping",
+      "icon": "amazon-shopping.png",
+      "linkAppStore": "https://apps.apple.com/us/app/amazon-shopping/id297606951",
+      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.amazon.mShop.android.shopping"
+    },
+    {
+      "name": "Amazon Alexa",
+      "icon": "amazon-alexa.webp",
+      "linkAppStore": "https://apps.apple.com/us/app/amazon-alexa/id944011620",
+      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.amazon.dee.app&hl=en_US&gl=US"
+    },
+    {
+      "name": "Amazon Photos",
+      "icon": "amazon-photos.webp",
+      "linkAppStore": "https://apps.apple.com/us/app/amazon-photos-photo-video/id621574163",
+      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.amazon.clouddrive.photos&hl=en_US&gl=US "
+    },
+    {
+      "name": "Amazon Kindle",
+      "icon": "amazon-kindle.png",
+      "infoLink": "https://www.amazon.com/b/?node=6669702011",
+      "infoTitle": "Purpose-built for reading, Kindle e-readers let you take your stories wherever you go"
+    },
+    {
+      "name": "Amazon Appstore",
+      "icon": "amazon-appstore.png",
+      "infoLink": "https://www.amazon.com/gp/mas/get/amazonapp",
+      "infoTitle": "Amazon Appstore is an app store for Android devices, all Amazon Fire tablets, and Windows 11 devices"
+    }
+  ],
   "shopify": [
     {
       "name": "Shopify",
