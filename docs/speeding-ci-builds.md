@@ -38,14 +38,14 @@ Your app may be using some libraries which depends on the Flipper pods. If that'
 The proper way to handle this case is to add a custom configuration for react native, instructing the app to properly install the transitive dependency. To achieve that:
 
 1. If you don't have it already, create a new file called `react-native.config.js`.
-2. Exclude explicitly the transitive dependency from the `dependencies` when the flag is turned on.
+2. Exclude explicitly the transitive dependency from the `dependency` when the flag is turned on.
 
 For example, the `react-native-flipper` library is an additional library that depends on Flipper. If your app uses that, you need to exclude it from the dependencies. Your `react-native.config.js` would look like this:
 
 ```js title="react-native.config.js"
 module.exports = {
   // other fields
-  dependencies: {
+  dependency: {
     ...(process.env.NO_FLIPPER
       ? {'react-native-flipper': {platforms: {ios: null}}}
       : {}),
