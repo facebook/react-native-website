@@ -4,7 +4,7 @@ title: Setting up the development environment
 hide_table_of_contents: true
 ---
 
-import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+import **Tabs** from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 import GuideLinuxAndroid from './\_getting-started-linux-android.md'; import GuideMacOSAndroid from './\_getting-started-macos-android.md'; import GuideWindowsAndroid from './\_getting-started-windows-android.md'; import GuideMacOSIOS from './\_getting-started-macos-ios.md';
 
@@ -157,6 +157,7 @@ The instructions are a bit different depending on your development operating sys
 ## Unsupported
 
 > A Mac is required to build projects with native code for iOS. You can follow the **Expo Go Quickstart** to learn how to build your app using Expo instead.
+> 
 
 </TabItem>
 </Tabs>
