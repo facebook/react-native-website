@@ -441,15 +441,33 @@ The `AccessibilityInfo` API allows you to determine whether or not a screen read
 
 ## Sending Accessibility Events <div class="label android">Android</div>
 
-Sometimes it is useful to trigger an accessibility event on a UI component (i.e. when a custom view appears on a screen or set accessibility focus to a view). Native UIManager module exposes a method ‘sendAccessibilityEvent’ for this purpose. It takes two arguments: view tag and a type of an event. The supported event types are `typeWindowStateChanged`, `typeViewFocused` and `typeViewClicked`.
+Sometimes it is useful to trigger an accessibility event on a UI component (i.e. when a custom view appears on a screen or set accessibility focus to a view). Native FabricUIManager module exposes a method `sendAccessibilityEvent` for this purpose. It takes two arguments: `handle` and `eventType`.
+The supported event types are `typeWindowStateChanged`, `typeViewFocused`, and `typeViewClicked`.
+Android also supports `viewHoverEnter`.
 
 ```tsx
-import {Platform, UIManager, findNodeHandle} from 'react-native';
+function SetAccessibilityFocusExample(props: Props) {
+  const myRef = React.useRef<React.ElementRef<
+    typeof Text
+  > | null>(null);
 
-if (Platform.OS === 'android') {
-  UIManager.sendAccessibilityEvent(
-    findNodeHandle(this),
-    UIManager.AccessibilityEventTypes.typeViewFocused,
+  const onPress = () => {
+    if (myRef && myRef.current) {
+      AccessibilityInfo.sendAccessibilityEvent(
+        myRef.current,
+        'focus',
+      );
+    }
+  };
+
+  return (
+    <View>
+      <Text ref={myRef}>
+        SetAccessibilityFocus on native element. This should get
+        focus after clicking the button!
+      </Text>
+      <Button title={'Click'} onPress={onPress} />
+    </View>
   );
 }
 ```
