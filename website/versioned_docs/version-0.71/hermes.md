@@ -59,7 +59,7 @@ Hermes supports the Chrome debugger by implementing the Chrome inspector protoco
 Note that this is very different with the "Remote JS Debugging" from the In-App Developer Menu documented in the [Debugging](debugging#debugging-using-a-custom-javascript-debugger) section, which actually runs the JS code on Chrome's V8 on your development machine (laptop or desktop).
 :::
 
-Chrome connects to Hermes running on device via Metro, so you'll need to know where Metro is listening. Typically this will be on `localhost:8081`, but this is [configurable](https://facebook.github.io/metro/docs/configuration). When running `yarn start` the address is written to stdout on startup.
+Chrome connects to Hermes running on device via Metro, so you'll need to know where Metro is listening. Typically this will be on `localhost:8081`, but this is [configurable](https://metrobundler.dev/docs/configuration). When running `yarn start` the address is written to stdout on startup.
 
 Once you know where the Metro server is listening, you can connect with Chrome using the following steps:
 
