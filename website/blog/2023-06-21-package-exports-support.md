@@ -84,7 +84,7 @@ Enabling Package Exports brings a few [edge-case breaking changes](#breaking-cha
 
 ### Enabling Package Exports (beta)
 
-Package Exports can be enabled in your app's [**metro.config.js**](https://github.com/facebook/react-native/blob/0.72-stable/packages/react-native/template/metro.config.js) file via the [`resolver.unstable_enablePackageExports`](https://facebook.github.io/metro/docs/configuration/#unstable_enablepackageexports-experimental) option.
+Package Exports can be enabled in your app's [**metro.config.js**](https://github.com/facebook/react-native/blob/0.72-stable/packages/react-native/template/metro.config.js) file via the [`resolver.unstable_enablePackageExports`](https://metrobundler.dev/docs/configuration/#unstable_enablepackageexports-experimental) option.
 
 ```js
 const config = {
@@ -97,8 +97,8 @@ const config = {
 
 Metro exposes two further resolver options which configure how conditional exports behave:
 
-- [`unstable_conditionNames`](https://facebook.github.io/metro/docs/configuration/#unstable_conditionnames-experimental) — The set of [condition names](https://nodejs.org/docs/latest-v19.x/api/packages.html#community-conditions-definitions) to assert when resolving conditional exports. By default, we match `['require', 'import', 'react-native']`.
-- [`unstable_conditionsByPlatform`](https://facebook.github.io/metro/docs/configuration/#unstable_conditionsbyplatform-experimental) — The additional condition names to assert when resolving for a given platform target. By default, this matches `'browser'` when the platform is `'web'`.
+- [`unstable_conditionNames`](https://metrobundler.dev/docs/configuration/#unstable_conditionnames-experimental) — The set of [condition names](https://nodejs.org/docs/latest-v19.x/api/packages.html#community-conditions-definitions) to assert when resolving conditional exports. By default, we match `['require', 'import', 'react-native']`.
+- [`unstable_conditionsByPlatform`](https://metrobundler.dev/docs/configuration/#unstable_conditionsbyplatform-experimental) — The additional condition names to assert when resolving for a given platform target. By default, this matches `'browser'` when the platform is `'web'`.
 
 :::tip
 **Remember to use the React Native [Jest preset](https://github.com/facebook/react-native/blob/main/template/jest.config.js#L2)!** Jest includes support for Package Exports by default. In tests, you can override which `customExportConditions` are resolved using the [`testEnvironmentOptions`](https://jestjs.io/docs/configuration#testenvironmentoptions-object) option.
@@ -148,10 +148,10 @@ We decided on an implementation of Package Exports in Metro that is spec-complia
 
 The key breaking change is that when `"exports"` is provided by a package, it will be consulted first (before any other `package.json` fields) — and a matched subpath target will be used directly.
 
-- Metro will not expand [`sourceExts`](https://facebook.github.io/metro/docs/configuration/#sourceexts) against the import specifier.
+- Metro will not expand [`sourceExts`](https://metrobundler.dev/docs/configuration/#sourceexts) against the import specifier.
 - Metro will not resolve [platform-specific extensions](/docs/platform-specific-code) against the target file.
 
-For more details, please see all [**breaking changes**](https://facebook.github.io/metro/docs/package-exports#summary-of-breaking-changes) in the Metro docs.
+For more details, please see all [**breaking changes**](https://metrobundler.dev/docs/package-exports#summary-of-breaking-changes) in the Metro docs.
 
 ### Package encapsulation is lenient
 
@@ -194,7 +194,7 @@ We believe that the new features of `"exports"` provide a compelling feature set
 - **Tighten your package API**: This is a great time to review the module API of your package, which can now be formally defined via exported subpath aliases. This prevents users from accessing internal APIs, reducing surface area for bugs.
 - **Conditional exports**: If your package targets React Native for Web (i.e. `"react-native"` and `"browser"`), we now give packages control of the resolution order of these conditions (see next heading).
 
-If you decide to introduce `"exports"`, **we recommend making this as a breaking change**. We've prepared a [**migration guide**](https://facebook.github.io/metro/docs/package-exports#migration-guide-for-package-maintainers) in the Metro docs which includes how to replace features such as platform-specific extensions.
+If you decide to introduce `"exports"`, **we recommend making this as a breaking change**. We've prepared a [**migration guide**](https://metrobundler.dev/docs/package-exports#migration-guide-for-package-maintainers) in the Metro docs which includes how to replace features such as platform-specific extensions.
 
 :::note
 **Please do not rely on the lenient behaviours of Metro's implementation.** While Metro is backwards-compatible, packages should follow how `"exports"` is documented in the spec and strictly implemented by other tools.

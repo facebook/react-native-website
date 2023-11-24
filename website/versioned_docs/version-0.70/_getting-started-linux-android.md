@@ -129,7 +129,7 @@ Click "Next" then "Finish" to create your AVD. At this point you should be able 
 
 <h3>Step 1: Start Metro</h3>
 
-First, you will need to start Metro, the JavaScript bundler that ships with React Native. Metro "takes in an entry file and various options, and returns a single JavaScript file that includes all your code and its dependencies."—[Metro Docs](https://facebook.github.io/metro/docs/concepts)
+First, you will need to start Metro, the JavaScript bundler that ships with React Native. Metro "takes in an entry file and various options, and returns a single JavaScript file that includes all your code and its dependencies."—[Metro Docs](https://metrobundler.dev/docs/concepts)
 
 To start Metro, run `npx react-native start` inside your React Native project folder:
 

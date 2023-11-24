@@ -3,7 +3,7 @@ id: metro
 title: Metro
 ---
 
-React Native uses [Metro](https://facebook.github.io/metro/) to build your JavaScript code and assets.
+React Native uses [Metro](https://metrobundler.dev/) to build your JavaScript code and assets.
 
 ## Configuring Metro
 
@@ -13,7 +13,7 @@ Configuration options for Metro can be customized in your project's `metro.confi
 - [**A function**](#advanced-using-a-config-function) that will be called with Metro's internal config defaults and should return a final config object.
 
 :::tip
-Please see [**Configuring Metro**](https://facebook.github.io/metro/docs/configuration) on the Metro website for documentation on all available config options.
+Please see [**Configuring Metro**](https://metrobundler.dev/docs/configuration) on the Metro website for documentation on all available config options.
 :::
 
 In React Native, your Metro config should extend either [`@react-native/metro-config`](https://www.npmjs.com/package/@react-native/metro-config) or [`@expo/metro-config`](https://www.npmjs.com/package/@expo/metro-config). These packages contain essential defaults necessary to build and run React Native apps.
@@ -26,7 +26,7 @@ const {getDefaultConfig, mergeConfig} = require('@react-native/metro-config');
 
 /**
  * Metro configuration
- * https://facebook.github.io/metro/docs/configuration
+ * https://metrobundler.dev/docs/configuration
  *
  * @type {import('metro-config').MetroConfig}
  */
@@ -100,5 +100,5 @@ const config = {
 
 ## Learn more about Metro
 
-- [Metro website](https://facebook.github.io/metro/)
+- [Metro website](https://metrobundler.dev/)
 - [Video: "Metro & React Native DevX" talk at App.js 2023](https://www.youtube.com/watch?v=c9D4pg0y9cI)

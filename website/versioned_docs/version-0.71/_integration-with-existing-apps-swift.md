@@ -327,4 +327,4 @@ Here is the _React Native_ high score screen:
 
 At this point you can continue developing your app as usual. Refer to our [debugging](debugging) and [deployment](running-on-device) docs to learn more about working with React Native.
 
-[metro]: https://facebook.github.io/metro/
+[metro]: https://metrobundler.dev/

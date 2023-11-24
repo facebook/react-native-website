@@ -104,7 +104,7 @@ You might also want to ensure that all "shell script build phase" of your Xcode 
 
 ### Step 1: Start Metro
 
-First, you will need to start Metro, the JavaScript bundler that ships with React Native. Metro "takes in an entry file and various options, and returns a single JavaScript file that includes all your code and its dependencies."—[Metro Docs](https://facebook.github.io/metro/docs/concepts)
+First, you will need to start Metro, the JavaScript bundler that ships with React Native. Metro "takes in an entry file and various options, and returns a single JavaScript file that includes all your code and its dependencies."—[Metro Docs](https://metrobundler.dev/docs/concepts)
 
 To start Metro, run following command inside your React Native project folder:
 
