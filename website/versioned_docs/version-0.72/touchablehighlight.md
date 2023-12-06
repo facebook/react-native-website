@@ -77,7 +77,7 @@ export default TouchableHighlightExample;
 
 ---
 
-# Reference
+<h1>Reference</h1>
 
 ## Props
 

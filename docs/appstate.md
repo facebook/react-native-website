@@ -71,7 +71,7 @@ This example will only ever appear to say "Current state is: active" because the
 
 ---
 
-# Reference
+<h1>Reference</h1>
 
 ## Events
 

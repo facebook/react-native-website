@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
 export default ViewStyleProps;
 ```
 
-# Reference
+<h1>Reference</h1>
 
 ## Props
 

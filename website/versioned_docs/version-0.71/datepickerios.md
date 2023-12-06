@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
 
 ---
 
-# Reference
+<h1>Reference</h1>
 
 ## Props
 

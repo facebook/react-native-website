@@ -137,7 +137,7 @@ Try the [PanResponder example in RNTester](https://github.com/facebook/react-nat
 
 ---
 
-# Reference
+<h1>Reference</h1>
 
 ## Methods
 

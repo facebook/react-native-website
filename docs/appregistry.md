@@ -30,7 +30,7 @@ To "stop" an application when a view should be destroyed, call `AppRegistry.unmo
 
 ---
 
-# Reference
+<h1>Reference</h1>
 
 ## Methods
 

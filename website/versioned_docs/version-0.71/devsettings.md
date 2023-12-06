@@ -7,7 +7,7 @@ The `DevSettings` module exposes methods for customizing settings for developers
 
 ---
 
-# Reference
+<h1>Reference</h1>
 
 ## Methods
 

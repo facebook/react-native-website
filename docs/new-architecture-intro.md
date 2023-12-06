@@ -3,6 +3,8 @@ id: new-architecture-intro
 title: Migrating to the New Architecture
 ---
 
+# Migrating to the New Architecture
+
 import NewArchitectureWarning from './\_markdown-new-architecture-warning.mdx';
 
 <NewArchitectureWarning/>

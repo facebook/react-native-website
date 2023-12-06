@@ -3,6 +3,8 @@ id: pillars-codegen
 title: Codegen
 ---
 
+# Codegen
+
 import NewArchitectureWarning from '../\_markdown-new-architecture-warning.mdx';
 
 <NewArchitectureWarning/>

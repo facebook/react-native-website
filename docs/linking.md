@@ -528,7 +528,7 @@ export default App;
 </TabItem>
 </Tabs>
 
-# Reference
+<h1>Reference</h1>
 
 ## Methods
 

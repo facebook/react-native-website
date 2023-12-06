@@ -88,7 +88,7 @@ export default ShareExample;
 </TabItem>
 </Tabs>
 
-# Reference
+<h1>Reference</h1>
 
 ## Methods
 

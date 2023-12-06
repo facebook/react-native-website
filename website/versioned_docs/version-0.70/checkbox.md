@@ -56,7 +56,7 @@ export default App;
 
 ---
 
-# Reference
+<h1>Reference</h1>
 
 ## Props
 

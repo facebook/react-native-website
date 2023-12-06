@@ -87,7 +87,7 @@ Note that on Android performing text selection in an input can change the app's 
 
 ---
 
-# Reference
+<h1>Reference</h1>
 
 ## Props
 

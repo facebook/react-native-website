@@ -198,7 +198,7 @@ Available as constants under `PermissionsAndroid.RESULTS`:
 
 ---
 
-# Reference
+<h1>Reference</h1>
 
 ## Methods
 

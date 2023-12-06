@@ -188,7 +188,7 @@ We believe that this more constrained way to style text will yield better apps:
 
 ---
 
-# Reference
+<h1>Reference</h1>
 
 ## Props
 

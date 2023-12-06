@@ -45,7 +45,7 @@ This component can also be used to create sticky text inputs (text inputs which 
 
 ---
 
-# Reference
+<h1>Reference</h1>
 
 ## Props
 

@@ -47,7 +47,7 @@ Although the color scheme is available immediately, this may change (e.g. schedu
 
 ---
 
-# Reference
+<h1>Reference</h1>
 
 ## Methods
 

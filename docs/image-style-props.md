@@ -232,7 +232,7 @@ const styles = StyleSheet.create({
 export default DisplayAnImageWithStyle;
 ```
 
-# Reference
+<h1>Reference</h1>
 
 ## Props
 
