@@ -95,7 +95,7 @@ LOG Running "App" with {"fabric":true,"initialProps":{"concurrentRoot": "true"},
 
 If you followed the previous steps but your app uses some custom Native Components that have not been migrated to the New Architecture completely, you are going to see some reddish/pinkish boxes saying that the component is not compatible with Fabric. This is happening because custom Native Components written for the legacy architecture can't run as-is in the New Architecture.
 
-Starting from **React Native `0.72.0`**, we worked on a interoperability layer to let you use legacy components in the New Architecture without having to wait for them to be migrated.
+Starting from **React Native `0.72.0`**, we worked on an interoperability layer to let you use legacy components in the New Architecture without having to wait for them to be migrated.
 
 You can read more about the interoperability layer and how to use it [here](https://github.com/reactwg/react-native-new-architecture/discussions/135). Follow this guide to register your components and then rerun your app with the commands:
 
