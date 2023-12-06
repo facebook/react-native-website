@@ -188,7 +188,7 @@ import {requireNativeComponent} from 'react-native';
 /**
  * Composes `View`.
  *
- * - src: string
+ * - src: Array<{url: string}>
  * - borderRadius: number
  * - resizeMode: 'cover' | 'contain' | 'stretch'
  */
