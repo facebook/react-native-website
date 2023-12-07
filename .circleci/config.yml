@@ -24,7 +24,7 @@ commands:
             - v1-yarn-{{ .Branch }}
       - run:
           name: Yarn Install
-          command: yarn install --no-progress --non-interactive --cache-folder ~/.cache/yarn
+          command: yarn install --frozen-lockfile --no-progress --non-interactive --cache-folder ~/.cache/yarn
           working_directory: ~/react-native-website
       - save_cache:
           paths:
