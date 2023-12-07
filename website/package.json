@@ -65,10 +65,15 @@
     "@react-native-website/update-redirects": "0.0.0",
     "alex": "^10.0.0",
     "fs-extra": "^10.1.0",
-    "glob": "^8.0.3",
+    "glob": "7.1.6",
     "glob-promise": "^4.2.2",
     "path": "^0.12.7",
+    "react": "^18.2.0",
+    "react-docgen": "3",
+    "react-loadable": "*",
     "remark-cli": "^11.0.0",
-    "remark-lint-no-dead-urls": "^1.1.0"
+    "remark-lint-no-dead-urls": "^1.1.0",
+    "typescript": "^5.3.3",
+    "webpack": "5.0.0"
   }
 }
