@@ -115,4 +115,4 @@ class NativeAwesomeManager(reactContext: ReactApplicationContext) :
 </TabItem>
 </Tabs>
 
-Please note that the **generated abstract class** that you’re now extending (`MyAwesomeSpec` in this example) is itself extending `ReactContextBaseJavaModule`. Therefore you should not use access to any of the method/fields you were previously using (e.g., the `ReactApplicationContext` and so on). Moreover, the generated class will now also implement the `TurboModule` interface for you.
+Please note that the **generated abstract class** that you’re now extending (`MyAwesomeSpec` in this example) is itself extending `ReactContextBaseJavaModule`. Therefore you should not lose access to any of the method/fields you were previously using (e.g., the `ReactApplicationContext` and so on). Moreover, the generated class will now also implement the `TurboModule` interface for you.
