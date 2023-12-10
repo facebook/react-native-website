@@ -179,7 +179,7 @@ iOS saves multiple sizes for the same image in your Camera Roll, it is very impo
 
 ## Why Not Automatically Size Everything?
 
-_In the browser_ if you don't give a size to an image, the browser is going to render a 0x0 element, download the image, and then render the image based with the correct size. The big issue with this behavior is that your UI is going to jump all around as images load, this makes for a very bad user experience.
+_In the browser_ if you don't give a size to an image, the browser is going to render a 0x0 element, download the image, and then render the image based with the correct size. The big issue with this behavior is that your UI is going to jump all around as images load, this makes for a very bad user experience. This is called [Cumulative Layout Shift](https://web.dev/cls/).
 
 _In React Native_ this behavior is intentionally not implemented. It is more work for the developer to know the dimensions (or aspect ratio) of the remote image in advance, but we believe that it leads to a better user experience. Static images loaded from the app bundle via the `require('./my-icon.png')` syntax _can be automatically sized_ because their dimensions are available immediately at the time of mounting.
 
