@@ -240,10 +240,13 @@ Edit your `ios/Podfile` file and make the change illustrated below:
 ```diff
    use_react_native!(
      :path => config[:reactNativePath],
-     # Hermes is now enabled by default. Disable by setting this flag to false.
-     # Upcoming versions of React Native may rely on get_default_flags(), but
-     # we make it explicit here to aid in the React Native upgrade process.
--    :hermes_enabled => flags[:hermes_enabled],
 +    :hermes_enabled => false,
+     # Enables Flipper.
+     #
+     # Note that if you have use_frameworks! enabled, Flipper will not work and
+     # you should disable the next line.
+     :flipper_configuration => flipper_config,
+     # An absolute path to your application root.
+     :app_path => "#{Pod::Config.instance.installation_root}/.."
    )
 ```
