@@ -47,10 +47,6 @@ This creates a symlink to the library under `node_modules` which makes autolinki
 
 ### Installing dependencies
 
-:::note
-Depending on module type you may have to make additional steps to make it work. Follow the instructions provided by the tool.
-:::
-
 To link the module you need to install dependencies:
 
 <Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
