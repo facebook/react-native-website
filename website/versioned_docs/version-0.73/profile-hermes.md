@@ -3,7 +3,7 @@ id: profile-hermes
 title: Profiling with Hermes
 ---
 
-You can visualize JavaScript's performance in a React Native app using [Hermes](https://github.com/facebook/hermes). Hermes is a small and lightweight JavaScript engine optimized for running React Native on Android (you can [read more about using it with React Native here](hermes). Hermes helps improve app performance and also exposes ways to analyze the performance of the JavaScript that it runs.
+You can visualize JavaScript's performance in a React Native app using [Hermes](https://github.com/facebook/hermes). Hermes is a small and lightweight JavaScript engine optimized for running React Native (you can [read more about using it with React Native here](hermes)). Hermes helps improve app performance and also exposes ways to analyze the performance of the JavaScript that it runs.
 
 In this section, you will learn how to profile your React Native app running on Hermes and how to visualize the profile using [the Performance tab on Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/reference)
 
