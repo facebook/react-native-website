@@ -225,7 +225,6 @@ hr {
     }
 
     tr th {
-      background-color: var(--divider) !important;
       text-transform: uppercase;
       padding: 6px 10px;
       font-size: 0.7rem;
@@ -370,10 +369,6 @@ html[data-theme="dark"] {
       a code {
         background-color: transparent;
       }
-    }
-
-    table thead tr {
-      background-color: var(--ifm-menu-color-background-active);
     }
 
     .prism-code {
