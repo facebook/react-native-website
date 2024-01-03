@@ -62,6 +62,17 @@ jobs:
       - run_yarn
       - run: yarn ci:lint
 
+  build:
+    executor: node
+    working_directory: ~/react-native-website/website
+    environment:
+      # Needed to avoid OOMs
+      NODE_OPTIONS: "--max_old_space_size=4096"
+    steps:
+      - restore_cache_checkout
+      - run_yarn
+      - run: yarn build
+
 # -------------------------
 #        WORKFLOWS
 # -------------------------
@@ -73,5 +84,8 @@ workflows:
 
       # Run lints
       - lint:
+          requires:
+            - setup
+      - build:
           requires:
             - setup
