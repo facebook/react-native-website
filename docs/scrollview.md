@@ -577,7 +577,7 @@ Note that the view can always be scrolled by calling `scrollTo`.
 
 ### `scrollEventThrottle`
 
-Limits how often scroll events will be fired while scrolling, specified as a time interval in ms. This may be useful when expensive work is performed in response to scrolling. Values <= `16` will disable throttling, regardless of the refresh rate of the device.
+Limits how often scroll events will be fired while scrolling, specified as a time interval in ms. This may be useful when expensive work is performed in response to scrolling. Values &le; `16` will disable throttling, regardless of the refresh rate of the device.
 
 | Type   | Default |
 | ------ | ------- |
