@@ -83,3 +83,6 @@ workflows:
       - lint:
           requires:
             - setup
+       - build:
+          requires:
+            - setup
