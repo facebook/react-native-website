@@ -162,6 +162,11 @@ Codegen can be configured in the `package.json` file of your Library. Add the fo
 +    "name": "<library name>",
 +    "type": "all",
 +    "jsSrcsDir": ".",
++    "outputDir": {
++      "ios": "ios/generated",
++      "android": "android/generated"
++    },
++    "includesGeneratedCode": true,
 +    "android": {
 +      "javaPackageName": "com.facebook.fbreact.specs"
 +    }
@@ -173,6 +178,8 @@ Codegen can be configured in the `package.json` file of your Library. Add the fo
 - The `name` field is the name of the library.
 - The `type` field is used to identify the type of module we want to create. We suggest keeping `all` to support libraries that contain both Turbo Native Module and Fabric Native Components.
 - The `jsSrcsDir` is the directory where the codegen will start looking for JavaScript specs.
+- The `outputDir` this is the output directory for the generated code. Can be defined in a platform-independent way, like `"outputDir": "universal/generated"`, or per-platform as in the example above.
+- The `includesGeneratedCode` this field tells the codegen wether this library include generated files. If `true`, the codegen will not run for this library during the app build.
 - The `android.javaPackageName` is the name of the package where the generated code ends up.
 
 Android also requires to have the [React Gradle Plugin properly configured](new-architecture-app-intro#android-specifics) in your app.
