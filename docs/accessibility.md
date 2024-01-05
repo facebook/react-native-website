@@ -476,7 +476,9 @@ adb shell settings put secure enabled_accessibility_services com.google.android.
 
 ## Testing VoiceOver Support <div class="label ios">iOS</div>
 
-To enable VoiceOver, go to the Settings app on your iOS device (it's not available for simulator). Tap General, then Accessibility. There you will find many tools that people use to make their devices more usable, such as bolder text, increased contrast, and VoiceOver.
+To test and debug accessibility on the iOS Simulator, open up XCode, then go to the XCode menu, Open Developer Tool, then Accessibility Inspector. The Accessibility Inspector allows you to select items, iterate through them, and have MacOS' screen reader to pronounce the accessibility labels. In addition, it displays the view hierarchy and lists available Actions, allowing developers to test out specific actions like Magic Touch.
+
+To enable VoiceOver on your device, go to the Settings app on your iOS device. Tap General, then Accessibility. There you will find many tools that people use to make their devices more usable, such as bolder text, increased contrast, and VoiceOver.
 
 To enable VoiceOver, tap on VoiceOver under "Vision" and toggle the switch that appears at the top.
 
