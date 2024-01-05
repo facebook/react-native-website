@@ -5,6 +5,8 @@ title: Appendix
 
 import NewArchitectureWarning from './\_markdown-new-architecture-warning.mdx';
 import VerticalTable from '@site/core/VerticalTable';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 <NewArchitectureWarning/>
 
@@ -305,7 +307,69 @@ node node_modules/react-native/scripts/generate-specs-cli.js \
 
 In the above example, the code-gen script will generate several files: `MyLibSpecs.h` and `MyLibSpecs-generated.mm`, as well as a handful of `.h` and `.cpp` files, all located in the `ios` directory.
 
-## V. Note on Existing Apps
+## V. Codegen Naming Conventions
+
+### Native Components
+
+Every native component spec file name must follow the following format:
+
+```
+<YourComponentName>NativeComponent.[js|ts|tsx]
+```
+
+The spec file must contain the following statement:
+
+```
+export default (codegenNativeComponent<NativeProps>(
+  '<YourComponentName>',
+): HostComponent<NativeProps>);
+```
+
+The codegen will produce the following native interfaces:
+
+<Tabs>
+  <TabItem value="apple" label="Java" default>
+    ```
+    <YourComponentName>ManagerInterface
+    ```
+  </TabItem>
+  <TabItem value="orange" label="Objective-C">
+    ```
+    RCT<YourComponentName>ViewProtocol
+    ```
+  </TabItem>
+</Tabs>
+
+### Native Modules
+
+Every native module spec file name must follow the following format:
+
+```
+Native<YourModuleName>.[js|ts|tsx]
+```
+
+The spec file must contain the following statement:
+
+```
+export default (TurboModuleRegistry.get<Spec>('YourModuleName'): ?Spec);
+```
+
+The codegen will produce the following native interfaces:
+
+<Tabs>
+  <TabItem value="apple" label="Java" default>
+    ```
+    <YourModuleName>Spec
+    ```
+  </TabItem>
+  <TabItem value="orange" label="Objective-C">
+    ```
+    <YourModuleName>Spec
+    ```
+  </TabItem>
+</Tabs>
+
+## VI. Note on Existing Apps
 
 This guide provides instructions for migrating an application that is based on the default app template that is provided by React Native. If your app has deviated from the template, or you are working with an application that was never based off the template, then the following sections might help.
 
