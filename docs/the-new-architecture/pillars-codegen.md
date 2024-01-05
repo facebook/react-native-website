@@ -234,46 +234,52 @@ The **Codegen** also creates a `ComponentDescriptor.h`, which is required to get
 # The Codegen CLI
 
 **NAME**
-    **npx react-native codegen** - run react-native-codegen
+**npx react-native codegen** - run react-native-codegen
 
 **SYNOPSIS**
-    **npx react-native codegen** [**--path** __path__] [**--platform** __string__] [**--outputPath** __path__]
+**npx react-native codegen** [**--path** __path__] [**--platform** __string__] [**--outputPath** __path__]
 
 **DESCRIPTION**
-    This command runs `react-native-codegen`.
-    The codegen must be configured as described in [Configure Codegen](new-architecture-library-intro#configure-codegen).
-    The following options are available:
-    **--path** __path__
-        Path to `package.json`. The default path is current working directory.
-    **--platform** __string__
-        Target platform. Supported values are `android`, `ios`, and `all`. The default value is `all`.
-    **--outputPath** __path__
-        Path to override `codegenCofig.outputDir`. The default value is `undefined`.
+This command runs `react-native-codegen`.
+The codegen must be configured as described in [Configure Codegen](../new-architecture-library-intro#configure-codegen).
+The following options are available:
+**--path** **path**
+Path to `package.json`. The default path is current working directory.
+**--platform** **string**
+Target platform. Supported values are `android`, `ios`, and `all`. The default value is `all`.
+**--outputPath** **path**
+Path to override `codegenCofig.outputDir`. The default value is `undefined`.
 
-**EXAMPLES**
-    - Read `package.json` from the current working directory, generate code based on its `codegenConfig`.
+**EXAMPLES** - Read `package.json` from the current working directory, generate code based on its `codegenConfig`.
+
 ```sh
 npx react-native codegen
 ```
+
     - Read `package.json` from the current working directory, generate iOS code in the location defined in `codegenConfig`.
+
 ```sh
 npx react-native codegen --platform ios
 ```
+
     - Read `package.json` from `third-party/some-library`, generate Android code in `third-party/some-library/android/generated`.
+
 ```sh
 npx react-native codegen --path third-party/some-library --platform android --outputPath third-party/some-library/android/generated
 ```
 
 # Including Generated Code into Libraries
 
-If you are working on a library, there is an option to run codegen locally with [The Codegen CLI](the-new-architecture/pillars-codegen#the-codegen-cli), and then ship your library with the generated code in it. In order to do so you must do the following:
-- Define `includesGeneratedCode: true` and `outputDir` in the `codegenConfig`, as described in [Configure Codegen](new-architecture-library-intro#configure-codegen).
-- Update your [podspec](the-new-architecture/pillars-turbomodules#ios-create-the-podspec-file) to include the generated code.
-- Update your [build.gradle file](the-new-architecture/pillars-turbomodules#the-buildgradle-file) to include the generated code.
+If you are working on a library, there is an option to run codegen locally with [The Codegen CLI](pillars-codegen#the-codegen-cli), and then ship your library with the generated code in it. In order to do so you must do the following:
+
+- Define `includesGeneratedCode: true` and `outputDir` in the `codegenConfig`, as described in [Configure Codegen](../new-architecture-library-intro#configure-codegen).
+- Update your [podspec](pillars-turbomodules#ios-create-the-podspec-file) to include the generated code.
+- Update your [build.gradle file](../the-new-architecture/pillars-turbomodules#the-buildgradle-file) to include the generated code.
 
 This setup has a number of benefits:
+
 - No need to rely on the app to run the codegen for you, the generated code is always there.
 - The implementation files are always consistent with the generated interfaces.
-- No need to [include two sets of files](the-new-architecture/backward-compatibility-turbomodules#android-1) to support the old and the new architecture on Android. You can only keep the new architecture one, and it is guaranteed to be backwards compatible.
+- No need to [include two sets of files](backward-compatibility-turbomodules#android-1) to support the old and the new architecture on Android. You can only keep the new architecture one, and it is guaranteed to be backwards compatible.
 - No need to worry about codegen version mismatch between what is used by the app, and what was used during library development.
 - Since all code is there, it is now possible to ship libraries as prebuilts.
