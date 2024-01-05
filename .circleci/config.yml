@@ -5,6 +5,7 @@ version: 2.1
 # -------------------------
 executors:
   node:
+    resource_class: large
     docker:
       - image: cimg/node:lts
 
