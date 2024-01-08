@@ -271,7 +271,7 @@ npx react-native codegen \
 
 ## Including Generated Code into Libraries
 
-If you are working on a library, you can include codegen artifacts in it. Here is how you can do it:
+If you are working on a library, you can include Codegen artefacts in it. Here is how you can do it:
 
 - Define `includesGeneratedCode: true` and `outputDir` in the `codegenConfig`, as described in [Configure Codegen](../new-architecture-library-intro#configure-codegen).
 - Run codegen locally with [the codegen CLI](pillars-codegen#the-codegen-cli).
