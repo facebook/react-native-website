@@ -277,7 +277,7 @@ If you are working on a library, you can include Codegen artefacts in it. Here i
 - Run Codegen locally with [the codegen CLI](pillars-codegen#the-codegen-cli).
 - Update your `package.json` to include the generated code.
 - Update your [podspec](pillars-turbomodules#ios-create-the-podspec-file) to include the generated code.
-- Update your [build.gradle file](../the-new-architecture/pillars-turbomodules#the-buildgradle-file) to include generated code.
+- Update your [build.gradle file](../the-new-architecture/pillars-turbomodules#the-buildgradle-file) to include the generated code.
 
 This setup has a number of benefits:
 
