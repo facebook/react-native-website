@@ -223,7 +223,7 @@ You may also find it useful to refer to the JavaScript specifications for the co
 
 The Codegen is typically invoked at build time, but you may find it useful to generate your native interface code on demand for troubleshooting.
 
-If you wish to invoke the codegen manually, you have three options:
+If you wish to invoke the Codegen manually, you have three options:
 
 1. Invoking a Gradle task directly (Android).
 2. Invoking a script manually.
