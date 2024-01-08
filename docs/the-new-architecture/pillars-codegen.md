@@ -274,7 +274,7 @@ npx react-native codegen \
 If you are working on a library, you can include Codegen artefacts in it. Here is how you can do it:
 
 - Define `includesGeneratedCode: true` and `outputDir` in the `codegenConfig`, as described in [Configure Codegen](../new-architecture-library-intro#configure-codegen).
-- Run codegen locally with [the codegen CLI](pillars-codegen#the-codegen-cli).
+- Run Codegen locally with [the codegen CLI](pillars-codegen#the-codegen-cli).
 - Update your `package.json` to include the generated code.
 - Update your [podspec](pillars-turbomodules#ios-create-the-podspec-file) to include generated code.
 - Update your [build.gradle file](../the-new-architecture/pillars-turbomodules#the-buildgradle-file) to include generated code.
