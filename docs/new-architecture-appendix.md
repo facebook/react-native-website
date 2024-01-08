@@ -231,7 +231,7 @@ If you wish to invoke the Codegen manually, you have three options:
 
 ### Using the CLI
 
-For the simplest and most common use cases you can use the codegen CLI. Call the following command in your project directory:
+For the simplest and most common use cases you can use the Codegen CLI. Call the following command in your project directory:
 
 ```sh
 npx react-native codegen
