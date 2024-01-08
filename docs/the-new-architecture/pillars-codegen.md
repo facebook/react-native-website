@@ -283,6 +283,6 @@ This setup has a number of benefits:
 
 - No need to rely on the app to run Codegen for you, the generated code is always there.
 - The implementation files are always consistent with the generated interfaces.
-- No need to [include two sets of files](backward-compatibility-turbomodules#android-1) to support the old and the new architecture on Android. You can only keep the new architecture one, and it is guaranteed to be backwards compatible.
+- No need to [include two sets of files](backward-compatibility-turbomodules#android-1) to support the Old and the New Architecture on Android. You can only keep the New Architecture one, and it is guaranteed to be backwards compatible.
 - No need to worry about codegen version mismatch between what is used by the app, and what was used during library development.
 - Since all native code is there, it is possible to ship the native part of the library as a prebuild.
