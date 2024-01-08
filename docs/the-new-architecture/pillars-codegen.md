@@ -242,7 +242,7 @@ The Codegen must be configured as described in [Configure Codegen](../new-archit
 
 The following options are available:
 
-- `--path` - Path to `package.json`. The default path is current working directory.
+- `--path` - Path to `package.json`. The default path is the current working directory.
 - `--platform` - Target platform. Supported values: `android`, `ios`, `all`. The default value is `all`.
 - `--outputPath` - Path to override `codegenCofig.outputDir`. The default value is `undefined`.
 
