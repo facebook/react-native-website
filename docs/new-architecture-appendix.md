@@ -227,7 +227,7 @@ If you wish to invoke the codegen manually, you have three options:
 
 1. Invoking a Gradle task directly (Android).
 2. Invoking a script manually.
-3. Use the codegen CLI.
+3. Use the Codegen CLI.
 
 ### Using the CLI
 
