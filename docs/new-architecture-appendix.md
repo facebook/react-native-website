@@ -342,7 +342,7 @@ The codegen will produce the following native interfaces:
 
 ### Native Modules
 
-Every native module spec file name must follow the following format:
+The spec file name of every native module must follow the following format:
 
 ```
 Native<YourModuleName>.[js|ts|tsx]
