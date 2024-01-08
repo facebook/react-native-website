@@ -311,7 +311,7 @@ In the above example, the code-gen script will generate several files: `MyLibSpe
 
 ### Native Components
 
-Every native component spec file name must follow the following format:
+The spec file name of every native component must follow the following format:
 
 ```
 <YourComponentName>NativeComponent.[js|ts|tsx]
