@@ -237,7 +237,7 @@ For the simplest and most common use cases you can use the Codegen CLI. Call the
 npx react-native codegen
 ```
 
-This will produce codegen artifactrs in their default locations. You can provide additional options to customize input and output paths, as well as the target platform.
+This will produce Codegen artefacts in their default locations. You can provide additional options to customize input and output paths, as well as the target platform.
 
 See full discription in [The Codegen CLI](the-new-architecture/pillars-codegen#the-codegen-cli) section.
 
