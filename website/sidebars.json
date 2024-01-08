@@ -72,7 +72,6 @@
     "Performance": [
       "performance",
       "build-speed",
-      "speeding-ci-builds",
       "optimizing-flatlist-configuration",
       "ram-bundles-inline-requires",
       "profiling",
