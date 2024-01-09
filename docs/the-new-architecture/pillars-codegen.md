@@ -286,3 +286,4 @@ Here is how you can enable this setup:
 - Update your `package.json` to include the generated code.
 - Update your [podspec](pillars-turbomodules#ios-create-the-podspec-file) to include the generated code.
 - Update your [build.gradle file](../the-new-architecture/pillars-turbomodules#the-buildgradle-file) to include the generated code.
+- You may also want to add the generated code to `.gitignore`.
