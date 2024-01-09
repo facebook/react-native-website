@@ -7,6 +7,7 @@ import NewArchitectureWarning from './\_markdown-new-architecture-warning.mdx';
 import VerticalTable from '@site/core/VerticalTable';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import constants from '@site/core/TabsConstants';
 
 <NewArchitectureWarning/>
 
@@ -327,13 +328,13 @@ export default (codegenNativeComponent<NativeProps>(
 
 The codegen will produce the following native interfaces:
 
-<Tabs>
-  <TabItem value="apple" label="Java" default>
+<Tabs groupId="platform" queryString defaultValue={constants.defaultPlatform} values={constants.platforms}>
+  <TabItem value="android">
     ```
     <YourComponentName>ManagerInterface
     ```
   </TabItem>
-  <TabItem value="orange" label="Objective-C">
+  <TabItem value="ios">
     ```
     RCT<YourComponentName>ViewProtocol
     ```
@@ -356,13 +357,13 @@ export default (TurboModuleRegistry.get<Spec>('YourModuleName'): ?Spec);
 
 The codegen will produce the following native interfaces:
 
-<Tabs>
-  <TabItem value="apple" label="Java" default>
+<Tabs groupId="platform" queryString defaultValue={constants.defaultPlatform} values={constants.platforms}>
+  <TabItem value="android">
     ```
     <YourModuleName>Spec
     ```
   </TabItem>
-  <TabItem value="orange" label="Objective-C">
+  <TabItem value="ios">
     ```
     <YourModuleName>Spec
     ```
