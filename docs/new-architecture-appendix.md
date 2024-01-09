@@ -5,9 +5,6 @@ title: Appendix
 
 import NewArchitectureWarning from './\_markdown-new-architecture-warning.mdx';
 import VerticalTable from '@site/core/VerticalTable';
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import constants from '@site/core/TabsConstants';
 
 <NewArchitectureWarning/>
 
