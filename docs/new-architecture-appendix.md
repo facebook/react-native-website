@@ -310,6 +310,35 @@ In the above example, the code-gen script will generate several files: `MyLibSpe
 
 ## V. Codegen Naming Conventions
 
+### Native Modules
+
+The spec file name of every native module must follow the following format:
+
+```
+Native<YourModuleName>.[js|ts|tsx]
+```
+
+The spec file must contain the following statement:
+
+```
+export default (TurboModuleRegistry.get<Spec>('YourModuleName'): ?Spec);
+```
+
+The codegen will produce the following native interfaces:
+
+<Tabs groupId="platform" queryString defaultValue={constants.defaultPlatform} values={constants.platforms}>
+  <TabItem value="android">
+    ```
+    <YourModuleName>Spec
+    ```
+  </TabItem>
+  <TabItem value="ios">
+    ```
+    <YourModuleName>Spec
+    ```
+  </TabItem>
+</Tabs>
+
 ### Native Components
 
 The spec file name of every native component must follow the following format:
@@ -337,35 +366,6 @@ The codegen will produce the following native interfaces:
   <TabItem value="ios">
     ```
     RCT<YourComponentName>ViewProtocol
-    ```
-  </TabItem>
-</Tabs>
-
-### Native Modules
-
-The spec file name of every native module must follow the following format:
-
-```
-Native<YourModuleName>.[js|ts|tsx]
-```
-
-The spec file must contain the following statement:
-
-```
-export default (TurboModuleRegistry.get<Spec>('YourModuleName'): ?Spec);
-```
-
-The codegen will produce the following native interfaces:
-
-<Tabs groupId="platform" queryString defaultValue={constants.defaultPlatform} values={constants.platforms}>
-  <TabItem value="android">
-    ```
-    <YourModuleName>Spec
-    ```
-  </TabItem>
-  <TabItem value="ios">
-    ```
-    <YourModuleName>Spec
     ```
   </TabItem>
 </Tabs>
