@@ -244,7 +244,7 @@ The following options are available:
 
 - `--path` - Path to `package.json`. The default path is the current working directory.
 - `--platform` - Target platform. Supported values: `android`, `ios`, `all`. The default value is `all`.
-- `--outputPath` - Output path. The default value is the value difined in `codegenCofig.outputDir`.
+- `--outputPath` - Output path. The default value is the value defined in `codegenCofig.outputDir`.
 
 #### EXAMPLES
 
