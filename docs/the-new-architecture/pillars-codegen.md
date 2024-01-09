@@ -271,18 +271,18 @@ npx react-native codegen \
 
 ## Including Generated Code into Libraries
 
-If you are working on a library, you can include Codegen artefacts in it. Here is how you can do it:
-
-- Define `includesGeneratedCode: true` and `outputDir` in the `codegenConfig`, as described in [Configure Codegen](../new-architecture-library-intro#configure-codegen).
-- Run Codegen locally with [the codegen CLI](pillars-codegen#the-codegen-cli).
-- Update your `package.json` to include the generated code.
-- Update your [podspec](pillars-turbomodules#ios-create-the-podspec-file) to include the generated code.
-- Update your [build.gradle file](../the-new-architecture/pillars-turbomodules#the-buildgradle-file) to include the generated code.
-
-This setup has a number of benefits:
+If you are working on a library, you can include Codegen artefacts in it. This setup has a number of benefits:
 
 - No need to rely on the app to run Codegen for you, the generated code is always there.
 - The implementation files are always consistent with the generated interfaces.
 - No need to [include two sets of files](backward-compatibility-turbomodules#android-1) to support the Old and the New Architecture on Android. You can only keep the New Architecture one, and it is guaranteed to be backwards compatible.
 - No need to worry about Codegen version mismatch between what is used by the app, and what was used during library development.
 - Since all native code is there, it is possible to ship the native part of the library as a prebuild.
+
+Here is how you can enable this setup:
+
+- Define `includesGeneratedCode: true` and `outputDir` in the `codegenConfig`, as described in [Configure Codegen](../new-architecture-library-intro#configure-codegen).
+- Run Codegen locally with [the codegen CLI](pillars-codegen#the-codegen-cli).
+- Update your `package.json` to include the generated code.
+- Update your [podspec](pillars-turbomodules#ios-create-the-podspec-file) to include the generated code.
+- Update your [build.gradle file](../the-new-architecture/pillars-turbomodules#the-buildgradle-file) to include the generated code.
