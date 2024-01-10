@@ -1,3 +1,4 @@
 {
-  "Cocoapods": "CocoaPods"
+  "cocoapods": "CocoaPods",
+  "hermes": "Hermes"
 }

@@ -128,9 +128,9 @@ If you would like to set such things as the HTTP-Verb, Headers or a Body along w
 />
 ```
 
-## Uri Data Images
+## URI Data Images
 
-Sometimes, you might be getting encoded image data from a REST API call. You can use the `'data:'` uri scheme to use these images. Same as for network resources, _you will need to manually specify the dimensions of your image_.
+Sometimes, you might be getting encoded image data from a REST API call. You can use the `'data:'` URI scheme to use these images. Same as for network resources, _you will need to manually specify the dimensions of your image_.
 
 :::info
 This is recommended for very small and dynamic images only, like icons in a list from a DB.

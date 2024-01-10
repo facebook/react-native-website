@@ -532,7 +532,6 @@ The native driver also works with `Animated.event`. This is especially useful fo
 
 ```tsx
 <Animated.ScrollView // <-- Use the Animated ScrollView wrapper
-  scrollEventThrottle={1} // <-- Use 1 here to make sure no events are ever missed
   onScroll={Animated.event(
     [
       {
