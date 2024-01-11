@@ -15,9 +15,7 @@ At Facebook we've been using React Native in production for over a year now. Alm
 <footer>
   <a
     href="https://code.facebook.com/posts/1189117404435352/react-native-for-android-how-we-built-the-first-cross-platform-react-native-app/"
-    className="btn">
-    Read more
-  </a>
+    className="btn">Read more</a>
 </footer>
 
 > This is an excerpt. Read the rest of the post on [Facebook Code](https://code.facebook.com/posts/1189117404435352/react-native-for-android-how-we-built-the-first-cross-platform-react-native-app/).

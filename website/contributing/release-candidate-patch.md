@@ -5,6 +5,7 @@ title: RC Patches
 
 import AsyncTestingNote from './\_markdown-async-testing-note.mdx';
 import GHReleasesNotesPrerelease from './\_markdown-GH-release-notes-prerelease.mdx';
+import BumpOSSNote from './\_markdown-older-bump-script.mdx';
 
 :::info
 Documents in this section go over steps to run different types of React Native release updates. Its intended audience is those in [relevant release roles](./release-roles-responsibilites.md).
@@ -29,13 +30,24 @@ git checkout -b <release-branch>
 git cherry-pick <commit-hash>
 ```
 
-### 2. Test the current changes
+### 2. Bump monorepo packages
+
+Update all packages in the monorepo that were modified by the cherry picks. You can do it by running:
+
+```sh
+yarn bump-all-updated-packages # All the package bumps should be on the patch level
+git push origin 0.XX-stable
+```
+
+After pushing, the CI will take care to publish the new packages automatically.
+
+### 3. Test the current changes
 
 Before continuing further, follow the [testing guide](/contributing/release-testing) to ensure the source code doesn't have any major issues.
 
 <AsyncTestingNote/>
 
-### 3. Run `bump-oss-version` script
+### 4. Run `trigger-react-native-release` script
 
 ```bash
 # once verified all the cherry-picked commits, we can push them to remote
@@ -43,10 +55,12 @@ git push
 
 # run a script to bump the version
 # You **do not** want this release marked as "latest"!
-./scripts/bump-oss-version.js --to-version 0.y.0-rc.x --token <YOUR_CIRCLE_CI_TOKEN>
+yarn trigger-react-native-release --to-version 0.y.0-rc.x --token <YOUR_CIRCLE_CI_TOKEN>
 ```
 
-### 4. Watch CircleCI to ensure right jobs are being triggered
+<BumpOSSNote />
+
+### 5. Watch CircleCI to ensure right jobs are being triggered
 
 - Once you have run the bump script script, head to CircleCI and you should see under the releases workflow, a `prepare-package-for-release` job.
 
@@ -64,17 +78,17 @@ git push
   latest: 0.(y-1).1            next: 0.y.0-rc.x         nightly: 0.0.0-f617e022c
   ```
 
-### 5. Create a GitHub Release
+### 6. Create a GitHub Release
 
 - Create a [GitHub Release](https://github.com/facebook/react-native/releases) with this template and **check "Pre-Release" checkbox**.
 
 <GHReleasesNotesPrerelease />
 
-### 6. Update the relevant discussion post with the latest RC
+### 7. Update the relevant discussion post with the latest RC
 
 Go back to the "road to 0.XX.0" [discussion](https://github.com/reactwg/react-native-releases/discussions) and update the "Current release candidate" line with the new version you published.
 
-### 7. Broadcast that release candidate is out
+### 8. Broadcast that release candidate is out
 
 Once all the steps above have been completed, it's time to signal to the community that the new RC is available for testing! Do so in the following channels:
 

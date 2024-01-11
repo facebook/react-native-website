@@ -172,9 +172,9 @@ This is a convenience wrapper around [`<VirtualizedList>`](virtualizedlist.md), 
 
 ## Props
 
-### [ScrollView Props](scrollview.md#props)
+### [VirtualizedList Props](virtualizedlist.md#props)
 
-Inherits [ScrollView Props](scrollview.md#props), unless it is nested in another FlatList of same orientation.
+Inherits [VirtualizedList Props](virtualizedlist.md#props).
 
 ---
 
@@ -448,9 +448,9 @@ If provided, a standard RefreshControl will be added for "Pull to Refresh" funct
 
 Called when the viewability of rows changes, as defined by the `viewabilityConfig` prop.
 
-| Type                                                                                                               |
-| ------------------------------------------------------------------------------------------------------------------ |
-| (callback: { changed: array of [ViewToken](viewtoken)s, viewableItems: array of [ViewToken](viewtoken)s }) => void |
+| Type                                                                                                  |
+| ----------------------------------------------------------------------------------------------------- |
+| `md (callback: {changed: [ViewToken](viewtoken)[], viewableItems: [ViewToken](viewtoken)[]} => void;` |
 
 ---
 

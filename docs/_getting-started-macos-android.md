@@ -1,4 +1,5 @@
 import RemoveGlobalCLI from './\_remove-global-cli.md';
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 ## Installing dependencies
 
@@ -8,34 +9,34 @@ While you can use any editor of your choice to develop your app, you will need t
 
 <h3>Node &amp; Watchman</h3>
 
-We recommend installing Node and Watchman using [Homebrew](http://brew.sh/). Run the following commands in a Terminal after installing Homebrew:
+We recommend installing Node and Watchman using [Homebrew](https://brew.sh/). Run the following commands in a Terminal after installing Homebrew:
 
 ```shell
 brew install node
 brew install watchman
 ```
 
-If you have already installed Node on your system, make sure it is Node 16 or newer.
+If you have already installed Node on your system, make sure it is Node 18 or newer.
 
 [Watchman](https://facebook.github.io/watchman) is a tool by Facebook for watching changes in the filesystem. It is highly recommended you install it for better performance.
 
 <h3>Java Development Kit</h3>
 
-We recommend installing the OpenJDK distribution called Azul **Zulu** using [Homebrew](http://brew.sh/). Run the following commands in a Terminal after installing Homebrew:
+We recommend installing the OpenJDK distribution called Azul **Zulu** using [Homebrew](https://brew.sh/). Run the following commands in a Terminal after installing Homebrew:
 
 ```shell
 brew tap homebrew/cask-versions
-brew install --cask zulu11
+brew install --cask zulu17
 
 # Get path to where cask was installed to double-click installer
-brew info --cask zulu11
+brew info --cask zulu17
 ```
 
-After you install the JDK, update your `JAVA_HOME` environment variable. If you used above steps, JDK will likely be at `/Library/Java/JavaVirtualMachines/zulu-11.jdk/Contents/Home`
+After you install the JDK, update your `JAVA_HOME` environment variable. If you used above steps, JDK will likely be at `/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home`
 
 The Zulu OpenJDK distribution offers JDKs for **both Intel and M1 Macs**. This will make sure your builds are faster on M1 Macs compared to using an Intel-based JDK.
 
-If you have already installed JDK on your system, we recommend JDK 11. You may encounter problems using higher JDK versions.
+If you have already installed JDK on your system, we recommend JDK 17. You may encounter problems using higher JDK versions.
 
 <h3>Android development environment</h3>
 
@@ -63,7 +64,7 @@ To do that, open Android Studio, click on "More Actions" button and select "SDK 
 
 ![Android Studio Welcome](/docs/assets/GettingStartedAndroidStudioWelcomeMacOS.png)
 
-> The SDK Manager can also be found within the Android Studio "Preferences" dialog, under **Appearance & Behavior** → **System Settings** → **Android SDK**.
+> The SDK Manager can also be found within the Android Studio "Settings" dialog, under **Languages & Frameworks** → **Android SDK**.
 
 Select the "SDK Platforms" tab from within the SDK Manager, then check the box next to "Show Package Details" in the bottom right corner. Look for and expand the `Android 13 (Tiramisu)` entry, then make sure the following items are checked:
 
@@ -88,7 +89,7 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 Run `source ~/.zprofile` (or `source ~/.bash_profile` for `bash`) to load the config into your current shell. Verify that ANDROID_HOME has been set by running `echo $ANDROID_HOME` and the appropriate directories have been added to your path by running `echo $PATH`.
 
-> Please make sure you use the correct Android SDK path. You can find the actual location of the SDK in the Android Studio "Preferences" dialog, under **Appearance & Behavior** → **System Settings** → **Android SDK**.
+> Please make sure you use the correct Android SDK path. You can find the actual location of the SDK in the Android Studio "Settings" dialog, under **Languages & Frameworks** → **Android SDK**.
 
 <h3>React Native Command Line Interface</h3>
 
@@ -140,33 +141,53 @@ Click "Next" then "Finish" to create your AVD. At this point you should be able 
 
 <h3>Step 1: Start Metro</h3>
 
-First, you will need to start Metro, the JavaScript bundler that ships with React Native. Metro "takes in an entry file and various options, and returns a single JavaScript file that includes all your code and its dependencies."—[Metro Docs](https://facebook.github.io/metro/docs/concepts)
+[**Metro**](https://metrobundler.dev/) is the JavaScript build tool for React Native. To start the Metro development server, run the following from your project folder:
 
-To start Metro, run `npx react-native start` inside your React Native project folder:
+<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<TabItem value="npm">
 
 ```shell
-npx react-native start
+npm start
 ```
 
-`react-native start` starts Metro Bundler.
+</TabItem>
+<TabItem value="yarn">
 
-> If you use the Yarn package manager, you can use `yarn` instead of `npx` when running React Native commands inside an existing project.
+```shell
+yarn start
+```
 
-> If you're familiar with web development, Metro is a lot like webpack—for React Native apps. Unlike Kotlin or Java, JavaScript isn't compiled—and neither is React Native. Bundling isn't the same as compiling, but it can help improve startup performance and translate some platform-specific JavaScript into more widely supported JavaScript.
+</TabItem>
+</Tabs>
+
+:::note
+If you're familiar with web development, Metro is similar to bundlers such as Vite and webpack, but is designed end-to-end for React Native. For instance, Metro uses [Babel](https://babel.dev/) to transform syntax such as JSX into executable JavaScript.
+:::
 
 <h3>Step 2: Start your application</h3>
 
-Let Metro Bundler run in its own terminal. Open a new terminal inside your React Native project folder. Run the following:
+<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<TabItem value="npm">
 
 ```shell
-npx react-native run-android
+npm run android
 ```
+
+</TabItem>
+<TabItem value="yarn">
+
+```shell
+yarn android
+```
+
+</TabItem>
+</Tabs>
 
 If everything is set up correctly, you should see your new app running in your Android emulator shortly.
 
 ![AwesomeProject on Android](/docs/assets/GettingStartedAndroidSuccessMacOS.png)
 
-`npx react-native run-android` is one way to run your app - you can also run it directly from within Android Studio.
+This is one way to run your app - you can also run it directly from within Android Studio.
 
 > If you can't get this to work, see the [Troubleshooting](troubleshooting.md) page.
 
@@ -175,7 +196,7 @@ If everything is set up correctly, you should see your new app running in your A
 Now that you have successfully run the app, let's modify it.
 
 - Open `App.tsx` in your text editor of choice and edit some lines.
-- Press the `R` key twice or select `Reload` from the Dev Menu (`⌘M`) to see your changes!
+- Press the <kbd>R</kbd> key twice or select `Reload` from the Dev Menu (<kbd>Cmd ⌘</kbd> + <kbd>M</kbd>) to see your changes!
 
 <h3>That's it!</h3>
 

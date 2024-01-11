@@ -28,7 +28,7 @@ We recommend using the [VS Code](https://code.visualstudio.com/) code editor and
 
 [Expo](https://docs.expo.dev/) is a framework of tools and services for React Native that focuses on helping you build, ship, and iterate on your app, to use preview deployment workflows that are popular with web development, and to automate your development workflows. Expo also makes it possible to build React Native apps without ever touching Xcode or Android Studio, and it doesn't get in the way if you want to use those tools.
 
-[Ignite](https://github.com/infinitered/ignite) is a starter kit CLI with several React Native boilerplates. The latest, Ignite Maverick, uses MobX-State-Tree for state management, React Navigation, and other common libraries.It has generators for screens, models, and more, and supports Expo out of the box. Ignite also comes with a component library that is tuned for custom designs, theming support, and testing. If you are looking for a preconfigured tech stack, Ignite could be perfect for you.
+[Ignite](https://github.com/infinitered/ignite) is a starter kit CLI with several React Native boilerplates. The latest, Ignite Maverick, uses MobX-State-Tree for state management, React Navigation, and other common libraries. It has generators for screens, models, and more, and supports Expo out of the box. Ignite also comes with a component library that is tuned for custom designs, theming support, and testing. If you are looking for a preconfigured tech stack, Ignite could be perfect for you.
 
 ## Example Apps
 

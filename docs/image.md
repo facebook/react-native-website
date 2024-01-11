@@ -98,18 +98,18 @@ dependencies {
   implementation 'com.facebook.fresco:animated-base-support:1.3.0'
 
   // For animated GIF support
-  implementation 'com.facebook.fresco:animated-gif:2.5.0'
+  implementation 'com.facebook.fresco:animated-gif:3.1.3'
 
   // For WebP support, including animated WebP
-  implementation 'com.facebook.fresco:animated-webp:2.5.0'
-  implementation 'com.facebook.fresco:webpsupport:2.5.0'
+  implementation 'com.facebook.fresco:animated-webp:3.1.3'
+  implementation 'com.facebook.fresco:webpsupport:3.1.3'
 
   // For WebP support, without animations
-  implementation 'com.facebook.fresco:webpsupport:2.5.0'
+  implementation 'com.facebook.fresco:webpsupport:3.1.3'
 }
 ```
 
-> Note: the version listed above may not be updated in time. Please check [`ReactAndroid/gradle.properties`](https://github.com/facebook/react-native/blob/main/packages/react-native/ReactAndroid/gradle.properties) in the main repo to see which fresco version is being used in a specific tagged version.
+> Note: the version listed above may not be updated in time. Please check [`packages/react-native/gradle/libs.versions.toml`](https://github.com/facebook/react-native/blob/main/packages/react-native/gradle/libs.versions.toml) in the main repo to see which fresco version is being used in a specific tagged version.
 
 ---
 
@@ -244,9 +244,9 @@ Invoked on load error.
 
 Invoked on mount and on layout changes.
 
-| Type                                              |
-| ------------------------------------------------- |
-| ({nativeEvent: [LayoutEvent]layoutevent)} => void |
+| Type                                                    |
+| ------------------------------------------------------- |
+| `md ({nativeEvent: [LayoutEvent](layoutevent)} => void` |
 
 ---
 
@@ -256,9 +256,9 @@ Invoked when load completes successfully.
 
 **Example:** `onLoad={({nativeEvent: {source: {width, height}}}) => setImageRealSize({width, height})}`
 
-| Type                                                          |
-| ------------------------------------------------------------- |
-| ({nativeEvent: [ImageLoadEvent]image#imageloadevent)} => void |
+| Type                                                                |
+| ------------------------------------------------------------------- |
+| `md ({nativeEvent: [ImageLoadEvent](image#imageloadevent)} => void` |
 
 ---
 
@@ -324,7 +324,7 @@ The mechanism that should be used to resize the image when the image's dimension
 
 - `scale`: The image gets drawn downscaled or upscaled. Compared to `resize`, `scale` is faster (usually hardware accelerated) and produces higher quality images. This should be used if the image is smaller than the view. It should also be used if the image is slightly bigger than the view.
 
-More details about `resize` and `scale` can be found at http://frescolib.org/docs/resizing.
+More details about `resize` and `scale` can be found at https://frescolib.org/docs/resizing.
 
 | Type                                  | Default  |
 | ------------------------------------- | -------- |

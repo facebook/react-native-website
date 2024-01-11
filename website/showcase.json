@@ -70,6 +70,38 @@
       "pinned": true
     }
   ],
+  "amazon": [
+    {
+      "name": "Amazon Shopping",
+      "icon": "amazon-shopping.png",
+      "linkAppStore": "https://apps.apple.com/us/app/amazon-shopping/id297606951",
+      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.amazon.mShop.android.shopping"
+    },
+    {
+      "name": "Amazon Alexa",
+      "icon": "amazon-alexa.webp",
+      "linkAppStore": "https://apps.apple.com/us/app/amazon-alexa/id944011620",
+      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.amazon.dee.app&hl=en_US&gl=US"
+    },
+    {
+      "name": "Amazon Photos",
+      "icon": "amazon-photos.webp",
+      "linkAppStore": "https://apps.apple.com/us/app/amazon-photos-photo-video/id621574163",
+      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.amazon.clouddrive.photos&hl=en_US&gl=US "
+    },
+    {
+      "name": "Amazon Kindle",
+      "icon": "amazon-kindle.png",
+      "infoLink": "https://www.amazon.com/b/?node=6669702011",
+      "infoTitle": "Purpose-built for reading, Kindle e-readers let you take your stories wherever you go"
+    },
+    {
+      "name": "Amazon Appstore",
+      "icon": "amazon-appstore.png",
+      "infoLink": "https://www.amazon.com/gp/mas/get/amazonapp",
+      "infoTitle": "Amazon Appstore is an app store for Android devices, all Amazon Fire tablets, and Windows 11 devices"
+    }
+  ],
   "shopify": [
     {
       "name": "Shopify",
@@ -295,7 +327,7 @@
       "icon": "baidu.png",
       "linkPlayStore": "https://play.google.com/store/apps/details?id=com.baidu.searchbox&hl=en&gl=US",
       "linkAppStore": "https://apps.apple.com/us/app/%E6%89%8B%E6%9C%BA%E7%99%BE%E5%BA%A6-%E7%99%BE%E5%BA%A6%E4%B8%80%E4%B8%8B%E4%BD%A0%E5%B0%B1%E5%BE%97%E5%88%B0/id382201985",
-      "infoLink": "http://baike.baidu.com/link?url=TW8YhcVN4tO_Jz5VqMclCjGhf12EEqMD_TeVC6efe2REZlx80r6T0dX96hdmNl36XogLyExXzrvFU9rFeqxg_K",
+      "infoLink": "https://baike.baidu.com/link?url=TW8YhcVN4tO_Jz5VqMclCjGhf12EEqMD_TeVC6efe2REZlx80r6T0dX96hdmNl36XogLyExXzrvFU9rFeqxg_K",
       "infoTitle": "Baidu Mobile is a search engine used by over 600 million people in China"
     },
     {
@@ -319,7 +351,7 @@
       "icon": "jdcom.png",
       "linkAppStore": "https://itunes.apple.com/cn/app/shou-ji-jing-dong-xin-ren/id414245413?mt=8",
       "linkPlayStore": "https://app.jd.com/android.html",
-      "infoLink": "http://ir.jd.com/phoenix.zhtml?c=253315&p=irol-homeProfile",
+      "infoLink": "https://ir.jd.com/phoenix.zhtml?c=253315&p=irol-homeProfile",
       "infoTitle": "JD.com is China’s largest ecommerce company by revenue and a member of the Fortune Global 500."
     },
     {
@@ -357,6 +389,12 @@
       "linkAppStore": "https://apps.apple.com/us/app/nfl/id389781154",
       "linkPlayStore": "https://play.google.com/store/apps/details?id=com.gotv.nflgamecenter.us.lite&hl=en_US",
       "pinned": true
+    },
+    {
+      "name": "Brex: The future of spend management",
+      "icon": "brex.png",
+      "linkAppStore": "https://apps.apple.com/us/app/brex/id1472905508",
+      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.brex.mobile&hl=en_US&gl=US"
     }
   ]
 }

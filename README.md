@@ -112,6 +112,14 @@ Docusaurus keeps track of the list of versions for the site in the `website/vers
 
 #### Cutting a new version
 
+##### After RC
+
+The React Native website lints and typechecks documents in "next". The version of React Native used by the linter should be updated before a release for consistency and to catch any documents/examples where APIs have changed.
+
+This can be done by updating the `package.json` and configuration files in `script/lint-examples` the same way a React Native application would be updated. The diff of these files can be seen using a tool like [React Native Upgrade Helper](https://react-native-community.github.io/upgrade-helper/?from=0.70.6&to=0.71.0).
+
+##### After Release
+
 1.  `cd react-native-website` to go into the project root.
 1.  `cd website` to go into the website portion of the project.
 1.  Run `yarn version:cut <newVersion>` where `<newVersion>` is the new version being released.

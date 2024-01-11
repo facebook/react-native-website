@@ -116,7 +116,7 @@ html[data-theme="dark"] {
   align-self: center;
   font-weight: 300;
 
-  div[class*="docPage"] {
+  div[class*="docRoot"] {
     justify-content: center;
   }
 
@@ -221,7 +221,6 @@ hr {
     width: 100%;
 
     thead tr {
-      background-color: var(--divider);
       border: 0;
     }
 
@@ -372,10 +371,6 @@ html[data-theme="dark"] {
       }
     }
 
-    table thead tr {
-      background-color: var(--ifm-menu-color-background-active);
-    }
-
     .prism-code {
       @extend %scrollbar-style-dark;
     }
@@ -387,10 +382,10 @@ html[data-theme="dark"] {
   }
 }
 
-div[class^="docPage"] .hash-link,
+div[class^="docRoot"] .hash-link,
 article[itemprop="blogPost"] .hash-link,
 .mdx-page .hash-link,
-html[data-theme="dark"] div[class^="docPage"] .hash-link,
+html[data-theme="dark"] div[class^="docRoot"] .hash-link,
 html[data-theme="dark"] article[itemprop="blogPost"] .hash-link,
 html[data-theme="dark"].mdx-page .hash-link {
   @extend %hash-link-style;
@@ -1714,7 +1709,7 @@ html[data-theme="dark"] .docsRating {
 /* Snack Player */
 
 .snack-player {
-  height: 544px;
+  height: 635px;
   width: 100%;
   overflow: hidden;
   margin-bottom: 24px;
@@ -1864,4 +1859,14 @@ html[data-theme="light"].blog-wrapper {
       border-color: var(--ifm-tabs-color-active);
     }
   }
+}
+
+/*
+Prevent useless bottom margin for multiline <figcaption> tags in MDX:
+<figcaption>
+  some paragraph text
+</figcaption>
+ */
+figcaption > p:last-child {
+  margin-bottom: 0;
 }

@@ -230,3 +230,60 @@ The **Codegen** for a Fabric Native Component contains a `MyFabricComponentManag
 Then, there is a layer of JNI C++ files that are used by Fabric to render the components. The basic element for a Fabric Component is the `ShadowNode`: it represents a node in the React abstract tree. The `ShadowNode` represents a React entity; therefore it could need some props, which are defined in the `Props` files and, sometimes, an `EventEmitter`, defined in the corresponding file.
 
 The **Codegen** also creates a `ComponentDescriptor.h`, which is required to get a proper handle on the Fabric Native Component.
+
+## The Codegen CLI
+
+**npx react-native codegen** [**--path** *path*] [**--platform** *string*] [**--outputPath** *path*]
+
+#### DESCRIPTION
+
+This command runs `react-native-codegen` for your project.
+The Codegen must be configured as described in [Configure Codegen](../new-architecture-library-intro#configure-codegen).
+
+The following options are available:
+
+- `--path` - Path to `package.json`. The default path is the current working directory.
+- `--platform` - Target platform. Supported values: `android`, `ios`, `all`. The default value is `all`.
+- `--outputPath` - Output path. The default value is the value defined in `codegenCofig.outputDir`.
+
+#### EXAMPLES
+
+- Read `package.json` from the current working directory, generate code based on its `codegenConfig`.
+
+```sh
+npx react-native codegen
+```
+
+- Read `package.json` from the current working directory, generate iOS code in the location defined in the `codegenConfig`.
+
+```sh
+npx react-native codegen --platform ios
+```
+
+- Read `package.json` from `third-party/some-library`, generate Android code in `third-party/some-library/android/generated`.
+
+```sh
+npx react-native codegen \
+    --path third-party/some-library \
+    --platform android \
+    --outputPath third-party/some-library/android/generated
+```
+
+## Including Generated Code into Libraries
+
+If you are working on a library, you can include Codegen artefacts in it. This setup has a number of benefits:
+
+- No need to rely on the app to run Codegen for you, the generated code is always there.
+- The implementation files are always consistent with the generated interfaces.
+- No need to [include two sets of files](backward-compatibility-turbomodules#android-1) to support the Old and the New Architecture on Android. You can only keep the New Architecture one, and it is guaranteed to be backwards compatible.
+- No need to worry about Codegen version mismatch between what is used by the app, and what was used during library development.
+- Since all native code is there, it is possible to ship the native part of the library as a prebuild.
+
+Here is how you can enable this setup:
+
+- Define `includesGeneratedCode: true` and `outputDir` in the `codegenConfig`, as described in [Configure Codegen](../new-architecture-library-intro#configure-codegen).
+- Run Codegen locally with [the codegen CLI](pillars-codegen#the-codegen-cli).
+- Update your `package.json` to include the generated code.
+- Update your [podspec](pillars-turbomodules#ios-create-the-podspec-file) to include the generated code.
+- Update your [build.gradle file](../the-new-architecture/pillars-turbomodules#the-buildgradle-file) to include the generated code.
+- You may also want to add the generated code to `.gitignore`.

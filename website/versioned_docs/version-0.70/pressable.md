@@ -169,49 +169,49 @@ Sets additional distance outside of element in which a press can be detected.
 
 Called when the hover is activated to provide visual feedback.
 
-| Type                                                                                                 |
-| ---------------------------------------------------------------------------------------------------- |
-| ({ nativeEvent: [MouseEvent](https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent) }) => void |
+| Type                                                                                                      |
+| --------------------------------------------------------------------------------------------------------- |
+| `md ({ nativeEvent: [MouseEvent](https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent) }) => void` |
 
 ### `onHoverOut`
 
 Called when the hover is deactivated to undo visual feedback.
 
-| Type                                                                                                 |
-| ---------------------------------------------------------------------------------------------------- |
-| ({ nativeEvent: [MouseEvent](https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent) }) => void |
+| Type                                                                                                      |
+| --------------------------------------------------------------------------------------------------------- |
+| `md ({ nativeEvent: [MouseEvent](https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent) }) => void` |
 
 ### `onLongPress`
 
 Called if the time after `onPressIn` lasts longer than 500 milliseconds. This time period can be customized with [`delayLongPress`](#delaylongpress).
 
-| Type                                                |
-| --------------------------------------------------- |
-| ({ nativeEvent: [PressEvent](pressevent) }) => void |
+| Type                                                     |
+| -------------------------------------------------------- |
+| `md ({ nativeEvent: [PressEvent](pressevent) }) => void` |
 
 ### `onPress`
 
 Called after `onPressOut`.
 
-| Type                                                |
-| --------------------------------------------------- |
-| ({ nativeEvent: [PressEvent](pressevent) }) => void |
+| Type                                                     |
+| -------------------------------------------------------- |
+| `md ({ nativeEvent: [PressEvent](pressevent) }) => void` |
 
 ### `onPressIn`
 
 Called immediately when a touch is engaged, before `onPressOut` and `onPress`.
 
-| Type                                                |
-| --------------------------------------------------- |
-| ({ nativeEvent: [PressEvent](pressevent) }) => void |
+| Type                                                     |
+| -------------------------------------------------------- |
+| `md ({ nativeEvent: [PressEvent](pressevent) }) => void` |
 
 ### `onPressOut`
 
 Called when a touch is released.
 
-| Type                                                |
-| --------------------------------------------------- |
-| ({ nativeEvent: [PressEvent](pressevent) }) => void |
+| Type                                                     |
+| -------------------------------------------------------- |
+| `md ({ nativeEvent: [PressEvent](pressevent) }) => void` |
 
 ### `pressRetentionOffset`
 
@@ -225,9 +225,9 @@ Additional distance outside of this view in which a touch is considered a press 
 
 Either view styles or a function that receives a boolean reflecting whether the component is currently pressed and returns view styles.
 
-| Type                           |
-| ------------------------------ |
-| [View Style](view-style-props) |
+| Type                                                                                            |
+| ----------------------------------------------------------------------------------------------- |
+| [View Style](view-style-props) or `md ({ pressed: boolean }) => [View Style](view-style-props)` |
 
 ### `testOnly_pressed`
 

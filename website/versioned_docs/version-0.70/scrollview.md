@@ -199,9 +199,9 @@ const styles = StyleSheet.create({
 
 The amount by which the scroll view content is inset from the edges of the scroll view.
 
-| Type                                                               | Default                                  |
-| ------------------------------------------------------------------ | ---------------------------------------- |
-| object: {top: number, left: number, bottom: number, right: number} | `{top: 0, left: 0, bottom: 0, right: 0}` |
+| Type                                                                 | Default                                  |
+| -------------------------------------------------------------------- | ---------------------------------------- |
+| object: `{top: number, left: number, bottom: number, right: number}` | `{top: 0, left: 0, bottom: 0, right: 0}` |
 
 ---
 
@@ -369,7 +369,7 @@ Caveat 2: This uses `contentOffset` and `frame.origin` in native code to compute
 
 | Type                                                                     |
 | ------------------------------------------------------------------------ |
-| object: { minIndexForVisible: number, autoscrollToTopThreshold: number } |
+| object: `{minIndexForVisible: number, autoscrollToTopThreshold: number}` |
 
 ---
 
@@ -571,7 +571,7 @@ Note that the view can always be scrolled by calling `scrollTo`.
 
 ---
 
-### `scrollEventThrottle` <div class="label ios">iOS</div>
+### `scrollEventThrottle`
 
 This controls how often the scroll event will be fired while scrolling (as a time interval in ms). A lower number yields better accuracy for code that is tracking the scroll position, but can lead to scroll performance problems due to the volume of information being sent over the bridge. You will not notice a difference between values set between 1-16 as the JS run loop is synced to the screen refresh rate. If you do not need precise scroll position tracking, set this value higher to limit the information being sent across the bridge. The default value is `0`, which results in the scroll event being sent only once each time the view is scrolled.
 
@@ -585,9 +585,9 @@ This controls how often the scroll event will be fired while scrolling (as a tim
 
 The amount by which the scroll view indicators are inset from the edges of the scroll view. This should normally be set to the same value as the `contentInset`.
 
-| Type                                                               | Default                                  |
-| ------------------------------------------------------------------ | ---------------------------------------- |
-| object: {top: number, left: number, bottom: number, right: number} | `{top: 0, left: 0, bottom: 0, right: 0}` |
+| Type                                                                 | Default                                  |
+| -------------------------------------------------------------------- | ---------------------------------------- |
+| object: `{top: number, left: number, bottom: number, right: number}` | `{top: 0, left: 0, bottom: 0, right: 0}` |
 
 ---
 
@@ -745,7 +745,7 @@ Displays the scroll indicators momentarily.
 scrollTo(
   options?: { x?: number, y?: number, animated?: boolean } | number,
   deprecatedX?: number,
-	deprecatedAnimated?: boolean,
+  deprecatedAnimated?: boolean,
 );
 ```
 

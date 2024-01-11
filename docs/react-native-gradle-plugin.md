@@ -17,7 +17,7 @@ If you're integrating React Native into an existing project, please refer to [th
 
 By default, the plugin will work **out of the box** with sensible defaults. You should refer to this guide and customize the behavior only if you need it.
 
-To configure the plugin you can modify a the `react` block, inside your `android/app/build.gradle`:
+To configure the plugin you can modify the `react` block, inside your `android/app/build.gradle`:
 
 ```groovy
 apply plugin: "com.facebook.react"
@@ -155,7 +155,7 @@ hermesFlags = ["-O", "-output-source-map"]
 When building Android apps, you might want to use [custom flavors](https://developer.android.com/studio/build/build-variants#product-flavors) to have different versions of your app starting from the same project.
 
 Please refer to the [official Android guide](https://developer.android.com/studio/build/build-variants) to configure custom build types (like `staging`) or custom flavors (like `full`, `lite`, etc.).
-By default new apps are create with two build types (`debug` and `release`) and no custom flavors.
+By default new apps are created with two build types (`debug` and `release`) and no custom flavors.
 
 The combination of all the build types and all the flavors generates a set of **build variants**. For instance for `debug`/`staging`/`release` build types and `full`/`lite` you will have 6 build variants: `fullDebug`, `fullStaging`, `fullRelease` and so on.
 

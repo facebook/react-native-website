@@ -4,6 +4,7 @@ title: iOS Native Modules
 ---
 
 import NativeDeprecated from './the-new-architecture/\_markdown_native_deprecation.mdx'
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 <NativeDeprecated />
 
@@ -180,13 +181,26 @@ const onPress = () => {
 
 The final step is to rebuild the React Native app so that you can have the latest native code (with your new native module!) available. In your command line, where the react native application is located, run the following :
 
+<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<TabItem value="npm">
+
 ```shell
-npx react-native run-ios
+npm run ios
 ```
+
+</TabItem>
+<TabItem value="yarn">
+
+```shell
+yarn ios
+```
+
+</TabItem>
+</Tabs>
 
 ### Building as You Iterate
 
-As you work through these guides and iterate on your native module, you will need to do a native rebuild of your application to access your most recent changes from JavaScript. This is because the code that you are writing sits within the native part of your application. While React Native’s metro bundler can watch for changes in JavaScript and rebuild JS bundle on the fly for you, it will not do so for native code. So if you want to test your latest native changes you need to rebuild by using the `npx react-native run-ios` command.
+As you work through these guides and iterate on your native module, you will need to do a native rebuild of your application to access your most recent changes from JavaScript. This is because the code that you are writing sits within the native part of your application. While React Native’s metro bundler can watch for changes in JavaScript and rebuild JS bundle on the fly for you, it will not do so for native code. So if you want to test your latest native changes you need to rebuild by using the above command.
 
 ### Recap✨
 
@@ -255,7 +269,6 @@ When a native module method is invoked in JavaScript, React Native converts the 
 | --------------------------------------------- | ------------------ |
 | NSString                                      | string, ?string    |
 | BOOL                                          | boolean            |
-| NSNumber                                      | ?boolean           |
 | double                                        | number             |
 | NSNumber                                      | ?number            |
 | NSArray                                       | Array, ?Array      |
@@ -466,7 +479,7 @@ JavaScript code can subscribe to these events by creating a new `NativeEventEmit
 You will receive a warning if you expend resources unnecessarily by emitting an event while there are no listeners. To avoid this, and to optimize your module's workload (e.g. by unsubscribing from upstream notifications or pausing background tasks), you can override `startObserving` and `stopObserving` in your `RCTEventEmitter` subclass.
 
 ```objectivec
-@implementation CalendarManager
+@implementation CalendarModule
 {
   bool hasListeners;
 }
@@ -554,10 +567,10 @@ RCTRootView *rootView = [[RCTRootView alloc]
 Swift doesn't have support for macros, so exposing native modules and their methods to JavaScript inside React Native requires a bit more setup. However, it works relatively the same. Let's say you have the same `CalendarModule` but as a Swift class:
 
 ```swift
-// CalendarManager.swift
+// CalendarModule.swift
 
-@objc(CalendarManager)
-class CalendarManager: NSObject {
+@objc(CalendarModule)
+class CalendarModule: NSObject {
 
  @objc(addEvent:location:date:)
  func addEvent(_ name: String, location: String, date: NSNumber) -> Void {
@@ -577,10 +590,10 @@ class CalendarManager: NSObject {
 Then create a private implementation file that will register the required information with React Native:
 
 ```objectivec
-// CalendarManagerBridge.m
+// CalendarModuleBridge.m
 #import <React/RCTBridgeModule.h>
 
-@interface RCT_EXTERN_MODULE(CalendarManager, NSObject)
+@interface RCT_EXTERN_MODULE(CalendarModule, NSObject)
 
 RCT_EXTERN_METHOD(addEvent:(NSString *)name location:(NSString *)location date:(nonnull NSNumber *)date)
 
@@ -590,7 +603,7 @@ RCT_EXTERN_METHOD(addEvent:(NSString *)name location:(NSString *)location date:(
 For those of you new to Swift and Objective-C, whenever you [mix the two languages in an iOS project](https://developer.apple.com/library/prerelease/ios/documentation/Swift/Conceptual/BuildingCocoaApps/MixandMatch.html), you will also need an additional bridging file, known as a bridging header, to expose the Objective-C files to Swift. Xcode will offer to create this header file for you if you add your Swift file to your app through the Xcode `File>New File` menu option. You will need to import `RCTBridgeModule.h` in this header file.
 
 ```objectivec
-// CalendarManager-Bridging-Header.h
+// CalendarModule-Bridging-Header.h
 #import <React/RCTBridgeModule.h>
 ```
 

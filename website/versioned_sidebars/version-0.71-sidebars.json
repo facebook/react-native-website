@@ -21,22 +21,13 @@
     "Workflow": [
       "running-on-device",
       "fast-refresh",
-      "debugging",
       "symbolication",
       "sourcemaps",
-      "testing-overview",
       "libraries",
       "typescript",
-      "upgrading",
-      {
-        "type": "category",
-        "label": "Connectivity",
-        "collapsible": false,
-        "collapsed": false,
-        "items": ["network", "security"]
-      }
+      "upgrading"
     ],
-    "Design": [
+    "UI & Interaction": [
       "style",
       "height-and-width",
       "flexbox",
@@ -56,11 +47,24 @@
       },
       {
         "type": "category",
+        "label": "Connectivity",
+        "collapsible": false,
+        "collapsed": false,
+        "items": ["network", "security"]
+      },
+      {
+        "type": "category",
         "label": "Inclusion",
         "collapsible": false,
         "collapsed": false,
         "items": ["accessibility"]
       }
+    ],
+    "Debugging": [
+      "debugging"
+    ],
+    "Testing": [
+      "testing-overview"
     ],
     "Performance": [
       "performance",

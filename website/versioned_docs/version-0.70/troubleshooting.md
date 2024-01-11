@@ -121,4 +121,4 @@ echo fs.inotify.max_user_watches=582222 | sudo tee -a /etc/sysctl.conf && sudo s
 
 If you run into issue where executing `npm run android` on macOS throws the above error, try to run `sudo chmod +x android/gradlew` command to make `gradlew` files into executable.
 
-[metro]: https://facebook.github.io/metro/
+[metro]: https://metrobundler.dev/

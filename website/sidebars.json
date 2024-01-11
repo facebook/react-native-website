@@ -21,28 +21,12 @@
     "Workflow": [
       "running-on-device",
       "fast-refresh",
-      {
-        "type": "category",
-        "label": "Debugging",
-        "collapsible": false,
-        "collapsed": false,
-        "items": ["debugging", "react-devtools", "native-debugging"]
-      },
-      "symbolication",
-      "sourcemaps",
-      "testing-overview",
+      "metro",
       "libraries",
       "typescript",
-      "upgrading",
-      {
-        "type": "category",
-        "label": "Connectivity",
-        "collapsible": false,
-        "collapsed": false,
-        "items": ["network", "security"]
-      }
+      "upgrading"
     ],
-    "Design": [
+    "UI & Interaction": [
       "style",
       "height-and-width",
       "flexbox",
@@ -62,16 +46,32 @@
       },
       {
         "type": "category",
+        "label": "Connectivity",
+        "collapsible": false,
+        "collapsed": false,
+        "items": ["network", "security"]
+      },
+      {
+        "type": "category",
         "label": "Inclusion",
         "collapsible": false,
         "collapsed": false,
         "items": ["accessibility"]
       }
     ],
+    "Debugging": [
+      "debugging",
+      "react-devtools",
+      "native-debugging",
+      "debugging-release-builds",
+      "other-debugging-methods"
+    ],
+    "Testing": [
+      "testing-overview"
+    ],
     "Performance": [
       "performance",
       "build-speed",
-      "speeding-ci-builds",
       "optimizing-flatlist-configuration",
       "ram-bundles-inline-requires",
       "profiling",

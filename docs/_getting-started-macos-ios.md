@@ -1,4 +1,5 @@
 import RemoveGlobalCLI from './\_remove-global-cli.md';
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 ## Installing dependencies
 
@@ -8,14 +9,14 @@ While you can use any editor of your choice to develop your app, you will need t
 
 ### Node & Watchman
 
-We recommend installing Node and Watchman using [Homebrew](http://brew.sh/). Run the following commands in a Terminal after installing Homebrew:
+We recommend installing Node and Watchman using [Homebrew](https://brew.sh/). Run the following commands in a Terminal after installing Homebrew:
 
 ```shell
 brew install node
 brew install watchman
 ```
 
-If you have already installed Node on your system, make sure it is Node 16 or newer.
+If you have already installed Node on your system, make sure it is Node 18 or newer.
 
 [Watchman](https://facebook.github.io/watchman) is a tool by Facebook for watching changes in the filesystem. It is highly recommended you install it for better performance.
 
@@ -34,6 +35,8 @@ You will also need to install the Xcode Command Line Tools. Open Xcode, then cho
 #### Installing an iOS Simulator in Xcode
 
 To install a simulator, open **Xcode > Settings... (or Preferences...)** and select the **Platforms (or Components)** tab. Select a simulator with the corresponding version of iOS you wish to use.
+
+If you are using Xcode version 14.0 or greater than to install a simulator, open **Xcode > Settings > Platforms** tab, then click "+" icon and select **iOS…** option.
 
 #### CocoaPods
 
@@ -61,7 +64,7 @@ This is not necessary if you are integrating React Native into an existing appli
 
 If you are having trouble with iOS, try to reinstall the dependencies by running:
 
-1. `cd ios` to navigate to the
+1. `cd ios` to navigate to the `ios` folder.
 2. `bundle install` to install [Bundler](https://bundler.io/)
 3. `bundle exec pod install` to install the iOS dependencies managed by CocoaPods.
 
@@ -89,9 +92,9 @@ This is the **suggested approach** to decouple the build infrastructure from the
 On top of this, it's possible to add any other environment variable and to source the `.xcode.env` file in your build script phases. If you need to run script that requires some specific environment, this is the **suggested approach**: it allows to decouple the build phases from a specific environment.
 
 :::info
-If you are already using [NVM](http://nvm.sh/) (a command which helps you install and switch between versions of Node.js) and [zsh](https://ohmyz.sh/), you might want to move the code that initialize NVM from your `~/.zshrc` into a `~/.zshenv` file to help Xcode find your Node executable:
+If you are already using [NVM](https://nvm.sh/) (a command which helps you install and switch between versions of Node.js) and [zsh](https://ohmyz.sh/), you might want to move the code that initialize NVM from your `~/.zshrc` into a `~/.zshenv` file to help Xcode find your Node executable:
 
-```
+```zsh
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 ```
@@ -103,33 +106,55 @@ You might also want to ensure that all "shell script build phase" of your Xcode 
 
 ### Step 1: Start Metro
 
-First, you will need to start Metro, the JavaScript bundler that ships with React Native. Metro "takes in an entry file and various options, and returns a single JavaScript file that includes all your code and its dependencies."—[Metro Docs](https://facebook.github.io/metro/docs/concepts)
+[**Metro**](https://metrobundler.dev/) is the JavaScript build tool for React Native. To start the Metro development server, run the following from your project folder:
 
-To start Metro, run `npx react-native start` inside your React Native project folder:
+<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<TabItem value="npm">
 
 ```shell
-npx react-native start
+npm start
 ```
 
-`react-native start` starts Metro Bundler.
+</TabItem>
+<TabItem value="yarn">
 
-> If you use the Yarn package manager, you can use `yarn` instead of `npx` when running React Native commands inside an existing project.
+```shell
+yarn start
+```
 
-> If you're familiar with web development, Metro is a lot like webpack—for React Native apps. Unlike Swift or Objective-C, JavaScript isn't compiled—and neither is React Native. Bundling isn't the same as compiling, but it can help improve startup performance and translate some platform-specific JavaScript into more widely supported JavaScript.
+</TabItem>
+</Tabs>
+
+:::note
+If you're familiar with web development, Metro is similar to bundlers such as Vite and webpack, but is designed end-to-end for React Native. For instance, Metro uses [Babel](https://babel.dev/) to transform syntax such as JSX into executable JavaScript.
+:::
 
 ### Step 2: Start your application
 
 Let Metro Bundler run in its own terminal. Open a new terminal inside your React Native project folder. Run the following:
 
+<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<TabItem value="npm">
+
 ```shell
-npx react-native run-ios
+npm run ios
 ```
+
+</TabItem>
+<TabItem value="yarn">
+
+```shell
+yarn ios
+```
+
+</TabItem>
+</Tabs>
 
 You should see your new app running in the iOS Simulator shortly.
 
 ![AwesomeProject on iOS](/docs/assets/GettingStartediOSSuccess.png)
 
-`npx react-native run-ios` is one way to run your app. You can also run it directly from within Xcode.
+This is one way to run your app. You can also run it directly from within Xcode.
 
 > If you can't get this to work, see the [Troubleshooting](troubleshooting.md) page.
 
@@ -142,7 +167,7 @@ The above command will automatically run your app on the iOS Simulator by defaul
 Now that you have successfully run the app, let's modify it.
 
 - Open `App.tsx` in your text editor of choice and edit some lines.
-- Hit `⌘R` in your iOS Simulator to reload the app and see your changes!
+- Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
 
 ### That's it!
 

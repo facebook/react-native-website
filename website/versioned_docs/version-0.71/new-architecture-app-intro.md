@@ -66,7 +66,7 @@ React Native also supports a local version of this file `.xcode.env.local`. This
 
 Turbo Native Modules can be written using Objective-C or C++. In order to support both cases, any source files in the user project space that include C++ code should use the `.mm` file extension. This extension corresponds to Objective-C++, a language variant that allows for the use of a combination of C++ and Objective-C in source files.
 
-:::important
+:::info
 
 **Use Xcode to rename existing files** to ensure file references persist in your project. You might need to clean the build folder (_Project → Clean Build Folder_) before re-building the app. If the file is renamed outside of Xcode, you may need to click on the old `.m` file reference and Locate the new file.
 

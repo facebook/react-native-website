@@ -12,10 +12,8 @@ React Native is not only for Android and iOS devices - our partners and the comm
 
 **From Community**
 
-- [alita](https://github.com/areslabs/alita) - An experimental, comprehensive port of React Native to mini-program (微信小程序).
 - [React Native tvOS](https://github.com/react-native-tvos/react-native-tvos) - React Native for Apple TV and Android TV devices.
 - [React Native Web](https://github.com/necolas/react-native-web) - React Native on the web using React DOM.
-- [Valence Native](https://github.com/valence-native/valence-native) - A wrapper for React Native, using Qt to target Linux, macOS, and Windows. Forked from [Proton Native](https://github.com/kusti8/proton-native) which is no longer maintained.
 
 ## Creating your own React Native platform
 
@@ -23,7 +21,7 @@ Right now the process of creating a React Native platform from scratch is not ve
 
 ### Bundling
 
-As of React Native 0.57 you can now register your React Native platform with React Native's JavaScript bundler, [Metro](https://facebook.github.io/metro/). This means you can pass `--platform example` to `npx react-native bundle`, and it will look for JavaScript files with the `.example.js` suffix.
+As of React Native 0.57 you can now register your React Native platform with React Native's JavaScript bundler, [Metro](https://metrobundler.dev/). This means you can pass `--platform example` to `npx react-native bundle`, and it will look for JavaScript files with the `.example.js` suffix.
 
 To register your platform with RNPM, your module's name must match one of these patterns:
 

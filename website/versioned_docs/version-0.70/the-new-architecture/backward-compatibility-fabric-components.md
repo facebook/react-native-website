@@ -36,7 +36,7 @@ While the last step is the same for all the platforms, the first two steps are d
 
 ## Configure the Fabric Native Component Dependencies
 
-### <a name="dependencies-ios" />iOS
+### iOS {#dependencies-ios}
 
 The Apple platform installs Fabric Native Components using [CocoaPods](https://cocoapods.org) as a dependency manager.
 

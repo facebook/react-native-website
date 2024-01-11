@@ -83,7 +83,8 @@ const randomizeApps = apps =>
 const Showcase = () => {
   const {siteConfig} = useDocusaurusContext();
 
-  const {meta, microsoft, shopify, wix, others} = siteConfig.customFields.users;
+  const {meta, microsoft, shopify, wix, amazon, others} =
+    siteConfig.customFields.users;
   const [pinnedRandomizedApps, setPinnedRandomizedApps] = useState([]);
   const [randomizedApps, setRandomizedApps] = useState([]);
 
@@ -152,6 +153,25 @@ const Showcase = () => {
             for React Native Windows and macOS.
           </p>
           <div className="logos">{microsoft.map(renderApp)}</div>
+        </div>
+        <div className="showcaseSection">
+          <h2 className="withLogo">
+            <ThemedImage
+              alt="Amazon logo"
+              width={140}
+              sources={{
+                light: useBaseUrl('/img/amazon_logo_lightbg.png'),
+                dark: useBaseUrl('/img/amazon_logo_darkbg.png'),
+              }}
+            />
+          </h2>
+          <p className="showcaseSectionDescription">
+            Amazon has used React Native to rapidly deliver new customer-facing
+            features in some of its most popular mobile applications as early as
+            2016. Amazon also uses React Native to support customer-favorite
+            devices such as the Kindle E-readers.
+          </p>
+          <div className="logos">{amazon.map(renderApp)}</div>
         </div>
         <div className="showcaseSection">
           <h2 className="withLogo">

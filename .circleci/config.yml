@@ -5,6 +5,7 @@ version: 2.1
 # -------------------------
 executors:
   node:
+    resource_class: xlarge
     docker:
       - image: cimg/node:lts
 
@@ -24,7 +25,7 @@ commands:
             - v1-yarn-{{ .Branch }}
       - run:
           name: Yarn Install
-          command: yarn install --no-progress --non-interactive --cache-folder ~/.cache/yarn
+          command: yarn install --frozen-lockfile --no-progress --non-interactive --cache-folder ~/.cache/yarn
           working_directory: ~/react-native-website
       - save_cache:
           paths:
@@ -62,6 +63,17 @@ jobs:
       - run_yarn
       - run: yarn ci:lint
 
+  build:
+    executor: node
+    working_directory: ~/react-native-website/website
+    environment:
+      # Needed to avoid OOMs
+      NODE_OPTIONS: "--max_old_space_size=4096"
+    steps:
+      - restore_cache_checkout
+      - run_yarn
+      - run: yarn build
+
 # -------------------------
 #        WORKFLOWS
 # -------------------------
@@ -73,5 +85,8 @@ workflows:
 
       # Run lints
       - lint:
+          requires:
+            - setup
+      - build:
           requires:
             - setup

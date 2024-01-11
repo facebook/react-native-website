@@ -1231,7 +1231,9 @@ export default AlignSelfLayout;
 
 - `space-between` Evenly space wrapped lines across the container's cross axis, distributing the remaining space between the lines.
 
-- `space-around` Evenly space wrapped lines across the container's cross axis, distributing the remaining space around the lines. Compared to `space-between`, using `space-around` will result in space being distributed to the beginning of the first line and the end of the last line.
+- `space-around` Evenly space wrapped lines across the container's cross axis, distributing the remaining space around the lines. Each end of the container has a half-sized space compared to the space between items.
+
+- `space-evenly` Evenly space wrapped lines across the container's cross axis, distributing the remaining space around the lines. Each space is the same size.
 
 You can learn more [here](https://yogalayout.com/docs/align-content).
 
