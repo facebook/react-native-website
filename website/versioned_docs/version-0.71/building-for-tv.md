@@ -12,6 +12,8 @@ TV devices support has been implemented with the intention of making existing Re
 
 <TabItem value="androidtv">
 
+> **Deprecated.** TV support has moved to the [React Native for TV](https://github.com/react-native-tvos/react-native-tvos) repository.
+
 ## Build changes
 
 - _Native layer_: To run React Native project on Android TV make sure to make the following changes to `AndroidManifest.xml`
@@ -102,7 +104,7 @@ class Game2048 extends React.Component {
 </TabItem>
 <TabItem value="tvos">
 
-> **Deprecated.** Use [react-native-tvos](https://github.com/react-native-community/react-native-tvos) instead. For the details please check the [0.62 release blog post](https://reactnative.dev/blog/#moving-apple-tv-to-react-native-tvos).
+> **Deprecated.** TV support has moved to the [React Native for TV](https://github.com/react-native-tvos/react-native-tvos) repository.
 
 ## Build changes
 
