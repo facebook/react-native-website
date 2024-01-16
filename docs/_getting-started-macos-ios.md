@@ -24,7 +24,7 @@ If you have already installed Node on your system, make sure it is Node 18 or ne
 
 The easiest way to install Xcode is via the [Mac App Store](https://itunes.apple.com/us/app/xcode/id497799835?mt=12). Installing Xcode will also install the iOS Simulator and all the necessary tools to build your iOS app.
 
-If you have already installed Xcode on your system, make sure it is version 10 or newer.
+If you have already installed Xcode on your system, make sure it is version 14.1 or newer.
 
 #### Command Line Tools
 
