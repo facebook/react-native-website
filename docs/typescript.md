@@ -54,7 +54,24 @@ This command adds the latest version of every dependency. The versions may need 
 
 > You should leave the `./index.js` entrypoint file as it is otherwise you may run into an issue when it comes to bundling a production build.
 
-4. Run `yarn tsc` to type-check your new TypeScript files.
+4. Run `tsc` to type-check your new TypeScript files.
+
+<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<TabItem value="npm">
+
+```shell
+npx tsc
+```
+
+</TabItem>
+<TabItem value="yarn">
+
+```shell
+yarn tsc
+```
+
+</TabItem>
+</Tabs>
 
 ## Using JavaScript Instead of TypeScript
 
