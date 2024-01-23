@@ -19,8 +19,8 @@ This will run tests using [Jest](https://jestjs.io).
 You should also make sure your code passes [Flow](https://flowtype.org/) and lint tests:
 
 ```bash
-yarn run flow
-yarn run lint
+yarn flow
+yarn lint
 ```
 
 ### iOS Tests
@@ -56,28 +56,12 @@ sh run_ruby_tests.sh
 
 ### Android Tests
 
-The Android unit tests do not run in an emulator. They use a normal Java installation. The test suite is built using the [Buck build tool][buck-install].
+The Android Unit tests do not run in an emulator, but they run on the JVM on your local machine.
 
-[buck-install]: https://buckbuild.com/setup/install.html
-
-To run the Android unit tests, invoke the following script from the root of your React Native checkout:
+To run the Android Unit tests, invoke the following script from the root of your React Native checkout:
 
 ```bash
-./scripts/run-android-local-unit-tests.sh
-```
-
-The Android integration tests, on the other hand, need additional setup. We recommend going through the instructions to [set up your environment for building React Native from source](/contributing/how-to-build-from-source#prerequisites).
-
-Once you've done that, you can start the Android emulator using:
-
-```bash
-./scripts/run-android-emulator.sh
-```
-
-Then, run the Android integration tests:
-
-```bash
-./scripts/run-android-local-integration-tests.sh
+./gradlew test
 ```
 
 ## Writing Tests
@@ -125,11 +109,9 @@ To do this, change `recordMode` flag to `_runner.recordMode = YES;` in [RNTester
 
 ### Android Unit Tests
 
-It's a good idea to add an Android unit test whenever you are working on code that can be tested by Java code alone. The Android unit tests are located in `ReactAndroid/src/tests`. We recommend browsing through these to get an idea of what a good unit test might look like.
+It's a good idea to add an Android unit test whenever you are working on code that can be tested by Java/Kotlin code alone. The Android unit tests are located in `packages/react-native/ReactAndroid/src/test/`. 
 
-### Android Integration Tests
-
-It's a good idea to add an Android integration test whenever you are working on code that needs both JavaScript and Java to be tested in conjunction. The Android integration tests can be found in `ReactAndroid/src/androidTest`. We recommend browsing through these to get an idea of what a good integration test might look like.
+We recommend browsing through these to get an idea of what a good unit test might look like.
 
 ## Continuous Testing
 
