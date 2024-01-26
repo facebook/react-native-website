@@ -1,3 +1,10 @@
+/**
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 @import "shared";
 
 .homepage {
@@ -63,9 +70,10 @@
   .item {
     list-style: none;
 
-    a img {
-      border-radius: 20%;
+    img {
+      border-radius: 16px;
       overflow: hidden;
+      box-shadow: 0 6px 14px rgb(20 20 20 / 8%);
     }
   }
 }
@@ -584,7 +592,7 @@
     /* Bleed background into the right */
     margin-right: -9999px;
     padding: 16px 1.5rem;
-    height: 450px;
+    height: 460px;
   }
 }
 
@@ -658,20 +666,20 @@ html[data-theme="dark"] .Section p a {
   @extend %link-style-dark;
 }
 
-/* Talks */
+/* VideoContent */
 
-.Talks {
+.VideoContent {
   .twitter-follow-button {
     margin-top: 1.5rem;
   }
 }
 
 @media only screen and (max-width: 960px) {
-  .Talks .TwoColumns {
+  .VideoContent .TwoColumns {
     grid-gap: 2rem;
   }
 
-  .Talks .column.last {
+  .VideoContent .column.last {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -681,13 +689,13 @@ html[data-theme="dark"] .Section p a {
    * If the full-width video won't fit, make it full-width.
    * https://jameshfisher.com/2017/08/30/how-do-i-make-a-full-width-iframe/
    */
-  .Talks .vidWrapper {
+  .VideoContent .vidWrapper {
     position: relative;
     width: 100%;
     padding-top: 56.25%;
   }
 
-  .Talks iframe {
+  .VideoContent iframe {
     position: absolute;
     top: 0;
     left: 0;
@@ -698,11 +706,11 @@ html[data-theme="dark"] .Section p a {
 
 @media only screen and (min-width: 961px) {
   /* Give more width for the video */
-  .Talks .TwoColumns {
+  .VideoContent .TwoColumns {
     grid-template-columns: 1fr 2fr;
   }
 
-  .Talks iframe {
+  .VideoContent iframe {
     width: 560px;
     height: 315px;
   }

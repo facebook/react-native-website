@@ -23,7 +23,13 @@ This is where `FlatList` comes into play. `FlatList` renders items lazily, when 
 
 ```SnackPlayer name=ScrollView
 import React from 'react';
-import { StyleSheet, Text, SafeAreaView, ScrollView, StatusBar } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  SafeAreaView,
+  ScrollView,
+  StatusBar,
+} from 'react-native';
 
 const App = () => {
   return (
@@ -41,7 +47,7 @@ const App = () => {
       </ScrollView>
     </SafeAreaView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -74,7 +80,7 @@ Inherits [View Props](view#props).
 
 ### `StickyHeaderComponent`
 
-A React Component that will be used to render sticky headers, should be used together with `stickyHeaderIndices`. You may need to set this component if your sticky header uses custom transforms, for example, when you want your list to have an animated and hidable header. If component have not been provided, the default [`ScrollViewStickyHeader`](https://github.com/facebook/react-native/blob/master/Libraries/Components/ScrollView/ScrollViewStickyHeader.js) component will be used.
+A React Component that will be used to render sticky headers, should be used together with `stickyHeaderIndices`. You may need to set this component if your sticky header uses custom transforms, for example, when you want your list to have an animated and hidable header. If a component has not been provided, the default [`ScrollViewStickyHeader`](https://github.com/facebook/react-native/blob/main/packages/react-native/Libraries/Components/ScrollView/ScrollViewStickyHeader.js) component will be used.
 
 | Type               |
 | ------------------ |
@@ -109,6 +115,16 @@ Controls whether iOS should automatically adjust the content inset for scroll vi
 | Type | Default |
 | ---- | ------- |
 | bool | `true`  |
+
+---
+
+### `automaticallyAdjustKeyboardInsets` <div class="label ios">iOS</div>
+
+Controls whether the ScrollView should automatically adjust its `contentInset` and `scrollViewInsets` when the Keyboard changes its size.
+
+| Type | Default |
+| ---- | ------- |
+| bool | `false` |
 
 ---
 
@@ -189,9 +205,9 @@ const styles = StyleSheet.create({
 
 The amount by which the scroll view content is inset from the edges of the scroll view.
 
-| Type                                                               | Default                                  |
-| ------------------------------------------------------------------ | ---------------------------------------- |
-| object: {top: number, left: number, bottom: number, right: number} | `{top: 0, left: 0, bottom: 0, right: 0}` |
+| Type                                                                 | Default                                  |
+| -------------------------------------------------------------------- | ---------------------------------------- |
+| object: `{top: number, left: number, bottom: number, right: number}` | `{top: 0, left: 0, bottom: 0, right: 0}` |
 
 ---
 
@@ -347,7 +363,7 @@ Determines when the keyboard should stay visible after a tap.
 
 ---
 
-### `maintainVisibleContentPosition` <div class="label ios">iOS</div>
+### `maintainVisibleContentPosition`
 
 When set, the scroll view will adjust the scroll position so that the first child that is currently visible and at or beyond `minIndexForVisible` will not change position. This is useful for lists that are loading content in both directions, e.g. a chat thread, where new messages coming in might otherwise cause the scroll position to jump. A value of 0 is common, but other values such as 1 can be used to skip loading spinners or other content that should not maintain position.
 
@@ -359,7 +375,7 @@ Caveat 2: This uses `contentOffset` and `frame.origin` in native code to compute
 
 | Type                                                                     |
 | ------------------------------------------------------------------------ |
-| object: { minIndexForVisible: number, autoscrollToTopThreshold: number } |
+| object: `{minIndexForVisible: number, autoscrollToTopThreshold: number}` |
 
 ---
 
@@ -389,7 +405,7 @@ Enables nested scrolling for Android API level 21+.
 
 | Type | Default |
 | ---- | ------- |
-| bool | `true`  |
+| bool | `false` |
 
 ---
 
@@ -397,7 +413,7 @@ Enables nested scrolling for Android API level 21+.
 
 Called when scrollable content view of the ScrollView changes.
 
-Handler function is passed the content width and content height as parameters: `(contentWidth, contentHeight)`
+The handler function will recieve two parameters: the content width and content height `(contentWidth, contentHeight)`.
 
 It's implemented using onLayout handler attached to the content container which this ScrollView renders.
 
@@ -429,7 +445,7 @@ Called when the momentum scroll ends (scroll which occurs as the ScrollView glid
 
 ### `onScroll`
 
-Fires at most once per frame during scrolling. The frequency of the events can be controlled using the `scrollEventThrottle` prop. The event has the following shape (all values are numbers):
+Fires at most once per frame during scrolling. The event has the following shape (all values are numbers):
 
 ```js
 {
@@ -499,8 +515,6 @@ Possible values:
 
 When true, the scroll view stops on multiples of the scroll view's size when scrolling. This can be used for horizontal pagination.
 
-> Note: Vertical pagination is not supported on Android.
-
 | Type | Default |
 | ---- | ------- |
 | bool | `false` |
@@ -561,9 +575,9 @@ Note that the view can always be scrolled by calling `scrollTo`.
 
 ---
 
-### `scrollEventThrottle` <div class="label ios">iOS</div>
+### `scrollEventThrottle`
 
-This controls how often the scroll event will be fired while scrolling (as a time interval in ms). A lower number yields better accuracy for code that is tracking the scroll position, but can lead to scroll performance problems due to the volume of information being sent over the bridge. You will not notice a difference between values set between 1-16 as the JS run loop is synced to the screen refresh rate. If you do not need precise scroll position tracking, set this value higher to limit the information being sent across the bridge. The default value is `0`, which results in the scroll event being sent only once each time the view is scrolled.
+Limits how often scroll events will be fired while scrolling, specified as a time interval in ms. This may be useful when expensive work is performed in response to scrolling. Values &le; `16` will disable throttling, regardless of the refresh rate of the device.
 
 | Type   | Default |
 | ------ | ------- |
@@ -575,9 +589,9 @@ This controls how often the scroll event will be fired while scrolling (as a tim
 
 The amount by which the scroll view indicators are inset from the edges of the scroll view. This should normally be set to the same value as the `contentInset`.
 
-| Type                                                               | Default                                  |
-| ------------------------------------------------------------------ | ---------------------------------------- |
-| object: {top: number, left: number, bottom: number, right: number} | `{top: 0, left: 0, bottom: 0, right: 0}` |
+| Type                                                                 | Default                                  |
+| -------------------------------------------------------------------- | ---------------------------------------- |
+| object: `{top: number, left: number, bottom: number, right: number}` | `{top: 0, left: 0, bottom: 0, right: 0}` |
 
 ---
 
@@ -687,6 +701,16 @@ Use in conjunction with `snapToOffsets`. By default, the beginning of the list c
 
 ---
 
+### `stickyHeaderHiddenOnScroll`
+
+When set to `true`, sticky header will be hidden when scrolling down the list, and it will dock at the top of the list when scrolling up.
+
+| Type | Default |
+| ---- | ------- |
+| bool | `false` |
+
+---
+
 ### `stickyHeaderIndices`
 
 An array of child indices determining which children get docked to the top of the screen when scrolling. For example, passing `stickyHeaderIndices={[0]}` will cause the first child to be fixed to the top of the scroll view. You can also use like [x,y,z] to make multiple items sticky when they are at the top. This property is not supported in conjunction with `horizontal={true}`.
@@ -711,7 +735,7 @@ The current scale of the scroll view content.
 
 ### `flashScrollIndicators()`
 
-```jsx
+```tsx
 flashScrollIndicators();
 ```
 
@@ -721,11 +745,11 @@ Displays the scroll indicators momentarily.
 
 ### `scrollTo()`
 
-```jsx
+```tsx
 scrollTo(
-  options?: { x?: number, y?: number, animated?: boolean } | number,
+  options?: {x?: number, y?: number, animated?: boolean} | number,
   deprecatedX?: number,
-	deprecatedAnimated?: boolean,
+  deprecatedAnimated?: boolean,
 );
 ```
 
@@ -733,7 +757,7 @@ Scrolls to a given x, y offset, either immediately, with a smooth animation.
 
 **Example:**
 
-`scrollTo({ x: 0, y: 0, animated: true })`
+`scrollTo({x: 0, y: 0, animated: true})`
 
 > Note: The weird function signature is due to the fact that, for historical reasons, the function also accepts separate arguments as an alternative to the options object. This is deprecated due to ambiguity (y before x), and SHOULD NOT BE USED.
 
@@ -741,10 +765,10 @@ Scrolls to a given x, y offset, either immediately, with a smooth animation.
 
 ### `scrollToEnd()`
 
-```jsx
-scrollToEnd(([options]: { animated: boolean, duration: number }));
+```tsx
+scrollToEnd(options?: {animated?: boolean});
 ```
 
 If this is a vertical ScrollView scrolls to the bottom. If this is a horizontal ScrollView scrolls to the right.
 
-Use `scrollToEnd({ animated: true })` for smooth animated scrolling, `scrollToEnd({ animated: false })` for immediate scrolling. For Android, you may specify a duration, e.g. `scrollToEnd({ duration: 500 })` for a controlled duration scroll. If no options are passed, `animated` defaults to `true`.
+Use `scrollToEnd({animated: true})` for smooth animated scrolling, `scrollToEnd({animated: false})` for immediate scrolling. If no options are passed, `animated` defaults to `true`.

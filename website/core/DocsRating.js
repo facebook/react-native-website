@@ -1,8 +1,16 @@
-import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
+/**
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 import React, {useState} from 'react';
+import useIsBrowser from '@docusaurus/useIsBrowser';
 
 const DocsRating = ({label}) => {
-  if (!ExecutionEnvironment.canUseDOM) {
+  const isBrowser = useIsBrowser();
+  if (!isBrowser) {
     return null;
   }
 

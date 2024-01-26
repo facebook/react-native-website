@@ -56,7 +56,7 @@ Here are the notes from each team:
 
 ### Facebook
 
-- Facebook is internally exploring being able to embed native [ComponentKit](http://componentkit.org/) and [Litho](https://fblitho.com/) components inside of React Native.
+- Facebook is internally exploring being able to embed native [ComponentKit](https://componentkit.org/) and [Litho](https://fblitho.com/) components inside of React Native.
 - Contributions to React Native are very welcome! If you are wondering how you can contribute, the ["How to Contribute" guide](https://github.com/facebook/react-native-website/blob/master/CONTRIBUTING.md) describes our development process and lays out the steps to send your first pull request. There are other ways to contribute that do not require writing code, such as by triaging issues or updating the docs.
   - At the time of writing, React Native has **635** [open issues](https://github.com/facebook/react-native/issues) and **249** [open pull requests](https://github.com/facebook/react-native/pulls). This is overwhelming for our maintainers, and when things get fixed internally, it is difficult to ensure the relevant tasks are updated.
   - We are unsure what the best approach is to handle this while keeping the community satisfied. Some (but not all!) options include closing stale issues, giving significantly more people permissions to manage issues, and automatically closing issues that do not follow the issue template. We wrote a "What to Expect from Maintainers" guide to set expectations and avoid surprises. If you have ideas on how we can make this experience better for maintainers as well as ensuring people opening issues and pull requests feel heard and valued, please let us know!
@@ -78,7 +78,7 @@ Here are the notes from each team:
 - [CodePush](https://github.com/Microsoft/code-push) has now been integrated into [Mobile Center](https://mobile.azure.com/). Existing users will have no change in their workflow.
   - Some people have reported an issue with duplicate apps - they already had an app on Mobile Center. We are working on resolving them, but if you have two apps, let us know, and we can merge them for you.
 - Mobile Center now supports Push Notifications for CodePush. We also showed how a combination of Notifications and CodePush could be used for A/B testing apps - something unique to the ReactNative architecture.
-- [VSCode](https://github.com/Microsoft/vscode) has a known debugging issue with ReactNative - the next release of the extension in a couple of days will be fixing the issue.
+- [VS Code](https://github.com/Microsoft/vscode) has a known debugging issue with ReactNative - the next release of the extension in a couple of days will be fixing the issue.
 - Since there are many other teams also working on React Native inside Microsoft, we will work on getting better representation from all the groups for the next meeting.
 
 ### Shoutem

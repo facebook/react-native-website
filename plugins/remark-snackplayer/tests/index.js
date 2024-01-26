@@ -1,13 +1,20 @@
+/**
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 const path = require('path');
 const fs = require('fs');
 const test = require('tape');
-const remark = require('remark');
 const snackplayer = require('../');
 
 const read = name => fs.readFileSync(path.join(__dirname, name), 'utf8');
 const normalizeLineEndings = str => str.replace(/\r\n/g, '\n');
 
 test('remark-snackplayer', async t => {
+  const {remark} = await import('remark');
   const processor = remark().use(snackplayer);
 
   processor.process(read('markdown/test1.md'), (err, file) => {

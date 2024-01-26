@@ -1,5 +1,5 @@
 /**
- * Copyright (c) Facebook, Inc. and its affiliates.
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
@@ -7,30 +7,30 @@
 
 import React from 'react';
 import Layout from '@theme/Layout';
-
 import useBaseUrl from '@docusaurus/useBaseUrl';
 const versions = require('../../versions.json');
+// The versionsArchived mapping is a custom feature, NOT a Docusaurus feature
+const versionsArchived = require('../../versionsArchived.json');
 
-const VersionItem = ({version, currentVersion}) => {
-  const versionName = version === 'next' ? 'Master' : version;
+const VersionItem = ({version, archivedDocumentationUrl, currentVersion}) => {
+  const versionName = version === 'next' ? 'main' : version;
 
   const isCurrentVersion = currentVersion === version;
   const isNext = version === 'next';
   const isRC = version.toUpperCase().indexOf('-RC') !== -1;
 
   const latestMajorVersion = versions[0].toUpperCase().replace('-RC', '');
-  const documentationLink = (
-    <a
-      href={useBaseUrl(
-        'docs/' + (isCurrentVersion ? '' : version + '/') + 'getting-started'
-      )}>
-      Documentation
-    </a>
+
+  const documentationUrl = useBaseUrl(
+    archivedDocumentationUrl ??
+      `/docs/${isCurrentVersion ? '' : version + '/'}getting-started`
   );
+  const documentationLink = <a href={documentationUrl}>Documentation</a>;
+
   let releaseNotesURL = 'https://github.com/facebook/react-native/releases';
   let releaseNotesTitle = 'Changelog';
   if (isNext) {
-    releaseNotesURL = `https://github.com/facebook/react-native/compare/${latestMajorVersion}-stable...master`;
+    releaseNotesURL = `https://github.com/facebook/react-native/compare/${latestMajorVersion}-stable...main`;
     releaseNotesTitle = 'Commits since ' + latestMajorVersion;
   } else if (!isRC) {
     releaseNotesURL = `https://github.com/facebook/react-native/releases/tag/v${version}.0`;
@@ -60,21 +60,18 @@ const Versions = () => {
     <Layout title="Versions" wrapperClassName="versions-page">
       <h1>React Native versions</h1>
       <p>
-        Open source React Native releases follow a monthly release train that is
+        Open source React Native releases follow a release train that is
         coordinated on GitHub through the{' '}
         <a
-          href={
-            'https://github.com/react-native-community/react-native-releases'
-          }>
+          href={'https://github.com/reactwg/react-native-releases/discussions'}>
           <code>react-native-releases</code>
         </a>{' '}
-        repository. At the beginning of each month, a new release candidate is
-        created off the <code>main</code> branch of{' '}
+        repository. New releases are created off the <code>main</code> branch of{' '}
         <a href={'https://github.com/facebook/react-native'}>
           <code>facebook/react-native</code>
         </a>
-        . The release candidate will soak for a month to allow contributors like
-        yourself to{' '}
+        . They will follow a Release Candidate process to allow contributors
+        like yourself to{' '}
         <a href={useBaseUrl('docs/upgrading')}>verify the changes</a> and to
         identify any issues by{' '}
         <a href="https://github.com/facebook/react-native/issues">
@@ -128,6 +125,24 @@ const Versions = () => {
         </tbody>
       </table>
       <h2>Archived versions</h2>
+      <p>
+        The documentation for unmaintained versions can be found on website
+        archive snapshots, hosted as separate sites.
+      </p>
+      <table className="versions">
+        <tbody>
+          {Object.entries(versionsArchived).map(
+            ([version, archivedDocumentationUrl]) => (
+              <VersionItem
+                key={'version_' + version}
+                version={version}
+                archivedDocumentationUrl={archivedDocumentationUrl}
+                currentVersion={currentVersion}
+              />
+            )
+          )}
+        </tbody>
+      </table>
       <p>
         The documentation for versions below <code>0.60</code> can be found on
         the separate website called{' '}

@@ -18,9 +18,7 @@ Together with the rapid iteration cycle of the web, we've been able to build som
 <footer>
   <a
     href="https://code.facebook.com/posts/1014532261909640/react-native-bringing-modern-web-techniques-to-mobile/"
-    className="btn">
-    Read more
-  </a>
+    className="btn">Read more</a>
 </footer>
 
 > This is an excerpt. Read the rest of the post on [Facebook Code](https://code.facebook.com/posts/1014532261909640/react-native-bringing-modern-web-techniques-to-mobile/).

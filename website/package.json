@@ -10,24 +10,30 @@
     "url": "https://github.com/facebook/react-native-website/issues"
   },
   "scripts": {
+    "docusaurus": "docusaurus",
     "start": "docusaurus start",
-    "build": "docusaurus build",
+    "build": "docusaurus build && yarn run update-redirect ./build/_redirects ./versions.json",
+    "build:fast": "PREVIEW_DEPLOY=true yarn run build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "serve": "docusaurus serve",
-    "clean": "docusaurus clean",
+    "clear": "docusaurus clear",
     "test": "yarn build",
     "version:cut": "docusaurus docs:version",
     "format:source": "prettier --write {{core,src}/**/*.js,*.js}",
-    "format:markdown": "prettier --write ../docs/*.md && prettier --write {{versioned_docs,src}/**/*.md,blog/*.md}",
+    "format:markdown": "prettier --write ../docs/*.md && prettier --write {versioned_docs/**/*.md,blog/*.md}",
     "format:style": "prettier --write src/**/*.{scss,css}",
+    "format:examples": "eslint-examples-js --fix && eslint-examples-tsx --fix",
     "prettier": "yarn format:source && yarn format:markdown && yarn format:style",
-    "lint": "eslint ../docs/** blog/** core/** src/**/*.{js,md}",
+    "lint": "eslint ../docs/** blog/** core/** src/**/*.js ./*.js",
+    "lint:examples": "eslint-examples-js && eslint-examples-tsx && tsc-examples",
     "lint:versioned": "eslint versioned_docs/**",
-    "language:lint": "cd ../ && alex",
-    "language:lint:versioned": "cd ../ && alex .",
-    "ci:lint": "yarn lint && yarn lint:versioned && yarn language:lint:versioned",
-    "pwa:generate": "npx pwa-asset-generator ./static/img/header_logo.svg ./static/img/pwa --background #20232a --icon-only -opaque true --maskable true --type png"
+    "lint:markdown": "remark ../docs --quiet -r .remarkrc.mjs",
+    "lint:markdown:versioned": "remark ./versioned_docs --quiet -r .remarkrc.mjs",
+    "language:lint": "cd ../ && alex && case-police 'docs/*.md' -p brands,general,products,softwares -d ./website/react-native-dict.json",
+    "language:lint:versioned": "cd ../ && alex . && case-police '**/*.md' -p brands,general,products,softwares -d ./website/react-native-dict.json",
+    "ci:lint": "yarn lint && yarn lint:examples && yarn lint:versioned && yarn language:lint:versioned && yarn lint:markdown",
+    "pwa:generate": "npx pwa-asset-generator ./static/img/header_logo.svg ./static/img/pwa --padding '40px' --background 'rgb(32, 35, 42)' --icon-only --opaque true"
   },
   "browserslist": {
     "production": [
@@ -42,21 +48,27 @@
     ]
   },
   "dependencies": {
-    "@docusaurus/core": "^2.0.0-beta.6",
-    "@docusaurus/plugin-pwa": "^2.0.0-beta.6",
-    "@docusaurus/preset-classic": "^2.0.0-beta.6",
-    "docusaurus-plugin-sass": "^0.2.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-github-btn": "^1.2.0",
-    "sass": "^1.35.1"
+    "@docusaurus/core": "3.0.0-beta.0",
+    "@docusaurus/plugin-google-gtag": "3.0.0-beta.0",
+    "@docusaurus/plugin-pwa": "3.0.0-beta.0",
+    "@docusaurus/preset-classic": "3.0.0-beta.0",
+    "docusaurus-plugin-sass": "^0.2.5",
+    "esbuild-loader": "^2.21.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-github-btn": "^1.3.0",
+    "sass": "^1.68.0"
   },
   "devDependencies": {
-    "@docusaurus/types": "^2.0.0-beta.6",
-    "alex": "^9.1.0",
-    "fs-extra": "^9.1.0",
-    "glob": "^7.1.6",
-    "glob-promise": "^4.1.0",
-    "path": "^0.12.7"
+    "@docusaurus/types": "3.0.0-beta.0",
+    "@react-native-website/lint-examples": "0.0.0",
+    "@react-native-website/update-redirects": "0.0.0",
+    "alex": "^10.0.0",
+    "fs-extra": "^10.1.0",
+    "glob": "^8.0.3",
+    "glob-promise": "^4.2.2",
+    "path": "^0.12.7",
+    "remark-cli": "^11.0.0",
+    "remark-lint-no-dead-urls": "^1.1.0"
   }
 }

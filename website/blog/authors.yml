@@ -1,29 +1,124 @@
 abernathyca:
   name: Christine Abernathy
-  title: Developer Advocate at Facebook
+  title: Developer Advocate at Meta
   url: https://twitter.com/abernathyca
   image_url: https://github.com/caabernathy.png
 
 Eli_White:
   name: Eli White
-  title: Engineering Manager at Facebook
+  title: Engineering Manager at Meta
   url: https://twitter.com/Eli_White
   image_url: https://github.com/TheSavior.png
 
 lunaleaps:
   name: Luna Wei
-  title: Software Engineer at Facebook
+  title: Software Engineer at Meta
   url: https://twitter.com/lunaleaps
   image_url: https://github.com/lunaleaps.png
 
 SamuelSusla:
   name: Samuel Susla
-  title: Software Engineer at Facebook
+  title: Software Engineer at Meta
   url: https://twitter.com/SamuelSusla
   image_url: https://github.com/sammy-SC.png
 
 yungsters:
   name: Timothy Yung
-  title: Software Engineer at Facebook
+  title: Software Engineer at Meta
   url: https://twitter.com/yungsters
   image_url: https://github.com/yungsters.png
+
+huxpro:
+  name: Xuan Huang
+  title: Software Engineer at Meta
+  url: https://twitter.com/huxpro
+  image_url: https://github.com/huxpro.png
+
+kelset:
+  name: Lorenzo Sciandra
+  title: Senior Software Engineer at Microsoft
+  url: https://twitter.com/kelset
+  image_url: https://github.com/kelset.png
+
+cortinico:
+  name: Nicola Corti
+  title: Software Engineer at Meta
+  url: https://twitter.com/cortinico
+  image_url: https://github.com/cortinico.png
+
+shikaSD:
+  name: Andrei Shikov
+  title: Software Engineer at Meta
+  url: https://twitter.com/shikasd_
+  image_url: https://github.com/ShikaSD.png
+
+cipolleschi:
+  name: Riccardo Cipolleschi
+  title: Software Engineer at Meta
+  url: https://twitter.com/CipolleschiR
+  image_url: https://github.com/cipolleschi.png
+
+fortmarek:
+  name: Marek Fořt
+  title: Software Engineer at Shopify
+  url: https://twitter.com/marekfort
+  image_url: https://github.com/fortmarek.png
+
+micleo:
+  name: Michael Leon
+  title: Software Engineer at Meta
+  image_url: https://github.com/fbmal7.png
+
+dmytrorykun:
+  name: Dmytro Rykun
+  title: Software Engineer at Meta
+  url: https://github.com/dmytrorykun
+  image_url: https://github.com/dmytrorykun.png
+
+titozzz:
+  name: Thibault Malbranche
+  title: Lead Mobile Engineer at Brigad
+  url: https://twitter.com/titozzz
+  image_url: https://github.com/titozzz.png
+
+thymikee:
+  name: Michał Pierzchała
+  title: Head of Technology at Callstack
+  url: https://twitter.com/thymikee
+  image_url: https://github.com/thymikee.png
+
+vincentriemer:
+  name: Vincent Riemer
+  title: Software Engineer at Meta
+  url: https://twitter.com/vincentriemer
+  image_url: https://github.com/vincentriemer.png
+
+NickGerleman:
+  name: Nick Gerleman
+  title: Software Engineer at Meta
+  url: https://github.com/NickGerleman
+  image_url: https://github.com/NickGerleman.png
+
+rickhanlonii:
+  name: Ricky Hanlon
+  title: Software Engineer at Meta
+  url: https://github.com/rickhanlonii
+  image_url: https://github.com/rickhanlonii.png
+
+mattcarrollcode:
+  name: Matt Carroll
+  title: Developer Advocate at Meta
+  url: https://github.com/mattcarrollcode
+  image_url: https://github.com/mattcarrollcode.png
+
+huntie:
+  name: Alex Hunt
+  title: Software Engineer at Meta
+  url: https://twitter.com/alxhnt
+  image_url: https://github.com/huntie.png
+
+hurali:
+  name: Hur Ali
+  title: Software Engineer at Callstack
+  url: https://twitter.com/hurali97
+  image_url: https://github.com/hurali97.png

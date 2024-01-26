@@ -1,27 +1,47 @@
+/**
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 const users = require('./showcase.json');
 const versions = require('./versions.json');
 
 const lastVersion = versions[0];
+const copyright = `Copyright © ${new Date().getFullYear()} Meta Platforms, Inc.`;
+
+const commonDocsOptions = {
+  breadcrumbs: false,
+  showLastUpdateAuthor: false,
+  showLastUpdateTime: true,
+  editUrl:
+    'https://github.com/facebook/react-native-website/blob/main/website/',
+  remarkPlugins: [require('@react-native-website/remark-snackplayer')],
+};
+
+const isDeployPreview = process.env.PREVIEW_DEPLOY === 'true';
 
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
-(module.exports = {
+module.exports = {
   title: 'React Native',
   tagline: 'A framework for building native apps using React',
   organizationName: 'facebook',
   projectName: 'react-native',
   url: 'https://reactnative.dev',
   baseUrl: '/',
-  clientModules: [require.resolve('./snackPlayerInitializer.js')],
+  clientModules: [
+    require.resolve('./modules/snackPlayerInitializer.js'),
+    require.resolve('./modules/jumpToFragment.js'),
+  ],
   trailingSlash: false, // because trailing slashes can break some existing relative links
   scripts: [
     {
-      src:
-        'https://cdn.jsdelivr.net/npm/focus-visible@5.2.0/dist/focus-visible.min.js',
+      src: 'https://cdn.jsdelivr.net/npm/focus-visible@5.2.0/dist/focus-visible.min.js',
       defer: true,
     },
     {
-      src:
-        'https://widget.surveymonkey.com/collect/website/js/tRaiETqnLgj758hTBazgd8ryO5qrZo8Exadq9qmt1wtm4_2FdZGEAKHDFEt_2BBlwwM4.js',
+      src: 'https://widget.surveymonkey.com/collect/website/js/tRaiETqnLgj758hTBazgd8ryO5qrZo8Exadq9qmt1wtm4_2FdZGEAKHDFEt_2BBlwwM4.js',
       defer: true,
     },
     {src: 'https://snack.expo.dev/embed.js', defer: true},
@@ -37,29 +57,34 @@ const lastVersion = versions[0];
     locales: ['en'],
   },
   onBrokenLinks: 'throw',
+  webpack: {
+    jsLoader: isServer => ({
+      loader: require.resolve('esbuild-loader'),
+      options: {
+        loader: 'tsx',
+        format: isServer ? 'cjs' : undefined,
+        target: isServer ? 'node12' : 'es2017',
+      },
+    }),
+  },
   presets: [
     [
       '@docusaurus/preset-classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          showLastUpdateAuthor: false,
-          showLastUpdateTime: true,
-          editUrl:
-            'https://github.com/facebook/react-native-website/blob/master/website/',
           path: '../docs',
           sidebarPath: require.resolve('./sidebars.json'),
-          remarkPlugins: [require('@react-native-website/remark-snackplayer')],
           editCurrentVersion: true,
-          onlyIncludeVersions:
-            process.env.PREVIEW_DEPLOY === 'true'
-              ? ['current', ...versions.slice(0, 3)]
-              : undefined,
+          onlyIncludeVersions: isDeployPreview
+            ? ['current', ...versions.slice(0, 2)]
+            : undefined,
           versions: {
             [lastVersion]: {
               badge: false, // Do not show version badge for last RN version
             },
           },
+          ...commonDocsOptions,
         },
         blog: {
           path: 'blog',
@@ -67,7 +92,7 @@ const lastVersion = versions[0];
           blogSidebarTitle: 'All Blog Posts',
           feedOptions: {
             type: 'all',
-            copyright: `Copyright © ${new Date().getFullYear()} Facebook, Inc.`,
+            copyright,
           },
         },
         theme: {
@@ -78,11 +103,51 @@ const lastVersion = versions[0];
             require.resolve('./src/css/versions.scss'),
           ],
         },
+        // TODO: GA is deprecated, remove once we're sure data is streaming in GA4 via gtag.
+        googleAnalytics: {
+          trackingID: 'UA-41298772-2',
+        },
+        gtag: {
+          trackingID: 'G-58L13S6BDP',
+        },
       }),
     ],
   ],
   plugins: [
     'docusaurus-plugin-sass',
+    [
+      'content-docs',
+      /** @type {import('@docusaurus/plugin-content-docs').Options} */
+      ({
+        id: 'architecture',
+        path: 'architecture',
+        routeBasePath: '/architecture',
+        sidebarPath: require.resolve('./sidebarsArchitecture.json'),
+        ...commonDocsOptions,
+      }),
+    ],
+    [
+      'content-docs',
+      /** @type {import('@docusaurus/plugin-content-docs').Options} */
+      ({
+        id: 'contributing',
+        path: 'contributing',
+        routeBasePath: '/contributing',
+        sidebarPath: require.resolve('./sidebarsContributing.json'),
+        ...commonDocsOptions,
+      }),
+    ],
+    [
+      'content-docs',
+      /** @type {import('@docusaurus/plugin-content-docs').Options} */
+      ({
+        id: 'community',
+        path: 'community',
+        routeBasePath: '/community',
+        sidebarPath: require.resolve('./sidebarsCommunity.json'),
+        ...commonDocsOptions,
+      }),
+    ],
     [
       '@docusaurus/plugin-pwa',
       {
@@ -143,12 +208,12 @@ const lastVersion = versions[0];
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       announcementBar: {
-        id: 'survey-2021-announcement',
+        id: 'support_ukraine',
         content:
-          'We want to hear from you! <a href="https://surveys.savanta.com/survey/selfserve/21e3/210643?list=2" target="_blank" rel="noopener noreferrer">Take the 2021 React Community Survey!</a>',
-        backgroundColor: '#20232a', // var(--deepdark)
+          'Support Ukraine 🇺🇦 <a target="_blank" rel="noopener noreferrer" href="https://opensource.facebook.com/support-ukraine"> Help Provide Humanitarian Aid to Ukraine</a>.',
+        backgroundColor: '#20232a',
         textColor: '#fff',
-        isCloseable: true,
+        isCloseable: false,
       },
       prism: {
         defaultLanguage: 'jsx',
@@ -160,6 +225,7 @@ const lastVersion = versions[0];
           'swift',
           'groovy',
           'ruby',
+          'flow',
         ],
       },
       navbar: {
@@ -171,26 +237,50 @@ const lastVersion = versions[0];
         style: 'dark',
         items: [
           {
-            label: 'Docs',
-            type: 'doc',
-            docId: 'getting-started',
+            label: 'Development',
+            type: 'dropdown',
             position: 'right',
+            items: [
+              {
+                label: 'Guides',
+                type: 'doc',
+                docId: 'getting-started',
+              },
+              {
+                label: 'Components',
+                type: 'doc',
+                docId: 'components-and-apis',
+              },
+              {
+                label: 'APIs',
+                type: 'doc',
+                docId: 'accessibilityinfo',
+              },
+              {
+                label: 'Architecture',
+                type: 'doc',
+                docId: 'architecture-overview',
+                docsPluginId: 'architecture',
+              },
+            ],
           },
           {
-            label: 'Components',
             type: 'doc',
-            docId: 'components-and-apis',
+            docId: 'overview',
+            label: 'Contributing',
             position: 'right',
+            docsPluginId: 'contributing',
           },
           {
-            label: 'API',
             type: 'doc',
-            docId: 'accessibilityinfo',
-            position: 'right',
-          },
-          {
-            to: '/help',
+            docId: 'overview',
             label: 'Community',
+            position: 'right',
+            docsPluginId: 'community',
+          },
+          {
+            to: '/showcase',
+            label: 'Showcase',
             position: 'right',
           },
           {
@@ -222,49 +312,48 @@ const lastVersion = versions[0];
         style: 'dark',
         links: [
           {
-            title: 'Docs',
+            title: 'Develop',
             items: [
               {
-                label: 'Getting Started',
+                label: 'Guides',
                 to: 'docs/getting-started',
               },
               {
-                label: 'Tutorial',
-                to: 'docs/tutorial',
-              },
-              {
-                label: 'Components and APIs',
+                label: 'Components',
                 to: 'docs/components-and-apis',
               },
               {
-                label: 'More Resources',
-                to: 'docs/more-resources',
+                label: 'APIs',
+                to: 'docs/accessibilityinfo',
+              },
+              {
+                label: 'Architecture',
+                to: 'architecture/overview',
               },
             ],
           },
           {
-            title: 'Community',
+            title: 'Participate',
             items: [
               {
-                label: 'The React Native Community',
-                to: 'help',
-              },
-              {
-                label: "Who's using React Native?",
+                label: 'Showcase',
                 to: 'showcase',
               },
               {
-                label: 'Ask Questions on Stack Overflow',
+                label: 'Contributing',
+                to: 'contributing/overview',
+              },
+              {
+                label: 'Community',
+                to: 'community/overview',
+              },
+              {
+                label: 'Directory',
+                href: 'https://reactnative.directory/',
+              },
+              {
+                label: 'Stack Overflow',
                 href: 'https://stackoverflow.com/questions/tagged/react-native',
-              },
-              {
-                label: 'Contributor Guide',
-                href:
-                  'https://github.com/facebook/react-native/blob/master/CONTRIBUTING.md',
-              },
-              {
-                label: 'DEV Community',
-                href: 'https://dev.to/t/reactnative',
               },
             ],
           },
@@ -286,42 +375,37 @@ const lastVersion = versions[0];
             ],
           },
           {
-            title: 'More',
+            title: 'Explore More',
             items: [
               {
-                label: 'React',
+                label: 'ReactJS',
                 href: 'https://reactjs.org/',
               },
               {
                 label: 'Privacy Policy',
-                href: 'https://opensource.facebook.com/legal/privacy',
+                href: 'https://opensource.fb.com/legal/privacy/',
               },
               {
                 label: 'Terms of Service',
-                href: 'https://opensource.facebook.com/legal/terms',
+                href: 'https://opensource.fb.com/legal/terms/',
               },
             ],
           },
         ],
         logo: {
-          alt: 'Facebook Open Source Logo',
-          src: 'img/oss_logo.png',
-          href: 'https://opensource.facebook.com',
+          alt: 'Meta Open Source Logo',
+          src: 'img/oss_logo.svg',
+          href: 'https://opensource.fb.com/',
         },
-        copyright: `Copyright © ${new Date().getFullYear()} Facebook, Inc.`,
+        copyright,
       },
       algolia: {
-        apiKey: '2c98749b4a1e588efec53b2acec13025',
+        appId: '8TDSE0OHGQ',
+        apiKey: '83cd239c72f9f8b0ed270a04b1185288',
         indexName: 'react-native-v2',
         contextualSearch: true,
       },
-      googleAnalytics: {
-        trackingID: 'UA-41298772-2',
-      },
-      gtag: {
-        trackingID: 'UA-41298772-2',
-      },
-      metadatas: [
+      metadata: [
         {
           property: 'og:image',
           content: 'https://reactnative.dev/img/logo-og.png',
@@ -334,4 +418,4 @@ const lastVersion = versions[0];
         {name: 'twitter:site', content: '@reactnative'},
       ],
     }),
-});
+};

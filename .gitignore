@@ -8,3 +8,6 @@ website/build/
 
 sync-api-docs/generatedComponentApiDocs.js
 sync-api-docs/extracted.json
+
+scripts/lint-examples/out/
+

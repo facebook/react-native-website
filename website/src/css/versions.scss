@@ -1,7 +1,14 @@
+/**
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 @import "shared";
 
 .versions-page {
-  max-width: 960px;
+  max-width: 1400px !important;
   padding: 28px;
 
   h1 {
@@ -9,7 +16,8 @@
   }
 
   h2 {
-    font-size: 2rem;
+    font-size: 1.66rem;
+    margin-top: 12px;
   }
 
   code {

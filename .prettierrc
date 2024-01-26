@@ -5,7 +5,7 @@
       "options": {
         "arrowParens": "avoid",
         "bracketSpacing": false,
-        "jsxBracketSameLine": true,
+        "bracketSameLine": true,
         "printWidth": 80,
         "singleQuote": true,
         "trailingComma": "es5",
@@ -15,13 +15,13 @@
     {
       "files": "*.md",
       "options": {
-        "arrowParens": "always",
-        "bracketSpacing": true,
-        "jsxBracketSameLine": true,
+        "arrowParens": "avoid",
+        "bracketSpacing": false,
+        "bracketSameLine": true,
         "printWidth": 66,
         "proseWrap": "preserve",
         "singleQuote": true,
-        "trailingComma": "none",
+        "trailingComma": "all",
         "endOfLine": "auto"
       }
     },

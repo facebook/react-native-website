@@ -1,7 +1,13 @@
+/**
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 @import "shared";
 
 :root {
-  --ifm-color-primary: #06bcee;
   --brand: #61dafb;
   --dark: #282c34;
   --deepdark: #20232a;
@@ -11,15 +17,19 @@
   --divider: #ececec;
   --tintColor: #f7f7f7;
   --rn-note-background: rgba(255, 229, 100, 0.25);
+  --ifm-font-family-base: "Optimistic Display", system-ui, -apple-system,
+    sans-serif;
+  --ifm-color-primary: #06bcee;
   --ifm-font-size-base: 17px;
   --ifm-spacing-horizontal: 16px;
-  --ifm-navbar-item-padding-horizontal: 20px;
+  --ifm-navbar-item-padding-horizontal: 18px;
   --ifm-menu-link-padding-horizontal: 0;
   --ifm-toc-padding-vertical: 6px;
   --ifm-toc-link-color: var(--ifm-color-emphasis-700);
   --ifm-code-font-size: 90%;
   --ifm-code-border-radius: 3px;
   --ifm-blockquote-color: var(--ifm-font-color-base);
+  --ifm-blockquote-font-size: 16px;
   --ifm-table-head-color: var(--subtle);
   --ifm-link-hover-decoration: none;
   --ifm-navbar-background-color: var(--deepdark);
@@ -32,10 +42,10 @@
   --ifm-alert-border-radius: 0;
   --ifm-alert-color: var(--ifm-font-color-base);
   --ifm-pagination-nav-color-hover: var(--ifm-color-emphasis-300);
-  --doc-sidebar-width: 100%;
   --ifm-table-border-width: 0.005rem;
-
   --ifm-navbar-sidebar-width: 100%;
+  --ifm-hr-border-color: var(--docusaurus-collapse-button-bg-hover);
+
   @media (min-width: 340px) {
     --ifm-navbar-sidebar-width: 340px;
   }
@@ -44,13 +54,13 @@
 html[data-theme="light"] {
   --ifm-code-background: rgba(0, 0, 0, 0.06);
   --docsearch-container-background: rgba(32, 35, 42, 0.6);
+  --ifm-link-color: #357da1;
 }
 
 html[data-theme="dark"] {
   --ifm-code-background: rgba(255, 255, 255, 0.06);
   --ifm-toc-border-color: var(--dark);
   --ifm-color-emphasis-300: var(--dark);
-  --ifm-hr-border-color: var(--dark);
 
   *[class^="DocSearch"] {
     --docsearch-searchbox-background: var(--ifm-background-color);
@@ -64,20 +74,69 @@ html[data-theme="dark"] {
   }
 }
 
+:root {
+  --doc-sidebar-width: 266px !important;
+}
+
+::marker {
+  color: var(--ifm-font-color-secondary);
+}
+
+/* Font */
+
+@font-face {
+  font-family: "Optimistic Display";
+  src: url("https://facebookmicrosites.github.io/design/public/fonts/OptimisticDisplayLight-199be98cf48e5b4c688356b08a02362c.woff2")
+    format("woff2");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Optimistic Display";
+  src: url("https://facebookmicrosites.github.io/design/public/fonts/OptimisticDisplayRegular-b0e4e99f91efd0021c3ab8e4df0e6e1b.woff2")
+    format("woff2");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Optimistic Display";
+  src: url("https://facebookmicrosites.github.io/design/public/fonts/OptimisticDisplayBold-3a50548145f36de582c3b36d9626f4d6.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
 /* Content */
 
 .main-wrapper {
   max-width: 1400px;
   width: 1400px;
   align-self: center;
+  font-weight: 300;
+
+  div[class*="docRoot"] {
+    justify-content: center;
+  }
 
   h1[class^="docTitle"] {
     font-size: 2.8rem;
+  }
+
+  .admonition-content {
+    a {
+      text-decoration: none;
+    }
   }
 }
 
 main[class^="docMainContainer"] > .container {
   padding-top: 2rem !important;
+}
+
+div[class^="generatedIndexPage"] {
+  max-width: 1080px !important;
 }
 
 @media (max-width: 1416px) {
@@ -89,22 +148,13 @@ main[class^="docMainContainer"] > .container {
 
 @media (max-width: 1320px) and (min-width: 997px) {
   .container {
-    max-width: calc(
-      var(--ifm-container-width) - 125px - var(--ifm-spacing-horizontal) * 2
-    );
-  }
-}
-
-@media (min-width: 1440px) {
-  .container {
-    max-width: auto !important;
+    max-width: calc(var(--ifm-container-width) - var(--doc-sidebar-width) / 2);
   }
 }
 
 @media (min-width: 997px) {
   main[class^="docMainContainer"] {
-    width: calc(100% - var(--doc-sidebar-width));
-    display: contents;
+    max-width: calc(100% - var(--doc-sidebar-width) + 44px);
   }
 }
 
@@ -146,6 +196,18 @@ hr {
       top: -1px;
       position: relative;
     }
+
+    .hermes-logo {
+      float: right;
+      margin: -30px 4px 0;
+    }
+
+    @media screen and (max-width: 960px) {
+      .hermes-logo {
+        margin: 0 4px 30px;
+        width: 100%;
+      }
+    }
   }
 
   strong {
@@ -159,7 +221,6 @@ hr {
     width: 100%;
 
     thead tr {
-      background-color: var(--divider);
       border: 0;
     }
 
@@ -205,7 +266,7 @@ hr {
       border-bottom: 2px solid var(--ifm-table-border-color);
     }
 
-    div[class^="codeBlockContainer"] {
+    div[class*="codeBlockContainer"] {
       &,
       & pre {
         margin-bottom: 0;
@@ -241,17 +302,32 @@ hr {
     background-color: var(--light);
   }
 
-  div[class^="codeBlockLines"] {
+  div[class*="codeBlockContainer"] {
+    box-shadow: none;
+    border-radius: 8px;
+
+    pre {
+      border-radius: 8px;
+    }
+
+    button {
+      border-color: var(--light);
+      background: var(--deepdark);
+    }
+  }
+
+  div[class*="codeBlockContent"] {
+    display: grid;
+    min-width: 100%;
+  }
+
+  div[class*="codeBlockLines"] {
     font-size: 80%;
   }
 
-  div[class^="codeBlockTitle"] {
-    color: var(--subtle) !important;
-    background-color: var(--ifm-table-border-color) !important;
-  }
-
-  button[class^="copyButton"] {
-    font-size: 13px;
+  div[class*="codeBlockTitle"] {
+    color: var(--subtle);
+    background-color: var(--ifm-color-emphasis-300);
   }
 
   .prism-code {
@@ -295,25 +371,23 @@ html[data-theme="dark"] {
       }
     }
 
-    table thead tr {
-      background-color: var(--ifm-menu-color-background-active);
-    }
-
-    div[class^="codeBlockTitle"],
-    div[class^="codeBlockLines"] {
-      background-color: var(--deepdark) !important;
-    }
-
     .prism-code {
       @extend %scrollbar-style-dark;
+    }
+
+    div[class*="codeBlockTitle"] {
+      color: var(--docsearch-muted-color);
+      background-color: var(--deepdark);
     }
   }
 }
 
-.markdown .hash-link,
-.community-page .hash-link,
-html[data-theme="dark"] .markdown .hash-link,
-html[data-theme="dark"] .community-page .hash-link {
+div[class^="docRoot"] .hash-link,
+article[itemprop="blogPost"] .hash-link,
+.mdx-page .hash-link,
+html[data-theme="dark"] div[class^="docRoot"] .hash-link,
+html[data-theme="dark"] article[itemprop="blogPost"] .hash-link,
+html[data-theme="dark"].mdx-page .hash-link {
   @extend %hash-link-style;
 }
 
@@ -327,20 +401,42 @@ html[data-theme="dark"] article .badge {
   color: var(--ifm-font-color-base);
 }
 
+/* Admonitions & notes */
+
+.admonition,
+.theme-admonition {
+  font-size: var(--ifm-blockquote-font-size);
+  margin-bottom: 1.5rem !important;
+
+  div[class^="admonitionContent"] {
+    a {
+      border-bottom: 0;
+    }
+  }
+
+  div[class^="admonitionHeading"] {
+    font-size: 14px;
+  }
+}
+
 .alert--warning {
   background-color: var(--rn-note-background);
-  font-size: 14px;
-  text-align: center;
+}
 
-  .margin-top--md {
-    margin-top: 0.33rem !important;
-  }
+.alert--secondary {
+  --ifm-alert-background-color: var(--ifm-color-secondary-lightest);
+  --ifm-alert-background-color-highlight: rgba(225, 227, 230, 0.7);
+}
+
+html[data-theme="dark"] .alert--secondary {
+  --ifm-alert-background-color: var(--ifm-color-secondary-contrast-background);
+  --ifm-alert-background-color-highlight: rgba(225, 227, 230, 0.15);
 }
 
 /* Home page */
 
 .homepage {
-  div[class^="codeBlockContainer"] {
+  div[class*="codeBlockContainer"] {
     margin-bottom: 0;
     overflow: visible;
 
@@ -350,69 +446,25 @@ html[data-theme="dark"] article .badge {
   }
 }
 
-/* Community page */
-
-.community-page {
-  max-width: 1280px;
-
-  h1 {
-    font-size: 2.8rem;
-  }
-
-  h2 {
-    font-size: 2rem;
-    margin-top: 36px;
-  }
-
-  h3 {
-    font-size: 1.5rem;
-    margin-top: 16px;
-    display: inline-block;
-  }
-
-  .container--fluid > div {
-    padding-top: 0 !important;
-  }
-
-  .row .col p a {
-    @extend %link-style;
-  }
-
-  .row .col.col--2 {
-    --ifm-col-width: calc(3 / 12 * 100%) !important;
-  }
-
-  .col--offset-2 {
-    --ifm-col-width: calc(9 / 12 * 100%) !important;
-    margin-left: 0 !important;
-  }
-}
-
-html[data-theme="dark"] .community-page {
-  .row .col p a {
-    @extend %link-style-dark;
-  }
-}
-
-@media (max-width: 996px) {
-  .community-page {
-    .col--offset-2 {
-      --ifm-col-width: 100% !important;
-    }
-  }
-}
-
 /* Version warning */
 
-.theme-doc-version-banner.alert--warning {
+.theme-doc-version-banner {
   background-color: rgba(100, 215, 255, 0.3);
   border-style: none;
   color: var(--ifm-font-color-base);
   box-shadow: none;
+  font-size: 15px;
+  line-height: var(--ifm-pre-line-height);
+  text-align: center;
+
   a {
     color: var(--ifm-font-color-base) !important;
     text-decoration: underline !important;
     text-decoration-thickness: 1px !important;
+  }
+
+  .margin-top--md {
+    margin-top: 0.33rem !important;
   }
 }
 
@@ -438,6 +490,40 @@ html[data-theme="dark"] .avatar__name a {
 
 .avatar__subtitle {
   margin-top: 0;
+  font-weight: 500;
+  color: var(--subtle);
+}
+
+article header h2 a {
+  color: var(--ifm-font-color-base);
+
+  &:hover {
+    color: var(--light);
+  }
+}
+
+div[class^="blogPostData"] {
+  color: var(--subtle);
+}
+
+.main-wrapper.blog-wrapper .container.margin-vert--lg .col.text--right a {
+  padding: 8px 16px !important;
+}
+
+a[class*="tagRegular"] {
+  padding: 6px 12px !important;
+
+  &:hover {
+    background: var(--ifm-menu-color-background-active);
+    --docusaurus-tag-list-border: inherit;
+  }
+}
+
+.blog-wrapper {
+  .pagination-nav__item .pagination-nav__label:before,
+  .pagination-nav__item--next .pagination-nav__label:after {
+    display: none;
+  }
 }
 
 /* Navbar */
@@ -463,12 +549,12 @@ html[data-theme="dark"] .avatar__name a {
 
   .navbar__item {
     &.navbar__link {
-      font-weight: 300;
-      font-size: 18px;
+      font-weight: 400;
+      font-size: 17px;
       user-select: none;
     }
 
-    &.dropdown {
+    &.dropdown:not(.dropdown--right) {
       a {
         font-weight: 400;
         font-size: 14px;
@@ -479,6 +565,18 @@ html[data-theme="dark"] .avatar__name a {
         left: 0;
       }
     }
+
+    &.dropdown--right {
+      .dropdown__menu {
+        min-width: 168px;
+      }
+    }
+  }
+
+  .dropdown > .navbar__link:after {
+    margin-left: 8px;
+    top: 1px;
+    opacity: 0.75;
   }
 
   .navbar__logo {
@@ -491,38 +589,14 @@ html[data-theme="dark"] .avatar__name a {
     transform: rotate(180deg) scale(0.9);
   }
 
-  .react-toggle {
-    margin: 0 8px;
-
-    .react-toggle-track {
-      background: #3d3f47;
-      font-size: 15px;
-    }
-
-    .react-toggle-thumb {
-      border: 2px solid #4d4d4d;
-    }
-
-    &:hover {
-      .react-toggle-thumb {
-        border-color: var(--ifm-color-primary);
-      }
-    }
-  }
-
-  .react-toggle--focus {
-    .react-toggle-thumb {
-      box-shadow: 0 0 2px 3px #0099e085;
-    }
-  }
-
-  .navbar__toggle {
-    color: #fff;
+  .clean-btn:hover {
+    background: var(--ifm-color-emphasis-800);
   }
 
   .DocSearch-Button {
     border-radius: var(--ifm-global-radius);
     padding: 0 6px 0 10px;
+    font-family: var(--ifm-font-family-base);
 
     .DocSearch-Search-Icon {
       width: 16px;
@@ -577,12 +651,16 @@ html[data-theme="dark"] .avatar__name a {
     display: flex;
     width: calc(100% + 40px);
     height: 4px;
-    margin-top: -3px;
+    margin-top: -4px;
     margin-left: -20px;
     margin-right: -20px;
     position: relative;
-    top: 17px;
+    top: 18px;
     background: var(--brand);
+  }
+
+  .navbar-sidebar__back:hover {
+    background: var(--ifm-code-background);
   }
 }
 
@@ -611,7 +689,13 @@ So we need to "revert" some CSS vars to not enforce dark mode
 
     .menu__list-item a {
       color: var(--ifm-color-emphasis-700);
-      padding: 6px 12px 8px;
+      padding: 4px 12px;
+    }
+
+    .menu__list-item-collapsible a[class*="menuLinkText"] {
+      font-weight: 600;
+      font-size: 14px;
+      background: var(--ifm-background-color) !important;
     }
   }
 
@@ -632,14 +716,29 @@ So we need to "revert" some CSS vars to not enforce dark mode
   }
 }
 
-html[data-theme="dark"] .navbar-sidebar {
-  background: var(--ifm-background-color);
+html[data-theme="dark"] {
+  .navbar-sidebar {
+    background: var(--ifm-background-color);
+  }
+
+  .navbar button[class*="toggleButton"]:hover {
+    background: var(--ifm-color-emphasis-200);
+  }
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 1200px) {
   .navbar {
+    .navbar__item.navbar__link {
+      font-size: 15px;
+
+      &.navbar__link--active:after {
+        top: 20px;
+      }
+    }
+
     .DocSearch-Button {
       padding: 0 12px;
+      max-width: 40px;
     }
 
     .DocSearch-Button-Key,
@@ -652,24 +751,74 @@ html[data-theme="dark"] .navbar-sidebar {
 
 /* Sidebar */
 
-aside[class^="docSidebarContainer"] {
+aside[class^="theme-doc-sidebar-container"] {
   margin-right: 16px;
-  --doc-sidebar-width: 266px;
 
   .thin-scrollbar {
     @extend %scrollbar-style;
   }
 
-  .menu__list .menu__link--sublist {
-    font-size: 15px !important;
+  .menu__list .menu__list {
+    margin-top: 0;
+  }
+
+  .menu__list .menu__link--sublist,
+  a[class*="menu__link--sublist-caret"] {
+    font-size: 16px !important;
     font-weight: 700 !important;
-    padding: 5px 12px !important;
-    color: var(--subtle) !important;
+    color: var(--ifm-color-content-secondary) !important;
 
     &:after {
+      display: none;
+    }
+
+    &[aria-expanded]:after {
+      display: block;
       background-size: 1.66rem 1.66rem;
       margin-right: -6px;
       margin-top: -1px;
+    }
+  }
+
+  .menu__list .menu__list .menu__link--sublist,
+  a[class*="menu__link--sublist-caret"] {
+    font-weight: 700 !important;
+    font-size: 15px !important;
+  }
+
+  .menu__list-item .menu__list-item .menu__list-item {
+    padding-left: 8px !important;
+  }
+
+  .menu__link {
+    justify-content: space-between;
+  }
+
+  .theme-doc-sidebar-item-category {
+    margin-bottom: 6px;
+
+    .menu__list .menu__list-item-collapsible {
+      margin-top: 6px;
+    }
+  }
+
+  .menu__list-item-collapsible {
+    .menu__caret {
+      padding: 0 6px;
+
+      &:before {
+        display: block;
+        background-size: 1.66rem 1.66rem;
+        margin-top: -1px;
+      }
+    }
+
+    &:hover {
+      background: none !important;
+
+      .menu__link--sublist-caret:hover {
+        background: var(--ifm-menu-color-background-hover) !important;
+      }
     }
   }
 
@@ -679,7 +828,7 @@ aside[class^="docSidebarContainer"] {
 }
 
 @media only screen and (min-width: 997px) {
-  aside[class^="docSidebarContainer"] {
+  aside[class^="theme-doc-sidebar-container"] {
     .menu {
       padding: 12px;
     }
@@ -687,7 +836,7 @@ aside[class^="docSidebarContainer"] {
 }
 
 @media only screen and (max-width: 996px) {
-  aside[class^="docSidebarContainer"] {
+  aside[class^="theme-doc-sidebar-container"] {
     width: 0 !important;
     min-width: 0 !important;
     margin-right: 0;
@@ -695,8 +844,22 @@ aside[class^="docSidebarContainer"] {
 }
 
 .menu__list {
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   transition: none !important;
+  height: auto !important;
+
+  &.blog-menu__list {
+    font-size: 14px;
+    font-weight: 300;
+
+    a {
+      line-height: 20px;
+    }
+
+    .menu__link--active {
+      font-weight: 600;
+    }
+  }
 
   .menu__list-item {
     margin-bottom: 2px;
@@ -704,31 +867,80 @@ aside[class^="docSidebarContainer"] {
     user-select: none;
   }
 
+  .menu__link--sublist {
+    font-size: 15px;
+    padding: 4px 12px !important;
+    color: var(--light);
+
+    &:after {
+      background-size: 1.66rem 1.66rem;
+      margin-right: -6px;
+    }
+  }
+
+  .menu__link--sublist-caret {
+    font-size: 17px;
+  }
+
   .menu__list {
     .menu__link {
       line-height: 20px;
       font-size: 13px;
-      padding: 3px 12px;
-      font-weight: normal;
+      padding: 4px 12px !important;
+      font-weight: 300;
       color: var(--ifm-font-color-base);
     }
 
     .menu__link--sublist {
-      font-weight: 600 !important;
-      margin-top: 4px;
+      font-size: 14px !important;
+    }
+
+    .menu__list .menu__link--active {
+      padding-left: 12px !important;
     }
   }
 
-  .theme-doc-sidebar-item-link .menu__link--active {
+  .menu__link.menu__link--active {
+    border-left-color: var(--ifm-menu-color-active) !important;
+    border-left-width: 0;
+  }
+
+  a[href].menu__link.menu__link--active:not(.menu__link--sublist) {
+    background: var(--ifm-code-background);
+    padding-left: 8px !important;
     border-left-width: 4px;
     border-left-style: solid;
-    border-left-color: var(--ifm-menu-color-active) !important;
-    font-weight: 700 !important;
-    padding-left: 8px;
+  }
+
+  a[href="#"].menu__link.menu__link--active {
+    border-left-width: 0;
+  }
+
+  .menu__list-item-collapsible {
+    .menu__link--active {
+      border-left-color: transparent !important;
+    }
+
+    .menu__link {
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--subtle);
+      padding-left: 8px !important;
+
+      .menu__link {
+        padding-left: 12px !important;
+      }
+    }
   }
 
   .menu__list-item--collapsed .menu__list {
     margin-bottom: 0;
+  }
+}
+
+.menu__list-item.menu__list-item--collapsed {
+  .menu__list {
+    height: 0 !important;
   }
 }
 
@@ -739,6 +951,14 @@ aside[class^="docSidebarContainer"] {
 
 html[data-theme="dark"] .menu {
   @extend %scrollbar-style-dark;
+
+  .menu__list > .menu__list-item > .menu__link--sublist {
+    color: var(--ifm-color-emphasis-400);
+  }
+
+  .menu__list .menu__list .menu__link--sublist {
+    color: var(--subtle);
+  }
 }
 
 /* TOC */
@@ -772,6 +992,14 @@ div[class^="tableOfContents"] {
       padding: 0;
       border: 0;
     }
+
+    &:hover {
+      color: var(--ifm-link-color);
+
+      code {
+        color: var(--ifm-link-color);
+      }
+    }
   }
 
   .table-of-contents__link--active {
@@ -786,11 +1014,45 @@ div[class^="tableOfContents"] {
       color: var(--ifm-font-color-base);
       white-space: nowrap;
     }
+
+    &:hover {
+      color: var(--ifm-font-color-base);
+
+      code {
+        color: var(--ifm-font-color-base);
+      }
+    }
   }
 }
 
 html[data-theme="dark"] div[class^="tableOfContents"] {
   @extend %scrollbar-style-dark;
+}
+
+button[class*="tocCollapsibleButton"] {
+  color: var(--ifm-color-content-secondary);
+}
+
+.navbar-sidebar {
+  background: var(--ifm-background-surface-color);
+}
+
+.navbar-sidebar__back {
+  color: var(--ifm-color-content-secondary);
+  background: var(--ifm-footer-background-color);
+}
+
+.card {
+  padding: 1.5rem !important;
+  border: 1px solid var(--ifm-color-emphasis-300) !important;
+  box-shadow: none !important;
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out !important;
+  background-color: var(--ifm-background-color);
+
+  &:hover {
+    border-color: var(--ifm-color-emphasis-400) !important;
+    background-color: var(--ifm-menu-color-background-hover);
+  }
 }
 
 /* Doc Item footer metadata */
@@ -906,9 +1168,9 @@ html[data-theme="dark"] div[class^="tableOfContents"] {
     margin-bottom: 8px;
   }
 
-  img[class^="themedImage"] {
-    display: initial !important;
+  .footer__logo {
     height: 54px;
+    max-width: 100%;
   }
 
   svg[class^="iconExternalLink"] {
@@ -944,28 +1206,13 @@ html[data-theme="dark"] div[class^="tableOfContents"] {
   }
 }
 
-/* Blog */
-
-article header h2 a {
-  color: var(--ifm-font-color-base);
-
-  &:hover {
-    color: var(--light);
-  }
-}
-
-.avatar__subtitle {
-  font-weight: 600;
-  color: var(--subtle);
-}
-
 /* Announcement banner */
 
 :root {
   --docusaurus-announcement-bar-height: auto !important;
 }
 
-div[class^="announcementBar"][role="banner"] {
+div[class*="announcementBar"][role="banner"] {
   border-bottom-color: var(--deepdark);
 
   button.close {
@@ -975,7 +1222,7 @@ div[class^="announcementBar"][role="banner"] {
   }
 }
 
-div[class^="announcementBarContent"] {
+div[class*="announcementBarContent"] {
   line-height: 40px;
   font-size: 20px;
   font-weight: bold;
@@ -993,13 +1240,13 @@ div[class^="announcementBarContent"] {
 }
 
 @media only screen and (max-width: 768px) {
-  .announcement {
+  div[class*="announcementBarContent"] {
     font-size: 18px;
   }
 }
 
 @media only screen and (max-width: 500px) {
-  .announcement {
+  div[class*="announcementBarContent"] {
     font-size: 15px;
     line-height: 22px;
     padding: 6px 30px;
@@ -1225,7 +1472,7 @@ h2 .label {
 }
 
 h3 .label {
-  top: -2px;
+  top: -3px;
   margin-left: 22px;
   line-height: 20px;
 }
@@ -1237,11 +1484,11 @@ td .label {
 
   &:before {
     left: -8px;
-    border-width: 9px 8px 9px 0;
+    border-width: 10px 8px 10px 0;
   }
 
   &:after {
-    top: 7px;
+    top: 8px;
   }
 
   &.required {
@@ -1273,7 +1520,7 @@ td .label {
   height: 6px;
   border-radius: 100%;
   margin-left: 4px;
-  margin-top: 8px;
+  margin-top: 7px;
   white-space: nowrap;
   overflow: hidden;
   color: transparent;
@@ -1308,6 +1555,7 @@ td .label {
   position: relative;
   top: 1px;
   margin-right: -6px;
+  margin-left: auto;
   padding: 3px 6px;
   border: 1px solid #86b300;
   border-radius: 3px;
@@ -1461,7 +1709,7 @@ html[data-theme="dark"] .docsRating {
 /* Snack Player */
 
 .snack-player {
-  height: 544px;
+  height: 635px;
   width: 100%;
   overflow: hidden;
   margin-bottom: 24px;
@@ -1478,7 +1726,11 @@ html[data-theme="dark"] .docsRating {
   grid-template-rows: 1fr;
   grid-template-areas: ". .";
 
-  div[class^="codeBlockLines"] {
+  div[class*="codeBlockContainer"] {
+    overflow: auto;
+  }
+
+  div[class*="codeBlockLines"] {
     white-space: pre-wrap;
   }
 }
@@ -1492,9 +1744,13 @@ html[data-theme="dark"] .docsRating {
   }
 }
 
-/* Blog sidebar */
+/* Blog */
 
-.main-wrapper.blog-wrapper {
+.blog-wrapper .main-wrapper {
+  h3[class*="sidebarItemTitle"] {
+    color: var(--ifm-font-color-secondary);
+  }
+
   .container.margin-vert--lg {
     max-width: calc(100% - (var(--ifm-spacing-horizontal)) * 4);
     margin-top: 0 !important;
@@ -1512,67 +1768,57 @@ html[data-theme="dark"] .docsRating {
       margin-right: 16px;
     }
 
+    .docusaurus-mt-lg {
+      margin-top: 2rem;
+    }
+
     footer {
-      strong {
+      b {
         font-weight: 500;
+      }
+
+      .text--right b {
+        font-weight: 700;
       }
     }
   }
 
   .container .row .col.col--3 {
     --ifm-col-width: calc(5 / 24 * 100%);
-    padding-left: 0;
-
-    &:last-child {
-      --ifm-col-width: calc(4 / 24 * 100%);
-      padding-right: 0;
-    }
-
-    div[class^="sidebar"] {
-      h3 {
-        font-size: 16px;
-        margin-bottom: 0;
-      }
-
-      h4 {
-        font-weight: 500;
-        font-size: 14px;
-        margin-top: 14px;
-        margin-bottom: 6px;
-        padding-bottom: 4px;
-        border-bottom: 0.01rem solid var(--ifm-table-border-color);
-      }
-
-      h3,
-      h4,
-      li {
-        user-select: none;
-      }
-
-      @extend %scrollbar-style;
-    }
+    padding: 0;
   }
 
   .container .row .col.col--7 {
     --ifm-col-width: calc(15 / 24 * 100%);
-    padding: 24px 16px 24px 20px;
+    padding: 24px 16px 24px 32px;
 
     &:last-child {
-      --ifm-col-width: calc(18 / 24 * 100%);
+      --ifm-col-width: calc(19 / 24 * 100%);
+    }
+  }
+
+  article.margin-bottom--xl {
+    margin-bottom: 2.5rem !important;
+  }
+
+  aside nav {
+    @extend %scrollbar-style;
+  }
+}
+
+html[data-theme="dark"].blog-wrapper {
+  .main-wrapper {
+    aside nav {
+      @extend %scrollbar-style-dark;
     }
   }
 }
 
-html[data-theme="dark"] {
-  .main-wrapper.blog-wrapper {
-    .row .col.col--3 div[class^="sidebar"] {
-      @extend %scrollbar-style-dark;
-    }
-
+html[data-theme="light"].blog-wrapper {
+  .main-wrapper {
     .container.margin-vert--lg {
-      a.margin-horiz--sm,
-      a.padding-right--md {
-        @extend %link-style-dark;
+      .col.text--right a:hover {
+        color: var(--ifm-link-color);
       }
     }
   }
@@ -1585,9 +1831,10 @@ html[data-theme="dark"] {
 
   .container.margin-vert--lg .row .col.col--7 {
     --ifm-col-width: 100% !important;
+    padding: 24px 16px !important;
   }
 
-  .main-wrapper:not(.community-page) {
+  .main-wrapper {
     .container.margin-vert--lg {
       max-width: 96% !important;
     }
@@ -1612,4 +1859,14 @@ html[data-theme="dark"] {
       border-color: var(--ifm-tabs-color-active);
     }
   }
+}
+
+/*
+Prevent useless bottom margin for multiline <figcaption> tags in MDX:
+<figcaption>
+  some paragraph text
+</figcaption>
+ */
+figcaption > p:last-child {
+  margin-bottom: 0;
 }

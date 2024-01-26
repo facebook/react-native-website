@@ -3,8 +3,6 @@ id: image
 title: Image
 ---
 
-import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
-
 A React component for displaying different types of images, including network images, static resources, temporary local images, and images from local disk, such as the camera roll.
 
 This example shows fetching and displaying an image from local storage as well as one from network and even from data provided in the `'data:'` uri scheme.
@@ -13,13 +11,9 @@ This example shows fetching and displaying an image from local storage as well a
 
 ## Examples
 
-<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
-<TabItem value="functional">
-
-```SnackPlayer name=Function%20Component%20Example
-
+```SnackPlayer name=Example
 import React from 'react';
-import { View, Image, StyleSheet } from 'react-native';
+import {View, Image, StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -56,69 +50,16 @@ const DisplayAnImage = () => {
       />
     </View>
   );
-}
+};
 
 export default DisplayAnImage;
 ```
-
-</TabItem>
-<TabItem value="classical">
-
-```SnackPlayer name=Class%20Component%20Example
-
-import React, { Component } from 'react';
-import { AppRegistry, View, Image, StyleSheet } from 'react-native';
-
-const styles = StyleSheet.create({
-  container: {
-    paddingTop: 50,
-  },
-  tinyLogo: {
-    width: 50,
-    height: 50,
-  },
-  logo: {
-    width: 66,
-    height: 58,
-  },
-});
-
-class DisplayAnImage extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Image
-          style={styles.tinyLogo}
-          source={require('@expo/snack-static/react-native-logo.png')}
-        />
-        <Image
-          style={styles.tinyLogo}
-          source={{uri: 'https://reactnative.dev/img/tiny_logo.png'}}
-        />
-        <Image
-          style={styles.logo}
-          source={{uri: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAzCAYAAAA6oTAqAAAAEXRFWHRTb2Z0d2FyZQBwbmdjcnVzaEB1SfMAAABQSURBVGje7dSxCQBACARB+2/ab8BEeQNhFi6WSYzYLYudDQYGBgYGBgYGBgYGBgYGBgZmcvDqYGBgmhivGQYGBgYGBgYGBgYGBgYGBgbmQw+P/eMrC5UTVAAAAABJRU5ErkJggg=='}}
-        />
-      </View>
-    );
-  }
-}
-
-export default DisplayAnImage;
-```
-
-</TabItem>
-</Tabs>
 
 You can also add `style` to an image:
 
-<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
-<TabItem value="functional">
-
-```SnackPlayer name=Function%20Component%20Example
-
+```SnackPlayer name=Example
 import React from 'react';
-import { View, Image, StyleSheet } from 'react-native';
+import {View, Image, StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -140,45 +81,10 @@ const DisplayAnImageWithStyle = () => {
       />
     </View>
   );
-}
+};
 
 export default DisplayAnImageWithStyle;
 ```
-
-</TabItem>
-<TabItem value="classical">
-
-```SnackPlayer name=Class%20Component%20Example
-
-import React, { Component } from 'react';
-import { View, Image, StyleSheet } from 'react-native';
-
-const styles = StyleSheet.create({
-  stretch: {
-    width: 50,
-    height: 200,
-    resizeMode: 'stretch'
-  }
-});
-
-class DisplayAnImageWithStyle extends Component {
-  render() {
-    return (
-      <View>
-        <Image
-          style={styles.stretch}
-          source={require('@expo/snack-static/react-native-logo.png')}
-        />
-      </View>
-    );
-  }
-}
-
-export default DisplayAnImageWithStyle;
-```
-
-</TabItem>
-</Tabs>
 
 ## GIF and WebP support on Android
 
@@ -192,16 +98,18 @@ dependencies {
   implementation 'com.facebook.fresco:animated-base-support:1.3.0'
 
   // For animated GIF support
-  implementation 'com.facebook.fresco:animated-gif:2.0.0'
+  implementation 'com.facebook.fresco:animated-gif:3.1.3'
 
   // For WebP support, including animated WebP
-  implementation 'com.facebook.fresco:animated-webp:2.1.0'
-  implementation 'com.facebook.fresco:webpsupport:2.0.0'
+  implementation 'com.facebook.fresco:animated-webp:3.1.3'
+  implementation 'com.facebook.fresco:webpsupport:3.1.3'
 
   // For WebP support, without animations
-  implementation 'com.facebook.fresco:webpsupport:2.0.0'
+  implementation 'com.facebook.fresco:webpsupport:3.1.3'
 }
 ```
+
+> Note: the version listed above may not be updated in time. Please check [`packages/react-native/gradle/libs.versions.toml`](https://github.com/facebook/react-native/blob/main/packages/react-native/gradle/libs.versions.toml) in the main repo to see which fresco version is being used in a specific tagged version.
 
 ---
 
@@ -235,6 +143,16 @@ The text that's read by the screen reader when the user interacts with the image
 
 ---
 
+### `alt`
+
+A string that defines an alternative text description of the image, which will be read by the screen reader when the user interacts with it. Using this will automatically mark this element as accessible.
+
+| Type   |
+| ------ |
+| string |
+
+---
+
 ### `blurRadius`
 
 blurRadius: the blur radius of the blur filter added to the image.
@@ -243,7 +161,7 @@ blurRadius: the blur radius of the blur filter added to the image.
 | ------ |
 | number |
 
-> Tip : IOS you will need to increase `blurRadius` more than `5`
+> Tip: On IOS, you will need to increase `blurRadius` by more than `5`.
 
 ---
 
@@ -254,6 +172,19 @@ When the image is resized, the corners of the size specified by `capInsets` will
 | Type         |
 | ------------ |
 | [Rect](rect) |
+
+---
+
+### `crossOrigin`
+
+A string of a keyword specifying the CORS mode to use when fetching the image resource. It works similar to crossorigin attribute in HTML.
+
+- `anonymous`: No exchange of user credentials in the image request.
+- `use-credentials`: Sets `Access-Control-Allow-Credentials` header value to `true` in the image request.
+
+| Type                                     | Default       |
+| ---------------------------------------- | ------------- |
+| enum(`'anonymous'`, `'use-credentials'`) | `'anonymous'` |
 
 ---
 
@@ -271,7 +202,7 @@ A static image to display while loading the image source.
 
 ### `fadeDuration` <div class="label android">Android</div>
 
-Fade animation duration in miliseconds.
+Fade animation duration in milliseconds.
 
 | Type   | Default |
 | ------ | ------- |
@@ -279,9 +210,19 @@ Fade animation duration in miliseconds.
 
 ---
 
+### `height`
+
+Height of the image component.
+
+| Type   |
+| ------ |
+| number |
+
+---
+
 ### `loadingIndicatorSource`
 
-Similarly to `source`, this property represents the resource used to render the loading indicator for the image, displayed until image is ready to be displayed, typically after when it got downloaded from network.
+Similarly to `source`, this property represents the resource used to render the loading indicator for the image. The loading indicator is displayed until image is ready to be displayed, typically after the image is downloaded.
 
 | Type                                                  |
 | ----------------------------------------------------- |
@@ -293,9 +234,9 @@ Similarly to `source`, this property represents the resource used to render the 
 
 Invoked on load error.
 
-| Type                                   |
-| -------------------------------------- |
-| (`{ nativeEvent: { error } }`) => void |
+| Type                                |
+| ----------------------------------- |
+| (`{nativeEvent: {error} }`) => void |
 
 ---
 
@@ -303,9 +244,9 @@ Invoked on load error.
 
 Invoked on mount and on layout changes.
 
-| Type                                                  |
-| ----------------------------------------------------- |
-| ({ nativeEvent: [LayoutEvent](layoutevent) }) => void |
+| Type                                                    |
+| ------------------------------------------------------- |
+| `md ({nativeEvent: [LayoutEvent](layoutevent)} => void` |
 
 ---
 
@@ -313,9 +254,11 @@ Invoked on mount and on layout changes.
 
 Invoked when load completes successfully.
 
-| Type                                             |
-| ------------------------------------------------ |
-| ([ImageLoadEvent](image#imageloadevent)) => void |
+**Example:** `onLoad={({nativeEvent: {source: {width, height}}}) => setImageRealSize({width, height})}`
+
+| Type                                                                |
+| ------------------------------------------------------------------- |
+| `md ({nativeEvent: [ImageLoadEvent](image#imageloadevent)} => void` |
 
 ---
 
@@ -355,9 +298,9 @@ Invoked when a partial load of the image is complete. The definition of what con
 
 Invoked on download progress.
 
-| Type                                           |
-| ---------------------------------------------- |
-| (`{ nativeEvent: { loaded, total } }`) => void |
+| Type                                        |
+| ------------------------------------------- |
+| (`{nativeEvent: {loaded, total} }`) => void |
 
 ---
 
@@ -381,7 +324,7 @@ The mechanism that should be used to resize the image when the image's dimension
 
 - `scale`: The image gets drawn downscaled or upscaled. Compared to `resize`, `scale` is faster (usually hardware accelerated) and produces higher quality images. This should be used if the image is smaller than the view. It should also be used if the image is slightly bigger than the view.
 
-More details about `resize` and `scale` can be found at http://frescolib.org/docs/resizing.
+More details about `resize` and `scale` can be found at https://frescolib.org/docs/resizing.
 
 | Type                                  | Default  |
 | ------------------------------------- | -------- |
@@ -389,11 +332,24 @@ More details about `resize` and `scale` can be found at http://frescolib.org/doc
 
 ---
 
+### `referrerPolicy`
+
+A string indicating which referrer to use when fetching the resource. Sets the value for `Referrer-Policy` header in the image request. Works similar to `referrerpolicy` attribute in HTML.
+
+| Type                                                                                                                                                                                     | Default                             |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- |
+| enum(`'no-referrer'`, `'no-referrer-when-downgrade'`, `'origin'`, `'origin-when-cross-origin'`, `'same-origin'`, `'strict-origin'`, `'strict-origin-when-cross-origin'`, `'unsafe-url'`) | `'strict-origin-when-cross-origin'` |
+
+---
+
 ### `resizeMode`
 
 Determines how to resize the image when the frame doesn't match the raw image dimensions. Defaults to `cover`.
 
-- `cover`: Scale the image uniformly (maintain the image's aspect ratio) so that both dimensions (width and height) of the image will be equal to or larger than the corresponding dimension of the view (minus padding).
+- `cover`: Scale the image uniformly (maintain the image's aspect ratio) so that
+
+  - both dimensions (width and height) of the image will be equal to or larger than the corresponding dimension of the view (minus padding)
+  - at least one dimension of the scaled image will be equal to the corresponding dimension of the view (minus padding)
 
 - `contain`: Scale the image uniformly (maintain the image's aspect ratio) so that both dimensions (width and height) of the image will be equal to or less than the corresponding dimension of the view (minus padding).
 
@@ -423,6 +379,34 @@ The currently supported formats are `png`, `jpg`, `jpeg`, `bmp`, `gif`, `webp`, 
 
 ---
 
+### `src`
+
+A string representing the remote URL of the image. This prop has precedence over `source` prop.
+
+**Example:** `src={'https://reactnative.dev/img/tiny_logo.png'}`
+
+| Type   |
+| ------ |
+| string |
+
+---
+
+### `srcSet`
+
+A string representing comma separated list of possible candidate image source. Each image source contains a URL of an image and a pixel density descriptor. If no descriptor is specified, it defaults to descriptor of `1x`.
+
+If `srcSet` does not contain a `1x` descriptor, the value in `src` is used as image source with `1x` descriptor (if provided).
+
+This prop has precedence over both the `src` and `source` props.
+
+**Example:** `srcSet={'https://reactnative.dev/img/tiny_logo.png 1x, https://reactnative.dev/img/header_logo.svg 2x'}`
+
+| Type   |
+| ------ |
+| string |
+
+---
+
 ### `style`
 
 | Type                                                                                                                                                 |
@@ -439,12 +423,32 @@ A unique identifier for this element to be used in UI Automation testing scripts
 | ------ |
 | string |
 
+---
+
+### `tintColor`
+
+Changes the color of all non-transparent pixels to the `tintColor`.
+
+| Type               |
+| ------------------ |
+| [color](colors.md) |
+
+---
+
+### `width`
+
+Width of the image component.
+
+| Type   |
+| ------ |
+| number |
+
 ## Methods
 
 ### `abortPrefetch()` <div class="label android">Android</div>
 
-```jsx
-Image.abortPrefetch(requestId);
+```tsx
+static abortPrefetch(requestId: number);
 ```
 
 Abort prefetch request.
@@ -459,8 +463,12 @@ Abort prefetch request.
 
 ### `getSize()`
 
-```jsx
-Image.getSize(uri, success, [failure]);
+```tsx
+static getSize(
+  uri: string,
+  success: (width: number, height: number) => void,
+  failure?: (error: any) => void,
+): any;
 ```
 
 Retrieve the width and height (in pixels) of an image prior to displaying it. This method can fail if the image cannot be found, or fails to download.
@@ -479,8 +487,13 @@ In order to retrieve the image dimensions, the image may first need to be loaded
 
 ### `getSizeWithHeaders()`
 
-```jsx
-Image.getSizeWithHeaders(uri, headers, success, [failure]);
+```tsx
+static getSizeWithHeaders(
+  uri: string,
+  headers: {[index: string]: string},
+  success: (width: number, height: number) => void,
+  failure?: (error: any) => void,
+): any;
 ```
 
 Retrieve the width and height (in pixels) of an image prior to displaying it with the ability to provide the headers for the request. This method can fail if the image cannot be found, or fails to download. It also does not work for static image resources.
@@ -500,7 +513,7 @@ In order to retrieve the image dimensions, the image may first need to be loaded
 
 ### `prefetch()`
 
-```jsx
+```tsx
 await Image.prefetch(url);
 ```
 
@@ -517,8 +530,10 @@ Prefetches a remote image for later use by downloading it to the disk cache. Ret
 
 ### `queryCache()`
 
-```jsx
-await Image.queryCache(urls);
+```tsx
+static queryCache(
+  urls: string[],
+): Promise<Record<string, 'memory' | 'disk' | 'disk/memory'>>;
 ```
 
 Perform cache interrogation. Returns a promise which resolves to a mapping from URL to cache status, such as "disk", "memory" or "disk/memory". If a requested URL is not in the mapping, it means it's not in the cache.
@@ -533,11 +548,16 @@ Perform cache interrogation. Returns a promise which resolves to a mapping from 
 
 ### `resolveAssetSource()`
 
-```jsx
-Image.resolveAssetSource(source);
+```tsx
+static resolveAssetSource(source: ImageSourcePropType): {
+  height: number;
+  width: number;
+  scale: number;
+  uri: string;
+};
 ```
 
-Resolves an asset reference into an object which has the properties `uri`, `width`, and `height`.
+Resolves an asset reference into an object which has the properties `uri`, `scale`, `width`, and `height`.
 
 **Parameters:**
 
@@ -567,6 +587,14 @@ Object returned in the `onLoad` callback.
 | Type   |
 | ------ |
 | object |
+
+**Properties:**
+
+| Name   | Type   | Description                         |
+| ------ | ------ | ----------------------------------- |
+| source | object | The [source object](#source-object) |
+
+#### Source Object
 
 **Properties:**
 

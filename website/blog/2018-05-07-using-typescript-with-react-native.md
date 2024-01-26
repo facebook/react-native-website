@@ -12,10 +12,10 @@ JavaScript! We all love it. But some of us also love [types](https://en.wikipedi
 
 This post uses Microsoft's [TypeScript-React-Native-Starter](https://github.com/Microsoft/TypeScript-React-Native-Starter) repo as a guide.
 
-**Update**: Since this blog post was written, [Babel 7 was released with integrated TypeScript support](https://blogs.msdn.microsoft.com/typescript/2018/08/27/typescript-and-babel-7/). Babel 7 replaces all the set up described in this blog post with just one command:
+**Update**: Since this blog post was written, things have gotten even easier. You can replace all the set up described in this blog post by running just one command:
 
 ```sh
-react-native init MyAwesomeProject --template typescript
+npx react-native init MyAwesomeProject --template react-native-template-typescript
 ```
 
 However, there _are_ some limitations to Babel's TypeScript support, which the blog post above goes into in detail. The steps outlined in _this_ post still work, and Artsy is still using [react-native-typescript-transformer](https://github.com/ds300/react-native-typescript-transformer) in production, but the fastest way to get up and running with React Native and TypeScript is using the above command. You can always switch later if you have to.
@@ -75,7 +75,7 @@ module.exports = {
   },
   getSourceExts() {
     return ['ts', 'tsx'];
-  }
+  },
 };
 ```
 
@@ -172,7 +172,7 @@ Create a `components` directory and add the following example.
 ```ts
 // components/Hello.tsx
 import React from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import {Button, StyleSheet, Text, View} from 'react-native';
 
 export interface Props {
   name: string;
@@ -189,22 +189,22 @@ export class Hello extends React.Component<Props, State> {
 
     if ((props.enthusiasmLevel || 0) <= 0) {
       throw new Error(
-        'You could be a little more enthusiastic. :D'
+        'You could be a little more enthusiastic. :D',
       );
     }
 
     this.state = {
-      enthusiasmLevel: props.enthusiasmLevel || 1
+      enthusiasmLevel: props.enthusiasmLevel || 1,
     };
   }
 
   onIncrement = () =>
     this.setState({
-      enthusiasmLevel: this.state.enthusiasmLevel + 1
+      enthusiasmLevel: this.state.enthusiasmLevel + 1,
     });
   onDecrement = () =>
     this.setState({
-      enthusiasmLevel: this.state.enthusiasmLevel - 1
+      enthusiasmLevel: this.state.enthusiasmLevel - 1,
     });
   getExclamationMarks = (numChars: number) =>
     Array(numChars + 1).join('!');
@@ -246,23 +246,23 @@ export class Hello extends React.Component<Props, State> {
 const styles = StyleSheet.create({
   root: {
     alignItems: 'center',
-    alignSelf: 'center'
+    alignSelf: 'center',
   },
   buttons: {
     flexDirection: 'row',
     minHeight: 70,
     alignItems: 'stretch',
     alignSelf: 'center',
-    borderWidth: 5
+    borderWidth: 5,
   },
   button: {
     flex: 1,
-    paddingVertical: 0
+    paddingVertical: 0,
   },
   greeting: {
     color: '#999',
-    fontWeight: 'bold'
-  }
+    fontWeight: 'bold',
+  },
 });
 ```
 
@@ -288,7 +288,7 @@ Now let's create a `__tests__` folder in the `components` directory and add a te
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import { Hello } from '../Hello';
+import {Hello} from '../Hello';
 
 it('renders correctly with defaults', () => {
   const button = renderer
@@ -302,6 +302,6 @@ The first time the test is run, it will create a snapshot of the rendered compon
 
 ## Next Steps
 
-Check out the official [React tutorial](https://reactjs.org/tutorial/tutorial.html) and state-management library [Redux](http://redux.js.org). These resources can be helpful when writing React Native apps. Additionally, you may want to look at [ReactXP](https://microsoft.github.io/reactxp/), a component library written entirely in TypeScript that supports both React on the web as well as React Native.
+Check out the official [React tutorial](https://reactjs.org/tutorial/tutorial.html) and state-management library [Redux](https://redux.js.org). These resources can be helpful when writing React Native apps. Additionally, you may want to look at [ReactXP](https://microsoft.github.io/reactxp/), a component library written entirely in TypeScript that supports both React on the web as well as React Native.
 
 Have fun in a more type-safe React Native development environment!

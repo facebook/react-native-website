@@ -1,0 +1,59 @@
+{
+  "contributing": [
+    {
+      "type": "category",
+      "label": "Contributing to React Native",
+      "collapsed": false,
+      "collapsible": true,
+      "items": [
+        "overview",
+        "how-to-contribute-code",
+        "how-to-build-from-source",
+        "how-to-run-and-write-tests",
+        "how-to-open-a-pull-request",
+        "changelogs-in-pull-requests",
+        "how-to-file-an-issue",
+        "contribution-license-agreement",
+        {
+          "type": "category",
+          "label": "Managing repository",
+          "collapsed": false,
+          "collapsible": false,
+          "items": [
+            "triaging-github-issues",
+            "labeling-github-issues",
+            "managing-pull-requests",
+            "bots-reference"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Contributing to Releases",
+      "collapsed": true,
+      "collapsible": true,
+      "items": [
+        "release-roles-responsibilities",
+        "release-dependencies",
+        "release-testing",
+        "updating-upgrade-helper",
+        "release-faq",
+        {
+          "type": "category",
+          "label": "How to Perform Releases",
+          "collapsed": false,
+          "collapsible": false,
+          "items": [
+            "release-branch-cut-and-rc0",
+            "release-candidate-patch",
+            "release-stable-minor",
+            "release-stable-patch",
+            "release-troubleshooting",
+            "release-updating-packages"
+          ]
+        }
+      ]
+    }
+  ]
+}

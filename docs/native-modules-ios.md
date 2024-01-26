@@ -3,13 +3,16 @@ id: native-modules-ios
 title: iOS Native Modules
 ---
 
+import NativeDeprecated from './the-new-architecture/\_markdown_native_deprecation.mdx'
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+
+<NativeDeprecated />
+
 Welcome to Native Modules for iOS. Please start by reading the [Native Modules Intro](native-modules-intro) for an intro to what native modules are.
 
 ## Create a Calendar Native Module
 
 In the following guide you will create a native module, `CalendarModule`, that will allow you to access Apple's calendar APIs from JavaScript. By the end you will be able to call `CalendarModule.createCalendarEvent('Dinner Party', 'My House');` from JavaScript, invoking a native method that creates a calendar event.
-
-> The React Native team is currently working on a re-architecture of the Native Module system. This new system is called TurboModules, and it will help facilitate more efficient type-safe communication between JavaScript and native, without relying on the React Native bridge. It will also enable new extensions that weren't possible with the legacy Native Module system. You can read more about it [here](https://github.com/react-native-community/discussions-and-proposals/issues/40). Throughout these docs we have added notes around parts of Native Modules that will change in the TurboModules release and how you can best prepare for a smooth upgrade to TurboModules.
 
 ### Setup
 
@@ -45,7 +48,7 @@ You can use any name that fits the native module you are building. Name the clas
 
 As you can see below, the CalendarModule class implements the `RCTBridgeModule` protocol. A native module is an Objective-C class that implements the `RCTBridgeModule` protocol.
 
-Next up, let’s start implementing the native module. Create the corresponding implementation file, `RCTCalendarModule.m`, in the same folder and include the following content:
+Next up, let’s start implementing the native module. Create the corresponding implementation file using cocoa touch class in xcode, `RCTCalendarModule.m`, in the same folder and include the following content:
 
 ```objectivec
 // RCTCalendarModule.m
@@ -73,8 +76,8 @@ RCT_EXPORT_MODULE(CalendarModuleFoo);
 
 The native module can then be accessed in JS like this:
 
-```jsx
-const { CalendarModuleFoo } = ReactNative.NativeModules;
+```tsx
+const {CalendarModuleFoo} = ReactNative.NativeModules;
 ```
 
 If you do not specify a name, the JavaScript module name will match the Objective-C class name, with any "RCT" or "RK" prefixes removed.
@@ -88,8 +91,8 @@ RCT_EXPORT_MODULE();
 
 The native module can then be accessed in JS like this:
 
-```jsx
-const { CalendarModule } = ReactNative.NativeModules;
+```tsx
+const {CalendarModule} = ReactNative.NativeModules;
 ```
 
 ### Export a Native Method to JavaScript
@@ -135,9 +138,9 @@ At this point you have set up the basic scaffolding for your native module in iO
 
 Find a place in your application where you would like to add a call to the native module’s `createCalendarEvent()` method. Below is an example of a component, `NewModuleButton` you can add in your app. You can invoke the native module inside `NewModuleButton`'s `onPress()` function.
 
-```jsx
+```tsx
 import React from 'react';
-import { NativeModules, Button } from 'react-native';
+import {NativeModules, Button} from 'react-native';
 
 const NewModuleButton = () => {
   const onPress = () => {
@@ -158,19 +161,19 @@ export default NewModuleButton;
 
 In order to access your native module from JavaScript you need to first import `NativeModules` from React Native:
 
-```jsx
-import { NativeModules } from 'react-native';
+```tsx
+import {NativeModules} from 'react-native';
 ```
 
 You can then access the `CalendarModule` native module off of `NativeModules`.
 
-```jsx
-const { CalendarModule } = NativeModules;
+```tsx
+const {CalendarModule} = NativeModules;
 ```
 
 Now that you have the CalendarModule native module available, you can invoke your native method `createCalendarEvent()`. Below it is added to the `onPress()` method in `NewModuleButton`:
 
-```jsx
+```tsx
 const onPress = () => {
   CalendarModule.createCalendarEvent('testName', 'testLocation');
 };
@@ -178,13 +181,26 @@ const onPress = () => {
 
 The final step is to rebuild the React Native app so that you can have the latest native code (with your new native module!) available. In your command line, where the react native application is located, run the following :
 
+<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<TabItem value="npm">
+
 ```shell
-npx react-native run-ios
+npm run ios
 ```
+
+</TabItem>
+<TabItem value="yarn">
+
+```shell
+yarn ios
+```
+
+</TabItem>
+</Tabs>
 
 ### Building as You Iterate
 
-As you work through these guides and iterate on your native module, you will need to do a native rebuild of your application to access your most recent changes from JavaScript. This is because the code that you are writing sits within the native part of your application. While React Native’s metro bundler can watch for changes in JavaScript and rebuild JS bundle on the fly for you, it will not do so for native code. So if you want to test your latest native changes you need to rebuild by using the `npx react-native run-ios` command.
+As you work through these guides and iterate on your native module, you will need to do a native rebuild of your application to access your most recent changes from JavaScript. This is because the code that you are writing sits within the native part of your application. While React Native’s metro bundler can watch for changes in JavaScript and rebuild JS bundle on the fly for you, it will not do so for native code. So if you want to test your latest native changes you need to rebuild by using the above command.
 
 ### Recap✨
 
@@ -205,7 +221,7 @@ Importing your native module by pulling it off of `NativeModules` like above is 
 
 To save consumers of your native module from needing to do that each time they want to access your native module, you can create a JavaScript wrapper for the module. Create a new JavaScript file named NativeCalendarModule.js with the following content:
 
-```jsx
+```tsx
 /**
 * This exposes the native CalendarModule module as a JS module. This has a
 * function 'createCalendarEvent' which takes the following parameters:
@@ -213,32 +229,32 @@ To save consumers of your native module from needing to do that each time they w
 * 1. String name: A string representing the name of the event
 * 2. String location: A string representing the location of the event
 */
-import { NativeModules } from 'react-native';
-const { CalendarModule } = NativeModules;
+import {NativeModules} from 'react-native';
+const {CalendarModule} = NativeModules;
 export default CalendarModule;
 ```
 
 This JavaScript file also becomes a good location for you to add any JavaScript side functionality. For example, if you use a type system like TypeScript you can add type annotations for your native module here. While React Native does not yet support Native to JS type safety, with these type annotations, all your JS code will be type safe. These annotations will also make it easier for you to switch to type-safe native modules down the line. Below is an example of adding type safety to the Calendar Module:
 
-```jsx
+```tsx
 /**
-* This exposes the native CalendarModule module as a JS module. This has a
-* function 'createCalendarEvent' which takes the following parameters:
-*
-* 1. String name: A string representing the name of the event
-* 2. String location: A string representing the location of the event
-*/
-import { NativeModules } from 'react-native';
-const { CalendarModule } = NativeModules
+ * This exposes the native CalendarModule module as a JS module. This has a
+ * function 'createCalendarEvent' which takes the following parameters:
+ *
+ * 1. String name: A string representing the name of the event
+ * 2. String location: A string representing the location of the event
+ */
+import {NativeModules} from 'react-native';
+const {CalendarModule} = NativeModules;
 interface CalendarInterface {
-   createCalendarEvent(name: string, location: string): void;
+  createCalendarEvent(name: string, location: string): void;
 }
 export default CalendarModule as CalendarInterface;
 ```
 
 In your other JavaScript files you can access the native module and invoke its method like this:
 
-```jsx
+```tsx
 import NativeCalendarModule from './NativeCalendarModule';
 NativeCalendarModule.createCalendarEvent('foo', 'bar');
 ```
@@ -253,7 +269,6 @@ When a native module method is invoked in JavaScript, React Native converts the 
 | --------------------------------------------- | ------------------ |
 | NSString                                      | string, ?string    |
 | BOOL                                          | boolean            |
-| NSNumber                                      | ?boolean           |
 | double                                        | number             |
 | NSNumber                                      | ?number            |
 | NSArray                                       | Array, ?Array      |
@@ -269,7 +284,7 @@ When a native module method is invoked in JavaScript, React Native converts the 
 > - Number -> CGFloat
 > - Number -> float
 
-For iOS, you can also write native module methods with any argument type that is supported by the `RCTConvert` class (see [RCTConvert](https://github.com/facebook/react-native/blob/master/React/Base/RCTConvert.h) for details about what is supported). The RCTConvert helper functions all accept a JSON value as input and map it to a native Objective-C type or class.
+For iOS, you can also write native module methods with any argument type that is supported by the `RCTConvert` class (see [RCTConvert](https://github.com/facebook/react-native/blob/main/packages/react-native/React/Base/RCTConvert.h) for details about what is supported). The RCTConvert helper functions all accept a JSON value as input and map it to a native Objective-C type or class.
 
 ### Exporting Constants
 
@@ -284,8 +299,8 @@ A native module can export constants by overriding the native method `constantsT
 
 The constant can then be accessed by invoking `getConstants()` on the native module in JS like so:
 
-```objectivec
-const { DEFAULT_EVENT_NAME } = CalendarModule.getConstants();
+```tsx
+const {DEFAULT_EVENT_NAME} = CalendarModule.getConstants();
 console.log(DEFAULT_EVENT_NAME);
 ```
 
@@ -325,19 +340,19 @@ RCT_EXPORT_METHOD(createCalendarEvent:(NSString *)title location:(NSString *)loc
 
 This method could then be accessed in JavaScript using the following:
 
-```jsx
+```tsx
 const onSubmit = () => {
   CalendarModule.createCalendarEvent(
     'Party',
     '04-12-2020',
-    (eventId) => {
+    eventId => {
       console.log(`Created a new event with id ${eventId}`);
-    }
+    },
   );
 };
 ```
 
-A native module is supposed to invoke its callback only once. It can, however, store the callback and invoke it later. This pattern is often used to wrap iOS APIs that require delegates— see [`RCTAlertManager`](https://github.com/facebook/react-native/blob/3a11f0536ea65b87dc0f006665f16a87cfa14b5e/React/CoreModules/RCTAlertManager.mm) for an example. If the callback is never invoked, some memory is leaked.
+A native module is supposed to invoke its callback only once. It can, however, store the callback and invoke it later. This pattern is often used to wrap iOS APIs that require delegates— see [`RCTAlertManager`](https://github.com/facebook/react-native/blob/main/packages/react-native/React/CoreModules/RCTAlertManager.mm) for an example. If the callback is never invoked, some memory is leaked.
 
 There are two approaches to error handling with callbacks. The first is to follow Node’s convention and treat the first argument passed to the callback array as an error object.
 
@@ -351,7 +366,7 @@ RCT_EXPORT_METHOD(createCalendarEventCallback:(NSString *)title location:(NSStri
 
 In JavaScript, you can then check the first argument to see if an error was passed through:
 
-```jsx
+```tsx
 const onPress = () => {
   CalendarModule.createCalendarEventCallback(
     'testName',
@@ -361,7 +376,7 @@ const onPress = () => {
         console.error(`Error found! ${error}`);
       }
       console.log(`event id ${eventId} returned`);
-    }
+    },
   );
 };
 ```
@@ -387,22 +402,22 @@ RCT_EXPORT_METHOD(createCalendarEventCallback:(NSString *)title
 
 Then in JavaScript you can add a separate callback for error and success responses:
 
-```jsx
+```tsx
 const onPress = () => {
   CalendarModule.createCalendarEventCallback(
     'testName',
     'testLocation',
-    (error) => {
+    error => {
       console.error(`Error found! ${error}`);
     },
-    (eventId) => {
+    eventId => {
       console.log(`event id ${eventId} returned`);
-    }
+    },
   );
 };
 ```
 
-If you want to pass error-like objects to JavaScript, use `RCTMakeError` from [`RCTUtils.h.`](https://github.com/facebook/react-native/blob/master/React/Base/RCTUtils.h) Right now this only passes an Error-shaped dictionary to JavaScript, but React Native aims to automatically generate real JavaScript Error objects in the future. You can also provide a `RCTResponseErrorBlock` argument, which is used for error callbacks and accepts an `NSError \* object`. Please note that this argument type will not be supported with TurboModules.
+If you want to pass error-like objects to JavaScript, use `RCTMakeError` from [`RCTUtils.h.`](https://github.com/facebook/react-native/blob/main/packages/react-native/React/Base/RCTUtils.h) Right now this only passes an Error-shaped dictionary to JavaScript, but React Native aims to automatically generate real JavaScript Error objects in the future. You can also provide a `RCTResponseErrorBlock` argument, which is used for error callbacks and accepts an `NSError \* object`. Please note that this argument type will not be supported with TurboModules.
 
 ### Promises
 
@@ -428,12 +443,12 @@ RCT_EXPORT_METHOD(createCalendarEvent:(NSString *)title
 
 The JavaScript counterpart of this method returns a Promise. This means you can use the `await` keyword within an async function to call it and wait for its result:
 
-```jsx
+```tsx
 const onSubmit = async () => {
   try {
     const eventId = await CalendarModule.createCalendarEvent(
       'Party',
-      'my house'
+      'my house',
     );
     console.log(`Created a new event with id ${eventId}`);
   } catch (e) {
@@ -464,7 +479,7 @@ JavaScript code can subscribe to these events by creating a new `NativeEventEmit
 You will receive a warning if you expend resources unnecessarily by emitting an event while there are no listeners. To avoid this, and to optimize your module's workload (e.g. by unsubscribing from upstream notifications or pausing background tasks), you can override `startObserving` and `stopObserving` in your `RCTEventEmitter` subclass.
 
 ```objectivec
-@implementation CalendarManager
+@implementation CalendarModule
 {
   bool hasListeners;
 }
@@ -484,7 +499,7 @@ You will receive a warning if you expend resources unnecessarily by emitting an 
 - (void)calendarEventReminderReceived:(NSNotification *)notification
 {
   NSString *eventName = notification.userInfo[@"name"];
-  if (hasListeners) { // Only send events if anyone is listening
+  if (hasListeners) {// Only send events if anyone is listening
     [self sendEventWithName:@"EventReminder" body:@{@"name": eventName}];
   }
 }
@@ -552,10 +567,10 @@ RCTRootView *rootView = [[RCTRootView alloc]
 Swift doesn't have support for macros, so exposing native modules and their methods to JavaScript inside React Native requires a bit more setup. However, it works relatively the same. Let's say you have the same `CalendarModule` but as a Swift class:
 
 ```swift
-// CalendarManager.swift
+// CalendarModule.swift
 
-@objc(CalendarManager)
-class CalendarManager: NSObject {
+@objc(CalendarModule)
+class CalendarModule: NSObject {
 
  @objc(addEvent:location:date:)
  func addEvent(_ name: String, location: String, date: NSNumber) -> Void {
@@ -575,10 +590,10 @@ class CalendarManager: NSObject {
 Then create a private implementation file that will register the required information with React Native:
 
 ```objectivec
-// CalendarManagerBridge.m
+// CalendarModuleBridge.m
 #import <React/RCTBridgeModule.h>
 
-@interface RCT_EXTERN_MODULE(CalendarManager, NSObject)
+@interface RCT_EXTERN_MODULE(CalendarModule, NSObject)
 
 RCT_EXTERN_METHOD(addEvent:(NSString *)name location:(NSString *)location date:(nonnull NSNumber *)date)
 
@@ -588,11 +603,11 @@ RCT_EXTERN_METHOD(addEvent:(NSString *)name location:(NSString *)location date:(
 For those of you new to Swift and Objective-C, whenever you [mix the two languages in an iOS project](https://developer.apple.com/library/prerelease/ios/documentation/Swift/Conceptual/BuildingCocoaApps/MixandMatch.html), you will also need an additional bridging file, known as a bridging header, to expose the Objective-C files to Swift. Xcode will offer to create this header file for you if you add your Swift file to your app through the Xcode `File>New File` menu option. You will need to import `RCTBridgeModule.h` in this header file.
 
 ```objectivec
-// CalendarManager-Bridging-Header.h
+// CalendarModule-Bridging-Header.h
 #import <React/RCTBridgeModule.h>
 ```
 
-You can also use `RCT_EXTERN_REMAP_MODULE` and `_RCT_EXTERN_REMAP_METHOD` to alter the JavaScript name of the module or methods you are exporting. For more information see [`RCTBridgeModule`](https://github.com/facebook/react-native/blob/master/React/Base/RCTBridgeModule.h).
+You can also use `RCT_EXTERN_REMAP_MODULE` and `_RCT_EXTERN_REMAP_METHOD` to alter the JavaScript name of the module or methods you are exporting. For more information see [`RCTBridgeModule`](https://github.com/facebook/react-native/blob/main/packages/react-native/React/Base/RCTBridgeModule.h).
 
 > Important when making third party modules: Static libraries with Swift are only supported in Xcode 9 and later. In order for the Xcode project to build when you use Swift in the iOS static library you include in the module, your main app project must contain Swift code and a bridging header itself. If your app project does not contain any Swift code, a workaround can be a single empty .swift file and an empty bridging header.
 
@@ -600,4 +615,4 @@ You can also use `RCT_EXTERN_REMAP_MODULE` and `_RCT_EXTERN_REMAP_METHOD` to alt
 
 #### invalidate()
 
-Native modules can conform to the [RCTInvalidating](https://github.com/facebook/react-native/blob/0.62-stable/React/Base/RCTInvalidating.h) protocol on iOS by implementing the `invalidate()` method. This method [can be invoked](https://github.com/facebook/react-native/blob/0.62-stable/ReactCommon/turbomodule/core/platform/ios/RCTTurboModuleManager.mm#L456) when the native bridge is invalidated (ie: on devmode reload). Please use this mechanism as necessary to do the required cleanup for your native module.
+Native modules can conform to the [RCTInvalidating](https://github.com/facebook/react-native/blob/main/packages/react-native/React/Base/RCTInvalidating.h) protocol on iOS by implementing the `invalidate()` method. This method [can be invoked](https://github.com/facebook/react-native/blob/0.62-stable/ReactCommon/turbomodule/core/platform/ios/RCTTurboModuleManager.mm#L456) when the native bridge is invalidated (ie: on devmode reload). Please use this mechanism as necessary to do the required cleanup for your native module.

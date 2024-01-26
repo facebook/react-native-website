@@ -19,9 +19,7 @@ Since releasing React Native on [iOS](https://reactjs.org/blog/2015/03/26/introd
 <footer>
   <a
     href="https://code.facebook.com/posts/895897210527114/dive-into-react-native-performance/"
-    className="btn">
-    Read more
-  </a>
+    className="btn">Read more</a>
 </footer>
 
 > This is an excerpt. Read the rest of the post on [Facebook Code](https://code.facebook.com/posts/895897210527114/dive-into-react-native-performance/).

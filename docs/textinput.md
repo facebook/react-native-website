@@ -8,12 +8,12 @@ A foundational component for inputting text into the app via a keyboard. Props p
 The most basic use case is to plop down a `TextInput` and subscribe to the `onChangeText` events to read the user input. There are also other events, such as `onSubmitEditing` and `onFocus` that can be subscribed to. A minimal example:
 
 ```SnackPlayer name=TextInput
-import React from "react";
-import { SafeAreaView, StyleSheet, TextInput } from "react-native";
+import React from 'react';
+import {SafeAreaView, StyleSheet, TextInput} from 'react-native';
 
-const UselessTextInput = () => {
-  const [text, onChangeText] = React.useState("Useless Text");
-  const [number, onChangeNumber] = React.useState(null);
+const TextInputExample = () => {
+  const [text, onChangeText] = React.useState('Useless Text');
+  const [number, onChangeNumber] = React.useState('');
 
   return (
     <SafeAreaView>
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default UselessTextInput;
+export default TextInputExample;
 ```
 
 Two methods exposed via the native element are .focus() and .blur() that will focus or blur the TextInput programmatically.
@@ -51,19 +51,9 @@ Note that some props are only available with `multiline={true/false}`. Additiona
 
 ```SnackPlayer name=TextInput
 import React from 'react';
-import { View, TextInput } from 'react-native';
+import {View, TextInput} from 'react-native';
 
-const UselessTextInput = (props) => {
-  return (
-    <TextInput
-      {...props} // Inherit any props passed to it; e.g., multiline, numberOfLines below
-      editable
-      maxLength={40}
-    />
-  );
-}
-
-const UselessTextInputMultiline = () => {
+const MultilineTextInputExample = () => {
   const [value, onChangeText] = React.useState('Useless Multiline Placeholder');
 
   // If you type something in the text box that is a color, the background will change to that
@@ -75,21 +65,23 @@ const UselessTextInputMultiline = () => {
         borderBottomColor: '#000000',
         borderBottomWidth: 1,
       }}>
-      <UselessTextInput
+      <TextInput
+        editable
         multiline
         numberOfLines={4}
+        maxLength={40}
         onChangeText={text => onChangeText(text)}
         value={value}
         style={{padding: 10}}
       />
     </View>
   );
-}
+};
 
-export default UselessTextInputMultiline;
+export default MultilineTextInputExample;
 ```
 
-`TextInput` has by default a border at the bottom of its view. This border has its padding set by the background image provided by the system, and it cannot be changed. Solutions to avoid this are to either not set height explicitly, in which case the system will take care of displaying the border in the correct position, or to not display the border by setting `underlineColorAndroid` to transparent.
+`TextInput` has a border at the bottom of its view by default. This border has its padding set by the background image provided by the system, and it cannot be changed. Solutions to avoid this are to either not set height explicitly, in which case the system will take care of displaying the border in the correct position, or to not display the border by setting `underlineColorAndroid` to transparent.
 
 Note that on Android performing text selection in an input can change the app's activity `windowSoftInputMode` param to `adjustResize`. This may cause issues with components that have position: 'absolute' while the keyboard is active. To avoid this behavior either specify `windowSoftInputMode` in AndroidManifest.xml ( https://developer.android.com/guide/topics/manifest/activity-element.html ) or control this param programmatically with native code.
 
@@ -130,25 +122,60 @@ Tells `TextInput` to automatically capitalize certain characters. This property 
 
 ---
 
-### `autoComplete` <div class="label android">Android</div>
+### `autoComplete`
 
 Specifies autocomplete hints for the system, so it can provide autofill. On Android, the system will always attempt to offer autofill by using heuristics to identify the type of content. To disable autocomplete, set `autoComplete` to `off`.
 
-Possible values for `autoComplete` are:
+The following values work across platforms:
 
-- `birthdate-day`
-- `birthdate-full`
-- `birthdate-month`
-- `birthdate-year`
-- `cc-csc`
-- `cc-exp`
-- `cc-exp-day`
-- `cc-exp-month`
-- `cc-exp-year`
+- `additional-name`
+- `address-line1`
+- `address-line2`
+- `birthdate-day` (iOS 17+)
+- `birthdate-full` (iOS 17+)
+- `birthdate-month` (iOS 17+)
+- `birthdate-year` (iOS 17+)
+- `cc-csc` (iOS 17+)
+- `cc-exp` (iOS 17+)
+- `cc-exp-day` (iOS 17+)
+- `cc-exp-month` (iOS 17+)
+- `cc-exp-year` (iOS 17+)
 - `cc-number`
+- `country`
+- `current-password`
 - `email`
-- `gender`
+- `family-name`
+- `given-name`
+- `honorific-prefix`
+- `honorific-suffix`
 - `name`
+- `new-password`
+- `off`
+- `one-time-code`
+- `postal-code`
+- `street-address`
+- `tel`
+- `username`
+
+<div class="label basic ios">iOS</div>
+
+The following values work on iOS only:
+
+- `cc-family-name` (iOS 17+)
+- `cc-given-name` (iOS 17+)
+- `cc-middle-name` (iOS 17+)
+- `cc-name` (iOS 17+)
+- `cc-type` (iOS 17+)
+- `nickname`
+- `organization`
+- `organization-title`
+- `url`
+
+<div class="label basic android">Android</div>
+
+The following values work on Android only:
+
+- `gender`
 - `name-family`
 - `name-given`
 - `name-middle`
@@ -163,20 +190,15 @@ Possible values for `autoComplete` are:
 - `postal-address-extended-postal-code`
 - `postal-address-locality`
 - `postal-address-region`
-- `postal-code`
-- `street-address`
 - `sms-otp`
-- `tel`
 - `tel-country-code`
-- `tel-national`
 - `tel-device`
-- `username`
+- `tel-national`
 - `username-new`
-- `off`
 
-| Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| enum('birthdate-day', 'birthdate-full', 'birthdate-month', 'birthdate-year', 'cc-csc', 'cc-exp', 'cc-exp-day', 'cc-exp-month', 'cc-exp-year', 'cc-number', 'email', 'gender', 'name', 'name-family', 'name-given', 'name-middle', 'name-middle-initial', 'name-prefix', 'name-suffix', 'password', 'password-new', 'postal-address', 'postal-address-country', 'postal-address-extended', 'postal-address-extended-postal-code', 'postal-address-locality', 'postal-address-region', 'postal-code', 'street-address', 'sms-otp', 'tel', 'tel-country-code', 'tel-national', 'tel-device', 'username', 'username-new', 'off') |
+| Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| enum('additional-name', 'address-line1', 'address-line2', 'birthdate-day', 'birthdate-full', 'birthdate-month', 'birthdate-year', 'cc-csc', 'cc-exp', 'cc-exp-day', 'cc-exp-month', 'cc-exp-year', 'cc-number', 'country', 'current-password', 'email', 'family-name', 'given-name', 'honorific-prefix', 'honorific-suffix', 'name', 'new-password', 'off', 'one-time-code', 'postal-code', 'street-address', 'tel', 'username', 'cc-family-name', 'cc-given-name', 'cc-middle-name', 'cc-name', 'cc-type', 'nickname', 'organization', 'organization-title', 'url', 'gender', 'name-family', 'name-given', 'name-middle', 'name-middle-initial', 'name-prefix', 'name-suffix', 'password', 'password-new', 'postal-address', 'postal-address-country', 'postal-address-extended', 'postal-address-extended-postal-code', 'postal-address-locality', 'postal-address-region', 'sms-otp', 'tel-country-code', 'tel-device', 'tel-national', 'username-new') |
 
 ---
 
@@ -281,6 +303,16 @@ Provides an initial value that will change when the user starts typing. Useful f
 
 ---
 
+### `cursorColor` <div class="label android">Android</div>
+
+When provided it will set the color of the cursor (or "caret") in the component. Unlike the behavior of `selectionColor` the cursor color will be set independently from the color of the text selection box.
+
+| Type               |
+| ------------------ |
+| [color](colors.md) |
+
+---
+
 ### `disableFullscreenUI` <div class="label android">Android</div>
 
 When `false`, if there is a small amount of space available around a text input (e.g. landscape orientation on a phone), the OS may choose to have the user edit the text inside of a full screen text input mode. When `true`, this feature is disabled and users will always edit the text directly inside of the text input. Defaults to `false`.
@@ -308,6 +340,30 @@ If `true`, the keyboard disables the return key when there is no text and automa
 | Type |
 | ---- |
 | bool |
+
+---
+
+### `enterKeyHint`
+
+Determines what text should be shown to the return key. Has precedence over the `returnKeyType` prop.
+
+The following values work across platforms:
+
+- `enter`
+- `done`
+- `next`
+- `search`
+- `send`
+
+_Android Only_
+
+The following values work on Android only:
+
+- `previous`
+
+| Type                                                        |
+| ----------------------------------------------------------- |
+| enum('enter', 'done', 'next', 'previous', 'search', 'send') |
 
 ---
 
@@ -363,6 +419,27 @@ An optional identifier which links a custom [InputAccessoryView](inputaccessoryv
 
 ---
 
+### `inputMode`
+
+Works like the `inputmode` attribute in HTML, it determines which keyboard to open, e.g. `numeric` and has precedence over `keyboardType`.
+
+Support the following values:
+
+- `none`
+- `text`
+- `decimal`
+- `numeric`
+- `tel`
+- `search`
+- `email`
+- `url`
+
+| Type                                                                        |
+| --------------------------------------------------------------------------- |
+| enum('decimal', 'email', 'none', 'numeric', 'search', 'tel', 'text', 'url') |
+
+---
+
 ### `keyboardAppearance` <div class="label ios">iOS</div>
 
 Determines the color of the keyboard.
@@ -377,7 +454,7 @@ Determines the color of the keyboard.
 
 Determines which keyboard to open, e.g.`numeric`.
 
-See screenshots of all the types [here](http://lefkowitz.me/2018/04/30/visual-guide-to-react-native-textinput-keyboardtype-options/).
+See screenshots of all the types [here](https://lefkowitz.me/2018/04/30/visual-guide-to-react-native-textinput-keyboardtype-options/).
 
 The following values work across platforms:
 
@@ -387,6 +464,7 @@ The following values work across platforms:
 - `numeric`
 - `email-address`
 - `phone-pad`
+- `url`
 
 _iOS Only_
 
@@ -394,7 +472,6 @@ The following values work on iOS only:
 
 - `ascii-capable`
 - `numbers-and-punctuation`
-- `url`
 - `name-phone-pad`
 - `twitter`
 - `web-search`
@@ -437,7 +514,11 @@ Limits the maximum number of characters that can be entered. Use this instead of
 
 ### `multiline`
 
-If `true`, the text input can be multiple lines. The default value is `false`. It is important to note that this aligns the text to the top on iOS, and centers it on Android. Use with `textAlignVertical` set to `top` for the same behavior in both platforms.
+If `true`, the text input can be multiple lines. The default value is `false`.
+
+:::note
+It is important to note that this aligns the text to the top on iOS, and centers it on Android. Use with `textAlignVertical` set to `top` for the same behavior in both platforms.
+:::
 
 | Type |
 | ---- |
@@ -471,9 +552,9 @@ Callback that is called when the text input is blurred.
 
 Callback that is called when the text input's text changes.
 
-| Type                                                     |
-| -------------------------------------------------------- |
-| (`{ nativeEvent: { eventCount, target, text} }`) => void |
+| Type                                                  |
+| ----------------------------------------------------- |
+| (`{nativeEvent: {eventCount, target, text}}`) => void |
 
 ---
 
@@ -493,9 +574,9 @@ Callback that is called when the text input's content size changes.
 
 Only called for multiline text inputs.
 
-| Type                                                            |
-| --------------------------------------------------------------- |
-| (`{ nativeEvent: { contentSize: { width, height } } }`) => void |
+| Type                                                       |
+| ---------------------------------------------------------- |
+| (`{nativeEvent: {contentSize: {width, height} }}`) => void |
 
 ---
 
@@ -513,9 +594,9 @@ Callback that is called when text input ends.
 
 Callback that is called when a touch is engaged.
 
-| Type                                                |
-| --------------------------------------------------- |
-| ({ nativeEvent: [PressEvent](pressevent) }) => void |
+| Type                                                   |
+| ------------------------------------------------------ |
+| `md ({nativeEvent: [PressEvent](pressevent)}) => void` |
 
 ---
 
@@ -523,9 +604,9 @@ Callback that is called when a touch is engaged.
 
 Callback that is called when a touch is released.
 
-| Type                                                |
-| --------------------------------------------------- |
-| ({ nativeEvent: [PressEvent](pressevent) }) => void |
+| Type                                                   |
+| ------------------------------------------------------ |
+| `md ({nativeEvent: [PressEvent](pressevent)}) => void` |
 
 ---
 
@@ -533,9 +614,9 @@ Callback that is called when a touch is released.
 
 Callback that is called when the text input is focused.
 
-| Type                                                  |
-| ----------------------------------------------------- |
-| ({ nativeEvent: [LayoutEvent](layoutevent) }) => void |
+| Type                                                     |
+| -------------------------------------------------------- |
+| `md ({nativeEvent: [LayoutEvent](layoutevent)}) => void` |
 
 ---
 
@@ -543,9 +624,9 @@ Callback that is called when the text input is focused.
 
 Callback that is called when a key is pressed. This will be called with object where `keyValue` is `'Enter'` or `'Backspace'` for respective keys and the typed-in character otherwise including `' '` for space. Fires before `onChange` callbacks. Note: on Android only the inputs from soft keyboard are handled, not the hardware keyboard inputs.
 
-| Type                                           |
-| ---------------------------------------------- |
-| (`{ nativeEvent: { key: keyValue } }`) => void |
+| Type                                        |
+| ------------------------------------------- |
+| (`{nativeEvent: {key: keyValue} }`) => void |
 
 ---
 
@@ -553,9 +634,9 @@ Callback that is called when a key is pressed. This will be called with object w
 
 Invoked on mount and on layout changes.
 
-| Type                                                  |
-| ----------------------------------------------------- |
-| ({ nativeEvent: [LayoutEvent](layoutevent) }) => void |
+| Type                                                     |
+| -------------------------------------------------------- |
+| `md ({nativeEvent: [LayoutEvent](layoutevent)}) => void` |
 
 ---
 
@@ -563,19 +644,19 @@ Invoked on mount and on layout changes.
 
 Invoked on content scroll. May also contain other properties from `ScrollEvent` but on Android `contentSize` is not provided for performance reasons.
 
-| Type                                                     |
-| -------------------------------------------------------- |
-| (`{ nativeEvent: { contentOffset: { x, y } } }`) => void |
+| Type                                                |
+| --------------------------------------------------- |
+| (`{nativeEvent: {contentOffset: {x, y} }}`) => void |
 
 ---
 
 ### `onSelectionChange`
 
-Callback that is called when the text input selection is changed. This prop requires `multiline={true}` to be set.
+Callback that is called when the text input selection is changed.
 
-| Type                                                       |
-| ---------------------------------------------------------- |
-| (`{ nativeEvent: { selection: { start, end } } }`) => void |
+| Type                                                  |
+| ----------------------------------------------------- |
+| (`{nativeEvent: {selection: {start, end} }}`) => void |
 
 ---
 
@@ -583,9 +664,9 @@ Callback that is called when the text input selection is changed. This prop requ
 
 Callback that is called when the text input's submit button is pressed.
 
-| Type                                                     |
-| -------------------------------------------------------- |
-| (`{ nativeEvent: { text, eventCount, target }}`) => void |
+| Type                                                  |
+| ----------------------------------------------------- |
+| (`{nativeEvent: {text, eventCount, target}}`) => void |
 
 Note that on iOS this method isn't called when using `keyboardType="phone-pad"`.
 
@@ -608,6 +689,16 @@ The text color of the placeholder string.
 | Type               |
 | ------------------ |
 | [color](colors.md) |
+
+---
+
+### `readOnly`
+
+If `true`, text is not editable. The default value is `false`.
+
+| Type |
+| ---- |
+| bool |
 
 ---
 
@@ -667,6 +758,16 @@ If `true`, allows TextInput to pass touch events to the parent component. This a
 
 ---
 
+### `rows` <div class="label android">Android</div>
+
+Sets the number of lines for a `TextInput`. Use it with multiline set to `true` to be able to fill the lines.
+
+| Type   |
+| ------ |
+| number |
+
+---
+
 ### `scrollEnabled` <div class="label ios">iOS</div>
 
 If `false`, scrolling of the text view will be disabled. The default value is `true`. Only works with `multiline={true}`.
@@ -691,9 +792,9 @@ If `true`, the text input obscures the text entered so that sensitive text like 
 
 The start and end of the text input's selection. Set start and end to the same value to position the cursor.
 
-| Type                                |
-| ----------------------------------- |
-| object: {start: number,end: number} |
+| Type                                  |
+| ------------------------------------- |
+| object: `{start: number,end: number}` |
 
 ---
 
@@ -757,21 +858,39 @@ Possible values for `textAlign` are:
 
 Give the keyboard and the system information about the expected semantic meaning for the content that users enter.
 
-For iOS 11+ you can set `textContentType` to `username` or `password` to enable autofill of login details from the device keychain.
+:::note
+[`autoComplete`](#autocomplete), provides the same functionality and is available for all platforms. You can use [`Platform.select`](/docs/next/platform#select) for differing platform behaviors.
 
-For iOS 12+ `newPassword` can be used to indicate a new password input the user may want to save in the keychain, and `oneTimeCode` can be used to indicate that a field can be autofilled by a code arriving in an SMS.
+Avoid using both `textContentType` and `autoComplete`. For backwards compatibility, `textContentType` takes precedence when both properties are set.
+:::
+
+You can set `textContentType` to `username` or `password` to enable autofill of login details from the device keychain.
+
+`newPassword` can be used to indicate a new password input the user may want to save in the keychain, and `oneTimeCode` can be used to indicate that a field can be autofilled by a code arriving in an SMS.
 
 To disable autofill, set `textContentType` to `none`.
 
 Possible values for `textContentType` are:
 
 - `none`
-- `URL`
 - `addressCity`
 - `addressCityAndState`
 - `addressState`
+- `birthdate` (iOS 17+)
+- `birthdateDay` (iOS 17+)
+- `birthdateMonth` (iOS 17+)
+- `birthdateYear` (iOS 17+)
 - `countryName`
+- `creditCardExpiration` (iOS 17+)
+- `creditCardExpirationMonth` (iOS 17+)
+- `creditCardExpirationYear` (iOS 17+)
+- `creditCardFamilyName` (iOS 17+)
+- `creditCardGivenName` (iOS 17+)
+- `creditCardMiddleName` (iOS 17+)
+- `creditCardName` (iOS 17+)
 - `creditCardNumber`
+- `creditCardSecurityCode` (iOS 17+)
+- `creditCardType` (iOS 17+)
 - `emailAddress`
 - `familyName`
 - `fullStreetAddress`
@@ -782,21 +901,22 @@ Possible values for `textContentType` are:
 - `name`
 - `namePrefix`
 - `nameSuffix`
+- `newPassword`
 - `nickname`
+- `oneTimeCode`
 - `organizationName`
+- `password`
 - `postalCode`
 - `streetAddressLine1`
 - `streetAddressLine2`
 - `sublocality`
 - `telephoneNumber`
+- `URL`
 - `username`
-- `password`
-- `newPassword`
-- `oneTimeCode`
 
-| Type                                                                                                                                                                                                                                                                                                                                                                                                       |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| enum('none', 'URL', 'addressCity', 'addressCityAndState', 'addressState', 'countryName', 'creditCardNumber', 'emailAddress', 'familyName', 'fullStreetAddress', 'givenName', 'jobTitle', 'location', 'middleName', 'name', 'namePrefix', 'nameSuffix', 'nickname', 'organizationName', 'postalCode', 'streetAddressLine1', 'streetAddressLine2', 'sublocality', 'telephoneNumber', 'username', 'password') |
+| Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| enum('none', 'addressCity', 'addressCityAndState', 'addressState', 'birthdate', 'birthdateDay', 'birthdateMonth', 'birthdateYear', 'countryName', 'creditCardExpiration', 'creditCardExpirationMonth', 'creditCardExpirationYear', 'creditCardFamilyName', 'creditCardGivenName', 'creditCardMiddleName', 'creditCardName', 'creditCardNumber', 'creditCardSecurityCode', 'creditCardType', 'emailAddress', 'familyName', 'fullStreetAddress', 'givenName', 'jobTitle', 'location', 'middleName', 'name', 'namePrefix', 'nameSuffix', 'newPassword', 'nickname', 'oneTimeCode', 'organizationName', 'password', 'postalCode', 'streetAddressLine1', 'streetAddressLine2', 'sublocality', 'telephoneNumber', 'URL', 'username') |
 
 ---
 
@@ -840,15 +960,11 @@ see [Issue#7070](https://github.com/facebook/react-native/issues/7070) for more 
 
 ### `textBreakStrategy` <div class="label android">Android</div>
 
-<!-- alex disable simple -->
-
-Set text break strategy on Android API Level 23+, possible values are `simple`, `highQuality`, `balanced` The default value is `simple`.
+Set text break strategy on Android API Level 23+, possible values are `simple`, `highQuality`, `balanced` The default value is `highQuality`.
 
 | Type                                      |
 | ----------------------------------------- |
 | enum('simple', 'highQuality', 'balanced') |
-
-<!-- alex enable simple -->
 
 ---
 
@@ -870,11 +986,21 @@ The value to show for the text input. `TextInput` is a controlled component, whi
 | ------ |
 | string |
 
+---
+
+### `lineBreakStrategyIOS` <div class="label ios">iOS</div>
+
+Set line break strategy on iOS 14+. Possible values are `none`, `standard`, `hangul-word` and `push-out`.
+
+| Type                                                        | Default  |
+| ----------------------------------------------------------- | -------- |
+| enum(`'none'`, `'standard'`, `'hangul-word'`, `'push-out'`) | `'none'` |
+
 ## Methods
 
 ### `.focus()`
 
-```jsx
+```tsx
 focus();
 ```
 
@@ -882,7 +1008,7 @@ Makes the native input request focus.
 
 ### `.blur()`
 
-```jsx
+```tsx
 blur();
 ```
 
@@ -890,7 +1016,7 @@ Makes the native input lose focus.
 
 ### `clear()`
 
-```jsx
+```tsx
 clear();
 ```
 
@@ -900,8 +1026,8 @@ Removes all text from the `TextInput`.
 
 ### `isFocused()`
 
-```jsx
-isFocused();
+```tsx
+isFocused(): boolean;
 ```
 
 Returns `true` if the input is currently focused; `false` otherwise.

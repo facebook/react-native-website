@@ -72,8 +72,8 @@ They say a picture is worth 1,000 words. How many words is an interactive visual
   See the Pen{' '}
   <a href="https://codepen.io/TheSavior/pen/NXNoJM/">
     Loading Screen Animation Steps
-  </a>{' '}
-  by Eli White (
+  </a>
+  {' '}by Eli White (
   <a href="https://codepen.io/TheSavior">@TheSavior</a>) on{' '}
   <a href="https://codepen.io">CodePen</a>.
 </iframe>
@@ -82,13 +82,13 @@ They say a picture is worth 1,000 words. How many words is an interactive visual
 
 Alrighty. Now that we know what we are building and how the animation works, we can get down to the code — the reason you are really here.
 
-The main piece of this puzzle is [MaskedViewIOS](/docs/0.63/maskedviewios), a core React Native component.
+The main piece of this puzzle is [MaskedViewIOS](https://reactnative.dev/docs/0.63/maskedviewios), a core React Native component.
 
 ```jsx
-import { MaskedViewIOS } from 'react-native';
+import {MaskedViewIOS} from 'react-native';
 
 <MaskedViewIOS maskElement={<Text>Basic Mask</Text>}>
-  <View style={{ backgroundColor: 'blue' }} />
+  <View style={{backgroundColor: 'blue'}} />
 </MaskedViewIOS>;
 ```
 
@@ -101,14 +101,14 @@ What we want to do is render our blue layer, and then on top render our masked a
   fullScreenBlueLayer;
 }
 <MaskedViewIOS
-  style={{ flex: 1 }}
+  style={{flex: 1}}
   maskElement={
     <View style={styles.centeredFullScreen}>
       <Image source={twitterLogo} />
     </View>
   }>
   {fullScreenWhiteLayer}
-  <View style={{ flex: 1 }}>
+  <View style={{flex: 1}}>
     <MyApp />
   </View>
 </MaskedViewIOS>;
@@ -149,7 +149,7 @@ Our initial component state will be the following.
 
 ```jsx
 state = {
-  loadingProgress: new Animated.Value(0)
+  loadingProgress: new Animated.Value(0),
 };
 ```
 
@@ -159,7 +159,7 @@ When we are ready to begin the animation, we tell Animated to animate this value
 Animated.timing(this.state.loadingProgress, {
   toValue: 100,
   duration: 1000,
-  useNativeDriver: true // This is important!
+  useNativeDriver: true, // This is important!
 }).start();
 ```
 
@@ -184,9 +184,9 @@ const opacityClearToVisible = {
   opacity: loadingProgress.interpolate({
     inputRange: [0, 15, 30],
     outputRange: [0, 0, 1],
-    extrapolate: 'clamp'
+    extrapolate: 'clamp',
     // clamp means when the input is 30-100, output should stay at 1
-  })
+  }),
 };
 
 const imageScale = {
@@ -194,10 +194,10 @@ const imageScale = {
     {
       scale: loadingProgress.interpolate({
         inputRange: [0, 10, 100],
-        outputRange: [1, 0.8, 70]
-      })
-    }
-  ]
+        outputRange: [1, 0.8, 70],
+      }),
+    },
+  ],
 };
 
 const appScale = {
@@ -205,10 +205,10 @@ const appScale = {
     {
       scale: loadingProgress.interpolate({
         inputRange: [0, 100],
-        outputRange: [1.1, 1]
-      })
-    }
-  ]
+        outputRange: [1.1, 1],
+      }),
+    },
+  ],
 };
 ```
 
@@ -226,7 +226,7 @@ return (
   <View style={styles.fullScreen}>
     {fullScreenBlueLayer}
     <MaskedViewIOS
-      style={{ flex: 1 }}
+      style={{flex: 1}}
       maskElement={
         <View style={styles.centeredFullScreen}>
           <Animated.Image
@@ -237,7 +237,7 @@ return (
       }>
       {fullScreenWhiteLayer}
       <Animated.View
-        style={[opacityClearToVisible, appScale, { flex: 1 }]}>
+        style={[opacityClearToVisible, appScale, {flex: 1}]}>
         {this.props.children}
       </Animated.View>
     </MaskedViewIOS>
@@ -255,10 +255,10 @@ To know when we can clean them up, we need to know when the animation is complet
 Animated.timing(this.state.loadingProgress, {
   toValue: 100,
   duration: 1000,
-  useNativeDriver: true
+  useNativeDriver: true,
 }).start(() => {
   this.setState({
-    animationDone: true
+    animationDone: true,
   });
 });
 ```
@@ -286,6 +286,6 @@ This component has been published to npm and is on GitHub as [react-native-mask-
 
 ## More Reading / Extra Credit
 
-1. [This gitbook](http://browniefed.com/react-native-animation-book/) is a great resource to learn more about Animated after you have read the React Native docs.
+1. [This gitbook](https://browniefed.com/react-native-animation-book/) is a great resource to learn more about Animated after you have read the React Native docs.
 1. The actual Twitter animation seems to speed up the mask reveal towards the end. Try modifying the loader to use a different easing function (or a spring!) to better match that behavior.
 1. The current end-scale of the mask is hard coded and likely won’t reveal the entire app on a tablet. Calculating the end scale based on screen size and image size would be an awesome PR.

@@ -1,14 +1,20 @@
 {
   "plugins": ["prettier"],
-  "extends": ["plugin:mdx/recommended", "plugin:prettier/recommended"],
+  "extends": ["plugin:prettier/recommended"],
   "overrides": [
     {
       "files": ["*.yaml", "*.yml"],
-      "plugins": ["yaml"],
-      "extends": ["plugin:yaml/recommended"]
+      "plugins": ["yml"],
+      "extends": ["plugin:yml/standard"]
+    },
+    {
+      "files": ["*.md", "*.mdx"],
+      "extends": ["plugin:mdx/recommended"]
     }
   ],
   "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": "latest",
     "ecmaFeatures": {
       "jsx": true,
       "modules": true

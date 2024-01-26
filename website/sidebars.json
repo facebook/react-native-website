@@ -21,30 +21,63 @@
     "Workflow": [
       "running-on-device",
       "fast-refresh",
-      "debugging",
-      "symbolication",
-      "testing-overview",
+      "metro",
       "libraries",
       "typescript",
       "upgrading"
     ],
-    "Design": ["style", "height-and-width", "flexbox", "images", "colors"],
-    "Interaction": [
-      "handling-touches",
-      "navigation",
-      "animations",
-      "gesture-responder-system"
+    "UI & Interaction": [
+      "style",
+      "height-and-width",
+      "flexbox",
+      "images",
+      "colors",
+      {
+        "type": "category",
+        "label": "Interaction",
+        "collapsible": false,
+        "collapsed": false,
+        "items": [
+          "handling-touches",
+          "navigation",
+          "animations",
+          "gesture-responder-system"
+        ]
+      },
+      {
+        "type": "category",
+        "label": "Connectivity",
+        "collapsible": false,
+        "collapsed": false,
+        "items": ["network", "security"]
+      },
+      {
+        "type": "category",
+        "label": "Inclusion",
+        "collapsible": false,
+        "collapsed": false,
+        "items": ["accessibility"]
+      }
     ],
-    "Inclusion": ["accessibility"],
+    "Debugging": [
+      "debugging",
+      "react-devtools",
+      "native-debugging",
+      "debugging-release-builds",
+      "other-debugging-methods"
+    ],
+    "Testing": [
+      "testing-overview"
+    ],
     "Performance": [
       "performance",
+      "build-speed",
       "optimizing-flatlist-configuration",
       "ram-bundles-inline-requires",
       "profiling",
       "profile-hermes"
     ],
     "JavaScript Runtime": ["javascript-environment", "timers", "hermes"],
-    "Connectivity": ["network", "security"],
     "Native Modules": [
       "native-modules-intro",
       "native-modules-android",
@@ -56,13 +89,88 @@
       "native-components-ios",
       "direct-manipulation"
     ],
-    "Guides (Android)": ["headless-js-android", "signed-apk-android"],
-    "Guides (iOS)": [
-      "linking-libraries-ios",
-      "running-on-simulator-ios",
-      "communication-ios",
-      "app-extensions",
-      "publishing-to-app-store"
+    "The New Architecture": [
+      "the-new-architecture/landing-page",
+      "the-new-architecture/why",
+      "the-new-architecture/use-app-template",
+      {
+        "type": "category",
+        "label": "Pillars",
+        "collapsible": false,
+        "collapsed": false,
+        "items": [
+          "the-new-architecture/pillars",
+          "the-new-architecture/pillars-turbomodules",
+          "the-new-architecture/pillars-fabric-components",
+          "the-new-architecture/pillars-codegen"
+        ]
+      },
+      {
+        "type": "category",
+        "label": "C++",
+        "collapsible": false,
+        "collapsed": false,
+        "items": [
+          "the-new-architecture/cxx-cxxturbomodules",
+          "the-new-architecture/cxx-custom-types"
+        ]
+      },
+      {
+        "type": "category",
+        "label": "Backward Compatibility",
+        "collapsible": false,
+        "collapsed": false,
+        "items": [
+          "the-new-architecture/backward-compatibility",
+          "the-new-architecture/backward-compatibility-turbomodules",
+          "the-new-architecture/backward-compatibility-fabric-components"
+        ]
+      }
+    ],
+    "Migration to the New Architecture": [
+      "new-architecture-intro",
+      {
+        "type": "category",
+        "label": "Supporting in your Library",
+        "collapsible": false,
+        "collapsed": false,
+        "items": [
+          "new-architecture-library-intro",
+          "new-architecture-library-android",
+          "new-architecture-library-ios"
+        ]
+      },
+      "new-architecture-app-intro",
+      "react-18-and-react-native",
+      "new-architecture-troubleshooting",
+      "new-architecture-appendix"
+    ],
+    "Android and iOS guides": [
+      {
+        "type": "category",
+        "label": "Android",
+        "collapsible": false,
+        "collapsed": false,
+        "items": [
+          "headless-js-android",
+          "signed-apk-android",
+          "communication-android",
+          "react-native-gradle-plugin"
+        ]
+      },
+      {
+        "type": "category",
+        "label": "iOS",
+        "collapsible": false,
+        "collapsed": false,
+        "items": [
+          "linking-libraries-ios",
+          "running-on-simulator-ios",
+          "communication-ios",
+          "app-extensions",
+          "publishing-to-app-store"
+        ]
+      }
     ]
   },
   "api": {

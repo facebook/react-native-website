@@ -1,11 +1,14 @@
 {
   "name": "React Native Documentation",
   "short_name": "React Native",
+  "description": "Learn once, write anywhere.",
   "theme_color": "#20232a",
   "background_color": "#20232a",
   "display": "minimal-ui",
+  "orientation": "any",
   "scope": "./",
   "start_url": "./index.html",
+  "id": "./index.html",
   "shortcuts": [
     {
       "name": "Docummentation",
@@ -28,7 +31,7 @@
     {
       "name": "Community",
       "short_name": "Community",
-      "url": "/help",
+      "url": "/community/overview",
       "icons": [{ "src": "img/pwa/manifest-icon-192.png", "sizes": "192x192" }]
     },
     {

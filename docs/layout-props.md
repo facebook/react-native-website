@@ -3,15 +3,27 @@ id: layout-props
 title: Layout Props
 ---
 
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+
 > More detailed examples about those properties can be found on the [Layout with Flexbox](flexbox) page.
 
 ### Example
 
 The following example shows how different properties can affect or shape a React Native layout. You can try for example to add or remove squares from the UI while changing the values of the property `flexWrap`.
 
-```SnackPlayer name=LayoutProps%20Example
-import React, { useState } from 'react';
-import { Button, ScrollView, StatusBar, StyleSheet, Text, View } from 'react-native';
+<Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
+<TabItem value="javascript">
+
+```SnackPlayer name=LayoutProps%20Example&ext=js
+import React, {useState} from 'react';
+import {
+  Button,
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 
 const App = () => {
   const flexDirections = ['row', 'row-reverse', 'column', 'column-reverse'];
@@ -47,7 +59,7 @@ const App = () => {
   };
 
   const changeSetting = (value, options, setterFunction) => {
-    if (value == options.length - 1) {
+    if (value === options.length - 1) {
       setterFunction(0);
       return;
     }
@@ -56,12 +68,12 @@ const App = () => {
   const [squares, setSquares] = useState([<Square />, <Square />, <Square />]);
   return (
     <>
-      <View style={{ paddingTop: StatusBar.currentHeight }} />
+      <View style={{paddingTop: StatusBar.currentHeight}} />
       <View style={[styles.container, styles.playingSpace, hookedStyles]}>
         {squares.map(elem => elem)}
       </View>
-      <ScrollView style={[styles.container]}>
-        <View style={[styles.controlSpace]}>
+      <ScrollView style={styles.container}>
+        <View style={styles.controlSpace}>
           <View style={styles.buttonView}>
             <Button
               title="Change Flex Direction"
@@ -78,7 +90,7 @@ const App = () => {
                 changeSetting(
                   justifyContent,
                   justifyContents,
-                  setJustifyContent
+                  setJustifyContent,
                 )
               }
             />
@@ -110,14 +122,14 @@ const App = () => {
           <View style={styles.buttonView}>
             <Button
               title="Add Square"
-              onPress={() => setSquares([...squares, <Square/>])}
+              onPress={() => setSquares([...squares, <Square />])}
             />
           </View>
           <View style={styles.buttonView}>
             <Button
               title="Delete Square"
               onPress={() =>
-                setSquares(squares.filter((v, i) => i != squares.length - 1))
+                setSquares(squares.filter((v, i) => i !== squares.length - 1))
               }
             />
           </View>
@@ -145,25 +157,207 @@ const styles = StyleSheet.create({
     width: '50%',
     padding: 10,
   },
-  text: { textAlign: 'center' },
+  text: {textAlign: 'center'},
 });
 
 const Square = () => (
-  <View style={{
-    width: 50,
-    height: 50,
-    backgroundColor: randomHexColor(),
-  }} />
+  <View
+    style={{
+      width: 50,
+      height: 50,
+      backgroundColor: randomHexColor(),
+    }}
+  />
 );
 
 const randomHexColor = () => {
   return '#000000'.replace(/0/g, () => {
-    return (~~(Math.random() * 16)).toString(16);
+    return Math.round(Math.random() * 16).toString(16);
   });
 };
 
 export default App;
 ```
+
+</TabItem>
+<TabItem value="typescript">
+
+```SnackPlayer name=LayoutProps%20Example&ext=tsx
+import React, {useState} from 'react';
+import {
+  Button,
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
+
+const App = () => {
+  const flexDirections = [
+    'row',
+    'row-reverse',
+    'column',
+    'column-reverse',
+  ] as const;
+  const justifyContents = [
+    'flex-start',
+    'flex-end',
+    'center',
+    'space-between',
+    'space-around',
+    'space-evenly',
+  ] as const;
+  const alignItemsArr = [
+    'flex-start',
+    'flex-end',
+    'center',
+    'stretch',
+    'baseline',
+  ] as const;
+  const wraps = ['nowrap', 'wrap', 'wrap-reverse'] as const;
+  const directions = ['inherit', 'ltr', 'rtl'] as const;
+  const [flexDirection, setFlexDirection] = useState(0);
+  const [justifyContent, setJustifyContent] = useState(0);
+  const [alignItems, setAlignItems] = useState(0);
+  const [direction, setDirection] = useState(0);
+  const [wrap, setWrap] = useState(0);
+
+  const hookedStyles = {
+    flexDirection: flexDirections[flexDirection],
+    justifyContent: justifyContents[justifyContent],
+    alignItems: alignItemsArr[alignItems],
+    direction: directions[direction],
+    flexWrap: wraps[wrap],
+  };
+
+  const changeSetting = (
+    value: number,
+    options: readonly unknown[],
+    setterFunction: (index: number) => void,
+  ) => {
+    if (value === options.length - 1) {
+      setterFunction(0);
+      return;
+    }
+    setterFunction(value + 1);
+  };
+  const [squares, setSquares] = useState([<Square />, <Square />, <Square />]);
+  return (
+    <>
+      <View style={{paddingTop: StatusBar.currentHeight}} />
+      <View style={[styles.container, styles.playingSpace, hookedStyles]}>
+        {squares.map(elem => elem)}
+      </View>
+      <ScrollView style={styles.container}>
+        <View style={styles.controlSpace}>
+          <View style={styles.buttonView}>
+            <Button
+              title="Change Flex Direction"
+              onPress={() =>
+                changeSetting(flexDirection, flexDirections, setFlexDirection)
+              }
+            />
+            <Text style={styles.text}>{flexDirections[flexDirection]}</Text>
+          </View>
+          <View style={styles.buttonView}>
+            <Button
+              title="Change Justify Content"
+              onPress={() =>
+                changeSetting(
+                  justifyContent,
+                  justifyContents,
+                  setJustifyContent,
+                )
+              }
+            />
+            <Text style={styles.text}>{justifyContents[justifyContent]}</Text>
+          </View>
+          <View style={styles.buttonView}>
+            <Button
+              title="Change Align Items"
+              onPress={() =>
+                changeSetting(alignItems, alignItemsArr, setAlignItems)
+              }
+            />
+            <Text style={styles.text}>{alignItemsArr[alignItems]}</Text>
+          </View>
+          <View style={styles.buttonView}>
+            <Button
+              title="Change Direction"
+              onPress={() => changeSetting(direction, directions, setDirection)}
+            />
+            <Text style={styles.text}>{directions[direction]}</Text>
+          </View>
+          <View style={styles.buttonView}>
+            <Button
+              title="Change Flex Wrap"
+              onPress={() => changeSetting(wrap, wraps, setWrap)}
+            />
+            <Text style={styles.text}>{wraps[wrap]}</Text>
+          </View>
+          <View style={styles.buttonView}>
+            <Button
+              title="Add Square"
+              onPress={() => setSquares([...squares, <Square />])}
+            />
+          </View>
+          <View style={styles.buttonView}>
+            <Button
+              title="Delete Square"
+              onPress={() =>
+                setSquares(squares.filter((v, i) => i !== squares.length - 1))
+              }
+            />
+          </View>
+        </View>
+      </ScrollView>
+    </>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    height: '50%',
+  },
+  playingSpace: {
+    backgroundColor: 'white',
+    borderColor: 'blue',
+    borderWidth: 3,
+  },
+  controlSpace: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    backgroundColor: '#F5F5F5',
+  },
+  buttonView: {
+    width: '50%',
+    padding: 10,
+  },
+  text: {textAlign: 'center'},
+});
+
+const Square = () => (
+  <View
+    style={{
+      width: 50,
+      height: 50,
+      backgroundColor: randomHexColor(),
+    }}
+  />
+);
+
+const randomHexColor = () => {
+  return '#000000'.replace(/0/g, () => {
+    return Math.round(Math.random() * 16).toString(16);
+  });
+};
+
+export default App;
+```
+
+</TabItem>
+</Tabs>
 
 ---
 
@@ -175,9 +369,9 @@ export default App;
 
 `alignContent` controls how rows align in the cross direction, overriding the `alignContent` of the parent. See https://developer.mozilla.org/en-US/docs/Web/CSS/align-content for more details.
 
-| Type                                                                                 | Required |
-| ------------------------------------------------------------------------------------ | -------- |
-| enum('flex-start', 'flex-end', 'center', 'stretch', 'space-between', 'space-around') | No       |
+| Type                                                                                                 | Required |
+| ---------------------------------------------------------------------------------------------------- | -------- |
+| enum('flex-start', 'flex-end', 'center', 'stretch', 'space-between', 'space-around', 'space-evenly') | No       |
 
 ---
 
@@ -211,9 +405,9 @@ Aspect ratio controls the size of the undefined dimension of a node. See https:/
 - On a node with flex grow/shrink, aspect ratio controls the size of the node in the cross axis if unset
 - Aspect ratio takes min/max dimensions into account
 
-| Type   | Required |
-| ------ | -------- |
-| number | No       |
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
 
 ---
 
@@ -298,6 +492,16 @@ See https://developer.mozilla.org/en-US/docs/Web/CSS/bottom for more details of 
 | Type           | Required |
 | -------------- | -------- |
 | number, string | No       |
+
+---
+
+### `columnGap`
+
+`columnGap` works like `column-gap` in CSS. Only pixel units are supported in React Native. See https://developer.mozilla.org/en-US/docs/Web/CSS/column-gap for more details.
+
+| Type   | Required |
+| ------ | -------- |
+| number | No       |
 
 ---
 
@@ -389,7 +593,7 @@ When `flex` is -1, the component is normally sized according to `width` and `hei
 
 [`flexShrink`](layout-props#flexshrink) describes how to shrink children along the main axis in the case in which the total size of the children overflows the size of the container on the main axis. `flexShrink` is very similar to `flexGrow` and can be thought of in the same way if any overflowing size is considered to be negative remaining space. These two properties also work well together by allowing children to grow and shrink as needed.
 
-`flexShrink` accepts any floating point value >= 0, with 1 being the default value. A container will shrink its children weighted by the children’s `flexShrink` values.
+`flexShrink` accepts any floating point value >= 0, with 0 being the default value. A container will shrink its children weighted by the children’s `flexShrink` values.
 
 | Type   | Required |
 | ------ | -------- |
@@ -404,6 +608,16 @@ When `flex` is -1, the component is normally sized according to `width` and `hei
 | Type                                   | Required |
 | -------------------------------------- | -------- |
 | enum('wrap', 'nowrap', 'wrap-reverse') | No       |
+
+---
+
+### `gap`
+
+`gap` works like `gap` in CSS. Only pixel units are supported in React Native. See https://developer.mozilla.org/en-US/docs/Web/CSS/gap for more details.
+
+| Type   | Required |
+| ------ | -------- |
+| number | No       |
 
 ---
 
@@ -716,6 +930,16 @@ See https://developer.mozilla.org/en-US/docs/Web/CSS/right for more details of h
 | Type           | Required |
 | -------------- | -------- |
 | number, string | No       |
+
+---
+
+### `rowGap`
+
+`rowGap` works like `row-gap` in CSS. Only pixel units are supported in React Native. See https://developer.mozilla.org/en-US/docs/Web/CSS/row-gap for more details.
+
+| Type   | Required |
+| ------ | -------- |
+| number | No       |
 
 ---
 

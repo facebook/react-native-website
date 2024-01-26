@@ -1,5 +1,5 @@
 /**
- * Copyright (c) Facebook, Inc. and its affiliates.
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
@@ -281,29 +281,29 @@ function preprocessDescription(desc) {
   });
 
   if (tabs === 2) {
-    const firstExample = desc.substr(desc.search('```SnackPlayer') + 1);
-    const secondExample = firstExample.substr(
+    const firstExample = desc.slice(desc.search('```SnackPlayer') + 1);
+    const secondExample = firstExample.slice(
       firstExample.search('```SnackPlayer') + 1
     );
 
     return (
-      desc.substr(0, desc.search('```SnackPlayer')) +
+      desc.substring(0, desc.search('```SnackPlayer')) +
       `\n## Example\n` +
       `${playgroundTab}\n\n${functionalBlock}\n\n${
-        '`' + firstExample.substr(0, firstExample.search('```') + 3)
+        '`' + firstExample.slice(0, firstExample.search('```') + 3)
       }\n\n${classBlock}\n\n${
-        '`' + secondExample.substr(0, secondExample.search('```') + 3)
+        '`' + secondExample.slice(0, secondExample.search('```') + 3)
       }\n\n${endBlock}` +
-      secondExample.substr(secondExample.search('```') + 3)
+      secondExample.slice(secondExample.search('```') + 3)
     );
   } else {
     if (desc.search('```SnackPlayer') !== -1) {
       return (
-        desc.substr(0, desc.search('```SnackPlayer')) +
+        desc.slice(0, desc.search('```SnackPlayer')) +
         '\n' +
         '\n## Example\n' +
         '\n' +
-        desc.substr(desc.search('```SnackPlayer'))
+        desc.slice(desc.search('```SnackPlayer'))
       );
     } else return desc;
   }

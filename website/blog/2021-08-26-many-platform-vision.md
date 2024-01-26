@@ -20,7 +20,7 @@ We believe that React Native enables developers to meet users’ expectations wh
 
 ### Embracing Platform Constraints
 
-<!-- alex ignore easily -->
+<!-- alex ignore easy -->
 
 Specific device hardware or user expectations impose unique constraints and requirements. As an example, memory is typically more constrained on Android and VR headsets than on iOS, macOS, and Windows. As another example, users expect mobile apps to start up almost instantaneously, but they are less frustrated when desktop apps take longer to start up. **We have found that by approaching these problems with React Native, we can more easily borrow lessons learned and code written for one platform, and apply them to other platforms.**
 
@@ -41,20 +41,20 @@ One of the best outcomes of cross-platform frameworks like React Native is how t
 
 As an example, the accessibility abstractions in React Native are influenced by how Android, iOS, and web each approach accessibility in different ways. This enabled us to build a common interface that improves how accessibility hints are handled on both mobile platforms.
 
-As another example, our research into user perception of speed on the web led to concurrent features like Suspense. Over the past year, these features were vetted by the new [Facebook.com](http://facebook.com/) website. Now with our new renderer, these features are making their way to React Native and influencing how we design event scheduling and priorities. The React team’s investment into improving the web experience is benefiting React Native for native platforms.
+As another example, our research into user perception of speed on the web led to concurrent features like Suspense. Over the past year, these features were vetted by the new [Facebook.com](https://facebook.com/) website. Now with our new renderer, these features are making their way to React Native and influencing how we design event scheduling and priorities. The React team’s investment into improving the web experience is benefiting React Native for native platforms.
 
 ### Competition Drives Innovation
 
 In addition to domain-specific engineers and meetups and conferences, each platform also brings other unique players solving similar problems. On the web, React (which directly powers React Native) frequently draws inspiration from other open source web frameworks like [Vue](https://vuejs.org/), [Preact](https://preactjs.com/), and [Svelte](https://svelte.dev/). On mobile, React Native has been inspired by other open source mobile frameworks, and we have been learning from other mobile frameworks built inside Facebook.
 
-<!-- alex ignore challenged -->
+<!-- alex ignore special -->
 
-**We believe that competition leads to better outcomes for everyone in the long run.** By studying what makes other players on each platform great, we can learn lessons that may apply to other platforms. For example, the race to simplify complex websites influenced the development of React and gave React Native a head start to offer a declarative framework for mobile apps. The demand for faster iteration cycles and build times for the web also led to the development of Fast Refresh which significantly benefited React Native. Similarly, performance optimizations in our internal mobile frameworks — especially around data fetching and parallelization — challenged us to improve React Native in a way that has also influenced React when we built the new [Facebook.com](http://facebook.com/) website.
+**We believe that competition leads to better outcomes for everyone in the long run.** By studying what makes other players on each platform great, we can learn lessons that may apply to other platforms. For example, the race to simplify complex websites influenced the development of React and gave React Native a head start to offer a declarative framework for mobile apps. The demand for faster iteration cycles and build times for the web also led to the development of Fast Refresh which significantly benefited React Native. Similarly, performance optimizations in our internal mobile frameworks — especially around data fetching and parallelization — challenged us to improve React Native in a way that has also influenced React when we built the new [Facebook.com](https://facebook.com/) website.
 
 <figure>
   <img src="/blog/assets/many-platform-vision-facebook-website.png" alt="Screenshot of the Facebook.com website" />
   <figcaption>
-    React and Relay powers the <a href="http://facebook.com/">Facebook.com</a> website.
+    React and Relay powers the <a href="https://facebook.com/">Facebook.com</a> website.
   </figcaption>
 </figure>
 

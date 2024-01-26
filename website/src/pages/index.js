@@ -1,3 +1,10 @@
+/**
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 import React, {useEffect} from 'react';
 import GitHubButton from 'react-github-btn';
 
@@ -26,7 +33,7 @@ same native platform APIs other apps do.
 <br/><br/>
 <strong>Many platforms</strong>, one React. Create platform-specific versions of components
 so a single codebase can share code across platforms. With React Native,
-one team can maintain two platforms and share a common technology—React.
+one team can maintain multiple platforms and share a common technology—React.
   `,
   codeExample: `
 import React from 'react';
@@ -108,27 +115,27 @@ function HomeCallToAction() {
     <>
       <ActionButton
         type="primary"
-        href={useBaseUrl('docs/getting-started')}
+        href={useBaseUrl('docs/environment-setup')}
         target="_self">
         Get started
       </ActionButton>
       <ActionButton
         type="secondary"
-        href={useBaseUrl('docs/tutorial')}
+        href={useBaseUrl('docs/getting-started')}
         target="_self">
-        Learn basics
+        Learn the basics
       </ActionButton>
     </>
   );
 }
 
-function TwitterButton() {
+function TwitterButton({accountName}) {
   return (
     <a
-      href="https://twitter.com/intent/follow?screen_name=reactnative&region=follow_link"
+      href={`https://twitter.com/intent/follow?screen_name=${accountName}&region=follow_link`}
       className="twitter-follow-button">
       <div className="icon" />
-      Follow @reactnative
+      Follow @{accountName}
     </a>
   );
 }
@@ -147,14 +154,23 @@ function GitHubStarButton() {
   );
 }
 
-function Section({
+export function Section({
   element = 'section',
   children,
   className,
   background = 'light',
 }) {
   const El = element;
-  return <El className={`Section ${className} ${background}`}>{children}</El>;
+  return (
+    <El
+      className={
+        className
+          ? `Section ${className} ${background}`
+          : `Section ${background}`
+      }>
+      {children}
+    </El>
+  );
 }
 
 function TwoColumns({columnOne, columnTwo, reverse}) {
@@ -245,7 +261,7 @@ function HeaderHero() {
   return (
     <Section background="dark" className="HeaderHero">
       <div className="socialLinks">
-        <TwitterButton />
+        <TwitterButton accountName="reactnative" />
         <GitHubStarButton />
       </div>
       <TwoColumns
@@ -272,7 +288,7 @@ function NativeApps() {
         reverse
         columnOne={
           <TextColumn
-            title="Create native apps for Android and iOS using React"
+            title="Create native apps for Android, iOS, and more using React"
             text={textContent.intro}
           />
         }
@@ -365,30 +381,59 @@ function FastRefresh() {
   );
 }
 
-function Talks() {
+function VideoContent() {
   return (
-    <Section className="Talks" background="tint">
-      <TwoColumns
-        columnOne={
-          <TextColumn
-            title="Talks"
-            text={textContent.talks}
-            moreContent={<TwitterButton />}
-          />
-        }
-        columnTwo={
-          <div className="vidWrapper">
-            <iframe
-              src="https://www.youtube.com/embed/NCAY0HIfrwc"
-              title="Mobile Innovation with React Native, ComponentKit, and Litho"
-              frameBorder="0"
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
+    <div>
+      <Section className="VideoContent" background="tint">
+        <br />
+        <TwoColumns
+          columnOne={
+            <TextColumn
+              title="Talks and Videos"
+              text={textContent.talks}
+              moreContent={<TwitterButton accountName="reactnative" />}
             />
-          </div>
-        }
-      />
-    </Section>
+          }
+          columnTwo={
+            <div className="vidWrapper">
+              <iframe
+                src="https://www.youtube.com/embed/NCAY0HIfrwc"
+                title="Mobile Innovation with React Native, ComponentKit, and Litho"
+                frameBorder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          }
+        />
+        <br />
+        <TwoColumns
+          columnOne={
+            <>
+              <p>
+                The{' '}
+                <a href="https://opensource.facebook.com/">
+                  Meta Open Source team
+                </a>{' '}
+                has put together a short overview of React Native, where they
+                explained the project in beginner's terms.
+              </p>
+            </>
+          }
+          columnTwo={
+            <div className="vidWrapper">
+              <iframe
+                src="https://www.youtube.com/embed/wUDeLT6WXnQ"
+                title="Explain Like I'm 5: React Native"
+                frameBorder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          }
+        />
+      </Section>
+    </div>
   );
 }
 
@@ -396,7 +441,9 @@ function Talks() {
 
 function AppList() {
   const {siteConfig} = useDocusaurusContext();
-  const apps = siteConfig.customFields.users.filter(app => app.pinned);
+  const apps = Object.values(siteConfig.customFields.users)
+    .flat()
+    .filter(app => app.pinned);
 
   return (
     <ul className="AppList">
@@ -542,7 +589,7 @@ const Index = () => {
       <NativeDevelopment />
       <CrossPlatform />
       <FastRefresh />
-      <Talks />
+      <VideoContent />
       <Community />
       <GetStarted />
     </Layout>

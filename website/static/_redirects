@@ -3,12 +3,53 @@
 # Renamed pages
 /docs/android-setup             /docs/getting-started
 /docs/building-for-apple-tv     /docs/building-for-tv
-/docs/building-from-source      https://github.com/facebook/react-native/wiki/Building-from-source
-/docs/contributing              https://github.com/facebook/react-native/blob/main/CONTRIBUTING.md
-/docs/maintainers               https://github.com/facebook/react-native/wiki/
-/docs/publishing-forks          https://github.com/facebook/react-native/wiki/Building-from-source#publish-your-own-version-of-react-native
-/docs/testing                   https://github.com/facebook/react-native/wiki/Tests
+/docs/building-from-source      /contributing/how-to-build-from-source
+/docs/contributing              /contributing/overview
+/docs/next/sourcemaps           /docs/next/debugging-release-builds
+/docs/next/symbolication        /docs/next/debugging-release-builds
+/docs/publishing-forks          /contributing/how-to-build-from-source#publish-your-own-version-of-react-native
+/docs/testing                   /contributing/how-to-run-and-write-tests
 /docs/understanding-cli         https://github.com/react-native-community/cli#react-native-cli
+
+/contributing/how-to-contribute         /contributing/overview
+/releases/release-candidate-minor         /releases/release-branch-cut-and-rc0
 
 # Changed blog post dates
 /blog/2021/03/11/version-0.64   /blog/2021/03/12/version-0.64
+
+# Removed pages
+/docs/new-architecture-app-modules-android   /docs/new-architecture-intro
+/docs/new-architecture-app-renderer-android  /docs/new-architecture-intro
+/docs/new-architecture-app-modules-ios       /docs/new-architecture-intro
+/docs/new-architecture-app-renderer-ios      /docs/new-architecture-intro
+
+# Architecture pages move to unversioned docs
+/docs/architecture-overview             /architecture/overview
+/docs/fabric-renderer                   /architecture/fabric-renderer
+/docs/render-pipeline                   /architecture/render-pipeline
+/docs/xplat-implementation              /architecture/xplat-implementation
+/docs/view-flattening                   /architecture/view-flattening
+/docs/threading-model                   /architecture/threading-model
+/docs/architecture-glossary             /architecture/glossary
+
+/docs/next/architecture-overview             /architecture/overview
+/docs/next/fabric-renderer                   /architecture/fabric-renderer
+/docs/next/render-pipeline                   /architecture/render-pipeline
+/docs/next/xplat-implementation              /architecture/xplat-implementation
+/docs/next/view-flattening                   /architecture/view-flattening
+/docs/next/threading-model                   /architecture/threading-model
+/docs/next/architecture-glossary             /architecture/glossary
+
+/docs/0.66/architecture-overview             /architecture/overview
+/docs/0.66/fabric-renderer                   /architecture/fabric-renderer
+/docs/0.66/render-pipeline                   /architecture/render-pipeline
+/docs/0.66/xplat-implementation              /architecture/xplat-implementation
+/docs/0.66/view-flattening                   /architecture/view-flattening
+/docs/0.66/threading-model                   /architecture/threading-model
+/docs/0.66/architecture-glossary             /architecture/glossary
+
+# Rework of the community
+/help         /community/overview
+
+# Latest version might be linked to directly and should redirect
+/docs/$LATEST_VERSION$/*  /docs/:splat

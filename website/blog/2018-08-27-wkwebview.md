@@ -10,12 +10,12 @@ For a long time now, Apple has discouraged using UIWebViews in favor of WKWebVie
 
 The tail end of these changes were landed in [this commit](https://github.com/facebook/react-native/commit/33b353c97c31190439a22febbd3d2a9ead49d3c9), and will become available in the 0.57 release.
 
-To opt into this new implementation, please use the [`useWebKit`](/docs/0.63/webview#usewebkit) prop:
+To opt into this new implementation, please use the [`useWebKit`](https://reactnative.dev/docs/0.63/webview#usewebkit) prop:
 
 ```js
 <WebView
   useWebKit={true}
-  source={{ url: 'https://www.google.com' }}
+  source={{url: 'https://www.google.com'}}
 />
 ```
 

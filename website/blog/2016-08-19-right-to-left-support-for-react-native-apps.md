@@ -15,9 +15,10 @@ This involved changing [css-layout](https://github.com/facebook/css-layout), the
 
 To battle test the RTL support in production, the latest version of the **Facebook Ads Manager** app (the first cross-platform 100% RN app) is now available in Arabic and Hebrew with RTL layouts for both [iOS](https://itunes.apple.com/app/id964397083) and [Android](https://play.google.com/store/apps/details?id=com.facebook.adsmanager). Here is how it looks like in those RTL languages:
 
+<>
 <img src="/blog/assets/rtl-ama-ios-arabic.png" width={280} style={{ margin: 10 }} />
-
 <img src="/blog/assets/rtl-ama-android-hebrew.png" width={280} style={{ margin: 10 }} />
+</>
 
 ## Overview Changes in RN for RTL support
 
@@ -53,18 +54,18 @@ With this update, when you allow RTL layout for your app:
 
    ```objc
    // in AppDelegate.m
-   		[[RCTI18nUtil sharedInstance] allowRTL:YES];
+     [[RCTI18nUtil sharedInstance] allowRTL:YES];
    ```
 
    Android:
 
    ```java
    // in MainActivity.java
-   		I18nUtil sharedI18nUtilInstance = I18nUtil.getInstance();
-   		sharedI18nUtilInstance.allowRTL(context, true);
+     I18nUtil sharedI18nUtilInstance = I18nUtil.getInstance();
+     sharedI18nUtilInstance.allowRTL(context, true);
    ```
 
-3. For Android, you need add `android:supportsRtl="true"` to the [`<application>`](http://developer.android.com/guide/topics/manifest/application-element.html) element in `AndroidManifest.xml` file.
+3. For Android, you need add `android:supportsRtl="true"` to the [`<application>`](https://developer.android.com/guide/topics/manifest/application-element.html) element in `AndroidManifest.xml` file.
 
 Now, when you recompile your app and change the device language to an RTL language (e.g. Arabic or Hebrew), your app layout should change to RTL automatically.
 
@@ -181,12 +182,12 @@ Even after the initial RTL-compatible app release, you will likely need to itera
 
 _onDirectionChange = () => {
   I18nManager.forceRTL(!this.state.isRTL);
-  this.setState({ isRTL: !this.state.isRTL });
+  this.setState({isRTL: !this.state.isRTL});
   Alert.alert(
     'Reload this page',
     'Please reload this page to change the UI direction! ' +
       'All examples in this app will be affected. ' +
-      'Check them out to see what they look like in RTL layout.'
+      'Check them out to see what they look like in RTL layout.',
   );
 };
 ```
