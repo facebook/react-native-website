@@ -23,11 +23,19 @@ In particular, synchronous rendering is a huge experience win for the New Archit
 
 The New Architecture brings support for [concurrent features in React](https://react.dev/blog/2022/03/29/react-v18#what-is-concurrent-react) like interruptible rendering to allow for a better user experience, especially when there are frequent UI updates.
 
-The following compares rendering between the legacy and New Architecture in UI where the state of how many tiles to render is frequently updated.
+The following compares rendering between the legacy and New Architecture in UI where the state of how many tiles to render is updated frequently by the slider value. You'll notice that the concurrent render will interrupt stale rendering work to acheive the finalized UI state faster.
 
-<figure>
-  <img src="/blog/assets/hermes-default-android-video.gif" alt="Android TTI Video" />
-</figure>
+<table>
+<tr>
+ <td>
+<img src="https://github.com/facebook/react-native-website/assets/1309636/1cbd2d34-0639-4c20-922b-abb43e951c07" />
+</td>
+ <td>
+<img src="https://github.com/facebook/react-native-website/assets/1309636/a38cc835-0056-44e9-ab9d-4139752cd630" />
+</td>
+</tr>
+
+</table>
 
 ### Lower overhead for JS and native interoperability
 
