@@ -56,8 +56,8 @@ The team plans to enable the New Architecture by default in an upcoming React Na
 Our guidance is as follows
 
 - For most production apps, we do _not_ recommend enabling the New Architecture at this time. Upgrading to the official release will offer the best exeperience.
-- If you maintain a React Native library, we recommend enabling it and verifying your use-cases are covered. You can find the [instructions here](TODO).
+- If you maintain a React Native library, we recommend enabling it and verifying your use-cases are covered. You can find the [instructions here](https://github.com/reactwg/react-native-new-architecture/blob/lunaleaps-move-docs-over/README.md#documentation).
 
 Due to the major refactor, certain conventions and APIs are no longer supported in the New Architecture. To improve the adoption experience, the team is currently working with library authors and early adopters to catch these use-cases and provide suitable interop between the legacy and New Architecture.
 
-If you are interested in dogfooding the New Architecture experience, you can find [instructions](TODO) in our dedicated working group. The [New Architecture working group](https://github.com/reactwg/react-native-new-architecture) is a dedicated space for support and coordination for New Architecture adoption and where the team posts regular updates.
+If you are interested in dogfooding the New Architecture experience, you can find [instructions](https://github.com/reactwg/react-native-new-architecture/blob/lunaleaps-move-docs-over/README.md#documentation) in our dedicated working group. The [New Architecture working group](https://github.com/reactwg/react-native-new-architecture) is a dedicated space for support and coordination for New Architecture adoption and where the team posts regular updates.
