@@ -46,10 +46,8 @@ When testing locally, we want to ensure that we start from a clean slate to avoi
 2. Remove any temporary files from the `react-native` repo:
 
    ```bash
-    git clean -fdx
+    yarn test-e2e-local-clean
    ```
-
-   For `main` branch, and versions of RN >=0.71, you can instead use `yarn test-e2e-local-clean`.
 
 3. Install dependencies:
 
