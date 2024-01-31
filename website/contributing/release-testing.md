@@ -122,6 +122,26 @@ To ensure that we cover the most use cases, we need to ensure we test all these 
 Bear in mind that RNTester project is already onboarded in the new architecture. `RNTestProject` is not - new architecture mode needs to be [enabled](/docs/the-new-architecture/use-app-template#enable-the-new-architecture) and tested separately.
 :::
 
+### Test Notes
+
+<details>
+<summary>Debugging</summary>
+
+### Basic checks
+
+- **Debugger launch flow**
+  - Use Dev Menu > Open Debugger.
+  - **0.73 and later**: Use `npx react-native-start --experimental-debugger`. Should connect to Hermes debugger in experimental new debugger frontend.
+  - **Pre-0.73**: Should connect to Hermes debugger in Flipper.
+- **Console tab**
+  - **All versions**: Should display all logs.
+- **Sources tab**
+  - **All versions**:
+    - Should allow viewing of source files (<kbd>Cmd ⌘</kbd> + <kbd>P</kbd> search in Chrome DevTools).
+    - Should support setting a breakpoint that is hit during app lifetime. **Note**: Will have broken behaviour across app reloads, excluding via `debugger;` statement.
+
+</details>
+
 ## Testing pre-releases (RC) on production apps
 
 During the Release Candidate (RC) phase of a release cycle, we ask for the community to set as dependency in their apps the latest RC available and report in the related "Road to 0.XX" how it performs ([example](https://github.com/reactwg/react-native-releases/discussions/26)).
