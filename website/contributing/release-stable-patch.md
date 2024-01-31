@@ -99,7 +99,7 @@ yarn trigger-react-native-release --to-version x.y.z --token <YOUR_CIRCLE_CI_TOK
 To generate the changelog, we rely on a dedicated tool called [`@rnx-kit/rn-changelog-generator`](https://github.com/microsoft/rnx-kit/tree/main/incubator/rn-changelog-generator) that will parse the custom changelog messages that contributors write in their PRs.
 
 ```bash
-# Run following with the stable release as base, and your rc.0 version
+# Run following with the stable release as base, and your patch version
 npx @rnx-kit/rn-changelog-generator --base v[LATEST_STABLE]--compare v[YOUR_NEW_MINOR] \
 --repo ~/react-native --changelog ~/react-native/CHANGELOG.md
 
