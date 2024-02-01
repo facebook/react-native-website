@@ -7,7 +7,12 @@ In 2018, the React Native team began work to rewrite the internals of React Nati
 
 The team is now working to make this the default experience for the React Native open source ecosystem. The term _New Architecture_ refers to both the new framework architecture and the work to bring it to open source.
 
+<<<<<<< HEAD
 The New Architecture has been available for experimental opt-in as of [React Native 0.68](/blog/2022/03/30/version-068#opting-in-to-the-new-architecture) with continued improvements. The remaining work is to ensure that most React Native libraries work on the New Architecture out-of-the-box or have a straightforward migration path.
+=======
+The New Architecture has been available for experimental opt-in as of [React Native 0.68](/blog/2022/03/30/version-068#opting-in-to-the-new-architecture) with continued improvements. The remaining work of the rollout is to ensure that the thousands of React Native libraries that developers depend on work out-of-the-box or have a straightforward migration path.
+
+> > > > > > > 92ff2bee (Update to suggestions)
 
 ## Why a New Architecture?
 
