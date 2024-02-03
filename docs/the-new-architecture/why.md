@@ -23,9 +23,9 @@ _The Bridge_ had some intrinsic limitations:
 
 ## New Architecture's Improvements
 
-The New Architecture dropped the concept of _The Bridge_ in favor of another communication mechanism: the _JavaScript Interface (JSI)_. The _JSI_ is an interface that allows a JavaScript object to hold a reference to a C++ object and vice-versa.
+The New Architecture dropped the concept of _The Bridge_ in favor of another communication mechanism: the _JavaScript Interface (JSI)_. The _JSI_ is an interface that allows a JavaScript object to hold a reference to a C++ object and vice versa.
 
-Once an object has a reference to the other one, it can directly invoke methods on it. So, for example, a C++ object can now ask a JavaScript object to execute a method in the JavaScript world and viceversa.
+Once an object has a reference to the other one, it can directly invoke methods on it. So, for example, a C++ object can now ask a JavaScript object to execute a method in the JavaScript world and vice versa.
 
 This idea allowed the unlocking of several benefits:
 
@@ -33,7 +33,7 @@ This idea allowed the unlocking of several benefits:
 - **Concurrency:** it is possible from JavaScript to invoke functions that are executed on different threads.
 - **Lower overhead:** the New Architecture doesn't have to serialize/deserialize the data anymore; therefore there are no serialization taxes to pay.
 - **Code sharing:** by introducing C++, it is now possible to abstract all the platform agnostic code and to share it with ease between the platforms.
-- **Type safety:** to make sure that JS can properly invoke methods on C++ objects and vice-versa, a layer of code automatically generated has been added. The code is generated starting from some JS specification that must be typed through Flow or TypeScript.
+- **Type safety:** to make sure that JS can properly invoke methods on C++ objects and vice versa, a layer of code automatically generated has been added. The code is generated starting from some JS specification that must be typed through Flow or TypeScript.
 
 These advantages are the foundations of the [New Native Module System](pillars-turbomodules) and a jumping stone to further enhancements. For example, it has been possible to develop a [new renderer](/architecture/fabric-renderer) which offers faster and more performant [Native Components](pillars-fabric-components).
 
