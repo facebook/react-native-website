@@ -56,7 +56,7 @@ yarn add react-native
 </TabItem>
 </Tabs>
 
-This will print a message similar to the following (scroll up in the yarn output to see it):
+This will print a message similar to the following (scroll up in the installation command output to see it):
 
 > warning "`react-native@0.52.2`" has unmet peer dependency "`react@16.2.0`".
 
