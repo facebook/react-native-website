@@ -9,7 +9,7 @@ A local library is a library containing views or modules that's local to your ap
 
 The local library is created outside of the `android/` and `ios/` folders and makes use of autolinking to integrate with your app. The structure with a local library may look like this:
 
-\```
+```plaintext
 MyApp
 ├── node_modules
 ├── modules <-- folder for your local libraries
@@ -19,7 +19,7 @@ MyApp
 ├── src
 ├── index.js
 └── package.json
-\```
+```
 
 Since a local library's code exists outside of `android/` and `ios/` folders, it makes it easier to upgrade React Native versions in the future, copy to other projects etc.
 
