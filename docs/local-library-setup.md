@@ -13,7 +13,7 @@ The local library is created outside of the `android/` and `ios/` folders and ma
 MyApp
 ├── node_modules
 ├── modules <-- folder for your local libraries
-│   └── awesome-module <-- your local library
+│ └── awesome-module <-- your local library
 ├── android
 ├── ios
 ├── src
