@@ -5,7 +5,25 @@ title: Local libraries setup
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
-The local library is created outside of the `android/` and `ios/` folders and makes use of autolinking to integrate with your app. To create local library we will use [create-react-native-library](https://callstack.github.io/react-native-builder-bob/create). This tool contains all the necessary templates.
+A local library is a library containing views or modules that's local to your app and not published to a registry. This is different from the traditional setup for view and modules in the sense that a local library is decoupled from your app's native code.
+
+The local library is created outside of the `android/` and `ios/` folders and makes use of autolinking to integrate with your app. The structure with a local library may look like this:
+
+\```
+MyApp
+├── node_modules
+├── modules <-- folder for your local libraries
+│   └── awesome-module <-- your local library
+├── android
+├── ios
+├── src
+├── index.js
+└── package.json
+\```
+
+Since a local library's code exists outside of `android/` and `ios/` folders, it makes it easier to upgrade React Native versions in the future, copy to other projects etc.
+
+To create local library we will use [create-react-native-library](https://callstack.github.io/react-native-builder-bob/create). This tool contains all the necessary templates.
 
 ### Getting Started
 
