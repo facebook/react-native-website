@@ -35,6 +35,6 @@ Fortunately, the New Architecture was written bottom-up with concurrent renderin
 
 This means you’re able to use the new features in React 18 as soon as flip the New Architecture switch. Since the new concurrent features are opt-in by using features like `startTransition` or `Suspense`, we expect React 18 to work out-of-the-box with minimal changes for users who migrate to the New Architecture or create a new app with the New Architecture enabled.
 
-### Users not yet migrated to the New Architecture
+### Note for the Old Architecture users
 
 Apps that are still on the Old Architecture will use React 17 mode even if React 18 is listed as a dependency in the `package.json` file.
