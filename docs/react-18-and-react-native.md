@@ -37,4 +37,4 @@ This means you’re able to use the new features in React 18 as soon as flip the
 
 ### Users not yet migrated to the New Architecture
 
-Users that are still on the Old Architecture, will still use React 17 mode even if React 18 is installed in the `package.json` file.
+Apps that are still on the Old Architecture will use React 17 mode even if React 18 is listed as a dependency in the `package.json` file.
