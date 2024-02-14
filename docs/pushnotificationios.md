@@ -281,8 +281,8 @@ Gets the list of local notifications that are currently scheduled.
 
 **Parameters:**
 
-| Name     | Type     | Required | Description                                                                        |
-| -------- | -------- | -------- | ---------------------------------------------------------------------------------- |
+| Name     | Type     | Required | Description                                                                  |
+| -------- | -------- | -------- | ---------------------------------------------------------------------------- |
 | callback | function | Yes      | Function which processes an array of objects describing local notifications. |
 
 ---
@@ -329,9 +329,9 @@ Removes the event listener. Do this in `componentWillUnmount` to prevent memory 
 
 **Parameters:**
 
-| Name    | Type     | Required | Description                                       |
-| ------- | -------- | -------- | ------------------------------------------------- |
-| type    | string   | Yes      | Event type. See `addEventListener()` for options. |
+| Name | Type   | Required | Description                                       |
+| ---- | ------ | -------- | ------------------------------------------------- |
+| type | string | Yes      | Event type. See `addEventListener()` for options. |
 
 ---
 
