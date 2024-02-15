@@ -58,23 +58,15 @@ We have a [CircleCI workflow](https://github.com/facebook/react-native/blob/2922
 #### Pseudocode
 
 ```
-for each package:
-    if last commit contains version change:
-        if this commit has specific message:
+if last commit contains '#publish-packages-to-npm'
+    for each package:
+        if package version is not present on npm registry:
             publish package to npm
 ```
 
 #### Notes
 
 This workflow explicitly checks that commit has a specific [tag](https://github.com/facebook/react-native/blob/main/scripts/monorepo/constants.js#L11) inside its message. This is used to prevent accidental publishes. To create such specific commit you should use [script from above](https://github.com/facebook/react-native/wiki/Release-and-its-automated-processes#finding-all-packages-that-have-unpublished-changes).
-
-If you want to bump package version and publish it to npm registry, your version change should be exactly in the last commit. This is because of two things:
-
-1. If multiple commits are merged to `main` branch at the same time, CircleCI will execute workflows only once on top of the latest commit.
-2. To determine that version was changed we [evaluate the difference between HEAD and HEAD~1](https://github.com/facebook/react-native/blob/daeee2a6619db59391de3b7c6e08db0dbe2331aa/scripts/monorepo/find-and-publish-all-bumped-packages.js#L32-L35).
-
-Example script output, where no package versions were changed:
-<img width="800" alt="Screenshot 2023-01-03 at 12 21 01" src="https://user-images.githubusercontent.com/28902667/210362611-97530b4d-0405-499c-9a3c-5542e069e929.png" />
 
 ## Align package versions across monorepo
 

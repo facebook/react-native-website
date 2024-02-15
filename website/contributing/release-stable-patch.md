@@ -4,7 +4,6 @@ title: Minor Stable Patches
 ---
 
 import AsyncTestingNote from './\_markdown-async-testing-note.mdx';
-import BumpOSSNote from './\_markdown-older-bump-script.mdx';
 
 :::info
 Documents in this section go over steps to run different types of React Native release updates. Its intended audience is those in [relevant release roles](./release-roles-responsibilites.md).
@@ -30,7 +29,11 @@ git cherry-pick <commit>
 
 ### 2. Bump monorepo packages
 
-**For 0.72 and higher:**
+**For 0.74 and later:**
+
+Skip this step — we'll version the monorepo package dependencies _after local testing_.
+
+**For 0.72-0.73:**
 
 Update all packages in the monorepo that were modified by the cherry picks. You can do it by running:
 
@@ -63,7 +66,18 @@ Before continuing further, follow the [testing guide](/contributing/release-test
 
 <AsyncTestingNote/>
 
-### 4. Run `trigger-react-native-release` script
+### 4. (0.74 and later only) Bump monorepo packages
+
+- Version the monorepo package dependencies by running `yarn bump-all-updated-packages`.
+- Push the newly generated commit. A CI workflow will publish the new versions of each monorepo package (excluding `react-native`) to npm.
+- Wait for this workflow to successfully complete before continuing.
+
+```sh
+yarn bump-all-updated-packages # All the package bumps must be on the patch level
+git push origin 0.XX-stable
+```
+
+### 5. Run `trigger-react-native-release` script
 
 ```bash
 # once verified all the cherry-picked commits, we can push them to remote
@@ -74,9 +88,7 @@ git push
 yarn trigger-react-native-release --to-version x.y.z --token <YOUR_CIRCLE_CI_TOKEN>
 ```
 
-<BumpOSSNote />
-
-### 5. Watch CircleCI to ensure right jobs are being triggered
+### 6. Watch CircleCI to ensure right jobs are being triggered
 
 - Once you have run the bump script script, head to CircleCI and you should see under the releases workflow, a `prepare-package-for-release` job.
 
@@ -94,7 +106,7 @@ yarn trigger-react-native-release --to-version x.y.z --token <YOUR_CIRCLE_CI_TOK
   latest: 0.Y.Z            next: 0.Y.0-rc.X         nightly: 0.0.0-f617e022c
   ```
 
-### 6. Create a PR of the changelog using the generator
+### 7. Create a PR of the changelog using the generator
 
 To generate the changelog, we rely on a dedicated tool called [`@rnx-kit/rn-changelog-generator`](https://github.com/microsoft/rnx-kit/tree/main/incubator/rn-changelog-generator) that will parse the custom changelog messages that contributors write in their PRs.
 
@@ -110,7 +122,7 @@ npx @rnx-kit/rn-changelog-generator --base v0.68.2 --compare v0.68.3 \
 
 Create a pull request of this change to `react-native` repo and add the `Changelog` label.
 
-### 7. Create GitHub Release
+### 8. Create GitHub Release
 
 Use template below for the GitHub Release:
 
@@ -134,11 +146,11 @@ To help you upgrade to this version, you can use the [upgrade helper](https://re
 You can find the whole changelog history in the [changelog.md file](https://github.com/facebook/react-native/blob/main/CHANGELOG.md).
 ```
 
-### 8. Upload prebuilt Hermes binary
+### 9. Upload prebuilt Hermes binary
 
 In the `publish_release` CI workflow, the `build_hermes_macos` step produces a `tmp/hermes/output/hermes-runtime-darwin-vx.y.z.tar.gz` artifact, for example [here](https://app.circleci.com/pipelines/github/facebook/react-native/13933/workflows/5f2ad198-2264-4e7e-8c62-7b28e97532d8/jobs/262322/artifacts) are the artifacts for `0.69.0` release. Download it and attach it to the GitHub release.
 
-### 9. Create a new patch discussion post using template below
+### 10. Create a new patch discussion post using template below
 
 ```markdown
 <!-- Template for new patch -->
@@ -170,19 +182,19 @@ If the issue is a [major release issues](https://reactnative.dev/contributing/re
 1.
 ```
 
-### 10. Update "should we release 0.Y.Z?" discussion post
+### 11. Update "should we release 0.Y.Z?" discussion post
 
 - Label it `Released`.
 - Update the text body saying the patch has been released and link to new patch discussion.
 - Lock the discussion.
 
-### 11. Verify that Upgrade Helper GitHub action has fired
+### 12. Verify that Upgrade Helper GitHub action has fired
 
 - You should see a [new publish job here](https://github.com/react-native-community/rn-diff-purge/actions).
 - Once it has finished, you should be able to see that the [Upgrade Helper](https://react-native-community.github.io/upgrade-helper/) presents the option to target the new minor.
 - If not, check out the guide on [how to update Upgrade Helper](/contributing/updating-upgrade-helper).
 
-### 12. Communicate the new release
+### 13. Communicate the new release
 
 Once all the steps above have been completed, it's time to signal to the community that latest minor is available! Do so in the following channels:
 

@@ -5,7 +5,6 @@ title: RC Patches
 
 import AsyncTestingNote from './\_markdown-async-testing-note.mdx';
 import GHReleasesNotesPrerelease from './\_markdown-GH-release-notes-prerelease.mdx';
-import BumpOSSNote from './\_markdown-older-bump-script.mdx';
 
 :::info
 Documents in this section go over steps to run different types of React Native release updates. Its intended audience is those in [relevant release roles](./release-roles-responsibilites.md).
@@ -57,8 +56,6 @@ git push
 # You **do not** want this release marked as "latest"!
 yarn trigger-react-native-release --to-version 0.y.0-rc.x --token <YOUR_CIRCLE_CI_TOKEN>
 ```
-
-<BumpOSSNote />
 
 ### 5. Watch CircleCI to ensure right jobs are being triggered
 
