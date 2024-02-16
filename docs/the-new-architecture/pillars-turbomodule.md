@@ -711,7 +711,7 @@ import com.facebook.react.module.model.ReactModuleInfoProvider
 
 class CalculatorPackage : TurboReactPackage() {
 - override fun getModule(name: String?, reactContext: ReactApplicationContext): NativeModule? = null
-+ override fun getModule(name: String?, reactContext: ReactApplicationContext): NativeModule? =
++ override fun getModule(name: String, reactContext: ReactApplicationContext): NativeModule? =
 +   if (name == CalculatorModule.NAME) {
 +     CalculatorModule(reactContext)
 +   } else {
