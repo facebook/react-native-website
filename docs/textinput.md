@@ -454,7 +454,7 @@ Determines the color of the keyboard.
 
 Determines which keyboard to open, e.g.`numeric`.
 
-See screenshots of all the types [here](https://davidl.fr/blog/keyboard-react-native-ios-android?utm_campaign=thisweekinreact&utm_medium=email&utm_source=Revue%20newsletter#all-react-native-keyboard-type-examples-i-os-on-the-left-android-on-the-right).
+See screenshots of all the types [here](https://davidl.fr/blog/keyboard-react-native-ios-android#all-react-native-keyboard-type-examples-i-os-on-the-left-android-on-the-right).
 
 The following values work across platforms:
 
