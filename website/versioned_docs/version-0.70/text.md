@@ -216,15 +216,13 @@ You also lose the ability to set up a default font for an entire subtree. Meanwh
 Assuming that `MyAppText` is a component that only renders out its children into a `Text` component with styling, then `MyAppHeaderText` can be defined as follows:
 
 ```jsx
-class MyAppHeaderText extends Component {
-  render() {
-    return (
-      <MyAppText>
-        <Text style={{fontSize: 20}}>{this.props.children}</Text>
-      </MyAppText>
-    );
-  }
-}
+const MyAppHeaderText = ({children}) => {
+  return (
+    <MyAppText>
+      <Text style={{fontSize: 20}}>{children}</Text>
+    </MyAppText>
+  );
+};
 ```
 
 Composing `MyAppText` in this way ensures that we get the styles from a top-level component, but leaves us the ability to add / override them in specific use cases.
