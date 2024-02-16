@@ -14,13 +14,15 @@ title: '🚧 PushNotificationIOS'
 
 Handle notifications for your app, including scheduling and permissions.
 
-## Getting Started
+---
+
+# Getting Started
 
 To enable push notifications, [configure your notifications with Apple](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server) and your server-side system.
 
-Then enable Background Modes/Remote notifications to be able to use remote notifications properly. The easiest way to do this is via the project settings. Navigate to Targets -> Your App -> Capabilities -> Background Modes and check Remote notifications. This will automatically enable the required settings.
+Then, [enable remote notifications](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/pushing_background_updates_to_your_app#2980038) in your project. This will automatically enable the required settings.
 
-On the iOS side, you'll need to augment your AppDelegate to enable support for `notification` and `register` events.
+## Enable support for `register` events
 
 In your `AppDelegate.m`, add:
 
@@ -43,7 +45,9 @@ Then implement the following in order to handle remote notification registration
 }
 ```
 
-In order to handle notifications, your `AppDelegate` will need to implement `UNUserNotificationCenterDelegate`:
+## Handle notifications
+
+You'll need to implement `UNUserNotificationCenterDelegate` in your `AppDelegate`:
 
 ```objectivec
 #import <UserNotifications/UserNotifications.h>
@@ -65,7 +69,9 @@ Set the delegate on app launch:
 }
 ```
 
-Handle notifications when they arrive while the app is in the foreground. Use the completionHandler to determine if the notification will be shown to the user and notify RCTPushNotificationManager accordingly:
+### Foreground notifications
+
+Implement `userNotificationCenter:willPresentNotification:withCompletionHandler:` to handle notifications that arrive when the app is in the foreground. Use the completionHandler to determine if the notification will be shown to the user and notify `RCTPushNotificationManager` accordingly:
 
 ```objectivec
 // Called when a notification is delivered to a foreground app.
@@ -73,14 +79,16 @@ Handle notifications when they arrive while the app is in the foreground. Use th
        willPresentNotification:(UNNotification *)notification
          withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler
 {
-  // This will trigger 'registrationError' events on PushNotificationIOS
+  // This will trigger 'notification' and 'localNotification' events on PushNotificationIOS
   [RCTPushNotificationManager didReceiveNotification:notification];
   // Decide if and how the notification will be shown to the user
   completionHandler(UNNotificationPresentationOptionNone);
 }
 ```
 
-To handle when a notification is tapped, implement `userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:`. Note that if you set foreground notifications to be shown in `userNotificationCenter:willPresentNotification:withCompletionHandler:`, you should only notify RCTPushNotificationManager in one of these callbacks.
+### Background notifications
+
+Implement `userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:` to handle when a notification is tapped, typically called for background notifications which the user taps to open the app. However, if you had set foreground notifications to be shown in `userNotificationCenter:willPresentNotification:withCompletionHandler:`, this method will also be invoked on foreground notifications when tapped. In this case, you should only notify `RCTPushNotificationManager` in one of these callbacks.
 
 If the tapped notification resulted in app launch, call `setInitialNotification:`. If the notification was not previously handled by `userNotificationCenter:willPresentNotification:withCompletionHandler:`, call `didReceiveNotification:` as well:
 
@@ -91,10 +99,10 @@ If the tapped notification resulted in app launch, call `setInitialNotification:
 {
   // This condition passes if the notification was tapped to launch the app
   if ([response.actionIdentifier isEqualToString:UNNotificationDefaultActionIdentifier]) {
-  // Allow the notification to be retrieved on the JS side using getInitialNotification()
+    // Allow the notification to be retrieved on the JS side using getInitialNotification()
     [RCTPushNotificationManager setInitialNotification:response.notification];
   }
- // This will trigger 'notification' and 'localNotification' events on PushNotificationIOS
+  // This will trigger 'notification' and 'localNotification' events on PushNotificationIOS
   [RCTPushNotificationManager didReceiveNotification:response.notification];
   completionHandler();
 }
@@ -129,6 +137,7 @@ Schedules a local notification for immediate presentation.
 - `applicationIconBadgeNumber` The number to display as the app's icon badge. The default value of this property is 0, which means that no badge is displayed (optional).
 - `isSilent` : If true, the notification will appear without sound (optional).
 - `soundName` : The sound played when the notification is fired (optional).
+- `alertAction` : DEPRECATED. This was used for iOS's legacy UILocalNotification.
 
 ---
 
@@ -157,6 +166,8 @@ Schedules a local notification for future presentation.
 - `applicationIconBadgeNumber` The number to display as the app's icon badge. The default value of this property is 0, which means that no badge is displayed (optional).
 - `isSilent` : If true, the notification will appear without sound (optional).
 - `soundName` : The sound played when the notification is fired (optional).
+- `alertAction` : DEPRECATED. This was used for iOS's legacy UILocalNotification.
+- `repeatInterval` : DEPRECATED. Use `fireDate` or `fireIntervalSeconds` instead.
 
 ---
 
@@ -421,9 +432,7 @@ This method returns a promise that resolves to the current notification authoriz
 finish(result: string);
 ```
 
-This method is available for remote notifications that have been received via [`application:didReceiveRemoteNotification:fetchCompletionHandler:`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623013-application?language=objc).
-
-NOTE: This is superseded by `UNUserNotificationCenterDelegate` and will no longer be invoked if both this method and the newer ones from `UNUserNotificationCenterDelegate` are implemented.
+This method is available for remote notifications that have been received via [`application:didReceiveRemoteNotification:fetchCompletionHandler:`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623013-application?language=objc). However, this is superseded by `UNUserNotificationCenterDelegate` and will no longer be invoked if both `application:didReceiveRemoteNotification:fetchCompletionHandler:` and the newer handlers from `UNUserNotificationCenterDelegate` are implemented.
 
 If for some reason you're still relying on `application:didReceiveRemoteNotification:fetchCompletionHandler:`, you'll need to set up event handling on the iOS side:
 
