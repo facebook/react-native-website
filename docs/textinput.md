@@ -470,7 +470,7 @@ _iOS Only_
 
 The following values work on iOS only:
 
-- `ascii-capable`z
+- `ascii-capable`
 - `numbers-and-punctuation`
 - `name-phone-pad`
 - `twitter`
