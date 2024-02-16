@@ -16,13 +16,13 @@ Handle notifications for your app, including scheduling and permissions.
 
 ---
 
-# Getting Started
+## Getting Started
 
 To enable push notifications, [configure your notifications with Apple](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server) and your server-side system.
 
 Then, [enable remote notifications](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/pushing_background_updates_to_your_app#2980038) in your project. This will automatically enable the required settings.
 
-## Enable support for `register` events
+### Enable support for `register` events
 
 In your `AppDelegate.m`, add:
 
@@ -45,7 +45,7 @@ Then implement the following in order to handle remote notification registration
 }
 ```
 
-## Handle notifications
+### Handle notifications
 
 You'll need to implement `UNUserNotificationCenterDelegate` in your `AppDelegate`:
 
@@ -69,7 +69,7 @@ Set the delegate on app launch:
 }
 ```
 
-### Foreground notifications
+#### Foreground notifications
 
 Implement `userNotificationCenter:willPresentNotification:withCompletionHandler:` to handle notifications that arrive when the app is in the foreground. Use the completionHandler to determine if the notification will be shown to the user and notify `RCTPushNotificationManager` accordingly:
 
@@ -86,7 +86,7 @@ Implement `userNotificationCenter:willPresentNotification:withCompletionHandler:
 }
 ```
 
-### Background notifications
+#### Background notifications
 
 Implement `userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:` to handle when a notification is tapped, typically called for background notifications which the user taps to open the app. However, if you had set foreground notifications to be shown in `userNotificationCenter:willPresentNotification:withCompletionHandler:`, this method will also be invoked on foreground notifications when tapped. In this case, you should only notify `RCTPushNotificationManager` in one of these callbacks.
 
