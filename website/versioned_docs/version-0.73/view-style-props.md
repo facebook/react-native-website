@@ -111,6 +111,38 @@ export default ViewStyleProps;
 
 ---
 
+### `borderStartEndRadius`
+
+| Type   |
+| ------ |
+| number |
+
+---
+
+### `borderStartStartRadius`
+
+| Type   |
+| ------ |
+| number |
+
+---
+
+### `borderEndEndRadius`
+
+| Type   |
+| ------ |
+| number |
+
+---
+
+### `borderEndStartRadius`
+
+| Type   |
+| ------ |
+| number |
+
+---
+
 ### `borderBottomWidth`
 
 | Type   |

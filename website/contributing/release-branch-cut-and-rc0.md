@@ -95,14 +95,16 @@ yarn trigger-react-native-release --to-version 0.69.0-rc.0 --token <YOUR_CIRCLE_
 
 To generate the changelog, we rely on a dedicated tool called [`@rnx-kit/rn-changelog-generator`](https://github.com/microsoft/rnx-kit/tree/main/incubator/rn-changelog-generator) that will parse the custom changelog messages that contributors write in their PRs.
 
+Note: Due to the number of commits for an RC0, this operation is likely to hit GitHub API limits. The snippet below set the optional `--token` arg, which can be obtained from [GitHub Settings > Developer Settings > Personal access tokens](https://github.com/settings/tokens/new?description=react-native-changelog&scopes=public_repo).
+
 ```bash
 # Run following with the stable release as base, and your rc.0 version
-npx @rnx-kit/rn-changelog-generator --base v[LATEST_STABLE]--compare v[YOUR_RC_0] \
---repo ~/react-native --changelog ~/react-native/CHANGELOG.md
+npx @rnx-kit/rn-changelog-generator --base v[LATEST_STABLE] --compare v[YOUR_RC_0] \
+--repo ~/react-native --changelog ~/react-native/CHANGELOG.md --token [GITHUB_TOKEN]
 
 # example against 0.68.2 and 0.69.0-rc.0
 npx @rnx-kit/rn-changelog-generator --base v0.68.2 --compare v0.69.0-rc.0 \
---repo ~/react-native --changelog ~/react-native/CHANGELOG.md
+--repo ~/react-native --changelog ~/react-native/CHANGELOG.md --token [GITHUB_TOKEN]
 ```
 
 Create a pull request of this change to `react-native` repo and add the `Changelog` label.

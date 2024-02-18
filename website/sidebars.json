@@ -72,7 +72,6 @@
     "Performance": [
       "performance",
       "build-speed",
-      "speeding-ci-builds",
       "optimizing-flatlist-configuration",
       "ram-bundles-inline-requires",
       "profiling",
@@ -83,7 +82,8 @@
       "native-modules-intro",
       "native-modules-android",
       "native-modules-ios",
-      "native-modules-setup"
+      "native-modules-setup",
+      "local-library-setup"
     ],
     "Native Components": [
       "native-components-android",

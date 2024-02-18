@@ -221,10 +221,23 @@ You may also find it useful to refer to the JavaScript specifications for the co
 
 The Codegen is typically invoked at build time, but you may find it useful to generate your native interface code on demand for troubleshooting.
 
-If you wish to invoke the codegen manually, you have two options:
+If you wish to invoke the Codegen manually, you have three options:
 
 1. Invoking a Gradle task directly (Android).
 2. Invoking a script manually.
+3. Use the Codegen CLI.
+
+### Using the CLI
+
+For the simplest and most common use cases you can use the Codegen CLI. Call the following command in your project directory:
+
+```sh
+npx react-native codegen
+```
+
+This will produce Codegen artefacts in their default locations. You can provide additional options to customize input and output paths, as well as the target platform.
+
+See full discription in [The Codegen CLI](the-new-architecture/pillars-codegen#the-codegen-cli) section.
 
 ### Android - Invoking a Gradle task directly
 

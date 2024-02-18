@@ -29,6 +29,8 @@ The `Appearance` module exposes information about the user's appearance preferen
 
 > The color scheme preference will map to the user's Light or [Dark Mode](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/dark-mode/) preference on iOS 13 devices and higher.
 
+> Note: When taking a screenshot, by default, the color scheme may flicker between light and dark mode. It happens because the iOS takes snapshots on both color schemes and updating the user interface with color scheme is asynchronous.
+
 </TabItem>
 </Tabs>
 

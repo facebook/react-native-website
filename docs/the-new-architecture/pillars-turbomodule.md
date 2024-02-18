@@ -26,6 +26,10 @@ Turbo Native Modules only work with the **New Architecture** enabled.
 To migrate to the **New Architecture**, follow the [Migration guide](../new-architecture-intro)
 :::
 
+:::info
+You can also setup local library containing Turbo Native Module with one command. Read the guide to [Local libraries setup](../local-library-setup) for more details.
+:::
+
 ## How to Create a Turbo Native Module
 
 To create a Turbo Native Module, we need to:
@@ -707,7 +711,7 @@ import com.facebook.react.module.model.ReactModuleInfoProvider
 
 class CalculatorPackage : TurboReactPackage() {
 - override fun getModule(name: String?, reactContext: ReactApplicationContext): NativeModule? = null
-+ override fun getModule(name: String?, reactContext: ReactApplicationContext): NativeModule? =
++ override fun getModule(name: String, reactContext: ReactApplicationContext): NativeModule? =
 +   if (name == CalculatorModule.NAME) {
 +     CalculatorModule(reactContext)
 +   } else {

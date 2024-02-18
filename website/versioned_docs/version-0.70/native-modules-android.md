@@ -701,6 +701,8 @@ public void createCalendarEvent(String name, String location, Promise promise) {
 
 ```kotlin
 @ReactMethod
+import com.facebook.react.bridge.Promise
+
 fun createCalendarEvent(name: String, location: String, promise: Promise) {
     try {
         val eventId = ...

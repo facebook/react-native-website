@@ -48,7 +48,7 @@ You can use any name that fits the native module you are building. Name the clas
 
 As you can see below, the CalendarModule class implements the `RCTBridgeModule` protocol. A native module is an Objective-C class that implements the `RCTBridgeModule` protocol.
 
-Next up, let’s start implementing the native module. Create the corresponding implementation file, `RCTCalendarModule.m`, in the same folder and include the following content:
+Next up, let’s start implementing the native module. Create the corresponding implementation file using cocoa touch class in xcode, `RCTCalendarModule.m`, in the same folder and include the following content:
 
 ```objectivec
 // RCTCalendarModule.m
@@ -479,7 +479,7 @@ JavaScript code can subscribe to these events by creating a new `NativeEventEmit
 You will receive a warning if you expend resources unnecessarily by emitting an event while there are no listeners. To avoid this, and to optimize your module's workload (e.g. by unsubscribing from upstream notifications or pausing background tasks), you can override `startObserving` and `stopObserving` in your `RCTEventEmitter` subclass.
 
 ```objectivec
-@implementation CalendarManager
+@implementation CalendarModule
 {
   bool hasListeners;
 }
@@ -567,10 +567,10 @@ RCTRootView *rootView = [[RCTRootView alloc]
 Swift doesn't have support for macros, so exposing native modules and their methods to JavaScript inside React Native requires a bit more setup. However, it works relatively the same. Let's say you have the same `CalendarModule` but as a Swift class:
 
 ```swift
-// CalendarManager.swift
+// CalendarModule.swift
 
-@objc(CalendarManager)
-class CalendarManager: NSObject {
+@objc(CalendarModule)
+class CalendarModule: NSObject {
 
  @objc(addEvent:location:date:)
  func addEvent(_ name: String, location: String, date: NSNumber) -> Void {
@@ -590,10 +590,10 @@ class CalendarManager: NSObject {
 Then create a private implementation file that will register the required information with React Native:
 
 ```objectivec
-// CalendarManagerBridge.m
+// CalendarModuleBridge.m
 #import <React/RCTBridgeModule.h>
 
-@interface RCT_EXTERN_MODULE(CalendarManager, NSObject)
+@interface RCT_EXTERN_MODULE(CalendarModule, NSObject)
 
 RCT_EXTERN_METHOD(addEvent:(NSString *)name location:(NSString *)location date:(nonnull NSNumber *)date)
 
@@ -603,7 +603,7 @@ RCT_EXTERN_METHOD(addEvent:(NSString *)name location:(NSString *)location date:(
 For those of you new to Swift and Objective-C, whenever you [mix the two languages in an iOS project](https://developer.apple.com/library/prerelease/ios/documentation/Swift/Conceptual/BuildingCocoaApps/MixandMatch.html), you will also need an additional bridging file, known as a bridging header, to expose the Objective-C files to Swift. Xcode will offer to create this header file for you if you add your Swift file to your app through the Xcode `File>New File` menu option. You will need to import `RCTBridgeModule.h` in this header file.
 
 ```objectivec
-// CalendarManager-Bridging-Header.h
+// CalendarModule-Bridging-Header.h
 #import <React/RCTBridgeModule.h>
 ```
 

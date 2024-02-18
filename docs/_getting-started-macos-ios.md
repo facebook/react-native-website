@@ -24,7 +24,7 @@ If you have already installed Node on your system, make sure it is Node 18 or ne
 
 The easiest way to install Xcode is via the [Mac App Store](https://itunes.apple.com/us/app/xcode/id497799835?mt=12). Installing Xcode will also install the iOS Simulator and all the necessary tools to build your iOS app.
 
-If you have already installed Xcode on your system, make sure it is version 10 or newer.
+If you have already installed Xcode on your system, make sure it is version 14.1 or newer.
 
 #### Command Line Tools
 
@@ -58,7 +58,7 @@ You can use React Native's built-in command line interface to generate a new pro
 npx react-native@latest init AwesomeProject
 ```
 
-This is not necessary if you are integrating React Native into an existing application, if you "ejected" from Expo, or if you're adding iOS support to an existing React Native project (see [Integration with Existing Apps](integration-with-existing-apps.md)). You can also use a third-party CLI to init your React Native app, such as [Ignite CLI](https://github.com/infinitered/ignite).
+This is not necessary if you are integrating React Native into an existing application, or if you've installed [Expo](https://docs.expo.dev/bare/installing-expo-modules/) in your project, or if you're adding iOS support to an existing React Native project (see [Integration with Existing Apps](integration-with-existing-apps.md)). You can also use a third-party CLI to init your React Native app, such as [Ignite CLI](https://github.com/infinitered/ignite).
 
 :::info
 

@@ -9,31 +9,7 @@ The publishing process is the same as any other native iOS app, with some additi
 If you are using Expo, read the Expo guide for [Deploying to App Stores](https://docs.expo.dev/distribution/app-stores/) to build and submit your app for the Apple App Store. This guide works with any React Native app to automate the deployment process.
 :::
 
-### 1. Enable App Transport Security
-
-App Transport Security is a security feature introduced in iOS 9 that rejects all HTTP requests that are not sent over HTTPS. This can result in HTTP traffic being blocked, including the developer React Native server. ATS is disabled for `localhost` by default in React Native projects in order to make development easier.
-
-You should re-enable ATS prior to building your app for production by opening your `ios/App/Info.plist` file and removing the `localhost` entry from the `NSExceptionDomains` dictionary and setting `NSAllowsArbitraryLoads` to `false` in the `NSAppTransportSecurity` dict. You can also re-enable ATS from within Xcode by opening your target properties under the Info pane and editing the App Transport Security Settings entry.
-
-![](/docs/assets/XCodeEnableATS.png)
-
-If you are editing Info.plist via plaintext rather than the XCode UI, the below is how the `NSAppTransportSecurity` entry would look like without an any domain exceptions.
-
-```xml
-<key>NSAppTransportSecurity</key>
-<dict>
-  <key>NSAllowsArbitraryLoads</key>
-  <false/>
-  <key>NSExceptionDomains</key>
-  <dict/>
-</dict>
-```
-
-:::note
-If your application needs to access HTTP resources on production, learn how to configure ATS on your project.
-:::
-
-### 2. Configure release scheme
+### 1. Configure release scheme
 
 Building an app for distribution in the App Store requires using the `Release` scheme in Xcode. Apps built for `Release` will automatically disable the in-app Dev Menu, which will prevent your users from inadvertently accessing the menu in production. It will also bundle the JavaScript locally, so you can put the app on a device and test whilst not connected to the computer.
 
@@ -60,7 +36,7 @@ The static bundle is built every time you target a physical device, even in Debu
  fi
 ```
 
-### 3. Build app for release
+### 2. Build app for release
 
 You can now build your app for release by tapping <kbd>Cmd ⌘</kbd> + <kbd>B</kbd> or selecting **Product** → **Build** from the menu bar. Once built for release, you'll be able to distribute the app to beta testers and submit the app to the App Store.
 
@@ -86,3 +62,7 @@ Check your Bundle Identifier and make sure it is exactly same as the one you hav
 - Now you can find it in the App Store Connect under TestFlight.
 
 Now fill up the necessary information and in the Build Section, select the build of the app and click on `Save` → `Submit For Review`.
+
+### 4. Screenshots
+
+The Apple Store requires you have screenshots for the latest devices. The reference for such devices would be found [here](https://developer.apple.com/help/app-store-connect/reference/screenshot-specifications/). Note that screenshots for some display sizes are not required if they are provided for other sizes.

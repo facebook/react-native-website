@@ -445,7 +445,7 @@ Called when the momentum scroll ends (scroll which occurs as the ScrollView glid
 
 ### `onScroll`
 
-Fires at most once per frame during scrolling. The frequency of the events can be controlled using the `scrollEventThrottle` prop. The event has the following shape (all values are numbers):
+Fires at most once per frame during scrolling. The event has the following shape (all values are numbers):
 
 ```js
 {
@@ -575,9 +575,9 @@ Note that the view can always be scrolled by calling `scrollTo`.
 
 ---
 
-### `scrollEventThrottle` <div class="label ios">iOS</div>
+### `scrollEventThrottle`
 
-This controls how often the scroll event will be fired while scrolling (as a time interval in ms). A lower number yields better accuracy for code that is tracking the scroll position, but can lead to scroll performance problems due to the volume of information being sent over the bridge. You will not notice a difference between values set between 1-16 as the JS run loop is synced to the screen refresh rate. If you do not need precise scroll position tracking, set this value higher to limit the information being sent across the bridge. The default value is `0`, which results in the scroll event being sent only once each time the view is scrolled.
+Limits how often scroll events will be fired while scrolling, specified as a time interval in ms. This may be useful when expensive work is performed in response to scrolling. Values &le; `16` will disable throttling, regardless of the refresh rate of the device.
 
 | Type   | Default |
 | ------ | ------- |
