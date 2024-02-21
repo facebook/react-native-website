@@ -4,7 +4,6 @@ title: Branch Cut & RC0
 ---
 
 import AsyncTestingNote from './\_markdown-async-testing-note.mdx';
-import BumpOSSNote from './\_markdown-older-bump-script.mdx';
 import GHReleasesNotesPrerelease from './\_markdown-GH-release-notes-prerelease.mdx';
 import RoadToReleaseTemplate from './\_markdown-road-to-release-template.mdx';
 
@@ -42,13 +41,7 @@ Documents in this section go over steps to run different types of React Native r
 
 - Add and commit the extra file that got created at `packages/react-native/sdks/hermes/.hermesversion`.
 
-### 3. Bump monorepo packages
-
-- Update packages in the monorepo by running `yarn bump-all-updated-packages`. Bear in mind that all the package bumps must be on patch level, and be on the minor you are working on. We need to publish the latest package changes so they will be included in RC0. Read more about the script and how they work [here](./release-updating-packages).
-
-- CI will take care of releasing the new versions on npm once you push the changes to the `0.XX-stable` branch.
-
-### 4. Push the branch and test the current changes
+### 3. Push the branch and test the current changes
 
 You can now push the branch you created so that others can also start testing:
 
@@ -60,6 +53,12 @@ Before continuing further, follow the [testing guide](/contributing/release-test
 
 <AsyncTestingNote/>
 
+### 4. Bump monorepo packages
+
+- Update monorepo package dependencies by running `yarn bump-all-updated-packages`. Bear in mind that all the package bumps must be on patch level, and be on the minor you are working on. Read more about this script and how it works [here](./release-updating-packages).
+- Push the newly generated commit. A CI workflow will publish the new versions of each monorepo package (excluding `react-native`) to npm.
+- Wait for this workflow to successfully complete before continuing.
+
 ### 5. Kick off the build of `0.{minor}.0-rc.0`
 
 Once you're done with the testing, you can kick-off the bump and publishing of RC0:
@@ -68,8 +67,6 @@ Once you're done with the testing, you can kick-off the bump and publishing of R
 # This will walk you through what version you are releasing
 yarn trigger-react-native-release --to-version 0.69.0-rc.0 --token <YOUR_CIRCLE_CI_TOKEN>
 ```
-
-<BumpOSSNote/>
 
 - Once you have run that script, head to CircleCI and you should see under the releases workflow, a `prepare-package-for-release` job.
 
@@ -95,7 +92,7 @@ yarn trigger-react-native-release --to-version 0.69.0-rc.0 --token <YOUR_CIRCLE_
 
 To generate the changelog, we rely on a dedicated tool called [`@rnx-kit/rn-changelog-generator`](https://github.com/microsoft/rnx-kit/tree/main/incubator/rn-changelog-generator) that will parse the custom changelog messages that contributors write in their PRs.
 
-Note: Due to the number of commits for an RC0, this operation is likely to hit GitHub API limits. The snippet below set the optional `--token` arg, which can be obtained from [GitHub Settings > Developer Settings > Personal access tokens](https://github.com/settings/tokens/new?description=react-native-changelog&scopes=public_repo).
+Note: Due to the number of commits for an RC0, this operation is likely to hit GitHub API limits. The snippet below set the optional `--token` arg, which can be obtained from [GitHub Settings > Developer Settings > Personal access tokens > Fine-grained tokens](https://github.com/settings/tokens?type=beta).
 
 ```bash
 # Run following with the stable release as base, and your rc.0 version
@@ -130,11 +127,7 @@ For both these categories, we have to manually go through the listed commits and
 
 <GHReleasesNotesPrerelease />
 
-### 8. Upload prebuilt Hermes binary
-
-In the `publish_release` CI workflow, the `build_hermes_macos` step produces a `tmp/hermes/output/hermes-runtime-darwin-vx.y.z.tar.gz` artifact, for example [here](https://app.circleci.com/pipelines/github/facebook/react-native/13933/workflows/5f2ad198-2264-4e7e-8c62-7b28e97532d8/jobs/262322/artifacts) are the artifacts for `0.69.0` release. Download it and attach it to the GitHub release.
-
-### 9. Create a tracking discussion post
+### 8. Create a tracking discussion post
 
 Create a "Road to [YOUR_MINOR_VERSION]" discussion post in the [`react-native-releases`](https://github.com/reactwg/react-native-releases/discussions) working group:
 
@@ -142,23 +135,26 @@ Create a "Road to [YOUR_MINOR_VERSION]" discussion post in the [`react-native-re
 
 After creating it, make sure to link it in the relevant GitHub Release you created above, and to pin it in the discussion repo.
 
-### 10. Verify that Upgrade Helper GitHub action has fired
+### 9. Verify that Upgrade Helper GitHub action has fired
 
 - You should see a [new publish job here](https://github.com/react-native-community/rn-diff-purge/actions).
 - Once it has finished, you should be able to see that the [Upgrade Helper](https://react-native-community.github.io/upgrade-helper/) presents the option to target the new RC0.
 - If not, check out the guide on [how to update Upgrade Helper](/contributing/updating-upgrade-helper).
 
-### 11. Broadcast that release candidate is out
+### 10. Broadcast that release candidate is out
 
 Once all the steps above have been completed, it's time to signal to the community that RC0 is available for testing! Do so in the following channels:
 
 - [@reactnative](https://twitter.com/reactnative) on twitter
 - RN Discord `#releases-coordination`
 
-### 12. Bump minor version of all monorepo packages in `main`
+### 11. Bump minor version of all monorepo packages in `main`
 
-The packages in the `react-native` monorepo must always be one minor version ahead of the latest or RC version (e.g. if you have cut `0.72-stable`, main needs to be in `0.73.x`. Once you're done with releasing the initial RC0, you should:
+Now we've cut a stable release branch, let's update the versions of each package on `main`. This is in the format `0.[next-major].0-main`.
 
-- Create a new branch in `react-native` from `main` in your own fork.
-- Run `yarn bump-all-updated-packages --release-branch-cutoff` to bump the minor versions of all packages.
-- Create a PR targeting `main` in `react-native` with the commit created by the previous command.
+```sh
+node scripts/releases/set-version 0.75.0-main --skip-react-native-version
+git commit -a -m "Bump packages for next major release"
+```
+
+After running, push your changes to a new branch and submit a PR to `main`.
