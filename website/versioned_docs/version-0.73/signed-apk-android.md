@@ -128,20 +128,20 @@ Before uploading the release build to the Play Store, make sure you test it thor
 <TabItem value="npm">
 
 ```shell
-npm run android -- --mode="release"
+npm run android -- --variant="release"
 ```
 
 </TabItem>
 <TabItem value="yarn">
 
 ```shell
-yarn android --mode release
+yarn android --variant release
 ```
 
 </TabItem>
 </Tabs>
 
-Note that `--mode release` is only available if you've set up signing as described above.
+Note that `--variant release` is only available if you've set up signing as described above.
 
 You can terminate any running bundler instances, since all your framework and JavaScript code is bundled in the APK's assets.
 
