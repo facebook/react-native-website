@@ -515,8 +515,8 @@ import com.facebook.react.uimanager.annotations.ReactPropGroup
 class MyViewManager(
     private val reactContext: ReactApplicationContext
 ) : ViewGroupManager<FrameLayout>() {
-  private var propWidth: Int? = null
-  private var propHeight: Int? = null
+  private var propWidth: Int = 0
+  private var propHeight: Int = 0
 
   override fun getName() = REACT_CLASS
 
@@ -548,9 +548,9 @@ class MyViewManager(
   }
 
   @ReactPropGroup(names = ["width", "height"], customType = "Style")
-  fun setStyle(view: FrameLayout, index: Int, value: Int) {
-    if (index == 0) propWidth = value
-    if (index == 1) propHeight = value
+  fun setStyle(view: FrameLayout, index: Int, value: Int?) {
+    if (index == 0) propWidth = value ?: 0
+    if (index == 1) propHeight = value ?: 0
   }
 
   /**
@@ -583,14 +583,29 @@ class MyViewManager(
    */
   private fun manuallyLayoutChildren(view: View) {
     // propWidth and propHeight coming from react-native props
-    val width = requireNotNull(propWidth)
-    val height = requireNotNull(propHeight)
+    val width = propWidth
+    val height = propHeight
 
-    view.measure(
-        View.MeasureSpec.makeMeasureSpec(width, View.MeasureSpec.EXACTLY),
-        View.MeasureSpec.makeMeasureSpec(height, View.MeasureSpec.EXACTLY))
+    if (width > 0 && height > 0) {
+        view.measure(
+            View.MeasureSpec.makeMeasureSpec(width, View.MeasureSpec.EXACTLY),
+            View.MeasureSpec.makeMeasureSpec(height, View.MeasureSpec.EXACTLY)
+        )
 
-    view.layout(0, 0, width, height)
+        view.layout(0, 0, width, height)
+    } else {
+        val parentView: ViewGroup = view.parent as ViewGroup
+
+        for (i in 0 until parentView.childCount) {
+            val child = parentView.getChildAt(i)
+            child.measure(
+                View.MeasureSpec.makeMeasureSpec(parentView.measuredWidth, View.MeasureSpec.EXACTLY),
+                View.MeasureSpec.makeMeasureSpec(parentView.measuredHeight, View.MeasureSpec.EXACTLY)
+            )
+
+            child.layout(0, 0, child.measuredWidth, child.measuredHeight)
+        }
+    }
   }
 
   companion object {
@@ -683,13 +698,13 @@ public class MyViewManager extends ViewGroupManager<FrameLayout> {
   }
 
   @ReactPropGroup(names = {"width", "height"}, customType = "Style")
-  public void setStyle(FrameLayout view, int index, Integer value) {
+  public void setStyle(FrameLayout view, int index, @Nullable Integer value) {
     if (index == 0) {
-      propWidth = value;
+      propWidth = value != null ? value : 0;
     }
 
     if (index == 1) {
-      propHeight = value;
+      propHeight = value != null ? value : 0;
     }
   }
 
@@ -723,15 +738,28 @@ public class MyViewManager extends ViewGroupManager<FrameLayout> {
    * Layout all children properly
    */
   public void manuallyLayoutChildren(View view) {
-      // propWidth and propHeight coming from react-native props
-      int width = propWidth;
-      int height = propHeight;
+    // propWidth and propHeight coming from react-native props
+    int width = propWidth;
+    int height = propHeight;
 
+    if (width > 0 && height > 0) {
       view.measure(
-              View.MeasureSpec.makeMeasureSpec(width, View.MeasureSpec.EXACTLY),
-              View.MeasureSpec.makeMeasureSpec(height, View.MeasureSpec.EXACTLY));
+          View.MeasureSpec.makeMeasureSpec(width, View.MeasureSpec.EXACTLY),
+          View.MeasureSpec.makeMeasureSpec(height, View.MeasureSpec.EXACTLY));
 
       view.layout(0, 0, width, height);
+    } else {
+      ViewGroup parentView = (ViewGroup) view.getParent();
+
+      for (int i = 0; i < parentView.getChildCount(); i++) {
+        View child = parentView.getChildAt(i);
+        child.measure(
+            View.MeasureSpec.makeMeasureSpec(parentView.getMeasuredWidth(), View.MeasureSpec.EXACTLY),
+            View.MeasureSpec.makeMeasureSpec(parentView.getMeasuredHeight(), View.MeasureSpec.EXACTLY));
+
+        child.layout(0, 0, child.getMeasuredWidth(), child.getMeasuredHeight());
+      }
+    }
   }
 }
 ```
