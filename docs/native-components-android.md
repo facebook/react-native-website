@@ -609,6 +609,7 @@ package com.mypackage;
 
 import android.view.Choreographer;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import androidx.annotation.NonNull;
