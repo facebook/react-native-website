@@ -1744,6 +1744,16 @@ html[data-theme="dark"] .docsRating {
   }
 }
 
+/* Two columns figure */
+
+.two-columns-figure {
+  display: grid;
+  gap: 0 0;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: ". .";
+}
+
 /* Blog */
 
 .blog-wrapper .main-wrapper {
