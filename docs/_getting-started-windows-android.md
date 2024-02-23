@@ -90,7 +90,7 @@ Open a new Command Prompt window to ensure the new environment variable is loade
 2. Copy and paste **Get-ChildItem -Path Env:\\** into powershell
 3. Verify `ANDROID_HOME` has been added
 
-<h4>4. Add platform-tools to Path</h4>
+<h4>4. Add platform-tools and cmdline-tools to Path</h4>
 
 1. Open the **Windows Control Panel.**
 2. Click on **User Accounts,** then click **User Accounts** again
@@ -103,6 +103,9 @@ The default location for this folder is:
 
 ```powershell
 %LOCALAPPDATA%\Android\Sdk\platform-tools
+```
+```powershell
+%LOCALAPPDATA%\Android\Sdk\cmdline-tools
 ```
 
 <h3>React Native Command Line Interface</h3>
