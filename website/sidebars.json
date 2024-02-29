@@ -66,14 +66,12 @@
       "debugging-release-builds",
       "other-debugging-methods"
     ],
-    "Testing": [
-      "testing-overview"
-    ],
+    "Testing": ["testing-overview"],
     "Performance": [
       "performance",
       "build-speed",
       "optimizing-flatlist-configuration",
-      "ram-bundles-inline-requires",
+      "optimizing-javascript-code-loading",
       "profiling",
       "profile-hermes"
     ],
