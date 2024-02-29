@@ -34,16 +34,18 @@ In the current architecture, we use `onLayout` to get the measurements of the vi
 function ViewWithTooltip() {
   // ...
 
-  // We get the layout information and pass to tooltip to position itself
-  const onLayout = useCallback(({layout}) => {
-    // This state update is not guaranteed to run in the same commit
-    // This results in a visual "jump" as the tooltip repositions itself
-    setTargetRect(layout);
+  // We get the layout information and pass to ToolTip to position itself
+  const onLayout = React.useCallback(event => {
+    targetRef.current?.measureInWindow((x, y, width, height) => {
+      // This state update is not guaranteed to run in the same commit
+      // This results in a visual "jump" as the ToolTip repositions itself
+      setTargetRect({x, y, width, height});
+    });
   }, []);
 
   return (
     <>
-      <View onLayout={onLayout}>
+      <View ref={targetRef} onLayout={onLayout}>
         <Text>Some content that renders a tooltip above</Text>
       </View>
       <Tooltip targetRect={targetRect} />
@@ -77,7 +79,7 @@ function ViewWithTooltip() {
 }
 ```
 
-<div className="two-columns-figure">
+<div className="TwoColumns TwoFigures">
  <figure>
   <img src="/img/new-architecture/async-on-layout.gif" alt="A view that is moving to the corners of the viewport and center with a tooltip rendered either above or below it. The tooltip is rendered after a short delay after the view moves" />
   <figcaption>Asynchronous measurement and render of the ToolTip. [See code](https://gist.github.com/lunaleaps/eabd653d9864082ac1d3772dac217ab9).</figcaption>
@@ -92,9 +94,11 @@ function ViewWithTooltip() {
 
 ### Support for Concurrent Renderer and Features
 
-The New Architecture ships with React 18 which introduces [concurrent features](https://react.dev/blog/2022/03/29/react-v18#what-is-concurrent-react) that allow application developers to specify priority in UI updates to ensure a responsive user experience where it matters.
+The New Architecture adds support for concurrent rendering and features that have shipped in [React 18](https://react.dev/blog/2022/03/29/react-v18) and beyond. You can now use features like Suspense for data-fetching, Transitions, and other new React APIs in your React Native code, further conforming codebases and concepts between web and native React development.
 
-Beyond concurrent APIs, React 18 also ships with out-of-the-box improvements like automatic batching to reduce re-renders.
+<!--alex ignore simply-->
+
+The concurrent renderer also brings out-of-the-box improvements like automatic batching which reduces re-renders in React, simply by enabling the New Architecture.
 
 <details>
 <summary>Example: Automatic Batching</summary>
@@ -103,16 +107,78 @@ With the New Architecture, you'll get automatic batching with the React 18 rende
 
 In this example, a slider specifies how many tiles to render. Dragging the slider from 0 to 1000 will fire off a quick succession of state updates and re-renders.
 
-In comparing the renderers for the [same code](https://gist.github.com/lunaleaps/79bb6f263404b12ba57db78e5f6f28b2), you can visually notice the React 18 renderer provides a smoother UI, with less intermediate UI updates. State updates from native event handlers, like this native Slider component, are now batched.
+In comparing the renderers for the [same code](https://gist.github.com/lunaleaps/79bb6f263404b12ba57db78e5f6f28b2), you can visually notice the renderer provides a smoother UI, with less intermediate UI updates. State updates from native event handlers, like this native Slider component, are now batched.
 
-<div className="two-columns-figure">
+<div className="TwoColumns TwoFigures">
  <figure>
-  <img src="/img/new-architecture/legacy-renderer.gif" alt="" />
+  <img src="/img/new-architecture/legacy-renderer.gif" alt="A video demonstrating an app rendering many views according to a slider input. The slider value is adjusted from 0 to 1000 and the UI slowly catches up to rendering 1000 views." />
   <figcaption>Rendering frequent state updates with legacy renderer.</figcaption>
 </figure>
 <figure>
-  <img src="/img/new-architecture/react18-renderer.gif" alt="afjekaflaej" />
+  <img src="/img/new-architecture/react18-renderer.gif" alt="A video demonstrating an app rendering many views according to a slider input. The slider value is adjusted from 0 to 1000 and the UI resolves to 1000 views faster than the previous example, without as many intermediate states." />
   <figcaption>Rendering frequent state updates with React 18 renderer.</figcaption>
+</figure>
+</div>
+</details>
+
+New concurrent features, like [Transitions](https://react.dev/reference/react/useTransition), gives you power to express the priority of UI updates. Marking an update as lower priority tells React it can "interrupt" rendering the update to handle higher priority updates to ensure a responsive user experience where it matters.
+
+<details>
+<summary>Example: Using `startTransition`</summary>
+
+We can build on the previous example to showcase how transitions can interrupt in-progress rendering to handle a newer state update.
+
+We wrap the tile number state update with `startTransition` to indicate that rendering the tiles can be interrupted. `startTransition` also provides a `isPending` flag to tell us when the transition is complete.
+
+```js
+function TileSlider({value, onValueChange}) {
+  const [isPending, startTransition] = useTransition();
+
+  return (
+    <>
+      <View>
+        <Text>
+          Render {value} Tiles
+        </Text>
+        <ActivityIndicator animating={isPending} />
+      </View>
+      <Slider
+        value={1}
+        minimumValue={1}
+        maximumValue={1000}
+        step={1}
+        onValueChange={newValue => {
+          startTransition(() => {
+            onValueChange(newValue);
+          });
+        }}
+      />
+    </>
+  );
+}
+
+function ManyTiles() {
+  const [value, setValue] = useState(1);
+  const tiles = generateTileViews(value);
+  return (
+      <TileSlider onValueChange={setValue} value={value} />
+      <View>
+        {tiles}
+      </View>
+  )
+}
+```
+
+You'll notice that with the frequent updates in a transition, React renders less intermediate states because it bails out of rendering the state as soon as it becomes stale. In comparsion, without transitions, more intermediate states are rendered. Both examples still make use of automatic batching, but transitions give even more power to developers to batch in-progress renders.
+
+<div className="TwoColumns TwoFigures">
+<figure>
+  <img src="/img/new-architecture/with-transitions.gif" alt="A video demonstrating an app rendering many views (tiles) according to a slider input. Thev views are rendered in batches as the slider is quickly adjusted from 0 to 1000. There are less batch renders in comparison to the next video." />
+  <figcaption>Rendering tiles with transitions to interrupt in-progress renders of stale state. [See code](https://gist.github.com/lunaleaps/eac391bf3fe4c85953cefeb74031bab0/revisions).</figcaption>
+</figure>
+<figure>
+  <img src="/img/new-architecture/without-transitions.gif" alt="A video demonstrating an app rendering many views (tiles) according to a slider input. Thev views are rendered in batches as the slider is quickly adjusted from 0 to 1000." />
+  <figcaption>Rendering tiles without marking it as a transition. [See code](https://gist.github.com/lunaleaps/eac391bf3fe4c85953cefeb74031bab0/revisions).</figcaption>
 </figure>
 </div>
 </details>
@@ -139,7 +205,7 @@ Overall, enabling the New Architecture in your app or library is opting into the
 
 Some new capabilities that build on New Architecture include:
 
-- [Updating event loop processing model](https://github.com/rubennorte/discussions-and-proposals/blob/proposal-event-loop/proposals/0744-well-defined-event-loop.md)
+- [Updating event loop processing model](https://github.com/react-native-community/discussions-and-proposals/blob/main/proposals/0744-well-defined-event-loop.md)
 - [DOM traversal and layout APIs](https://github.com/react-native-community/discussions-and-proposals/blob/main/proposals/0607-dom-traversal-and-layout-apis.md)
 - [Layout conformance with web](https://github.com/facebook/yoga/releases/tag/v2.0.0)
 
@@ -152,6 +218,6 @@ The team plans to enable the New Architecture by default in an upcoming React Na
 Our guidance is as follows
 
 - For most production apps, we do _not_ recommend enabling the New Architecture at this time. Waiting for the official will offer the best experience.
-- If you maintain a React Native library, we recommend enabling it and verifying your use-cases are covered. You can find the [instructions here](https://github.com/reactwg/react-native-new-architecture/blob/lunaleaps-move-docs-over/docs/enable-libraries-prerequisites.md).
+- If you maintain a React Native library, we recommend enabling it and verifying your use-cases are covered. You can find the [instructions here](https://github.com/reactwg/react-native-new-architecture#guides).
 
-If you are interested in dogfooding the New Architecture experience, you can find [instructions](https://github.com/reactwg/react-native-new-architecture/blob/lunaleaps-move-docs-over/docs/enable-apps.md) in our dedicated working group. The [New Architecture working group](https://github.com/reactwg/react-native-new-architecture) is a dedicated space for support and coordination for New Architecture adoption and where the team posts regular updates.
+If you are interested in dogfooding the New Architecture experience, you can find [instructions](https://github.com/reactwg/react-native-new-architecture/blob/main/docs/enable-apps.md) in our dedicated working group. The [New Architecture working group](https://github.com/reactwg/react-native-new-architecture) is a dedicated space for support and coordination for New Architecture adoption and where the team posts regular updates.
