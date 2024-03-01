@@ -3,7 +3,7 @@
 # Renamed pages
 
 # Just for testing
-/docs/android-setup             https://github.com/reactwg/react-native-new-architecture#guides
+/docs/android-setup             /docs/getting-started
 /docs/building-for-apple-tv     /docs/building-for-tv
 /docs/building-from-source      /contributing/how-to-build-from-source
 /docs/contributing              /contributing/overview
@@ -17,27 +17,8 @@
 /releases/release-candidate-minor         /releases/release-branch-cut-and-rc0
 
 # Move New Architecture docs
-/docs/the-new-architecture/why      /docs/building-for-tv
-/docs/the-new-architecture/use-app-template                         https://github.com/reactwg/react-native-new-architecture#guides
-/docs/the-new-architecture/pillars                                  https://github.com/reactwg/react-native-new-architecture#guides
-/docs/the-new-architecture/pillars-turbomodules                     https://github.com/reactwg/react-native-new-architecture#guides
-/docs/the-new-architecture/pillars-fabric-components                https://github.com/reactwg/react-native-new-architecture#guides
-/docs/the-new-architecture/pillars-codegen                          https://github.com/reactwg/react-native-new-architecture#guides
-/docs/the-new-architecture/cxx-cxxturbomodules                      https://github.com/reactwg/react-native-new-architecture#guides
-/docs/the-new-architecture/the-new-architecture/cxx-custom-types    https://github.com/reactwg/react-native-new-architecture#guides
-/docs/the-new-architecture/backward-compatibility                   https://github.com/reactwg/react-native-new-architecture#guides
-/docs/the-new-architecture/backward-compatibility-turbomodules      https://github.com/reactwg/react-native-new-architecture#guides
-/docs/the-new-architecture/backward-compatibility-fabric-components https://github.com/reactwg/react-native-new-architecture#guides
-/docs/new-architecture-intro                                        https://github.com/reactwg/react-native-new-architecture#guides
-/docs/new-architecture-library-intro                                https://github.com/reactwg/react-native-new-architecture#guides
-/docs/new-architecture-library-android                              https://github.com/reactwg/react-native-new-architecture#guides
-/docs/new-architecture-library-ios                                  https://github.com/reactwg/react-native-new-architecture#guides
-/docs/new-architecture-app-intro                                    https://github.com/reactwg/react-native-new-architecture#guides
-/docs/react-18-and-react-native                                     https://github.com/reactwg/react-native-new-architecture#guides
-/docs/new-architecture-troubleshooting                              https://github.com/reactwg/react-native-new-architecture#guides
-/docs/new-architecture-appendix                                     https://github.com/reactwg/react-native-new-architecture#guides
-
-/docs/:version/the-new-architecture/why                             /docs/the-new-architecture/landing-page
+/docs/:version/the-new-architecture/landing-page                    /docs/next/the-new-architecture/landing-page
+/docs/:version/the-new-architecture/why                             /docs/next/the-new-architecture/landing-page
 /docs/:version/the-new-architecture/use-app-template                https://github.com/reactwg/react-native-new-architecture#guides
 /docs/:version/the-new-architecture/pillars                         https://github.com/reactwg/react-native-new-architecture#guides
 /docs/:version/the-new-architecture/pillars-turbomodules            https://github.com/reactwg/react-native-new-architecture#guides

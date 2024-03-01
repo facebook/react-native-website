@@ -30,7 +30,7 @@ Measuring and placing a tooltip above a view allows us to showcase what synchron
 
 In the current architecture, we use `onLayout` to get the measurements of the view and then update the positioning of the tooltip based on where the view is.
 
-```js
+```jsx
 function ViewWithTooltip() {
   // ...
 
@@ -56,7 +56,7 @@ function ViewWithTooltip() {
 
 With the New Architecture, we can use [`useLayoutEffect`](https://react.dev/reference/react/useLayoutEffect) to synchronously measure and apply layout updates in a single commit, avoiding the visual "jump".
 
-```js
+```jsx
 function ViewWithTooltip() {
   // ...
 
@@ -128,7 +128,7 @@ We can build on the previous example to showcase how transitions can interrupt i
 
 We wrap the tile number state update with `startTransition` to indicate that rendering the tiles can be interrupted. `startTransition` also provides a `isPending` flag to tell us when the transition is complete.
 
-```js
+```jsx
 function TileSlider({value, onValueChange}) {
   const [isPending, startTransition] = useTransition();
 
@@ -219,5 +219,7 @@ Our guidance is as follows
 
 - For most production apps, we do _not_ recommend enabling the New Architecture today. Waiting for the official will offer the best experience.
 - If you maintain a React Native library, we recommend enabling it and verifying your use cases are covered. You can find the [instructions here](https://github.com/reactwg/react-native-new-architecture#guides).
+
+### Enable the New Architecture
 
 If you are interested in dogfooding the New Architecture experience, you can find [instructions](https://github.com/reactwg/react-native-new-architecture/blob/main/docs/enable-apps.md) in our dedicated working group. The [New Architecture working group](https://github.com/reactwg/react-native-new-architecture) is a dedicated space for support and coordination for New Architecture adoption and where the team posts regular updates.
