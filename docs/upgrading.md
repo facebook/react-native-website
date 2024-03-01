@@ -21,10 +21,6 @@ You first need to select from and to which version you wish to upgrade, by defau
 
 💡 Major updates will show an "useful content" section on the top with links to help you out when upgrading.
 
-:::tip
-Or you can run the `npx react-native upgrade`, which will automatically check your current version and the latest version available and will show you the link to the Upgrade Helper page with the versions already selected.
-:::
-
 ### 2. Upgrade dependencies
 
 The first file that is shown is the `package.json`, it's good to update the dependencies that are showing in there. For example, if `react-native` and `react` appears as changes then you can install it in your project by running following commands:
@@ -52,21 +48,7 @@ yarn add react@{{REACT_VERSION}}
 
 ### 3. Upgrade your project files
 
-The new release may contain updates to other files that are generated when you run `npx react-native init`, those files are listed after the `package.json` in the Upgrade Helper page. If there aren't other changes then you only need to rebuild the project to continue developing.
-
-In case there are changes then you can either update them manually by copying and pasting from the changes in the page or you can do it with the React Native CLI upgrade command by running:
-
-```shell
-npx react-native upgrade
-```
-
-This will check your files against the latest template and perform the following:
-
-- If there is a new file in the template, it is created.
-- If a file in the template is identical to your file, it is skipped.
-- If a file is different in your project than the template, you will be prompted; you have options to keep your file or overwrite it with the template version.
-
-> Some upgrades won't be done automatically with the React Native CLI and require manual work, e.g. `0.28` to `0.29`, or `0.56` to `0.57`. Make sure to check the [release notes](https://github.com/facebook/react-native/releases) when upgrading so that you can identify any manual changes your particular project may require.
+The new release may contain updates to other files that are generated when you run `npx react-native init`, those files are listed after the `package.json` in the Upgrade Helper page. If there aren't other changes then you only need to rebuild the project to continue developing. In case there are changes you need to manually apply them into your project.
 
 ### Troubleshooting
 
