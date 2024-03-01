@@ -46,7 +46,9 @@ If you want to learn more about why we need this tool, you can read [this articl
 
 ### Xcode
 
-The easiest way to install Xcode is via the [Mac App Store](https://itunes.apple.com/us/app/xcode/id497799835?mt=12). Installing Xcode will also install the iOS Simulator and all the necessary tools to build your iOS app. Please use the latest version of Xcode.
+Please use the **latest version** of Xcode.
+
+The easiest way to install Xcode is via the [Mac App Store](https://itunes.apple.com/us/app/xcode/id497799835?mt=12). Installing Xcode will also install the iOS Simulator and all the necessary tools to build your iOS app.
 
 #### Command Line Tools
 
