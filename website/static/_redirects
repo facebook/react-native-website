@@ -11,6 +11,9 @@
 /docs/testing                   /contributing/how-to-run-and-write-tests
 /docs/understanding-cli         https://github.com/react-native-community/cli#react-native-cli
 
+# Adding this for testing
+/docs/:version/sourcemaps       https://github.com/reactwg/react-native-new-architecture#guides
+
 /contributing/how-to-contribute         /contributing/overview
 /releases/release-candidate-minor         /releases/release-branch-cut-and-rc0
 
