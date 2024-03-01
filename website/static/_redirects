@@ -1,7 +1,9 @@
 # Redirects from what the browser requests to what we serve
 
 # Renamed pages
-/docs/android-setup             /docs/getting-started
+
+# Just for testing
+/docs/android-setup             https://github.com/reactwg/react-native-new-architecture#guides
 /docs/building-for-apple-tv     /docs/building-for-tv
 /docs/building-from-source      /contributing/how-to-build-from-source
 /docs/contributing              /contributing/overview
@@ -15,7 +17,7 @@
 /releases/release-candidate-minor         /releases/release-branch-cut-and-rc0
 
 # Move New Architecture docs
-/docs/the-new-architecture/why                                      /docs/the-new-architecture/landing-page
+/docs/the-new-architecture/why      /docs/building-for-tv
 /docs/the-new-architecture/use-app-template                         https://github.com/reactwg/react-native-new-architecture#guides
 /docs/the-new-architecture/pillars                                  https://github.com/reactwg/react-native-new-architecture#guides
 /docs/the-new-architecture/pillars-turbomodules                     https://github.com/reactwg/react-native-new-architecture#guides
