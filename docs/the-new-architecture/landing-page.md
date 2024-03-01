@@ -96,9 +96,7 @@ function ViewWithTooltip() {
 
 The New Architecture adds support for concurrent rendering and features that have shipped in [React 18](https://react.dev/blog/2022/03/29/react-v18) and beyond. You can now use features like Suspense for data-fetching, Transitions, and other new React APIs in your React Native code, further conforming codebases and concepts between web and native React development.
 
-<!--alex ignore simply-->
-
-The concurrent renderer also brings out-of-the-box improvements like automatic batching which reduces re-renders in React, simply by enabling the New Architecture.
+The concurrent renderer also brings out-of-the-box improvements like automatic batching which reduces re-renders in React.
 
 <details>
 <summary>Example: Automatic Batching</summary>
