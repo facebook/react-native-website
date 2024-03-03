@@ -291,7 +291,7 @@ If the rounded border is not visible, try applying `overflow: 'hidden'` as well.
 
 ### `cursor` <div class="label ios">iOS</div>
 
-On iOS 17+, Setting this to `pointer` allows hover effects when a pointer (such as an Apple Pencil or trackpad on an iPad, or the users' gaze on an Apple Vision Pro) is over the view.
+On iOS 17+, Setting to `pointer` allows hover effects when a pointer (such as a trackpad or stylus on iOS, or the users' gaze on visionOS) is over the view.
 
 | Type                        |
 | ----------------------------|
