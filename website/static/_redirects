@@ -1,5 +1,8 @@
 # Redirects from what the browser requests to what we serve
 
+# Adding this for testing
+/docs/:version/sourcemaps       https://github.com/reactwg/react-native-new-architecture#guides
+
 # Renamed pages
 /docs/android-setup             /docs/getting-started
 /docs/building-for-apple-tv     /docs/building-for-tv
@@ -11,8 +14,6 @@
 /docs/testing                   /contributing/how-to-run-and-write-tests
 /docs/understanding-cli         https://github.com/react-native-community/cli#react-native-cli
 
-# Adding this for testing
-/docs/:version/sourcemaps       https://github.com/reactwg/react-native-new-architecture#guides
 
 /contributing/how-to-contribute         /contributing/overview
 /releases/release-candidate-minor         /releases/release-branch-cut-and-rc0
@@ -55,4 +56,5 @@
 /help         /community/overview
 
 # Latest version might be linked to directly and should redirect
-/docs/$LATEST_VERSION$/*  /docs/:splat
+# Try removing this 
+# /docs/$LATEST_VERSION$/*  /docs/:splat
