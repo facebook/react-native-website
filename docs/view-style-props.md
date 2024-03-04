@@ -294,9 +294,8 @@ If the rounded border is not visible, try applying `overflow: 'hidden'` as well.
 On iOS 17+, Setting to `pointer` allows hover effects when a pointer (such as a trackpad or stylus on iOS, or the users' gaze on visionOS) is over the view.
 
 | Type                        |
-| ----------------------------|
+| --------------------------- |
 | enum(`'auto'`, `'pointer'`) |
-
 
 ---
 
