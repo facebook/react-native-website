@@ -385,16 +385,6 @@ Reverses the direction of scroll. Uses scale transforms of `-1`.
 
 ---
 
-### `listKey`
-
-A unique identifier for this list. If there are multiple VirtualizedLists at the same level of nesting within another VirtualizedList, this key is necessary for virtualization to work properly.
-
-| Type   | Required |
-| ------ | -------- |
-| string | True     |
-
----
-
 ### `keyExtractor`
 
 ```tsx
