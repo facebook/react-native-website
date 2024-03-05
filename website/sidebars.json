@@ -72,8 +72,7 @@
       "build-speed",
       "optimizing-flatlist-configuration",
       "ram-bundles-inline-requires",
-      "profiling",
-      "profile-hermes"
+      "profiling"
     ],
     "JavaScript Runtime": ["javascript-environment", "timers", "hermes"],
     "Native Modules": [
