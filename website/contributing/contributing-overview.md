@@ -129,4 +129,4 @@ You can learn more about running and writing tests on the [How to Run and Write 
 
 ## Community Contributions
 
-Contributions to React Native are not limited to GitHub. You can help others by sharing your experience using React Native, whether that is through blog posts, presenting talks at conferences, or simply sharing your thoughts on Twitter and tagging @ReactNative.
+Contributions to React Native are not limited to GitHub. You can help others by sharing your experience using React Native, whether that is through blog posts, presenting talks at conferences, or simply sharing your thoughts on Twitter and tagging [@ReactNative](https://twitter.com/reactnative).
