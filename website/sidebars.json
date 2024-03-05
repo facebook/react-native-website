@@ -71,7 +71,7 @@
       "performance",
       "build-speed",
       "optimizing-flatlist-configuration",
-      "ram-bundles-inline-requires",
+      "optimizing-javascript-loading",
       "profiling",
       "profile-hermes"
     ],
