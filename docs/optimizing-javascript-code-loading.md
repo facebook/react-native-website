@@ -15,23 +15,6 @@ Hermes is the default engine for new React Native apps, and is highly optimized 
 Read more about using Hermes in React Native [here](./hermes).
 :::
 
-## Recommended: Avoid module side effects
-
-Most modules in a React app should not include top-level side effects, such as modifying global variables or subscribing to events outside of a component. Such side effects add to the amount of code that must be loaded at startup, and can conflict with optimization techniques like the ones described on this page.
-
-```tsx title="SideEffects.tsx"
-import Logger from './utils/Logger';
-
-// Side effect! This must be executed before React can even begin to render
-// the SplashScreen component, and can unexpectedly break code elsewhere in
-// your app if you change SplashScreen to be lazy-loaded, for example.
-global.logger = new Logger();
-
-export function SplashScreen() {
-  // ...
-}
-```
-
 ## Recommended: Lazy-load large components
 
 If a component with a lot of code/dependencies is not likely to be used when initially rendering your app, you can use React's [`lazy`](https://react.dev/reference/react/lazy) API to defer loading its code until it's rendered for the first time. Typically, you should consider lazy-loading "screen"-level components in your app, so that adding new screens to your app does not increase its startup time.
@@ -40,6 +23,23 @@ If a component with a lot of code/dependencies is not likely to be used when ini
 Read more about [lazy-loading components with Suspense
 ](https://react.dev/reference/react/lazy#suspense-for-code-splitting), including code examples, in React's documentation.
 :::
+
+### Tip: Avoid module side effects
+
+Lazy-loading components can change the behavior of your app if your component modules (or their dependencies) have _side effects_, such as modifying global variables or subscribing to events outside of a component. Most modules in React apps should not have any side effects.
+
+```tsx title="SideEffects.tsx"
+import Logger from './utils/Logger';
+
+// Side effect! This must be executed before React can even begin to render
+// the SplashScreen component, and can unexpectedly break code elsewhere in
+// your app if you later decide to lazy-load SplashScreen.
+global.logger = new Logger();
+
+export function SplashScreen() {
+  // ...
+}
+```
 
 ## Advanced: Call `require` inline
 
