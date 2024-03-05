@@ -17,7 +17,7 @@ Read more about using Hermes in React Native [here](./hermes).
 
 ## Recommended: Lazy-load large components
 
-If a component with a lot of code/dependencies is not likely to be used when initially rendering your app, you can use React's [`lazy`](https://react.dev/reference/react/lazy) API to defer loading its code until it's rendered for the first time. Typically, you should consider lazy-loading "screen"-level components in your app, so that adding new screens to your app does not increase its startup time.
+If a component with a lot of code/dependencies is not likely to be used when initially rendering your app, you can use React's [`lazy`](https://react.dev/reference/react/lazy) API to defer loading its code until it's rendered for the first time. Typically, you should consider lazy-loading screen-level components in your app, so that adding new screens to your app does not increase its startup time.
 
 :::info
 Read more about [lazy-loading components with Suspense
@@ -31,9 +31,9 @@ Lazy-loading components can change the behavior of your app if your component mo
 ```tsx title="SideEffects.tsx"
 import Logger from './utils/Logger';
 
-// Side effect! This must be executed before React can even begin to render
-// the SplashScreen component, and can unexpectedly break code elsewhere in
-// your app if you later decide to lazy-load SplashScreen.
+//  🚩 🚩 🚩 Side effect! This must be executed before React can even begin to
+// render the SplashScreen component, and can unexpectedly break code elsewhere
+// in your app if you later decide to lazy-load SplashScreen.
 global.logger = new Logger();
 
 export function SplashScreen() {
