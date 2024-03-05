@@ -59,12 +59,8 @@
         "items": ["accessibility"]
       }
     ],
-    "Debugging": [
-      "debugging"
-    ],
-    "Testing": [
-      "testing-overview"
-    ],
+    "Debugging": ["debugging"],
+    "Testing": ["testing-overview"],
     "Performance": [
       "performance",
       "build-speed",
@@ -84,64 +80,6 @@
       "native-components-android",
       "native-components-ios",
       "direct-manipulation"
-    ],
-    "The New Architecture": [
-      "the-new-architecture/landing-page",
-      "the-new-architecture/why",
-      "the-new-architecture/use-app-template",
-      {
-        "type": "category",
-        "label": "Pillars",
-        "collapsible": false,
-        "collapsed": false,
-        "items": [
-          "the-new-architecture/pillars",
-          "the-new-architecture/pillars-turbomodules",
-          "the-new-architecture/pillars-fabric-components",
-          "the-new-architecture/pillars-codegen"
-        ]
-      },
-      {
-        "type": "category",
-        "label": "Backward Compatibility",
-        "collapsible": false,
-        "collapsed": false,
-        "items": [
-          "the-new-architecture/backward-compatibility",
-          "the-new-architecture/backward-compatibility-turbomodules",
-          "the-new-architecture/backward-compatibility-fabric-components"
-        ]
-      }
-    ],
-    "Migration to the New Architecture": [
-      "new-architecture-intro",
-      {
-        "type": "category",
-        "label": "Supporting in your Library",
-        "collapsible": false,
-        "collapsed": false,
-        "items": [
-          "new-architecture-library-intro",
-          "new-architecture-library-android",
-          "new-architecture-library-ios"
-        ]
-      },
-      {
-        "type": "category",
-        "label": "Supporting in your App",
-        "collapsible": false,
-        "collapsed": false,
-        "items": [
-          "new-architecture-app-intro",
-          "new-architecture-app-modules-android",
-          "new-architecture-app-modules-ios",
-          "new-architecture-app-renderer-android",
-          "new-architecture-app-renderer-ios"
-        ]
-      },
-      "react-18-and-react-native",
-      "new-architecture-troubleshooting",
-      "new-architecture-appendix"
     ],
     "Android and iOS guides": [
       {
@@ -168,7 +106,8 @@
           "publishing-to-app-store"
         ]
       }
-    ]
+    ],
+    "Experimental": ["the-new-architecture/landing-page"]
   },
   "api": {
     "APIs": [

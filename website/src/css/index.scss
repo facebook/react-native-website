@@ -766,6 +766,11 @@ html[data-theme="dark"] .Section p a {
     grid-template-areas: "first" "last";
   }
 
+  .TwoColumns.TwoFigures {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "first" "last";
+  }
+
   .TwoColumns .column {
     padding: 0 4rem;
   }
@@ -774,6 +779,11 @@ html[data-theme="dark"] .Section p a {
 @media only screen and (max-width: 480px) {
   .TwoColumns .column {
     padding: 0 1.25rem;
+  }
+
+  .TwoColumns.TwoFigures {
+    grid-template-columns: 1fr;
+    grid-template-areas: "first" "last";
   }
 }
 
