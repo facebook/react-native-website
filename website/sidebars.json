@@ -74,7 +74,6 @@
       "optimizing-flatlist-configuration",
       "optimizing-javascript-loading",
       "profiling",
-      "profile-hermes"
     ],
     "JavaScript Runtime": ["javascript-environment", "timers", "hermes"],
     "Android and iOS guides": [
