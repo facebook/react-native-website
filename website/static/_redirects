@@ -14,7 +14,7 @@
 /contributing/how-to-contribute         /contributing/overview
 /releases/release-candidate-minor         /releases/release-branch-cut-and-rc0
 
-# Move New Architecture docs of all versions
+# Redirect New Architecture docs of all versions
 /docs/the-new-architecture/why                             /docs/next/the-new-architecture/landing-page
 /docs/the-new-architecture/use-app-template                https://github.com/reactwg/react-native-new-architecture#guides
 /docs/the-new-architecture/pillars                         https://github.com/reactwg/react-native-new-architecture#guides
@@ -34,9 +34,6 @@
 /docs/react-18-and-react-native                            https://github.com/reactwg/react-native-new-architecture#guides
 /docs/new-architecture-troubleshooting                     https://github.com/reactwg/react-native-new-architecture#guides
 /docs/new-architecture-appendix                            https://github.com/reactwg/react-native-new-architecture#guides
-
-# We do explicit versions because Netlify placeholders dont match periods
-# https://answers.netlify.com/t/placeholder-redirects-dont-support-periods/113543
 /docs/:version/the-new-architecture/landing-page                    /docs/next/the-new-architecture/landing-page
 /docs/:version/the-new-architecture/why                             /docs/next/the-new-architecture/landing-page
 /docs/:version/the-new-architecture/use-app-template                https://github.com/reactwg/react-native-new-architecture#guides

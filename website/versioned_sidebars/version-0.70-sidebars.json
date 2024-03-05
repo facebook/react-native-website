@@ -107,7 +107,7 @@
         ]
       }
     ],
-    "Experimental": [["the-new-architecture/landing-page"]]
+    "Experimental": ["the-new-architecture/landing-page"]
   },
   "api": {
     "APIs": [
