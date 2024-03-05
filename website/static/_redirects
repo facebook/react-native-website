@@ -22,8 +22,8 @@
 /docs/new-architecture-app-renderer-android  /docs/new-architecture-intro
 /docs/new-architecture-app-modules-ios       /docs/new-architecture-intro
 /docs/new-architecture-app-renderer-ios      /docs/new-architecture-intro
-/docs/ram-bundles-inline-requires            /docs/optimizing-javascript-code-loading
-/docs/next/ram-bundles-inline-requires            /docs/next/optimizing-javascript-code-loading
+/docs/ram-bundles-inline-requires            /docs/optimizing-javascript-loading
+/docs/next/ram-bundles-inline-requires       /docs/next/optimizing-javascript-loading
 
 # Architecture pages move to unversioned docs
 /docs/architecture-overview             /architecture/overview

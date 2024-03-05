@@ -71,7 +71,7 @@
       "performance",
       "build-speed",
       "optimizing-flatlist-configuration",
-      "optimizing-javascript-code-loading",
+      "optimizing-javascript-loading",
       "profiling",
       "profile-hermes"
     ],

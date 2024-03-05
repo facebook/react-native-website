@@ -1,6 +1,6 @@
 ---
-id: optimizing-javascript-code-loading
-title: Optimizing JavaScript code loading
+id: optimizing-javascript-loading
+title: Optimizing JavaScript loading
 ---
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
