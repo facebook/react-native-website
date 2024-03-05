@@ -42,7 +42,7 @@
 /docs/:version/the-new-architecture/pillars-fabric-components       https://github.com/reactwg/react-native-new-architecture#guides
 /docs/:version/the-new-architecture/pillars-codegen                 https://github.com/reactwg/react-native-new-architecture#guides
 /docs/:version/the-new-architecture/cxx-cxxturbomodules             https://github.com/reactwg/react-native-new-architecture#guides
-/docs/:version/the-new-architecture/the-new-architecture/cxx-custom-types https://github.com/reactwg/react-native-new-architecture#guides
+/docs/:version/the-new-architecture/cxx-custom-types https://github.com/reactwg/react-native-new-architecture#guides
 /docs/:version/the-new-architecture/backward-compatibility          https://github.com/reactwg/react-native-new-architecture#guides
 /docs/:version/the-new-architecture/backward-compatibility-turbomodules https://github.com/reactwg/react-native-new-architecture#guides
 /docs/:version/the-new-architecture/backward-compatibility-fabric-components https://github.com/reactwg/react-native-new-architecture#guides
