@@ -15,6 +15,7 @@
 /releases/release-candidate-minor         /releases/release-branch-cut-and-rc0
 
 # Redirect New Architecture docs of all versions
+# Note: We had to delete the older versions to get redirects to work
 /docs/the-new-architecture/why                             /docs/next/the-new-architecture/landing-page
 /docs/the-new-architecture/use-app-template                https://github.com/reactwg/react-native-new-architecture#guides
 /docs/the-new-architecture/pillars                         https://github.com/reactwg/react-native-new-architecture#guides
