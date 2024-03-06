@@ -15,6 +15,7 @@
 /releases/release-candidate-minor         /releases/release-branch-cut-and-rc0
 
 # Redirect New Architecture docs of all versions
+# Note: We had to delete the older versions to get redirects to work
 /docs/the-new-architecture/why                             /docs/next/the-new-architecture/landing-page
 /docs/the-new-architecture/use-app-template                https://github.com/reactwg/react-native-new-architecture#guides
 /docs/the-new-architecture/pillars                         https://github.com/reactwg/react-native-new-architecture#guides
@@ -59,10 +60,10 @@
 /blog/2021/03/11/version-0.64   /blog/2021/03/12/version-0.64
 
 # Removed pages
-/docs/new-architecture-app-modules-android   /docs/new-architecture-intro
-/docs/new-architecture-app-renderer-android  /docs/new-architecture-intro
-/docs/new-architecture-app-modules-ios       /docs/new-architecture-intro
-/docs/new-architecture-app-renderer-ios      /docs/new-architecture-intro
+/docs/new-architecture-app-modules-android   https://github.com/reactwg/react-native-new-architecture#guides
+/docs/new-architecture-app-renderer-android  https://github.com/reactwg/react-native-new-architecture#guides
+/docs/new-architecture-app-modules-ios       https://github.com/reactwg/react-native-new-architecture#guides
+/docs/new-architecture-app-renderer-ios      https://github.com/reactwg/react-native-new-architecture#guides
 /docs/ram-bundles-inline-requires            /docs/optimizing-javascript-loading
 /docs/next/ram-bundles-inline-requires       /docs/next/optimizing-javascript-loading
 

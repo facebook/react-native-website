@@ -32,7 +32,7 @@ As every discussion forum, we would like to stress once more the importance of b
 
 ### The Migration Guide
 
-After several rounds of review & feedback, we finally merged **the Migration Guide** (f.k.a. _the Playbook_). You can find it [on the website in the Guides section.](/docs/next/new-architecture-intro)
+After several rounds of review & feedback, we finally merged **the Migration Guide** (f.k.a. _the Playbook_). You can find it [on the New Architecture working group.](https://github.com/reactwg/react-native-new-architecture#guides)
 
 This Migration Guide will show you **how to create a custom Fabric component or a TurboModule** with a step-by-step approach. The guide will also show you how to **adapt your existing app or library** to use the New Architecture.
 
