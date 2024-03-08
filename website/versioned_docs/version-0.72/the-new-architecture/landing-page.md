@@ -3,6 +3,10 @@ id: landing-page
 title: About the New Architecture
 ---
 
+:::info
+If you are looking for the New Architecture guides, they have moved to the [working group](https://github.com/reactwg/react-native-new-architecture#guides).
+:::
+
 Since 2018, the React Native team has been redesigning the core internals of React Native to enable developers to create higher-quality experiences. As of 2024, this version of React Native has been proven at scale and powers production apps by Meta.
 
 The term _New Architecture_ refers to both the new framework architecture and the work to bring it to open source.
