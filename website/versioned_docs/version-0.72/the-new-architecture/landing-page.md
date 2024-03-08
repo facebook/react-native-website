@@ -217,7 +217,7 @@ The team plans to enable the New Architecture by default in an upcoming React Na
 
 Our guidance is as follows
 
-- For most production apps, we do _not_ recommend enabling the New Architecture today. Waiting for the official will offer the best experience.
+- For most production apps, we do _not_ recommend enabling the New Architecture today. Waiting for the official release will offer the best experience.
 - If you maintain a React Native library, we recommend enabling it and verifying your use cases are covered. You can find the [instructions here](https://github.com/reactwg/react-native-new-architecture#guides).
 
 ### Enable the New Architecture
