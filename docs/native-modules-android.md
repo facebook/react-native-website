@@ -291,9 +291,12 @@ Locate ReactNativeHost’s `getPackages()` method and add your package to the pa
 <TabItem value="kotlin">
 
 ```kotlin
-override fun getPackages() = PackageList(this).packages.apply {
-    add(MyAppPackage())
-}
+override fun getPackages(): List<ReactPackage> =
+    PackageList(this).packages.apply {
+        // Packages that cannot be autolinked yet can be added manually here, for example:
+        // add(MyReactNativePackage());
+        add(MyAppPackage())
+    }
 ```
 
 </TabItem>
