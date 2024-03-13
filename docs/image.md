@@ -94,9 +94,6 @@ You will need to add some optional modules in `android/app/build.gradle`, depend
 
 ```groovy
 dependencies {
-  // If your app supports Android versions before Ice Cream Sandwich (API level 14)
-  implementation 'com.facebook.fresco:animated-base-support:1.3.0'
-
   // For animated GIF support
   implementation 'com.facebook.fresco:animated-gif:3.1.3'
 
