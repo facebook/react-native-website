@@ -411,7 +411,7 @@ The maximum number of items to render in each incremental render batch. The more
 
 ### `onEndReached`
 
-Called once when the scroll position gets within within `onEndReachedThreshold` from the logical end of the list.
+Called once when the scroll position gets within `onEndReachedThreshold` from the logical end of the list.
 
 | Type                                        |
 | ------------------------------------------- |
@@ -463,7 +463,7 @@ Used to handle failures when scrolling to an index that has not been measured ye
 
 ### `onStartReached`
 
-Called once when the scroll position gets within within `onStartReachedThreshold` from the logical start of the list.
+Called once when the scroll position gets within `onStartReachedThreshold` from the logical start of the list.
 
 | Type                                          |
 | --------------------------------------------- |
