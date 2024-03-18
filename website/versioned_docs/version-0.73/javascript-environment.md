@@ -85,7 +85,7 @@ Many standard functions are also available on all the supported JavaScript runti
 #### Browser
 
 - [CommonJS `require`](https://nodejs.org/docs/latest/api/modules.html)
-- `md [console.{log, warn, error, info, trace, table, group, groupEnd}](https://developer.chrome.com/devtools/docs/console-api)`
+- `md [console.{log, warn, error, info, debug, trace, table, group, groupCollapsed, groupEnd}](https://developer.chrome.com/devtools/docs/console-api)`
 - [`XMLHttpRequest`, `fetch`](network.md#content)
 - [`{set, clear}{Timeout, Interval, Immediate}, {request, cancel}AnimationFrame`](timers.md#content)
 

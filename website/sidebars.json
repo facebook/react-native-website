@@ -66,14 +66,12 @@
       "debugging-release-builds",
       "other-debugging-methods"
     ],
-    "Testing": [
-      "testing-overview"
-    ],
+    "Testing": ["testing-overview"],
     "Performance": [
       "performance",
       "build-speed",
       "optimizing-flatlist-configuration",
-      "ram-bundles-inline-requires",
+      "optimizing-javascript-loading",
       "profiling",
       "profile-hermes"
     ],
@@ -82,68 +80,13 @@
       "native-modules-intro",
       "native-modules-android",
       "native-modules-ios",
-      "native-modules-setup"
+      "native-modules-setup",
+      "local-library-setup"
     ],
     "Native Components": [
       "native-components-android",
       "native-components-ios",
       "direct-manipulation"
-    ],
-    "The New Architecture": [
-      "the-new-architecture/landing-page",
-      "the-new-architecture/why",
-      "the-new-architecture/use-app-template",
-      {
-        "type": "category",
-        "label": "Pillars",
-        "collapsible": false,
-        "collapsed": false,
-        "items": [
-          "the-new-architecture/pillars",
-          "the-new-architecture/pillars-turbomodules",
-          "the-new-architecture/pillars-fabric-components",
-          "the-new-architecture/pillars-codegen"
-        ]
-      },
-      {
-        "type": "category",
-        "label": "C++",
-        "collapsible": false,
-        "collapsed": false,
-        "items": [
-          "the-new-architecture/cxx-cxxturbomodules",
-          "the-new-architecture/cxx-custom-types"
-        ]
-      },
-      {
-        "type": "category",
-        "label": "Backward Compatibility",
-        "collapsible": false,
-        "collapsed": false,
-        "items": [
-          "the-new-architecture/backward-compatibility",
-          "the-new-architecture/backward-compatibility-turbomodules",
-          "the-new-architecture/backward-compatibility-fabric-components"
-        ]
-      }
-    ],
-    "Migration to the New Architecture": [
-      "new-architecture-intro",
-      {
-        "type": "category",
-        "label": "Supporting in your Library",
-        "collapsible": false,
-        "collapsed": false,
-        "items": [
-          "new-architecture-library-intro",
-          "new-architecture-library-android",
-          "new-architecture-library-ios"
-        ]
-      },
-      "new-architecture-app-intro",
-      "react-18-and-react-native",
-      "new-architecture-troubleshooting",
-      "new-architecture-appendix"
     ],
     "Android and iOS guides": [
       {
@@ -171,7 +114,8 @@
           "publishing-to-app-store"
         ]
       }
-    ]
+    ],
+    "Experimental": ["the-new-architecture/landing-page"]
   },
   "api": {
     "APIs": [

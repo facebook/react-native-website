@@ -713,6 +713,8 @@ public void createCalendarEvent(String name, String location, Promise promise) {
 <TabItem value="kotlin">
 
 ```kotlin
+import com.facebook.react.bridge.Promise
+
 @ReactMethod
 fun createCalendarEvent(name: String, location: String, promise: Promise) {
     try {
