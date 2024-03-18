@@ -259,7 +259,7 @@ import NativeCalendarModule from './NativeCalendarModule';
 NativeCalendarModule.createCalendarEvent('foo', 'bar');
 ```
 
-> Note this assumes that the place you are importing `CalendarModule` is in the same hierarchy as `CalendarModule.js`. Please update the relative import as necessary.
+> Note this assumes that the place you are importing `CalendarModule` is in the same hierarchy as `NativeCalendarModule.js`. Please update the relative import as necessary.
 
 ### Argument Types
 
