@@ -379,7 +379,7 @@ module.exports = {
             items: [
               {
                 label: 'ReactJS',
-                href: 'https://reactjs.org/',
+                href: 'https://react.dev/',
               },
               {
                 label: 'Privacy Policy',
