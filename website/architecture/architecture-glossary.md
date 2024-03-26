@@ -50,4 +50,4 @@ A _React Shadow Tree_ is created by the Fabric Renderer and consists of React Sh
 
 ## Yoga Tree (and Yoga Node)
 
-The _Yoga Tree_ is used by [Yoga](https://yogalayout.com/) to calculate layout information for a React Shadow Tree. Each React Shadow Node typically creates a _Yoga Node_ because React Native employs Yoga to calculate layout. However, this is not a hard requirement. Fabric can also create React Shadow Nodes that do not use Yoga; the implementation of each React Shadow Node determines how to calculate layout.
+The _Yoga Tree_ is used by [Yoga](https://www.yogalayout.dev/) to calculate layout information for a React Shadow Tree. Each React Shadow Node typically creates a _Yoga Node_ because React Native employs Yoga to calculate layout. However, this is not a hard requirement. Fabric can also create React Shadow Nodes that do not use Yoga; the implementation of each React Shadow Node determines how to calculate layout.
