@@ -133,6 +133,7 @@ function TwitterButton({accountName}) {
   return (
     <a
       href={`https://twitter.com/intent/follow?screen_name=${accountName}&region=follow_link`}
+      target="_blank"
       className="twitter-follow-button">
       <div className="icon" />
       Follow @{accountName}

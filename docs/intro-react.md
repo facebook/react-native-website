@@ -337,7 +337,7 @@ const Cat = props => {
           setIsHungry(false);
         }}
         disabled={!isHungry}
-        title={isHungry ? 'Pour me some milk, please!' : 'Thank you!'}
+        title={isHungry ? 'Give me some food, please!' : 'Thank you!'}
       />
     </View>
   );
@@ -379,7 +379,7 @@ const Cat = (props: CatProps) => {
           setIsHungry(false);
         }}
         disabled={!isHungry}
-        title={isHungry ? 'Pour me some milk, please!' : 'Thank you!'}
+        title={isHungry ? 'Give me some food, please!' : 'Thank you!'}
       />
     </View>
   );
@@ -441,7 +441,7 @@ Now, when someone presses the button, `onPress` will fire, calling the `setIsHun
 <Button
   //..
   disabled={!isHungry}
-  title={isHungry ? 'Pour me some milk, please!' : 'Thank you!'}
+  title={isHungry ? 'Give me some food, please!' : 'Thank you!'}
 />
 ```
 
