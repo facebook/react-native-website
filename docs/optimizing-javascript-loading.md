@@ -76,10 +76,10 @@ export default function Optimize() {
 
   return (
     <View style={{marginTop: 20}}>
-      <TouchableOpacity onPress={this.didPress}>
+      <TouchableOpacity onPress={didPress}>
         <Text>Load</Text>
       </TouchableOpacity>
-      {this.state.needsExpensive ? <VeryExpensive /> : null}
+      {needsExpensive ? <VeryExpensive /> : null}
     </View>
   );
 }
@@ -104,10 +104,10 @@ export default function Optimize() {
 
   return (
     <View style={{marginTop: 20}}>
-      <TouchableOpacity onPress={this.didPress}>
+      <TouchableOpacity onPress={didPress}>
         <Text>Load</Text>
       </TouchableOpacity>
-      {this.state.needsExpensive ? <VeryExpensive /> : null}
+      {needsExpensive ? <VeryExpensive /> : null}
     </View>
   );
 }
