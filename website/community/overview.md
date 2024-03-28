@@ -3,7 +3,7 @@ title: Overview
 description: The React Native Community
 ---
 
-React Native is a widely used technology, empowered by a massive community of [hundreds of thousands of developers](https://github.com/facebook/react-native/stargazers) and downloaded [over 1 million times](https://www.npmjs.com/package/react-native) every week.
+React Native is a widely used technology, empowered by a massive community of [hundreds of thousands of developers](https://github.com/facebook/react-native/stargazers) and downloaded [over 2 million times](https://www.npmjs.com/package/react-native) every week.
 
 In this section you will find listed ways you can also be part of the React Native-related communities, depending on your wants and needs:
 
