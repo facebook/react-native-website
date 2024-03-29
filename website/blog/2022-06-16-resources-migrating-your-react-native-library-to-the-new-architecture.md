@@ -25,9 +25,9 @@ In this post, we will dig deeper into these resources and explain in more detail
 
 ### Documentation
 
-In the past 6 months, we’ve added a [guide on adopting the New Architecture](/docs/new-architecture-intro) and an [architecture deep-dive](/architecture/overview) on Fabric. We plan to expand this to include more guides and documentation around creating TurboModules, understanding CodeGen, and more. We plan to have updates to share by the 0.70 release.
+In the past 6 months, we’ve added a [guide on adopting the New Architecture](https://github.com/reactwg/react-native-new-architecture#guides) and an [architecture deep-dive](/architecture/overview) on Fabric. We plan to expand this to include more guides and documentation around creating TurboModules, understanding CodeGen, and more. We plan to have updates to share by the 0.70 release.
 
-Currently, the **New Architecture** guide covers how to [migrate your app](/docs/new-architecture-app-intro) and [your libraries](/docs/new-architecture-library-intro) to support the New Architecture properly.
+Currently, the **New Architecture** guide covers how to [migrate your app](https://github.com/reactwg/react-native-new-architecture/blob/main/docs/enable-apps.md) and [your libraries](https://github.com/reactwg/react-native-new-architecture/blob/main/docs/enable-libraries-prerequisites.md) to support the New Architecture properly.
 
 If you are interested in the evolution of this guide, or have feedback, you can follow along on [this](https://github.com/facebook/react-native-website/pull/3037) pull request.
 
