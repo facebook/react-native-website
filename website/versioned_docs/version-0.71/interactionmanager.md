@@ -365,7 +365,6 @@ export default App;
 </TabItem>
 </Tabs>
 
-
 # Reference
 
 ## Methods
