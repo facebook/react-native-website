@@ -183,7 +183,6 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-> **Note**: `InteractionManager.runAfterInteractions()` is not working properly on web. It triggers immediately without waiting until the interaction is finished.
 
 # Reference
 
