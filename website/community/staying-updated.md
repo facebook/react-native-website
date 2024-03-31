@@ -48,6 +48,7 @@ Listed here are but a few of the main React Native related conferences, with lin
 
 #### [AppJS](https://appjs.co/), organized by [Software Mansion](https://swmansion.com/)
 
+- [AppJS 2023](https://www.youtube.com/playlist?list=PLSk21zn8fFZCfYEMpSqQOHMgyNKc8B7_s)
 - [AppJS 2022](https://www.youtube.com/playlist?list=PLSk21zn8fFZC3UIvyRjDb4Uog3244BwM6)
 - [AppJS 2019](https://www.youtube.com/playlist?list=PLSk21zn8fFZBKEJxmkdSzzmMJrxkfyjph)
 
