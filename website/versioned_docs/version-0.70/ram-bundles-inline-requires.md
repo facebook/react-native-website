@@ -18,46 +18,35 @@ import React, {Component} from 'react';
 import {Text} from 'react-native';
 // ... import some very expensive modules
 
-// You may want to log at the file level to verify when this is happening
-console.log('VeryExpensive component loaded');
-
-export default class VeryExpensive extends Component {
-  // lots and lots of code
-  render() {
-    return <Text>Very Expensive Component</Text>;
-  }
+export default function VeryExpensive() {
+  // ... lots and lots of rendering logic
+  return <Text>Very Expensive Component</Text>;
 }
 ```
 
 ```js title='Optimized.js'
-import React, {Component} from 'react';
+import {useCallback, useState} from 'react';
 import {TouchableOpacity, View, Text} from 'react-native';
-
+// Usually we would write a static import:
+// import VeryExpensive from './VeryExpensive';
 let VeryExpensive = null;
-
-export default class Optimized extends Component {
-  state = {needsExpensive: false};
-
-  didPress = () => {
+export default function Optimize() {
+  const [needsExpensive, setNeedsExpensive] = useState(false);
+  const didPress = useCallback(() => {
     if (VeryExpensive == null) {
       VeryExpensive = require('./VeryExpensive').default;
     }
+    setNeedsExpensive(true);
+  }, []);
 
-    this.setState(() => ({
-      needsExpensive: true,
-    }));
-  };
-
-  render() {
-    return (
-      <View style={{marginTop: 20}}>
-        <TouchableOpacity onPress={this.didPress}>
-          <Text>Load</Text>
-        </TouchableOpacity>
-        {this.state.needsExpensive ? <VeryExpensive /> : null}
-      </View>
-    );
-  }
+  return (
+    <View style={{marginTop: 20}}>
+      <TouchableOpacity onPress={didPress}>
+        <Text>Load</Text>
+      </TouchableOpacity>
+      {needsExpensive ? <VeryExpensive /> : null}
+    </View>
+  );
 }
 ```
 
