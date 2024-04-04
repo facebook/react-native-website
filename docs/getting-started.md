@@ -23,6 +23,8 @@ Run the following command to create a new React Native project called "AwesomePr
 <TabItem value="npm">
 
 ```shell
+npm i expo-template-blank
+
 npx create-expo-app AwesomeProject
 
 cd AwesomeProject
