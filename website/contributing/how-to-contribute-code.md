@@ -31,7 +31,7 @@ Now you are set up to run several commands:
 - `yarn test-typescript` runs the [TypeScript](https://www.typescriptlang.org/) typechecks.
 - `yarn test-ios` runs the iOS test suite (macOS required).
 - `yarn build` builds all configured packages — in general, this command only needs to be run by CI ahead of publishing.
-    - Packages which require a build are configured in [scripts/build/config.js](https://github.com/facebook/react-native/blob/main/scripts/build/config.js).
+  - Packages which require a build are configured in [scripts/build/config.js](https://github.com/facebook/react-native/blob/main/scripts/build/config.js).
 
 ## Testing your Changes
 
@@ -78,7 +78,7 @@ Code-level contributions to React Native generally come in the form of [a pull r
 
 If all goes well, your pull request will be merged. If it is not merged, maintainers will do their best to explain their reasoning.
 
-If this is your first time sending a pull request, we have created a [step-by-step guide to help you get started](/contributing/how-to-open-a-pull-request). For more detailed information on how pull requests are handled, see the [Managing Pull Requests page](Managing-Pull-Requests).
+If this is your first time sending a pull request, we have created a [step-by-step guide to help you get started](/contributing/how-to-open-a-pull-request). For more detailed information on how pull requests are handled, see the [Managing Pull Requests page](managing-pull-requests).
 
 ### Contributor License Agreement
 

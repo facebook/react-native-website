@@ -209,6 +209,8 @@ export default App;
 </TabItem>
 </Tabs>
 
+---
+
 # Reference
 
 ## Props
