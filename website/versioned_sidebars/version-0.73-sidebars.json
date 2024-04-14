@@ -1,7 +1,7 @@
 {
   "docs": {
     "The Basics": [
-      "getting-started",
+      "introduction",
       "intro-react-native-components",
       "intro-react",
       "handling-text-input",
@@ -12,7 +12,7 @@
       "more-resources"
     ],
     "Environment setup": [
-      "environment-setup",
+      "get-started",
       "get-started-without-a-framework",
       "integration-with-existing-apps",
       "integration-with-android-fragment",
