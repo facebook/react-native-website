@@ -421,14 +421,14 @@ You have built a great app using React Native, and you are now itching to releas
 
 [//]: # 'Windows, iOS'
 
-> A Mac is required in order to build your app for iOS devices. Alternatively, you can refer to our [environment setup guide](environment-setup) to learn how to build your app using Expo CLI, which will allow you to run your app using the Expo client app.
+> A Mac is required in order to build your app for iOS devices. Alternatively, you can refer to our [get started](get-started) guide to learn how to build your app using Expo CLI, which will allow you to run your app using the Expo Go app.
 
 </TabItem>
 <TabItem value="linux">
 
 [//]: # 'Linux, iOS'
 
-> A Mac is required in order to build your app for iOS devices. Alternatively, you can refer to our [environment setup guide](environment-setup) to learn how to build your app using Expo CLI, which will allow you to run your app using the Expo client app.
+> A Mac is required in order to build your app for iOS devices. Alternatively, you can refer to our [get started](get-started) guide to learn how to build your app using Expo CLI, which will allow you to run your app using the Expo Go app.
 
 </TabItem>
 </Tabs>

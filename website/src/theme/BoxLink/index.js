@@ -8,7 +8,7 @@
 import React from 'react';
 import styles from './styles.module.css';
 
-export default function ExternalLink({href, children}) {
+export default function BoxLink({href, children}) {
   return (
     <a href={href} target="_blank" referrerPolicy="origin">
       <div className={styles.container}>

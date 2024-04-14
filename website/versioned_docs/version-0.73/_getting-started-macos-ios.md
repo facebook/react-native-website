@@ -1,5 +1,5 @@
 import RemoveGlobalCLI from './\_remove-global-cli.md';
-import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+import BoxLink from '@site/src/theme/BoxLink';
 
 ## Installing dependencies
 
@@ -102,81 +102,8 @@ export NVM_DIR="$HOME/.nvm"
 You might also want to ensure that all "shell script build phase" of your Xcode project, is using `/bin/zsh` as its shell.
 :::
 
-## Running your React Native application
-
-### Step 1: Start Metro
-
-[**Metro**](https://facebook.github.io/metro/) is the JavaScript build tool for React Native. To start the Metro development server, run the following from your project folder:
-
-<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
-<TabItem value="npm">
-
-```shell
-npm start
-```
-
-</TabItem>
-<TabItem value="yarn">
-
-```shell
-yarn start
-```
-
-</TabItem>
-</Tabs>
-
-:::note
-If you're familiar with web development, Metro is similar to bundlers such as Vite and webpack, but is designed end-to-end for React Native. For instance, Metro uses [Babel](https://babel.dev/) to transform syntax such as JSX into executable JavaScript.
-:::
-
-### Step 2: Start your application
-
-Let Metro Bundler run in its own terminal. Open a new terminal inside your React Native project folder. Run the following:
-
-<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
-<TabItem value="npm">
-
-```shell
-npm run ios
-```
-
-</TabItem>
-<TabItem value="yarn">
-
-```shell
-yarn ios
-```
-
-</TabItem>
-</Tabs>
-
-You should see your new app running in the iOS Simulator shortly.
-
-![AwesomeProject on iOS](/docs/assets/GettingStartediOSSuccess.png)
-
-This is one way to run your app. You can also run it directly from within Xcode.
-
-> If you can't get this to work, see the [Troubleshooting](troubleshooting.md) page.
-
-### Running on a device
-
-The above command will automatically run your app on the iOS Simulator by default. If you want to run the app on an actual physical iOS device, please follow the instructions [here](running-on-device.md).
-
-### Modifying your app
-
-Now that you have successfully run the app, let's modify it.
-
-- Open `App.tsx` in your text editor of choice and edit some lines.
-- Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-### That's it!
-
-Congratulations! You've successfully run and modified your first React Native app.
-
-<center><img src="/docs/assets/GettingStartedCongratulations.png" width="150"></img></center>
-
 ## Now what?
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](integration-with-existing-apps.md).
+Now, it's time to run your app.
 
-If you're curious to learn more about React Native, check out the [Introduction to React Native](getting-started).
+<BoxLink href="running-your-application">Run Your React Native Application</BoxLink>

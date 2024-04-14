@@ -115,13 +115,13 @@ function HomeCallToAction() {
     <>
       <ActionButton
         type="primary"
-        href={useBaseUrl('docs/environment-setup')}
+        href={useBaseUrl('docs/get-started')}
         target="_self">
         Get started
       </ActionButton>
       <ActionButton
         type="secondary"
-        href={useBaseUrl('docs/getting-started')}
+        href={useBaseUrl('docs/introduction')}
         target="_self">
         Learn the basics
       </ActionButton>
