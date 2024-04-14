@@ -4,6 +4,7 @@ title: Get Started with React Native
 hide_table_of_contents: true
 ---
 
+import PlatformSupport from '@site/src/theme/PlatformSupport';
 import BoxLink from '@site/src/theme/BoxLink';
 
 **React Native allows developers who know React to create genuine native apps. At the same time, native developers can use React Native to gain parity between native platforms by writing common features once.**
@@ -28,6 +29,8 @@ If your app has unusual constraints that are not served well by a Framework, or 
 </details>
 
 ## Start a new React Native project with Expo
+
+<PlatformSupport platforms={['android', 'ios', 'tv', 'web']} />
 
 Expo is a production-grade React Native Framework. Expo provides developer tooling that makes developing apps easier, such as file-based routing, a standard library of native modules, and much more.
 
