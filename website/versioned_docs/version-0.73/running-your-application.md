@@ -77,4 +77,4 @@ Congratulations! You've successfully run and modified your first React Native ap
 
 - If you want to add this new React Native code to an existing application, check out the [Integration guide](integration-with-existing-apps.md).
 
-If you're curious to learn more about React Native, check out the [Introduction to React Native](introduction).
+If you're curious to learn more about React Native, check out the [Introduction to React Native](getting-started).

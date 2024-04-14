@@ -14,10 +14,6 @@
 /contributing/how-to-contribute         /contributing/overview
 /releases/release-candidate-minor         /releases/release-branch-cut-and-rc0
 
-# Redirect to new getting started docs
-/docs/getting-started    /docs/introduction
-/docs/environment-setup  /docs/get-started
-
 # Redirect New Architecture docs of all versions
 # Note: We had to delete the older versions to get redirects to work
 /docs/the-new-architecture/why                             /docs/next/the-new-architecture/landing-page

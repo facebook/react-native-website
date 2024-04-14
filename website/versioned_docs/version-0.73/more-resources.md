@@ -7,7 +7,7 @@ There’s always more to learn: developer workflows, shipping to app stores, int
 
 ## Where to go from here
 
-- [Get started with React Native](get-started)
+- [Get started with React Native](environment-setup)
 - [Set up your development workflow](running-on-device)
 - [Design and layout your app](flexbox)
 - [Debug your app](debugging)
