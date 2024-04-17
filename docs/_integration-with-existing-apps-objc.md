@@ -97,7 +97,7 @@ brew install cocoapods
 
 ## Adding React Native to your app
 
-Assume the [app for integration](https://github.com/JoelMarcey/iOS-2048) is a [2048](https://en.wikipedia.org/wiki/2048_%28video_game%29) game. Here is what the main menu of the native application looks like without React Native.
+Assume the [app for integration](https://github.com/austinzheng/iOS-2048) is a [2048](https://en.wikipedia.org/wiki/2048_%28video_game%29) game. Here is what the main menu of the native application looks like without React Native.
 
 ![Before RN Integration](/docs/assets/react-native-existing-app-integration-ios-before.png)
 
