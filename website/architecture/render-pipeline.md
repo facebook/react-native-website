@@ -188,7 +188,7 @@ After React creates the new _React Element Tree_ and _React Shadow Tree_, it mus
 
 - **Tree Promotion (Next Tree → Rendered Tree)**: This step atomically promotes the “next tree” to “previously rendered tree” so that the next mount phase computes a diff against the proper tree.
 - **Tree Diffing:** This step computes the diff between the “previously rendered tree” (**T**) and the “next tree” (**T'**). The result is a list of atomic mutation operations to be performed on _host views_.
-  - In the above example, the operations consist of: `UpdateView(**Node 3'**, {backgroundColor: '“yellow“})`
+  - In the above example, the operations consist of: `UpdateView(**Node 3**, {backgroundColor: 'yellow'})`
     Diff can be calculated for any currently mounted tree with any new tree. The renderer can skip some intermediate versions of the tree.
 - **View Mounting**: This step applies the atomic mutation operations onto corresponding _host views_. In the above example, only the `backgroundColor` of **View 3** will be updated (to yellow).
 
