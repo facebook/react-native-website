@@ -132,7 +132,7 @@ export default Cat;
 
 You can think of curly braces as creating a portal into JS functionality in your JSX!
 
-> Because JSX is included in the React library, it won’t work if you don’t have `import React from 'react'` at the top of your file!
+> If you have React Native version 0.64 AND React Version 17 or later, you no longer __need__ to `import React from 'react'`,
 
 ## Custom Components
 
