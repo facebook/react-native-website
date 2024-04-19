@@ -132,7 +132,7 @@ export default Cat;
 
 You can think of curly braces as creating a portal into JS functionality in your JSX!
 
-> If you have React Native version 0.64 AND React Version 17 or later, you no longer __need__ to `import React from 'react'`,
+> If you have React Native version 0.64 AND React Version 17 or later, you no longer **need**to `import React from 'react'`,
 
 ## Custom Components
 
