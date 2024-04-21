@@ -1,6 +1,3 @@
-import RemoveGlobalCLI from './\_remove-global-cli.md';
-import BoxLink from '@site/src/theme/BoxLink';
-
 <h2>Installing dependencies</h2>
 
 You will need Node, the React Native command line interface, a JDK, and Android Studio.

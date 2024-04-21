@@ -416,4 +416,4 @@ Now, create a release build of your native app from within Android Studio as usu
 
 At this point you can continue developing your app as usual. Refer to our [debugging](debugging) and [deployment](running-on-device) docs to learn more about working with React Native.
 
-[metro]: https://facebook.github.io/metro/
+[metro]: https://metrobundler.dev/

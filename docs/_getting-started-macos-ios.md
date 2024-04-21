@@ -1,6 +1,3 @@
-import RemoveGlobalCLI from './\_remove-global-cli.md';
-import BoxLink from '@site/src/theme/BoxLink';
-
 ## Installing dependencies
 
 You will need Node, Watchman, the React Native command line interface, Xcode and CocoaPods.
