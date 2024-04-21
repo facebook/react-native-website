@@ -8,90 +8,111 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import constants from '@site/core/TabsConstants';
 
-import GuideLinuxAndroid from './\_getting-started-linux-android.md';
-import GuideMacOSAndroid from './\_getting-started-macos-android.md';
-import GuideWindowsAndroid from './\_getting-started-windows-android.md';
-import GuideMacOSIOS from './\_getting-started-macos-ios.md';
+import RemoveGlobalCLI from './\_remove-global-cli.md';
 
 If you have constraints that are not served well by a Framework, or you prefer to write your own Framework, you can create a React Native app without using a Framework.
 
-:::note
-This guide requires Android Studio or Xcode. If you already have one of these programs installed, you should be able to get up and running within a few minutes. If they are not installed, you should expect to spend about an hour installing and configuring them.
+To do so, you'll first need to [set up your environment](set-up-your-environment). Once you're set up, continue with the steps below to create an application and start developing.
+
+### Step 1: Creating a new application
+
+<RemoveGlobalCLI />
+
+You can use [React Native Community CLI](https://github.com/react-native-community/cli) to generate a new project. Let's create a new React Native project called "AwesomeProject":
+
+```shell
+npx react-native@latest init AwesomeProject
+```
+
+This is not necessary if you are integrating React Native into an existing application, or if you've installed [Expo](https://docs.expo.dev/bare/installing-expo-modules/) in your project, or if you're adding Android support to an existing React Native project (see [Integration with Existing Apps](integration-with-existing-apps.md)). You can also use a third-party CLI to init your React Native app, such as [Ignite CLI](https://github.com/infinitered/ignite).
+
+:::info
+
+If you are having trouble with iOS, try to reinstall the dependencies by running:
+
+1. `cd ios` to navigate to the `ios` folder.
+2. `bundle install` to install [Bundler](https://bundler.io/)
+3. `bundle exec pod install` to install the iOS dependencies managed by CocoaPods.
+
 :::
 
-The instructions are a bit different depending on your operating system, and whether you want to start developing for iOS or Android. If you want to develop for both Android and iOS, that's fine - you can pick one to start with, since the setup is a bit different.
+#### [Optional] Using a specific version or template
 
-#### Development OS
+If you want to start a new project with a specific React Native version, you can use the `--version` argument:
 
-<Tabs groupId="os" queryString defaultValue={constants.defaultOs} values={constants.oses} className="pill-tabs">
-<TabItem value="macos">
+```shell
+npx react-native@X.XX.X init AwesomeProject --version X.XX.X
+```
 
-#### Target OS
+You can also start a project with a custom React Native template with the `--template` argument.
 
-<Tabs groupId="platform" queryString defaultValue={constants.defaultPlatform} values={constants.platforms} className="pill-tabs">
-<TabItem value="android">
+### Step 2: Start Metro
 
-[//]: # 'macOS, Android'
+[**Metro**](https://metrobundler.dev/) is the JavaScript build tool for React Native. To start the Metro development server, run the following from your project folder:
 
-<GuideMacOSAndroid/>
+<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<TabItem value="npm">
 
-</TabItem>
-<TabItem value="ios">
-
-[//]: # 'macOS, iOS'
-
-<GuideMacOSIOS/>
+```shell
+npm start
+```
 
 </TabItem>
-</Tabs>
+<TabItem value="yarn">
 
-</TabItem>
-<TabItem value="windows">
-
-#### Target OS
-
-<Tabs groupId="platform" queryString defaultValue={constants.defaultPlatform} values={constants.platforms} className="pill-tabs">
-<TabItem value="android">
-
-[//]: # 'Windows, Android'
-
-<GuideWindowsAndroid/>
-
-</TabItem>
-<TabItem value="ios">
-
-[//]: # 'Windows, iOS'
-
-## Unsupported
-
-> A Mac is required to build projects with native code for iOS. You can follow the **Expo Go Quickstart** to learn how to build your app using Expo instead.
+```shell
+yarn start
+```
 
 </TabItem>
 </Tabs>
 
-</TabItem>
-<TabItem value="linux">
+:::note
+If you're familiar with web development, Metro is similar to bundlers such as Vite and webpack, but is designed end-to-end for React Native. For instance, Metro uses [Babel](https://babel.dev/) to transform syntax such as JSX into executable JavaScript.
+:::
 
-#### Target OS
+### Step 3: Start your application
 
-<Tabs groupId="platform" queryString defaultValue={constants.defaultPlatform} values={constants.platforms} className="pill-tabs">
-<TabItem value="android">
+Let Metro Bundler run in its own terminal. Open a new terminal inside your React Native project folder. Run the following:
 
-[//]: # 'Linux, Android'
+<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<TabItem value="npm">
 
-<GuideLinuxAndroid/>
-
-</TabItem>
-<TabItem value="ios">
-
-[//]: # 'Linux, iOS'
-
-## Unsupported
-
-> A Mac is required to build projects with native code for iOS. You can follow the **Expo Go Quickstart** to learn how to build your app using Expo instead.
+```shell
+npm run android
+```
 
 </TabItem>
-</Tabs>
+<TabItem value="yarn">
+
+```shell
+yarn android
+```
 
 </TabItem>
 </Tabs>
+
+If everything is set up correctly, you should see your new app running in your Android emulator shortly.
+
+This is one way to run your app - you can also run it directly from within Android Studio.
+
+> If you can't get this to work, see the [Troubleshooting](troubleshooting.md) page.
+
+### Step 4: Modifying your app
+
+Now that you have successfully run the app, let's modify it.
+
+- Open `App.tsx` in your text editor of choice and edit some lines.
+- Press the <kbd>R</kbd> key twice or select `Reload` from the Dev Menu (<kbd>Ctrl</kbd> + <kbd>M</kbd>) to see your changes!
+
+### That's it!
+
+Congratulations! You've successfully run and modified your first React Native app.
+
+<center><img src="/docs/assets/GettingStartedCongratulations.png" width="150"></img></center>
+
+### Now what?
+
+- If you want to add this new React Native code to an existing application, check out the [Integration guide](integration-with-existing-apps.md).
+
+If you're curious to learn more about React Native, check out the [Introduction to React Native](getting-started).

@@ -10,9 +10,14 @@
   align-items: center;
   padding: 0.15rem 0.75rem;
   gap: 0.25rem;
-  border: 1px solid var(--ifm-color-gray-600);
+  border: 1px solid var(--ifm-color-gray-500);
   border-radius: 99rem;
   font-size: 0.875rem;
   font-weight: 500;
-  color: var(--ifm-color-gray-800);
+  color: var(--ifm-color-gray-700);
+}
+
+[data-theme="dark"] .container {
+  border: 1px solid var(--ifm-color-gray-700);
+  color: var(--ifm-color-gray-500);
 }

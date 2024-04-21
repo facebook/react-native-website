@@ -105,32 +105,6 @@ The default location for this folder is:
 %LOCALAPPDATA%\Android\Sdk\platform-tools
 ```
 
-<h3>React Native Command Line Interface</h3>
-
-React Native has a built-in command line interface. Rather than install and manage a specific version of the CLI globally, we recommend you access the current version at runtime using `npx`, which ships with Node.js. With `npx react-native <command>`, the current stable version of the CLI will be downloaded and executed at the time the command is run.
-
-<h2>Creating a new application</h2>
-
-<RemoveGlobalCLI />
-
-React Native has a built-in command line interface, which you can use to generate a new project. You can access it without installing anything globally using `npx`, which ships with Node.js. Let's create a new React Native project called "AwesomeProject":
-
-```shell
-npx react-native@latest init AwesomeProject
-```
-
-This is not necessary if you are integrating React Native into an existing application, or if you've installed [Expo](https://docs.expo.dev/bare/installing-expo-modules/) in your project, or if you're adding Android support to an existing React Native project (see [Integration with Existing Apps](integration-with-existing-apps.md)). You can also use a third-party CLI to init your React Native app, such as [Ignite CLI](https://github.com/infinitered/ignite).
-
-<h3>[Optional] Using a specific version or template</h3>
-
-If you want to start a new project with a specific React Native version, you can use the `--version` argument:
-
-```shell
-npx react-native@X.XX.X init AwesomeProject --version X.XX.X
-```
-
-You can also start a project with a custom React Native template with the `--template` argument.
-
 <h2>Preparing the Android device</h2>
 
 You will need an Android device to run your React Native Android app. This can be either a physical Android device, or more commonly, you can use an Android Virtual Device which allows you to emulate an Android device on your computer.
@@ -152,9 +126,3 @@ If you have recently installed Android Studio, you will likely need to [create a
 > If you don't have HAXM installed, click on "Install HAXM" or follow [these instructions](https://github.com/intel/haxm/wiki/Installation-Instructions-on-Windows) to set it up, then go back to the AVD Manager.
 
 Click "Next" then "Finish" to create your AVD. At this point you should be able to click on the green triangle button next to your AVD to launch it.
-
-## Now what?
-
-Now, it's time to run your app.
-
-<BoxLink href="running-your-application">Run Your React Native Application</BoxLink>

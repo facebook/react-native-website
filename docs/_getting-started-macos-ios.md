@@ -44,44 +44,6 @@ If you are using Xcode version 14.0 or greater than to install a simulator, open
 
 For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
 
-### React Native Command Line Interface
-
-React Native has a built-in command line interface. Rather than install and manage a specific version of the CLI globally, we recommend you access the current version at runtime using `npx`, which ships with Node.js. With `npx react-native <command>`, the current stable version of the CLI will be downloaded and executed at the time the command is run.
-
-## Creating a new application
-
-<RemoveGlobalCLI />
-
-You can use React Native's built-in command line interface to generate a new project. Let's create a new React Native project called "AwesomeProject":
-
-```shell
-npx react-native@latest init AwesomeProject
-```
-
-This is not necessary if you are integrating React Native into an existing application, or if you've installed [Expo](https://docs.expo.dev/bare/installing-expo-modules/) in your project, or if you're adding iOS support to an existing React Native project (see [Integration with Existing Apps](integration-with-existing-apps.md)). You can also use a third-party CLI to init your React Native app, such as [Ignite CLI](https://github.com/infinitered/ignite).
-
-:::info
-
-If you are having trouble with iOS, try to reinstall the dependencies by running:
-
-1. `cd ios` to navigate to the `ios` folder.
-2. `bundle install` to install [Bundler](https://bundler.io/)
-3. `bundle exec pod install` to install the iOS dependencies managed by CocoaPods.
-
-:::
-
-### [Optional] Using a specific version or template
-
-If you want to start a new project with a specific React Native version, you can use the `--version` argument:
-
-```shell
-npx react-native@X.XX.X init AwesomeProject --version X.XX.X
-```
-
-You can also start a project with a custom React Native template with the `--template` argument.
-
-> **Note** If the above command is failing, you may have old version of `react-native` or `react-native-cli` installed globally on your pc. Try uninstalling the cli and run the cli using `npx`.
-
 ### [Optional] Configuring your environment
 
 Starting from React Native version 0.69, it is possible to configure the Xcode environment using the `.xcode.env` file provided by the template.
@@ -101,9 +63,3 @@ export NVM_DIR="$HOME/.nvm"
 
 You might also want to ensure that all "shell script build phase" of your Xcode project, is using `/bin/zsh` as its shell.
 :::
-
-## Now what?
-
-Now, it's time to run your app.
-
-<BoxLink href="running-your-application">Run Your React Native Application</BoxLink>
