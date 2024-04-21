@@ -21,7 +21,7 @@ This guide requires Android Studio or Xcode. If you already have one of these pr
 <details>
 <summary>Is setting up my environment required?</summary>
 
-Setting up your environment is not required if you're using a Framework. With that, if you prefer to develop with Android Studio and/or Xcode, you'll can set up your local computer while still using a Framework.
+Setting up your environment is not required if you're using a Framework. With that, if you prefer to develop with Android Studio and/or Xcode, you can set up your local computer while still using a Framework.
 
 If you have constraints that prevent you from using a Framework, or you'd like to write your own Framework, then setting up your local environment is a requirement. After your environment is set up, learn how to [get started without a framework](get-started-without-a-framework).
 
