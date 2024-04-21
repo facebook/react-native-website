@@ -1,5 +1,5 @@
 import RemoveGlobalCLI from './\_remove-global-cli.md';
-import BoxLink from '@site/src/theme/BoxLink';
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 ## Installing dependencies
 
@@ -135,10 +135,77 @@ If you use Android Studio to open `./AwesomeProject/android`, you can see the li
 
 If you have recently installed Android Studio, you will likely need to [create a new AVD](https://developer.android.com/studio/run/managing-avds.html). Select "Create Virtual Device...", then pick any Phone from the list and click "Next", then select the **UpsideDownCake** API Level 34 image.
 
-Click "Next" then "Finish" to create your AVD. At this point you should be able to click on the green triangle button next to your AVD to launch it.
+Click "Next" then "Finish" to create your AVD. At this point you should be able to click on the green triangle button next to your AVD to launch it, then proceed to the next step.
 
-## Now what?
+<h2>Running your React Native application</h2>
 
-Now, it's time to run your app.
+<h3>Step 1: Start Metro</h3>
 
-<BoxLink href="running-your-application">Run Your React Native Application</BoxLink>
+[**Metro**](https://metrobundler.dev/) is the JavaScript build tool for React Native. To start the Metro development server, run the following from your project folder:
+
+<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<TabItem value="npm">
+
+```shell
+npm start
+```
+
+</TabItem>
+<TabItem value="yarn">
+
+```shell
+yarn start
+```
+
+</TabItem>
+</Tabs>
+
+:::note
+If you're familiar with web development, Metro is similar to bundlers such as Vite and webpack, but is designed end-to-end for React Native. For instance, Metro uses [Babel](https://babel.dev/) to transform syntax such as JSX into executable JavaScript.
+:::
+
+<h3>Step 2: Start your application</h3>
+
+<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<TabItem value="npm">
+
+```shell
+npm run android
+```
+
+</TabItem>
+<TabItem value="yarn">
+
+```shell
+yarn android
+```
+
+</TabItem>
+</Tabs>
+
+If everything is set up correctly, you should see your new app running in your Android emulator shortly.
+
+![AwesomeProject on Android](/docs/assets/GettingStartedAndroidSuccessMacOS.png)
+
+This is one way to run your app - you can also run it directly from within Android Studio.
+
+> If you can't get this to work, see the [Troubleshooting](troubleshooting.md) page.
+
+<h3>Modifying your app</h3>
+
+Now that you have successfully run the app, let's modify it.
+
+- Open `App.tsx` in your text editor of choice and edit some lines.
+- Press the <kbd>R</kbd> key twice or select `Reload` from the Dev Menu (<kbd>Cmd ⌘</kbd> + <kbd>M</kbd>) to see your changes!
+
+<h3>That's it!</h3>
+
+Congratulations! You've successfully run and modified your first React Native app.
+
+<center><img src="/docs/assets/GettingStartedCongratulations.png" width="150"></img></center>
+
+<h2>Now what?</h2>
+
+- If you want to add this new React Native code to an existing application, check out the [Integration guide](integration-with-existing-apps.md).
+
+If you're curious to learn more about React Native, check out the [Introduction to React Native](getting-started).

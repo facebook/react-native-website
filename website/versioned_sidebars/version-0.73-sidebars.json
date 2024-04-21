@@ -13,7 +13,6 @@
     ],
     "Environment setup": [
       "environment-setup",
-      "get-started-without-a-framework",
       "integration-with-existing-apps",
       "integration-with-android-fragment",
       "building-for-tv",

@@ -12,7 +12,7 @@ The keys to integrating React Native components into your Android application ar
 
 ## Prerequisites
 
-Follow the React Native CLI Quickstart in the [environment setup guide](environment-setup) to configure your development environment for building React Native apps for Android.
+Follow the guide on using [React Native without a framework](get-started-without-a-framework) to configure your development environment for building React Native apps for Android.
 
 ### 1. Set up directory structure
 
@@ -416,4 +416,4 @@ Now, create a release build of your native app from within Android Studio as usu
 
 At this point you can continue developing your app as usual. Refer to our [debugging](debugging) and [deployment](running-on-device) docs to learn more about working with React Native.
 
-[metro]: https://metrobundler.dev/
+[metro]: https://facebook.github.io/metro/
