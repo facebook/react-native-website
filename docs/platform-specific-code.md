@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
 
 `Platform.OS` will be `ios` when running on iOS and `android` when running on Android.
 
-There is also a `Platform.select` method available, that given an object where keys can be one of `'ios' | 'android' | 'native' | 'default'`, returns the most fitting value for the platform you are currently running on. That is, if you're running on a phone, `ios` and `android` keys will take preference. If those are not specified, `native` key will be used and then the `default` key.
+There is also a `Platform.select` method available that, given an object where keys can be one of `'ios' | 'android' | 'native' | 'default'`, returns the most fitting value for the platform you are currently running on. That is, if you're running on a phone, `ios` and `android` keys will take preference. If those are not specified, `native` key will be used and then the `default` key.
 
 ```tsx
 import {Platform, StyleSheet} from 'react-native';
