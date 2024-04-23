@@ -45,6 +45,7 @@ module.exports = {
       defer: true,
     },
     {src: 'https://snack.expo.dev/embed.js', defer: true},
+    {src: 'https://platform.twitter.com/widgets.js', async: true},
   ],
   favicon: 'img/favicon.ico',
   titleDelimiter: '·',
@@ -368,8 +369,8 @@ module.exports = {
                 to: 'blog',
               },
               {
-                label: 'Twitter',
-                href: 'https://twitter.com/reactnative',
+                label: 'X',
+                href: 'https://x.com/reactnative',
               },
               {
                 label: 'GitHub',
