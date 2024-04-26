@@ -609,6 +609,7 @@ package com.mypackage;
 
 import android.view.Choreographer;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import androidx.annotation.NonNull;
@@ -794,8 +795,11 @@ public class MyPackage implements ReactPackage {
 <TabItem value="kotlin">
 
 ```kotlin title="MainApplication.kt"
-    override fun getPackages() = PackageList(this).packages.apply {
-      add(MyPackage())
+override fun getPackages(): List<ReactPackage> =
+    PackageList(this).packages.apply {
+        // Packages that cannot be autolinked yet can be added manually here, for example:
+        // add(MyReactNativePackage())
+        add(MyAppPackage())
     }
 ```
 
@@ -803,13 +807,14 @@ public class MyPackage implements ReactPackage {
 <TabItem value="java">
 
 ```java title="MainApplication.java"
-    @Override
-    protected List<ReactPackage> getPackages() {
-      List<ReactPackage> packages = new PackageList(this).getPackages();
-      ...
-      packages.add(new MyPackage());
-      return packages;
-    }
+@Override
+protected List<ReactPackage> getPackages() {
+    List<ReactPackage> packages = new PackageList(this).getPackages();
+    // Packages that cannot be autolinked yet can be added manually here, for example:
+    // packages.add(new MyReactNativePackage());
+    packages.add(new MyAppPackage());
+    return packages;
+}
 ```
 
 </TabItem>
