@@ -132,10 +132,10 @@ function HomeCallToAction() {
 function TwitterButton({accountName}) {
   return (
     <a
-      href={`https://twitter.com/intent/follow?screen_name=${accountName}&region=follow_link`}
-      target="_blank"
-      className="twitter-follow-button">
-      <div className="icon" />
+      className="twitter-follow-button"
+      href={`https://twitter.com/${accountName}?ref_src=twsrc%5Etfw`}
+      data-show-count="false"
+      data-size="large">
       Follow @{accountName}
     </a>
   );
