@@ -19,6 +19,8 @@ import CrossPlatformSVG from '../../static/img/homepage/cross-platform.svg';
 import {setupDissectionAnimation} from './animations/_dissectionAnimation';
 import {setupHeaderAnimations} from './animations/_headerAnimation';
 
+import {Home} from './Home';
+
 const textContent = {
   intro: `
 React Native combines the best parts of native development with React,
@@ -584,6 +586,7 @@ const Index = () => {
           content="React Native · Learn once, write anywhere"
         />
       </Head>
+      <Home />
       <HeaderHero />
       <NativeApps />
       <NativeCode />
