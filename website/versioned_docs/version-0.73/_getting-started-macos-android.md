@@ -25,11 +25,10 @@ If you have already installed Node on your system, make sure it is Node 18 or ne
 We recommend installing the OpenJDK distribution called Azul **Zulu** using [Homebrew](https://brew.sh/). Run the following commands in a Terminal after installing Homebrew:
 
 ```shell
-brew tap homebrew/cask-versions
-brew install --cask zulu17
+brew install --cask zulu@17
 
 # Get path to where cask was installed to double-click installer
-brew info --cask zulu17
+brew info --cask zulu@17
 ```
 
 After you install the JDK, update your `JAVA_HOME` environment variable. If you used above steps, JDK will likely be at `/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home`
