@@ -123,3 +123,14 @@ If you have recently installed Android Studio, you will likely need to [create a
 > If you don't have HAXM installed, click on "Install HAXM" or follow [these instructions](https://github.com/intel/haxm/wiki/Installation-Instructions-on-Windows) to set it up, then go back to the AVD Manager.
 
 Click "Next" then "Finish" to create your AVD. At this point you should be able to click on the green triangle button next to your AVD to launch it.
+
+<h3>That's it!</h3>
+
+Congratulations! You successfully set up your development environment.
+
+<center><img src="/docs/assets/GettingStartedCongratulations.png" width="150"></img></center>
+
+<h2>Now what?</h2>
+
+- If you want to add this new React Native code to an existing application, check out the [Integration guide](integration-with-existing-apps.md).
+- If you're curious to learn more about React Native, check out the [Introduction to React Native](getting-started).

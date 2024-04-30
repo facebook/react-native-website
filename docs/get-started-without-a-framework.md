@@ -1,5 +1,5 @@
 ---
-id: get-started-without-a-framework
+id: getting-started-without-a-framework
 title: Get Started Without a Framework
 hide_table_of_contents: true
 ---
@@ -24,10 +24,10 @@ To do so, you'll first need to [set up your environment](set-up-your-environment
 You can use [React Native Community CLI](https://github.com/react-native-community/cli) to generate a new project. Let's create a new React Native project called "AwesomeProject":
 
 ```shell
-npx react-native@latest init AwesomeProject
+npx react-native-community@latest init AwesomeProject
 ```
 
-This is not necessary if you are integrating React Native into an existing application, or if you've installed [Expo](https://docs.expo.dev/bare/installing-expo-modules/) in your project, or if you're adding Android support to an existing React Native project (see [Integration with Existing Apps](integration-with-existing-apps.md)). You can also use a third-party CLI to init your React Native app, such as [Ignite CLI](https://github.com/infinitered/ignite).
+This is not necessary if you are integrating React Native into an existing application, or if you've installed [Expo](https://docs.expo.dev/bare/installing-expo-modules/) in your project, or if you're adding Android support to an existing React Native project (see [Integration with Existing Apps](integration-with-existing-apps.md)). You can also use a third-party CLI to set up your React Native app, such as [Ignite CLI](https://github.com/infinitered/ignite).
 
 :::info
 
@@ -44,10 +44,10 @@ If you are having trouble with iOS, try to reinstall the dependencies by running
 If you want to start a new project with a specific React Native version, you can use the `--version` argument:
 
 ```shell
-npx react-native@X.XX.X init AwesomeProject --version X.XX.X
+npx react-native-community@X.XX.X init AwesomeProject --version X.XX.X
 ```
 
-You can also start a project with a custom React Native template with the `--template` argument.
+You can also start a project with a custom React Native template with the `--template` argument, read more [here](https://github.com/react-native-community/cli/blob/main/docs/init.md#initializing-project-with-custom-template).
 
 ### Step 2: Start Metro
 
@@ -110,12 +110,11 @@ Now that you have successfully run the app, let's modify it.
 
 ### That's it!
 
-Congratulations! You've successfully run and modified your first React Native app.
+Congratulations! You've successfully run and modified your first barebone React Native app.
 
 <center><img src="/docs/assets/GettingStartedCongratulations.png" width="150"></img></center>
 
 ### Now what?
 
 - If you want to add this new React Native code to an existing application, check out the [Integration guide](integration-with-existing-apps.md).
-
-If you're curious to learn more about React Native, check out the [Introduction to React Native](getting-started).
+- If you're curious to learn more about React Native, check out the [Introduction to React Native](getting-started).

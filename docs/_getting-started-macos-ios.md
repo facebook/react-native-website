@@ -60,3 +60,14 @@ export NVM_DIR="$HOME/.nvm"
 
 You might also want to ensure that all "shell script build phase" of your Xcode project, is using `/bin/zsh` as its shell.
 :::
+
+<h3>That's it!</h3>
+
+Congratulations! You successfully set up your development environment.
+
+<center><img src="/docs/assets/GettingStartedCongratulations.png" width="150"></img></center>
+
+<h2>Now what?</h2>
+
+- If you want to add this new React Native code to an existing application, check out the [Integration guide](integration-with-existing-apps.md).
+- If you're curious to learn more about React Native, check out the [Introduction to React Native](getting-started).

@@ -92,3 +92,14 @@ If you have recently installed Android Studio, you will likely need to [create a
 > We recommend configuring [VM acceleration](https://developer.android.com/studio/run/emulator-acceleration.html#vm-linux) on your system to improve performance. Once you've followed those instructions, go back to the AVD Manager.
 
 Click "Next" then "Finish" to create your AVD. At this point you should be able to click on the green triangle button next to your AVD to launch it.
+
+<h3>That's it!</h3>
+
+Congratulations! You successfully set up your development environment.
+
+<center><img src="/docs/assets/GettingStartedCongratulations.png" width="150"></img></center>
+
+<h2>Now what?</h2>
+
+- If you want to add this new React Native code to an existing application, check out the [Integration guide](integration-with-existing-apps.md).
+- If you're curious to learn more about React Native, check out the [Introduction to React Native](getting-started).

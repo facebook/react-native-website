@@ -9,7 +9,7 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import con
 
 ## Getting Started with TypeScript
 
-New projects created by the [React Native CLI](get-started-without-a-framework#step-1-creating-a-new-application) or popular templates like [Ignite][ignite] will use TypeScript by default.
+New projects created by the [React Native CLI](getting-started-without-a-framework#step-1-creating-a-new-application) or popular templates like [Ignite][ignite] will use TypeScript by default.
 
 TypeScript may also be used with [Expo][expo], which maintains TypeScript templates, or will prompt you to automatically install and configure TypeScript when a `.ts` or `.tsx` file is added to your project.
 

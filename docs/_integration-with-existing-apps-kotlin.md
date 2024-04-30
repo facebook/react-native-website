@@ -12,7 +12,7 @@ The keys to integrating React Native components into your Android application ar
 
 ## Prerequisites
 
-Follow the guide on [setting up your development environment](set-up-your-environment) and using [React Native without a framework](get-started-without-a-framework) to configure your development environment for building React Native apps for Android.
+Follow the guide on [setting up your development environment](set-up-your-environment) and using [React Native without a framework](getting-started-without-a-framework) to configure your development environment for building React Native apps for Android.
 
 ### 1. Set up directory structure
 
