@@ -117,3 +117,9 @@
     color: #404756;
   }
 }
+
+@media (max-width: 344px) {
+  .content {
+    top: 50px;
+  }
+}
