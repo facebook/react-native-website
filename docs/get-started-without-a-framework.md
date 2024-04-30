@@ -7,8 +7,11 @@ hide_table_of_contents: true
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import constants from '@site/core/TabsConstants';
+import PlatformSupport from '@site/src/theme/PlatformSupport';
 
 import RemoveGlobalCLI from './\_remove-global-cli.md';
+
+<PlatformSupport platforms={['android', 'ios', 'macOS', 'tv', 'watchOS', 'web', 'windows', 'visionOS']} />
 
 If you have constraints that are not served well by a Framework, or you prefer to write your own Framework, you can create a React Native app without using a Framework.
 

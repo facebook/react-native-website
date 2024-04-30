@@ -23,8 +23,14 @@ export default function PlatformSupport({platforms}) {
           <Badge icon={<Android />} title="Android" />
         )}
         {platforms.includes('ios') && <Badge icon={<Apple />} title="iOS" />}
+        {platforms.includes('macOS') && (
+          <Badge icon={<Apple />} title="macOS" />
+        )}
         {platforms.includes('tv') && <Badge icon={<TV />} title="TV" />}
+        {platforms.includes('watchOS') && <Badge title="watchOS" />}
         {platforms.includes('web') && <Badge icon={<Web />} title="Web" />}
+        {platforms.includes('windows') && <Badge title="Windows" />}
+        {platforms.includes('visionOS') && <Badge title="visionOS" />}
       </div>
     </div>
   );
