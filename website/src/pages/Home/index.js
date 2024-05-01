@@ -15,7 +15,7 @@ import Watch from './Watch';
 import Community from './Community';
 import CallToAction from './CallToAction';
 
-export function Home() {
+export default function Home() {
   return (
     <>
       <Hero />

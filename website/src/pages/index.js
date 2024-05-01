@@ -11,7 +11,7 @@ import Head from '@docusaurus/Head';
 
 import Layout from '@theme/Layout';
 
-import {Home} from './Home';
+import Home from './Home';
 
 const Index = () => {
   return (
