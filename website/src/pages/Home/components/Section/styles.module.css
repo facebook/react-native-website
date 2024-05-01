@@ -1,0 +1,14 @@
+.wrapper {
+  background: linear-gradient(to bottom, white, #efeff2), white;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  max-width: 1000px;
+  padding: 8rem 1rem 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

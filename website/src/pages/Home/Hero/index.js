@@ -6,7 +6,7 @@ import Logo from './Logo';
 import Devices from './Devices';
 import styles from './styles.module.css';
 
-export function Hero() {
+function Hero() {
   return (
     <div className={styles.container}>
       <div className={styles.backgroundContainer}>
@@ -36,3 +36,5 @@ export function Hero() {
     </div>
   );
 }
+
+export default Hero;

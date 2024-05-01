@@ -1,0 +1,19 @@
+.container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: 48px;
+}
+
+.description {
+  font-size: 20px;
+  color: #404756;
+  line-height: 150%;
+  margin-top: 1rem;
+  font-weight: normal;
+  max-width: 800px;
+}

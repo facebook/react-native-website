@@ -122,4 +122,9 @@
   .content {
     top: 50px;
   }
+
+  .primaryButton,
+  .secondaryButton {
+    width: calc(100% - 2rem);
+  }
 }
