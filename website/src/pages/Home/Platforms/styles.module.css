@@ -1,3 +1,10 @@
+/**
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 .platformsContainer {
   position: relative;
   width: 100%;
@@ -62,6 +69,7 @@
   align-items: center;
   gap: 1rem;
   max-width: 700px;
+  color: #23272f;
 }
 
 .fox {

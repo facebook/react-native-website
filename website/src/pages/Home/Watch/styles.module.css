@@ -1,3 +1,10 @@
+/**
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 .videos {
   display: grid;
   grid-template-columns: repeat(2, minmax(300px, 1fr));
@@ -15,6 +22,7 @@
   flex-direction: column;
   gap: 1rem;
   max-width: 400px;
+  color: #23272f;
 }
 
 .video {
