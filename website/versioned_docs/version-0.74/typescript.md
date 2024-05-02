@@ -221,7 +221,7 @@ yarn add --dev babel-plugin-module-resolver
 }
 ```
 
-[react-ts]: https://reactjs.org/docs/static-type-checking.html#typescript
+[react-ts]: https://react.dev/learn/typescript
 [ts]: https://www.typescriptlang.org/
 [flow]: https://flow.org
 [ts-template]: https://github.com/react-native-community/react-native-template-typescript
