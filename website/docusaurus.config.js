@@ -211,7 +211,7 @@ module.exports = {
       announcementBar: {
         id: 'reactconf2024',
         content:
-          'Join us for React Conf on May 15-16. <a target="_blank" rel="noopener noreferrer" href="https://conf.react.dev/">Learn More.</a>',
+          'Stream React Conf on May 15-16. <a target="_blank" rel="noopener noreferrer" href="https://conf.react.dev/">Learn More.</a>',
         backgroundColor: '#20232a',
         textColor: '#fff',
         isCloseable: false,
