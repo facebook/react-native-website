@@ -1,0 +1,52 @@
+name: facebook/react-native-website/tests
+on:
+  push:
+    branches:
+    - main
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 'lts/*'
+    - name: save_cache
+      uses: actions/cache@v3.3.2
+      with:
+        path: "~/react-native-website"
+        key: v1-repo-${{ github.sha }}
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 'lts/*'
+        cache: yarn
+    - uses: "./.github/actions/restore_cache_checkout"
+    - uses: "./.github/actions/run_yarn"
+    - uses: borales/actions-yarn@v4
+      with:
+        cmd: install
+    - uses: borales/actions-yarn@v4
+      with:
+        cmd: ci:lint
+  build:
+    runs-on: ubuntu-latest
+    env:
+      NODE_OPTIONS: "--max_old_space_size=4096"
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 'lts/*'
+        cache: yarn
+    - uses: "./.github/actions/restore_cache_checkout"
+    - uses: "./.github/actions/run_yarn"
+    - uses: borales/actions-yarn@v4
+      with:
+        cmd: install
+    - uses: borales/actions-yarn@v4
+      with:
+        cmd: build
