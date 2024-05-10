@@ -124,7 +124,7 @@ const Showcase = () => {
           <p className="showcaseSectionDescription">
             React Native is shaping mobile, web, and desktop experiences within
             Meta’s product ecosystem, from Facebook Marketplace, Messenger
-            Desktop, Ads Manager to the Oculus companion app and many more.
+            Desktop, Ads Manager to the Meta Quest app and many more.
           </p>
           <div className="logos">{meta.map(renderApp)}</div>
         </div>
