@@ -27,30 +27,28 @@ function Platforms() {
         <div className={styles.featureContainer}>
           <div className={styles.codeEditor}>
             <div className={styles.codeEditorTitleContainer}>index.js</div>
-            <div className={styles.codeEditorContentContainer}>
-              <pre>
-                <span style={{color: '#d73a49'}}>function</span>{' '}
-                <span style={{color: '#6f42c1'}}>HomeScreen</span>
-                {`()`}
-                {` {`} <br />
-                <span style={{color: '#d73a49'}}>{`  return `}</span>
-                {`(`} <br />
-                {`    <`}
-                <span style={{color: '#22863a'}}>View</span>
-                {`>`} <br />
-                {`      <`}
-                <span style={{color: '#22863a'}}>{`Text`}</span>
-                {`>`} Hello World 👋 🌍!{`</`}
-                <span style={{color: '#22863a'}}>{`Text`}</span>
-                {`>`}
-                <br />
-                {`    </`}
-                <span style={{color: '#22863a'}}>View</span>
-                {`>`} <br />
-                {`  );`} <br />
-                {`}`}
-              </pre>
-            </div>
+            <pre className={styles.codeEditorContentContainer}>
+              <span style={{color: '#d73a49'}}>function</span>{' '}
+              <span style={{color: '#6f42c1'}}>HomeScreen</span>
+              {`()`}
+              {` {`} <br />
+              <span style={{color: '#d73a49'}}>{`  return `}</span>
+              {`(`} <br />
+              {`    <`}
+              <span style={{color: '#22863a'}}>View</span>
+              {`>`} <br />
+              {`      <`}
+              <span style={{color: '#22863a'}}>{`Text`}</span>
+              {`>`} Hello World 👋 🌍!{`</`}
+              <span style={{color: '#22863a'}}>{`Text`}</span>
+              {`>`}
+              <br />
+              {`    </`}
+              <span style={{color: '#22863a'}}>View</span>
+              {`>`} <br />
+              {`  );`} <br />
+              {`}`}
+            </pre>
           </div>
           <div className={styles.deviceContainer}>
             <img

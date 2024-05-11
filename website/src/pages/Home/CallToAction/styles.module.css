@@ -21,6 +21,10 @@
   background-size: cover;
   background-position: center center;
   opacity: 0.1;
+
+  @media (max-width: 800px) {
+    display: none;
+  }
 }
 
 .container {
@@ -56,11 +60,5 @@
   &:hover {
     background-color: #4e98b6;
     color: white;
-  }
-}
-
-@media only screen and (max-width: 800px) {
-  .background {
-    display: none;
   }
 }
