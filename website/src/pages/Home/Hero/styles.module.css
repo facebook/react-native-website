@@ -125,7 +125,7 @@
   }
 }
 
-@media (max-width: 344px) {
+@media only screen and (max-width: 344px) {
   .content {
     top: 50px;
   }

@@ -76,7 +76,7 @@
   min-width: 120px;
 }
 
-@media (max-width: 900px) {
+@media only screen and (max-width: 900px) {
   .featureContainer {
     gap: 2rem;
   }
@@ -98,7 +98,7 @@
   }
 }
 
-@media (max-width: 729px) {
+@media only screen and (max-width: 729px) {
   .featureContainer {
     flex-direction: column;
     gap: 2rem;
@@ -116,7 +116,7 @@
   }
 }
 
-@media (max-width: 449px) {
+@media only screen and (max-width: 449px) {
   .codeEditorContentContainer {
     pre,
     code {
