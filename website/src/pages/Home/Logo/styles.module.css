@@ -1,0 +1,15 @@
+.logo {
+  fill: #087ea4;
+
+  [data-theme="dark"] & {
+    fill: #58c4dc;
+  }
+}
+
+.logoStroke {
+  stroke: #087ea4;
+
+  [data-theme="dark"] & {
+    stroke: #58c4dc;
+  }
+}

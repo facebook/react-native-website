@@ -6,14 +6,10 @@
  */
 
 import * as React from 'react';
-import {useColorMode} from '@docusaurus/theme-common';
+
 import styles from './styles.module.css';
 
 function FloorBackground() {
-  const {colorMode} = useColorMode();
-  const isDarkMode = colorMode === 'dark';
-  const color = isDarkMode ? '#30363D' : '#ACDDEC';
-
   return (
     <svg
       width={1863}
@@ -33,8 +29,12 @@ function FloorBackground() {
           r="1"
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(860.14 -50) scale(713.885 273.082)">
-          <stop stop-color={color} />
-          <stop offset="1" stop-color={color} stop-opacity="0" />
+          <stop className={styles.floorBackgroundStopColor} />
+          <stop
+            offset="1"
+            className={styles.floorBackgroundStopColor}
+            stop-opacity="0"
+          />
         </radialGradient>
       </defs>
     </svg>
