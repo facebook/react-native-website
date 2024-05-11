@@ -14,7 +14,6 @@
   z-index: -1;
   overflow: hidden;
   width: 100vw;
-  background-color: white;
 }
 
 .gridBackground {
@@ -44,6 +43,10 @@
   position: relative;
   top: -4px;
   background: linear-gradient(to bottom, rgb(236, 248, 250), white), white;
+
+  [data-theme="dark"] & {
+    background: linear-gradient(to bottom, #1b1b1d, #1b1b1d), #1b1b1d;
+  }
 }
 
 .svgContent {
@@ -58,12 +61,10 @@
   font-size: 40px;
   margin-bottom: 0.5rem;
   margin-top: 1.5rem;
-  color: #23272f;
 }
 
 .subtitle {
   font-weight: 500;
-  color: #404756;
   font-size: 28px;
 }
 
@@ -111,6 +112,11 @@
   @media (max-width: 344px) {
     width: calc(100% - 2rem);
   }
+
+  [data-theme="dark"] & {
+    background-color: #58c4dc;
+    color: #23272f;
+  }
 }
 
 .secondaryButton {
@@ -134,5 +140,11 @@
 
   @media (max-width: 344px) {
     width: calc(100% - 2rem);
+  }
+
+  [data-theme="dark"] & {
+    background-color: transparent;
+    border: 1px solid #4e5668;
+    color: #f6f7f9;
   }
 }
