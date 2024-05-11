@@ -45,6 +45,7 @@ module.exports = {
       defer: true,
     },
     {src: 'https://snack.expo.dev/embed.js', defer: true},
+    {src: 'https://platform.twitter.com/widgets.js', async: true},
   ],
   favicon: 'img/favicon.ico',
   titleDelimiter: '·',
@@ -210,7 +211,7 @@ module.exports = {
       announcementBar: {
         id: 'reactconf2024',
         content:
-          'Join us for React Conf on May 15-16. <a target="_blank" rel="noopener noreferrer" href="https://conf.react.dev/">Learn More.</a>',
+          'Stream React Conf on May 15-16. <a target="_blank" rel="noopener noreferrer" href="https://conf.react.dev/">Learn More.</a>',
         backgroundColor: '#20232a',
         textColor: '#fff',
         isCloseable: false,
@@ -368,8 +369,8 @@ module.exports = {
                 to: 'blog',
               },
               {
-                label: 'Twitter',
-                href: 'https://twitter.com/reactnative',
+                label: 'X',
+                href: 'https://x.com/reactnative',
               },
               {
                 label: 'GitHub',

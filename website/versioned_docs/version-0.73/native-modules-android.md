@@ -278,13 +278,13 @@ Locate ReactNativeHost’s `getPackages()` method and add your package to the pa
 
 ```java
 @Override
-  protected List<ReactPackage> getPackages() {
-    @SuppressWarnings("UnnecessaryLocalVariable")
+protected List<ReactPackage> getPackages() {
     List<ReactPackage> packages = new PackageList(this).getPackages();
-    // below MyAppPackage is added to the list of packages returned
+    // Packages that cannot be autolinked yet can be added manually here, for example:
+    // packages.add(new MyReactNativePackage());
     packages.add(new MyAppPackage());
     return packages;
-  }
+}
 ```
 
 </TabItem>
@@ -294,7 +294,7 @@ Locate ReactNativeHost’s `getPackages()` method and add your package to the pa
 override fun getPackages(): List<ReactPackage> =
     PackageList(this).packages.apply {
         // Packages that cannot be autolinked yet can be added manually here, for example:
-        // packages.add(new MyReactNativePackage());
+        // add(MyReactNativePackage())
         add(MyAppPackage())
     }
 ```
