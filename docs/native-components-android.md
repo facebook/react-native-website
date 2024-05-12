@@ -217,7 +217,7 @@ class MyCustomView(context: Context) : View(context) {
     }
     val reactContext = context as ReactContext
     reactContext
-        .getJSModule(RCTEventEmitter::class.java)
+        .getJSModule(RCTModernEventEmitter::class.java)
         .receiveEvent(id, "topChange", event)
   }
 }
@@ -234,7 +234,7 @@ class MyCustomView extends View {
       event.putString("message", "MyMessage");
       ReactContext reactContext = (ReactContext)getContext();
       reactContext
-          .getJSModule(RCTEventEmitter.class)
+          .getJSModule(RCTModernEventEmitter.class)
           .receiveEvent(getId(), "topChange", event);
     }
 }
