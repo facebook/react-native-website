@@ -59,13 +59,7 @@
   color: white;
 }
 
-@media (max-width: 800px) {
-  .background {
-    display: none;
-  }
-}
-
-@media only screen and (max-width: 800px) {
+@media (max-width: 600px) {
   .background {
     display: none;
   }

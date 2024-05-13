@@ -98,11 +98,11 @@
   align-items: center;
   justify-content: center;
   gap: 0.35rem;
+}
 
-  &:hover {
-    background-color: #4e98b6;
-    color: white;
-  }
+.primaryButton:hover {
+  background-color: #4e98b6;
+  color: white;
 }
 
 .secondaryButton {
@@ -118,14 +118,14 @@
   color: #404756;
   border: 1px solid #bcc1cd;
   background-color: white;
-
-  &:hover {
-    background-color: #f8f9fa;
-    color: #404756;
-  }
 }
 
-@media only screen and (max-width: 344px) {
+.secondaryButton:hover {
+  background-color: #f8f9fa;
+  color: #404756;
+}
+
+@media (max-width: 450px) {
   .content {
     top: 50px;
   }

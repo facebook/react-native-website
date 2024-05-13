@@ -60,7 +60,7 @@
   }
 }
 
-@media only screen and (max-width: 630px) {
+@media only screen and (max-width: 650px) {
   .card {
     flex-direction: column;
     text-align: center;

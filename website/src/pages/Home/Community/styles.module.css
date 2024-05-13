@@ -13,7 +13,7 @@
   color: #23272f;
 }
 
-.featureContainer > :first-child {
+.featureContainer:first-child {
   border-right: 1px solid #c4c6ca;
   padding-right: 2rem;
 }
@@ -25,7 +25,7 @@
     max-width: 600px;
   }
 
-  .featureContainer > :first-child {
+  .featureContainer:first-child {
     border-right: none;
     padding-right: 0;
   }

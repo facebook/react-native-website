@@ -41,16 +41,14 @@
   border-bottom: 1px solid #e5e7eb;
 }
 
-.codeEditorContentContainer {
-  pre,
-  code {
-    background-color: white;
-    padding: 16px 48px 16px 24px;
-    font-family: "Source Code Pro", ui-monospace, SFMono-Regular, Menlo, Monaco,
-      Consolas, "Liberation Mono", "Courier New", monospace;
-    color: #24292e;
-    font-size: 14px;
-  }
+.codeEditorContentContainer pre,
+.codeEditorContentContainer code {
+  background-color: white;
+  padding: 16px 48px 16px 24px;
+  font-family: "Source Code Pro", ui-monospace, SFMono-Regular, Menlo, Monaco,
+    Consolas, "Liberation Mono", "Courier New", monospace;
+  color: #24292e;
+  font-size: 14px;
 }
 
 .deviceContainer {
@@ -98,7 +96,7 @@
   }
 }
 
-@media only screen and (max-width: 729px) {
+@media only screen and (max-width: 800px) {
   .featureContainer {
     flex-direction: column;
     gap: 2rem;
@@ -116,13 +114,11 @@
   }
 }
 
-@media only screen and (max-width: 449px) {
-  .codeEditorContentContainer {
-    pre,
-    code {
-      padding: 16px 16px;
-      font-size: 3.2vw;
-    }
+@media only screen and (max-width: 450px) {
+  .codeEditorContentContainer pre,
+  .codeEditorContentContainer code {
+    padding: 16px 16px;
+    font-size: 3.2vw;
   }
   .deviceContainer {
     width: calc(100% - 2rem);
