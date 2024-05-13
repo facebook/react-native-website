@@ -28,8 +28,8 @@ const FloorBackground = props => (
         r="1"
         gradientUnits="userSpaceOnUse"
         gradientTransform="translate(860.14 -50) scale(713.885 273.082)">
-        <stop stop-color="#ACDDEC" />
-        <stop offset="1" stop-color="#ACDDEC" stop-opacity="0" />
+        <stop stop-color="var(--home-hero-floor)" />
+        <stop offset="1" stop-color="var(--home-hero-floor)" stop-opacity="0" />
       </radialGradient>
     </defs>
   </svg>

@@ -49,6 +49,33 @@
   @media (min-width: 340px) {
     --ifm-navbar-sidebar-width: 340px;
   }
+
+  --logo: #087ea4;
+  --home-hero-floor-background: rgb(236, 248, 250);
+  --home-hero-floor-background-bottom: white;
+  --home-hero-subtitle: #404756;
+  --home-button-primary: #087ea4;
+  --home-button-primary-text: white;
+  --home-button-primary-hover: #4e98b6;
+  --home-button-secondary: white;
+  --home-button-secondary-text: #404756;
+  --home-button-secondary-border: #bcc1cd;
+  --home-button-secondary-hover: #f8f9fa;
+  --home-hero-devices-border: #5e687e;
+  --home-hero-devices-stop: #66728b;
+  --home-hero-devices-skeleton-element: #cfe6ee;
+  --home-hero-devices-background: #fff;
+  --home-hero-devices-icon: #000;
+  --home-hero-devices-icon-border: #e5e7eb;
+  --home-hero-floor: #acddec;
+  --home-hero-grid-icon-background: #f8f9fa;
+  --home-hero-grid-icon: #e1e4e8;
+  --home-hero-grid-grid: #ced4da;
+
+  @media (max-width: 900px) {
+    --home-hero-grid-icon: transparent;
+    --home-hero-grid-icon-background: transparent;
+  }
 }
 
 html[data-theme="light"] {
@@ -71,6 +98,33 @@ html[data-theme="dark"] {
       inset 0 0 1px 1px var(--light),
       0 1px 2px 1px var(--ifm-table-border-color);
     --docsearch-container-background: rgba(0, 0, 0, 0.6);
+  }
+
+  --logo: #58c4dc;
+  --home-hero-floor-background: #151517;
+  --home-hero-floor-background-bottom: #1a1a1c;
+  --home-hero-subtitle: #c0c0c0;
+  --home-button-primary: #58c4dc;
+  --home-button-primary-text: #1b1b1d;
+  --home-button-primary-hover: #71d6ec;
+  --home-button-secondary: #1b1b1d;
+  --home-button-secondary-text: #f6f7f9;
+  --home-button-secondary-border: #4e5668;
+  --home-button-secondary-hover: #2b2b2d;
+  --home-hero-devices-border: #404756;
+  --home-hero-devices-stop: #4a5160;
+  --home-hero-devices-skeleton-element: #404756;
+  --home-hero-devices-background: #242426;
+  --home-hero-devices-icon: #fff;
+  --home-hero-devices-icon-border: #404756;
+  --home-hero-floor: #30363d;
+  --home-hero-grid-icon-background: #1e2025;
+  --home-hero-grid-icon: #282c36;
+  --home-hero-grid-grid: #30363d;
+
+  @media (max-width: 900px) {
+    --home-hero-grid-icon: transparent;
+    --home-hero-grid-icon-background: transparent;
   }
 }
 

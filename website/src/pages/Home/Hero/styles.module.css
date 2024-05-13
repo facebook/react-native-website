@@ -14,7 +14,6 @@
   z-index: -1;
   overflow: hidden;
   width: 100vw;
-  background-color: white;
 }
 
 .gridBackground {
@@ -43,7 +42,12 @@
   height: 300px;
   position: relative;
   top: -4px;
-  background: linear-gradient(to bottom, rgb(236, 248, 250), white), white;
+  background: linear-gradient(
+      to bottom,
+      var(--home-hero-floor-background) 0%,
+      var(--home-hero-floor-background-bottom)
+    ),
+    var(--home-hero-floor-background-bottom);
 }
 
 .svgContent {
@@ -58,12 +62,11 @@
   font-size: 40px;
   margin-bottom: 0.5rem;
   margin-top: 1.5rem;
-  color: #23272f;
 }
 
 .subtitle {
   font-weight: 500;
-  color: #404756;
+  color: var(--home-hero-subtitle);
   font-size: 28px;
 }
 
@@ -87,8 +90,8 @@
 }
 
 .primaryButton {
-  background-color: #087ea4;
-  color: white;
+  background-color: var(--home-button-primary);
+  color: var(--home-button-primary-text);
   border: none;
   padding: 10px 24px;
   border-radius: 99rem;
@@ -101,8 +104,8 @@
 }
 
 .primaryButton:hover {
-  background-color: #4e98b6;
-  color: white;
+  color: var(--home-button-primary-text);
+  background-color: var(--home-button-primary-hover);
 }
 
 .secondaryButton {
@@ -115,14 +118,14 @@
   align-items: center;
   justify-content: center;
   gap: 0.35rem;
-  color: #404756;
-  border: 1px solid #bcc1cd;
-  background-color: white;
+  color: var(--home-button-secondary-text);
+  border: 1px solid var(--home-button-secondary-border);
+  background-color: var(--home-button-secondary);
 }
 
 .secondaryButton:hover {
-  background-color: #f8f9fa;
-  color: #404756;
+  background-color: var(--home-button-secondary-hover);
+  color: var(--home-button-secondary-text);
 }
 
 @media (max-width: 450px) {

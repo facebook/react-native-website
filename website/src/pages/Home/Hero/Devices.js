@@ -20,11 +20,11 @@ const Devices = props => (
     {...props}>
     <g filter="url(#a)">
       <path
-        fill="#fff"
+        fill="var(--home-hero-devices-background)"
         d="M772.117 21.578c0-8.542 6.925-15.466 15.466-15.466h287.667c8.54 0 15.47 6.924 15.47 15.466v208.015c0 8.542-6.93 15.466-15.47 15.466H787.583c-8.541 0-15.466-6.924-15.466-15.466V21.578Z"
       />
       <path
-        stroke="#5E687E"
+        stroke="var(--home-hero-devices-border)"
         strokeWidth={6.92}
         d="M787.583 9.572h287.667c6.63 0 12.01 5.375 12.01 12.006v208.015c0 6.631-5.38 12.006-12.01 12.006H787.583c-6.631 0-12.006-5.375-12.006-12.006V21.578c0-6.63 5.375-12.006 12.006-12.006Z"
       />
@@ -34,7 +34,7 @@ const Devices = props => (
       height={107.235}
       x={796.212}
       y={31.259}
-      fill="#CFE6EE"
+      fill="var(--home-hero-devices-skeleton-element)"
       rx={6}
     />
     <rect
@@ -42,7 +42,7 @@ const Devices = props => (
       height={58.097}
       x={796.381}
       y={156.499}
-      fill="#CFE6EE"
+      fill="var(--home-hero-devices-skeleton-element)"
       rx={6}
     />
     <rect
@@ -50,7 +50,7 @@ const Devices = props => (
       height={58.097}
       x={891.226}
       y={156.499}
-      fill="#CFE6EE"
+      fill="var(--home-hero-devices-skeleton-element)"
       rx={6}
     />
     <rect
@@ -58,7 +58,7 @@ const Devices = props => (
       height={58.097}
       x={986.072}
       y={156.499}
-      fill="#CFE6EE"
+      fill="var(--home-hero-devices-skeleton-element)"
       rx={6}
     />
     <rect
@@ -66,7 +66,7 @@ const Devices = props => (
       height={25.332}
       x={970.56}
       y={31.259}
-      fill="#CFE6EE"
+      fill="var(--home-hero-devices-skeleton-element)"
       rx={6}
     />
     <rect
@@ -74,7 +74,7 @@ const Devices = props => (
       height={11.666}
       x={970.56}
       y={61.591}
-      fill="#CFE6EE"
+      fill="var(--home-hero-devices-skeleton-element)"
       rx={5.833}
     />
     <rect
@@ -82,7 +82,7 @@ const Devices = props => (
       height={11.666}
       x={970.56}
       y={78.257}
-      fill="#CFE6EE"
+      fill="var(--home-hero-devices-skeleton-element)"
       rx={5.833}
     />
     <g filter="url(#b)">
@@ -91,7 +91,7 @@ const Devices = props => (
         height={60}
         x={833.416}
         y={220.526}
-        fill="#fff"
+        fill="var(--home-hero-devices-background)"
         rx={15}
       />
       <rect
@@ -99,25 +99,13 @@ const Devices = props => (
         height={59.5}
         x={833.666}
         y={220.776}
-        stroke="#E5E7EB"
+        stroke="var(--home-hero-devices-icon-border)"
         strokeWidth={0.5}
         rx={14.75}
       />
-      <mask
-        id="c"
-        width={37}
-        height={37}
-        x={845}
-        y={232}
-        maskUnits="userSpaceOnUse"
-        style={{
-          maskType: 'luminance',
-        }}>
-        <path fill="#fff" d="M881.226 232.716h-35.62v35.62h35.62v-35.62Z" />
-      </mask>
-      <g mask="url(#c)">
+      <g>
         <path
-          fill="#fff"
+          fill="var(--home-hero-devices-background)"
           d="M863.416 259.427a8.905 8.905 0 1 0 0-17.81 8.905 8.905 0 0 0 0 17.81Z"
         />
         <path
@@ -144,7 +132,7 @@ const Devices = props => (
         height={60}
         x={901.416}
         y={220.526}
-        fill="#fff"
+        fill="var(--home-hero-devices-background)"
         rx={15}
       />
       <rect
@@ -152,7 +140,7 @@ const Devices = props => (
         height={59.5}
         x={901.666}
         y={220.776}
-        stroke="#E5E7EB"
+        stroke="var(--home-hero-devices-icon-border)"
         strokeWidth={0.5}
         rx={14.75}
       />
@@ -211,7 +199,7 @@ const Devices = props => (
         height={60}
         x={969.416}
         y={220.526}
-        fill="#fff"
+        fill="var(--home-hero-devices-background)"
         rx={15}
       />
       <rect
@@ -219,7 +207,7 @@ const Devices = props => (
         height={59.5}
         x={969.666}
         y={220.776}
-        stroke="#E5E7EB"
+        stroke="var(--home-hero-devices-icon-border)"
         strokeWidth={0.5}
         rx={14.75}
       />
@@ -228,13 +216,13 @@ const Devices = props => (
         d="M999.416 268.075c9.694 0 17.544-7.857 17.544-17.549 0-9.691-7.85-17.548-17.544-17.548-9.692 0-17.548 7.857-17.548 17.548 0 9.692 7.856 17.549 17.548 17.549Z"
       />
       <path
-        stroke="#fff"
+        stroke="var(--home-hero-devices-background)"
         strokeLinecap="square"
         strokeWidth={0.338}
         d="M999.417 266.519v-2.694m0-26.61v-2.694m-2.786 31.764.468-2.654m4.621-26.204.47-2.654m-8.247 30.785.922-2.532m9.105-25.004.92-2.532m-13.486 28.902 1.347-2.334m13.309-23.044 1.34-2.333m-18.253 26.104 1.732-2.064m17.101-20.384 1.73-2.064m-22.567 22.533 2.064-1.732m20.383-17.104 2.06-1.732m-26.096 18.278 2.334-1.347m23.042-13.305 2.34-1.347M984.355 256l2.533-.921m25.002-9.101 2.53-.922m-30.77 8.266 2.654-.468m26.206-4.621 2.65-.468m-31.737 2.762h2.695m26.612 0h2.69m-31.763-2.768 2.654.468m26.209 4.621 2.65.468m-30.786-8.255 2.532.921m25.004 9.101 2.53.922m-28.902-13.459 2.334 1.347m23.048 13.305 2.33 1.347m-26.112-18.312 2.064 1.732m20.388 17.103 2.06 1.732m-22.547-22.525 1.732 2.064m17.105 20.384 1.73 2.064m-18.273-26.118 1.347 2.334m13.306 23.044 1.35 2.333m-13.466-28.89.922 2.533m9.104 25.004.92 2.532m-8.269-30.765.468 2.654m4.621 26.204.47 2.654m-4.166.155.117-1.343m2.559-29.191.11-1.343m-5.52 31.412.348-1.301m7.582-28.305.35-1.301m-10.915 29.927.57-1.221m12.385-26.558.57-1.221m-15.936 27.622.773-1.104m16.803-24.004.78-1.103m-20.478 24.414.953-.953m20.725-20.721.95-.952m-24.429 20.505 1.104-.773m24.005-16.808 1.1-.773m-27.6 15.927 1.221-.569m26.559-12.385 1.22-.569m-29.962 10.908 1.301-.348m28.301-7.585 1.31-.348m-31.407 5.528 1.342-.117m29.195-2.554 1.34-.118m-31.865 0 1.342.117m29.193 2.554 1.34.118m-31.412-5.524 1.301.349m28.301 7.584 1.31.349m-29.942-10.92 1.221.569m26.561 12.385 1.22.569m-27.605-15.921 1.104.773m24.001 16.808 1.11.772m-24.409-20.494.953.953m20.716 20.72.96.953m-20.523-24.432.773 1.104m16.81 24.004.77 1.104m-15.917-27.591.57 1.221m12.387 26.558.57 1.221m-10.916-29.948.349 1.301m7.587 28.305.35 1.301m-5.55-31.4.117 1.343m2.553 29.191.12 1.343"
       />
       <path
-        fill="#fff"
+        fill="white"
         fillRule="evenodd"
         d="m1011.87 240.105-13.845 8.858-11.082 12.025 13.907-8.656 11.02-12.227Z"
         clipRule="evenodd"
@@ -252,8 +240,8 @@ const Devices = props => (
         height={241.645}
         x={607.87}
         y={4.173}
-        fill="#fff"
-        stroke="#5E687E"
+        fill="var(--home-hero-devices-background)"
+        stroke="var(--home-hero-devices-border)"
         strokeWidth={6.92}
         rx={18.966}
       />
@@ -262,7 +250,7 @@ const Devices = props => (
         height={29.538}
         x={620.484}
         y={49.475}
-        fill="#CFE6EE"
+        fill="var(--home-hero-devices-skeleton-element)"
         rx={6}
       />
       <rect
@@ -270,7 +258,7 @@ const Devices = props => (
         height={29.538}
         x={620.484}
         y={87.013}
-        fill="#CFE6EE"
+        fill="var(--home-hero-devices-skeleton-element)"
         rx={6}
       />
       <rect
@@ -278,7 +266,7 @@ const Devices = props => (
         height={63.547}
         x={620.484}
         y={124.552}
-        fill="#CFE6EE"
+        fill="var(--home-hero-devices-skeleton-element)"
         rx={6}
       />
       <rect
@@ -286,25 +274,32 @@ const Devices = props => (
         height={11.599}
         x={645.008}
         y={17.339}
-        fill="#5E687E"
-        stroke="#5E687E"
+        fill="var(--home-hero-devices-border)"
+        stroke="var(--home-hero-devices-border)"
         strokeWidth={0.773}
         rx={5.8}
       />
     </g>
     <g filter="url(#w)">
-      <rect width={60} height={60} x={635.5} y={221.051} fill="#fff" rx={15} />
+      <rect
+        width={60}
+        height={60}
+        x={635.5}
+        y={221.051}
+        fill="var(--home-hero-devices-background)"
+        rx={15}
+      />
       <rect
         width={59.5}
         height={59.5}
         x={635.75}
         y={221.301}
-        stroke="#E5E7EB"
+        stroke="var(--home-hero-devices-icon-border)"
         strokeWidth={0.5}
         rx={14.75}
       />
       <path
-        fill="#000"
+        fill="var(--home-hero-devices-icon)"
         d="M678.762 243.797c-.205.158-3.811 2.19-3.811 6.709 0 5.226 4.589 7.075 4.726 7.121-.021.113-.729 2.532-2.419 4.997-1.508 2.17-3.082 4.336-5.477 4.336-2.395 0-3.011-1.391-5.776-1.391-2.694 0-3.652 1.437-5.842 1.437-2.191 0-3.719-2.008-5.477-4.473-2.036-2.895-3.68-7.393-3.68-11.661 0-6.847 4.451-10.478 8.833-10.478 2.328 0 4.268 1.529 5.73 1.529 1.391 0 3.56-1.62 6.209-1.62 1.003 0 4.61.091 6.984 3.494Zm-8.242-6.393c1.096-1.299 1.871-3.102 1.871-4.906 0-.25-.022-.503-.067-.707-1.782.066-3.903 1.186-5.181 2.669-1.004 1.141-1.941 2.944-1.941 4.772 0 .275.046.55.067.638.113.021.296.045.479.045 1.599 0 3.61-1.07 4.772-2.511Z"
       />
     </g>
@@ -314,8 +309,8 @@ const Devices = props => (
         height={240.962}
         x={425.347}
         y={5.105}
-        fill="#fff"
-        stroke="#5E687E"
+        fill="var(--home-hero-devices-background)"
+        stroke="var(--home-hero-devices-border)"
         strokeWidth={6.92}
         rx={5.82}
       />
@@ -324,7 +319,7 @@ const Devices = props => (
         height={29.538}
         x={437.751}
         y={50.475}
-        fill="#CFE6EE"
+        fill="var(--home-hero-devices-skeleton-element)"
         rx={6}
       />
       <rect
@@ -332,7 +327,7 @@ const Devices = props => (
         height={29.538}
         x={437.751}
         y={88.013}
-        fill="#CFE6EE"
+        fill="var(--home-hero-devices-skeleton-element)"
         rx={6}
       />
       <rect
@@ -340,15 +335,15 @@ const Devices = props => (
         height={63.547}
         x={437.751}
         y={125.552}
-        fill="#CFE6EE"
+        fill="var(--home-hero-devices-skeleton-element)"
         rx={6}
       />
       <circle
         cx={487.862}
         cy={23.139}
         r={5.8}
-        fill="#5E687E"
-        stroke="#5E687E"
+        fill="var(--home-hero-devices-border)"
+        stroke="var(--home-hero-devices-border)"
         strokeWidth={0.773}
       />
     </g>
@@ -358,7 +353,7 @@ const Devices = props => (
         height={60}
         x={457.862}
         y={222.083}
-        fill="#fff"
+        fill="var(--home-hero-devices-background)"
         rx={15}
       />
       <rect
@@ -366,12 +361,12 @@ const Devices = props => (
         height={59.5}
         x={458.112}
         y={222.333}
-        stroke="#E5E7EB"
+        stroke="var(--home-hero-devices-icon-border)"
         strokeWidth={0.5}
         rx={14.75}
       />
       <path
-        fill="#000"
+        fill="var(--home-hero-devices-icon)"
         d="M471.783 262.526c-1.285 0-2.606 1.032-2.606 2.836 0 1.655 1.162 2.819 2.606 2.819 1.193 0 1.724-.803 1.724-.803v.348a.37.37 0 0 0 .349.35h.861v-5.432h-1.21v.69s-.536-.808-1.724-.808Zm.216 1.111c1.057 0 1.613.932 1.613 1.728 0 .886-.659 1.727-1.611 1.727-.795 0-1.592-.645-1.592-1.739 0-.99.685-1.719 1.59-1.719v.003Zm4.401 4.443a.347.347 0 0 1-.249-.099.34.34 0 0 1-.1-.251v-5.086h1.212v.673c.274-.414.809-.797 1.632-.797 1.345 0 2.063 1.074 2.063 2.079v3.481h-.843a.375.375 0 0 1-.37-.37v-2.842c0-.556-.34-1.233-1.127-1.233-.85 0-1.356.805-1.356 1.562v2.883h-.862Zm8.086-5.554c-1.285 0-2.607 1.032-2.607 2.836 0 1.655 1.162 2.819 2.607 2.819 1.195 0 1.725-.803 1.725-.803v.348a.37.37 0 0 0 .349.35h.862v-8.144h-1.211v3.404s-.537-.81-1.725-.81Zm.216 1.111c1.057 0 1.612.932 1.612 1.728 0 .886-.659 1.727-1.611 1.727-.795 0-1.591-.645-1.591-1.739-.001-.99.683-1.719 1.59-1.719v.003Zm4.401 4.443a.347.347 0 0 1-.249-.099.34.34 0 0 1-.099-.251v-5.086h1.21v.905c.209-.507.658-.966 1.458-.966.144.001.288.015.43.041v1.255a1.702 1.702 0 0 0-.574-.103c-.85 0-1.314.804-1.314 1.563v2.741h-.862Zm10.097 0a.337.337 0 0 1-.349-.35v-5.086h1.212v5.436h-.863Zm4.412-5.554c-1.285 0-2.606 1.032-2.606 2.836 0 1.655 1.162 2.819 2.606 2.819 1.192 0 1.724-.803 1.724-.803v.348a.37.37 0 0 0 .349.35h.862v-8.144h-1.211v3.404s-.536-.81-1.724-.81Zm.216 1.111c1.06 0 1.612.932 1.612 1.728 0 .886-.659 1.727-1.61 1.727-.796 0-1.591-.645-1.591-1.739-.001-.99.684-1.719 1.589-1.719v.003Zm-4.381-2.162a.802.802 0 1 0-.002-1.604.802.802 0 0 0 .002 1.604Zm-4.401 1.046c-1.345 0-2.823 1.009-2.823 2.832 0 1.662 1.259 2.828 2.821 2.828 1.925 0 2.865-1.551 2.865-2.818a2.817 2.817 0 0 0-2.862-2.842h-.001Zm.004 1.134c.931 0 1.625.752 1.625 1.701 0 .966-.736 1.713-1.622 1.713-.821 0-1.62-.67-1.62-1.694 0-1.042.76-1.718 1.617-1.718v-.002Z"
       />
       <path
@@ -379,9 +374,9 @@ const Devices = props => (
         d="m496.982 241.807 3.098-5.379a.631.631 0 0 0-.702-.925.623.623 0 0 0-.38.293l-3.138 5.449c-2.394-1.097-5.089-1.708-7.988-1.708s-5.594.611-7.989 1.708l-3.138-5.449a.628.628 0 1 0-1.084.632l3.097 5.379c-5.342 2.902-8.959 8.322-9.557 14.667h37.346c-.6-6.345-4.219-11.765-9.565-14.667Zm-17.683 9.41a1.57 1.57 0 1 1 .599-3.019 1.57 1.57 0 0 1-.6 3.019h.001Zm17.144 0a1.565 1.565 0 0 1-1.536-1.876 1.574 1.574 0 0 1 1.231-1.233 1.564 1.564 0 0 1 1.607.668 1.573 1.573 0 0 1-1.303 2.441h.001Z"
       />
     </g>
-    <g stroke="#5E687E" filter="url(#z)">
+    <g stroke="var(--home-hero-devices-border)" filter="url(#z)">
       <path
-        fill="#fff"
+        fill="var(--home-hero-devices-background)"
         strokeWidth={6.918}
         d="M72.117 11.34h255.95c6.112 0 11.068 4.955 11.068 11.068v167.405H61.049V22.408c0-6.113 4.955-11.068 11.068-11.068Z"
       />
@@ -391,7 +386,7 @@ const Devices = props => (
         d="m17.814 233.048 40.122-40.122h284.658l40.121 40.122H17.814Z"
       />
       <path
-        fill="#5E687E"
+        fill="var(--home-hero-devices-border)"
         strokeWidth={0.692}
         d="M17.346 233.729h365.849v8.647a5.88 5.88 0 0 1-5.88 5.88H23.225a5.88 5.88 0 0 1-5.88-5.88v-8.647Z"
       />
@@ -401,8 +396,8 @@ const Devices = props => (
       height={103.235}
       x={84.838}
       y={61.281}
-      fill="#fff"
-      stroke="#CFE6EE"
+      fill="var(--home-hero-devices-background)"
+      stroke="var(--home-hero-devices-skeleton-element)"
       strokeWidth={4}
       rx={4}
     />
@@ -411,7 +406,7 @@ const Devices = props => (
       height={107.235}
       x={149.265}
       y={35.259}
-      fill="#CFE6EE"
+      fill="var(--home-hero-devices-skeleton-element)"
       rx={6}
     />
     <g filter="url(#B)">
@@ -420,7 +415,7 @@ const Devices = props => (
         height={60}
         x={209.521}
         y={222.826}
-        fill="#fff"
+        fill="var(--home-hero-devices-background)"
         rx={15}
       />
       <rect
@@ -428,7 +423,7 @@ const Devices = props => (
         height={59.5}
         x={209.771}
         y={223.076}
-        stroke="#E5E7EB"
+        stroke="var(--home-hero-devices-icon-border)"
         strokeWidth={0.5}
         rx={14.75}
       />
@@ -443,7 +438,7 @@ const Devices = props => (
         height={60.513}
         x={141.008}
         y={222.826}
-        fill="#fff"
+        fill="var(--home-hero-devices-background)"
         rx={15}
         shapeRendering="crispEdges"
       />
@@ -452,7 +447,7 @@ const Devices = props => (
         height={59.513}
         x={141.508}
         y={223.326}
-        stroke="#E5E7EB"
+        stroke="var(--home-hero-devices-icon-border)"
         rx={14.5}
         shapeRendering="crispEdges"
       />
@@ -1054,8 +1049,8 @@ const Devices = props => (
         y1={192.926}
         y2={233.048}
         gradientUnits="userSpaceOnUse">
-        <stop stopColor="#5E687E" />
-        <stop offset={1} stopColor="#66728B" />
+        <stop stopColor="var(--home-hero-devices-border)" />
+        <stop offset={1} stopColor="var(--home-hero-devices-stop)" />
       </linearGradient>
       <pattern
         id="D"
