@@ -15,7 +15,9 @@ import Home from './Home';
 
 const Index = () => {
   return (
-    <Layout description="A framework for building native apps using React">
+    <Layout
+      description="A framework for building native apps using React"
+      wrapperClassName="homepage">
       <Head>
         <title>React Native · Learn once, write anywhere</title>
         <meta

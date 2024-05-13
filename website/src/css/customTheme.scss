@@ -433,6 +433,19 @@ html[data-theme="dark"] .alert--secondary {
   --ifm-alert-background-color-highlight: rgba(225, 227, 230, 0.15);
 }
 
+/* Home page */
+
+.homepage {
+  div[class*="codeBlockContainer"] {
+    margin-bottom: 0;
+    overflow: visible;
+
+    .prism-code {
+      font-size: 90%;
+    }
+  }
+}
+
 /* Version warning */
 
 .theme-doc-version-banner {
