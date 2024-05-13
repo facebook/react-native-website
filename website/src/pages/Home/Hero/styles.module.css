@@ -76,10 +76,6 @@
   align-items: center;
   text-align: center;
   z-index: 1;
-
-  @media (max-width: 344px) {
-    top: 50px;
-  }
 }
 
 .buttonContainer {
@@ -107,10 +103,6 @@
     background-color: #4e98b6;
     color: white;
   }
-
-  @media (max-width: 344px) {
-    width: calc(100% - 2rem);
-  }
 }
 
 .secondaryButton {
@@ -131,8 +123,15 @@
     background-color: #f8f9fa;
     color: #404756;
   }
+}
 
-  @media (max-width: 344px) {
+@media only screen and (max-width: 344px) {
+  .content {
+    top: 50px;
+  }
+
+  .primaryButton,
+  .secondaryButton {
     width: calc(100% - 2rem);
   }
 }

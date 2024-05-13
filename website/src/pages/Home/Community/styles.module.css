@@ -11,19 +11,21 @@
   gap: 2rem;
   margin: 1rem auto;
   color: #23272f;
-
-  @media (max-width: 900px) {
-    flex-direction: column;
-    gap: 0rem;
-    max-width: 600px;
-  }
 }
 
 .featureContainer > :first-child {
   border-right: 1px solid #c4c6ca;
   padding-right: 2rem;
+}
 
-  @media (max-width: 900px) {
+@media only screen and (max-width: 900px) {
+  .featureContainer {
+    flex-direction: column;
+    gap: 0rem;
+    max-width: 600px;
+  }
+
+  .featureContainer > :first-child {
     border-right: none;
     padding-right: 0;
   }

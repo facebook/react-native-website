@@ -21,16 +21,6 @@
   justify-content: center;
   align-items: center;
   gap: 4rem;
-
-  @media (max-width: 900px) {
-    gap: 2rem;
-  }
-
-  @media (max-width: 729px) {
-    flex-direction: column;
-    gap: 2rem;
-    height: auto;
-  }
 }
 
 .codeEditor {
@@ -42,16 +32,6 @@
   height: calc(100% + 4rem);
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.03);
   overflow: hidden;
-
-  @media (max-width: 900px) {
-    height: auto;
-  }
-
-  @media (max-width: 729px) {
-    width: calc(100% + 3px);
-    top: -1px;
-    left: -1px;
-  }
 }
 
 .codeEditorTitleContainer {
@@ -62,41 +42,25 @@
 }
 
 .codeEditorContentContainer {
-  background-color: white;
-  padding: 16px 48px 16px 24px;
-  font-family: "Source Code Pro", ui-monospace, SFMono-Regular, Menlo, Monaco,
-    Consolas, "Liberation Mono", "Courier New", monospace;
-  color: #24292e;
-  font-size: 14px;
-
-  @media (max-width: 449px) {
-    padding: 16px;
-    font-size: 3.2vw;
+  pre,
+  code {
+    background-color: white;
+    padding: 16px 48px 16px 24px;
+    font-family: "Source Code Pro", ui-monospace, SFMono-Regular, Menlo, Monaco,
+      Consolas, "Liberation Mono", "Courier New", monospace;
+    color: #24292e;
+    font-size: 14px;
   }
 }
 
 .deviceContainer {
-  height: calc(100% + 4rem);
-  position: relative;
-
-  @media (max-width: 900px) {
-    height: auto;
-    width: 250px;
-    top: 0;
-  }
-
-  @media (max-width: 729px) {
-    width: 350px;
-  }
-
-  @media (max-width: 449px) {
-    width: calc(100% - 2rem);
-  }
+  height: 100%;
 }
 
 .devices {
-  height: 100%;
-  width: 100%;
+  height: calc(100% + 4rem);
+  position: relative;
+  top: -2rem;
 }
 
 .foxFactContainer {
@@ -106,13 +70,66 @@
   gap: 1rem;
   max-width: 700px;
   color: #23272f;
-
-  @media (max-width: 449px) {
-    flex-direction: column;
-    gap: 1rem;
-  }
 }
 
 .fox {
   min-width: 120px;
+}
+
+@media only screen and (max-width: 900px) {
+  .featureContainer {
+    gap: 2rem;
+  }
+
+  .codeEditor {
+    height: auto;
+  }
+
+  .deviceContainer {
+    height: auto;
+    width: 250px;
+  }
+
+  .devices {
+    height: auto;
+    width: 100%;
+    position: relative;
+    top: 0;
+  }
+}
+
+@media only screen and (max-width: 729px) {
+  .featureContainer {
+    flex-direction: column;
+    gap: 2rem;
+    height: auto;
+  }
+
+  .codeEditor {
+    width: calc(100% + 3px);
+    top: -1px;
+    left: -1px;
+  }
+
+  .deviceContainer {
+    width: 350px;
+  }
+}
+
+@media only screen and (max-width: 449px) {
+  .codeEditorContentContainer {
+    pre,
+    code {
+      padding: 16px 16px;
+      font-size: 3.2vw;
+    }
+  }
+  .deviceContainer {
+    width: calc(100% - 2rem);
+  }
+
+  .foxFactContainer {
+    flex-direction: column;
+    gap: 1rem;
+  }
 }
