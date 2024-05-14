@@ -77,6 +77,7 @@
 
 .fox {
   min-width: 120px;
+  width: 120px;
 }
 
 @media only screen and (max-width: 900px) {

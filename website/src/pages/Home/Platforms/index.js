@@ -15,8 +15,6 @@ import FoxFact from './FoxFact';
 import styles from './styles.module.css';
 
 function Platforms() {
-  const codeString = `import React from 'react';\n\nfunction HomeScreen() {\n  return (\n    <View>\n      <Text>Hello World 👋 🌍!</Text>\n    </View>\n  );\n}`;
-
   return (
     <Section>
       <SectionTitle

@@ -12,7 +12,6 @@
 }
 
 .card {
-  text-align: center;
   border: 1px solid var(--home-border);
   border-radius: 12px;
   overflow: hidden;
@@ -28,7 +27,7 @@
 
 .cardTitle {
   margin-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   font-size: 20px;
   line-height: 140%;
 }
@@ -37,7 +36,7 @@
   margin-top: 0;
   color: var(--home-secondary-text);
   font-size: 16px;
-  line-height: 140%;
+  line-height: 150%;
 }
 
 @media only screen and (max-width: 900px) {
@@ -55,7 +54,7 @@
     height: 150px;
     margin: 1rem;
     border-radius: 0.5rem;
-    border: 1px solid var(--home-card-image-border);
+    border: 1px solid var(--home-border);
   }
 }
 

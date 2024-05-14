@@ -7,9 +7,10 @@
 
 import React from 'react';
 
+import Logo from '../Logo';
+
 import GridBackground from './GridBackground';
 import FloorBackground from './FloorBackground';
-import Logo from '../Logo';
 import Devices from './Devices';
 import styles from './styles.module.css';
 

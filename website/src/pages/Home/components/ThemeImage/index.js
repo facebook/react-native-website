@@ -1,12 +1,16 @@
-import React from 'react';
+/**
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
 
-// ThemeImage function component
+import React, {useState, useEffect} from 'react';
+
 function ThemeImage({lightSrc, darkSrc, className, alt}) {
-  // Use a state to store the current theme (assuming the default is light)
-  const [theme, setTheme] = React.useState('light');
+  const [theme, setTheme] = useState('light');
 
-  // Effect to handle changes in the data-theme attribute on the HTML element
-  React.useEffect(() => {
+  useEffect(() => {
     const themeObserver = new MutationObserver(mutations => {
       mutations.forEach(mutation => {
         if (
@@ -18,17 +22,14 @@ function ThemeImage({lightSrc, darkSrc, className, alt}) {
       });
     });
 
-    // Start observing the HTML element for attribute changes
     const htmlElement = document.documentElement;
     themeObserver.observe(htmlElement, {
-      attributes: true, // configure it to listen to attribute changes
+      attributes: true,
     });
 
-    // Clean up function to disconnect the observer
     return () => themeObserver.disconnect();
   }, []);
 
-  // Conditional rendering based on the theme
   return (
     <img
       src={theme === 'dark' ? darkSrc : lightSrc}
