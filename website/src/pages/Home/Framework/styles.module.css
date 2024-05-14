@@ -6,9 +6,10 @@
  */
 
 .cardContainer {
-  display: flex;
+  display: grid;
   gap: 2rem;
   margin: 2rem auto;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .card {
@@ -41,6 +42,7 @@
 
 @media only screen and (max-width: 900px) {
   .cardContainer {
+    display: flex;
     flex-direction: column;
   }
 
