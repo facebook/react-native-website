@@ -13,6 +13,7 @@
     ],
     "Environment setup": [
       "environment-setup",
+      "set-up-your-environment",
       "integration-with-existing-apps",
       "integration-with-android-fragment",
       "building-for-tv",
