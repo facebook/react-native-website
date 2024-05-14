@@ -24,7 +24,7 @@
     max-width: 600px;
   }
 
-  .featureContainer:first-child {
+  .featureContainer > :first-child {
     border-right: none;
     padding-right: 0;
   }

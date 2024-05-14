@@ -16,6 +16,14 @@
   width: 100vw;
 }
 
+.socialLinks {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1rem;
+  margin-right: 1rem;
+}
+
 .gridBackground {
   display: flex;
   justify-content: center;

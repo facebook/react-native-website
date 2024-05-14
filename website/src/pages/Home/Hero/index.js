@@ -6,6 +6,7 @@
  */
 
 import React from 'react';
+import GitHubButton from 'react-github-btn';
 
 import Logo from '../Logo';
 
@@ -17,6 +18,22 @@ import styles from './styles.module.css';
 function Hero() {
   return (
     <div className={styles.container}>
+      <div className={styles.socialLinks}>
+        <a
+          className="twitter-follow-button"
+          href={`https://twitter.com/reactnative?ref_src=twsrc%5Etfw`}
+          data-show-count="false"
+          data-size="large">
+          Follow @reactnative
+        </a>
+        <GitHubButton
+          href="https://github.com/facebook/react-native"
+          data-icon="octicon-star"
+          data-size="large"
+          aria-label="Star facebook/react-native on GitHub">
+          Star
+        </GitHubButton>
+      </div>
       <div className={styles.backgroundContainer}>
         <div className={styles.gridBackground}>
           <GridBackground />
