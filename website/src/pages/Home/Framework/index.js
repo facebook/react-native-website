@@ -7,6 +7,7 @@
 
 import React from 'react';
 
+import ThemeImage from '../components/ThemeImage';
 import Section from '../components/Section';
 import SectionTitle from '../components/SectionTitle';
 
@@ -29,10 +30,11 @@ function Framework() {
       />
       <div className={styles.cardContainer}>
         <div className={styles.card}>
-          <img
-            src={'/img/homepage/file-based-routing.png'}
-            alt={'alt'}
+          <ThemeImage
+            lightSrc="/img/homepage/file-based-routing.png"
+            darkSrc="/img/homepage/file-based-routing-dark.png"
             className={styles.cardImage}
+            alt="File system with folders and files representing screens and navigation"
           />
           <div className={styles.cardContent}>
             <h4 className={styles.cardTitle}>File-based routing</h4>
@@ -43,10 +45,11 @@ function Framework() {
           </div>
         </div>
         <div className={styles.card}>
-          <img
-            src={'/img/homepage/libraries.png'}
-            alt={'alt'}
+          <ThemeImage
+            lightSrc="/img/homepage/libraries.png"
+            darkSrc="/img/homepage/libraries-dark.png"
             className={styles.cardImage}
+            alt="Grid of icons representing libraries, SDKs, and native code"
           />
           <div className={styles.cardContent}>
             <h4 className={styles.cardTitle}>
@@ -59,10 +62,11 @@ function Framework() {
           </div>
         </div>
         <div className={styles.card}>
-          <img
-            src={'/img/homepage/tools.png'}
-            alt={'alt'}
+          <ThemeImage
+            lightSrc="/img/homepage/tools.png"
+            darkSrc="/img/homepage/tools-dark.png"
             className={styles.cardImage}
+            alt="List of developer tool toggles for debugging, performance, and more"
           />
           <div className={styles.cardContent}>
             <h4 className={styles.cardTitle}>Developer tools</h4>

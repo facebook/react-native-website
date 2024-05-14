@@ -10,11 +10,10 @@
   justify-content: space-between;
   gap: 2rem;
   margin: 1rem auto;
-  color: #23272f;
 }
 
-.featureContainer:first-child {
-  border-right: 1px solid #c4c6ca;
+.featureContainer > :first-child {
+  border-right: 1px solid var(--home-border);
   padding-right: 2rem;
 }
 

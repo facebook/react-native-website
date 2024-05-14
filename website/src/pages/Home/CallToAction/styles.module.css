@@ -6,8 +6,6 @@
  */
 
 .wrapper {
-  background-color: #23272f;
-  color: white;
   text-align: center;
   overflow: hidden;
   position: relative;
@@ -41,8 +39,8 @@
 }
 
 .primaryButton {
-  background-color: #087ea4;
-  color: white;
+  background-color: var(--home-button-primary);
+  color: var(--home-button-primary-text);
   border: none;
   padding: 10px 24px;
   border-radius: 99rem;
@@ -55,8 +53,8 @@
 }
 
 .primaryButton:hover {
-  background-color: #4e98b6;
-  color: white;
+  background-color: var(--home-button-primary-hover);
+  color: var(--home-button-primary-text);
 }
 
 @media (max-width: 600px) {

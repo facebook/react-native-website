@@ -9,8 +9,8 @@ import React from 'react';
 
 import Section from '../components/Section';
 import SectionTitle from '../components/SectionTitle';
+import ThemeImage from '../components/ThemeImage';
 
-import FlyOutIllustration from './FlyOutIllustration';
 import styles from './styles.module.css';
 
 function Native() {
@@ -28,10 +28,11 @@ function Native() {
           </>
         }
       />
-      <img
-        src="/img/homepage/FlyoutIllustration.png"
-        alt="A React Native UI pointing out native elements like Views, ScrollViews, and more"
+      <ThemeImage
+        lightSrc="/img/homepage/dissection.png"
+        darkSrc="/img/homepage/dissection-dark.png"
         className={styles.flyoutIllustration}
+        alt="A React Native UI pointing out native elements like Views, ScrollViews, and more"
       />
     </Section>
   );

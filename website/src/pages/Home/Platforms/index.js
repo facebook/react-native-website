@@ -9,9 +9,9 @@ import React from 'react';
 
 import Section from '../components/Section';
 import SectionTitle from '../components/SectionTitle';
+import ThemeImage from '../components/ThemeImage';
 
 import FoxFact from './FoxFact';
-import Devices from './Devices';
 import styles from './styles.module.css';
 
 function Platforms() {
@@ -56,10 +56,11 @@ function Platforms() {
             </div>
           </div>
           <div className={styles.deviceContainer}>
-            <img
-              src="/img/homepage/devices.png"
-              alt="Android device and iOS device"
+            <ThemeImage
+              lightSrc="/img/homepage/devices.png"
+              darkSrc="/img/homepage/devices-dark.png"
               className={styles.devices}
+              alt="Android device and iOS device"
             />
           </div>
         </div>

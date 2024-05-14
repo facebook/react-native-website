@@ -8,6 +8,7 @@
 import React from 'react';
 
 import Logo from '../Logo';
+import Section from '../components/Section';
 
 import styles from './styles.module.css';
 

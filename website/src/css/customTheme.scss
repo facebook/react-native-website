@@ -79,10 +79,11 @@
   --home-border: #e5e7eb;
   --home-background: #fff;
   --home-secondary-background: #f6f7f9;
-  --home-text: ##1c1e21;
+  --home-text: #1c1e21;
   --home-code-red: #d73a49;
   --home-code-purple: #6f42c1;
   --home-code-green: #22863a;
+  --home-card-image-border: #b8dae5;
 
   @media (max-width: 900px) {
     --home-hero-grid-icon: transparent;
@@ -145,6 +146,7 @@ html[data-theme="dark"] {
   --home-code-red: #f46b78;
   --home-code-purple: #a77cf7;
   --home-code-green: #74e68f;
+  --home-card-image-border: #b8dae5;
 
   @media (max-width: 900px) {
     --home-hero-grid-icon: transparent;

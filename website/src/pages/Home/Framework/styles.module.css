@@ -13,11 +13,11 @@
 
 .card {
   text-align: center;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--home-border);
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.03);
-  background-color: white;
+  background-color: var(--home-background);
   display: flex;
   flex-direction: column;
 }
@@ -30,13 +30,12 @@
   margin-top: 10px;
   margin-bottom: 10px;
   font-size: 20px;
-  color: #23272f;
   line-height: 140%;
 }
 
 .cardDescription {
   margin-top: 0;
-  color: #5e687e;
+  color: var(--home-secondary-text);
   font-size: 16px;
   line-height: 140%;
 }
@@ -52,11 +51,11 @@
   }
 
   .cardImage {
-    width: 349px;
+    width: auto;
     height: 150px;
     margin: 1rem;
     border-radius: 0.5rem;
-    border: 1px solid #b8dae5;
+    border: 1px solid var(--home-card-image-border);
   }
 }
 
