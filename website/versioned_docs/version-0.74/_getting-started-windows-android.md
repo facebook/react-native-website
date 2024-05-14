@@ -1,6 +1,3 @@
-import RemoveGlobalCLI from './\_remove-global-cli.md';
-import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
-
 <h2>Installing dependencies</h2>
 
 You will need Node, the React Native command line interface, a JDK, and Android Studio.
@@ -105,32 +102,6 @@ The default location for this folder is:
 %LOCALAPPDATA%\Android\Sdk\platform-tools
 ```
 
-<h3>React Native Command Line Interface</h3>
-
-React Native has a built-in command line interface. Rather than install and manage a specific version of the CLI globally, we recommend you access the current version at runtime using `npx`, which ships with Node.js. With `npx react-native <command>`, the current stable version of the CLI will be downloaded and executed at the time the command is run.
-
-<h2>Creating a new application</h2>
-
-<RemoveGlobalCLI />
-
-React Native has a built-in command line interface, which you can use to generate a new project. You can access it without installing anything globally using `npx`, which ships with Node.js. Let's create a new React Native project called "AwesomeProject":
-
-```shell
-npx react-native@latest init AwesomeProject
-```
-
-This is not necessary if you are integrating React Native into an existing application, or if you've installed [Expo](https://docs.expo.dev/bare/installing-expo-modules/) in your project, or if you're adding Android support to an existing React Native project (see [Integration with Existing Apps](integration-with-existing-apps.md)). You can also use a third-party CLI to init your React Native app, such as [Ignite CLI](https://github.com/infinitered/ignite).
-
-<h3>[Optional] Using a specific version or template</h3>
-
-If you want to start a new project with a specific React Native version, you can use the `--version` argument:
-
-```shell
-npx react-native@X.XX.X init AwesomeProject --version X.XX.X
-```
-
-You can also start a project with a custom React Native template with the `--template` argument.
-
 <h2>Preparing the Android device</h2>
 
 You will need an Android device to run your React Native Android app. This can be either a physical Android device, or more commonly, you can use an Android Virtual Device which allows you to emulate an Android device on your computer.
@@ -151,79 +122,15 @@ If you have recently installed Android Studio, you will likely need to [create a
 
 > If you don't have HAXM installed, click on "Install HAXM" or follow [these instructions](https://github.com/intel/haxm/wiki/Installation-Instructions-on-Windows) to set it up, then go back to the AVD Manager.
 
-Click "Next" then "Finish" to create your AVD. At this point you should be able to click on the green triangle button next to your AVD to launch it, then proceed to the next step.
-
-<h2>Running your React Native application</h2>
-
-<h3>Step 1: Start Metro</h3>
-
-[**Metro**](https://metrobundler.dev/) is the JavaScript build tool for React Native. To start the Metro development server, run the following from your project folder:
-
-<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
-<TabItem value="npm">
-
-```shell
-npm start
-```
-
-</TabItem>
-<TabItem value="yarn">
-
-```shell
-yarn start
-```
-
-</TabItem>
-</Tabs>
-
-:::note
-If you're familiar with web development, Metro is similar to bundlers such as Vite and webpack, but is designed end-to-end for React Native. For instance, Metro uses [Babel](https://babel.dev/) to transform syntax such as JSX into executable JavaScript.
-:::
-
-<h3>Step 2: Start your application</h3>
-
-Let Metro Bundler run in its own terminal. Open a new terminal inside your React Native project folder. Run the following:
-
-<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
-<TabItem value="npm">
-
-```shell
-npm run android
-```
-
-</TabItem>
-<TabItem value="yarn">
-
-```shell
-yarn android
-```
-
-</TabItem>
-</Tabs>
-
-If everything is set up correctly, you should see your new app running in your Android emulator shortly.
-
-![AwesomeProject on Android](/docs/assets/GettingStartedAndroidSuccessWindows.png)
-
-This is one way to run your app - you can also run it directly from within Android Studio.
-
-> If you can't get this to work, see the [Troubleshooting](troubleshooting.md) page.
-
-<h3>Modifying your app</h3>
-
-Now that you have successfully run the app, let's modify it.
-
-- Open `App.tsx` in your text editor of choice and edit some lines.
-- Press the <kbd>R</kbd> key twice or select `Reload` from the Dev Menu (<kbd>Ctrl</kbd> + <kbd>M</kbd>) to see your changes!
+Click "Next" then "Finish" to create your AVD. At this point you should be able to click on the green triangle button next to your AVD to launch it.
 
 <h3>That's it!</h3>
 
-Congratulations! You've successfully run and modified your first React Native app.
+Congratulations! You successfully set up your development environment.
 
 <center><img src="/docs/assets/GettingStartedCongratulations.png" width="150"></img></center>
 
 <h2>Now what?</h2>
 
 - If you want to add this new React Native code to an existing application, check out the [Integration guide](integration-with-existing-apps.md).
-
-If you're curious to learn more about React Native, check out the [Introduction to React Native](getting-started).
+- If you're curious to learn more about React Native, check out the [Introduction to React Native](getting-started).
