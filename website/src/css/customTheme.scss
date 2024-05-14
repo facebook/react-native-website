@@ -53,7 +53,6 @@
   --logo: #087ea4;
   --home-hero-floor-background: rgb(236, 248, 250);
   --home-hero-floor-background-bottom: white;
-  --home-hero-subtitle: #404756;
   --home-button-primary: #087ea4;
   --home-button-primary-text: white;
   --home-button-primary-hover: #4e98b6;
@@ -71,6 +70,19 @@
   --home-hero-grid-icon-background: #f8f9fa;
   --home-hero-grid-icon: #e1e4e8;
   --home-hero-grid-grid: #ced4da;
+  --home-section-top: white;
+  --home-section-bottom: #efeff2;
+  --home-secondary-text: #404756;
+  --home-feature-background-1: #f1dbfc;
+  --home-feature-background-2: #e1eefc;
+  --home-feature-background-3: #d4f3e7;
+  --home-border: #e5e7eb;
+  --home-background: #fff;
+  --home-secondary-background: #f6f7f9;
+  --home-text: ##1c1e21;
+  --home-code-red: #d73a49;
+  --home-code-purple: #6f42c1;
+  --home-code-green: #22863a;
 
   @media (max-width: 900px) {
     --home-hero-grid-icon: transparent;
@@ -102,8 +114,7 @@ html[data-theme="dark"] {
 
   --logo: #58c4dc;
   --home-hero-floor-background: #151517;
-  --home-hero-floor-background-bottom: #1a1a1c;
-  --home-hero-subtitle: #c0c0c0;
+  --home-hero-floor-background-bottom: #1b1b1d;
   --home-button-primary: #58c4dc;
   --home-button-primary-text: #1b1b1d;
   --home-button-primary-hover: #71d6ec;
@@ -121,6 +132,19 @@ html[data-theme="dark"] {
   --home-hero-grid-icon-background: #1e2025;
   --home-hero-grid-icon: #282c36;
   --home-hero-grid-grid: #30363d;
+  --home-section-top: #1b1b1d;
+  --home-section-bottom: #111113;
+  --home-secondary-text: #ebecf0;
+  --home-feature-background-1: #333049;
+  --home-feature-background-2: #1c3950;
+  --home-feature-background-3: #1d413e;
+  --home-border: #404756;
+  --home-background: #242426;
+  --home-secondary-background: #2c2c2e;
+  --home-text: #e3e3e3;
+  --home-code-red: #f46b78;
+  --home-code-purple: #a77cf7;
+  --home-code-green: #74e68f;
 
   @media (max-width: 900px) {
     --home-hero-grid-icon: transparent;

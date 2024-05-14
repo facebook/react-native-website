@@ -29,23 +29,26 @@ function Platforms() {
             <div className={styles.codeEditorTitleContainer}>index.js</div>
             <div className={styles.codeEditorContentContainer}>
               <pre>
-                <span style={{color: '#d73a49'}}>function</span>{' '}
-                <span style={{color: '#6f42c1'}}>HomeScreen</span>
+                <span style={{color: 'var(--home-code-red)'}}>function</span>{' '}
+                <span style={{color: 'var(--home-code-purple'}}>
+                  HomeScreen
+                </span>
                 {`()`}
                 {` {`} <br />
-                <span style={{color: '#d73a49'}}>{`  return `}</span>
+                <span
+                  style={{color: 'var(--home-code-red)'}}>{`  return `}</span>
                 {`(`} <br />
                 {`    <`}
-                <span style={{color: '#22863a'}}>View</span>
+                <span style={{color: 'var(--home-code-green)'}}>View</span>
                 {`>`} <br />
                 {`      <`}
-                <span style={{color: '#22863a'}}>{`Text`}</span>
+                <span style={{color: 'var(--home-code-green)'}}>{`Text`}</span>
                 {`>`} Hello World 👋 🌍!{`</`}
-                <span style={{color: '#22863a'}}>{`Text`}</span>
+                <span style={{color: 'var(--home-code-green)'}}>{`Text`}</span>
                 {`>`}
                 <br />
                 {`    </`}
-                <span style={{color: '#22863a'}}>View</span>
+                <span style={{color: 'var(--home-code-green)'}}>View</span>
                 {`>`} <br />
                 {`  );`} <br />
                 {`}`}

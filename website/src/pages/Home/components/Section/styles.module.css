@@ -6,7 +6,12 @@
  */
 
 .wrapper {
-  background: linear-gradient(to bottom, white, #efeff2), white;
+  background: linear-gradient(
+      to bottom,
+      var(--home-section-top),
+      var(--home-section-bottom)
+    ),
+    var(--home-section-top);
   display: flex;
   justify-content: center;
 }

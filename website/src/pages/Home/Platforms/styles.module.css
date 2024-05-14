@@ -12,11 +12,16 @@
 }
 
 .featureContainer {
-  background: linear-gradient(115deg, #f1dbfc 0%, #e1eefc 50%, #d4f3e7 100%);
+  background: linear-gradient(
+    115deg,
+    var(--home-feature-background-1) 0%,
+    var(--home-feature-background-2) 50%,
+    var(--home-feature-background-3) 100%
+  );
   height: 340px;
   width: auto;
   border-radius: 1rem;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--home-border);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,9 +29,9 @@
 }
 
 .codeEditor {
-  background-color: white;
+  background-color: var(--home-background);
   border-radius: 0.5rem;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--home-border);
   overflow: hidden;
   position: relative;
   height: calc(100% + 4rem);
@@ -35,19 +40,19 @@
 }
 
 .codeEditorTitleContainer {
-  background-color: #f6f7f9;
+  background-color: var(--home-secondary-background);
   padding: 8px 16px;
-  color: #5e687e;
-  border-bottom: 1px solid #e5e7eb;
+  color: var(--home-secondary-text);
+  border-bottom: 1px solid var(--home-border);
 }
 
 .codeEditorContentContainer pre,
 .codeEditorContentContainer code {
-  background-color: white;
+  background-color: var(--home-background);
   padding: 16px 48px 16px 24px;
   font-family: "Source Code Pro", ui-monospace, SFMono-Regular, Menlo, Monaco,
     Consolas, "Liberation Mono", "Courier New", monospace;
-  color: #24292e;
+  color: var(--home-text);
   font-size: 14px;
 }
 
@@ -67,7 +72,7 @@
   align-items: center;
   gap: 1rem;
   max-width: 700px;
-  color: #23272f;
+  color: var(--home-text);
 }
 
 .fox {

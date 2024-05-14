@@ -14,12 +14,11 @@
 
 .title {
   font-size: 48px;
-  color: #23272f;
 }
 
 .description {
   font-size: 20px;
-  color: #404756;
+  color: var(--home-secondary-text);
   line-height: 150%;
   margin-top: 1rem;
   font-weight: normal;
