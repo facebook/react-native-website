@@ -24,7 +24,7 @@ To do so, you'll first need to [set up your environment](set-up-your-environment
 You can use [React Native Community CLI](https://github.com/react-native-community/cli) to generate a new project. Let's create a new React Native project called "AwesomeProject":
 
 ```shell
-npx react-native-community@latest init AwesomeProject
+npx @react-native-community/cli@latest init AwesomeProject
 ```
 
 This is not necessary if you are integrating React Native into an existing application, or if you've installed [Expo](https://docs.expo.dev/bare/installing-expo-modules/) in your project, or if you're adding Android support to an existing React Native project (see [Integration with Existing Apps](integration-with-existing-apps.md)). You can also use a third-party CLI to set up your React Native app, such as [Ignite CLI](https://github.com/infinitered/ignite).
