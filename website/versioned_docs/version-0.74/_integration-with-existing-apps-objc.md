@@ -14,7 +14,7 @@ The keys to integrating React Native components into your iOS application are to
 
 ## Prerequisites
 
-Follow the React Native CLI Quickstart in the [environment setup guide](environment-setup) to configure your development environment for building React Native apps for iOS.
+Follow the guide on [setting up your development environment](set-up-your-environment) and using [React Native without a framework](getting-started-without-a-framework) to configure your development environment for building React Native apps for iOS.
 
 ### 1. Set up directory structure
 
