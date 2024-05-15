@@ -44,7 +44,7 @@ If you are having trouble with iOS, try to reinstall the dependencies by running
 If you want to start a new project with a specific React Native version, you can use the `--version` argument:
 
 ```shell
-npx react-native-community@X.XX.X init AwesomeProject --version X.XX.X
+npx @react-native-community/cli@X.XX.X init AwesomeProject --version X.XX.X
 ```
 
 You can also start a project with a custom React Native template with the `--template` argument, read more [here](https://github.com/react-native-community/cli/blob/main/docs/init.md#initializing-project-with-custom-template).
