@@ -306,7 +306,8 @@
   display: flex;
   justify-content: flex-end;
   max-width: 1200px;
-  margin: -10px auto 0;
+  margin: 0 auto;
+  min-height: 36px;
 
   .github-button {
     margin-right: 1rem;
