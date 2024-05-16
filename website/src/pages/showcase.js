@@ -11,10 +11,28 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import ThemedImage from '@theme/ThemedImage';
 
-import {Section} from './index';
 import IconExternalLink from '../theme/Icon/ExternalLink';
 
 const renderApp = (app, i) => <AppBox app={app} key={`app-${app.name}-${i}`} />;
+
+function Section({
+  element = 'section',
+  children,
+  className,
+  background = 'light',
+}) {
+  const El = element;
+  return (
+    <El
+      className={
+        className
+          ? `Section ${className} ${background}`
+          : `Section ${background}`
+      }>
+      {children}
+    </El>
+  );
+}
 
 const AppBox = ({app}) => {
   const imgSource = useBaseUrl(

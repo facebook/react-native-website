@@ -1,0 +1,137 @@
+/**
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+.platformsContainer {
+  position: relative;
+  width: 100%;
+  margin: 6rem 0;
+}
+
+.featureContainer {
+  background: linear-gradient(
+    115deg,
+    var(--home-feature-background-1) 0%,
+    var(--home-feature-background-2) 50%,
+    var(--home-feature-background-3) 100%
+  );
+  height: 340px;
+  width: auto;
+  border-radius: 1rem;
+  border: 1px solid var(--home-border);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+}
+
+.codeEditor {
+  background-color: var(--home-background);
+  border-radius: 0.5rem;
+  border: 1px solid var(--home-border);
+  overflow: hidden;
+  position: relative;
+  height: calc(100% + 4rem);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.03);
+  overflow: hidden;
+}
+
+.codeEditorTitleContainer {
+  background-color: var(--home-secondary-background);
+  padding: 8px 16px;
+  color: var(--home-secondary-text);
+  border-bottom: 1px solid var(--home-border);
+}
+
+.codeEditorContentContainer pre,
+.codeEditorContentContainer code {
+  background-color: var(--home-background);
+  padding: 16px 48px 16px 24px;
+  font-family: "Source Code Pro", ui-monospace, SFMono-Regular, Menlo, Monaco,
+    Consolas, "Liberation Mono", "Courier New", monospace;
+  color: var(--home-text);
+  font-size: 14px;
+}
+
+.deviceContainer {
+  height: 100%;
+}
+
+.devices {
+  height: calc(100% + 4rem);
+  position: relative;
+  top: -2rem;
+}
+
+.foxFactContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  max-width: 700px;
+  color: var(--home-text);
+}
+
+.fox {
+  min-width: 120px;
+  width: 120px;
+}
+
+@media only screen and (max-width: 900px) {
+  .featureContainer {
+    gap: 2rem;
+  }
+
+  .codeEditor {
+    height: auto;
+  }
+
+  .deviceContainer {
+    height: auto;
+    width: 250px;
+  }
+
+  .devices {
+    height: auto;
+    width: 100%;
+    position: relative;
+    top: 0;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .featureContainer {
+    flex-direction: column;
+    gap: 2rem;
+    height: auto;
+  }
+
+  .codeEditor {
+    width: calc(100% + 3px);
+    top: -1px;
+    left: -1px;
+  }
+
+  .deviceContainer {
+    width: 350px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .codeEditorContentContainer pre,
+  .codeEditorContentContainer code {
+    padding: 16px 16px;
+    font-size: 3.2vw;
+  }
+  .deviceContainer {
+    width: calc(100% - 2rem);
+  }
+
+  .foxFactContainer {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
