@@ -30,8 +30,9 @@ Over the years, many conferences organized by companies and partners have been o
 
 Listed here are but a few of the main React Native related conferences, with links to past editions' recordings:
 
-#### [ReactConf](https://conf.reactjs.org/), organized by Meta
+#### [ReactConf](https://conf.react.dev/), organized by Meta
 
+- [React Conf 2024](https://www.youtube.com/watch?v=T8TZQ6k4SLE&list=PLNG_1j3cPCaaY3NEriypd7FKyWqbBNuAB)
 - [React Conf 2021](https://www.youtube.com/watch?v=FZ0cG47msEk&list=PLNG_1j3cPCaZZ7etkzWA7JfdmKWT0pMsa)
 - [React Conf 2019](https://www.youtube.com/playlist?list=PLPxbbTqCLbGHPxZpw4xj_Wwg8-fdNxJRh)
 - [React Conf 2018](https://www.youtube.com/watch?v=WXYPpY_mElQ)
