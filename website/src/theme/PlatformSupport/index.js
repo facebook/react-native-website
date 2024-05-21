@@ -11,6 +11,8 @@ import styles from './styles.module.css';
 import Badge from '@site/src/theme/Badge';
 import Android from '@site/src/theme/Icon/Android';
 import Apple from '@site/src/theme/Icon/Apple';
+import VisionOS from '@site/src/theme/Icon/VisionOS';
+import Windows from '@site/src/theme/Icon/Windows';
 import TV from '@site/src/theme/Icon/TV';
 import Web from '@site/src/theme/Icon/Web';
 
@@ -27,10 +29,16 @@ export default function PlatformSupport({platforms}) {
           <Badge icon={<Apple />} title="macOS" />
         )}
         {platforms.includes('tv') && <Badge icon={<TV />} title="TV" />}
-        {platforms.includes('watchOS') && <Badge title="watchOS" />}
+        {platforms.includes('watchOS') && (
+          <Badge icon={<Apple />} title="watchOS" />
+        )}
         {platforms.includes('web') && <Badge icon={<Web />} title="Web" />}
-        {platforms.includes('windows') && <Badge title="Windows" />}
-        {platforms.includes('visionOS') && <Badge title="visionOS" />}
+        {platforms.includes('windows') && (
+          <Badge icon={<Windows />} title="Windows" />
+        )}
+        {platforms.includes('visionOS') && (
+          <Badge icon={<VisionOS />} title="visionOS" />
+        )}
       </div>
     </div>
   );
