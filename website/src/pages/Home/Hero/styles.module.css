@@ -13,7 +13,7 @@
   position: absolute;
   z-index: -1;
   overflow: hidden;
-  width: 100vw;
+  width: 100%;
 }
 
 .socialLinks {
