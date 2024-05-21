@@ -18,7 +18,7 @@ function Devices() {
       height={288}
       fill="none"
       className={styles.svgContent}>
-      <g filter="url(#a)">
+      <g filter="url(#a)" className={styles.largeFormatDevices}>
         <path
           fill="var(--home-hero-devices-background)"
           d="M772.117 21.578c0-8.542 6.925-15.466 15.466-15.466h287.667c8.54 0 15.47 6.924 15.47 15.466v208.015c0 8.542-6.93 15.466-15.47 15.466H787.583c-8.541 0-15.466-6.924-15.466-15.466V21.578Z"
@@ -29,81 +29,83 @@ function Devices() {
           d="M787.583 9.572h287.667c6.63 0 12.01 5.375 12.01 12.006v208.015c0 6.631-5.38 12.006-12.01 12.006H787.583c-6.631 0-12.006-5.375-12.006-12.006V21.578c0-6.63 5.375-12.006 12.006-12.006Z"
         />
       </g>
-      <rect
-        width={160.853}
-        height={107.235}
-        x={796.212}
-        y={31.259}
-        fill="var(--home-hero-devices-skeleton-element)"
-        rx={6}
-      />
-      <rect
-        width={79.846}
-        height={58.097}
-        x={796.381}
-        y={156.499}
-        fill="var(--home-hero-devices-skeleton-element)"
-        rx={6}
-      />
-      <rect
-        width={79.846}
-        height={58.097}
-        x={891.226}
-        y={156.499}
-        fill="var(--home-hero-devices-skeleton-element)"
-        rx={6}
-      />
-      <rect
-        width={79.846}
-        height={58.097}
-        x={986.072}
-        y={156.499}
-        fill="var(--home-hero-devices-skeleton-element)"
-        rx={6}
-      />
-      <rect
-        width={92.811}
-        height={25.332}
-        x={970.56}
-        y={31.259}
-        fill="var(--home-hero-devices-skeleton-element)"
-        rx={6}
-      />
-      <rect
-        width={92.811}
-        height={11.666}
-        x={970.56}
-        y={61.591}
-        fill="var(--home-hero-devices-skeleton-element)"
-        rx={5.833}
-      />
-      <rect
-        width={67.837}
-        height={11.666}
-        x={970.56}
-        y={78.257}
-        fill="var(--home-hero-devices-skeleton-element)"
-        rx={5.833}
-      />
-      <g filter="url(#b)">
+      <g className={styles.largeFormatDevices}>
         <rect
-          width={60}
-          height={60}
-          x={833.416}
-          y={220.526}
-          fill="var(--home-hero-devices-background)"
-          rx={15}
+          width={160.853}
+          height={107.235}
+          x={796.212}
+          y={31.259}
+          fill="var(--home-hero-devices-skeleton-element)"
+          rx={6}
         />
         <rect
-          width={59.5}
-          height={59.5}
-          x={833.666}
-          y={220.776}
-          stroke="var(--home-hero-devices-icon-border)"
-          strokeWidth={0.5}
-          rx={14.75}
+          width={79.846}
+          height={58.097}
+          x={796.381}
+          y={156.499}
+          fill="var(--home-hero-devices-skeleton-element)"
+          rx={6}
         />
-        <g>
+        <rect
+          width={79.846}
+          height={58.097}
+          x={891.226}
+          y={156.499}
+          fill="var(--home-hero-devices-skeleton-element)"
+          rx={6}
+        />
+        <rect
+          width={79.846}
+          height={58.097}
+          x={986.072}
+          y={156.499}
+          fill="var(--home-hero-devices-skeleton-element)"
+          rx={6}
+        />
+        <rect
+          width={92.811}
+          height={25.332}
+          x={970.56}
+          y={31.259}
+          fill="var(--home-hero-devices-skeleton-element)"
+          rx={6}
+        />
+        <rect
+          width={92.811}
+          height={11.666}
+          x={970.56}
+          y={61.591}
+          fill="var(--home-hero-devices-skeleton-element)"
+          rx={5.833}
+        />
+        <rect
+          width={67.837}
+          height={11.666}
+          x={970.56}
+          y={78.257}
+          fill="var(--home-hero-devices-skeleton-element)"
+          rx={5.833}
+        />
+        <g filter="url(#b)">
+          <rect
+            width={60}
+            height={60}
+            x={833.416}
+            y={220.526}
+            fill="var(--home-hero-devices-background)"
+            rx={15}
+          />
+          <rect
+            width={59.5}
+            height={59.5}
+            x={833.666}
+            y={220.776}
+            stroke="var(--home-hero-devices-icon-border)"
+            strokeWidth={0.5}
+            rx={14.75}
+          />
+        </g>
+        <g className={styles.largeFormatDevices}>
           <path
             fill="var(--home-hero-devices-background)"
             d="M863.416 259.427a8.905 8.905 0 1 0 0-17.81 8.905 8.905 0 0 0 0 17.81Z"
@@ -126,7 +128,7 @@ function Devices() {
           />
         </g>
       </g>
-      <g filter="url(#g)">
+      <g filter="url(#g)" className={styles.largeFormatDevices}>
         <rect
           width={60}
           height={60}
@@ -193,7 +195,7 @@ function Devices() {
           d="M948.781 243.158c-.814-1.959-2.466-4.074-3.759-4.743a19.47 19.47 0 0 1 1.897 5.688l.004.031c-2.119-5.282-5.712-7.412-8.646-12.049a23.04 23.04 0 0 1-.442-.718 5.954 5.954 0 0 1-.206-.387 3.41 3.41 0 0 1-.28-.742.043.043 0 0 0-.012-.032.045.045 0 0 0-.03-.016.053.053 0 0 0-.035 0c-.003 0-.007.004-.01.005l-.013.007.007-.012c-4.707 2.756-6.304 7.858-6.451 10.41.219-.015.435-.034.659-.034a9.462 9.462 0 0 1 8.211 4.795 6.47 6.47 0 0 0-4.519-1.097c6.74 3.37 4.932 14.975-4.409 14.537a8.31 8.31 0 0 1-2.438-.47 10.25 10.25 0 0 1-.55-.225c-.106-.049-.212-.097-.317-.151l.013.008a11.489 11.489 0 0 1-.272-.136c.087.042.169.088.259.128-2.288-1.183-4.178-3.419-4.413-6.133 0 0 .865-3.224 6.193-3.224.576 0 2.225-1.607 2.254-2.074-.007-.152-3.268-1.45-4.54-2.702-.679-.67-1.002-.992-1.287-1.235a5.533 5.533 0 0 0-.484-.366 8.692 8.692 0 0 1-.053-4.58 13.87 13.87 0 0 0-4.51 3.486h-.009c-.742-.942-.69-4.046-.648-4.694a3.313 3.313 0 0 0-.625.332c-.656.468-1.269.993-1.832 1.569a16.396 16.396 0 0 0-1.752 2.102v.003-.004a15.842 15.842 0 0 0-2.514 5.678l-.025.124a33.189 33.189 0 0 0-.216 1.182 21.803 21.803 0 0 0-.277 2.612v.097a18.741 18.741 0 0 0 37.208 3.169c.031-.242.057-.481.085-.725a19.269 19.269 0 0 0-1.216-9.414Z"
         />
       </g>
-      <g filter="url(#t)">
+      <g filter="url(#t)" className={styles.largeFormatDevices}>
         <rect
           width={60}
           height={60}
@@ -374,7 +376,10 @@ function Devices() {
           d="m496.982 241.807 3.098-5.379a.631.631 0 0 0-.702-.925.623.623 0 0 0-.38.293l-3.138 5.449c-2.394-1.097-5.089-1.708-7.988-1.708s-5.594.611-7.989 1.708l-3.138-5.449a.628.628 0 1 0-1.084.632l3.097 5.379c-5.342 2.902-8.959 8.322-9.557 14.667h37.346c-.6-6.345-4.219-11.765-9.565-14.667Zm-17.683 9.41a1.57 1.57 0 1 1 .599-3.019 1.57 1.57 0 0 1-.6 3.019h.001Zm17.144 0a1.565 1.565 0 0 1-1.536-1.876 1.574 1.574 0 0 1 1.231-1.233 1.564 1.564 0 0 1 1.607.668 1.573 1.573 0 0 1-1.303 2.441h.001Z"
         />
       </g>
-      <g stroke="var(--home-hero-devices-border)" filter="url(#z)">
+      <g
+        stroke="var(--home-hero-devices-border)"
+        filter="url(#z)"
+        className={styles.largeFormatDevices}>
         <path
           fill="var(--home-hero-devices-background)"
           strokeWidth={6.918}
@@ -391,67 +396,69 @@ function Devices() {
           d="M17.346 233.729h365.849v8.647a5.88 5.88 0 0 1-5.88 5.88H23.225a5.88 5.88 0 0 1-5.88-5.88v-8.647Z"
         />
       </g>
-      <rect
-        width={156.853}
-        height={103.235}
-        x={84.838}
-        y={61.281}
-        fill="var(--home-hero-devices-background)"
-        stroke="var(--home-hero-devices-skeleton-element)"
-        strokeWidth={4}
-        rx={4}
-      />
-      <rect
-        width={160.853}
-        height={107.235}
-        x={149.265}
-        y={35.259}
-        fill="var(--home-hero-devices-skeleton-element)"
-        rx={6}
-      />
-      <g filter="url(#B)">
+      <g className={styles.largeFormatDevices}>
         <rect
-          width={60}
-          height={60}
-          x={209.521}
-          y={222.826}
+          width={156.853}
+          height={103.235}
+          x={84.838}
+          y={61.281}
           fill="var(--home-hero-devices-background)"
-          rx={15}
+          stroke="var(--home-hero-devices-skeleton-element)"
+          strokeWidth={4}
+          rx={4}
         />
         <rect
-          width={59.5}
-          height={59.5}
-          x={209.771}
-          y={223.076}
-          stroke="var(--home-hero-devices-icon-border)"
-          strokeWidth={0.5}
-          rx={14.75}
+          width={160.853}
+          height={107.235}
+          x={149.265}
+          y={35.259}
+          fill="var(--home-hero-devices-skeleton-element)"
+          rx={6}
         />
-        <path fill="#E15F38" d="M222.961 236.265h15.786v15.786h-15.786z" />
-        <path fill="#8EBB3B" d="M240.296 236.265h15.786v15.786h-15.786z" />
-        <path fill="#F5BD45" d="M240.296 253.601h15.786v15.786h-15.786z" />
-        <path fill="#4BA4EA" d="M222.961 253.601h15.786v15.786h-15.786z" />
-      </g>
-      <g filter="url(#C)">
-        <rect
-          width={60.513}
-          height={60.513}
-          x={141.008}
-          y={222.826}
-          fill="var(--home-hero-devices-background)"
-          rx={15}
-          shapeRendering="crispEdges"
-        />
-        <rect
-          width={59.513}
-          height={59.513}
-          x={141.508}
-          y={223.326}
-          stroke="var(--home-hero-devices-icon-border)"
-          rx={14.5}
-          shapeRendering="crispEdges"
-        />
-        <path fill="url(#D)" d="M149.008 230.826h44.513v44.513h-44.513z" />
+        <g filter="url(#B)">
+          <rect
+            width={60}
+            height={60}
+            x={209.521}
+            y={222.826}
+            fill="var(--home-hero-devices-background)"
+            rx={15}
+          />
+          <rect
+            width={59.5}
+            height={59.5}
+            x={209.771}
+            y={223.076}
+            stroke="var(--home-hero-devices-icon-border)"
+            strokeWidth={0.5}
+            rx={14.75}
+          />
+          <path fill="#E15F38" d="M222.961 236.265h15.786v15.786h-15.786z" />
+          <path fill="#8EBB3B" d="M240.296 236.265h15.786v15.786h-15.786z" />
+          <path fill="#F5BD45" d="M240.296 253.601h15.786v15.786h-15.786z" />
+          <path fill="#4BA4EA" d="M222.961 253.601h15.786v15.786h-15.786z" />
+        </g>
+        <g filter="url(#C)">
+          <rect
+            width={60.513}
+            height={60.513}
+            x={141.008}
+            y={222.826}
+            fill="var(--home-hero-devices-background)"
+            rx={15}
+            shapeRendering="crispEdges"
+          />
+          <rect
+            width={59.513}
+            height={59.513}
+            x={141.508}
+            y={223.326}
+            stroke="var(--home-hero-devices-icon-border)"
+            rx={14.5}
+            shapeRendering="crispEdges"
+          />
+          <path fill="url(#D)" d="M149.008 230.826h44.513v44.513h-44.513z" />
+        </g>
       </g>
       <defs>
         <filter
