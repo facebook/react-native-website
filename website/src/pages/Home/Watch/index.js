@@ -19,8 +19,8 @@ function Watch() {
         title="Watch and learn"
         description={
           <>
-            Watch talks by the React Native team and learn how to get the most
-            out of React Native. Find the latest on{' '}
+            Watch talks by the React team and learn how to get the most out of
+            React Native. Find the latest on{' '}
             <a href="https://twitter.com/intent/follow?screen_name=reactnative&region=follow_link">
               X
             </a>
@@ -31,16 +31,16 @@ function Watch() {
       <div className={styles.videos}>
         <div className={styles.videoContainer}>
           <iframe
-            src="https://www.youtube.com/embed/NCAY0HIfrwc"
-            title="Mobile Innovation with React Native, ComponentKit, and Litho"
+            src="https://www.youtube.com/embed/0ckOUBiuxVY?si=1WDgoPjhIGzeLNee&amp;start=2315"
+            title="React Conf 2024: React Native"
             frameBorder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
             className={styles.video}
           />
           <div className={styles.videoInfo}>
-            <h4>FB 2019: Mobile innovation with React Native</h4>
-            <p>45:29</p>
+            <h4>React Conf 2024: React Native</h4>
+            <p>55:00</p>
           </div>
         </div>
         <div className={styles.videoContainer}>
