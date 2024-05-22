@@ -209,9 +209,9 @@ module.exports = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       announcementBar: {
-        id: 'reactconf2024',
+        id: 'support_ukraine',
         content:
-          'Stream React Conf on May 15-16. <a target="_blank" rel="noopener noreferrer" href="https://conf.react.dev/">Learn More.</a>',
+          'Support Ukraine 🇺🇦 <a target="_blank" rel="noopener noreferrer" href="https://opensource.facebook.com/support-ukraine"> Help Provide Humanitarian Aid to Ukraine</a>.',
         backgroundColor: '#20232a',
         textColor: '#fff',
         isCloseable: false,
