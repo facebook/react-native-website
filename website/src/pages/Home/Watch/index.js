@@ -31,16 +31,16 @@ function Watch() {
       <div className={styles.videos}>
         <div className={styles.videoContainer}>
           <iframe
-            src="https://www.youtube.com/embed/0ckOUBiuxVY?si=1WDgoPjhIGzeLNee&amp;start=2315"
-            title="React Conf 2024: React Native"
+            src="https://www.youtube.com/embed/NCAY0HIfrwc"
+            title="Mobile Innovation with React Native, ComponentKit, and Litho"
             frameBorder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
             className={styles.video}
           />
           <div className={styles.videoInfo}>
-            <h4>React Conf 2024: React Native</h4>
-            <p>55:00</p>
+            <h4>FB 2019: Mobile innovation with React Native</h4>
+            <p>45:29</p>
           </div>
         </div>
         <div className={styles.videoContainer}>
