@@ -136,6 +136,12 @@
   color: var(--home-button-secondary-text);
 }
 
+@media (max-width: 600px) {
+  .largeFormatDevices {
+    display: none;
+  }
+}
+
 @media (max-width: 450px) {
   .content {
     top: 50px;

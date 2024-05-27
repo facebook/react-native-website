@@ -19,8 +19,8 @@ function Watch() {
         title="Watch and learn"
         description={
           <>
-            Watch talks by the React Native team and learn how to get the most
-            out of React Native. Find the latest on{' '}
+            Watch talks by the React team and learn how to get the most out of
+            React Native. Find the latest on{' '}
             <a href="https://twitter.com/intent/follow?screen_name=reactnative&region=follow_link">
               X
             </a>

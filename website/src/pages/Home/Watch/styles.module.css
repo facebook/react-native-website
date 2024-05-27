@@ -38,6 +38,11 @@
   justify-content: space-between;
 }
 
+.videoInfo p {
+  position: relative;
+  top: 2px;
+}
+
 @media only screen and (max-width: 700px) {
   .videos {
     grid-template-columns: repeat(1, 1fr);

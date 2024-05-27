@@ -19,3 +19,19 @@
 .container:hover {
   background-color: var(--ifm-color-gray-100);
 }
+
+.rightArrowIcon {
+  stroke: var(--ifm-color-gray-800);
+}
+
+[data-theme="dark"] .container {
+  border: 1px solid var(--ifm-color-gray-700);
+}
+
+[data-theme="dark"] .container:hover {
+  background-color: var(--dark);
+}
+
+[data-theme="dark"] .rightArrowIcon {
+  stroke: var(--ifm-color-gray-500);
+}
