@@ -948,8 +948,6 @@ Note that not all Text styles are supported, an incomplete list of what is not s
 - `borderBottomRightRadius`
 - `borderBottomLeftRadius`
 
-see [Issue#7070](https://github.com/facebook/react-native/issues/7070) for more detail.
-
 [Styles](style.md)
 
 | Type                  |

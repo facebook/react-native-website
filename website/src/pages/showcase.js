@@ -11,10 +11,28 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import ThemedImage from '@theme/ThemedImage';
 
-import {Section} from './index';
 import IconExternalLink from '../theme/Icon/ExternalLink';
 
 const renderApp = (app, i) => <AppBox app={app} key={`app-${app.name}-${i}`} />;
+
+function Section({
+  element = 'section',
+  children,
+  className,
+  background = 'light',
+}) {
+  const El = element;
+  return (
+    <El
+      className={
+        className
+          ? `Section ${className} ${background}`
+          : `Section ${background}`
+      }>
+      {children}
+    </El>
+  );
+}
 
 const AppBox = ({app}) => {
   const imgSource = useBaseUrl(
@@ -124,7 +142,7 @@ const Showcase = () => {
           <p className="showcaseSectionDescription">
             React Native is shaping mobile, web, and desktop experiences within
             Meta’s product ecosystem, from Facebook Marketplace, Messenger
-            Desktop, Ads Manager to the Oculus companion app and many more.
+            Desktop, Ads Manager to the Meta Quest app and many more.
           </p>
           <div className="logos">{meta.map(renderApp)}</div>
         </div>

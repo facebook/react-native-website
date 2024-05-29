@@ -12,7 +12,7 @@ The keys to integrating React Native components into your Android application ar
 
 ## Prerequisites
 
-Follow the React Native CLI Quickstart in the [environment setup guide](environment-setup) to configure your development environment for building React Native apps for Android.
+Follow the guide on [setting up your development environment](set-up-your-environment) to configure your development environment for building React Native apps for Android.
 
 ### 1. Set up directory structure
 

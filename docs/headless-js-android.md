@@ -114,7 +114,7 @@ Bundle bundle = new Bundle();
 bundle.putString("foo", "bar");
 service.putExtras(bundle);
 
-getApplicationContext().startService(service);
+getApplicationContext().startForegroundService(service);
 ```
 
 </TabItem>
@@ -128,7 +128,7 @@ bundle.putString("foo", "bar")
 
 service.putExtras(bundle)
 
-applicationContext.startService(service)
+applicationContext.startForegroundService(service)
 ```
 
 </TabItem>
@@ -244,7 +244,7 @@ public class NetworkChangeReceiver extends BroadcastReceiver {
             boolean hasInternet = isNetworkAvailable(context);
             Intent serviceIntent = new Intent(context, MyTaskService.class);
             serviceIntent.putExtra("hasInternet", hasInternet);
-            context.startService(serviceIntent);
+            context.startForegroundService(serviceIntent);
             HeadlessJsTaskService.acquireWakeLockNow(context);
         }
     }
@@ -327,7 +327,7 @@ class NetworkChangeReceiver : BroadcastReceiver() {
             val hasInternet = isNetworkAvailable(context)
             val serviceIntent = Intent(context, MyTaskService::class.java)
             serviceIntent.putExtra("hasInternet", hasInternet)
-            context.startService(serviceIntent)
+            context.startForegroundService(serviceIntent)
             HeadlessJsTaskService.acquireWakeLockNow(context)
         }
     }
