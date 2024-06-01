@@ -1495,6 +1495,16 @@ td .color-box {
     &:before {
       border-right-color: #a4c936;
     }
+
+    /* Adds hover text on platform tags */
+    &:hover::after {
+      content: "This prop is only applicable to Android";
+      position: absolute;
+      top: 100%;
+      left: 0;
+      color: #e3e3e3;
+      white-space: nowrap;
+    }
   }
 
   &.ios {
@@ -1502,6 +1512,16 @@ td .color-box {
 
     &:before {
       border-right-color: #222;
+    }
+
+    /* Adds hover text on platform tags */
+    &:hover::after {
+      content: "This prop is only applicable to iOS";
+      position: absolute;
+      top: 100%;
+      left: 0;
+      color: #e3e3e3;
+      white-space: nowrap;
     }
   }
 
