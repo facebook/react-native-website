@@ -28,9 +28,9 @@ brew install --cask zulu@17
 brew info --cask zulu@17
 ```
 
-After you install the JDK, update your `JAVA_HOME` environment variable. If you used above steps, JDK will likely be at `/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home`
+After the JDK installation, add or update your `JAVA_HOME` environment variable in `~/.zshrc` (or in `~/.bash_profile`) .
 
-Add the `JAVA_HOME` environment variable in ~/.bash_profile (or ~/.zshrc if you use Zsh):
+If you used above steps, JDK will likely be located at `/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home`:
 
 ```shell
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home
