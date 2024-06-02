@@ -104,7 +104,7 @@ When true, the scroll view bounces vertically when it reaches the end even if th
 
 | Type | Default                                             |
 | ---- | --------------------------------------------------- |
-| bool | `false` when `vertical={true}`<hr/>`true` otherwise |
+| bool | `false` when `horizontal={true}`<hr/>`true` otherwise |
 
 ---
 
