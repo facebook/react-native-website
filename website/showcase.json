@@ -378,6 +378,14 @@
       "pinned": true
     },
     {
+      "name": "MetaMask",
+      "icon": "metamask.png",
+      "linkAppStore": "https://apps.apple.com/us/app/metamask-blockchain-wallet/id1438144202",
+      "linkPlayStore": "https://play.google.com/store/apps/details?id=io.metamask",
+      "infoLink": "https://github.com/MetaMask/metamask-mobile",
+      "pinned": true
+    },
+    {
       "name": "Klarna | Shop now. Pay later.",
       "icon": "klarna.jpg",
       "linkAppStore": "https://apps.apple.com/us/app/klarna-shop-now-pay-later/id1115120118",
