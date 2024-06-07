@@ -56,6 +56,17 @@ To debug using Flipper, the Flipper app must be [installed on your system](https
 Debugging React Native apps with Flipper is [deprecated in React Native 0.73](https://github.com/react-native-community/discussions-and-proposals/pull/641). We will eventually remove out-of-the box support for JS debugging via Flipper.
 :::
 
+:::tip
+
+#### Alternative debugging tools
+
+As React Native transitions away from Flipper, we recommend other existing methods, including first party IDEs, to inspect your application's native code and behaviour.
+
+- [Debugging Native Code](./native-debugging)
+- <a href="https://shift.infinite.red/why-you-dont-need-flipper-in-your-react-native-app-and-how-to-get-by-without-it-3af461955109" target="_blank">Why you don’t need Flipper in your React Native app … and how to get by without it ↗</a>
+
+:::
+
 </TabItem>
 <TabItem value="new-debugger">
 
