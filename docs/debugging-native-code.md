@@ -1,6 +1,6 @@
 ---
-id: native-debugging
-title: Native Debugging
+id: debugging-native-code
+title: Debugging Native Code
 ---
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
@@ -12,9 +12,9 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import con
   </p>
 </div>
 
-## Accessing native logs
+## Accessing Logs
 
-You can display the console logs for an iOS or Android app by using the following commands in a terminal while the app is running:
+You can display the native logs for an iOS or Android app by using the following commands in a terminal while the app is running:
 
 ```shell
 # For Android:
@@ -25,11 +25,7 @@ npx react-native log-ios
 
 You may also access these through Debug > Open System Log… in the iOS Simulator or by running `adb logcat "*:S" ReactNative:V ReactNativeJS:V` in a terminal while an Android app is running on a device or emulator.
 
-:::info
-If you're using Expo CLI, console logs already appear in the same terminal output as the bundler.
-:::
-
-## Debugging native code
+## Debugging in a Native IDE
 
 When working with native code, such as when writing native modules, you can launch the app from Android Studio or Xcode and take advantage of the native debugging features (setting up breakpoints, etc.) as you would in case of building a standard native app.
 
