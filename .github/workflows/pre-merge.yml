@@ -24,7 +24,7 @@ jobs:
     steps:
       - name: Run Lint
         run: yarn ci:lint
-        working-directory: website
+        working-directory: ./website
 
   build:
     runs-on: ubuntu-latest
@@ -32,6 +32,6 @@ jobs:
     steps:
       - name: Build
         run: yarn build
-        working-directory: website
+        working-directory: ./website
         env:
           NODE_OPTIONS: "--max_old_space_size=4096"
