@@ -23,15 +23,13 @@ jobs:
     needs: setup
     steps:
       - name: Run Lint
-        run: yarn ci:lint
-        working-directory: ./website
+        run: yarn --cwd website ci:lint
 
   build:
     runs-on: ubuntu-latest
     needs: setup
     steps:
       - name: Build
-        run: yarn build
-        working-directory: ./website
+        run: yarn --cwd website build
         env:
           NODE_OPTIONS: "--max_old_space_size=4096"
