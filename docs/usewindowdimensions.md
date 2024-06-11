@@ -34,7 +34,7 @@ const App = () => {
           { height: 100 * fontScale, padding: 10 * fontScale },
         ]}
       >
-        <Text>Dynamic Box</Text>
+        <Text style={{ fontSize : 14 / fontScale }}>Dynamic Box</Text>
       </View>
     </View>
   );
