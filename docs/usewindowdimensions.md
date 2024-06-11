@@ -16,11 +16,11 @@ const {height, width} = useWindowDimensions();
 ## Example
 
 ```SnackPlayer name=useWindowDimensions&supportedPlatforms=ios,android
-import React from "react";
-import { View, StyleSheet, Text, useWindowDimensions } from "react-native";
+import React from 'react';
+import {View, StyleSheet, Text, useWindowDimensions} from 'react-native';
 
 const App = () => {
-  const { height, width, scale, fontScale } = useWindowDimensions();
+  const {height, width, scale, fontScale} = useWindowDimensions();
   return (
     <View style={styles.container}>
       <Text style={styles.header}>Window Dimension Data</Text>
@@ -28,8 +28,8 @@ const App = () => {
       <Text>Width: {width}</Text>
       <Text>Font scale: {fontScale}</Text>
       <Text>Pixel ratio: {scale}</Text>
-      <View style={{ height: 100 * fontScale, padding: 10 * fontScale }}>
-        <Text style={{ fontSize: 14 / fontScale }}>Dynamic Box</Text>
+      <View style={{height: 100 * fontScale, padding: 10 * fontScale}}>
+        <Text style={{fontSize: 14 / fontScale}}>Dynamic Box</Text>
       </View>
     </View>
   );
@@ -38,8 +38,8 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   header: {
     fontSize: 20,
