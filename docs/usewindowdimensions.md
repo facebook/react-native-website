@@ -29,12 +29,21 @@ const App = () => {
       <Text>Font scale: {fontScale}</Text>
       <Text>Pixel ratio: {scale}</Text>
 
-      <View style={[styles.box, { height: 100 * fontScale, padding: 10 * fontScale }]}>
+      <View
+        style={[
+          styles.box,
+          {
+            height: 100 * fontScale,
+            padding: 10 * fontScale,
+          },
+        ]}
+      >
         <Text>Dynamic Box</Text>
       </View>
     </View>
   );
 };
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -48,6 +57,7 @@ const styles = StyleSheet.create({
 });
 
 export default App;
+
 ```
 
 ## Properties
