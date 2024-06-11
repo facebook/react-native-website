@@ -28,7 +28,6 @@ jobs:
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile --no-progress --non-interactive --cache-folder ~/.cache/yarn
-        working-directory: ~/react-native-website
 
   lint:
     runs-on: ubuntu-latest
