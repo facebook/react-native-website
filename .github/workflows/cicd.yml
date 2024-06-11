@@ -30,11 +30,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: setup
     steps:
-      - name: Restore repository from cache
-        uses: actions/cache@v4
-        with:
-          path: ~/react-native-website
-          key: v1-repo-${{ github.sha }}
       - name: Restore Yarn cache
         uses: actions/cache@v4
         with:
@@ -50,11 +45,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: setup
     steps:
-      - name: Restore repository from cache
-        uses: actions/cache@v4
-        with:
-          path: ~/react-native-website
-          key: v1-repo-${{ github.sha }}
       - name: Restore Yarn cache
         uses: actions/cache@v4
         with:
