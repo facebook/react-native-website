@@ -44,7 +44,7 @@ jobs:
           key: v1-yarn-${{ github.ref_name }}
       - name: Run Lint
         run: yarn ci:lint
-        working-directory: ~/react-native-website/website
+        working-directory: website
 
   build:
     runs-on: ubuntu-latest
@@ -64,6 +64,6 @@ jobs:
           key: v1-yarn-${{ github.ref_name }}
       - name: Build
         run: yarn build
-        working-directory: ~/react-native-website/website
+        working-directory: website
         env:
           NODE_OPTIONS: "--max_old_space_size=4096"
