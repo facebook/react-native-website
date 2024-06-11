@@ -28,14 +28,10 @@ const App = () => {
       <Text>Width: {width}</Text>
       <Text>Font scale: {fontScale}</Text>
       <Text>Pixel ratio: {scale}</Text>
-
       <View
         style={[
           styles.box,
-          {
-            height: 100 * fontScale,
-            padding: 10 * fontScale,
-          },
+          { height: 100 * fontScale, padding: 10 * fontScale },
         ]}
       >
         <Text>Dynamic Box</Text>
@@ -57,7 +53,6 @@ const styles = StyleSheet.create({
 });
 
 export default App;
-
 ```
 
 ## Properties
