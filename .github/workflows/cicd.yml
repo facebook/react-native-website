@@ -1,9 +1,8 @@
+##CICD Version: v0.0.1
+
 name: GitHub_CICD
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
     branches:
       - main
@@ -29,6 +28,7 @@ jobs:
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile --no-progress --non-interactive --cache-folder ~/.cache/yarn
+        working-directory: ~/react-native-website
 
   lint:
     runs-on: ubuntu-latest
