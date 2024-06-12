@@ -1,0 +1,41 @@
+name: Pre-merge
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile --no-progress --non-interactive
+
+      - name: Run Lint
+        run: yarn ci:lint
+        working-directory: website
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile --no-progress --non-interactive
+
+      - name: Build
+        run: yarn build
+        working-directory: website
+        env:
+          NODE_OPTIONS: "--max_old_space_size=4096"
