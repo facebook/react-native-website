@@ -64,7 +64,7 @@ The scale of the font currently used. Some operating systems allow users to scal
 useWindowDimensions().height;
 ```
 
-The height in pixels of the window or screen your app occupies.
+The height in dps (Density-independent pixels) of the window or screen your app occupies.
 
 ---
 
@@ -79,6 +79,7 @@ The pixel ratio of the device your app is running on. The values can be:
 - `1` which indicates that one point equals one pixel (usually PPI/DPI of 96, 76 on some platforms).
 - `2` or `3` which indicates a Retina or high DPI display.
 
+Formula behind pixel ratio: pixel ratio = DPI / 160
 ---
 
 ### `width`
@@ -87,4 +88,4 @@ The pixel ratio of the device your app is running on. The values can be:
 useWindowDimensions().width;
 ```
 
-The width in pixels of the window or screen your app occupies.
+The width in dps (Density-independent pixels) of the window or screen your app occupies.
