@@ -214,7 +214,7 @@ If `false`, disables auto-correct. The default value is `true`.
 
 ### `autoFocus`
 
-If `true`, focuses the input on `componentDidMount` or `useEffect`. The default value is `false`.
+If `true`, focuses the input. The default value is `false`.
 
 | Type |
 | ---- |
