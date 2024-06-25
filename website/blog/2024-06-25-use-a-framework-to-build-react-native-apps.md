@@ -39,6 +39,8 @@ Expo, the framework, is and will remain free and open source, while Expo Applica
 
 :::
 
+<!--alex ignore he-she retext-equality-->
+
 If you haven’t used Expo recently, make sure you don’t miss [this talk from Kadi @ Expo](https://www.youtube.com/live/0ckOUBiuxVY?si=N-WSfmAJSMfd6wDL&t=3888) where she’s showcasing what you can do with Expo in 2024.
 
 We’ve also updated the [Getting Started page](https://reactnative.dev/docs/environment-setup) on the website to reflect this recommendation.
