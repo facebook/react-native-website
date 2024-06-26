@@ -49,7 +49,7 @@ We’ve also updated the [Getting Started page](https://reactnative.dev/docs/env
 
 If you’re already using a recommended framework such as Expo, you’re already good to go!
 
-If you’re not using Expo, the impact will be minimal. If you like, you can consider migrating, and you can find instructions on[ the official Expo website](https://docs.expo.dev/bare/overview/).
+If you’re not using Expo, the impact will be minimal. If you like, you can consider migrating, and you can find instructions on [the official Expo website](https://docs.expo.dev/bare/overview/). Expo offers many benefits, such as a easier way to [upgrade your React Native version](https://docs.expo.dev/workflow/upgrading-expo-sdk-walkthrough/), a better developer experience, and much more.
 
 However, if you can't or don't want to migrate to Expo, that's fine too. Using React Native without an official framework will continue to be supported.
 
