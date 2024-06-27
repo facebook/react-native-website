@@ -49,13 +49,19 @@ We’ve also updated the [Getting Started page](https://reactnative.dev/docs/env
 
 If you’re already using a recommended framework such as Expo, you’re already good to go!
 
-If you’re not using Expo, the impact will be minimal. If you like, you can consider migrating, and you can find instructions in [the official Expo documentation](https://docs.expo.dev/bare/overview/). Expo offers many benefits, such as a easier way to [upgrade your React Native version](https://docs.expo.dev/workflow/upgrading-expo-sdk-walkthrough/), a better developer experience, and much more.
+If you'd like to migrate your existing app to Expo, you can find instructions on [the official Expo website](https://docs.expo.dev/bare/overview/). Expo offers many benefits, such as an easier way to [upgrade your React Native version](https://docs.expo.dev/workflow/upgrading-expo-sdk-walkthrough/), a better developer experience, and much more.
 
-However, if you can't or don't want to migrate to Expo, that's fine too. Using React Native without an official framework will continue to be supported.
+However, if you can't or don't want to migrate to Expo, that's fine too. Using React Native without an official framework will continue to be supported. The tools you’ve been using such as React Native Community CLI, Template and [Upgrade Helper](https://react-native-community.github.io/upgrade-helper/) will keep on working as usual.
 
-The tools you’ve been using such as React Native Community CLI, Template and [Upgrade Helper](https://react-native-community.github.io/upgrade-helper/) will keep on working as usual.
+The `react-native init` command has moved out of core and is now accessible via:
 
-If you’re a React Native library developer, we collected a list of recommendations on which API to use that you can [read about over here](https://github.com/react-native-community/discussions-and-proposals/blob/main/proposals/0759-react-native-frameworks.md#what-do-we-recommend-to-react-native-library-developers).
+```
+npx @react-native-community/cli@latest init
+```
+
+and on GitHub at [react-native-community/cli](https://github.com/react-native-community/cli).
+
+If you’re a React Native library developer, we collected a list of recommendations on which APIs to use. [Read more in the RFC](https://github.com/react-native-community/discussions-and-proposals/blob/main/proposals/0759-react-native-frameworks.md#what-do-we-recommend-to-react-native-library-developers).
 
 ## Further reading
 
