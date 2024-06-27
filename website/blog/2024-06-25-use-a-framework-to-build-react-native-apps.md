@@ -15,7 +15,7 @@ In this blogpost we want to walk you through what they are in detail and what th
 
 ## What is a React Native framework?
 
-If you’ve been building production-ready apps, you probably know that there is a set of common problems you will need to solve sooner or later.
+If you’ve been building production apps, you probably know that there is a set of common problems you will need to solve sooner or later.
 
 When building any application on either web or native, you probably want your users to navigate through different screens, fetch data, and store the state of your user. But for native apps there is even more to deal with: you need tools to upgrade your native code between React Native versions, manage compatible versions of all of your dependencies, and deal with native build tools.
 
