@@ -349,11 +349,11 @@ Determines what text should be shown to the return key. Has precedence over the 
 
 The following values work across platforms:
 
-- `enter`
 - `done`
 - `next`
 - `search`
 - `send`
+- `go`
 
 _Android Only_
 
@@ -361,9 +361,15 @@ The following values work on Android only:
 
 - `previous`
 
-| Type                                                        |
-| ----------------------------------------------------------- |
-| enum('enter', 'done', 'next', 'previous', 'search', 'send') |
+_iOS Only_
+
+The following values work on iOS only:
+
+- `enter`
+
+| Type                                                              |
+| ----------------------------------------------------------------- |
+| enum('enter', 'done', 'next', 'previous', 'search', 'send', 'go') |
 
 ---
 
