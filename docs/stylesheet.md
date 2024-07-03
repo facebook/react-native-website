@@ -3,7 +3,7 @@ id: stylesheet
 title: StyleSheet
 ---
 
-A StyleSheet is an abstraction similar to CSS StyleSheets
+A StyleSheet is an abstraction similar to CSS StyleSheets.
 
 ```SnackPlayer name=StyleSheet
 import React from 'react';
@@ -41,7 +41,8 @@ export default App;
 Code quality tips:
 
 - By moving styles away from the render function, you're making the code easier to understand.
-- Naming the styles is a good way to add meaning to the low level components in the render function.
+- Naming the styles is a good way to add meaning to the low level components in the render function, and encourage reuse.
+- In most IDEs, using `StyleSheet.create()` will offer static type checking and suggestions to help you write valid styles.
 
 ---
 
@@ -101,22 +102,20 @@ export default App;
 ### `create()`
 
 ```tsx
-static create(styles: Object): Object;
+static create(styles: Object extends Record<string, ViewStyle | ImageStyle | TextSyle>): Object;
 ```
 
-Creates a StyleSheet style reference from the given object.
+An identity function for creating styles. The main practical benefit of creating styles inside `StyleSheet.create()` is static type checking against native style properties.
 
 ---
 
 ### `flatten()`
 
 ```tsx
-static flatten(style: Object[]): Object;
+static flatten(style: Array<Object extends Record<string, ViewStyle | ImageStyle | TextSyle>>): Object;
 ```
 
-Flattens an array of style objects, into one aggregated style object. Alternatively, this method can be used to lookup IDs, returned by `StyleSheet.register`.
-
-> **NOTE:** Exercise caution as abusing this can tax you in terms of optimizations. IDs enable optimizations through the bridge and memory in general. Referring to style objects directly will deprive you of these optimizations.
+Flattens an array of style objects, into one aggregated style object.
 
 ```SnackPlayer name=Flatten
 import React from 'react';
@@ -162,8 +161,6 @@ const flattenStyle = StyleSheet.flatten([page.text, typography.header]);
 
 export default App;
 ```
-
-This method internally uses `StyleSheetRegistry.getStyleByID(style)` to resolve style objects represented by IDs. Thus, an array of style objects (instances of `StyleSheet.create()`), are individually resolved to, their respective objects, merged as one and then returned. This also explains the alternative use.
 
 ---
 
