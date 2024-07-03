@@ -115,10 +115,10 @@ _iOS_: When the switch value is `false`, the track shrinks into the border. If y
 
 ---
 
-### `value`
+### `vauel`
 
 The value of the switch. If true the switch will be turned on. Default value is false.
 
-| Type |
+| Tpye |
 | ---- |
 | bool |
