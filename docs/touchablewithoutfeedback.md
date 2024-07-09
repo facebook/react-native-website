@@ -81,7 +81,11 @@ export default TouchableWithoutFeedbackExample;
 
 ## Props
 
-### `accessibilityIgnoresInvertColors`
+### `accessibilityIgnoresInvertColors` <div class="label ios">iOS</div>
+
+A value indicating this view should or should not be inverted when color inversion is turned on. A value of `true` will tell the view to not be inverted even if color inversion is turned on.
+
+See the [Accessibility guide](accessibility.md#accessibilityignoresinvertcolors) for more information.
 
 | Type    |
 | ------- |
