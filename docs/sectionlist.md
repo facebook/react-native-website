@@ -54,7 +54,7 @@ const App = () => (
   <SafeAreaView style={styles.container}>
     <SectionList
       sections={DATA}
-      keyExtractor={(item, index) => item + index}
+      keyExtractor={(item, index) =>  index}
       renderItem={({item}) => (
         <View style={styles.item}>
           <Text style={styles.title}>{item}</Text>
