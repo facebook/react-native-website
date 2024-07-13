@@ -672,6 +672,16 @@ Note that on iOS this method isn't called when using `keyboardType="phone-pad"`.
 
 ---
 
+### `onPaste`
+
+Callback that is called when the clipboard content is pasted.
+
+| Type                               |
+| ---------------------------------- |
+| (`{nativeEvent: {target}`) => void |
+
+---
+
 ### `placeholder`
 
 The string that will be rendered before text input has been entered.
