@@ -1,0 +1,9 @@
+name: restore_cache_checkout
+runs:
+  using: composite
+  steps:
+  - name: restore_cache
+    uses: actions/cache@v3.3.2
+    with:
+      key: v1-repo-${{ github.sha }}
+      path: UPDATE_ME
