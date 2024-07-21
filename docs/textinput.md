@@ -674,7 +674,7 @@ Note that on iOS this method isn't called when using `keyboardType="phone-pad"`.
 
 ### `onPaste`
 
-Callback that is called when the clipboard content is pasted.
+Invoked when the user performs the paste action.
 
 | Type                               |
 | ---------------------------------- |
