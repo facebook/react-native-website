@@ -1,0 +1,67 @@
+{
+  "next": {
+    "ios": "13.4",
+    "android": "Android 6.0 (API 23)"
+  },
+  "0.74": {
+    "ios": "13.4",
+    "android": "Android 6.0 (API 23)"
+  },
+  "0.73": {
+    "ios": "13.4",
+    "android": "Android 5.0 (API 21)"
+  },
+  "0.72": {
+    "ios": "12.4",
+    "android": "Android 5.0 (API 21)"
+  },
+  "0.71": {
+    "ios": "12.4",
+    "android": "Android 5.0 (API 21)"
+  },
+  "0.70": {
+    "ios": "12.4",
+    "android": "Android 5.0 (API 21)"
+  },
+  "0.69": {
+    "ios": "11.0",
+    "android": "Android 5.0 (API 21)"
+  },
+  "0.68": {
+    "ios": "11.0",
+    "android": "Android 5.0 (API 21)"
+  },
+  "0.67": {
+    "ios": "11.0",
+    "android": "Android 5.0 (API 21)"
+  },
+  "0.66": {
+    "ios": "11.0",
+    "android": "Android 5.0 (API 21)"
+  },
+
+  "0.65": {
+    "ios": "11.0",
+    "android": "Android 5.0 (API 21)"
+  },
+  "0.64": {
+    "ios": "10.0",
+    "android": "Android 4.1 (API 16)"
+  },
+  "0.63": {
+    "ios": "10.0",
+    "android": "Android 4.1 (API 16)"
+  },
+  "0.62": {
+    "ios": "9.0",
+    "android": "Android 4.1 (API 16)"
+  },
+  "0.61": {
+    "ios": "9.0",
+    "android": "Android 4.1 (API 16)"
+  },
+  "0.60": {
+    "ios": "9.0",
+    "android": "Android 4.1 (API 16)"
+  }
+}
