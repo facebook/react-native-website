@@ -142,7 +142,7 @@ require.Systrace.beginEvent = (message) => {
 
 ### 更新配置文件(metro.config.js)
 
-We now need to update `metro.config.js` in the root of the project to use our newly generated `modulePaths.js` file:
+我们现在需要更新项目根目录中的`metro.config.js`以使用新生成的`modulePaths.js`文件:
 
 ```
 const modulePaths = require('./packager/modulePaths');
