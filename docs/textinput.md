@@ -674,7 +674,7 @@ Note that on iOS this method isn't called when using `keyboardType="phone-pad"`.
 
 ### `onPaste`
 
-Invoked when the user performs the paste action. The `items` array contains one object where `type` and `data` are the MIME type and the content of the clipboard respectively. `data` is in plaintext if the type is `text/plain`, data URI (base64-encoded) otherwise.
+Invoked when the user performs the paste action. The `items` array contains one object where `type` and `data` are the MIME type and the content of the clipboard respectively. `data` is in plaintext if the type is `text/plain`, URI otherwise.
 
 | Type                                                      |
 | --------------------------------------------------------- |
