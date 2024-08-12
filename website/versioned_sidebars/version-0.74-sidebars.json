@@ -115,7 +115,7 @@
         ]
       }
     ],
-    "Experimental": ["the-new-architecture/landing-page"]
+    "Beta": ["the-new-architecture/landing-page"]
   },
   "api": {
     "APIs": [
