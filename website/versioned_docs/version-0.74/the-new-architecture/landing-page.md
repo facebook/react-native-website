@@ -215,13 +215,14 @@ You can follow along and contribute in our dedicated [discussions & proposals](h
 
 ## Should I use the New Architecture today?
 
-Today, the New Architecture is considered experimental and we continue to refine backwards compatibility for a better adoption experience.
+At [React Conf 2024](https://youtu.be/Q5SMmKb7qVI?feature=shared&t=1219), we announced that the React Native [New Architecture is now in Beta](https://github.com/reactwg/react-native-new-architecture/discussions/189).
 
-The team plans to enable the New Architecture by default in an upcoming React Native release by the end of 2024.
+We believe that the New Architecture is very close to be used in production.
 
-Our guidance is as follows
+Our guidance is as follows:
 
 - For most production apps, we do _not_ recommend enabling the New Architecture today. Waiting for the official release will offer the best experience.
+- However, we do advise for you to plan for the migration and to start trying it out.
 - If you maintain a React Native library, we recommend enabling it and verifying your use cases are covered. You can find the [instructions here](https://github.com/reactwg/react-native-new-architecture#guides).
 
 ### Enable the New Architecture
