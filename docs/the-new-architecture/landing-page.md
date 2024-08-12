@@ -215,7 +215,7 @@ You can follow along and contribute in our dedicated [discussions & proposals](h
 
 ## Should I use the New Architecture today?
 
-At [React Conf 2024](https://youtu.be/Q5SMmKb7qVI?feature=shared&t=1219), we announced that the react Native [New Architecture is now in Beta](https://github.com/reactwg/react-native-new-architecture/discussions/189).
+At [React Conf 2024](https://youtu.be/Q5SMmKb7qVI?feature=shared&t=1219), we announced that the React Native [New Architecture is now in Beta](https://github.com/reactwg/react-native-new-architecture/discussions/189).
 
 We believe that the New Architecture is very close to be used in production.
 
