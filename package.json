@@ -36,14 +36,8 @@
     "yarn-deduplicate": "^5.0.0"
   },
   "resolutions": {
-    "axios": "^1.6.2",
     "trim": "^1.0.1",
     "update-notifier": "^6.0.2",
     "@sideway/formula": ">=3.0.1"
-  },
-  "comments": {
-    "resolutions": {
-      "axios": "Removable after Docusaurus commit with https://github.com/facebook/docusaurus/pull/9547"
-    }
   }
 }
