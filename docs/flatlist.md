@@ -426,7 +426,7 @@ Example usage:
 
 ### <div class="label required basic">Required</div> **`data`**
 
-An array (or array-like list) of items to render. Other data types can be used by targetting [`VirtualizedList`](virtualizedlist.md) directly.
+An array (or array-like list) of items to render. Other data types can be used by targeting [`VirtualizedList`](virtualizedlist.md) directly.
 
 | Type      |
 | --------- |
