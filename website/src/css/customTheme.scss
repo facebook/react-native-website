@@ -561,6 +561,13 @@ html[data-theme="dark"] {
 
 .avatar__name {
   font-weight: 600;
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+
+  h2 {
+    margin-bottom: 0;
+  }
 }
 
 html[data-theme="dark"] .avatar__name a {
