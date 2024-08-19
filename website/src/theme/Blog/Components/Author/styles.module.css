@@ -42,7 +42,7 @@
   line-height: 1rem;
   display: -webkit-box;
   color: var(--subtle);
-  margin-bottom: 2px;
+  margin-bottom: 4px;
   overflow: hidden;
   line-clamp: 1;
   -webkit-line-clamp: 1;
