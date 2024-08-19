@@ -196,7 +196,7 @@ import {requireNativeComponent} from 'react-native';
  * - borderRadius: number
  * - resizeMode: 'cover' | 'contain' | 'stretch'
  */
-module.exports = requireNativeComponent('RCTImageView');
+export default requireNativeComponent('RCTImageView');
 ```
 
 The `requireNativeComponent` function takes the name of the native view. Note that if your component needs to do anything more sophisticated (e.g. custom event handling), you should wrap the native component in another React component. This is illustrated in the `MyCustomView` example below.
@@ -286,31 +286,28 @@ public class ReactImageManager extends SimpleViewManager<MyCustomView> {
 
 This callback is invoked with the raw event, which we typically process in the wrapper component to make a simpler API:
 
-```tsx title="MyCustomView.tsx"
-class MyCustomView extends React.Component {
-  constructor(props) {
-    super(props);
-    this._onChange = this._onChange.bind(this);
-  }
-  _onChange(event) {
-    if (!this.props.onChangeMessage) {
-      return;
-    }
-    this.props.onChangeMessage(event.nativeEvent.message);
-  }
-  render() {
-    return <RCTMyCustomView {...this.props} onChange={this._onChange} />;
-  }
-}
-MyCustomView.propTypes = {
+```tsx {8-11,13-17} title="MyCustomView.tsx"
+import {useCallback} from 'react';
+import {requireNativeComponent} from 'react-native';
+
+const RCTMyCustomView = requireNativeComponent('RCTMyCustomView');
+
+export default function MyCustomView(props: {
+  // ...
   /**
    * Callback that is called continuously when the user is dragging the map.
    */
-  onChangeMessage: PropTypes.func,
-  ...
-};
+  onChangeMessage: (message: string) => unknown;
+}) {
+  const onChange = useCallback(
+    event => {
+      props.onChangeMessage?.(event.nativeEvent.message);
+    },
+    [props.onChangeMessage],
+  );
 
-const RCTMyCustomView = requireNativeComponent(`RCTMyCustomView`);
+  return <RCTMyCustomView {...props} onChange={props.onChange} />;
+}
 ```
 
 ## Integration with an Android Fragment example
