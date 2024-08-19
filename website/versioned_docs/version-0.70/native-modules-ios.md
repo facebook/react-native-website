@@ -274,7 +274,7 @@ For iOS, you can also write native module methods with any argument type that is
 
 ### Exporting Constants
 
-A native module can export constants by overriding the native method `constantsToExport()`. Below `constantsToExport()` is overriden, and returns a Dictionary that contains a default event name property you can access in JavaScript like so:
+A native module can export constants by overriding the native method `constantsToExport()`. Below `constantsToExport()` is overridden, and returns a Dictionary that contains a default event name property you can access in JavaScript like so:
 
 ```objectivec
 - (NSDictionary *)constantsToExport
