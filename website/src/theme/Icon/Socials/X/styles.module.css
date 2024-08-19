@@ -1,0 +1,7 @@
+.xSvg {
+  fill: var(--subtle);
+}
+
+.xSvg:hover, .xSvg:focus {
+  fill: var(--ifm-hero-text-color);
+}

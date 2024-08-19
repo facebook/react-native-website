@@ -1,0 +1,7 @@
+.githubSvg {
+  fill: var(--subtle);
+}
+
+.githubSvg:hover, .githubSvg:focus {
+  fill: var(--ifm-hero-text-color);
+}

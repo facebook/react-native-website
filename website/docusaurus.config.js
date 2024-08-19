@@ -95,6 +95,9 @@ module.exports = {
             type: 'all',
             copyright,
           },
+          onInlineAuthors: 'ignore',
+          // Ignore for now due to old posts
+          onUntruncatedBlogPosts: 'ignore',
         },
         theme: {
           customCss: [
