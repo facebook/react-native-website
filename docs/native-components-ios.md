@@ -63,7 +63,7 @@ import {requireNativeComponent} from 'react-native';
 export default requireNativeComponent('RNTMap');
 ```
 
-The `requireNativeComponent` function automatically resolves `RNTMap` to `RNTMapManager` and export our native view for use in JavaScript.
+The `requireNativeComponent` function automatically resolves `RNTMap` to `RNTMapManager` and exports our native view for use in JavaScript.
 
 ```tsx title="MyApp.tsx"
 import MapView from './MapView.tsx';
