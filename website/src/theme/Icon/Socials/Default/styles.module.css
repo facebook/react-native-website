@@ -1,7 +1,0 @@
-.socialSvg {
-  fill: var(--subtle);
-}
-
-.socialSvg:hover, .socialSvg:focus {
-  fill: var(--ifm-hero-text-color);
-}

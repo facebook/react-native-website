@@ -68,3 +68,11 @@
   padding: 0.1rem 0.4rem;
   margin-left: 0.3rem;
 }
+
+svg[class^="authorSocialLink"] {
+  fill: var(--subtle) !important;
+
+  &:hover, &:focus {
+    fill: var(--ifm-hero-text-color) !important;
+  }
+}
