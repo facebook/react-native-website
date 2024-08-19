@@ -57,36 +57,27 @@ Apple frameworks use two-letter prefixes, and React Native uses `RCT` as a prefi
 
 Then you need a little bit of JavaScript to make this a usable React component:
 
-```tsx title="MapView.tsx"
+```tsx {3} title="MapView.tsx"
 import {requireNativeComponent} from 'react-native';
 
-// requireNativeComponent automatically resolves 'RNTMap' to 'RNTMapManager'
-module.exports = requireNativeComponent('RNTMap');
+export default requireNativeComponent('RNTMap');
 ```
+
+The `requireNativeComponent` function automatically resolves `RNTMap` to `RNTMapManager` and exports our native view for use in JavaScript.
 
 ```tsx title="MyApp.tsx"
 import MapView from './MapView.tsx';
 
-...
-
-render() {
+export default function MyApp() {
   return <MapView style={{flex: 1}} />;
 }
 ```
-
-Make sure to use `RNTMap` here. We want to require the manager here, which will expose the view of our manager for use in JavaScript.
 
 :::note
 When rendering, don't forget to stretch the view, otherwise you'll be staring at a blank screen.
 :::
 
-```tsx
-  render() {
-    return <MapView style={{flex: 1}} />;
-  }
-```
-
-This is now a fully-functioning native map view component in JavaScript, complete with pinch-zoom and other native gesture support. We can't really control it from JavaScript yet, though :(
+This is now a fully-functioning native map view component in JavaScript, complete with pinch-zoom and other native gesture support. We can't really control it from JavaScript yet, though.
 
 ## Properties
 
@@ -98,36 +89,31 @@ RCT_EXPORT_VIEW_PROPERTY(zoomEnabled, BOOL)
 
 Note that we explicitly specify the type as `BOOL` - React Native uses `RCTConvert` under the hood to convert all sorts of different data types when talking over the bridge, and bad values will show convenient "RedBox" errors to let you know there is an issue ASAP. When things are straightforward like this, the whole implementation is taken care of for you by this macro.
 
-Now to actually disable zooming, we set the property in JS:
+Now to actually disable zooming, we set the property in JavaScript:
 
-```tsx title="MyApp.tsx"
-<MapView zoomEnabled={false} style={{flex: 1}} />
+```tsx {4} title="MyApp.tsx"
+import MapView from './MapView.tsx';
+
+export default function MyApp() {
+  return <MapView zoomEnabled={false} style={{flex: 1}} />;
+}
 ```
 
-To document the properties (and which values they accept) of our MapView component we'll add a wrapper component and document the interface with React `PropTypes`:
+To document the properties (and which values they accept) of our MapView component we'll add a wrapper component and document the interface with TypeScript:
 
-```tsx title="MapView.tsx"
-import PropTypes from 'prop-types';
-import React from 'react';
+```tsx {6-9} title="MapView.tsx"
 import {requireNativeComponent} from 'react-native';
-
-class MapView extends React.Component {
-  render() {
-    return <RNTMap {...this.props} />;
-  }
-}
-
-MapView.propTypes = {
-  /**
-   * A Boolean value that determines whether the user may use pinch
-   * gestures to zoom in and out of the map.
-   */
-  zoomEnabled: PropTypes.bool,
-};
 
 const RNTMap = requireNativeComponent('RNTMap');
 
-module.exports = MapView;
+export default function MapView(props: {
+  /**
+   * Whether the user may use pinch gestures to zoom in and out.
+   */
+  zoomEnabled?: boolean;
+}) {
+  return <RNTMap {...props} />;
+}
 ```
 
 Now we have a nicely documented wrapper component to work with.
@@ -186,41 +172,49 @@ You could write any conversion function you want for your view - here is the imp
 
 These conversion functions are designed to safely process any JSON that the JS might throw at them by displaying "RedBox" errors and returning standard initialization values when missing keys or other developer errors are encountered.
 
-To finish up support for the `region` prop, we need to document it in `propTypes`:
+To finish up support for the `region` prop, we can document it with TypeScript:
 
-```tsx title="MapView.tsx"
-MapView.propTypes = {
-  /**
-   * A Boolean value that determines whether the user may use pinch
-   * gestures to zoom in and out of the map.
-   */
-  zoomEnabled: PropTypes.bool,
+```tsx {6-25} title="MapView.tsx"
+import {requireNativeComponent} from 'react-native';
 
+const RNTMap = requireNativeComponent('RNTMap');
+
+export default function MapView(props: {
   /**
    * The region to be displayed by the map.
    *
    * The region is defined by the center coordinates and the span of
    * coordinates to display.
    */
-  region: PropTypes.shape({
+  region?: {
     /**
      * Coordinates for the center of the map.
      */
-    latitude: PropTypes.number.isRequired,
-    longitude: PropTypes.number.isRequired,
+    latitude: number;
+    longitude: number;
 
     /**
      * Distance between the minimum and the maximum latitude/longitude
      * to be displayed.
      */
-    latitudeDelta: PropTypes.number.isRequired,
-    longitudeDelta: PropTypes.number.isRequired,
-  }),
-};
+    latitudeDelta: number;
+    longitudeDelta: number;
+  };
+  /**
+   * Whether the user may use pinch gestures to zoom in and out.
+   */
+  zoomEnabled?: boolean;
+}) {
+  return <RNTMap {...props} />;
+}
 ```
 
-```tsx title="MyApp.tsx"
-render() {
+We can now supply the `region` prop to `MapView`:
+
+```tsx {4-9,12} title="MyApp.tsx"
+import MapView from './MapView.tsx';
+
+export default function MyApp() {
   const region = {
     latitude: 37.48,
     longitude: -122.16,
@@ -236,8 +230,6 @@ render() {
   );
 }
 ```
-
-Here you can see that the shape of the region is explicit in the JS documentation.
 
 ## Events
 
@@ -319,55 +311,46 @@ RCT_CUSTOM_VIEW_PROPERTY(region, MKCoordinateRegion, MKMapView)
 
 In the delegate method `-mapView:regionDidChangeAnimated:` the event handler block is called on the corresponding view with the region data. Calling the `onRegionChange` event handler block results in calling the same callback prop in JavaScript. This callback is invoked with the raw event, which we typically process in the wrapper component to simplify the API:
 
-```tsx title="MapView.tsx"
-class MapView extends React.Component {
-  _onRegionChange = event => {
-    if (!this.props.onRegionChange) {
-      return;
-    }
+```tsx {3-10,14-17,19} title="MapView.tsx"
+// ...
 
-    // process raw event...
-    this.props.onRegionChange(event.nativeEvent);
+type RegionChangeEvent = {
+  nativeEvent: {
+    latitude: number;
+    longitude: number;
+    latitudeDelta: number;
+    longitudeDelta: number;
   };
-  render() {
-    return (
-      <RNTMap
-        {...this.props}
-        onRegionChange={this._onRegionChange}
-      />
-    );
-  }
-}
-MapView.propTypes = {
+};
+
+export default function MapView(props: {
+  // ...
   /**
    * Callback that is called continuously when the user is dragging the map.
    */
-  onRegionChange: PropTypes.func,
-  ...
-};
+  onRegionChange: (event: RegionChangeEvent) => unknown;
+}) {
+  return <RNTMap {...props} onRegionChange={onRegionChange} />;
+}
 ```
 
-```tsx title="MyApp.tsx"
-class MyApp extends React.Component {
-  onRegionChange(event) {
-    // Do stuff with event.region.latitude, etc.
-  }
+```tsx {6-9,14} title="MyApp.tsx"
+import MapView from './MapView.tsx';
 
-  render() {
-    const region = {
-      latitude: 37.48,
-      longitude: -122.16,
-      latitudeDelta: 0.1,
-      longitudeDelta: 0.1,
-    };
-    return (
-      <MapView
-        region={region}
-        zoomEnabled={false}
-        onRegionChange={this.onRegionChange}
-      />
-    );
-  }
+export default function MyApp() {
+  // ...
+
+  const onRegionChange = useCallback(event => {
+    const {region} = event.nativeEvent;
+    // Do something with `region.latitude`, etc.
+  });
+
+  return (
+    <MapView
+      // ...
+      onRegionChange={onRegionChange}
+    />
+  );
 }
 ```
 
