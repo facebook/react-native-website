@@ -64,7 +64,8 @@ module.exports = {
       options: {
         loader: 'tsx',
         format: isServer ? 'cjs' : undefined,
-        target: isServer ? 'node12' : 'es2017',
+        target: isServer ? 'node16' : 'es2020',
+        jsx: 'automatic',
       },
     }),
   },
@@ -95,6 +96,9 @@ module.exports = {
             type: 'all',
             copyright,
           },
+          onInlineAuthors: 'ignore',
+          // Ignore for now due to old posts
+          onUntruncatedBlogPosts: 'ignore',
         },
         theme: {
           customCss: [

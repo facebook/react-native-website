@@ -1,6 +1,6 @@
 ---
 title: React Native's Many Platform Vision
-authors: [abernathyca, Eli_White, lunaleaps, yungsters]
+authors: [abernathyca, Eli White, lunaleaps, yungsters]
 tags: [announcement]
 ---
 
