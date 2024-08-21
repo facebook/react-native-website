@@ -1,0 +1,299 @@
+{
+  "docs": {
+    "入门基础": [
+      "getting-started",
+      "intro-react-native-components",
+      "intro-react",
+      "handling-text-input",
+      "using-a-scrollview",
+      "using-a-listview",
+      "platform-specific-code",
+      "more-resources"
+    ],
+    "环境搭建": [
+      "environment-setup",
+      "integration-with-existing-apps",
+      "integration-with-android-fragment",
+      "building-for-tv",
+      "out-of-tree-platforms"
+    ],
+    "开发流程": [
+      "running-on-device",
+      "fast-refresh",
+      "metro",
+      "libraries",
+      "typescript",
+      "upgrading"
+    ],
+    "界面与交互": [
+      "style",
+      "height-and-width",
+      "flexbox",
+      "images",
+      "colors",
+      {
+        "type": "category",
+        "label": "交互",
+        "collapsible": false,
+        "collapsed": false,
+        "items": [
+          "handling-touches",
+          "navigation",
+          "animations",
+          "gesture-responder-system"
+        ]
+      },
+      {
+        "type": "category",
+        "label": "网络连接",
+        "collapsible": false,
+        "collapsed": false,
+        "items": [
+          "network",
+          "security"
+        ]
+      },
+      {
+        "type": "category",
+        "label": "包容性",
+        "collapsible": false,
+        "collapsed": false,
+        "items": [
+          "accessibility"
+        ]
+      }
+    ],
+    "调试": [
+      "debugging",
+      "react-devtools",
+      "native-debugging",
+      "debugging-release-builds",
+      "other-debugging-methods"
+    ],
+    "测试": [
+      "testing-overview"
+    ],
+    "性能调优": [
+      "performance",
+      "build-speed",
+      "optimizing-flatlist-configuration",
+      "optimizing-javascript-loading",
+      "profiling",
+      "profile-hermes"
+    ],
+    "JavaScript 运行环境": [
+      "javascript-environment",
+      "timers",
+      "hermes"
+    ],
+    "原生模块": [
+      "native-modules-intro",
+      "native-modules-android",
+      "native-modules-ios",
+      "native-modules-setup"
+    ],
+    "原生 UI 组件": [
+      "native-components-android",
+      "native-components-ios",
+      "direct-manipulation"
+    ],
+    "新架构介绍": [
+      "the-new-architecture/landing-page",
+      "the-new-architecture/why",
+      "the-new-architecture/use-app-template",
+      {
+        "type": "category",
+        "label": "核心设计",
+        "collapsible": false,
+        "collapsed": false,
+        "items": [
+          "the-new-architecture/pillars",
+          "the-new-architecture/pillars-turbomodules",
+          "the-new-architecture/pillars-fabric-components",
+          "the-new-architecture/pillars-codegen"
+        ]
+      },
+      {
+        "type": "category",
+        "label": "C++",
+        "collapsible": false,
+        "collapsed": false,
+        "items": [
+          "the-new-architecture/cxx-cxxturbomodules",
+          "the-new-architecture/cxx-custom-types"
+        ]
+      },
+      {
+        "type": "category",
+        "label": "向后兼容性",
+        "collapsible": false,
+        "collapsed": false,
+        "items": [
+          "the-new-architecture/backward-compatibility",
+          "the-new-architecture/backward-compatibility-turbomodules",
+          "the-new-architecture/backward-compatibility-fabric-components"
+        ]
+      }
+    ],
+    "新架构迁移指南": [
+      "new-architecture-intro",
+      {
+        "type": "category",
+        "label": "在第三方库中启用",
+        "collapsible": false,
+        "collapsed": false,
+        "items": [
+          "new-architecture-library-intro",
+          "new-architecture-library-android",
+          "new-architecture-library-ios"
+        ]
+      },
+      "new-architecture-app-intro",
+      "react-18-and-react-native",
+      "new-architecture-troubleshooting",
+      "new-architecture-appendix"
+    ],
+    "Android 与 iOS 指南": [
+      {
+        "type": "category",
+        "label": "Android",
+        "collapsible": false,
+        "collapsed": false,
+        "items": [
+          "headless-js-android",
+          "signed-apk-android",
+          "communication-android",
+          "react-native-gradle-plugin"
+        ]
+      },
+      {
+        "type": "category",
+        "label": "iOS",
+        "collapsible": false,
+        "collapsed": false,
+        "items": [
+          "linking-libraries-ios",
+          "running-on-simulator-ios",
+          "communication-ios",
+          "app-extensions",
+          "publishing-to-app-store"
+        ]
+      }
+    ]
+  },
+  "api": {
+    "APIs": [
+      "accessibilityinfo",
+      "alert",
+      "animated",
+      "animatedvalue",
+      "animatedvaluexy",
+      "appearance",
+      "appregistry",
+      "appstate",
+      "devsettings",
+      "dimensions",
+      "easing",
+      "interactionmanager",
+      "keyboard",
+      "layoutanimation",
+      "linking",
+      "panresponder",
+      "pixelratio",
+      "platform",
+      "platformcolor",
+      "roottag",
+      "share",
+      "stylesheet",
+      "systrace",
+      "transforms",
+      "vibration",
+      {
+        "type": "category",
+        "label": "Hooks",
+        "collapsed": false,
+        "items": [
+          "usecolorscheme",
+          "usewindowdimensions"
+        ]
+      },
+      {
+        "type": "category",
+        "label": "Android API",
+        "collapsed": false,
+        "items": [
+          "backhandler",
+          "permissionsandroid",
+          "toastandroid"
+        ]
+      },
+      {
+        "type": "category",
+        "label": "iOS API",
+        "collapsed": false,
+        "items": [
+          "actionsheetios",
+          "dynamiccolorios",
+          "settings"
+        ]
+      }
+    ]
+  },
+  "组件": {
+    "核心组件": [
+      "components-and-apis",
+      "activityindicator",
+      "button",
+      "flatlist",
+      "image",
+      "imagebackground",
+      "keyboardavoidingview",
+      "modal",
+      "pressable",
+      "refreshcontrol",
+      "scrollview",
+      "sectionlist",
+      "statusbar",
+      "switch",
+      "text",
+      "textinput",
+      "touchablehighlight",
+      "touchableopacity",
+      "touchablewithoutfeedback",
+      "view",
+      "virtualizedlist",
+      {
+        "type": "category",
+        "label": "Android 组件",
+        "collapsed": false,
+        "items": [
+          "drawerlayoutandroid",
+          "touchablenativefeedback"
+        ]
+      },
+      {
+        "type": "category",
+        "label": "iOS 组件",
+        "collapsed": false,
+        "items": [
+          "inputaccessoryview",
+          "safeareaview"
+        ]
+      }
+    ],
+    "Props": [
+      "image-style-props",
+      "layout-props",
+      "shadow-props",
+      "text-style-props",
+      "view-style-props"
+    ],
+    "内部对象类型": [
+      "layoutevent",
+      "pressevent",
+      "react-node",
+      "rect",
+      "viewtoken"
+    ]
+  }
+}

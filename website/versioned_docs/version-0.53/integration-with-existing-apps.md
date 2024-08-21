@@ -316,7 +316,7 @@ import {AppRegistry, StyleSheet, Text, View} from 'react-native';
 
 class RNHighScores extends React.Component {
   render() {
-    var contents = this.props['scores'].map((score) => (
+    var contents = this.props['scores'].map(score => (
       <Text key={score.name}>
         {score.name}:{score.value}
         {'\n'}
@@ -324,7 +324,9 @@ class RNHighScores extends React.Component {
     ));
     return (
       <View style={styles.container}>
-        <Text style={styles.highScoresTitle}>2048 High Scores!</Text>
+        <Text style={styles.highScoresTitle}>
+          2048 High Scores!
+        </Text>
         <Text style={styles.scores}>{contents}</Text>
       </View>
     );
@@ -414,7 +416,7 @@ First `import` the `RCTRootView` header.
 }
 ```
 
-> Note that `RCTRootView initWithURL` starts up a new JSC VM. To save resources and simplify the communication between RN views in different parts of your native app, you can have multiple views powered by React Native that are associated with a single JS runtime. To do that, instead of using `[RCTRootView alloc] initWithURL`, use [`RCTBridge initWithBundleURL`](https://github.com/facebook/react-native/blob/master/React/Base/RCTBridge.h#L93) to create a bridge and then use `RCTRootView initWithBridge`.
+> Note that `RCTRootView initWithBundleURL` starts up a new JSC VM. To save resources and simplify the communication between RN views in different parts of your native app, you can have multiple views powered by React Native that are associated with a single JS runtime. To do that, instead of using `[RCTRootView alloc] initWithBundleURL`, use [`RCTBridge initWithBundleURL`](https://github.com/facebook/react-native/blob/master/React/Base/RCTBridge.h#L93) to create a bridge and then use `RCTRootView initWithBridge`.
 
 <block class="swift" />
 
@@ -622,7 +624,10 @@ var styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('MyReactNativeApp', () => HelloWorld);
+AppRegistry.registerComponent(
+  'MyReactNativeApp',
+  () => HelloWorld,
+);
 ```
 
 ##### 3. Configure permissions for development error overlay

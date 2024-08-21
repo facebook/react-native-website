@@ -73,7 +73,7 @@ $ brew install cocoapods
 
 ## 把 React Native 添加到你的应用中
 
-在本教程中我们用于[示范的 app](https://github.com/JoelMarcey/iOS-2048)是一个[2048](https://en.wikipedia.org/wiki/2048_%28video_game%29)类型的游戏。下面是这个游戏还没有集成React Native 时的主界面：
+在本教程中我们用于[示范的 app](https://github.com/JoelMarcey/iOS-2048)是一个[2048](https://en.wikipedia.org/wiki/2048_%28video_game%29)类型的游戏。下面是这个游戏还没有集成 React Native 时的主界面：
 ![Before RN Integration](/docs/assets/react-native-existing-app-integration-ios-before.png)
 
 ### 配置 CocoaPods 的依赖
@@ -172,16 +172,11 @@ Pod installation complete! There are 3 dependencies from the Podfile and 1 total
 
 ```jsx
 import React from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+import {AppRegistry, StyleSheet, Text, View} from 'react-native';
 
 class RNHighScores extends React.Component {
   render() {
-    var contents = this.props['scores'].map((score) => (
+    var contents = this.props['scores'].map(score => (
       <Text key={score.name}>
         {score.name}:{score.value}
         {'\n'}
@@ -203,18 +198,18 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#FFFFFF'
+    backgroundColor: '#FFFFFF',
   },
   highScoresTitle: {
     fontSize: 20,
     textAlign: 'center',
-    margin: 10
+    margin: 10,
   },
   scores: {
     textAlign: 'center',
     color: '#333333',
-    marginBottom: 5
-  }
+    marginBottom: 5,
+  },
 });
 
 // Module name
@@ -279,7 +274,7 @@ You can add a new link on the main game menu to go to the "High Score" React Nat
 }
 ```
 
-> Note that `RCTRootView initWithURL` starts up a new JSC VM. To save resources and simplify the communication between RN views in different parts of your native app, you can have multiple views powered by React Native that are associated with a single JS runtime. To do that, instead of using `[RCTRootView alloc] initWithURL`, use [`RCTBridge initWithBundleURL`](https://github.com/facebook/react-native/blob/master/React/Base/RCTBridge.h#L93) to create a bridge and then use `RCTRootView initWithBridge`.
+> Note that `RCTRootView initWithBundleURL` starts up a new JSC VM. To save resources and simplify the communication between RN views in different parts of your native app, you can have multiple views powered by React Native that are associated with a single JS runtime. To do that, instead of using `[RCTRootView alloc] initWithBundleURL`, use [`RCTBridge initWithBundleURL`](https://github.com/facebook/react-native/blob/master/React/Base/RCTBridge.h#L93) to create a bridge and then use `RCTRootView initWithBridge`.
 
 > When moving your app to production, the `NSURL` can point to a pre-bundled file on disk via something like `[[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];`. You can use the `react-native-xcode.sh` script in `node_modules/react-native/scripts/` to generate that pre-bundled file.
 

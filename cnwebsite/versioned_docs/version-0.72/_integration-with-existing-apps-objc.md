@@ -78,7 +78,7 @@ $ brew install cocoapods
 
 ### Xcode 命令行工具
 
-安装Xcode命令行工具。在Xcode菜单中选择**Settings... (或者是 Preferences...)**，进入 Locations 面板并通过在 Command Line Tools 下拉菜单中选择最新版本来安装工具。
+安装 Xcode 命令行工具。在 Xcode 菜单中选择**Settings... (或者是 Preferences...)**，进入 Locations 面板并通过在 Command Line Tools 下拉菜单中选择最新版本来安装工具。
 
 ![Xcode Command Line Tools](/docs/assets/GettingStartedXcodeCommandLineTools.png)
 
@@ -188,7 +188,7 @@ AppRegistry.registerComponent('RNHighScores', () => RNHighScores);
 
 现在我们已经在`index.js`中创建了 React Native 组件，下一步就是把这个组件添加给一个新的或已有的`ViewController`。最简单的方法是可选地为您的组件创建一个事件路径，然后将该组件添加到现有的“ViewController”中。
 
-我们将把React Native组件与名为“RCTRootView”的新原生视图绑定在一起，该视图实际上包含它。
+我们将把 React Native 组件与名为“RCTRootView”的新原生视图绑定在一起，该视图实际上包含它。
 
 ##### 1. 创建一个事件路径
 
@@ -240,7 +240,7 @@ AppRegistry.registerComponent('RNHighScores', () => RNHighScores);
 }
 ```
 
-> 请注意，`RCTRootView initWithURL` 会启动一个新的 JSC VM。为了节省资源并简化本机应用程序中不同部分的 RN 视图之间的通信，您可以拥有多个由 React Native 提供支持且与单个 JS 运行时相关联的视图。要实现这一点，请使用 [`RCTBridge initWithBundleURL`](https://github.com/facebook/react-native/blob/main/packages/react-native/React/Base/RCTBridge.h#L94) 创建桥接器，然后使用 `RCTRootView initWithBridge`。
+> 请注意，`RCTRootView initWithBundleURL` 会启动一个新的 JSC VM。为了节省资源并简化本机应用程序中不同部分的 RN 视图之间的通信，您可以拥有多个由 React Native 提供支持且与单个 JS 运行时相关联的视图。要实现这一点，请使用 [`RCTBridge initWithBundleURL`](https://github.com/facebook/react-native/blob/main/packages/react-native/React/Base/RCTBridge.h#L94) 创建桥接器，然后使用 `RCTRootView initWithBridge`。
 
 > 在将应用程序移至生产环境时，`NSURL` 可以通过类似于 `[[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];` 的方式指向磁盘上预打包文件。您可以在 `node_modules/react-native/scripts/` 中使用 `react-native-xcode.sh` 脚本生成该预打包文件。
 
@@ -250,7 +250,7 @@ AppRegistry.registerComponent('RNHighScores', () => RNHighScores);
 
 ![Event Path](/docs/assets/react-native-add-react-native-integration-wire-up.png)
 
-> 其中一种更简单的方法是在Storyboard中打开视图，右键单击新链接。选择诸如“Touch Up Inside”事件之类的内容，将其拖到Storyboard上，然后从提供的列表中选择所创建的方法。
+> 其中一种更简单的方法是在 Storyboard 中打开视图，右键单击新链接。选择诸如“Touch Up Inside”事件之类的内容，将其拖到 Storyboard 上，然后从提供的列表中选择所创建的方法。
 
 ### 测试集成结果
 
@@ -295,11 +295,11 @@ $ npx react-native run-ios
 
 在我们的示例应用程序中，您应该会看到"High Scores"链接，然后当您单击它时，将会看到 React Native 组件的呈现。
 
-这是应用_原生_部分的主页面：
+这是应用*原生*部分的主页面：
 
 ![Home Screen](/docs/assets/react-native-add-react-native-integration-example-home-screen.png)
 
-这是应用_React Native_部分的 high score 页面:
+这是应用*React Native*部分的 high score 页面:
 
 ![High Scores](/docs/assets/react-native-add-react-native-integration-example-high-scores.png)
 

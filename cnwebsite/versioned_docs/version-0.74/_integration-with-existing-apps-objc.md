@@ -240,7 +240,7 @@ AppRegistry.registerComponent('RNHighScores', () => RNHighScores);
 }
 ```
 
-> 请注意，`RCTRootView initWithURL` 会启动一个新的 JSC VM。为了节省资源并简化原生应用程序中不同部分的 RN 视图之间的通信，您可以拥有多个由 React Native 提供支持且与单个 JS 运行时相关联的视图。要实现这一点，请使用 [`RCTBridge initWithBundleURL`](https://github.com/facebook/react-native/blob/main/packages/react-native/React/Base/RCTBridge.h#L94) 创建桥接器，然后使用 `RCTRootView initWithBridge`。
+> 请注意，`RCTRootView initWithBundleURL` 会启动一个新的 JSC VM。为了节省资源并简化原生应用程序中不同部分的 RN 视图之间的通信，您可以拥有多个由 React Native 提供支持且与单个 JS 运行时相关联的视图。要实现这一点，请使用 [`RCTBridge initWithBundleURL`](https://github.com/facebook/react-native/blob/main/packages/react-native/React/Base/RCTBridge.h#L94) 创建桥接器，然后使用 `RCTRootView initWithBridge`。
 
 > 在将应用程序移至生产环境时，`NSURL` 可以通过类似于 `[[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];` 的方式指向磁盘上预打包文件。您可以在 `node_modules/react-native/scripts/` 中使用 `react-native-xcode.sh` 脚本生成该预打包文件。
 
