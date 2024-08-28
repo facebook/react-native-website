@@ -3,32 +3,32 @@ id: profile-hermes
 title: 在 Hermes 中进行性能分析
 ---
 
-你可以使用[Hermes](https://github.com/facebook/hermes)在React Native应用中可视化JavaScript的性能。Hermes是一个小型且轻量的JavaScript引擎（你可以[在这里阅读更多有关在React Native中使用它的信息](hermes)）。Hermes有助于提高应用性能，并且还提供了分析其运行的JavaScript性能的方式。
+你可以使用[Hermes](https://github.com/facebook/hermes)在 React Native 应用中可视化 JavaScript 的性能。Hermes 是一个小型且轻量的 JavaScript 引擎（你可以[在这里阅读更多有关在 React Native 中使用它的信息](hermes)）。Hermes 有助于提高应用性能，并且还提供了分析其运行的 JavaScript 性能的方式。
 
-在本节中，您将学习如何对在Hermes上运行的React Native应用进行分析，并如何使用[Chrome DevTools上的性能选项卡](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/reference)可视化配置文件。
+在本节中，您将学习如何对在 Hermes 上运行的 React Native 应用进行分析，并如何使用[Chrome DevTools 上的性能选项卡](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/reference)可视化配置文件。
 
 :::caution 注意
-Be sure to [enable Hermes in your app](Hermes) before you get started!
+请确保您[已在应用中启用 Hermes](Hermes)
 :::
 
-Follow the instructions below to get started profiling:
+按照以下步骤开始分析:
 
-1. [Record a Hermes sampling profile](profile-hermes.md#record-a-hermes-sampling-profile)
-2. [Execute command from CLI](profile-hermes.md#execute-command-from-cli)
-3. [Open the downloaded profile on Chrome DevTools](profile-hermes.md#open-the-downloaded-profile-on-chrome-devtools)
+1. [记录 Hermes 采样分析](profile-hermes.md#记录hermes采样分析)
+2. [从命令行执行命令](profile-hermes.md#从命令行执行命令)
+3. [在 Chrome DevTools 中打开下载的分析文件](profile-hermes.md#在chrome-devtools中打开下载的分析文件)
 
-## Record a Hermes sampling profile
+## 记录 Hermes 采样分析
 
-To record a sampling profiler from the Dev Menu:
+从开发菜单记录采样分析器:
 
-1. Navigate to your running Metro server terminal.
-2. Press `d` to open the **Dev Menu.**
-3. Select **Enable Sampling Profiler.**
-4. Execute your JavaScript by in your app (press buttons, etc.)
-5. Open the **Dev Menu** by pressing `d` again.
-6. Select **Disable Sampling Profiler** to stop recording and save the sampling profiler.
+1. 导航到正在运行的 Metro 服务器终端。
+2. 按"d"键打开**开发菜单**。
+3. 选择**启用采样分析器**。
+4. 在应用中执行 JavaScript(按按钮等)。
+5. 再次按"d"键打开**开发菜单**。
+6. 选择**禁用采样分析器**以停止记录并保存采样分析器。
 
-A toast will show the location where the sampling profiler has been saved, usually in `/data/user/0/com.appName/cache/*.cpuprofile`
+会显示一个提示,指示采样分析器保存的位置,通常在`/data/user/0/com.appName/cache/*.cpuprofile`
 
 <img src="/docs/assets/HermesProfileSaved.png" height="465" width="250" alt="Toast Notification of Profile saving" />
 

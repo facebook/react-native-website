@@ -3,13 +3,13 @@ id: profiling
 title: Profiling
 ---
 
-Use the built-in profiler to get detailed information about work done in the JavaScript thread and main thread side-by-side. Access it by selecting Perf Monitor from the Debug menu.
+使用内置的性能分析器获取 JavaScript 线程和主线程并排的详细工作信息。从调试菜单中选择 Perf Monitor 即可访问它。
 
-For iOS, Instruments is an invaluable tool, and on Android you should learn to use [`systrace`](performance.md#profiling-android-ui-performance-with-systrace).
+对于 iOS 来说，Instruments 是一个非常有价值的工具，而在 Android 上，你应该学会使用`systrace`。
 
-But first, [**make sure that Development Mode is OFF!**](performance.md#running-in-development-mode-devtrue) You should see `__DEV__ === false, development-level warning are OFF, performance optimizations are ON` in your application logs.
+但首先，**确保开发模式已关闭！**你应该在应用程序日志中看到`__DEV__ === false, development-level warning are OFF, performance optimizations are ON`。
 
-Another way to profile JavaScript is to use the Chrome profiler while debugging. This won't give you accurate results as the code is running in Chrome but will give you a general idea of where bottlenecks might be. Run the profiler under Chrome's `Performance` tab. A flame graph will appear under `User Timing`. To view more details in tabular format, click at the `Bottom Up` tab below and then select `DedicatedWorker Thread` at the top left menu.
+另一种分析 JavaScript 的方法是在调试时使用 Chrome 分析器。这不会给你准确的结果，因为代码是在 Chrome 中运行的，但会给你一个瓶颈可能在哪里的大致想法。在 Chrome 的`Performance`标签下运行分析器。火焰图将出现在`User Timing`下。要以表格格式查看更多详细信息，请点击下方的`Bottom Up`标签，然后在左上角菜单中选择`DedicatedWorker Thread`。
 
 ## Profiling Android UI Performance with `systrace`
 

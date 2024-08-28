@@ -3,7 +3,7 @@ id: rect
 title: 矩形区域对象
 ---
 
-`Rect` accepts numeric pixel values to describe how far to extend a rectangular area. These values are added to the original area's size to expand it.
+`Rect` 接受数值像素值来描述如何扩展矩形区域。这些值会被添加到原始区域的大小上以扩展它。
 
 ## 示例
 

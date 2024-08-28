@@ -65,7 +65,7 @@ export default App;
 
 ### `ios_backgroundColor` <div class="label ios">iOS</div>
 
-On iOS, custom color for the background. This background color can be seen either when the switch value is `false` or when the switch is disabled (and the switch is translucent).
+在 iOS 上，自定义背景颜色。这种背景颜色可以在开关值为`false`时或开关被禁用（且开关呈半透明状态）时看到。
 
 | 类型               |
 | ------------------ |
@@ -75,7 +75,7 @@ On iOS, custom color for the background. This background color can be seen eithe
 
 ### `onChange`
 
-当值改变的时候调用此回调函数，参数为事件。 If you want to only receive the new value, use `onValueChange` instead.
+当值改变的时候调用此回调函数，参数为事件。如果你只想接收新值，请改用 `onValueChange`。
 
 | 类型     |
 | -------- |
@@ -85,7 +85,7 @@ On iOS, custom color for the background. This background color can be seen eithe
 
 ### `onValueChange`
 
-当值改变的时候调用此回调函数，参数为新的值。 If you want to instead receive an event, use `onChange`.
+当值改变的时候调用此回调函数，参数为新的值。如果你想接收一个完整事件，请使用 `onChange`。
 
 | 类型     |
 | -------- |
@@ -107,7 +107,7 @@ On iOS, custom color for the background. This background color can be seen eithe
 
 关闭状态时的边框颜色(iOS)或背景颜色(Android)。
 
-_iOS_: When the switch value is `false`, the track shrinks into the border. If you want to change the color of the background exposed by the shrunken track, use [`ios_backgroundColor`](switch.md#ios_backgroundColor).
+_iOS_: 当开关值为 `false` 时，轨道会收缩到边框内。如果你想改变收缩后轨道露出的背景颜色，请使用 [`ios_backgroundColor`](switch.md#ios_backgroundColor)。
 
 | Type                                                         |
 | ------------------------------------------------------------ |

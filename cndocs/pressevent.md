@@ -3,7 +3,7 @@ id: pressevent
 title: 点击事件对象
 ---
 
-`PressEvent` object is returned in the callback as a result of user press interaction, for example `onPress` in [Button](button) component.
+点击事件对象作为用户按压交互的结果在回调中返回，例如 [Button](button) 组件中的 `onPress`。
 
 ## 示例
 
@@ -21,89 +21,89 @@ title: 点击事件对象
 }
 ```
 
-## Keys and values
+## 属性与值
 
 ### `changedTouches`
 
-Array of all PressEvents that have changed since the last event.
+自上次事件以来发生变化的所有点击事件对象数组。
 
-| Type                 | Optional |
-| -------------------- | -------- |
-| array of PressEvents | No       |
+| 类型             | 可选 |
+| ---------------- | ---- |
+| 点击事件对象数组 | 否   |
 
 ### `force` <div class="label ios">iOS</div>
 
-Amount of force used during the 3D Touch press. Returns the float value in range from `0.0` to `1.0`.
+3D Touch 按压期间使用的力度。返回范围从 `0.0` 到 `1.0` 的浮点值。
 
-| Type   | Optional |
-| ------ | -------- |
-| number | Yes      |
+| 类型   | 可选 |
+| ------ | ---- |
+| number | Yes  |
 
 ### `identifier`
 
-Unique numeric identifier assigned to the event.
+为事件分配的唯一数字标识符。
 
-| Type   | Optional |
-| ------ | -------- |
-| number | No       |
+| 类型   | 可选 |
+| ------ | ---- |
+| number | No   |
 
 ### `locationX`
 
-Touch origin X coordinate inside touchable area (relative to the element).
+在可触摸区域内触摸原点的 X 坐标（相对于元素）。
 
-| Type   | Optional |
-| ------ | -------- |
-| number | No       |
+| 类型   | 可选 |
+| ------ | ---- |
+| number | No   |
 
 ### `locationY`
 
-Touch origin Y coordinate inside touchable area (relative to the element).
+在可触摸区域内触摸原点的 Y 坐标（相对于元素）。
 
-| Type   | Optional |
-| ------ | -------- |
-| number | No       |
+| 类型   | 可选 |
+| ------ | ---- |
+| number | No   |
 
 ### `pageX`
 
-Touch origin X coordinate on the screen (relative to the root view).
+触摸原点在屏幕上的 X 坐标（相对于根视图）。
 
-| Type   | Optional |
-| ------ | -------- |
-| number | No       |
+| 类型   | 可选 |
+| ------ | ---- |
+| number | No   |
 
 ### `pageY`
 
-Touch origin Y coordinate on the screen (relative to the root view).
+触摸原点在屏幕上的 Y 坐标（相对于根视图）。
 
-| Type   | Optional |
-| ------ | -------- |
-| number | No       |
+| 类型   | 可选 |
+| ------ | ---- |
+| number | No   |
 
 ### `target`
 
-The node id of the element receiving the PressEvent.
+接收点击事件对象的元素的节点 id。
 
-| Type                        | Optional |
-| --------------------------- | -------- |
-| number, `null`, `undefined` | No       |
+| 类型                        | 可选 |
+| --------------------------- | ---- |
+| number, `null`, `undefined` | No   |
 
 ### `timestamp`
 
-Timestamp value when a PressEvent occurred. Value is represented in milliseconds.
+当点击事件对象发生时的时间戳。值以毫秒为单位表示。
 
-| Type   | Optional |
-| ------ | -------- |
-| number | No       |
+| 类型   | 可选 |
+| ------ | ---- |
+| number | No   |
 
 ### `touches`
 
-Array of all current PressEvents on the screen.
+屏幕上所有当前点击事件对象的数组。
 
-| Type                 | Optional |
-| -------------------- | -------- |
-| array of PressEvents | No       |
+| 类型             | 可选 |
+| ---------------- | ---- |
+| 点击事件对象数组 | No   |
 
-## 被下列组件引用
+## 使用点击事件对象的组件
 
 - [`Button`](button)
 - [`PanResponder`](panresponder)
