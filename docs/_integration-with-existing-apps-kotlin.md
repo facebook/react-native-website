@@ -131,6 +131,7 @@ Those dependencies are available on `mavenCentral()` so make sure you have it de
 
 ```diff
 dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
     repositories {
         google()
         mavenCentral() // This is required, you'll probably have it already
