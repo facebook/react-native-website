@@ -58,8 +58,7 @@ export default () => {
       <FadeInView
         style={{
           width: 250,
-          height: 50,
-          backgroundColor: 'powderblue',
+          backgroundColor: 'steelblue',
         }}>
         <Text style={{fontSize: 28, textAlign: 'center', margin: 10}}>
           Fading in
@@ -115,8 +114,7 @@ export default () => {
       <FadeInView
         style={{
           width: 250,
-          height: 50,
-          backgroundColor: 'powderblue',
+          backgroundColor: 'steelblue',
         }}>
         <Text style={{fontSize: 28, textAlign: 'center', margin: 10}}>
           Fading in
