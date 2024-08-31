@@ -131,6 +131,7 @@ const App = () => {
   const [shadowOffsetHeight, setShadowOffsetHeight] = useState(0);
   const [shadowRadius, setShadowRadius] = useState(0);
   const [shadowOpacity, setShadowOpacity] = useState(0.1);
+  const [zIndex, setZIndex] = useState(0);
 
   return (
     <View style={styles.container}>
@@ -144,6 +145,7 @@ const App = () => {
             },
             shadowOpacity,
             shadowRadius,
+            zIndex,
           },
         ]}
       />
@@ -176,6 +178,13 @@ const App = () => {
           step={0.05}
           value={shadowOpacity}
           onValueChange={val => setShadowOpacity(val)}
+        />
+        <ShadowPropSlider
+          label="zIndex"
+          minimumValue={0}
+          maximumValue={1000}
+          value={zIndex}
+          onValueChange={setZIndex}
         />
       </View>
     </View>
@@ -249,6 +258,16 @@ Sets the drop shadow opacity (multiplied by the color's alpha component).
 ### `shadowRadius` <div class="label ios">iOS</div>
 
 Sets the drop shadow blur radius.
+
+| Type   |
+| ------ |
+| number |
+
+---
+
+### `zIndex` <div class="label ios">iOS</div>
+
+Sets the drop shadow zIndex.
 
 | Type   |
 | ------ |
