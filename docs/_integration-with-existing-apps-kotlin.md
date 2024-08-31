@@ -110,11 +110,10 @@ This makes sure the React Native Gradle Plugin is available inside your project.
 Finally, add those lines inside your app's `build.gradle` file (it's a different `build.gradle` file inside your app folder):
 
 ```diff
-apply plugin: "com.android.application"
-+apply plugin: "com.facebook.react"
-
-repositories {
-    mavenCentral()
+plugins {
+    id("com.android.application")
+    id("org.jetbrains.kotlin.android")
++   id("com.facebook.react")
 }
 
 dependencies {
@@ -124,24 +123,49 @@ dependencies {
 }
 ```
 
-Those dependencies are available on `mavenCentral()` so make sure you have it defined in your `repositories{}` block.
-
 :::info
 We intentionally don't specify the version for those `implementation` dependencies as the React Native Gradle Plugin will take care of it. If you don't use the React Native Gradle Plugin, you'll have to specify version manually.
 :::
+
+Those dependencies are available on `mavenCentral()` so make sure you have it defined in your `repositories{}` block in your `settings.gradle` file.
+
+```diff
+dependencyResolutionManagement {
+    repositories {
+        google()
+        mavenCentral() // This is required, you'll probably have it already
+    }
+}
+```
 
 ### Enable native modules autolinking
 
 To use the power of [autolinking](https://github.com/react-native-community/cli/blob/master/docs/autolinking.md), we have to apply it a few places. First add the following entry to `settings.gradle`:
 
-```gradle
-apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
+```diff
+pluginManagement {
+    repositories {
+      ...
+    }
++    includeBuild("../node_modules/@react-native/gradle-plugin")
+}
+
++plugins {
++    id("com.facebook.react.settings")
++}
+
+
+include(":app")
++includeBuild("../node_modules/@react-native/gradle-plugin")
++configure<com.facebook.react.ReactSettingsExtension> { autolinkLibrariesFromCommand() }
 ```
 
 Next add the following entry at the very bottom of the `app/build.gradle`:
 
-```gradle
-apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)
+```diff
++react {
++    autolinkLibrariesWithApp()
++}
 ```
 
 ### Configuring permissions
