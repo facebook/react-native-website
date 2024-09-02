@@ -27,10 +27,10 @@ brew install --cask zulu@17
 # Get path to where cask was installed to find the JDK installer
 brew info --cask zulu@17
 
-# ==> zulu@17: <version number>                                                                              
-# https://www.azul.com/downloads/                                                       
-# Installed                                                                                               
-# /opt/homebrew/Caskroom/zulu@17/<version number> (185.8MB) (note that the path is /usr/local/Caskroom on non-Apple Silicon Macs)                                      
+# ==> zulu@17: <version number>
+# https://www.azul.com/downloads/
+# Installed
+# /opt/homebrew/Caskroom/zulu@17/<version number> (185.8MB) (note that the path is /usr/local/Caskroom on non-Apple Silicon Macs)
 # Installed using the formulae.brew.sh API on 2024-06-06 at 10:00:00
 
 # Navigate to the folder
