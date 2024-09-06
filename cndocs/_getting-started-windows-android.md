@@ -119,7 +119,7 @@ C:\Users\你的用户名\AppData\Local\Android\Sdk
 > **必须要看的注意事项三**：请`不要`使用一些移植的终端环境，例如`git bash`或`mingw`等等，这些在 windows 下可能导致找不到环境变量。请使用系统自带的命令行（CMD 或 powershell）运行。
 
 ```shell
-npx react-native@latest init AwesomeProject
+npx @react-native-community/clilatest init AwesomeProject
 ```
 
 如果你是想把 React Native 集成到现有的原生项目中，则步骤完全不同，请参考[集成到现有原生应用](integration-with-existing-apps.md)。
@@ -129,7 +129,7 @@ npx react-native@latest init AwesomeProject
 你可以使用`--version`参数（注意是`两`个杠）创建指定版本的项目。注意版本号必须精确到两个小数点。
 
 ```shell
-npx react-native@X.XX.X init AwesomeProject --version X.XX.X
+npx @react-native-community/cliX.XX.X init AwesomeProject --version X.XX.X
 ```
 
 还可以使用`--template`来使用一些社区提供的模板。

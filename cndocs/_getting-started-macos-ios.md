@@ -80,7 +80,7 @@ brew install cocoapods
 使用 React Native 内建的命令行工具来创建一个名为"AwesomeProject"的新项目。这个命令行工具不需要安装，可以直接用 node 自带的`npx`命令来使用（注意 init 命令默认会创建最新的版本）：
 
 ```shell
-npx react-native@latest init AwesomeProject
+npx @react-native-community/cli@latest init AwesomeProject
 ```
 
 > **注意一**：请`不要`在目录、文件名中使用中文、空格等特殊符号。请`不要`单独使用常见的关键字作为项目名（如 class, native, new, package 等等）。请`不要`使用与核心模块同名的项目名（如 react, react-native 等）。
@@ -94,7 +94,7 @@ npx react-native@latest init AwesomeProject
 你可以使用`--version`参数（注意是`两`个杠）创建指定版本的项目。注意版本号必须精确到两个小数点。
 
 ```shell
-npx react-native@X.XX.X init AwesomeProject --version X.XX.X
+npx @react-native-community/cli@X.XX.X init AwesomeProject --version X.XX.X
 ```
 
 还可以使用`--template`来使用一些社区提供的模板。
