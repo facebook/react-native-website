@@ -128,7 +128,7 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 > **必须要看的注意事项**：请`不要`单独使用常见的关键字作为项目名（如 class, native, new, package 等等）。请`不要`使用与核心模块同名的项目名（如 react, react-native 等）。请`不要`在目录、文件名中使用中文、空格等特殊符号。
 
 ```shell
-npx @react-native-community/clilatest init AwesomeProject
+npx @react-native-community/cli@latest init AwesomeProject
 ```
 
 如果你是想把 React Native 集成到现有的原生项目中，则步骤完全不同，请参考[集成到现有原生应用](integration-with-existing-apps.md)。
