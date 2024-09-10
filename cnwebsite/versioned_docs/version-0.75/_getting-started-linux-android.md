@@ -110,7 +110,7 @@ export PATH=$PATH:$ANDROID_HOME/emulator
 使用 React Native 内建的命令行工具来创建一个名为"AwesomeProject"的新项目。这个命令行工具不需要安装，可以直接用 node 自带的`npx`命令来使用：
 
 ```shell
-npx @react-native-community/clilatest init AwesomeProject
+npx @react-native-community/cli@latest init AwesomeProject
 ```
 
 如果你是想把 React Native 集成到现有的原生项目中，则步骤完全不同，请参考[集成到现有原生应用](integration-with-existing-apps.md)。
