@@ -119,7 +119,7 @@ C:\Users\你的用户名\AppData\Local\Android\Sdk
 > **必须要看的注意事项三**：请`不要`使用一些移植的终端环境，例如`git bash`或`mingw`等等，这些在 windows 下可能导致找不到环境变量。请使用系统自带的命令行（CMD 或 powershell）运行。
 
 ```shell
-npx @react-native-community/clilatest init AwesomeProject
+npx @react-native-community/cli@latest init AwesomeProject
 ```
 
 如果你是想把 React Native 集成到现有的原生项目中，则步骤完全不同，请参考[集成到现有原生应用](integration-with-existing-apps.md)。
