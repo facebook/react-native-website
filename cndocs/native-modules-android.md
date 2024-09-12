@@ -254,7 +254,7 @@ class MyAppPackage : ReactPackage {
 
     override fun createViewManagers(
         reactContext: ReactApplicationContext
-    ): MutableList<ViewManager<View， ReactShadowNode<*>>> = mutableListOf()
+    ): MutableList<ViewManager<View, ReactShadowNode<*>>> = mutableListOf()
 
     override fun createNativeModules(
         reactContext: ReactApplicationContext
