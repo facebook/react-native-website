@@ -1,10 +1,6 @@
 ---
 title: 'React Native Monthly #3'
-author: Mike Grabowski
-authorTitle: CTO at Callstack
-authorURL: 'https://github.com/grabbou'
-authorImageURL: 'https://pbs.twimg.com/profile_images/988860423897313281/L9ErG_lr_400x400.jpg'
-authorTwitter: grabbou
+authors: [grabbou]
 tags: [engineering]
 ---
 

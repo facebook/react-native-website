@@ -1,67 +1,89 @@
 abernathyca:
   name: Christine Abernathy
   title: Developer Advocate at Meta
-  url: https://twitter.com/abernathyca
+  socials:
+    x: abernathyca
+    github: caabernathy
   image_url: https://github.com/caabernathy.png
 
-Eli_White:
+Eli White:
   name: Eli White
   title: Engineering Manager at Meta
-  url: https://twitter.com/Eli_White
+  socials:
+    x: Eli_White
+    github: TheSavior
   image_url: https://github.com/TheSavior.png
 
 lunaleaps:
   name: Luna Wei
   title: Software Engineer at Meta
-  url: https://twitter.com/lunaleaps
+  socials:
+    x: lunaleaps
+    github: lunaleaps
   image_url: https://github.com/lunaleaps.png
 
 SamuelSusla:
   name: Samuel Susla
   title: Software Engineer at Meta
-  url: https://twitter.com/SamuelSusla
+  socials:
+    x: SamuelSusla
+    github: sammy-SC
   image_url: https://github.com/sammy-SC.png
 
 yungsters:
   name: Timothy Yung
   title: Software Engineer at Meta
-  url: https://twitter.com/yungsters
+  socials:
+    x: yungsters
+    github: yungsters
   image_url: https://github.com/yungsters.png
 
 huxpro:
   name: Xuan Huang
   title: Software Engineer at Meta
-  url: https://twitter.com/huxpro
+  socials:
+    x: huxpro
+    github: huxpro
   image_url: https://github.com/huxpro.png
 
 kelset:
   name: Lorenzo Sciandra
   title: Senior Software Engineer at Microsoft
-  url: https://twitter.com/kelset
+  socials:
+    x: kelset
+    github: kelset
   image_url: https://github.com/kelset.png
 
 cortinico:
   name: Nicola Corti
   title: Software Engineer at Meta
-  url: https://twitter.com/cortinico
+  socials:
+    x: cortinico
+    github: cortinico
   image_url: https://github.com/cortinico.png
 
 shikaSD:
   name: Andrei Shikov
   title: Software Engineer at Meta
-  url: https://twitter.com/shikasd_
+  socials:
+    x: shikasd_
+    github: ShikaSD
   image_url: https://github.com/ShikaSD.png
 
 cipolleschi:
   name: Riccardo Cipolleschi
   title: Software Engineer at Meta
-  url: https://twitter.com/CipolleschiR
+  socials:
+    x: CipolleschiR
+    github: cipolleschi
   image_url: https://github.com/cipolleschi.png
 
 fortmarek:
   name: Marek Fořt
   title: Software Engineer at Shopify
-  url: https://twitter.com/marekfort
+  socials:
+    x: marekfort
+    github: fortmarek
   image_url: https://github.com/fortmarek.png
 
 micleo:
@@ -72,89 +94,138 @@ micleo:
 dmytrorykun:
   name: Dmytro Rykun
   title: Software Engineer at Meta
-  url: https://github.com/dmytrorykun
+  socials:
+    github: dmytrorykun
   image_url: https://github.com/dmytrorykun.png
 
 titozzz:
   name: Thibault Malbranche
   title: Lead Mobile Engineer at Brigad
-  url: https://twitter.com/titozzz
+  socials:
+    x: titozzz
+    github: titozzz
   image_url: https://github.com/titozzz.png
 
 thymikee:
   name: Michał Pierzchała
   title: Head of Technology at Callstack
-  url: https://twitter.com/thymikee
+  socials:
+    x: thymikee
+    github: thymikee
   image_url: https://github.com/thymikee.png
 
 vincentriemer:
   name: Vincent Riemer
   title: Software Engineer at Meta
-  url: https://twitter.com/vincentriemer
+  socials:
+    x: vincentriemer
+    github: vincentriemer
   image_url: https://github.com/vincentriemer.png
 
 NickGerleman:
   name: Nick Gerleman
   title: Software Engineer at Meta
-  url: https://github.com/NickGerleman
+  socials:
+    github: NickGerleman
   image_url: https://github.com/NickGerleman.png
 
 rickhanlonii:
   name: Ricky Hanlon
   title: Software Engineer at Meta
-  url: https://github.com/rickhanlonii
+  socials:
+    github: rickhanlonii
   image_url: https://github.com/rickhanlonii.png
 
 mattcarrollcode:
   name: Matt Carroll
   title: Developer Advocate at Meta
-  url: https://github.com/mattcarrollcode
+  socials:
+    github: mattcarrollcode
   image_url: https://github.com/mattcarrollcode.png
 
 huntie:
   name: Alex Hunt
   title: Software Engineer at Meta
-  url: https://twitter.com/alxhnt
+  socials:
+    x: alxhnt
+    github: huntie
   image_url: https://github.com/huntie.png
 
 hurali:
   name: Hur Ali
   title: Software Engineer at Callstack
-  url: https://twitter.com/hurali97
+  socials:
+    x: hurali97
+    github: hurali97
   image_url: https://github.com/hurali97.png
 
 ingridwang:
   name: Ingrid Wang
   title: Software Engineer at Meta
-  url: https://github.com/ingridwang
+  socials:
+    github: ingridwang
   image_url: https://github.com/ingridwang.png
 
 alfonsocj:
   name: Alfonso Curbelo
   title: Software Engineer at Coinbase
-  url: https://github.com/alfonsocj
+  socials:
+    github: alfonsocj
   image_url: https://github.com/alfonsocj.png
 
 alanjhughes:
   name: Alan Hughes
   title: Software Engineer at Expo
-  url: https://github.com/alanjhughes
+  socials:
+    github: alanjhughes
   image_url: https://github.com/alanjhughes.png
 
 blakef:
   name: Blake Friedman
   title: Software Engineer at Meta
-  url: https://github.com/blakef
+  socials:
+    github: blakef
   image_url: https://github.com/blakef.png
 
 gabrieldonadel:
   name: Gabriel Donadel Dall'Agnol
   title: Software Engineer at Expo
-  url: https://github.com/gabrieldonadel
+  socials:
+    github: gabrieldonadel
+    x: donadeldev
   image_url: https://github.com/gabrieldonadel.png
 
 siddharthkul:
   name: Siddharth Kulkarni
   title: Software Engineer at Coinbase
-  url: https://github.com/siddharthkul
+  socials:
+    github: siddharthkul
   image_url: https://github.com/siddharthkul.png
+
+hectorramos:
+  name: Héctor Ramos
+  title: Former Developer Advocate at Facebook
+  socials:
+    x: hectorramos
+  image_url: https://s.gravatar.com/avatar/f2223874e66e884c99087e452501f2da?s=128
+
+cpojer:
+  name: Christoph Nakazawa
+  title: Former Engineer at Facebook
+  socials:
+    x: cpojer
+  image_url: https://avatars2.githubusercontent.com/u/13352?s=460&v=4
+
+alexmarlette:
+  name: Alexandra Marlette
+  title: GAAD Pledge Open Source Accessibility Community Manager for React Native
+  socials:
+    x: alexmarlette
+  image_url: https://avatars.githubusercontent.com/u/10052470?s=460&u=7f2304cb929d1de703856717af86324c66728f3a&v=4
+
+grabbou:
+  name: Mike Grabowski
+  title: CTO and Co-Founder at Callstack
+  socials:
+    x: grabbou
+  image_url: https://avatars0.githubusercontent.com/u/2464966?s=460&v=4

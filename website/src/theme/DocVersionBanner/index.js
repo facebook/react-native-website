@@ -8,10 +8,7 @@ import {
   useDocVersionSuggestions,
 } from '@docusaurus/plugin-content-docs/client';
 import {ThemeClassNames} from '@docusaurus/theme-common';
-import {
-  useDocsPreferredVersion,
-  useDocsVersion,
-} from '@docusaurus/theme-common/internal';
+import {useDocsVersion, useDocsPreferredVersion} from '@docusaurus/plugin-content-docs/client';
 
 function UnreleasedVersionLabel({siteTitle, versionMetadata}) {
   return (

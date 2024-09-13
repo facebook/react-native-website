@@ -22,7 +22,7 @@ If you need section support, use [`<SectionList>`](sectionlist.md).
 
 ## Example
 
-<Tabs groupId="language" queryString defaultValue={constants.dewfaultSnackLanguage} values={constants.snackLanguages}>
+<Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
 ```SnackPlayer name=flatlist-simple&ext=js
@@ -166,7 +166,7 @@ More complex, selectable example below.
 - By passing `extraData={selectedId}` to `FlatList` we make sure `FlatList` itself will re-render when the state changes. Without setting this prop, `FlatList` would not know it needs to re-render any items because it is a `PureComponent` and the prop comparison will not show any changes.
 - `keyExtractor` tells the list to use the `id`s for the react keys instead of the default `key` property.
 
-<Tabs groupId="language" queryString defaultValue={constants.dewfaultSnackLanguage} values={constants.snackLanguages}>
+<Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
 ```SnackPlayer name=flatlist-selectable&ext=js
@@ -426,7 +426,7 @@ Example usage:
 
 ### <div class="label required basic">Required</div> **`data`**
 
-An array (or array-like list) of items to render. Other data types can be used by targetting [`VirtualizedList`](virtualizedlist.md) directly.
+An array (or array-like list) of items to render. Other data types can be used by targeting [`VirtualizedList`](virtualizedlist.md) directly.
 
 | Type      |
 | --------- |

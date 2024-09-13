@@ -98,7 +98,7 @@ dependencies {
 }
 ```
 
-Those depedencies are available on `mavenCentral()` so make sure you have it defined in your `repositories{}` block.
+Those dependencies are available on `mavenCentral()` so make sure you have it defined in your `repositories{}` block.
 
 :::info
 We intentionally don't specify the version for those `implementation` dependencies as the React Native Gradle Plugin will take care of it. If you don't use the React Native Gradle Plugin, you'll have to specify version manually.

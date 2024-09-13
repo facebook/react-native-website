@@ -1,6 +1,6 @@
 ---
 title: React Native Is Hiring Managers, To Expand Beyond Mobile
-authors: [Eli_White]
+authors: [Eli White]
 tags: [hiring]
 ---
 

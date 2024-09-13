@@ -64,7 +64,8 @@ module.exports = {
       options: {
         loader: 'tsx',
         format: isServer ? 'cjs' : undefined,
-        target: isServer ? 'node12' : 'es2017',
+        target: isServer ? 'node16' : 'es2020',
+        jsx: 'automatic',
       },
     }),
   },
@@ -95,6 +96,9 @@ module.exports = {
             type: 'all',
             copyright,
           },
+          onInlineAuthors: 'ignore',
+          // Ignore for now due to old posts
+          onUntruncatedBlogPosts: 'ignore',
         },
         theme: {
           customCss: [
@@ -209,9 +213,9 @@ module.exports = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       announcementBar: {
-        id: 'support_ukraine',
+        id: 'reactconf2024-keynote',
         content:
-          'Support Ukraine 🇺🇦 <a target="_blank" rel="noopener noreferrer" href="https://opensource.facebook.com/support-ukraine"> Help Provide Humanitarian Aid to Ukraine</a>.',
+          'Re-watch the <a target="_blank" rel="noopener noreferrer" href="https://youtu.be/Q5SMmKb7qVI?si=c-6kFImfKFHdw2lc">React Native Keynote</a> @ React Conf 2024.',
         backgroundColor: '#20232a',
         textColor: '#fff',
         isCloseable: false,
