@@ -81,25 +81,6 @@ Determines what the opacity of the wrapped view should be when touch is active. 
 
 ---
 
-### `tvParallaxProperties` <div class="label ios">IOS</div>
-
-_(Apple TV only)_ Object with properties to control Apple TV parallax effects.
-
-- `enabled`: If `true`, parallax effects are enabled. Defaults to `true`.
-- `shiftDistanceX`: Defaults to `2.0`.
-- `shiftDistanceY`: Defaults to `2.0`.
-- `tiltAngle`: Defaults to `0.05`.
-- `magnification`: Defaults to `1.0`.
-- `pressMagnification`: Defaults to `1.0`.
-- `pressDuration`: Defaults to `0.3`.
-- `pressDelay`: Defaults to `0.0`.
-
-| Type   |
-| ------ |
-| object |
-
----
-
 ### `hasTVPreferredFocus` <div class="label ios">iOS</div>
 
 _(Apple TV only)_ TV preferred focus (see documentation for the View component).
