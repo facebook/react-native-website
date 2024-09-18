@@ -5,12 +5,11 @@ slug: /overview
 ---
 
 :::info
-Welcome to the Architecture Overview! If you're getting started with React Native, please refer to <a href="/docs/getting-started">Guides</a> section. Continue reading to learn how internals of React Native work!
-
-本文档还在持续更新中。Please make sure to come back later to check for new information.
+欢迎来到架构概览！如果您刚开始使用 React Native，请参考<a href="/docs/getting-started">指南</a>部分。继续阅读以了解 React Native 的内部工作原理！
+本文档仍在持续更新中。请时常回来查看新信息。
 :::
 
-Architecture Overview is intended to share conceptual overview of how React Native's internals work. 目标读者主要是生态库的开发者、核心贡献者和特别有好奇心的人。 If you are an app developer, it is not a requirement to be familiar with this material to be effective with React Native. You can still benefit from the overview as it will give you insights into how React Native works under the hood. Feel free to share your feedback on the <a href="https://github.com/reactwg/react-native-new-architecture/discussions/9">discussion inside the working group</a> for this section.
+架构概览旨在分享React Native内部工作原理的概念性概述。目标读者主要是生态库的开发者、核心贡献者和特别有好奇心的人。如果您是应用开发者，使用 React Native 并不要求您熟悉这些材料，但您仍然可以从这个概览中受益，因为它将让您深入了解 React Native 在幕后的工作方式。欢迎在<a href="https://github.com/reactwg/react-native-new-architecture/discussions/9">工作组内的讨论</a>中分享您对这一部分的反馈。
 
 ## 目录
 
