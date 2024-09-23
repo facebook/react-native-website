@@ -72,7 +72,7 @@ yarn android
 
 > If you get a "bridge configuration isn't available" error, see [Using adb reverse](running-on-device.md#method-1-using-adb-reverse-recommended).
 
-> Hint: You can also use the `React Native CLI` to generate and run a `release` build (e.g. from the root of your project: `yarn android --variant release`).
+> Hint: If you use the `React Native Community CLI`, you can generate a `release` build with `yarn android --mode release`.
 
 <h2>Connecting to the development server</h2>
 
