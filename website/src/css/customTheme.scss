@@ -91,6 +91,10 @@
   }
 }
 
+body {
+  font-family: var(--ifm-font-family-base);
+}
+
 html[data-theme="light"] {
   --ifm-code-background: rgba(0, 0, 0, 0.06);
   --docsearch-container-background: rgba(32, 35, 42, 0.6);
@@ -585,14 +589,15 @@ article header h1 {
   line-height: 3rem;
 }
 
-article header h2, {
+article header h2 {
   line-height: 3rem;
 
   a {
     color: var(--ifm-font-color-base);
     font-size: 2.5rem;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       color: var(--ifm-font-color-base);
       opacity: 0.8;
     }
