@@ -481,7 +481,7 @@ Now build and run your Android app as normal.
 
 Once you reach your React-powered Activity inside the app, it should load the JavaScript code from the development server and display:
 
-![Screenshot](/docs/assets/EmbeddedAppAndroid.png)
+![Screenshot](/docs/assets/EmbeddedAppAndroidVideo.gif)
 
 ### Creating a release build in Android Studio
 
