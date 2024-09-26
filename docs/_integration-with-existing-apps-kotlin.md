@@ -93,7 +93,7 @@ buildscript {
 }
 ```
 
-This makes sure the React Native Gradle Plugin is available inside your project.
+This makes sure the React Native Gradle Plugin (RNGP) is available inside your project.
 Finally, add those lines inside your Applications's `build.gradle` file (it's a different `build.gradle` file usually inside your `app` folder - you can use the [Community template file as reference](https://github.com/react-native-community/template/blob/main/template/android/app/build.gradle)):
 
 ```diff
