@@ -140,7 +140,7 @@ Find a place in your application where you would like to add a call to the nativ
 
 ```tsx
 import React from 'react';
-import {NativeModules, Button} from 'react-native';
+import { Button } from 'react-native';
 
 const NewModuleButton = () => {
   const onPress = () => {
