@@ -628,7 +628,7 @@ const CustomSlider = ({
 
 type CustomPickerProps = {
   label: string;
-  data: ReadonlyArray<string | undefined>;
+  data?: ArrayLike<any> | null;
   currentIndex: number;
   onSelected: (index: number) => void;
 };

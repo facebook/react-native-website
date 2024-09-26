@@ -71,6 +71,7 @@ const App = () => {
       toValue: 1,
       duration: 1200,
       easing,
+      useNativeDriver: false,
     }).start();
   };
 
@@ -231,6 +232,7 @@ const App = () => {
       toValue: 1,
       duration: 1200,
       easing,
+      useNativeDriver: false,
     }).start();
   };
 
