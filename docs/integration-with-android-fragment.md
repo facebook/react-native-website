@@ -47,16 +47,20 @@ class MyReactApplication : Application(), ReactApplication {
         super.onCreate()
         SoLoader.init(this, false)
     }
-    private val reactNativeHost =
+    override val reactNativeHost: ReactNativeHost by lazy {
         object : DefaultReactNativeHost(this) {
             override fun getUseDeveloperSupport() = BuildConfig.DEBUG
             override fun getPackages(): List<ReactPackage> {
-                val packages = PackageList(this).getPackages().toMutableList()
+                val packages = PackageList(this).packages.toMutableList()
                 // Packages that cannot be autolinked yet can be added manually here
                 return packages
             }
+
+            override fun getJSMainModuleName(): String {
+                return "index"
+            }
         }
-    override fun getReactNativeHost(): ReactNativeHost = reactNativeHost
+    }
 }
 ```
 
@@ -164,44 +168,32 @@ Modify your Activity layout to add the button:
 
 Now in your Activity class (e.g. `MainActivity.java` or `MainActivity.kt`) you need to add an `OnClickListener` for the button, instantiate your `ReactFragment` and add it to the frame layout.
 
-Add the button field to the top of your Activity:
+Now, Update your Activity as follows:
 
 <Tabs groupId="android-language" queryString defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
 <TabItem value="kotlin">
 
 ```kotlin
-private lateinit var button: Button
-```
+class MainActivity : AppCompatActivity(), DefaultHardwareBackBtnHandler {
+    private lateinit var button: Button
+    override fun onCreate(savedInstanceState: Bundle) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.main_activity)
+        button = findViewById(R.id.button)
+        button.setOnClickListener {
+            val reactNativeFragment = ReactFragment.Builder()
+                    .setComponentName("HelloWorld")
+                    .setLaunchOptions(getLaunchOptions("test message"))
+                    .build()
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .add(R.id.reactNativeFragment, reactNativeFragment)
+                    .commit()
+        }
+    }
 
-</TabItem>
-<TabItem value="java">
-
-```java
-private Button mButton;
-```
-
-</TabItem>
-</Tabs>
-
-Update your Activity's `onCreate` method as follows:
-
-<Tabs groupId="android-language" queryString defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
-<TabItem value="kotlin">
-
-```kotlin
-override fun onCreate(savedInstanceState: Bundle) {
-    super.onCreate(savedInstanceState)
-    setContentView(R.layout.main_activity)
-    button = findViewById<Button>(R.id.button)
-    button.setOnClickListener {
-        val reactNativeFragment = ReactFragment.Builder()
-                .setComponentName("HelloWorld")
-                .setLaunchOptions(getLaunchOptions("test message"))
-                .build()
-        getSupportFragmentManager()
-                .beginTransaction()
-                .add(R.id.reactNativeFragment, reactNativeFragment)
-                .commit()
+    override fun invokeDefaultOnBackPressed() {
+        super.onBackPressed();
     }
 }
 ```
@@ -238,6 +230,8 @@ protected void onCreate(Bundle savedInstanceState) {
 
 In the code above `Fragment reactNativeFragment = new ReactFragment.Builder()` creates the ReactFragment and `getSupportFragmentManager().beginTransaction().add()` adds the Fragment to the Frame Layout.
 
+We have to implement the `DefaultHardwareBackBtnHandler` interface and override the `invokeDefaultOnBackPressed` method. This is necessary to allow react-native handle the back button press event.
+
 If you are using a starter kit for React Native, replace the "HelloWorld" string with the one in your `index.js` or `index.android.js` file (itâ€™s the first argument to the AppRegistry.registerComponent() method).
 
 Add the `getLaunchOptions` method which will allow you to pass props through to your component. This is optional and you can remove `setLaunchOptions` if you don't need to pass any props.
@@ -272,14 +266,11 @@ Add all missing imports in your Activity class. Be careful to use your packageâ€
 <TabItem value="kotlin">
 
 ```kotlin
-import android.app.Application
-
-import com.facebook.react.ReactApplication
-import com.facebook.react.ReactNativeHost
-import com.facebook.react.ReactPackage
-import com.facebook.react.shell.MainReactPackage
-import com.facebook.soloader.SoLoader
-
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.Button
+import com.facebook.react.ReactFragment
+import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler
 ```
 
 </TabItem>
