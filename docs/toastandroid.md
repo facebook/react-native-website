@@ -10,11 +10,12 @@ React Native's ToastAndroid API exposes the Android platform's ToastAndroid modu
 
 You can alternatively use `showWithGravity(message, duration, gravity)` to specify where the toast appears in the screen's layout. May be `ToastAndroid.TOP`, `ToastAndroid.BOTTOM` or `ToastAndroid.CENTER`.
 
-The 'showWithGravityAndOffset(message, duration, gravity, xOffset, yOffset)' method adds the ability to specify an offset with in pixels.
+The `showWithGravityAndOffset(message, duration, gravity, xOffset, yOffset)` method adds the ability to specify an offset with in pixels.
 
 ```SnackPlayer name=Toast%20Android%20API%20Example&supportedPlatforms=android
 import React from 'react';
-import {View, StyleSheet, ToastAndroid, Button, StatusBar} from 'react-native';
+import {StyleSheet, ToastAndroid, Button, StatusBar} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => {
   const showToast = () => {
@@ -40,17 +41,19 @@ const App = () => {
   };
 
   return (
-    <View style={styles.container}>
-      <Button title="Toggle Toast" onPress={() => showToast()} />
-      <Button
-        title="Toggle Toast With Gravity"
-        onPress={() => showToastWithGravity()}
-      />
-      <Button
-        title="Toggle Toast With Gravity & Offset"
-        onPress={() => showToastWithGravityAndOffset()}
-      />
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <Button title="Toggle Toast" onPress={() => showToast()} />
+        <Button
+          title="Toggle Toast With Gravity"
+          onPress={() => showToastWithGravity()}
+        />
+        <Button
+          title="Toggle Toast With Gravity & Offset"
+          onPress={() => showToastWithGravityAndOffset()}
+        />
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 

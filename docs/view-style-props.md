@@ -8,22 +8,22 @@ title: View Style Props
 ```SnackPlayer name=ViewStyleProps
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
-const ViewStyleProps = () => {
-  return (
-    <View style={styles.container}>
+const App = () => (
+  <SafeAreaProvider>
+    <SafeAreaView style={styles.container}>
       <View style={styles.top} />
       <View style={styles.middle} />
       <View style={styles.bottom} />
-    </View>
-  );
-};
+    </SafeAreaView>
+  </SafeAreaProvider>
+);
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'space-between',
-    backgroundColor: '#fff',
     padding: 20,
     margin: 10,
   },
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ViewStyleProps;
+export default App;
 ```
 
 # Reference

@@ -60,6 +60,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => {
   let opacity = new Animated.Value(0);
@@ -70,7 +71,6 @@ const App = () => {
       toValue: 1,
       duration: 1200,
       easing,
-      useNativeDriver: true,
     }).start();
   };
 
@@ -89,28 +89,32 @@ const App = () => {
   ];
 
   return (
-    <View style={styles.container}>
-      <StatusBar hidden={true} />
-      <Text style={styles.title}>Press rows below to preview the Easing!</Text>
-      <View style={styles.boxContainer}>
-        <Animated.View style={animatedStyles} />
-      </View>
-      <SectionList
-        style={styles.list}
-        sections={SECTIONS}
-        keyExtractor={item => item.title}
-        renderItem={({item}) => (
-          <TouchableOpacity
-            onPress={() => animate(item.easing)}
-            style={styles.listRow}>
-            <Text>{item.title}</Text>
-          </TouchableOpacity>
-        )}
-        renderSectionHeader={({section: {title}}) => (
-          <Text style={styles.listHeader}>{title}</Text>
-        )}
-      />
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container} edges={['right', 'top', 'left']}>
+        <StatusBar hidden={true} />
+        <Text style={styles.title}>
+          Press rows below to preview the Easing!
+        </Text>
+        <View style={styles.boxContainer}>
+          <Animated.View style={animatedStyles} />
+        </View>
+        <SectionList
+          style={styles.list}
+          sections={SECTIONS}
+          keyExtractor={item => item.title}
+          renderItem={({item}) => (
+            <TouchableOpacity
+              onPress={() => animate(item.easing)}
+              style={styles.listRow}>
+              <Text>{item.title}</Text>
+            </TouchableOpacity>
+          )}
+          renderSectionHeader={({section: {title}}) => (
+            <Text style={styles.listHeader}>{title}</Text>
+          )}
+        />
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
@@ -214,8 +218,9 @@ import {
   Text,
   TouchableOpacity,
   View,
+  type EasingFunction,
 } from 'react-native';
-import type {EasingFunction} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => {
   let opacity = new Animated.Value(0);
@@ -226,7 +231,6 @@ const App = () => {
       toValue: 1,
       duration: 1200,
       easing,
-      useNativeDriver: true,
     }).start();
   };
 
@@ -245,28 +249,32 @@ const App = () => {
   ];
 
   return (
-    <View style={styles.container}>
-      <StatusBar hidden={true} />
-      <Text style={styles.title}>Press rows below to preview the Easing!</Text>
-      <View style={styles.boxContainer}>
-        <Animated.View style={animatedStyles} />
-      </View>
-      <SectionList
-        style={styles.list}
-        sections={SECTIONS}
-        keyExtractor={item => item.title}
-        renderItem={({item}) => (
-          <TouchableOpacity
-            onPress={() => animate(item.easing)}
-            style={styles.listRow}>
-            <Text>{item.title}</Text>
-          </TouchableOpacity>
-        )}
-        renderSectionHeader={({section: {title}}) => (
-          <Text style={styles.listHeader}>{title}</Text>
-        )}
-      />
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container} edges={['right', 'top', 'left']}>
+        <StatusBar hidden={true} />
+        <Text style={styles.title}>
+          Press rows below to preview the Easing!
+        </Text>
+        <View style={styles.boxContainer}>
+          <Animated.View style={animatedStyles} />
+        </View>
+        <SectionList
+          style={styles.list}
+          sections={SECTIONS}
+          keyExtractor={item => item.title}
+          renderItem={({item}) => (
+            <TouchableOpacity
+              onPress={() => animate(item.easing)}
+              style={styles.listRow}>
+              <Text>{item.title}</Text>
+            </TouchableOpacity>
+          )}
+          renderSectionHeader={({section: {title}}) => (
+            <Text style={styles.listHeader}>{title}</Text>
+          )}
+        />
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 

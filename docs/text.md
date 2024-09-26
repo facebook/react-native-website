@@ -9,9 +9,10 @@ A React component for displaying text.
 
 In the following example, the nested title and body text will inherit the `fontFamily` from `styles.baseText`, but the title provides its own additional styles. The title and body will stack on top of each other on account of the literal newlines:
 
-```SnackPlayer name=Text%20Functional%20Component%20Example
+```SnackPlayer name=Text%20Function%20Component%20Example
 import React, {useState} from 'react';
 import {Text, StyleSheet} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const TextInANest = () => {
   const [titleText, setTitleText] = useState("Bird's Nest");
@@ -22,18 +23,25 @@ const TextInANest = () => {
   };
 
   return (
-    <Text style={styles.baseText}>
-      <Text style={styles.titleText} onPress={onPressTitle}>
-        {titleText}
-        {'\n'}
-        {'\n'}
-      </Text>
-      <Text numberOfLines={5}>{bodyText}</Text>
-    </Text>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <Text style={styles.baseText}>
+          <Text style={styles.titleText} onPress={onPressTitle}>
+            {titleText}
+            {'\n'}
+            {'\n'}
+          </Text>
+          <Text numberOfLines={5}>{bodyText}</Text>
+        </Text>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   baseText: {
     fontFamily: 'Cochin',
   },
@@ -53,15 +61,18 @@ Both Android and iOS allow you to display formatted text by annotating ranges of
 ```SnackPlayer name=Nested%20Text%20Example
 import React from 'react';
 import {Text, StyleSheet} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
-const BoldAndBeautiful = () => {
-  return (
-    <Text style={styles.baseText}>
-      I am bold
-      <Text style={styles.innerText}> and red</Text>
-    </Text>
-  );
-};
+const BoldAndBeautiful = () => (
+  <SafeAreaProvider>
+    <SafeAreaView style={styles.container}>
+      <Text style={styles.baseText}>
+        I am bold
+        <Text style={styles.innerText}> and red</Text>
+      </Text>
+    </SafeAreaView>
+  </SafeAreaProvider>
+);
 
 const styles = StyleSheet.create({
   baseText: {

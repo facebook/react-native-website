@@ -9,13 +9,8 @@ This component is used inside a ScrollView or ListView to add pull to refresh fu
 
 ```SnackPlayer name=RefreshControl&supportedPlatforms=ios,android
 import React from 'react';
-import {
-  RefreshControl,
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-  Text,
-} from 'react-native';
+import {RefreshControl, ScrollView, StyleSheet, Text} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => {
   const [refreshing, setRefreshing] = React.useState(false);
@@ -28,15 +23,17 @@ const App = () => {
   }, []);
 
   return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView
-        contentContainerStyle={styles.scrollView}
-        refreshControl={
-          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-        }>
-        <Text>Pull down to see RefreshControl indicator</Text>
-      </ScrollView>
-    </SafeAreaView>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <ScrollView
+          contentContainerStyle={styles.scrollView}
+          refreshControl={
+            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+          }>
+          <Text>Pull down to see RefreshControl indicator</Text>
+        </ScrollView>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 

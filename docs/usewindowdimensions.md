@@ -17,18 +17,21 @@ const {height, width} = useWindowDimensions();
 
 ```SnackPlayer name=useWindowDimensions&supportedPlatforms=ios,android
 import React from 'react';
-import {View, StyleSheet, Text, useWindowDimensions} from 'react-native';
+import {StyleSheet, Text, useWindowDimensions} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => {
   const {height, width, scale, fontScale} = useWindowDimensions();
   return (
-    <View style={styles.container}>
-      <Text style={styles.header}>Window Dimension Data</Text>
-      <Text>Height: {height}</Text>
-      <Text>Width: {width}</Text>
-      <Text>Font scale: {fontScale}</Text>
-      <Text>Pixel ratio: {scale}</Text>
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <Text style={styles.header}>Window Dimension Data</Text>
+        <Text>Height: {height}</Text>
+        <Text>Width: {width}</Text>
+        <Text>Font scale: {fontScale}</Text>
+        <Text>Pixel ratio: {scale}</Text>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 const styles = StyleSheet.create({

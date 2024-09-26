@@ -16,14 +16,8 @@ Virtualization massively improves memory consumption and performance of large li
 
 ```SnackPlayer name=VirtualizedListExample&ext=js
 import React from 'react';
-import {
-  SafeAreaView,
-  View,
-  VirtualizedList,
-  StyleSheet,
-  Text,
-  StatusBar,
-} from 'react-native';
+import {View, VirtualizedList, StyleSheet, Text, StatusBar} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const getItem = (_data, index) => ({
   id: Math.random().toString(12).substring(0),
@@ -38,9 +32,9 @@ const Item = ({title}) => (
   </View>
 );
 
-const App = () => {
-  return (
-    <SafeAreaView style={styles.container}>
+const App = () => (
+  <SafeAreaProvider>
+    <SafeAreaView style={styles.container} edges={['top']}>
       <VirtualizedList
         initialNumToRender={4}
         renderItem={({item}) => <Item title={item.title} />}
@@ -49,8 +43,8 @@ const App = () => {
         getItem={getItem}
       />
     </SafeAreaView>
-  );
-};
+  </SafeAreaProvider>
+);
 
 const styles = StyleSheet.create({
   container: {
@@ -78,14 +72,8 @@ export default App;
 
 ```SnackPlayer name=VirtualizedListExample&ext=tsx
 import React from 'react';
-import {
-  SafeAreaView,
-  View,
-  VirtualizedList,
-  StyleSheet,
-  Text,
-  StatusBar,
-} from 'react-native';
+import {View, VirtualizedList, StyleSheet, Text, StatusBar} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 type ItemData = {
   id: string;
@@ -109,9 +97,9 @@ const Item = ({title}: ItemProps) => (
   </View>
 );
 
-const App = () => {
-  return (
-    <SafeAreaView style={styles.container}>
+const App = () => (
+  <SafeAreaProvider>
+    <SafeAreaView style={styles.container} edges={['top']}>
       <VirtualizedList
         initialNumToRender={4}
         renderItem={({item}) => <Item title={item.title} />}
@@ -120,8 +108,8 @@ const App = () => {
         getItem={getItem}
       />
     </SafeAreaView>
-  );
-};
+  </SafeAreaProvider>
+);
 
 const styles = StyleSheet.create({
   container: {
