@@ -4,12 +4,12 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import con
 
 The keys to integrating React Native components into your Android application are to:
 
-1. Set up the correct directory structure
-2. Install the necessary NPM dependencies
-3. Adding React Native to your Gradle configuration
-4. Writing the TypeScript code for your first React Native screen
-5. Integrate React Native with your Android code using a ReactActivity
-6. Testing your integration by running the bundler and seeing your app in action
+1. Set up the correct directory structure.
+2. Install the necessary NPM dependencies.
+3. Adding React Native to your Gradle configuration.
+4. Writing the TypeScript code for your first React Native screen.
+5. Integrate React Native with your Android code using a ReactActivity.
+6. Testing your integration by running the bundler and seeing your app in action.
 
 ## Using the Community Template
 
@@ -22,7 +22,7 @@ This guide also assumes you're familiar with the basics of Android development s
 
 ## 1. Set up directory structure
 
-To ensure a smooth experience, create a new folder for your integrated React Native project, then **copy your existing Android project** to the `/android` subfolder.
+To ensure a smooth experience, create a new folder for your integrated React Native project, then **move your existing Android project** to the `/android` subfolder.
 
 ## 2. Install NPM dependencies
 
@@ -63,7 +63,7 @@ Add `node_modules/` to your `.gitignore` file (here the [Community default one](
 
 React Native uses the React Native Gradle Plugin to configure your dependencies and project setup.
 
-First, let's edit your `settings.gradle` file by adding those lines (as suggested from the [Community template](https://github.com/react-native-community/template/blob/main/template/android/settings.gradle)):
+First, let's edit your `settings.gradle` file by adding those lines (as suggested from the [Community template](https://github.com/react-native-community/template/blob/0.76-stable/template/android/settings.gradle)):
 
 ```groovy
 // Configures the React Native Gradle Settings plugin used for autolinking
