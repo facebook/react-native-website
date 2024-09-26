@@ -105,7 +105,7 @@ const Touchables = () => {
   };
 
   const onLongPressButton = () => {
-    Alert.alert("You long-pressed the button!");
+    Alert.alert('You long-pressed the button!');
   };
 
   return (
