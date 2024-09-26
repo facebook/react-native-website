@@ -78,7 +78,7 @@ includeBuild("../node_modules/@react-native/gradle-plugin")
 // include(":app")
 ```
 
-Then you need to open your top level `build.gradle` and include this line (as suggested from the [Community template](https://github.com/react-native-community/template/blob/main/template/android/build.gradle)):
+Then you need to open your top level `build.gradle` and include this line (as suggested from the [Community template](https://github.com/react-native-community/template/blob/0.76-stable/template/android/build.gradle)):
 
 ```diff
 buildscript {
@@ -94,7 +94,7 @@ buildscript {
 ```
 
 This makes sure the React Native Gradle Plugin (RNGP) is available inside your project.
-Finally, add those lines inside your Applications's `build.gradle` file (it's a different `build.gradle` file usually inside your `app` folder - you can use the [Community template file as reference](https://github.com/react-native-community/template/blob/main/template/android/app/build.gradle)):
+Finally, add those lines inside your Applications's `build.gradle` file (it's a different `build.gradle` file usually inside your `app` folder - you can use the [Community template file as reference](https://github.com/react-native-community/template/blob/0.76-stable/template/android/app/build.gradle)):
 
 ```diff
 apply plugin: "com.android.application"
@@ -118,7 +118,7 @@ dependencies {
 +}
 ```
 
-Finally, open your application `gradle.properties` files and add the following line (here the [Community template file as reference](https://github.com/react-native-community/template/blob/main/template/android/gradle.properties)):
+Finally, open your application `gradle.properties` files and add the following line (here the [Community template file as reference](https://github.com/react-native-community/template/blob/0.76-stable/template/android/gradle.properties)):
 
 ```diff
 +reactNativeArchitectures=armeabi-v7a,arm64-v8a,x86,x86_64
@@ -155,7 +155,7 @@ Then you need to enable [cleartext traffic](https://developer.android.com/traini
 </manifest>
 ```
 
-As usual, here the AndroidManifest.xml file from the Community template to use as a reference: [main](https://github.com/react-native-community/template/blob/main/template/android/app/src/main/AndroidManifest.xml) and [debug](https://github.com/react-native-community/template/blob/main/template/android/app/src/debug/AndroidManifest.xml)
+As usual, here the AndroidManifest.xml file from the Community template to use as a reference: [main](https://github.com/react-native-community/template/blob/0.76-stable/template/android/app/src/main/AndroidManifest.xml) and [debug](https://github.com/react-native-community/template/blob/0.76-stable/template/android/app/src/debug/AndroidManifest.xml)
 
 This is needed as your application will communicate with your local bundler, [Metro][https://metrobundler.dev/], via HTTP.
 
@@ -173,7 +173,7 @@ First, create an empty `index.js` file in the root of your React Native project.
 
 `index.js` is the starting point for React Native applications, and it is always required. It can be a small file that `import`s other file that are part of your React Native component or application, or it can contain all the code that is needed for it.
 
-Our index.js should look as follows (here the [Community template file as reference](https://github.com/react-native-community/template/blob/main/template/index.js)):
+Our index.js should look as follows (here the [Community template file as reference](https://github.com/react-native-community/template/blob/0.76-stable/template/index.js)):
 
 ```js
 import {AppRegistry} from 'react-native';
@@ -257,7 +257,7 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-Here the [Community template file as reference](https://github.com/react-native-community/template/blob/main/template/App.tsx)
+Here the [Community template file as reference](https://github.com/react-native-community/template/blob/0.76-stable/template/App.tsx)
 
 ## 5. Integrating with your Android code
 
@@ -366,7 +366,7 @@ import android.app.Application
 </TabItem>
 </Tabs>
 
-As usual, here the [MainApplication.kt Community template file as reference](https://github.com/react-native-community/template/blob/main/template/android/app/src/main/java/com/helloworld/MainApplication.kt)
+As usual, here the [MainApplication.kt Community template file as reference](https://github.com/react-native-community/template/blob/0.76-stable/template/android/app/src/main/java/com/helloworld/MainApplication.kt)
 
 #### Creating a `ReactActivity`
 
@@ -422,7 +422,7 @@ class MyReactActivity : ReactActivity() {
 </TabItem>
 </Tabs>
 
-As usual, here the [MainActivity.kt Community template file as reference](https://github.com/react-native-community/template/blob/main/template/android/app/src/main/java/com/helloworld/MainApplication.kt)
+As usual, here the [MainActivity.kt Community template file as reference](https://github.com/react-native-community/template/blob/0.76-stable/template/android/app/src/main/java/com/helloworld/MainApplication.kt)
 
 Whenever you create a new Activity, you need to add it to your `AndroidManifest.xml` file. You also need set the theme of `MyReactActivity` to `Theme.AppCompat.Light.NoActionBar` (or to any non-ActionBar theme) as otherwise your application will render an ActionBar on top of your React Native screen:
 
@@ -456,7 +456,7 @@ const {getDefaultConfig} = require('@react-native/metro-config');
 module.exports = getDefaultConfig(__dirname);
 ```
 
-You can checkout the [metro.config.js file](https://github.com/react-native-community/template/blob/main/template/metro.config.js) from the Community template file as reference.
+You can checkout the [metro.config.js file](https://github.com/react-native-community/template/blob/0.76-stable/template/metro.config.js) from the Community template file as reference.
 
 Once you have the config file in place, you can run the bundler. Run the following command in the root directory of your project:
 
