@@ -28,9 +28,13 @@ const App = () => {
       <Text>Width: {width}</Text>
       <Text>Font scale: {fontScale}</Text>
       <Text>Pixel ratio: {scale}</Text>
+      <View style={{height: 100 * fontScale, padding: 10 * fontScale}}>
+        <Text style={{fontSize: 14 / fontScale}}>Dynamic Box</Text>
+      </View>
     </View>
   );
 };
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -55,6 +59,8 @@ useWindowDimensions().fontScale;
 ```
 
 The scale of the font currently used. Some operating systems allow users to scale their font sizes larger or smaller for reading comfort. This property will let you know what is in effect.
+
+Changing the font size percentage can be leveraged to dynamically adjust the sizes of UI elements, such as padding, margins, and container heights, to ensure a consistent and accessible user experience. By using the fontScale property, developers can make their applications more adaptable to users' preferences for larger or smaller text, enhancing readability and usability.
 
 ---
 
