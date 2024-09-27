@@ -2582,18 +2582,20 @@ export default WidthHeightBasics;
 </TabItem>
 </Tabs>
 
-## Absolute & Relative Layout
+## Position
 
-The `position` type of an element defines how it is positioned within its parent.
+The `position` type of an element defines how it is positioned relative to either itself, its parent, or its [containing block](./flexbox.md#the-containing-block).
 
 - `relative` (**default value**) By default, an element is positioned relatively. This means an element is positioned according to the normal flow of the layout, and then offset relative to that position based on the values of `top`, `right`, `bottom`, and `left`. The offset does not affect the position of any sibling or parent elements.
 
-- `absolute` When positioned absolutely, an element doesn't take part in the normal layout flow. It is instead laid out independent of its siblings. The position is determined based on the `top`, `right`, `bottom`, and `left` values.
+- `absolute` When positioned absolutely, an element doesn't take part in the normal layout flow. It is instead laid out independent of its siblings. The position is determined based on the `top`, `right`, `bottom`, and `left` values. These values will posistion the element relative to its containing block.
+
+- `static` When positioned statically, an element is positioned according to the normal flow of layout, and will ignore the `top`, `right`, `bottom`, and `left` values. This `position` will also cause the element to not form a containing block, unless some other supersceding style prop is present (e.g. `transform`). This allows `absolute` elements to be positioned to something that is not their parent. Note that `static` is only available on the new architecture.
 
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
-```SnackPlayer name=Absolute%20%26%20Relative%20Layout&ext=js
+```SnackPlayer name=Position&ext=js
 import React, {useState} from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 
@@ -2604,7 +2606,7 @@ const PositionLayout = () => {
     <PreviewLayout
       label="position"
       selectedValue={position}
-      values={['relative', 'absolute']}
+      values={['relative', 'absolute', 'static']}
       setSelectedValue={setPosition}>
       <View
         style={[
@@ -2723,7 +2725,7 @@ export default PositionLayout;
 </TabItem>
 <TabItem value="typescript">
 
-```SnackPlayer name=Absolute%20%26%20Relative%20Layout&ext=tsx
+```SnackPlayer name=Position&ext=tsx
 import React, {useState} from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 import type {PropsWithChildren} from 'react';
@@ -2735,7 +2737,7 @@ const PositionLayout = () => {
     <PreviewLayout
       label="position"
       selectedValue={position}
-      values={['relative', 'absolute']}
+      values={['relative', 'absolute', 'static']}
       setSelectedValue={setPosition}>
       <View
         style={[
@@ -2860,6 +2862,24 @@ export default PositionLayout;
 
 </TabItem>
 </Tabs>
+
+## The Containing Block
+
+The containing block of an element is an ancestor element which controls its position and size.
+The way containing blocks work in React Native is very similar to [how they work on the web](https://developer.mozilla.org/en-US/docs/Web/CSS/Containing_block), with some simplifications due to the lack of some web features.
+
+The `top`, `right`, `bottom`, and `left` values of an absolutely positioned element will be
+relative to its containing block.
+
+Percentage lengths like `width: '50%'` or `padding: '10%'` applied to absolutely positioned elements will be calculated relative to the size of its containing block. So for example, if the containing block is 100 points wide, then `width: 50%` on an absolutely positioned element will cause it to be
+50 points wide.
+
+The following list will help you determine the containing block of any given element:
+
+- If that element has a `position` type of `relative` or `static`, then its containing block is its parent.
+- If that element has a `position` type of `absolute`, then its containing block is the nearest ancestor in which one of the following is true:
+  - It has a `position` type other than `static`
+  - It has a `transform`
 
 ## Going Deeper
 
