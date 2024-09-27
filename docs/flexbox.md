@@ -2731,7 +2731,7 @@ import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 import type {PropsWithChildren} from 'react';
 
 const PositionLayout = () => {
-  const [position, setPosition] = useState<'relative' | 'absolute'>('relative');
+  const [position, setPosition] = useState<'relative' | 'absolute' | 'static'>('relative');
 
   return (
     <PreviewLayout
@@ -2778,9 +2778,9 @@ const PositionLayout = () => {
 
 type PreviewLayoutProps = PropsWithChildren<{
   label: string;
-  values: Array<'relative' | 'absolute'>;
+  values: Array<'relative' | 'absolute' | 'static'>;
   selectedValue: string;
-  setSelectedValue: (value: 'relative' | 'absolute') => void;
+  setSelectedValue: (value: 'relative' | 'absolute' | 'static') => void;
 }>;
 
 const PreviewLayout = ({
