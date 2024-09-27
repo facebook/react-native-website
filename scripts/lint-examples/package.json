@@ -20,7 +20,7 @@
     "glob-promise": "^4.2.2",
     "prettier": "2.8.8",
     "react": "18.2.0",
-    "react-native": "^0.73.0",
+    "react-native": "^0.74.1",
     "typescript": "5.0.4"
   }
 }
