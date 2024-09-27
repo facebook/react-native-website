@@ -2731,7 +2731,9 @@ import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 import type {PropsWithChildren} from 'react';
 
 const PositionLayout = () => {
-  const [position, setPosition] = useState<'relative' | 'absolute' | 'static'>('relative');
+  const [position, setPosition] = useState<'relative' | 'absolute' | 'static'>(
+    'relative',
+  );
 
   return (
     <PreviewLayout
