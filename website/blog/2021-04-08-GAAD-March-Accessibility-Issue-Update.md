@@ -1,10 +1,6 @@
 ---
 title: The GAAD Pledge - March Accessibility Issues Update
-author: Alexandra Marlette
-authorTitle: GAAD Pledge Open Source Accessibility Community Manager for React Native
-authorURL: 'https://twitter.com/alexmarlette'
-authorImageURL: 'https://avatars.githubusercontent.com/u/10052470?s=460&u=7f2304cb929d1de703856717af86324c66728f3a&v=4'
-authorTwitter: alexmarlette
+authors: [alexmarlette]
 tags: [announcement]
 ---
 

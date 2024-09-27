@@ -64,7 +64,7 @@
 /docs/new-architecture-app-renderer-android  https://github.com/reactwg/react-native-new-architecture#guides
 /docs/new-architecture-app-modules-ios       https://github.com/reactwg/react-native-new-architecture#guides
 /docs/new-architecture-app-renderer-ios      https://github.com/reactwg/react-native-new-architecture#guides
-/docs/ram-bundles-inline-requires            /docs/optimizing-javascript-loading
+https://reactnative.dev/docs/0.74/ram-bundles-inline-requires            /docs/optimizing-javascript-loading
 /docs/next/ram-bundles-inline-requires       /docs/next/optimizing-javascript-loading
 
 # Architecture pages move to unversioned docs

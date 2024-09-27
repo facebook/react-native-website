@@ -53,7 +53,7 @@ The device names correspond to the list of devices available in Xcode. You can c
 
 ### Specifying a version of device
 
-If you have multiple iOS versions installed, you also need to specify it's appropiate version. E.g. To run your app on an iPhone 14 Pro (16.0) run the following command:
+If you have multiple iOS versions installed, you also need to specify its appropriate version. E.g. To run your app on an iPhone 14 Pro (16.0) run the following command:
 
 <Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
 <TabItem value="npm">

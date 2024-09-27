@@ -15,7 +15,7 @@ The device names correspond to the list of devices available in Xcode. You can c
 
 ### Specifying a version of device
 
-If you have multiple iOS versions installed, you also need to specify it's appropiate version. E.g. run `npx react-native run-ios --simulator='iPhone 14 Pro (16.0)'` in order to specify the iOS version.
+If you have multiple iOS versions installed, you also need to specify its appropriate version. E.g. run `npx react-native run-ios --simulator='iPhone 14 Pro (16.0)'` in order to specify the iOS version.
 
 ## Specifying an UDID
 

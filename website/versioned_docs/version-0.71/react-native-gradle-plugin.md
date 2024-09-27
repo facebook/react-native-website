@@ -100,7 +100,7 @@ nodeExecutableAndArgs = ["node"]
 
 ### `bundleCommand`
 
-This is the name of the `bundle` command to be invoked when creating the bundle for your app. That's useful if you're using [RAM Bundles](/docs/ram-bundles-inline-requires). By default is `bundle` but can be customized to add extra flags as follows:
+This is the name of the `bundle` command to be invoked when creating the bundle for your app. That's useful if you're using [RAM Bundles](https://reactnative.dev/docs/0.74/ram-bundles-inline-requires). By default is `bundle` but can be customized to add extra flags as follows:
 
 ```groovy
 bundleCommand = "ram-bundle"
