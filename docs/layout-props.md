@@ -909,7 +909,7 @@ Setting `paddingVertical` is like setting both of `paddingTop` and `paddingBotto
 
 If you want to position a child using specific numbers of logical pixels relative to itself, set the child to have `relative` position.
 
-If you want to position a child realtive to its parent, set the child to have `absolute` position and the parent to have `relative` or `absolute` position.
+If you want to position a child relative to its parent, set the child to have `absolute` position and the parent to have `relative` or `absolute` position.
 
 If you want to position a child relative to something that is not its parent, use the `absolute` and `static` postions. For more information see the [Layout with Flexbox docs](./flexbox.md#position).
 
