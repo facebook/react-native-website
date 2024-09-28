@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile --no-progress --non-interactive
+        run: yarn install --frozen-lockfile --no-progress --non-interactive --ignore-scripts
 
       - name: Run Lint
         run: yarn ci:lint
@@ -32,7 +32,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile --no-progress --non-interactive
+        run: yarn install --frozen-lockfile --no-progress --non-interactive --ignore-scripts
 
       - name: Build
         run: yarn build
