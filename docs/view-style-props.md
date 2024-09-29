@@ -326,4 +326,4 @@ Controls whether the `View` can be the target of touch events.
 
 | Type                                          |
 | --------------------------------------------- |
-| enum('auto', 'box-none', 'box-only', 'none' ) |
+| enum(`'auto'`, `'box-none'`, `'box-only'`, `'none'` ) |
