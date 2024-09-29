@@ -324,6 +324,6 @@ Controls whether the `View` can be the target of touch events.
 - `'box-none'`: The View is never the target of touch events but its subviews can be.
 - `'box-only'`: The view can be the target of touch events but its subviews cannot be.
 
-| Type                                          |
-| --------------------------------------------- |
+| Type                                                  |
+| ----------------------------------------------------- |
 | enum(`'auto'`, `'box-none'`, `'box-only'`, `'none'` ) |
