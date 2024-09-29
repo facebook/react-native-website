@@ -3,7 +3,7 @@ id: viewtoken
 title: ViewToken Object Type
 ---
 
-`ViewToken` object is returned as one of properties in the `onViewableItemsChanged` callback, for example in [FlatList](flatlist) component. It is exported by [`ViewabilityHelper.js`](https://github.com/facebook/react-native/blob/main/packages/react-native/Libraries/Lists/ViewabilityHelper.js).
+`ViewToken` object is returned as one of the properties in the `onViewableItemsChanged` callback (for example, in the [FlatList](flatlist) component). It is exported by [`ViewabilityHelper.js`](https://github.com/facebook/react-native/blob/main/packages/react-native/Libraries/Lists/ViewabilityHelper.js).
 
 ## Example
 
@@ -44,7 +44,7 @@ Item data
 
 ### `key`
 
-Key identifier assigned of the data element extracted to the top level.
+Key identifier assigned to the data element extracted to the top level.
 
 | Type   | Optional |
 | ------ | -------- |
