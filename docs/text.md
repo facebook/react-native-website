@@ -48,7 +48,7 @@ export default TextInANest;
 
 ## Nested text
 
-Both Android and iOS allow you to display formatted text by annotating ranges of a string with specific formatting like bold or colored text (`NSAttributedString` on iOS, `SpannableString` on Android). In practice, this is very tedious. For React Native, we decided to use web paradigm for this where you can nest text to achieve the same effect.
+Both Android and iOS allow you to display formatted text by annotating ranges of a string with specific formatting like bold or colored text (`NSAttributedString` on iOS, `SpannableString` on Android). In practice, this is very tedious. For React Native, we decided to use the web paradigm for this, where you can nest text to achieve the same effect.
 
 ```SnackPlayer name=Nested%20Text%20Example
 import React from 'react';
@@ -92,7 +92,7 @@ The `<Text>` element is unique relative to layout: everything inside is no longe
   <Text>First part and </Text>
   <Text>second part</Text>
 </Text>
-// Text container: the text will be inline if the space allowed it
+// Text container: the text will be inline, if the space allows it
 // |First part and second part|
 
 // otherwise, the text will flow as if it was one
@@ -167,7 +167,7 @@ const MyAppHeaderText = ({children}) => {
 };
 ```
 
-Composing `MyAppText` in this way ensures that we get the styles from a top-level component, but leaves us the ability to add / override them in specific use cases.
+Composing `MyAppText` in this way ensures that we get the styles from a top-level component, but leaves us the ability to add/override them in specific use cases.
 
 React Native still has the concept of style inheritance, but limited to text subtrees. In this case, the second part will be both bold and red.
 
@@ -240,7 +240,7 @@ On Android, these roles have similar functionality on TalkBack as adding Accessi
 
 Tells the screen reader to treat the currently focused on element as being in a specific state.
 
-You can provide one state, no state, or multiple states. The states must be passed in through an object. Ex: `{selected: true, disabled: true}`.
+You can provide one state, no state, or multiple states. The states must be passed in through an object, e.g. `{selected: true, disabled: true}`.
 
 | Type                                                   |
 | ------------------------------------------------------ |
