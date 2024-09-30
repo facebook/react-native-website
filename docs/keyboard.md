@@ -11,10 +11,11 @@ The Keyboard module allows you to listen for native events and react to them, as
 
 ```SnackPlayer name=Keyboard%20Example&supportedPlatforms=ios,android
 import React, {useState, useEffect} from 'react';
-import {Keyboard, Text, TextInput, StyleSheet, View} from 'react-native';
+import {Keyboard, Text, TextInput, StyleSheet} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const Example = () => {
-  const [keyboardStatus, setKeyboardStatus] = useState('');
+  const [keyboardStatus, setKeyboardStatus] = useState('Keyboard Hidden');
 
   useEffect(() => {
     const showSubscription = Keyboard.addListener('keyboardDidShow', () => {
@@ -31,14 +32,16 @@ const Example = () => {
   }, []);
 
   return (
-    <View style={style.container}>
-      <TextInput
-        style={style.input}
-        placeholder="Click here…"
-        onSubmitEditing={Keyboard.dismiss}
-      />
-      <Text style={style.status}>{keyboardStatus}</Text>
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={style.container}>
+        <TextInput
+          style={style.input}
+          placeholder="Click here…"
+          onSubmitEditing={Keyboard.dismiss}
+        />
+        <Text style={style.status}>{keyboardStatus}</Text>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
@@ -53,7 +56,7 @@ const style = StyleSheet.create({
     borderRadius: 4,
   },
   status: {
-    padding: 10,
+    padding: 16,
     textAlign: 'center',
   },
 });

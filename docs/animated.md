@@ -13,16 +13,10 @@ The core workflow for creating an animation is to create an `Animated.Value`, ho
 
 The following example contains a `View` which will fade in and fade out based on the animated value `fadeAnim`
 
-```SnackPlayer name=Animated
+```SnackPlayer name=Animated%20Example
 import React, {useRef} from 'react';
-import {
-  Animated,
-  Text,
-  View,
-  StyleSheet,
-  Button,
-  SafeAreaView,
-} from 'react-native';
+import {Animated, Text, View, StyleSheet, Button} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => {
   // fadeAnim will be used as the value for opacity. Initial Value: 0
@@ -47,22 +41,24 @@ const App = () => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
-      <Animated.View
-        style={[
-          styles.fadingContainer,
-          {
-            // Bind opacity to animated value
-            opacity: fadeAnim,
-          },
-        ]}>
-        <Text style={styles.fadingText}>Fading View!</Text>
-      </Animated.View>
-      <View style={styles.buttonRow}>
-        <Button title="Fade In View" onPress={fadeIn} />
-        <Button title="Fade Out View" onPress={fadeOut} />
-      </View>
-    </SafeAreaView>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <Animated.View
+          style={[
+            styles.fadingContainer,
+            {
+              // Bind opacity to animated value
+              opacity: fadeAnim,
+            },
+          ]}>
+          <Text style={styles.fadingText}>Fading View!</Text>
+        </Animated.View>
+        <View style={styles.buttonRow}>
+          <Button title="Fade In View" onPress={fadeIn} />
+          <Button title="Fade Out View" onPress={fadeOut} />
+        </View>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 

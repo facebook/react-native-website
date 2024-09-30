@@ -25,16 +25,10 @@ If you need section support, use [`<SectionList>`](sectionlist.md).
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
-```SnackPlayer name=flatlist-simple&ext=js
+```SnackPlayer name=Simple%20FlatList%20Example&ext=js
 import React from 'react';
-import {
-  SafeAreaView,
-  View,
-  FlatList,
-  StyleSheet,
-  Text,
-  StatusBar,
-} from 'react-native';
+import {View, FlatList, StyleSheet, Text, StatusBar} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const DATA = [
   {
@@ -57,8 +51,8 @@ const Item = ({title}) => (
   </View>
 );
 
-const App = () => {
-  return (
+const App = () => (
+  <SafeAreaProvider>
     <SafeAreaView style={styles.container}>
       <FlatList
         data={DATA}
@@ -66,8 +60,8 @@ const App = () => {
         keyExtractor={item => item.id}
       />
     </SafeAreaView>
-  );
-};
+  </SafeAreaProvider>
+);
 
 const styles = StyleSheet.create({
   container: {
@@ -91,16 +85,10 @@ export default App;
 </TabItem>
 <TabItem value="typescript">
 
-```SnackPlayer name=flatlist-simple&ext=tsx
+```SnackPlayer name=Simple%20FlatList%20Example&ext=tsx
 import React from 'react';
-import {
-  SafeAreaView,
-  View,
-  FlatList,
-  StyleSheet,
-  Text,
-  StatusBar,
-} from 'react-native';
+import {View, FlatList, StyleSheet, Text, StatusBar} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const DATA = [
   {
@@ -125,8 +113,8 @@ const Item = ({title}: ItemProps) => (
   </View>
 );
 
-const App = () => {
-  return (
+const App = () => (
+  <SafeAreaProvider>
     <SafeAreaView style={styles.container}>
       <FlatList
         data={DATA}
@@ -134,8 +122,8 @@ const App = () => {
         keyExtractor={item => item.id}
       />
     </SafeAreaView>
-  );
-};
+  </SafeAreaProvider>
+);
 
 const styles = StyleSheet.create({
   container: {
@@ -173,12 +161,12 @@ More complex, selectable example below.
 import React, {useState} from 'react';
 import {
   FlatList,
-  SafeAreaView,
   StatusBar,
   StyleSheet,
   Text,
   TouchableOpacity,
 } from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const DATA = [
   {
@@ -219,14 +207,16 @@ const App = () => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
-      <FlatList
-        data={DATA}
-        renderItem={renderItem}
-        keyExtractor={item => item.id}
-        extraData={selectedId}
-      />
-    </SafeAreaView>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <FlatList
+          data={DATA}
+          renderItem={renderItem}
+          keyExtractor={item => item.id}
+          extraData={selectedId}
+        />
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
@@ -255,12 +245,12 @@ export default App;
 import React, {useState} from 'react';
 import {
   FlatList,
-  SafeAreaView,
   StatusBar,
   StyleSheet,
   Text,
   TouchableOpacity,
 } from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 type ItemData = {
   id: string;
@@ -313,14 +303,16 @@ const App = () => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
-      <FlatList
-        data={DATA}
-        renderItem={renderItem}
-        keyExtractor={item => item.id}
-        extraData={selectedId}
-      />
-    </SafeAreaView>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <FlatList
+          data={DATA}
+          renderItem={renderItem}
+          keyExtractor={item => item.id}
+          extraData={selectedId}
+        />
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
