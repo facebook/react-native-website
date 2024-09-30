@@ -32,11 +32,11 @@ const FlatListBasics = () => {
     <View style={styles.container}>
       <FlatList
         data={[
-          {key: 'Devin'},
-          {key: 'Dan'},
-          {key: 'Dominic'},
-          {key: 'Jackson'},
-          {key: 'James'},
+          {key: 'Pavan Kumar BM'},
+          {key: 'Pradeepa Bs'},
+          {key: 'Naresh BG'},
+          {key: 'Balaji B'},
+          {key: 'Vishwa T'},
           {key: 'Joel'},
           {key: 'John'},
           {key: 'Jillian'},
@@ -88,9 +88,9 @@ const SectionListBasics = () => {
           {
             title: 'J',
             data: [
-              'Jackson',
-              'James',
-              'Jillian',
+              'Pavana',
+              'kumara',
+              'BM',
               'Jimmy',
               'Joel',
               'John',
