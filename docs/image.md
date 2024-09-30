@@ -11,13 +11,14 @@ This example shows fetching and displaying an image from local storage as well a
 
 ## Examples
 
-```SnackPlayer name=Example
+```SnackPlayer name=Image%20Example
 import React from 'react';
-import {View, Image, StyleSheet} from 'react-native';
+import {Image, StyleSheet} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 50,
+    flex: 1,
   },
   tinyLogo: {
     width: 50,
@@ -29,9 +30,9 @@ const styles = StyleSheet.create({
   },
 });
 
-const DisplayAnImage = () => {
-  return (
-    <View style={styles.container}>
+const DisplayAnImage = () => (
+  <SafeAreaProvider>
+    <SafeAreaView style={styles.container}>
       <Image
         style={styles.tinyLogo}
         source={require('@expo/snack-static/react-native-logo.png')}
@@ -48,22 +49,23 @@ const DisplayAnImage = () => {
           uri: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAzCAYAAAA6oTAqAAAAEXRFWHRTb2Z0d2FyZQBwbmdjcnVzaEB1SfMAAABQSURBVGje7dSxCQBACARB+2/ab8BEeQNhFi6WSYzYLYudDQYGBgYGBgYGBgYGBgYGBgZmcvDqYGBgmhivGQYGBgYGBgYGBgYGBgYGBgbmQw+P/eMrC5UTVAAAAABJRU5ErkJggg==',
         }}
       />
-    </View>
-  );
-};
+    </SafeAreaView>
+  </SafeAreaProvider>
+);
 
 export default DisplayAnImage;
 ```
 
 You can also add `style` to an image:
 
-```SnackPlayer name=Example
+```SnackPlayer name=Styled%20Image%20Example
 import React from 'react';
-import {View, Image, StyleSheet} from 'react-native';
+import {Image, StyleSheet} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 50,
+    flex: 1,
   },
   stretch: {
     width: 50,
@@ -72,16 +74,16 @@ const styles = StyleSheet.create({
   },
 });
 
-const DisplayAnImageWithStyle = () => {
-  return (
-    <View style={styles.container}>
+const DisplayAnImageWithStyle = () => (
+  <SafeAreaProvider>
+    <SafeAreaView style={styles.container}>
       <Image
         style={styles.stretch}
         source={require('@expo/snack-static/react-native-logo.png')}
       />
-    </View>
-  );
-};
+    </SafeAreaView>
+  </SafeAreaProvider>
+);
 
 export default DisplayAnImageWithStyle;
 ```

@@ -11,7 +11,9 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import con
 ```SnackPlayer name=Shadow%20Props&supportedPlatforms=ios&ext=js&dependencies=@react-native-community/slider
 import React, {useState} from 'react';
 import {Text, View, StyleSheet} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 import Slider from '@react-native-community/slider';
+
 const ShadowPropSlider = ({label, value, ...props}) => {
   return (
     <>
@@ -30,52 +32,54 @@ const App = () => {
   const [shadowOpacity, setShadowOpacity] = useState(0.1);
 
   return (
-    <View style={styles.container}>
-      <View
-        style={[
-          styles.square,
-          {
-            shadowOffset: {
-              width: shadowOffsetWidth,
-              height: -shadowOffsetHeight,
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <View
+          style={[
+            styles.square,
+            {
+              shadowOffset: {
+                width: shadowOffsetWidth,
+                height: -shadowOffsetHeight,
+              },
+              shadowOpacity,
+              shadowRadius,
             },
-            shadowOpacity,
-            shadowRadius,
-          },
-        ]}
-      />
-      <View style={styles.controls}>
-        <ShadowPropSlider
-          label="shadowOffset - X"
-          minimumValue={-50}
-          maximumValue={50}
-          value={shadowOffsetWidth}
-          onValueChange={setShadowOffsetWidth}
+          ]}
         />
-        <ShadowPropSlider
-          label="shadowOffset - Y"
-          minimumValue={-50}
-          maximumValue={50}
-          value={shadowOffsetHeight}
-          onValueChange={setShadowOffsetHeight}
-        />
-        <ShadowPropSlider
-          label="shadowRadius"
-          minimumValue={0}
-          maximumValue={100}
-          value={shadowRadius}
-          onValueChange={setShadowRadius}
-        />
-        <ShadowPropSlider
-          label="shadowOpacity"
-          minimumValue={0}
-          maximumValue={1}
-          step={0.05}
-          value={shadowOpacity}
-          onValueChange={val => setShadowOpacity(val)}
-        />
-      </View>
-    </View>
+        <View style={styles.controls}>
+          <ShadowPropSlider
+            label="shadowOffset - X"
+            minimumValue={-50}
+            maximumValue={50}
+            value={shadowOffsetWidth}
+            onValueChange={setShadowOffsetWidth}
+          />
+          <ShadowPropSlider
+            label="shadowOffset - Y"
+            minimumValue={-50}
+            maximumValue={50}
+            value={shadowOffsetHeight}
+            onValueChange={setShadowOffsetHeight}
+          />
+          <ShadowPropSlider
+            label="shadowRadius"
+            minimumValue={0}
+            maximumValue={100}
+            value={shadowRadius}
+            onValueChange={setShadowRadius}
+          />
+          <ShadowPropSlider
+            label="shadowOpacity"
+            minimumValue={0}
+            maximumValue={1}
+            step={0.05}
+            value={shadowOpacity}
+            onValueChange={val => setShadowOpacity(val)}
+          />
+        </View>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
@@ -108,8 +112,8 @@ export default App;
 ```SnackPlayer name=Shadow%20Props&supportedPlatforms=ios&ext=tsx&dependencies=@react-native-community/slider
 import React, {useState} from 'react';
 import {Text, View, StyleSheet} from 'react-native';
-import Slider from '@react-native-community/slider';
-import type {SliderProps} from '@react-native-community/slider';
+import Slider, {SliderProps} from '@react-native-community/slider';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 type ShadowPropSliderProps = SliderProps & {
   label: string;
@@ -133,52 +137,54 @@ const App = () => {
   const [shadowOpacity, setShadowOpacity] = useState(0.1);
 
   return (
-    <View style={styles.container}>
-      <View
-        style={[
-          styles.square,
-          {
-            shadowOffset: {
-              width: shadowOffsetWidth,
-              height: -shadowOffsetHeight,
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <View
+          style={[
+            styles.square,
+            {
+              shadowOffset: {
+                width: shadowOffsetWidth,
+                height: -shadowOffsetHeight,
+              },
+              shadowOpacity,
+              shadowRadius,
             },
-            shadowOpacity,
-            shadowRadius,
-          },
-        ]}
-      />
-      <View style={styles.controls}>
-        <ShadowPropSlider
-          label="shadowOffset - X"
-          minimumValue={-50}
-          maximumValue={50}
-          value={shadowOffsetWidth}
-          onValueChange={setShadowOffsetWidth}
+          ]}
         />
-        <ShadowPropSlider
-          label="shadowOffset - Y"
-          minimumValue={-50}
-          maximumValue={50}
-          value={shadowOffsetHeight}
-          onValueChange={setShadowOffsetHeight}
-        />
-        <ShadowPropSlider
-          label="shadowRadius"
-          minimumValue={0}
-          maximumValue={100}
-          value={shadowRadius}
-          onValueChange={setShadowRadius}
-        />
-        <ShadowPropSlider
-          label="shadowOpacity"
-          minimumValue={0}
-          maximumValue={1}
-          step={0.05}
-          value={shadowOpacity}
-          onValueChange={val => setShadowOpacity(val)}
-        />
-      </View>
-    </View>
+        <View style={styles.controls}>
+          <ShadowPropSlider
+            label="shadowOffset - X"
+            minimumValue={-50}
+            maximumValue={50}
+            value={shadowOffsetWidth}
+            onValueChange={setShadowOffsetWidth}
+          />
+          <ShadowPropSlider
+            label="shadowOffset - Y"
+            minimumValue={-50}
+            maximumValue={50}
+            value={shadowOffsetHeight}
+            onValueChange={setShadowOffsetHeight}
+          />
+          <ShadowPropSlider
+            label="shadowRadius"
+            minimumValue={0}
+            maximumValue={100}
+            value={shadowRadius}
+            onValueChange={setShadowRadius}
+          />
+          <ShadowPropSlider
+            label="shadowOpacity"
+            minimumValue={0}
+            maximumValue={1}
+            step={0.05}
+            value={shadowOpacity}
+            onValueChange={val => setShadowOpacity(val)}
+          />
+        </View>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 

@@ -13,7 +13,8 @@ This is an API that works both on Android and iOS and can show static alerts. Al
 
 ```SnackPlayer name=Alert%20Example&supportedPlatforms=ios,android
 import React from 'react';
-import {View, StyleSheet, Button, Alert} from 'react-native';
+import {StyleSheet, Button, Alert} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => {
   const createTwoButtonAlert = () =>
@@ -41,10 +42,12 @@ const App = () => {
     ]);
 
   return (
-    <View style={styles.container}>
-      <Button title={'2-Button Alert'} onPress={createTwoButtonAlert} />
-      <Button title={'3-Button Alert'} onPress={createThreeButtonAlert} />
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <Button title={'2-Button Alert'} onPress={createTwoButtonAlert} />
+        <Button title={'3-Button Alert'} onPress={createThreeButtonAlert} />
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
@@ -79,7 +82,8 @@ The cancel event can be handled by providing an `onDismiss` callback property in
 
 ```SnackPlayer name=Alert%20Android%20Dissmissable%20Example&supportedPlatforms=android
 import React from 'react';
-import {View, StyleSheet, Button, Alert} from 'react-native';
+import {StyleSheet, Button, Alert} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const showAlert = () =>
   Alert.alert(
@@ -102,9 +106,11 @@ const showAlert = () =>
   );
 
 const App = () => (
-  <View style={styles.container}>
-    <Button title="Show alert" onPress={showAlert} />
-  </View>
+  <SafeAreaProvider>
+    <SafeAreaView style={styles.container}>
+      <Button title="Show alert" onPress={showAlert} />
+    </SafeAreaView>
+  </SafeAreaProvider>
 );
 
 const styles = StyleSheet.create({

@@ -15,33 +15,30 @@ Background drawable of native feedback touchable can be customized with `backgro
 
 ```SnackPlayer name=TouchableNativeFeedback%20Android%20Component%20Example&supportedPlatforms=android
 import React, {useState} from 'react';
-import {
-  Text,
-  View,
-  StyleSheet,
-  TouchableNativeFeedback,
-  StatusBar,
-} from 'react-native';
+import {Text, View, StyleSheet, TouchableNativeFeedback} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => {
   const [rippleColor, setRippleColor] = useState(randomHexColor());
   const [rippleOverflow, setRippleOverflow] = useState(false);
   return (
-    <View style={styles.container}>
-      <TouchableNativeFeedback
-        onPress={() => {
-          setRippleColor(randomHexColor());
-          setRippleOverflow(!rippleOverflow);
-        }}
-        background={TouchableNativeFeedback.Ripple(
-          rippleColor,
-          rippleOverflow,
-        )}>
-        <View style={styles.touchable}>
-          <Text style={styles.text}>TouchableNativeFeedback</Text>
-        </View>
-      </TouchableNativeFeedback>
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <TouchableNativeFeedback
+          onPress={() => {
+            setRippleColor(randomHexColor());
+            setRippleOverflow(!rippleOverflow);
+          }}
+          background={TouchableNativeFeedback.Ripple(
+            rippleColor,
+            rippleOverflow,
+          )}>
+          <View style={styles.touchable}>
+            <Text style={styles.text}>TouchableNativeFeedback</Text>
+          </View>
+        </TouchableNativeFeedback>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
@@ -55,12 +52,19 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    paddingTop: StatusBar.currentHeight,
-    backgroundColor: '#ecf0f1',
-    padding: 8,
+    backgroundColor: 'black',
+    paddingHorizontal: 20,
   },
-  touchable: {flex: 0.5, borderColor: 'black', borderWidth: 1},
-  text: {alignSelf: 'center'},
+  touchable: {
+    flex: 0.33,
+    justifyContent: 'center',
+    backgroundColor: '#eeeeee',
+    borderColor: 'black',
+    borderWidth: 1,
+  },
+  text: {
+    alignSelf: 'center',
+  },
 });
 
 export default App;
