@@ -2590,7 +2590,7 @@ The `position` type of an element defines how it is positioned relative to eithe
 
 - `absolute` When positioned absolutely, an element doesn't take part in the normal layout flow. It is instead laid out independent of its siblings. The position is determined based on the `top`, `right`, `bottom`, and `left` values. These values will posistion the element relative to its containing block.
 
-- `static` When positioned statically, an element is positioned according to the normal flow of layout, and will ignore the `top`, `right`, `bottom`, and `left` values. This `position` will also cause the element to not form a containing block, unless some other supersceding style prop is present (e.g. `transform`). This allows `absolute` elements to be positioned to something that is not their parent. Note that `static` is only available on the new architecture.
+- `static` When positioned statically, an element is positioned according to the normal flow of layout, and will ignore the `top`, `right`, `bottom`, and `left` values. This `position` will also cause the element to not form a containing block for absolute descendants, unless some other superceding style prop is present (e.g. `transform`). This allows `absolute` elements to be positioned to something that is not their parent. Note that **`static` is only available on the New Architecture**.
 
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
@@ -2873,8 +2873,7 @@ The way containing blocks work in React Native is very similar to [how they work
 The `top`, `right`, `bottom`, and `left` values of an absolutely positioned element will be
 relative to its containing block.
 
-Percentage lengths like `width: '50%'` or `padding: '10%'` applied to absolutely positioned elements will be calculated relative to the size of its containing block. So for example, if the containing block is 100 points wide, then `width: 50%` on an absolutely positioned element will cause it to be
-50 points wide.
+Percentage lengths (e.g.: `width: '50%'` or `padding: '10%'`) applied to absolutely positioned elements will be calculated relatively to the size of its containing block. For example, if the containing block is 100 points wide, then `width: 50%` on an absolutely positioned element will cause it to be 50 points wide.
 
 The following list will help you determine the containing block of any given element:
 

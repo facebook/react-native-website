@@ -907,13 +907,15 @@ Setting `paddingVertical` is like setting both of `paddingTop` and `paddingBotto
 
 `position` in React Native is similar to [regular CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/position), but everything is set to `relative` by default.
 
-If you want to position a child using specific numbers of logical pixels relative to itself, set the child to have `relative` position.
+`relative` will position an element according to the normal flow of the layout. Insets (`top`, `bottom`, `left`, `right`)
+will offset relative to this layout.
 
-If you want to position a child relative to its parent, set the child to have `absolute` position and the parent to have `relative` or `absolute` position.
+`absolute` takes the element out of the normal flow of the layout. Insets will offset relative to its [containing block](./flexbox.md#the-containing-block).
 
-If you want to position a child relative to something that is not its parent, use the `absolute` and `static` postions. For more information see the [Layout with Flexbox docs](./flexbox.md#position).
+`static` will position an element according to the normal flow of the layout. Insets will have no effect.
+`static` elements do not form a containing block for absolute descendants.
 
-See [the Yoga documentation](https://www.yogalayout.dev/) for more details on how `position` differs between React Native and CSS.
+For more information, see the [Layout with Flexbox docs](./flexbox.md#position). Also, [the Yoga documentation](https://www.yogalayout.dev/docs/styling/position) has more details on how `position` differs between React Native and CSS.
 
 | Type                                   | Required |
 | -------------------------------------- | -------- |
