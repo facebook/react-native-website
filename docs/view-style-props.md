@@ -8,22 +8,22 @@ title: View Style Props
 ```SnackPlayer name=ViewStyleProps
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
-const ViewStyleProps = () => {
-  return (
-    <View style={styles.container}>
+const App = () => (
+  <SafeAreaProvider>
+    <SafeAreaView style={styles.container}>
       <View style={styles.top} />
       <View style={styles.middle} />
       <View style={styles.bottom} />
-    </View>
-  );
-};
+    </SafeAreaView>
+  </SafeAreaProvider>
+);
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'space-between',
-    backgroundColor: '#fff',
     padding: 20,
     margin: 10,
   },
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ViewStyleProps;
+export default App;
 ```
 
 # Reference
@@ -324,6 +324,6 @@ Controls whether the `View` can be the target of touch events.
 - `'box-none'`: The View is never the target of touch events but its subviews can be.
 - `'box-only'`: The view can be the target of touch events but its subviews cannot be.
 
-| Type                                          |
-| --------------------------------------------- |
-| enum('auto', 'box-none', 'box-only', 'none' ) |
+| Type                                                  |
+| ----------------------------------------------------- |
+| enum(`'auto'`, `'box-none'`, `'box-only'`, `'none'` ) |

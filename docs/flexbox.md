@@ -2314,13 +2314,8 @@ Both `width` and `height` can take the following values:
 
 ```SnackPlayer name=Width%20and%20Height&ext=js
 import React, {useState} from 'react';
-import {
-  View,
-  SafeAreaView,
-  TouchableOpacity,
-  Text,
-  StyleSheet,
-} from 'react-native';
+import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const WidthHeightBasics = () => {
   const [widthType, setWidthType] = useState('auto');
@@ -2359,43 +2354,45 @@ const PreviewLayout = ({
   setWidthType,
   setHeightType,
 }) => (
-  <SafeAreaView style={{flex: 1, padding: 10}}>
-    <View style={styles.row}>
-      <Text style={styles.label}>width </Text>
-      {widthValues.map(value => (
-        <TouchableOpacity
-          key={value}
-          onPress={() => setWidthType(value)}
-          style={[styles.button, widthType === value && styles.selected]}>
-          <Text
-            style={[
-              styles.buttonLabel,
-              widthType === value && styles.selectedLabel,
-            ]}>
-            {value}
-          </Text>
-        </TouchableOpacity>
-      ))}
-    </View>
-    <View style={styles.row}>
-      <Text style={styles.label}>height </Text>
-      {heightValues.map(value => (
-        <TouchableOpacity
-          key={value}
-          onPress={() => setHeightType(value)}
-          style={[styles.button, heightType === value && styles.selected]}>
-          <Text
-            style={[
-              styles.buttonLabel,
-              heightType === value && styles.selectedLabel,
-            ]}>
-            {value}
-          </Text>
-        </TouchableOpacity>
-      ))}
-    </View>
-    {children}
-  </SafeAreaView>
+  <SafeAreaProvider>
+    <SafeAreaView style={{flex: 1, padding: 10}}>
+      <View style={styles.row}>
+        <Text style={styles.label}>width </Text>
+        {widthValues.map(value => (
+          <TouchableOpacity
+            key={value}
+            onPress={() => setWidthType(value)}
+            style={[styles.button, widthType === value && styles.selected]}>
+            <Text
+              style={[
+                styles.buttonLabel,
+                widthType === value && styles.selectedLabel,
+              ]}>
+              {value}
+            </Text>
+          </TouchableOpacity>
+        ))}
+      </View>
+      <View style={styles.row}>
+        <Text style={styles.label}>height </Text>
+        {heightValues.map(value => (
+          <TouchableOpacity
+            key={value}
+            onPress={() => setHeightType(value)}
+            style={[styles.button, heightType === value && styles.selected]}>
+            <Text
+              style={[
+                styles.buttonLabel,
+                heightType === value && styles.selectedLabel,
+              ]}>
+              {value}
+            </Text>
+          </TouchableOpacity>
+        ))}
+      </View>
+      {children}
+    </SafeAreaView>
+  </SafeAreaProvider>
 );
 
 const styles = StyleSheet.create({
@@ -2442,15 +2439,9 @@ export default WidthHeightBasics;
 <TabItem value="typescript">
 
 ```SnackPlayer name=Width%20and%20Height&ext=tsx
-import React, {useState} from 'react';
-import {
-  View,
-  SafeAreaView,
-  TouchableOpacity,
-  Text,
-  StyleSheet,
-} from 'react-native';
-import type {PropsWithChildren} from 'react';
+import React, {useState, PropsWithChildren} from 'react';
+import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 type Dimension = 'auto' | `${number}%` | number;
 
@@ -2500,43 +2491,45 @@ const PreviewLayout = ({
   setWidthType,
   setHeightType,
 }: PreviewLayoutProps) => (
-  <SafeAreaView style={{flex: 1, padding: 10}}>
-    <View style={styles.row}>
-      <Text style={styles.label}>width </Text>
-      {widthValues.map(value => (
-        <TouchableOpacity
-          key={value}
-          onPress={() => setWidthType(value)}
-          style={[styles.button, widthType === value && styles.selected]}>
-          <Text
-            style={[
-              styles.buttonLabel,
-              widthType === value && styles.selectedLabel,
-            ]}>
-            {value}
-          </Text>
-        </TouchableOpacity>
-      ))}
-    </View>
-    <View style={styles.row}>
-      <Text style={styles.label}>height </Text>
-      {heightValues.map(value => (
-        <TouchableOpacity
-          key={value}
-          onPress={() => setHeightType(value)}
-          style={[styles.button, heightType === value && styles.selected]}>
-          <Text
-            style={[
-              styles.buttonLabel,
-              heightType === value && styles.selectedLabel,
-            ]}>
-            {value}
-          </Text>
-        </TouchableOpacity>
-      ))}
-    </View>
-    {children}
-  </SafeAreaView>
+  <SafeAreaProvider>
+    <SafeAreaView style={{flex: 1, padding: 10}}>
+      <View style={styles.row}>
+        <Text style={styles.label}>width </Text>
+        {widthValues.map(value => (
+          <TouchableOpacity
+            key={value}
+            onPress={() => setWidthType(value)}
+            style={[styles.button, widthType === value && styles.selected]}>
+            <Text
+              style={[
+                styles.buttonLabel,
+                widthType === value && styles.selectedLabel,
+              ]}>
+              {value}
+            </Text>
+          </TouchableOpacity>
+        ))}
+      </View>
+      <View style={styles.row}>
+        <Text style={styles.label}>height </Text>
+        {heightValues.map(value => (
+          <TouchableOpacity
+            key={value}
+            onPress={() => setHeightType(value)}
+            style={[styles.button, heightType === value && styles.selected]}>
+            <Text
+              style={[
+                styles.buttonLabel,
+                heightType === value && styles.selectedLabel,
+              ]}>
+              {value}
+            </Text>
+          </TouchableOpacity>
+        ))}
+      </View>
+      {children}
+    </SafeAreaView>
+  </SafeAreaProvider>
 );
 
 const styles = StyleSheet.create({

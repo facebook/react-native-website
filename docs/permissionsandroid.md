@@ -26,8 +26,8 @@ import {
   StatusBar,
   StyleSheet,
   Text,
-  View,
 } from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const requestCameraPermission = async () => {
   try {
@@ -54,10 +54,12 @@ const requestCameraPermission = async () => {
 };
 
 const App = () => (
-  <View style={styles.container}>
-    <Text style={styles.item}>Try permissions</Text>
-    <Button title="request permissions" onPress={requestCameraPermission} />
-  </View>
+  <SafeAreaProvider>
+    <SafeAreaView style={styles.container}>
+      <Text style={styles.item}>Try permissions</Text>
+      <Button title="request permissions" onPress={requestCameraPermission} />
+    </SafeAreaView>
+  </SafeAreaProvider>
 );
 
 const styles = StyleSheet.create({
