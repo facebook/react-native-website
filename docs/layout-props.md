@@ -907,8 +907,7 @@ Setting `paddingVertical` is like setting both of `paddingTop` and `paddingBotto
 
 `position` in React Native is similar to [regular CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/position), but everything is set to `relative` by default.
 
-`relative` will position an element according to the normal flow of the layout. Insets (`top`, `bottom`, `left`, `right`)
-will offset relative to this layout.
+`relative` will position an element according to the normal flow of the layout. Insets (`top`, `bottom`, `left`, `right`) will offset relative to this layout.
 
 `absolute` takes the element out of the normal flow of the layout. Insets will offset relative to its [containing block](./flexbox.md#the-containing-block).
 
