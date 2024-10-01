@@ -32,6 +32,12 @@ const androidLanguages = [
 ];
 const defaultAndroidLanguage = 'java';
 
+const appleLanguages = [
+  {label: 'ObjectiveC', value: 'objc'},
+  {label: 'Swift', value: 'swift'},
+];
+const defaultAppleLanguage = 'objc';
+
 const javaScriptSpecLanguages = [
   {label: 'TypeScript', value: 'typescript'},
   {label: 'Flow', value: 'flow'},
@@ -86,6 +92,7 @@ export default {
   defaultPlatform,
   defaultSyntax,
   defaultAndroidLanguage,
+  defaultAppleLanguage,
   defaultJavaScriptSpecLanguages,
   getDevNotesTabs,
   guides,
@@ -94,6 +101,7 @@ export default {
   platforms,
   syntax,
   androidLanguages,
+  appleLanguages,
   javaScriptSpecLanguages,
   jsDebuggers,
   snackLanguages,
