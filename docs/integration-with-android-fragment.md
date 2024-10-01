@@ -181,7 +181,7 @@ public class MainActivity extends AppCompatActivity implements DefaultHardwareBa
 
 Let's look at the code above.
 
-The `ReactFragment.Builder()` is used to create a new ReactFragment and then we use the `supportFragmentManager` to add that Fragment to the FrameLayout.
+The `ReactFragment.Builder()` is used to create a new `ReactFragment` and then we use the `supportFragmentManager` to add that Fragment to the `FrameLayout`.
 
 Inside the builder you can customize how the fragment is created:
 
