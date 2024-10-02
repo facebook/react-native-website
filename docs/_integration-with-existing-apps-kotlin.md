@@ -29,7 +29,7 @@ To ensure a smooth experience, create a new folder for your integrated React Nat
 Go to the root directory and run the following command:
 
 ```
-wget https://raw.githubusercontent.com/react-native-community/template/refs/heads/0.75-stable/template/package.json
+curl -O https://raw.githubusercontent.com/react-native-community/template/refs/heads/0.75-stable/template/package.json
 ```
 
 This will copy the `package.json` [file from the Community template](https://github.com/react-native-community/template/blob/0.75-stable/template/package.json) to your project.
@@ -53,7 +53,7 @@ yarn install
 </TabItem>
 </Tabs>
 
-Installation process has created a new `/node_modules` folder. This folder stores all the JavaScript dependencies required to build your project.
+Installation process has created a new `node_modules` folder. This folder stores all the JavaScript dependencies required to build your project.
 
 Add `node_modules/` to your `.gitignore` file (here the [Community default one](https://github.com/react-native-community/template/blob/0.75-stable/template/_gitignore)).
 
@@ -184,7 +184,7 @@ AppRegistry.registerComponent('HelloWorld', () => App);
 
 ### Create a `App.tsx` file
 
-Then, let's create a `App.tsx` file. This is a TypeScript file that will contain the React Native component that we will integrate into our Android application.
+Let's create an `App.tsx` file. This is a [TypeScript](https://www.typescriptlang.org/) file that can have [JSX](<https://en.wikipedia.org/wiki/JSX_(JavaScript)>) expressions. It contains the root React Native component that we will integrate into our Android application ([link](https://github.com/react-native-community/template/blob/0.76-stable/template/App.tsx)):
 
 ```tsx
 import React from 'react';
@@ -447,7 +447,7 @@ Now your activity is ready to run some JavaScript code.
 
 ## 6. Test your integration
 
-You have now done all the basic steps to integrate React Native with your current application. Now we will start the [Metro bundler](https://metrobundler.dev/) to build the TypeScript code of your application and have the server running on localhost to serve it.
+You have completed all the basic steps to integrate React Native with your application. Now we will start the [Metro bundler](https://metrobundler.dev/) to build your TypeScript application code into a bundle. Metro's HTTP server shares the bundle from `localhost` on your developer environment to a simulator or device. This allows for [hot reloading](https://reactnative.dev/blog/2016/03/24/introducing-hot-reloading).
 
 First, you need to create a `metro.config.js` file in the root of your project as follows:
 
@@ -481,7 +481,7 @@ Now build and run your Android app as normal.
 
 Once you reach your React-powered Activity inside the app, it should load the JavaScript code from the development server and display:
 
-![Screenshot](/docs/assets/EmbeddedAppAndroidVideo.gif)
+<center><img src="/docs/assets/EmbeddedAppAndroidVideo.gif" width="300" /></center>
 
 ### Creating a release build in Android Studio
 
