@@ -53,7 +53,7 @@ yarn install
 </TabItem>
 </Tabs>
 
-Installation process has created a new `/node_modules` folder. This folder stores all the JavaScript dependencies required to build your project.
+Installation process has created a new `node_modules` folder. This folder stores all the JavaScript dependencies required to build your project.
 
 Add `node_modules/` to your `.gitignore` file (here the [Community default one](https://github.com/react-native-community/template/blob/0.75-stable/template/_gitignore)).
 

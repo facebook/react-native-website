@@ -53,7 +53,7 @@ yarn install
 </TabItem>
 </Tabs>
 
-Installation process has created a new `/node_modules` folder. This folder stores all the JavaScript dependencies required to build your project.
+Installation process has created a new `node_modules` folder. This folder stores all the JavaScript dependencies required to build your project.
 
 Add `node_modules/` to your `.gitignore` file (here the [Community default one](https://github.com/react-native-community/template/blob/0.76-stable/template/_gitignore)).
 
@@ -69,13 +69,11 @@ Install the Command Line Tools. Choose **Settings... (or Preferences...)** in th
 
 [CocoaPods](https://cocoapods.org) is a package management tool for iOS and macOS development. We use it to add the actual React Native framework code locally into your current project.
 
-We recommend installing CocoaPods using [Homebrew](https://brew.sh/).
+We recommend installing CocoaPods using [Homebrew](https://brew.sh/):
 
 ```shell
 brew install cocoapods
 ```
-
-> It is technically possible not to use CocoaPods, but that would require manual library and linker additions that would overly complicate this process.
 
 ## 4. Adding React Native to your app
 
@@ -104,7 +102,7 @@ Please use the Community Template as a reference point for the [Gemfile](https:/
 :::note
 Remember to change [this line](https://github.com/react-native-community/template/blob/0.76-stable/template/ios/Podfile#L17) and [this line](https://github.com/react-native-community/template/blob/0.76-stable/template/ios/Podfile#L26) of the Podfile to match the name of your app.
 
-If your app don't have tests, rememebr to remove [this block](https://github.com/react-native-community/template/blob/0.76-stable/template/ios/Podfile#L26-L29).
+If your app don't have tests, remember to remove [this block](https://github.com/react-native-community/template/blob/0.76-stable/template/ios/Podfile#L26-L29).
 :::
 
 Now, we need to run a couple of extra commands to install the Ruby gems and the Pods.
@@ -221,9 +219,9 @@ We now need to add some native code in order to start the React Native runtime a
 
 ### Requirements
 
-React Native is supposed to work with the AppDelegate. Sadly it does not supports the SceneDelegate pattern as of today, but we are getting closer to it.
+React Native is supposed to work with the `AppDelegate`. Sadly it does not supports the `SceneDelegate` pattern as of today.
 
-The following part assumes that you don't have a SceneDelegate and that your application AppDelegate looks like this:
+The following part assumes that your `AppDelegate` looks like this:
 
 <Tabs groupId="ios-language" queryString defaultValue={constants.defaultAppleLanguage} values={constants.appleLanguages}>
 <TabItem value="objc">
@@ -274,9 +272,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 </TabItem>
 </Tabs>
 
-### Update the AppDelegate class
+### Update the `AppDelegate` class
 
-First, we need to extends the AppDelegate to inherit from one of the classes provided by React Native: `RCTAppDelegate`.
+First, we need to extends the `AppDelegate` to inherit from one of the classes provided by React Native: `RCTAppDelegate`.
 
 <Tabs groupId="ios-language" queryString defaultValue={constants.defaultAppleLanguage} values={constants.appleLanguages}>
 <TabItem value="objc">
@@ -417,10 +415,10 @@ Finally, we can present our React Native view. To do so, we need a new View Cont
 
 @implementation ViewController
 
-- (void)viewDidLoad {
-  [super viewDidLoad];
-  // Do any additional setup after loading the view.
-  self.view.backgroundColor = UIColor.systemBackgroundColor;
+ - (void)viewDidLoad {
+   [super viewDidLoad];
+   // Do any additional setup after loading the view.
+   self.view.backgroundColor = UIColor.systemBackgroundColor;
 +  UIButton * button = [UIButton new];
 +  [button setTitle:@"Open React Native" forState:UIControlStateNormal];
 +  [button setTitleColor:UIColor.systemBlueColor forState:UIControlStateNormal];
@@ -435,7 +433,7 @@ Finally, we can present our React Native view. To do so, we need a new View Cont
 +    [button.centerYAnchor constraintEqualToAnchor:self.view.centerYAnchor],
 +    [button.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor],
 +  ]];
-}
+ }
 
 +- (void)presentReactNative
 +{
