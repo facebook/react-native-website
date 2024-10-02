@@ -13,7 +13,7 @@ The keys to integrating React Native components into your iOS application are to
 
 ## Using the Community Template
 
-While you follow this guide, we suggest you to use the [React Native Community Template](https://github.com/react-native-community/template/) as reference. The template contains a **minimal Android app** and will help you understanding how to integrate React Native into an existing Android app.
+While you follow this guide, we suggest you to use the [React Native Community Template](https://github.com/react-native-community/template/) as reference. The template contains a **minimal iOS app** and will help you understanding how to integrate React Native into an existing iOS app.
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ To ensure a smooth experience, create a new folder for your integrated React Nat
 Go to the root directory and run the following command:
 
 ```
-wget https://raw.githubusercontent.com/react-native-community/template/refs/heads/0.76-stable/template/package.json
+curl -O https://raw.githubusercontent.com/react-native-community/template/refs/heads/0.76-stable/template/package.json
 ```
 
 This will copy the `package.json` [file from the Community template](https://github.com/react-native-community/template/blob/0.76-stable/template/package.json) to your project.
@@ -87,14 +87,14 @@ To configure CocoaPods, we need two files:
 For the **Gemfile**, go to the root directory of your project and run this command
 
 ```sh
-wget https://raw.githubusercontent.com/react-native-community/template/refs/heads/0.76-stable/template/Gemfile
+curl -O https://raw.githubusercontent.com/react-native-community/template/refs/heads/0.76-stable/template/Gemfile
 ```
 
 This will download the Gemfile from the template.
 Similarly, for the **Podfile**, go to the `ios` folder of your project and run
 
 ```sh
-wget https://raw.githubusercontent.com/react-native-community/template/refs/heads/0.76-stable/template/ios/Podfile
+curl -O https://raw.githubusercontent.com/react-native-community/template/refs/heads/0.76-stable/template/ios/Podfile
 ```
 
 Please use the Community Template as a reference point for the [Gemfile](https://github.com/react-native-community/template/blob/0.76-stable/template/Gemfile) and for the [Podfile](https://github.com/react-native-community/template/blob/0.76-stable/template/ios/Podfile).
@@ -113,11 +113,11 @@ bundle install
 bundle exec pod install
 ```
 
-The first command will install the ruby dependencies and the second command will actually integrate the React Native code in your application so that your iOS files can import the React Native headers.
+The first command will install the Ruby dependencies and the second command will actually integrate the React Native code in your application so that your iOS files can import the React Native headers.
 
 ## 5. Writing the TypeScript Code
 
-Now we will actually modify the native Android application to integrate React Native.
+Now we will actually modify the native iOS application to integrate React Native.
 
 The first bit of code we will write is the actual React Native code for the new screen that will be integrated into our application.
 
@@ -138,7 +138,7 @@ AppRegistry.registerComponent('HelloWorld', () => App);
 
 ### Create a `App.tsx` file
 
-Then, let's create a `App.tsx` file. This is a TypeScript file that will contain the React Native component that we will integrate into our Android application.
+Let's create an `App.tsx` file. This is a [TypeScript](https://www.typescriptlang.org/) file that can have [JSX](<https://en.wikipedia.org/wiki/JSX_(JavaScript)>) expressions. It contains the root React Native component that we will integrate into our iOS application ([link](https://github.com/react-native-community/template/blob/0.76-stable/template/App.tsx)):
 
 ```tsx
 import React from 'react';
@@ -219,9 +219,7 @@ We now need to add some native code in order to start the React Native runtime a
 
 ### Requirements
 
-React Native is supposed to work with the `AppDelegate`. Sadly it does not supports the `SceneDelegate` pattern as of today.
-
-The following part assumes that your `AppDelegate` looks like this:
+React Native is supposed to work with the `AppDelegate`. The following part assumes that your `AppDelegate` looks like this:
 
 <Tabs groupId="ios-language" queryString defaultValue={constants.defaultAppleLanguage} values={constants.appleLanguages}>
 <TabItem value="objc">
@@ -337,9 +335,9 @@ To achieve this, we have to modify the `AppDelegate.h` file and the `AppDelegate
 
 Let's have a look at the code above:
 
-1. We are inherithing from the `RCTAppDelegate` and we are calling the `applicatinon:didFinishLaunchingWithOptions` of the `RCTAppDelegate`. This delegates all the React Native initialization processes to the base class.
-2. We are customizing the RCTAppDelegate by setting the `automaticallyLoadReactNativeWindow` to `NO`. This step instruct React Native that the app is handling the `UIWindow` and React Native should not worry about that.
-3. The methods `sourceURLForBridge:` and `bundleURL` are used by the App to tell to React Native wher it can find the JS bundle that needs to be rendered. The `sourceURLForBridge:` is from the Old Architecture and you can see that it is deferring the decision to the `bundleURL` method, required by the New Architecture.
+1. We are inheriting from the `RCTAppDelegate` and we are calling the `application:didFinishLaunchingWithOptions` of the `RCTAppDelegate`. This delegates all the React Native initialization processes to the base class.
+2. We are customizing the `RCTAppDelegate` by setting the `automaticallyLoadReactNativeWindow` to `NO`. This step instruct React Native that the app is handling the `UIWindow` and React Native should not worry about that.
+3. The methods `sourceURLForBridge:` and `bundleURL` are used by the App to tell to React Native where it can find the JS bundle that needs to be rendered. The `sourceURLForBridge:` is from the Old Architecture and you can see that it is deferring the decision to the `bundleURL` method, required by the New Architecture.
 
 </TabItem>
 <TabItem value="swift">
@@ -388,9 +386,9 @@ import UIKit
 
 Let's have a look at the code above:
 
-1. We are inherithing from the `RCTAppDelegate` and we are calling the `applicatinon(_:didFinishLaunchingWithOptions:)` of the `RCTAppDelegate`. This delegates all the React Native initialization processes to the base class.
+1. We are inheriting from the `RCTAppDelegate` and we are calling the `application(_:didFinishLaunchingWithOptions:)` of the `RCTAppDelegate`. This delegates all the React Native initialization processes to the base class.
 2. We are customizing the `RCTAppDelegate` by setting the `automaticallyLoadReactNativeWindow` to `false`. This step instruct React Native that the app is handling the `UIWindow` and React Native should not worry about that.
-3. The methods `sourceURLForBridge(for:)` and `bundleURL()` are used by the App to tell to React Native wher it can find the JS bundle that needs to be rendered. The `sourceURLForBridge(for:)` is from the Old Architecture and you can see that it is deferring the decision to the `bundleURL()` method, required by the New Architecture.
+3. The methods `sourceURLForBridge(for:)` and `bundleURL()` are used by the App to tell to React Native where it can find the JS bundle that needs to be rendered. The `sourceURLForBridge(for:)` is from the Old Architecture and you can see that it is deferring the decision to the `bundleURL()` method, required by the New Architecture.
 
 </TabItem>
 </Tabs>
@@ -413,13 +411,16 @@ Finally, we can present our React Native view. To do so, we need a new View Cont
 
 @end
 
-@implementation ViewController
+- @implementation ViewController
++@implementation ViewController {
++  ReactViewController *reactViewController;
++}
 
  - (void)viewDidLoad {
    [super viewDidLoad];
    // Do any additional setup after loading the view.
    self.view.backgroundColor = UIColor.systemBackgroundColor;
-+  UIButton * button = [UIButton new];
++  UIButton *button = [UIButton new];
 +  [button setTitle:@"Open React Native" forState:UIControlStateNormal];
 +  [button setTitleColor:UIColor.systemBlueColor forState:UIControlStateNormal];
 +  [button setTitleColor:UIColor.blueColor forState:UIControlStateHighlighted];
@@ -437,7 +438,10 @@ Finally, we can present our React Native view. To do so, we need a new View Cont
 
 +- (void)presentReactNative
 +{
-+  [self presentViewController:[ReactViewController new] animated:YES completion:nil];
++  if (reactViewController == NULL) {
++    reactViewController = [ReactViewController new];
++  }
++  [self presentViewController:reactViewController animated:YES completion:nil];
 +}
 
 @end
@@ -451,6 +455,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
++  var reactViewController: ReactViewController?
+
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
@@ -461,7 +467,10 @@ class ViewController: UIViewController {
 +    button.setTitleColor(.systemBlue, for: .normal)
 +    button.setTitleColor(.blue, for: .highlighted)
 +    button.addAction(UIAction { [weak self] _ in
-+      self?.present(ReactViewController(), animated: true)
++      if reactViewController == nil {
++       reactViewController = ReactViewController()
++      }
++      self?.present(reactViewController, animated: true)
 +    }, for: .touchUpInside)
 +    self.view.addSubview(button)
 +
@@ -498,7 +507,7 @@ class ViewController: UIViewController {
  - (void)viewDidLoad {
    [super viewDidLoad];
    // Do any additional setup after loading the view.
-+   RCTRootViewFactory * factory = ((RCTAppDelegate *)RCTSharedApplication().delegate).rootViewFactory;
++   RCTRootViewFactory *factory = ((RCTAppDelegate *)RCTSharedApplication().delegate).rootViewFactory;
 +   self.view = [factory viewWithModuleName:@"HelloWorld"];
  }
 
@@ -517,8 +526,8 @@ class ReactViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-+    let factory = (RCTSharedApplication()?.delegate as? RCTAppDelegate)?.rootViewFactory;
-+    self.view = factory?.view(withModuleName: "HelloWorld");
++    let factory = (RCTSharedApplication()?.delegate as? RCTAppDelegate)?.rootViewFactory
++    self.view = factory?.view(withModuleName: "HelloWorld")
   }
 }
 ```
@@ -526,13 +535,13 @@ class ReactViewController: UIViewController {
 </TabItem>
 </Tabs>
 
-4. Make sure to disable the Sandbox scripting. To achieve this, in Xcode, click on your app, then on build settings. Filter for script and set the `User Script Sandboxing` to `NO`.
+4. Make sure to disable the Sandbox scripting. To achieve this, in Xcode, click on your app, then on build settings. Filter for script and set the `User Script Sandboxing` to `NO`. This step is needed to properly switch between the Debug and Release version of the [Hermes engine](https://github.com/facebook/hermes/blob/main/README.md) that we ship with React Native.
 
 ![Disable Sandboxing](/docs/assets/disable-sandboxing.png);
 
 ## 6. Test your integration
 
-You have now done all the basic steps to integrate React Native with your current application. Now we will start the [Metro bundler](https://metrobundler.dev/) to build the TypeScript code of your application and have the server running on localhost to serve it.
+You have completed all the basic steps to integrate React Native with your application. Now we will start the [Metro bundler](https://metrobundler.dev/) to build your TypeScript application code into a bundle. Metro's HTTP server shares the bundle from `localhost` on your developer environment to a simulator or device. This allows for [hot reloading](https://reactnative.dev/blog/2016/03/24/introducing-hot-reloading).
 
 First, you need to create a `metro.config.js` file in the root of your project as follows:
 
@@ -562,17 +571,17 @@ yarn start
 </TabItem>
 </Tabs>
 
-Now build and run your Android app as normal.
+Now build and run your iOS app as normal.
 
 Once you reach your React-powered Activity inside the app, it should load the JavaScript code from the development server and display:
 
-![Screenshot](/docs/assets/EmbeddedAppIOSVideo.gif)
+<center><img src="/docs/assets/EmbeddedAppIOSVideo.gif" width="300" /></center>
 
-### Creating a release build in Android Studio
+### Creating a release build in Xcode
 
 You can use Xcode to create your release builds too! The only additional step is to add a script that is executed when the app is built to package your JS and images into the iOS application.
 
-1. In Xocde, select your application
+1. In Xcode, select your application
 2. Click on `Build Phases`
 3. Click on the `+` in the top left corner and select `New Run Script Phase`
 4. Click on the `Run Script` line and rename the Script to `Bundle React Native code and images`
