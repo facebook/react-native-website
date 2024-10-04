@@ -40,4 +40,7 @@ React Native has a community of thousands of developers like you making content,
 
 Can’t find what you’re looking for in the Core Components? Visit [React Native Directory](https://reactnative.directory) to find what the community has been creating.
 
-Interested in making your own Native Component or Module? Making modules for your own use case and sharing them with others on NPM and GitHub helps grow the React Native ecosystem and community! Read the guides to making your own Native Modules ([Android](native-modules-android.md), [iOS](native-modules-ios.md)) and Native Components ([Android](native-components-android.md), [iOS](native-components-ios.md)).
+:::caution
+This documentation references a legacy set of API and needs to be updated to reflect the New Architecture
+:::
+Interested in making your own Native Component or Module? Making modules for your own use case and sharing them with others on NPM and GitHub helps grow the React Native ecosystem and community! Read the guides to making your own Native Modules ([Android](legacy/native-modules-android.md), [iOS](legacy/native-modules-ios.md)) and Native Components ([Android](legacy/native-components-android.md), [iOS](legacy/native-components-ios.md)).

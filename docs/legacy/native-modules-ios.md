@@ -3,7 +3,7 @@ id: native-modules-ios
 title: iOS Native Modules
 ---
 
-import NativeDeprecated from './the-new-architecture/\_markdown_native_deprecation.mdx'
+import NativeDeprecated from '../the-new-architecture/\_markdown_native_deprecation.mdx'
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 <NativeDeprecated />
