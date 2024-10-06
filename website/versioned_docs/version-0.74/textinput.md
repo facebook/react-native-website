@@ -800,11 +800,17 @@ The start and end of the text input's selection. Set start and end to the same v
 
 ### `selectionColor`
 
-The highlight and cursor color of the text input.
+The highlight, selection handle and cursor color of the text input.
 
 | Type               |
 | ------------------ |
 | [color](colors.md) |
+
+---
+
+### `selectionHandleColor` <div class="label android">Android</div>
+
+Sets the color of the selection handle. Unlike `selectionColor`, it allows the selection handle color to be customized independently of the selection's color.
 
 ---
 
