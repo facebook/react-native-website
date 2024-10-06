@@ -812,6 +812,10 @@ The highlight, selection handle and cursor color of the text input.
 
 Sets the color of the selection handle. Unlike `selectionColor`, it allows the selection handle color to be customized independently of the selection's color.
 
+| Type               |
+| ------------------ |
+| [color](colors.md) |
+
 ---
 
 ### `selectTextOnFocus`
