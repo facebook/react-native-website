@@ -671,7 +671,7 @@ This example uses a preset value, you can customize the animations as you need, 
 
 ### `setNativeProps`
 
-As mentioned [in the Direct Manipulation section](direct-manipulation), `setNativeProps` allows us to modify properties of native-backed components (components that are actually backed by native views, unlike composite components) directly, without having to `setState` and re-render the component hierarchy.
+As mentioned [in the Direct Manipulation section](legacy/direct-manipulation), `setNativeProps` allows us to modify properties of native-backed components (components that are actually backed by native views, unlike composite components) directly, without having to `setState` and re-render the component hierarchy.
 
 We could use this in the Rebound example to update the scale - this might be helpful if the component that we are updating is deeply nested and hasn't been optimized with `shouldComponentUpdate`.
 

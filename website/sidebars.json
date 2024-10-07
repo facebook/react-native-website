@@ -77,18 +77,6 @@
       "profile-hermes"
     ],
     "JavaScript Runtime": ["javascript-environment", "timers", "hermes"],
-    "Native Modules": [
-      "native-modules-intro",
-      "native-modules-android",
-      "native-modules-ios",
-      "native-modules-setup",
-      "local-library-setup"
-    ],
-    "Native Components": [
-      "native-components-android",
-      "native-components-ios",
-      "direct-manipulation"
-    ],
     "Android and iOS guides": [
       {
         "type": "category",
@@ -116,7 +104,33 @@
         ]
       }
     ],
-    "New Architecture": ["the-new-architecture/landing-page"]
+    "New Architecture": ["the-new-architecture/landing-page"],
+    "Legacy Architecture": [
+      {
+        "type": "category",
+        "label": "Native Modules",
+        "collapsible": true,
+        "collapsed": true,
+        "items": [
+          "legacy/native-modules-intro",
+          "legacy/native-modules-android",
+          "legacy/native-modules-ios",
+          "legacy/native-modules-setup",
+          "legacy/local-library-setup"
+        ]
+      },
+      {
+        "type": "category",
+        "label": "Native Components",
+        "collapsible": true,
+        "collapsed": true,
+        "items": [
+          "legacy/native-components-android",
+          "legacy/native-components-ios",
+          "legacy/direct-manipulation"
+        ]
+      }
+    ]
   },
   "api": {
     "APIs": [

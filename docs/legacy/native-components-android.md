@@ -4,7 +4,7 @@ title: Android Native UI Components
 ---
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
-import NativeDeprecated from './the-new-architecture/\_markdown_native_deprecation.mdx'
+import NativeDeprecated from '../the-new-architecture/\_markdown_native_deprecation.mdx'
 
 <NativeDeprecated />
 
