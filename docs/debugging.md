@@ -110,28 +110,49 @@ npx react-devtools
 
 ## LogBox
 
-Errors and warnings in development builds are displayed in LogBox inside your app.
+LogBox is an in-app tool that displays when warnings or errors are logged by your app.
 
-![A LogBox warning and an expanded LogBox syntax error](/docs/assets/debugging-logbox.jpg)
+![A LogBox warning and an expanded LogBox syntax error](/docs/assets/debugging-logbox-076.jpg)
 
 :::note
 LogBox is disabled in release (production) builds.
 :::
 
+### Fatal Errors
+
+When an unrecoverable error occurs, such as a JavaScript syntax error, LogBox will open with the location of the error. In this state, LogBox is not dismissable since your code cannot be executed. LogBox will automatically dismiss once the syntax error is fixed — either via Fast Refresh or after a manual reload.
+
 ### Console Errors and Warnings
 
-Console errors and warnings are displayed as on-screen notifications with a red or yellow badge, and a notification count. To see more about an error or warning, tap the notification to see an expanded view and to paginate through other logs.
+Console errors and warnings are displayed as on-screen notifications with a red or yellow badge.
 
-LogBox notifications can be disabled using `LogBox.ignoreAllLogs()`. This can be useful when giving product demos, for example. Additionally, notifications can be disabled on a per-log basis via `LogBox.ignoreLogs()`. This can be useful for noisy warnings or those that cannot be fixed, e.g. in a third-party dependency.
+- **Errors** will display with a notification count. Tap the notification to see an expanded view and to paginate through other logs.
+- **Warnings** will display a notification banner without details, prompting you to open React Native DevTools.
 
-:::info
-Ignore logs as a last resort and create a task to fix any logs that are ignored.
-:::
+When React Native DevTools is open, all errors except fatal errors will be hidden to LogBox. We recommend using the Console panel within React Native DevTools as a source of truth, due to various LogBox options which can hide or adjust the level of certain logs.
+
+<details>
+<summary>**💡 Ignoring logs**</summary>
+
+LogBox can be configured via the `LogBox` API.
 
 ```js
 import {LogBox} from 'react-native';
+```
 
-// Ignore log notification by message
+#### Ignore all logs
+
+LogBox notifications can be disabled using `LogBox.ignoreAllLogs()`. This can be useful in situations such as giving product demos.
+
+```js
+LogBox.ignoreAllLogs();
+```
+
+#### Ignore specific logs
+
+Notifications can be disabled on a per-log basis via `LogBox.ignoreLogs()`. This can be useful for noisy warnings or those that cannot be fixed, e.g. in a third-party dependency.
+
+```js
 LogBox.ignoreLogs([
   // Exact message
   'Warning: componentWillReceiveProps has been renamed',
@@ -139,14 +160,15 @@ LogBox.ignoreLogs([
   // Substring or regex match
   /GraphQL error: .*/,
 ]);
-
-// Ignore all log notifications
-LogBox.ignoreAllLogs();
 ```
 
-### Syntax Errors
+:::note
 
-When a JavaScript syntax error occurs, LogBox will open with the location of the error. In this state, LogBox is not dismissable since your code cannot be executed. LogBox will automatically dismiss once the syntax error is fixed — either via Fast Refresh or after a manual reload.
+LogBox will treat certain errors from React as warnings, which will mean they don't display as an in-app error notification. Advanced users can change this behaviour by customising LogBox's warning filter using [`LogBoxData.setWarningFilter()`](https://github.com/facebook/react-native/blob/d334f4d77eea538dff87fdcf2ebc090246cfdbb0/packages/react-native/Libraries/LogBox/Data/LogBoxData.js#L338).
+
+:::
+
+</details>
 
 ## Performance Monitor
 
