@@ -32,7 +32,7 @@
 /docs/new-architecture-library-android                     https://github.com/reactwg/react-native-new-architecture#guides
 /docs/new-architecture-library-ios                         https://github.com/reactwg/react-native-new-architecture#guides
 /docs/new-architecture-app-intro                           https://github.com/reactwg/react-native-new-architecture#guides
-/docs/react-18-and-react-native                            https://github.com/reactwg/react-native-new-architecture#guides
+/docs/react-18-and-react-native                            https://reactnative.dev/docs/0.69/react-18-and-react-native
 /docs/new-architecture-troubleshooting                     https://github.com/reactwg/react-native-new-architecture#guides
 /docs/new-architecture-appendix                            https://github.com/reactwg/react-native-new-architecture#guides
 /docs/:version/the-new-architecture/landing-page                    /docs/next/the-new-architecture/landing-page
@@ -52,7 +52,6 @@
 /docs/:version/new-architecture-library-android                     https://github.com/reactwg/react-native-new-architecture#guides
 /docs/:version/new-architecture-library-ios                         https://github.com/reactwg/react-native-new-architecture#guides
 /docs/:version/new-architecture-app-intro                           https://github.com/reactwg/react-native-new-architecture#guides
-/docs/:version/react-18-and-react-native                            https://github.com/reactwg/react-native-new-architecture#guides
 /docs/:version/new-architecture-troubleshooting                     https://github.com/reactwg/react-native-new-architecture#guides
 /docs/:version/new-architecture-appendix                            https://github.com/reactwg/react-native-new-architecture#guides
 
