@@ -1,4 +1,4 @@
-# The **Codegen** CLI
+# The Codegen CLI
 
 Calling gradle or manually calling a script might be hard to remember and it requeires a lot of cerimonies.
 
