@@ -77,6 +77,11 @@
       "profile-hermes"
     ],
     "JavaScript Runtime": ["javascript-environment", "timers", "hermes"],
+    "Codegen": [
+      "the-new-architecture/what-is-codegen",
+      "the-new-architecture/using-codegen",
+      "the-new-architecture/codegen-cli"
+    ],
     "Android and iOS guides": [
       {
         "type": "category",
