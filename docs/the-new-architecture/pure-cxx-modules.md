@@ -348,4 +348,4 @@ This allow you to prepare the input for the specs and gives you more control ove
 
 Congratulation, you wrote your first C++ Turbo Native Module!
 
-<!-- ![Video of iOS App](/docs/assets/CxxGuideIOSVideo.gif) -->
+![Video of iOS App](/docs/assets/CxxGuideIOSVideo.gif)
