@@ -338,7 +338,7 @@ This steps adds the `shared` folder to the project to make it visible to xcode.
 1. Open the `SampleApp.xcworkspace` file in Xcode.
 2. Click on the `SampleApp` project on the left.
 3. Select `Add files to "Sample App"...`
-4. Select the `shared` folder and click on `Add`
+4. Select the `shared` folder and click on `Add` (Make sure not to include the `CMakeLists.txt` file created in the Android section.)
 
 These images shows you how to add the folder to the project:
 
