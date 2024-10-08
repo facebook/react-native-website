@@ -340,9 +340,9 @@ The mechanism that should be used to resize the image when the image's dimension
 
 More details about `resize` and `scale` can be found at https://frescolib.org/docs/resizing.
 
-| Type                                          | Default  |
-| --------------------------------------------- | -------- |
-| enum(`'auto'`, `'resize'`, `'scale'`, `none`) | `'auto'` |
+| Type                                            | Default  |
+| ----------------------------------------------- | -------- |
+| enum(`'auto'`, `'resize'`, `'scale'`, `'none'`) | `'auto'` |
 
 ---
 
