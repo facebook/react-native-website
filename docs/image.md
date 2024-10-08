@@ -336,11 +336,13 @@ The mechanism that should be used to resize the image when the image's dimension
 
 - `scale`: The image gets drawn downscaled or upscaled. Compared to `resize`, `scale` is faster (usually hardware accelerated) and produces higher quality images. This should be used if the image is smaller than the view. It should also be used if the image is slightly bigger than the view.
 
+- `none`: No sampling is performed and the image is displayed in its full resolution. This should only be used in rare circumstances because it is considered unsafe as Android will throw a runtime exception when trying to render images that consume too much memory.
+
 More details about `resize` and `scale` can be found at https://frescolib.org/docs/resizing.
 
-| Type                                  | Default  |
-| ------------------------------------- | -------- |
-| enum(`'auto'`, `'resize'`, `'scale'`) | `'auto'` |
+| Type                                            | Default  |
+| ----------------------------------------------- | -------- |
+| enum(`'auto'`, `'resize'`, `'scale'`, `'none'`) | `'auto'` |
 
 ---
 
