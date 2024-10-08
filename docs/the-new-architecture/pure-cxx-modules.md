@@ -192,6 +192,183 @@ This is the only time when we will have to write some platform-specific code.
 
 ### Android
 
+To make sure that the iOS app can effectively build the C++ Turbo Native Module, we need to:
+
+1. Create a `CMakeLists.txt` file to define how to build our C++ files.
+2. Modify `gradle.build` to point to the newly created `CMakeLists.txt` file.
+3. Create a new C++ file in our Android app to register the new Turbo Native Module.
+
+#### 1. Create the CMakeList file
+
+Android uses CMake to build, especially when we need to build C++ files.
+
+1. Inside the `shared` folder, create a new file named `CMakeLists.txt`.
+
+```shell
+cmake_minimum_required(VERSION 3.13)
+set(CMAKE_VERBOSE_MAKEFILE on)
+
+add_compile_options(
+        -fexceptions
+        -frtti
+        -std=c++17)
+
+file(GLOB shared_SRC CONFIGURE_DEPENDS *.cpp)
+
+target_link_libraries(shared
+        jsi
+        react_nativemodule_core
+        react_codegen_AppSpecs)
+```
+
+The Cmake file does the following things:
+
+- Specifies the version of CMake we need to use and sets the `VERBOSE` flag.
+- Specifies some compiler options.
+- Defines the list of source code that needs to be compiled.
+- Links the necessary libraries to the code so that it can compile properly.
+
+#### 2. Modify gradle.build to link the C++ code
+
+Gradle is the tool that orchestrates the Android build. We need to tell it where it can find the CMake files to build the Turbo Native Module.
+
+1. Open the `SampleApp/android/app/build.gradle` file
+2. Add the following block to the gradle file:
+
+```diff
+    if (hermesEnabled.toBoolean()) {
+        implementation("com.facebook.react:hermes-android")
+    } else {
+        implementation jscFlavor
+    }
+}
+
++ android {
++   externalNativeBuild {
++       cmake {
++           path "../../shared/CMakeLists.txt"
++       }
++   }
++}
+```
+
+This block tells the Gradle file where to look for the external native build files. In this case, we need to crawl back to the `shared` folder to find the `CMakeLists.txt` file.
+
+#### 3. Register the new Turbo Native Module
+
+The final step is to register the new C++ Turbo Native Module in the runtime, so that when JS requires the C++ Turbo Native Module, the app knows where to find it and can return it.
+
+1. Create the folder `SampleApp/android/app/src/main/jni`
+2. Create a file called `OnLoad.cpp`
+3. Add the following code to that file
+
+```cpp
+#include <DefaultComponentsRegistry.h>
+#include <DefaultTurboModuleManagerDelegate.h>
+#include <autolinking.h>
+#include <fbjni/fbjni.h>
+#include <react/renderer/componentregistry/ComponentDescriptorProviderRegistry.h>
+#include <rncore.h>
+
+#ifdef REACT_NATIVE_APP_CODEGEN_HEADER
+#include REACT_NATIVE_APP_CODEGEN_HEADER
+#endif
+#ifdef REACT_NATIVE_APP_COMPONENT_DESCRIPTORS_HEADER
+#include REACT_NATIVE_APP_COMPONENT_DESCRIPTORS_HEADER
+#endif
+
+namespace facebook::react {
+
+void registerComponents(
+    std::shared_ptr<const ComponentDescriptorProviderRegistry> registry) {
+
+  // We link app local components if available
+#ifdef REACT_NATIVE_APP_COMPONENT_REGISTRATION
+  REACT_NATIVE_APP_COMPONENT_REGISTRATION(registry);
+#endif
+
+  // And we fallback to the components autolinked
+  autolinking_registerProviders(registry);
+}
+
+std::shared_ptr<TurboModule> cxxModuleProvider(
+    const std::string& name,
+    const std::shared_ptr<CallInvoker>& jsInvoker) {
+
+  if (name == NativeSample::kModuleName) {
+    return std::make_shared<NativeSample>(jsInvoker);
+  }
+
+  // And we fallback to the CXX module providers autolinked
+  return autolinking_cxxModuleProvider(name, jsInvoker);
+}
+
+std::shared_ptr<TurboModule> javaModuleProvider(
+    const std::string& name,
+    const JavaTurboModule::InitParams& params) {
+
+  // We link app local modules if available
+#ifdef REACT_NATIVE_APP_MODULE_PROVIDER
+  auto module = REACT_NATIVE_APP_MODULE_PROVIDER(name, params);
+  if (module != nullptr) {
+    return module;
+  }
+#endif
+
+  // We first try to look up core modules
+  if (auto module = rncore_ModuleProvider(name, params)) {
+    return module;
+  }
+
+  // And we fallback to the module providers autolinked
+  if (auto module = autolinking_ModuleProvider(name, params)) {
+    return module;
+  }
+
+  return nullptr;
+}
+
+} // namespace facebook::react
+
+JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM* vm, void*) {
+  return facebook::jni::initialize(vm, [] {
+    facebook::react::DefaultTurboModuleManagerDelegate::cxxModuleProvider =
+        &facebook::react::cxxModuleProvider;
+    facebook::react::DefaultTurboModuleManagerDelegate::javaModuleProvider =
+        &facebook::react::javaModuleProvider;
+    facebook::react::DefaultComponentsRegistry::
+        registerComponentDescriptorsFromEntryPoint =
+            &facebook::react::registerComponents;
+  });
+}
+```
+
+4. Create a new file named `CMakeLists.txt` in the same folder.
+5. Copy this code:
+
+```bash
+cmake_minimum_required(VERSION 3.13)
+
+# Define the library name here.
+project(appmodules)
+
+# This file includes all the necessary to let you build your application with the New Architecture.
+include(${REACT_ANDROID_DIR}/cmake-utils/ReactNative-application.cmake)
+```
+
+6. Finally, we need to add a new line in the `SampleApp/android/app/build.gradle`:
+
+```diff
+android {
+   externalNativeBuild {
+       cmake {
+           path "src/main/jni/CMakeLists.txt"
+           path "../../shared/CMakeLists.txt"
+       }
+   }
+}
+```
+
 ### iOS
 
 To make sure that the iOS app can effectively build the C++ Turbo Native Module, we need to:
@@ -215,7 +392,7 @@ This steps adds the `shared` folder to the project to make it visible to xcode.
 1. Open the `SampleApp.xcworkspace` file in Xcode.
 2. Click on the `SampleApp` project on the left.
 3. Select `Add files to "Sample App"...`
-4. Select the `shared` folder and click on `Add`
+4. Select the `shared` folder and click on `Add` (Make sure not to include the `CMakeLists.txt` file created in the Android section.)
 
 These images shows you how to add the folder to the project:
 
