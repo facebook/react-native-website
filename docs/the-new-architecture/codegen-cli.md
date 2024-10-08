@@ -1,6 +1,6 @@
 # The Codegen CLI
 
-Calling gradle or manually calling a script might be hard to remember and it requeires a lot of cerimonies.
+Calling Gradle or manually calling a script might be hard to remember and it requires a lot of cerimony.
 
 To simplify it, we created a CLI tool that can help you running those tasks: the **Codegen** cli.
 
@@ -8,11 +8,11 @@ To simplify it, we created a CLI tool that can help you running those tasks: the
 npx react-native codegen [--path path] [--platform string] [--outputPath path]
 ```
 
-This command runs `react-native-codegen` for your project. The following options are available:
+This command runs [react-native-codegen](https://www.npmjs.com/package/react-native-codegen) for your project. The following options are available:
 
 - `--path` - Path to `package.json`. The default path is the current working directory.
-- `--platform` - Target platform. Supported values: `android`, `ios`, `all`. The default value is all.
-- `--outputPath` - Output path. The default value is the value defined in `codegenCofig.outputDir`.
+- `--platform` - Target platform. Supported values: `android`, `ios`, `all`. The default value is `all`.
+- `--outputPath` - Output path. The default value is the value defined in `codegenConfig.outputDir`.
 
 ## Examples
 
@@ -55,5 +55,5 @@ To enable this setup:
 - Run **Codegen** locally with the codegen CLI.
 - Update your `package.json` to include the generated code.
 - Update your `podspec` to include the generated code.
-- Update your `build.gradle` file to include the generated code.
-- Update `cmakeListsPath` in `react-native.config.js` (example) so that Gradle doesn't look for CMakeLists file in the build directory but instead in your outputDir.
+- Update your `build.Gradle` file to include the generated code.
+- Update `cmakeListsPath` in `react-native.config.js` so that Gradle doesn't look for CMakeLists file in the build directory but instead in your outputDir.

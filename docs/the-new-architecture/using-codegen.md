@@ -1,6 +1,11 @@
 # Using Codegen
 
-This guide teaches how to configure **Codegen**, and how to invoke it manually for each platform, and describes the generated code.
+This guide teaches how to:
+
+- Configure **Codegen**.
+- Invoke it manually for each platform.
+
+It also describes the generated code.
 
 ## Prerequisites
 
@@ -35,7 +40,7 @@ npx @react-native-community/cli@latest init SampleApp --version 0.76.0
 
 You can add this snippet to your app and customise the various fields:
 
-- `name:` This is the name that will be used to create files containig your specs. The convention is that it should have the suffix `Spec`, but this is not mandatory.
+- `name:` This is the name that will be used to create files containig your specs. As a convention, It should have the suffix `Spec`, but this is not mandatory.
 - `type`: the type of code we need to generate. Allowed values are `modules`, `components`, `all`.
   - `modules:` use this value if you only need to generate code for Turbo Native Modules.
   - `components:` use this value if you only need to generate code for Native Fabric Components.
@@ -50,7 +55,7 @@ When **Codegen** runs, it searches among all the dependencies of the app, lookin
 
 ## Running **Codegen**
 
-The rest of this guide assumes that you have a Native Turbo Module and/or a Native Fabric Component already set up in your project. We also assume that you have valid specification files in the `jsSrcsDir` specified in the `package.json`.
+The rest of this guide assumes that you have a Native Turbo Module, a Native Fabric Component or both already set up in your project. We also assume that you have valid specification files in the `jsSrcsDir` specified in the `package.json`.
 
 ### Android
 
@@ -60,11 +65,11 @@ The rest of this guide assumes that you have a Native Turbo Module and/or a Nati
 ./gradlew generateCodegenArtifactsFromSchema
 ```
 
-This task invokes the `generateCodegenArtifactsFromSchema` command on all the the imported projects of the app (the app and all the node modules which are linked to it). It generates the code in the corresponding `node_modules/<dependency>` folder. So, for example, if you have a Fabric Native Component whose node module is called `my-fabric-component`, the generated code is located in the `SampleApp/node_modules/my-fabric-component/android/build/generated/source/codegen` path. For the app, the code is generated in the `android/app/build/generated/source/codegen` folder.
+This task invokes the `generateCodegenArtifactsFromSchema` command on all the the imported projects of the app (the app and all the node modules which are linked to it). It generates the code in the corresponding `node_modules/<dependency>` folder. For example, if you have a Fabric Native Component whose Node module is called `my-fabric-component`, the generated code is located in the `SampleApp/node_modules/my-fabric-component/android/build/generated/source/codegen` path. For the app, the code is generated in the `android/app/build/generated/source/codegen` folder.
 
 #### The Generated Code
 
-After running the gradle command above, you should find the codegen code in the `SampleApp/android/app/build` folder. The structure should look like this:
+After running the gradle command above, you will find the codegen code in the `SampleApp/android/app/build` folder. The structure will look like this:
 
 ```
 build
@@ -139,12 +144,12 @@ node node_modules/react-native/scripts/generate-Codegen-artifacts.js \
 where:
 
 - `--path` is the path to the root folder of your app.
-- `--outputPath` is the destination where **Codegen** should write the generated files.
+- `--outputPath` is the destination where **Codegen** will write the generated files.
 - `--targetPlatform` is the platform you'd like to generate the code for.
 
 #### The Generated Code
 
-Assuming that you ran the script with the command:
+Running the script with these arguments:
 
 ```shell
 node node_modules/react-native/scripts/generate-Codegen-artifacts.js \
@@ -153,7 +158,7 @@ node node_modules/react-native/scripts/generate-Codegen-artifacts.js \
     --targetPlatform ios
 ```
 
-You should now find a new `build` folder in your `ios` app. The foulder should look something like this:
+Will generate these files in the `ios/build` folder:
 
 ```
 build
