@@ -845,7 +845,7 @@ const createFragment = viewId =>
     viewId,
     // we are calling the 'create' command
     UIManager.getViewManagerConfig(
-    'MyViewManager',
+      'MyViewManager',
     ).Commands.create.toString(),
     [viewId],
   );
