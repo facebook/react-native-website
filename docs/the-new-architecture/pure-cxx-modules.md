@@ -172,7 +172,7 @@ Writing a C++ Turbo Native Module allow you to share the code between Android an
    } // namespace facebook::react
    ```
 
-Let's have a look at the two files we just created.
+Let's have a look at the two files we created.
 
 The `NativeSampleModule.h` file is the header file for a Pure C++ TurboModule. The `include` statements make sure that we include the specs that will be created by Codegen and that contains the interface and the base class we need to implement.
 
@@ -253,7 +253,7 @@ Gradle is the tool that orchestrates the Android build. We need to tell it where
 +}
 ```
 
-This block tells the Gradle file where to look for the external native build files. The path is relative to the folder where the gradle.build file lives, so we just need to add the path to the `CMakeLists.txt` files in the `jni` folder.
+This block tells the Gradle file where to look for the external native build files. The path is relative to the folder where the gradle.build file lives, so we need to add the path to the `CMakeLists.txt` files in the `jni` folder.
 
 #### 3. Register the new Turbo Native Module
 
