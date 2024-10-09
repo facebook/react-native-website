@@ -109,7 +109,6 @@
         ]
       }
     ],
-    "New Architecture": ["the-new-architecture/landing-page"],
     "Legacy Architecture": [
       {
         "type": "category",
