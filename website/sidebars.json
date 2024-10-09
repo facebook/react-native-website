@@ -73,7 +73,7 @@
       "build-speed",
       "optimizing-flatlist-configuration",
       "optimizing-javascript-loading",
-      "profiling",
+      "profiling"
     ],
     "JavaScript Runtime": ["javascript-environment", "timers", "hermes"],
     "Codegen": [
