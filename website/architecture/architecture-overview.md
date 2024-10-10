@@ -14,6 +14,7 @@ Architecture Overview is intended to share conceptual overview of how React Nati
 
 ## Table of Contents
 
+- [Why a New Architecture?](why-new-architecture)
 - Rendering
   - [Fabric](fabric-renderer)
   - [Render, Commit, and Mount](render-pipeline)

@@ -6,6 +6,7 @@
       "collapsed": false,
       "items": [
         "architecture-overview",
+        "why-new-architecture",
         {
           "type": "category",
           "label": "Rendering",
