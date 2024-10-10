@@ -45,7 +45,8 @@ The following example implements a scenario where you confirm if the user wants 
 
 ```SnackPlayer name=BackHandler&supportedPlatforms=android
 import React, {useEffect} from 'react';
-import {Text, View, StyleSheet, BackHandler, Alert} from 'react-native';
+import {Text, StyleSheet, BackHandler, Alert} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => {
   useEffect(() => {
@@ -70,9 +71,11 @@ const App = () => {
   }, []);
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Click Back button!</Text>
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <Text style={styles.text}>Click Back button!</Text>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 

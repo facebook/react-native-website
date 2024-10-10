@@ -16,7 +16,7 @@
 
 # Redirect New Architecture docs of all versions
 # Note: We had to delete the older versions to get redirects to work
-/docs/the-new-architecture/why                             /docs/next/the-new-architecture/landing-page
+/docs/the-new-architecture/why                             https://reactnative.dev/docs/0.75/the-new-architecture/landing-page
 /docs/the-new-architecture/use-app-template                https://github.com/reactwg/react-native-new-architecture#guides
 /docs/the-new-architecture/pillars                         https://github.com/reactwg/react-native-new-architecture#guides
 /docs/the-new-architecture/pillars-turbomodules            https://github.com/reactwg/react-native-new-architecture#guides
@@ -32,11 +32,11 @@
 /docs/new-architecture-library-android                     https://github.com/reactwg/react-native-new-architecture#guides
 /docs/new-architecture-library-ios                         https://github.com/reactwg/react-native-new-architecture#guides
 /docs/new-architecture-app-intro                           https://github.com/reactwg/react-native-new-architecture#guides
-/docs/react-18-and-react-native                            https://github.com/reactwg/react-native-new-architecture#guides
+/docs/react-18-and-react-native                            https://reactnative.dev/docs/0.69/react-18-and-react-native
 /docs/new-architecture-troubleshooting                     https://github.com/reactwg/react-native-new-architecture#guides
 /docs/new-architecture-appendix                            https://github.com/reactwg/react-native-new-architecture#guides
-/docs/:version/the-new-architecture/landing-page                    /docs/next/the-new-architecture/landing-page
-/docs/:version/the-new-architecture/why                             /docs/next/the-new-architecture/landing-page
+/docs/:version/the-new-architecture/landing-page                    https://reactnative.dev/docs/0.75/the-new-architecture/landing-page
+/docs/:version/the-new-architecture/why                             https://reactnative.dev/docs/0.75/the-new-architecture/landing-page
 /docs/:version/the-new-architecture/use-app-template                https://github.com/reactwg/react-native-new-architecture#guides
 /docs/:version/the-new-architecture/pillars                         https://github.com/reactwg/react-native-new-architecture#guides
 /docs/:version/the-new-architecture/pillars-turbomodules            https://github.com/reactwg/react-native-new-architecture#guides
@@ -52,9 +52,14 @@
 /docs/:version/new-architecture-library-android                     https://github.com/reactwg/react-native-new-architecture#guides
 /docs/:version/new-architecture-library-ios                         https://github.com/reactwg/react-native-new-architecture#guides
 /docs/:version/new-architecture-app-intro                           https://github.com/reactwg/react-native-new-architecture#guides
-/docs/:version/react-18-and-react-native                            https://github.com/reactwg/react-native-new-architecture#guides
 /docs/:version/new-architecture-troubleshooting                     https://github.com/reactwg/react-native-new-architecture#guides
 /docs/:version/new-architecture-appendix                            https://github.com/reactwg/react-native-new-architecture#guides
+
+# New Architecture is enabled by default, these have shifted to a legacy folder
+/docs/next/direct-manipulation      /docs/next/legacy/direct-manipulation
+/docs/next/local-library-setup      /docs/next/legacy/local-library-setup
+/docs/next/native-modules-*         /docs/next/legacy/native-modules-:splat
+/docs/next/native-components-*      /docs/next/legacy/native-components-:splat
 
 # Changed blog post dates
 /blog/2021/03/11/version-0.64   /blog/2021/03/12/version-0.64
@@ -64,7 +69,7 @@
 /docs/new-architecture-app-renderer-android  https://github.com/reactwg/react-native-new-architecture#guides
 /docs/new-architecture-app-modules-ios       https://github.com/reactwg/react-native-new-architecture#guides
 /docs/new-architecture-app-renderer-ios      https://github.com/reactwg/react-native-new-architecture#guides
-/docs/ram-bundles-inline-requires            /docs/optimizing-javascript-loading
+https://reactnative.dev/docs/0.74/ram-bundles-inline-requires            /docs/optimizing-javascript-loading
 /docs/next/ram-bundles-inline-requires       /docs/next/optimizing-javascript-loading
 
 # Architecture pages move to unversioned docs

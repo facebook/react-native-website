@@ -24,7 +24,8 @@ To see the current state, you can check `AppState.currentState`, which will be k
 
 ```SnackPlayer name=AppState%20Example
 import React, {useRef, useState, useEffect} from 'react';
-import {AppState, StyleSheet, Text, View} from 'react-native';
+import {AppState, StyleSheet, Text} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const AppStateExample = () => {
   const appState = useRef(AppState.currentState);
@@ -50,9 +51,11 @@ const AppStateExample = () => {
   }, []);
 
   return (
-    <View style={styles.container}>
-      <Text>Current state is: {appStateVisible}</Text>
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <Text>Current state is: {appStateVisible}</Text>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 

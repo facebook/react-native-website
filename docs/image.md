@@ -11,13 +11,14 @@ This example shows fetching and displaying an image from local storage as well a
 
 ## Examples
 
-```SnackPlayer name=Example
+```SnackPlayer name=Image%20Example
 import React from 'react';
-import {View, Image, StyleSheet} from 'react-native';
+import {Image, StyleSheet} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 50,
+    flex: 1,
   },
   tinyLogo: {
     width: 50,
@@ -29,9 +30,9 @@ const styles = StyleSheet.create({
   },
 });
 
-const DisplayAnImage = () => {
-  return (
-    <View style={styles.container}>
+const DisplayAnImage = () => (
+  <SafeAreaProvider>
+    <SafeAreaView style={styles.container}>
       <Image
         style={styles.tinyLogo}
         source={require('@expo/snack-static/react-native-logo.png')}
@@ -48,22 +49,23 @@ const DisplayAnImage = () => {
           uri: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAzCAYAAAA6oTAqAAAAEXRFWHRTb2Z0d2FyZQBwbmdjcnVzaEB1SfMAAABQSURBVGje7dSxCQBACARB+2/ab8BEeQNhFi6WSYzYLYudDQYGBgYGBgYGBgYGBgYGBgZmcvDqYGBgmhivGQYGBgYGBgYGBgYGBgYGBgbmQw+P/eMrC5UTVAAAAABJRU5ErkJggg==',
         }}
       />
-    </View>
-  );
-};
+    </SafeAreaView>
+  </SafeAreaProvider>
+);
 
 export default DisplayAnImage;
 ```
 
 You can also add `style` to an image:
 
-```SnackPlayer name=Example
+```SnackPlayer name=Styled%20Image%20Example
 import React from 'react';
-import {View, Image, StyleSheet} from 'react-native';
+import {Image, StyleSheet} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 50,
+    flex: 1,
   },
   stretch: {
     width: 50,
@@ -72,16 +74,16 @@ const styles = StyleSheet.create({
   },
 });
 
-const DisplayAnImageWithStyle = () => {
-  return (
-    <View style={styles.container}>
+const DisplayAnImageWithStyle = () => (
+  <SafeAreaProvider>
+    <SafeAreaView style={styles.container}>
       <Image
         style={styles.stretch}
         source={require('@expo/snack-static/react-native-logo.png')}
       />
-    </View>
-  );
-};
+    </SafeAreaView>
+  </SafeAreaProvider>
+);
 
 export default DisplayAnImageWithStyle;
 ```
@@ -314,6 +316,16 @@ When `true`, enables progressive jpeg streaming - https://frescolib.org/docs/pro
 
 ---
 
+### `referrerPolicy`
+
+A string indicating which referrer to use when fetching the resource. Sets the value for `Referrer-Policy` header in the image request. Works similar to `referrerpolicy` attribute in HTML.
+
+| Type                                                                                                                                                                                     | Default                             |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- |
+| enum(`'no-referrer'`, `'no-referrer-when-downgrade'`, `'origin'`, `'origin-when-cross-origin'`, `'same-origin'`, `'strict-origin'`, `'strict-origin-when-cross-origin'`, `'unsafe-url'`) | `'strict-origin-when-cross-origin'` |
+
+---
+
 ### `resizeMethod` <div class="label android">Android</div>
 
 The mechanism that should be used to resize the image when the image's dimensions differ from the image view's dimensions. Defaults to `auto`.
@@ -324,21 +336,13 @@ The mechanism that should be used to resize the image when the image's dimension
 
 - `scale`: The image gets drawn downscaled or upscaled. Compared to `resize`, `scale` is faster (usually hardware accelerated) and produces higher quality images. This should be used if the image is smaller than the view. It should also be used if the image is slightly bigger than the view.
 
+- `none`: No sampling is performed and the image is displayed in its full resolution. This should only be used in rare circumstances because it is considered unsafe as Android will throw a runtime exception when trying to render images that consume too much memory.
+
 More details about `resize` and `scale` can be found at https://frescolib.org/docs/resizing.
 
-| Type                                  | Default  |
-| ------------------------------------- | -------- |
-| enum(`'auto'`, `'resize'`, `'scale'`) | `'auto'` |
-
----
-
-### `referrerPolicy`
-
-A string indicating which referrer to use when fetching the resource. Sets the value for `Referrer-Policy` header in the image request. Works similar to `referrerpolicy` attribute in HTML.
-
-| Type                                                                                                                                                                                     | Default                             |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- |
-| enum(`'no-referrer'`, `'no-referrer-when-downgrade'`, `'origin'`, `'origin-when-cross-origin'`, `'same-origin'`, `'strict-origin'`, `'strict-origin-when-cross-origin'`, `'unsafe-url'`) | `'strict-origin-when-cross-origin'` |
+| Type                                            | Default  |
+| ----------------------------------------------- | -------- |
+| enum(`'auto'`, `'resize'`, `'scale'`, `'none'`) | `'auto'` |
 
 ---
 
@@ -365,6 +369,20 @@ Determines how to resize the image when the frame doesn't match the raw image di
 
 ---
 
+### `resizeMultiplier` <div class="label android">Android</div>
+
+When the `resizeMethod` is set to `resize`, the destination dimensions are multiplied by this value. The `scale` method is used to perform the remainder of the resize. A default of `1.0` means the bitmap size is designed to fit the destination dimensions. A multiplier greater than `1.0` will set the resize options larger than that of the destination dimensions, and the resulting bitmap will be scaled down from the hardware size. Defaults to `1.0`.
+
+This prop is most useful in cases where the destination dimensions are quite small and the source image is significantly larger. The `resize` resize method performs downsampling and significant image quality is lost between the source and destination image sizes, often resulting in a blurry image. By using a multiplier, the decoded image is slightly larger than the target size but smaller than the source image (if the source image is large enough). This allows aliasing artifacts to produce faux quality through scaling operations on the multiplied image.
+
+If you have a source image with dimensions 200x200 and destination dimensions of 24x24, a resizeMultiplier of `2.0` will tell Fresco to downsample the image to 48x48. Fresco picks the closest power of 2 (so, 50x50) and decodes the image into a bitmap of that size. Without the multiplier, the closest power of 2 would be 25x25. The resultant image is scaled down by the system.
+
+| Type   | Default |
+| ------ | ------- |
+| number | `1.0`   |
+
+---
+
 ### `source`
 
 The image source (either a remote URL or a local file resource).
@@ -372,6 +390,8 @@ The image source (either a remote URL or a local file resource).
 This prop can also contain several remote URLs, specified together with their width and height and potentially with scale/other URI arguments. The native side will then choose the best `uri` to display based on the measured size of the image container. A `cache` property can be added to control how networked request interacts with the local cache. (For more information see [Cache Control for Images](images#cache-control-ios-only)).
 
 The currently supported formats are `png`, `jpg`, `jpeg`, `bmp`, `gif`, `webp`, `psd` (iOS only). In addition, iOS supports several RAW image formats. Refer to Apple's documentation for the current list of supported camera models (for iOS 12, see https://support.apple.com/en-ca/HT208967).
+
+Please note that the `webp` format is supported on iOS **only** when bundled with the JavaScript code.
 
 | Type                             |
 | -------------------------------- |

@@ -7,128 +7,131 @@ Transforms are style properties that will help you modify the appearance and pos
 
 ## Example
 
-```SnackPlayer name=Transforms
+```SnackPlayer name=Transforms%20Example
 import React from 'react';
-import {SafeAreaView, ScrollView, StyleSheet, Text, View} from 'react-native';
+import {ScrollView, StyleSheet, Text, View} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => (
-  <SafeAreaView style={styles.container}>
-    <ScrollView contentContainerStyle={styles.scrollContentContainer}>
-      <View style={styles.box}>
-        <Text style={styles.text}>Original Object</Text>
-      </View>
+  <SafeAreaProvider>
+    <SafeAreaView style={styles.container}>
+      <ScrollView contentContainerStyle={styles.scrollContentContainer}>
+        <View style={styles.box}>
+          <Text style={styles.text}>Original Object</Text>
+        </View>
 
-      <View
-        style={[
-          styles.box,
-          {
-            transform: [{scale: 2}],
-          },
-        ]}>
-        <Text style={styles.text}>Scale by 2</Text>
-      </View>
+        <View
+          style={[
+            styles.box,
+            {
+              transform: [{scale: 2}],
+            },
+          ]}>
+          <Text style={styles.text}>Scale by 2</Text>
+        </View>
 
-      <View
-        style={[
-          styles.box,
-          {
-            transform: [{scaleX: 2}],
-          },
-        ]}>
-        <Text style={styles.text}>ScaleX by 2</Text>
-      </View>
+        <View
+          style={[
+            styles.box,
+            {
+              transform: [{scaleX: 2}],
+            },
+          ]}>
+          <Text style={styles.text}>ScaleX by 2</Text>
+        </View>
 
-      <View
-        style={[
-          styles.box,
-          {
-            transform: [{scaleY: 2}],
-          },
-        ]}>
-        <Text style={styles.text}>ScaleY by 2</Text>
-      </View>
+        <View
+          style={[
+            styles.box,
+            {
+              transform: [{scaleY: 2}],
+            },
+          ]}>
+          <Text style={styles.text}>ScaleY by 2</Text>
+        </View>
 
-      <View
-        style={[
-          styles.box,
-          {
-            transform: [{rotate: '45deg'}],
-          },
-        ]}>
-        <Text style={styles.text}>Rotate by 45 deg</Text>
-      </View>
+        <View
+          style={[
+            styles.box,
+            {
+              transform: [{rotate: '45deg'}],
+            },
+          ]}>
+          <Text style={styles.text}>Rotate by 45 deg</Text>
+        </View>
 
-      <View
-        style={[
-          styles.box,
-          {
-            transform: [{rotateX: '45deg'}, {rotateZ: '45deg'}],
-          },
-        ]}>
-        <Text style={styles.text}>Rotate X&Z by 45 deg</Text>
-      </View>
+        <View
+          style={[
+            styles.box,
+            {
+              transform: [{rotateX: '45deg'}, {rotateZ: '45deg'}],
+            },
+          ]}>
+          <Text style={styles.text}>Rotate X&Z by 45 deg</Text>
+        </View>
 
-      <View
-        style={[
-          styles.box,
-          {
-            transform: [{rotateY: '45deg'}, {rotateZ: '45deg'}],
-          },
-        ]}>
-        <Text style={styles.text}>Rotate Y&Z by 45 deg</Text>
-      </View>
+        <View
+          style={[
+            styles.box,
+            {
+              transform: [{rotateY: '45deg'}, {rotateZ: '45deg'}],
+            },
+          ]}>
+          <Text style={styles.text}>Rotate Y&Z by 45 deg</Text>
+        </View>
 
-      <View
-        style={[
-          styles.box,
-          {
-            transform: [{skewX: '45deg'}],
-          },
-        ]}>
-        <Text style={styles.text}>SkewX by 45 deg</Text>
-      </View>
+        <View
+          style={[
+            styles.box,
+            {
+              transform: [{skewX: '45deg'}],
+            },
+          ]}>
+          <Text style={styles.text}>SkewX by 45 deg</Text>
+        </View>
 
-      <View
-        style={[
-          styles.box,
-          {
-            transform: [{skewY: '45deg'}],
-          },
-        ]}>
-        <Text style={styles.text}>SkewY by 45 deg</Text>
-      </View>
+        <View
+          style={[
+            styles.box,
+            {
+              transform: [{skewY: '45deg'}],
+            },
+          ]}>
+          <Text style={styles.text}>SkewY by 45 deg</Text>
+        </View>
 
-      <View
-        style={[
-          styles.box,
-          {
-            transform: [{skewX: '30deg'}, {skewY: '30deg'}],
-          },
-        ]}>
-        <Text style={styles.text}>Skew X&Y by 30 deg</Text>
-      </View>
+        <View
+          style={[
+            styles.box,
+            {
+              transform: [{skewX: '30deg'}, {skewY: '30deg'}],
+            },
+          ]}>
+          <Text style={styles.text}>Skew X&Y by 30 deg</Text>
+        </View>
 
-      <View
-        style={[
-          styles.box,
-          {
-            transform: [{translateX: -50}],
-          },
-        ]}>
-        <Text style={styles.text}>TranslateX by -50 </Text>
-      </View>
+        <View
+          style={[
+            styles.box,
+            {
+              transform: [{translateX: -50}],
+            },
+          ]}>
+          <Text style={styles.text}>TranslateX by -50 </Text>
+        </View>
 
-      <View
-        style={[
-          styles.box,
-          {
-            transform: [{translateY: 50}],
-          },
-        ]}>
-        <Text style={styles.text}>TranslateY by 50 </Text>
-      </View>
-    </ScrollView>
-  </SafeAreaView>
+        <View
+          style={[
+            styles.box,
+            {
+              transform: [{translateY: 50}],
+            },
+          ]}>
+          <Text style={styles.text}>TranslateY by 50 </Text>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+  </SafeAreaProvider>
 );
 
 const styles = StyleSheet.create({
@@ -208,9 +211,10 @@ The `transformOrigin` property sets the origin for a view's transformations. The
 
 # Example
 
-```SnackPlayer name=TransformOrigin
+```SnackPlayer name=TransformOrigin%20Example
 import React, {useRef, useEffect} from 'react';
-import {Animated, View, StyleSheet, SafeAreaView, Easing} from 'react-native';
+import {Animated, View, StyleSheet, Easing} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => {
   const rotateAnim = useRef(new Animated.Value(0)).current;
@@ -232,18 +236,20 @@ const App = () => {
   });
 
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.transformOriginWrapper}>
-        <Animated.View
-          style={[
-            styles.transformOriginView,
-            {
-              transform: [{rotate: spin}],
-            },
-          ]}
-        />
-      </View>
-    </SafeAreaView>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <View style={styles.transformOriginWrapper}>
+          <Animated.View
+            style={[
+              styles.transformOriginView,
+              {
+                transform: [{rotate: spin}],
+              },
+            ]}
+          />
+        </View>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
