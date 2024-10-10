@@ -995,6 +995,8 @@ The color of the `TextInput` underline.
 
 ### `value`
 
+> The `value` field implementation is broken in many subtle ways and is not recommended for use. Until these bugs are fixed, we recommend sticking with `defaultValue` and uncontrolled inputs.
+
 The value to show for the text input. `TextInput` is a controlled component, which means the native value will be forced to match this value prop if provided. For most uses, this works great, but in some cases this may cause flickering - one common cause is preventing edits by keeping value the same. In addition to setting the same value, either set `editable={false}`, or set/update `maxLength` to prevent unwanted edits without flicker.
 
 | Type   |
