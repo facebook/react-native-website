@@ -81,7 +81,10 @@
       "the-new-architecture/using-codegen",
       "the-new-architecture/codegen-cli"
     ],
-    "Native Modules": ["the-new-architecture/pure-cxx-modules"],
+    "Native Modules": [
+      "the-new-architecture/pure-cxx-modules",
+      "the-new-architecture/custom-cxx-types"
+    ],
     "Android and iOS guides": [
       {
         "type": "category",
