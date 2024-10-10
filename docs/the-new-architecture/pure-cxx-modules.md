@@ -20,7 +20,7 @@ npx @react-native-community/cli@latest init SampleApp --version 0.76.0
 
 ## 1. Create the JS specs
 
-Pure C++ Turbo Native Modules are Turbo Native Modules. They needs a specification file (also called spec file) so that Codegen can create the scaffolding code for us. The Specification file is also what we use to access the Turbo Native Module in JS.
+Pure C++ Turbo Native Modules are Turbo Native Modules. They needs a specification file (also called spec file) so that Codegen can create the scaffolding code for us. The specification file is also what we use to access the Turbo Native Module in JS.
 
 Specs files need to be written in a typed JS dialect. React Native currently supports Flow or TypeScript
 
@@ -28,7 +28,7 @@ Specs files need to be written in a typed JS dialect. React Native currently sup
 2. Create a new file called `NativeSampleModule.ts`
 
 :::warning
-All Native Turbo Module spec files must have the prefix `Native`. Otherwise Codegen cannot pick them up.
+All Native Turbo Module spec files must have the prefix `Native`, otherwise Codegen will ignore them.
 :::
 
 <Tabs groupId="tnm-specs" queryString defaultValue={constants.defaultJavaScriptSpecLanguages} values={constants.javaScriptSpecLanguages}>
@@ -68,7 +68,7 @@ export default TurboModuleRegistry.getEnforcing<Spec>(
 
 ## 2. Configure Codegen
 
-The next step is to configure Codegen in your `package.json`. <!-- Add links to Codegen -->
+The next step is to configure [Codegen](what-is-codegen.md) in your `package.json`.
 
 1. Open the `package.json` file
 2. Modify it as it follows:
@@ -87,19 +87,19 @@ The next step is to configure Codegen in your `package.json`. <!-- Add links to 
   },
   "dependencies": {
     "react": "18.3.1",
-    "react-native": "0.76.0-rc.3"
+    "react-native": "0.76.0"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
     "@babel/preset-env": "^7.25.3",
     "@babel/runtime": "^7.25.0",
-    "@react-native-community/cli": "15.0.0-alpha.2",
-    "@react-native-community/cli-platform-android": "15.0.0-alpha.2",
-    "@react-native-community/cli-platform-ios": "15.0.0-alpha.2",
-    "@react-native/babel-preset": "0.76.0-rc.3",
-    "@react-native/eslint-config": "0.76.0-rc.3",
-    "@react-native/metro-config": "0.76.0-rc.3",
-    "@react-native/typescript-config": "0.76.0-rc.3",
+    "@react-native-community/cli": "15.0.0",
+    "@react-native-community/cli-platform-android": "15.0.0",
+    "@react-native-community/cli-platform-ios": "15.0.0",
+    "@react-native/babel-preset": "0.76.0",
+    "@react-native/eslint-config": "0.76.0",
+    "@react-native/metro-config": "0.76.0",
+    "@react-native/typescript-config": "0.76.0",
     "@types/react": "^18.2.6",
     "@types/react-test-renderer": "^18.0.0",
     "babel-jest": "^29.6.3",
@@ -194,10 +194,10 @@ This is the only time when we will have to write some platform-specific code.
 To make sure that the iOS app can effectively build the C++ Turbo Native Module, we need to:
 
 1. Create a `CMakeLists.txt` to access our C++ code
-2. Modify `gradle.build` to point to the newly created `CMakeLists.txt` file.
-3. Create an `onLoad.cpp` file in our Android app to register the new Turbo Native Module.
+2. Modify `build.gradle` to point to the newly created `CMakeLists.txt` file.
+3. Create an `OnLoad.cpp` file in our Android app to register the new Turbo Native Module.
 
-#### 1. Create the `CMakeList` file
+#### 1. Create the `CMakeLists.txt` file
 
 Android uses CMake to build. CMake needs to access the files we defined in our shared folder, to be able to build them.
 
@@ -210,7 +210,7 @@ cmake_minimum_required(VERSION 3.13)
 # Define the library name here.
 project(appmodules)
 
-# This file includes all the necessary to let you build your application with the New Architecture.
+# This file includes all the necessary to let you build your React Native application
 include(${REACT_ANDROID_DIR}/cmake-utils/ReactNative-application.cmake)
 
 # Define where the additional source code lives. We need to crawl back the jni, main, src, app, android folders
@@ -222,13 +222,12 @@ target_include_directories(${CMAKE_PROJECT_NAME} PUBLIC ../../../../../shared)
 
 The CMake file does the following things:
 
-- Specifies the version of CMake we need to use and sets the `VERBOSE` flag.
-- Defines the library name to which our code will be added
-- Includes the base React Native's CMake file
-- Adds the source code that we need to build with the `target_sources` directives. You can see that we need to crawl back from the `jni` folder to the `shared` folder where our C++ TM lives.
-- Specify where CMake can find the additional header files. Also in this case we need to crawl back from the `jni` folder.
+- Defines the `appmodules` library, where all the app C++ code will be included.
+- Loads the base React Native's CMake file
+- Adds the Module C++ source code that we need to build with the `target_sources` directives. By default React Native will already populate the `appmodules` library with default sources, here we include our custom one. You can see that we need to crawl back from the `jni` folder to the `shared` folder where our C++ TM lives.
+- Specify where CMake can find the module header files. Also in this case we need to crawl back from the `jni` folder.
 
-#### 2. Modify gradle.build to link the C++ code
+#### 2. Modify `build.gradle` to include the custom C++ code
 
 Gradle is the tool that orchestrates the Android build. We need to tell it where it can find the `CMake` files to build the Turbo Native Module.
 
@@ -252,7 +251,7 @@ Gradle is the tool that orchestrates the Android build. We need to tell it where
 +}
 ```
 
-This block tells the Gradle file where to look for the external native build files. The path is relative to the folder where the gradle.build file lives, so we need to add the path to the `CMakeLists.txt` files in the `jni` folder.
+This block tells the Gradle file where to look for the CMake file. The path is relative to the folder where the `build.gradle` file lives, so we need to add the path to the `CMakeLists.txt` files in the `jni` folder.
 
 #### 3. Register the new Turbo Native Module
 
@@ -302,7 +301,7 @@ std::shared_ptr<TurboModule> cxxModuleProvider(
 // leave the rest of the file
 ```
 
-These steps download the original OnLoad file from React Native, so that we can safely override it to load the C++ Turbo Native Module in the app.
+These steps download the original `OnLoad.cpp` file from React Native, so that we can safely override it to load the C++ Turbo Native Module in the app.
 
 Once we downloaded the file, we can modify it by:
 
@@ -376,7 +375,7 @@ With this last step, we will tell the iOS app where to look for to find the pure
 @end
 ```
 
-These changes are doing ta few things:
+These changes are doing a few things:
 
 1. Importing the `RCTAppDelegate+Protected` header to make visible to the AppDelegate that it is conforming to the `RCTTurboModuleManagerDelegate` protocol.
 2. Importing the Pure C++ Native Turbo Module interface `NativeSampleModule.h`
