@@ -3,7 +3,7 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import con
 # Advanced: Custom C++ Types
 
 :::note
-This guide assumes that you are familiar with the [**Pure C++ Turbo Native Modules**](/docs/the-new-architecture/pure-cxx-modules) guide. This will build on top of that guide.
+This guide assumes that you are familiar with the [**Pure C++ Turbo Native Modules**](pure-cxx-modules.md) guide. This will build on top of that guide.
 :::
 
 C++ Turbo Native Modules support [bridging functionality](https://github.com/facebook/react-native/tree/main/packages/react-native/ReactCommon/react/bridging) for most `std::` standard types. You can use most of those types in your modules without any additional code required.
