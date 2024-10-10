@@ -6,7 +6,7 @@ title: Speeding up your Build phase
 Building your React Native app could be **expensive** and take several minutes of developers time.
 This can be problematic as your project grows and generally in bigger organizations with multiple React Native developers.
 
-With [the New React Native Architecture](https://reactnative.dev/docs/0.70/the-new-architecture/landing-page), this problem is becoming more critical
+With [the New React Native Architecture](the-new-architecture/landing-page.md), this problem is becoming more critical
 as you might have to compile some native C++ code in your project with the Android NDK in addition to the native code already necessary for the iOS and Android platforms.
 
 To mitigate this performance hit, this page shares some suggestions on how to **improve your build time**.

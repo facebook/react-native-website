@@ -16,7 +16,7 @@
 
 # Redirect New Architecture docs of all versions
 # Note: We had to delete the older versions to get redirects to work
-/docs/the-new-architecture/why                             https://reactnative.dev/docs/0.75/the-new-architecture/landing-page
+/docs/the-new-architecture/why                             /architecture/landing-page
 /docs/the-new-architecture/use-app-template                https://github.com/reactwg/react-native-new-architecture#guides
 /docs/the-new-architecture/pillars                         https://github.com/reactwg/react-native-new-architecture#guides
 /docs/the-new-architecture/pillars-turbomodules            https://github.com/reactwg/react-native-new-architecture#guides
@@ -35,8 +35,8 @@
 /docs/react-18-and-react-native                            https://reactnative.dev/docs/0.69/react-18-and-react-native
 /docs/new-architecture-troubleshooting                     https://github.com/reactwg/react-native-new-architecture#guides
 /docs/new-architecture-appendix                            https://github.com/reactwg/react-native-new-architecture#guides
-/docs/:version/the-new-architecture/landing-page                    https://reactnative.dev/docs/0.75/the-new-architecture/landing-page
-/docs/:version/the-new-architecture/why                             https://reactnative.dev/docs/0.75/the-new-architecture/landing-page
+/docs/:version/the-new-architecture/landing-page                    /architecture/landing-page
+/docs/:version/the-new-architecture/why                             /architecture/landing-page
 /docs/:version/the-new-architecture/use-app-template                https://github.com/reactwg/react-native-new-architecture#guides
 /docs/:version/the-new-architecture/pillars                         https://github.com/reactwg/react-native-new-architecture#guides
 /docs/:version/the-new-architecture/pillars-turbomodules            https://github.com/reactwg/react-native-new-architecture#guides
