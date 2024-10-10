@@ -8,6 +8,7 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 import useBaseUrl from '@docusaurus/useBaseUrl';
+const minOSVersions = require('../../minOSVersions.json');
 const versions = require('../../versions.json');
 // The versionsArchived mapping is a custom feature, NOT a Docusaurus feature
 const versionsArchived = require('../../versionsArchived.json');
@@ -36,6 +37,14 @@ const VersionItem = ({version, archivedDocumentationUrl, currentVersion}) => {
     releaseNotesURL = `https://github.com/facebook/react-native/releases/tag/v${version}.0`;
   }
 
+  let minOSVersion = minOSVersions[version] ?? {
+    andriod: 'TBD',
+    ios: 'TBD',
+  };
+
+  let androidMinOSVersion = minOSVersion.android ?? 'TBD';
+  let iosMinOSVersion = minOSVersion.ios ?? 'TBD';
+
   const releaseNotesLink = <a href={releaseNotesURL}>{releaseNotesTitle}</a>;
 
   return (
@@ -43,6 +52,12 @@ const VersionItem = ({version, archivedDocumentationUrl, currentVersion}) => {
       <th>{versionName}</th>
       <td>{documentationLink}</td>
       <td>{releaseNotesLink}</td>
+      <td>
+        [Android] minimum API level: <code>{androidMinOSVersion}</code>
+      </td>
+      <td>
+        [iOS] minimum OS: <code>{iosMinOSVersion}</code>
+      </td>
     </tr>
   );
 };
