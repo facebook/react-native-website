@@ -22,7 +22,7 @@ npx @react-native-community/cli@latest init SampleApp --version 0.76.0
 
 Pure C++ Turbo Native Modules are Turbo Native Modules. They needs a specification file (also called spec file) so that Codegen can create the scaffolding code for us. The Specification file is also what we use to access the Turbo Native Module in JS.
 
-Specs files need to be written in a typed JS dialect. React native currently supports Flow or TypeScript
+Specs files need to be written in a typed JS dialect. React Native currently supports Flow or TypeScript
 
 1. Inside the root folder of your app, create a new folder called `specs`.
 2. Create a new file called `NativeSampleModule.ts`
@@ -36,8 +36,7 @@ All Native Turbo Module spec files must have the prefix `Native`. Otherwise Code
 
 ```ts
 // @flow
-import type { TurboModule } from "react-native/Libraries/TurboModule/RCTExport";
-// import type {TurboModule} from 'react-native'; in future versions
+import type {TurboModule} from 'react-native'
 import { TurboModuleRegistry } from "react-native";
 
 export interface Spec extends TurboModule {
@@ -221,7 +220,7 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE ../../../../../shared/NativeSampleM
 target_include_directories(${CMAKE_PROJECT_NAME} PUBLIC ../../../../../shared)
 ```
 
-The Cmake file does the following things:
+The CMake file does the following things:
 
 - Specifies the version of CMake we need to use and sets the `VERBOSE` flag.
 - Defines the library name to which our code will be added
@@ -322,7 +321,7 @@ To make sure that the iOS app can effectively build the C++ Turbo Native Module,
 
 #### 1. Install Pods and Run Codegen.
 
-The first step we need to run is the usual steps we run every time we have to prepare our iOS application. Cocoapods is the tool we use to setup React native dependencies and, as part of the process, it will also run Codegen for us.
+The first step we need to run is the usual steps we run every time we have to prepare our iOS application. CocoaPods is the tool we use to setup React Native dependencies and, as part of the process, it will also run Codegen for us.
 
 1. Navigate to the `ios` folder
 2. Run `bundle install` to install the Ruby bundler
