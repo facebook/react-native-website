@@ -24,6 +24,12 @@ const isDeployPreview = process.env.PREVIEW_DEPLOY === 'true';
 
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
+  future: {
+    // Make Docusaurus build faster
+    // See https://docusaurus.io/blog/releases/3.6
+    experimental_faster: true,
+  },
+
   title: 'React Native',
   tagline: 'A framework for building native apps using React',
   organizationName: 'facebook',
@@ -58,17 +64,6 @@ module.exports = {
     locales: ['en'],
   },
   onBrokenLinks: 'throw',
-  webpack: {
-    jsLoader: isServer => ({
-      loader: require.resolve('esbuild-loader'),
-      options: {
-        loader: 'tsx',
-        format: isServer ? 'cjs' : undefined,
-        target: isServer ? 'node16' : 'es2020',
-        jsx: 'automatic',
-      },
-    }),
-  },
   presets: [
     [
       '@docusaurus/preset-classic',
