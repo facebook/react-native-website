@@ -22,12 +22,14 @@ const commonDocsOptions = {
 
 const isDeployPreview = process.env.PREVIEW_DEPLOY === 'true';
 
+const isDocusaurusFaster = (process.env.DOCUSAURUS_FASTER ?? 'true') === 'true';
+
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
   future: {
     // Make Docusaurus build faster
     // See https://docusaurus.io/blog/releases/3.6
-    experimental_faster: true,
+    experimental_faster: isDocusaurusFaster,
   },
 
   title: 'React Native',
