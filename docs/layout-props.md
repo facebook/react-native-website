@@ -887,9 +887,9 @@ When direction is `ltr`, `paddingStart` is equivalent to `paddingLeft`. When dir
 
 `paddingTop` works like `padding-top` in CSS. See https://developer.mozilla.org/en-US/docs/Web/CSS/padding-top for more details.
 
-| Type            | Required |
-| --------------- | -------- |
-| number, ,string | No       |
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
 
 ---
 
@@ -905,17 +905,19 @@ Setting `paddingVertical` is like setting both of `paddingTop` and `paddingBotto
 
 ### `position`
 
-`position` in React Native is similar to regular CSS, but everything is set to `relative` by default, so `absolute` positioning is always relative to the parent.
+`position` in React Native is similar to regular CSS, but everything is set to `relative` by default, so `absolute` positioning is almost always relative to the parent. You can also use `static` positioning, which behaves like `relative`, except nodes positioned statically ignore insets (e.g. [`top`](#top), [`right`](#right), etc.) and do not form a [containing block](https://www.yogalayout.dev/docs/advanced/containing-block).
 
-If you want to position a child using specific numbers of logical pixels relative to its parent, set the child to have `absolute` position.
+If you want to position a node in the layout flow of its flex container, taking up space and affecting the layout of its sibling nodes, give it a `relative` position.
 
-If you want to position a child relative to something that is not its parent, don't use styles for that. Use the component tree.
+If you want to position a node using a specific number of logical pixels relative to its parent, give it an `absolute` position.
 
-See https://github.com/facebook/yoga for more details on how `position` differs between React Native and CSS.
+If you want to position a node relative to an ancestor that is not its immediate parent, you can set its parent to `position: static` and it will position itself relative to its closest ancestor without a `static` position. Using the component tree is another option, though - and for more complicated cases, the only option.
 
-| Type                         | Required |
-| ---------------------------- | -------- |
-| enum('absolute', 'relative') | No       |
+See https://www.yogalayout.dev/docs/styling/position for more details on how `position` differs between React Native and CSS.
+
+| Type                                   | Required |
+| -------------------------------------- | -------- |
+| enum('absolute', 'relative', 'static') | No       |
 
 ---
 
