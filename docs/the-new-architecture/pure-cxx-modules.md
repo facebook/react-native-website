@@ -232,23 +232,28 @@ The CMake file does the following things:
 Gradle is the tool that orchestrates the Android build. We need to tell it where it can find the `CMake` files to build the Turbo Native Module.
 
 1. Open the `SampleApp/android/app/build.gradle` file
-2. Add the following block to the gradle file:
+2. Add the following block into the Gradle file, within the existent `android` block:
 
 ```diff
-    if (hermesEnabled.toBoolean()) {
-        implementation("com.facebook.react:hermes-android")
-    } else {
-        implementation jscFlavor
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.debug
+        }
+        release {
+            // Caution! In production, you need to generate your own keystore file.
+            // see https://reactnative.dev/docs/signed-apk-android.
+            signingConfig signingConfigs.debug
+            minifyEnabled enableProguardInReleaseBuilds
+            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+        }
     }
-}
 
-+ android {
 +   externalNativeBuild {
 +       cmake {
 +           path "src/main/jni/CMakeLists.txt"
 +       }
 +   }
-+}
+}
 ```
 
 This block tells the Gradle file where to look for the CMake file. The path is relative to the folder where the `build.gradle` file lives, so we need to add the path to the `CMakeLists.txt` files in the `jni` folder.
