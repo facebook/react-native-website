@@ -5,7 +5,7 @@ title: Other Debugging Methods
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
-This page covers other JavaScript debugging methods besides what is described in [Opening the Debugger](./debugging#opening-the-debugger). If you are using a newly created React Native or Expo app, we recommend starting there.
+This page covers how to use legacy JavaScript debugging methods. If you are getting started with a new React Native or Expo app, we recommend using [React Native DevTools](./react-native-devtools).
 
 ## Safari Developer Tools (direct JSC debugging)
 
@@ -60,7 +60,7 @@ The Console and Sources panels will allow you to inspect your React Native code.
 ![The remote debugger window in Chrome](/docs/assets/debugging-chrome-remote-debugger.jpg)
 
 :::info
-Under Remote JavaScript Debugging, the web version of React DevTools in Chrome will not work with React Native. See the [React DevTools](./react-devtools) guide to learn how to use the standalone version of React DevTools.
+Under Remote JavaScript Debugging, the web version of React DevTools in Chrome will not work with React Native. See the [React Native DevTools](./react-native-devtools) guide to explore how to use React DevTools in our integrated debugger.
 :::
 
 :::note
