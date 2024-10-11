@@ -61,7 +61,7 @@ The key components for your custom bridging header are:
 - A `toJs` function to convert from the C++ representation to the JS representation
 
 :::note
-On iOS, remember to add the `Int64.h` file to the Xoced project.
+On iOS, remember to add the `Int64.h` file to the Xcode project.
 :::
 
 ### 2. Modify the JS Spec
@@ -69,7 +69,7 @@ On iOS, remember to add the `Int64.h` file to the Xoced project.
 Now, we can modify the JS spec to add a method that uses the new type. As usual, we can use either Flow or TypeScript for our specs.
 
 1. Open the `specs/NativeSampleTurbomodule`
-2. Modify the spec as it follows:
+2. Modify the spec as follows:
 
 <Tabs groupId="custom-int64" queryString defaultValue={constants.defaultJavaScriptSpecLanguages} values={constants.javaScriptSpecLanguages}>
 <TabItem value="typescript">
@@ -120,9 +120,10 @@ Now, we need to implement the function that we declared in the JS specification.
 #pragma once
 
 #include <AppSpecsJSI.h>
-+ #include "Int64.h"
 #include <memory>
 #include <string>
+
++ #include "Int64.h"
 
 namespace facebook::react {
 
@@ -242,7 +243,7 @@ import {TurboModule, TurboModuleRegistry} from 'react-native';
 
 export interface Spec extends TurboModule {
   readonly reverseString: (input: string) => string;
-+  readonly validateAddress: (input: Address) => boolean;
++ readonly validateAddress: (input: Address) => boolean;
 }
 
 export default TurboModuleRegistry.getEnforcing<Spec>(
@@ -268,7 +269,7 @@ import { TurboModuleRegistry } from "react-native";
 
 export interface Spec extends TurboModule {
   +reverseString: (input: string) => string;
-+  +validateAddress: (input: Address) => boolean;
++ +validateAddress: (input: Address) => boolean;
 }
 
 export default (TurboModuleRegistry.getEnforcing<Spec>(
@@ -285,9 +286,9 @@ It is also possible to have functions that return custom types.
 
 ### 2. Define the bridging code
 
-From the Address type defined in the specs, Codegen will generate two helper types: `NativeSampleModuleAddress` and `NativeSampleModuleAddressBridging`.
+From the `Address` type defined in the specs, Codegen will generate two helper types: `NativeSampleModuleAddress` and `NativeSampleModuleAddressBridging`.
 
-The first type is the definition of the `Address`. The second type contains all the plumbing to bridge the custom type from JS to C++ and viceversa. The only extra step we need to add is to define the `Bridging` structure that extends the `NativeSampleModuleAddressBridging` type.
+The first type is the definition of the `Address`. The second type contains all the infrastructure to bridge the custom type from JS to C++ and viceversa. The only extra step we need to add is to define the `Bridging` structure that extends the `NativeSampleModuleAddressBridging` type.
 
 1. Open the `shared/NativeSampleModule.h` file
 2. Add the following code in the file:
@@ -344,7 +345,7 @@ bool NativeSampleModule::validateAddress(jsi::Runtime &rt, jsi::Object input) {
 }
 ```
 
-In the implementation, the object that represents the `Address` is a `jsi::Object`. To extract the values from this object, we need to use the accessors provided by `JSI` (If you want to learn more about `JSI`, have a look at this [great talk](https://youtu.be/oLmGInjKU2U?feature=shared) from App.JS 2024):
+In the implementation, the object that represents the `Address` is a `jsi::Object`. To extract the values from this object, we need to use the accessors provided by `JSI`:
 
 - `getProperty()` retrieves the property from and object by name.
 - `asString()` converts the property to `jsi::String`.
@@ -352,6 +353,10 @@ In the implementation, the object that represents the `Address` is a `jsi::Objec
 - `asNumber()` converts the property to a `double`.
 
 Once we manually parsed the object, we can implement the logic that we need.
+
+:::note
+If you want to learn more about `JSI` and how it works, have a look at this [great talk](https://youtu.be/oLmGInjKU2U?feature=shared) from App.JS 2024
+:::
 
 ### 4. Testing the code in the app.
 
