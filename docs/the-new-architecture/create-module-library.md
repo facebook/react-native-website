@@ -133,3 +133,17 @@ Now, you can finally test the library in your app. Modify the `App.tsx` file as 
 Notice that, being a local module that has not been built, you might have to reach out to the `src` folder to use the `index.ts` file.
 
 ## Publish the Library on NPM.
+
+The setup to publish everything on NPM is already in place, thanks to `create-react-native-library`.
+
+1. Install the dependencies in your module `yarn install`.
+2. Build the library running `yarn prepare`.
+3. Release it with `yarn release`.
+
+After a while, you'll find your library on npm. To verify that, run:
+
+```bash
+npm view <package.name>
+```
+
+where `package.name` is the `name` you set up in the `package.json` file during the initialization of the library.
