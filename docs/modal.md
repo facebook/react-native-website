@@ -126,6 +126,17 @@ Possible values:
 
 ---
 
+### `backdropColor`
+
+The `backdropColor` of the modal (or background color of the modal's container). 
+Defaults to `white` if not provided and transparent is `false`. Ignored if `transparent` is `true`.
+
+| Type            | Default |
+| --------------- | ------- |
+| [color](colors) | white   |
+
+---
+
 ### `hardwareAccelerated` <div class="label android">Android</div>
 
 The `hardwareAccelerated` prop controls whether to force hardware acceleration for the underlying window.
