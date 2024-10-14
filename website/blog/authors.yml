@@ -14,6 +14,14 @@ Eli White:
     github: elicwhite
   image_url: https://github.com/elicwhite.png
 
+frankcalise:
+  name: Frank Calise
+  title: Software Engineer at Infinite Red
+  socials:
+    x: frankcalise
+    github: frankcalise
+  image_url: https://github.com/frankcalise.png
+
 lunaleaps:
   name: Luna Wei
   title: Software Engineer at Meta
@@ -191,8 +199,8 @@ gabrieldonadel:
   name: Gabriel Donadel Dall'Agnol
   title: Software Engineer at Expo
   socials:
-    github: gabrieldonadel
     x: donadeldev
+    github: gabrieldonadel
   image_url: https://github.com/gabrieldonadel.png
 
 siddharthkul:
