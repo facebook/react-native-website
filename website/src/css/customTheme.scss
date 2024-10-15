@@ -84,6 +84,8 @@
   --home-code-red: #d73a49;
   --home-code-purple: #6f42c1;
   --home-code-green: #22863a;
+  --home-code-diff-removed: #f851494;
+  --home-code-diff-added: #3fb9504d;
 
   @media (max-width: 900px) {
     --home-hero-grid-icon: transparent;
@@ -150,6 +152,8 @@ html[data-theme="dark"] {
   --home-code-red: #f46b78;
   --home-code-purple: #a77cf7;
   --home-code-green: #74e68f;
+  --home-code-diff-removed: #f851494;
+  --home-code-diff-added: #3fb9504d;
 
   @media (max-width: 900px) {
     --home-hero-grid-icon: transparent;
@@ -1969,4 +1973,20 @@ Prevent useless bottom margin for multiline <figcaption> tags in MDX:
  */
 figcaption > p:last-child {
   margin-bottom: 0;
+}
+
+.code-remove-line {
+  background-color: var(--home-code-diff-removed);
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+  // border-left: 3px solid #ff000080;
+}
+
+.code-add-line {
+  background-color: var(--home-code-diff-added);
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+  // border-left: 3px solid #ff000080;
 }
