@@ -114,6 +114,29 @@
             "label": "Custom C++ Types"
           },
         ]
+      },
+      {
+        "type": "category",
+        "label": "Fabric Native Modules",
+        "collapsible": false,
+        "collapsed": false,
+        "items": [
+          {
+            "type": "doc",
+            "id": "fabric-native-modules-introduction",
+            "label": "👷Introduction"
+          },
+          {
+            "type": "doc",
+            "id": "fabric-native-modules-android",
+            "label": "👷Android"
+          },
+          {
+            "type": "doc",
+            "id": "fabric-native-modules-ios",
+            "label": "👷iOS"
+          }
+        ]
       }
     ],
     "Android and iOS guides": [
