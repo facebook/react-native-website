@@ -2,36 +2,38 @@
 
 Calling Gradle or manually calling a script might be hard to remember and it requires a lot of cerimony.
 
-To simplify it, we created a CLI tool that can help you running those tasks: the **Codegen** cli.
+To simplify it, we created a CLI tool that can help you running those tasks: the **Codegen** cli. This command runs [react-native-codegen](https://www.npmjs.com/package/react-native-codegen) for your project. The following options are available:
 
-```shell
-npx react-native codegen [--path path] [--platform string] [--outputPath path]
+```sh
+npx @react-native-community/cli codegen --help
+Usage: rnc-cli codegen [options]
+
+Options:
+  --verbose            Increase logging verbosity
+  --path <path>        Path to the React Native project root. (default: "/Users/MyUsername/projects/my-app")
+  --platform <string>  Target platform. Supported values: "android", "ios", "all". (default: "all")
+  --outputPath <path>  Path where generated artifacts will be output to.
+  -h, --help           display help for command
 ```
-
-This command runs [react-native-codegen](https://www.npmjs.com/package/react-native-codegen) for your project. The following options are available:
-
-- `--path` - Path to `package.json`. The default path is the current working directory.
-- `--platform` - Target platform. Supported values: `android`, `ios`, `all`. The default value is `all`.
-- `--outputPath` - Output path. The default value is the value defined in `codegenConfig.outputDir`.
 
 ## Examples
 
 - Read `package.json` from the current working directory, generate code based on its codegenConfig.
 
 ```shell
-npx react-native codegen
+npx @react-native-codegen/cli codegen
 ```
 
 - Read `package.json` from the current working directory, generate iOS code in the location defined in the codegenConfig.
 
 ```shell
-npx react-native codegen --platform ios
+npx @react-native-codegen/cli codegen --platform ios
 ```
 
 - Read `package.json` from `third-party/some-library`, generate Android code in `third-party/some-library/android/generated`.
 
 ```shell
-npx react-native codegen \
+npx @react-native-codegen/cli codegen \
     --path third-party/some-library \
     --platform android \
     --outputPath third-party/some-library/android/generated
