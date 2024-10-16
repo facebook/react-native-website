@@ -45,17 +45,21 @@ For a full list of the types of system colors supported, see:
 
 ```SnackPlayer name=PlatformColor%20Example&supportedPlatforms=android,ios
 import React from 'react';
-import {Platform, PlatformColor, StyleSheet, Text, View} from 'react-native';
+import {Platform, PlatformColor, StyleSheet, Text} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => (
-  <View style={styles.container}>
-    <Text style={styles.label}>I am a special label color!</Text>
-  </View>
+  <SafeAreaProvider>
+    <SafeAreaView style={styles.container}>
+      <Text style={styles.label}>I am a special label color!</Text>
+    </SafeAreaView>
+  </SafeAreaProvider>
 );
 
 const styles = StyleSheet.create({
   label: {
     padding: 16,
+    fontWeight: '800',
     ...Platform.select({
       ios: {
         color: PlatformColor('label'),

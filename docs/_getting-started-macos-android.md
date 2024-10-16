@@ -13,7 +13,7 @@ brew install node
 brew install watchman
 ```
 
-If you have already installed Node on your system, make sure it is Node 18 or newer.
+If you have already installed Node on your system, make sure it is Node 18.18 or newer.
 
 [Watchman](https://facebook.github.io/watchman) is a tool by Facebook for watching changes in the filesystem. It is highly recommended you install it for better performance.
 
@@ -24,11 +24,22 @@ We recommend installing the OpenJDK distribution called Azul **Zulu** using [Hom
 ```shell
 brew install --cask zulu@17
 
-# Get path to where cask was installed to double-click installer
+# Get path to where cask was installed to find the JDK installer
 brew info --cask zulu@17
+
+# ==> zulu@17: <version number>
+# https://www.azul.com/downloads/
+# Installed
+# /opt/homebrew/Caskroom/zulu@17/<version number> (185.8MB) (note that the path is /usr/local/Caskroom on non-Apple Silicon Macs)
+# Installed using the formulae.brew.sh API on 2024-06-06 at 10:00:00
+
+# Navigate to the folder
+finder /opt/homebrew/Caskroom/zulu@17/<version number> # or /usr/local/Caskroom/zulu@17/<version number>
 ```
 
-After the JDK installation, add or update your `JAVA_HOME` environment variable in `~/.zshrc` (or in `~/.bash_profile`) .
+After opening Finder, double click the `Double-Click to Install Azul Zulu JDK 17.pkg` package to install the JDK.
+
+After the JDK installation, add or update your `JAVA_HOME` environment variable in `~/.zshrc` (or in `~/.bash_profile`).
 
 If you used above steps, JDK will likely be located at `/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home`:
 

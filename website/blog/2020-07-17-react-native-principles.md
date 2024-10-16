@@ -1,10 +1,6 @@
 ---
 title: React Native Team Principles
-author: Eli White
-authorTitle: Engineering Manager on React Native
-authorURL: 'https://twitter.com/Eli_White'
-authorImageURL: 'https://avatars2.githubusercontent.com/u/249164?s=460&v=4'
-authorTwitter: Eli_White
+authors: [Eli White]
 tags: [announcement]
 ---
 

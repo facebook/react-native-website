@@ -7,9 +7,10 @@ title: Animated.ValueXY
 
 ## Example
 
-```SnackPlayer name=Animated.ValueXY
+```SnackPlayer name=Animated.ValueXY%20Example
 import React, {useRef} from 'react';
-import {Animated, PanResponder, StyleSheet, View} from 'react-native';
+import {Animated, PanResponder, StyleSheet} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const DraggableView = () => {
   const pan = useRef(new Animated.ValueXY()).current;
@@ -32,12 +33,14 @@ const DraggableView = () => {
   });
 
   return (
-    <View style={styles.container}>
-      <Animated.View
-        {...panResponder.panHandlers}
-        style={[pan.getLayout(), styles.box]}
-      />
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <Animated.View
+          {...panResponder.panHandlers}
+          style={[pan.getLayout(), styles.box]}
+        />
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 

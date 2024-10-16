@@ -83,6 +83,7 @@ const ExampleComponent = () => {
 ```SnackPlayer name=PanResponder
 import React, {useRef} from 'react';
 import {Animated, View, StyleSheet, PanResponder, Text} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => {
   const pan = useRef(new Animated.ValueXY()).current;
@@ -98,16 +99,18 @@ const App = () => {
   ).current;
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.titleText}>Drag this box!</Text>
-      <Animated.View
-        style={{
-          transform: [{translateX: pan.x}, {translateY: pan.y}],
-        }}
-        {...panResponder.panHandlers}>
-        <View style={styles.box} />
-      </Animated.View>
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <Text style={styles.titleText}>Drag this box!</Text>
+        <Animated.View
+          style={{
+            transform: [{translateX: pan.x}, {translateY: pan.y}],
+          }}
+          {...panResponder.panHandlers}>
+          <View style={styles.box} />
+        </Animated.View>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
