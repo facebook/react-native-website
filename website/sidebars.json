@@ -81,7 +81,7 @@
       "the-new-architecture/using-codegen",
       "the-new-architecture/codegen-cli"
     ],
-    "Native Platform": [
+    "Native Development": [
       {
         "type": "category",
         "label": "Modules",
@@ -117,7 +117,7 @@
       },
       {
         "type": "category",
-        "label": "Fabric Native Modules",
+        "label": "Components",
         "collapsible": false,
         "collapsed": false,
         "items": [
