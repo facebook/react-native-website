@@ -15,11 +15,11 @@ The basic steps are:
 3. **Configure your dependency management system to run Codegen**, which converts the specification into native language interfaces;
 4. **Write your native platform code using the generated interfaces** to write and hook your native code into the React Native runtime environment
 
-Lets work through each of these steps by building a simple example.
+Lets work through each of these steps by building an example Turbo Native Module.
 
 # Native Persistent Storage
 
-This guide will show you how to write a simple implementation of part of the [Web Storage API](https://html.spec.whatwg.org/multipage/webstorage.html#dom-localstorage-dev): `localStorage`. The API is simple and relatable to a React developer who might be writing application code on your project.
+This guide will show you how to write an implementation of the [Web Storage API](https://html.spec.whatwg.org/multipage/webstorage.html#dom-localstorage-dev): `localStorage`. The API is relatable to a React developer who might be writing application code on your project.
 
 To make this work on mobile, we need to use 2 platform APIS:
 
@@ -78,7 +78,7 @@ Next you’ll need to put your application developer hat on and write some JavaS
 The `TurboModuleRegistry` supports 2 modes of retreiving a Turbo Native Module:
 
 - `get<T>(name: string): T | null` which will return `null` if the Turbo Native Module is unavailable. This is typically a concern for teams doing fancy things where they ship the JS and native code separately.
-- `getEnforcing<T>(name: string): T` which will throw an exception if the Turbo Native Module is unavailable. This is the simple case.
+- `getEnforcing<T>(name: string): T` which will throw an exception if the Turbo Native Module is unavailable. This assumes the module is always available.
   Next you’ll need to put your application developer hat on and write some JavaScript. Using `NativeLocalStorage`, here’s a modified `App.tsx` that includes some text we want persisted, an input field and some buttons to update this value. Since we’re application developers, lets added add dark mode support for extra polish:
 
 ```tsx
