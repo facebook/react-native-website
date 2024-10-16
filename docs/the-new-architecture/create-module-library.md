@@ -105,6 +105,65 @@ To test your library:
 4. Build and run Android with `yarn android` from the `example` folder.
 5. Build and run iOS with `yarn ios` from the `example` folder.
 
+## Use your library as a Local Module.
+
+There are some scenario where you might want to reuse your library as a local module for your applications, without publishing it to NPM.
+
+In this case, you might end up in a scenario where you have your library sitting as a sibling of your apps.
+
+```shell
+Development
+├── App
+└── Library
+```
+
+You can use the library created with `create-react-native-library` also in this case.
+
+1. add you library to your app by navigating into the `App` folder and running `yarn add ../Library`.
+2. For iOS only, navigate in the `App/ios` folder and run `bundle exec pod install` to install your dependencies.
+3. Update the `App.tsx` code to import the code in your library. For example:
+
+```tsx
+import NativeSampleModule from '../Library/src/index';
+```
+
+If you run your app right now, Metro would not find the JS files that it needs to serve to the app. That's because metro will be running starting from the `App` folder and it would not have access to the JS files located in the `Library` folder. To fix this, let's update the `metro.config.js` file as it follows
+
+```diff
+const {getDefaultConfig, mergeConfig} = require('@react-native/metro-config');
+
+/**
+ * Metro configuration
+ * https://reactnative.dev/docs/metro
+ *
+ * @type {import('metro-config').MetroConfig}
+ */
++ const path = require('path');
+
+- const config = {}
++ const config = {
++  // Make Metro able to resolve required external dependencies
++  watchFolders: [
++    path.resolve(__dirname, '../Library'),
++  ],
++  resolver: {
++    extraNodeModules: {
++      'react-native': path.resolve(__dirname, 'node_modules/react-native'),
++    },
++  },
++};
+
+module.exports = mergeConfig(getDefaultConfig(__dirname), config);
+```
+
+The `watchFolders` configs tells Metro to watch for files and changes in some additional paths, in this case to the `../Library` path, which contains the `src/index` file you need.
+The `resolver`property is required to feed to the library the React Native code used by the app. The library might refer and import code from React Native: without the additional resolver, the imports in the library will fail.
+
+At this point, you can build and run your app as usual:
+
+- Build and run Android with `yarn android` from the `example` folder.
+- Build and run iOS with `yarn ios` from the `example` folder.
+
 ## Publish the Library on NPM.
 
 The setup to publish everything on NPM is already in place, thanks to `create-react-native-library`.
