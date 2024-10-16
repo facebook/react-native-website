@@ -215,7 +215,7 @@ If, for any reasons, you can't use the New Architecture, you can still opt-out f
 
 ### Android
 
-1. Open the `andorid/gradle.properties` file
+1. Open the `android/gradle.properties` file
 2. Toggle the `newArchEnabled` flag from `true` to `false`
 
 ```diff title="gradle.properties"
