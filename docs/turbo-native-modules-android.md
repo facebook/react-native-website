@@ -318,3 +318,22 @@ class MainApplication : Application(), ReactApplication {
 
 </TabItem>
 </Tabs>
+
+You can now build and run your code on an emulator:
+
+<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<TabItem value="npm">
+```bash
+npm run android
+```
+</TabItem>
+<TabItem value="yarn">
+```bash
+yarn run android
+```
+</TabItem>
+</Tabs>
+
+<video width="50%" height="50%" playsinline="true" autoplay="true" muted="true" loop="true">
+    <source src="/docs/assets/turbo-native-modules-android.webm" type="video/webm" />
+</video>
