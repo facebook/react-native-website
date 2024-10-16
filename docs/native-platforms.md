@@ -24,10 +24,10 @@ These are our deprecated native module and component API. You can still use many
 The recommended order to read these are:
 
 1. Turbo Native Modules
-   - [Introduction](turbo-native-modules)
-   - [Android](turbo-native-modules-android)
-   - [iOS](turbo-native-modules-ios)
+   - [Introduction](/docs/turbo-native-modules)
+   - [Android](/docs/turbo-native-modules-android)
+   - [iOS](/docs/turbo-native-modules-ios)
 2. [Fabric Native Components: introduction]
-   - [Introduction](fabric-native-modules)
-   - [Android](fabric-native-modules-android)
-   - [iOS](fabric-native-modules-ios)
+   - [Introduction](/docs/fabric-native-modules)
+   - [Android](/docs/fabric-native-modules-android)
+   - [iOS](/docs/fabric-native-modules-ios)

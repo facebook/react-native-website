@@ -28,7 +28,7 @@ To make this work on mobile, we need to use 2 platform APIS:
 
 ## 1. Declare Typed Specification
 
-React Native provides tooling called [Codegen](r), which will take a specification written in TypeScript or Flow and generate platform specific code for iOS and Android. The specification declares the methods and data types that will pass back and forth between your native code and the React Native JavaScript runtime. We call your specification and the native code you write to work with the Codegen interfaces a Turbo Native Module.
+React Native provides tooling called [Codegen](/docs/the-new-architecture/what-is-codegen), which will take a specification written in TypeScript or Flow and generate platform specific code for iOS and Android. The specification declares the methods and data types that will pass back and forth between your native code and the React Native JavaScript runtime. We call your specification and the native code you write to work with the Codegen interfaces a Turbo Native Module.
 
 :::info
 You can see all of the types you can use in your specification and the native types that are generated in the [Appendix](/appendix.md) documentation.
