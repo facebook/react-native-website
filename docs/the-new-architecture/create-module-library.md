@@ -1,6 +1,6 @@
 # Create a Library for Your Module
 
-React Native has a florid ecosystem of libraries to solve common problems. We collect React Native libraries in the [`reactnative.directory`](https://reactnative.directory) website, and this is a great resource to bookmark for every React Native developer.
+React Native has a florid ecosystem of libraries to solve common problems. We collect React Native libraries in the [reactnative.directory](https://reactnative.directory) website, and this is a great resource to bookmark for every React Native developer.
 
 Sometimes, you might be working on a module that is worth extracting in a separate library for code reuse. This can be a library that you want to reuse in all your apps, a library that you want to distribute to the ecosystem as an open source component, or even a library you'd like to sell.
 
@@ -11,7 +11,7 @@ In this guide, you'll learn:
 
 ## Extract the Module into a Library
 
-The React Native community produced an amazing tool to scaffold a new library: the [`create-react-native-library`](https://callstack.github.io/react-native-builder-bob/create) tool. This tool sets up a new library with all the boilerplate code that is needed: all the configuration files and all files required by the various platforms. It also comes with a nice interactive menu to guide you through the creation of the library.
+You can use the [`create-react-native-library`](https://callstack.github.io/react-native-builder-bob/create) tool to create a new library. This tool sets up a new library with all the boilerplate code that is needed: all the configuration files and all files required by the various platforms. It also comes with a nice interactive menu to guide you through the creation of the library.
 
 To extract a module into a separate library, we have to follow these steps:
 
