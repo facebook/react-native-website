@@ -13,7 +13,7 @@ In this guide, you'll learn:
 
 You can use the [`create-react-native-library`](https://callstack.github.io/react-native-builder-bob/create) tool to create a new library. This tool sets up a new library with all the boilerplate code that is needed: all the configuration files and all files required by the various platforms. It also comes with a nice interactive menu to guide you through the creation of the library.
 
-To extract a module into a separate library, we have to follow these steps:
+To extract a module into a separate library, you can follow these steps:
 
 1. Create the new library
 2. Move the code from the App to the Library
@@ -32,7 +32,7 @@ npx create-react-native-library@latest <Name of Your Library>
 3. Add a description for the package.
 4. Continue filling the form until you reach the question _"What type of library do you want to develop?"_
    ![What type of Library](/docs/assets/what-library.png)
-5. For the sake of this guide, select the _Turbo module_ option
+5. For the sake of this guide, select the _Turbo module_ option. Notice that you can create libraries for both New Architecture and Legacy Architecture.
 6. Then, you can choose whether you want a library that access the platform (Kotlin & Objective-C) or a sahred C++ library (C++ for Android and iOS).
 7. Finally, select the `Test App` as last option. This option creates the library with a separate app already configured within the library folder.
 
@@ -42,9 +42,9 @@ Once the interactive prompt is done, the tool creates a folder whose structure l
 
 Feel free to explore the code that has been created for you. However, the most important parts:
 
-- The `android` folder: this is where the android code lives
+- The `android` folder: this is where the Android code lives
 - The `cpp` folder: this is where we the c++ code lives
-- The `ios` folder: this is where we the ios code lives
+- The `ios` folder: this is where we the iOS code lives
 - The `src` forder: this is where the JS code lives.
 
 The `package.json` is already configured with all the information that we provided to the `create-react-native-library` tool, including the name and the description of the package. Notice that the `package.json` is also already configured to run codegen.
@@ -68,11 +68,11 @@ Finally the library contains already all the infrastruction to let the library b
 
 ### 2. Copy the Code over from Your App
 
-The rest of the guide assumes that you have a local Turbo Native Module in your app, created following the guidelines shown in the other guides in the website: platform specific Turbo Native Modules; [cross-platform Turbo Native Modules](/docs/the-new-architecture/pure-cxx-modules.md).
+The rest of the guide assumes that you have a local Turbo Native Module in your app, created following the guidelines shown in the other guides in the website: platform specific Turbo Native Modules, or [cross-platform Turbo Native Modules](./pure-cxx-modules). But it works also for Components and legacy architecture modules and components. You'll have to adapt the files you need to copy and update.
 
 <!-- TODO: add links for Turbo Native Modules -->
 
-1. Move the code you have in the `specs` folder in your app into the `src` folder created by the `create-react-native-library` folder.
+1. **[Not required for legacy architecture modules and components]** Move the code you have in the `specs` folder in your app into the `src` folder created by the `create-react-native-library` folder.
 2. Update the `index.ts` file to properly export the Turbo Native Module spec so that it is accessible from the library. For example:
 
 ```ts
@@ -87,7 +87,7 @@ export default NativeSampleModule;
    - Replace the code in the `ios` folder with the code you wrote in your app for your native module, if any.
    - Replace the code in the `cpp` folder with the code you wrote in your app for your native module, if any.
 
-4. Update all the references from the previous spec name to the new spec name, the one that is defined in the `codegenConfig` field of the library's `package.json`. For example, if in the app `package.json` you set `AppSpecs` as `codegenConfig.name` and in the library it is called `RNNativeSampleModuleSpec`, you have to replace every occurrence of `AppSpecs` with `RNNativeSampleModuleSpec`.
+4. **[Not required for legacy architecture modules and components]** Update all the references from the previous spec name to the new spec name, the one that is defined in the `codegenConfig` field of the library's `package.json`. For example, if in the app `package.json` you set `AppSpecs` as `codegenConfig.name` and in the library it is called `RNNativeSampleModuleSpec`, you have to replace every occurrence of `AppSpecs` with `RNNativeSampleModuleSpec`.
 
 That's it! You have moved all the required code out of your app and in a separate library.
 
@@ -131,4 +131,4 @@ yarn add <package.name>
 For iOS only, whenever you install a new module with some native code, you have to reinstall CocoaPods, by running `bundle exec pod install` (recommended) or `pod install` if you are not using Ruby's Bundler (not recommended).
 :::
 
-Congratulations! You just published your first React Native library.
+Congratulations! You published your first React Native library.
