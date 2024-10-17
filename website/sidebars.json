@@ -142,6 +142,19 @@
             "label": "👷iOS"
           }
         ]
+      },
+      {
+        "type": "category",
+        "label": "Miscellaneous",
+        "collapsible": true,
+        "collapsed": true,
+        "items": [
+          {
+            "type": "doc",
+            "id": "appendix",
+            "label": "Appendix"
+          }
+        ]
       }
     ],
     "Android and iOS guides": [

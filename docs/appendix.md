@@ -12,198 +12,24 @@
 
 ## II. Codegen Typings
 
-<!-- These should all be squashed into a single table -->
-
-### Flow
-
 You may use the following table as a reference for which types are supported and what they map to in each platform:
 
-#### `string`
+| Flow                                                                       | TypeScript                                          | Flow Nullable Support                                   | TypeScript Nullable Support                          | Android (Java)                       | iOS (ObjC)                                                     |
+| -------------------------------------------------------------------------- | --------------------------------------------------- | ------------------------------------------------------- | ---------------------------------------------------- | ------------------------------------ | -------------------------------------------------------------- |
+| `string`                                                                   | `string`                                            | `?string`                                               | <code>string &#124; null</code>                      | `string`                             | `NSString`                                                     |
+| `boolean`                                                                  | `boolean`                                           | `?boolean`                                              | <code>boolean &#124; null</code>                     | `Boolean`                            | `NSNumber`                                                     |
+| Object Literal<br /><code>&#123;&#124; foo: string, ...&#124;&#125;</code> | <code>&#123; foo: string, ...&#125; as const</code> | <code>?&#123;&#124; foo: string, ...&#124;&#125;</code> | <code>?&#123; foo: string, ...&#125; as const</code> | \-                                   | \-                                                             |
+| Object [[1](#notes)]                                                       | Object [[1](#notes)]                                | `?Object`                                               | <code>Object &#124; null</code>                      | `ReadableMap`                        | `@` (untyped dictionary)                                       |
+| <code>Array&lt;T&gt;</code>                                                | <code>Array&lt;T&gt;</code>                         | <code>?Array&lt;T&gt;</code>                            | <code>Array&lt;T&gt; &#124; null</code>              | `ReadableArray`                      | `NSArray` (or `RCTConvertVecToArray` when used inside objects) |
+| `Function`                                                                 | `Function`                                          | `?Function`                                             | <code>Function &#124; null</code>                    | \-                                   | \-                                                             |
+| <code>Promise&lt;T&gt;</code>                                              | <code>Promise&lt;T&gt;</code>                       | <code>?Promise&lt;T&gt;</code>                          | <code>Promise&lt;T&gt; &#124; null</code>            | `com.facebook.react.bridge.Promise`  | `RCTPromiseResolve` and `RCTPromiseRejectBlock`                |
+| Type Unions<br /><code>'SUCCESS'&#124;'FAIL'</code>                        | Type Unions<br /><code>'SUCCESS'&#124;'FAIL'</code> | Only as callbacks                                       |                                                      | \-                                   | \-                                                             |
+| Callbacks<br />`() =>`                                                     | Callbacks<br />`() =>`                              | Yes                                                     |                                                      | `com.facebook.react.bridge.Callback` | `RCTResponseSenderBlock`                                       |
+| `number`                                                                   | `number`                                            | No                                                      |                                                      | `double`                             | `NSNumber`                                                     |
 
-|                   |            |
-| ----------------- | ---------- |
-| Nullable Support? | `?string`  |
-| Android (Java)    | `string`   |
-| iOS               | `NSString` |
+### Notes:
 
-#### `boolean`
-
-|                   |            |
-| ----------------- | ---------- |
-| Nullable Support? | `?boolean` |
-| Android (Java)    | `Boolean`  |
-| iOS               | `NSNumber` |
-
-#### Object literal
-
-This is recommended over using plain `Object`, for type safety.
-
-**Example:** `{| foo: string, ... |}`
-
-|                   |                                                         |
-| ----------------- | ------------------------------------------------------- |
-| Nullable Support? | <code>?&#123;&#124; foo: string, ...&#124;&#125;</code> |
-| Android (Java)    | -                                                       |
-| iOS               | -                                                       |
-
-#### `Object`
-
-:::info
-Recommended to use [Object literal](#object-literal) instead.
-:::
-
-|                   |                          |
-| ----------------- | ------------------------ |
-| Nullable Support? | `?Object`                |
-| Android (Java)    | `ReadableMap`            |
-| iOS               | `@` (untyped dictionary) |
-
-#### `Array<*>`
-
-|                   |                                                                |
-| ----------------- | -------------------------------------------------------------- |
-| Nullable Support? | `?Array<*>`                                                    |
-| Android (Java)    | `ReadableArray`                                                |
-| iOS               | `NSArray` (or `RCTConvertVecToArray` when used inside objects) |
-
-#### `Function`
-
-|                   |             |
-| ----------------- | ----------- |
-| Nullable Support? | `?Function` |
-| Android (Java)    | -           |
-| iOS               | -           |
-
-#### `Promise<*>`
-
-|                   |                                                 |
-| ----------------- | ----------------------------------------------- |
-| Nullable Support? | `?Promise<*>`                                   |
-| Android (Java)    | `com.facebook.react.bridge.Promise`             |
-| iOS               | `RCTPromiseResolve` and `RCTPromiseRejectBlock` |
-
-#### Type Unions
-
-Type unions are only supported as callbacks.
-
-**Example:** `'SUCCESS' | 'FAIL'`
-| | |
-|---|---|
-| Nullable Support? | Only as callbacks |
-| Android (Java) | - |
-| iOS | - |
-
-#### Callbacks
-
-Callback functions are not type checked, and are generalized as `Object`s.
-
-**Example:** `() =>`
-| | |
-|---|---|
-| Nullable Support? | Yes |
-| Android (Java) | `com.facebook.react.bridge.Callback` |
-| iOS | `RCTResponseSenderBlock` |
-
-:::info
-You may also find it useful to refer to the JavaScript specifications for the core modules in React Native. These are located inside the `Libraries/` directory in the React Native repository.
-:::
-
-### TypeScript
-
-You may use the following table as a reference for which types are supported and what they map to in each platform:
-
-#### `string`
-
-|                   |                                 |
-| ----------------- | ------------------------------- |
-| Nullable Support? | <code>string &#124; null</code> |
-| Android (Java)    | `String`                        |
-| iOS               | `NSString`                      |
-
-#### `boolean`
-
-|                   |                                  |
-| ----------------- | -------------------------------- |
-| Nullable Support? | <code>boolean &#124; null</code> |
-| Android (Java)    | `Boolean`                        |
-| iOS               | `NSNumber`                       |
-
-#### `number`
-
-|                   |            |
-| ----------------- | ---------- |
-| Nullable Support? | No         |
-| Android (Java)    | `double`   |
-| iOS               | `NSNumber` |
-
-#### Object literal
-
-This is recommended over using plain `Object`, for type safety.
-
-**Example:** `{| foo: string, ... |}`
-| | |
-|---|---|
-| Nullable Support? | <code>?&#123;&#124; foo: string, ...&#124;&#125; &#124; null</code> |
-| Android (Java) | - |
-| iOS | - |
-
-#### `Object`
-
-:::info
-Recommended to use [Object literal](#object-literal-1) instead.
-:::
-
-|                   |                                 |
-| ----------------- | ------------------------------- |
-| Nullable Support? | <code>Object &#124; null</code> |
-| Android (Java)    | `ReadableMap`                   |
-| iOS               | `@` (untyped dictionary)        |
-
-#### `Array<*>`
-
-|                   |                                                                |
-| ----------------- | -------------------------------------------------------------- |
-| Nullable Support? | `Array<\*> &#124; null`                                        |
-| Android (Java)    | `ReadableArray`                                                |
-| iOS               | `NSArray` (or `RCTConvertVecToArray` when used inside objects) |
-
-#### `Function`
-
-|                   |                                   |
-| ----------------- | --------------------------------- |
-| Nullable Support? | <code>Function &#124; null</code> |
-| Android (Java)    | -                                 |
-| iOS               | -                                 |
-
-#### `Promise<*>`
-
-|                   |                                                 |
-| ----------------- | ----------------------------------------------- |
-| Nullable Support? | `Promise<\*> &#124; null`                       |
-| Android (Java)    | `com.facebook.react.bridge.Promise`             |
-| iOS               | `RCTPromiseResolve` and `RCTPromiseRejectBlock` |
-
-#### Type Unions
-
-Type unions are only supported as callbacks.
-
-**Example:** `'SUCCESS' | 'FAIL'`
-| | |
-|---|---|
-| Nullable Support? | Only as callbacks |
-| Android (Java) | - |
-| iOS | - |
-
-#### Callbacks
-
-Callback functions are not type checked, and are generalized as `Object`s.
-
-**Example:** `() =>`
-| | |
-|---|---|
-| Nullable Support? | Yes |
-| Android (Java) | `com.facebook.react.bridge.Callback` |
-| iOS | `RCTResponseSenderBlock` |
+<b>[1]</b> We strongly recommend using Object literals intead of Objects.
 
 :::info
 You may also find it useful to refer to the JavaScript specifications for the core modules in React Native. These are located inside the `Libraries/` directory in the React Native repository.
