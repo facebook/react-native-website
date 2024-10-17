@@ -334,6 +334,7 @@ yarn run android
 </TabItem>
 </Tabs>
 
-<video width="50%" height="50%" playsinline="true" autoplay="true" muted="true" loop="true">
-    <source src="/docs/assets/turbo-native-modules-android.webm" type="video/webm" />
+<video width="30%" height="30%" playsinline="true" autoplay="true" muted="true" loop="true">
+    <source src="/docs/assets/turbo-native-modules/turbo-native-modules-android.webm" type="video/webm" />
+    <source src="/docs/assets/turbo-native-modules/turbo-native-modules-android.mp4" type="video/mp4" />
 </video>

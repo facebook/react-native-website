@@ -224,7 +224,6 @@ Codegen is run as part of the script phases that's automatically added to the pr
 cd ios
 bundle install
 bundle exec pod install
-bundle exec pod install
 
 ...
 Framework build type is static library
