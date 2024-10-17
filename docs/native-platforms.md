@@ -15,8 +15,8 @@ This guide introduces:
 :::note
 You might have previously been familiar with:
 
-- [Legacy Native Modules](/legacy/native-modules-intro);
-- [Legacy Native Components](/legacy/native-components-intro);
+- [Legacy Native Modules](./legacy/native-modules-intro);
+- [Legacy Native Components](./legacy/native-components-android);
 
 These are our deprecated native module and component API. You can still use many of these legacy libraries with the New Architecture thanks to our interop layers. You should consider:
 
