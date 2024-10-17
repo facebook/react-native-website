@@ -85,6 +85,10 @@
       "the-new-architecture/pure-cxx-modules",
       "the-new-architecture/custom-cxx-types"
     ],
+    "Native Components": [
+      "the-new-architecture/direct-manipulation-na",
+      "the-new-architecture/layout-measurements"
+    ],
     "Android and iOS guides": [
       {
         "type": "category",
