@@ -29,7 +29,7 @@ To open DevTools, either:
 - Select "Open DevTools" in the Dev Menu.
 - Press <kbd>j</kbd> from the CLI (`npx react-native start`).
 
-On first launch, DevTools will open to a welcome panel, along with an open console drawer where you can view logs and interact with the JavaScript runtime. From the top of the window, you can navigate to other panels, including the integrated React DevTools Components Inspector and Profiler.
+On first launch, DevTools will open to a welcome panel, along with an open console drawer where you can view logs and interact with the JavaScript runtime. From the top of the window, you can navigate to other panels, including the integrated React Components Inspector and Profiler.
 
 ![React Native DevTools opened to the "Welcome" pane](/docs/assets/debugging-rndt-welcome.jpg)
 
@@ -45,7 +45,7 @@ React Native DevTools is only available with the Hermes engine, and requires eit
 
 #### Flipper and alternative debugging tools
 
-React Native DevTools replaces the previous previous Flipper, Experimental Debugger, and Hermes debugger (Chrome) entry points. If you are on an older version of React Native, please go to the docs [for your version](/versions).
+React Native DevTools replaces the previous Flipper, Experimental Debugger, and Hermes debugger (Chrome) frontends. If you are on an older version of React Native, please go to the docs [for your version](/versions).
 
 We continue to offer legacy debugging methods such as Direct JSC Debugging and Remote JS Debugging (deprecated) (see [Other Debugging Methods](./other-debugging-methods)).
 

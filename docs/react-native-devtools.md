@@ -14,7 +14,7 @@ React Native DevTools is designed for debugging React app concerns, and not to r
 <details>
 <summary>**💡 Compatibility** — released in 0.76</summary>
 
-React Native DevTools supports all React Native 0.76 apps (and onwards) running Hermes. It replaces the previous Flipper, Experimental Debugger, and Hermes debugger (Chrome) entry points.
+React Native DevTools supports all React Native apps running Hermes. It replaces the previous Flipper, Experimental Debugger, and Hermes debugger (Chrome) entry points.
 
 It is not possible to set up React Native DevTools with any older versions of React Native.
 
