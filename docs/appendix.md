@@ -2,10 +2,10 @@
 
 ## I. Terminology
 
-- **Schema** - TypeScript or Flow code that describes the API for a Turbo Native Module or Fabric Native component. Used by **Codegen** to generate boilerplate code.
+- **Spec** - TypeScript or Flow code that describes the API for a Turbo Native Module or Fabric Native component. Used by **Codegen** to generate boilerplate code.
 
-* **Turbo Native Modules** - Native libraries that have no “view” for the user. Examples would be persistent storage, notifications, network events. These are accessible to your JavaScript application code as functions and objects.
-* **Fabric Native Component** - Native platform views that are available to your application JavaScript code through React Components.
+- **Turbo Native Modules** - Native libraries that have no User Interface (UI) for the user. Examples would be persistent storage, notifications, network events. These are accessible to your JavaScript application code as functions and objects.
+- **Fabric Native Component** - Native platform views that are available to your application JavaScript code through React Components.
 
 - **Legacy Native Components** - Components which are running on the old React Native architecture.
 - **Legacy Native Modules** - Modules which are running on the old React Native architecture.

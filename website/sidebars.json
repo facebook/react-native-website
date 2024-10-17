@@ -83,6 +83,11 @@
     ],
     "Native Development": [
       {
+        "type": "doc",
+        "id": "native-platform",
+        "label": "Introduction"
+      },
+      {
         "type": "category",
         "label": "Modules",
         "collapsible": false,

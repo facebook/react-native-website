@@ -5,9 +5,9 @@ title: 'Turbo Native Modules: Android'
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
-Having completed both your Turbo Native Module specification, run codegen and written the application code we now need to write some Android platform code to make sure `localStorage` survives after the application is closed.
+Now it's time to write some Android platform code to make sure `localStorage` survives after the application is closed.
 
-The first step here is to implement the generated `NativeLocalStorageSpec` interface:
+The first step is to implement the generated `NativeLocalStorageSpec` interface:
 
 <Tabs groupId="android-language" queryString defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
 <TabItem value="java">
@@ -99,7 +99,7 @@ class NativeLocalStorageModule(reactContext: ReactApplicationContext) : NativeLo
 </TabItem>
 </Tabs>
 
-Next we need to create `NativeLocalStoragePackage`. It’s role is to provide an object to register our Module in the React Native runtime, by wrapping it as a Turbo Native Package:
+Next we need to create `NativeLocalStoragePackage`. It provides an object to register our Module in the React Native runtime, by wrapping it as a Turbo Native Package:
 
 <Tabs groupId="android-language" queryString defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
 <TabItem value="java">
@@ -187,7 +187,9 @@ class NativeLocalStoragePackage : TurboReactPackage() {
 </TabItem>
 </Tabs>
 
-Now we have both our `Module` and `Package` implemented, but we still need to tell the React Native in our main application how to find this `Package`. In our case, you add it to be returned by the [getPackages](https://github.com/facebook/react-native/blob/8d8b8c343e62115a5509e1aed62047053c2f6e39/packages/react-native/ReactAndroid/src/main/java/com/facebook/react/ReactNativeHost.java#L233) method.
+Finally, we need to tell the React Native in our main application how to find this `Package`. We call this "registering" the package in React Native.
+
+In our case, you add it to be returned by the [getPackages](https://github.com/facebook/react-native/blob/8d8b8c343e62115a5509e1aed62047053c2f6e39/packages/react-native/ReactAndroid/src/main/java/com/facebook/react/ReactNativeHost.java#L233) method.
 
 :::info
 Later you’ll learn how to distribute your Turbo Native Modules as npm packages <!-- [TODO: add link] -->, which our build tooling will autolink for you.
@@ -209,6 +211,7 @@ import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint;
 import com.facebook.react.defaults.DefaultReactHost;
 import com.facebook.react.defaults.DefaultReactNativeHost;
 import com.facebook.soloader.SoLoader;
+// highlight-add-next-line
 import com.nativelocalstorage.NativeLocalStoragePackage;
 
 import java.util.ArrayList;
@@ -223,7 +226,7 @@ public class MainApplication extends Application implements ReactApplication {
       // Packages that cannot be autolinked yet can be added manually here, for example:
       // packages.add(new MyReactNativePackage());
       // highlight-add-next-line
-+     packages.add(new NativeLocalStoragePackage());
+      packages.add(new NativeLocalStoragePackage());
       return packages;
     }
 
@@ -281,7 +284,8 @@ import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.load
 import com.facebook.react.defaults.DefaultReactHost.getDefaultReactHost
 import com.facebook.react.defaults.DefaultReactNativeHost
 import com.facebook.soloader.SoLoader
-+ import com.nativelocalstorage.NativeLocalStoragePackage
+// highlight-add-next-line
+import com.nativelocalstorage.NativeLocalStoragePackage
 
 class MainApplication : Application(), ReactApplication {
 
@@ -291,7 +295,8 @@ class MainApplication : Application(), ReactApplication {
             PackageList(this).packages.apply {
               // Packages that cannot be autolinked yet can be added manually here, for example:
               // add(MyReactNativePackage())
-+             add(NativeLocalStoragePackage())
+              // highlight-add-next-line
+              add(NativeLocalStoragePackage())
             }
 
         override fun getJSMainModuleName(): String = "index"
