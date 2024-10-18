@@ -2,7 +2,11 @@
 
 Sometimes, you need to measure the current layout to apply some changes to the overall layout or to make decisions and call some specific logic.
 
-React Native provides some native methods to know what are the measurements of the views. The best way to invoke those methods is in a `useLayoutEffect` hook: this will give you the most recent values for those measurements and it will let you apply changes in the same frame when the measurements are computed. Typical code will look like this:
+React Native provides some native methods to know what are the measurements of the views.
+
+The best way to invoke those methods is in a `useLayoutEffect` hook: this will give you the most recent values for those measurements and it will let you apply changes in the same frame when the measurements are computed.
+
+Typical code will look like this:
 
 ```tsx
 function AComponent(children) {
@@ -23,7 +27,7 @@ function AComponent(children) {
 ```
 
 :::note
-The methods described here are available on most of the default components provided by React Native. Note, however, that they are _not_ available on composite components that aren't directly backed by a native view. This will generally include most components that you define in your own app.
+The methods described here are available on most of the default components provided by React Native. However, they are _not_ available on composite components that aren't directly backed by a native view. This will generally include most components that you define in your own app.
 :::
 
 ## measure(callback)

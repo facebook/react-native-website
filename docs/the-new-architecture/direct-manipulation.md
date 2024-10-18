@@ -1,5 +1,5 @@
 ---
-id: direct-manipulation-na
+id: direct-manipulation-new-architecture
 title: Direct Manipulation
 ---
 
@@ -18,7 +18,9 @@ Before you use it, try to solve your problem with `setState` and [`shouldCompone
 
 ## setNativeProps to edit TextInput value
 
-Another very common use case of `setNativeProps` is to edit the value of the TextInput. The `controlled` prop of TextInput can sometimes drop characters when the `bufferDelay` is low and the user types very quickly. Some developers prefer to skip this prop entirely and instead use `setNativeProps` to directly manipulate the TextInput value when necessary. For example, the following code demonstrates editing the input when you tap a button:
+Another very common use case of `setNativeProps` is to edit the value of the TextInput. The `controlled` prop of TextInput can sometimes drop characters when the `bufferDelay` is low and the user types very quickly. Some developers prefer to skip this prop entirely and instead use `setNativeProps` to directly manipulate the TextInput value when necessary.
+
+For example, the following code demonstrates editing the input when you tap a button:
 
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
