@@ -83,7 +83,8 @@
     ],
     "Native Modules": [
       "the-new-architecture/pure-cxx-modules",
-      "the-new-architecture/custom-cxx-types"
+      "the-new-architecture/custom-cxx-types",
+      "the-new-architecture/create-module-library"
     ],
     "Android and iOS guides": [
       {
