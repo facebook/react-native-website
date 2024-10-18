@@ -86,6 +86,10 @@
       "the-new-architecture/custom-cxx-types",
       "the-new-architecture/create-module-library"
     ],
+    "Native Components": [
+      "the-new-architecture/direct-manipulation-new-architecture",
+      "the-new-architecture/layout-measurements"
+    ],
     "Android and iOS guides": [
       {
         "type": "category",
