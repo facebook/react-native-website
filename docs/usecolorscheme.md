@@ -15,8 +15,6 @@ The `useColorScheme` React hook provides and subscribes to color scheme updates 
 - `"dark"`: The user prefers a dark color theme.
 - `null`: The user has not indicated a preferred color theme.
 
-> **Note:** Currently due to technical constraints, when the Chrome debugger is enabled, this hook will _always_ return `"light"`.
-
 ---
 
 ## Example
