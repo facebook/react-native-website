@@ -230,8 +230,10 @@ If, for any reasons, you can't use the New Architecture, you can still opt-out f
 
 ### iOS
 
-1. Install your CocoaPods dependencies with the command:
+1. Open the `ios/Podfile` file
+2. Add `ENV['RCT_NEW_ARCH_ENABLED'] = '0'` in the main scope of the file
+3. Install your CocoaPods dependencies with the command:
 
 ```shell
-RCT_NEW_ARCH_ENABLED=0 bundle exec pod install
+bundle exec pod install
 ```
