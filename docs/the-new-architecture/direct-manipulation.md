@@ -25,7 +25,7 @@ For example, the following code demonstrates editing the input when you tap a bu
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
-```SnackPlayer name=Clear%20text&ext=js
+```SnackPlayer name=setNativeProps%20on%20TextInput&ext=js
 import React from 'react';
 import {useCallback, useRef} from 'react';
 import {
