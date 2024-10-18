@@ -73,10 +73,19 @@
       "build-speed",
       "optimizing-flatlist-configuration",
       "optimizing-javascript-loading",
-      "profiling",
-      "profile-hermes"
+      "profiling"
     ],
     "JavaScript Runtime": ["javascript-environment", "timers", "hermes"],
+    "Codegen": [
+      "the-new-architecture/what-is-codegen",
+      "the-new-architecture/using-codegen",
+      "the-new-architecture/codegen-cli"
+    ],
+    "Native Modules": [
+      "the-new-architecture/pure-cxx-modules",
+      "the-new-architecture/custom-cxx-types",
+      "the-new-architecture/create-module-library"
+    ],
     "Android and iOS guides": [
       {
         "type": "category",
@@ -104,7 +113,6 @@
         ]
       }
     ],
-    "New Architecture": ["the-new-architecture/landing-page"],
     "Legacy Architecture": [
       {
         "type": "category",

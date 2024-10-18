@@ -7,9 +7,7 @@ title: '🚧 PushNotificationIOS'
 
 <div className="banner-native-code-required">
   <h3>Projects with Native Code Only</h3>
-  <p>
-    The following section only applies to projects with native code exposed. If you are using the managed Expo workflow, see the guide on <a href="https://docs.expo.dev/versions/latest/sdk/notifications/">Notifications</a> in the Expo documentation for the appropriate alternative.
-  </p>
+  <p>The following section only applies to projects with native code exposed. If you are using the managed Expo workflow, see the guide on <a href="https://docs.expo.dev/versions/latest/sdk/notifications/">Notifications</a> in the Expo documentation for the appropriate alternative.</p>
 </div>
 
 Handle push notifications for your app, including permission handling and icon badge number.
