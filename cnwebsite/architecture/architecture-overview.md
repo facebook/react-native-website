@@ -13,12 +13,13 @@ slug: /overview
 
 ## 目录
 
+- [关于新架构](landing-page)
 - 渲染
   - [Fabric 渲染器](fabric-renderer)
   - [渲染流水线](render-pipeline)
   - [跨平台的实现](xplat-implementation)
   - [视图拍平](view-flattening)
   - [线程模型](threading-model)
-- Build Tools
-  - [Bundled Hermes](bundled-hermes)
+- 构建工具
+  - [捆绑的 Hermes](bundled-hermes)
 - [术语表](glossary)
