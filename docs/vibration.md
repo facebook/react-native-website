@@ -7,7 +7,7 @@ Vibrates the device.
 
 ## Example
 
-```SnackPlayer name=Vibration&supportedPlatforms=ios,android
+```SnackPlayer name=Vibration%20Example&supportedPlatforms=ios,android
 import React from 'react';
 import {
   Button,
@@ -15,9 +15,9 @@ import {
   Text,
   Vibration,
   View,
-  SafeAreaView,
   StyleSheet,
 } from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const Separator = () => {
   return <View style={Platform.OS === 'android' ? styles.separator : null} />;
@@ -38,40 +38,42 @@ const App = () => {
       : 'wait 1s, vibrate, wait 2s, vibrate, wait 3s';
 
   return (
-    <SafeAreaView style={styles.container}>
-      <Text style={[styles.header, styles.paragraph]}>Vibration API</Text>
-      <View>
-        <Button title="Vibrate once" onPress={() => Vibration.vibrate()} />
-      </View>
-      <Separator />
-      {Platform.OS === 'android'
-        ? [
-            <View>
-              <Button
-                title="Vibrate for 10 seconds"
-                onPress={() => Vibration.vibrate(10 * ONE_SECOND_IN_MS)}
-              />
-            </View>,
-            <Separator />,
-          ]
-        : null}
-      <Text style={styles.paragraph}>Pattern: {PATTERN_DESC}</Text>
-      <Button
-        title="Vibrate with pattern"
-        onPress={() => Vibration.vibrate(PATTERN)}
-      />
-      <Separator />
-      <Button
-        title="Vibrate with pattern until cancelled"
-        onPress={() => Vibration.vibrate(PATTERN, true)}
-      />
-      <Separator />
-      <Button
-        title="Stop vibration pattern"
-        onPress={() => Vibration.cancel()}
-        color="#FF0000"
-      />
-    </SafeAreaView>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <Text style={[styles.header, styles.paragraph]}>Vibration API</Text>
+        <View>
+          <Button title="Vibrate once" onPress={() => Vibration.vibrate()} />
+        </View>
+        <Separator />
+        {Platform.OS === 'android'
+          ? [
+              <View>
+                <Button
+                  title="Vibrate for 10 seconds"
+                  onPress={() => Vibration.vibrate(10 * ONE_SECOND_IN_MS)}
+                />
+              </View>,
+              <Separator />,
+            ]
+          : null}
+        <Text style={styles.paragraph}>Pattern: {PATTERN_DESC}</Text>
+        <Button
+          title="Vibrate with pattern"
+          onPress={() => Vibration.vibrate(PATTERN)}
+        />
+        <Separator />
+        <Button
+          title="Vibrate with pattern until cancelled"
+          onPress={() => Vibration.vibrate(PATTERN, true)}
+        />
+        <Separator />
+        <Button
+          title="Stop vibration pattern"
+          onPress={() => Vibration.cancel()}
+          color="#FF0000"
+        />
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 

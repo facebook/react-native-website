@@ -3,7 +3,7 @@ id: native-modules-ios
 title: iOS Native Modules
 ---
 
-import NativeDeprecated from './the-new-architecture/\_markdown_native_deprecation.mdx'
+import NativeDeprecated from '../the-new-architecture/\_markdown_native_deprecation.mdx'
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 <NativeDeprecated />
@@ -140,7 +140,7 @@ Find a place in your application where you would like to add a call to the nativ
 
 ```tsx
 import React from 'react';
-import {NativeModules, Button} from 'react-native';
+import {Button} from 'react-native';
 
 const NewModuleButton = () => {
   const onPress = () => {

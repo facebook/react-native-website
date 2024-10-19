@@ -11,13 +11,14 @@ This example shows fetching and displaying an image from local storage as well a
 
 ## Examples
 
-```SnackPlayer name=Example
+```SnackPlayer name=Image%20Example
 import React from 'react';
-import {View, Image, StyleSheet} from 'react-native';
+import {Image, StyleSheet} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 50,
+    flex: 1,
   },
   tinyLogo: {
     width: 50,
@@ -29,9 +30,9 @@ const styles = StyleSheet.create({
   },
 });
 
-const DisplayAnImage = () => {
-  return (
-    <View style={styles.container}>
+const DisplayAnImage = () => (
+  <SafeAreaProvider>
+    <SafeAreaView style={styles.container}>
       <Image
         style={styles.tinyLogo}
         source={require('@expo/snack-static/react-native-logo.png')}
@@ -48,22 +49,23 @@ const DisplayAnImage = () => {
           uri: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAzCAYAAAA6oTAqAAAAEXRFWHRTb2Z0d2FyZQBwbmdjcnVzaEB1SfMAAABQSURBVGje7dSxCQBACARB+2/ab8BEeQNhFi6WSYzYLYudDQYGBgYGBgYGBgYGBgYGBgZmcvDqYGBgmhivGQYGBgYGBgYGBgYGBgYGBgbmQw+P/eMrC5UTVAAAAABJRU5ErkJggg==',
         }}
       />
-    </View>
-  );
-};
+    </SafeAreaView>
+  </SafeAreaProvider>
+);
 
 export default DisplayAnImage;
 ```
 
 You can also add `style` to an image:
 
-```SnackPlayer name=Example
+```SnackPlayer name=Styled%20Image%20Example
 import React from 'react';
-import {View, Image, StyleSheet} from 'react-native';
+import {Image, StyleSheet} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 50,
+    flex: 1,
   },
   stretch: {
     width: 50,
@@ -72,16 +74,16 @@ const styles = StyleSheet.create({
   },
 });
 
-const DisplayAnImageWithStyle = () => {
-  return (
-    <View style={styles.container}>
+const DisplayAnImageWithStyle = () => (
+  <SafeAreaProvider>
+    <SafeAreaView style={styles.container}>
       <Image
         style={styles.stretch}
         source={require('@expo/snack-static/react-native-logo.png')}
       />
-    </View>
-  );
-};
+    </SafeAreaView>
+  </SafeAreaProvider>
+);
 
 export default DisplayAnImageWithStyle;
 ```
@@ -334,11 +336,13 @@ The mechanism that should be used to resize the image when the image's dimension
 
 - `scale`: The image gets drawn downscaled or upscaled. Compared to `resize`, `scale` is faster (usually hardware accelerated) and produces higher quality images. This should be used if the image is smaller than the view. It should also be used if the image is slightly bigger than the view.
 
+- `none`: No sampling is performed and the image is displayed in its full resolution. This should only be used in rare circumstances because it is considered unsafe as Android will throw a runtime exception when trying to render images that consume too much memory.
+
 More details about `resize` and `scale` can be found at https://frescolib.org/docs/resizing.
 
-| Type                                  | Default  |
-| ------------------------------------- | -------- |
-| enum(`'auto'`, `'resize'`, `'scale'`) | `'auto'` |
+| Type                                            | Default  |
+| ----------------------------------------------- | -------- |
+| enum(`'auto'`, `'resize'`, `'scale'`, `'none'`) | `'auto'` |
 
 ---
 
@@ -386,6 +390,8 @@ The image source (either a remote URL or a local file resource).
 This prop can also contain several remote URLs, specified together with their width and height and potentially with scale/other URI arguments. The native side will then choose the best `uri` to display based on the measured size of the image container. A `cache` property can be added to control how networked request interacts with the local cache. (For more information see [Cache Control for Images](images#cache-control-ios-only)).
 
 The currently supported formats are `png`, `jpg`, `jpeg`, `bmp`, `gif`, `webp`, `psd` (iOS only). In addition, iOS supports several RAW image formats. Refer to Apple's documentation for the current list of supported camera models (for iOS 12, see https://support.apple.com/en-ca/HT208967).
+
+Please note that the `webp` format is supported on iOS **only** when bundled with the JavaScript code.
 
 | Type                             |
 | -------------------------------- |

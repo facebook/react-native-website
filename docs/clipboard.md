@@ -14,7 +14,6 @@ title: '🚧 Clipboard'
 ```SnackPlayer name=Clipboard%20API%20Example&supportedPlatforms=ios,android
 import React, {useState} from 'react';
 import {
-  SafeAreaView,
   View,
   Text,
   TouchableOpacity,
@@ -35,7 +34,7 @@ const App = () => {
   };
 
   return (
-    <SafeAreaView style={{flex: 1}}>
+    <View style={{flex: 1}}>
       <View style={styles.container}>
         <TouchableOpacity onPress={() => copyToClipboard()}>
           <Text>Click here to copy to Clipboard</Text>
@@ -46,7 +45,7 @@ const App = () => {
 
         <Text style={styles.copiedText}>{copiedText}</Text>
       </View>
-    </SafeAreaView>
+    </View>
   );
 };
 

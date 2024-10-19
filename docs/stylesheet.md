@@ -7,12 +7,15 @@ A StyleSheet is an abstraction similar to CSS StyleSheets.
 
 ```SnackPlayer name=StyleSheet
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => (
-  <View style={styles.container}>
-    <Text style={styles.title}>React Native</Text>
-  </View>
+  <SafeAreaProvider>
+    <SafeAreaView style={styles.container}>
+      <Text style={styles.title}>React Native</Text>
+    </SafeAreaView>
+  </SafeAreaProvider>
 );
 
 const styles = StyleSheet.create({
@@ -60,12 +63,15 @@ Combines two styles such that `style2` will override any styles in `style1`. If 
 
 ```SnackPlayer name=Compose
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => (
-  <View style={container}>
-    <Text style={text}>React Native</Text>
-  </View>
+  <SafeAreaProvider>
+    <SafeAreaView style={container}>
+      <Text style={text}>React Native</Text>
+    </SafeAreaView>
+  </SafeAreaProvider>
 );
 
 const page = StyleSheet.create({
@@ -86,7 +92,6 @@ const lists = StyleSheet.create({
     backgroundColor: '#61dafb',
   },
   listItem: {
-    fontStyle: 'italic',
     fontWeight: 'bold',
   },
 });
@@ -119,14 +124,17 @@ Flattens an array of style objects, into one aggregated style object.
 
 ```SnackPlayer name=Flatten
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => (
-  <View style={page.container}>
-    <Text style={flattenStyle}>React Native</Text>
-    <Text>Flatten Style</Text>
-    <Text style={page.code}>{JSON.stringify(flattenStyle, null, 2)}</Text>
-  </View>
+  <SafeAreaProvider>
+    <SafeAreaView style={page.container}>
+      <Text style={flattenStyle}>React Native</Text>
+      <Text>Flatten Style</Text>
+      <Text style={page.code}>{JSON.stringify(flattenStyle, null, 2)}</Text>
+    </SafeAreaView>
+  </SafeAreaProvider>
 );
 
 const page = StyleSheet.create({
@@ -188,19 +196,22 @@ A very common pattern is to create overlays with position absolute and zero posi
 ```SnackPlayer name=absoluteFill
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => (
-  <View style={styles.container}>
-    <View style={styles.box1}>
-      <Text style={styles.text}>1</Text>
-    </View>
-    <View style={[styles.box2, StyleSheet.absoluteFill]}>
-      <Text style={styles.text}>2</Text>
-    </View>
-    <View style={styles.box3}>
-      <Text style={styles.text}>3</Text>
-    </View>
-  </View>
+  <SafeAreaProvider>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.box1}>
+        <Text style={styles.text}>1</Text>
+      </View>
+      <View style={[styles.box2, StyleSheet.absoluteFill]}>
+        <Text style={styles.text}>2</Text>
+      </View>
+      <View style={styles.box3}>
+        <Text style={styles.text}>3</Text>
+      </View>
+    </SafeAreaView>
+  </SafeAreaProvider>
 );
 
 const styles = StyleSheet.create({
@@ -246,19 +257,22 @@ Sometimes you may want `absoluteFill` but with a couple tweaks - `absoluteFillOb
 ```SnackPlayer name=absoluteFillObject
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => (
-  <View style={styles.container}>
-    <View style={styles.box1}>
-      <Text style={styles.text}>1</Text>
-    </View>
-    <View style={styles.box2}>
-      <Text style={styles.text}>2</Text>
-    </View>
-    <View style={styles.box3}>
-      <Text style={styles.text}>3</Text>
-    </View>
-  </View>
+  <SafeAreaProvider>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.box1}>
+        <Text style={styles.text}>1</Text>
+      </View>
+      <View style={styles.box2}>
+        <Text style={styles.text}>2</Text>
+      </View>
+      <View style={styles.box3}>
+        <Text style={styles.text}>3</Text>
+      </View>
+    </SafeAreaView>
+  </SafeAreaProvider>
 );
 
 const styles = StyleSheet.create({
