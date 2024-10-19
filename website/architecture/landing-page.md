@@ -3,10 +3,6 @@ id: landing-page
 title: About the New Architecture
 ---
 
-:::info
-If you are looking for the New Architecture guides, they have moved to the [working group](https://github.com/reactwg/react-native-new-architecture#guides).
-:::
-
 Since 2018, the React Native team has been redesigning the core internals of React Native to enable developers to create higher-quality experiences. As of 2024, this version of React Native has been proven at scale and powers production apps by Meta.
 
 The term _New Architecture_ refers to both the new framework architecture and the work to bring it to open source.
@@ -193,10 +189,6 @@ JSI enables [VisionCamera](https://github.com/mrousavy/react-native-vision-camer
 
 JSI adoption in the New Architecture removes this class of serialization work from all native-JavaScript interop. This includes initializing and re-rendering native core components like `View` and `Text`. You can read more about our [investigation in rendering performance](https://github.com/reactwg/react-native-new-architecture/discussions/123) in the New Architecture and the improved benchmarks we measured.
 
-### Learn more
-
-To achieve this, the New Architecture had to refactor multiple parts of the React Native infrastructure. To learn more about the refactor and other benefits it brings, check out the [documentation](https://github.com/reactwg/react-native-new-architecture) in the New Architecture working group.
-
 ## What can I expect from enabling the New Architecture?
 
 While the New Architecture enables these features and improvements, enabling the New Architecture for your app or library may not immediately improve the performance or user experience.
@@ -215,16 +207,31 @@ You can follow along and contribute in our dedicated [discussions & proposals](h
 
 ## Should I use the New Architecture today?
 
-At [React Conf 2024](https://youtu.be/Q5SMmKb7qVI?feature=shared&t=1219), we announced that the React Native [New Architecture is now in Beta](https://github.com/reactwg/react-native-new-architecture/discussions/189).
+With 0.76, The New Architecture is enabled by default in all the React Native projects.
 
-We believe that the New Architecture is very close to be used in production.
+If you find aything that is not working well, please open an issue using [this template](https://github.com/facebook/react-native/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2CType%3A+New+Architecture&projects=&template=new_architecture_bug_report.yml).
 
-Our guidance is as follows:
+If, for any reasons, you can't use the New Architecture, you can still opt-out from it:
 
-- For most production apps, we do _not_ recommend enabling the New Architecture today. Waiting for the official release will offer the best experience.
-- However, we do advise for you to plan for the migration and to start trying it out.
-- If you maintain a React Native library, we recommend enabling it and verifying your use cases are covered. You can find the [instructions here](https://github.com/reactwg/react-native-new-architecture#guides).
+### Android
 
-### Enable the New Architecture
+1. Open the `android/gradle.properties` file
+2. Toggle the `newArchEnabled` flag from `true` to `false`
 
-If you are interested in dogfooding the New Architecture experience, you can find [instructions](https://github.com/reactwg/react-native-new-architecture/blob/main/docs/enable-apps.md) in our dedicated working group. The [New Architecture working group](https://github.com/reactwg/react-native-new-architecture) is a dedicated space for support and coordination for New Architecture adoption and where the team posts regular updates.
+```diff title="gradle.properties"
+# Use this property to enable support to the new architecture.
+# This will allow you to use TurboModules and the Fabric render in
+# your application. You should enable this flag either if you want
+# to write custom TurboModules/Fabric components OR use libraries that
+# are providing them.
+-newArchEnabled=true
++newArchEnabled=false
+```
+
+### iOS
+
+1. Install your CocoaPods dependencies with the command:
+
+```shell
+RCT_NEW_ARCH_ENABLED=0 bundle exec pod install
+```

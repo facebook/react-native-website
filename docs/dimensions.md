@@ -22,9 +22,10 @@ If you are targeting foldable devices or devices which can change the screen siz
 
 ## Example
 
-```SnackPlayer name=Dimensions
+```SnackPlayer name=Dimensions%20Example
 import React, {useState, useEffect} from 'react';
-import {View, StyleSheet, Text, Dimensions} from 'react-native';
+import {StyleSheet, Text, Dimensions} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const windowDimensions = Dimensions.get('window');
 const screenDimensions = Dimensions.get('screen');
@@ -46,20 +47,22 @@ const App = () => {
   });
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.header}>Window Dimensions</Text>
-      {Object.entries(dimensions.window).map(([key, value]) => (
-        <Text>
-          {key} - {value}
-        </Text>
-      ))}
-      <Text style={styles.header}>Screen Dimensions</Text>
-      {Object.entries(dimensions.screen).map(([key, value]) => (
-        <Text>
-          {key} - {value}
-        </Text>
-      ))}
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <Text style={styles.header}>Window Dimensions</Text>
+        {Object.entries(dimensions.window).map(([key, value]) => (
+          <Text>
+            {key} - {value}
+          </Text>
+        ))}
+        <Text style={styles.header}>Screen Dimensions</Text>
+        {Object.entries(dimensions.screen).map(([key, value]) => (
+          <Text>
+            {key} - {value}
+          </Text>
+        ))}
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 

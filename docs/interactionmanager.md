@@ -55,8 +55,8 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View,
 } from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -98,10 +98,12 @@ const Ball = ({onShown}) => {
 
 const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>{instructions}</Text>
-      <Ball onShown={() => Alert.alert('Animation is done')} />
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <Text>{instructions}</Text>
+        <Ball onShown={() => Alert.alert('Animation is done')} />
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
@@ -134,8 +136,8 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View,
 } from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -181,10 +183,12 @@ const Ball = ({onShown}: BallProps) => {
 
 const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>{instructions}</Text>
-      <Ball onShown={() => Alert.alert('Animation is done')} />
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <Text>{instructions}</Text>
+        <Ball onShown={() => Alert.alert('Animation is done')} />
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
@@ -222,8 +226,8 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View,
 } from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -260,10 +264,12 @@ const Ball = ({onInteractionIsDone}) => {
 
 const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>{instructions}</Text>
-      <Ball onInteractionIsDone={() => Alert.alert('Interaction is done')} />
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <Text>{instructions}</Text>
+        <Ball onInteractionIsDone={() => Alert.alert('Interaction is done')} />
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
@@ -296,8 +302,8 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View,
 } from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -338,10 +344,12 @@ const Ball = ({onInteractionIsDone}: BallProps) => {
 
 const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>{instructions}</Text>
-      <Ball onInteractionIsDone={() => Alert.alert('Interaction is done')} />
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <Text>{instructions}</Text>
+        <Ball onInteractionIsDone={() => Alert.alert('Interaction is done')} />
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 

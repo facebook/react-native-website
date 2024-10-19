@@ -21,19 +21,14 @@ This is where `FlatList` comes into play. `FlatList` renders items lazily, when 
 
 ## Example
 
-```SnackPlayer name=ScrollView
+```SnackPlayer name=ScrollView%20Example
 import React from 'react';
-import {
-  StyleSheet,
-  Text,
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-} from 'react-native';
+import {StyleSheet, Text, ScrollView, StatusBar} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
-const App = () => {
-  return (
-    <SafeAreaView style={styles.container}>
+const App = () => (
+  <SafeAreaProvider>
+    <SafeAreaView style={styles.container} edges={['top']}>
       <ScrollView style={styles.scrollView}>
         <Text style={styles.text}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -46,8 +41,8 @@ const App = () => {
         </Text>
       </ScrollView>
     </SafeAreaView>
-  );
-};
+  </SafeAreaProvider>
+);
 
 const styles = StyleSheet.create({
   container: {
@@ -56,10 +51,10 @@ const styles = StyleSheet.create({
   },
   scrollView: {
     backgroundColor: 'pink',
-    marginHorizontal: 20,
   },
   text: {
     fontSize: 42,
+    padding: 12,
   },
 });
 

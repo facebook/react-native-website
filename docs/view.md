@@ -12,19 +12,17 @@ This example creates a `View` that wraps two boxes with color and a text compone
 ```SnackPlayer name=View%20Example
 import React from 'react';
 import {View, Text} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const ViewBoxesWithColorAndText = () => {
   return (
-    <View
-      style={{
-        flexDirection: 'row',
-        height: 100,
-        padding: 20,
-      }}>
-      <View style={{backgroundColor: 'blue', flex: 0.3}} />
-      <View style={{backgroundColor: 'red', flex: 0.5}} />
-      <Text>Hello World!</Text>
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={{height: 100, flexDirection: 'row'}}>
+        <View style={{backgroundColor: 'blue', flex: 0.2}} />
+        <View style={{backgroundColor: 'red', flex: 0.4}} />
+        <Text>Hello World!</Text>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 

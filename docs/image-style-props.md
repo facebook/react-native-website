@@ -9,78 +9,70 @@ title: Image Style Props
 
 ```SnackPlayer name=Image%20Resize%20Modes%20Example
 import React from 'react';
-import {View, Image, Text, StyleSheet} from 'react-native';
+import {View, Image, Text, StyleSheet, ScrollView} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
-const DisplayAnImageWithStyle = () => {
-  return (
-    <View style={styles.container}>
-      <View>
-        <Image
-          style={{
-            resizeMode: 'cover',
-            height: 100,
-            width: 200,
-          }}
-          source={require('@expo/snack-static/react-native-logo.png')}
-        />
-        <Text>resizeMode : cover</Text>
-      </View>
-      <View>
-        <Image
-          style={{
-            resizeMode: 'contain',
-            height: 100,
-            width: 200,
-          }}
-          source={require('@expo/snack-static/react-native-logo.png')}
-        />
-        <Text>resizeMode : contain</Text>
-      </View>
-      <View>
-        <Image
-          style={{
-            resizeMode: 'stretch',
-            height: 100,
-            width: 200,
-          }}
-          source={require('@expo/snack-static/react-native-logo.png')}
-        />
-        <Text>resizeMode : stretch</Text>
-      </View>
-      <View>
-        <Image
-          style={{
-            resizeMode: 'repeat',
-            height: 100,
-            width: 200,
-          }}
-          source={require('@expo/snack-static/react-native-logo.png')}
-        />
-        <Text>resizeMode : repeat</Text>
-      </View>
-      <View>
-        <Image
-          style={{
-            resizeMode: 'center',
-            height: 100,
-            width: 200,
-          }}
-          source={require('@expo/snack-static/react-native-logo.png')}
-        />
-        <Text>resizeMode : center</Text>
-      </View>
-    </View>
-  );
-};
+const asset = require('@expo/snack-static/react-native-logo.png');
+
+const DisplayAnImageWithStyle = () => (
+  <SafeAreaProvider>
+    <SafeAreaView style={styles.container} edges={['top']}>
+      <ScrollView style={styles.scrollView}>
+        <View>
+          <Image style={[styles.image, {resizeMode: 'cover'}]} source={asset} />
+          <Text style={styles.text}>resizeMode : cover</Text>
+        </View>
+        <View>
+          <Image
+            style={[styles.image, {resizeMode: 'contain'}]}
+            source={asset}
+          />
+          <Text style={styles.text}>resizeMode : contain</Text>
+        </View>
+        <View>
+          <Image
+            style={[styles.image, {resizeMode: 'stretch'}]}
+            source={asset}
+          />
+          <Text style={styles.text}>resizeMode : stretch</Text>
+        </View>
+        <View>
+          <Image
+            style={[styles.image, {resizeMode: 'repeat'}]}
+            source={asset}
+          />
+          <Text style={styles.text}>resizeMode : repeat</Text>
+        </View>
+        <View>
+          <Image
+            style={[styles.image, {resizeMode: 'center'}]}
+            source={asset}
+          />
+          <Text style={styles.text}>resizeMode : center</Text>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+  </SafeAreaProvider>
+);
 
 const styles = StyleSheet.create({
   container: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-around',
+    flex: 1,
+  },
+  scrollView: {
+    padding: 12,
     alignItems: 'center',
-    height: '100%',
+    gap: 16,
+  },
+  image: {
+    borderWidth: 1,
+    borderColor: 'red',
+    height: 100,
+    width: 200,
+  },
+  text: {
     textAlign: 'center',
+    marginBottom: 12,
   },
 });
 
@@ -91,11 +83,12 @@ export default DisplayAnImageWithStyle;
 
 ```SnackPlayer name=Style%20BorderWidth%20and%20BorderColor%20Example
 import React from 'react';
-import {View, Image, StyleSheet, Text} from 'react-native';
+import {Image, StyleSheet, Text} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
-const DisplayAnImageWithStyle = () => {
-  return (
-    <View style={styles.container}>
+const DisplayAnImageWithStyle = () => (
+  <SafeAreaProvider>
+    <SafeAreaView style={styles.container}>
       <Image
         style={{
           borderColor: 'red',
@@ -106,18 +99,16 @@ const DisplayAnImageWithStyle = () => {
         source={require('@expo/snack-static/react-native-logo.png')}
       />
       <Text>borderColor & borderWidth</Text>
-    </View>
-  );
-};
+    </SafeAreaView>
+  </SafeAreaProvider>
+);
 
 const styles = StyleSheet.create({
   container: {
-    display: 'flex',
+    flex: 1,
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    height: '100%',
-    textAlign: 'center',
   },
 });
 
@@ -128,67 +119,62 @@ export default DisplayAnImageWithStyle;
 
 ```SnackPlayer name=Style%20Border%20Radius%20Example
 import React from 'react';
-import {View, Image, StyleSheet, Text} from 'react-native';
+import {View, Image, StyleSheet, Text, ScrollView} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
-const DisplayAnImageWithStyle = () => {
-  return (
-    <View style={styles.container}>
-      <View>
-        <Image
-          style={{
-            borderTopRightRadius: 20,
-            height: 100,
-            width: 200,
-          }}
-          source={require('@expo/snack-static/react-native-logo.png')}
-        />
-        <Text>borderTopRightRadius</Text>
-      </View>
-      <View>
-        <Image
-          style={{
-            borderBottomRightRadius: 20,
-            height: 100,
-            width: 200,
-          }}
-          source={require('@expo/snack-static/react-native-logo.png')}
-        />
-        <Text>borderBottomRightRadius</Text>
-      </View>
-      <View>
-        <Image
-          style={{
-            borderBottomLeftRadius: 20,
-            height: 100,
-            width: 200,
-          }}
-          source={require('@expo/snack-static/react-native-logo.png')}
-        />
-        <Text>borderBottomLeftRadius</Text>
-      </View>
-      <View>
-        <Image
-          style={{
-            borderTopLeftRadius: 20,
-            height: 100,
-            width: 200,
-          }}
-          source={require('@expo/snack-static/react-native-logo.png')}
-        />
-        <Text>borderTopLeftRadius</Text>
-      </View>
-    </View>
-  );
-};
+const asset = require('@expo/snack-static/react-native-logo.png');
+
+const DisplayAnImageWithStyle = () => (
+  <SafeAreaProvider>
+    <SafeAreaView style={styles.container}>
+      <ScrollView style={styles.scrollView}>
+        <View>
+          <Image
+            style={[styles.image, {borderTopRightRadius: 20}]}
+            source={asset}
+          />
+          <Text>borderTopRightRadius</Text>
+        </View>
+        <View>
+          <Image
+            style={[styles.image, {borderBottomRightRadius: 20}]}
+            source={asset}
+          />
+          <Text>borderBottomRightRadius</Text>
+        </View>
+        <View>
+          <Image
+            style={[styles.image, {borderBottomLeftRadius: 20}]}
+            source={asset}
+          />
+          <Text>borderBottomLeftRadius</Text>
+        </View>
+        <View>
+          <Image
+            style={[styles.image, {borderTopLeftRadius: 20}]}
+            source={asset}
+          />
+          <Text>borderTopLeftRadius</Text>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+  </SafeAreaProvider>
+);
 
 const styles = StyleSheet.create({
   container: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-around',
+    flex: 1,
+  },
+  scrollView: {
+    flex: 1,
+    justifyContent: 'center',
     alignItems: 'center',
-    height: '100%',
-    textAlign: 'center',
+  },
+  image: {
+    borderWidth: 1,
+    borderColor: 'red',
+    height: 100,
+    width: 200,
   },
 });
 
@@ -199,11 +185,12 @@ export default DisplayAnImageWithStyle;
 
 ```SnackPlayer name=Style%20tintColor%20Function%20Component
 import React from 'react';
-import {View, Image, StyleSheet, Text} from 'react-native';
+import {Image, StyleSheet, Text} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
-const DisplayAnImageWithStyle = () => {
-  return (
-    <View style={styles.container}>
+const DisplayAnImageWithStyle = () => (
+  <SafeAreaProvider>
+    <SafeAreaView style={styles.container}>
       <Image
         style={{
           tintColor: '#000000',
@@ -214,18 +201,15 @@ const DisplayAnImageWithStyle = () => {
         source={require('@expo/snack-static/react-native-logo.png')}
       />
       <Text>tintColor</Text>
-    </View>
-  );
-};
+    </SafeAreaView>
+  </SafeAreaProvider>
+);
 
 const styles = StyleSheet.create({
   container: {
-    display: 'flex',
-    flexDirection: 'column',
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    height: '100%',
-    textAlign: 'center',
   },
 });
 

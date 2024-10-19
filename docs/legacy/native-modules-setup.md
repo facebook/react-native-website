@@ -3,7 +3,7 @@ id: native-modules-setup
 title: Native Modules NPM Package Setup
 ---
 
-import NativeDeprecated from './the-new-architecture/\_markdown_native_deprecation.mdx'
+import NativeDeprecated from '../the-new-architecture/\_markdown_native_deprecation.mdx'
 
 <NativeDeprecated />
 

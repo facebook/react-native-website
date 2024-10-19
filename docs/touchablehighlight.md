@@ -33,22 +33,25 @@ function MyComponent(props: MyComponentProps) {
 ```SnackPlayer name=TouchableHighlight%20Example
 import React, {useState} from 'react';
 import {StyleSheet, Text, TouchableHighlight, View} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const TouchableHighlightExample = () => {
   const [count, setCount] = useState(0);
   const onPress = () => setCount(count + 1);
 
   return (
-    <View style={styles.container}>
-      <TouchableHighlight onPress={onPress}>
-        <View style={styles.button}>
-          <Text>Touch Here</Text>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <TouchableHighlight onPress={onPress}>
+          <View style={styles.button}>
+            <Text>Touch Here</Text>
+          </View>
+        </TouchableHighlight>
+        <View style={styles.countContainer}>
+          <Text style={styles.countText}>{count || null}</Text>
         </View>
-      </TouchableHighlight>
-      <View style={styles.countContainer}>
-        <Text style={styles.countText}>{count || null}</Text>
-      </View>
-    </View>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 

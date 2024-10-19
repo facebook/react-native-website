@@ -19,7 +19,7 @@ if (Platform.OS === 'android') {
 
 ## Example
 
-```SnackPlayer name=LayoutAnimation&supportedPlatforms=android,ios
+```SnackPlayer name=LayoutAnimation%20Example&supportedPlatforms=android,ios
 import React, {useState} from 'react';
 import {
   LayoutAnimation,
@@ -30,6 +30,7 @@ import {
   UIManager,
   View,
 } from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 if (
   Platform.OS === 'android' &&
@@ -41,34 +42,37 @@ const App = () => {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <View style={style.container}>
-      <TouchableOpacity
-        onPress={() => {
-          LayoutAnimation.configureNext(LayoutAnimation.Presets.spring);
-          setExpanded(!expanded);
-        }}>
-        <Text>Press me to {expanded ? 'collapse' : 'expand'}!</Text>
-      </TouchableOpacity>
-      {expanded && (
-        <View style={style.tile}>
-          <Text>I disappear sometimes!</Text>
-        </View>
-      )}
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={style.container}>
+        <TouchableOpacity
+          onPress={() => {
+            LayoutAnimation.configureNext(LayoutAnimation.Presets.spring);
+            setExpanded(!expanded);
+          }}>
+          <Text>Press me to {expanded ? 'collapse' : 'expand'}!</Text>
+        </TouchableOpacity>
+        {expanded && (
+          <View style={style.tile}>
+            <Text>I disappear sometimes!</Text>
+          </View>
+        )}
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
 const style = StyleSheet.create({
-  tile: {
-    backgroundColor: 'lightgrey',
-    borderWidth: 0.5,
-    borderColor: '#d6d7da',
-  },
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    overflow: 'hidden',
+    gap: 16,
+  },
+  tile: {
+    backgroundColor: 'lightgrey',
+    borderWidth: 0.5,
+    borderColor: '#d6d7da',
+    padding: 4,
   },
 });
 

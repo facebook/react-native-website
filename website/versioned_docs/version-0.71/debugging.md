@@ -164,10 +164,8 @@ You can view installation instructions [in the README](https://github.com/infini
 # Native Debugging
 
 <div className="banner-native-code-required">
-  <h3>Projects with Native Code Only</h3>
-  <p>
-    The following section only applies to projects with native code exposed. If you are using the managed Expo workflow, see the guide on <a href="https://docs.expo.dev/workflow/prebuild/" target="_blank">prebuild</a> to use this API.
-  </p>
+  <h3>Projects with Native Code Only</h3><p>
+    The following section only applies to projects with native code exposed. If you are using the managed Expo workflow, see the guide on <a href="https://docs.expo.dev/workflow/prebuild/" target="_blank">prebuild</a> to use this API.</p>
 </div>
 
 ## Accessing console logs

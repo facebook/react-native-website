@@ -7,9 +7,10 @@ Displays native to iOS [Action Sheet](https://developer.apple.com/design/human-i
 
 ## Example
 
-```SnackPlayer name=ActionSheetIOS&supportedPlatforms=ios
+```SnackPlayer name=ActionSheetIOS%20Example&supportedPlatforms=ios
 import React, {useState} from 'react';
-import {ActionSheetIOS, Button, StyleSheet, Text, View} from 'react-native';
+import {ActionSheetIOS, Button, StyleSheet, Text} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => {
   const [result, setResult] = useState('🔮');
@@ -34,10 +35,12 @@ const App = () => {
     );
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.result}>{result}</Text>
-      <Button onPress={onPress} title="Show Action Sheet" />
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <Text style={styles.result}>{result}</Text>
+        <Button onPress={onPress} title="Show Action Sheet" />
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 

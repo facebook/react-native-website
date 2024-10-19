@@ -1,13 +1,13 @@
-# reactnativecn/react-native/	
+# reactnativecn/react-native/
 
- This repo contains a clone and a Chinese translated version of offcial	
-[React Native website](https://facebook.github.io/react-native/).	
+This repo contains a clone and a Chinese translated version of offcial
+[React Native website](https://facebook.github.io/react-native/).
 
- ## Sync with official repo	
+## Sync with official repo
 
- [facebook:main -> production](https://github.com/reactnativecn/react-native-website/compare/production...facebook:main)
+[facebook:main -> production](https://github.com/reactnativecn/react-native-website/compare/production...facebook:main)
 
-# [facebook.github.io/react-native/](https://facebook.github.io/react-native/) &middot; [![Circle CI Status](https://circleci.com/gh/facebook/react-native-website.svg?style=shield)](https://circleci.com/gh/facebook/react-native-website) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+# [reactnative.dev](https://reactnative.dev/) &middot; [![CC BY 4.0 license](https://img.shields.io/badge/license-CC%20BY%204.0-blue.svg)](LICENSE-docs) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md) <a href="https://twitter.com/intent/follow?screen_name=reactnative"><img src="https://img.shields.io/twitter/follow/reactnative.svg?label=Follow%20@reactnative" alt="Follow @reactnative" /></a>
 
 This repo contains the website configuration and documentation powering the [React Native website](https://reactnative.dev/).
 

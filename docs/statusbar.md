@@ -19,12 +19,12 @@ import React, {useState} from 'react';
 import {
   Button,
   Platform,
-  SafeAreaView,
   StatusBar,
   StyleSheet,
   Text,
   View,
 } from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const STYLES = ['default', 'dark-content', 'light-content'];
 const TRANSITIONS = ['fade', 'slide', 'none'];
@@ -57,39 +57,47 @@ const App = () => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
-      <StatusBar
-        animated={true}
-        backgroundColor="#61dafb"
-        barStyle={statusBarStyle}
-        showHideTransition={statusBarTransition}
-        hidden={hidden}
-      />
-      <Text style={styles.textStyle}>
-        StatusBar Visibility:{'\n'}
-        {hidden ? 'Hidden' : 'Visible'}
-      </Text>
-      <Text style={styles.textStyle}>
-        StatusBar Style:{'\n'}
-        {statusBarStyle}
-      </Text>
-      {Platform.OS === 'ios' ? (
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <StatusBar
+          animated={true}
+          backgroundColor="#61dafb"
+          barStyle={statusBarStyle}
+          showHideTransition={statusBarTransition}
+          hidden={hidden}
+        />
         <Text style={styles.textStyle}>
-          StatusBar Transition:{'\n'}
-          {statusBarTransition}
+          StatusBar Visibility:{'\n'}
+          {hidden ? 'Hidden' : 'Visible'}
         </Text>
-      ) : null}
-      <View style={styles.buttonsContainer}>
-        <Button title="Toggle StatusBar" onPress={changeStatusBarVisibility} />
-        <Button title="Change StatusBar Style" onPress={changeStatusBarStyle} />
+        <Text style={styles.textStyle}>
+          StatusBar Style:{'\n'}
+          {statusBarStyle}
+        </Text>
         {Platform.OS === 'ios' ? (
-          <Button
-            title="Change StatusBar Transition"
-            onPress={changeStatusBarTransition}
-          />
+          <Text style={styles.textStyle}>
+            StatusBar Transition:{'\n'}
+            {statusBarTransition}
+          </Text>
         ) : null}
-      </View>
-    </SafeAreaView>
+        <View style={styles.buttonsContainer}>
+          <Button
+            title="Toggle StatusBar"
+            onPress={changeStatusBarVisibility}
+          />
+          <Button
+            title="Change StatusBar Style"
+            onPress={changeStatusBarStyle}
+          />
+          {Platform.OS === 'ios' ? (
+            <Button
+              title="Change StatusBar Transition"
+              onPress={changeStatusBarTransition}
+            />
+          ) : null}
+        </View>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
@@ -119,13 +127,13 @@ import React, {useState} from 'react';
 import {
   Button,
   Platform,
-  SafeAreaView,
   StatusBar,
   StyleSheet,
   Text,
   View,
+  StatusBarStyle,
 } from 'react-native';
-import type {StatusBarStyle} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const STYLES = ['default', 'dark-content', 'light-content'] as const;
 const TRANSITIONS = ['fade', 'slide', 'none'] as const;
@@ -160,39 +168,47 @@ const App = () => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
-      <StatusBar
-        animated={true}
-        backgroundColor="#61dafb"
-        barStyle={statusBarStyle}
-        showHideTransition={statusBarTransition}
-        hidden={hidden}
-      />
-      <Text style={styles.textStyle}>
-        StatusBar Visibility:{'\n'}
-        {hidden ? 'Hidden' : 'Visible'}
-      </Text>
-      <Text style={styles.textStyle}>
-        StatusBar Style:{'\n'}
-        {statusBarStyle}
-      </Text>
-      {Platform.OS === 'ios' ? (
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <StatusBar
+          animated={true}
+          backgroundColor="#61dafb"
+          barStyle={statusBarStyle}
+          showHideTransition={statusBarTransition}
+          hidden={hidden}
+        />
         <Text style={styles.textStyle}>
-          StatusBar Transition:{'\n'}
-          {statusBarTransition}
+          StatusBar Visibility:{'\n'}
+          {hidden ? 'Hidden' : 'Visible'}
         </Text>
-      ) : null}
-      <View style={styles.buttonsContainer}>
-        <Button title="Toggle StatusBar" onPress={changeStatusBarVisibility} />
-        <Button title="Change StatusBar Style" onPress={changeStatusBarStyle} />
+        <Text style={styles.textStyle}>
+          StatusBar Style:{'\n'}
+          {statusBarStyle}
+        </Text>
         {Platform.OS === 'ios' ? (
-          <Button
-            title="Change StatusBar Transition"
-            onPress={changeStatusBarTransition}
-          />
+          <Text style={styles.textStyle}>
+            StatusBar Transition:{'\n'}
+            {statusBarTransition}
+          </Text>
         ) : null}
-      </View>
-    </SafeAreaView>
+        <View style={styles.buttonsContainer}>
+          <Button
+            title="Toggle StatusBar"
+            onPress={changeStatusBarVisibility}
+          />
+          <Button
+            title="Change StatusBar Style"
+            onPress={changeStatusBarStyle}
+          />
+          {Platform.OS === 'ios' ? (
+            <Button
+              title="Change StatusBar Transition"
+              onPress={changeStatusBarTransition}
+            />
+          ) : null}
+        </View>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 

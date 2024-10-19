@@ -46,12 +46,14 @@ async function toJsxNode(node) {
       },
     })
   );
-  const dependencies = params.dependencies || '';
-  const platform = params.platform || 'web';
-  const supportedPlatforms = params.supportedPlatforms || 'ios,android,web';
-  const theme = params.theme || 'light';
-  const preview = params.preview || 'true';
-  const loading = params.loading || 'lazy';
+  const dependencies =
+    'react-native-safe-area-context' +
+    (params.dependencies ? `,${params.dependencies}` : '');
+  const platform = params.platform ?? 'web';
+  const supportedPlatforms = params.supportedPlatforms ?? 'ios,android,web';
+  const theme = params.theme ?? 'light';
+  const preview = params.preview ?? 'true';
+  const loading = params.loading ?? 'lazy';
 
   // Need help constructing this AST node?
   // Use the MDX Playground and explore what your output mdast should look like

@@ -9,30 +9,33 @@ title: Settings
 
 ```SnackPlayer name=Settings%20Example&supportedPlatforms=ios
 import React, {useState} from 'react';
-import {Button, Settings, StyleSheet, Text, View} from 'react-native';
+import {Button, Settings, StyleSheet, Text} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => {
   const [data, setData] = useState(() => Settings.get('data'));
 
   return (
-    <View style={styles.container}>
-      <Text>Stored value:</Text>
-      <Text style={styles.value}>{data}</Text>
-      <Button
-        onPress={() => {
-          Settings.set({data: 'React'});
-          setData(Settings.get('data'));
-        }}
-        title="Store 'React'"
-      />
-      <Button
-        onPress={() => {
-          Settings.set({data: 'Native'});
-          setData(Settings.get('data'));
-        }}
-        title="Store 'Native'"
-      />
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <Text>Stored value:</Text>
+        <Text style={styles.value}>{data}</Text>
+        <Button
+          onPress={() => {
+            Settings.set({data: 'React'});
+            setData(Settings.get('data'));
+          }}
+          title="Store 'React'"
+        />
+        <Button
+          onPress={() => {
+            Settings.set({data: 'Native'});
+            setData(Settings.get('data'));
+          }}
+          title="Store 'Native'"
+        />
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 

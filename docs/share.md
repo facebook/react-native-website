@@ -12,7 +12,8 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import con
 
 ```SnackPlayer name=Example&supportedPlatforms=ios,android&ext=js
 import React from 'react';
-import {Alert, Share, View, Button} from 'react-native';
+import {Alert, Share, Button} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const ShareExample = () => {
   const onShare = async () => {
@@ -35,9 +36,11 @@ const ShareExample = () => {
     }
   };
   return (
-    <View style={{marginTop: 50}}>
-      <Button onPress={onShare} title="Share" />
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView>
+        <Button onPress={onShare} title="Share" />
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
@@ -49,7 +52,8 @@ export default ShareExample;
 
 ```SnackPlayer name=Example&supportedPlatforms=ios,android&ext=tsx
 import React from 'react';
-import {Alert, Share, View, Button} from 'react-native';
+import {Alert, Share, Button} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const ShareExample = () => {
   const onShare = async () => {
@@ -72,9 +76,11 @@ const ShareExample = () => {
     }
   };
   return (
-    <View style={{marginTop: 50}}>
-      <Button onPress={onShare} title="Share" />
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView>
+        <Button onPress={onShare} title="Share" />
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 

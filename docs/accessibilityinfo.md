@@ -9,7 +9,8 @@ Sometimes it's useful to know whether or not the device has a screen reader that
 
 ```SnackPlayer name=AccessibilityInfo%20Example&supportedPlatforms=android,ios
 import React, {useState, useEffect} from 'react';
-import {AccessibilityInfo, View, Text, StyleSheet} from 'react-native';
+import {AccessibilityInfo, Text, StyleSheet} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => {
   const [reduceMotionEnabled, setReduceMotionEnabled] = useState(false);
@@ -43,14 +44,16 @@ const App = () => {
   }, []);
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.status}>
-        The reduce motion is {reduceMotionEnabled ? 'enabled' : 'disabled'}.
-      </Text>
-      <Text style={styles.status}>
-        The screen reader is {screenReaderEnabled ? 'enabled' : 'disabled'}.
-      </Text>
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <Text style={styles.status}>
+          The reduce motion is {reduceMotionEnabled ? 'enabled' : 'disabled'}.
+        </Text>
+        <Text style={styles.status}>
+          The screen reader is {screenReaderEnabled ? 'enabled' : 'disabled'}.
+        </Text>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 

@@ -8,10 +8,6 @@ This can be problematic as your project grows and generally in bigger organizati
 
 To mitigate this performance hit, this page shares some suggestions on how to **improve your build time**.
 
-:::info
-If you're noticing slower build time with the **New Architecture on Android**, we recommend to upgrade to React Native 0.71
-:::
-
 ## Build only one ABI during development (Android-only)
 
 When building your android app locally, by default you build all the 4 [Application Binary Interfaces (ABIs)](https://developer.android.com/ndk/guides/abis) : `armeabi-v7a`, `arm64-v8a`, `x86` & `x86_64`.

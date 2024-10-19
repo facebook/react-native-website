@@ -45,6 +45,7 @@ Fingers are not the most precise instruments, and it is common for users to acci
 ```SnackPlayer name=Pressable
 import React, {useState} from 'react';
 import {Pressable, StyleSheet, Text, View} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => {
   const [timesPressed, setTimesPressed] = useState(0);
@@ -57,25 +58,27 @@ const App = () => {
   }
 
   return (
-    <View style={styles.container}>
-      <Pressable
-        onPress={() => {
-          setTimesPressed(current => current + 1);
-        }}
-        style={({pressed}) => [
-          {
-            backgroundColor: pressed ? 'rgb(210, 230, 255)' : 'white',
-          },
-          styles.wrapperCustom,
-        ]}>
-        {({pressed}) => (
-          <Text style={styles.text}>{pressed ? 'Pressed!' : 'Press Me'}</Text>
-        )}
-      </Pressable>
-      <View style={styles.logBox}>
-        <Text testID="pressable_press_console">{textLog}</Text>
-      </View>
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <Pressable
+          onPress={() => {
+            setTimesPressed(current => current + 1);
+          }}
+          style={({pressed}) => [
+            {
+              backgroundColor: pressed ? 'rgb(210, 230, 255)' : 'white',
+            },
+            styles.wrapperCustom,
+          ]}>
+          {({pressed}) => (
+            <Text style={styles.text}>{pressed ? 'Pressed!' : 'Press Me'}</Text>
+          )}
+        </Pressable>
+        <View style={styles.logBox}>
+          <Text testID="pressable_press_console">{textLog}</Text>
+        </View>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 

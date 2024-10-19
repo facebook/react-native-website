@@ -270,7 +270,7 @@ export default App;
 </TabItem>
 </Tabs>
 
-You can use the [`clear`](textinput#clear) method to clear the `TextInput` which clears the current input text using the same approach.
+You can use the [`clear`](../textinput#clear) method to clear the `TextInput` which clears the current input text using the same approach.
 
 ## Avoiding conflicts with the render function
 
