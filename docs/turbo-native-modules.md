@@ -119,7 +119,11 @@ Codegen is run as part of the script phases that's automatically added to the pr
 cd ios
 bundle install
 bundle exec pod install
+```
 
+The output will look like this:
+
+```shell
 ...
 Framework build type is static library
 [Codegen] Adding script_phases to ReactCodegen.
@@ -223,7 +227,7 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-### 4. Write your Native Platform code:
+### 4. Write your Native Platform code
 
 With everything prepared, we're going to start writing native platform code. We do this in 2 parts:
 
