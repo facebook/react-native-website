@@ -33,7 +33,7 @@ To make this work on mobile, we need to use Android and iOS APIs:
 React Native provides a tool called [Codegen](/the-new-architecture/what-is-codegen.md), which takes a specification written in TypeScript or Flow and generates platform specific code for Android and iOS. The specification declares the methods and data types that will pass back and forth between your native code and the React Native JavaScript runtime. A Turbo Native Module is both your specification, the native code you write, and the Codegen interfaces generated from your specification.
 
 :::info
-You can see all of the types you can use in your specification and the native types that are generated in the [Appendix](/appendix.md) documentation.
+You can see all of the types you can use in your specification and the native types that are generated in the [Appendix](/appendix.md#ii-codegen-typings) documentation.
 :::
 
 Here is an implementation of the `localStorage` specification:

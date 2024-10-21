@@ -8,6 +8,8 @@ import TabItem from '@theme/TabItem';
 import constants from '@site/core/TabsConstants';
 import {FabricNativeComponentsAndroid,FabricNativeComponentsIOS} from './\_fabric-native-components';
 
+# Native Fabric Components
+
 If you want to build _new_ React Native Components that wraps around a [Host Component](https://reactnative.dev/architecture/glossary#host-view-tree-and-host-view) like a [UIButton](https://developer.apple.com/documentation/uikit/uibutton?language=objc) on iOS or a special kind of [CheckBox](https://developer.android.com/reference/androidx/appcompat/widget/AppCompatCheckBox) on Android, you should use a Fabric Native Component.
 
 This guide will show you how to build Fabric Native Component, by implementing a simple centered text component. The steps to doing this are:
@@ -16,7 +18,7 @@ This guide will show you how to build Fabric Native Component, by implementing a
 2. Implement the Native code.
 3. Use the Component in an App.
 
-# Creating the Fabric Native Centered Text Component
+## Creating the Fabric Native Centered Text Component
 
 You're going to need a simple application to use the component:
 
@@ -39,7 +41,7 @@ Demo
 └── js
 ```
 
-## 1. Define Specification for Codegen
+### 1. Define Specification for Codegen
 
 Your specification must be defined in either [TypeScript](https://www.typescriptlang.org/) or [Flow](https://flow.org/) (see [Codegen](the-new-architecture/what-is-codegen) documentation for more details). This is used by Codegen to generate the C++, Objective-C++ and Java to connect your platform code to the JavaScript runtime that React runs in.
 
@@ -93,11 +95,11 @@ export default (codegenNativeComponent<NativeProps>(
 </TabItem>
 </Tabs>
 
-As with Turbo Native Modules, you're able to have multiple specification files in the `js/` directory. For more information about the types you can use, and the platform types these map to see the [appendix](/appendix#codegen-typings).
+As with Turbo Native Modules, you're able to have multiple specification files in the `js/` directory. For more information about the types you can use, and the platform types these map to see the [appendix](/appendix#ii-codegen-typings).
 
 ## 2. Configure the Component for Codegen
 
-Typically Fabric Nactive Components are distributed using npm, it's also how our Codegen is configured. Update the generated [package.json](https://docs.npmjs.com/cli/v10/configuring-npm/package-json) to:
+Typically Fabric Nactive Components are distributed using npm, it's also how our Codegen is configured. Update the generated [`package.json`](https://docs.npmjs.com/cli/v10/configuring-npm/package-json) to:
 
 ```json title="Demo/package.json"
      "start": "react-native start",
@@ -121,7 +123,7 @@ Next we need to configure our platform:
 - package management and build tooling
 - native code
 
-## 3. Building your Native Code
+### 3. Building your Native Code
 
 You should work through both the Android and iOS platforms:
 
@@ -134,7 +136,7 @@ You should work through both the Android and iOS platforms:
     </TabItem>
 </Tabs>
 
-## 4. Use your Native Component
+### 4. Use your Native Component
 
 Update your generated `App.tsx` to:
 
@@ -168,7 +170,7 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-## 5. Run your App using the RNCenteredText Component
+### 5. Run your App using the RNCenteredText Component
 
 <Tabs groupId="platforms" queryString defaultValue={constants.defaultPlatform}>
 <TabItem value="android" label="Android">
@@ -178,7 +180,7 @@ yarn run android
 </TabItem>
 <TabItem value="ios" label="iOS">
 ```bash
-yarn run ios 
+yarn run ios
 ```
 </TabItem>
 </Tabs>

@@ -120,7 +120,7 @@
             "type": "doc",
             "id": "fabric-native-components-introduction",
             "label": "Android and iOS"
-          }
+          },
           {
             "type": "doc",
             "id": "the-new-architecture/direct-manipulation-new-architecture"
