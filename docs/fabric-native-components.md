@@ -10,9 +10,9 @@ import {FabricNativeComponentsAndroid,FabricNativeComponentsIOS} from './\_fabri
 
 # Native Fabric Components
 
-If you want to build _new_ React Native Components that wraps around a [Host Component](https://reactnative.dev/architecture/glossary#host-view-tree-and-host-view) like a [UIButton](https://developer.apple.com/documentation/uikit/uibutton?language=objc) on iOS or a special kind of [CheckBox](https://developer.android.com/reference/androidx/appcompat/widget/AppCompatCheckBox) on Android, you should use a Fabric Native Component.
+If you want to build _new_ React Native Components that wraps around a [Host Component](https://reactnative.dev/architecture/glossary#host-view-tree-and-host-view) like a [UIButton](https://developer.apple.com/documentation/uikit/uibutton?language=objc) on iOS or a custom kind of [CheckBox](https://developer.android.com/reference/androidx/appcompat/widget/AppCompatCheckBox) on Android, you should use a Fabric Native Component.
 
-This guide will show you how to build Fabric Native Component, by implementing a simple centered text component. The steps to doing this are:
+This guide will show you how to build Fabric Native Component, by implementing a centered text component. The steps to doing this are:
 
 1. Define a JavaScript specification using Flow or TypeScript.
 2. Implement the Native code.
@@ -20,7 +20,7 @@ This guide will show you how to build Fabric Native Component, by implementing a
 
 ## Creating the Fabric Native Centered Text Component
 
-You're going to need a simple application to use the component:
+You're going to need an application to use the component:
 
 ```bash
 npx @react-native-community/cli@latest init Demo --install-pods false
@@ -95,7 +95,7 @@ export default (codegenNativeComponent<NativeProps>(
 </TabItem>
 </Tabs>
 
-As with Turbo Native Modules, you're able to have multiple specification files in the `js/` directory. For more information about the types you can use, and the platform types these map to see the [appendix](/appendix#ii-codegen-typings).
+As with Turbo Native Modules, you're able to have multiple specification files in the `js/` directory. For more information about the types you can use, and the platform types these map to see the [appendix](/appendix.md).
 
 ## 2. Configure the Component for Codegen
 
