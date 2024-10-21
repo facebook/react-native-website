@@ -96,17 +96,7 @@
           {
             "type": "doc",
             "id": "turbo-native-modules-introduction",
-            "label": "Introduction"
-          },
-          {
-            "type": "doc",
-            "id": "turbo-native-modules-android",
-            "label": "Android"
-          },
-          {
-            "type": "doc",
-            "id": "turbo-native-modules-ios",
-            "label": "iOS"
+            "label": "Android and iOS"
           },
           {
             "type": "doc",
