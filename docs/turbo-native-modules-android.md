@@ -12,7 +12,7 @@ The first step is to implement the generated `NativeLocalStorageSpec` interface:
 <Tabs groupId="android-language" queryString defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
 <TabItem value="java">
 
-```java
+```java title="android/app/src/main/java/com/nativelocalstorage/NativeLocalStorageModule.java"
 package com.nativelocalstorage;
 
 import android.content.Context;
@@ -59,7 +59,7 @@ public class NativeLocalStorageModule extends NativeLocalStorageSpec {
 </TabItem>
 <TabItem value="kotlin">
 
-```kotlin
+```kotlin title="android/app/src/main/java/com/nativelocalstorage/NativeLocalStorageModule.kt"
 package com.nativelocalstorage
 
 import android.content.Context
@@ -104,7 +104,7 @@ Next we need to create `NativeLocalStoragePackage`. It provides an object to reg
 <Tabs groupId="android-language" queryString defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
 <TabItem value="java">
 
-```java
+```java title="android/app/src/main/java/com/nativelocalstorage/NativeLocalStoragePackage.java"
 package com.nativelocalstorage;
 
 import com.facebook.react.TurboReactPackage;
@@ -151,7 +151,7 @@ public class NativeLocalStoragePackage extends TurboReactPackage {
 </TabItem>
 <TabItem value="kotlin">
 
-```kotlin
+```kotlin title="android/app/src/main/java/com/nativelocalstorage/NativeLocalStoragePackage.kt"
 package com.nativelocalstorage;
 
 import com.facebook.react.TurboReactPackage
@@ -198,7 +198,7 @@ Later you’ll learn how to distribute your Turbo Native Modules as [npm package
 <Tabs groupId="android-language" queryString defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
 <TabItem value="java">
 
-```java
+```java title="android/app/src/main/java/com/turobmoduleexample/MainApplication.java"
 package com.inappmodule;
 
 import android.app.Application;
@@ -271,7 +271,7 @@ public class MainApplication extends Application implements ReactApplication {
 </TabItem>
 <TabItem value="kotlin">
 
-```kotlin
+```kotlin title="android/app/src/main/java/com/turobmoduleexample/MainApplication.kt"
 package com.inappmodule
 
 import android.app.Application

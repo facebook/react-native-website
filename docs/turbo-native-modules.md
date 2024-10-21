@@ -34,12 +34,12 @@ React Native provides a tool called [Codegen](/the-new-architecture/what-is-code
 You can see all of the types you can use in your specification and the native types that are generated in the [Appendix](/appendix.md) documentation.
 :::
 
-Here is an implementation of the `localStorage` specification:\*
+Here is an implementation of the `localStorage` specification:
 
 <Tabs groupId="language" queryString defaultValue={constants.defaultJavaScriptSpecLanguage} values={constants.javaScriptSpecLanguages}>
 <TabItem value="typescript">
 
-```typescript
+```typescript title="NativeLocalStorage.ts"
 import type {TurboModule} from 'react-native';
 import {TurboModuleRegistry} from 'react-native';
 
@@ -58,7 +58,7 @@ export default TurboModuleRegistry.getEnforcing<Spec>(
 </TabItem>
 <TabItem value="flow">
 
-```flow
+```flow title="NativeLocalStorage.js"
 import {TurboModule, TurboModuleRegistry} from 'react-native';
 
 export interface Spec extends TurboModule {
@@ -76,7 +76,7 @@ export interface Spec extends TurboModule {
 
 The specification is used by the React Native Codegen tools to generate platform specific interfaces and boilerplate for us. To do this, Codegen needs to know where to find our specification and what to do with it. Update your `package.json` to include:
 
-```json
+```json title="package.json"
      "start": "react-native start",
      "test": "jest"
    },
@@ -91,8 +91,6 @@ The specification is used by the React Native Codegen tools to generate platform
    },
    // highlight-add-end
    "dependencies": {
-     "react": "18.3.1",
-     "react-native": "0.75.3"
 ```
 
 With everything wired up for Codegen, we need to prepare our native code to hook into our generated code.
@@ -143,7 +141,7 @@ The `TurboModuleRegistry` supports 2 modes of retrieving a Turbo Native Module:
 - `get<T>(name: string): T | null` which will return `null` if the Turbo Native Module is unavailable.
 - `getEnforcing<T>(name: string): T` which will throw an exception if the Turbo Native Module is unavailable. This assumes the module is always available.
 
-```tsx
+```tsx title="App.tsx"
 import React from 'react';
 import {
   SafeAreaView,
