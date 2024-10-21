@@ -128,18 +128,8 @@
         "items": [
           {
             "type": "doc",
-            "id": "fabric-native-modules-introduction",
-            "label": "👷Introduction"
-          },
-          {
-            "type": "doc",
-            "id": "fabric-native-modules-android",
-            "label": "👷Android"
-          },
-          {
-            "type": "doc",
-            "id": "fabric-native-modules-ios",
-            "label": "👷iOS"
+            "id": "fabric-native-components-introduction",
+            "label": "Introduction"
           }
         ]
       },
