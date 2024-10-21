@@ -23,7 +23,7 @@ These are our deprecated native module and component API. You can still use many
 - using alternative libraries,
 - upgrading to newer library versions that have first-class support for the New Architecture, or
 - port these libraries yourself to Turbo Native Modules or Fabric Native Components.
-  :::
+:::
 
 1. Turbo Native Modules
    - [Introduction](turbo-native-modules.md)
