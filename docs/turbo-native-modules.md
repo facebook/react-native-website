@@ -59,6 +59,7 @@ export default TurboModuleRegistry.getEnforcing<Spec>(
 <TabItem value="flow">
 
 ```flow title="NativeLocalStorage.js"
+import type {TurboModule} from 'react-native';
 import {TurboModule, TurboModuleRegistry} from 'react-native';
 
 export interface Spec extends TurboModule {
