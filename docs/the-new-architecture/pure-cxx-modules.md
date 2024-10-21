@@ -191,7 +191,7 @@ This is the only time when we will have to write some platform-specific code.
 
 ### Android
 
-To make sure that the iOS app can effectively build the C++ Turbo Native Module, we need to:
+To make sure that the Android app can effectively build the C++ Turbo Native Module, we need to:
 
 1. Create a `CMakeLists.txt` to access our C++ code
 2. Modify `build.gradle` to point to the newly created `CMakeLists.txt` file.
