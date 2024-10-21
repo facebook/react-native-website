@@ -13,7 +13,7 @@ The basic steps are:
 1. **define a typed JavaScript specification** using one of the most popular JavaScript type annotation languages: Flow or TypeScript;
 2. **configure your dependency management system to run Codegen**, which converts the specification into native language interfaces;
 3. **write you application code** using your specification; and
-4. **write your native platform code using the generated interfaces** to write and hook your native code into the React Native runtime environment
+4. **write your native platform code using the generated interfaces** to write and hook your native code into the React Native runtime environment.
 
 Lets work through each of these steps by building an example Turbo Native Module.
 
