@@ -121,7 +121,7 @@ bundle install
 bundle exec pod install
 ```
 
-The output will look like this:
+The output looks like this:
 
 ```shell
 ...
