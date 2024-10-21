@@ -263,7 +263,7 @@ If the transition between status bar property changes should be animated. Suppor
 
 ### `backgroundColor` <div class="label android">Android</div>
 
-The background color of the status bar.
+The background color of the status bar. This was deprecated in API level 35.
 
 | Type            | Required | Default                                                                |
 | --------------- | -------- | ---------------------------------------------------------------------- |
