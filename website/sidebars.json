@@ -101,12 +101,12 @@
           {
             "type": "doc",
             "id": "the-new-architecture/pure-cxx-modules",
-            "label": "C++"
+            "label": "Cross-Platform with C++"
           },
           {
             "type": "doc",
             "id": "the-new-architecture/custom-cxx-types",
-            "label": "Custom C++ Types"
+            "label": "Advanced: Custom C++ Types"
           }
         ]
       },
@@ -151,6 +151,10 @@
             "type": "doc",
             "id": "appendix",
             "label": "Appendix"
+          },
+          {
+            "type": "doc",
+            "id": "the-new-architecture/create-module-library"
           }
         ]
       }
