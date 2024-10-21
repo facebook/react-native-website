@@ -6,6 +6,8 @@ title: 'Turbo Native Modules: Introduction'
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 import {TurboNativeModulesAndroid, TurboNativeModulesIOS} from './\_turbo-native-modules-components';
 
+# Turbo Native Modules
+
 Your React Native application code may need to interact with native platform APIs that aren't provided by React Native or an existing library. You can write the integration code yourself using a **Turbo Native Module**. This guide will show you how to write one.
 
 The basic steps are:
@@ -13,11 +15,11 @@ The basic steps are:
 1. **define a typed JavaScript specification** using one of the most popular JavaScript type annotation languages: Flow or TypeScript;
 2. **configure your dependency management system to run Codegen**, which converts the specification into native language interfaces;
 3. **write you application code** using your specification; and
-4. **write your native platform code using the generated interfaces** to write and hook your native code into the React Native runtime environment
+4. **write your native platform code using the generated interfaces** to write and hook your native code into the React Native runtime environment.
 
 Lets work through each of these steps by building an example Turbo Native Module.
 
-# Native Persistent Storage
+## Native Persistent Storage
 
 This guide will show you how to write an implementation of the [Web Storage API](https://html.spec.whatwg.org/multipage/webstorage.html#dom-localstorage-dev): `localStorage`. The API is relatable to a React developer who might be writing application code on your project.
 
@@ -26,7 +28,7 @@ To make this work on mobile, we need to use Android and iOS APIs:
 - Android: [SharedPreferences](https://developer.android.com/reference/android/content/SharedPreferences), and
 - iOS: [NSUserDefaults](https://developer.apple.com/documentation/foundation/nsuserdefaults).
 
-## 1. Declare Typed Specification
+### 1. Declare Typed Specification
 
 React Native provides a tool called [Codegen](/the-new-architecture/what-is-codegen.md), which takes a specification written in TypeScript or Flow and generates platform specific code for Android and iOS. The specification declares the methods and data types that will pass back and forth between your native code and the React Native JavaScript runtime. A Turbo Native Module is both your specification, the native code you write, and the Codegen interfaces generated from your specification.
 
@@ -59,6 +61,7 @@ export default TurboModuleRegistry.getEnforcing<Spec>(
 <TabItem value="flow">
 
 ```flow title="NativeLocalStorage.js"
+import type {TurboModule} from 'react-native';
 import {TurboModule, TurboModuleRegistry} from 'react-native';
 
 export interface Spec extends TurboModule {
@@ -72,7 +75,7 @@ export interface Spec extends TurboModule {
 </TabItem>
 </Tabs>
 
-## 2. Configure Codegen to run
+### 2. Configure Codegen to run
 
 The specification is used by the React Native Codegen tools to generate platform specific interfaces and boilerplate for us. To do this, Codegen needs to know where to find our specification and what to do with it. Update your `package.json` to include:
 
@@ -116,7 +119,11 @@ Codegen is run as part of the script phases that's automatically added to the pr
 cd ios
 bundle install
 bundle exec pod install
+```
 
+The output looks like this:
+
+```shell
 ...
 Framework build type is static library
 [Codegen] Adding script_phases to ReactCodegen.
@@ -132,7 +139,7 @@ Framework build type is static library
 </TabItem>
 </Tabs>
 
-## 3. Write Application Code using the Turbo Native Module
+### 3. Write Application Code using the Turbo Native Module
 
 Using `NativeLocalStorage`, here’s a modified `App.tsx` that includes some text we want persisted, an input field and some buttons to update this value.
 
@@ -220,7 +227,7 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-## 4. Write your Native Platform code:
+### 4. Write your Native Platform code
 
 With everything prepared, we're going to start writing native platform code. We do this in 2 parts:
 

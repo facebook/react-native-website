@@ -96,27 +96,17 @@
           {
             "type": "doc",
             "id": "turbo-native-modules-introduction",
-            "label": "Introduction"
-          },
-          {
-            "type": "doc",
-            "id": "turbo-native-modules-android",
-            "label": "Android"
-          },
-          {
-            "type": "doc",
-            "id": "turbo-native-modules-ios",
-            "label": "iOS"
+            "label": "Android and iOS"
           },
           {
             "type": "doc",
             "id": "the-new-architecture/pure-cxx-modules",
-            "label": "C++"
+            "label": "Cross-Platform with C++"
           },
           {
             "type": "doc",
             "id": "the-new-architecture/custom-cxx-types",
-            "label": "Custom C++ Types"
+            "label": "Advanced: Custom C++ Types"
           }
         ]
       },
@@ -129,7 +119,15 @@
           {
             "type": "doc",
             "id": "fabric-native-components-introduction",
-            "label": "Introduction"
+            "label": "Android and iOS"
+          }
+          {
+            "type": "doc",
+            "id": "the-new-architecture/direct-manipulation-new-architecture"
+          },
+          {
+            "type": "doc",
+            "id": "the-new-architecture/layout-measurements"
           }
         ]
       },
@@ -143,6 +141,10 @@
             "type": "doc",
             "id": "appendix",
             "label": "Appendix"
+          },
+          {
+            "type": "doc",
+            "id": "the-new-architecture/create-module-library"
           }
         ]
       }
