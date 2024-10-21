@@ -5,7 +5,7 @@ title: 'Turbo Native Modules: iOS'
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
-Having completed both your Turbo Native Module specification, run codegen and written the application code we now need to write iOS platform code to make sure `localStorage` survives after the application is closed.
+Now it's time to write some iOS platform code to make sure `localStorage` survives after the application is closed.
 
 ## Prepare your Xcode Project
 
@@ -44,7 +44,7 @@ open TurboModuleExample.xcworkspace
 
 Start by updating `RCTNativeLocalStorage.h`:
 
-```objc
+```objc title="NativeLocalStorage/RCTNativeLocalStorage.h"
 //  RCTNativeLocalStorage.h
 //  TurboModuleExample
 
@@ -62,43 +62,54 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 ```
 
-Then update our implementation to use `NSUserDefaults.
+Then update our implementation to use `NSUserDefaults` with a custom [suite name](https://developer.apple.com/documentation/foundation/nsuserdefaults/1409957-initwithsuitename).
 
-```objc
-//  RCTNativeLocalStorage.mm
+```objc title="NativeLocalStorage/RCTNativeLocalStorage.mm"
+//  RCTNativeLocalStorage.m
 //  TurboModuleExample
 
 #import "RCTNativeLocalStorage.h"
 
+static NSString *const RCTNativeLocalStorageKey = @"local-stoarge";
+
+@interface RCTNativeLocalStorage()
+@property (strong, nonatomic) NSUserDefaults *localStorage;
+@end
+
 @implementation RCTNativeLocalStorage
 
-// highlight-add-start
-+RCT_EXPORT_MODULE(NativeLocalStorage)
+RCT_EXPORT_MODULE(NativeLocalStorage)
+
+- (id) init {
+  if (self = [super init]) {
+    _localStorage = [[NSUserDefaults alloc] initWithSuiteName:RCTNativeLocalStorageKey];
+  }
+  return self;
+}
 
 - (std::shared_ptr<facebook::react::TurboModule>)getTurboModule:(const facebook::react::ObjCTurboModule::InitParams &)params {
   return std::make_shared<facebook::react::NativeLocalStorageSpecJSI>(params);
 }
 
 - (NSString * _Nullable)getItem:(NSString *)key {
-  return [NSUserDefaults.standardUserDefaults stringForKey:key];
+  return [self.localStorage stringForKey:key];
 }
 
 - (void)setItem:(NSString *)value
           key:(NSString *)key {
-  [NSUserDefaults.standardUserDefaults setObject:value forKey:key];
+  [self.localStorage setObject:value forKey:key];
 }
 
 - (void)removeItem:(NSString *)key {
-  [NSUserDefaults.standardUserDefaults removeObjectForKey:key];
+  [self.localStorage removeObjectForKey:key];
 }
 
 - (void)clear {
-  NSDictionary *keys = [NSUserDefaults.standardUserDefaults dictionaryRepresentation];
+  NSDictionary *keys = [self.localStorage dictionaryRepresentation];
   for (NSString *key in keys) {
     [self removeItem:key];
   }
 }
-// highlight-add-end
 
 @end
 ```

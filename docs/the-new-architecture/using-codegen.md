@@ -145,6 +145,7 @@ Options:
   -p, --path            Path to the React Native project root.        [required]
   -t, --targetPlatform  Target platform. Supported values: "android", "ios",
                         "all".                                        [required]
+  -o, --outputPath      Path where generated artifacts will be output to.
 ```
 
 where:
