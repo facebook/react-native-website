@@ -22,7 +22,7 @@ The Dev Menu is disabled in release (production) builds.
 
 ## Opening DevTools
 
-[React Native DevTools](./react-native-devtools) is our included debugger for React Native. It allows you to inspect and understand how your JavaScript code is running, similar to a web browser.
+[React Native DevTools](./react-native-devtools) is our built-in debugger for React Native. It allows you to inspect and understand how your JavaScript code is running, similar to a web browser.
 
 To open DevTools, either:
 
