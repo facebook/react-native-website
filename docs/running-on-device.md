@@ -94,7 +94,7 @@ To find the device name, run the following adb command:
 $ adb devices
 ```
 
-You can now enable Live reloading from the [Dev Menu](debugging.md#accessing-the-dev-menu). Your app will reload whenever your JavaScript code has changed.
+You can now enable Fast Refresh from the [Dev Menu](debugging.md#opening-the-dev-menu). Your app will reload whenever your JavaScript code has changed.
 
 ### Method 2: Connect via Wi-Fi
 
@@ -104,13 +104,13 @@ You can find the IP address in **System Settings (or System Preferences)** → *
 
 1. Make sure your laptop and your phone are on the **same** Wi-Fi network.
 2. Open your React Native app on your device.
-3. You'll see a [red screen with an error](debugging.md#in-app-errors-and-warnings). This is OK. The following steps will fix that.
-4. Open the in-app [Dev Menu](debugging.md#accessing-the-dev-menu).
+3. You'll see a [red screen with an error](debugging.md#logbox). This is OK. The following steps will fix that.
+4. Open the in-app [Dev Menu](debugging.md#opening-the-dev-menu).
 5. Go to **Dev Settings** → **Debug server host & port for device**.
 6. Type in your machine's IP address and the port of the local dev server (e.g. `10.0.1.1:8081`).
 7. Go back to the **Dev Menu** and select **Reload JS**.
 
-You can now enable Live reloading from the [Dev Menu](debugging.md#accessing-the-dev-menu). Your app will reload whenever your JavaScript code has changed.
+You can now enable Fast Refresh from the [Dev Menu](debugging.md#opening-the-dev-menu). Your app will reload whenever your JavaScript code has changed.
 
 ## Building your app for production
 
@@ -185,7 +185,7 @@ To find the device name, run the following adb command:
 $ adb devices
 ```
 
-You can now enable Live reloading from the [Dev Menu](debugging.md#accessing-the-dev-menu). Your app will reload whenever your JavaScript code has changed.
+You can now enable Fast Refresh from the [Dev Menu](debugging.md#opening-the-dev-menu). Your app will reload whenever your JavaScript code has changed.
 
 ### Method 2: Connect via Wi-Fi
 
@@ -195,13 +195,13 @@ Open the command prompt and type `ipconfig` to find your machine's IP address ([
 
 1. Make sure your laptop and your phone are on the **same** Wi-Fi network.
 2. Open your React Native app on your device.
-3. You'll see a [red screen with an error](debugging.md#in-app-errors-and-warnings). This is OK. The following steps will fix that.
-4. Open the in-app [Dev Menu](debugging.md#accessing-the-dev-menu).
+3. You'll see a [red screen with an error](debugging.md#logbox). This is OK. The following steps will fix that.
+4. Open the in-app [Dev Menu](debugging.md#opening-the-dev-menu).
 5. Go to **Dev Settings** → **Debug server host & port for device**.
 6. Type in your machine's IP address and the port of the local dev server (e.g. `10.0.1.1:8081`).
 7. Go back to the **Dev Menu** and select **Reload JS**.
 
-You can now enable Live reloading from the [Dev Menu](debugging.md#accessing-the-dev-menu). Your app will reload whenever your JavaScript code has changed.
+You can now enable Fast Refresh from the [Dev Menu](debugging.md#opening-the-dev-menu). Your app will reload whenever your JavaScript code has changed.
 
 ## Building your app for production
 
@@ -323,7 +323,7 @@ To find the device name, run the following adb command:
 $ adb devices
 ```
 
-You can now enable Live reloading from the [Dev Menu](debugging.md#accessing-the-dev-menu). Your app will reload whenever your JavaScript code has changed.
+You can now enable Fast Refresh from the [Dev Menu](debugging.md#opening-the-dev-menu). Your app will reload whenever your JavaScript code has changed.
 
 ### Method 2: Connect via Wi-Fi
 
@@ -333,13 +333,13 @@ Open a terminal and type `/sbin/ifconfig` to find your machine's IP address.
 
 1. Make sure your laptop and your phone are on the **same** Wi-Fi network.
 2. Open your React Native app on your device.
-3. You'll see a [red screen with an error](debugging.md#in-app-errors-and-warnings). This is OK. The following steps will fix that.
-4. Open the in-app [Dev Menu](debugging.md#accessing-the-dev-menu).
+3. You'll see a [red screen with an error](debugging.md#logbox). This is OK. The following steps will fix that.
+4. Open the in-app [Dev Menu](debugging.md#opening-the-dev-menu).
 5. Go to **Dev Settings** → **Debug server host & port for device**.
 6. Type in your machine's IP address and the port of the local dev server (e.g. `10.0.1.1:8081`).
 7. Go back to the **Dev Menu** and select **Reload JS**.
 
-You can now enable Live reloading from the [Dev Menu](debugging.md#accessing-the-dev-menu). Your app will reload whenever your JavaScript code has changed.
+You can now enable Fast Refresh from the [Dev Menu](debugging.md#opening-the-dev-menu). Your app will reload whenever your JavaScript code has changed.
 
 ## Building your app for production
 
@@ -386,15 +386,15 @@ If everything is set up correctly, your device will be listed as the build targe
 
 <h2>Connecting to the development server</h2>
 
-You can also iterate quickly on a device using the development server. You only have to be on the same Wi-Fi network as your computer. Shake your device to open the [Dev Menu](debugging.md#accessing-the-dev-menu), then enable Live Reload. Your app will reload whenever your JavaScript code has changed.
+You can also iterate quickly on a device using the development server. You only have to be on the same Wi-Fi network as your computer. Shake your device to open the [Dev Menu](debugging.md#opening-the-dev-menu), then enable Fast Refresh. Your app will reload whenever your JavaScript code has changed.
 
-![](/docs/assets/DevMenu.png)
+![](/docs/assets/debugging-dev-menu-076.jpg)
 
 ### Troubleshooting
 
 > If you have any issues, ensure that your Mac and device are on the same network and can reach each other. Many open wireless networks with captive portals are configured to prevent devices from reaching other devices on the network. You may use your device's Personal Hotspot feature in this case. You may also share your internet (Wi-Fi/Ethernet) connection from your Mac to your device via USB and connect to the bundler through this tunnel for very high transfer speeds.
 
-When trying to connect to the development server you might get a [red screen with an error](debugging.md#in-app-errors-and-warnings) saying:
+When trying to connect to the development server you might get a [red screen with an error](debugging.md#logbox) saying:
 
 > Connection to `http://localhost:8081/debugger-proxy?role=client` timed out. Are you running node proxy? If you are running on the device, check if you have the right IP address in `RCTWebSocketExecutor.m`.
 

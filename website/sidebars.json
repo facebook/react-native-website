@@ -62,7 +62,7 @@
     ],
     "Debugging": [
       "debugging",
-      "react-devtools",
+      "react-native-devtools",
       "debugging-native-code",
       "debugging-release-builds",
       "other-debugging-methods"
