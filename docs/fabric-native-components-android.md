@@ -5,57 +5,9 @@ title: 'Fabric Native Modules: Android'
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
-React Native uses Gradle to manage dependencies, auto-linking and codegen. To use this, we're going to add the `RTNCenteredText` Fabric Native Component to our `Demo` application.
+### 1. Run Codegen through Gradle
 
-### 1. Link RTNCenteredText as an npm dependency:
-
-This creates symlinks between the `RTNCenteredText` component and `Demo`, so we can develop and use the component.
-
-<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
-<TabItem value="npm">
-```bash
-cd Demo
-npm link ../RTNCenteredText
-```
-</TabItem>
-<TabItem value="yarn">
-```bash
-cd RTNCenteredText
-yarn link
-cd ../Demo
-yarn link rtn-centered-text
-```
-</TabItem>
-</Tabs>
-
-We also need to help [Metro](https://metrobundler.dev/docs/configuration/#watchfolders) understand where to find packages that are symlinked through the `node_modules`:
-
-```js title="App/metro.config.js"
-const {
-  getDefaultConfig,
-  mergeConfig,
-} = require('@react-native/metro-config');
-const path = require('path');
-
-/**
- * Metro configuration
- * https://reactnative.dev/docs/metro
- *
- * @type {import('metro-config').MetroConfig}
- */
-const config = {
-  watchFolders: [
-    // highlight-next-line
-    path.resolve(__dirname, '../RTNCenteredText'),
-  ],
-};
-
-module.exports = mergeConfig(getDefaultConfig(__dirname), config);
-```
-
-### 2. Run Codegen through Gradle
-
-We're running this once to generate boilerplate code that'll make it easier for you to work in the IDE of your choice.
+React Native uses Gradle to manage dependencies, auto-linking and codegen. We're running this once to generate boilerplate code that'll make it easier for you to work in the IDE of your choice:
 
 ```bash title="Demo/"
 cd android
@@ -90,7 +42,7 @@ mkdir -p android/src/main/java/com/rtncenteredtext
 <Tabs groupId="android-language" queryString defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
 <TabItem value="java">
 
-```java title="RTNCenteredText/android/build.gradle
+```java title="Demo/android/build.gradle
 buildscript {
   ext.safeExtGet = {prop, fallback ->
     rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
@@ -129,7 +81,7 @@ dependencies {
 </TabItem>
 <TabItem value="kotlin">
 
-```kotlin title="RTNCenteredText/android/build.gradle.kts
+```kotlin title="Demo/android/build.gradle.kts
 import org.gradle.api.Project
 
 fun Project.safeExtGet(prop: String, defaultValue: Any): Any? = if (rootProject.ext.has(prop)) rootProject.extra.get(prop) else defaultValue
@@ -180,7 +132,7 @@ dependencies {
 <Tabs groupId="android-language" queryString defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
 <TabItem value="java">
 
-```java
+```java title="Demo/android/src/main/java/com/rtncenteredtext/CenteredText.java"
 package com.rtncenteredtext;
 
 import android.content.Context;
@@ -218,7 +170,7 @@ public class CenteredText extends TextView {
 </TabItem>
 <TabItem value="kotlin">
 
-```kotlin title="RTNCenteredText/android/src/main/java/com/rtncenteredtext/CenteredText.kt
+```kotlin title="Demo/android/src/main/java/com/rtncenteredtext/CenteredText.kt
 package com.rtncenteredtext;
 
 import android.content.Context
@@ -258,7 +210,7 @@ class CenteredText : TextView {
 <Tabs groupId="android-language" queryString defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
 <TabItem value="java">
 
-```java
+```java title="Demo/android/src/main/java/com/rtncenteredtext/CenteredTextManager.java"
 package com.rtncenteredtext;
 
 import com.facebook.react.bridge.ReactApplicationContext;
@@ -346,7 +298,7 @@ class CenteredTextManager(context: ReactApplicationContext) : SimpleViewManager<
 <Tabs groupId="android-language" queryString defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
 <TabItem value="java">
 
-```java
+```java title="Demo/android/src/main/java/com/rtncenteredtext/CenteredTextPackage.java"
 package com.rtncenteredtext;
 
 import com.facebook.react.TurboReactPackage;

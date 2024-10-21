@@ -13,9 +13,8 @@ If you want to build _new_ React Native Components that wraps around a [Host Com
 This guide will show you how to build Fabric Native Component, by implementing a simple centered text component. The steps to doing this are:
 
 1. Define a JavaScript specification using Flow or TypeScript.
-2. Configure the dependencies management system to generate code from the provided spec and to be auto-linked.
-3. Implement the Native code.
-4. Use the Component in an App.
+2. Implement the Native code.
+3. Use the Component in an App.
 
 # Creating the Fabric Native Centered Text Component
 
@@ -28,17 +27,13 @@ npx @react-native-community/cli@latest init Demo --install-pods false
 Next you'll need to create a folders structure to hold our `RTNCenteredText` component:
 
 ```bash
-mkdir -p RTNCenteredText/{android,ios,js}
+mkdir -p Demo/js
 ```
 
 This gives you the following layout:
 
 ```
 Demo
-├── android
-└── ios
-
-RTNCenteredText
 ├── android
 ├── ios
 └── js
@@ -55,7 +50,7 @@ Use this specification for our Text Component:
 
 The specification file must be named `<MODULE_NAME>NativeComponent.{ts,tsx}` to work with Codegen:
 
-```typescript title="RTNCenteredText/js/RTNCenteredTextNativeComponent.ts"
+```typescript title="Demo/js/RTNCenteredTextNativeComponent.ts"
 import type {ViewProps} from 'react-native';
 import type {HostComponent} from 'react-native/Libraries/Renderer/shims/ReactNativeTypes';
 import type {Int32} from 'react-native/libraries/Types/CodegenTypes';
@@ -63,8 +58,7 @@ import codegenNativeComponent from 'react-native/Libraries/Utilities/codegenNati
 
 export interface NativeProps extends ViewProps {
   text?: string;
-  margin?: Int32;
-  // add other props here
+  // You can add other props here
 }
 
 export default codegenNativeComponent<NativeProps>(
@@ -76,7 +70,7 @@ export default codegenNativeComponent<NativeProps>(
 <TabItem value="flow">
 The specification file must be named `<MODULE_NAME>NativeComponent.{js,jsx}` to work with Codegen:
 
-```flow title="RTNCenteredText/js/RTNCenteredTextNativeComponent.js":
+```flow title="Demo/js/RTNCenteredTextNativeComponent.js":
 // @flow strict-local
 
 import type {ViewProps} from 'react-native/Libraries/Components/View/ViewPropTypes';
@@ -99,39 +93,16 @@ export default (codegenNativeComponent<NativeProps>(
 </TabItem>
 </Tabs>
 
-Add an `index.js` to wrap your
-
 As with Turbo Native Modules, you're able to have multiple specification files in the `js/` directory. For more information about the types you can use, and the platform types these map to see the [appendix](/appendix#codegen-typings).
 
-## 2. Configure the Component for Codegen and Auto-Linking
+## 2. Configure the Component for Codegen
 
-Typically Fabric Nactive Components are distributed using npm, it's also how our Codegen is configured. Add a [package.json](https://docs.npmjs.com/cli/v10/configuring-npm/package-json) to `RTNCenteredText/package.json`:
+Typically Fabric Nactive Components are distributed using npm, it's also how our Codegen is configured. Update the generated [package.json](https://docs.npmjs.com/cli/v10/configuring-npm/package-json) to:
 
-```json title="RTNCenteredText/package.json"
-{
-  "name": "rtn-centered-text",
-  "version": "0.0.1",
-  "description": "Showcase a Fabric Native Component with centered text",
-  // highlight-next-line
-  "main": "js/RTNCenteredTextNativeComponent",
-  "homepage": "https://github.com/your/package",
-  "license": "MIT",
-  "author": "Your name <and@your.email>",
-  "repository": "https://github.com/your/package",
-  "files": [
-    "js",
-    "android",
-    "ios",
-    "rtn-centered-text.podspec",
-    "!android/build",
-    "!ios/build"
-  ],
-  "keywords": ["react-native", "ios", "android"],
-  "devDependencies": {},
-  "peerDependencies": {
-    "react": "*",
-    "react-native": "*"
-  },
+```json title="Demo/package.json"
+     "start": "react-native start",
+     "test": "jest"
+   },
   // highlight-start
   "codegenConfig": {
     "name": "RTNCenteredTextSpecs",
@@ -142,7 +113,7 @@ Typically Fabric Nactive Components are distributed using npm, it's also how our
     }
   }
   // highlight-end
-}
+   "dependencies": {
 ```
 
 Next we need to configure our platform:
@@ -171,7 +142,7 @@ Update your generated `App.tsx` to:
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
 
-import RTNCenteredText from 'rtn-centered-text';
+import RTNCenteredText from './RTNCenteredText/js';
 
 function App(): React.JSX.Element {
   return (

@@ -5,85 +5,11 @@ title: 'Fabric Native Components: iOS'
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
-React Native uses CocoaPods to manage iOS dependencies, auto-linking and codegen. You will need to add a `.podspec`.
-
-## Create your Pod
-
-```ruby title="RTNCenteredText/rtn-centered-text.podspec"
-require "json"
-
-package = JSON.parse(File.read(File.join(__dir__, "package.json")))
-
-Pod::Spec.new do |s|
-  s.name            = "rtn-centered-text"
-  s.version         = package["version"]
-  s.summary         = package["description"]
-  s.description     = package["description"]
-  s.homepage        = package["homepage"]
-  s.license         = package["license"]
-  s.platforms       = { :ios => "11.0" }
-  s.author          = package["author"]
-  s.source          = { :git => package["repository"], :tag => "#{s.version}" }
-
-  s.source_files    = "ios/**/*.{h,m,mm,swift}"
-
-  install_modules_dependencies(s)
-end
-```
-
-You'll notice that this is using the information we entered in the `package.json`, to keep that as the single source of truth.
-
 ## Using RTNCenteredText to your Application
 
 You can [manually run](the-new-architecture/codegen-cli) the Codegen, however it's simpler to use the application you're going to demo the component in to do this for you.
 
-### 1. Link RTNCenteredText as an npm dependency:
-
-This creates symlinks between the `RTNCenteredText` component and `Demo`, so we can develop and use the component.
-
-<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
-<TabItem value="npm">
-```bash
-cd Demo
-npm link ../RTNCenteredText
-```
-</TabItem>
-<TabItem value="yarn">
-```bash
-cd RTNCenteredText
-yarn link
-cd ../Demo
-yarn link rtn-centered-text
-```
-</TabItem>
-</Tabs>
-
-We also need to help [Metro](https://metrobundler.dev/docs/configuration/#watchfolders) understand where to find packages that are symlinked through the `node_modules`:
-
-```js title="App/metro.config.js"
-const {
-  getDefaultConfig,
-  mergeConfig,
-} = require('@react-native/metro-config');
-const path = require('path');
-
-/**
- * Metro configuration
- * https://reactnative.dev/docs/metro
- *
- * @type {import('metro-config').MetroConfig}
- */
-const config = {
-  watchFolders: [
-    // highlight-next-line
-    path.resolve(__dirname, '../RTNCenteredText'),
-  ],
-};
-
-module.exports = mergeConfig(getDefaultConfig(__dirname), config);
-```
-
-### 2. Run Codegen through CocoaPods
+### 1. Run Codegen through CocoaPods
 
 ```bash
 cd ios
@@ -109,12 +35,12 @@ Importantly you will see logging output from Codegen, such as:
 You should be careful about committing this generated code to your repository. The generated code is specific to each version of React Native. Use npm [peerDependencies](https://nodejs.org/en/blog/npm/peer-dependencies) to restrict compatibility with version of React Native.
 :::
 
-### 3. Write your Native Platform Code
+### 2. Write your Native Platform Code
 
 At the end of this, you'll have the following iOS code:
 
 ```
-RTNCenteredText/ios
+ios
 ├── RTNCenteredText.h
 ├── RTNCenteredText.mm
 └── RTNCenteredTextManager.mm
@@ -124,7 +50,7 @@ RTNCenteredText/ios
 
 Declares what the Component exports:
 
-```objc title="RTNCenteredText/ios/RTNCenteredTextManager.mm"
+```objc title="ios/RTNCenteredTextManager.mm"
 #import <React/RCTLog.h>
 #import <React/RCTUIManager.h>
 #import <React/RCTViewManager.h>
@@ -151,7 +77,7 @@ This registers the modules, properties and methods.
 
 Declares the interface for RTNCenteredText:
 
-```objc title="RTNCenteredText/RTNCenteredText.h"
+```objc title="ios/RTNCenteredText.h"
 #import <React/RCTViewComponentView.h>
 #import <UIKit/UIKit.h>
 
