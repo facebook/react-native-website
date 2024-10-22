@@ -37,7 +37,7 @@ These are our deprecated native module and component API. You can still use many
 
 ## Native development with Expo
 
-Expo provides **Expo Modules API** to write platform and renderer agnostic native modules and views. The API takes advantage of modern native language features from Swift and Kotlin, has built-in type conversion and safety, and provides a similar developer experience between each platform, so it's easy to jump between Android and iOS modules. It also has similar performance characteristics to Turbo Modules API because it's built with React Native's JavaScript Interface (JSI).
+Expo provides **Expo Modules API** to write platform and renderer agnostic native modules and views. The API takes advantage of modern native language features from Swift and Kotlin, has built-in type conversion and safety, and provides a similar developer experience between each platform, so it's effortless to jump between Android and iOS modules. It also has similar performance characteristics to Turbo Modules API because it's built with React Native's JavaScript Interface (JSI).
 
 Expo provides a large set of modules in its libraries and uses the Expo Modules API to create and manage native modules for each. This API only requires a minimal boilerplate when creating a new module.
 
