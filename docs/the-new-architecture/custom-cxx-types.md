@@ -110,7 +110,7 @@ export default (TurboModuleRegistry.getEnforcing<Spec>(
 
 In this files, we are defining the function that needs to be implemented in C++.
 
-### 3. Implement the Native Code.
+### 3. Implement the Native Code
 
 Now, we need to implement the function that we declared in the JS specification.
 
@@ -161,7 +161,7 @@ std::string NativeSampleModule::reverseString(jsi::Runtime& rt, std::string inpu
 } // namespace facebook::react
 ```
 
-The implementation imports the `<cmath>` C++ library to perform mathematical operations, then it implements the `cubicRoot` function usinf the `cbrt` primitive from the `<cmath>` module.
+The implementation imports the `<cmath>` C++ library to perform mathematical operations, then it implements the `cubicRoot` function using the `cbrt` primitive from the `<cmath>` module.
 
 ### 4. Test your code in Your App
 
@@ -211,7 +211,7 @@ First, we need to update the `App.tsx` file to use the new method from the Turbo
 
 ## Adding a New Structured Custom Type: Address
 
-The approach above can be generalized to any kind of type. For structured types, React Native provides some helper functions that make it easier to bridge them from JS to C++ and viceversa.
+The approach above can be generalized to any kind of type. For structured types, React Native provides some helper functions that make it easier to bridge them from JS to C++ and vice versa.
 
 Let's assume that we want to bridge a custom `Address` type with the following properties:
 
@@ -288,7 +288,7 @@ It is also possible to have functions that return custom types.
 
 From the `Address` type defined in the specs, Codegen will generate two helper types: `NativeSampleModuleAddress` and `NativeSampleModuleAddressBridging`.
 
-The first type is the definition of the `Address`. The second type contains all the infrastructure to bridge the custom type from JS to C++ and viceversa. The only extra step we need to add is to define the `Bridging` structure that extends the `NativeSampleModuleAddressBridging` type.
+The first type is the definition of the `Address`. The second type contains all the infrastructure to bridge the custom type from JS to C++ and vice versa. The only extra step we need to add is to define the `Bridging` structure that extends the `NativeSampleModuleAddressBridging` type.
 
 1. Open the `shared/NativeSampleModule.h` file
 2. Add the following code in the file:
@@ -358,7 +358,7 @@ Once we manually parsed the object, we can implement the logic that we need.
 If you want to learn more about `JSI` and how it works, have a look at this [great talk](https://youtu.be/oLmGInjKU2U?feature=shared) from App.JS 2024
 :::
 
-### 4. Testing the code in the app.
+### 4. Testing the code in the app
 
 To test the code in the app, we have to modify the `App.tsx` file.
 
