@@ -3,8 +3,7 @@ id: native-platform
 title: Native Platform
 ---
 
-import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
-import BoxLink from '@site/src/theme/BoxLink';
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants'; import BoxLink from '@site/src/theme/BoxLink';
 
 Your application may need access to platform features that aren't directly available from React Native or one of the hundreds of [third-party libraries](https://reactnative.directory/) maintained by the community. Maybe you want to reuse some existing Objective-C, Swift, Java, Kotlin or C++ code from the JavaScript runtime. Whatever your reason, React Native exposes a powerful set of API to connect your native code to your JavaScript application code.
 
