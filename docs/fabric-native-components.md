@@ -100,7 +100,7 @@ export default (codegenNativeComponent<NativeProps>(
 </TabItem>
 </Tabs>
 
-As with Turbo Native Modules, you're able to have multiple specification files in the `specs/` directory. For more information about the types you can use, and the platform types these map to see the [appendix](/appendix#codegen-typings).
+As with Turbo Native Modules, you're able to have multiple specification files in the `specs/` directory. For more information about the types you can use, and the platform types these map to see the [appendix](appendix.md#codegen-typings).
 
 ## 2. Configure the Component for Codegen
 

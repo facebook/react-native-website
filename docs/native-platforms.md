@@ -29,6 +29,6 @@ These are our deprecated native module and component API. You can still use many
    - [Android](turbo-native-modules-android.md)
    - [iOS](turbo-native-modules-ios.md)
 2. Fabric Native Components
-   - [Introduction](fabric-native-modules.md)
-   - [Android](fabric-native-modules-android.md)
-   - [iOS](fabric-native-modules-ios.md)
+   - [Introduction](fabric-native-components.md)
+   - [Android](fabric-native-components-android.md)
+   - [iOS](fabric-native-components-ios.md)
