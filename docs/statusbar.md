@@ -265,6 +265,10 @@ If the transition between status bar property changes should be animated. Suppor
 
 The background color of the status bar.
 
+:::warning
+Due to edge-to-edge enforcement introduced in Android 15, setting background color of the status bar is deprecated in API level 35.
+:::
+
 | Type            | Required | Default                                                                |
 | --------------- | -------- | ---------------------------------------------------------------------- |
 | [color](colors) | No       | default system StatusBar background color, or `'black'` if not defined |
@@ -382,6 +386,10 @@ static setBackgroundColor(color: ColorValue, animated?: boolean);
 ```
 
 Set the background color for the status bar.
+
+:::warning
+Due to edge-to-edge enforcement introduced in Android 15, setting background color of the status bar is deprecated in API level 35.
+:::
 
 **Parameters:**
 
