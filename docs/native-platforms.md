@@ -4,8 +4,9 @@ title: Native Platform
 ---
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+import BoxLink from '@site/src/theme/BoxLink';
 
-Your application may need access to platform features that aren’t directly available from React Native or one of the hundreds of [third-party libraries](https://reactnative.directory/) maintained by the community. Maybe you want to reuse some existing Objective-C, Swift, Java, Kotlin or C++ code from the JavaScript runtime. Whatever your reason, React Native exposes a powerful set of API to connect your native code to your JavaScript application code.
+Your application may need access to platform features that aren't directly available from React Native or one of the hundreds of [third-party libraries](https://reactnative.directory/) maintained by the community. Maybe you want to reuse some existing Objective-C, Swift, Java, Kotlin or C++ code from the JavaScript runtime. Whatever your reason, React Native exposes a powerful set of API to connect your native code to your JavaScript application code.
 
 This guide introduces:
 
@@ -34,3 +35,11 @@ These are our deprecated native module and component API. You can still use many
    - [Introduction](fabric-native-modules.md)
    - [Android](fabric-native-modules-android.md)
    - [iOS](fabric-native-modules-ios.md)
+
+## Native development with Expo
+
+Expo provides **Expo Modules API** to write platform and renderer agnostic native modules and views. The API takes advantage of modern native language features from Swift and Kotlin, has built-in type conversion and safety, and provides a similar developer experience between each platform, so it's easy to jump between Android and iOS modules. It also has similar performance characteristics to Turbo Modules API because it's built with React Native's JavaScript Interface (JSI).
+
+Expo provides a large set of modules in its libraries and uses the Expo Modules API to create and manage native modules for each. This API only requires a minimal boilerplate when creating a new module.
+
+<BoxLink href="https://docs.expo.dev/modules/get-started/">Continue with Expo Modules API</BoxLink>
