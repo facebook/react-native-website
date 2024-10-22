@@ -589,7 +589,7 @@ Resolves an asset reference into an object which has the properties `uri`, `scal
 
 ### ImageCacheEnum <div class="label ios">iOS</div>
 
-Enum which can be used to set the cache handling or stategy for the potentially cached responses.
+Enum which can be used to set the cache handling or strategy for the potentially cached responses.
 
 | Type                                                               | Default     |
 | ------------------------------------------------------------------ | ----------- |
