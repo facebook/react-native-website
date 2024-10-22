@@ -267,6 +267,7 @@ The background color of the status bar.
 
 :::warning
 Due to edge-to-edge enforcement introduced in Android 15, setting background color of the status bar is deprecated in API level 35.
+:::
 
 | Type            | Required | Default                                                                |
 | --------------- | -------- | ---------------------------------------------------------------------- |
