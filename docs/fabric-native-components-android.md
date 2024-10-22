@@ -5,7 +5,7 @@ title: 'Fabric Native Modules: Android'
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
-React Native uses Gradle to manage dependencies, auto-linking and codegen. To use this, we're going to add the `RTNCenteredText` Fabric Native Component to our `Demo` application.
+React Native uses Gradle to manage dependencies, auto-linking and codegen. To use this, we're going to add the `WebView` Fabric Native Component to our `Demo` application.
 
 ### 1. Run Codegen through Gradle
 
@@ -27,143 +27,99 @@ android
     └── main
         └── java
             └── com
-                └── rtncenteredtext
-                    ├── CenteredText.{kt,java]
-                    ├── CenteredTextManager.{kt,java}
-                    └── CenteredTextPackage.{kt,java}
+                └── webview
+                    ├── ReactWebView.{kt,java]
+                    ├── ReactWebViewManager.{kt,java}
+                    └── ReactWebViewPackage.{kt,java}
 ```
 
 Create your directories:
 
 ```bash title="Demo/"
-mkdir -p android/src/main/java/com/rtncenteredtext
+mkdir -p android/src/main/java/com/webview
 ```
 
-#### build.gradle(.kts)
+#### ReactWebView
 
 <Tabs groupId="android-language" queryString defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
 <TabItem value="java">
 
-```java title="Demo/RTNCenteredText/android/build.gradle"
-buildscript {
-  ext.safeExtGet = {prop, fallback ->
-    rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
-  }
-  repositories {
-    google()
-    gradlePluginPortal()
-  }
-  dependencies {
-    classpath("com.android.tools.build:gradle:8.7.1")
-  }
-}
-
-apply plugin: 'com.android.library'
-apply plugin: 'com.facebook.react'
-
-android {
-  compileSdkVersion safeExtGet('compileSdkVersion', 35)
-  namespace "com.rtncenteredtext"
-
-  defaultConfig {
-    minSdkVersion safeExtGet('minSdkVersion', 24)
-  }
-}
-
-repositories {
-  mavenCentral()
-  google()
-}
-
-dependencies {
-  implementation 'com.facebook.react:react-native'
-}
-```
-
-</TabItem>
-<TabItem value="kotlin">
-
-```kotlin title="Demo/RTNCenteredText/android/build.gradle.kts"
-import org.gradle.api.Project
-
-fun Project.safeExtGet(prop: String, defaultValue: Any): Any? = if (rootProject.ext.has(prop)) rootProject.extra.get(prop) else defaultValue
-
-buildscript {
-  repositories {
-    google()
-    mavenCentral()
-    gradlePluginPortal()
-  }
-  dependencies {
-    classpath("com.android.tools.build:gradle:8.7.1")
-    classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:2.0.21")
-  }
-}
-
-plugins {
-  id("com.android.library")
-  id("kotlin-android")
-  id("com.facebook.react")
-}
-
-android {
-  compileSdk = safeExtGet("compileSdkVersion", 35) as Int
-  namespace = "com.rtncenteredtext"
-
-  defaultConfig {
-    minSdk = safeExtGet("minSdkVersion", 24) as Int
-  }
-}
-
-repositories {
-  mavenCentral()
-  google()
-}
-
-dependencies {
-  implementation(kotlin("stdlib"))
-  implementation("com.facebook.react:react-native")
-}
-```
-
-</TabItem>
-</Tabs>
-
-#### CenteredText
-
-<Tabs groupId="android-language" queryString defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
-<TabItem value="java">
-
-```java title="Demo/RTNCenteredText/android/src/main/java/com/rtncenteredtext/CenteredText.java"
-package com.rtncenteredtext;
+```java title="Demo/android/src/main/java/com/webview/ReactWebView.java"
+package com.webview;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.util.AttributeSet;
-import android.view.Gravity;
-import android.widget.TextView;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
-public class CenteredText extends TextView {
-  public CenteredText(Context context) {
+import com.facebook.react.bridge.Arguments;
+import com.facebook.react.bridge.WritableMap;
+import com.facebook.react.bridge.ReactContext;
+import com.facebook.react.uimanager.UIManagerHelper;
+import com.facebook.react.uimanager.events.Event;
+
+public class ReactWebView extends WebView {
+  public ReactWebView(Context context) {
     super(context);
     configureComponent();
   }
 
-  public CenteredText(Context context, AttributeSet attrs) {
+  public ReactWebView(Context context, AttributeSet attrs) {
     super(context, attrs);
     configureComponent();
   }
 
-  public CenteredText(Context context, AttributeSet attrs, int defStyleAttr) {
+  public ReactWebView(Context context, AttributeSet attrs, int defStyleAttr) {
     super(context, attrs, defStyleAttr);
     configureComponent();
   }
 
   // highlight-start
   private void configureComponent() {
-    // Light blue
-    setBackgroundColor(Color.argb(255, 182, 216, 227));
-    setGravity(Gravity.CENTER);
+    this.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
+    this.setWebViewClient(new WebViewClient() {
+      @Override
+      public void onPageFinished(WebView view, String url) {
+        emitOnScriptLoaded(OnScriptLoadedEventResult.success);
+      }
+    });
+  }
+
+  public void emitOnScriptLoaded(OnScriptLoadedEventResult result) {
+    ReactContext reactContext = (ReactContext) context;
+    int surfaceId = UIManagerHelper.getSurfaceId(reactContext);
+    EventDispatcher eventDispatcher = UIManagerHelper.getEventDispatcherForReactTag(reactContext, getId());
+    WritableMap payload = Arguments.createMap();
+    payload.putString("result", result.name());
+
+    OnScriptLoadedEvent event = new OnScriptLoadedEvent(surfaceId, getId(), payload);
+    if (eventDispatcher != null) {
+      eventDispatcher.dispatchEvent(event);
+    }
+  }
+
+  public enum OnScriptLoadedEventResult {
+    success,
+    error
+  }
+
+  private class OnScriptLoadedEvent extends Event<OnScriptLoadedEvent> {
+    private final WritableMap payload;
+
+    OnScriptLoadedEvent(int surfaceId, int viewId, WritableMap payload) {
+      super(surfaceId, viewId);
+      this.payload = payload;
+    }
+
+    @Override
+    public String getEventName() {
+      return "onScriptLoaded";
+    }
+
+    @Override
+    public WritableMap getEventData() {
+      return payload;
+    }
   }
   // highlight-end
 }
@@ -172,33 +128,68 @@ public class CenteredText extends TextView {
 </TabItem>
 <TabItem value="kotlin">
 
-```kotlin title="Demo/RTNCenteredText/android/src/main/java/com/rtncenteredtext/CenteredText.kt"
-package com.rtncenteredtext;
+```kotlin title="Demo/android/src/main/java/com/webview/ReactWebView.kt"
+package com.webview
 
 import android.content.Context
-import android.graphics.Color
 import android.util.AttributeSet
-import android.view.Gravity
-import android.widget.TextView
+import android.webkit.WebView
+import android.webkit.WebViewClient
+import com.facebook.react.bridge.Arguments
+import com.facebook.react.bridge.WritableMap
+import com.facebook.react.bridge.ReactContext
+import com.facebook.react.uimanager.UIManagerHelper
+import com.facebook.react.uimanager.events.Event
 
-class CenteredText : TextView {
-  constructor(context: Context?) : super(context) {
+class ReactWebView: WebView {
+  constructor(context: Context) : super(context) {
     configureComponent()
   }
 
-  constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs) {
+  constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
     configureComponent()
   }
 
-  constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+  constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
     configureComponent()
   }
 
   // highlight-start
   private fun configureComponent() {
-    // Light blue
-    setBackgroundColor(Color.argb(255, 182, 216, 227))
-    gravity = Gravity.CENTER
+    this.layoutParams = LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT)
+    this.webViewClient = object : WebViewClient() {
+      override fun onPageFinished(view: WebView, url: String) {
+        emitOnScriptLoaded(OnScriptLoadedEventResult.success)
+      }
+    }
+  }
+
+  fun emitOnScriptLoaded(result: OnScriptLoadedEventResult) {
+    val reactContext = context as ReactContext
+    val surfaceId = UIManagerHelper.getSurfaceId(reactContext)
+    val eventDispatcher = UIManagerHelper.getEventDispatcherForReactTag(reactContext, id)
+    val payload =
+        Arguments.createMap().apply {
+          putString("result", result.name)
+        }
+    val event = OnScriptLoadedEvent(surfaceId, id, payload)
+
+    eventDispatcher?.dispatchEvent(event)
+  }
+
+  enum class OnScriptLoadedEventResult() {
+    success(),
+    error()
+  }
+
+  inner class OnScriptLoadedEvent(
+      surfaceId: Int,
+      viewId: Int,
+      private val payload: WritableMap
+  ) : Event<OnScriptLoadedEvent>(surfaceId, viewId) {
+    override fun getEventName() = "onScriptLoaded"
+
+    override fun getEventData() = payload
   }
   // highlight-end
 }
@@ -207,13 +198,13 @@ class CenteredText : TextView {
 </TabItem>
 </Tabs>
 
-#### CenteredTextManager
+#### WebViewManager
 
 <Tabs groupId="android-language" queryString defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
 <TabItem value="java">
 
-```java title="Demo/RTNCenteredText/android/src/main/java/com/rtncenteredtext/CenteredTextManager.java"
-package com.rtncenteredtext;
+```java title="Demo/android/src/main/java/com/webview/ReactWebViewManager.java"
+package com.webview;
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.module.annotations.ReactModule;
@@ -221,16 +212,19 @@ import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.ViewManagerDelegate;
 import com.facebook.react.uimanager.annotations.ReactProp;
-import com.facebook.react.viewmanagers.RTNCenteredTextManagerInterface;
-import com.facebook.react.viewmanagers.RTNCenteredTextManagerDelegate;
+import com.facebook.react.viewmanagers.CustomWebViewManagerInterface;
+import com.facebook.react.viewmanagers.CustomWebViewManagerDelegate;
 
-@ReactModule(name = CenteredTextManager.REACT_CLASS)
-public class CenteredTextManager extends SimpleViewManager<CenteredText> implements RTNCenteredTextManagerInterface<CenteredText> {
-  private final RTNCenteredTextManagerDelegate<CenteredText, CenteredTextManager> delegate =
-          new RTNCenteredTextManagerDelegate<>(this);
+import java.util.HashMap;
+import java.util.Map;
+
+@ReactModule(name = ReactWebViewManager.REACT_CLASS)
+class ReactWebViewManager extends SimpleViewManager<ReactWebView> implements CustomWebViewManagerInterface<ReactWebView> {
+  private final CustomWebViewManagerDelegate<ReactWebView, ReactWebViewManager> delegate =
+          new CustomWebViewManagerDelegate<>(this);
 
   @Override
-  public ViewManagerDelegate<CenteredText> getDelegate() {
+  public ViewManagerDelegate<ReactWebView> getDelegate() {
     return delegate;
   }
 
@@ -240,68 +234,97 @@ public class CenteredTextManager extends SimpleViewManager<CenteredText> impleme
   }
 
   @Override
-  public CenteredText createViewInstance(ThemedReactContext context) {
-    return new CenteredText(context);
+  public ReactWebView createViewInstance(ThemedReactContext context) {
+    return new ReactWebView(context);
   }
 
-  @ReactProp(name = "text")
+  @ReactProp(name = "sourceUrl")
   @Override
-  public void setText(CenteredText view, String text) {
-    view.setText(text);
+  public void setSourceURL(ReactWebView view, String sourceURL) {
+    if (sourceURL == null) {
+      view.emitOnScriptLoaded(ReactWebView.OnScriptLoadedEventResult.error);
+      return;
+    }
+    view.loadUrl(sourceURL, new HashMap<>());
   }
 
-  public static final String REACT_CLASS = "RTNCenteredText";
+  public static final String REACT_CLASS = "CustomWebView";
+
+  @Override
+  public Map<String, Object> getExportedCustomBubblingEventTypeConstants() {
+    Map<String, Object> map = new HashMap<>();
+    Map<String, Object> bubblingMap = new HashMap<>();
+    bubblingMap.put("phasedRegistrationNames", new HashMap<String, String>() {{
+      put("bubbled", "onScriptLoaded");
+      put("captured", "onScriptLoadedCapture");
+    }});
+    map.put("onScriptLoaded", bubblingMap);
+    return map;
+  }
 }
 ```
 
 </TabItem>
 <TabItem value="kotlin">
 
-```kotlin title="Demo/RTNCenteredText/android/src/main/java/com/rtncenteredtext/CenteredTextManager.kt"
-package com.rtncenteredtext
+```kotlin title="Demo/android/src/main/java/com/webview/ReactWebViewManager.kt"
+package com.webview
 
-import com.facebook.react.bridge.ReactApplicationContext
-import com.facebook.react.module.annotations.ReactModule
-import com.facebook.react.uimanager.SimpleViewManager
-import com.facebook.react.uimanager.ThemedReactContext
-import com.facebook.react.uimanager.ViewManagerDelegate
-import com.facebook.react.uimanager.annotations.ReactProp
-import com.facebook.react.viewmanagers.RTNCenteredTextManagerInterface
-import com.facebook.react.viewmanagers.RTNCenteredTextManagerDelegate
+import com.facebook.react.bridge.ReactApplicationContext;
+import com.facebook.react.module.annotations.ReactModule;
+import com.facebook.react.uimanager.SimpleViewManager;
+import com.facebook.react.uimanager.ThemedReactContext;
+import com.facebook.react.uimanager.ViewManagerDelegate;
+import com.facebook.react.uimanager.annotations.ReactProp;
+import com.facebook.react.viewmanagers.CustomWebViewManagerInterface;
+import com.facebook.react.viewmanagers.CustomWebViewManagerDelegate;
 
-@ReactModule(name = CenteredTextManager.REACT_CLASS)
-class CenteredTextManager(context: ReactApplicationContext) : SimpleViewManager<CenteredText>(), RTNCenteredTextManagerInterface<CenteredText> {
-  private val delegate: RTNCenteredTextManagerDelegate<CenteredText, CenteredTextManager> =
-    RTNCenteredTextManagerDelegate(this)
+@ReactModule(name = ReactWebViewManager.REACT_CLASS)
+class ReactWebViewManager(context: ReactApplicationContext) : SimpleViewManager<ReactWebView>(), CustomWebViewManagerInterface<ReactWebView> {
+  private val delegate: CustomWebViewManagerDelegate<ReactWebView, ReactWebViewManager> =
+    CustomWebViewManagerDelegate(this)
 
-  override fun getDelegate(): ViewManagerDelegate<CenteredText> = delegate
+  override fun getDelegate(): ViewManagerDelegate<ReactWebView> = delegate
 
   override fun getName(): String = REACT_CLASS
 
-  override fun createViewInstance(context: ThemedReactContext): CenteredText = CenteredText(context)
+  override fun createViewInstance(context: ThemedReactContext): ReactWebView = ReactWebView(context)
 
-  @ReactProp(name = "text")
-  override fun setText(view: CenteredText, text: String?) {
-    view.text = text
+  @ReactProp(name = "sourceUrl")
+  override fun setSourceURL(view: ReactWebView, sourceURL: String?) {
+    if (sourceURL == null) {
+      view.emitOnScriptLoaded(ReactWebView.OnScriptLoadedEventResult.error)
+      return;
+    }
+    view.loadUrl(sourceURL, emptyMap())
   }
 
   companion object {
-    const val REACT_CLASS = "RTNCenteredText"
+    const val REACT_CLASS = "CustomWebView"
   }
-}
 
+  override fun getExportedCustomBubblingEventTypeConstants(): Map<String, Any> =
+      mapOf(
+          "onScriptLoaded" to
+              mapOf(
+                  "phasedRegistrationNames" to
+                      mapOf(
+                          "bubbled" to "onScriptLoaded",
+                          "captured" to "onScriptLoadedCapture"
+                      )))
+}
 ```
 
 </TabItem>
 </Tabs>
 
-#### CenteredTextPackage
+#### ReactWebViewPackage
 
 <Tabs groupId="android-language" queryString defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
 <TabItem value="java">
 
-```java title="Demo/RTNCenteredText/android/src/main/java/com/rtncenteredtext/CenteredTextPackage.java"
-package com.rtncenteredtext;
+```java title="Demo/android/src/main/java/com/webview/ReactWebViewPackage.java"
+package com.webview;
 
 import com.facebook.react.TurboReactPackage;
 import com.facebook.react.bridge.NativeModule;
@@ -315,16 +338,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class CenteredTextPackage extends TurboReactPackage {
+public class ReactWebViewPackage extends TurboReactPackage {
   @Override
   public List<ViewManager<?, ?>> createViewManagers(ReactApplicationContext reactContext) {
-    return Collections.singletonList(new CenteredTextManager(reactContext));
+    return Collections.singletonList(new ReactWebViewManager(reactContext));
   }
 
   @Override
   public NativeModule getModule(String s, ReactApplicationContext reactApplicationContext) {
-    if (CenteredTextManager.REACT_CLASS.equals(s)) {
-      return new CenteredTextManager(reactApplicationContext);
+    if (ReactWebViewManager.REACT_CLASS.equals(s)) {
+      return new ReactWebViewManager(reactApplicationContext);
     }
     return null;
   }
@@ -335,13 +358,13 @@ public class CenteredTextPackage extends TurboReactPackage {
       @Override
       public Map<String, ReactModuleInfo> get() {
         Map<String, ReactModuleInfo> map = new HashMap<>();
-        map.put(CenteredTextManager.REACT_CLASS, new ReactModuleInfo(
-                CenteredTextManager.REACT_CLASS,        // name
-                CenteredTextManager.REACT_CLASS,        // className
-                false,                                  // canOverrideExistingModule
-                false,                                  // needsEagerInit
-                false,                                  // isCxxModule
-                BuildConfig.IS_NEW_ARCHITECTURE_ENABLED // isTurboModule
+        map.put(ReactWebViewManager.REACT_CLASS, new ReactModuleInfo(
+                ReactWebViewManager.REACT_CLASS, // name
+                ReactWebViewManager.REACT_CLASS, // className
+                false,                           // canOverrideExistingModule
+                false,                           // needsEagerInit
+                false,                           // isCxxModule
+                true                             // isTurboModule
         ));
         return map;
       }
@@ -353,8 +376,8 @@ public class CenteredTextPackage extends TurboReactPackage {
 </TabItem>
 <TabItem value="kotlin">
 
-```kotlin title="Demo/RTNCenteredText/android/src/main/java/com/rtncenteredtext/CenteredTextPackage.kt"
-package com.rtncenteredtext
+```kotlin title="Demo/android/src/main/java/com/webview/ReactWebView.kt"
+package com.webview
 
 import com.facebook.react.TurboReactPackage
 import com.facebook.react.bridge.NativeModule
@@ -363,26 +386,26 @@ import com.facebook.react.module.model.ReactModuleInfo
 import com.facebook.react.module.model.ReactModuleInfoProvider
 import com.facebook.react.uimanager.ViewManager
 
-class CenteredTextPackage : TurboReactPackage() {
+class ReactWebViewPackage : TurboReactPackage() {
   override fun createViewManagers(reactContext: ReactApplicationContext): List<ViewManager<*, *>> {
-    return listOf(CenteredTextManager(reactContext))
+    return listOf(ReactWebViewManager(reactContext))
   }
 
   override fun getModule(s: String, reactApplicationContext: ReactApplicationContext): NativeModule? {
     when (s) {
-      CenteredTextManager.REACT_CLASS -> CenteredTextManager(reactApplicationContext)
+      ReactWebViewManager.REACT_CLASS -> ReactWebViewManager(reactApplicationContext)
     }
     return null
   }
 
   override fun getReactModuleInfoProvider(): ReactModuleInfoProvider = ReactModuleInfoProvider {
-    mapOf(CenteredTextManager.REACT_CLASS to ReactModuleInfo(
-      _name = CenteredTextManager.REACT_CLASS,
-      _className = CenteredTextManager.REACT_CLASS,
+    mapOf(ReactWebViewManager.REACT_CLASS to ReactModuleInfo(
+      _name = ReactWebViewManager.REACT_CLASS,
+      _className = ReactWebViewManager.REACT_CLASS,
       _canOverrideExistingModule = false,
       _needsEagerInit = false,
       isCxxModule = false,
-      isTurboModule = BuildConfig.IS_NEW_ARCHITECTURE_ENABLED
+      isTurboModule = true,
     )
     )
   }
@@ -391,3 +414,54 @@ class CenteredTextPackage : TurboReactPackage() {
 
 </TabItem>
 </Tabs>
+
+### 3. Make you application aware of the ReactWebViewPackage
+
+```kotlin title="Demo/app/src/main/java/com/demo/MainApplication.kt"
+package com.demo
+
+import android.app.Application
+import com.facebook.react.PackageList
+import com.facebook.react.ReactApplication
+import com.facebook.react.ReactHost
+import com.facebook.react.ReactNativeHost
+import com.facebook.react.ReactPackage
+import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.load
+import com.facebook.react.defaults.DefaultReactHost.getDefaultReactHost
+import com.facebook.react.defaults.DefaultReactNativeHost
+import com.facebook.react.soloader.OpenSourceMergedSoMapping
+import com.facebook.soloader.SoLoader
+// highlight-next-line
+import com.webview.ReactWebViewPackage
+
+class MainApplication : Application(), ReactApplication {
+
+  override val reactNativeHost: ReactNativeHost =
+      object : DefaultReactNativeHost(this) {
+        override fun getPackages(): List<ReactPackage> =
+            PackageList(this).packages.apply {
+              // highlight-next-line
+              add(ReactWebViewPackage())
+            }
+
+        override fun getJSMainModuleName(): String = "index"
+
+        override fun getUseDeveloperSupport(): Boolean = BuildConfig.DEBUG
+
+        override val isNewArchEnabled: Boolean = BuildConfig.IS_NEW_ARCHITECTURE_ENABLED
+        override val isHermesEnabled: Boolean = BuildConfig.IS_HERMES_ENABLED
+      }
+
+  override val reactHost: ReactHost
+    get() = getDefaultReactHost(applicationContext, reactNativeHost)
+
+  override fun onCreate() {
+    super.onCreate()
+    SoLoader.init(this, OpenSourceMergedSoMapping)
+    if (BuildConfig.IS_NEW_ARCHITECTURE_ENABLED) {
+      load()
+    }
+  }
+}
+
+```

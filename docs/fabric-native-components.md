@@ -10,14 +10,14 @@ import {FabricNativeComponentsAndroid,FabricNativeComponentsIOS} from './\_fabri
 
 If you want to build _new_ React Native Components that wraps around a [Host Component](https://reactnative.dev/architecture/glossary#host-view-tree-and-host-view) like a [UIButton](https://developer.apple.com/documentation/uikit/uibutton?language=objc) on iOS or a special kind of [CheckBox](https://developer.android.com/reference/androidx/appcompat/widget/AppCompatCheckBox) on Android, you should use a Fabric Native Component.
 
-This guide will show you how to build Fabric Native Component, by implementing a simple centered text component. The steps to doing this are:
+This guide will show you how to build Fabric Native Component, by implementing a simple web view component. The steps to doing this are:
 
 1. Define a JavaScript specification using Flow or TypeScript.
 2. Configure the dependencies management system to generate code from the provided spec and to be auto-linked.
 3. Implement the Native code.
 4. Use the Component in an App.
 
-# Creating the Fabric Native Centered Text Component
+# Creating the Native WebView Component
 
 You're going to need a simple application to use the component:
 
@@ -25,47 +25,48 @@ You're going to need a simple application to use the component:
 npx @react-native-community/cli@latest init Demo --install-pods false
 ```
 
-Next you'll need to create a folders structure to hold our `RTNCenteredText` component:
+Next you'll need to create a folders structure to hold our `RCTWebView` component:
 
 ```bash
-mkdir -p Demo/RTNCenteredText/{android,ios,js}
+mkdir -p Demo/{specs,android/app/src/main/java/com/webview}
 ```
 
-This gives you the following layout:
+This gives you the following layout where you'll working:
 
 ```
 Demo
-├── android
+├── android/app/src/main/java/com/webview
 └── ios
-└── RTNCenteredText
-    ├── android
-    ├── ios
-    └── js
+└── spec
 ```
 
 ## 1. Define Specification for Codegen
 
 Your specification must be defined in either [TypeScript](https://www.typescriptlang.org/) or [Flow](https://flow.org/) (see [Codegen](the-new-architecture/what-is-codegen) documentation for more details). This is used by Codegen to generate the C++, Objective-C++ and Java to connect your platform code to the JavaScript runtime that React runs in.
 
-Use this specification for our Text Component:
+Use this specification for our WebView Component:
 
 <Tabs groupId="language" queryString defaultValue={constants.defaultJavaScriptSpecLanguage} values={constants.javaScriptSpecLanguages}>
 <TabItem value="typescript">
 
 The specification file must be named `<MODULE_NAME>NativeComponent.{ts,tsx}` to work with Codegen:
 
-```typescript title="RTNCenteredText/js/RTNCenteredTextNativeComponent.ts"
-import type {ViewProps} from 'react-native';
-import type {HostComponent} from 'react-native/Libraries/Renderer/shims/ReactNativeTypes';
+```typescript title="Demo/specs/WebViewNativeComponent.ts"
+import type {HostComponent, ViewProps} from 'react-native';
+import type {BubblingEventHandler} from 'react-native/Libraries/Types/CodegenTypes';
 import codegenNativeComponent from 'react-native/Libraries/Utilities/codegenNativeComponent';
 
+type WebViewScriptLoadedEvent = {
+  result: 'success' | 'error';
+};
+
 export interface NativeProps extends ViewProps {
-  text?: string;
-  // add other props here
+  sourceURL?: string;
+  onScriptLoaded?: BubblingEventHandler<WebViewScriptLoadedEvent> | null;
 }
 
 export default codegenNativeComponent<NativeProps>(
-  'RTNCenteredText',
+  'CustomWebView',
 ) as HostComponent<NativeProps>;
 ```
 
@@ -73,40 +74,43 @@ export default codegenNativeComponent<NativeProps>(
 <TabItem value="flow">
 The specification file must be named `<MODULE_NAME>NativeComponent.{js,jsx}` to work with Codegen:
 
-```flow title="Demo/RTNCenteredText/js/RTNCenteredTextNativeComponent.js":
+```flow title="Demo/RCTWebView/js/RCTWebViewNativeComponent.js":
 // @flow strict-local
 
-import type {ViewProps} from 'react-native/Libraries/Components/View/ViewPropTypes';
-import type {HostComponent} from 'react-native';
+import type {HostComponent, ViewProps} from 'react-native';
+import type {BubblingEventHandler} from 'react-native/Libraries/Types/CodegenTypes';
 import codegenNativeComponent from 'react-native/Libraries/Utilities/codegenNativeComponent';
+
+type WebViewScriptLoadedEvent = $ReadOnly<{|
+  result: "success" | "error",
+|}>;
 
 type NativeProps = $ReadOnly<{|
   ...ViewProps,
-  text: ?string,
-  // add other props here
+  sourceURL?: string;
+  onScriptLoaded?: BubblingEventHandler<WebViewScriptLoadedEvent>?;
 |}>;
 
 export default (codegenNativeComponent<NativeProps>(
-  'RTNCenteredText',
+  // highlight-next-line
+  'CustomWebView',
 ): HostComponent<NativeProps>);
 ```
 
 </TabItem>
 </Tabs>
 
-As with Turbo Native Modules, you're able to have multiple specification files in the `js/` directory. For more information about the types you can use, and the platform types these map to see the [appendix](/appendix#codegen-typings).
+As with Turbo Native Modules, you're able to have multiple specification files in the `specs/` directory. For more information about the types you can use, and the platform types these map to see the [appendix](/appendix#codegen-typings).
 
-## 2. Configure the Component for Codegen and Auto-Linking
+## 2. Configure the Component for Codegen
 
-Typically Fabric Nactive Components are distributed using npm, it's also how our Codegen is configured. Add a [package.json](https://docs.npmjs.com/cli/v10/configuring-npm/package-json) to `Demo/RTNCenteredText/package.json`:
-
-```json title="Demo/RTNCenteredText/package.json"
+```json title="Demo/RCTWebView/package.json"
 {
   "name": "rtn-centered-text",
   "version": "0.0.1",
   "description": "Showcase a Fabric Native Component with centered text",
   // highlight-next-line
-  "main": "js/RTNCenteredTextNativeComponent",
+  "main": "js/RCTWebViewNativeComponent",
   "homepage": "https://github.com/your/package",
   "license": "MIT",
   "author": "Your name <and@your.email>",
@@ -127,11 +131,11 @@ Typically Fabric Nactive Components are distributed using npm, it's also how our
   },
   // highlight-start
   "codegenConfig": {
-    "name": "RTNCenteredTextSpecs",
+    "name": "AppSpecs",
     "type": "components",
-    "jsSrcsDir": "js",
+    "jsSrcsDir": "specs",
     "android": {
-      "javaPackageName": "com.rtncenteredtext"
+      "javaPackageName": "com.webview.specs"
     }
   }
   // highlight-end
@@ -139,6 +143,8 @@ Typically Fabric Nactive Components are distributed using npm, it's also how our
 ```
 
 Next we need to configure our platform:
+
+<!-- TODO: review this -->
 
 - package management and build tooling
 - native code
@@ -162,14 +168,20 @@ Update your generated `App.tsx` to:
 
 ```javascript title="Demo/App.tsx"
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
-
-import RTNCenteredText from 'rtn-centered-text';
+import {Alert, StyleSheet, View} from 'react-native';
+import WebView from './specs/WebViewNativeComponent';
 
 function App(): React.JSX.Element {
   return (
     <View style={styles.container}>
-      <RTNCenteredText text="Hello, World" style={styles.hello} />
+      <WebView
+        sourceURL="https://react.dev/"
+        style={styles.webview}
+        onScriptLoaded={() => {
+          console.log('Script Loaded');
+          Alert.alert('Page Loaded');
+        }}
+      />
     </View>
   );
 }
@@ -177,13 +189,13 @@ function App(): React.JSX.Element {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'center',
     alignItems: 'center',
+    alignContent: 'center',
   },
-  hello: {
-    width: 100,
-    height: 100,
+  webview: {
+    width: '100%',
+    height: '100%',
+    backgroundColor: 'red',
   },
 });
 
@@ -200,7 +212,7 @@ yarn run android
 </TabItem>
 <TabItem value="ios" label="iOS">
 ```bash
-yarn run ios 
+yarn run ios
 ```
 </TabItem>
 </Tabs>
