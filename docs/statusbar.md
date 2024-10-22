@@ -387,6 +387,10 @@ static setBackgroundColor(color: ColorValue, animated?: boolean);
 
 Set the background color for the status bar.
 
+:::warning
+Due to edge-to-edge enforcement introduced in Android 15, setting background color of the status bar is deprecated in API level 35.
+:::
+
 **Parameters:**
 
 | Name                                                   | Type    | Description               |
