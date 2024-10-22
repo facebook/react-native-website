@@ -42,7 +42,7 @@ open Demo.xcworkspace
 
 <img class="half-size" alt="Right click on app and select New Group" src="/docs/assets/fabric-native-components/2.webp" />
 
-3. In the `CenteredText` group, create <code>New</code>→<code>File from Template</code>.
+3. In the `WebView` group, create <code>New</code>→<code>File from Template</code>.
 
 <img class="half-size" alt="Create a new file using the Cocoa Touch Classs template" src="/docs/assets/fabric-native-components/3.webp" />
 

@@ -102,54 +102,7 @@ export default (codegenNativeComponent<NativeProps>(
 
 As with Turbo Native Modules, you're able to have multiple specification files in the `specs/` directory. For more information about the types you can use, and the platform types these map to see the [appendix](appendix.md#codegen-typings).
 
-## 2. Configure the Component for Codegen
-
-```json title="Demo/RCTWebView/package.json"
-{
-  "name": "rtn-centered-text",
-  "version": "0.0.1",
-  "description": "Showcase a Fabric Native Component with centered text",
-  // highlight-next-line
-  "main": "js/RCTWebViewNativeComponent",
-  "homepage": "https://github.com/your/package",
-  "license": "MIT",
-  "author": "Your name <and@your.email>",
-  "repository": "https://github.com/your/package",
-  "files": [
-    "js",
-    "android",
-    "ios",
-    "rtn-centered-text.podspec",
-    "!android/build",
-    "!ios/build"
-  ],
-  "keywords": ["react-native", "ios", "android"],
-  "devDependencies": {},
-  "peerDependencies": {
-    "react": "*",
-    "react-native": "*"
-  },
-  // highlight-start
-  "codegenConfig": {
-    "name": "AppSpecs",
-    "type": "components",
-    "jsSrcsDir": "specs",
-    "android": {
-      "javaPackageName": "com.webview.specs"
-    }
-  }
-  // highlight-end
-}
-```
-
-Next we need to configure our platform:
-
-<!-- TODO: review this -->
-
-- package management and build tooling
-- native code
-
-## 3. Building your Native Code
+## 2. Building your Native Code
 
 You should work through both the Android and iOS platforms:
 
@@ -162,7 +115,7 @@ You should work through both the Android and iOS platforms:
     </TabItem>
 </Tabs>
 
-## 4. Use your Native Component
+## 3. Use your Native Component
 
 Update your generated `App.tsx` to:
 
@@ -202,7 +155,7 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-## 5. Run your App using the RNCenteredText Component
+## 5. Run your App using the WebView Component
 
 <Tabs groupId="platforms" queryString defaultValue={constants.defaultPlatform}>
 <TabItem value="android" label="Android">
