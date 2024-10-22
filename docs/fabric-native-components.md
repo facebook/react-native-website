@@ -217,6 +217,6 @@ yarn run ios
 </TabItem>
 </Tabs>
 
-| Android                                | iOS                                |
-| -------------------------------------- | ---------------------------------- |
-| ![](/docs/assets/webview-android.webp) | ![](/docs/assets/webview-ios.webp) |
+|                                      Android                                      |                                     iOS                                      |
+| :-------------------------------------------------------------------------------: | :--------------------------------------------------------------------------: |
+| <img style={{ "max-height": "600px" }} src="/docs/assets/webview-android.webp" /> | <img style={{"max-height": "600px" }} src="/docs/assets/webview-ios.webp" /> |
