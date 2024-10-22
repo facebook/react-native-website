@@ -217,6 +217,6 @@ yarn run ios
 </TabItem>
 </Tabs>
 
-| Android                                                   | iOS                                                   |
-| --------------------------------------------------------- | ----------------------------------------------------- |
-| ![](/docs/assets/fabric-native-component-app-android.png) | ![](/docs/assets/fabric-native-component-app-ios.png) |
+| Android                                | iOS                                |
+| -------------------------------------- | ---------------------------------- |
+| ![](/docs/assets/webview-android.webp) | ![](/docs/assets/webview-ios.webp) |
