@@ -1,6 +1,6 @@
 # The Codegen CLI
 
-Calling Gradle or manually calling a script might be hard to remember and it requires a lot of cerimony.
+Calling Gradle or manually calling a script might be hard to remember and it requires a lot of ceremony.
 
 To simplify it, we created a CLI tool that can help you running those tasks: the **Codegen** cli. This command runs [react-native-codegen](https://www.npmjs.com/package/react-native-codegen) for your project. The following options are available:
 

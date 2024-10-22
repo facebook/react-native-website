@@ -38,9 +38,9 @@ npx @react-native-community/cli@latest init SampleApp --version 0.76.0
   },
 ```
 
-You can add this snippet to your app and customise the various fields:
+You can add this snippet to your app and customize the various fields:
 
-- `name:` This is the name that will be used to create files containig your specs. As a convention, It should have the suffix `Spec`, but this is not mandatory.
+- `name:` This is the name that will be used to create files containing your specs. As a convention, It should have the suffix `Spec`, but this is not mandatory.
 - `type`: the type of code we need to generate. Allowed values are `modules`, `components`, `all`.
   - `modules:` use this value if you only need to generate code for Turbo Native Modules.
   - `components:` use this value if you only need to generate code for Native Fabric Components.
