@@ -25,7 +25,7 @@ Pure C++ Turbo Native Modules are Turbo Native Modules. They needs a specificati
 Specs files need to be written in a typed JS dialect. React Native currently supports Flow or TypeScript.
 
 1. Inside the root folder of your app, create a new folder called `specs`.
-2. Create a new file called `NativeSampleModule.ts`, and the following code:
+2. Create a new file called `NativeSampleModule.ts` with the following code:
 
 :::warning
 All Native Turbo Module spec files must have the prefix `Native`, otherwise Codegen will ignore them.
