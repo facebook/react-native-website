@@ -8,9 +8,9 @@ import TabItem from '@theme/TabItem';
 import constants from '@site/core/TabsConstants';
 import {FabricNativeComponentsAndroid,FabricNativeComponentsIOS} from './\_fabric-native-components';
 
-If you want to build _new_ React Native Components that wraps around a [Host Component](https://reactnative.dev/architecture/glossary#host-view-tree-and-host-view) like a [UIButton](https://developer.apple.com/documentation/uikit/uibutton?language=objc) on iOS or a special kind of [CheckBox](https://developer.android.com/reference/androidx/appcompat/widget/AppCompatCheckBox) on Android, you should use a Fabric Native Component.
+If you want to build _new_ React Native Components that wraps around a [Host Component](https://reactnative.dev/architecture/glossary#host-view-tree-and-host-view) like a [UIButton](https://developer.apple.com/documentation/uikit/uibutton?language=objc) on iOS or a unique kind of [CheckBox](https://developer.android.com/reference/androidx/appcompat/widget/AppCompatCheckBox) on Android, you should use a Fabric Native Component.
 
-This guide will show you how to build Fabric Native Component, by implementing a simple web view component. The steps to doing this are:
+This guide will show you how to build Fabric Native Component, by implementing a uncomplicated web view component. The steps to doing this are:
 
 1. Define a JavaScript specification using Flow or TypeScript.
 2. Configure the dependencies management system to generate code from the provided spec and to be auto-linked.
@@ -19,7 +19,7 @@ This guide will show you how to build Fabric Native Component, by implementing a
 
 # Creating the Native WebView Component
 
-You're going to need a simple application to use the component:
+You're going to need a plain template generated application to use the component:
 
 ```bash
 npx @react-native-community/cli@latest init Demo --install-pods false
