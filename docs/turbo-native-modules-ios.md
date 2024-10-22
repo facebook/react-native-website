@@ -34,11 +34,11 @@ open TurboModuleExample.xcworkspace
 
 5. Name the Cocoa Touch Class <code>RCTNativeLocalStorage</code> with the <code>Objective-C</code> language.
 
-<img class="half-size" alt="Create an Objective-C RCTNativeLocalStorage class" src="/docs/assets/turbo-native-modules/xcode/4.webp" />
+<img class="half-size" alt="Create an Objective-C RCTNativeLocalStorage class" src="/docs/assets/turbo-native-modules/xcode/5.webp" />
 
 6. Rename <code>RCTNativeLocalStorage.m</code> → <code>RCTNativeLocalStorage.mm</code> making it an Objective-C++ file.
 
-<img class="half-size" alt="Convert to and Objective-C++ file" src="/docs/assets/turbo-native-modules/xcode/5.webp" />
+<img class="half-size" alt="Convert to and Objective-C++ file" src="/docs/assets/turbo-native-modules/xcode/6.webp" />
 
 ## Implement localStorage with NSUserDefaults
 

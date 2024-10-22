@@ -86,8 +86,16 @@ class NativeLocalStorageModule(reactContext: ReactApplicationContext) : NativeLo
 
   override fun removeItem(key: String) {
     val sharedPref = getReactApplicationContext().getSharedPreferences("my_prefs", Context.MODE_PRIVATE)
-    val username = sharedPref.getString(key, "")
-    return username.toString()
+    val editor = sharedPref.edit()
+    editor.remove(key)
+    editor.apply()
+  }
+
+  override fun clear() {
+    val sharedPref = getReactApplicationContext().getSharedPreferences("my_prefs", Context.MODE_PRIVATE)
+    val editor = sharedPref.edit()
+    editor.clear()
+    editor.apply()
   }
 
   companion object {
@@ -152,7 +160,7 @@ public class NativeLocalStoragePackage extends TurboReactPackage {
 <TabItem value="kotlin">
 
 ```kotlin title="android/app/src/main/java/com/nativelocalstorage/NativeLocalStoragePackage.kt"
-package com.nativelocalstorage;
+package com.nativelocalstorage
 
 import com.facebook.react.TurboReactPackage
 import com.facebook.react.bridge.NativeModule
@@ -176,8 +184,8 @@ class NativeLocalStoragePackage : TurboReactPackage() {
         _className = NativeLocalStorageModule.NAME,
         _canOverrideExistingModule = false,
         _needsEagerInit = false,
-        isCXXModule = false,
-        isTurobModule = true
+        isCxxModule = false,
+        isTurboModule = true
       )
     )
   }
@@ -192,7 +200,7 @@ Finally, we need to tell the React Native in our main application how to find th
 In this case, you add it to be returned by the [getPackages](https://github.com/facebook/react-native/blob/8d8b8c343e62115a5509e1aed62047053c2f6e39/packages/react-native/ReactAndroid/src/main/java/com/facebook/react/ReactNativeHost.java#L233) method.
 
 :::info
-Later you’ll learn how to distribute your Turbo Native Modules as [npm packages](s](the-new-architecture/create-module-library.md#publish-the-library-on-npm), which our build tooling will autolink for you.
+Later you’ll learn how to distribute your Turbo Native Modules as [npm packages](the-new-architecture/create-module-library.md#publish-the-library-on-npm), which our build tooling will autolink for you.
 :::
 
 <Tabs groupId="android-language" queryString defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
