@@ -29,7 +29,7 @@ You may use the following table as a reference for which types are supported and
 
 ### Notes:
 
-<b>[1]</b> We strongly recommend using Object literals intead of Objects.
+<b>[1]</b> We strongly recommend using Object literals instead of Objects.
 
 :::info
 You may also find it useful to refer to the JavaScript specifications for the core modules in React Native. These are located inside the `Libraries/` directory in the React Native repository.
