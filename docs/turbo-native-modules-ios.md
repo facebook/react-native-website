@@ -26,7 +26,7 @@ open TurboModuleExample.xcworkspace
 
 3. In the `NativeLocalStorage` group, create <code>New</code>→<code>File from Template</code>.
 
-<img class="half-size" alt="Create a new file using the Cocoa Touch Classs template" src="/docs/assets/turbo-native-modules/xcode/3.webp" />
+<img class="half-size" alt="Create a new file using the Cocoa Touch Class template" src="/docs/assets/turbo-native-modules/xcode/3.webp" />
 
 4. Use the <code>Cocoa Touch Class</code>.
 
@@ -70,7 +70,7 @@ Then update our implementation to use `NSUserDefaults` with a custom [suite name
 
 #import "RCTNativeLocalStorage.h"
 
-static NSString *const RCTNativeLocalStorageKey = @"local-stoarge";
+static NSString *const RCTNativeLocalStorageKey = @"local-storage";
 
 @interface RCTNativeLocalStorage()
 @property (strong, nonatomic) NSUserDefaults *localStorage;
