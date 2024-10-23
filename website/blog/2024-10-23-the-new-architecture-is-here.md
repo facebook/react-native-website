@@ -9,7 +9,7 @@ React Native 0.76 with the New Architecture by default is now available on npm!
 
 In the [0.76 release blog post](/blog/2024/10/23/release-0.76-new-architecture), we shared a list of significant changes included in this version. In this post, we provide an overview of the New Architecture and how it shapes the future of React Native.
 
-The New Architecture adds full support for modern React features, including [Suspense](https://react.dev/blog/2022/03/29/react-v18#new-suspense-features), [Transitions](https://react.dev/blog/2022/03/29/react-v18#new-feature-transitions), [automatic batching](https://react.dev/blog/2022/03/29/react-v18#new-feature-automatic-batching), and [`useLayoutEffect`](https://react.dev/reference/react/useLayoutEffect). The New Architecture also includes new [Native Module](/docs/next/fabric-native-components-introduction) and [Native Component](/docs/next/fabric-native-components-introduction) systems that let you write type-safe code with direct access to native interfaces without a bridge.
+The New Architecture adds full support for modern React features, including [Suspense](https://react.dev/blog/2022/03/29/react-v18#new-suspense-features), [Transitions](https://react.dev/blog/2022/03/29/react-v18#new-feature-transitions), [automatic batching](https://react.dev/blog/2022/03/29/react-v18#new-feature-automatic-batching), and [`useLayoutEffect`](https://react.dev/reference/react/useLayoutEffect). The New Architecture also includes new [Native Module](/docs/next/turbo-native-modules-introduction) and [Native Component](/docs/next/fabric-native-components-introduction) systems that let you write type-safe code with direct access to native interfaces without a bridge.
 
 This release is the result of a ground-up rewrite of React Native we’ve been working on since 2018, and we’ve taken extra care to make the New Architecture a gradual migration for most apps. In 2021, we created [the New Architecture Working Group](https://github.com/reactwg/react-native-new-architecture/) to collaborate with the community on ensuring a smooth upgrade experience for the entire React ecosystem.
 
@@ -185,7 +185,7 @@ We expect most apps can upgrade to 0.76 with the same effort as any other releas
 
 When you upgrade to 0.76, the New Architecture and React 18 are enabled by default. However, to use concurrent features and gain the full benefits of the New Architecture, your app and libraries will need to be gradually migrated to fully support the New Architecture.
 
-When you first upgrade, your app will run on the New Architecture with an automatic interoperability layer with the old architecture. For most apps, this will work without any changes, but there are [known limitations](https://github.com/reactwg/react-native-new-architecture/discussions/135) with the interop layer, as it does not support accessing custom Shadow Nodes or concurrent features.
+When you first upgrade, your app will run on the New Architecture with an automatic interoperability layer with the old architecture. For most apps, this will work without any changes, but there are [known limitations](https://github.com/reactwg/react-native-new-architecture/discussions/237) with the interop layer, as it does not support accessing custom Shadow Nodes or concurrent features.
 
 To use concurrent features, apps will also need to be updated to support [Concurrent React](https://react.dev/blog/2022/03/29/react-v18#what-is-concurrent-react) by following the [Rules of React](https://react.dev/reference/rules). To migrate your JavaScript code to React 18 and its semantics, follow the [React 18 Upgrade guide](https://react.dev/blog/2022/03/08/react-18-upgrade-guide).
 
@@ -359,7 +359,7 @@ If your app has custom Native Modules or custom Native Components, we expect the
 
 Please follow these guides to migrate your modules and components to the New Architecture:
 
-- [Native Modules](/docs/next/fabric-native-components-introduction)
+- [Native Modules](/docs/next/turbo-native-modules-introduction)
 - [Native Components](/docs/next/fabric-native-components-introduction)
 
 ### Libraries
@@ -370,7 +370,7 @@ To fully support the New Architecture, we recommend migrating your library to th
 
 You can follow these guides to migrate your modules and components to the New Architecture:
 
-- [Native Modules](/docs/next/fabric-native-components-introduction)
+- [Native Modules](/docs/next/turbo-native-modules-introduction)
 - [Native Components](/docs/next/fabric-native-components-introduction)
 
 ### Opt-out
