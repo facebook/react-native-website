@@ -484,11 +484,7 @@ Abort prefetch request.
 ### `getSize()`
 
 ```tsx
-static getSize(
-  uri: string,
-  success: (width: number, height: number) => void,
-  failure?: (error: any) => void,
-): any;
+static getSize(uri: string): Promise<{width: number, height: number}>;
 ```
 
 Retrieve the width and height (in pixels) of an image prior to displaying it. This method can fail if the image cannot be found, or fails to download.
@@ -497,11 +493,9 @@ In order to retrieve the image dimensions, the image may first need to be loaded
 
 **Parameters:**
 
-| <div className="wideColumn">Name</div>                   | Type     | Description                                                                                          |
-| -------------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------- |
-| uri <div class="label basic required">Required</div>     | string   | The location of the image.                                                                           |
-| success <div class="label basic required">Required</div> | function | The function that will be called if the image was successfully found and width and height retrieved. |
-| failure                                                  | function | The function that will be called if there was an error, such as failing to retrieve the image.       |
+| <div className="wideColumn">Name</div>               | Type   | Description                |
+| ---------------------------------------------------- | ------ | -------------------------- |
+| uri <div class="label basic required">Required</div> | string | The location of the image. |
 
 ---
 
@@ -510,10 +504,8 @@ In order to retrieve the image dimensions, the image may first need to be loaded
 ```tsx
 static getSizeWithHeaders(
   uri: string,
-  headers: {[index: string]: string},
-  success: (width: number, height: number) => void,
-  failure?: (error: any) => void,
-): any;
+  headers: {[index: string]: string}
+): Promise<{width: number, height: number}>;
 ```
 
 Retrieve the width and height (in pixels) of an image prior to displaying it with the ability to provide the headers for the request. This method can fail if the image cannot be found, or fails to download. It also does not work for static image resources.
@@ -522,12 +514,10 @@ In order to retrieve the image dimensions, the image may first need to be loaded
 
 **Parameters:**
 
-| <div className="wideColumn">Name</div>                   | Type     | Description                                                                                          |
-| -------------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------- |
-| uri <div class="label basic required">Required</div>     | string   | The location of the image.                                                                           |
-| headers <div class="label basic required">Required</div> | object   | The headers for the request.                                                                         |
-| success <div class="label basic required">Required</div> | function | The function that will be called if the image was successfully found and width and height retrieved. |
-| failure                                                  | function | The function that will be called if there was an error, such as failing to retrieve the image.       |
+| <div className="wideColumn">Name</div>                   | Type   | Description                  |
+| -------------------------------------------------------- | ------ | ---------------------------- |
+| uri <div class="label basic required">Required</div>     | string | The location of the image.   |
+| headers <div class="label basic required">Required</div> | object | The headers for the request. |
 
 ---
 
