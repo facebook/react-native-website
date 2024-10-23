@@ -333,7 +333,7 @@ For more, see the [RFC for Suspense in React 18](https://github.com/reactjs/rfcs
 
 ## How to Upgrade
 
-To upgrade to 0.76, follow the usual steps in the [upgrade helper](https://react-native-community.github.io/upgrade-helper/). Since this release also upgrades to React 18, you will also need to follow the [React 18 Upgrade guide](https://react.dev/blog/2022/03/08/react-18-upgrade-guide).
+To upgrade to 0.76, follow the steps in the [release post](/blog/2024/10/23/release-0.76-new-architecture#upgrade-to-076). Since this release also upgrades to React 18, you will also need to follow the [React 18 Upgrade guide](https://react.dev/blog/2022/03/08/react-18-upgrade-guide).
 
 These steps should be enough for most apps to upgrade to the New Architecture thanks to the interop layer with the old architecture. However, to take full advantage of the New Architecture and to start using concurrent features, you will need to migrate your custom Native Modules and Native Components to support the new Native Module and Native Component APIs.
 
