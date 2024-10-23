@@ -102,6 +102,7 @@ module.exports = {
         },
         theme: {
           customCss: [
+            require.resolve('react-tweet/theme.css'),
             require.resolve('./src/css/customTheme.scss'),
             require.resolve('./src/css/index.scss'),
             require.resolve('./src/css/showcase.scss'),

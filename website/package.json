@@ -58,6 +58,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-github-btn": "^1.4.0",
+    "react-tweet": "3.2.1",
     "sass": "1.76.0"
   },
   "devDependencies": {
