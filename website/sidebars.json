@@ -62,7 +62,7 @@
     ],
     "Debugging": [
       "debugging",
-      "react-devtools",
+      "react-native-devtools",
       "debugging-native-code",
       "debugging-release-builds",
       "other-debugging-methods"
@@ -81,9 +81,83 @@
       "the-new-architecture/using-codegen",
       "the-new-architecture/codegen-cli"
     ],
-    "Native Modules": [
-      "the-new-architecture/pure-cxx-modules",
-      "the-new-architecture/custom-cxx-types"
+    "Native Development": [
+      {
+        "type": "doc",
+        "id": "native-platform",
+        "label": "Introduction"
+      },
+      {
+        "type": "category",
+        "label": "Modules",
+        "collapsible": false,
+        "collapsed": false,
+        "items": [
+          {
+            "type": "doc",
+            "id": "turbo-native-modules-introduction",
+            "label": "Android and iOS"
+          },
+          {
+            "type": "doc",
+            "id": "the-new-architecture/pure-cxx-modules",
+            "label": "Cross-Platform with C++"
+          },
+          {
+            "type": "doc",
+            "id": "the-new-architecture/custom-cxx-types",
+            "label": "Advanced: Custom C++ Types"
+          }
+        ]
+      },
+      {
+        "type": "category",
+        "label": "Components",
+        "collapsible": false,
+        "collapsed": false,
+        "items": [
+          {
+            "type": "doc",
+            "id": "fabric-native-modules-introduction",
+            "label": "👷Introduction"
+          },
+          {
+            "type": "doc",
+            "id": "fabric-native-modules-android",
+            "label": "👷Android"
+          },
+          {
+            "type": "doc",
+            "id": "fabric-native-modules-ios",
+            "label": "👷iOS"
+          },
+          {
+            "type": "doc",
+            "id": "the-new-architecture/direct-manipulation-new-architecture"
+          },
+          {
+            "type": "doc",
+            "id": "the-new-architecture/layout-measurements"
+          }
+        ]
+      },
+      {
+        "type": "category",
+        "label": "Miscellaneous",
+        "collapsible": true,
+        "collapsed": true,
+        "items": [
+          {
+            "type": "doc",
+            "id": "appendix",
+            "label": "Appendix"
+          },
+          {
+            "type": "doc",
+            "id": "the-new-architecture/create-module-library"
+          }
+        ]
+      }
     ],
     "Android and iOS guides": [
       {

@@ -84,6 +84,10 @@
   --home-code-red: #d73a49;
   --home-code-purple: #6f42c1;
   --home-code-green: #22863a;
+  --home-code-diff-removed: #f8514926;
+  --home-code-diff-removed-word: #f8514966;
+  --home-code-diff-added: #2ea04326;
+  --home-code-diff-added-word: #2ea04366;
 
   @media (max-width: 900px) {
     --home-hero-grid-icon: transparent;
@@ -150,6 +154,10 @@ html[data-theme="dark"] {
   --home-code-red: #f46b78;
   --home-code-purple: #a77cf7;
   --home-code-green: #74e68f;
+  --home-code-diff-removed: #f8514926;
+  --home-code-diff-removed-word: #f8514966;
+  --home-code-diff-added: #2ea04326;
+  --home-code-diff-added-word: #2ea04366;
 
   @media (max-width: 900px) {
     --home-hero-grid-icon: transparent;
@@ -1969,4 +1977,36 @@ Prevent useless bottom margin for multiline <figcaption> tags in MDX:
  */
 figcaption > p:last-child {
   margin-bottom: 0;
+}
+
+/* Diffing with code syntax highlighting */
+.code-remove-line {
+  background-color: var(--home-code-diff-removed);
+  .token {
+    background-color: var(--home-code-diff-removed-word);
+  }
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+}
+
+.code-add-line {
+  background-color: var(--home-code-diff-added);
+  .token {
+    background-color: var(--home-code-diff-added-word);
+  }
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+}
+
+img {
+  &.center {
+    width: 100%;
+    justify-content: center;
+  }
+  &.half-size {
+    max-height: 50vh;
+    object-fit: contain;
+  }
 }
