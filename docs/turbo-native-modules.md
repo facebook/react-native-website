@@ -1,12 +1,12 @@
 ---
 id: turbo-native-modules-introduction
-title: 'Turbo Native Modules: Introduction'
+title: 'Native Modules: Introduction'
 ---
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 import {TurboNativeModulesAndroid, TurboNativeModulesIOS} from './\_turbo-native-modules-components';
 
-# Turbo Native Modules
+# Native Modules
 
 Your React Native application code may need to interact with native platform APIs that aren't provided by React Native or an existing library. You can write the integration code yourself using a **Turbo Native Module**. This guide will show you how to write one.
 
