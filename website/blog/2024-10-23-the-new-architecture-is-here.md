@@ -240,7 +240,7 @@ Here's a comparison of the old architecture without transitions (left) and the n
 </figure>
 </div>
 
-For more information, see [Support for Concurrent Renderer and Features](/docs/the-new-architecture/landing-page#support-for-concurrent-renderer-and-features).
+For more information, see [Support for Concurrent Renderer and Features](/docs/0.75/the-new-architecture/landing-page#support-for-concurrent-renderer-and-features).
 
 ### Automatic Batching
 
@@ -261,7 +261,7 @@ Automatic batching allows React to batch together more state updates when render
 
 In the old architecture (left), more intermediate states are rendered, and the UI keeps updating even when the slider stops moving. The New Architecture (right), renders fewer intermediate states and completes the rendering much sooner thanks to automatically batching the updates.
 
-For more information, see [Support for Concurrent Renderer and Features](/docs/the-new-architecture/landing-page#support-for-concurrent-renderer-and-features).
+For more information, see [Support for Concurrent Renderer and Features](/docs/0.75/the-new-architecture/landing-page#support-for-concurrent-renderer-and-features).
 
 ### useLayoutEffect
 
@@ -313,7 +313,7 @@ This change allows you to read layout information synchronously and update the U
 </figure>
 </div>
 
-For more information, see the docs for [Synchronous Layout and Effects](/docs/the-new-architecture/landing-page#synchronous-layout-and-effects).
+For more information, see the docs for [Synchronous Layout and Effects](/docs/0.75/the-new-architecture/landing-page#synchronous-layout-and-effects).
 
 ### Full Support for Suspense
 
