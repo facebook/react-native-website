@@ -36,7 +36,7 @@ Additionally, in the old architecture, serializing function calls over the bridg
 
 Finally, since the old architecture kept a single copy of the UI using the native hierarchy, and mutated that copy in place, layout could only be computed on a single thread. This made it impossible to process urgent updates like user inputs, and layout could not be read synchronously, such as reading in a layout effect to update the position of a tooltip.
 
-All of these problems meant that it was not possible to properly support React’s concurrent features. To solve these problems, the New Architecture includes three main parts:
+All of these problems meant that it was not possible to properly support React’s concurrent features. To solve these problems, the New Architecture includes four main parts:
 
 - The New Native Module System
 - The New Renderer
@@ -49,7 +49,7 @@ The New Renderer can handle multiple in progress trees across multiple threads, 
 
 The new Event Loop can process tasks on the JavaScript thread in a well-defined order. This allows React to interrupt rendering to process events so urgent user events can take priority over lower priority UI transitions. The Event Loop also aligns with web specifications, so we can support for browser features like microtasks, `MutationObserver`, and `IntersectionObserver`.
 
-Finally, removing the bridge allows for faster startup and direct communication between JavaScript and native, so that the cost of switching work is minimized. This also allows for better error reporting, debugging, and reducing crashes from undefined behavior.
+Finally, removing the bridge allows for faster startup and direct communication between JavaScript and the native runtime, so that the cost of switching work is minimized. This also allows for better error reporting, debugging, and reducing crashes from undefined behavior.
 
 The New Architecture is now ready to be used in production. It is already used at scale at Meta in the Facebook app and in other products. We successfully used React Native and the New Architecture in the Facebook and Instagram app we developed for our [Quest devices](https://engineering.fb.com/2024/10/02/android/react-at-meta-connect-2024/).
 
@@ -59,14 +59,14 @@ Our partners have already been using the New Architecture in production for mont
 
 The new Native Module System is a major rewrite of how JavaScript and the native platform communicate. It’s written entirely in C++, which unlocks many new capabilities:
 
-- Synchronous access to and from native
+- Synchronous access to and from the native runtime
+- Type safety between JavaScript and native code
 - Code sharing across platforms
-- Type safety between JavaScript and native
 - Lazy module loading by default
 
 In the new Native Module system, JavaScript and the native layer can now synchronously communicate with each other through the JavaScript Interface (JSI), without the need to use an asynchronous bridge. This means your custom Native Modules can now synchronously call a function, return a value, and pass that value back to another Native Module function.
 
-In the old architecture, in order to handle a response from native, you needed to provide a callback, and the value returned needed to be serializable:
+In the old architecture, in order to handle a response from native function calls, you needed to provide a callback, and the value returned needed to be serializable:
 
 ```ts
 // ❌ Sync callback from Native Module
@@ -76,7 +76,7 @@ nativeModule.getValue(value => {
 });
 ```
 
-In the New Architecture, you can make synchronous calls to native:
+In the New Architecture, you can make synchronous calls to native functions:
 
 ```ts
 // ✅ Sync response from Native Module
@@ -401,6 +401,6 @@ We are also extremely grateful to all the partners who collaborated with us to m
 - [Expo](https://expo.dev/), for adopting the New Architecture early on, and for supporting the work on migrating the most popular libraries.
 - [Software Mansion](https://swmansion.com/), for maintaining crucial libraries in the ecosystem, for migrating them to the New Architecture early and for all the help in investigating and fixing various issues.
 - [Callstack](https://www.callstack.com/), for maintaining crucial libraries in the ecosystem, for migrating them to the New Architecture early and for the support with the work on the Community CLI.
-- [Microsoft](https://opensource.microsoft.com/), for adding the New Architecture implementation for react-native-windows and react-native-macos as well as in several other developer tools.
+- [Microsoft](https://opensource.microsoft.com/), for adding the New Architecture implementation for `react-native-windows` and `react-native-macos` as well as in several other developer tools.
 - [Expensify](https://www.expensify.com/), [Kraken](https://www.kraken.com/), [BlueSky](https://bsky.app/) and [Brigad](https://www.brigad.co/) for pioneering the adoption of the New Architecture and reporting various issues so that we could fix them for everyone else.
 - All the independent library maintainers and developers who contributed to the New Architecture by testing it, fixing some of the issues, and opening questions on unclear matters so that we could clear them.
