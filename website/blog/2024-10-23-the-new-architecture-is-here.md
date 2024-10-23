@@ -142,7 +142,7 @@ It also allows for the implementation of more compliant browser features like mi
 
 Finally, the Event Loop and the New Renderer changes to support reading layout synchronously allow React Native to add proper support for `useLayoutEffect` to read layout information synchronously and update the UI in the same frame. This allows you to position elements correctly before they are displayed to the user.
 
-See [`useLayoutEffect`](/blog/2024/10/23/The-New-Architecture-is-Here#uselayouteffect) for more details.
+See [`useLayoutEffect`](/blog/2024/10/23/the-new-architecture-is-here#uselayouteffect) for more details.
 
 ### Removing the Bridge
 
@@ -195,7 +195,7 @@ We've collaborated with the most popular React Native libraries to ensure suppor
 
 ![](/blog/assets/0.76-directory.png)
 
-For more details on upgrading, see [How to Upgrade](/blog/2024/10/23/The-New-Architecture-is-Here#how-to-upgrade) below.
+For more details on upgrading, see [How to Upgrade](/blog/2024/10/23/the-new-architecture-is-here#how-to-upgrade) below.
 
 ## New Features
 
@@ -353,7 +353,7 @@ If any of the libraries your app depends on are not compatible yet, you can:
 
 - Open an issue with the library and ask the author to migrate to the New Architecture.
 - If the library is not maintained, consider alternative libraries with the same features.
-- [Opt-out from the New Architecture](/blog/2024/10/23/The-New-Architecture-is-Here#opt-out) while those libraries are migrated.
+- [Opt-out from the New Architecture](/blog/2024/10/23/the-new-architecture-is-here#opt-out) while those libraries are migrated.
 
 If your app has custom Native Modules or custom Native Components, we expect them to work fine, thanks to our [interop layer](https://github.com/reactwg/react-native-new-architecture/discussions/135). However, we recommend upgrading them to the new Native Module and Native Component APIs to fully support the New Architecture and adopt concurrent features.
 
