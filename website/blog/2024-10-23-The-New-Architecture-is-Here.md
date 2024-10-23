@@ -9,9 +9,9 @@ React Native 0.76 with the New Architecture by default is now available on npm!
 
 In the [0.76 release blog post](/blog/2024/10/23/release-0.76-new-architecture), we shared a list of significant changes included in this version. In this post, we provide an overview of the New Architecture and how it shapes the future of React Native.
 
-The New Architecture adds full support for modern React features including [Suspense](https://react.dev/blog/2022/03/29/react-v18#new-suspense-features), [Transitions](https://react.dev/blog/2022/03/29/react-v18#new-feature-transitions), [automatic batching](https://react.dev/blog/2022/03/29/react-v18#new-feature-automatic-batching), and [`useLayoutEffect`](https://react.dev/reference/react/useLayoutEffect). The New Architecture also includes new [Native Module](/docs/next/fabric-native-components-introduction) and [Native Component](/docs/next/fabric-native-components-introduction) systems that let you write type-safe code with direct access to native interfaces without a bridge.
+The New Architecture adds full support for modern React features, including [Suspense](https://react.dev/blog/2022/03/29/react-v18#new-suspense-features), [Transitions](https://react.dev/blog/2022/03/29/react-v18#new-feature-transitions), [automatic batching](https://react.dev/blog/2022/03/29/react-v18#new-feature-automatic-batching), and [`useLayoutEffect`](https://react.dev/reference/react/useLayoutEffect). The New Architecture also includes new [Native Module](/docs/next/fabric-native-components-introduction) and [Native Component](/docs/next/fabric-native-components-introduction) systems that let you write type-safe code with direct access to native interfaces without a bridge.
 
-This release is the result of a ground up rewrite of React Native we’ve been working on since 2018, and we’ve taken special care to make the New Architecture a gradual migration for most apps. In 2021, we created [the New Architecture Working Group](https://github.com/reactwg/react-native-new-architecture/) to collaborate with the community on ensuring a smooth upgrade experience for the entire React ecosystem.
+This release is the result of a ground-up rewrite of React Native we’ve been working on since 2018, and we’ve taken special care to make the New Architecture a gradual migration for most apps. In 2021, we created [the New Architecture Working Group](https://github.com/reactwg/react-native-new-architecture/) to collaborate with the community on ensuring a smooth upgrade experience for the entire React ecosystem.
 
 Most apps will be able to adopt React Native 0.76 with the same level of effort as any other release. The most popular React Native libraries already support the New Architecture. The New Architecture also includes an automatic interoperability layer to enable backward compatibility with libraries targeting the old architecture.
 
@@ -19,20 +19,20 @@ Most apps will be able to adopt React Native 0.76 with the same level of effort 
 
 Over the past several years of development, our team has publicly shared our vision for the New Architecture. If you missed any of these talks, check them out here:
 
-- [React Native EU 2019 \- The New React Native](https://www.youtube.com/watch?v=52El0EUI6D0)
-- [React Conf 2021 \- React 18 Keynote](https://www.youtube.com/watch?v=FZ0cG47msEk)
-- [App.js 2022 \- Bringing the New React Native Architecture to the OSS Community](https://www.youtube.com/watch?v=GJxL2aiIX3Q)
-- [React Conf 2024 \- Day 2 keynote](https://www.youtube.com/watch?v=Q5SMmKb7qVI)
+- [React Native EU 2019 - The New React Native](https://www.youtube.com/watch?v=52El0EUI6D0)
+- [React Conf 2021 - React 18 Keynote](https://www.youtube.com/watch?v=FZ0cG47msEk)
+- [App.js 2022 - Bringing the New React Native Architecture to the OSS Community](https://www.youtube.com/watch?v=GJxL2aiIX3Q)
+- [React Conf 2024 - Day 2 Keynote](https://www.youtube.com/watch?v=Q5SMmKb7qVI)
 
 ## What is the New Architecture
 
-The most important change in this release is something most users should not need to think about: how React Native works. We have completely rewritten the major systems of React Native including how components are rendered, how JavaScript communicates with native, and how work is scheduled across different threads. We call all of these architecture improvements the New Architecture.
+The most important change in this release is something most users should not need to think about: how React Native works. We have completely rewritten the major systems of React Native, including how components are rendered, how JavaScript communicates with native, and how work is scheduled across different threads. We call all of these architecture improvements the New Architecture.
 
-In the old architecture, React Native communicated with native with an asynchronous bridge. To render a component or call a native function, React Native needed to push native functions calls to a queue in the bridge, and process them asynchronously. This architecture had many benefits. Since all work was done on a background thread, the main thread was never blocked for rendering updates or handling Native Module function calls.
+In the old architecture, React Native communicated with native using an asynchronous bridge. To render a component or call a native function, React Native needed to push native functions calls to a queue in the bridge, and process them asynchronously. This architecture had many benefits. Since all work was done on a background thread, the main thread was never blocked for rendering updates or handling Native Module function calls.
 
-The approach had major limitations. Some work needs to respond synchronously to user input, potentially interrupting any in progress work, in order to provide the best experience possible to users. Since the old architecture was only asynchronous, we needed to rewrite it to allow for both asynchronous and synchronous updates.
+The approach had major limitations. Some work needs to respond synchronously to user input, potentially interrupting any in-progress work, in order to provide the best experience possible to users. Since the old architecture was only asynchronous, we needed to rewrite it to allow for both asynchronous and synchronous updates.
 
-Additionally, in the old architecture, serializing function calls over the bridge quickly became a bottleneck, especially for frequent updates or large objects. This made it hard for apps to achieve 60+ FPS reliably. There were also synchronizing issues: when the JavaScript and native layer got out of sync, it was impossible to reconcile them synchronously, resulting bugs like lists showing frames of empty space and visual UI jumps due to intermediate states rendering.
+Additionally, in the old architecture, serializing function calls over the bridge quickly became a bottleneck, especially for frequent updates or large objects. This made it hard for apps to achieve 60+ FPS reliably. There were also synchronization issues: when the JavaScript and native layer got out of sync, it was impossible to reconcile them synchronously, resulting bugs like lists showing frames of empty space and visual UI jumps due to intermediate states rendering.
 
 Finally, since the old architecture kept a single copy of the UI using the native hierarchy, and mutated that copy in place, layout could only be computed on a single thread. This made it impossible to process urgent updates like user inputs, and layout could not be read synchronously, such as reading in a layout effect to update the position of a tooltip.
 
@@ -45,15 +45,15 @@ All of these problems meant that it was not possible to properly support React�
 
 The New Module system allows the React Native Renderer to have synchronous access to the native layer, which allows it to handle events, schedule updates, and read layout both asynchronously and synchronously. The new Native Modules are also lazily loaded by default, giving apps a significant performance gain.
 
-The New Renderer can handle multiple in progress trees across multiple threads, which allows React to process multiple concurrent update priorities, either on the main thread or a background thread. It also supports reading layout from multiple threads synchronously, or asynchronously, to support more responsive UIs without jank.
+The New Renderer can handle multiple in progress trees across multiple threads, which allows React to process multiple concurrent update priorities, either on the main thread or a background thread. It also supports reading layout from multiple threads synchronously or asynchronously, to support more responsive UIs without jank.
 
 The new Event Loop can process tasks on the JavaScript thread in a well-defined order. This allows React to interrupt rendering to process events so urgent user events can take priority over lower priority UI transitions. The Event Loop also aligns with web specifications, so we can support for browser features like microtasks, `MutationObserver`, and `IntersectionObserver`.
 
-Finally, removing the bridge allows for faster startup and direct communication between JavaScript and native, so that the cost of switching work is minimized. This also allows for better error reporting and debugging, and reduces crashes from undefined behavior.
+Finally, removing the bridge allows for faster startup and direct communication between JavaScript and native, so that the cost of switching work is minimized. This also allows for better error reporting, debugging, and reducing crashes from undefined behavior.
 
 The New Architecture is now ready to be used in production. It is already used at scale at Meta in the Facebook app and in other products. We successfully used React Native and the New Architecture in the Facebook and Instagram app we developed for our [Quest devices](https://engineering.fb.com/2024/10/02/android/react-at-meta-connect-2024/).
 
-Our partners are already using the New Architecture in production for months now: have a look at these success stories by [Expensify](https://blog.swmansion.com/sunrising-new-architecture-in-the-new-expensify-app-729d237a02f5) and [Kraken](https://blog.kraken.com/product/engineering/how-kraken-fixed-performance-issues-via-incremental-adoption-of-the-react-native-new-architecture), and give [BlueSky](https://github.com/bluesky-social/social-app/releases/tag/1.92.0-na-rc.2) a shot with their new release.
+Our partners have already been using the New Architecture in production for months now: have a look at these success stories by [Expensify](https://blog.swmansion.com/sunrising-new-architecture-in-the-new-expensify-app-729d237a02f5) and [Kraken](https://blog.kraken.com/product/engineering/how-kraken-fixed-performance-issues-via-incremental-adoption-of-the-react-native-new-architecture), and give [BlueSky](https://github.com/bluesky-social/social-app/releases/tag/1.92.0-na-rc.2) a shot with their new release.
 
 ### New Native Modules
 
@@ -66,7 +66,7 @@ The new Native Module System is a major rewrite of how JavaScript and the native
 
 In the new Native Module system, JavaScript and the native layer can now synchronously communicate with each other through the JavaScript Interface (JSI), without the need to use an asynchronous bridge. This means your custom Native Modules can now synchronously call a function, return a value, and pass that value back to another Native Module function.
 
-In the old architecture, in order to handle a response for native, you needed to provide a callback, and the value returned needed to be serializable:
+In the old architecture, in order to handle a response from native, you needed to provide a callback, and the value returned needed to be serializable:
 
 ```ts
 // ❌ Sync callback from Native Module
@@ -86,11 +86,11 @@ const value = nativeModule.getValue();
 nativeModule.doSomething(value);
 ```
 
-With the New Architecture, you can finally leverage the full power of a C++ native implementation, while still accessing it from JavaScript/TypeScript APIs. The New Module System supports [modules written in C++](/docs/next/the-new-architecture/pure-cxx-modules) so you can write your module once, and it works across all platforms including Android, iOS, Windows, and macOS. Implementing modules in C++ allows for more fine-grained memory management and performance optimizations.
+With the New Architecture, you can finally leverage the full power of a C++ native implementation while still accessing it from JavaScript/TypeScript APIs. The New Module System supports [modules written in C++](/docs/next/the-new-architecture/pure-cxx-modules) so you can write your module once, and it works across all platforms, including Android, iOS, Windows, and macOS. Implementing modules in C++ allows for more fine-grained memory management and performance optimizations.
 
-Additionally, with [Codegen](/docs/next/the-new-architecture/what-is-codegen) your modules can define a strongly typed contract between the JavaScript layer and the native layer. From our experience, cross-boundary type errors are one of the most common sources of crashes in cross-platform apps. Codegen lets you overcome those problems while also generating boilerplate code for you.
+Additionally, with [Codegen](/docs/next/the-new-architecture/what-is-codegen), your modules can define a strongly typed contract between the JavaScript layer and the native layer. From our experience, cross-boundary type errors are one of the most common sources of crashes in cross-platform apps. Codegen lets you overcome those problems while also generating boilerplate code for you.
 
-Finally, modules are now lazily loaded: they are loaded in memory only when they’re effectively needed rather than at startup. This reduces the app startup time, and keeps it low as the application grows in complexity.
+Finally, modules are now lazily loaded: they are loaded in memory only when they’re effectively needed rather than at startup. This reduces the app startup time and keeps it low as the application grows in complexity.
 
 Popular libraries such as [react-native-mmkv](https://github.com/mrousavy/react-native-mmkv) have already seen benefits from migrating to the new Native Modules:
 
@@ -108,15 +108,15 @@ We've also completely rewritten the Native Renderer, adding several benefits:
 
 The updated Native Renderer now stores the view hierarchy in an immutable tree structure. This means that the UI is stored in a way that cannot be changed directly, allowing for thread-safe processing of updates. This allows it to handle multiple in-progress trees, each representing a different version of the user interface. As a result, updates can be rendered in the background without blocking the UI (such as during transitions) or on the main thread (in response to user input).
 
-By supporting multiple threads, React can interrupt a low-priority update to render an urgent one, such as those generated by user inputs, and then resume the low-priority update as needed. The new renderer can also read layout information synchronously and across different threads. This enables background computation for low-priority updates and synchronous reads when needed, such as repositioning a tooltip with useLayoutEffect.
+By supporting multiple threads, React can interrupt a low-priority update to render an urgent one, such as those generated by user inputs, and then resume the low-priority update as needed. The new renderer can also read layout information synchronously and across different threads. This enables background computation for low-priority updates and synchronous reads when needed, such as repositioning a tooltip.
 
 Finally, rewriting the renderer in C++ allows it to be shared across all platforms. This ensures that the same code runs on iOS, Android, Windows, macOS, and any other React Native-supported platform, providing consistent rendering capabilities without needing re-implementation for each platform.
 
-This is a significant step towards our [Many Platform Vision](/blog/2021/08/26/many-platform-vision). For example, View Flattening was Android only optimisation to avoid deep layout trees. The new renderer, with shared C++ core, [brings this feature to iOS](https://github.com/reactwg/react-native-new-architecture/discussions/110). This optimisation is automatic and does not require a setup, it comes for free with the shared renderer.
+This is a significant step towards our [Many Platform Vision](/blog/2021/08/26/many-platform-vision). For example, View Flattening was an Android-only optimisation to avoid deep layout trees. The new renderer, with shared C++ core, [brings this feature to iOS](https://github.com/reactwg/react-native-new-architecture/discussions/110). This optimisation is automatic and does not require setup, it comes for free with the shared renderer.
 
 With these changes, React Native now fully supports Concurrent React features like Suspense and Transitions, making it easier to build complex user interfaces that respond quickly to user input without jank, delays, or visual jumps. In the future, we will leverage these new capabilities to bring more improvements to built-in components such as FlatList and TextInput.
 
-Popular libraries like [reanimated](https://docs.swmansion.com/react-native-reanimated/) are already taking advantage of the New Renderer:
+Popular libraries like [Reanimated](https://docs.swmansion.com/react-native-reanimated/) are already taking advantage of the New Renderer:
 
 > “Reanimated 4, currently in development, introduces a new animation engine that works directly with the New Renderer, allowing it to handle animations and manage layout across different threads. The New Renderer’s design is what truly enables these features to be built without relying on numerous workarounds. Moreover, because it’s implemented in C++ and shared across platforms, large portions of Reanimated can be written once, reducing platform-specific issues, minimizing the codebase, and streamlining adoption for out-of-tree platforms.”
 >
@@ -134,13 +134,13 @@ The event loop brings many benefits to React Native:
 - Closer alignment with web specifications
 - Foundation for more browser features
 
-With the the Event Loop, React is able to predicably order updates and events. This allows React to interrupt a low prioirty update with an urgent user event, and the New Renderer allows us to render those updates independently.
+With the Event Loop, React is able to predictably order updates and events. This allows React to interrupt a low priority update with an urgent user event, and the New Renderer allows us to render those updates independently.
 
-The Event Loops also aligns the behavior of events and task like timers with web specifications, which means React Native works more like what users are familar with in the Web, and allows for better code sharing between React DOM and React Native.
+The Event Loops also aligns the behavior of events and task like timers with web specifications, which means React Native works more like what users are familiar with in the Web, and allows for better code sharing between React DOM and React Native.
 
 It also allows for the implementation of more compliant browser features like microtasks, `MutationObserver`, and `IntersectionObserver`. These features are not ready to use in React Native yet, but we are working on bringing them to you in the future.
 
-Finally, the Event Loop and the New Renderer changes to support reading layout syncronously allows React Native to add proper support for `useLayoutEffect` to read layout information synchronously and update the UI in the same frame. This allows you to position elements correctly before they are displayed to the user.
+Finally, the Event Loop and the New Renderer changes to support reading layout synchronously allow React Native to add proper support for `useLayoutEffect` to read layout information synchronously and update the UI in the same frame. This allows you to position elements correctly before they are displayed to the user.
 
 See [`useLayoutEffect`](/blog/2024/10/23/The-New-Architecture-is-Here#uselayouteffect) for more details.
 
@@ -175,7 +175,7 @@ runtime.global().setProperty(runtime, "setTimeout", createTimer);
 setTimeout(() => {}, 100);
 ```
 
-The rewrite also improves error reporting, particularly for JavaScript crashes at startup, and reducing crashes from undefined behavior. If crashes occur, the new [React Native DevTools](/docs/next/react-native-devtools) simplify debugging and support the New Architecture.
+The rewrite also improves error reporting, particularly for JavaScript crashes at startup, and reduces crashes from undefined behavior. If crashes occur, the new [React Native DevTools](/docs/next/react-native-devtools) simplify debugging and support the New Architecture.
 
 The bridge remains for backward compatibility to support gradual migration to the New Architecture. In the future, we will remove the bridge code completely.
 
@@ -210,7 +210,7 @@ Transitions are a new concept in React 18 to distinguish between urgent and non-
 
 Urgent updates need immediate response to match our intuitions about how physical objects behave. However, transitions are different because the user doesn’t expect to see every intermediate value on screen. In the New Architecture, React Native is able to support rendering urgent updates and transition updates separately.
 
-Typically, for the best user experience, a single user input should result in both an urgent update and a non-urgent one. Just like in ReactDOM, events like `press` or `change` are handled as urgent and rendered immediately. You can use the `startTransition` API inside an input event to inform React which updates are “transitions”, and can be deferred to the background:
+Typically, for the best user experience, a single user input should result in both an urgent update and a non-urgent one. Just like in ReactDOM, events like `press` or `change` are handled as urgent and rendered immediately. You can use the `startTransition` API inside an input event to inform React which updates are “transitions” and can be deferred to the background:
 
 ```jsx
 import {startTransition} from 'react';
@@ -232,11 +232,11 @@ Here's a comparison of the old architecture without transitions (left) and the n
 <div className="TwoColumns TwoFigures">
 <figure>
  <img src="/img/new-architecture/with-transitions.gif" alt="A video demonstrating an app rendering many views (tiles) according to a slider input. The views are rendered in batches as the slider is quickly adjusted from 0 to 1000. There are less batch renders in comparison to the next video." />
- <figcaption>Rendering tiles with transitions to interrupt in-progress renders of stale state. [See code](https://gist.github.com/lunaleaps/eac391bf3fe4c85953cefeb74031bab0/revisions).</figcaption>
+ <figcaption>Rendering tiles with transitions to interrupt in-progress renders of stale state.</figcaption>
 </figure>
 <figure>
  <img src="/img/new-architecture/without-transitions.gif" alt="A video demonstrating an app rendering many views (tiles) according to a slider input. The views are rendered in batches as the slider is quickly adjusted from 0 to 1000." />
- <figcaption>Rendering tiles without marking it as a transition. [See code](https://gist.github.com/lunaleaps/eac391bf3fe4c85953cefeb74031bab0/revisions).</figcaption>
+ <figcaption>Rendering tiles without marking it as a transition.</figcaption>
 </figure>
 </div>
 
@@ -246,7 +246,7 @@ For more information, see [Support for Concurrent Renderer and Features](/docs/t
 
 When upgrading to the New Architecture, you will benefit from automatic batching from React 18.
 
-Automatic batching allows React Native application to batch together more state updates when rendering to avoid the rendering of intermediate states. This allows React Native to be faster and less susceptible to lags, without any additional code from the developer.
+Automatic batching allows React to batch together more state updates when rendering to avoid the rendering of intermediate states. This allows React Native to be faster and less susceptible to lags, without any additional code from the developer.
 
 <div className="TwoColumns TwoFigures">
 <figure>
@@ -319,13 +319,13 @@ For more information, see the docs for [Synchronous Layout and Effects](/docs/th
 
 Suspense lets you declaratively specify the loading state for a part of the component tree if it’s not yet ready to be displayed:
 
-```
+```jsx
 <Suspense fallback={<Spinner />}>
   <Comments />
 </Suspense>
 ```
 
-We introduced a limited version of Suspense several years ago, and React 18 added full support. However, until now React Native was not able to support concurrent rendering for Suspense.
+We introduced a limited version of Suspense several years ago, and React 18 added full support. Until now, React Native was not able to support concurrent rendering for Suspense.
 
 The New Architecture includes full support for Suspense introduced in React 18. This means that you can now use Suspense in React Native to handle loading states for your components, and the suspended content will render in the background while the loading state is displayed, giving higher priority to user input on visible content.
 
@@ -335,9 +335,9 @@ For more, see the [RFC for Suspense in React 18](https://github.com/reactjs/rfcs
 
 To upgrade to 0.76, follow the usual steps in the [upgrade helper](https://react-native-community.github.io/upgrade-helper/). Since this release also upgrades to React 18, you will also need to follow the [React 18 Upgrade guide](https://react.dev/blog/2022/03/08/react-18-upgrade-guide).
 
-These steps should be enough for most apps to upgrade to the New Architecture thanks to the interop layer with the old architecture. However, to take full advantage of the New Architecture, and to start using concurrent features, you will need to migrate your custom Native Modules and Native Components to support the new Native Module and Native Component APIs.
+These steps should be enough for most apps to upgrade to the New Architecture thanks to the interop layer with the old architecture. However, to take full advantage of the New Architecture and to start using concurrent features, you will need to migrate your custom Native Modules and Native Components to support the new Native Module and Native Component APIs.
 
-Without migrating your custom Native Modules, you will not get the benefits of shared c++, synchronous method calls, or type-safety from codegen. Without migrating your Native Components, you will not be able to use concurrent features. We recommend migrating all Native Components and Native Modules to the New Architecture as soon as possible.
+Without migrating your custom Native Modules, you will not get the benefits of shared C++, synchronous method calls, or type-safety from codegen. Without migrating your Native Components, you will not be able to use concurrent features. We recommend migrating all Native Components and Native Modules to the New Architecture as soon as possible.
 
 :::note
 In a future release, we will remove the interop layer and modules will need to support the New Architecture.
@@ -351,11 +351,11 @@ We've collaborated with the most popular React Native libraries to ensure suppor
 
 If any of the libraries your app depends on are not compatible yet, you can:
 
-- Open an issue to the library and ask the author to migrate to the New Architecture.
-- If the library is not maintains, consider alternative libraries with the same features.
+- Open an issue with the library and ask the author to migrate to the New Architecture.
+- If the library is not maintained, consider alternative libraries with the same features.
 - [Opt-out from the New Architecture](/blog/2024/10/23/The-New-Architecture-is-Here#opt-out) while those libraries are migrated.
 
-If your app has custom Native Modules, or custom Native Components, we expect for them to work fine, thanks to our [interop layer](https://github.com/reactwg/react-native-new-architecture/discussions/135). However, we recommend upgrading them to the new Native Module and Native Component APIs to fully support the New Architecture and adopt concurrent features.
+If your app has custom Native Modules or custom Native Components, we expect them to work fine, thanks to our [interop layer](https://github.com/reactwg/react-native-new-architecture/discussions/135). However, we recommend upgrading them to the new Native Module and Native Component APIs to fully support the New Architecture and adopt concurrent features.
 
 Please follow these guides to migrate your modules and components to the New Architecture:
 
@@ -366,7 +366,7 @@ Please follow these guides to migrate your modules and components to the New Arc
 
 If you are a library maintainer, please first test that your library works with the interop layer. If it does not, please open an issue on the [New Architecture Working Group](https://github.com/reactwg/react-native-new-architecture/).
 
-To fully support the New Architecture, we recommend migrating your library to the new Native Module and Native Component APIs as soon as possible. This will allow users of your library to take full advantage of the New Architecture, and to support concurrent features.
+To fully support the New Architecture, we recommend migrating your library to the new Native Module and Native Component APIs as soon as possible. This will allow users of your library to take full advantage of the New Architecture and support concurrent features.
 
 You can follow these guides to migrate your modules and components to the New Architecture:
 
@@ -386,7 +386,7 @@ To opt-out from the New Architecture:
 +newArchEnabled=false
 ```
 
-- On iOS, you can reinstall the dependencies running the command:
+- On iOS, you can reinstall the dependencies by running the command:
 
 ```shell
 RCT_NEW_ARCH_ENABLED=0 bundle exec pod install
@@ -394,13 +394,13 @@ RCT_NEW_ARCH_ENABLED=0 bundle exec pod install
 
 ## Thanks
 
-Delivering the New Architecture to the OSS community has been a huge effort which took us several years of research and development. We want to take a moment to thank all the current and past members of the React team that helped us achieve this result.
+Delivering the New Architecture to the OSS community has been a huge effort that took us several years of research and development. We want to take a moment to thank all the current and past members of the React team who helped us achieve this result.
 
-We are also extremely grateful to all the partners that collaborated with us to make this happen. Specifically, we would like to call out:
+We are also extremely grateful to all the partners who collaborated with us to make this happen. Specifically, we would like to call out:
 
-- [Expo](https://expo.dev/), for adopting the New Architecture early on, for supporting the work on migrating the most popular libraries.
+- [Expo](https://expo.dev/), for adopting the New Architecture early on, and for supporting the work on migrating the most popular libraries.
 - [Software Mansion](https://swmansion.com/), for maintaining crucial libraries in the ecosystem, for migrating them to the New Architecture early and for all the help in investigating and fixing various issues.
 - [Callstack](https://www.callstack.com/), for maintaining crucial libraries in the ecosystem, for migrating them to the New Architecture early and for the support with the work on the Community CLI.
-- [Microsoft](https://opensource.microsoft.com/), for adding the New Architecture implementation for react-native-windows and react-native-macos as well as in several other developers tools.
-- [Expensify](https://www.expensify.com/), [Kraken](https://www.kraken.com/), [BlueSky](https://bsky.app/) and [Brigad](https://www.brigad.co/) for pioneering the adoption of the New Architecture, reporting various issues so that we could fix them for everyone else.
-- All the independent library maintainers and developers who contributed to the New Architecture by testing it, fixing some of the issues and opening questions on unclear matters so that we could clear them.
+- [Microsoft](https://opensource.microsoft.com/), for adding the New Architecture implementation for react-native-windows and react-native-macos as well as in several other developer tools.
+- [Expensify](https://www.expensify.com/), [Kraken](https://www.kraken.com/), [BlueSky](https://bsky.app/) and [Brigad](https://www.brigad.co/) for pioneering the adoption of the New Architecture and reporting various issues so that we could fix them for everyone else.
+- All the independent library maintainers and developers who contributed to the New Architecture by testing it, fixing some of the issues, and opening questions on unclear matters so that we could clear them.
