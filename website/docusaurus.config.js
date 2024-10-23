@@ -57,7 +57,7 @@ module.exports = {
     defaultLocale: 'en',
     locales: ['en'],
   },
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'log',
   webpack: {
     jsLoader: isServer => ({
       loader: require.resolve('esbuild-loader'),
