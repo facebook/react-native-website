@@ -33,7 +33,7 @@ npx create-react-native-library@latest <Name of Your Library>
 4. Continue filling the form until you reach the question _"What type of library do you want to develop?"_
    ![What type of Library](/docs/assets/what-library.png)
 5. For the sake of this guide, select the _Turbo module_ option. Notice that you can create libraries for both New Architecture and Legacy Architecture.
-6. Then, you can choose whether you want a library that access the platform (Kotlin & Objective-C) or a sahred C++ library (C++ for Android and iOS).
+6. Then, you can choose whether you want a library that access the platform (Kotlin & Objective-C) or a shared C++ library (C++ for Android and iOS).
 7. Finally, select the `Test App` as last option. This option creates the library with a separate app already configured within the library folder.
 
 Once the interactive prompt is done, the tool creates a folder whose structure looks like this in Visual Studio Code:
@@ -45,9 +45,9 @@ Feel free to explore the code that has been created for you. However, the most i
 - The `android` folder: this is where the Android code lives
 - The `cpp` folder: this is where we the c++ code lives
 - The `ios` folder: this is where we the iOS code lives
-- The `src` forder: this is where the JS code lives.
+- The `src` folder: this is where the JS code lives.
 
-The `package.json` is already configured with all the information that we provided to the `create-react-native-library` tool, including the name and the description of the package. Notice that the `package.json` is also already configured to run codegen.
+The `package.json` is already configured with all the information that we provided to the `create-react-native-library` tool, including the name and the description of the package. Notice that the `package.json` is also already configured to run Codegen.
 
 ```json
   "codegenConfig": {
@@ -64,7 +64,7 @@ The `package.json` is already configured with all the information that we provid
   },
 ```
 
-Finally the library contains already all the infrastruction to let the library be linked with iOS and Android.
+Finally, the library contains already all the infrastructure to let the library be linked with iOS and Android.
 
 ### 2. Copy the Code over from Your App
 
@@ -105,7 +105,7 @@ To test your library:
 4. Build and run Android with `yarn android` from the `example` folder.
 5. Build and run iOS with `yarn ios` from the `example` folder.
 
-## Use your library as a Local Module.
+## Use your library as a Local Module
 
 There are some scenario where you might want to reuse your library as a local module for your applications, without publishing it to NPM.
 
@@ -164,7 +164,7 @@ At this point, you can build and run your app as usual:
 - Build and run Android with `yarn android` from the `example` folder.
 - Build and run iOS with `yarn ios` from the `example` folder.
 
-## Publish the Library on NPM.
+## Publish the Library on NPM
 
 The setup to publish everything on NPM is already in place, thanks to `create-react-native-library`.
 

@@ -118,26 +118,8 @@
         "items": [
           {
             "type": "doc",
-            "id": "fabric-native-modules-introduction",
-            "label": "👷Introduction"
-          },
-          {
-            "type": "doc",
-            "id": "fabric-native-modules-android",
-            "label": "👷Android"
-          },
-          {
-            "type": "doc",
-            "id": "fabric-native-modules-ios",
-            "label": "👷iOS"
-          },
-          {
-            "type": "doc",
-            "id": "the-new-architecture/direct-manipulation-new-architecture"
-          },
-          {
-            "type": "doc",
-            "id": "the-new-architecture/layout-measurements"
+            "id": "fabric-native-components-introduction",
+            "label": "Android & iOS"
           }
         ]
       },

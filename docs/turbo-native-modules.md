@@ -1,12 +1,12 @@
 ---
 id: turbo-native-modules-introduction
-title: 'Turbo Native Modules: Introduction'
+title: 'Native Modules: Introduction'
 ---
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 import {TurboNativeModulesAndroid, TurboNativeModulesIOS} from './\_turbo-native-modules-components';
 
-# Turbo Native Modules
+# Native Modules
 
 Your React Native application code may need to interact with native platform APIs that aren't provided by React Native or an existing library. You can write the integration code yourself using a **Turbo Native Module**. This guide will show you how to write one.
 
@@ -14,10 +14,14 @@ The basic steps are:
 
 1. **define a typed JavaScript specification** using one of the most popular JavaScript type annotation languages: Flow or TypeScript;
 2. **configure your dependency management system to run Codegen**, which converts the specification into native language interfaces;
-3. **write you application code** using your specification; and
+3. **write your application code** using your specification; and
 4. **write your native platform code using the generated interfaces** to write and hook your native code into the React Native runtime environment.
 
-Lets work through each of these steps by building an example Turbo Native Module.
+Lets work through each of these steps by building an example Turbo Native Module. The rest of this guide assume that you have created your application running the command:
+
+```shell
+npx @react-native-community/cli@latest init TurboModuleExample --version 0.76.0
+```
 
 ## Native Persistent Storage
 
@@ -32,6 +36,11 @@ To make this work on mobile, we need to use Android and iOS APIs:
 
 React Native provides a tool called [Codegen](/the-new-architecture/what-is-codegen.md), which takes a specification written in TypeScript or Flow and generates platform specific code for Android and iOS. The specification declares the methods and data types that will pass back and forth between your native code and the React Native JavaScript runtime. A Turbo Native Module is both your specification, the native code you write, and the Codegen interfaces generated from your specification.
 
+To create a specs file:
+
+1. Inside the root folder of your app, create a new folder called `specs`.
+2. Create a new file called `NativeLocalStorage.ts`.
+
 :::info
 You can see all of the types you can use in your specification and the native types that are generated in the [Appendix](/appendix.md) documentation.
 :::
@@ -41,7 +50,7 @@ Here is an implementation of the `localStorage` specification:
 <Tabs groupId="language" queryString defaultValue={constants.defaultJavaScriptSpecLanguage} values={constants.javaScriptSpecLanguages}>
 <TabItem value="typescript">
 
-```typescript title="NativeLocalStorage.ts"
+```typescript title="specs/NativeLocalStorage.ts"
 import type {TurboModule} from 'react-native';
 import {TurboModuleRegistry} from 'react-native';
 
@@ -194,13 +203,11 @@ function App(): React.JSX.Element {
       <Text style={styles.text}>
         Current stored value is: {value ?? 'No Value'}
       </Text>
-
       <TextInput
         placeholder="Enter the text you want to store"
         style={styles.textInput}
         onChangeText={setEditingValue}
       />
-
       <Button title="Save" onPress={saveValue} />
       <Button title="Delete" onPress={deleteValue} />
       <Button title="Clear" onPress={clearAll} />
@@ -232,7 +239,7 @@ export default App;
 With everything prepared, we're going to start writing native platform code. We do this in 2 parts:
 
 :::note
-This guide shows you how to create a Turbo Native Module that only works with the New Architecture. If you need to support both the New Architecture and the Legacy Architecture, please refers to our [backwards compatibility guide](https://github.com/reactwg/react-native-new-architecture/blob/main/docs/backwards-compat.md).
+This guide shows you how to create a Turbo Native Module that only works with the New Architecture. If you need to support both the New Architecture and the Legacy Architecture, please refer to our [backwards compatibility guide](https://github.com/reactwg/react-native-new-architecture/blob/main/docs/backwards-compat.md).
 :::
 
 <Tabs groupId="platforms" queryString defaultValue={constants.defaultPlatform}>
