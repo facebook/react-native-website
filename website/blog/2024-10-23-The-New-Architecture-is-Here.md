@@ -254,12 +254,12 @@ The event loop brings many benefits to React Native. Among those, we have:
 - It lays the foundation for new features like Microtasks, `useLayoutEffect` and others features that will be implemented in the future.
 
 Reading layout in useLayoutEffect
-The event loop allowed us to implement the useLayoutEffect hooks in React Native. This is the perfect place to retrieve the most accurate measurements of the views in your UI.
+The event loop allowed us to implement the `useLayoutEffect` hooks in React Native. This is the perfect place to retrieve the most accurate measurements of the views in your UI.
 
 In the legacy architecture, due to its asynchronous nature, we could not have synchronous layouts. To retrieve the latest layout information of a view, we had to wait before the view was actually rendered. With the New Architecture we can now use useLayoutEffect to implement synchronous layouts.
 
 Let’s have a look at this example: rendering a tooltip next to a view that moves on the screen.
-With the legacy Architecture, on the left, we had to wait for the view to be completely rendered before we could fetch its layout information and render the tooltip next to it. This leads to a user experience where the tooltip would lag behind the view.
+With the legacy architecture, on the left, we had to wait for the view to be completely rendered before we could fetch its layout information and render the tooltip next to it. This leads to a user experience where the tooltip would lag behind the view.
 With `useLayoutEffect`, on the right, we can retrieve the layout information right before the view is rendered and we can attach the tooltip in the exact place we need. The final result is a much better user experience:
 
 <div className="TwoColumns TwoFigures">
@@ -277,7 +277,7 @@ With `useLayoutEffect`, on the right, we can retrieve the layout information rig
 
 Building on the Event Loop and the ability to read layout synchronously, in the New Architecture we added proper support for `useLayoutEffect` in React Native.
 
-In the old archiectur, you needed to use the asyncronous `onLayout` event to read layout information of a view (which was also asynchronous). As a result there would be at least one frame where the layout was incorrect until the layout was read and updated, causing issues like tooltip placed in the wrong position:
+In the old architecture, you needed to use the asynchronous `onLayout` event to read layout information of a view (which was also asynchronous). As a result there would be at least one frame where the layout was incorrect until the layout was read and updated, causing issues like tooltip placed in the wrong position:
 
 ```tsx
 // ❌ async onLayout after commit
