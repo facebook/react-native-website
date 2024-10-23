@@ -92,7 +92,7 @@ npx react-devtools
 
 **Learn how to use React DevTools!**
 
-- [React DevTools guide](/docs/react-devtools)
+- [React DevTools guide](/docs/0.73/react-devtools)
 - [React Developer Tools on react.dev](https://react.dev/learn/react-developer-tools)
 
 :::
