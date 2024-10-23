@@ -334,25 +334,32 @@ Without migrating your custom Native Modules, you will not get the benefits of l
 In a future release, we will remove the interop layer and modules will need to support the New Architecture.
 :::
 
-### Libraries
-
-We ensured that all libraries with 200K+ weekly downloads (that's \~10% of React Native weekly downloads) work well with the New Architecture.
-
-We are tracking the compatibility between libraries and React Native in the [reactnative.directory](https://reactnative.directory) website. Make sure that all the libraries you are using in your app are compatible with the new architecture by applying the [“Support the New Architecture” filter](https://reactnative.directory/?newArchitecture=true). More than 850 libraries are already compatible with the New Architecture.
-
-If some of the libraries your app depends on are not compatible yet, you can:
-
-- Look for alternative libraries with the same features among the compatible ones.
-- Open an issue to the library and ask the author to migrate to the New Architecture.
-- [Opt-out from the New Architecture](/blog/2024/10/23/The-New-Architecture-is-Here#opt-out) while those libraries are migrated.
-
-In the future, we will publish more tools to help you when you need to install a new library in your app.
-
 ### Apps
 
-If your app has custom native modules, custom native components, or both, we expect for them to work fine, thanks to our [interop layer](https://github.com/reactwg/react-native-new-architecture/discussions/135).
+If you are an app developer, to fully support the New Archtecture, you will need to upgrade your libraries, custom Native Components, and custom Native Modules to fully support the New Architacture.
 
-Most advanced use cases might not be supported by them. If that’s the case for you, please follow these guides to migrate your modules and components to the New Architecture:
+We've collaborated with the most popular React Native libraries to ensure support for the New Architecture. You can check library compatibility with the New Architecture on the [reactnative.directory](https://reactnative.directory) website.
+
+If any of the libraries your app depends on are not compatible yet, you can:
+
+- Open an issue to the library and ask the author to migrate to the New Architecture.
+- If the library is not maintains, consider alternative libraries with the same features.
+- [Opt-out from the New Architecture](/blog/2024/10/23/The-New-Architecture-is-Here#opt-out) while those libraries are migrated.
+
+If your app has custom Native Modules, or custom Native Components, we expect for them to work fine, thanks to our [interop layer](https://github.com/reactwg/react-native-new-architecture/discussions/135). However, we recommend upgrading them to the new Native Module and Native Component APIs to fully support the New Architecture and adopt concurrent features.
+
+Please follow these guides to migrate your modules and components to the New Architecture:
+
+- [Native Modules](/docs/next/fabric-native-components-introduction)
+- [Native Components](/docs/next/fabric-native-components-introduction)
+
+### Libraries
+
+If you are a library maintainer, please first test that your library works with the interop layer. If it does not, please open an issue on the [New Architecture Working Group](https://github.com/reactwg/react-native-new-architecture/).
+
+To fully support the New Architecture, we recommend migrating your library to the new Native Module and Native Component APIs as soon as possible. This will allow users of your library to take full advantage of the New Architecture, and to support concurrent features.
+
+You can follow these guides to migrate your modules and components to the New Architecture:
 
 - [Native Modules](/docs/next/fabric-native-components-introduction)
 - [Native Components](/docs/next/fabric-native-components-introduction)
