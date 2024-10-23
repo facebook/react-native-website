@@ -40,11 +40,14 @@ All of these problems meant that it was not possible to properly support React�
 
 - The New Native Module System
 - The New Renderer
-- Removal of the Bridge
+- The Event Loop
+- Removing the Bridge
 
 The New Module system allows the React Native Renderer to have synchronous access to the native layer, which allows it to handle events, schedule updates, and read layout both asynchronously and synchronously. The new Native Modules are also lazily loaded by default, giving apps a significant performance gain.
 
 The New Renderer can handle multiple in progress trees across multiple threads, which allows React to process multiple concurrent update priorities, either on the main thread or a background thread. It also supports reading layout from multiple threads synchronously, or asynchronously, to support more responsive UIs without jank.
+
+The new Event Loop can process tasks on the JavaScript thread in a well-defined order. This allows React to interrupt rendering to process events so urgent user events can take priority over lower priority UI transitions. The Event Loop also aligns with web specifications, so we can support for browser features like microtasks, `MutationObserver`, and `IntersectionObserver`.
 
 Finally, removing the bridge allows for faster startup and direct communication between JavaScript and native, so that the cost of switching work is minimized. This also allows for better error reporting and debugging, and reduces crashes from undefined behavior.
 
@@ -118,6 +121,28 @@ Popular libraries like [reanimated](https://docs.swmansion.com/react-native-rean
 > “Reanimated 4, currently in development, introduces a new animation engine that works directly with the New Renderer, allowing it to handle animations and manage layout across different threads. The New Renderer’s design is what truly enables these features to be built without relying on numerous workarounds. Moreover, because it’s implemented in C++ and shared across platforms, large portions of Reanimated can be written once, reducing platform-specific issues, minimizing the codebase, and streamlining adoption for out-of-tree platforms.”
 >
 > [Krzysztof Magiera](https://x.com/kzzzf), creator of [Reanimated](https://docs.swmansion.com/react-native-reanimated/)
+
+### The Event Loop
+
+The New Architecture allowed us to implement a well-defined event loop processing model, as described in this [RFC](https://github.com/react-native-community/discussions-and-proposals/blob/main/proposals/0744-well-defined-event-loop.md). This RFC follows the specifications described in the [HTML Standard](https://html.spec.whatwg.org/multipage/webappapis.html#event-loop-processing-model), and it describes how React Native should perform tasks on the JavaScript thread.
+
+Implementing a well-defined event loop closes gaps between React DOM and React Native: the behavior of a React Native application is now closer to the behavior of a React DOM application, making it easier to learn once, and write anywhere.
+
+The event loop brings many benefits to React Native:
+
+- The ability to interrupt rendering to process events and tasks
+- Closer alignment with web specifications
+- Foundation for more browser features
+
+With the the Event Loop, React is able to predicably order updates and events. This allows React to interrupt a low prioirty update with an urgent user event, and the New Renderer allows us to render those updates independently.
+
+The Event Loops also aligns the behavior of events and task like timers with web specifications, which means React Native works more like what users are familar with in the Web, and allows for better code sharing between React DOM and React Native.
+
+It also allows for the implementation of more compliant browser features like microtasks, `MutationObserver`, and `IntersectionObserver`. These features are not ready to use in React Native yet, but we are working on bringing them to you in the future.
+
+Finally, the Event Loop and the New Renderer changes to support reading layout syncronously allows React Native to add proper support for `useLayoutEffect` to read layout information synchronously and update the UI in the same frame. This allows you to position elements correctly before they are displayed to the user.
+
+See [`useLayoutEffect`](/blog/2024/10/23/The-New-Architecture-is-Here#uselayouteffect) for more details.
 
 ### Removing the Bridge
 
@@ -215,6 +240,8 @@ Here's a comparison of the old architecture without transitions (left) and the n
 </figure>
 </div>
 
+For more information, see [Support for Concurrent Renderer and Features](/docs/the-new-architecture/landing-page#support-for-concurrent-renderer-and-features).
+
 ### Automatic Batching
 
 When upgrading to the New Architecture, you will benefit from automatic batching from React 18.
@@ -234,60 +261,13 @@ Automatic batching allows React Native application to batch together more state 
 
 In the old architecture (left), more intermediate states are rendered, and the UI keeps updating even when the slider stops moving. The New Architecture (right), renders fewer intermediate states and completes the rendering much sooner thanks to automatically batching the updates.
 
-### Full Support for Suspense
-
-Suspense lets you declaratively specify the loading state for a part of the component tree if it’s not yet ready to be displayed:
-
-```
-<Suspense fallback={<Spinner />}>
-  <Comments />
-</Suspense>
-```
-
-We introduced a limited version of Suspense several years ago, and React 18 added full support. However, until now React Native was not able to support concurrent rendering for Suspense.
-
-The New Architecture includes full support for Suspense introduced in React 18. This means that you can now use Suspense in React Native to handle loading states for your components, and the suspended content will render in the background while the loading state is displayed, giving higher priority to user input on visible content.
-
-### Event Loop
-
-The New Architecture allowed us to implement a well-defined event loop processing model, as described in this [RFC](https://github.com/react-native-community/discussions-and-proposals/blob/main/proposals/0744-well-defined-event-loop.md).
-
-The RFC follows the specifications described in the [HTML Standard](https://html.spec.whatwg.org/multipage/webappapis.html#event-loop-processing-model), and it describes how React Native should perform tasks on the JavaScript thread.
-
-Implementing a well-defined event loop closes gaps between web development and native development: the behavior of a React Native application is now closer to the behavior of a React application, allowing you to really learn once, and write anywhere.
-
-The event loop brings many benefits to React Native. Among those, we have:
-
-- A predictable behavior of the framework, that leads to more predictable and performant apps
-- A better alignment of React native with the Web
-- It enables the implementation of more compliant web specifications
-- It lays the foundation for new features like Microtasks, `useLayoutEffect` and others features that will be implemented in the future.
-
-Reading layout in useLayoutEffect
-The event loop allowed us to implement the `useLayoutEffect` hooks in React Native. This is the perfect place to retrieve the most accurate measurements of the views in your UI.
-
-In the old architecture, due to its asynchronous nature, we could not have synchronous layouts. To retrieve the latest layout information of a view, we had to wait before the view was actually rendered. With the New Architecture we can now use useLayoutEffect to implement synchronous layouts.
-
-Let’s have a look at this example: rendering a tooltip next to a view that moves on the screen.
-With the old architecture, on the left, we had to wait for the view to be completely rendered before we could fetch its layout information and render the tooltip next to it. This leads to a user experience where the tooltip would lag behind the view.
-With `useLayoutEffect`, on the right, we can retrieve the layout information right before the view is rendered, and we can attach the tooltip in the exact place we need. The final result is a much better user experience:
-
-<div className="TwoColumns TwoFigures">
-<figure>
- <img src="/img/new-architecture/async-on-layout.gif" alt="A view that is moving to the corners of the viewport and center with a tooltip rendered either above or below it. The tooltip is rendered after a short delay after the view moves" />
- <figcaption>Asynchronous measurement and render of the ToolTip. [See code](https://gist.github.com/lunaleaps/eabd653d9864082ac1d3772dac217ab9).</figcaption>
-</figure>
-<figure>
- <img src="/img/new-architecture/sync-use-layout-effect.gif" alt="A view that is moving to the corners of the viewport and center with a tooltip rendered either above or below it. The view and tooltip move in unison." />
- <figcaption>Synchronous measurement and render of the ToolTip. [See code](https://gist.github.com/lunaleaps/148756563999c83220887757f2e549a3).</figcaption>
-</figure>
-</div>
+For more information, see [Support for Concurrent Renderer and Features](/docs/the-new-architecture/landing-page#support-for-concurrent-renderer-and-features).
 
 ### useLayoutEffect
 
 Building on the Event Loop and the ability to read layout synchronously, in the New Architecture we added proper support for `useLayoutEffect` in React Native.
 
-In the old architecture, you needed to use the asynchronous `onLayout` event to read layout information of a view (which was also asynchronous). As a result there would be at least one frame where the layout was incorrect until the layout was read and updated, causing issues like tooltip placed in the wrong position:
+In the old architecture, you needed to use the asynchronous `onLayout` event to read layout information of a view (which was also asynchronous). As a result there would be at least one frame where the layout was incorrect until the layout was read and updated, causing issues like tooltips placed in the wrong position:
 
 ```tsx
 // ❌ async onLayout after commit
@@ -320,7 +300,36 @@ useLayoutEffect(() => {
 <ViewWithTooltip ref={ref} position={position} />;
 ```
 
-This change allows you to read layout information synchronously and update the UI in the same frame, allowing you to position elements correctly before they are displayed to the user.
+This change allows you to read layout information synchronously and update the UI in the same frame, allowing you to position elements correctly before they are displayed to the user:
+
+<div className="TwoColumns TwoFigures">
+<figure>
+ <img src="/img/new-architecture/async-on-layout.gif" alt="A view that is moving to the corners of the viewport and center with a tooltip rendered either above or below it. The tooltip is rendered after a short delay after the view moves" />
+ <figcaption>In the old architecture, layout was read asynchronously in `onLayout`, causing the position of the tooltip to be delayed.</figcaption>
+</figure>
+<figure>
+ <img src="/img/new-architecture/sync-use-layout-effect.gif" alt="A view that is moving to the corners of the viewport and center with a tooltip rendered either above or below it. The view and tooltip move in unison." />
+ <figcaption>In the New Architecture, layout can be read in `useLayoutEffect` synchronously, updating the tooltip position before displaying.</figcaption>
+</figure>
+</div>
+
+For more information, see the docs for [Synchronous Layout and Effects](/docs/the-new-architecture/landing-page#synchronous-layout-and-effects).
+
+### Full Support for Suspense
+
+Suspense lets you declaratively specify the loading state for a part of the component tree if it’s not yet ready to be displayed:
+
+```
+<Suspense fallback={<Spinner />}>
+  <Comments />
+</Suspense>
+```
+
+We introduced a limited version of Suspense several years ago, and React 18 added full support. However, until now React Native was not able to support concurrent rendering for Suspense.
+
+The New Architecture includes full support for Suspense introduced in React 18. This means that you can now use Suspense in React Native to handle loading states for your components, and the suspended content will render in the background while the loading state is displayed, giving higher priority to user input on visible content.
+
+For more, see the [RFC for Suspense in React 18](https://github.com/reactjs/rfcs/blob/main/text/0213-suspense-in-react-18.md).
 
 ## How to Upgrade
 
