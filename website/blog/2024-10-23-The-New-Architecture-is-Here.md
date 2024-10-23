@@ -156,11 +156,21 @@ The bridge remains for backward compatibility to support gradual migration to th
 
 ### Gradual Migration
 
-The New Architecture in React Native is a breaking change, but the migration process has been made easier with tools and [interop layers](https://github.com/reactwg/react-native-new-architecture/discussions/135).
+We expect most apps can upgrade to 0.76 with the same effort as any other release.
 
-The concurrent features of React are [only enabled in parts of the application that use them](https://react.dev/blog/2022/03/29/react-v18#gradually-adopting-concurrent-features), and modules and components can be migrated to be "New Architecture compatible" without requiring modification. However, there are [known limitations](https://github.com/reactwg/react-native-new-architecture/discussions/175) to the interop layers, and some modules and components may need to be properly migrated.
+When you upgrade to 0.76, the New Architecture and React 18 are enabled by default. However, to use concurrent features and gain the full benefits of the New Architecture, your app and libraries will need to be gradually migrated to fully support the New Architecture.
 
-The interop layers will be phased out in future releases of React Native. Meanwhile, if you find a bug with them, please [open them using this template](https://github.com/facebook/react-native/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2CType%3A+New+Architecture&projects=&template=new_architecture_bug_report.yml).
+When you first upgrade, your app will run on the New Architecture with an automatic interoperability layer with the old architecture. For most apps, this will work without any changes, but there are [known limitations](https://github.com/reactwg/react-native-new-architecture/discussions/135) with the interop layer, as it does not support accessing custom Shadow Nodes or concurrent features.
+
+To use concurrent features, apps will also need to be updated to support [Concurrent React](https://react.dev/blog/2022/03/29/react-v18#what-is-concurrent-react) by following the [Rules of React](https://react.dev/reference/rules). To migrate your JavaScript code to React 18 and its semantics, follow the [React 18 Upgrade guide](https://react.dev/blog/2022/03/08/react-18-upgrade-guide).
+
+The overall strategy is to get your application running on the New Architecture without breaking existing code. You can then gradually migrate your app at your own pace. For new surfaces that have migrated all modules to the New Architecture, you can start using concurrent features immediately. For existing surfaces, you may need to address some issues and migrate modules before adding concurrent features.
+
+We've collaborated with the most popular React Native libraries to ensure support for the New Architecture. More than 850 libraries are already compatible, including all libraries with over 200K weekly downloads (~10% of downloaded libraries). You can check library compatibility with the New Architecture on the [reactnative.directory](https://reactnative.directory) website:
+
+![](/blog/assets/0.76-directory.png)
+
+For more details on upgrading, see [How to Upgrade](/blog/2024/10/23/The-New-Architecture-is-Here#how-to-upgrade) below.
 
 ## New Features
 
@@ -314,15 +324,15 @@ This change allows you to read layout information synchronously and update the U
 
 ## How to Upgrade
 
-React Native 0.76 is the first version of React Native that leverages the full power of [React 18 and its concurrent features](https://react.dev/blog/2021/12/17/react-conf-2021-recap#react-18-and-concurrent-features).
+To upgrade to 0.76, follow the usual steps in the [upgrade helper](https://react-native-community.github.io/upgrade-helper/). Since this release also upgrades to React 18, you will also need to follow the [React 18 Upgrade guide](https://react.dev/blog/2022/03/08/react-18-upgrade-guide).
 
-To migrate your JavaScript code to React 18 and its semantics, follow the [How to Upgrade to React 18](https://react.dev/blog/2022/03/08/react-18-upgrade-guide) guide.
+These steps should be enough for most apps to upgrade to the New Architecture thanks to the interop layer with the old architecture. However, to take full advantage of the New Architecture, and to start using concurrent features, you will need to migrate your custom Native Modules and Native Components to support the new Native Module and Native Component APIs.
 
-For native migration, 0.76 comes with some breaking changes that you need to consider when upgrading your app. The list of breaking changes are described in the [React Native 0.76 release blogpost post](/blog/2024/10/23/release-0.76-new-architecture#breaking-changes-1) and in the [React Native changelog](https://github.com/facebook/react-native/blob/main/CHANGELOG.md).
+Without migrating your custom Native Modules, you will not get the benefits of lazily loading by default, shared c++, synchronous method calls, or type-safety from codegen. Without migrating your Native Components, you will not be able to use concurrent features. We recommend migrating all Native Components and Native Modules to the New Architecture as soon as possible.
 
-Aside from the breaking changes described above, the migration to the New Architecture is transparent.
-
-To migrate to the New Architecture, follow the usual steps as they are illustrated in the [upgrade helper](https://react-native-community.github.io/upgrade-helper/). Once you carry out these steps, your application will run on the New Architecture.
+:::note
+In a future release, we will remove the interop layer and modules will need to support the New Architecture.
+:::
 
 ### Libraries
 
@@ -330,13 +340,11 @@ We ensured that all libraries with 200K+ weekly downloads (that's \~10% of React
 
 We are tracking the compatibility between libraries and React Native in the [reactnative.directory](https://reactnative.directory) website. Make sure that all the libraries you are using in your app are compatible with the new architecture by applying the [“Support the New Architecture” filter](https://reactnative.directory/?newArchitecture=true). More than 850 libraries are already compatible with the New Architecture.
 
-![](/blog/assets/0.76-directory.png)
-
 If some of the libraries your app depends on are not compatible yet, you can:
 
 - Look for alternative libraries with the same features among the compatible ones.
 - Open an issue to the library and ask the author to migrate to the New Architecture.
-- [Opt-out from the New Architecture](#opt-out) while those libraries are migrated.
+- [Opt-out from the New Architecture](/blog/2024/10/23/The-New-Architecture-is-Here#opt-out) while those libraries are migrated.
 
 In the future, we will publish more tools to help you when you need to install a new library in your app.
 
