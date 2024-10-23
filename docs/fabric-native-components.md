@@ -195,7 +195,7 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-This code creates an app that uses the new `WebView` component we just created to load the `react.dev` website.
+This code creates an app that uses the new `WebView` component we created to load the `react.dev` website.
 
 The app also shows an alert when the web page is loaded.
 

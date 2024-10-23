@@ -63,7 +63,6 @@ public class ReactWebView extends WebView {
     configureComponent();
   }
 
-  // highlight-start
   private void configureComponent() {
     this.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
     this.setWebViewClient(new WebViewClient() {
@@ -110,7 +109,6 @@ public class ReactWebView extends WebView {
       return payload;
     }
   }
-  // highlight-end
 }
 ```
 
@@ -143,7 +141,6 @@ class ReactWebView: WebView {
     configureComponent()
   }
 
-  // highlight-start
   private fun configureComponent() {
     this.layoutParams = LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT)
     this.webViewClient = object : WebViewClient() {
@@ -180,7 +177,6 @@ class ReactWebView: WebView {
 
     override fun getEventData() = payload
   }
-  // highlight-end
 }
 ```
 

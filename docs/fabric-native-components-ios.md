@@ -7,11 +7,11 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import con
 
 Now it's time to write some iOS platform code to be able to render the web view. The steps you need to follow are:
 
-- Running Codegen.
+- Run Codegen.
 - Write the code for the `RCTWebView`
 - Register the `RCTWebView` in the application
 
-### 1. Running Codegen
+### 1. Run Codegen
 
 You can [manually run](the-new-architecture/codegen-cli) the Codegen, however it's simpler to use the application you're going to demo the component in to do this for you.
 
