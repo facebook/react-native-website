@@ -152,7 +152,7 @@ setTimeout(() => {}, 100);
 
 The rewrite also improves error reporting, particularly for JavaScript crashes at startup, and reducing crashes from undefined behavior. If crashes occur, the new [React Native DevTools](/docs/next/react-native-devtools) simplify debugging and support the New Architecture.
 
-The legacy bridge remains for backward compatibility to support gradual migration to the New Architecture. In the future, we will remove the bridge code completely.
+The bridge remains for backward compatibility to support gradual migration to the New Architecture. In the future, we will remove the bridge code completely.
 
 ### Gradual Migration
 
@@ -256,10 +256,10 @@ The event loop brings many benefits to React Native. Among those, we have:
 Reading layout in useLayoutEffect
 The event loop allowed us to implement the `useLayoutEffect` hooks in React Native. This is the perfect place to retrieve the most accurate measurements of the views in your UI.
 
-In the legacy architecture, due to its asynchronous nature, we could not have synchronous layouts. To retrieve the latest layout information of a view, we had to wait before the view was actually rendered. With the New Architecture we can now use useLayoutEffect to implement synchronous layouts.
+In the old architecture, due to its asynchronous nature, we could not have synchronous layouts. To retrieve the latest layout information of a view, we had to wait before the view was actually rendered. With the New Architecture we can now use useLayoutEffect to implement synchronous layouts.
 
 Let’s have a look at this example: rendering a tooltip next to a view that moves on the screen.
-With the legacy architecture, on the left, we had to wait for the view to be completely rendered before we could fetch its layout information and render the tooltip next to it. This leads to a user experience where the tooltip would lag behind the view.
+With the old architecture, on the left, we had to wait for the view to be completely rendered before we could fetch its layout information and render the tooltip next to it. This leads to a user experience where the tooltip would lag behind the view.
 With `useLayoutEffect`, on the right, we can retrieve the layout information right before the view is rendered and we can attach the tooltip in the exact place we need. The final result is a much better user experience:
 
 <div className="TwoColumns TwoFigures">
@@ -376,7 +376,7 @@ We are also extremely grateful to all the partners that collaborated with us to 
 
 - [Expo](https://expo.dev/), for adopting the New Architecture early on, for supporting the work on migrating the most popular libraries.
 - [Software Mansion](https://swmansion.com/), for maintaining crucial libraries in the ecosystem, for migrating them to the New Architecture early and for all the help in investigating and fixing various issues.
-- [Callstak](https://www.callstack.com/), for maintaining crucial libraries in the ecosystem, for migrating them to the New Architecture early and for the support with the work on the Community CLI.
+- [Callstack](https://www.callstack.com/), for maintaining crucial libraries in the ecosystem, for migrating them to the New Architecture early and for the support with the work on the Community CLI.
 - [Microsoft](https://opensource.microsoft.com/), for adding the New Architecture implementation for react-native-windows and react-native-macos as well as in several other developers tools.
 - [Expensify](https://www.expensify.com/), [Kraken](https://www.kraken.com/), [BlueSky](https://bsky.app/) and [Brigad](https://www.brigad.co/) for pioneering the adoption of the New Architecture, reporting various issues so that we could fix them for everyone else.
 - All the independent library maintainers and developers who contributed to the New Architecture by testing it, fixing some of the issues and opening questions on unclear matters so that we could clear them.
