@@ -9,7 +9,7 @@ React Native 0.76 with the New Architecture by default is now available on npm!
 
 In the [0.76 release blog post](/blog/2024/10/23/release-0.76-new-architecture), we shared a list of significant changes included in this version. In this post, we provide an overview of the New Architecture and how it shapes the future of React Native.
 
-The New Architecture adds full support for modern React features including [Suspense](https://react.dev/blog/2022/03/29/react-v18#new-suspense-features), [Transitions](https://react.dev/blog/2022/03/29/react-v18#new-feature-transitions), [automatic batching](https://react.dev/blog/2022/03/29/react-v18#new-feature-automatic-batching), and [`useLayoutEffect`](https://react.dev/reference/react/useLayoutEffect). The New Architecture also includes new [native module](/docs/next/fabric-native-components-introduction) and [native component](/docs/next/fabric-native-components-introduction) systems that let you write type-safe code with direct access to native interfaces without a bridge.
+The New Architecture adds full support for modern React features including [Suspense](https://react.dev/blog/2022/03/29/react-v18#new-suspense-features), [Transitions](https://react.dev/blog/2022/03/29/react-v18#new-feature-transitions), [automatic batching](https://react.dev/blog/2022/03/29/react-v18#new-feature-automatic-batching), and [`useLayoutEffect`](https://react.dev/reference/react/useLayoutEffect). The New Architecture also includes new [Native Module](/docs/next/fabric-native-components-introduction) and [Native Component](/docs/next/fabric-native-components-introduction) systems that let you write type-safe code with direct access to native interfaces without a bridge.
 
 This release is the result of a ground up rewrite of React Native we’ve been working on since 2018, and we’ve taken special care to make the New Architecture a gradual migration for most apps. In 2021, we created [the New Architecture Working Group](https://github.com/reactwg/react-native-new-architecture/) to collaborate with the community on ensuring a smooth upgrade experience for the entire React ecosystem.
 
@@ -28,7 +28,7 @@ Over the past several years of development, our team has publicly shared our vis
 
 The most important change in this release is something most users should not need to think about: how React Native works. We have completely rewritten the major systems of React Native including how components are rendered, how JavaScript communicates with native, and how work is scheduled across different threads. We call all of these architecture improvements the New Architecture.
 
-In the old architecture, React Native communicated with native with an asynchronous bridge. To render a component or call a native function, React Native needed to push native functions calls to a queue in the bridge, and process them asynchronously. This architecture had many benefits. Since all work was done on a background thread, the main thread was never blocked for rendering updates or handling native module function calls.
+In the old architecture, React Native communicated with native with an asynchronous bridge. To render a component or call a native function, React Native needed to push native functions calls to a queue in the bridge, and process them asynchronously. This architecture had many benefits. Since all work was done on a background thread, the main thread was never blocked for rendering updates or handling Native Module function calls.
 
 The approach had major limitations. Some work needs to respond synchronously to user input, potentially interrupting any in progress work, in order to provide the best experience possible to users. Since the old architecture was only asynchronous, we needed to rewrite it to allow for both asynchronous and synchronous updates.
 
@@ -42,7 +42,7 @@ All of these problems meant that it was not possible to properly support React�
 - The New Renderer
 - Removal of the Bridge
 
-The New Module system allows the React native renderer to have synchronous access to the native layer, which allows it to handle events, schedule updates, and read layout both asynchronously and synchronously. The new Native Modules are also lazily loaded by default, giving apps a significant performance gain.
+The New Module system allows the React Native Renderer to have synchronous access to the native layer, which allows it to handle events, schedule updates, and read layout both asynchronously and synchronously. The new Native Modules are also lazily loaded by default, giving apps a significant performance gain.
 
 The New Renderer can handle multiple in progress trees across multiple threads, which allows React to process multiple concurrent update priorities, either on the main thread or a background thread. It also supports reading layout from multiple threads synchronously, or asynchronously, to support more responsive UIs without jank.
 
@@ -61,12 +61,12 @@ The new Native Module System is a major rewrite of how JavaScript and the native
 - Type safety between JavaScript and native
 - Lazy module loading by default
 
-In the new Native Module system, JavaScript and the native layer can now synchronously communicate with each other through the JavaScript Interface (JSI), without the need to use an asynchronous bridge. This means your custom native modules can now synchronously call a function, return a value, and pass that value back to another native module function.
+In the new Native Module system, JavaScript and the native layer can now synchronously communicate with each other through the JavaScript Interface (JSI), without the need to use an asynchronous bridge. This means your custom Native Modules can now synchronously call a function, return a value, and pass that value back to another Native Module function.
 
 In the old architecture, in order to handle a response for native, you needed to provide a callback, and the value returned needed to be serializable:
 
 ```ts
-// ❌ async callback from native module
+// ❌ Sync callback from Native Module
 nativeModule.getValue(value => {
   // ❌ value cannot reference a native object
   nativeModule.doSomething(value);
@@ -76,7 +76,7 @@ nativeModule.getValue(value => {
 In the New Architecture, you can make synchronous calls to native:
 
 ```ts
-// ✅ sync response from native module
+// ✅ Sync response from Native Module
 const value = nativeModule.getValue();
 
 // ✅ value can be a reference to a native object
@@ -97,7 +97,7 @@ Popular libraries such as [react-native-mmkv](https://github.com/mrousavy/react-
 
 ### New Renderer
 
-We've also completely rewritten the Native Renderer. The new renderer offers several benefits:
+We've also completely rewritten the Native Renderer, adding several benefits:
 
 - Updates can be rendered on different threads at different priorities.
 - Layout can be read synchronously and across different threads.
@@ -125,7 +125,7 @@ In the New Architecture, we've also fully removed React Native's dependency on t
 
 ![](/blog/assets/0.76-bridge-diagram.png)
 
-Removing the bridge improves startup time by avoiding bridge initialization. For example, in the old architecture, in order to provide global native methods to JavaScript, we would need to initialize a module in JavaScript on startup, causing a small delay in app startup time:
+Removing the bridge improves startup time by avoiding bridge initialization. For example, in the old architecture, in order to provide global methods to JavaScript, we would need to initialize a module in JavaScript on startup, causing a small delay in app startup time:
 
 ```js
 // ❌ Slow initialization
@@ -138,7 +138,7 @@ global.setTimeout = timer => {
 setTimeout(() => {}, 100);
 ```
 
-In the New Architecture, we can directly bind native methods from C++:
+In the New Architecture, we can directly bind methods from C++:
 
 ```cpp
 // ✅ Initialize directly in C++
