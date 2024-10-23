@@ -7,17 +7,17 @@ date: 2024-10-23
 
 React Native 0.76 with the New Architecture by default is now available on npm!
 
-In the [0.76 release blog post](/blog/2024/10/23/release-0.76-new-architecture) we shared the list of all the significant changes included in this version. In this post, we want to give an overview of the New Architecture and how it is going to shape the future of React Native.
+In the [0.76 release blog post](/blog/2024/10/23/release-0.76-new-architecture), we shared a list of significant changes included in this version. In this post, we provide an overview of the New Architecture and how it shapes the future of React Native.
 
-The New Architecture adds support for modern React features including full support for [Suspense](https://react.dev/blog/2022/03/29/react-v18#new-suspense-features), [Transitions](https://react.dev/blog/2022/03/29/react-v18#new-feature-transitions), [automatic batching](https://react.dev/blog/2022/03/29/react-v18#new-feature-automatic-batching), and [`useLayoutEffect`](https://react.dev/reference/react/useLayoutEffect). The New Architecture also includes new [native module](/docs/next/fabric-native-components-introduction) and [native component](/docs/next/fabric-native-components-introduction) systems that enable writing type-safe modules with direct access to native without a bridge.
+The New Architecture adds full support for modern React features including [Suspense](https://react.dev/blog/2022/03/29/react-v18#new-suspense-features), [Transitions](https://react.dev/blog/2022/03/29/react-v18#new-feature-transitions), [automatic batching](https://react.dev/blog/2022/03/29/react-v18#new-feature-automatic-batching), and [`useLayoutEffect`](https://react.dev/reference/react/useLayoutEffect). The New Architecture also includes new [native module](/docs/next/fabric-native-components-introduction) and [native component](/docs/next/fabric-native-components-introduction) systems that let you write type-safe code with direct access to native interfaces without a bridge.
 
-The release is possible thanks to a ground up rewrite of React Native we’ve been working on since 2018, and we’ve taken special care to make the New Architecture a gradual migration for most apps. In 2021, we created [the New Architecture Working group](https://github.com/reactwg/react-native-new-architecture/) to work with the community to support the New Architecture and ensure a smooth upgrade experience for the entire React ecosystem.
+This release is the result of a ground up rewrite of React Native we’ve been working on since 2018, and we’ve taken special care to make the New Architecture a gradual migration for most apps. In 2021, we created [the New Architecture Working Group](https://github.com/reactwg/react-native-new-architecture/) to collaborate with the community on ensuring a smooth upgrade experience for the entire React ecosystem.
 
-We expect most apps can adopt the New Architecture with the same effort as any other release. The most popular React Native libraries already include support for the New Architecture, and for libraries that do not support the New Architecture, we developed an automatic interop layer with the old architecture.
+Most apps will be able to adopt React Native 0.76 with the same level of effort as any other release. The most popular React Native libraries already support the New Architecture. The New Architecture also includes an automatic interoperability layer to enable backward compatibility with libraries targeting the old architecture.
 
 <!--truncate-->
 
-In case you missed it, we shared a lot of this vision over the past years:
+Over the past several years of development, our team has publicly shared our vision for the New Architecture. If you missed any of these presentations, check them out here:
 
 - [React Native EU 2019 \- The New React Native](https://www.youtube.com/watch?v=52El0EUI6D0)
 - [React Conf 2021 \- React 18 Keynote](https://www.youtube.com/watch?v=FZ0cG47msEk)
@@ -234,7 +234,7 @@ Automatic batching allows React Native application to batch together more state 
 
 In the old architecture (left), more intermediate states are rendered, and the UI keeps updating even when the slider stops moving. The New Architecture (right), renders fewer intermediate states and completes the rendering much sooner thanks to automatically batching the updates.
 
-### Full support for Suspense
+### Full Support for Suspense
 
 Suspense lets you declaratively specify the loading state for a part of the component tree if it’s not yet ready to be displayed:
 
@@ -252,7 +252,7 @@ The New Architecture includes full support for Suspense introduced in React 18. 
 
 The New Architecture allowed us to implement a well-defined event loop processing model, as described in this [RFC](https://github.com/react-native-community/discussions-and-proposals/blob/main/proposals/0744-well-defined-event-loop.md).
 
-The RFC follows the specifications described in the [HTML specifications](https://html.spec.whatwg.org/multipage/webappapis.html#event-loop-processing-model) and it describes how React Native should perform tasks on the JavaScript thread.
+The RFC follows the specifications described in the [HTML Standard](https://html.spec.whatwg.org/multipage/webappapis.html#event-loop-processing-model) and it describes how React Native should perform tasks on the JavaScript thread.
 
 Implementing a well-defined event loop helps closing the gaps between web development and native development: the behavior of a React Native application is now closer to the behavior of a React application, allowing you to really learn once, and write anywhere.
 
