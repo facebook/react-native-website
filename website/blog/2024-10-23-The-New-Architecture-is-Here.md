@@ -9,7 +9,7 @@ React Native 0.76 with the New Architecture by default is now available on npm!
 
 In the [0.76 release blog post](/blog/2024/10/23/release-0.76-new-architecture) we shared the list of all the significant changes included in this version. In this post, we want to give an overview of the New Architecture and how it is going to shape the future of React Native.
 
-The New Architecture adds support for modern React features including full support for [Suspense](https://react.dev/blog/2022/03/29/react-v18#new-suspense-features), [Transitions](https://react.dev/blog/2022/03/29/react-v18#new-feature-transitions), [automatic batching](https://react.dev/blog/2022/03/29/react-v18#new-feature-automatic-batching), and [`useLayoutEffect`](https://react.dev/reference/react/useLayoutEffect). The New Architecture also includes new [native module](/docs/next/fabric-native-modules-introduction) and [native component](/docs/next/turbo-native-modules-introduction) systems that enable writing type-safe modules with direct access to native without a bridge.
+The New Architecture adds support for modern React features including full support for [Suspense](https://react.dev/blog/2022/03/29/react-v18#new-suspense-features), [Transitions](https://react.dev/blog/2022/03/29/react-v18#new-feature-transitions), [automatic batching](https://react.dev/blog/2022/03/29/react-v18#new-feature-automatic-batching), and [`useLayoutEffect`](https://react.dev/reference/react/useLayoutEffect). The New Architecture also includes new [native module](/docs/next/fabric-native-components-introduction) and [native component](/docs/next/fabric-native-components-introduction) systems that enable writing type-safe modules with direct access to native without a bridge.
 
 The release is possible thanks to a ground up rewrite of React Native we’ve been working on since 2018, and we’ve taken special care to make the New Architecture a gradual migration for most apps. In 2021, we created [the New Architecture Working group](https://github.com/reactwg/react-native-new-architecture/) to work with the community to support the New Architecture and ensure a smooth upgrade experience for the entire React ecosystem.
 
@@ -158,7 +158,7 @@ The bridge remains for backward compatibility to support gradual migration to th
 
 The New Architecture in React Native is a breaking change, but the migration process has been made easier with tools and [interop layers](https://github.com/reactwg/react-native-new-architecture/discussions/135).
 
-The concurrent features of React are [only enabled in parts of the application that use them](https://react.dev/blog/2022/03/29/react-v18#gradually-adopting-concurrent-features), and modules and components can be migrated to be "New Architecture compatible" without requiring modification. However, there are [known limitations](https://github.com/reactwg/react-native-new-architecture/discussions/175) to the interop layers, and some modules and components may need to be [properly migrated](TODO).
+The concurrent features of React are [only enabled in parts of the application that use them](https://react.dev/blog/2022/03/29/react-v18#gradually-adopting-concurrent-features), and modules and components can be migrated to be "New Architecture compatible" without requiring modification. However, there are [known limitations](https://github.com/reactwg/react-native-new-architecture/discussions/175) to the interop layers, and some modules and components may need to be properly migrated.
 
 The interop layers will be phased out in future releases of React Native. Meanwhile, if you find a bug with them, please [open them using this template](https://github.com/facebook/react-native/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2CType%3A+New+Architecture&projects=&template=new_architecture_bug_report.yml).
 
@@ -342,12 +342,12 @@ In the future, we will publish more tools to help you when you need to install a
 
 ### Apps
 
-If your app has custom native modules, custom native components, or both, we expect for them to work fine, thanks to our [interop layers](TODO).
+If your app has custom native modules, custom native components, or both, we expect for them to work fine, thanks to our [interop layer](https://github.com/reactwg/react-native-new-architecture/discussions/135).
 
 Most advanced use cases might not be supported by them. If that’s the case for you, please follow these guides to migrate your modules and components to the New Architecture:
 
-- [Native Modules](/docs/next/turbo-native-modules-introduction)
-- [Native Components](/docs/next/fabric-native-modules-introduction)
+- [Native Modules](/docs/next/fabric-native-components-introduction)
+- [Native Components](/docs/next/fabric-native-components-introduction)
 
 ### Opt-out
 
