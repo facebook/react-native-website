@@ -17,7 +17,7 @@ Most apps will be able to adopt React Native 0.76 with the same level of effort 
 
 <!--truncate-->
 
-Over the past several years of development, our team has publicly shared our vision for the New Architecture. If you missed any of these presentations, check them out here:
+Over the past several years of development, our team has publicly shared our vision for the New Architecture. If you missed any of these talks, check them out here:
 
 - [React Native EU 2019 \- The New React Native](https://www.youtube.com/watch?v=52El0EUI6D0)
 - [React Conf 2021 \- React 18 Keynote](https://www.youtube.com/watch?v=FZ0cG47msEk)
@@ -83,7 +83,7 @@ const value = nativeModule.getValue();
 nativeModule.doSomething(value);
 ```
 
-With the New Architecture, you can finally leverage the full power of a C++ native implementation, while still accessing it from JavaScript/TypeScript APIs. The New Module System supports [modules written in C++](/docs/next/the-new-architecture/pure-cxx-modules) so you can write your module once and it works across all platforms including Android, iOS, Windows, and MacOS. Implementing modules in C++ allows for more fine-grained memory management and performance optimizations.
+With the New Architecture, you can finally leverage the full power of a C++ native implementation, while still accessing it from JavaScript/TypeScript APIs. The New Module System supports [modules written in C++](/docs/next/the-new-architecture/pure-cxx-modules) so you can write your module once, and it works across all platforms including Android, iOS, Windows, and macOS. Implementing modules in C++ allows for more fine-grained memory management and performance optimizations.
 
 Additionally, with [Codegen](/docs/next/the-new-architecture/what-is-codegen) your modules can define a strongly typed contract between the JavaScript layer and the native layer. From our experience, cross-boundary type errors are one of the most common sources of crashes in cross-platform apps. Codegen lets you overcome those problems while also generating boilerplate code for you.
 
@@ -252,9 +252,9 @@ The New Architecture includes full support for Suspense introduced in React 18. 
 
 The New Architecture allowed us to implement a well-defined event loop processing model, as described in this [RFC](https://github.com/react-native-community/discussions-and-proposals/blob/main/proposals/0744-well-defined-event-loop.md).
 
-The RFC follows the specifications described in the [HTML Standard](https://html.spec.whatwg.org/multipage/webappapis.html#event-loop-processing-model) and it describes how React Native should perform tasks on the JavaScript thread.
+The RFC follows the specifications described in the [HTML Standard](https://html.spec.whatwg.org/multipage/webappapis.html#event-loop-processing-model), and it describes how React Native should perform tasks on the JavaScript thread.
 
-Implementing a well-defined event loop helps closing the gaps between web development and native development: the behavior of a React Native application is now closer to the behavior of a React application, allowing you to really learn once, and write anywhere.
+Implementing a well-defined event loop closes gaps between web development and native development: the behavior of a React Native application is now closer to the behavior of a React application, allowing you to really learn once, and write anywhere.
 
 The event loop brings many benefits to React Native. Among those, we have:
 
@@ -270,7 +270,7 @@ In the old architecture, due to its asynchronous nature, we could not have synch
 
 Let’s have a look at this example: rendering a tooltip next to a view that moves on the screen.
 With the old architecture, on the left, we had to wait for the view to be completely rendered before we could fetch its layout information and render the tooltip next to it. This leads to a user experience where the tooltip would lag behind the view.
-With `useLayoutEffect`, on the right, we can retrieve the layout information right before the view is rendered and we can attach the tooltip in the exact place we need. The final result is a much better user experience:
+With `useLayoutEffect`, on the right, we can retrieve the layout information right before the view is rendered, and we can attach the tooltip in the exact place we need. The final result is a much better user experience:
 
 <div className="TwoColumns TwoFigures">
 <figure>
@@ -328,7 +328,7 @@ To upgrade to 0.76, follow the usual steps in the [upgrade helper](https://react
 
 These steps should be enough for most apps to upgrade to the New Architecture thanks to the interop layer with the old architecture. However, to take full advantage of the New Architecture, and to start using concurrent features, you will need to migrate your custom Native Modules and Native Components to support the new Native Module and Native Component APIs.
 
-Without migrating your custom Native Modules, you will not get the benefits of lazily loading by default, shared c++, synchronous method calls, or type-safety from codegen. Without migrating your Native Components, you will not be able to use concurrent features. We recommend migrating all Native Components and Native Modules to the New Architecture as soon as possible.
+Without migrating your custom Native Modules, you will not get the benefits of shared c++, synchronous method calls, or type-safety from codegen. Without migrating your Native Components, you will not be able to use concurrent features. We recommend migrating all Native Components and Native Modules to the New Architecture as soon as possible.
 
 :::note
 In a future release, we will remove the interop layer and modules will need to support the New Architecture.
@@ -336,7 +336,7 @@ In a future release, we will remove the interop layer and modules will need to s
 
 ### Apps
 
-If you are an app developer, to fully support the New Archtecture, you will need to upgrade your libraries, custom Native Components, and custom Native Modules to fully support the New Architacture.
+If you are an app developer, to fully support the New Architecture, you will need to upgrade your libraries, custom Native Components, and custom Native Modules to fully support the New Architecture.
 
 We've collaborated with the most popular React Native libraries to ensure support for the New Architecture. You can check library compatibility with the New Architecture on the [reactnative.directory](https://reactnative.directory) website.
 
