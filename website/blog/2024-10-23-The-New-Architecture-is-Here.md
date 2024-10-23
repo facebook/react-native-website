@@ -164,7 +164,7 @@ The interop layers will be phased out in future releases of React Native. Meanwh
 
 ## New Features
 
-The New Architecture includes full support for React 18, concurrent features, and useLayoutEffect in React Native. For a full list of React 18 features, please see the [React 18 blog post](https://react.dev/blog/2021/12/17/react-conf-2021-recap#react-18-and-concurrent-features).
+The New Architecture includes full support for React 18, concurrent features, and `useLayoutEffect` in React Native. For a full list of React 18 features, please see the [React 18 blog post](https://react.dev/blog/2021/12/17/react-conf-2021-recap#react-18-and-concurrent-features).
 
 ### Transitions
 
@@ -316,9 +316,9 @@ This change allows you to read layout information synchronously and update the U
 
 React Native 0.76 is the first version of React Native that leverages the full power of [React 18 and its concurrent features](https://react.dev/blog/2021/12/17/react-conf-2021-recap#react-18-and-concurrent-features).
 
-For this reason, we expect that you need to apply some changes to your JavaScript code to properly migrate to React 18 and its semantics. For more information on how to migrate to React 18’s concurrent feature, follow the [How to Upgrade to React 18](https://react.dev/blog/2022/03/08/react-18-upgrade-guide).
+To migrate your JavaScript code to React 18 and its semantics, follow the [How to Upgrade to React 18](https://react.dev/blog/2022/03/08/react-18-upgrade-guide) guide.
 
-For what concerns the native side of your app, version 0.76 comes with some breaking changes that you need to consider when upgrading your app. The list of breaking changes are described in the [React Native 0.76 release blogpost post](/blog/2024/10/23/release-0.76-new-architecture#breaking-changes-1) and in the [React Native changelog](https://github.com/facebook/react-native/blob/main/CHANGELOG.md).
+For native migration, 0.76 comes with some breaking changes that you need to consider when upgrading your app. The list of breaking changes are described in the [React Native 0.76 release blogpost post](/blog/2024/10/23/release-0.76-new-architecture#breaking-changes-1) and in the [React Native changelog](https://github.com/facebook/react-native/blob/main/CHANGELOG.md).
 
 Aside from the breaking changes described above, the migration to the New Architecture is transparent.
 
@@ -326,7 +326,7 @@ To migrate to the New Architecture, follow the usual steps as they are illustrat
 
 ### Libraries
 
-We verified that all the most used libraries are compatible with the New Architecture. Specifically, we monitored all the libraries with more 200K weekly downloads (that's \~10% of React Native weekly downloads) and we verified that they work well with the New Architecture
+We ensured that all libraries with 200K+ weekly downloads (that's \~10% of React Native weekly downloads) work well with the New Architecture.
 
 We are tracking the compatibility between libraries and React Native in the [reactnative.directory](https://reactnative.directory) website. Make sure that all the libraries you are using in your app are compatible with the new architecture by applying the [“Support the New Architecture” filter](https://reactnative.directory/?newArchitecture=true). More than 850 libraries are already compatible with the New Architecture.
 
