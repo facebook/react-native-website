@@ -7,8 +7,8 @@ Your application may need access to platform features that aren’t directly ava
 
 This guide introduces:
 
-- **Turbo Native Modules:** native libraries that have no User Interface (UI) for the user. Examples would be persistent storage, notifications, network events. These are accessible to your user as JavaScript functions and objects.
-- **Fabric Native Component:** native platform views, widgets and controllers that are available to your application's JavaScript code through React Components.
+- **Native Modules:** native libraries that have no User Interface (UI) for the user. Examples would be persistent storage, notifications, network events. These are accessible to your user as JavaScript functions and objects.
+- **Native Component:** native platform views, widgets and controllers that are available to your application's JavaScript code through React Components.
 
 :::note
 You might have previously been familiar with:
@@ -24,11 +24,9 @@ These are our deprecated native module and component API. You can still use many
 
 :::
 
-1. Turbo Native Modules
-   - [Introduction](turbo-native-modules.md)
-   - [Android](turbo-native-modules-android.md)
-   - [iOS](turbo-native-modules-ios.md)
+1. Native Modules
+   - [Android & iOS](turbo-native-modules.md)
+   - [Cross-Platform with C++](the-new-architecture/pure-cxx-modules.md)
+   - [Advanced: Custom C++ Types](the-new-architecture/custom-cxx-types.md)
 2. Fabric Native Components
-   - [Introduction](fabric-native-components.md)
-   - [Android](fabric-native-components-android.md)
-   - [iOS](fabric-native-components-ios.md)
+   - [Android & iOS](fabric-native-components.md)
