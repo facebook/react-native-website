@@ -26,11 +26,11 @@ Over the past several years of development, our team has publicly shared our vis
 
 ## What is the New Architecture
 
-The most important change in this release is something most users should not need to think about: how React Native works. We have completely rewritten the major systems of React Native, including how components are rendered, how JavaScript communicates with native, and how work is scheduled across different threads. We call all of these architecture improvements the New Architecture.
+The New Architecture is a complete rewrite of the major systems that underpin React Native, including how components are rendered, how JavaScript abstractions communicates with native abstractions, and how work is scheduled across different threads. Although most users should not have to think about how these systems work, these changes bring improvements and new capabilities.
 
-In the old architecture, React Native communicated with native using an asynchronous bridge. To render a component or call a native function, React Native needed to push native functions calls to a queue in the bridge, and process them asynchronously. This architecture had many benefits. Since all work was done on a background thread, the main thread was never blocked for rendering updates or handling Native Module function calls.
+In the old architecture, React Native communicated with the native platform using an asynchronous bridge. To render a component or call a native function, React Native needed to serialize and enqueue native functions calls with the bridge, which would be processed asynchronously. The benefit of this architecture is that the main thread was never blocked for rendering updates or handling native module function calls, since all work was done on a background thread.
 
-The approach had major limitations. Some work needs to respond synchronously to user input, potentially interrupting any in-progress work, in order to provide the best experience possible to users. Since the old architecture was only asynchronous, we needed to rewrite it to allow for both asynchronous and synchronous updates.
+However, users expect immediate feedback to interactions to feel like a native app. This means some updates need to render synchronously in response to user input, potentially interrupting any in-progress render. Since the old architecture was only asynchronous, we needed to rewrite it to allow for both asynchronous and synchronous updates.
 
 Additionally, in the old architecture, serializing function calls over the bridge quickly became a bottleneck, especially for frequent updates or large objects. This made it hard for apps to achieve 60+ FPS reliably. There were also synchronization issues: when the JavaScript and native layer got out of sync, it was impossible to reconcile them synchronously, resulting bugs like lists showing frames of empty space and visual UI jumps due to intermediate states rendering.
 
