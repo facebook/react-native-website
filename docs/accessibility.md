@@ -163,6 +163,26 @@ In the above example method `addOne` changes the state variable `count`. When th
 - **toolbar** Used to represent a toolbar (a container of action buttons or components).
 - **grid** Used with ScrollView, VirtualizedList, FlatList, or SectionList to represent a grid. Adds the in/out of grid announcements to Android's GridView.
 
+### `accessibilityShowsLargeContentViewer` <div class="label ios">iOS</div>
+
+A boolean value that determines whether the large content viewer is shown when the user performs a long press on the element.
+
+Available in iOS 13.0 and later.
+
+### `accessibilityLargeContentTitle` <div class="label ios">iOS</div>
+
+A string that will be used as the title of the large content viewer when it is shown.
+
+Requires `accessibilityShowsLargeContentViewer` to be set to `true`.
+
+```tsx
+<View
+  accessibilityShowsLargeContentViewer={true}
+  accessibilityLargeContentTitle="Home Tab">
+  <Text>Home</Text>
+</View>
+```
+
 ### `accessibilityState`
 
 Describes the current state of a component to the assistive technology user.
