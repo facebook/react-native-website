@@ -218,9 +218,9 @@ module.exports = {
         respectPrefersColorScheme: true,
       },
       announcementBar: {
-        id: 'reactconf2024-keynote',
+        id: 'new-architecture',
         content:
-          'Re-watch the <a target="_blank" rel="noopener noreferrer" href="https://youtu.be/Q5SMmKb7qVI?si=c-6kFImfKFHdw2lc">React Native Keynote</a> @ React Conf 2024.',
+          'The New Architecture has arrived, learn more <a target="_blank" rel="noopener noreferrer" href="blog">here</a>.',
         backgroundColor: '#20232a',
         textColor: '#fff',
         isCloseable: false,
