@@ -227,16 +227,16 @@ startTransition(() => {
 
 Separating urgent events from transitions allows for a more responsive user interface, and a more intuitive user experience.
 
-Here's a comparison of the old architecture without transitions (left) and the new architecture with transitions (right):
+Here's a comparison of the old architecture without transitions and the new architecture with transitions. Imagine that each tile isn't a trivial view with a background color, but a rich component containing images and other components that are expensive to render. **After** using `useTransition` you avoid thrashing your app with updates and falling behind.
 
 <div className="TwoColumns TwoFigures">
 <figure>
- <img src="/img/new-architecture/with-transitions.gif" alt="A video demonstrating an app rendering many views (tiles) according to a slider input. The views are rendered in batches as the slider is quickly adjusted from 0 to 1000. There are less batch renders in comparison to the next video." />
- <figcaption>Rendering tiles with transitions to interrupt in-progress renders of stale state.</figcaption>
+ <img src="/img/new-architecture/without-transitions.gif" alt="A video demonstrating an app rendering many views (tiles) according to a slider input. The views are rendered in batches as the slider is quickly adjusted from 0 to 1000." />
+ <figcaption><b>Before:</b> rendering tiles without marking it as a transition.</figcaption>
 </figure>
 <figure>
- <img src="/img/new-architecture/without-transitions.gif" alt="A video demonstrating an app rendering many views (tiles) according to a slider input. The views are rendered in batches as the slider is quickly adjusted from 0 to 1000." />
- <figcaption>Rendering tiles without marking it as a transition.</figcaption>
+ <img src="/img/new-architecture/with-transitions.gif" alt="A video demonstrating an app rendering many views (tiles) according to a slider input. The views are rendered in batches as the slider is quickly adjusted from 0 to 1000. There are less batch renders in comparison to the next video." />
+ <figcaption><b>After:</b> rendering tiles <em>with transitions</em> to interrupt in-progress renders of stale state.</figcaption>
 </figure>
 </div>
 
@@ -251,15 +251,15 @@ Automatic batching allows React to batch together more state updates when render
 <div className="TwoColumns TwoFigures">
 <figure>
  <img src="/img/new-architecture/legacy-renderer.gif" alt="A video demonstrating an app rendering many views according to a slider input. The slider value is adjusted from 0 to 1000 and the UI slowly catches up to rendering 1000 views." />
- <figcaption>Rendering frequent state updates with legacy renderer.</figcaption>
+ <figcaption><b>Before:</b> rendering frequent state updates with legacy renderer.</figcaption>
 </figure>
 <figure>
  <img src="/img/new-architecture/react18-renderer.gif" alt="A video demonstrating an app rendering many views according to a slider input. The slider value is adjusted from 0 to 1000 and the UI resolves to 1000 views faster than the previous example, without as many intermediate states." />
- <figcaption>Rendering frequent state updates with automatic batching.</figcaption>
+ <figcaption><b>After:</b> rendering frequent state updates with <em>automatic batching</em>.</figcaption>
 </figure>
 </div>
 
-In the old architecture (left), more intermediate states are rendered, and the UI keeps updating even when the slider stops moving. The New Architecture (right), renders fewer intermediate states and completes the rendering much sooner thanks to automatically batching the updates.
+In the old architecture, more intermediate states are rendered, and the UI keeps updating even when the slider stops moving. The New Architecture, renders fewer intermediate states and completes the rendering much sooner thanks to automatically batching the updates.
 
 For more information, see [Support for Concurrent Renderer and Features](/docs/0.75/the-new-architecture/landing-page#support-for-concurrent-renderer-and-features).
 
