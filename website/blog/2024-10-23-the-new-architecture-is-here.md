@@ -21,7 +21,7 @@ Over the past several years of development, our team has publicly shared our vis
 
 - [React Native EU 2019 - The New React Native](https://www.youtube.com/watch?v=52El0EUI6D0)
 - [React Conf 2021 - React 18 Keynote](https://www.youtube.com/watch?v=FZ0cG47msEk)
-- [App.js 2022 - Bringing the New React Native Architecture to the OSS Community](https://www.youtube.com/watch?v=GJxL2aiIX3Q)
+- [App.js 2022 - Bringing the New React Native Architecture to the OSS Community](https://www.youtube.com/watch?v=Q6TkkzRJfUo)
 - [React Conf 2024 - Day 2 Keynote](https://www.youtube.com/watch?v=Q5SMmKb7qVI)
 
 ## What is the New Architecture
