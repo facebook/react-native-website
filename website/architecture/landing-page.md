@@ -231,7 +231,13 @@ If, for any reasons, you can't use the New Architecture, you can still opt-out f
 ### iOS
 
 1. Open the `ios/Podfile` file
-2. Add `ENV['RCT_NEW_ARCH_ENABLED'] = '0'` in the main scope of the file
+2. Add `ENV['RCT_NEW_ARCH_ENABLED'] = '0'` in the main scope of the Podfile ([reference Podfile](https://github.com/react-native-community/template/blob/0.76-stable/template/ios/Podfile) in the template)
+```diff
++ ENV['RCT_NEW_ARCH_ENABLED'] = '0'
+# Resolve react_native_pods.rb with node to allow for hoisting
+require Pod::Executable.execute_command('node', ['-p',
+  'require.resolve(
+```
 3. Install your CocoaPods dependencies with the command:
 
 ```shell
