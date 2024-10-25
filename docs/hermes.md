@@ -15,7 +15,7 @@ Hermes is used by default by React Native and no additional configuration is req
 ## Bundled Hermes
 
 React Native comes with a **bundled version** of Hermes.
-We building a version of Hermes for you whenever we release a new version of React Native. This will make sure you're consuming a version of Hermes which is fully compatible with the version of React Native you're using.
+We build a version of Hermes for you whenever we release a new version of React Native. This will make sure you're consuming a version of Hermes which is fully compatible with the version of React Native you're using.
 
 This change is fully transparent to users of React Native. You can still disable Hermes using the command described in this page.
 You can [read more about the technical implementation on this page](/architecture/bundled-hermes).
