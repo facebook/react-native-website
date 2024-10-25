@@ -1537,6 +1537,14 @@ td .color-box {
     }
   }
 
+  &.fabric {
+    background: #808080;
+
+    &:before {
+      border-right-color: #808080;
+    }
+  }
+
   &.tv {
     background: #6170af;
 
