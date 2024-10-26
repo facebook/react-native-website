@@ -2,7 +2,7 @@
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
-Writing a module in C++ is the best way to share platform-agnostic code between Android and iOS. With pure C++ modules, you can write your logic only once and reuse it right away from all the platform, without the need of writing platform specific code.
+Writing a module in C++ is the best way to share platform-agnostic code between Android and iOS. With pure C++ modules, you can write your logic only once and reuse it right away from all the platforms, without the need of writing platform-specific code.
 
 In this guide, we will go through the creation of a pure C++ Turbo Native Module:
 
@@ -20,9 +20,9 @@ npx @react-native-community/cli@latest init SampleApp --version 0.76.0
 
 ## 1. Create the JS specs
 
-Pure C++ Turbo Native Modules are Turbo Native Modules. They needs a specification file (also called spec file) so that Codegen can create the scaffolding code for us. The specification file is also what we use to access the Turbo Native Module in JS.
+Pure C++ Turbo Native Modules are Turbo Native Modules. They need a specification file (also called spec file) so that Codegen can create the scaffolding code for us. The specification file is also what we use to access the Turbo Native Module in JS.
 
-Specs files need to be written in a typed JS dialect. React Native currently supports Flow or TypeScript.
+Spec files need to be written in a typed JS dialect. React Native currently supports Flow or TypeScript.
 
 1. Inside the root folder of your app, create a new folder called `specs`.
 2. Create a new file called `NativeSampleModule.ts` with the following code:
@@ -87,13 +87,13 @@ The next step is to configure [Codegen](what-is-codegen.md) in your `package.jso
    "dependencies": {
 ```
 
-This configuration tells Codegen to look for specs files in the `specs` folder. It also instruct Codegen to only generate code for `modules` and to namespace the generated code as `AppSpecs`.
+This configuration tells Codegen to look for spec files in the `specs` folder. It also instructs Codegen to only generate code for `modules` and to namespace the generated code as `AppSpecs`.
 
 ## 3. Write the Native Code
 
-Writing a C++ Turbo Native Module allow you to share the code between Android an iOS. Therefore we will be writing the code once, and we will look into what changes we need to apply to the platforms so that the C++ code can be picked up.
+Writing a C++ Turbo Native Module allows you to share the code between Android an iOS. Therefore we will be writing the code once, and we will look into what changes we need to apply to the platforms so that the C++ code can be picked up.
 
-1. Create a folder named `shared` at the same level of the `android` and `ios` folders.
+1. Create a folder named `shared` at the same level as the `android` and `ios` folders.
 2. Inside the `shared` folder, create a new file called `NativeSampleModule.h`.
 
    ```cpp title="shared/NativeSampleModule.h"
@@ -141,7 +141,7 @@ Let's have a look at the two files we created:
 - The class `NativeSampleModule` is the actual Turbo Native Module class and it extends the `NativeSampleModuleCxxSpec` class which contains some glue code and boilerplate code to let this class behave as a Turbo Native Module.
 - Finally, we have the constructor, that accepts a pointer to the `CallInvoker`, to communicate with JS if needed and the function's prototype we have to implement.
 
-The `NativeSampleModule.cpp` files is the actual implementation of our Turbo Native Module and implements the constructor and the method that we declared in the specs.
+The `NativeSampleModule.cpp` file is the actual implementation of our Turbo Native Module and implements the constructor and the method that we declared in the specs.
 
 ## 4. Register the Module in the platform
 
@@ -159,7 +159,7 @@ To make sure that the Android app can effectively build the C++ Turbo Native Mod
 
 #### 1. Create the `CMakeLists.txt` file
 
-Android uses CMake to build. CMake needs to access the files we defined in our shared folder, to be able to build them.
+Android uses CMake to build. CMake needs to access the files we defined in our shared folder to be able to build them.
 
 1. Create a new folder `SampleApp/android/app/src/main/jni`. The `jni` folder is where the C++ side of Android lives.
 2. Create a `CMakeLists.txt` file and add this context:
@@ -228,7 +228,7 @@ The final step is to register the new C++ Turbo Native Module in the runtime, so
 curl -O https://raw.githubusercontent.com/facebook/react-native/v0.76.0/packages/react-native/ReactAndroid/cmake-utils/default-app-setup/OnLoad.cpp
 ```
 
-2. Then, modify this file as it follows:
+2. Then, modify this file as follows:
 
 ```diff title="android/app/src/main/jni/OnLoad.cpp"
 #include <DefaultComponentsRegistry.h>
@@ -295,7 +295,7 @@ bundle exec pod install
 
 #### 2. Add the shared folder to the iOS project
 
-This steps adds the `shared` folder to the project to make it visible to xcode.
+This step adds the `shared` folder to the project to make it visible to Xcode.
 
 1. Open the CocoPods generated Xcode Workspace.
 
@@ -347,7 +347,7 @@ In Xcode, open the `AppDelegate.mm` file and modify it as follows:
 
 These changes are doing a few things:
 
-1. Importing the `RCTAppDelegate+Protected` header to make visible to the AppDelegate that it is conforming to the `RCTTurboModuleManagerDelegate` protocol.
+1. Importing the `RCTAppDelegate+Protected` header to make it visible to the AppDelegate that it is conforming to the `RCTTurboModuleManagerDelegate` protocol.
 2. Importing the Pure C++ Native Turbo Module interface `NativeSampleModule.h`
 3. Overriding the `getTurboModule` method for C++ modules so that when the JS side asks for a module called `NativeSampleModule`, the app knows which module has to be returned.
 
@@ -431,10 +431,10 @@ The interesting lines in this app are:
 :::warning
 For the sake of this example and to keep it as short as possible, we directly imported the spec file in our app.
 The best practice in this case is to create a separate file to wrap the specs and use that file into your application.
-This allow you to prepare the input for the specs and gives you more control over then in JS.
+This allows you to prepare the input for the specs and gives you more control over them in JS.
 :::
 
-Congratulation, you wrote your first C++ Turbo Native Module!
+Congratulations, you wrote your first C++ Turbo Native Module!
 
 | <center>Android</center>                                                                             | <center>iOS</center>                                                                          |
 | ---------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
