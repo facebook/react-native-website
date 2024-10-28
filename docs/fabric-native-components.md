@@ -10,9 +10,9 @@ import {FabricNativeComponentsAndroid,FabricNativeComponentsIOS} from './\_fabri
 
 # Native Components
 
-If you want to build _new_ React Native Components that wraps around a [Host Component](https://reactnative.dev/architecture/glossary#host-view-tree-and-host-view) like a unique kind of [CheckBox](https://developer.android.com/reference/androidx/appcompat/widget/AppCompatCheckBox) on Android, or a [UIButton](https://developer.apple.com/documentation/uikit/uibutton?language=objc) on iOS, you should use a Fabric Native Component.
+If you want to build _new_ React Native Components that wrap around a [Host Component](https://reactnative.dev/architecture/glossary#host-view-tree-and-host-view) like a unique kind of [CheckBox](https://developer.android.com/reference/androidx/appcompat/widget/AppCompatCheckBox) on Android, or a [UIButton](https://developer.apple.com/documentation/uikit/uibutton?language=objc) on iOS, you should use a Fabric Native Component.
 
-This guide will show you how to build Fabric Native Component, by implementing a web view component. The steps to doing this are:
+This guide will show you how to build Fabric Native Components, by implementing a web view component. The steps to doing this are:
 
 1. Define a JavaScript specification using Flow or TypeScript.
 2. Configure the dependencies management system to generate code from the provided spec and to be auto-linked.
@@ -27,7 +27,7 @@ npx @react-native-community/cli@latest init Demo --install-pods false
 
 ## Creating a WebView Component
 
-This guide will show you how to create a Web View component. We will be creating the component by using the Android's [`WebView`](https://developer.android.com/reference/android/webkit/WebView) component, and the iOS' [`WKWebView`](https://developer.apple.com/documentation/webkit/wkwebview?language=objc) component.
+This guide will show you how to create a Web View component. We will be creating the component by using the Android's [`WebView`](https://developer.android.com/reference/android/webkit/WebView) component, and the iOS [`WKWebView`](https://developer.apple.com/documentation/webkit/wkwebview?language=objc) component.
 
 Let's start by creating the folders structure to hold our component's code:
 
@@ -76,6 +76,23 @@ export interface NativeProps extends ViewProps {
 export default codegenNativeComponent<NativeProps>(
   'CustomWebView',
 ) as HostComponent<NativeProps>;
+import type {HostComponent, ViewProps} from 'react-native';
+import type {BubblingEventHandler} from 'react-native/Libraries/Types/CodegenTypes';
+import codegenNativeComponent from 'react-native/Libraries/Utilities/codegenNativeComponent';
+
+type WebViewScriptLoadedEvent = {
+  result: 'success' | 'error';
+};
+
+export interface NativeProps extends ViewProps {
+  sourceURL?: string;
+  onScriptLoaded?: BubblingEventHandler<WebViewScriptLoadedEvent> | null;
+}
+
+export default codegenNativeComponent<NativeProps>(
+  'CustomWebView',
+) as HostComponent<NativeProps>;
+
 ```
 
 </TabItem>
@@ -101,6 +118,7 @@ type NativeProps = $ReadOnly<{|
 export default (codegenNativeComponent<NativeProps>(
   'CustomWebView',
 ): HostComponent<NativeProps>);
+
 ```
 
 </TabItem>
@@ -109,10 +127,10 @@ export default (codegenNativeComponent<NativeProps>(
 This specification is composed of three main parts, exluding the imports:
 
 - The `WebViewScriptLoadedEvent` is a supporting data type for the data the event needs to pass from native to JavaScript.
-- The `NativeProps` which is a definitions of the props that we can set on the component.
-- The `codegenNativeComponent` statement that allows to codegenerate the code for the custom component and that defines a name for the component used to match the native implementations.
+- The `NativeProps` which is a definition of the props that we can set on the component.
+- The `codegenNativeComponent` statement that allows us to codegenerate the code for the custom component and that defines a name for the component used to match the native implementations.
 
-As with Native Modules, you can have multiple specification files in the `specs/` directory. For more information about the types you can use, and the platform types these map to see the [appendix](appendix.md#codegen-typings).
+As with Native Modules, you can have multiple specification files in the `specs/` directory. For more information about the types you can use, and the platform types these map to, see the [appendix](appendix.md#codegen-typings).
 
 ## 2. Configure Codegen to run
 
@@ -128,7 +146,7 @@ The specification is used by the React Native's Codegen tools to generate platfo
      "type": "components",
      "jsSrcsDir": "specs",
      "android": {
-       "javaPackageName": "com.nativelocalstorage"
+       "javaPackageName": "com.webview"
      }
    },
    // highlight-end
