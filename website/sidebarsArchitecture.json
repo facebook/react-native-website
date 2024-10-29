@@ -6,6 +6,7 @@
       "collapsed": false,
       "items": [
         "architecture-overview",
+        "landing-page",
         {
           "type": "category",
           "label": "Rendering",

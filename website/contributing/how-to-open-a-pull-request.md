@@ -28,6 +28,7 @@ You will now have a fork of React Native on GitHub at https://github.com/your_us
 
 ```bash
 git clone https://github.com/facebook/react-native.git
+cd react-native
 git remote add fork https://github.com/your_username/react-native.git
 ```
 
