@@ -51,7 +51,7 @@ You can add this snippet to your app and customize the various fields:
 When **Codegen** runs, it searches among all the dependencies of the app, looking for JS files that respects some specific conventions, and it generates the required code:
 
 - Turbo Native Modules requires that the spec files are prefixed with `Native`. For example, `NativeLocalStorage.ts` is a valid name for a spec file.
-- Native Fabric Components requires that the spec files are suffixed with `NativeComponent`. For example, `WebViewNativeComponent.tx` is a valid name for a spec file.
+- Native Fabric Components requires that the spec files are suffixed with `NativeComponent`. For example, `WebViewNativeComponent.ts` is a valid name for a spec file.
 
 ## Running **Codegen**
 
