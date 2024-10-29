@@ -220,7 +220,7 @@ module.exports = {
       announcementBar: {
         id: 'new-architecture',
         content:
-          'The New Architecture has arrived, learn more <a target="_blank" rel="noopener noreferrer" href="blog">here</a>.',
+          'The New Architecture has arrived - <a target="_blank" rel="noopener noreferrer" href="/blog/2024/10/23/the-new-architecture-is-here">learn more</a>',
         backgroundColor: '#20232a',
         textColor: '#fff',
         isCloseable: false,
