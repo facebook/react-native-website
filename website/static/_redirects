@@ -5,9 +5,10 @@
 /docs/building-for-apple-tv     /docs/building-for-tv
 /docs/building-from-source      /contributing/how-to-build-from-source
 /docs/contributing              /contributing/overview
-/docs/next/sourcemaps           /docs/next/debugging-release-builds
-/docs/next/symbolication        /docs/next/debugging-release-builds
+/docs/sourcemaps                /docs/debugging-release-builds
+/docs/symbolication             /docs/debugging-release-builds
 /docs/publishing-forks          /contributing/how-to-build-from-source#publish-your-own-version-of-react-native
+/docs/react-devtools            /docs/react-native-devtools
 /docs/testing                   /contributing/how-to-run-and-write-tests
 /docs/understanding-cli         https://github.com/react-native-community/cli#react-native-cli
 
@@ -27,6 +28,7 @@
 /docs/the-new-architecture/backward-compatibility          https://github.com/reactwg/react-native-new-architecture#guides
 /docs/the-new-architecture/backward-compatibility-turbomodules https://github.com/reactwg/react-native-new-architecture#guides
 /docs/the-new-architecture/backward-compatibility-fabric-components https://github.com/reactwg/react-native-new-architecture#guides
+/docs/the-new-architecture/landing-page                    /architecture/landing-page
 /docs/new-architecture-intro                               https://github.com/reactwg/react-native-new-architecture#guides
 /docs/new-architecture-library-intro                       https://github.com/reactwg/react-native-new-architecture#guides
 /docs/new-architecture-library-android                     https://github.com/reactwg/react-native-new-architecture#guides
