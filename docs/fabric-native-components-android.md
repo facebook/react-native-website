@@ -341,7 +341,7 @@ Finally, if the component can emit an event, you need to map the event name by o
 
 ### 4. Write the `ReactWebViewPackage`
 
-As you do with Native Modules, Native Components also needto implement the `ReactPackage` class. This is an object that you can use to register the component in the React Native runtime.
+As you do with Native Modules, Native Components also need to implement the `ReactPackage` class. This is an object that you can use to register the component in the React Native runtime.
 
 This is the code for the `ReactWebViewPackage`:
 
