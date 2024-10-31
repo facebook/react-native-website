@@ -209,7 +209,7 @@ You can follow along and contribute in our dedicated [discussions & proposals](h
 
 With 0.76, The New Architecture is enabled by default in all the React Native projects.
 
-If you find aything that is not working well, please open an issue using [this template](https://github.com/facebook/react-native/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2CType%3A+New+Architecture&projects=&template=new_architecture_bug_report.yml).
+If you find anything that is not working well, please open an issue using [this template](https://github.com/facebook/react-native/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2CType%3A+New+Architecture&projects=&template=new_architecture_bug_report.yml).
 
 If, for any reasons, you can't use the New Architecture, you can still opt-out from it:
 
@@ -232,12 +232,14 @@ If, for any reasons, you can't use the New Architecture, you can still opt-out f
 
 1. Open the `ios/Podfile` file
 2. Add `ENV['RCT_NEW_ARCH_ENABLED'] = '0'` in the main scope of the Podfile ([reference Podfile](https://github.com/react-native-community/template/blob/0.76-stable/template/ios/Podfile) in the template)
+
 ```diff
 + ENV['RCT_NEW_ARCH_ENABLED'] = '0'
 # Resolve react_native_pods.rb with node to allow for hoisting
 require Pod::Executable.execute_command('node', ['-p',
   'require.resolve(
 ```
+
 3. Install your CocoaPods dependencies with the command:
 
 ```shell
