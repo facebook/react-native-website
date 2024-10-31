@@ -50,8 +50,8 @@ You can add this snippet to your app and customize the various fields:
 
 When **Codegen** runs, it searches among all the dependencies of the app, looking for JS files that respects some specific conventions, and it generates the required code:
 
-- Turbo Native Modules requires that the spec files are prefixed with `Native`. For example, `NativeLocalStorage.ts` is a valid name for a spec file.
-- Native Fabric Components requires that the spec files are suffixed with `NativeComponent`. For example, `WebViewNativeComponent.ts` is a valid name for a spec file.
+- Turbo Native Modules require that the spec files are prefixed with `Native`. For example, `NativeLocalStorage.ts` is a valid name for a spec file.
+- Native Fabric Components require that the spec files are suffixed with `NativeComponent`. For example, `WebViewNativeComponent.ts` is a valid name for a spec file.
 
 ## Running **Codegen**
 
@@ -65,7 +65,7 @@ The rest of this guide assumes that you have a Native Turbo Module, a Native Fab
 ./gradlew generateCodegenArtifactsFromSchema
 ```
 
-This task invokes the `generateCodegenArtifactsFromSchema` command on all the the imported projects of the app (the app and all the node modules which are linked to it). It generates the code in the corresponding `node_modules/<dependency>` folder. For example, if you have a Fabric Native Component whose Node module is called `my-fabric-component`, the generated code is located in the `SampleApp/node_modules/my-fabric-component/android/build/generated/source/codegen` path. For the app, the code is generated in the `android/app/build/generated/source/codegen` folder.
+This task invokes the `generateCodegenArtifactsFromSchema` command on all the imported projects of the app (the app and all the node modules which are linked to it). It generates the code in the corresponding `node_modules/<dependency>` folder. For example, if you have a Fabric Native Component whose Node module is called `my-fabric-component`, the generated code is located in the `SampleApp/node_modules/my-fabric-component/android/build/generated/source/codegen` path. For the app, the code is generated in the `android/app/build/generated/source/codegen` folder.
 
 #### The Generated Code
 
@@ -111,14 +111,14 @@ build
 The generated code is split in two folders:
 
 - `java` which contains the platform specific code
-- `jni` which contains the C++ code required to let JS and Java interac correctly.
+- `jni` which contains the C++ code required to let JS and Java interact correctly.
 
 In the `java` folder, you can find the Fabric Native component generated code in the `com/facebook/viewmanagers` subfolder.
 
 - the `<nativeComponent>ManagerDelegate.java` contains the methods that the `ViewManager` can call on the custom Native Component
 - the `<nativeComponent>ManagerInterface.java` contains the interface of the `ViewManager`.
 
-In the folder whose name was setup in the `codegenConfig.android.javaPackageName`, instead, you can find the abstract class that a Turbo Native Module has to implement to carry out its tasks.
+In the folder whose name was set up in the `codegenConfig.android.javaPackageName`, instead, you can find the abstract class that a Turbo Native Module has to implement to carry out its tasks.
 
 In the `jni` folder, finally, there is all the boilerplate code to connect JS to Android.
 
@@ -200,7 +200,7 @@ build
                         └── States.h
 ```
 
-Part of these generated files are used by React Native in the Core. Then there are a set of files which contains the same name you specified in the package.json `codegenConfig.name` field.
+Part of these generated files are used by React Native in the Core. Then there is a set of files which contains the same name you specified in the package.json `codegenConfig.name` field.
 
 - `<codegenConfig.name>/<codegenConfig.name>.h`: this contains the interface of your custom iOS Turbo Native Modules.
 - `<codegenConfig.name>/<codegenConfig.name>-generated.mm`: this contains the glue code of your custom iOS Turbo Native Modules.
