@@ -150,14 +150,14 @@ This is recommended for very small and dynamic images only, like icons in a list
 />
 ```
 
-### Cache Control (iOS Only)
+### Cache Control
 
 In some cases you might only want to display an image if it is already in the local cache, i.e. a low resolution placeholder until a higher resolution is available. In other cases you do not care if the image is outdated and are willing to display an outdated image to save bandwidth. The `cache` source property gives you control over how the network layer interacts with the cache.
 
 - `default`: Use the native platforms default strategy.
 - `reload`: The data for the URL will be loaded from the originating source. No existing cache data should be used to satisfy a URL load request.
-- `force-cache`: The existing cached data will be used to satisfy the request, regardless of its age or expiration date. If there is no existing data in the cache corresponding the request, the data is loaded from the originating source.
-- `only-if-cached`: The existing cache data will be used to satisfy a request, regardless of its age or expiration date. If there is no existing data in the cache corresponding to a URL load request, no attempt is made to load the data from the originating source, and the load is considered to have failed.
+- `force-cache`: (iOS only) The existing cached data will be used to satisfy the request, regardless of its age or expiration date. If there is no existing data in the cache corresponding the request, the data is loaded from the originating source.
+- `only-if-cached`: (iOS only) The existing cache data will be used to satisfy a request, regardless of its age or expiration date. If there is no existing data in the cache corresponding to a URL load request, no attempt is made to load the data from the originating source, and the load is considered to have failed.
 
 ```tsx
 <Image
