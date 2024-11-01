@@ -340,7 +340,7 @@ module.exports = {
           },
         ],
       },
-      image: 'img/logo-og.png',
+      image: 'img/logo-share.png',
       footer: {
         style: 'dark',
         links: [
@@ -441,12 +441,12 @@ module.exports = {
       metadata: [
         {
           property: 'og:image',
-          content: 'https://reactnative.dev/img/logo-og.png',
+          content: 'https://reactnative.dev/img/logo-share.png',
         },
         {name: 'twitter:card', content: 'summary_large_image'},
         {
           name: 'twitter:image',
-          content: 'https://reactnative.dev/img/logo-og.png',
+          content: 'https://reactnative.dev/img/logo-share.png',
         },
         {name: 'twitter:site', content: '@reactnative'},
       ],
