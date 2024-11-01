@@ -41,12 +41,12 @@ This gives you the following layout where you'll working:
 Demo
 ├── android/app/src/main/java/com/webview
 └── ios
-└── spec
+└── specs
 ```
 
 - The `android/app/src/main/java/com/webview` folder is the folder that will contain our Android code.
 - The `ios` folder is the folder that will contain our iOS code.
-- The `spec` folder is the folder that will contain the Codegen's specification file.
+- The `specs` folder is the folder that will contain the Codegen's specification file.
 
 ## 1. Define Specification for Codegen
 
