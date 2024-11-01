@@ -52,7 +52,9 @@ open Demo.xcworkspace
 
 <img class="half-size" alt="Create an Objective-C RCTWebView class" src="/docs/assets/fabric-native-components/4.webp" />
 
-5. Rename <code>RCTWebView.m</code> → <code>RCTWebView.mm</code> making it an Objective-C++ file
+5. Repeat step 4 and create a header file named `RCTWebView.h`.
+
+6. Rename <code>RCTWebView.m</code> → <code>RCTWebView.mm</code> making it an Objective-C++ file.
 
 ```text title="Demo/ios"
 Podfile
