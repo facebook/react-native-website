@@ -96,10 +96,10 @@ The code for the implementation file (`RCTWebView.mm`) is the following:
 ```objc title="Demo/RCTWebView/RCTWebView.mm"
 #import "RCTWebView.h"
 
-#import <react/renderer/components/AppSpecs/ComponentDescriptors.h>
-#import <react/renderer/components/AppSpecs/EventEmitters.h>
-#import <react/renderer/components/AppSpecs/Props.h>
-#import <react/renderer/components/AppSpecs/RCTComponentViewHelpers.h>
+#import <react/renderer/components/AppSpec/ComponentDescriptors.h>
+#import <react/renderer/components/AppSpec/EventEmitters.h>
+#import <react/renderer/components/AppSpec/Props.h>
+#import <react/renderer/components/AppSpec/RCTComponentViewHelpers.h>
 // highlight-next-line
 #import <WebKit/WebKit.h>
 
