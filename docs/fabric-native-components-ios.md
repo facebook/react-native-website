@@ -74,7 +74,7 @@ After creating the header file and the implementation file, you can start implem
 
 This is the code for the `RCTWebView.h` file, which declares the component interface.
 
-```objc title="Demo/RCTWebView/RTNWebView.h"
+```objc title="Demo/RCTWebView/RCTWebView.h"
 #import <React/RCTViewComponentView.h>
 #import <UIKit/UIKit.h>
 
