@@ -140,7 +140,7 @@ With everything wired up for Codegen, we need to prepare our native code to hook
 
 ## 2. Building your Native Code
 
-Now it's time to write the native platform code so that when React requires to render a view, te platform can create the right native view and can render it on screen.
+Now it's time to write the native platform code so that when React requires to render a view, the platform can create the right native view and can render it on screen.
 
 You should work through both the Android and iOS platforms.
 
