@@ -163,9 +163,9 @@ class ReactWebView: WebView {
     eventDispatcher?.dispatchEvent(event)
   }
 
-  enum class OnScriptLoadedEventResult() {
-    success(),
-    error()
+  enum class OnScriptLoadedEventResult {
+    success,
+    error;
   }
 
   inner class OnScriptLoadedEvent(
