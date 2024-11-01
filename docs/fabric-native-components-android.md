@@ -199,7 +199,7 @@ The code then defines a helper function to actually emit an event. To emit an ev
 The last part of the file contains the definition of the data types you need to send the event:
 
 - The `OnScriptLoadedEventResult`, with the possible outcomes of the `OnScriptLoaded` event.
-- The actual ``OnScriptLoadedEvent` that needs to extend the React Native's `Event` class.
+- The actual `OnScriptLoadedEvent` that needs to extend the React Native's `Event` class.
 
 ### 3. Write the `WebViewManager`
 
