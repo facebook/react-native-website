@@ -3,21 +3,21 @@ id: react-native-gradle-plugin
 title: React Native Gradle Plugin
 ---
 
-This guide describes how to configure the **React Native Gradle Plugin** (often referred as RNGP), when building your React Native application for Android.
+本指南描述了如何配置 **React Native Gradle Plugin**（通常称为 RNGP）来为 Android 构建 React Native 应用。
 
-## Using the plugin
+## 使用插件
 
-The React Native Gradle Plugin is distributed as a separate NPM package which is installed automatically with `react-native`.
+React Native Gradle Plugin 作为单独的 NPM 包分发，并随 `react-native` 自动安装。
 
-The plugin is **already configured** for new projects created using `npx react-native init`. You don't need to do any extra steps to install it if you created your app with this command.
+插件已为使用 `npx react-native init` 创建的新项目配置。如果你使用此命令创建应用，则不需要进行任何额外步骤来安装它。
 
-If you're integrating React Native into an existing project, please refer to [the corresponding page](/docs/next/integration-with-existing-apps#configuring-gradle): it contains specific instructions on how to install the plugin.
+如果你正在将 React Native 集成到现有项目中，请参阅 [对应页面](/docs/next/integration-with-existing-apps#configuring-gradle)：它包含有关如何安装插件的特定说明。
 
-## Configuring the plugin
+## 配置插件
 
-By default, the plugin will work **out of the box** with sensible defaults. You should refer to this guide and customize the behavior only if you need it.
+默认情况下，插件会**开箱即用**，并使用合理的默认值。你应该参考本指南并仅在需要时自定义行为。
 
-To configure the plugin you can modify the `react` block, inside your `android/app/build.gradle`:
+要配置插件，可以修改 `android/app/build.gradle` 中的 `react` 块：
 
 ```groovy
 apply plugin: "com.facebook.react"
@@ -31,11 +31,11 @@ react {
 }
 ```
 
-Each configuration key is described below:
+每个配置键的描述如下：
 
 ### `root`
 
-This is the root folder of your React Native project, i.e. where the `package.json` file lives. Default is `..`. You can customize it as follows:
+这是你的 React Native 项目的根文件夹，即 `package.json` 文件所在的位置。默认是 `..`。你可以按如下方式自定义：
 
 ```groovy
 root = file("../")
@@ -43,10 +43,9 @@ root = file("../")
 
 ### `reactNativeDir`
 
-This is the folder where the `react-native` package lives. Default is `../node_modules/react-native`.
-If you're in a monorepo or using a different package manager, you can use adjust `reactNativeDir` to your setup.
+这是 `react-native` 包所在的文件夹。默认是 `../node_modules/react-native`。如果你在 Monorepo 中或在不同的包管理器中使用，可以调整 `reactNativeDir` 以适应你的设置。
 
-You can customize it as follows:
+你可以按如下方式自定义：
 
 ```groovy
 reactNativeDir = file("../node_modules/react-native")
@@ -54,10 +53,9 @@ reactNativeDir = file("../node_modules/react-native")
 
 ### `codegenDir`
 
-This is the folder where the `react-native-codegen` package lives. Default is `../node_modules/react-native-codegen`.
-If you're in a monorepo or using a different package manager, you can adjust `codegenDir` to your setup.
+这是 `react-native-codegen` 包所在的文件夹。默认是 `../node_modules/react-native-codegen`。如果你在 Monorepo 中或在不同的包管理器中使用，可以调整 `codegenDir` 以适应你的设置。
 
-You can customize it as follows:
+你可以按如下方式自定义：
 
 ```groovy
 codegenDir = file("../node_modules/@react-native/codegen")
@@ -65,11 +63,11 @@ codegenDir = file("../node_modules/@react-native/codegen")
 
 ### `cliFile`
 
-This is the entrypoint file for the React Native CLI. Default is `../node_modules/react-native/cli.js`.
-The entrypoint file is needed as the plugin needs to invoke the CLI for bundling and creating your app.
+这是 React Native CLI 的入口文件。默认是 `../node_modules/react-native/cli.js`。入口文件是必需的，因为插件需要调用 CLI 来为应用生成捆绑包。
 
-If you're in a monorepo or using a different package manager, you can adjust `cliFile` to your setup.
-You can customize it as follows:
+如果你在 Monorepo 中或在不同的包管理器中使用，可以调整 `cliFile` 以适应你的设置。
+
+你可以按如下方式自定义：
 
 ```groovy
 cliFile = file("../node_modules/react-native/cli.js")
@@ -77,14 +75,13 @@ cliFile = file("../node_modules/react-native/cli.js")
 
 ### `debuggableVariants`
 
-This is the list of variants that are debuggable (see [using variants](#using-variants) for more context on variants).
+这是可调试变体的列表（有关变体的更多上下文，请参阅 [使用变体](#using-variants)）。
 
-By default the plugin is considering as `debuggableVariants` only `debug`, while `release` is not. If you have other
-variants (like `staging`, `lite`, etc.) you'll need to adjust this accordingly.
+默认情况下，插件仅将 `debug` 视为可调试变体，而 `release` 则不是。如果你有其他变体（如 `staging`、`lite` 等），则需要相应调整。
 
-Variants that are listed as `debuggableVariants` will not come with a shipped bundle, so you'll need Metro to run them.
+列出的变体将不会带有已发布的捆绑包，因此你需要运行 Metro 来运行它们。
 
-You can customize it as follows:
+你可以按如下方式自定义：
 
 ```groovy
 debuggableVariants = ["liteDebug", "prodDebug"]
@@ -92,7 +89,7 @@ debuggableVariants = ["liteDebug", "prodDebug"]
 
 ### `nodeExecutableAndArgs`
 
-This is the list of node command and arguments that should be invoked for all the scripts. By default is `[node]` but can be customized to add extra flags as follows:
+这是用于所有脚本的 node 命令和参数的列表。默认是 `[node]`，但可以按如下方式自定义：
 
 ```groovy
 nodeExecutableAndArgs = ["node"]
@@ -100,7 +97,7 @@ nodeExecutableAndArgs = ["node"]
 
 ### `bundleCommand`
 
-This is the name of the `bundle` command to be invoked when creating the bundle for your app. That's useful if you're using [RAM Bundles](/docs/ram-bundles-inline-requires). By default is `bundle` but can be customized to add extra flags as follows:
+这是用于创建应用捆绑包的 `bundle` 命令的名称。如果你使用 [RAM Bundles](/docs/ram-bundles-inline-requires)，则此命令非常有用。默认是 `bundle`，但可以按如下方式自定义：
 
 ```groovy
 bundleCommand = "ram-bundle"
@@ -108,7 +105,7 @@ bundleCommand = "ram-bundle"
 
 ### `bundleConfig`
 
-This is the path to a configuration file that will be passed to `bundle --config <file>` if provided. Default is empty (no config file will be probided). More information on bundling config files can be found [on the CLI documentation](https://github.com/react-native-community/cli/blob/main/docs/commands.md#bundle). Can be customized as follow:
+这是传递给 `bundle --config <file>` 的配置文件的路径。默认是空（不提供配置文件）。有关捆绑配置文件的更多信息，请参阅 [CLI 文档](https://github.com/react-native-community/cli/blob/main/docs/commands.md#bundle)。可以按如下方式自定义：
 
 ```groovy
 bundleConfig = file(../rn-cli.config.js)
@@ -116,7 +113,7 @@ bundleConfig = file(../rn-cli.config.js)
 
 ### `bundleAssetName`
 
-This is the name of the bundle file that should be generated. Default is `index.android.bundle`. Can be customized as follow:
+这是应该生成的捆绑包文件的名称。默认是 `index.android.bundle`。可以按如下方式自定义：
 
 ```groovy
 bundleAssetName = "MyApplication.android.bundle"
@@ -124,7 +121,7 @@ bundleAssetName = "MyApplication.android.bundle"
 
 ### `entryFile`
 
-The entry file used for bundle generation. The default is to search for `index.android.js` or `index.js`. Can be customized as follow:
+这是用于捆绑包生成的入口文件。默认是搜索 `index.android.js` 或 `index.js`。可以按如下方式自定义：
 
 ```groovy
 entryFile = file("../js/MyApplication.android.js")
@@ -132,7 +129,7 @@ entryFile = file("../js/MyApplication.android.js")
 
 ### `extraPackagerArgs`
 
-A list of extra flags that will be passed to the `bundle` command. The list of available flags is in [the CLI documentation](https://github.com/react-native-community/cli/blob/main/docs/commands.md#bundle). Default is empty. Can be customized as follows:
+这是传递给 `bundle` 命令的额外标志的列表。可用标志的列表在 [CLI 文档](https://github.com/react-native-community/cli/blob/main/docs/commands.md#bundle) 中。默认是空。可以按如下方式自定义：
 
 ```groovy
 extraPackagerArgs = []
@@ -140,26 +137,25 @@ extraPackagerArgs = []
 
 ### `hermesCommand`
 
-The path to the `hermesc` command (the Hermes Compiler). React Native comes with a version of the Hermes compiler bundled with it, so you generally won't be needing to customize this. The plugin will use the correct compiler for your system by default.
+这是 `hermesc` 命令的路径（Hermes 编译器）。React Native 附带了一个 Hermes 编译器版本，因此你通常不需要自定义此项。插件将使用正确的编译器。
 
 ### `hermesFlags`
 
-The list of flags to pass to `hermesc`. By default is `["-O", "-output-source-map"]`. You can customize it as follows
+这是传递给 `hermesc` 的标志列表。默认是 `["-O", "-output-source-map"]`。可以按如下方式自定义：
 
 ```groovy
 hermesFlags = ["-O", "-output-source-map"]
 ```
 
-## Using Flavors & Build Variants
+## 使用 Flavors 与 Build Variants
 
-When building Android apps, you might want to use [custom flavors](https://developer.android.com/studio/build/build-variants#product-flavors) to have different versions of your app starting from the same project.
+在构建 Android 应用时，你可能希望使用 [自定义 Flavors](https://developer.android.com/studio/build/build-variants#product-flavors) 来从同一个项目中生成不同版本的 app。
 
-Please refer to the [official Android guide](https://developer.android.com/studio/build/build-variants) to configure custom build types (like `staging`) or custom flavors (like `full`, `lite`, etc.).
-By default new apps are create with two build types (`debug` and `release`) and no custom flavors.
+请参阅 [官方 Android 指南](https://developer.android.com/studio/build/build-variants) 来配置自定义构建类型（如 `staging`）或自定义 Flavors（如 `full`、`lite` 等）。默认情况下，新应用有两个构建类型（`debug` 和 `release`），没有自定义 Flavors。
 
-The combination of all the build types and all the flavors generates a set of **build variants**. For instance for `debug`/`staging`/`release` build types and `full`/`lite` you will have 6 build variants: `fullDebug`, `fullStaging`, `fullRelease` and so on.
+所有构建类型和 Flavors 的组合生成一组 **build variants**。例如，对于 `debug`/`staging`/`release` 构建类型和 `full`/`lite` Flavors，你将拥有 6 个 build variants：`fullDebug`、`fullStaging`、`fullRelease` 等等。
 
-If you're using custom variants beyond `debug` and `release`, you need to instruct the React Native Gradle Plugin specifying which of your variants are **debuggable** using the [`debuggableVariants`](#debuggablevariants) configuration as follows:
+如果你使用除了 `debug` 和 `release` 之外的自定义变体，你需要通过 [`debuggableVariants`](#debuggablevariants) 配置来指示插件哪些变体是 **可调试** 的，如下所示：
 
 ```diff
 apply plugin: "com.facebook.react"
@@ -169,19 +165,18 @@ react {
 }
 ```
 
-This is necessary because the plugin will skip the JS bundling for all the `debuggableVariants`: you'll need Metro to run them. For example, if you list `fullStaging` in the `debuggableVariants`, you won't be able to publish it to a store as it will be missing the bundle.
+这是必要的，因为插件将跳过所有 `debuggableVariants` 的 JS 捆绑：你需要运行 Metro 来运行它们。例如，如果你在 `debuggableVariants` 中列出 `fullStaging`，则无法将其发布到商店，因为它将缺少捆绑包。
 
-## What is the plugin doing under the hood?
+## 插件在幕后做什么？
 
-The React Native Gradle Plugin is responsible for configuring your Application build to ship React Native applications to production.
-The plugin is also used inside 3rd party libraries, to run the [Codegen](/docs/the-new-architecture/pillars-codegen) used for the New Architecture.
+React Native Gradle Plugin 负责配置你的应用构建，以将 React Native 应用发布到生产环境中。插件还用于在第三方库中运行用于新架构的 [Codegen](/docs/the-new-architecture/pillars-codegen)。
 
-Here is a summary of the plugin responsibilities:
+以下是插件的责任总结：
 
-- Add a `createBundle<Variant>JsAndAssets` task for every non debuggable variant, that is responsible of invoking the `bundle`, `hermesc` and `compose-source-map` commands.
-- Setting up the proper version of the `com.facebook.react:react-android` and `com.facebook.react:hermes-android` dependency, reading the React Native version from the `package.json` of `react-native`.
-- Setting up the proper Maven repositories (Maven Central, Google Maven Repo, JSC local Maven repo, etc.) needed to consume all the necessary Maven Dependencies.
-- Setting up the NDK to let you build apps that are using the New Architecture.
-- Setting up the `buildConfigFields` so that you can know at runtime if Hermes or the New Architecture are enabled.
-- Setting up the Metro DevServer Port as an Android resource so the app knows on which port to connect.
-- Invoking the [React Native Codegen](/docs/the-new-architecture/pillars-codegen) if a library or app is using the Codegen for the New Architecture.
+- 为每个非可调试变体添加一个 `createBundle<Variant>JsAndAssets` 任务，负责调用 `bundle`、`hermesc` 和 `compose-source-map` 命令。
+- 设置 `com.facebook.react:react-android` 和 `com.facebook.react:hermes-android` 的适当版本，从 `react-native` 的 `package.json` 中读取 React Native 版本。
+- 设置适当的 Maven 仓库（Maven Central、Google Maven Repo、JSC 本地 Maven 仓库等），以使用所有必要的 Maven 依赖项。
+- 设置 NDK，以便你可以构建使用新架构的应用。
+- 设置 `buildConfigFields`，以便你可以在运行时知道是否启用了 Hermes 或新架构。
+- 设置 Metro DevServer 端口作为 Android 资源，以便应用知道连接到哪个端口。
+- 如果库或应用使用新架构的 Codegen，则调用 [React Native Codegen](/docs/the-new-architecture/pillars-codegen)。

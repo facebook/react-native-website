@@ -25,8 +25,8 @@ title: 桥接原生平台能力
 :::
 
 1. Turbo 原生模块
-   - [Android & iOS](turbo-native-modules.md)
-   - [跨平台使用 C++](the-new-architecture/pure-cxx-modules.md)
+   - [Android 与 iOS 的原生模块](turbo-native-modules.md)
+   - [使用 C++ 实现跨平台的原生模块](the-new-architecture/pure-cxx-modules.md)
    - [高级：自定义 C++ 类型](the-new-architecture/custom-cxx-types.md)
 2. Fabric 原生组件
-   - [Android & iOS](fabric-native-components.md)
+   - [Android 与 iOS 的原生 UI 组件](fabric-native-components.md)

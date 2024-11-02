@@ -82,8 +82,7 @@
     "原生开发": [
       {
         "type": "doc",
-        "id": "native-platform",
-        "label": "桥接原生平台能力"
+        "id": "native-platform"
       },
       {
         "type": "category",
@@ -93,18 +92,15 @@
         "items": [
           {
             "type": "doc",
-            "id": "turbo-native-modules-introduction",
-            "label": "Android and iOS"
+            "id": "turbo-native-modules-introduction"
           },
           {
             "type": "doc",
-            "id": "the-new-architecture/pure-cxx-modules",
-            "label": "Cross-Platform with C++"
+            "id": "the-new-architecture/pure-cxx-modules"
           },
           {
             "type": "doc",
-            "id": "the-new-architecture/custom-cxx-types",
-            "label": "Advanced: Custom C++ Types"
+            "id": "the-new-architecture/custom-cxx-types"
           }
         ]
       },
@@ -116,8 +112,7 @@
         "items": [
           {
             "type": "doc",
-            "id": "fabric-native-components-introduction",
-            "label": "Android & iOS"
+            "id": "fabric-native-components-introduction"
           }
         ]
       },
@@ -129,8 +124,7 @@
         "items": [
           {
             "type": "doc",
-            "id": "appendix",
-            "label": "附录"
+            "id": "appendix"
           },
           {
             "type": "doc",

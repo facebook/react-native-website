@@ -1,4 +1,4 @@
-# 纯 C++ Turbo 原生模块
+# 使用 C++ 实现跨平台的原生模块
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 

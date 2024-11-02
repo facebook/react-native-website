@@ -2,56 +2,56 @@
 id: testing-overview
 title: Testing
 author: Vojtech Novak
-authorURL: https://twitter.com/vonovak
+authorURL: 'https://twitter.com/vonovak'
 description: This guide introduces React Native developers to the key concepts behind testing, how to write good tests, and what kinds of tests you can incorporate into your workflow.
 ---
 
-As your codebase expands, small errors and edge cases you don’t expect can cascade into larger failures. Bugs lead to bad user experience and ultimately, business losses. One way to prevent fragile programming is to test your code before releasing it into the wild.
+随着代码库的扩展，你意想不到的小错误和边缘情况可能会引发更大的失败。错误会导致糟糕的用户体验，最终导致业务损失。一种防止脆弱编程的方法是在发布到生产环境之前测试你的代码。
 
-In this guide, we will cover different, automated ways to ensure your app works as expected, ranging from static analysis to end-to-end tests.
+在本指南中，我们将介绍不同的自动化方法，从静态分析到端到端测试，以确保你的应用按预期工作。
 
-<img src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/docs/assets/diagram_testing.svg" alt="Testing is a cycle of fixing, testing, and either passing to release or failing back into testing." />
+<img src="/docs/assets/diagram_testing.svg" alt="Testing is a cycle of fixing, testing, and either passing to release or failing back into testing." />
 
-## Why Test
+## 为什么测试
 
-We're humans, and humans make mistakes. Testing is important because it helps you uncover these mistakes and verifies that your code is working. Perhaps even more importantly, testing ensures that your code continues to work in the future as you add new features, refactor the existing ones, or upgrade major dependencies of your project.
+我们都是人类，人类会犯错误。测试很重要，因为它可以帮助你发现这些错误，并验证你的代码是否按预期工作。也许更重要的是，测试确保了你的代码在添加新功能、重构现有代码或升级项目的主要依赖项时继续按预期工作。
 
-There is more value in testing than you might realize. One of the best ways to fix a bug in your code is to write a failing test that exposes it. Then when you fix the bug and re-run the test, if it passes it means the bug is fixed, never reintroduced into the code base.
+测试比你想象的更有价值。修复代码中错误的一种最佳方法是编写一个失败的测试来暴露它。然后当你修复错误并重新运行测试时，如果测试通过，则意味着错误已修复，不会再次引入代码库。
 
-Tests can also serve as documentation for new people joining your team. For people who have never seen a codebase before, reading tests can help them understand how the existing code works.
+测试还可以作为新加入团队的人的文档。对于从未见过代码库的人来说，阅读测试可以帮助他们理解现有代码的工作原理。
 
-Last but not least, more automated testing means less time spent with manual <abbr title="Quality Assurance">QA</abbr>, freeing up valuable time.
+最后但并非最不重要的是，更多的自动化测试意味着更少的时间用于手动 <abbr title="Quality Assurance">QA</abbr>，节省了宝贵的时间。
 
-## Static Analysis
+## 静态分析
 
-The first step to improve your code quality is to start using static analysis tools. Static analysis checks your code for errors as you write it, but without running any of that code.
+提高代码质量的第一步是开始使用静态分析工具。静态分析在编写代码时检查代码错误，但不会运行任何代码。
 
-- **Linters** analyze code to catch common errors such as unused code and to help avoid pitfalls, to flag style guide no-nos like using tabs instead of spaces (or vice versa, depending on your configuration).
-- **Type checking** ensures that the construct you’re passing to a function matches what the function was designed to accept, preventing passing a string to a counting function that expects a number, for instance.
+- **Linters** 分析代码以捕获常见的错误，如未使用的代码，并帮助避免使用 tabs 而不是 spaces 等风格指南的错误。
+- **Type checking** 确保传递给函数的构造与函数设计接受的构造匹配，例如传递一个字符串到期望一个数字的计数函数。
 
-React Native comes with two such tools configured out of the box: [ESLint](https://eslint.org/) for linting and [Flow](https://flow.org/en/docs/) for type checking. You can also use [TypeScript](typescript), which is a typed language that compiles to plain JavaScript.
+React Native 自带两种这样的工具：[ESLint](https://eslint.org/) 用于 linting，[TypeScript](typescript) 用于类型检查。
 
-## Writing Testable Code
+## 编写可测试的代码
 
-To start with tests, you first need to write code that is testable. Consider an aircraft manufacturing process - before any model first takes off to show that all of its complex systems work well together, individual parts are tested to guarantee they are safe and function correctly. For example, wings are tested by bending them under extreme load; engine parts are tested for their durability; the windshield is tested against simulated bird impact.
+要开始测试，你首先需要编写可测试的代码。考虑一个飞机制造过程——在任何模型首次起飞以展示其复杂系统是否正常工作之前，各个部件都经过测试，以确保它们安全且正常工作。例如，机翼在极端负载下被弯曲测试；发动机部件被测试其耐用性；挡风玻璃被测试以模拟鸟类撞击。
 
-Software is similar. Instead of writing your entire program in one huge file with many lines of code, you write your code in multiple small modules that you can test more thoroughly than if you tested the assembled whole. In this way, writing testable code is intertwined with writing clean, modular code.
+软件开发也是如此。与将整个程序写在一个巨大的文件中，不如将代码写成多个小模块，这些模块可以更彻底地测试，而不是测试整个程序。这样，编写可测试的代码与编写干净、模块化的代码是相辅相成的。
 
-To make your app more testable, start by separating the view part of your app—your React components—from your business logic and app state (regardless of whether you use Redux, MobX or other solutions). This way, you can keep your business logic testing—which shouldn’t rely on your React components—independent of the components themselves, whose job is primarily rendering your app’s UI!
+为了使你的应用更易于测试，首先将你的应用的视图部分——你的 React 组件——与你的业务逻辑和应用状态分离（无论你使用的是 Redux、MobX 还是其他解决方案）。这样，你可以将业务逻辑的测试——不应依赖于你的 React 组件——与组件本身独立开来，组件的主要工作是渲染你的应用的 UI！
 
-Theoretically, you could go so far as to move all logic and data fetching out of your components. This way your components would be solely dedicated to rendering. Your state would be entirely independent of your components. Your app’s logic would work without any React components at all!
+理论上，你可以将所有逻辑和数据获取从你的组件中移出。这样你的组件将专门用于渲染。你的状态将完全独立于你的组件。你的应用的逻辑将完全不依赖于任何 React 组件！
 
-> We encourage you to further explore the topic of testable code in other learning resources.
+> 我们鼓励你进一步探索可测试代码的主题，在其他学习资源中。
 
-## Writing Tests
+## 编写测试
 
-After writing testable code, it’s time to write some actual tests! The default template of React Native ships with [Jest](https://jestjs.io) testing framework. It includes a preset that's tailored to this environment so you can get productive without tweaking the configuration and mocks straight away—[more on mocks](#mocking) shortly. You can use Jest to write all types of tests featured in this guide.
+编写可测试的代码后，就可以编写一些实际的测试了！React Native 的默认模板附带 [Jest](https://jestjs.io) 测试框架。它包括一个针对此环境的预设，因此你可以在不进行配置调整的情况下快速上手——稍后将介绍[模拟](#mocking)。你可以使用 Jest 编写本指南中提到的所有类型的测试。
 
-> If you do test-driven development, you actually write tests first! That way, testability of your code is given.
+> 如果你进行测试驱动开发，你实际上是先编写测试！这样，代码的可测试性就得到了保证。
 
-### Structuring Tests
+### 结构化测试
 
-Your tests should be short and ideally test only one thing. Let's start with an example unit test written with Jest:
+你的测试应该简短且理想情况下只测试一件事。让我们从一个用 Jest 编写的示例单元测试开始：
 
 ```js
 it('given a date in the past, colorForDueDate() returns red', () => {
@@ -59,90 +59,89 @@ it('given a date in the past, colorForDueDate() returns red', () => {
 });
 ```
 
-The test is described by the string passed to the [`it`](https://jestjs.io/docs/en/api#testname-fn-timeout) function. Take good care writing the description so that it’s clear what is being tested. Do your best to cover the following:
+测试由传递给 [`it`](https://jestjs.io/docs/en/api#testname-fn-timeout) 函数的字符串描述。请仔细编写描述，以便清楚地说明正在测试的内容。尽你所能覆盖以下内容：
 
-1. **Given** - some precondition
-2. **When** - some action executed by the function that you’re testing
-3. **Then** - the expected outcome
+1. **Given** - 一些预条件
+2. **When** - 由正在测试的函数执行的动作
+3. **Then** - 预期的结果
 
-This is also known as AAA (Arrange, Act, Assert).
+这被称为 AAA（安排、行动、断言）。
 
-Jest offers [`describe`](https://jestjs.io/docs/en/api#describename-fn) function to help structure your tests. Use `describe` to group together all tests that belong to one functionality. Describes can be nested, if you need that. Other functions you'll commonly use are [`beforeEach`](https://jestjs.io/docs/en/api#beforeeachfn-timeout) or [`beforeAll`](https://jestjs.io/docs/en/api#beforeallfn-timeout) that you can use for setting up the objects you're testing. Read more in the [Jest api reference](https://jestjs.io/docs/en/api).
+Jest 提供了 [`describe`](https://jestjs.io/docs/en/api#describename-fn) 函数来帮助结构化你的测试。使用 `describe` 将属于一个功能的所有测试组合在一起。如果需要，描述可以嵌套。你还会经常使用 [`beforeEach`](https://jestjs.io/docs/en/api#beforeeachfn-timeout) 或 [`beforeAll`](https://jestjs.io/docs/en/api#beforeallfn-timeout) 来设置正在测试的对象。更多信息请参阅 [Jest api 参考](https://jestjs.io/docs/en/api)。
 
-If your test has many steps or many expectations, you probably want to split it into multiple smaller ones. Also, ensure that your tests are completely independent of one another. Each test in your suite must be executable on its own without first running some other test. Conversely, if you run all your tests together, the first test must not influence the output of the second one.
+如果你的测试有很多步骤或很多期望，你可能需要将其拆分为多个更小的测试。同样，确保你的测试完全独立于其他测试。你的测试套件中的每个测试必须可以单独执行，而无需先运行其他测试。相反，如果你一起运行所有测试，第一个测试不能影响第二个测试的输出。
 
-Lastly, as developers we like when our code works great and doesn't crash. With tests, this is often the opposite. Think of a failed test as of a _good thing!_ When a test fails, it often means something is not right. This gives you an opportunity to fix the problem before it impacts the users.
+最后，作为开发人员，我们喜欢我们的代码工作良好且不崩溃。有了测试，这通常是相反的。将失败的测试视为 _好事情_！当测试失败时，通常意味着某些事情不正确。这给你一个机会在影响用户之前修复问题。
 
-## Unit tests
+## 单元测试
 
-Unit tests cover the smallest parts of code, like individual functions or classes.
+单元测试覆盖代码的最小部分，如单个函数或类。
 
-When the object being tested has any dependencies, you’ll often need to mock them out, as described in the next paragraph.
+当正在测试的对象有任何依赖项时，你通常需要模拟它们，如下一节所述。
 
-The great thing about unit tests is that they are quick to write and run. Therefore, as you work, you get fast feedback about whether your tests are passing. Jest even has an option to continuously run tests that are related to code you’re editing: [Watch mode](https://jestjs.io/docs/en/cli#watch).
+单元测试的优点是它们写起来很快，运行也很快。因此，在你工作时，你可以快速获得测试是否通过的反馈。Jest 甚至有一个选项可以持续运行与正在编辑的代码相关的测试：[Watch mode](https://jestjs.io/docs/en/cli#watch)。
 
-<img src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/docs/assets/p_tests-unit.svg" alt=" " />
+<img src="/docs/assets/p_tests-unit.svg" alt=" " />
 
-### Mocking
+### 模拟
 
-Sometimes, when your tested objects have external dependencies, you’ll want to “mock them out.” “Mocking” is when you replace some dependency of your code with your own implementation.
+有时，当正在测试的对象有外部依赖项时，你可能需要“模拟”它们。“模拟”是指用你自己的实现替换代码的某些依赖项。
 
-> Generally, using real objects in your tests is better than using mocks but there are situations where this is not possible. For example: when your JS unit test relies on a native module written in Java or Objective-C.
+> 通常，在测试中使用真实对象比使用模拟更好，但有时这是不可能的。例如：当你的 JS 单元测试依赖于用 Java 或 Objective-C 编写的原生模块时。
 
-Imagine you’re writing an app that shows the current weather in your city and you’re using some external service or other dependency that provides you with the weather information. If the service tells you that it’s raining, you want to show an image with a rainy cloud. You don’t want to call that service in your tests, because:
+想象你正在编写一个显示你所在城市当前天气的应用，并且你正在使用一个提供天气信息的外部服务或其他依赖项。如果服务告诉你正在下雨，你想要显示一张带有雨云的图片。你不想在测试中调用那个服务，因为：
 
-- It could make the tests slow and unstable (because of the network requests involved)
-- The service may return different data every time you run the test
-- Third party services can go offline when you really need to run tests!
+- 它会使测试变慢和不稳定（因为涉及网络请求）
+- 服务每次运行测试时可能会返回不同的数据
+- 第三方服务可以在你真正需要运行测试时离线！
 
-Therefore, you can provide a mock implementation of the service, effectively replacing thousands of lines of code and some internet-connected thermometers!
+因此，你可以提供一个服务的模拟实现，有效地替换数千行代码和一些连接互联网的温度计！
 
-> Jest comes with [support for mocking](https://jestjs.io/docs/en/mock-functions#mocking-modules) from function level all the way to module level mocking.
+> Jest 从函数到模块级别都支持[模拟](https://jestjs.io/docs/en/mock-functions#mocking-modules)。
 
-## Integration Tests
+## 集成测试
 
-When writing larger software systems, individual pieces of it need to interact with each other. In unit testing, if your unit depends on another one, you’ll sometimes end up mocking the dependency, replacing it with a fake one.
+在编写较大的软件系统时，其中的各个部分需要相互交互。在单元测试中，如果你的单元依赖于另一个单元，你有时会模拟依赖项，用一个假的单元替换它。
 
-In integration testing, real individual units are combined (same as in your app) and tested together to ensure that their cooperation works as expected. This is not to say that mocking does not happen here: you’ll still need mocks (for example, to mock communication with a weather service), but you'll need them much less than in unit testing.
+在集成测试中，真正的单元被组合在一起（与你的应用相同），并一起测试以确保它们协作正常。这不是说模拟不会在这里发生：你仍然需要模拟（例如，模拟与天气服务的通信），但与单元测试相比，需要的模拟要少得多。
 
-> Please note that the terminology around what integration testing means is not always consistent. Also, the line between what is a unit test and what is an integration test may not always be clear. For this guide, your test falls into "integration testing" if it:
+> 请注意，关于集成测试的术语并不总是一致的。同样，单元测试和集成测试之间的界限并不总是清晰的。对于本指南，如果你的测试符合以下条件，则属于“集成测试”：
 >
-> - Combines several modules of your app as described above
-> - Uses an external system
-> - Makes a network call to other application (such as the weather service API)
-> - Does any kind of file or database <abbr title="Input/Output">I/O</abbr>
+> - 组合了你的应用的几个模块（如上所述）
+> - 使用外部系统
+> - 对其他应用（如天气服务 API）进行网络调用
+> - 进行任何类型的文件或数据库 <abbr title="Input/Output">I/O</abbr> 操作
 
-<img src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/docs/assets/p_tests-integration.svg" alt=" " />
+<img src="/docs/assets/p_tests-integration.svg" alt=" " />
 
-## Component Tests
+## 组件测试
 
-React components are responsible for rendering your app, and users will directly interact with their output. Even if your app's business logic has high testing coverage and is correct, without component tests you may still deliver a broken UI to your users. Component tests could fall into both unit and integration testing, but because they are such a core part of React Native, we'll cover them separately.
+React 组件负责渲染你的应用，用户将直接与它们交互。即使你的应用的业务逻辑有很高的测试覆盖率并且是正确的，没有组件测试，你仍然可能向用户交付一个损坏的 UI。组件测试可以属于单元测试和集成测试，但由于它们是 React Native 的核心部分，我们将它们单独介绍。
 
-For testing React components, there are two things you may want to test:
+对于测试 React 组件，你可能会想要测试以下内容：
 
-- Interaction: to ensure the component behaves correctly when interacted with by a user (eg. when user presses a button)
-- Rendering: to ensure the component render output used by React is correct (eg. the button's appearance and placement in the UI)
+- 交互：确保组件在用户交互时正确行为（例如，当用户按下按钮时）
+- 渲染：确保组件的渲染输出正确（例如，按钮的外观和在 UI 中的位置）
 
-For example, if you have a button that has an `onPress` listener, you want to test that the button both appears correctly and that tapping the button is correctly handled by the component.
+例如，如果你有一个带有 `onPress` 监听器的按钮，你想要测试按钮是否正确显示，并且点击按钮时组件能够正确处理。
 
-There are several libraries that can help you testing these:
+有几个库可以帮助你进行这些测试：
 
-- React’s [Test Renderer](https://zh-hans.reactjs.org/docs/test-renderer.html), developed alongside its core, provides a React renderer that can be used to render React components to pure JavaScript objects, without depending on the DOM or a native mobile environment.
-- [`react-native-testing-library`](https://github.com/callstack/react-native-testing-library) builds on top of React’s test renderer and adds `fireEvent` and `query` APIs described in the next paragraph.
-- [`@testing-library/react-native`](https://www.native-testing-library.com/) is another alternative that also builds on top of React’s test renderer and adds `fireEvent` and `query` APIs described in the next paragraph.
+- React 的 [Test Renderer](https://reactjs.org/docs/test-renderer.html)，与核心一起开发，提供了一个 React 渲染器，可以用来将 React 组件渲染为纯 JavaScript 对象，而不依赖于 DOM 或原生移动环境。
+- [React Native Testing Library](https://callstack.github.io/react-native-testing-library/) 建立在 React 的测试渲染器之上，并添加了本段中描述的 `fireEvent` 和 `query` API。
 
-> Component tests are only JavaScript tests running in Node.js environment. They do _not_ take into account any iOS, Android, or other platform code which is backing the React Native components. It follows that they cannot give you a 100% confidence that everything works for the user. If there is a bug in the iOS or Android code, they will not find it.
+> 组件测试仅在 Node.js 环境中运行。它们不考虑任何 iOS、Android 或其他平台代码，这些代码支持 React Native 组件。因此，它们不能给你 100% 的信心确保一切正常工作。如果 iOS 或 Android 代码中存在错误，它们将无法找到。
 
-<img src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/docs/assets/p_tests-component.svg" alt=" " />
+<img src="/docs/assets/p_tests-component.svg" alt=" " />
 
-### Testing User Interactions
+### 测试用户交互
 
-Aside from rendering some UI, your components handle events like `onChangeText` for `TextInput` or `onPress` for `Button`. They may also contain other functions and event callbacks. Consider the following example:
+除了渲染一些 UI，你的组件处理诸如 `TextInput` 的 `onChangeText` 或 `Button` 的 `onPress` 等事件。它们可能还包含其他函数和事件回调。考虑以下示例：
 
-```jsx
+```tsx
 function GroceryShoppingList() {
   const [groceryItem, setGroceryItem] = useState('');
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState<string[]>([]);
 
   const addNewItemToShoppingList = useCallback(() => {
     setItems([groceryItem, ...items]);
@@ -154,13 +153,13 @@ function GroceryShoppingList() {
       <TextInput
         value={groceryItem}
         placeholder="Enter grocery item"
-        onChangeText={(text) => setGroceryItem(text)}
+        onChangeText={text => setGroceryItem(text)}
       />
       <Button
         title="Add the item to list"
         onPress={addNewItemToShoppingList}
       />
-      {items.map((item) => (
+      {items.map(item => (
         <Text key={item}>{item}</Text>
       ))}
     </>
@@ -168,32 +167,32 @@ function GroceryShoppingList() {
 }
 ```
 
-When testing user interactions, test the component from the user perspective—what's on the page? What changes when interacted with?
+当测试用户交互时，从用户的角度测试组件——页面上有什么？交互时有什么变化？
 
-As a rule of thumb, prefer using things users can see or hear:
+作为一个经验法则，优先使用用户可以看到或听到的内容：
 
-- make assertions using rendered text or [accessibility helpers](accessibility#accessibility-properties)
+- 使用渲染的文本或 [accessibility helpers](https://reactnative.dev/docs/accessibility#accessibility-properties) 进行断言
 
-Conversely, you should avoid:
+相反，你应该避免：
 
-- making assertions on component props or state
-- testID queries
+- 对组件的 props 或状态进行断言
+- 基于 testID 的查询
 
-Avoid testing implementation details like props or state—while such tests work, they are not oriented toward how users will interact with the component and tend to break by refactoring (for example when you'd like to rename some things or rewrite class component using hooks).
+避免测试实现细节，如 props 或状态——虽然这些测试有效，但它们不是面向用户如何与组件交互的，并且容易在重构时（例如，当你想要重命名某些内容或重写使用 Hooks 的类组件时）失效。
 
-> React class components are especially prone to testing their implementation details such as internal state, props or event handlers. To avoid testing implementation details, prefer using function components with Hooks, which make relying on component internals _harder_.
+> 类组件特别容易测试其实现细节，如内部状态、props 或事件处理程序。为了避免测试实现细节，优先使用带有 Hooks 的函数组件，这使得依赖组件内部变得困难。
 
-Component testing libraries such as [`react-native-testing-library`](https://github.com/callstack/react-native-testing-library) facilitate writing user-centric tests by careful choice of provided APIs. The following example uses `fireEvent` methods `changeText` and `press` that simulate a user interacting with the component and a query function `getAllByText` that finds matching `Text` nodes in the rendered output.
+组件测试库，如 [React Native Testing Library](https://callstack.github.io/react-native-testing-library/)，通过仔细选择提供的 API 来促进编写用户中心的测试。以下示例使用 `fireEvent` 方法 `changeText` 和 `press` 来模拟用户与组件的交互，并使用 `getAllByText` 查询函数来找到渲染输出中匹配的 `Text` 节点。
 
-```jsx
+```tsx
 test('given empty GroceryShoppingList, user can add an item to it', () => {
-  const { getByPlaceholder, getByText, getAllByText } = render(
-    <GroceryShoppingList />
+  const {getByPlaceholderText, getByText, getAllByText} = render(
+    <GroceryShoppingList />,
   );
 
   fireEvent.changeText(
-    getByPlaceholder('Enter grocery item'),
-    'banana'
+    getByPlaceholderText('Enter grocery item'),
+    'banana',
   );
   fireEvent.press(getByText('Add the item to list'));
 
@@ -202,15 +201,15 @@ test('given empty GroceryShoppingList, user can add an item to it', () => {
 });
 ```
 
-This example is not testing how some state changes when you call a function. It tests what happens when a user changes text in the `TextInput` and presses the `Button`!
+这个示例不是测试当调用某个函数时某些状态的变化。它测试的是当用户在 `TextInput` 中更改文本并按下 `Button` 时会发生什么！
 
-### Testing Rendered Output
+### 测试渲染输出
 
-[Snapshot testing](https://jestjs.io/docs/en/snapshot-testing) is an advanced kind of testing enabled by Jest. It is a very powerful and low-level tool, so extra attention is advised when using it.
+[快照测试](https://jestjs.io/docs/en/snapshot-testing) 是 Jest 启用的先进测试类型。它是一个非常强大且低级别的工具，因此在使用时需要额外注意。
 
-A "component snapshot" is a JSX-like string created by a custom React serializer built into Jest. This serializer lets Jest translate React component trees to string that's human-readable. Put another way: a component snapshot is a textual representation of your component’s render output _generated_ during a test run. It may look like this:
+一个“组件快照”是一个由 Jest 内置的 React 序列化器创建的 JSX 字符串。这个序列化器让 Jest 能够将 React 组件树转换为人类可读的字符串。换句话说：组件快照是组件渲染输出的文本表示，在测试运行期间生成。它可能看起来像这样：
 
-```jsx
+```tsx
 <Text
   style={
     Object {
@@ -222,52 +221,52 @@ A "component snapshot" is a JSX-like string created by a custom React serializer
 </Text>
 ```
 
-With snapshot testing, you typically first implement your component and then run the snapshot test. The snapshot test then creates a snapshot and saves it to a file in your repo as a reference snapshot. **The file is then committed and checked during code review**. Any future changes to the component render output will change its snapshot, which will cause the test to fail. You then need to update the stored reference snapshot for the test to pass. That change again needs to be committed and reviewed.
+使用快照测试时，通常首先实现组件，然后运行快照测试。快照测试然后创建一个快照，并将其保存到你的仓库中的参考快照文件中。**然后提交并检查该文件**。任何对组件渲染输出的未来更改都会更改其快照，这将导致测试失败。然后你需要更新测试的存储参考快照以通过测试。该更改再次需要提交和审查。
 
-Snapshots have several weak points:
+快照有几个弱点：
 
-- For you as a developer or reviewer, it can be hard to tell whether a change in snapshot is intended or whether it's evidence of a bug. Especially large snapshots can quickly become hard to understand and their added value becomes low.
-- When snapshot is created, at that point it is considered to be correct-even in the case when the rendered output is actually wrong.
-- When a snapshot fails, it's tempting to update it using the `--updateSnapshot` jest option without taking proper care to investigate whether the change is expected. Certain developer discipline is thus needed.
+- 对于你作为开发人员或审阅者来说，很难判断快照中的变化是否是有意为之，还是错误的证据。尤其是大型快照很快变得难以理解，其价值变得很低。
+- 当快照创建时，此时它被认为是正确的——即使渲染输出实际上是错误的。
+- 当快照失败时，使用 `--updateSnapshot` jest 选项更新它而不采取适当措施调查更改是否是预期的，这是诱人的。因此需要一定的开发纪律。
 
-Snapshots themselves do not ensure that your component render logic is correct, they are merely good at guarding against unexpected changes and for checking that the components in the React tree under test receive the expected props (styles and etc.).
+快照本身并不能确保你的组件渲染逻辑是正确的，它们只是很好地守护着意外的变化，并检查测试的 React 树下的组件是否接收了预期的 props（样式等）。
 
-We recommend that you only use small snapshots (see [`no-large-snapshots` rule](https://github.com/jest-community/eslint-plugin-jest/blob/master/docs/rules/no-large-snapshots.md)). If you want to test a _change_ between two React component states, use [`snapshot-diff`](https://github.com/jest-community/snapshot-diff). When in doubt, prefer explicit expectations as described in the previous paragraph.
+我们建议你只使用小的快照（见 [`no-large-snapshots` 规则](https://github.com/jest-community/eslint-plugin-jest/blob/master/docs/rules/no-large-snapshots.md)）。如果你想要测试两个 React 组件状态之间的变化，使用 [`snapshot-diff`](https://github.com/jest-community/snapshot-diff)。在不确定的情况下，优先使用前面段落中描述的显式期望。
 
-<img src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/docs/assets/p_tests-snapshot.svg" alt=" " />
+<img src="/docs/assets/p_tests-snapshot.svg" alt=" " />
 
-## End-to-End Tests
+## 端到端测试
 
-In end-to-end (E2E) tests, you verify your app is working as expected on a device (or a simulator / emulator) from the user perspective.
+在端到端（E2E）测试中，尝试从用户的角度来验证应用在设备（或模拟器 / 模拟器）上的工作情况。
 
-This is done by building your app in the release configuration and running the tests against it. In E2E tests, you no longer think about React components, React Native APIs, Redux stores or any business logic. That is not the purpose of E2E tests and those are not even accessible to you during E2E testing.
+这是通过在发布配置中构建应用并运行测试来完成的。在 E2E 测试中，你不再考虑 React 组件、React Native API、Redux 存储或任何业务逻辑。这不是 E2E 测试的目的，这些在 E2E 测试期间甚至对你不可用。
 
-Instead, E2E testing libraries allow you to find and control elements in the screen of your app: for example, you can _actually_ tap buttons or insert text into `TextInputs` the same way a real user would. Then you can make assertions about whether or not a certain element exists in the app’s screen, whether or not it’s visible, what text it contains, and so on.
+相反，E2E 测试库允许你找到并控制应用屏幕上的元素：例如，你可以 _实际地_ 点击按钮或像真实用户一样在 `TextInputs` 中插入文本。然后你可以做出关于某个元素是否存在于应用的屏幕上、是否可见、包含什么文本等的断言。
 
-E2E tests give you the highest possible confidence that part of your app is working. The tradeoffs include:
+E2E 测试给你最高的信心，部分应用正在工作。权衡包括：
 
-- writing them is more time consuming compared to the other types of tests
-- they are slower to run
-- they are more prone to flakiness (a "flaky" test is a test which randomly passes and fails without any change to code)
+- 编写它们比其他类型的测试更耗时
+- 它们运行得更慢
+- 它们更容易出现“flaky”（一个“flaky”测试是随机通过和失败的测试，没有任何代码更改）
 
-Try to cover the vital parts of your app with E2E tests: authentication flow, core functionalities, payments, etc. Use faster JS tests for the non-vital parts of your app. The more tests you add, the higher your confidence, but also, the more time you'll spend maintaining and running them. Consider the tradeoffs and decide what's best for you.
+尝试用 E2E 测试覆盖应用的关键部分：认证流程、核心功能、支付等。对于应用的非关键部分，使用更快的 JS 测试。你添加的测试越多，你的信心就越高，但同时，你维护和运行它们的成本也越高。考虑权衡，并决定什么最适合你。
 
-There are several E2E testing tools available: in the React Native community, [Detox](https://github.com/wix/detox/) is a popular framework because it’s tailored for React Native apps. Another popular library in the space of iOS and Android apps is [Appium](http://appium.io/).
+有几种 E2E 测试工具可用：在 React Native 社区中，[Detox](https://github.com/wix/detox/) 是一个流行的框架，因为它专为 React Native 应用设计。另一个流行的库是 [Appium](https://appium.io/) 或 [Maestro](https://maestro.mobile.dev/)。
 
-<img src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/docs/assets/p_tests-e2e.svg" alt=" " />
+<img src="/docs/assets/p_tests-e2e.svg" alt=" " />
 
-## Summary
+## 总结
 
-We hope you enjoyed reading and learned something from this guide. There are many ways you can test your apps. It may be hard to decide what to use at first. However, we believe it all will make sense once you start adding tests to your awesome React Native app. So what are you waiting for? Get your coverage up!
+我们希望你享受阅读并从本指南中学习到一些东西。有很多方法可以测试你的应用。一开始可能很难决定使用什么。然而，我们相信一旦你开始为你的优秀 React Native 应用添加测试，一切都会变得有意义。所以，你还在等什么？提高你的覆盖率！
 
-### Links
+### 链接
 
-- [React testing overview](https://zh-hans.reactjs.org/docs/testing.html)
-- [`react-native-testing-library`](https://github.com/callstack/react-native-testing-library)
-- [`@testing-library/react-native`](https://www.native-testing-library.com/)
+- [React 测试概述](https://reactjs.org/docs/testing.html)
+- [React Native Testing Library](https://callstack.github.io/react-native-testing-library/)
 - [Jest docs](https://jestjs.io/docs/en/tutorial-react-native)
 - [Detox](https://github.com/wix/detox/)
-- [Appium](http://appium.io/)
+- [Appium](https://appium.io/)
+- [Maestro](https://maestro.mobile.dev/)
 
 ---
 
