@@ -83,7 +83,7 @@
       {
         "type": "doc",
         "id": "native-platform",
-        "label": "桥接原生平台"
+        "label": "桥接原生平台能力"
       },
       {
         "type": "category",
