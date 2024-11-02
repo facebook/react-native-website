@@ -41,12 +41,12 @@ This gives you the following layout where you'll working:
 Demo
 ├── android/app/src/main/java/com/webview
 └── ios
-└── spec
+└── specs
 ```
 
 - The `android/app/src/main/java/com/webview` folder is the folder that will contain our Android code.
 - The `ios` folder is the folder that will contain our iOS code.
-- The `spec` folder is the folder that will contain the Codegen's specification file.
+- The `specs` folder is the folder that will contain the Codegen's specification file.
 
 ## 1. Define Specification for Codegen
 
@@ -140,7 +140,7 @@ With everything wired up for Codegen, we need to prepare our native code to hook
 
 ## 2. Building your Native Code
 
-Now it's time to write the native platform code so that when React requires to render a view, te platform can create the right native view and can render it on screen.
+Now it's time to write the native platform code so that when React requires to render a view, the platform can create the right native view and can render it on screen.
 
 You should work through both the Android and iOS platforms.
 
