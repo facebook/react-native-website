@@ -1,3 +1,10 @@
+/**
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
 
 const isMacOS = ExecutionEnvironment.canUseDOM
@@ -18,6 +25,37 @@ const packageManagers = [
   {label: 'Yarn', value: 'yarn'},
 ];
 const defaultPackageManager = 'npm';
+
+const androidLanguages = [
+  {label: 'Java', value: 'java'},
+  {label: 'Kotlin', value: 'kotlin'},
+];
+const defaultAndroidLanguage = 'java';
+
+const appleLanguages = [
+  {label: 'ObjectiveC', value: 'objc'},
+  {label: 'Swift', value: 'swift'},
+];
+const defaultAppleLanguage = 'objc';
+
+const javaScriptSpecLanguages = [
+  {label: 'TypeScript', value: 'typescript'},
+  {label: 'Flow', value: 'flow'},
+];
+const defaultJavaScriptSpecLanguages = 'typescript';
+
+const snackLanguages = [
+  {label: 'TypeScript', value: 'typescript'},
+  {label: 'JavaScript', value: 'javascript'},
+];
+const defaultSnackLanguage = 'typescript';
+
+const jsDebuggers = [
+  {label: 'Hermes Debugger / Expo', value: 'hermes'},
+  {label: 'Flipper', value: 'flipper'},
+  {label: 'New Debugger (Experimental)', value: 'new-debugger'},
+];
+const defaultJsDebugger = 'flipper';
 
 const guides = [
   {label: '完整原生环境', value: 'native'},
@@ -48,14 +86,24 @@ const getDevNotesTabs = (tabs = ['android', 'ios', 'web', 'windows']) =>
 
 export default {
   defaultGuide,
+  defaultJsDebugger,
   defaultOs,
   defaultPackageManager,
   defaultPlatform,
   defaultSyntax,
+  defaultAndroidLanguage,
+  defaultAppleLanguage,
+  defaultJavaScriptSpecLanguages,
   getDevNotesTabs,
   guides,
   oses,
   packageManagers,
   platforms,
   syntax,
+  androidLanguages,
+  appleLanguages,
+  javaScriptSpecLanguages,
+  jsDebuggers,
+  snackLanguages,
+  defaultSnackLanguage,
 };

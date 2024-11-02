@@ -10,7 +10,6 @@ import clsx from "clsx";
 import type { Props } from "@theme/TOC";
 import TOCItems from "@theme/TOCItems";
 import styles from "./styles.module.css";
-import chatyy from "./chatyy.png";
 
 // Using a custom className
 // This prevents TOCInline/TOCCollapsible getting highlighted by mistake

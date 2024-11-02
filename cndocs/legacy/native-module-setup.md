@@ -3,7 +3,7 @@ id: native-modules-setup
 title: 原生模块配置
 ---
 
-import NativeDeprecated from './the-new-architecture/\_markdown_native_deprecation.mdx'
+import NativeDeprecated from '../the-new-architecture/\_markdown_native_deprecation.mdx'
 
 <NativeDeprecated />
 

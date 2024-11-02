@@ -40,7 +40,8 @@ module.exports = {
       options: {
         loader: 'tsx',
         format: isServer ? 'cjs' : undefined,
-        target: isServer ? 'node12' : 'es2017',
+        target: isServer ? 'node16' : 'es2020',
+        jsx: 'automatic',
       },
     }),
   },
@@ -172,10 +173,18 @@ module.exports = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     {
+      colorMode: {
+        defaultMode: 'light',
+        disableSwitch: false,
+        respectPrefersColorScheme: true,
+      },
       prism: {
         defaultLanguage: 'jsx',
         theme: require('./core/PrismTheme'),
         additionalLanguages: [
+          'diff',
+          'bash',
+          'json',
           'java',
           'kotlin',
           'objectivec',
@@ -183,6 +192,26 @@ module.exports = {
           'groovy',
           'ruby',
           'flow',
+        ],
+        magicComments: [
+          {
+            className: 'theme-code-block-highlighted-line',
+            line: 'highlight-next-line',
+            block: {start: 'highlight-start', end: 'highlight-end'},
+          },
+          {
+            className: 'code-add-line',
+            line: 'highlight-add-next-line',
+            block: {start: 'highlight-add-start', end: 'highlight-add-end'},
+          },
+          {
+            className: 'code-remove-line',
+            line: 'highlight-remove-next-line',
+            block: {
+              start: 'highlight-remove-start',
+              end: 'highlight-remove-end',
+            },
+          },
         ],
       },
       navbar: {

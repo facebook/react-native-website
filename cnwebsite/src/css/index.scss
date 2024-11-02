@@ -1,3 +1,10 @@
+/**
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 @import "shared";
 
 .homepage {
@@ -299,10 +306,12 @@
   display: flex;
   justify-content: flex-end;
   max-width: 1200px;
-  margin: -10px auto 0;
+  margin: 0 auto;
+  min-height: 36px;
 
   .github-button {
     margin-right: 1rem;
+    margin-left: 1rem;
   }
 }
 
@@ -678,9 +687,9 @@ html[data-theme="dark"] .Section p a {
   }
 
   /*
-   * If the full-width video won't fit, make it full-width.
-   * https://jameshfisher.com/2017/08/30/how-do-i-make-a-full-width-iframe/
-   */
+    * If the full-width video won't fit, make it full-width.
+    * https://jameshfisher.com/2017/08/30/how-do-i-make-a-full-width-iframe/
+    */
   .VideoContent .vidWrapper {
     position: relative;
     width: 100%;
@@ -758,6 +767,11 @@ html[data-theme="dark"] .Section p a {
     grid-template-areas: "first" "last";
   }
 
+  .TwoColumns.TwoFigures {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "first" "last";
+  }
+
   .TwoColumns .column {
     padding: 0 4rem;
   }
@@ -766,5 +780,10 @@ html[data-theme="dark"] .Section p a {
 @media only screen and (max-width: 480px) {
   .TwoColumns .column {
     padding: 0 1.25rem;
+  }
+
+  .TwoColumns.TwoFigures {
+    grid-template-columns: 1fr;
+    grid-template-areas: "first" "last";
   }
 }
