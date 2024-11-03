@@ -166,8 +166,6 @@ module.exports = {
 };
 ```
 
-See the documentation for [`getTransformOptions` in Metro](https://metrobundler.dev/docs/configuration#gettransformoptions) for more details on setting up and fine-tuning your inline `require`s.
-
 查看 Metro 文档中的 [`getTransformOptions`](https://metrobundler.dev/docs/configuration#gettransformoptions) 以获取有关设置和微调内联 `require` 的更多详细信息。
 
 ## 高级：使用随机访问模块包（非 Hermes）

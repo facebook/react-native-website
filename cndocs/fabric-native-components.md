@@ -1,6 +1,6 @@
 ---
 id: fabric-native-components-introduction
-title: Fabric Native Components Introduction
+title: Fabric 原生 UI 组件
 ---
 
 import Tabs from '@theme/Tabs';

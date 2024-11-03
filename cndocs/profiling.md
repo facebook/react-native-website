@@ -13,9 +13,9 @@ title: Profiling
 
 ## Profiling Android UI Performance with `systrace`
 
-Android supports 10k+ different phones and is generalized to support software rendering: the framework architecture and need to generalize across many hardware targets unfortunately means you get less for free relative to iOS. But sometimes, there are things you can improve -- and many times it's not native code's fault at all!
+Android 支持 10k+ 不同的手机，并且为了支持软件渲染，框架架构需要跨多个硬件目标进行泛化。不幸的是，这意味着你相对于 iOS 获得的免费资源较少。但有时，你可以进行改进——而且很多时候根本不是原生代码的问题！
 
-The first step for debugging this jank is to answer the fundamental question of where your time is being spent during each 16ms frame. For that, we'll be using a standard Android profiling tool called `systrace`.
+调试这种卡顿的第一步是回答每个 16ms 帧中你的时间花费在哪里。为此，我们将使用一个标准的 Android 性能分析工具 `systrace`。
 
 `systrace` is a standard Android marker-based profiling tool (and is installed when you install the Android platform-tools package). Profiled code blocks are surrounded by start/end markers which are then visualized in a colorful chart format. Both the Android SDK and React Native framework provide standard markers that you can visualize.
 

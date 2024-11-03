@@ -1,6 +1,6 @@
 ---
 id: fabric-native-components-ios
-title: 'Fabric Native Components: iOS'
+title: 'Fabric 原生组件：iOS'
 ---
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
