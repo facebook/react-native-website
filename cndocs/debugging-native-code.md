@@ -6,13 +6,13 @@ title: 调试原生代码
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 <div className="banner-native-code-required">
-  <h3>Projects with Native Code Only</h3>
-  <p>The following section only applies to projects with native code exposed. If you are using the managed Expo workflow, see the guide on <a href="https://docs.expo.dev/workflow/prebuild/" target="_blank">prebuild</a> to use this API.</p>
+  <h3>仅限包含原生代码的项目</h3>
+  <p>以下部分仅适用于包含原生代码的项目。如果你使用的是托管型 Expo 工作流，请参阅 <a href="https://docs.expo.dev/workflow/prebuild/" target="_blank">prebuild</a> 指南以使用此 API。</p>
 </div>
 
-## Accessing Logs
+## 打印日志
 
-You can display the native logs for an iOS or Android app by using the following commands in a terminal while the app is running:
+当应用正在运行时，你可以在终端中使用以下命令打印 iOS 或 Android 应用的日志：
 
 ```shell
 # For Android:
@@ -21,18 +21,18 @@ npx react-native log-android
 npx react-native log-ios
 ```
 
-You may also access these through Debug > Open System Log… in the iOS Simulator or by running `adb logcat "*:S" ReactNative:V ReactNativeJS:V` in a terminal while an Android app is running on a device or emulator.
+你也可以通过 iOS 模拟器中的 "Debug > Open System Log..." 菜单，或者在运行 Android 应用的设备或模拟器中运行 `adb logcat "*:S" ReactNative:V ReactNativeJS:V` 来访问这些日志。
 
-## Debugging in a Native IDE
+## 在原生 IDE 中调试
 
-When working with native code, such as when writing native modules, you can launch the app from Android Studio or Xcode and take advantage of the native debugging features (setting up breakpoints, etc.) as you would in case of building a standard native app.
+当你编写原生模块时，你可以使用 Android Studio 或 Xcode 来启动应用，并使用其原生调试功能（设置断点等），就像在构建标准原生应用时一样。
 
-Another option is to run your application using the React Native CLI and attach the native debugger of the native IDE (Android Studio or Xcode) to the process.
+另一种选择是使用 React Native CLI 运行应用，并从原生 IDE（Android Studio 或 Xcode）中附加到进程。
 
 ### Android Studio
 
-On Android Studio you can do this by going on the "Run" option on the menu bar, clicking on "Attach to Process..." and selecting the running React Native app.
+在 Android Studio 中，你可以通过点击菜单栏中的 "Run" 选项，然后选择 "Attach to Process..."，并选择正在运行的 React Native 应用。
 
 ### Xcode
 
-On Xcode click on "Debug" on the top menu bar, select the "Attach to process" option, and select the application in the list of "Likely Targets".
+在 Xcode 中，点击菜单栏中的 "Debug"，选择 "Attach to Process..."，然后从 "Likely Targets" 列表中选择正在运行的应用。

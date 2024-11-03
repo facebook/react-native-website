@@ -11,12 +11,12 @@ title: 桥接原生平台能力
 - **原生组件:** 原生平台视图、小部件和控制器，通过 React 组件可供你的应用的 JavaScript 代码使用。
 
 :::note
-你可能以前熟悉：
+你可能曾经用过：
 
-- [Legacy Native Modules](./legacy/native-modules-intro);
-- [Legacy Native Components](./legacy/native-components-android);
+- [传统原生模块](./legacy/native-modules-intro);
+- [传统原生 UI 组件](./legacy/native-components-android);
 
-这些是我们弃用的原生模块和组件 API。你可以继续使用许多这些遗留库，感谢我们的互操作层。你应该考虑：
+这些是我们即将弃用的原生模块和组件 API。由于我们引入了向后兼容的互操作层，所以你仍然可以继续使用许多这些遗留库。但即便如此，你还是应该考虑：
 
 - 使用替代库，
 - 升级到支持新架构的库，或者
@@ -25,8 +25,8 @@ title: 桥接原生平台能力
 :::
 
 1. Turbo 原生模块
-   - [Android & iOS](turbo-native-modules.md)
-   - [跨平台使用 C++](the-new-architecture/pure-cxx-modules.md)
+   - [Android 与 iOS 的原生模块](turbo-native-modules.md)
+   - [使用 C++ 实现跨平台的原生模块](the-new-architecture/pure-cxx-modules.md)
    - [高级：自定义 C++ 类型](the-new-architecture/custom-cxx-types.md)
 2. Fabric 原生组件
-   - [Android & iOS](fabric-native-components.md)
+   - [Android 与 iOS 的原生 UI 组件](fabric-native-components.md)

@@ -1,13 +1,15 @@
+# 附录
+
 ## 一、术语
 
 整个与新架构相关的指南将遵循以下**术语**：
 
-- **Spec** - TypeScript or Flow code that describes the API for a Turbo Native Module or Fabric Native component. Used by **Codegen** to generate boilerplate code.
+- **Spec** - TypeScript 或 Flow 形式的代码，用于描述 Turbo Native 模块或 Fabric 原生组件的 API。 **Codegen** 根据它来生成样板代码。
 
 - **Fabric 原生组件** - 指已经适配以与新架构（即新渲染器）良好协同工作的组件。为简洁起见，您可能会看到它们被称为**Fabric 组件**。
 - **Turbo 原生模块** - 指已经适配以与新架构（即新原生模块系统）良好协同工作的模块。为简洁起见，您可能会看到它们被称为**Turbo 模块**。
-- **传统原生组件** - 指运行在旧版 React Native 架构上的组件。
-- **传统原生模块** - 指运行在旧版 React Native 架构上的模块。
+- **传统原生组件** - 指运行在 React Native 旧架构上的组件。
+- **传统原生模块** - 指运行在 React Native 旧架构上的模块。
 
 ## II. Codegen 类型
 
