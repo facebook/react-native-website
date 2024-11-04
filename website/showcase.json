@@ -5,7 +5,14 @@
       "icon": "facebook.webp",
       "linkAppStore": "https://apps.apple.com/app/facebook/id284882215",
       "linkPlayStore": "https://play.google.com/store/apps/details?id=com.facebook.katana",
+      "linkMetaQuest": "https://www.meta.com/experiences/facebook/7495711360547796/",
       "pinned": true
+    },
+    {
+      "name": "Instagram",
+      "icon": "instagram.png",
+      "linkMetaQuest": "https://www.meta.com/experiences/instagram/6894135610696226/",
+      "infoLink": "https://engineering.fb.com/2024/10/02/android/react-at-meta-connect-2024/"
     },
     {
       "name": "Facebook Ads Manager",
