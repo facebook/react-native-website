@@ -66,10 +66,6 @@ const AppBox = ({app}) => {
 };
 
 const renderLinks = app => {
-  if (!app.linkAppStore && !app.linkPlayStore && !app.linkDesktop) {
-    return <p />;
-  }
-
   const links = [
     app.linkAppStore ? (
       <a key="ios" href={app.linkAppStore} target="_blank">
@@ -96,6 +92,10 @@ const renderLinks = app => {
     .flatMap((link, i) =>
       i === 0 ? [link] : [<span key={i}> • </span>, link]
     );
+  
+  if (links.length === 0) {
+    return <p />;
+  }
 
   return <p className="showcaseLinks">{links}</p>;
 };
