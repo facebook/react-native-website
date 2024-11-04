@@ -92,7 +92,7 @@ const renderLinks = app => {
     .flatMap((link, i) =>
       i === 0 ? [link] : [<span key={i}> • </span>, link]
     );
-  
+
   if (links.length === 0) {
     return <p />;
   }
