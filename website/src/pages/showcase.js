@@ -83,7 +83,7 @@ const renderLinks = app => {
       </a>
     ) : null,
     app.linkMetaQuest ? (
-      <a key="quest" href={app.linkDesktop} target="_blank">
+      <a key="quest" href={app.linkMetaQuest} target="_blank">
         Meta Quest
       </a>
     ) : null,
