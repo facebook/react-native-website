@@ -215,9 +215,9 @@ module.exports = {
         respectPrefersColorScheme: true,
       },
       announcementBar: {
-        id: 'reactconf2024-keynote',
+        id: 'new-architecture',
         content:
-          'Re-watch the <a target="_blank" rel="noopener noreferrer" href="https://youtu.be/Q5SMmKb7qVI?si=c-6kFImfKFHdw2lc">React Native Keynote</a> @ React Conf 2024.',
+          'The New Architecture has arrived - <a target="_blank" rel="noopener noreferrer" href="/blog/2024/10/23/the-new-architecture-is-here">learn more</a>',
         backgroundColor: '#20232a',
         textColor: '#fff',
         isCloseable: false,
@@ -236,6 +236,26 @@ module.exports = {
           'groovy',
           'ruby',
           'flow',
+        ],
+        magicComments: [
+          {
+            className: 'theme-code-block-highlighted-line',
+            line: 'highlight-next-line',
+            block: {start: 'highlight-start', end: 'highlight-end'},
+          },
+          {
+            className: 'code-add-line',
+            line: 'highlight-add-next-line',
+            block: {start: 'highlight-add-start', end: 'highlight-add-end'},
+          },
+          {
+            className: 'code-remove-line',
+            line: 'highlight-remove-next-line',
+            block: {
+              start: 'highlight-remove-start',
+              end: 'highlight-remove-end',
+            },
+          },
         ],
       },
       navbar: {
@@ -317,7 +337,7 @@ module.exports = {
           },
         ],
       },
-      image: 'img/logo-og.png',
+      image: 'img/logo-share.png',
       footer: {
         style: 'dark',
         links: [
@@ -418,12 +438,12 @@ module.exports = {
       metadata: [
         {
           property: 'og:image',
-          content: 'https://reactnative.dev/img/logo-og.png',
+          content: 'https://reactnative.dev/img/logo-share.png',
         },
         {name: 'twitter:card', content: 'summary_large_image'},
         {
           name: 'twitter:image',
-          content: 'https://reactnative.dev/img/logo-og.png',
+          content: 'https://reactnative.dev/img/logo-share.png',
         },
         {name: 'twitter:site', content: '@reactnative'},
       ],

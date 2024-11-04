@@ -20,12 +20,12 @@ For example, a container view that fades in when it is mounted may look like thi
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
-```SnackPlayer ext=js
-import React, {useRef, useEffect} from 'react';
-import {Animated, Text, View} from 'react-native';
+```SnackPlayer ext=js&supportedPlatforms=ios,android
+import React, {useEffect} from 'react';
+import {Animated, Text, View, useAnimatedValue} from 'react-native';
 
 const FadeInView = props => {
-  const fadeAnim = useRef(new Animated.Value(0)).current; // Initial value for opacity: 0
+  const fadeAnim = useAnimatedValue(0); // Initial value for opacity: 0
 
   useEffect(() => {
     Animated.timing(fadeAnim, {
@@ -74,15 +74,15 @@ export default () => {
 <TabItem value="typescript">
 
 ```SnackPlayer ext=tsx
-import React, {useRef, useEffect} from 'react';
-import {Animated, Text, View} from 'react-native';
+import React, {useEffect} from 'react';
+import {Animated, Text, View, useAnimatedValue} from 'react-native';
 import type {PropsWithChildren} from 'react';
 import type {ViewStyle} from 'react-native';
 
 type FadeInViewProps = PropsWithChildren<{style: ViewStyle}>;
 
 const FadeInView: React.FC<FadeInViewProps> = props => {
-  const fadeAnim = useRef(new Animated.Value(0)).current; // Initial value for opacity: 0
+  const fadeAnim = useAnimatedValue(0); // Initial value for opacity: 0
 
   useEffect(() => {
     Animated.timing(fadeAnim, {
@@ -311,7 +311,7 @@ The following example implements a horizontal scrolling carousel where the scrol
 #### ScrollView with Animated Event Example
 
 ```SnackPlayer name=Animated&supportedPlatforms=ios,android
-import React, {useRef} from 'react';
+import React from 'react';
 import {
   ScrollView,
   Text,
@@ -320,6 +320,7 @@ import {
   ImageBackground,
   Animated,
   useWindowDimensions,
+  useAnimatedValue,
 } from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
@@ -328,7 +329,7 @@ const images = new Array(6).fill(
 );
 
 const App = () => {
-  const scrollX = useRef(new Animated.Value(0)).current;
+  const scrollX = useAnimatedValue(0);
 
   const {width: windowWidth} = useWindowDimensions();
 
