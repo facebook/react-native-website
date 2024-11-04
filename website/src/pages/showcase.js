@@ -86,6 +86,11 @@ const renderLinks = app => {
         Desktop
       </a>
     ) : null,
+    app.linkMetaQuest ? (
+      <a key="quest" href={app.linkDesktop} target="_blank">
+        Meta Quest
+      </a>
+    ) : null,
   ]
     .filter(Boolean)
     .flatMap((link, i) =>
