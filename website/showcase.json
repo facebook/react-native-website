@@ -21,8 +21,8 @@
       "linkPlayStore": "https://play.google.com/store/apps/details?id=com.facebook.adsmanager"
     },
     {
-      "name": "Meta Quest",
-      "icon": "metaquest.png",
+      "name": "Meta Horizon",
+      "icon": "metahorizon.webp",
       "linkAppStore": "https://apps.apple.com/us/app/oculus/id1366478176",
       "linkPlayStore": "https://play.google.com/store/apps/details?id=com.oculus.twilight&hl=en_US",
       "pinned": true
