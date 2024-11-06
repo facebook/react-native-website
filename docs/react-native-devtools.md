@@ -9,7 +9,7 @@ React Native DevTools is our new debugging experience featuring an end-to-end re
 
 ![React Native DevTools opened to the "Welcome" pane](/docs/assets/debugging-rndt-welcome.jpg)
 
-React Native DevTools is designed for debugging React app concerns, and not to replace native tools. If you want to inspect React Native’s underlying platform layers (for example, while developing a Native Module), please use the debugging tools available in Android Studio and Xcode (see [Debugging Native Code](https://reactnative.dev/docs/next/debugging-native-code).
+React Native DevTools is designed for debugging React app concerns, and not to replace native tools. If you want to inspect React Native’s underlying platform layers (for example, while developing a Native Module), please use the debugging tools available in Android Studio and Xcode (see [Debugging Native Code](/docs/debugging-native-code).
 
 <details>
 <summary>**💡 Compatibility** — released in 0.76</summary>
