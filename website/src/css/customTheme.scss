@@ -1322,6 +1322,12 @@ button[class*="tocCollapsibleButton"] {
   --docusaurus-announcement-bar-height: auto !important;
 }
 
+@media (min-width: 997px) {
+  :root {
+    --docusaurus-announcement-bar-height: auto !important;
+  }
+}
+
 div[class*="announcementBar"][role="banner"] {
   border-bottom-color: var(--deepdark);
 
