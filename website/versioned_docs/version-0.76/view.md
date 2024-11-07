@@ -522,7 +522,7 @@ When `accessible` is `true`, the system will invoke this function when the user 
 
 ---
 
-### `onAccessibilityTap`
+### `onAccessibilityTap` <div class="label ios">iOS</div>
 
 When `accessible` is true, the system will try to invoke this function when the user performs accessibility tap gesture.
 
