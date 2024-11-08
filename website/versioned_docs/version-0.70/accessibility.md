@@ -228,7 +228,7 @@ In the above example, the `yellow` layout and its descendants are completely inv
 
 Assign this property to a custom function which will be called when someone performs the "escape" gesture, which is a two finger Z shaped gesture. An escape function should move back hierarchically in the user interface. This can mean moving up or back in a navigation hierarchy or dismissing a modal user interface. If the selected element does not have an `onAccessibilityEscape` function, the system will attempt to traverse up the view hierarchy until it finds a view that does or bonk to indicate it was unable to find one.
 
-### `onAccessibilityTap`
+### `onAccessibilityTap` <div class="label ios">iOS</div>
 
 Use this property to assign a custom function to be called when someone activates an accessible element by double tapping on it while it's selected.
 
