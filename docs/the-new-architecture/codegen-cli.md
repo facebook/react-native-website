@@ -21,19 +21,19 @@ Options:
 - Read `package.json` from the current working directory, generate code based on its codegenConfig.
 
 ```shell
-npx @react-native-codegen/cli codegen
+npx @react-native-community/cli codegen
 ```
 
 - Read `package.json` from the current working directory, generate iOS code in the location defined in the codegenConfig.
 
 ```shell
-npx @react-native-codegen/cli codegen --platform ios
+npx @react-native-community/cli codegen --platform ios
 ```
 
 - Read `package.json` from `third-party/some-library`, generate Android code in `third-party/some-library/android/generated`.
 
 ```shell
-npx @react-native-codegen/cli codegen \
+npx @react-native-community/cli codegen \
     --path third-party/some-library \
     --platform android \
     --outputPath third-party/some-library/android/generated
