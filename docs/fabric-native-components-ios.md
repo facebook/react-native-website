@@ -238,11 +238,35 @@ It then adds an entry to the dictionary with the name used in the Codegen specif
 
 Finally, it returns the new dictionary.
 
+#### Add WebKit framework
+
+:::note
+This step is only required because we are creating a Web view. Web components on iOS needs to be linked againt the WebKit framework provided by Apple. If your component doesn't need to access web-specific features, you can skip this step.
+:::
+
+A web view requires access to some features that Apple provides through one of the frameworks shipped with Xcode and the devices: WebKit.
+You can see it in the native code by the `#import <WebKit/WebKit.h>` line added in the `RCTWebView.mm`.
+
+To link the WebKit framework in your app, follow these steps:
+
+1. In Xcode, Click on your project
+2. Select the app target
+3. Select the General tab
+4. Scroll down until you find the _"Frameworks, Libraries, and Embedded Contents"_ section, and press the `+` button
+
+<img class="half-size" alt="Add webkit framework to your app 1" src="/docs/assets/AddWebKitFramework1.png" />
+
+5. In the search bar, filter for WebKit
+6. Select the WebKit framework
+7. Click on Add.
+
+<img class="half-size" alt="Add webkit framework to your app 2" src="/docs/assets/AddWebKitFramework2.png" />
+
 :::warning
 We are aware of a couple of issues with iOS that would create some problem when building the app with a custom iOS component.
 
 1. The component requires access to the `yoga/style/Style.h` header which is not currently available for the application. To fix this, add the `$(PODS_ROOT)/Headers/Private/Yoga` path to the header search paths build settings of the app.
 2. Codegen is generating a line in the `RCTThirdPartyFabricComponentsProvider` that it should not generate. Remove the lines with the `WebViewCls` symbol in the `RCTThirdPartyFabricComponentsProvider.h` and `RCTThirdPartyFabricComponentsProvider.mm` files.
 
-We have already fixed those issues and they will be released in React Native 0.76.1
+We have already fixed those issues and they will be released in React Native 0.76.2.
 :::

@@ -199,7 +199,7 @@ This code creates an app that uses the new `WebView` component we created to loa
 
 The app also shows an alert when the web page is loaded.
 
-## 5. Run your App using the WebView Component
+## 4. Run your App using the WebView Component
 
 <Tabs groupId="platforms" queryString defaultValue={constants.defaultPlatform}>
 <TabItem value="android" label="Android">
