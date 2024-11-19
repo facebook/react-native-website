@@ -280,9 +280,9 @@ Animated.spring(follower, {toValue: leader}).start();
 Animated.timing(opacity, {
   toValue: pan.x.interpolate({
     inputRange: [0, 300],
-    outputRange: [1, 0]
+    outputRange: [1, 0],
   }),
-  useNativeDriver: true
+  useNativeDriver: true,
 }).start();
 ```
 
