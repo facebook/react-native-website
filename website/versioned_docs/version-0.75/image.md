@@ -98,14 +98,14 @@ dependencies {
   implementation 'com.facebook.fresco:animated-base-support:1.3.0'
 
   // For animated GIF support
-  implementation 'com.facebook.fresco:animated-gif:3.1.3'
+  implementation 'com.facebook.fresco:animated-gif:3.2.0'
 
   // For WebP support, including animated WebP
-  implementation 'com.facebook.fresco:animated-webp:3.1.3'
-  implementation 'com.facebook.fresco:webpsupport:3.1.3'
+  implementation 'com.facebook.fresco:animated-webp:3.2.0'
+  implementation 'com.facebook.fresco:webpsupport:3.2.0'
 
   // For WebP support, without animations
-  implementation 'com.facebook.fresco:webpsupport:3.1.3'
+  implementation 'com.facebook.fresco:webpsupport:3.2.0'
 }
 ```
 
@@ -569,7 +569,7 @@ Resolves an asset reference into an object which has the properties `uri`, `scal
 
 ### ImageCacheEnum <div class="label ios">iOS</div>
 
-Enum which can be used to set the cache handling or stategy for the potentially cached responses.
+Enum which can be used to set the cache handling or strategy for the potentially cached responses.
 
 | Type                                                               | Default     |
 | ------------------------------------------------------------------ | ----------- |
