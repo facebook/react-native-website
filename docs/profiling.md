@@ -19,7 +19,7 @@ First, connect a device that exhibits the stuttering you want to investigate to 
 
 When your app is built as profileable and is running on the device, get your app to the point right before the navigation/animation you want to profile and start the ["Capture System Activities" task](https://developer.android.com/studio/profile#start-profiling) in the Android Studio Profiler pane.
 
-Once the trace starts collecting, perform the animation or interaction you care about. Then press "Stop recording". You can now either [inspect the trace directly in the Android Studio](https://developer.android.com/studio/profile/jank-detection) or select it in the "Past Recordings" pane, press "Export recording", and open it in a tool like [Perfetto](https://perfetto.dev/).
+Once the trace starts collecting, perform the animation or interaction you care about. Then press "Stop recording". You can now [inspect the trace directly in the Android Studio](https://developer.android.com/studio/profile/jank-detection). Alternatively, you can select it in the "Past Recordings" pane, press "Export recording", and open it in a tool like [Perfetto](https://perfetto.dev/).
 
 ### 2. Reading the trace
 
