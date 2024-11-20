@@ -13,29 +13,19 @@ But first, [**make sure that Development Mode is OFF!**](performance.md#running-
 
 Android supports 10k+ different phones and is generalized to support software rendering: the framework architecture and need to generalize across many hardware targets unfortunately means you get less for free relative to iOS. But sometimes, there are things you can improve -- and many times it's not native code's fault at all!
 
-The first step for debugging this jank is to answer the fundamental question of where your time is being spent during each 16ms frame. For that, we'll be using a standard Android profiling tool called `systrace`.
-
-`systrace` is a standard Android marker-based profiling tool (and is installed when you install the Android platform-tools package). Profiled code blocks are surrounded by start/end markers which are then visualized in a colorful chart format. Both the Android SDK and React Native framework provide standard markers that you can visualize.
+The first step for debugging this jank is to answer the fundamental question of where your time is being spent during each 16ms frame. For that, we'll be using the [built-in profiler in the Android Studio](https://developer.android.com/studio/profile).
 
 ### 1. Collecting a trace
 
-First, connect a device that exhibits the stuttering you want to investigate to your computer via USB and get it to the point right before the navigation/animation you want to profile. Run `systrace` as follows:
+First, connect a device that exhibits the stuttering you want to investigate to your computer via USB. Open your project's `android` folder in Android Studio, select your device in the top right pane, and [run your project as profileable](https://developer.android.com/studio/profile#build-and-run).
 
-```shell
-$ <path_to_android_sdk>/platform-tools/systrace/systrace.py --time=10 -o trace.html sched gfx view -a <your_package_name>
-```
+When your app is built as profileable and is running on the device, get your app to the point right before the navigation/animation you want to profile and start the ["Capture System Activities" task](https://developer.android.com/studio/profile#start-profiling) in the Android Studio Profiler pane.
 
-A quick breakdown of this command:
-
-- `time` is the length of time the trace will be collected in seconds
-- `sched`, `gfx`, and `view` are the android SDK tags (collections of markers) we care about: `sched` gives you information about what's running on each core of your phone, `gfx` gives you graphics info such as frame boundaries, and `view` gives you information about measure, layout, and draw passes
-- `-a <your_package_name>` enables app-specific markers, specifically the ones built into the React Native framework. `your_package_name` can be found in the `AndroidManifest.xml` of your app and looks like `com.example.app`
-
-Once the trace starts collecting, perform the animation or interaction you care about. At the end of the trace, systrace will give you a link to the trace which you can open in your browser.
+Once the trace starts collecting, perform the animation or interaction you care about. Then press "Stop recording". You can now either [inspect the trace directly in the Android Studio](https://developer.android.com/studio/profile/jank-detection) or select it in the "Past Recordings" pane, press "Export recording", and open it in a tool like [Perfetto](https://perfetto.dev/).
 
 ### 2. Reading the trace
 
-After opening the trace in your browser (preferably Chrome), you should see something like this:
+After opening the trace in Android Studio or Perfetto, you should see something like this:
 
 ![Example](/docs/assets/SystraceExample.png)
 
@@ -43,15 +33,7 @@ After opening the trace in your browser (preferably Chrome), you should see some
 Use the WASD keys to strafe and zoom.
 :::
 
-If your trace .html file isn't opening correctly, check your browser console for the following:
-
-![ObjectObserveError](/docs/assets/ObjectObserveError.png)
-
-Since `Object.observe` was deprecated in recent browsers, you may have to open the file from the Google Chrome Tracing tool. You can do so by:
-
-- Opening tab in chrome chrome://tracing
-- Selecting load
-- Selecting the html file generated from the previous command.
+The exact UI might be different but the instructions below will apply regardless of the tool you're using.
 
 :::info Enable VSync highlighting
 Check this checkbox at the top right of the screen to highlight the 16ms frame boundaries:
