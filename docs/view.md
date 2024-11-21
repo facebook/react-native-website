@@ -361,7 +361,7 @@ Represents the textual description of the component. Has precedence over the `te
 
 ---
 
-### `collapsable` <div class="label android">Android</div>
+### `collapsable`
 
 Views that are only used to layout their children or otherwise don't draw anything may be automatically removed from the native hierarchy as an optimization. Set this property to `false` to disable this optimization and ensure that this `View` exists in the native view hierarchy.
 
