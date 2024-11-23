@@ -313,7 +313,7 @@ Determines the location of the given view in the window and returns the values v
 Like `measure()`, but measures the view relative to an ancestor, specified with `relativeToNativeComponentRef` reference. This means that the returned coordinates are relative to the origin `x`, `y` of the ancestor view.
 
 :::note
-This method can also be called with a `relativeToNativeNode` handler (instead of reference), but this variant is deprecated.
+This method can also be called with a `relativeToNativeNode` handler (instead of reference), but this variant is obsolete with the new architecture.
 :::
 
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
