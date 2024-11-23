@@ -5,6 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+const path = require('path');
+
 const users = require('./showcase.json');
 const versions = require('./versions.json');
 
@@ -15,8 +17,14 @@ const commonDocsOptions = {
   breadcrumbs: false,
   showLastUpdateAuthor: false,
   showLastUpdateTime: true,
-  editUrl:
-    'https://github.com/facebook/react-native-website/blob/main/website/',
+  editUrl: options => {
+    const blobPath = path.posix.join(
+      'website',
+      options.versionDocsDirPath,
+      options.docPath
+    );
+    return `https://github.com/facebook/react-native-website/blob/main/${blobPath}`;
+  },
   remarkPlugins: [require('@react-native-website/remark-snackplayer')],
 };
 
