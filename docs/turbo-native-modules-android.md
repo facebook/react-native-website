@@ -53,6 +53,12 @@ public class NativeLocalStorageModule extends NativeLocalStorageSpec {
     SharedPreferences sharedPref = getReactApplicationContext().getSharedPreferences("my_prefs", Context.MODE_PRIVATE);
     sharedPref.edit().remove(key).apply();
   }
+
+  @Override
+  public void clear() {
+    SharedPreferences sharedPref = getReactApplicationContext().getSharedPreferences("my_prefs", Context.MODE_PRIVATE);
+    sharedPref.edit().clear().apply();
+  }
 }
 ```
 
@@ -128,7 +134,7 @@ public class NativeLocalStoragePackage extends TurboReactPackage {
 
   @Override
   public NativeModule getModule(String name, ReactApplicationContext reactContext) {
-    if (name.equals(NativeLocalStorageModule.NAME)) {
+    if (name.equals(NativeLocalStorageModule.getName())) {
       return new NativeLocalStorageModule(reactContext);
     } else {
       return null;
@@ -139,11 +145,11 @@ public class NativeLocalStoragePackage extends TurboReactPackage {
   public ReactModuleInfoProvider getReactModuleInfoProvider() {
     return new ReactModuleInfoProvider() {
       @Override
-      public Map<String, ReactModuleInfo> get() {
+      public Map<String, ReactModuleInfo> getReactModuleInfos() {
         Map<String, ReactModuleInfo> map = new HashMap<>();
-        map.put(NativeLocalStorageModule.NAME, new ReactModuleInfo(
-          NativeLocalStorageModule.NAME,       // name
-          NativeLocalStorageModule.NAME,       // className
+        map.put(NativeLocalStorageModule.getName(), new ReactModuleInfo(
+          NativeLocalStorageModule.getName(),       // name
+          NativeLocalStorageModule.getName(),       // className
           false, // canOverrideExistingModule
           false, // needsEagerInit
           false, // isCXXModule
@@ -171,7 +177,7 @@ import com.facebook.react.module.model.ReactModuleInfoProvider
 class NativeLocalStoragePackage : TurboReactPackage() {
 
   override fun getModule(name: String, reactContext: ReactApplicationContext): NativeModule? =
-    if (name == NativeLocalStorageModule.NAME) {
+    if (name == NativeLocalStorageModule.getName()) {
       NativeLocalStorageModule(reactContext)
     } else {
       null
@@ -179,9 +185,9 @@ class NativeLocalStoragePackage : TurboReactPackage() {
 
   override fun getReactModuleInfoProvider() = ReactModuleInfoProvider {
     mapOf(
-      NativeLocalStorageModule.NAME to ReactModuleInfo(
-        _name = NativeLocalStorageModule.NAME,
-        _className = NativeLocalStorageModule.NAME,
+      NativeLocalStorageModule.getName() to ReactModuleInfo(
+        _name = NativeLocalStorageModule.getName(),
+        _className = NativeLocalStorageModule.getName(),
         _canOverrideExistingModule = false,
         _needsEagerInit = false,
         isCxxModule = false,
