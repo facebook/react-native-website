@@ -34,7 +34,7 @@ brew info --cask zulu@17
 # Installed using the formulae.brew.sh API on 2024-06-06 at 10:00:00
 
 # Navigate to the folder
-finder /opt/homebrew/Caskroom/zulu@17/<version number> # or /usr/local/Caskroom/zulu@17/<version number>
+open /opt/homebrew/Caskroom/zulu@17/<version number> # or /usr/local/Caskroom/zulu@17/<version number>
 ```
 
 After opening Finder, double click the `Double-Click to Install Azul Zulu JDK 17.pkg` package to install the JDK.
