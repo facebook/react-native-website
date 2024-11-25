@@ -2,7 +2,7 @@
 
 Calling Gradle or manually calling a script might be hard to remember and it requires a lot of ceremony.
 
-To simplify it, we created a CLI tool that can help you running those tasks: the **Codegen** cli. This command runs [react-native-codegen](https://www.npmjs.com/package/react-native-codegen) for your project. The following options are available:
+To simplify it, we created a CLI tool that can help you running those tasks: the **Codegen** cli. This command runs [@react-native/codegen](https://www.npmjs.com/package/@react-native/codegen) for your project. The following options are available:
 
 ```sh
 npx @react-native-community/cli codegen --help
@@ -21,19 +21,19 @@ Options:
 - Read `package.json` from the current working directory, generate code based on its codegenConfig.
 
 ```shell
-npx @react-native-codegen/cli codegen
+npx @react-native-community/cli codegen
 ```
 
 - Read `package.json` from the current working directory, generate iOS code in the location defined in the codegenConfig.
 
 ```shell
-npx @react-native-codegen/cli codegen --platform ios
+npx @react-native-community/cli codegen --platform ios
 ```
 
 - Read `package.json` from `third-party/some-library`, generate Android code in `third-party/some-library/android/generated`.
 
 ```shell
-npx @react-native-codegen/cli codegen \
+npx @react-native-community/cli codegen \
     --path third-party/some-library \
     --platform android \
     --outputPath third-party/some-library/android/generated

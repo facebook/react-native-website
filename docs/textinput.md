@@ -241,6 +241,8 @@ If `true`, focuses the input on `componentDidMount` or `useEffect`. The default 
 
 ### `blurOnSubmit`
 
+> **Deprecated.** Note that `submitBehavior` now takes the place of `blurOnSubmit` and will override any behavior defined by `blurOnSubmit`. See [submitBehavior](textinput#submitbehavior)
+
 If `true`, the text field will blur when submitted. The default value is true for single-line fields and false for multiline fields. Note that for multiline fields, setting `blurOnSubmit` to `true` means that pressing return will blur the field and trigger the `onSubmitEditing` event instead of inserting a newline into the field.
 
 | Type |
@@ -862,6 +864,31 @@ If `false`, disables spell-check style (i.e. red underlines). The default value 
 | Type |
 | ---- |
 | bool |
+
+---
+
+### `submitBehavior`
+
+When the return key is pressed,
+
+For single line inputs:
+
+- `'newline'` defaults to `'blurAndSubmit'`
+- `undefined` defaults to `'blurAndSubmit'`
+
+For multiline inputs:
+
+- `'newline'` adds a newline
+- `undefined` defaults to `'newline'`
+
+For both single line and multiline inputs:
+
+- `'submit'` will only send a submit event and not blur the input
+- `'blurAndSubmit`' will both blur the input and send a submit event
+
+| Type                                       |
+| ------------------------------------------ |
+| enum('submit', 'blurAndSubmit', 'newline') |
 
 ---
 
