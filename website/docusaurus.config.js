@@ -19,7 +19,7 @@ const commonDocsOptions = {
   showLastUpdateTime: true,
   editUrl: options => {
     const baseUrl =
-      'https://github.com/facebook/react-native-website/blob/main';
+      'https://github.com/facebook/react-native-website/edit/main';
     const nextReleasePath = `docs/${options.docPath}`;
     /**
      * @type {Array<{label: string, href: string}>}
