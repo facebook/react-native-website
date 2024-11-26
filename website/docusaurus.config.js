@@ -18,12 +18,34 @@ const commonDocsOptions = {
   showLastUpdateAuthor: false,
   showLastUpdateTime: true,
   editUrl: options => {
-    const blobPath = path.posix.join(
-      'website',
-      options.versionDocsDirPath,
-      options.docPath
-    );
-    return `https://github.com/facebook/react-native-website/blob/main/${blobPath}`;
+    const baseUrl =
+      'https://github.com/facebook/react-native-website/blob/main';
+    const nextReleasePath = `docs/${options.docPath}`;
+    /**
+     * @type {Array<{label: string, href: string}>}
+     */
+    const buttons = [
+      {
+        label: 'Edit page for next release',
+        href: `${baseUrl}/${nextReleasePath}`,
+      },
+    ];
+    if (options.version !== 'current') {
+      const label =
+        options.version === lastVersion
+          ? 'Edit page for current release'
+          : `Edit page for ${options.version} release`;
+      const thisVersionPath = path.posix.join(
+        'website',
+        options.versionDocsDirPath,
+        options.docPath
+      );
+      buttons.push({
+        label,
+        href: `${baseUrl}/${thisVersionPath}`,
+      });
+    }
+    return JSON.stringify(buttons);
   },
   remarkPlugins: [require('@react-native-website/remark-snackplayer')],
 };
