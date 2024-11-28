@@ -195,7 +195,7 @@ On iOS 13+, it is possible to change the corner curve of borders.
 
 ### `borderRadius`
 
-If the rounded border is not visible, try applying `overflow: 'hidden'` as well.
+You can set a borderRadius using absolute numbers or a percentage. If the rounded border is not visible, try applying `overflow: 'hidden'` as well.
 
 | Type   |
 | ------ |
