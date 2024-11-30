@@ -130,7 +130,7 @@ export default () => {
 </TabItem>
 </Tabs>
 
-Let's break down what's happening here. In the `FadeInView` constructor, a new `Animated.Value` called `fadeAnim` is initialized as part of `state`. The opacity property on the `View` is mapped to this animated value. Behind the scenes, the numeric value is extracted and used to set opacity.
+Let's break down what's happening here. A ref called `fadeAnim` is initialized with a new `Animated.Value`. Note that the ref will hold the same value no matter how many times this component is rendered. The opacity property on the `View` is mapped to this animated value. Behind the scenes, the numeric value is extracted and used to set opacity.
 
 When the component mounts, the opacity is set to 0. Then, an easing animation is started on the `fadeAnim` animated value, which will update all of its dependent mappings (in this case, only the opacity) on each frame as the value animates to the final value of 1.
 
@@ -147,7 +147,7 @@ By default, `timing` will use an easeInOut curve that conveys gradual accelerati
 For example, if we want to create a 2-second long animation of an object that slightly backs up before moving to its final position:
 
 ```tsx
-Animated.timing(this.state.xPosition, {
+Animated.timing(xPositionAnim, {
   toValue: 100,
   easing: Easing.back(),
   duration: 2000,
@@ -224,9 +224,9 @@ For example, you may want to think about your `Animated.Value` as going from 0 t
 
 ```tsx
   style={{
-    opacity: this.state.fadeAnim, // Binds directly
+    opacity: fadeAnim, // Binds directly
     transform: [{
-      translateY: this.state.fadeAnim.interpolate({
+      translateY: fadeAnim.interpolate({
         inputRange: [0, 1],
         outputRange: [150, 0]  // 0 : 150, 0.5 : 75, 1 : 0
       }),
@@ -524,7 +524,7 @@ The `Animated` API is designed to be serializable. By using the [native driver](
 Using the native driver for normal animations can be accomplished by setting `useNativeDriver: true` in animation config when starting it. Animations without a `useNativeDriver` property will default to false for legacy reasons, but emit a warning (and typechecking error in TypeScript).
 
 ```tsx
-Animated.timing(this.state.animatedValue, {
+Animated.timing(animatedValue, {
   toValue: 1,
   duration: 500,
   useNativeDriver: true, // <-- Set this to true
@@ -541,7 +541,7 @@ The native driver also works with `Animated.event`. This is especially useful fo
     [
       {
         nativeEvent: {
-          contentOffset: {y: this.state.animatedValue},
+          contentOffset: {y: animatedValue},
         },
       },
     ],
@@ -595,7 +595,7 @@ UIManager.setLayoutAnimationEnabledExperimental(true);
 ```
 
 ```SnackPlayer name=LayoutAnimations&supportedPlatforms=ios,android
-import React from 'react';
+import React, {useState} from 'react';
 import {
   NativeModules,
   LayoutAnimation,
@@ -610,32 +610,25 @@ const {UIManager} = NativeModules;
 UIManager.setLayoutAnimationEnabledExperimental &&
   UIManager.setLayoutAnimationEnabledExperimental(true);
 
-export default class App extends React.Component {
-  state = {
-    w: 100,
-    h: 100,
-  };
+export default function App() {
+  const [size, setSize] = useState(100);
 
-  _onPress = () => {
+  const onPress = () => {
     // Animate the update
     LayoutAnimation.spring();
-    this.setState({w: this.state.w + 15, h: this.state.h + 15});
+    setSize(size + 15);
   };
 
-  render() {
-    return (
-      <View style={styles.container}>
-        <View
-          style={[styles.box, {width: this.state.w, height: this.state.h}]}
-        />
-        <TouchableOpacity onPress={this._onPress}>
-          <View style={styles.button}>
-            <Text style={styles.buttonText}>Press me!</Text>
-          </View>
-        </TouchableOpacity>
-      </View>
-    );
-  }
+  return (
+    <View style={styles.container}>
+      <View style={[styles.box, {width: size, height: size}]} />
+      <TouchableOpacity onPress={onPress}>
+        <View style={styles.button}>
+          <Text style={styles.buttonText}>Press me!</Text>
+        </View>
+      </TouchableOpacity>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
