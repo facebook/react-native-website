@@ -33,8 +33,6 @@
   --ifm-table-head-color: var(--subtle);
   --ifm-link-hover-decoration: none;
   --ifm-navbar-background-color: var(--deepdark);
-  --ifm-transition-fast: 0;
-  --ifm-transition-slow: 0;
   --ifm-pre-line-height: 1.5;
   --ifm-tabs-padding-vertical: 6px;
   --ifm-color-warning: #ffe564;
@@ -955,8 +953,6 @@ aside[class^="theme-doc-sidebar-container"] {
 
 .menu__list {
   margin-bottom: 8px;
-  transition: none !important;
-  height: auto !important;
 
   &.blog-menu__list {
     font-size: 14px;
@@ -1045,12 +1041,6 @@ aside[class^="theme-doc-sidebar-container"] {
 
   .menu__list-item--collapsed .menu__list {
     margin-bottom: 0;
-  }
-}
-
-.menu__list-item.menu__list-item--collapsed {
-  .menu__list {
-    height: 0 !important;
   }
 }
 
