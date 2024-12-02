@@ -14,7 +14,7 @@
     "src/*"
   ],
   "scripts": {
-    "prettier": "prettier --write \"{src/**/*.js,tests/**/*.js,*.md}\"",
+    "prettier": "prettier --write \"{src/**/*.js,src/**/*.jsx,src/**/*.ts,src/**/*.tsx,tests/**/*.js,*.md}\"",
     "test": "yarn node --experimental-vm-modules $(yarn bin jest)"
   },
   "dependencies": {
