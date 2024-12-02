@@ -17,6 +17,7 @@ function ThemeImage({lightSrc, darkSrc, className, alt}) {
           mutation.type === 'attributes' &&
           mutation.attributeName === 'data-theme'
         ) {
+          // @ts-expect-error
           setTheme(mutation.target.getAttribute('data-theme'));
         }
       });

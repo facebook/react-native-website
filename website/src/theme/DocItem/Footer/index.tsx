@@ -22,12 +22,7 @@ function TagsRow(props) {
     </div>
   );
 }
-function EditMetaRow({
-  editUrl,
-  lastUpdatedAt,
-  lastUpdatedBy,
-  formattedLastUpdatedAt,
-}) {
+function EditMetaRow({editUrl, lastUpdatedAt, lastUpdatedBy}) {
   return (
     <div className={clsx(ThemeClassNames.docs.docFooterEditMetaRow, 'row')}>
       <div className="col">{editUrl && <EditThisPage editUrl={editUrl} />}</div>
@@ -35,7 +30,6 @@ function EditMetaRow({
         {(lastUpdatedAt || lastUpdatedBy) && (
           <LastUpdated
             lastUpdatedAt={lastUpdatedAt}
-            formattedLastUpdatedAt={formattedLastUpdatedAt}
             lastUpdatedBy={lastUpdatedBy}
           />
         )}
@@ -45,8 +39,7 @@ function EditMetaRow({
 }
 export default function DocItemFooter() {
   const {metadata} = useDoc();
-  const {editUrl, lastUpdatedAt, formattedLastUpdatedAt, lastUpdatedBy, tags} =
-    metadata;
+  const {editUrl, lastUpdatedAt, lastUpdatedBy, tags} = metadata;
   const canDisplayTagsRow = tags.length > 0;
   const canDisplayEditMetaRow = !!(editUrl || lastUpdatedAt || lastUpdatedBy);
   const canDisplayFooter = canDisplayTagsRow || canDisplayEditMetaRow;
@@ -56,6 +49,7 @@ export default function DocItemFooter() {
 
   return (
     <>
+      {/* @ts-expect-error */}
       <DocsRating label={metadata.unversionedId} />
       <footer
         className={clsx(ThemeClassNames.docs.docFooter, 'docusaurus-mt-lg')}>
@@ -65,7 +59,6 @@ export default function DocItemFooter() {
             editUrl={editUrl}
             lastUpdatedAt={lastUpdatedAt}
             lastUpdatedBy={lastUpdatedBy}
-            formattedLastUpdatedAt={formattedLastUpdatedAt}
           />
         )}
       </footer>

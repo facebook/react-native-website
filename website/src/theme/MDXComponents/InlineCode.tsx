@@ -24,7 +24,9 @@ export default function InlineCode(props) {
 // Currently only supports links, which should be good enough...
 // To enable Markdown support, use the "`md " prefix
 // Syntax example: `md ({nativeEvent: [PressEvent](pressevent)})`
-const MarkdownInlineCode = React.memo(function MarkdownInlineCodeInner(props) {
+const MarkdownInlineCode = React.memo(function MarkdownInlineCodeInner(props: {
+  children: React.ReactNode;
+}) {
   const children = linkify(props.children);
   return <code {...props} children={children} />;
 });
