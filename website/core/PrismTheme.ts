@@ -125,4 +125,4 @@ const theme: ThemeConfig['prism']['theme'] = {
   ],
 };
 
-module.exports = theme;
+export default theme;
