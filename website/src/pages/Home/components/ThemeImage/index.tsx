@@ -15,9 +15,9 @@ function ThemeImage({lightSrc, darkSrc, className, alt}) {
       mutations.forEach(mutation => {
         if (
           mutation.type === 'attributes' &&
-          mutation.attributeName === 'data-theme'
+          mutation.attributeName === 'data-theme' &&
+          mutation.target instanceof Element
         ) {
-          // @ts-expect-error
           setTheme(mutation.target.getAttribute('data-theme'));
         }
       });

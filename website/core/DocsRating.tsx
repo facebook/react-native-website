@@ -4,6 +4,11 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
+declare global {
+  interface Window {
+    ga?: (...args: any[]) => void; // Adjust the type of `ga` as needed
+  }
+}
 
 import React, {useState} from 'react';
 import useIsBrowser from '@docusaurus/useIsBrowser';
@@ -16,9 +21,7 @@ const DocsRating = ({label}) => {
 
   const [haveVoted, setHaveVoted] = useState(false);
   const giveFeedback = value => {
-    //  @ts-expect-error
     if (window.ga) {
-      //  @ts-expect-error
       window.ga('send', {
         hitType: 'event',
         eventCategory: 'button',

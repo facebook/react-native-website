@@ -49,8 +49,7 @@ export default function DocItemFooter() {
 
   return (
     <>
-      {/* @ts-expect-error */}
-      <DocsRating label={metadata.unversionedId} />
+      <DocsRating label={metadata.id} />
       <footer
         className={clsx(ThemeClassNames.docs.docFooter, 'docusaurus-mt-lg')}>
         {canDisplayTagsRow && <TagsRow tags={tags} />}
