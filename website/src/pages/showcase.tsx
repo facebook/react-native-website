@@ -18,10 +18,9 @@ const renderApp = (app, i) => <AppBox app={app} key={`app-${app.name}-${i}`} />;
 function Section({
   children,
   background = 'light',
-}: {
-  children: React.ReactNode;
+}: React.PropsWithChildren<{
   background?: 'light' | 'dark';
-}) {
+}>) {
   return <section className={`Section ${background}`}>{children}</section>;
 }
 
