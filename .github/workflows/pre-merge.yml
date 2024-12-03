@@ -9,11 +9,13 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          cache: "yarn"
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile --no-progress --non-interactive
@@ -25,11 +27,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          cache: "yarn"
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile --no-progress --non-interactive
