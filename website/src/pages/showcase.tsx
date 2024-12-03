@@ -9,35 +9,20 @@ import React, {useEffect, useState} from 'react';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
-import ThemedImage from '@theme/ThemedImage';
-import users from '../../showcase.json';
-
+import type users from '../../showcase.json';
 import IconExternalLink from '../theme/Icon/ExternalLink';
+import ThemedImage from '@theme/ThemedImage';
 
 const renderApp = (app, i) => <AppBox app={app} key={`app-${app.name}-${i}`} />;
 
 function Section({
-  element = 'section',
   children,
   background = 'light',
-  className,
 }: {
-  element?: any;
   children: React.ReactNode;
   background?: 'light' | 'dark';
-  className?: string;
 }) {
-  const El = element;
-  return (
-    <El
-      className={
-        className
-          ? `Section ${className} ${background}`
-          : `Section ${background}`
-      }>
-      {children}
-    </El>
-  );
+  return <section className={`Section ${background}`}>{children}</section>;
 }
 
 const AppBox = ({app}) => {
