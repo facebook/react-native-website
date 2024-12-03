@@ -6,7 +6,7 @@
  */
 declare global {
   interface Window {
-    ga?: (...args: any[]) => void; // Adjust the type of `ga` as needed
+    ga?: (...args: any[]) => void;
   }
 }
 
