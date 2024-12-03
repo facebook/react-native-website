@@ -106,11 +106,11 @@ export default (codegenNativeComponent<NativeProps>(
 </TabItem>
 </Tabs>
 
-This specification is composed of three main parts, exluding the imports:
+This specification is composed of three main parts, excluding the imports:
 
 - The `WebViewScriptLoadedEvent` is a supporting data type for the data the event needs to pass from native to JavaScript.
-- The `NativeProps` which is a definitions of the props that we can set on the component.
-- The `codegenNativeComponent` statement that allows to codegenerate the code for the custom component and that defines a name for the component used to match the native implementations.
+- The `NativeProps` is a definitions of the props that we can set on the component.
+- The `codegenNativeComponent` statement allows us to codegenerate the code for the custom component and that defines a name for the component used to match the native implementations.
 
 As with Native Modules, you can have multiple specification files in the `specs/` directory. For more information about the types you can use, and the platform types these map to see the [appendix](appendix.md#codegen-typings).
 
@@ -139,7 +139,7 @@ With everything wired up for Codegen, we need to prepare our native code to hook
 
 ## 2. Building your Native Code
 
-Now it's time to write the native platform code so that when React requires to render a view, te platform can create the right native view and can render it on screen.
+Now it's time to write the native platform code so that when React requires to render a view, the platform can create the right native view and can render it on screen.
 
 You should work through both the Android and iOS platforms.
 
