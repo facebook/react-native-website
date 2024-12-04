@@ -74,7 +74,7 @@ const config: Config = {
       {
         docs: {
           path: '../docs',
-          sidebarPath: require.resolve('./sidebars.json'),
+          sidebarPath: require.resolve('./sidebars'),
           editCurrentVersion: true,
           onlyIncludeVersions: isDeployPreview
             ? ['current', ...versions.slice(0, 2)]
@@ -125,7 +125,7 @@ const config: Config = {
         id: 'architecture',
         path: 'architecture',
         routeBasePath: '/architecture',
-        sidebarPath: require.resolve('./sidebarsArchitecture.json'),
+        sidebarPath: require.resolve('./sidebarsArchitecture'),
         ...commonDocsOptions,
       },
     ],
@@ -136,7 +136,7 @@ const config: Config = {
         id: 'contributing',
         path: 'contributing',
         routeBasePath: '/contributing',
-        sidebarPath: require.resolve('./sidebarsContributing.json'),
+        sidebarPath: require.resolve('./sidebarsContributing'),
         ...commonDocsOptions,
       },
     ],
@@ -147,7 +147,7 @@ const config: Config = {
         id: 'community',
         path: 'community',
         routeBasePath: '/community',
-        sidebarPath: require.resolve('./sidebarsCommunity.json'),
+        sidebarPath: require.resolve('./sidebarsCommunity'),
         ...commonDocsOptions,
       },
     ],
