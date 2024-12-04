@@ -15,7 +15,7 @@
     "src"
   ],
   "scripts": {
-    "prettier": "prettier --write \"{src/**/*.js,src/**/*.jsx,src/**/*.ts,src/**/*.tsx,tests/**/*.js,*.md}\"",
+    "prettier": "prettier --write '{src,tests}/**/*.{md,js,jsx,ts,tsx}'",
     "test": "yarn tape tests/index.js"
   },
   "dependencies": {

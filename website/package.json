@@ -26,7 +26,7 @@
     "format:style": "prettier --write src/**/*.{scss,css}",
     "format:examples": "eslint-examples-js --fix && eslint-examples-tsx --fix",
     "prettier": "yarn format:source && yarn format:markdown && yarn format:style",
-    "lint": "eslint ../docs/** blog/** core/** src/**/*.tsx ./*.ts",
+    "lint": "eslint ../docs/** blog/** '{core,src}/**/*.{js,jsx,ts,tsx}'",
     "lint:examples": "eslint-examples-js && eslint-examples-tsx && tsc-examples",
     "lint:versioned": "eslint versioned_docs/**",
     "lint:markdown": "remark ../docs --quiet -r .remarkrc.mjs",
