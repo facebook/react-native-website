@@ -22,7 +22,6 @@
     }
   },
   "dependencies": {
-    "babel-eslint": "^10.1.0",
     "case-police": "^0.5.14",
     "eslint": "^8.20.0",
     "eslint-config-prettier": "^9.1.0",
