@@ -1146,7 +1146,9 @@ button[class*="tocCollapsibleButton"] {
   padding: 1.5rem !important;
   border: 1px solid var(--ifm-color-emphasis-300) !important;
   box-shadow: none !important;
-  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out !important;
+  transition:
+    background-color 0.2s ease-in-out,
+    border-color 0.2s ease-in-out !important;
   background-color: var(--ifm-background-color);
 
   &:hover {
