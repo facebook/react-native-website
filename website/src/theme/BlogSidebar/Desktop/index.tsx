@@ -10,8 +10,9 @@ import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import {translate} from '@docusaurus/Translate';
 import styles from './styles.module.css';
+import type {Props} from '@theme/BlogSidebar/Desktop';
 
-export default function BlogSidebarDesktop({sidebar}) {
+export default function BlogSidebarDesktop({sidebar}: Props) {
   let cachedYear = null;
   return (
     <aside className="col col--3">

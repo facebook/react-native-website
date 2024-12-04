@@ -6,12 +6,15 @@ import Translate from '@docusaurus/Translate';
 import IconEdit from '@theme/Icon/Edit';
 import LastUpdated from '@theme/LastUpdated';
 import Link from '@docusaurus/Link';
-import TagsListInline from '@theme/TagsListInline';
+import TagsListInline, {
+  Props as TagsListInlineProps,
+} from '@theme/TagsListInline';
 
+import type {EditUrlButton} from '../../../../docusaurus.config';
 import styles from './styles.module.css';
 import DocsRating from '../../../../core/DocsRating';
 
-function TagsRow(props) {
+function TagsRow(props: TagsListInlineProps) {
   return (
     <div
       className={clsx(
@@ -24,7 +27,7 @@ function TagsRow(props) {
     </div>
   );
 }
-function EditPage({label, href}) {
+function EditPage({label, href}: {label: string; href: string}) {
   return (
     <Link to={href} className={ThemeClassNames.common.editThisPage}>
       <IconEdit />
@@ -36,13 +39,8 @@ function EditPage({label, href}) {
     </Link>
   );
 }
-function EditMetaRow({
-  editUrl,
-  lastUpdatedAt,
-  lastUpdatedBy,
-  formattedLastUpdatedAt,
-}) {
-  const buttons = React.useMemo(() => {
+function EditMetaRow({editUrl, lastUpdatedAt, lastUpdatedBy}) {
+  const buttons = React.useMemo((): EditUrlButton[] => {
     try {
       return JSON.parse(editUrl);
     } catch (e) {
@@ -61,7 +59,6 @@ function EditMetaRow({
         {(lastUpdatedAt || lastUpdatedBy) && (
           <LastUpdated
             lastUpdatedAt={lastUpdatedAt}
-            formattedLastUpdatedAt={formattedLastUpdatedAt}
             lastUpdatedBy={lastUpdatedBy}
           />
         )}
@@ -71,8 +68,7 @@ function EditMetaRow({
 }
 export default function DocItemFooter() {
   const {metadata} = useDoc();
-  const {editUrl, lastUpdatedAt, formattedLastUpdatedAt, lastUpdatedBy, tags} =
-    metadata;
+  const {editUrl, lastUpdatedAt, lastUpdatedBy, tags} = metadata;
   const canDisplayTagsRow = tags.length > 0;
   const canDisplayEditMetaRow = !!(editUrl || lastUpdatedAt || lastUpdatedBy);
   const canDisplayFooter = canDisplayTagsRow || canDisplayEditMetaRow;
@@ -82,7 +78,7 @@ export default function DocItemFooter() {
 
   return (
     <>
-      <DocsRating label={metadata.unversionedId} />
+      <DocsRating label={metadata.id} />
       <footer
         className={clsx(ThemeClassNames.docs.docFooter, 'docusaurus-mt-lg')}>
         {canDisplayTagsRow && <TagsRow tags={tags} />}
@@ -91,7 +87,6 @@ export default function DocItemFooter() {
             editUrl={editUrl}
             lastUpdatedAt={lastUpdatedAt}
             lastUpdatedBy={lastUpdatedBy}
-            formattedLastUpdatedAt={formattedLastUpdatedAt}
           />
         )}
       </footer>
