@@ -8,11 +8,19 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 import useBaseUrl from '@docusaurus/useBaseUrl';
-const versions = require('../../versions.json');
+import versions from '../../versions.json';
 // The versionsArchived mapping is a custom feature, NOT a Docusaurus feature
-const versionsArchived = require('../../versionsArchived.json');
+import versionsArchived from '../../versionsArchived.json';
 
-const VersionItem = ({version, archivedDocumentationUrl, currentVersion}) => {
+const VersionItem = ({
+  version,
+  archivedDocumentationUrl,
+  currentVersion,
+}: {
+  version: string;
+  currentVersion: string;
+  archivedDocumentationUrl?: string;
+}) => {
   const versionName = version === 'next' ? 'main' : version;
 
   const isCurrentVersion = currentVersion === version;

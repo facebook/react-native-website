@@ -9,29 +9,19 @@ import React, {useEffect, useState} from 'react';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
-import ThemedImage from '@theme/ThemedImage';
-
+import type users from '../../showcase.json';
 import IconExternalLink from '../theme/Icon/ExternalLink';
+import ThemedImage from '@theme/ThemedImage';
 
 const renderApp = (app, i) => <AppBox app={app} key={`app-${app.name}-${i}`} />;
 
 function Section({
-  element = 'section',
   children,
-  className,
   background = 'light',
-}) {
-  const El = element;
-  return (
-    <El
-      className={
-        className
-          ? `Section ${className} ${background}`
-          : `Section ${background}`
-      }>
-      {children}
-    </El>
-  );
+}: React.PropsWithChildren<{
+  background?: 'light' | 'dark';
+}>) {
+  return <section className={`Section ${background}`}>{children}</section>;
 }
 
 const AppBox = ({app}) => {
@@ -105,9 +95,8 @@ const randomizeApps = apps =>
 
 const Showcase = () => {
   const {siteConfig} = useDocusaurusContext();
-
-  const {meta, microsoft, shopify, wix, amazon, others} =
-    siteConfig.customFields.users;
+  const {meta, microsoft, shopify, wix, amazon, others} = siteConfig
+    .customFields.users as typeof users;
   const [pinnedRandomizedApps, setPinnedRandomizedApps] = useState([]);
   const [randomizedApps, setRandomizedApps] = useState([]);
 
