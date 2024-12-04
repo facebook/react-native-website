@@ -21,10 +21,10 @@ node_modules
 *.tsbuildinfo
 
 scripts/lint-examples/out/
+
 sync-api-docs/generatedComponentApiDocs.js
 sync-api-docs/extracted.json
 
-# Docusaurus Generated files
 website/.docusaurus
 website/.cache-loader
 website/build/
