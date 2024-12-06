@@ -11,6 +11,7 @@ export default {
           "github.com/JoelMarcey",
         ],
         from: "https://reactnative.dev/docs",
+        skipLocalhost: true,
       },
     ],
   ],
