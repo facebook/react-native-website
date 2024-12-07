@@ -2,6 +2,7 @@ import packageJson from "./package.json" assert { type: "json" };
 
 export default {
   plugins: [
+    // TODO: Enable the plugin once a more performant solution is found
     // [
     //   "@react-native-website/remark-lint-no-broken-external-links",
     //   {
