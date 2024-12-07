@@ -16,21 +16,21 @@ If you are looking for the source code of the [React Native Archive website](htt
 
 ### Prerequisites
 
-1.  [Git](https://git-scm.com/downloads).
-1.  [Node](https://nodejs.org/en/download/) _(version 12 or greater)_.
-1.  [Yarn](https://yarnpkg.com/lang/en/docs/install/) _(version 1.5 or greater)_.
-1.  A fork of the repo _(for any contributions)_.
-1.  A clone of the `react-native-website` repo.
+1. [Git](https://git-scm.com/downloads).
+1. [Node](https://nodejs.org/en/download/) _(version 12 or greater)_.
+1. [Yarn](https://yarnpkg.com/lang/en/docs/install/) _(version 1.5 or greater)_.
+1. A fork of the repo _(for any contributions)_.
+1. A clone of the `react-native-website` repo.
 
 ### Installation
 
-1.  `cd react-native-website` to go into the project root.
-1.  Run `yarn` to install the website's workspace dependencies.
+1. `cd react-native-website` to go into the project root.
+1. Run `yarn` to install the website's workspace dependencies.
 
 ### Running locally
 
-1.  Run `yarn start` to start the development server _(powered by [Docusaurus](https://v2.docusaurus.io))_.
-1.  Open http://localhost:3000/ site in your favorite browser.
+1. Run `yarn start` to start the development server _(powered by [Docusaurus](https://v2.docusaurus.io))_.
+1. Open <http://localhost:3000/> site in your favorite browser.
 
 ## 📖 Overview
 
@@ -119,9 +119,9 @@ This can be done by updating the `package.json` and configuration files in `scri
 
 ##### After Release
 
-1.  `cd react-native-website` to go into the project root.
-1.  `cd website` to go into the website portion of the project.
-1.  Run `yarn version:cut <newVersion>` where `<newVersion>` is the new version being released.
+1. `cd react-native-website` to go into the project root.
+1. `cd website` to go into the website portion of the project.
+1. Run `yarn version:cut <newVersion>` where `<newVersion>` is the new version being released.
 
 ## 🔧 Website configuration
 
@@ -139,21 +139,21 @@ The `showcase.json` file contains the list of users that are highlighted in the 
 
 ### Create a branch
 
-1.  `git checkout main` from any folder in your local `react-native-website` repository.
-1.  `git pull origin main` to ensure you have the latest main code.
-1.  `git checkout -b the-name-of-my-branch` to create a branch.
+1. `git checkout main` from any folder in your local `react-native-website` repository.
+1. `git pull origin main` to ensure you have the latest main code.
+1. `git checkout -b the-name-of-my-branch` to create a branch.
     > replace `the-name-of-my-branch` with a suitable name, such as `update-animations-page`
 
 ### Make the change
 
-1.  Follow the "[Running locally](#running-locally)" instructions.
-1.  Save the files and check in the browser.
-1.  Some changes may require a server restart to generate new files. (Pages in `docs` always do!)
-1.  Edits to pages in `docs` will only be visible in the latest version of the documentation, called "Next", located under the `docs/next` path.
+1. Follow the "[Running locally](#running-locally)" instructions.
+1. Save the files and check in the browser.
+1. Some changes may require a server restart to generate new files. (Pages in `docs` always do!)
+1. Edits to pages in `docs` will only be visible in the latest version of the documentation, called "Next", located under the `docs/next` path.
 
-Visit **http://localhost:3000/docs/next/YOUR-DOCS-PAGE** to see your work.
+Visit **<http://localhost:3000/docs/next/YOUR-DOCS-PAGE>** to see your work.
 
-> Visit http://localhost:3000/versions to see the list of all versions of the docs.
+> Visit <http://localhost:3000/versions> to see the list of all versions of the docs.
 
 ### Test the change
 
@@ -164,13 +164,13 @@ If possible, test any visual changes in all latest versions of the following bro
 
 ### Push it
 
-1.  Run `yarn prettier` and `yarn language:lint` in `./website` directory to ensure your changes are consistent with other files in the repo.
-1.  `git add -A && git commit -m "My message"` to stage and commit your changes.
+1. Run `yarn prettier` and `yarn language:lint` in `./website` directory to ensure your changes are consistent with other files in the repo.
+1. `git add -A && git commit -m "My message"` to stage and commit your changes.
     > replace `My message` with a commit message, such as `Fixed header logo on Android`
-1.  `git push my-fork-name the-name-of-my-branch`
-1.  Go to the [react-native-website repo](https://github.com/facebook/react-native-website) and you should see recently pushed branches.
-1.  Follow GitHub's instructions.
-1.  Describe briefly your changes (in case of visual changes, please include screenshots).
+1. `git push my-fork-name the-name-of-my-branch`
+1. Go to the [react-native-website repo](https://github.com/facebook/react-native-website) and you should see recently pushed branches.
+1. Follow GitHub's instructions.
+1. Describe briefly your changes (in case of visual changes, please include screenshots).
 
 ## 📄 License
 
