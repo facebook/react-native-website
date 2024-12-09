@@ -120,23 +120,30 @@ As with Native Modules, you can have multiple specification files in the `specs/
 The specification is used by the React Native's Codegen tools to generate platform specific interfaces and boilerplate for us. To do this, Codegen needs to know where to find our specification and what to do with it. Update your `package.json` to include:
 
 ```json package.json
-     "start": "react-native start",
-     "test": "jest"
-   },
-   // highlight-start
-   "codegenConfig": {
-     "name": "AppSpec",
-     "type": "components",
-     "jsSrcsDir": "specs",
-     "android": {
-       "javaPackageName": "com.webview"
-     }
-   },
-   // highlight-end
-   "dependencies": {
+      "start": "react-native start",
+      "test": "jest"
+    },
+    // highlight-start
+    "codegenConfig": {
+      "name": "AppSpec",
+      "type": "components",
+      "jsSrcsDir": "specs",
+      "android": {
+        "javaPackageName": "com.webview"
+      },
+      "ios": {
+        "componentProvider": {
+          "CustomWebView": "RCTWebView"
+      }
+    }
+  },
+  // highlight-end
+  "dependencies": {
 ```
 
 With everything wired up for Codegen, we need to prepare our native code to hook into our generated code.
+
+Note that for iOS, we are declaratively mapping the name of the JS component that is exported by the spec (`CustomWebView`) with the iOS class that will implement the component natively.
 
 ## 2. Building your Native Code
 
