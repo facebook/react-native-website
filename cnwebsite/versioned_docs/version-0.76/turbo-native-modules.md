@@ -20,7 +20,7 @@ import {TurboNativeModulesAndroid, TurboNativeModulesIOS} from './\_turbo-native
 让我们通过构建一个示例 Turbo 原生模块来逐步完成这些步骤。本指南的其余部分假设你已经使用以下命令创建了应用：
 
 ```shell
-npx @react-native-community/cli@latest init TurboModuleExample --version 0.76.0
+npx @react-native-community/cli init TurboModuleExample --version 0.76.0
 ```
 
 ## 本地持久存储
