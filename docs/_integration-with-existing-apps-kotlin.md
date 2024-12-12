@@ -313,11 +313,7 @@ import android.app.Application;
   @Override
   public void onCreate() {
     super.onCreate();
-+   try {
-+     SoLoader.init(this, OpenSourceMergedSoMapping.INSTANCE);
-+   } catch (IOException e) {
-+     throw new RuntimeException(e);
-+   }
++   SoLoader.init(this, OpenSourceMergedSoMapping.INSTANCE);
 +   if (BuildConfig.IS_NEW_ARCHITECTURE_ENABLED) {
 +     DefaultNewArchitectureEntryPoint.load();
 +   }
