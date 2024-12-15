@@ -13,14 +13,21 @@ The core workflow for creating an animation is to create an `Animated.Value`, ho
 
 The following example contains a `View` which will fade in and fade out based on the animated value `fadeAnim`
 
-```SnackPlayer name=Animated%20Example
-import React, {useRef} from 'react';
-import {Animated, Text, View, StyleSheet, Button} from 'react-native';
+```SnackPlayer name=Animated%20Example&supportedPlatforms=ios,android
+import React from 'react';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
+import {
+  Animated,
+  Text,
+  View,
+  StyleSheet,
+  Button,
+  useAnimatedValue,
+} from 'react-native';
 
 const App = () => {
   // fadeAnim will be used as the value for opacity. Initial Value: 0
-  const fadeAnim = useRef(new Animated.Value(0)).current;
+  const fadeAnim = useAnimatedValue(0);
 
   const fadeIn = () => {
     // Will change fadeAnim value to 1 in 5 seconds
@@ -495,7 +502,7 @@ Stops any running animation and resets the value to its original.
 
 ### `Value`
 
-Standard value class for driving animations. Typically initialized with `new Animated.Value(0);`
+Standard value class for driving animations. Typically initialized with `useAnimatedValue(0);` or `new Animated.Value(0);` in class components.
 
 You can read more about `Animated.Value` API on the separate [page](animatedvalue).
 

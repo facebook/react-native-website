@@ -37,7 +37,7 @@ const DocsRating = ({label}) => {
           Is this page useful?
           <svg
             className="i_thumbsup"
-            alt="Like"
+            aria-label="Like"
             onClick={() => giveFeedback(1)}
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 81.13 89.76">
@@ -45,7 +45,7 @@ const DocsRating = ({label}) => {
           </svg>
           <svg
             className="i_thumbsdown"
-            alt="Dislike"
+            aria-label="Dislike"
             onClick={() => giveFeedback(0)}
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 81.13 89.76">

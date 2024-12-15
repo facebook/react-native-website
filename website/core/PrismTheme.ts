@@ -5,7 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-const theme = {
+import type {ThemeConfig} from '@docusaurus/preset-classic';
+
+const theme: ThemeConfig['prism']['theme'] = {
   plain: {
     color: '#FFFFFF',
     backgroundColor: '#282C34',
@@ -123,4 +125,4 @@ const theme = {
   ],
 };
 
-module.exports = theme;
+export default theme;

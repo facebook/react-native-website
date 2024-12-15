@@ -9,7 +9,7 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import con
 
 React Native provides an in-app developer menu which offers several debugging options. You can access the Dev Menu by shaking your device or via keyboard shortcuts:
 
-- iOS Simulator: <kbd>Cmd ⌘</kbd> + <kbd>D</kbd> (or Device > Shake)
+- iOS Simulator: <kbd>Ctrl</kbd> + <kbd>Cmd ⌘</kbd> + <kbd>Z</kbd> (or Device > Shake)
 - Android emulators: <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS) or <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows and Linux)
 
 Alternatively for Android devices and emulators, you can run `adb shell input keyevent 82` in your terminal.
@@ -49,7 +49,7 @@ React Native DevTools replaces the previous Flipper, Experimental Debugger, and 
 
 We continue to offer legacy debugging methods such as Direct JSC Debugging and Remote JS Debugging (deprecated) (see [Other Debugging Methods](./other-debugging-methods)).
 
-React Native DevTools is designed for debugging React app concerns, and not to replace native tools. If you want to inspect React Native’s underlying platform layers (for example, while developing a Native Module), please use the debugging tools available in Xcode and Android Studio (see [Debugging Native Code](http://localhost:3000/docs/next/debugging-native-code)).
+React Native DevTools is designed for debugging React app concerns, and not to replace native tools. If you want to inspect React Native’s underlying platform layers (for example, while developing a Native Module), please use the debugging tools available in Xcode and Android Studio (see [Debugging Native Code](/docs/next/debugging-native-code)).
 
 Other useful links:
 

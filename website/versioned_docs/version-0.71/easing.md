@@ -59,10 +59,11 @@ import {
   Text,
   TouchableOpacity,
   View,
+  useAnimatedValue,
 } from 'react-native';
 
 const App = () => {
-  let opacity = new Animated.Value(0);
+  let opacity = useAnimatedValue(0);
 
   const animate = easing => {
     opacity.setValue(0);
@@ -203,7 +204,7 @@ export default App;
 </TabItem>
 <TabItem value="typescript">
 
-```SnackPlayer name=Easing%20Demo&ext=tsx
+```SnackPlayer name=Easing%20Demo&ext=tsx&supportedPlatforms=ios,android
 import React from 'react';
 import {
   Animated,
@@ -214,11 +215,12 @@ import {
   Text,
   TouchableOpacity,
   View,
+  useAnimatedValue,
 } from 'react-native';
 import type {EasingFunction} from 'react-native';
 
 const App = () => {
-  let opacity = new Animated.Value(0);
+  let opacity = useAnimatedValue(0);
 
   const animate = (easing: EasingFunction) => {
     opacity.setValue(0);

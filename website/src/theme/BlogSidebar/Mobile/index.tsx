@@ -9,8 +9,9 @@ import React from 'react';
 import Link from '@docusaurus/Link';
 import {NavbarSecondaryMenuFiller} from '@docusaurus/theme-common';
 import styles from './styles.module.css';
+import type {Props} from '@theme/BlogSidebar/Mobile';
 
-function BlogSidebarMobileSecondaryMenu({sidebar}) {
+function BlogSidebarMobileSecondaryMenu({sidebar}: Props) {
   let cachedYear = null;
   return (
     <ul className="menu__list blog-menu__list">

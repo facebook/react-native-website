@@ -41,12 +41,12 @@ This gives you the following layout where you'll working:
 Demo
 ├── android/app/src/main/java/com/webview
 └── ios
-└── spec
+└── specs
 ```
 
 - The `android/app/src/main/java/com/webview` folder is the folder that will contain our Android code.
 - The `ios` folder is the folder that will contain our iOS code.
-- The `spec` folder is the folder that will contain the Codegen's specification file.
+- The `specs` folder is the folder that will contain the Codegen's specification file.
 
 ## 1. Define Specification for Codegen
 
@@ -107,11 +107,11 @@ export default (codegenNativeComponent<NativeProps>(
 </TabItem>
 </Tabs>
 
-This specification is composed of three main parts, exluding the imports:
+This specification is composed of three main parts, excluding the imports:
 
 - The `WebViewScriptLoadedEvent` is a supporting data type for the data the event needs to pass from native to JavaScript.
-- The `NativeProps` which is a definition of the props that we can set on the component.
-- The `codegenNativeComponent` statement that allows us to codegenerate the code for the custom component and that defines a name for the component used to match the native implementations.
+- The `NativeProps` is a definition of the props that we can set on the component.
+- The `codegenNativeComponent` statement allows us to codegenerate the code for the custom component and that defines a name for the component used to match the native implementations.
 
 As with Native Modules, you can have multiple specification files in the `specs/` directory. For more information about the types you can use, and the platform types these map to, see the [appendix](appendix.md#codegen-typings).
 
@@ -120,27 +120,34 @@ As with Native Modules, you can have multiple specification files in the `specs/
 The specification is used by the React Native's Codegen tools to generate platform specific interfaces and boilerplate for us. To do this, Codegen needs to know where to find our specification and what to do with it. Update your `package.json` to include:
 
 ```json package.json
-     "start": "react-native start",
-     "test": "jest"
-   },
-   // highlight-start
-   "codegenConfig": {
-     "name": "AppSpec",
-     "type": "components",
-     "jsSrcsDir": "specs",
-     "android": {
-       "javaPackageName": "com.webview"
-     }
-   },
-   // highlight-end
-   "dependencies": {
+      "start": "react-native start",
+      "test": "jest"
+    },
+    // highlight-start
+    "codegenConfig": {
+      "name": "AppSpec",
+      "type": "components",
+      "jsSrcsDir": "specs",
+      "android": {
+        "javaPackageName": "com.webview"
+      },
+      "ios": {
+        "componentProvider": {
+          "CustomWebView": "RCTWebView"
+      }
+    }
+  },
+  // highlight-end
+  "dependencies": {
 ```
 
 With everything wired up for Codegen, we need to prepare our native code to hook into our generated code.
 
+Note that for iOS, we are declaratively mapping the name of the JS component that is exported by the spec (`CustomWebView`) with the iOS class that will implement the component natively.
+
 ## 2. Building your Native Code
 
-Now it's time to write the native platform code so that when React requires to render a view, te platform can create the right native view and can render it on screen.
+Now it's time to write the native platform code so that when React requires to render a view, the platform can create the right native view and can render it on screen.
 
 You should work through both the Android and iOS platforms.
 
@@ -200,7 +207,7 @@ This code creates an app that uses the new `WebView` component we created to loa
 
 The app also shows an alert when the web page is loaded.
 
-## 5. Run your App using the WebView Component
+## 4. Run your App using the WebView Component
 
 <Tabs groupId="platforms" queryString defaultValue={constants.defaultPlatform}>
 <TabItem value="android" label="Android">

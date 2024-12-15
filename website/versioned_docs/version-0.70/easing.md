@@ -43,7 +43,7 @@ The following helpers are used to modify other easing functions.
 
 ## Example
 
-```SnackPlayer name=Easing%20Demo
+```SnackPlayer name=Easing%20Demo&supportedPlatforms=ios,android
 import React from "react";
 import { Animated, Easing, SectionList, StatusBar, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 

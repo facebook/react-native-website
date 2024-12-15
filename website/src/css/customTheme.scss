@@ -33,8 +33,6 @@
   --ifm-table-head-color: var(--subtle);
   --ifm-link-hover-decoration: none;
   --ifm-navbar-background-color: var(--deepdark);
-  --ifm-transition-fast: 0;
-  --ifm-transition-slow: 0;
   --ifm-pre-line-height: 1.5;
   --ifm-tabs-padding-vertical: 6px;
   --ifm-color-warning: #ffe564;
@@ -699,10 +697,6 @@ a[class*="tagRegular"] {
     transform: rotate(180deg) scale(0.9);
   }
 
-  .clean-btn:hover {
-    background: var(--ifm-color-emphasis-800);
-  }
-
   .DocSearch-Button {
     border-radius: var(--ifm-global-radius);
     padding: 0 6px 0 10px;
@@ -955,8 +949,6 @@ aside[class^="theme-doc-sidebar-container"] {
 
 .menu__list {
   margin-bottom: 8px;
-  transition: none !important;
-  height: auto !important;
 
   &.blog-menu__list {
     font-size: 14px;
@@ -1045,12 +1037,6 @@ aside[class^="theme-doc-sidebar-container"] {
 
   .menu__list-item--collapsed .menu__list {
     margin-bottom: 0;
-  }
-}
-
-.menu__list-item.menu__list-item--collapsed {
-  .menu__list {
-    height: 0 !important;
   }
 }
 
@@ -1156,7 +1142,9 @@ button[class*="tocCollapsibleButton"] {
   padding: 1.5rem !important;
   border: 1px solid var(--ifm-color-emphasis-300) !important;
   box-shadow: none !important;
-  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out !important;
+  transition:
+    background-color 0.2s ease-in-out,
+    border-color 0.2s ease-in-out !important;
   background-color: var(--ifm-background-color);
 
   &:hover {
@@ -1320,6 +1308,12 @@ button[class*="tocCollapsibleButton"] {
 
 :root {
   --docusaurus-announcement-bar-height: auto !important;
+}
+
+@media (min-width: 997px) {
+  :root {
+    --docusaurus-announcement-bar-height: auto !important;
+  }
 }
 
 div[class*="announcementBar"][role="banner"] {

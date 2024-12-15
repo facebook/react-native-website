@@ -47,7 +47,7 @@ By default, queued tasks are executed together in a loop in one `setImmediate` b
 <TabItem value="javascript">
 
 ```SnackPlayer name=InteractionManager%20Function%20Component%20Basic%20Example&supportedPlatforms=ios,android&ext=js
-import React, {useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import {
   Alert,
   Animated,
@@ -55,6 +55,7 @@ import {
   Platform,
   StyleSheet,
   Text,
+  useAnimatedValue,
 } from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
@@ -66,7 +67,7 @@ const instructions = Platform.select({
 });
 
 const useFadeIn = (duration = 5000) => {
-  const [opacity] = useState(new Animated.Value(0));
+  const opacity = useAnimatedValue(0);
 
   // Running the animation when the component is mounted
   useEffect(() => {
@@ -128,7 +129,7 @@ export default App;
 <TabItem value="typescript">
 
 ```SnackPlayer name=InteractionManager%20Function%20Component%20Basic%20Example&supportedPlatforms=ios,android&ext=tsx
-import React, {useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import {
   Alert,
   Animated,
@@ -136,6 +137,7 @@ import {
   Platform,
   StyleSheet,
   Text,
+  useAnimatedValue,
 } from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
@@ -147,7 +149,7 @@ const instructions = Platform.select({
 });
 
 const useFadeIn = (duration = 5000) => {
-  const [opacity] = useState(new Animated.Value(0));
+  const opacity = useAnimatedValue(0);
 
   // Running the animation when the component is mounted
   useEffect(() => {

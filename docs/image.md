@@ -100,14 +100,14 @@ dependencies {
   implementation 'com.facebook.fresco:animated-base-support:1.3.0'
 
   // For animated GIF support
-  implementation 'com.facebook.fresco:animated-gif:3.1.3'
+  implementation 'com.facebook.fresco:animated-gif:3.2.0'
 
   // For WebP support, including animated WebP
-  implementation 'com.facebook.fresco:animated-webp:3.1.3'
-  implementation 'com.facebook.fresco:webpsupport:3.1.3'
+  implementation 'com.facebook.fresco:animated-webp:3.2.0'
+  implementation 'com.facebook.fresco:webpsupport:3.2.0'
 
   // For WebP support, without animations
-  implementation 'com.facebook.fresco:webpsupport:3.1.3'
+  implementation 'com.facebook.fresco:webpsupport:3.2.0'
 }
 ```
 
@@ -387,7 +387,7 @@ If you have a source image with dimensions 200x200 and destination dimensions of
 
 The image source (either a remote URL or a local file resource).
 
-This prop can also contain several remote URLs, specified together with their width and height and potentially with scale/other URI arguments. The native side will then choose the best `uri` to display based on the measured size of the image container. A `cache` property can be added to control how networked request interacts with the local cache. (For more information see [Cache Control for Images](images#cache-control-ios-only)).
+This prop can also contain several remote URLs, specified together with their width and height and potentially with scale/other URI arguments. The native side will then choose the best `uri` to display based on the measured size of the image container. A `cache` property can be added to control how networked request interacts with the local cache. (For more information see [Cache Control for Images](images#cache-control)).
 
 The currently supported formats are `png`, `jpg`, `jpeg`, `bmp`, `gif`, `webp`, `psd` (iOS only). In addition, iOS supports several RAW image formats. Refer to Apple's documentation for the current list of supported camera models (for iOS 12, see https://support.apple.com/en-ca/HT208967).
 
@@ -484,11 +484,7 @@ Abort prefetch request.
 ### `getSize()`
 
 ```tsx
-static getSize(
-  uri: string,
-  success: (width: number, height: number) => void,
-  failure?: (error: any) => void,
-): any;
+static getSize(uri: string): Promise<{width: number, height: number}>;
 ```
 
 Retrieve the width and height (in pixels) of an image prior to displaying it. This method can fail if the image cannot be found, or fails to download.
@@ -497,11 +493,9 @@ In order to retrieve the image dimensions, the image may first need to be loaded
 
 **Parameters:**
 
-| <div className="wideColumn">Name</div>                   | Type     | Description                                                                                          |
-| -------------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------- |
-| uri <div class="label basic required">Required</div>     | string   | The location of the image.                                                                           |
-| success <div class="label basic required">Required</div> | function | The function that will be called if the image was successfully found and width and height retrieved. |
-| failure                                                  | function | The function that will be called if there was an error, such as failing to retrieve the image.       |
+| <div className="wideColumn">Name</div>               | Type   | Description                |
+| ---------------------------------------------------- | ------ | -------------------------- |
+| uri <div class="label basic required">Required</div> | string | The location of the image. |
 
 ---
 
@@ -510,10 +504,8 @@ In order to retrieve the image dimensions, the image may first need to be loaded
 ```tsx
 static getSizeWithHeaders(
   uri: string,
-  headers: {[index: string]: string},
-  success: (width: number, height: number) => void,
-  failure?: (error: any) => void,
-): any;
+  headers: {[index: string]: string}
+): Promise<{width: number, height: number}>;
 ```
 
 Retrieve the width and height (in pixels) of an image prior to displaying it with the ability to provide the headers for the request. This method can fail if the image cannot be found, or fails to download. It also does not work for static image resources.
@@ -522,12 +514,10 @@ In order to retrieve the image dimensions, the image may first need to be loaded
 
 **Parameters:**
 
-| <div className="wideColumn">Name</div>                   | Type     | Description                                                                                          |
-| -------------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------- |
-| uri <div class="label basic required">Required</div>     | string   | The location of the image.                                                                           |
-| headers <div class="label basic required">Required</div> | object   | The headers for the request.                                                                         |
-| success <div class="label basic required">Required</div> | function | The function that will be called if the image was successfully found and width and height retrieved. |
-| failure                                                  | function | The function that will be called if there was an error, such as failing to retrieve the image.       |
+| <div className="wideColumn">Name</div>                   | Type   | Description                  |
+| -------------------------------------------------------- | ------ | ---------------------------- |
+| uri <div class="label basic required">Required</div>     | string | The location of the image.   |
+| headers <div class="label basic required">Required</div> | object | The headers for the request. |
 
 ---
 

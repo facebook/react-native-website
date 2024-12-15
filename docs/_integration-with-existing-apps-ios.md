@@ -467,10 +467,11 @@ class ViewController: UIViewController {
 +    button.setTitleColor(.systemBlue, for: .normal)
 +    button.setTitleColor(.blue, for: .highlighted)
 +    button.addAction(UIAction { [weak self] _ in
++      guard let self else { return }
 +      if reactViewController == nil {
 +       reactViewController = ReactViewController()
 +      }
-+      self?.present(reactViewController, animated: true)
++      present(reactViewController!, animated: true)
 +    }, for: .touchUpInside)
 +    self.view.addSubview(button)
 +

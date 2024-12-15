@@ -8,8 +8,8 @@ React Native invokes **Codegen** automatically every time an iOS or Android app 
 
 ## How does Codegen works
 
-**Codegen** is a process that is tightly coupled with a React Native app. The **Codegen** scripts live inside the `react-native` NPM package and the apps calls those scripts at build time.
+**Codegen** is a process that is tightly coupled with a React Native app. The **Codegen** scripts live inside the `react-native` NPM package and the apps call those scripts at build time.
 
 **Codegen** crawls the folders in your project, starting from a directory you specify in your `package.json`, looking for some specific JS files that contains the specification (or specs) for your custom modules and components. Spec files are JS files written in a typed dialect: React Native currently supports Flow and TypeScript.
 
-Every time **Codegen** finds a spec files, it generates the boilerplate code associated to it. **Codegen** generates some C++ glue-code and then it generates platform-specific code, using Java for Android and Objective-C++ for iOS.
+Every time **Codegen** finds a spec file, it generates the boilerplate code associated to it. **Codegen** generates some C++ glue-code and then it generates platform-specific code, using Java for Android and Objective-C++ for iOS.

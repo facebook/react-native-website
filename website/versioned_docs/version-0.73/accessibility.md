@@ -340,7 +340,7 @@ In the above example, the `yellow` layout and its descendants are completely inv
 
 Assign this property to a custom function which will be called when someone performs the "escape" gesture, which is a two finger Z shaped gesture. An escape function should move back hierarchically in the user interface. This can mean moving up or back in a navigation hierarchy or dismissing a modal user interface. If the selected element does not have an `onAccessibilityEscape` function, the system will attempt to traverse up the view hierarchy until it finds a view that does or bonk to indicate it was unable to find one.
 
-### `onAccessibilityTap`
+### `onAccessibilityTap` <div class="label ios">iOS</div>
 
 Use this property to assign a custom function to be called when someone activates an accessible element by double tapping on it while it's selected.
 
@@ -363,6 +363,7 @@ Assign this property to a custom function which will be called when someone perf
 - **img** Used when the element should be treated as an image. Can be combined with a button or link, for example.
 - **link** Used when the element should be treated as a link.
 - **list** Used to identify a list of items.
+- **listitem** Used to itentify an item in a list.
 - **menu** Used when the component is a menu of choices.
 - **menubar** Used when a component is a container of multiple menus.
 - **menuitem** Used to represent an item within a menu.

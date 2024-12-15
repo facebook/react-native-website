@@ -107,7 +107,7 @@ class NativeLocalStorageModule(reactContext: ReactApplicationContext) : NativeLo
 </TabItem>
 </Tabs>
 
-Next we need to create `NativeLocalStoragePackage`. It provides an object to register our Module in the React Native runtime, by wrapping it as a Turbo Native Package:
+Next we need to create `NativeLocalStoragePackage`. It provides an object to register our Module in the React Native runtime, by wrapping it as a Base Native Package:
 
 <Tabs groupId="android-language" queryString defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
 <TabItem value="java">
@@ -115,7 +115,7 @@ Next we need to create `NativeLocalStoragePackage`. It provides an object to reg
 ```java title="android/app/src/main/java/com/nativelocalstorage/NativeLocalStoragePackage.java"
 package com.nativelocalstorage;
 
-import com.facebook.react.TurboReactPackage;
+import com.facebook.react.BaseReactPackage;
 import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.module.model.ReactModuleInfo;
@@ -124,7 +124,7 @@ import com.facebook.react.module.model.ReactModuleInfoProvider;
 import java.util.HashMap;
 import java.util.Map;
 
-public class NativeLocalStoragePackage extends TurboReactPackage {
+public class NativeLocalStoragePackage extends BaseReactPackage {
 
   @Override
   public NativeModule getModule(String name, ReactApplicationContext reactContext) {
@@ -162,13 +162,13 @@ public class NativeLocalStoragePackage extends TurboReactPackage {
 ```kotlin title="android/app/src/main/java/com/nativelocalstorage/NativeLocalStoragePackage.kt"
 package com.nativelocalstorage
 
-import com.facebook.react.TurboReactPackage
+import com.facebook.react.BaseReactPackage
 import com.facebook.react.bridge.NativeModule
 import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.module.model.ReactModuleInfo
 import com.facebook.react.module.model.ReactModuleInfoProvider
 
-class NativeLocalStoragePackage : TurboReactPackage() {
+class NativeLocalStoragePackage : BaseReactPackage() {
 
   override fun getModule(name: String, reactContext: ReactApplicationContext): NativeModule? =
     if (name == NativeLocalStorageModule.NAME) {
@@ -200,7 +200,7 @@ Finally, we need to tell the React Native in our main application how to find th
 In this case, you add it to be returned by the [getPackages](https://github.com/facebook/react-native/blob/8d8b8c343e62115a5509e1aed62047053c2f6e39/packages/react-native/ReactAndroid/src/main/java/com/facebook/react/ReactNativeHost.java#L233) method.
 
 :::info
-Later you’ll learn how to distribute your Turbo Native Modules as [npm packages](the-new-architecture/create-module-library.md#publish-the-library-on-npm), which our build tooling will autolink for you.
+Later you’ll learn how to distribute your Native Modules as [npm packages](the-new-architecture/create-module-library.md#publish-the-library-on-npm), which our build tooling will autolink for you.
 :::
 
 <Tabs groupId="android-language" queryString defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>

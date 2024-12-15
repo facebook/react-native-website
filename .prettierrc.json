@@ -1,7 +1,7 @@
 {
   "overrides": [
     {
-      "files": "*.js",
+      "files": ["*.js", "*.jsx", "*.ts", "*.tsx"],
       "options": {
         "arrowParens": "avoid",
         "bracketSpacing": false,

@@ -5,7 +5,7 @@ title: Animated.Value
 
 Standard value for driving animations. One `Animated.Value` can drive multiple properties in a synchronized fashion, but can only be driven by one mechanism at a time. Using a new mechanism (e.g. starting a new animation, or calling `setValue`) will stop any previous ones.
 
-Typically initialized with `new Animated.Value(0);`
+Typically initialized with `useAnimatedValue(0)` or `new Animated.Value(0);` in class components.
 
 ---
 

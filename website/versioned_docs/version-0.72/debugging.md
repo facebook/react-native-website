@@ -70,7 +70,7 @@ The React Developer Tools Chrome extension does not work with React Native, but 
 :::
 
 :::note
-On Android, if the times between the debugger and device have drifted, things such as animations and event behavior might not work properly. This can be fixed by running `` adb shell "date `date +%m%d%H%M%Y.%S%3N`" ``. Root access is required if using a physical device.
+On Android, if the times between the debugger and device have drifted, things such as animations and event behavior might not work properly. This can be fixed by running ``adb shell "date `date +%m%d%H%M%Y.%S%3N`"``. Root access is required if using a physical device.
 :::
 
 ### Debugging on a physical device

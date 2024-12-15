@@ -163,9 +163,9 @@ class ReactWebView: WebView {
     eventDispatcher?.dispatchEvent(event)
   }
 
-  enum class OnScriptLoadedEventResult() {
-    success(),
-    error()
+  enum class OnScriptLoadedEventResult {
+    success,
+    error;
   }
 
   inner class OnScriptLoadedEvent(
@@ -199,7 +199,7 @@ The code then defines a helper function to actually emit an event. To emit an ev
 The last part of the file contains the definition of the data types you need to send the event:
 
 - The `OnScriptLoadedEventResult`, with the possible outcomes of the `OnScriptLoaded` event.
-- The actual ``OnScriptLoadedEvent` that needs to extend the React Native's `Event` class.
+- The actual `OnScriptLoadedEvent` that needs to extend the React Native's `Event` class.
 
 ### 3. Write the `WebViewManager`
 
@@ -351,7 +351,7 @@ This is the code for the `ReactWebViewPackage`:
 ```java title="Demo/android/src/main/java/com/webview/ReactWebViewPackage.java"
 package com.webview;
 
-import com.facebook.react.TurboReactPackage;
+import com.facebook.react.BaseReactPackage;
 import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.module.model.ReactModuleInfo;
@@ -363,7 +363,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ReactWebViewPackage extends TurboReactPackage {
+public class ReactWebViewPackage extends BaseReactPackage {
   @Override
   public List<ViewManager<?, ?>> createViewManagers(ReactApplicationContext reactContext) {
     return Collections.singletonList(new ReactWebViewManager(reactContext));
@@ -404,14 +404,14 @@ public class ReactWebViewPackage extends TurboReactPackage {
 ```kotlin title="Demo/android/src/main/java/com/webview/ReactWebView.kt"
 package com.webview
 
-import com.facebook.react.TurboReactPackage
+import com.facebook.react.BaseReactPackage
 import com.facebook.react.bridge.NativeModule
 import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.module.model.ReactModuleInfo
 import com.facebook.react.module.model.ReactModuleInfoProvider
 import com.facebook.react.uimanager.ViewManager
 
-class ReactWebViewPackage : TurboReactPackage() {
+class ReactWebViewPackage : BaseReactPackage() {
   override fun createViewManagers(reactContext: ReactApplicationContext): List<ViewManager<*, *>> {
     return listOf(ReactWebViewManager(reactContext))
   }
@@ -440,7 +440,7 @@ class ReactWebViewPackage : TurboReactPackage() {
 </TabItem>
 </Tabs>
 
-The `ReactWebViewPackage` extends the `TurboReactPackage` and implements all the methods required to properly register our component.
+The `ReactWebViewPackage` extends the `BaseReactPackage` and implements all the methods required to properly register our component.
 
 - the `createViewManagers` method is the factory method that creates the `ViewManager` that manage the custom views.
 - the `getModule` method returns the proper ViewManager depending on the View that React Native needs to render.

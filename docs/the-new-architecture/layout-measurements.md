@@ -13,8 +13,8 @@ function AComponent(children) {
   const targetRef = React.useRef(null)
 
   useLayoutEffect(() => {
-    targetRef.current?.measure(({measurements}) => {
-      //do something with the `measurements`
+    targetRef.current?.measure((x, y, width, height, pageX, pageY) => {
+      //do something with the measurements
     });
   }, [ /* add dependencies here */]);
 

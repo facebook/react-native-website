@@ -16,7 +16,7 @@ const PizzaTranslator = () => {
   return (
     <View style={{padding: 10}}>
       <TextInput
-        style={{height: 40}}
+        style={{height: 40, padding: 5}}
         placeholder="Type here to translate!"
         onChangeText={newText => setText(newText)}
         defaultValue={text}
