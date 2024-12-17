@@ -5,8 +5,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import type {Config} from '@docusaurus/types';
+import type {EditUrlFunction} from '@docusaurus/plugin-content-docs';
 import type * as Preset from '@docusaurus/preset-classic';
+import type {Config} from '@docusaurus/types';
+import path from 'path';
 
 import users from './showcase.json';
 import versions from './versions.json';
@@ -14,12 +16,42 @@ import versions from './versions.json';
 const lastVersion = versions[0];
 const copyright = `Copyright © ${new Date().getFullYear()} Meta Platforms, Inc.`;
 
+export interface EditUrlButton {
+  label: string;
+  href: string;
+}
+
 const commonDocsOptions = {
   breadcrumbs: false,
   showLastUpdateAuthor: false,
   showLastUpdateTime: true,
-  editUrl:
-    'https://github.com/facebook/react-native-website/blob/main/website/',
+  editUrl: (options => {
+    const baseUrl =
+      'https://github.com/facebook/react-native-website/edit/main';
+    const nextReleasePath = `docs/${options.docPath}`;
+    const buttons: EditUrlButton[] = [
+      {
+        label: 'Edit page for next release',
+        href: `${baseUrl}/${nextReleasePath}`,
+      },
+    ];
+    if (options.version !== 'current') {
+      const label =
+        options.version === lastVersion
+          ? 'Edit page for current release'
+          : `Edit page for ${options.version} release`;
+      const thisVersionPath = path.posix.join(
+        'website',
+        options.versionDocsDirPath,
+        options.docPath
+      );
+      buttons.push({
+        label,
+        href: `${baseUrl}/${thisVersionPath}`,
+      });
+    }
+    return JSON.stringify(buttons);
+  }) as EditUrlFunction,
   remarkPlugins: [require('@react-native-website/remark-snackplayer')],
 };
 
