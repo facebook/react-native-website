@@ -10,7 +10,7 @@
 const {execSync} = require('child_process');
 const {promises: fs} = require('fs');
 const path = require('path');
-const glob = require('glob-promise');
+const glob = require('glob');
 
 /**
  * The root document to search for documents
@@ -74,7 +74,7 @@ async function lintExamples({command, args, extension, writeBack}) {
  * @param extension extension to treat the example as if it does not specify
  */
 async function extractExamples(extension) {
-  const documents = await glob('**/*.md', {
+  const documents = await glob.glob('**/*.md', {
     cwd: documentsRoot,
     absolute: true,
   });
