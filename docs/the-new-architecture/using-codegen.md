@@ -49,7 +49,7 @@ npx @react-native-community/cli@latest init SampleApp --version 0.76.0
         ],
         "RCTImageDataDecoder": [
           "<iOS-class-conforming-to-RCTImageDataDecoder>",
-          // we don't have a good example for this, but it works in the same way. Pass the name of the class that implements the RCTImageDataDecoder. It must be a Native Modules.
+          // we don't have a good example for this, but it works in the same way. Pass the name of the class that implements the RCTImageDataDecoder. It must be a Native Module.
         ]
       },
       "componentProvider": {
