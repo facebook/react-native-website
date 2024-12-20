@@ -18,6 +18,15 @@ The rest of this guide assume that you have created your application running the
 npx @react-native-community/cli@latest init SampleApp --version 0.76.0
 ```
 
+:::danger
+We are aware of some issues that are preventing pure C++ Modules to work well on Android, when developed locally in the app.
+Pure C++ modules consumed as external libraries works well on Android.
+
+These issues started from version 0.76.2 and are still persisting in version 0.76.5.
+
+We found the root cause for the issue (see [#48298](https://github.com/facebook/react-native/issues/48298) and [#48340](https://github.com/facebook/react-native/pull/48340)), and we are aiming to fix in 0.76.6.
+:::
+
 ## 1. Create the JS specs
 
 Pure C++ Turbo Native Modules are Turbo Native Modules. They needs a specification file (also called spec file) so that Codegen can create the scaffolding code for us. The specification file is also what we use to access the Turbo Native Module in JS.
