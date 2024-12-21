@@ -22,7 +22,7 @@ import com.facebook.react.bridge.ReactApplicationContext;
 
 public class NativeLocalStorageModule extends NativeLocalStorageSpec {
 
-  private static final String NAME = "NativeLocalStorage";
+  public static final String NAME = "NativeLocalStorage";
 
   public NativeLocalStorageModule(ReactApplicationContext reactContext) {
     super(reactContext);
