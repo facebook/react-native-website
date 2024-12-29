@@ -335,7 +335,7 @@ It then overrides the `getName` function, which must return the same name used i
 
 The `createViewInstance` function is responsible to instantiate a new `ReactWebView`.
 
-Then, the ViewManager needs to define how all the React's compnoents props will update the native view. In the example, you need to decide how to handle the `sourceURL` property that React will set on the `WebView`.
+Then, the ViewManager needs to define how all the React's components props will update the native view. In the example, you need to decide how to handle the `sourceURL` property that React will set on the `WebView`.
 
 Finally, if the component can emit an event, you need to map the event name by overriding the `getExportedCustomBubblingEventTypeConstants` for bubbling events, or the `getExportedCustomDirectEventTypeConstants` for direct events.
 
