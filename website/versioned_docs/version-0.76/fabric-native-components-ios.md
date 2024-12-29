@@ -29,7 +29,7 @@ You should be careful about committing generated code to your repository. Genera
 
 ### 3. Write the `RCTWebView`
 
-We need to prepare your iOS project using Xcode by completeing these **5 steps**:
+We need to prepare your iOS project using Xcode by completing these **5 steps**:
 
 1. Open the CocoPods generated Xcode Workspace:
 
@@ -230,7 +230,7 @@ Update the `AppDelegate.mm` to make your application aware of our custom WebView
 @end
 ```
 
-This code override the `thirdPartyFabricComponents` method by obtainig a mutable copy of the dictionary of third party's components coming from other sources, like third party libraries.
+This code override the `thirdPartyFabricComponents` method by obtaining a mutable copy of the dictionary of third party's components coming from other sources, like third party libraries.
 
 It then adds an entry to the dictionary with the name used in the Codegen specification file. In this way, when React requires to load a component with name `CustomWebView`, React Native will instantiate a `RCTWebView`.
 
@@ -239,7 +239,7 @@ Finally, it returns the new dictionary.
 #### Add WebKit framework
 
 :::note
-This step is only required because we are creating a Web view. Web components on iOS needs to be linked againt the WebKit framework provided by Apple. If your component doesn't need to access web-specific features, you can skip this step.
+This step is only required because we are creating a Web view. Web components on iOS needs to be linked against the WebKit framework provided by Apple. If your component doesn't need to access web-specific features, you can skip this step.
 :::
 
 A web view requires access to some features that Apple provides through one of the frameworks shipped with Xcode and the devices: WebKit.
