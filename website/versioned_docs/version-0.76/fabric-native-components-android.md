@@ -401,7 +401,7 @@ public class ReactWebViewPackage extends TurboReactPackage {
 </TabItem>
 <TabItem value="kotlin">
 
-```kotlin title="Demo/android/src/main/java/com/webview/ReactWebView.kt"
+```kotlin title="Demo/android/src/main/java/com/webview/ReactWebViewPackage.kt"
 package com.webview
 
 import com.facebook.react.TurboReactPackage
