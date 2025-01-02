@@ -7,7 +7,7 @@
 
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
-import type * as pluginContentDocs from '@docusaurus/plugin-content-docs';
+import type * as PluginContentDocs from '@docusaurus/plugin-content-docs';
 
 import users from './showcase.json';
 import versions from './versions.json';
@@ -127,7 +127,7 @@ const config: Config = {
         routeBasePath: '/architecture',
         sidebarPath: require.resolve('./sidebarsArchitecture'),
         ...commonDocsOptions,
-      } satisfies pluginContentDocs.Options,
+      } satisfies PluginContentDocs.Options,
     ],
     [
       'content-docs',
@@ -137,7 +137,7 @@ const config: Config = {
         routeBasePath: '/contributing',
         sidebarPath: require.resolve('./sidebarsContributing'),
         ...commonDocsOptions,
-      } satisfies pluginContentDocs.Options,
+      } satisfies PluginContentDocs.Options,
     ],
     [
       'content-docs',
@@ -147,7 +147,7 @@ const config: Config = {
         routeBasePath: '/community',
         sidebarPath: require.resolve('./sidebarsCommunity'),
         ...commonDocsOptions,
-      } satisfies pluginContentDocs.Options,
+      } satisfies PluginContentDocs.Options,
     ],
     [
       '@docusaurus/plugin-pwa',
