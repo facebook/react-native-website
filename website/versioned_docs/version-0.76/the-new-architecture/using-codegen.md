@@ -82,7 +82,7 @@ The rest of this guide assumes that you have a Native Turbo Module, a Native Fab
 
 ### Android
 
-**Codegen** for Android is integrated with the React Native Gradle Plugin (RNGP). The RNGP contains a task that can be invoked that reads the configurations defined in the `package.json` file and execute **Codegen**. To run the gradle task, first navigate inside the `android`folder of your project. Then run:
+**Codegen** for Android is integrated with the React Native Gradle Plugin (RNGP). The RNGP contains a task that can be invoked that reads the configurations defined in the `package.json` file and execute **Codegen**. To run the gradle task, first navigate inside the `android` folder of your project. Then run:
 
 ```bash
 ./gradlew generateCodegenArtifactsFromSchema
