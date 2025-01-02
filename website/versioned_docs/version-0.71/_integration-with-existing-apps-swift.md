@@ -93,7 +93,7 @@ pod init
 
 The `Podfile` will contain a boilerplate setup that you will tweak for your integration purposes.
 
-> The `Podfile` version changes depending on your version of `react-native`. Refer to <https://react-native-community.github.io/upgrade-helper/> for the specific version of `Podfile` you should be using.
+> The `Podfile` version changes depending on your version of `react-native`. Refer to https://react-native-community.github.io/upgrade-helper/ for the specific version of `Podfile` you should be using.
 
 Ultimately, your `Podfile` should look something similar to this:
 [Podfile Template](https://github.com/facebook/react-native/blob/0.71-stable/template/ios/Podfile)
