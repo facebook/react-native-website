@@ -7,6 +7,7 @@
 
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import type * as pluginContentDocs from '@docusaurus/plugin-content-docs';
 
 import users from './showcase.json';
 import versions from './versions.json';
@@ -120,36 +121,33 @@ const config: Config = {
     'docusaurus-plugin-sass',
     [
       'content-docs',
-      /** @type {import('@docusaurus/plugin-content-docs').Options} */
       {
         id: 'architecture',
         path: 'architecture',
         routeBasePath: '/architecture',
         sidebarPath: require.resolve('./sidebarsArchitecture'),
         ...commonDocsOptions,
-      },
+      } satisfies pluginContentDocs.Options,
     ],
     [
       'content-docs',
-      /** @type {import('@docusaurus/plugin-content-docs').Options} */
       {
         id: 'contributing',
         path: 'contributing',
         routeBasePath: '/contributing',
         sidebarPath: require.resolve('./sidebarsContributing'),
         ...commonDocsOptions,
-      },
+      } satisfies pluginContentDocs.Options,
     ],
     [
       'content-docs',
-      /** @type {import('@docusaurus/plugin-content-docs').Options} */
       {
         id: 'community',
         path: 'community',
         routeBasePath: '/community',
         sidebarPath: require.resolve('./sidebarsCommunity'),
         ...commonDocsOptions,
-      },
+      } satisfies pluginContentDocs.Options,
     ],
     [
       '@docusaurus/plugin-pwa',
