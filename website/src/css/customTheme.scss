@@ -1102,20 +1102,19 @@ div[class^="tableOfContents"] {
     font-weight: 500;
     margin-left: -16px;
     padding-left: 12px;
-    color: var(--ifm-font-color-base);
-    border-left: 4px solid var(--brand);
+    color: var(--ifm-link-color);
+    border-left: 4px solid var(--ifm-link-color);
 
     code {
-      font-weight: 600;
-      color: var(--ifm-font-color-base);
-      white-space: nowrap;
+      color: var(--ifm-link-color);
+      font-weight: 900;
     }
 
     &:hover {
-      color: var(--ifm-font-color-base);
+      color: var(--ifm-link-color);
 
       code {
-        color: var(--ifm-font-color-base);
+        color: var(--ifm-link-color);
       }
     }
   }
