@@ -30,17 +30,15 @@
   --ifm-code-border-radius: 3px;
   --ifm-blockquote-color: var(--ifm-font-color-base);
   --ifm-blockquote-font-size: 16px;
+  --ifm-blockquote-border-radius: var(--ifm-global-radius);
   --ifm-table-head-color: var(--subtle);
   --ifm-link-hover-decoration: none;
   --ifm-navbar-background-color: var(--deepdark);
   --ifm-pre-line-height: 1.5;
   --ifm-tabs-padding-vertical: 6px;
   --ifm-color-warning: #ffe564;
-  --ifm-alert-border-width: 0;
-  --ifm-alert-border-radius: 0;
   --ifm-alert-color: var(--ifm-font-color-base);
   --ifm-pagination-nav-color-hover: var(--ifm-color-emphasis-300);
-  --ifm-table-border-width: 0.005rem;
   --ifm-navbar-sidebar-width: 100%;
   --ifm-hr-border-color: var(--docusaurus-collapse-button-bg-hover);
   --docusaurus-blog-social-icon-size: 16px;
@@ -268,6 +266,7 @@ hr {
     background-color: var(--rn-note-background);
     border-left: 8px solid var(--ifm-color-warning);
     padding: 15px 30px 15px 15px;
+    border-radius: var(--ifm-blockquote-border-radius);
 
     code {
       background-color: rgba(0, 0, 0, 0.07);
@@ -1102,20 +1101,19 @@ div[class^="tableOfContents"] {
     font-weight: 500;
     margin-left: -16px;
     padding-left: 12px;
-    color: var(--ifm-font-color-base);
-    border-left: 4px solid var(--brand);
+    color: var(--ifm-link-color);
+    border-left: 4px solid var(--ifm-link-color);
 
     code {
-      font-weight: 600;
-      color: var(--ifm-font-color-base);
-      white-space: nowrap;
+      color: var(--ifm-link-color);
+      font-weight: 900;
     }
 
     &:hover {
-      color: var(--ifm-font-color-base);
+      color: var(--ifm-link-color);
 
       code {
-        color: var(--ifm-font-color-base);
+        color: var(--ifm-link-color);
       }
     }
   }
@@ -1402,6 +1400,7 @@ div[class*="announcementBarContent"] {
   padding: 24px 48px 24px 24px;
   margin-bottom: 24px;
   border-left: 8px solid #6170af;
+  border-radius: var(--ifm-alert-border-radius);
 
   h2,
   h3 {
