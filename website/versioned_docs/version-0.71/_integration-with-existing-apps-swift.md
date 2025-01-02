@@ -38,7 +38,7 @@ Next, make sure you have [installed the yarn package manager](https://yarnpkg.co
 Install the `react` and `react-native` packages. Open a terminal or command prompt, then navigate to the directory with your `package.json` file and run:
 
 ```shell
-$ yarn add react-native
+yarn add react-native
 ```
 
 This will print a message similar to the following (scroll up in the yarn output to see it):
@@ -48,7 +48,7 @@ This will print a message similar to the following (scroll up in the yarn output
 This is OK, it means we also need to install React:
 
 ```shell
-$ yarn add react@version_printed_above
+yarn add react@version_printed_above
 ```
 
 Yarn has created a new `/node_modules` folder. This folder stores all the JavaScript dependencies required to build your project.
@@ -62,7 +62,7 @@ Add `node_modules/` to your `.gitignore` file.
 We recommend installing CocoaPods using [Homebrew](http://brew.sh/).
 
 ```shell
-$ brew install cocoapods
+brew install cocoapods
 ```
 
 > It is technically possible not to use CocoaPods, but that would require manual library and linker additions that would overly complicate this process.
@@ -88,12 +88,12 @@ The list of supported `subspec`s is available in [`/node_modules/react-native/Re
 You can specify which `subspec`s your app will depend on in a `Podfile` file. The easiest way to create a `Podfile` is by running the CocoaPods `init` command in the `/ios` subfolder of your project:
 
 ```shell
-$ pod init
+pod init
 ```
 
 The `Podfile` will contain a boilerplate setup that you will tweak for your integration purposes.
 
-> The `Podfile` version changes depending on your version of `react-native`. Refer to https://react-native-community.github.io/upgrade-helper/ for the specific version of `Podfile` you should be using.
+> The `Podfile` version changes depending on your version of `react-native`. Refer to <https://react-native-community.github.io/upgrade-helper/> for the specific version of `Podfile` you should be using.
 
 Ultimately, your `Podfile` should look something similar to this:
 [Podfile Template](https://github.com/facebook/react-native/blob/0.71-stable/template/ios/Podfile)
@@ -101,7 +101,7 @@ Ultimately, your `Podfile` should look something similar to this:
 After you have created your `Podfile`, you are ready to install the React Native pod.
 
 ```shell
-$ pod install
+pod install
 ```
 
 You should see output such as:
@@ -250,7 +250,7 @@ Wire up the new link in the main menu to the newly added event handler method.
 
 ##### 3. Window Reference
 
-Add an window reference to your AppDelegate.swift file. Ultimately, your AppDelegate should look something similar to this:
+Add a window reference to your AppDelegate.swift file. Ultimately, your AppDelegate should look something similar to this:
 
 ```swift
 import UIKit
@@ -299,7 +299,7 @@ Apple has blocked implicit cleartext HTTP resource loading. So we need to add th
 To run your app, you need to first start the development server. To do this, run the following command in the root directory of your React Native project:
 
 ```shell
-$ npm start
+npm start
 ```
 
 ##### 3. Run the app

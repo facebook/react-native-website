@@ -22,7 +22,7 @@ The first step for debugging this jank is to answer the fundamental question of 
 First, connect a device that exhibits the stuttering you want to investigate to your computer via USB and get it to the point right before the navigation/animation you want to profile. Run `systrace` as follows:
 
 ```shell
-$ <path_to_android_sdk>/platform-tools/systrace/systrace.py --time=10 -o trace.html sched gfx view -a <your_package_name>
+<path_to_android_sdk>/platform-tools/systrace/systrace.py --time=10 -o trace.html sched gfx view -a <your_package_name>
 ```
 
 A quick breakdown of this command:
@@ -49,7 +49,7 @@ If your trace .html file isn't opening correctly, check your browser console for
 
 Since `Object.observe` was deprecated in recent browsers, you may have to open the file from the Google Chrome Tracing tool. You can do so by:
 
-- Opening tab in chrome chrome://tracing
+- Opening tab in `chrome://tracing`
 - Selecting load
 - Selecting the html file generated from the previous command.
 
