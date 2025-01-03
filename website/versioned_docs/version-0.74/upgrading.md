@@ -19,7 +19,7 @@ Because typical React Native projects are essentially made up of an Android proj
 
 You first need to select from and to which version you wish to upgrade, by default the latest major versions are selected. After selecting you can click the button "Show me how to upgrade".
 
-💡 Major updates will show an "useful content" section on the top with links to help you out when upgrading.
+💡 Major updates will show a "useful content" section on the top with links to help you out when upgrading.
 
 :::tip
 Or you can run the `npx react-native upgrade`, which will automatically check your current version and the latest version available and will show you the link to the Upgrade Helper page with the versions already selected.

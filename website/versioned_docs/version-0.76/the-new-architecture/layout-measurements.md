@@ -38,8 +38,8 @@ Determines the location on screen (`x` and `y`), `width`, and `height` in the vi
 - `y`: the `y` coordinate of the origin (top-left corner) of the measured view in the viewport.
 - `width`: the `width` of the view.
 - `height`: the `height` of the view.
-- `pageX`: the `x` coordinate of the view in the viewport (typically the the whole screen).
-- `pageY`: the `y` coordinate of the view in the viewport (typically the the whole screen).
+- `pageX`: the `x` coordinate of the view in the viewport (typically the whole screen).
+- `pageY`: the `y` coordinate of the view in the viewport (typically the whole screen).
 
 Also the `width` and `height` returned by `measure()` are the `width` and `height` of the component in the viewport.
 

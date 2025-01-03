@@ -187,7 +187,7 @@ The `ReactWebView` extends the Android `WebView` so you can reuse all the proper
 
 The class defines the three Android constructors but defers their actual implementation to the private `configureComponent` function. This function takes care of initializing all the components specific properties: in this case you are setting the layout of the `WebView` and you are defining the `WebClient` that you use to customize the behavior of the `WebView`. In this code, the `ReactWebView` emits an event when the page finishes loading, by implementing the `WebClient`'s `onPageFinished` method.
 
-The code then define an helper function to actually emit an event. To emit an event, you have to:
+The code then define a helper function to actually emit an event. To emit an event, you have to:
 
 - grab a reference to the `ReactContext`;
 - retrieve the `surfaceId` of the view that you are presenting;

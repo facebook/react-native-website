@@ -93,7 +93,7 @@ That's it! You have moved all the required code out of your app and in a separat
 
 ## Testing your Library
 
-The `create-react-native-library` comes with an useful example application that is already configured to work properly with the library. This is a great way to test it!
+The `create-react-native-library` comes with a useful example application that is already configured to work properly with the library. This is a great way to test it!
 
 If you look at the `example` folder, you can find the same structure of a new React Native application that you can create from the [`react-native-community/template`](https://github.com/react-native-community/template).
 

@@ -276,7 +276,7 @@ Wire up the new link in the main menu to the newly added event handler method.
 
 ##### 3. Window Reference
 
-Add an window reference to your AppDelegate.swift file. Ultimately, your AppDelegate should look something similar to this:
+Add a window reference to your AppDelegate.swift file. Ultimately, your AppDelegate should look something similar to this:
 
 ```swift
 import UIKit
