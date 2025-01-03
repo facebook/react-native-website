@@ -19,37 +19,37 @@ const logo = {
 
 const App = () => (
   <ScrollView>
-    <Text style={{fontSize: 96}}>Scroll me plz</Text>
+    <Text style={{fontSize: 96}}>Scroll me Untill..</Text>
     <Image source={logo} />
     <Image source={logo} />
     <Image source={logo} />
     <Image source={logo} />
     <Image source={logo} />
-    <Text style={{fontSize: 96}}>If you like</Text>
+    <Text style={{fontSize: 96}}>Your veins are...</Text>
     <Image source={logo} />
     <Image source={logo} />
     <Image source={logo} />
     <Image source={logo} />
     <Image source={logo} />
-    <Text style={{fontSize: 96}}>Scrolling down</Text>
+    <Text style={{fontSize: 96}}>Filled with the...</Text>
     <Image source={logo} />
     <Image source={logo} />
     <Image source={logo} />
     <Image source={logo} />
     <Image source={logo} />
-    <Text style={{fontSize: 96}}>What's the best</Text>
+    <Text style={{fontSize: 96}}>ScrollView Code</Text>
     <Image source={logo} />
     <Image source={logo} />
     <Image source={logo} />
     <Image source={logo} />
     <Image source={logo} />
-    <Text style={{fontSize: 96}}>Framework around?</Text>
+    <Text style={{fontSize: 96}}>Carry On...</Text>
     <Image source={logo} />
     <Image source={logo} />
     <Image source={logo} />
     <Image source={logo} />
     <Image source={logo} />
-    <Text style={{fontSize: 80}}>React Native</Text>
+    <Text style={{fontSize: 80}}>There You GO!</Text>
   </ScrollView>
 );
 
