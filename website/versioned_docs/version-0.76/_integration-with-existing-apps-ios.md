@@ -349,7 +349,6 @@ To achieve this, we have to modify the `AppDelegate.swift`
 ```diff title="AppDelegate.swift"
 import UIKit
 +import React_RCTAppDelegate
-+import React_RCTAppDelegate
 
 @main
 -class AppDelegate: UIResponder, UIApplicationDelegate {
