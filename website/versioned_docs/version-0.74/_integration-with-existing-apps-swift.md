@@ -88,7 +88,7 @@ Add `node_modules/` to your `.gitignore` file.
 We recommend installing CocoaPods using [Homebrew](https://brew.sh/).
 
 ```shell
-brew install cocoapods
+$ brew install cocoapods
 ```
 
 > It is technically possible not to use CocoaPods, but that would require manual library and linker additions that would overly complicate this process.
@@ -114,7 +114,7 @@ The list of supported `subspec`s is available in [`/node_modules/react-native/Re
 You can specify which `subspec`s your app will depend on in a `Podfile` file. The easiest way to create a `Podfile` is by running the CocoaPods `init` command in the `/ios` subfolder of your project:
 
 ```shell
-pod init
+$ pod init
 ```
 
 The `Podfile` will contain a boilerplate setup that you will tweak for your integration purposes.
@@ -127,7 +127,7 @@ Ultimately, your `Podfile` should look something similar to this:
 After you have created your `Podfile`, you are ready to install the React Native pod.
 
 ```shell
-pod install
+$ pod install
 ```
 
 You should see output such as:
