@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-export default function languageAsTitleRemarkPlugin() {
+export default function codeblockLanguageAsTitleRemarkPlugin() {
   /**
    * @param {import('mdast').Root} root - The root node of the Markdown AST
    * @returns {Promise<void>}

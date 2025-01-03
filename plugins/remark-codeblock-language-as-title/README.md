@@ -1,4 +1,4 @@
-# languageAsTitleRemarkPlugin
+# codeblockLanguageAsTitleRemarkPlugin
 
 A custom [remark](https://github.com/remarkjs/remark) plugin that automatically sets the `title` metadata for code blocks in Markdown files based on the block's language.
 
