@@ -20,7 +20,10 @@ const commonDocsOptions = {
   showLastUpdateTime: true,
   editUrl:
     'https://github.com/facebook/react-native-website/blob/main/website/',
-  remarkPlugins: [require('@react-native-website/remark-snackplayer')],
+  remarkPlugins: [
+    require('@react-native-website/remark-snackplayer'),
+    require('@react-native-website/remark-codeblock-language-as-title'),
+  ],
 };
 
 const isDeployPreview = process.env.PREVIEW_DEPLOY === 'true';
