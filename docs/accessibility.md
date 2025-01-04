@@ -27,6 +27,42 @@ On Android, `accessible={true}` property for a react-native View will be transla
 
 In the above example, accessibility focus is only available on the parent view with the `accessible` property, and not individually for 'text one' and 'text two'.
 
+```jsx
+<View accessible={true}>
+  <Text accessible={true}>text one</Text>
+  <Text>text two</Text>
+</View>
+```
+
+<div class="label ios basic">iOS</div>
+
+VoiceOver can't get accessibility focus separately on 'text one' and 'text two' in the above example. Instead, it focuses on the parent view with 'accessible' property.
+
+<div class="label android basic">Android</div>
+
+In the above example, the TalkBack screenreader focuses on the parent view with the 'accessible' property and uses the unfocusable child Text with the text "text two" as a label. The focus will then move to read the second focusable child Text with the text "text one".
+
+```jsx
+<View
+  accessible={true}
+  accessibilityLabel="a couple of text views">
+  <Text onPress={() => console.log('text one pressed')}>
+    text One
+  </Text>
+  <Text onPress={() => console.log('text two pressed')}>
+    text Two
+  </Text>
+</View>
+```
+
+<div class="label ios basic">iOS</div>
+
+VoiceOver can't get accessibility focus separately on 'text one' and 'text two' in the above example. Instead, it focuses on the parent view with 'accessible' property.
+
+<div class="label android basic">Android</div>
+
+In the above example, the TalkBack screenreader focuses on the parent view with the 'accessible' property and announces the accessibilityLabel 'a couple of text views'. The focus then moves to the next focusable child, the Text with 'text one' and 'text two'. Android elements with an onPress or onLongPress handler are focusable.
+
 ### `accessibilityLabel`
 
 When a view is marked as accessible, it is a good practice to set an `accessibilityLabel` on the view, so that people who use VoiceOver or TalkBack know what element they have selected. A screen reader will verbalize this string when the associated element is selected.
@@ -142,7 +178,7 @@ In the above example method `addOne` changes the state variable `count`. When th
 - **image** Used when the element should be treated as an image. Can be combined with a button or link.
 - **imagebutton** Used when the element should be treated as a button and is also an image.
 - **keyboardkey** Used when the element acts as a keyboard key.
-- **link** Used when the element should be treated as a link.
+- **link** Used when the element should be treated as a link. Nested Text with accessibilityRole link is only supported on Android. It does not support inline images and importantForAccessibility="no".
 - **menu** Used when the component is a menu of choices.
 - **menubar** Used when a component is a container of multiple menus.
 - **menuitem** Used to represent an item within a menu.
