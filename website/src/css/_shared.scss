@@ -50,30 +50,3 @@
     color: var(--ifm-link-color);
   }
 }
-
-%scrollbar-style {
-  &::-webkit-scrollbar {
-    width: 7px;
-    height: 7px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 10px;
-  }
-
-  &::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 10px;
-  }
-}
-
-%scrollbar-style-dark {
-  &::-webkit-scrollbar-track {
-    background: #141414;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background: var(--ifm-color-emphasis-200);
-  }
-}

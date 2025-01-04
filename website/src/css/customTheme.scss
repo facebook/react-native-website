@@ -422,10 +422,6 @@ hr {
     background-color: var(--ifm-color-emphasis-300);
   }
 
-  .prism-code {
-    @extend %scrollbar-style;
-  }
-
   .tabs {
     border-bottom: 1px solid var(--ifm-table-border-color);
     color: var(--ifm-font-color-base);
@@ -461,10 +457,6 @@ html[data-theme="dark"] {
       a code {
         background-color: transparent;
       }
-    }
-
-    .prism-code {
-      @extend %scrollbar-style-dark;
     }
 
     div[class*="codeBlockTitle"] {
@@ -558,12 +550,6 @@ html[data-theme="dark"] .alert--secondary {
   .margin-top--md {
     margin-top: 0.33rem !important;
   }
-}
-
-/* Sidebars */
-
-html[data-theme="dark"] {
-  @extend %scrollbar-style-dark;
 }
 
 /* Blog */
@@ -857,10 +843,6 @@ html[data-theme="dark"] {
 aside[class^="theme-doc-sidebar-container"] {
   margin-right: 16px;
 
-  .thin-scrollbar {
-    @extend %scrollbar-style;
-  }
-
   .menu__list .menu__list {
     margin-top: 0;
   }
@@ -1045,8 +1027,6 @@ aside[class^="theme-doc-sidebar-container"] {
 }
 
 html[data-theme="dark"] .menu {
-  @extend %scrollbar-style-dark;
-
   .menu__list > .menu__list-item > .menu__link--sublist {
     color: var(--ifm-color-emphasis-400);
   }
@@ -1061,8 +1041,6 @@ html[data-theme="dark"] .menu {
 div[class^="tableOfContents"] {
   min-width: 100%;
   width: 100%;
-
-  @extend %scrollbar-style;
 }
 
 .table-of-contents {
@@ -1118,10 +1096,6 @@ div[class^="tableOfContents"] {
       }
     }
   }
-}
-
-html[data-theme="dark"] div[class^="tableOfContents"] {
-  @extend %scrollbar-style-dark;
 }
 
 button[class*="tocCollapsibleButton"] {
@@ -1901,18 +1875,6 @@ html[data-theme="dark"] .docsRating {
 
   article.margin-bottom--xl {
     margin-bottom: 2.5rem !important;
-  }
-
-  aside nav {
-    @extend %scrollbar-style;
-  }
-}
-
-html[data-theme="dark"].blog-wrapper {
-  .main-wrapper {
-    aside nav {
-      @extend %scrollbar-style-dark;
-    }
   }
 }
 
