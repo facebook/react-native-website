@@ -81,10 +81,10 @@ function Community() {
                 <li key={i} className="item">
                   {app.infoLink ? (
                     <a href={app.infoLink}>
-                      <img src={imgSource} alt={app.name} />
+                      <img src={imgSource} alt={app.name} loading="lazy" />
                     </a>
                   ) : (
-                    <img src={imgSource} alt={app.name} />
+                    <img src={imgSource} alt={app.name} loading="lazy" />
                   )}
                 </li>
               );
