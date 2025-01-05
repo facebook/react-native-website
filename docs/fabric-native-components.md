@@ -224,4 +224,4 @@ yarn run ios
 
 |                                      Android                                      |                                     iOS                                      |
 | :-------------------------------------------------------------------------------: | :--------------------------------------------------------------------------: |
-| <img style={{ "max-height": "600px" }} src="/docs/assets/webview-android.webp" /> | <img style={{"max-height": "600px" }} src="/docs/assets/webview-ios.webp" /> |
+| <img loading="lazy" style={{ "max-height": "600px" }} src="/docs/assets/webview-android.webp" /> | <img loading="lazy" style={{"max-height": "600px" }} src="/docs/assets/webview-ios.webp" /> |

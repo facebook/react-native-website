@@ -19,7 +19,7 @@ In the following guide you will create a native module, `CalendarModule`, that w
 To get started, open up the Android project within your React Native application in Android Studio. You can find your Android project here within a React Native app:
 
 <figure>
-  <img src="/docs/assets/native-modules-android-open-project.png" width="500" alt="Image of opening up an Android project within a React Native app inside of Android Studio." />
+  <img loading="lazy" src="/docs/assets/native-modules-android-open-project.png" width="500" alt="Image of opening up an Android project within a React Native app inside of Android Studio." />
   <figcaption>Image of where you can find your Android project</figcaption>
 </figure>
 
@@ -32,7 +32,7 @@ We also recommend enabling [Gradle Daemon](https://docs.gradle.org/2.9/userguide
 The first step is to create the (`CalendarModule.java` or `CalendarModule.kt`) Java/Kotlin file inside `android/app/src/main/java/com/your-app-name/` folder (the folder is the same for both Kotlin and Java). This Java/Kotlin file will contain your native module Java/Kotlin class.
 
 <figure>
-  <img src="/docs/assets/native-modules-android-add-class.png" width="700" alt="Image of adding a class called CalendarModule.java within the Android Studio." />
+  <img loading="lazy" src="/docs/assets/native-modules-android-add-class.png" width="700" alt="Image of adding a class called CalendarModule.java within the Android Studio." />
   <figcaption>Image of how to add the CalendarModuleClass</figcaption>
 </figure>
 
@@ -379,7 +379,7 @@ As you work through these guides and iterate on your native module, you will nee
 You should now be able to invoke your `createCalendarEvent()` method on your native module in the app. In our example this occurs by pressing the `NewModuleButton`. You can confirm this by viewing the log you set up in your `createCalendarEvent()` method. You can follow [these steps](https://developer.android.com/studio/debug/am-logcat.html) to view ADB logs in your app. You should then be able to search for your `Log.d` message (in our example “Create event called with name: testName and location: testLocation”) and see your message logged each time you invoke your native module method.
 
 <figure>
-  <img src="/docs/assets/native-modules-android-logs.png" width="1000" alt="Image of logs." />
+  <img loading="lazy" src="/docs/assets/native-modules-android-logs.png" width="1000" alt="Image of logs." />
   <figcaption>Image of ADB logs in Android Studio</figcaption>
 </figure>
 
@@ -790,7 +790,7 @@ promise.reject("Create Event error", "Error parsing date", e)
 Error message in React Native App when promise is rejected:
 
 <figure>
-  <img src="/docs/assets/native-modules-android-errorscreen.png" width="200" alt="Image of error message in React Native app." />
+  <img loading="lazy" src="/docs/assets/native-modules-android-errorscreen.png" width="200" alt="Image of error message in React Native app." />
   <figcaption>Image of error message</figcaption>
 </figure>
 

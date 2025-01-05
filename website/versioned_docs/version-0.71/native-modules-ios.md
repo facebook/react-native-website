@@ -18,7 +18,7 @@ In the following guide you will create a native module, `CalendarModule`, that w
 To get started, open up the iOS project within your React Native application in Xcode. You can find your iOS project here within a React Native app:
 
 <figure>
-  <img src="/docs/assets/native-modules-ios-open-project.png" width="500" alt="Image of opening up an iOS project within a React Native app inside of xCode." />
+  <img loading="lazy" src="/docs/assets/native-modules-ios-open-project.png" width="500" alt="Image of opening up an iOS project within a React Native app inside of xCode." />
   <figcaption>Image of where you can find your iOS project</figcaption>
 </figure>
 
@@ -29,7 +29,7 @@ We recommend using Xcode to write your native code. Xcode is built for iOS devel
 The first step is to create our main custom native module header and implementation files. Create a new file called `RCTCalendarModule.h`
 
 <figure>
-  <img src="/docs/assets/native-modules-ios-add-class.png" width="500" alt="Image of creating a class called  RCTCalendarModule.h." />
+  <img loading="lazy" src="/docs/assets/native-modules-ios-add-class.png" width="500" alt="Image of creating a class called  RCTCalendarModule.h." />
   <figcaption>Image of creating a custom native module file within the same folder as AppDelegate</figcaption>
 </figure>
 
@@ -193,7 +193,7 @@ As you work through these guides and iterate on your native module, you will nee
 You should now be able to invoke your `createCalendarEvent()` method on your native module in JavaScript. Since you are using `RCTLog` in the function, you can confirm your native method is being invoked by [enabling debug mode in your app](https://reactnative.dev/docs/debugging#chrome-developer-tools) and looking at the JS console in Chrome or the mobile app debugger Flipper. You should see your `RCTLogInfo(@"Pretending to create an event %@ at %@", name, location);` message each time you invoke the native module method.
 
 <figure>
-  <img src="/docs/assets/native-modules-ios-logs.png" width="1000" alt="Image of logs." />
+  <img loading="lazy" src="/docs/assets/native-modules-ios-logs.png" width="1000" alt="Image of logs." />
   <figcaption>Image of iOS logs in Flipper</figcaption>
 </figure>
 

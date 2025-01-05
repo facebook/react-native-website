@@ -65,7 +65,7 @@ You might also want to ensure that all "shell script build phase" of your Xcode 
 
 Congratulations! You successfully set up your development environment.
 
-<center><img src="/docs/assets/GettingStartedCongratulations.png" width="150"></img></center>
+<center><img loading="lazy" src="/docs/assets/GettingStartedCongratulations.png" width="150"></img></center>
 
 <h2>Now what?</h2>
 

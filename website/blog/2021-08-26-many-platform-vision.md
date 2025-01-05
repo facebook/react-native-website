@@ -25,7 +25,7 @@ We believe that React Native enables developers to meet users’ expectations wh
 Specific device hardware or user expectations impose unique constraints and requirements. As an example, memory is typically more constrained on Android and VR headsets than on iOS, macOS, and Windows. As another example, users expect mobile apps to start up almost instantaneously, but they are less frustrated when desktop apps take longer to start up. **We have found that by approaching these problems with React Native, we can more easily borrow lessons learned and code written for one platform, and apply them to other platforms.**
 
 <figure>
-  <img src="/blog/assets/many-platform-vision-facebook-dating.png" alt="Screenshot of Facebook Dating on mobile" />
+  <img loading="lazy" src="/blog/assets/many-platform-vision-facebook-dating.png" alt="Screenshot of Facebook Dating on mobile" />
   <figcaption>
     React Native and Relay power over 1000 Facebook surfaces on Android and iOS.
   </figcaption>
@@ -52,7 +52,7 @@ In addition to domain-specific engineers and meetups and conferences, each platf
 **We believe that competition leads to better outcomes for everyone in the long run.** By studying what makes other players on each platform great, we can learn lessons that may apply to other platforms. For example, the race to simplify complex websites influenced the development of React and gave React Native a head start to offer a declarative framework for mobile apps. The demand for faster iteration cycles and build times for the web also led to the development of Fast Refresh which significantly benefited React Native. Similarly, performance optimizations in our internal mobile frameworks — especially around data fetching and parallelization — challenged us to improve React Native in a way that has also influenced React when we built the new [Facebook.com](https://facebook.com/) website.
 
 <figure>
-  <img src="/blog/assets/many-platform-vision-facebook-website.png" alt="Screenshot of the Facebook.com website" />
+  <img loading="lazy" src="/blog/assets/many-platform-vision-facebook-website.png" alt="Screenshot of the Facebook.com website" />
   <figcaption>
     React and Relay powers the <a href="https://facebook.com/">Facebook.com</a> website.
   </figcaption>
@@ -67,7 +67,7 @@ React and React Native are at a turning point. React has [started the road to a 
 Building for desktop has been very exciting for us. We have taken what we know about building mobile experiences and applied them to desktop with eyes wide open. We’ve expanded our horizons with multiple child windows, menu bars, system trays, and more. As we continue collaborating on new desktop Messenger features, we expect to find opportunities that influence how we build on web and mobile. If you want to stay up to date, our desktop collaboration work is taking place [on GitHub](https://github.com/microsoft/react-native-windows).
 
 <figure>
-  <img src="/blog/assets/many-platform-vision-messenger-desktop.png" alt="Screenshot of the Messenger app on macOS" />
+  <img loading="lazy" src="/blog/assets/many-platform-vision-messenger-desktop.png" alt="Screenshot of the Messenger app on macOS" />
   <figcaption>
     React Native powers Video Calling in Messenger for Windows and macOS.
   </figcaption>
@@ -80,7 +80,7 @@ Similar to how we approach React Native for mobile, we will be validating our te
 Although most of the development for VR will still be internal, we hope to share more as soon as we can. We also anticipate that improvements to React Native for VR will surface in open source. For example, we anticipate that projects to reduce memory usage for VR use cases will also reduce memory usage for React Native on mobile and desktop experiences.
 
 <figure>
-  <img src="/blog/assets/many-platform-vision-oculus-home.png" alt="Screenshot of Oculus Home in virtual reality" />
+  <img loading="lazy" src="/blog/assets/many-platform-vision-oculus-home.png" alt="Screenshot of Oculus Home in virtual reality" />
   <figcaption>
     React and Relay power the Oculus Home and many other virtual reality experiences.
   </figcaption>

@@ -6,7 +6,7 @@ title: Using Hermes
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 <a href="https://hermesengine.dev">
-  <img width={300} height={300} className="hermes-logo" src="/docs/assets/HermesLogo.svg" style={{height: "auto"}}/>
+  <img loading="lazy" width={300} height={300} className="hermes-logo" src="/docs/assets/HermesLogo.svg" style={{height: "auto"}}/>
 </a>
 
 [Hermes](https://hermesengine.dev) is an open-source JavaScript engine optimized for React Native. For many apps, using Hermes will result in improved start-up time, decreased memory usage, and smaller app size when compared to JavaScriptCore.
@@ -154,7 +154,7 @@ Also, if you're using ProGuard, you will need to add these rules in `proguard-ru
 Next, if you've already built your app at least once, clean the build:
 
 ```shell
-$ cd android && ./gradlew clean
+cd android && ./gradlew clean
 ```
 
 That's it! You should now be able to develop and deploy your app as usual:
@@ -197,7 +197,7 @@ as `true` or `false` you can enable/disable Hermes as you wish.
 Once you've configured it, you can install the Hermes pods with:
 
 ```shell
-$ cd ios && pod install
+cd ios && pod install
 ```
 
 That's it! You should now be able to develop and deploy your app as usual:

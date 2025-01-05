@@ -38,19 +38,19 @@ cd ios
 open Demo.xcworkspace
 ```
 
-<img class="half-size" alt="Open Xcode Workspace" src="/docs/assets/fabric-native-components/1.webp" />
+<img loading="lazy" class="half-size" alt="Open Xcode Workspace" src="/docs/assets/fabric-native-components/1.webp" />
 
 2. Right click on app and select <code>New Group</code>, call the new group `WebView`.
 
-<img class="half-size" alt="Right click on app and select New Group" src="/docs/assets/fabric-native-components/2.webp" />
+<img loading="lazy" class="half-size" alt="Right click on app and select New Group" src="/docs/assets/fabric-native-components/2.webp" />
 
 3. In the `WebView` group, create <code>New</code>→<code>File from Template</code>.
 
-<img class="half-size" alt="Create a new file using the Cocoa Touch Classs template" src="/docs/assets/fabric-native-components/3.webp" />
+<img loading="lazy" class="half-size" alt="Create a new file using the Cocoa Touch Classs template" src="/docs/assets/fabric-native-components/3.webp" />
 
 4. Use the <code>Objective-C File</code> template, and name it <code>RCTWebView</code>.
 
-<img class="half-size" alt="Create an Objective-C RCTWebView class" src="/docs/assets/fabric-native-components/4.webp" />
+<img loading="lazy" class="half-size" alt="Create an Objective-C RCTWebView class" src="/docs/assets/fabric-native-components/4.webp" />
 
 5. Rename <code>RCTWebView.m</code> → <code>RCTWebView.mm</code> making it an Objective-C++ file
 
@@ -252,13 +252,13 @@ To link the WebKit framework in your app, follow these steps:
 3. Select the General tab
 4. Scroll down until you find the _"Frameworks, Libraries, and Embedded Contents"_ section, and press the `+` button
 
-<img class="half-size" alt="Add webkit framework to your app 1" src="/docs/assets/AddWebKitFramework1.png" />
+<img loading="lazy" class="half-size" alt="Add webkit framework to your app 1" src="/docs/assets/AddWebKitFramework1.png" />
 
 5. In the search bar, filter for WebKit
 6. Select the WebKit framework
 7. Click on Add.
 
-<img class="half-size" alt="Add webkit framework to your app 2" src="/docs/assets/AddWebKitFramework2.png" />
+<img loading="lazy" class="half-size" alt="Add webkit framework to your app 2" src="/docs/assets/AddWebKitFramework2.png" />
 
 :::warning
 We are aware of a couple of issues with iOS that would create some problem when building the app with a custom iOS component.

@@ -108,11 +108,11 @@ Now that you have successfully run the app, let's modify it.
 - Open `App.tsx` in your text editor of choice and edit some lines.
 - Press the <kbd>R</kbd> key twice or select `Reload` from the Dev Menu (<kbd>Ctrl</kbd> + <kbd>M</kbd>) to see your changes!
 
-### That's it!
+### That's it
 
 Congratulations! You've successfully run and modified your first barebone React Native app.
 
-<center><img src="/docs/assets/GettingStartedCongratulations.png" width="150"></img></center>
+<center><img loading="lazy" src="/docs/assets/GettingStartedCongratulations.png" width="150"></img></center>
 
 ### Now what?
 

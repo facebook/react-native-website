@@ -292,7 +292,7 @@ To make sure that the iOS app can effectively build the C++ Turbo Native Module,
 2. Add the `shared` folder to our iOS project.
 3. Register the C++ Turbo Native Module in the application.
 
-#### 1. Install Pods and Run Codegen.
+#### 1. Install Pods and Run Codegen
 
 The first step we need to run is the usual steps we run every time we have to prepare our iOS application. CocoaPods is the tool we use to setup and install React Native dependencies and, as part of the process, it will also run Codegen for us.
 
@@ -447,4 +447,4 @@ Congratulation, you wrote your first C++ Turbo Native Module!
 
 | <center>Android</center>                                                                             | <center>iOS</center>                                                                          |
 | ---------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| <center><img src="/docs/assets/CxxGuideAndroidVideo.gif" alt="Android Video" height="600"/></center> | <center><img src="/docs/assets/CxxGuideIOSVideo.gif" alt="iOS video" height="600" /></center> |
+| <center><img loading="lazy" src="/docs/assets/CxxGuideAndroidVideo.gif" alt="Android Video" height="600"/></center> | <center><img loading="lazy" src="/docs/assets/CxxGuideIOSVideo.gif" alt="iOS video" height="600" /></center> |

@@ -128,7 +128,7 @@ Click "Next" then "Finish" to create your AVD. At this point you should be able 
 
 Congratulations! You successfully set up your development environment.
 
-<center><img src="/docs/assets/GettingStartedCongratulations.png" width="150"></img></center>
+<center><img loading="lazy" src="/docs/assets/GettingStartedCongratulations.png" width="150"></img></center>
 
 <h2>Now what?</h2>
 
