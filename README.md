@@ -143,7 +143,7 @@ The `showcase.json` file contains the list of users that are highlighted in the 
 1. `git checkout main` from any folder in your local `react-native-website` repository.
 1. `git pull origin main` to ensure you have the latest main code.
 1. `git checkout -b the-name-of-my-branch` to create a branch.
-    > replace `the-name-of-my-branch` with a suitable name, such as `update-animations-page`
+   > replace `the-name-of-my-branch` with a suitable name, such as `update-animations-page`
 
 ### Make the change
 
@@ -167,7 +167,7 @@ If possible, test any visual changes in all latest versions of the following bro
 
 1. Run `yarn prettier` and `yarn language:lint` in `./website` directory to ensure your changes are consistent with other files in the repo.
 1. `git add -A && git commit -m "My message"` to stage and commit your changes.
-    > replace `My message` with a commit message, such as `Fixed header logo on Android`
+   > replace `My message` with a commit message, such as `Fixed header logo on Android`
 1. `git push my-fork-name the-name-of-my-branch`
 1. Go to the [react-native-website repo](https://github.com/facebook/react-native-website) and you should see recently pushed branches.
 1. Follow GitHub's instructions.

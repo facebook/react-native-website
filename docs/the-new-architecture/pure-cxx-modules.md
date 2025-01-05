@@ -445,6 +445,6 @@ This allows you to prepare the input for the specs and gives you more control ov
 
 Congratulations, you wrote your first C++ Turbo Native Module!
 
-| <center>Android</center>                                                                             | <center>iOS</center>                                                                          |
-| ---------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| <center>Android</center>                                                                                            | <center>iOS</center>                                                                                         |
+| ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
 | <center><img loading="lazy" src="/docs/assets/CxxGuideAndroidVideo.gif" alt="Android Video" height="600"/></center> | <center><img loading="lazy" src="/docs/assets/CxxGuideIOSVideo.gif" alt="iOS video" height="600" /></center> |
