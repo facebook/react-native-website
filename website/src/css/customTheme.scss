@@ -26,8 +26,6 @@
   --ifm-menu-link-padding-horizontal: 0;
   --ifm-toc-padding-vertical: 6px;
   --ifm-toc-link-color: var(--ifm-color-emphasis-700);
-  --ifm-code-font-size: 90%;
-  --ifm-code-border-radius: 3px;
   --ifm-blockquote-color: var(--ifm-font-color-base);
   --ifm-blockquote-font-size: 16px;
   --ifm-blockquote-border-radius: var(--ifm-global-radius);
@@ -1364,9 +1362,9 @@ div[class*="announcementBarContent"] {
   margin-bottom: 2em;
   position: relative;
   overflow: hidden;
-  width: calc(100% + 1em);
-  left: -1em;
+  width: calc(100%);
   color: var(--dark);
+  border-radius: var(--ifm-global-radius);
 }
 
 .content-banner p {
