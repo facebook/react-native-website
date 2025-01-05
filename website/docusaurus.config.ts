@@ -223,7 +223,7 @@ const config: Config = {
       isCloseable: false,
     },
     prism: {
-      defaultLanguage: 'jsx',
+      defaultLanguage: 'tsx',
       theme: require('./core/PrismTheme'),
       additionalLanguages: [
         'diff',
