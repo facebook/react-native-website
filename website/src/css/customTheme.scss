@@ -1102,19 +1102,35 @@ div[class^="tableOfContents"] {
     font-weight: 500;
     margin-left: -16px;
     padding-left: 12px;
-    color: var(--ifm-link-color);
+    color: var(--ifm-font-color-base);
     border-left: 4px solid var(--ifm-link-color);
 
     code {
-      color: var(--ifm-link-color);
+      color: var(--ifm-font-color-base);
       font-weight: 900;
     }
 
     &:hover {
-      color: var(--ifm-link-color);
+      color: var(--ifm-font-color-base);
 
       code {
+        color: var(--ifm-font-color-base);
+      }
+    }
+  }
+}
+
+html[data-theme="dark"] {
+  .table-of-contents {
+    .table-of-contents__link--active {
+      color: var(--ifm-link-color);
+
+      &:hover {
         color: var(--ifm-link-color);
+
+        code {
+          color: var(--ifm-link-color);
+        }
       }
     }
   }
