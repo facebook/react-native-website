@@ -1100,11 +1100,11 @@ div[class^="tableOfContents"] {
     margin-left: -16px;
     padding-left: 12px;
     color: var(--ifm-font-color-base);
-    border-left: 4px solid var(--brand);
+    border-left: 4px solid var(--ifm-link-color);
 
     code {
-      font-weight: 600;
       color: var(--ifm-font-color-base);
+      font-weight: 700;
       white-space: nowrap;
     }
 
@@ -1113,6 +1113,22 @@ div[class^="tableOfContents"] {
 
       code {
         color: var(--ifm-font-color-base);
+      }
+    }
+  }
+}
+
+html[data-theme="dark"] {
+  .table-of-contents {
+    .table-of-contents__link--active {
+      color: var(--ifm-link-color);
+
+      &:hover {
+        color: var(--ifm-link-color);
+
+        code {
+          color: var(--ifm-link-color);
+        }
       }
     }
   }
