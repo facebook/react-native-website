@@ -1702,6 +1702,12 @@ article .component-grid {
       transform: scale(1.05);
     }
 
+    > a {
+      display: block;
+      height: 100%;
+      border-bottom: none;
+    }
+
     h3 {
       font-size: 16px;
       font-weight: 600;
