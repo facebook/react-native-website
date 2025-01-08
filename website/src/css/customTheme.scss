@@ -1707,8 +1707,8 @@ article .component-grid {
       font-weight: 600;
       margin: 0;
       padding: 0 10px;
-      background-color: var(--ifm-color-primary);
-      color: white;
+      background-color: var(--home-button-primary);
+      color: var(--home-button-primary-text);
       line-height: 36px;
 
       a {
