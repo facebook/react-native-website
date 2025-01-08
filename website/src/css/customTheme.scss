@@ -26,8 +26,6 @@
   --ifm-menu-link-padding-horizontal: 0;
   --ifm-toc-padding-vertical: 6px;
   --ifm-toc-link-color: var(--ifm-color-emphasis-700);
-  --ifm-code-font-size: 90%;
-  --ifm-code-border-radius: 3px;
   --ifm-blockquote-color: var(--ifm-font-color-base);
   --ifm-blockquote-font-size: 16px;
   --ifm-blockquote-border-radius: var(--ifm-global-radius);
@@ -1080,11 +1078,11 @@ div[class^="tableOfContents"] {
     margin-left: -16px;
     padding-left: 12px;
     color: var(--ifm-font-color-base);
-    border-left: 4px solid var(--brand);
+    border-left: 4px solid var(--ifm-link-color);
 
     code {
-      font-weight: 600;
       color: var(--ifm-font-color-base);
+      font-weight: 700;
       white-space: nowrap;
     }
 
@@ -1093,6 +1091,22 @@ div[class^="tableOfContents"] {
 
       code {
         color: var(--ifm-font-color-base);
+      }
+    }
+  }
+}
+
+html[data-theme="dark"] {
+  .table-of-contents {
+    .table-of-contents__link--active {
+      color: var(--ifm-link-color);
+
+      &:hover {
+        color: var(--ifm-link-color);
+
+        code {
+          color: var(--ifm-link-color);
+        }
       }
     }
   }
@@ -1338,9 +1352,9 @@ div[class*="announcementBarContent"] {
   margin-bottom: 2em;
   position: relative;
   overflow: hidden;
-  width: calc(100% + 1em);
-  left: -1em;
+  width: calc(100%);
   color: var(--dark);
+  border-radius: var(--ifm-global-radius);
 }
 
 .content-banner p {
