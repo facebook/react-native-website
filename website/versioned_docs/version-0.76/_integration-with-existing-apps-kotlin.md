@@ -28,7 +28,7 @@ To ensure a smooth experience, create a new folder for your integrated React Nat
 
 Go to the root directory and run the following command:
 
-```
+```shell
 curl -O https://raw.githubusercontent.com/react-native-community/template/refs/heads/0.76-stable/template/package.json
 ```
 
