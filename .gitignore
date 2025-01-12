@@ -38,3 +38,7 @@ sync-api-docs/extracted.json
 website/.docusaurus
 website/.cache-loader
 website/build/
+
+cnwebsite/.docusaurus
+cnwebsite/.cache-loader
+cnwebsite/build/

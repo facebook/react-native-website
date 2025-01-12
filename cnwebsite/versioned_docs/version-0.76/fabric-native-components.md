@@ -22,7 +22,7 @@ import {FabricNativeComponentsAndroid,FabricNativeComponentsIOS} from './\_fabri
 你需要一个普通的模板生成应用来使用该组件：
 
 ```bash
-npx @react-native-community/cli init Demo --install-pods false
+npx @react-native-community/cli@latest init Demo --install-pods false
 ```
 
 ## 创建一个 WebView 组件

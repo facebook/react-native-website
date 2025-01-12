@@ -1,4 +1,4 @@
-# 纯 C++ Turbo 原生模块
+# 使用 C++ 实现跨平台的原生模块
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
@@ -15,7 +15,7 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import con
 本指南假设您已通过以下命令创建了应用：
 
 ```shell
-npx @react-native-community/cli init SampleApp --version 0.76.0
+npx @react-native-community/cli@latest init SampleApp --version 0.76.0
 ```
 
 ## 1. 创建 JS 规范

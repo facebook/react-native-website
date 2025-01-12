@@ -94,7 +94,7 @@ npx @react-native-community/cli init AwesomeProject
 你可以使用`--version`参数（注意是`两`个杠）创建指定版本的项目。注意版本号必须精确到两个小数点。
 
 ```shell
-npx @react-native-community/cli@X.XX.X init AwesomeProject --version X.XX.X
+npx @react-native-community/cli init AwesomeProject --version X.XX.X
 ```
 
 还可以使用`--template`来使用一些社区提供的模板。

@@ -18,7 +18,7 @@ React Native DevTools 支持所有运行 Hermes 的 React Native 应用。它取
 
 无法使用任何旧版本的 React Native 设置 React Native DevTools。
 
-- **Chrome Browser DevTools —  不再支持**
+- **Chrome Browser DevTools — 不再支持**
   - 通过 `chrome://inspect` 连接到 React Native 不再受支持。由于最新版本的 Chrome DevTools（这些版本构建为匹配最新浏览器功能和 API）未经过测试，并且此前端缺少我们的自定义设置，因此功能可能无法正常工作。相反，我们与 React Native DevTools 一起提供了一个受支持的版本。
 - **Visual Studio Code — 不再支持**
   - 第三方扩展如 [Expo Tools](https://github.com/expo/vscode-expo) 和 [Radon IDE](https://ide.swmansion.com/) 可能具有改进的兼容性，但不受 React 团队的直接支持。
