@@ -79,6 +79,57 @@ Breakpoints are a fundamental tool in your debugging toolkit!
 - Use a `debugger;` statement to quickly set a breakpoint from your text editor. This will reach the device immediately via Fast Refresh.
 - There are multiple kinds of breakpoints! For example, [Conditional Breakpoints and Logpoints](https://developer.chrome.com/docs/devtools/javascript/breakpoints#overview).
 
+### Memory
+
+![Inspecting a heap snapshot in the Memory panel](/docs/assets/debugging-rndt-memory.jpg)
+
+The Memory panel allows you to take a heap snapshot and view the memory usage of your JavaScript code over time.
+
+[Record heap snapshots | Chrome DevTools](https://developer.chrome.com/docs/devtools/memory-problems/heap-snapshots)
+
+#### Useful tips
+
+- Use <kbd>Cmd ⌘</kbd>+<kbd>F</kbd> / <kbd>Ctrl</kbd>+<kbd>F</kbd> to filter for specific objects in the heap.
+- Taking an [allocation timeline report](https://developer.chrome.com/docs/devtools/memory-problems/allocation-profiler) can be useful to see memory usage over time as a graph, to identify possible memory leaks.
+
+## React DevTools features
+
+In the integrated Components and Profiler panels, you'll find all the features of the [React DevTools](https://react.dev/learn/react-developer-tools) browser extension. These work seamlessly in React Native DevTools.
+
+### React Components
+
+![Selecting and locating elements using the React Components panel](/docs/assets/debugging-rndt-react-components.gif)
+
+The React Components panel allows you to inspect and update the rendered React component tree.
+
+- Hover or select an element in DevTools to highlight it on device.
+- To locate an element in DevTools, click the top-left "Select element" button, then tap any element in the app.
+
+#### Useful tips
+
+- Props and state on a component can be viewed and modified at runtime using the right hand panel.
+- Components optimized with [React Compiler](https://react.dev/learn/react-compiler) will be annotated with a "Memo ✨" badge.
+
+:::tip
+
+#### Protip: Highlight re-renders
+
+Re-renders can be a significant contributor to performance issues in React apps. DevTools can highlight component re-renders as they happen.
+
+- To enable, click the View Settings (`⚙︎`) icon and check "Highlight updates when components render".
+
+![Location of the "highlight updates" setting, next to a recording of the live render overlay](/docs/assets/debugging-rndt-highlight-renders.gif)
+
+:::
+
+### React Profiler
+
+![A profile rendered as a flame graph](/docs/assets/debugging-rndt-react-profiler.jpg)
+
+The React Profiler panel allows you to record performance profiles to understand the timing of component renders and React commits.
+
+For more info, see the [original 2018 guide](https://legacy.reactjs.org/blog/2018/09/10/introducing-the-react-profiler.html#reading-performance-data) (note that parts of this may be outdated).
+
 ## Reconnecting DevTools
 
 Occasionally, DevTools might disconnect from the target device. This can happen if:

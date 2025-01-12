@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-const glob = require('glob-promise');
+const glob = require('glob');
 const fs = require('fs-extra');
 const path = require('path');
 const siteConfig = require('./docusaurus.config.js');
@@ -14,7 +14,8 @@ const imageReferenceRegExp = new RegExp(/!\[.*?\]\((.*)\)/g);
 
 let missingAssets = [];
 let queue = Promise.resolve();
-glob('./docs/**/*.md')
+glob
+  .glob('./docs/**/*.md')
   .then(files => {
     files.forEach(file => {
       queue = queue

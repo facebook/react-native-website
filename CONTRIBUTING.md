@@ -7,7 +7,7 @@ The [Open Source Guides](https://opensource.guide/) website has a collection of 
 - [How to Contribute to Open Source](https://opensource.guide/how-to-contribute/)
 - [Building Welcoming Communities](https://opensource.guide/building-community/)
 
-### Code of Conduct
+## Code of Conduct
 
 As a reminder, all contributors are expected to adhere to the [Code of Conduct](https://github.com/facebook/react-native-website/blob/main/CODE_OF_CONDUCT.md).
 

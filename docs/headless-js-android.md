@@ -96,7 +96,7 @@ class MyTaskService : HeadlessJsTaskService() {
 
 Then add the service to your `AndroidManifest.xml` file inside the `application` tag:
 
-```
+```xml
 <service android:name="com.example.MyTaskService" />
 ```
 

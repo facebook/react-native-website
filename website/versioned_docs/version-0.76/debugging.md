@@ -5,20 +5,20 @@ title: Debugging Basics
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
+:::note
+Debugging features, such as the Dev Menu, LogBox, and React Native DevTools are disabled in release (production) builds.
+:::
+
 ## Opening the Dev Menu
 
-React Native provides an in-app developer menu which offers several debugging options. You can access the Dev Menu by shaking your device or via keyboard shortcuts:
+React Native provides an in-app developer menu providing access to debugging features. You can access the Dev Menu by shaking your device or via keyboard shortcuts:
 
-- iOS Simulator: <kbd>Cmd ⌘</kbd> + <kbd>D</kbd> (or Device > Shake)
+- iOS Simulator: <kbd>Ctrl</kbd> + <kbd>Cmd ⌘</kbd> + <kbd>Z</kbd> (or Device > Shake)
 - Android emulators: <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS) or <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows and Linux)
 
-Alternatively for Android devices and emulators, you can run `adb shell input keyevent 82` in your terminal.
+Alternative (Android): `adb shell input keyevent 82`.
 
 ![The React Native Dev Menu](/docs/assets/debugging-dev-menu-076.jpg)
-
-:::note
-The Dev Menu is disabled in release (production) builds.
-:::
 
 ## Opening DevTools
 
@@ -62,10 +62,6 @@ Other useful links:
 LogBox is an in-app tool that displays when warnings or errors are logged by your app.
 
 ![A LogBox warning and an expanded LogBox syntax error](/docs/assets/debugging-logbox-076.jpg)
-
-:::note
-LogBox is disabled in release (production) builds.
-:::
 
 ### Fatal Errors
 

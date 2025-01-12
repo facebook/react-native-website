@@ -17,9 +17,9 @@ There are different ways to write a native module for your React Native applicat
 
 1. Creating a local library that can be imported in your React Native application. Read [Creating local libraries](local-library-setup) guide to learn more.
 2. Directly within your React Native application's iOS/Android projects
-3. As a NPM package that can be installed as a dependency by your/other React Native applications.
+3. As an NPM package that can be installed as a dependency by your/other React Native applications.
 
-This guide will first walk you through implementing a native module directly within a React Native application. However the native module you build in the following guide can be distributed as an NPM package. Check out the [Setting Up a Native Module as a NPM Package](native-modules-setup) guide if you are interested in doing so.
+This guide will first walk you through implementing a native module directly within a React Native application. However the native module you build in the following guide can be distributed as an NPM package. Check out the [Setting Up a Native Module as an NPM Package](native-modules-setup) guide if you are interested in doing so.
 
 ## Getting Started
 

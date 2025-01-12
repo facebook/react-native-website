@@ -51,7 +51,7 @@ If your trace .html file isn't opening correctly, check your browser console for
 
 Since `Object.observe` was deprecated in recent browsers, you may have to open the file from the Google Chrome Tracing tool. You can do so by:
 
-- Opening tab in chrome chrome://tracing
+- Opening tab in chrome `chrome://tracing`
 - Selecting load
 - Selecting the html file generated from the previous command.
 

@@ -6,7 +6,7 @@
 
 Add to your `.remarkrc.js` as a plugin:
 
-```
+```js
 module.exports = {
   plugins: [
     '@react-native-website/remark-lint-no-broken-external-links',

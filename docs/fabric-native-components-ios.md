@@ -29,7 +29,7 @@ You should be careful about committing generated code to your repository. Genera
 
 ### 3. Write the `RCTWebView`
 
-We need to prepare your iOS project using Xcode by completeing these **5 steps**:
+We need to prepare your iOS project using Xcode by completing these **5 steps**:
 
 1. Open the CocoPods generated Xcode Workspace:
 
@@ -202,7 +202,7 @@ This code is written in Objective-C++ and contains various details:
 #### Add WebKit framework
 
 :::note
-This step is only required because we are creating a Web view. Web components on iOS needs to be linked againt the WebKit framework provided by Apple. If your component doesn't need to access web-specific features, you can skip this step.
+This step is only required because we are creating a Web view. Web components on iOS needs to be linked against the WebKit framework provided by Apple. If your component doesn't need to access web-specific features, you can skip this step.
 :::
 
 A web view requires access to some features that Apple provides through one of the frameworks shipped with Xcode and the devices: WebKit.

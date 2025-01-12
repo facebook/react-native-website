@@ -120,20 +120,20 @@ As with Native Modules, you can have multiple specification files in the `specs/
 The specification is used by the React Native's Codegen tools to generate platform specific interfaces and boilerplate for us. To do this, Codegen needs to know where to find our specification and what to do with it. Update your `package.json` to include:
 
 ```json package.json
-      "start": "react-native start",
-      "test": "jest"
+    "start": "react-native start",
+    "test": "jest"
+  },
+  // highlight-start
+  "codegenConfig": {
+    "name": "AppSpec",
+    "type": "components",
+    "jsSrcsDir": "specs",
+    "android": {
+      "javaPackageName": "com.webview"
     },
-    // highlight-start
-    "codegenConfig": {
-      "name": "AppSpec",
-      "type": "components",
-      "jsSrcsDir": "specs",
-      "android": {
-        "javaPackageName": "com.webview"
-      },
-      "ios": {
-        "componentProvider": {
-          "CustomWebView": "RCTWebView"
+    "ios": {
+      "componentProvider": {
+        "CustomWebView": "RCTWebView"
       }
     }
   },

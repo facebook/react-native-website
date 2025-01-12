@@ -19,9 +19,7 @@ const GENERATE_ANNOTATION = '@' + 'generate-docs';
 module.exports = extractDocsFromRN;
 
 async function extractDocsFromRN(rnRoot) {
-  // TODO: make implementation async
-
-  const allComponentFiles = glob.sync(
+  const allComponentFiles = await glob.glob(
     path.join(rnRoot, '/Libraries/{Components,Image,}/**/*.js'),
     {
       nodir: true,
@@ -32,7 +30,7 @@ async function extractDocsFromRN(rnRoot) {
   const docs = [];
 
   for (const file of allComponentFiles) {
-    const contents = fs.readFileSync(file, {encoding: 'utf-8'});
+    const contents = await fs.readFile(file, {encoding: 'utf-8'});
     if (!contents.includes(GENERATE_ANNOTATION)) {
       continue;
     }

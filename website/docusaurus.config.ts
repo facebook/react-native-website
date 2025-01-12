@@ -7,6 +7,7 @@
 
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import type * as PluginContentDocs from '@docusaurus/plugin-content-docs';
 
 import users from './showcase.json';
 import versions from './versions.json';
@@ -20,7 +21,10 @@ const commonDocsOptions = {
   showLastUpdateTime: true,
   editUrl:
     'https://github.com/facebook/react-native-website/blob/main/website/',
-  remarkPlugins: [require('@react-native-website/remark-snackplayer')],
+  remarkPlugins: [
+    require('@react-native-website/remark-snackplayer'),
+    require('@react-native-website/remark-codeblock-language-as-title'),
+  ],
 };
 
 const isDeployPreview = process.env.PREVIEW_DEPLOY === 'true';
@@ -120,36 +124,33 @@ const config: Config = {
     'docusaurus-plugin-sass',
     [
       'content-docs',
-      /** @type {import('@docusaurus/plugin-content-docs').Options} */
       {
         id: 'architecture',
         path: 'architecture',
         routeBasePath: '/architecture',
         sidebarPath: require.resolve('./sidebarsArchitecture'),
         ...commonDocsOptions,
-      },
+      } satisfies PluginContentDocs.Options,
     ],
     [
       'content-docs',
-      /** @type {import('@docusaurus/plugin-content-docs').Options} */
       {
         id: 'contributing',
         path: 'contributing',
         routeBasePath: '/contributing',
         sidebarPath: require.resolve('./sidebarsContributing'),
         ...commonDocsOptions,
-      },
+      } satisfies PluginContentDocs.Options,
     ],
     [
       'content-docs',
-      /** @type {import('@docusaurus/plugin-content-docs').Options} */
       {
         id: 'community',
         path: 'community',
         routeBasePath: '/community',
         sidebarPath: require.resolve('./sidebarsCommunity'),
         ...commonDocsOptions,
-      },
+      } satisfies PluginContentDocs.Options,
     ],
     [
       '@docusaurus/plugin-pwa',
@@ -222,7 +223,7 @@ const config: Config = {
       isCloseable: false,
     },
     prism: {
-      defaultLanguage: 'jsx',
+      defaultLanguage: 'tsx',
       theme: require('./core/PrismTheme'),
       additionalLanguages: [
         'diff',

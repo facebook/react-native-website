@@ -28,11 +28,11 @@ To ensure a smooth experience, create a new folder for your integrated React Nat
 
 Go to the root directory and run the following command:
 
-```
-curl -O https://raw.githubusercontent.com/react-native-community/template/refs/heads/0.76-stable/template/package.json
+```shell
+curl -O https://raw.githubusercontent.com/react-native-community/template/refs/heads/0.77-stable/template/package.json
 ```
 
-This will copy the `package.json` [file from the Community template](https://github.com/react-native-community/template/blob/0.76-stable/template/package.json) to your project.
+This will copy the `package.json` [file from the Community template](https://github.com/react-native-community/template/blob/0.77-stable/template/package.json) to your project.
 
 Next, install the NPM packages by running:
 
@@ -55,7 +55,7 @@ yarn install
 
 Installation process has created a new `node_modules` folder. This folder stores all the JavaScript dependencies required to build your project.
 
-Add `node_modules/` to your `.gitignore` file (here the [Community default one](https://github.com/react-native-community/template/blob/0.76-stable/template/_gitignore)).
+Add `node_modules/` to your `.gitignore` file (here the [Community default one](https://github.com/react-native-community/template/blob/0.77-stable/template/_gitignore)).
 
 ### 3. Install Development tools
 
@@ -87,22 +87,22 @@ To configure CocoaPods, we need two files:
 For the **Gemfile**, go to the root directory of your project and run this command
 
 ```sh
-curl -O https://raw.githubusercontent.com/react-native-community/template/refs/heads/0.76-stable/template/Gemfile
+curl -O https://raw.githubusercontent.com/react-native-community/template/refs/heads/0.77-stable/template/Gemfile
 ```
 
 This will download the Gemfile from the template.
 Similarly, for the **Podfile**, go to the `ios` folder of your project and run
 
 ```sh
-curl -O https://raw.githubusercontent.com/react-native-community/template/refs/heads/0.76-stable/template/ios/Podfile
+curl -O https://raw.githubusercontent.com/react-native-community/template/refs/heads/0.77-stable/template/ios/Podfile
 ```
 
-Please use the Community Template as a reference point for the [Gemfile](https://github.com/react-native-community/template/blob/0.76-stable/template/Gemfile) and for the [Podfile](https://github.com/react-native-community/template/blob/0.76-stable/template/ios/Podfile).
+Please use the Community Template as a reference point for the [Gemfile](https://github.com/react-native-community/template/blob/0.77-stable/template/Gemfile) and for the [Podfile](https://github.com/react-native-community/template/blob/0.77-stable/template/ios/Podfile).
 
 :::note
-Remember to change [this line](https://github.com/react-native-community/template/blob/0.76-stable/template/ios/Podfile#L17) and [this line](https://github.com/react-native-community/template/blob/0.76-stable/template/ios/Podfile#L26) of the Podfile to match the name of your app.
+Remember to change [this line](https://github.com/react-native-community/template/blob/0.77-stable/template/ios/Podfile#L17) and [this line](https://github.com/react-native-community/template/blob/0.77-stable/template/ios/Podfile#L26) of the Podfile to match the name of your app.
 
-If your app don't have tests, remember to remove [this block](https://github.com/react-native-community/template/blob/0.76-stable/template/ios/Podfile#L26-L29).
+If your app don't have tests, remember to remove [this block](https://github.com/react-native-community/template/blob/0.77-stable/template/ios/Podfile#L26-L29).
 :::
 
 Now, we need to run a couple of extra commands to install the Ruby gems and the Pods.
@@ -127,7 +127,7 @@ First, create an empty `index.js` file in the root of your React Native project.
 
 `index.js` is the starting point for React Native applications, and it is always required. It can be a small file that `import`s other file that are part of your React Native component or application, or it can contain all the code that is needed for it.
 
-Our `index.js` should look as follows (here the [Community template file as reference](https://github.com/react-native-community/template/blob/0.76-stable/template/index.js)):
+Our `index.js` should look as follows (here the [Community template file as reference](https://github.com/react-native-community/template/blob/0.77-stable/template/index.js)):
 
 ```js
 import {AppRegistry} from 'react-native';
@@ -138,7 +138,7 @@ AppRegistry.registerComponent('HelloWorld', () => App);
 
 ### Create a `App.tsx` file
 
-Let's create an `App.tsx` file. This is a [TypeScript](https://www.typescriptlang.org/) file that can have [JSX](<https://en.wikipedia.org/wiki/JSX_(JavaScript)>) expressions. It contains the root React Native component that we will integrate into our iOS application ([link](https://github.com/react-native-community/template/blob/0.76-stable/template/App.tsx)):
+Let's create an `App.tsx` file. This is a [TypeScript](https://www.typescriptlang.org/) file that can have [JSX](<https://en.wikipedia.org/wiki/JSX_(JavaScript)>) expressions. It contains the root React Native component that we will integrate into our iOS application ([link](https://github.com/react-native-community/template/blob/0.77-stable/template/App.tsx)):
 
 ```tsx
 import React from 'react';
@@ -211,7 +211,7 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-Here the [Community template file as reference](https://github.com/react-native-community/template/blob/0.76-stable/template/App.tsx)
+Here the [Community template file as reference](https://github.com/react-native-community/template/blob/0.77-stable/template/App.tsx)
 
 ## 5. Integrating with your iOS code
 
@@ -279,7 +279,7 @@ First, we need to extends the `AppDelegate` to inherit from one of the classes p
 
 To achieve this, we have to modify the `AppDelegate.h` file and the `AppDelegate.m` files:
 
-1. Open the `AppDelegate.h` files and modify it as it follows (See the official template's [AppDelegate.h](https://github.com/react-native-community/template/blob/0.76-stable/template/ios/HelloWorld/AppDelegate.h) as reference):
+1. Open the `AppDelegate.h` files and modify it as it follows (See the official template's [AppDelegate.h](https://github.com/react-native-community/template/blob/0.77-stable/template/ios/HelloWorld/AppDelegate.h) as reference):
 
 ```diff title="AppDelegate.h changes"
 #import <UIKit/UIKit.h>
@@ -292,7 +292,7 @@ To achieve this, we have to modify the `AppDelegate.h` file and the `AppDelegate
 @end
 ```
 
-2. Open the `AppDelegate.mm` file and modify it as it follows (See the official template's [AppDelegate.mm](https://github.com/react-native-community/template/blob/0.76-stable/template/ios/HelloWorld/AppDelegate.mm) as reference
+2. Open the `AppDelegate.mm` file and modify it as it follows (See the official template's [AppDelegate.mm](https://github.com/react-native-community/template/blob/0.77-stable/template/ios/HelloWorld/AppDelegate.mm) as reference
 
 ```diff title="AppDelegate.mm"
 #import "AppDelegate.h"
@@ -348,7 +348,6 @@ To achieve this, we have to modify the `AppDelegate.swift`
 
 ```diff title="AppDelegate.swift"
 import UIKit
-+import React_RCTAppDelegate
 +import React_RCTAppDelegate
 
 @main
@@ -551,7 +550,7 @@ const {getDefaultConfig} = require('@react-native/metro-config');
 module.exports = getDefaultConfig(__dirname);
 ```
 
-You can checkout the [metro.config.js file](https://github.com/react-native-community/template/blob/0.76-stable/template/metro.config.js) from the Community template file as reference.
+You can checkout the [metro.config.js file](https://github.com/react-native-community/template/blob/0.77-stable/template/metro.config.js) from the Community template file as reference.
 
 Once you have the config file in place, you can run the bundler. Run the following command in the root directory of your project:
 

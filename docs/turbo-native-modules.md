@@ -194,7 +194,7 @@ function App(): React.JSX.Element {
   }
 
   function deleteValue() {
-    NativeLocalStorage?.removeItem(editingValue ?? EMPTY);
+    NativeLocalStorage?.removeItem('myKey');
     setValue('');
   }
 
