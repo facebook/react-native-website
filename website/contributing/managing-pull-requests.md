@@ -40,14 +40,14 @@ Members of the React Native team at Meta aim to review pull requests quickly and
 
 ## How does a PR get merged?
 
-The React Native GitHub repository is actually a mirror of a subdirectory from one of Meta's monorepos. Pull requests are therefore not merged in the traditional sense. Instead, they need to be imported into Meta's internal code review system as a ["diff"](https://www.phacility.com/phabricator/differential/). 
+The React Native GitHub repository is actually a mirror of a subdirectory from one of Meta's monorepos. Pull requests are therefore not merged in the traditional sense. Instead, they need to be imported into Meta's internal code review system as a ["diff"](https://www.phacility.com/phabricator/differential/).
 
 Once imported, the changes will go through a suite of tests. Some of these tests are land-blocking, meaning they need to succeed before the contents of the diff can be merged. Meta always runs React Native from `main` and some changes may require a Facebook employee to attach internal changes to your pull request before it can be merged. For example, if you rename a module name, all Facebook internal callsites have to be updated in the same change in order to merge it. If the diff lands successfully, the changes will eventually get synced back to GitHub by [ShipIt](https://github.com/facebook/fbshipit) as a single commit.
 
 Meta employees are using a custom browser extension for GitHub that can import a pull request in one of two ways: the pull request can be "landed to fbsource", meaning it will be imported and the resulting diff will be approved automatically, and barring any failures, the changes will eventually sync back to `main`. A pull request may also be "imported to Phabricator", meaning the changes will be copied to an internal diff that will require further review and approval before it can land.
 
 <figure>
-  <img src="/img/importing-pull-requests.png" />
+  <img loading="lazy" src="/img/importing-pull-requests.png" />
   <figcaption>Screenshot of the custom browser extension. The button "Import to fbsource" is used to import a Pull Request internally.</figcaption>
 </figure>
 

@@ -27,7 +27,7 @@ export default YourApp;
 
 The above code snippet would look like this:
 
-<img width="783" alt="Screenshot 2020-10-03 at 1 11 19 AM" src="https://user-images.githubusercontent.com/11258286/94963203-67de3500-0515-11eb-974a-a2289c0bfdc8.png"/>
+<img loading="lazy" width="783" alt="Screenshot 2020-10-03 at 1 11 19 AM" src="https://user-images.githubusercontent.com/11258286/94963203-67de3500-0515-11eb-974a-a2289c0bfdc8.png"/>
 
 ### Parameters
 

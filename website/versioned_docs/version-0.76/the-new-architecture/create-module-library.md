@@ -38,7 +38,7 @@ npx create-react-native-library@latest <Name of Your Library>
 
 Once the interactive prompt is done, the tool creates a folder whose structure looks like this in Visual Studio Code:
 
-<img class="half-size" alt="Folder structure after initializing a new library." src="/docs/assets/turbo-native-modules/c++visualstudiocode.webp" />
+<img loading="lazy" class="half-size" alt="Folder structure after initializing a new library." src="/docs/assets/turbo-native-modules/c++visualstudiocode.webp" />
 
 Feel free to explore the code that has been created for you. However, the most important parts:
 

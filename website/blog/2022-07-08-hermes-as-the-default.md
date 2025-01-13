@@ -29,13 +29,13 @@ We measured three different metrics important to app developers: TTI, binary siz
 All the android tests were performed on a Samsung Galaxy S20.
 
 <figure>
-  <img src="/blog/assets/hermes-default-android-data.png" alt="Android Benchmarking Data" />
+  <img loading="lazy" src="/blog/assets/hermes-default-android-data.png" alt="Android Benchmarking Data" />
 </figure>
 
 ### TTI Video
 
 <figure>
-  <img src="/blog/assets/hermes-default-android-video.gif" alt="Android TTI Video" />
+  <img loading="lazy" src="/blog/assets/hermes-default-android-video.gif" alt="Android TTI Video" />
 </figure>
 
 ## iOS Benchmarking Data
@@ -43,19 +43,19 @@ All the android tests were performed on a Samsung Galaxy S20.
 All the iOS tests were performed on an iPhone 12 Pro.
 
 <figure>
-  <img src="/blog/assets/hermes-default-ios-data.png" alt="iOS Benchmarking Data" />
+  <img loading="lazy" src="/blog/assets/hermes-default-ios-data.png" alt="iOS Benchmarking Data" />
 </figure>
 
 ### TTI Video
 
 <figure>
-  <img src="/blog/assets/hermes-default-ios-video.gif" alt="iOS TTI Video" />
+  <img loading="lazy" src="/blog/assets/hermes-default-ios-video.gif" alt="iOS TTI Video" />
 </figure>
 
-### Slowed Down TTI Video, to better show the difference in startup time.
+### Slowed Down TTI Video, to better show the difference in startup time
 
 <figure>
-  <img src="/blog/assets/hermes-default-ios-slow-video.gif" alt="iOS Slowed Down TTI Video" />
+  <img loading="lazy" src="/blog/assets/hermes-default-ios-slow-video.gif" alt="iOS Slowed Down TTI Video" />
 </figure>
 
 ## React Native/Hermes Integration

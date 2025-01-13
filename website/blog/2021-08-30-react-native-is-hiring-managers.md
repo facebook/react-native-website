@@ -11,14 +11,14 @@ As [part of our plans beginning earlier this year](https://reactnative.dev/blog/
 <!--truncate-->
 
 <figure>
-  <img src="/blog/assets/many-platform-vision-messenger-desktop.png" alt="Screenshot of the Messenger app on macOS" />
+  <img loading="lazy" src="/blog/assets/many-platform-vision-messenger-desktop.png" alt="Screenshot of the Messenger app on macOS" />
   <figcaption>
     React Native powers Video Calling in Messenger for Windows and macOS.
   </figcaption>
 </figure>
 
 <figure>
-  <img src="/blog/assets/many-platform-vision-oculus-home.png" alt="Screenshot of Oculus Home in virtual reality" />
+  <img loading="lazy" src="/blog/assets/many-platform-vision-oculus-home.png" alt="Screenshot of Oculus Home in virtual reality" />
   <figcaption>
     React and Relay power the Oculus Home and many other virtual reality experiences.
   </figcaption>

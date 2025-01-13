@@ -7,7 +7,7 @@ import FabricWarning from './\_fabric-warning.mdx';
 
 <FabricWarning />
 
-#### The React Native renderer distributes the work of the [render pipeline](render-pipeline) across multiple threads.
+#### The React Native renderer distributes the work of the [render pipeline](render-pipeline) across multiple threads
 
 Here we define the threading model and provide some examples to illustrate thread usage of the render pipeline.
 
@@ -21,7 +21,7 @@ The renderer uses two different threads:
 Let’s review the supported scenarios of execution for each phase:
 
 <figure>
-  <img src="/docs/assets/Architecture/threading-model/symbols.png" alt="Threading model symbols" />
+  <img loading="lazy" src="/docs/assets/Architecture/threading-model/symbols.png" alt="Threading model symbols" />
 </figure>
 
 ## Render Scenarios
@@ -31,7 +31,7 @@ Let’s review the supported scenarios of execution for each phase:
 This is the most common scenario where most of the render pipeline happens on JavaScript thread.
 
 <figure>
-	<img src="/docs/assets/Architecture/threading-model/case-1.jpg" alt="Threading model use case one" />
+ <img loading="lazy" src="/docs/assets/Architecture/threading-model/case-1.jpg" alt="Threading model use case one" />
 </figure>
 
 ---
@@ -41,7 +41,7 @@ This is the most common scenario where most of the render pipeline happens on Ja
 When there is a high priority event on the UI Thread, the renderer is able to execute all the render pipeline synchronously on the UI thread.
 
 <figure>
-	<img src="/docs/assets/Architecture/threading-model/case-2.jpg" alt="Threading model use case two" />
+ <img loading="lazy" src="/docs/assets/Architecture/threading-model/case-2.jpg" alt="Threading model use case two" />
 </figure>
 
 ---
@@ -51,7 +51,7 @@ When there is a high priority event on the UI Thread, the renderer is able to ex
 This scenario shows the interruption of the render phase by a low priority event in the UI thread. React and the React Native renderer are able to interrupt the render phase and merge its state with a low priority event that is executed on the UI thread. In this case the render process continues executing in the JS thread.
 
 <figure>
-	<img src="/docs/assets/Architecture/threading-model/case-3.jpg" alt="Threading model use case three" />
+ <img loading="lazy" src="/docs/assets/Architecture/threading-model/case-3.jpg" alt="Threading model use case three" />
 </figure>
 
 ---
@@ -61,7 +61,7 @@ This scenario shows the interruption of the render phase by a low priority event
 The render phase is interruptible. This scenario shows the interruption of the render phase by a high priority event in the UI thread. React and the renderer are able to interrupt the render phase and merge its state with a high priority event that was executed on the UI thread. The render phase executes synchronously on the UI thread.
 
 <figure>
-	<img src="/docs/assets/Architecture/threading-model/case-4.jpg" alt="Threading model use case four" />
+ <img loading="lazy" src="/docs/assets/Architecture/threading-model/case-4.jpg" alt="Threading model use case four" />
 </figure>
 
 ---
@@ -71,5 +71,5 @@ The render phase is interruptible. This scenario shows the interruption of the r
 Update originating on UI thread and skips rendering phase. See [React Native Renderer State Updates](render-pipeline#react-native-renderer-state-updates) for more details.
 
 <figure>
-	<img src="/docs/assets/Architecture/threading-model/case-6.jpg" alt="Threading model use case six" />
+ <img loading="lazy" src="/docs/assets/Architecture/threading-model/case-6.jpg" alt="Threading model use case six" />
 </figure>

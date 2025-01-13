@@ -231,11 +231,11 @@ Here's a comparison of the old architecture without transitions and the new arch
 
 <div className="TwoColumns TwoFigures">
 <figure>
- <img src="/img/new-architecture/without-transitions.gif" alt="A video demonstrating an app rendering many views (tiles) according to a slider input. The views are rendered in batches as the slider is quickly adjusted from 0 to 1000." />
+ <img loading="lazy" src="/img/new-architecture/without-transitions.gif" alt="A video demonstrating an app rendering many views (tiles) according to a slider input. The views are rendered in batches as the slider is quickly adjusted from 0 to 1000." />
  <figcaption><b>Before:</b> rendering tiles without marking it as a transition.</figcaption>
 </figure>
 <figure>
- <img src="/img/new-architecture/with-transitions.gif" alt="A video demonstrating an app rendering many views (tiles) according to a slider input. The views are rendered in batches as the slider is quickly adjusted from 0 to 1000. There are less batch renders in comparison to the next video." />
+ <img loading="lazy" src="/img/new-architecture/with-transitions.gif" alt="A video demonstrating an app rendering many views (tiles) according to a slider input. The views are rendered in batches as the slider is quickly adjusted from 0 to 1000. There are less batch renders in comparison to the next video." />
  <figcaption><b>After:</b> rendering tiles <em>with transitions</em> to interrupt in-progress renders of stale state.</figcaption>
 </figure>
 </div>
@@ -250,11 +250,11 @@ Automatic batching allows React to batch together more state updates when render
 
 <div className="TwoColumns TwoFigures">
 <figure>
- <img src="/img/new-architecture/legacy-renderer.gif" alt="A video demonstrating an app rendering many views according to a slider input. The slider value is adjusted from 0 to 1000 and the UI slowly catches up to rendering 1000 views." />
+ <img loading="lazy" src="/img/new-architecture/legacy-renderer.gif" alt="A video demonstrating an app rendering many views according to a slider input. The slider value is adjusted from 0 to 1000 and the UI slowly catches up to rendering 1000 views." />
  <figcaption><b>Before:</b> rendering frequent state updates with legacy renderer.</figcaption>
 </figure>
 <figure>
- <img src="/img/new-architecture/react18-renderer.gif" alt="A video demonstrating an app rendering many views according to a slider input. The slider value is adjusted from 0 to 1000 and the UI resolves to 1000 views faster than the previous example, without as many intermediate states." />
+ <img loading="lazy" src="/img/new-architecture/react18-renderer.gif" alt="A video demonstrating an app rendering many views according to a slider input. The slider value is adjusted from 0 to 1000 and the UI resolves to 1000 views faster than the previous example, without as many intermediate states." />
  <figcaption><b>After:</b> rendering frequent state updates with <em>automatic batching</em>.</figcaption>
 </figure>
 </div>
@@ -304,11 +304,11 @@ This change allows you to read layout information synchronously and update the U
 
 <div className="TwoColumns TwoFigures">
 <figure>
- <img src="/img/new-architecture/async-on-layout.gif" alt="A view that is moving to the corners of the viewport and center with a tooltip rendered either above or below it. The tooltip is rendered after a short delay after the view moves" />
+ <img loading="lazy" src="/img/new-architecture/async-on-layout.gif" alt="A view that is moving to the corners of the viewport and center with a tooltip rendered either above or below it. The tooltip is rendered after a short delay after the view moves" />
  <figcaption>In the old architecture, layout was read asynchronously in `onLayout`, causing the position of the tooltip to be delayed.</figcaption>
 </figure>
 <figure>
- <img src="/img/new-architecture/sync-use-layout-effect.gif" alt="A view that is moving to the corners of the viewport and center with a tooltip rendered either above or below it. The view and tooltip move in unison." />
+ <img loading="lazy" src="/img/new-architecture/sync-use-layout-effect.gif" alt="A view that is moving to the corners of the viewport and center with a tooltip rendered either above or below it. The view and tooltip move in unison." />
  <figcaption>In the New Architecture, layout can be read in `useLayoutEffect` synchronously, updating the tooltip position before displaying.</figcaption>
 </figure>
 </div>
