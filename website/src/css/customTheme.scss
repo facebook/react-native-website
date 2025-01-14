@@ -306,13 +306,13 @@ hr {
   table {
     tr th {
       font-size: 0.9rem;
-      text-align: start;
+      text-align: left;
     }
 
     tr td {
       font-size: 90%;
       line-height: 1.3em;
-      text-align: start;
+      text-align: left;
 
       code {
         display: inline-block;
@@ -1171,7 +1171,7 @@ button[class*="tocCollapsibleButton"] {
 
   .lastUpdated {
     font-size: 13px;
-    text-align: end;
+    text-align: right;
   }
 
   time,
