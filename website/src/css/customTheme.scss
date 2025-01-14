@@ -29,7 +29,6 @@
   --ifm-blockquote-color: var(--ifm-font-color-base);
   --ifm-blockquote-font-size: 16px;
   --ifm-blockquote-border-radius: var(--ifm-global-radius);
-  --ifm-table-head-color: var(--subtle);
   --ifm-link-hover-decoration: none;
   --ifm-navbar-background-color: var(--deepdark);
   --ifm-pre-line-height: 1.5;
@@ -102,7 +101,7 @@ html[data-theme="light"] {
 html[data-theme="dark"] {
   --ifm-code-background: rgba(255, 255, 255, 0.06);
   --ifm-toc-border-color: var(--dark);
-  --ifm-color-emphasis-300: var(--dark);
+  --ifm-color-emphasis-300: var(--light);
 
   *[class^="DocSearch"] {
     --docsearch-searchbox-background: var(--ifm-background-color);
@@ -305,26 +304,14 @@ hr {
   }
 
   table {
-    border-collapse: collapse;
-    display: table;
-    margin: 20px 0;
-    width: 100%;
-
-    thead tr {
-      border: 0;
-    }
-
     tr th {
-      text-transform: uppercase;
-      padding: 6px 10px;
-      font-size: 0.7rem;
+      font-size: 0.9rem;
       text-align: left;
     }
 
     tr td {
       font-size: 90%;
       line-height: 1.3em;
-      padding: 10px;
       text-align: left;
 
       code {
