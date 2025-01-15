@@ -318,14 +318,14 @@ hr {
       text-transform: uppercase;
       padding: 6px 10px;
       font-size: 0.7rem;
-      text-align: left;
+      text-align: start;
     }
 
     tr td {
       font-size: 90%;
       line-height: 1.3em;
       padding: 10px;
-      text-align: left;
+      text-align: start;
 
       code {
         display: inline-block;
@@ -1184,7 +1184,7 @@ button[class*="tocCollapsibleButton"] {
 
   .lastUpdated {
     font-size: 13px;
-    text-align: right;
+    text-align: end;
   }
 
   time,
