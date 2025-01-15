@@ -2,6 +2,7 @@
 id: dropshadowvalue
 title: DropShadowValue Object Type
 ---
+
 The `DropShadowValue` object is taken by the [`filter`](./view-style-props.md#filter) style prop for the `dropShadow` function. It is comprised of 2 or 3 lengths and an optional color. These values collectively define the drop shadow's color, position, and blurriness.
 
 ## Example
@@ -21,33 +22,33 @@ The `DropShadowValue` object is taken by the [`filter`](./view-style-props.md#fi
 
 The offset on the x-axis. This can be positive or negative.
 
-| Type   | Optional |
-| ------ | -------- |
-| number \| string | No      |
+| Type             | Optional |
+| ---------------- | -------- |
+| number \| string | No       |
 
 ### `offsetY`
 
 The offset on the y-axis. This can be positive or negative.
 
-| Type    | Optional |
-| ------- | -------- |
-| number \| string | No      |
+| Type             | Optional |
+| ---------------- | -------- |
+| number \| string | No       |
 
 ### `standardDeviation`
 
 Represents the standard deviation used in the [Guassian blur](https://en.wikipedia.org/wiki/Gaussian_blur) algorithm. The larger the value the blurrier the shadow is. Only non-negative values are valid. The default is 0.
 
-| Type | Optional |
-| ---- | -------- |
-| numer \| string  | Yes       |
+| Type            | Optional |
+| --------------- | -------- |
+| numer \| string | Yes      |
 
 ### `color`
 
 The color of the shadow. The default is `black`.
 
-| Type   | Optional |
-| ------ | -------- |
-| [color](./colors.md) | Yes       |
+| Type                 | Optional |
+| -------------------- | -------- |
+| [color](./colors.md) | Yes      |
 
 ## Used by
 
