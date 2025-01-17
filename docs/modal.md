@@ -146,6 +146,16 @@ The `hardwareAccelerated` prop controls whether to force hardware acceleration f
 
 ---
 
+### `navigationBarTranslucent` <div class="label android">Android</div>
+
+The `navigationBarTranslucent` prop determines whether your modal should go under the system navigation bar. However, `statusBarTranslucent` also needs to be set to `true` to make navigation bar translucent.
+
+| Type | Default |
+| ---- | ------- |
+| bool | `false` |
+
+---
+
 ### `onDismiss` <div class="label ios">iOS</div>
 
 The `onDismiss` prop allows passing a function that will be called once the modal has been dismissed.
