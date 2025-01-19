@@ -539,7 +539,7 @@ Controls whether the `View` can be the target of touch events.
 - `'none'`: The View is never the target of touch events.
 - `'box-none'`: The View is never the target of touch events but its subviews can be. It behaves like if the view had the following classes in CSS:
 
-```
+```css
 .box-none {
      pointer-events: none;
 }
@@ -550,7 +550,7 @@ Controls whether the `View` can be the target of touch events.
 
 - `'box-only'`: The view can be the target of touch events but its subviews cannot be. It behaves like if the view had the following classes in CSS:
 
-```
+```css
 .box-only {
      pointer-events: auto;
 }
