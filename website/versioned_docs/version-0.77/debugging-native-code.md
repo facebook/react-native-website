@@ -23,6 +23,47 @@ npx react-native log-ios
 
 You may also access these through Debug > Open System Log… in the iOS Simulator or by running `adb logcat "*:S" ReactNative:V ReactNativeJS:V` in a terminal while an Android app is running on a device or emulator.
 
+<details>
+<summary>**💡 Custom Native Logs**</summary>
+
+If you are writing a Native Module and want to add custom logs to your module for debugging purposes, you can use the following method:
+
+#### Android (Java/Kotlin)
+
+In your native module, use the `Log` class to add logs that can be viewed in Logcat:
+
+```java
+import android.util.Log;
+
+private void log(String message) {
+    Log.d("YourModuleName", message);
+}
+```
+
+To view these logs in Logcat, use this command, replacing `YourModuleName` with your custom tag:
+
+```shell
+adb logcat "*:S" ReactNative:V ReactNativeJS:V YourModuleName:D
+```
+
+#### iOS (Objective-C/Swift)
+
+In your native module, use `NSLog` for custom logs:
+
+```objective-c
+NSLog(@"YourModuleName: %@", message);
+```
+
+Or, in Swift:
+
+```swift
+print("YourModuleName: \(message)")
+```
+
+These logs will appear in the Xcode console when running the app.
+
+</details>
+
 ## Debugging in a Native IDE
 
 When working with native code, such as when writing native modules, you can launch the app from Android Studio or Xcode and take advantage of the native debugging features (setting up breakpoints, etc.) as you would in case of building a standard native app.
