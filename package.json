@@ -32,7 +32,7 @@
     "netlify-plugin-cache": "^1.0.3",
     "prettier": "^3.4.2",
     "pretty-quick": "^4.0.0",
-    "yarn-deduplicate": "^5.0.0"
+    "yarn-deduplicate": "^6.0.2"
   },
   "resolutions": {
     "trim": "^1.0.1",
