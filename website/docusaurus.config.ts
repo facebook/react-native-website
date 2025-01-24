@@ -161,8 +161,7 @@ const config: Config = {
         routeBasePath: '/architecture',
         sidebarPath: require.resolve('./sidebarsArchitecture'),
         ...commonDocsOptions,
-      } satisfies 
-.Options,
+      } satisfies PluginContentDocs.Options,
     ],
     [
       'content-docs',
