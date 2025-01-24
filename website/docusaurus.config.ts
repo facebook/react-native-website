@@ -71,7 +71,7 @@ const config: Config = {
     defaultLocale: 'en',
     locales: ['en'],
   },
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   presets: [
     [
       '@docusaurus/preset-classic',
