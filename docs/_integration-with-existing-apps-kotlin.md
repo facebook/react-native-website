@@ -28,7 +28,7 @@ To ensure a smooth experience, create a new folder for your integrated React Nat
 
 Go to the root directory and run the following command:
 
-```
+```shell
 curl -O https://raw.githubusercontent.com/react-native-community/template/refs/heads/0.75-stable/template/package.json
 ```
 
@@ -63,7 +63,7 @@ Add `node_modules/` to your `.gitignore` file (here the [Community default one](
 
 React Native uses the React Native Gradle Plugin to configure your dependencies and project setup.
 
-First, let's edit your `settings.gradle` file by adding those lines (as suggested from the [Community template](https://github.com/react-native-community/template/blob/0.76-stable/template/android/settings.gradle)):
+First, let's edit your `settings.gradle` file by adding those lines (as suggested from the [Community template](https://github.com/react-native-community/template/blob/0.77-stable/template/android/settings.gradle)):
 
 ```groovy
 // Configures the React Native Gradle Settings plugin used for autolinking
@@ -78,7 +78,7 @@ includeBuild("../node_modules/@react-native/gradle-plugin")
 // include(":app")
 ```
 
-Then you need to open your top level `build.gradle` and include this line (as suggested from the [Community template](https://github.com/react-native-community/template/blob/0.76-stable/template/android/build.gradle)):
+Then you need to open your top level `build.gradle` and include this line (as suggested from the [Community template](https://github.com/react-native-community/template/blob/0.77-stable/template/android/build.gradle)):
 
 ```diff
 buildscript {
@@ -94,7 +94,7 @@ buildscript {
 ```
 
 This makes sure the React Native Gradle Plugin (RNGP) is available inside your project.
-Finally, add those lines inside your Applications's `build.gradle` file (it's a different `build.gradle` file usually inside your `app` folder - you can use the [Community template file as reference](https://github.com/react-native-community/template/blob/0.76-stable/template/android/app/build.gradle)):
+Finally, add those lines inside your Applications's `build.gradle` file (it's a different `build.gradle` file usually inside your `app` folder - you can use the [Community template file as reference](https://github.com/react-native-community/template/blob/0.77-stable/template/android/app/build.gradle)):
 
 ```diff
 apply plugin: "com.android.application"
@@ -118,7 +118,7 @@ dependencies {
 +}
 ```
 
-Finally, open your application `gradle.properties` files and add the following line (here the [Community template file as reference](https://github.com/react-native-community/template/blob/0.76-stable/template/android/gradle.properties)):
+Finally, open your application `gradle.properties` files and add the following line (here the [Community template file as reference](https://github.com/react-native-community/template/blob/0.77-stable/template/android/gradle.properties)):
 
 ```diff
 +reactNativeArchitectures=armeabi-v7a,arm64-v8a,x86,x86_64
@@ -155,7 +155,7 @@ Then you need to enable [cleartext traffic](https://developer.android.com/traini
 </manifest>
 ```
 
-As usual, here the AndroidManifest.xml file from the Community template to use as a reference: [main](https://github.com/react-native-community/template/blob/0.76-stable/template/android/app/src/main/AndroidManifest.xml) and [debug](https://github.com/react-native-community/template/blob/0.76-stable/template/android/app/src/debug/AndroidManifest.xml)
+As usual, here the AndroidManifest.xml file from the Community template to use as a reference: [main](https://github.com/react-native-community/template/blob/0.77-stable/template/android/app/src/main/AndroidManifest.xml) and [debug](https://github.com/react-native-community/template/blob/0.77-stable/template/android/app/src/debug/AndroidManifest.xml)
 
 This is needed as your application will communicate with your local bundler, [Metro][https://metrobundler.dev/], via HTTP.
 
@@ -173,7 +173,7 @@ First, create an empty `index.js` file in the root of your React Native project.
 
 `index.js` is the starting point for React Native applications, and it is always required. It can be a small file that `import`s other file that are part of your React Native component or application, or it can contain all the code that is needed for it.
 
-Our index.js should look as follows (here the [Community template file as reference](https://github.com/react-native-community/template/blob/0.76-stable/template/index.js)):
+Our index.js should look as follows (here the [Community template file as reference](https://github.com/react-native-community/template/blob/0.77-stable/template/index.js)):
 
 ```js
 import {AppRegistry} from 'react-native';
@@ -184,7 +184,7 @@ AppRegistry.registerComponent('HelloWorld', () => App);
 
 ### Create a `App.tsx` file
 
-Let's create an `App.tsx` file. This is a [TypeScript](https://www.typescriptlang.org/) file that can have [JSX](<https://en.wikipedia.org/wiki/JSX_(JavaScript)>) expressions. It contains the root React Native component that we will integrate into our Android application ([link](https://github.com/react-native-community/template/blob/0.76-stable/template/App.tsx)):
+Let's create an `App.tsx` file. This is a [TypeScript](https://www.typescriptlang.org/) file that can have [JSX](<https://en.wikipedia.org/wiki/JSX_(JavaScript)>) expressions. It contains the root React Native component that we will integrate into our Android application ([link](https://github.com/react-native-community/template/blob/0.77-stable/template/App.tsx)):
 
 ```tsx
 import React from 'react';
@@ -257,7 +257,7 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-Here the [Community template file as reference](https://github.com/react-native-community/template/blob/0.76-stable/template/App.tsx)
+Here the [Community template file as reference](https://github.com/react-native-community/template/blob/0.77-stable/template/App.tsx)
 
 ## 5. Integrating with your Android code
 
@@ -338,6 +338,7 @@ import android.app.Application
 +import com.facebook.react.defaults.DefaultReactHost.getDefaultReactHost
 +import com.facebook.react.defaults.DefaultReactNativeHost
 +import com.facebook.soloader.SoLoader
++import com.facebook.react.soloader.OpenSourceMergedSoMapping
 
 -class MainApplication : Application() {
 +class MainApplication : Application(), ReactApplication {
@@ -356,7 +357,7 @@ import android.app.Application
 
   override fun onCreate() {
     super.onCreate()
-+   SoLoader.init(this, false)
++   SoLoader.init(this, OpenSourceMergedSoMapping)
 +   if (BuildConfig.IS_NEW_ARCHITECTURE_ENABLED) {
 +     load()
 +   }
@@ -367,7 +368,7 @@ import android.app.Application
 </TabItem>
 </Tabs>
 
-As usual, here the [MainApplication.kt Community template file as reference](https://github.com/react-native-community/template/blob/0.76-stable/template/android/app/src/main/java/com/helloworld/MainApplication.kt)
+As usual, here the [MainApplication.kt Community template file as reference](https://github.com/react-native-community/template/blob/0.77-stable/template/android/app/src/main/java/com/helloworld/MainApplication.kt)
 
 #### Creating a `ReactActivity`
 
@@ -423,7 +424,7 @@ class MyReactActivity : ReactActivity() {
 </TabItem>
 </Tabs>
 
-As usual, here the [MainActivity.kt Community template file as reference](https://github.com/react-native-community/template/blob/0.76-stable/template/android/app/src/main/java/com/helloworld/MainApplication.kt)
+As usual, here the [MainActivity.kt Community template file as reference](https://github.com/react-native-community/template/blob/0.77-stable/template/android/app/src/main/java/com/helloworld/MainApplication.kt)
 
 Whenever you create a new Activity, you need to add it to your `AndroidManifest.xml` file. You also need set the theme of `MyReactActivity` to `Theme.AppCompat.Light.NoActionBar` (or to any non-ActionBar theme) as otherwise your application will render an ActionBar on top of your React Native screen:
 
@@ -457,7 +458,7 @@ const {getDefaultConfig} = require('@react-native/metro-config');
 module.exports = getDefaultConfig(__dirname);
 ```
 
-You can checkout the [metro.config.js file](https://github.com/react-native-community/template/blob/0.76-stable/template/metro.config.js) from the Community template file as reference.
+You can checkout the [metro.config.js file](https://github.com/react-native-community/template/blob/0.77-stable/template/metro.config.js) from the Community template file as reference.
 
 Once you have the config file in place, you can run the bundler. Run the following command in the root directory of your project:
 
