@@ -60,14 +60,12 @@ open Demo.xcworkspace
 Podfile
 ...
 Demo
-├── AppDelegate.h
-├── AppDelegate.mm
+├── AppDelegate.swift
 ...
 // highlight-start
 ├── RCTWebView.h
-├── RCTWebView.mm
+└── RCTWebView.mm
 // highlight-end
-└── main.m
 ```
 
 After creating the header file and the implementation file, you can start implementing them.
