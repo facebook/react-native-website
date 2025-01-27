@@ -219,11 +219,13 @@ export default App;
 # Reference
 
 There are 3 sets of shadow APIs in React Native:
+
 - `boxShadow`: A View style prop and a spec-compliant implementation of the [web style prop of the same name](https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow).
 - `dropShadow`: A specific filter function available as part of the [`filter`](./view-style-props#filter) View style prop.
 - Various `shadow` props (`shadowColor`, `shadowOffset`, `shadowOpacity`, `shadowRadius`): These map directly to their native counterparts exposed by the platform-level APIs.
 
 The difference between `dropShadow` and `boxShadow` are as follows:
+
 - `dropShadow` exists as part of `filter`, whereas `boxShadow` is a standalone style prop.
 - `dropShadow` is an alpha mask, so only pixels with a positive alpha value will "cast" a shadow. `boxShadow` will cast around the border box of the element no matter it's contents (unless it is inset).
 - `dropShadow` is only available on Android, `boxShadow` is available on iOS and Android.
@@ -235,9 +237,11 @@ Both `boxShadow` and `dropShadow` are generally more capable than the `shadow` p
 ## Props
 
 ### `boxShadow`
+
 See [View Style Props](./view-style-props#boxshadow) for documentation.
 
 ### `dropShadow` <div class="label android">Android</div>
+
 See [View Style Props](./view-style-props#filter) for documentation.
 
 ### `shadowColor`
