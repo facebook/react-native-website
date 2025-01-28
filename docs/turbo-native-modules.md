@@ -46,7 +46,7 @@ You can see all of the types you can use in your specification and the native ty
 :::
 
 :::info
-If you want to change the name of your module and the related specs file, make sure to always use 'Native' as prefix (e.g. NativeStorage or NativeUsersDefault).
+If you want to change the name of your module and the related specs file, make sure to always use 'Native' as prefix (e.g. `NativeStorage` or `NativeUsersDefault`).
 :::
 
 Here is an implementation of the `localStorage` specification:
