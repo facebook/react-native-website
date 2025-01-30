@@ -178,14 +178,14 @@ See [CameraRoll](https://github.com/react-native-community/react-native-cameraro
 Android supports loading [drawable resources](https://developer.android.com/guide/topics/resources/drawable-resource) via the `xml` file type. This means you can use [vector drawables](https://developer.android.com/develop/ui/views/graphics/vector-drawable-resources) for rendering icons or [shape drawables](https://developer.android.com/guide/topics/resources/drawable-resource#Shape) for, well, drawing shapes! You can import and use these resource types the same as any other static resource or hybrid resource. Like other hybrid app resources, you have to specify image dimensions manually.
 
 ```tsx
-<Image 
+<Image
   source={require('./img/my_icon.xml')}
-  style={{width: 40, height: 40}} 
+  style={{width: 40, height: 40}}
 />
-// or
-<Image 
-  source={require({uri: 'my_icon')} 
-  style={{width: 40, height: 40}} 
+// or as a hybrid resource
+<Image
+  source={require({uri: 'my_icon')}
+  style={{width: 40, height: 40}}
 />
 ```
 
