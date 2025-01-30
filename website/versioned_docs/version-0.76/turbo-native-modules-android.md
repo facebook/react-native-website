@@ -139,7 +139,7 @@ public class NativeLocalStoragePackage extends TurboReactPackage {
   public ReactModuleInfoProvider getReactModuleInfoProvider() {
     return new ReactModuleInfoProvider() {
       @Override
-      public Map<String, ReactModuleInfo> get() {
+      public Map<String, ReactModuleInfo> getReactModuleInfos() {
         Map<String, ReactModuleInfo> map = new HashMap<>();
         map.put(NativeLocalStorageModule.NAME, new ReactModuleInfo(
           NativeLocalStorageModule.NAME,       // name
