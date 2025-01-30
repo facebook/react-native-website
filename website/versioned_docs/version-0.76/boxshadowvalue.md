@@ -64,8 +64,8 @@ The color of the shadow. The default is `black`.
 
 Whether the shadow is inset or not. Inset shadows will appear around the inside of the element's border box as opposed to the outside.
 
-| Type                 | Optional |
-| -------------------- | -------- |
+| Type    | Optional |
+| ------- | -------- |
 | boolean | Yes      |
 
 ## Used by
