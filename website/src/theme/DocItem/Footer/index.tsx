@@ -2,14 +2,19 @@ import React from 'react';
 import clsx from 'clsx';
 import {ThemeClassNames} from '@docusaurus/theme-common';
 import {useDoc} from '@docusaurus/plugin-content-docs/client';
+import Translate from '@docusaurus/Translate';
+import IconEdit from '@theme/Icon/Edit';
 import LastUpdated from '@theme/LastUpdated';
-import EditThisPage from '@theme/EditThisPage';
-import TagsListInline from '@theme/TagsListInline';
+import Link from '@docusaurus/Link';
+import TagsListInline, {
+  Props as TagsListInlineProps,
+} from '@theme/TagsListInline';
 
+import type {EditUrlButton} from '../../../../docusaurus.config';
 import styles from './styles.module.css';
 import DocsRating from '../../../../core/DocsRating';
 
-function TagsRow(props) {
+function TagsRow(props: TagsListInlineProps) {
   return (
     <div
       className={clsx(
@@ -22,11 +27,35 @@ function TagsRow(props) {
     </div>
   );
 }
+function EditPage({label, href}: {label: string; href: string}) {
+  return (
+    <Link to={href} className={ThemeClassNames.common.editThisPage}>
+      <IconEdit />
+      <Translate
+        id="theme.common.editThisPage"
+        description="The link label to edit the page">
+        {label}
+      </Translate>
+    </Link>
+  );
+}
 function EditMetaRow({editUrl, lastUpdatedAt, lastUpdatedBy}) {
+  const buttons = React.useMemo((): EditUrlButton[] => {
+    try {
+      return JSON.parse(editUrl);
+    } catch (e) {
+      console.error(e);
+      return [{href: editUrl, label: 'Edit this page'}];
+    }
+  }, [editUrl]);
   return (
     <div className={clsx(ThemeClassNames.docs.docFooterEditMetaRow, 'row')}>
-      <div className="col">{editUrl && <EditThisPage editUrl={editUrl} />}</div>
-      <div className={clsx('col', styles.lastUpdated)}>
+      <div className={clsx(styles.editButtons)}>
+        {buttons.map(({label, href}, index) => (
+          <EditPage key={index} label={label} href={href} />
+        ))}
+      </div>
+      <div className={clsx(styles.lastUpdated)}>
         {(lastUpdatedAt || lastUpdatedBy) && (
           <LastUpdated
             lastUpdatedAt={lastUpdatedAt}
