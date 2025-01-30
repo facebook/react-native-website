@@ -173,6 +173,24 @@ In some cases you might only want to display an image if it is already in the lo
 
 See [CameraRoll](https://github.com/react-native-community/react-native-cameraroll) for an example of using local resources that are outside of `Images.xcassets`.
 
+### Drawable resources
+
+Android supports loading [drawable resources](https://developer.android.com/guide/topics/resources/drawable-resource) via the `xml` file type. This means you can use [vector drawables](https://developer.android.com/develop/ui/views/graphics/vector-drawable-resources) for rendering icons or [shape drawables](https://developer.android.com/guide/topics/resources/drawable-resource#Shape) for, well, drawing shapes! You can import and use these resource types the same as any other static resource or hybrid resource. Like other hybrid app resources, you have to specify image dimensions manually.
+
+```tsx
+<Image 
+  source={require('./img/my_icon.xml')}
+  style={{width: 40, height: 40}} 
+/>
+// or
+<Image 
+  source={require({uri: 'my_icon')} 
+  style={{width: 40, height: 40}} 
+/>
+```
+
+The one key difference between drawable resources and other image types is that the asset must be referenced at compile-time of the Android application as Android needs to run the [Android Asset Packaging Tool (AAPT)](https://developer.android.com/tools/aapt2) to package the asset. Binary XML, the file format AAPT creates, cannot be loaded over the network by Metro. If you change the directory or name of an asset, you will need to rebuild the Android application each time.
+
 ### Best Camera Roll Image
 
 iOS saves multiple sizes for the same image in your Camera Roll, it is very important to pick the one that's as close as possible for performance reasons. You wouldn't want to use the full quality 3264x2448 image as source when displaying a 200x200 thumbnail. If there's an exact match, React Native will pick it, otherwise it's going to use the first one that's at least 50% bigger in order to avoid blur when resizing from a close size. All of this is done by default so you don't have to worry about writing the tedious (and error prone) code to do it yourself.
