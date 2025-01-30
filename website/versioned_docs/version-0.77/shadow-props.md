@@ -232,7 +232,7 @@ The difference between `dropShadow` and `boxShadow` are as follows:
 - `dropShadow` cannot be inset like `boxShadow`.
 - `dropShadow` does not have the `spreadDistance` argument like `boxShadow`.
 
-Both `boxShadow` and `dropShadow` are generally more capable than the `shadow` props. The `shadow` props, however, map to native platform-level APIs, so if you only need a simple shadow these props are recommended. Note that only `shadowColor` works on both Android and iOS, all other `shadow` props only work on iOS.
+Both `boxShadow` and `dropShadow` are generally more capable than the `shadow` props. The `shadow` props, however, map to native platform-level APIs, so if you only need a straightforward shadow these props are recommended. Note that only `shadowColor` works on both Android and iOS, all other `shadow` props only work on iOS.
 
 ## Props
 
