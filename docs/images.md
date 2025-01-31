@@ -189,7 +189,6 @@ For static drawables that live alongside your JS code, use the `require` syntax:
 For drawables included in the Android drawable folder (i.e. `res/drawable`), use the resource name without the extension:
 
 ```tsx
-// or as a hybrid resource
 <Image
   source={{uri: 'my_icon'}}
   style={{width: 40, height: 40}}
