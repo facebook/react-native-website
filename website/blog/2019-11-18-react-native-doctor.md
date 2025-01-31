@@ -25,7 +25,7 @@ Here it is in action:
 The `doctor` command currently supports most of the software and libraries that React Native relies on, such as CocoaPods, Xcode and Android SDK. With `doctor` we'll find issues with your development environment and give you the option to automatically fix them. If `doctor` is not able to fix an issue, it will display a message and a helpful link explaining how to fix it manually as the following:
 
 <p style={{textAlign: 'center'}}>
-  <img width={700} src="/img/DoctorManualInstallationMessage.png" alt="Doctor command with a link to help on Android SDK's installation" title="Doctor command with a link to help on Android SDK's installation" />
+  <img loading="lazy" width={700} src="/img/DoctorManualInstallationMessage.png" alt="Doctor command with a link to help on Android SDK's installation" title="Doctor command with a link to help on Android SDK's installation" />
 </p>
 
 ## Try it now

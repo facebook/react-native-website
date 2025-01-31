@@ -575,7 +575,7 @@ Now build and run your iOS app as normal.
 
 Once you reach your React-powered Activity inside the app, it should load the JavaScript code from the development server and display:
 
-<center><img src="/docs/assets/EmbeddedAppIOSVideo.gif" width="300" /></center>
+<center><img loading="lazy" src="/docs/assets/EmbeddedAppIOSVideo.gif" width="300" /></center>
 
 ### Creating a release build in Xcode
 

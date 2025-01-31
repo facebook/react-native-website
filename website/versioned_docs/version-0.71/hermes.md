@@ -4,7 +4,7 @@ title: Using Hermes
 ---
 
 <a href="https://hermesengine.dev">
-  <img width={300} height={300} className="hermes-logo" src="/docs/assets/HermesLogo.svg" style={{height: "auto"}}/>
+  <img loading="lazy" width={300} height={300} className="hermes-logo" src="/docs/assets/HermesLogo.svg" style={{height: "auto"}}/>
 </a>
 
 [Hermes](https://hermesengine.dev) is an open-source JavaScript engine optimized for React Native. For many apps, using Hermes will result in improved start-up time, decreased memory usage, and smaller app size when compared to JavaScriptCore.
@@ -40,13 +40,13 @@ Confirm that you are using the `.hbc` file and also benchmark the before/after a
 To see the benefits of Hermes, try making a release build/deployment of your app to compare. For example:
 
 ```shell
-$ npx react-native run-android --mode release
+npx react-native run-android --mode release
 ```
 
 or for iOS:
 
 ```shell
-$ npx react-native run-ios --mode Release
+npx react-native run-ios --mode Release
 ```
 
 This will compile JavaScript to bytecode during build time which will improve your app's startup speed on device.
@@ -115,13 +115,13 @@ Also, if you're using ProGuard, you will need to add these rules in `proguard-ru
 Next, if you've already built your app at least once, clean the build:
 
 ```shell
-$ cd android && ./gradlew clean
+cd android && ./gradlew clean
 ```
 
 That's it! You should now be able to develop and deploy your app as usual:
 
 ```shell
-$ npx react-native run-android
+npx react-native run-android
 ```
 
 ### iOS
@@ -145,13 +145,13 @@ as `true` or `false` you can enable/disable Hermes as you wish.
 Once you've configured it, you can install the Hermes pods with:
 
 ```shell
-$ cd ios && pod install
+cd ios && pod install
 ```
 
 That's it! You should now be able to develop and deploy your app as usual:
 
 ```shell
-$ npx react-native run-ios
+npx react-native run-ios
 ```
 
 ## Switching back to JavaScriptCore

@@ -30,7 +30,7 @@ To record a sampling profiler from the Dev Menu:
 
 A toast will show the location where the sampling profiler has been saved, usually in `/data/user/0/com.appName/cache/*.cpuprofile`
 
-<img src="/docs/assets/HermesProfileSaved.png" height="465" width="250" alt="Toast Notification of Profile saving" />
+<img loading="lazy" src="/docs/assets/HermesProfileSaved.png" height="465" width="250" alt="Toast Notification of Profile saving" />
 
 ## Execute command from CLI
 
@@ -71,7 +71,7 @@ To open the profile in Chrome DevTools:
 2. Select the **Performance** tab.
 3. Right click and choose **Load profile...**
 
-<img src="/docs/assets/openChromeProfile.png" alt="Loading a performance profile on Chrome DevTools" />
+<img loading="lazy" src="/docs/assets/openChromeProfile.png" alt="Loading a performance profile on Chrome DevTools" />
 
 ## How does the Hermes Profile Transformer work?
 
@@ -130,8 +130,8 @@ The `samples` and the `stackFrames` in tandem can then be used to generate all t
 1. Start Nodes/Events: Nodes absent in the previous sample's function call stack but present in the current sample's.
 2. End Nodes/Events: Nodes present in the previous sample's function call stack but absent in the current sample's.
 
-<img src="/docs/assets/CallStackDemo.jpg" height="800" width="600" alt="CallStack Terms Explained" />
+<img loading="lazy" src="/docs/assets/CallStackDemo.jpg" height="800" width="600" alt="CallStack Terms Explained" />
 
 You can now construct a `flamechart` of function calls as you have all the function information including its start and end timestamps.
 
-The `hermes-profile-transformer` can convert any profile generated using Hermes into a format that can be directly displayed in Chrome DevTools. More information about this can be found on [ `@react-native-community/hermes-profile-transformer` ](https://github.com/react-native-community/hermes-profile-transformer)
+The `hermes-profile-transformer` can convert any profile generated using Hermes into a format that can be directly displayed in Chrome DevTools. More information about this can be found on [`@react-native-community/hermes-profile-transformer`](https://github.com/react-native-community/hermes-profile-transformer)

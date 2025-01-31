@@ -40,7 +40,7 @@ For developers who may want to follow along in code, we’ve prepared two exampl
 [This repo](https://github.com/react-native-community/RNNewArchitectureApp) was created to demonstrate how to migrate an app, the native modules and the native components from the legacy architecture on the React Native version 0.67 to the New Architecture and the most recent version of React Native. Each commit corresponds to an isolated migration step.
 
 <figure>
-    <img src="/blog/assets/new-arch-example-steps-to-migrate-an-app.png" alt="Example steps to migrate an app" />
+    <img loading="lazy" src="/blog/assets/new-arch-example-steps-to-migrate-an-app.png" alt="Example steps to migrate an app" />
     <figcaption>Commit list for a migration in the RNNewArchitectureApp repository</figcaption>
 </figure>
 
