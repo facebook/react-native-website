@@ -175,16 +175,23 @@ See [CameraRoll](https://github.com/react-native-community/react-native-cameraro
 
 ### Drawable resources
 
-Android supports loading [drawable resources](https://developer.android.com/guide/topics/resources/drawable-resource) via the `xml` file type. This means you can use [vector drawables](https://developer.android.com/develop/ui/views/graphics/vector-drawable-resources) for rendering icons or [shape drawables](https://developer.android.com/guide/topics/resources/drawable-resource#Shape) for, well, drawing shapes! You can import and use these resource types the same as any other static resource or hybrid resource. Like other hybrid app resources, you have to specify image dimensions manually.
+Android supports loading [drawable resources](https://developer.android.com/guide/topics/resources/drawable-resource) via the `xml` file type. This means you can use [vector drawables](https://developer.android.com/develop/ui/views/graphics/vector-drawable-resources) for rendering icons or [shape drawables](https://developer.android.com/guide/topics/resources/drawable-resource#Shape) for, well, drawing shapes! You can import and use these resource types the same as any other [static resource](#static-image-resources) or [hybrid resource](#images-from-hybrid-apps-resources). You have to specify image dimensions manually.
+
+For static drawables that live alongside your JS code, use the `require` syntax:
 
 ```tsx
 <Image
   source={require('./img/my_icon.xml')}
   style={{width: 40, height: 40}}
 />
+```
+
+For drawables included in the Android drawable folder (i.e. `res/drawable`), use the resource name without the extension:
+
+```tsx
 // or as a hybrid resource
 <Image
-  source={require({uri: 'my_icon')}
+  source={{uri: 'my_icon'}}
   style={{width: 40, height: 40}}
 />
 ```
