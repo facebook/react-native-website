@@ -199,7 +199,11 @@ The one key difference between drawable resources and other image types is that 
 
 #### Creating XML drawable resources
 
-Android provides comprehensive documentation on each of the supported drawable resource types in its [Drawable resources](https://developer.android.com/guide/topics/resources/drawable-resource) guide, along with examples of raw XML files. You can utilize tools from Android Studio like the [Vector Asset Studio](https://developer.android.com/studio/write/vector-asset-studio) to create vector drawables from Scalable Vector Graphic (SVG) and Adobe Photoshop Document (PSD) files. You should try to avoid referencing other resources in the XML file you create if you want to treat your XML file as a static image resource (i.e. with an `import` or `require` statement). If you wish to utilize references to other drawables or attributes, like [color state lists](https://developer.android.com/guide/topics/resources/color-list-resource) or [dimension resources](https://developer.android.com/guide/topics/resources/more-resources#Dimension), you should include your drawable as a [hybrid resource](#images-from-hybrid-apps-resources) and import it by name.
+Android provides comprehensive documentation on each of the supported drawable resource types in its [Drawable resources](https://developer.android.com/guide/topics/resources/drawable-resource) guide, along with examples of raw XML files. You can utilize tools from Android Studio like the [Vector Asset Studio](https://developer.android.com/studio/write/vector-asset-studio) to create vector drawables from Scalable Vector Graphic (SVG) and Adobe Photoshop Document (PSD) files. 
+
+:::info
+You should try to avoid referencing other resources in the XML file you create if you want to treat your XML file as a static image resource (i.e. with an `import` or `require` statement). If you wish to utilize references to other drawables or attributes, like [color state lists](https://developer.android.com/guide/topics/resources/color-list-resource) or [dimension resources](https://developer.android.com/guide/topics/resources/more-resources#Dimension), you should include your drawable as a [hybrid resource](#images-from-hybrid-apps-resources) and import it by name.
+:::
 
 ### Best Camera Roll Image
 
