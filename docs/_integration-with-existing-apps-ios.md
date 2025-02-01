@@ -279,7 +279,7 @@ First, we need to extends the `AppDelegate` to inherit from one of the classes p
 
 To achieve this, we have to modify the `AppDelegate.h` file and the `AppDelegate.m` files:
 
-1. Open the `AppDelegate.h` files and modify it as it follows (See the official template's [AppDelegate.h](https://github.com/react-native-community/template/blob/0.77-stable/template/ios/HelloWorld/AppDelegate.h) as reference):
+1. Open the `AppDelegate.h` files and modify it as it follows (See the official template's [AppDelegate.h](https://github.com/react-native-community/template/blob/0.76-stable/template/ios/HelloWorld/AppDelegate.h) as reference):
 
 ```diff title="AppDelegate.h changes"
 #import <UIKit/UIKit.h>
@@ -292,7 +292,7 @@ To achieve this, we have to modify the `AppDelegate.h` file and the `AppDelegate
 @end
 ```
 
-2. Open the `AppDelegate.mm` file and modify it as it follows (See the official template's [AppDelegate.mm](https://github.com/react-native-community/template/blob/0.77-stable/template/ios/HelloWorld/AppDelegate.mm) as reference
+2. Open the `AppDelegate.mm` file and modify it as it follows (See the official template's [AppDelegate.mm](https://github.com/react-native-community/template/blob/0.76-stable/template/ios/HelloWorld/AppDelegate.mm) as reference
 
 ```diff title="AppDelegate.mm"
 #import "AppDelegate.h"
