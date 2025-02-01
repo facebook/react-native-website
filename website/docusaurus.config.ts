@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import type {EditUrlFunction} from '@docusaurus/plugin-content-docs';
+import type * as PluginContentDocs from '@docusaurus/plugin-content-docs';
 import type * as Preset from '@docusaurus/preset-classic';
 import type {Config} from '@docusaurus/types';
 import path from 'path';
@@ -52,8 +52,11 @@ const commonDocsOptions = {
       });
     }
     return JSON.stringify(buttons);
-  }) as EditUrlFunction,
-  remarkPlugins: [require('@react-native-website/remark-snackplayer')],
+  }) as PluginContentDocs.EditUrlFunction,
+  remarkPlugins: [
+    require('@react-native-website/remark-snackplayer'),
+    require('@react-native-website/remark-codeblock-language-as-title'),
+  ],
 };
 
 const isDeployPreview = process.env.PREVIEW_DEPLOY === 'true';
@@ -100,14 +103,14 @@ const config: Config = {
     defaultLocale: 'en',
     locales: ['en'],
   },
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   presets: [
     [
       '@docusaurus/preset-classic',
       {
         docs: {
           path: '../docs',
-          sidebarPath: require.resolve('./sidebars.json'),
+          sidebarPath: require.resolve('./sidebars'),
           editCurrentVersion: true,
           onlyIncludeVersions: isDeployPreview
             ? ['current', ...versions.slice(0, 2)]
@@ -153,36 +156,33 @@ const config: Config = {
     'docusaurus-plugin-sass',
     [
       'content-docs',
-      /** @type {import('@docusaurus/plugin-content-docs').Options} */
       {
         id: 'architecture',
         path: 'architecture',
         routeBasePath: '/architecture',
-        sidebarPath: require.resolve('./sidebarsArchitecture.json'),
+        sidebarPath: require.resolve('./sidebarsArchitecture'),
         ...commonDocsOptions,
-      },
+      } satisfies PluginContentDocs.Options,
     ],
     [
       'content-docs',
-      /** @type {import('@docusaurus/plugin-content-docs').Options} */
       {
         id: 'contributing',
         path: 'contributing',
         routeBasePath: '/contributing',
-        sidebarPath: require.resolve('./sidebarsContributing.json'),
+        sidebarPath: require.resolve('./sidebarsContributing'),
         ...commonDocsOptions,
-      },
+      } satisfies PluginContentDocs.Options,
     ],
     [
       'content-docs',
-      /** @type {import('@docusaurus/plugin-content-docs').Options} */
       {
         id: 'community',
         path: 'community',
         routeBasePath: '/community',
-        sidebarPath: require.resolve('./sidebarsCommunity.json'),
+        sidebarPath: require.resolve('./sidebarsCommunity'),
         ...commonDocsOptions,
-      },
+      } satisfies PluginContentDocs.Options,
     ],
     [
       '@docusaurus/plugin-pwa',
@@ -255,7 +255,7 @@ const config: Config = {
       isCloseable: false,
     },
     prism: {
-      defaultLanguage: 'jsx',
+      defaultLanguage: 'tsx',
       theme: require('./core/PrismTheme'),
       additionalLanguages: [
         'diff',

@@ -513,6 +513,16 @@ See https://developer.mozilla.org/en-US/docs/Web/CSS/bottom for more details of 
 
 ---
 
+### `boxSizing`
+
+`boxSizing` defines how the element's various sizing props (`width`, `height`, `minWidth`, `minHeight`, etc.) are computed. If `boxSizing` is `border-box`, these sizes apply to the border box of the element. If it is `content-box`, they apply to the content box of the element. The default value is `border-box`. The [web documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing) is a good source of information if you wish to learn more about how this prop works.
+
+| Type                              | Required |
+| --------------------------------- | -------- |
+| enum('border-box', 'content-box') | No       |
+
+---
+
 ### `columnGap`
 
 `columnGap` works like `column-gap` in CSS. Only pixel units are supported in React Native. See https://developer.mozilla.org/en-US/docs/Web/CSS/column-gap for more details.

@@ -155,7 +155,7 @@ huntie:
   name: Alex Hunt
   title: Software Engineer at Meta
   socials:
-    x: alxhnt
+    x: huntie
     github: huntie
   image_url: https://github.com/huntie.png
 
@@ -237,6 +237,37 @@ grabbou:
   socials:
     x: grabbou
   image_url: https://avatars0.githubusercontent.com/u/2464966?s=460&v=4
+
+vonovak:
+  name: Vojtech Novak
+  title: Software Engineer @ Expo
+  socials:
+    x: vonovak
+    github: vonovak
+  image_url: https://avatars.githubusercontent.com/u/1566403?v=4
+
+mazen:
+  name: Mazen Chami
+  title: Software Engineer @ InfiniteRed
+  socials:
+    x: mazenchami
+    github: mazenchami
+  image_url: https://avatars.githubusercontent.com/u/9324607?v=4
+
+robhogan:
+  name: Rob Hogan
+  title: Software Engineer @ Meta
+  socials:
+    x: robjhogan
+    github: robhogan
+  image_url: https://avatars.githubusercontent.com/u/2590098?v=4
+
+fabriziocucci:
+  name: Fabrizio Cucci
+  title: Software Engineer @ Meta
+  socials:
+    x: fabriziocucci
+  image_url: https://avatars.githubusercontent.com/u/8156463?v=4
 
 reactteam:
   name: The React Team

@@ -1048,6 +1048,16 @@ Set line break strategy on iOS 14+. Possible values are `none`, `standard`, `han
 | ----------------------------------------------------------- | -------- |
 | enum(`'none'`, `'standard'`, `'hangul-word'`, `'push-out'`) | `'none'` |
 
+---
+
+### `disableKeyboardShortcuts` <div class="label ios">iOS</div>
+
+If `true`, the keyboard shortcuts (undo/redo and copy buttons) are disabled. The default value is `false`.
+
+| Type |
+| ---- |
+| bool |
+
 ## Methods
 
 ### `.focus()`
