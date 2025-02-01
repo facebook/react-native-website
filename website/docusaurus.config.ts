@@ -29,13 +29,14 @@ const commonDocsOptions = {
     const baseUrl =
       'https://github.com/facebook/react-native-website/edit/main';
     const nextReleasePath = `docs/${options.docPath}`;
+    const isNextRelease = options.version === 'current';
     const buttons: EditUrlButton[] = [
       {
-        label: 'Edit page for next release',
+        label: isNextRelease ? 'Edit this page' : 'Edit page for next release',
         href: `${baseUrl}/${nextReleasePath}`,
       },
     ];
-    if (options.version !== 'current') {
+    if (!isNextRelease) {
       const label =
         options.version === lastVersion
           ? 'Edit page for current release'
