@@ -67,7 +67,7 @@ html[data-theme="dark"] {
   h2 {
     margin: 4px -20px 12px;
     padding: 0 40px 0;
-    text-align: left;
+    text-align: start;
 
     img {
       margin: 16px 0 8px;
@@ -80,7 +80,7 @@ html[data-theme="dark"] {
   }
 
   .showcaseSectionDescription {
-    text-align: left;
+    text-align: start;
     color: var(--subtle);
     padding: 0 20px;
     margin-bottom: 8px;

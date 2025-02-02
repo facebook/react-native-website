@@ -173,6 +173,38 @@ In some cases you might only want to display an image if it is already in the lo
 
 See [CameraRoll](https://github.com/react-native-community/react-native-cameraroll) for an example of using local resources that are outside of `Images.xcassets`.
 
+### Drawable resources
+
+Android supports loading [drawable resources](https://developer.android.com/guide/topics/resources/drawable-resource) via the `xml` file type. This means you can use [vector drawables](https://developer.android.com/develop/ui/views/graphics/vector-drawable-resources) for rendering icons or [shape drawables](https://developer.android.com/guide/topics/resources/drawable-resource#Shape) for, well, drawing shapes! You can import and use these resource types the same as any other [static resource](#static-image-resources) or [hybrid resource](#images-from-hybrid-apps-resources). You have to specify image dimensions manually.
+
+For static drawables that live alongside your JS code, use the `require` or `import` syntax (both work the same):
+
+```tsx
+<Image
+  source={require('./img/my_icon.xml')}
+  style={{width: 40, height: 40}}
+/>
+```
+
+For drawables included in the Android drawable folder (i.e. `res/drawable`), use the resource name without the extension:
+
+```tsx
+<Image
+  source={{uri: 'my_icon'}}
+  style={{width: 40, height: 40}}
+/>
+```
+
+The one key difference between drawable resources and other image types is that the asset must be referenced at compile-time of the Android application as Android needs to run the [Android Asset Packaging Tool (AAPT)](https://developer.android.com/tools/aapt2) to package the asset. Binary XML, the file format AAPT creates, cannot be loaded over the network by Metro. If you change the directory or name of an asset, you will need to rebuild the Android application each time.
+
+#### Creating XML drawable resources
+
+Android provides comprehensive documentation on each of the supported drawable resource types in its [Drawable resources](https://developer.android.com/guide/topics/resources/drawable-resource) guide, along with examples of raw XML files. You can utilize tools from Android Studio like the [Vector Asset Studio](https://developer.android.com/studio/write/vector-asset-studio) to create vector drawables from Scalable Vector Graphic (SVG) and Adobe Photoshop Document (PSD) files.
+
+:::info
+You should try to avoid referencing other resources in the XML file you create if you want to treat your XML file as a static image resource (i.e. with an `import` or `require` statement). If you wish to utilize references to other drawables or attributes, like [color state lists](https://developer.android.com/guide/topics/resources/color-list-resource) or [dimension resources](https://developer.android.com/guide/topics/resources/more-resources#Dimension), you should include your drawable as a [hybrid resource](#images-from-hybrid-apps-resources) and import it by name.
+:::
+
 ### Best Camera Roll Image
 
 iOS saves multiple sizes for the same image in your Camera Roll, it is very important to pick the one that's as close as possible for performance reasons. You wouldn't want to use the full quality 3264x2448 image as source when displaying a 200x200 thumbnail. If there's an exact match, React Native will pick it, otherwise it's going to use the first one that's at least 50% bigger in order to avoid blur when resizing from a close size. All of this is done by default so you don't have to worry about writing the tedious (and error prone) code to do it yourself.

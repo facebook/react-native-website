@@ -4,8 +4,14 @@
   font-size: smaller;
 }
 
+.editButtons {
+  column-gap: 0.4rem;
+  display: flex;
+  flex: 1;
+}
+
 @media (min-width: 997px) {
   .lastUpdated {
-    text-align: right;
+    text-align: end;
   }
 }
