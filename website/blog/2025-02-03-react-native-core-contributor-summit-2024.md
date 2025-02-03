@@ -1,6 +1,7 @@
 ---
 title: 'React Native Core Contributor Summit 2024 Recap'
 authors: [thymikee, szymonrybczak, cortinico, mojavad, stmoy]
+image: https://raw.githubusercontent.com/facebook/react-native-website/9915d9c0b32ef348958c8119f6e83e571c1c0ba3/website/static/blog/assets/react-native-core-contributor-summit-2024-1.jpeg
 tags: [engineering]
 date: 2025-02-03
 ---
