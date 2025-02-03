@@ -5,7 +5,7 @@ tags: [engineering]
 date: 2025-02-03
 ---
 
-Every year, the core contributors in the React Native Community get together with the React Native team to collaboratively shape the direction of this project. Last year was no different—with small exception. We usually meet a day before React Universe Conf (formerly React Native EU) at Callstack HQ in Wrocław. In 2024, learning from past experiences, we hosted the Summit for two consecutive days, so that we can have more unstructured time together.
+Every year, the core contributors in the React Native Community get together with the React Native team to collaboratively shape the direction of this project. Last year was no different—with small exception. We usually meet a day before [React Universe Conf](https://www.reactuniverseconf.com) (formerly React Native EU) at [Callstack](https://www.callstack.com/open-source) HQ in Wrocław. In 2024, learning from past experiences, we hosted the Summit for two consecutive days, so that we can have more unstructured time together.
 
 ![all-participants](../static/blog/assets/react-native-core-contributor-summit-2024-1.jpeg)
 
