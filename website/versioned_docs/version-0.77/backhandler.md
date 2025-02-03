@@ -126,14 +126,3 @@ static addEventListener(
 ```tsx
 static exitApp();
 ```
-
----
-
-### `removeEventListener()`
-
-```tsx
-static removeEventListener(
-  eventName: BackPressEventName,
-  handler: () => boolean | null | undefined,
-);
-```
