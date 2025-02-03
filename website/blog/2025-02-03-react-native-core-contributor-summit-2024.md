@@ -102,3 +102,9 @@ Another aspect of this session was to discuss Cocoapods and future plans related
 Steven and Saad from Microsoft, maintainers of react-native-windows and react-native-macos, hosted a session to listen and gather feedback from contributors related to Desktop platforms. Topics discussed included exploring how to increase adoption of React Native for Desktop (such as having a dedicated workflow in Visual Studio, or exposing desktop as part of Nx), as well as how to support Expo, which is a continual pain point for more adoption.
 
 There’s a big discrepancy in availability of community modules between macOS and Windows, largely due to the fact that iOS code is mostly compatible with macOS, while RNW needs bespoke implementations. While working on the New Architecture for React Native for Windows, the team sees potential in C++ modules allowing for even more code sharing across platforms which will hopefully ease the burden of targeting desktop platforms. It’s worth noting that on the community side Software Mansion is working on adding desktop support for their most popular modules, such as React Native Screens, Gesture Handler and Reanimated.
+
+---
+
+We’re still impressed by how spending several hours together for a couple of days resulted in so much knowledge-sharing and cross-pollination of ideas. During this summit, we planted the seeds for initiatives that will help us improve and re-shape the React Native ecosystem.
+
+If you’re interested in joining the development of React Native, make sure you join our open initiatives and read the [contribution guide](https://reactnative.dev/contributing/overview) we have on our website. We hope to meet you in person as well in the future!
