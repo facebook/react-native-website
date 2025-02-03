@@ -13,13 +13,13 @@ This annual tradition has become a valuable opportunity for contributors to shar
 
 We divided the Summit into two tracks covering following topics:
 
-- Releases
-- What's next after the New Architecture?
-- Web APIs spec for Native Modules
-- LeanCore 2.0
-- Nitro Modules - Unblocking View Components by exposing props as jsi::Values
-- Out Of Tree Platforms & Cocoapods
-- React Native on Desktop
+- [Releases](#releases)
+- [What's next after the New Architecture?](#whats-next-after-the-new-architecture)
+- [Web APIs spec for Native Modules](#web-apis-for-native-modules)
+- [LeanCore 2.0](#leancore-20)
+- [Nitro Modules - Unblocking View Components by exposing props as jsi::Values](#nitro-modules---unblocking-view-components-by-exposing-props-as-jsivalues)
+- [Out Of Tree Platforms & Cocoapods](#out-of-tree-platforms--cocoapods)
+- [React Native on Desktop](#react-native-on-desktop)
 
 In this blog post, we’d like to give you a sneak peek of the results of this gathering.
 
