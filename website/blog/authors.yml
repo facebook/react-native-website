@@ -275,3 +275,27 @@ reactteam:
   socials:
     x: reactnative
   image_url: https://github.com/react-native-bot.png
+
+szymonrybczak:
+  name: Szymon Rybczak
+  title: Software Engineer @ Callstack
+  socials:
+    x: szymonrybczak
+    github: szymonrybczak
+  image_url: https://github.com/szymonrybczak.png
+
+mojavad:
+  name: Mo Javad
+  title: Head of Mobile (UK) @ Theodo
+  socials:
+    x: mo__javad
+    github: mojavad
+  image_url: https://github.com/mojavad.png
+
+stmoy:
+  name: Steven Moyes
+  title: Senior Product Manager @ Microsoft
+  socials:
+    x: moyessa
+    github: stmoy
+  image_url: https://github.com/stmoy.png
