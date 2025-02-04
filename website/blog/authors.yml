@@ -324,3 +324,26 @@ chrfalch:
     x: https://x.com/chrfalch
     github: https://github.com/chrfalch
   image_url: https://github.com/chrfalch.png
+
+iwoplaza:
+  name: Iwo Plaza
+  title: Software Engineer @ Software Mansion
+  socials:
+    x: iwoplaza
+    github: iwoplaza
+  image_url: https://github.com/iwoplaza.png
+
+jpiasecki:
+  name: Jakub Piasecki
+  title: Software Engineer @ Software Mansion
+  socials:
+    x: https://x.com/breskin67
+    github: https://github.com/j-piasecki
+  image_url: https://github.com/j-piasecki.png
+
+coado:
+  name: Dawid Małecki
+  title: Software Engineer @ Software Mansion
+  socials:
+    github: coado
+  image_url: https://github.com/coado.png
