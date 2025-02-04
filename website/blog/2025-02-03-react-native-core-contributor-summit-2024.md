@@ -21,7 +21,7 @@ We divided the Summit into two tracks covering following topics:
 - [Web APIs spec for Native Modules](#web-apis-for-native-modules)
 - [LeanCore 2.0](#leancore-20)
 - [Nitro Modules - Unblocking View Components by exposing props as jsi::Values](#nitro-modules---unblocking-view-components-by-exposing-props-as-jsivalues)
-- [Out Of Tree Platforms & Cocoapods](#out-of-tree-platforms--cocoapods)
+- [Out Of Tree Platforms & CocoaPods](#out-of-tree-platforms--cocoapods)
 - [React Native on Desktop](#react-native-on-desktop)
 
 In this blog post, we’d like to give you a sneak peek of the results of this gathering.
@@ -90,7 +90,7 @@ Recently, Marc Rousavy introduced Nitro Modules as an alternative approach to cr
 
 While Nitro Modules offer some performance benefits, they also have limitations and considerations that need to be addressed. For example, the use of experimental interop features might introduce complexity or compatibility issues that are not present in TurboModules. Our discussion focused on these trade-offs and the potential for upstreaming some of Nitro Modules' improvements into React Native Core, which could allow developers to benefit from more performant modules for everyone.
 
-## Out-of-Tree Platforms & Cocoapods
+## Out-of-Tree Platforms & CocoaPods
 
 Out-of-Tree Platforms presents the full power of React Native, where we can share one JS codebase between different platforms running on our mobile devices, desktops or even on VR/XR devices. Creating such a platform currently isn’t the easiest process, actually there are no guidelines on how things should be created, developed and maintained. Also React Native Core in a way is tied to Android and iOS platforms. In the future we could aim for a scenario where all the platforms are treated equally and integrate with a C++/JS core through the same APIs.
 
@@ -98,7 +98,7 @@ Out-of-Tree Platforms presents the full power of React Native, where we can shar
 
 During this session maintainers of different platforms discussed what are the problems, what they struggle with and what should be the solution to unify the process of creating and maintaining new Out-of-Tree platforms.
 
-Another aspect of this session was to discuss Cocoapods and future plans related to managing native dependencies. Recently the Cocoapods team announced that they’ve moved to maintenance mode and new major improvements or features won’t be shipped. There are various alternatives that could be used and during this session we discussed their pros and cons, and what migration would look like.
+Another aspect of this session was to discuss CocoaPods and future plans related to managing native dependencies. Recently the CocoaPods team announced that they’ve moved to maintenance mode and new major improvements or features won’t be shipped. There are various alternatives that could be used and during this session we discussed their pros and cons, and what migration would look like.
 
 ## React Native on Desktop
 
