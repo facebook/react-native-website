@@ -371,6 +371,58 @@ The following filter functions work on Android only:
 | ------ |
 | number |
 
+---
+
+### `outlineColor`
+
+:::note
+`outlineColor` is only available on the [New Architecture](/architecture/landing-page)
+:::
+
+| Type               |
+| ------------------ |
+| [color](colors.md) |
+
+---
+
+### `outlineOffset`
+
+:::note
+`outlineOffset` is only available on the [New Architecture](/architecture/landing-page)
+:::
+
+Sets the amount of space between an outline and the edge or border of an element.
+
+| Type   |
+| ------ |
+| number |
+
+---
+
+### `outlineStyle`
+
+:::note
+`outlineStyle` is only available on the [New Architecture](/architecture/landing-page)
+:::
+
+| Type                                    |
+| --------------------------------------- |
+| enum(`'solid'`, `'dotted'`, `'dashed'`) |
+
+---
+
+### `outlineWidth`
+
+:::note
+`outlineWidth` is only available on the [New Architecture](/architecture/landing-page)
+:::
+
+| Type   |
+| ------ |
+| number |
+
+---
+
 ### `pointerEvents`
 
 Controls whether the `View` can be the target of touch events.
