@@ -358,7 +358,7 @@ The following filter functions work on Android only:
 `blur` and `dropShadow` are only supported on **Android 12+**
 :::
 
-`filter` takes either an array of objects comprising of the above filter functions or a string which mimics the [web syntax](https://developer.mozilla.org/en-US/docs/Web/CSS/filter).
+`filter` takes either an array of objects comprising of the above filter functions or a string which mimics the [web syntax](https://developer.mozilla.org/en-US/docs/Web/CSS/filter#syntax).
 | Type |
 | ------ |
 | array of objects: `{brightness: number\|string}`, `{opacity: number\|string}`, `{blur: number\|string}`, `{contrast: number\|string}`, `{dropShadow: DropShadowValue\|string}`, `{grayscale: number\|string}`, `{hueRotate: number\|string}`, `{invert: number\|string}`, `{sepia: number\|string}`, `{saturate: number\|string}` or string|
@@ -370,6 +370,64 @@ The following filter functions work on Android only:
 | Type   |
 | ------ |
 | number |
+
+---
+
+### `outlineColor`
+
+:::note
+`outlineColor` is only available on the [New Architecture](/architecture/landing-page)
+:::
+
+`outline-color` sets the color of an element's outline. See https://developer.mozilla.org/en-US/docs/Web/CSS/outline-color for more details.
+
+| Type               |
+| ------------------ |
+| [color](colors.md) |
+
+---
+
+### `outlineOffset`
+
+:::note
+`outlineOffset` is only available on the [New Architecture](/architecture/landing-page)
+:::
+
+`outline-offset` sets the amount of space between an outline and the edge or border of an element. `outlineOffset` does not cause changes in the layout. See https://developer.mozilla.org/en-US/docs/Web/CSS/outline-offset for more details.
+
+| Type   |
+| ------ |
+| number |
+
+---
+
+### `outlineStyle`
+
+:::note
+`outlineStyle` is only available on the [New Architecture](/architecture/landing-page)
+:::
+
+`outline-style` sets the style of an element's outline. See https://developer.mozilla.org/en-US/docs/Web/CSS/outline-style for more details.
+
+| Type                                    |
+| --------------------------------------- |
+| enum(`'solid'`, `'dotted'`, `'dashed'`) |
+
+---
+
+### `outlineWidth`
+
+:::note
+`outlineWidth` is only available on the [New Architecture](/architecture/landing-page)
+:::
+
+`outlineWidth` works like `outline-width` in CSS. The outline is a line drawn around an element, outside the border. `outlineWidth` does not cause changes in the layout. See https://developer.mozilla.org/en-US/docs/Web/CSS/outline-width for more details.
+
+| Type   |
+| ------ |
+| number |
+
+---
 
 ### `pointerEvents`
 
