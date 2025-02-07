@@ -379,6 +379,8 @@ The following filter functions work on Android only:
 `outlineColor` is only available on the [New Architecture](/architecture/landing-page)
 :::
 
+`outline-color` sets the color of an element's outline. See https://developer.mozilla.org/en-US/docs/Web/CSS/outline-color for more details.
+
 | Type               |
 | ------------------ |
 | [color](colors.md) |
@@ -391,7 +393,7 @@ The following filter functions work on Android only:
 `outlineOffset` is only available on the [New Architecture](/architecture/landing-page)
 :::
 
-Sets the amount of space between an outline and the edge or border of an element.
+`outline-offset` sets the amount of space between an outline and the edge or border of an element. `outlineOffset` does not cause changes in the layout. See https://developer.mozilla.org/en-US/docs/Web/CSS/outline-offset for more details.
 
 | Type   |
 | ------ |
@@ -405,6 +407,8 @@ Sets the amount of space between an outline and the edge or border of an element
 `outlineStyle` is only available on the [New Architecture](/architecture/landing-page)
 :::
 
+`outline-style` sets the style of an element's outline. See https://developer.mozilla.org/en-US/docs/Web/CSS/outline-style for more details.
+
 | Type                                    |
 | --------------------------------------- |
 | enum(`'solid'`, `'dotted'`, `'dashed'`) |
@@ -416,6 +420,8 @@ Sets the amount of space between an outline and the edge or border of an element
 :::note
 `outlineWidth` is only available on the [New Architecture](/architecture/landing-page)
 :::
+
+`outlineWidth` works like `outline-width` in CSS. The outline is a line drawn around an element, outside the border. `outlineWidth` does not cause changes in the layout. See https://developer.mozilla.org/en-US/docs/Web/CSS/outline-width for more details.
 
 | Type   |
 | ------ |
