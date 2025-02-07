@@ -21,7 +21,7 @@ The release date of iOS 15 hasn’t been announced yet, but based on previous iO
 The way to disable _QuickType_ bar in _[TextInput](/docs/textinput)_ has changed. _QuickType_ bar is the bar above keyboard with three suggested words. In case your UI needs to have the bar hidden, setting [autoCorrect](/docs/textinput#autocorrect) to `false` no longer disables _QuickType_ bar in iOS 15 like earlier versions. In order to hide the _QuickType_ bar, you need to also set [spellCheck](/docs/textinput#spellcheck-ios) to `false`. This will disable spell check, the red underlines, in your _TextInput_. Disabling QuickType bar with spell check enabled is no longer an option.
 
 <figure>
-  <img src="/blog/assets/ios-15-quicktype-bar.png" alt="Screenshot of QuickType bar" />
+  <img loading="lazy" src="/blog/assets/ios-15-quicktype-bar.png" alt="Screenshot of QuickType bar" />
   <figcaption>
     QuickType bar with three suggested words
   </figcaption>

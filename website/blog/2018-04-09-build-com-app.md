@@ -13,7 +13,7 @@ tags: [showcase]
 You can check out the app at [https://www.build.com/app](https://www.build.com/app).
 
 <p align="center">
-  <img src="/blog/assets/build-com-blog-image.jpg" />
+  <img loading="lazy" src="/blog/assets/build-com-blog-image.jpg" />
 </p>
 
 ## Features

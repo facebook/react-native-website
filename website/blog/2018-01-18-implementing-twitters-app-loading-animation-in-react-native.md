@@ -6,7 +6,7 @@ tags: [engineering]
 
 Twitter’s iOS app has a loading animation I quite enjoy.
 
-<img src="/blog/assets/loading-screen-01.gif" style={{float: 'left', paddingRight: 80, paddingBottom: 20}} />
+<img loading="lazy" src="/blog/assets/loading-screen-01.gif" style={{float: 'left', paddingRight: 80, paddingBottom: 20}} />
 
 Once the app is ready, the Twitter logo delightfully expands, revealing the app.
 
@@ -16,7 +16,7 @@ I wanted to figure out how to recreate this loading animation with React Native.
 
 To understand _how_ to build it, I first had to understand the difference pieces of the loading animation. The easiest way to see the subtlety is to slow it down.
 
-<img src="/blog/assets/loading-screen-02.gif" style={{marginTop: 20, float: 'left', paddingRight: 80, paddingBottom: 20}} />
+<img loading="lazy" src="/blog/assets/loading-screen-02.gif" style={{marginTop: 20, float: 'left', paddingRight: 80, paddingBottom: 20}} />
 
 There are a few major pieces in this that we will need to figure out how to build.
 
@@ -36,14 +36,14 @@ Luckily for you, dear reader, you don’t have to go through the same frustratio
 
 Before we get to code, it is important to understand how to break this down. To help visualize this effect, I recreated it in [CodePen](https://codepen.io/TheSavior/pen/NXNoJM) (embedded in a few paragraphs) so you can interactively see the different layers.
 
-<img src="/blog/assets/loading-screen-03.png" style={{float: 'left', paddingRight: 80, paddingBottom: 20}} />
+<img loading="lazy" src="/blog/assets/loading-screen-03.png" style={{float: 'left', paddingRight: 80, paddingBottom: 20}} />
 
 There are three main layers to this effect. The first is the blue background layer. Even though this seems to appear on top of the app, it is actually in the back.
 
 We then have a plain white layer. And then lastly, in the very front, is our app.
 
 <hr style={{clear: 'both', marginBottom: 40, width: 80}} />
-<img src="/blog/assets/loading-screen-04.png" style={{float: 'left', paddingRight: 80, paddingBottom: 20}} />
+<img loading="lazy" src="/blog/assets/loading-screen-04.png" style={{float: 'left', paddingRight: 80, paddingBottom: 20}} />
 
 The main trick to this animation is using the Twitter logo as a `mask` and masking both the app, and the white layer. I won’t go too deep on the details of masking, there are [plenty](https://www.html5rocks.com/en/tutorials/masking/adobe/) of [resources](https://designshack.net/articles/graphics/a-complete-beginners-guide-to-masking-in-photoshop/) [online](https://www.sketchapp.com/docs/shapes/masking/) for that.
 
@@ -112,7 +112,7 @@ What we want to do is render our blue layer, and then on top render our masked a
 
 This will give us the layers we see below.
 
-<img src="/blog/assets/loading-screen-04.png" style={{marginLeft: 'auto', marginRight: 'auto', display: 'block'}} />
+<img loading="lazy" src="/blog/assets/loading-screen-04.png" style={{marginLeft: 'auto', marginRight: 'auto', display: 'block'}} />
 
 ## Now for the Animated part
 
@@ -169,7 +169,7 @@ The app should stay opaque for a while, at least through the Twitter logo gettin
 
 The app scale starts at 1.1 and scales down to its regular scale by the end of the animation.
 
-## And now, in code.
+## And now, in code
 
 What we essentially did above is map the values from the animation progress percentage to the values for the individual pieces. We do that with Animated using `.interpolate`. We create 3 different style objects, one for each piece of the animation, using interpolated values based off of `this.state.loadingProgress`.
 
@@ -241,7 +241,7 @@ return (
 );
 ```
 
-<img src="/blog/assets/loading-screen-06.gif" style={{float: 'left', paddingRight: 80, paddingBottom: 20}} />
+<img loading="lazy" src="/blog/assets/loading-screen-06.gif" style={{float: 'left', paddingRight: 80, paddingBottom: 20}} />
 
 Yay! We now have the animation pieces looking like we want. Now we just have to clean up our blue and white layers which will never be seen again.
 
@@ -272,13 +272,13 @@ const fullScreenWhiteLayer = this.state.animationDone ? null : (
 
 Voila! Our animation now works and we clean up our unused layers once the animation is done. We have built the Twitter app loading animation!
 
-## But wait, mine doesn’t work!
+## But wait, mine doesn’t work
 
 Don’t fret, dear reader. I too hate when guides only give you chunks of the code and don’t give you the completed source.
 
 This component has been published to npm and is on GitHub as [react-native-mask-loader](https://github.com/TheSavior/react-native-mask-loader). To try this out on your phone, it is [available on Expo](https://expo.io/@eliwhite/react-native-mask-loader-example) here:
 
-<img src="/blog/assets/loading-screen-07.png" style={{marginLeft: 'auto', marginRight: 'auto', display: 'block'}} />
+<img loading="lazy" src="/blog/assets/loading-screen-07.png" style={{marginLeft: 'auto', marginRight: 'auto', display: 'block'}} />
 
 ## More Reading / Extra Credit
 
