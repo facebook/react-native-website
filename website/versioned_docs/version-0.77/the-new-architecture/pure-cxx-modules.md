@@ -318,6 +318,14 @@ If you did everything right, your project on the left should look like this:
 
 #### 3. Registering the Cxx Turbo Native Module in your app
 
+:::warning
+If your app has some local modules that are written in C++, you would not be able to use the AppDelegate in Swift that we shipped in React Native 0.77.
+
+If your app falls in this category, please skip the migration of the AppDelegate to Swift, and keep using Objective-C++ for your app's AppDelegate.
+
+React Native core is mostly developed using C++ to encourage code sharing between iOS and Android and other platforms. The interoperability between Swift and C++ is not mature nor stable, yet. We are looking into ways to fill this gap and let you migrate to Swift too.
+:::
+
 With this last step, we will tell the iOS app where to look for to find the pure C++ Turbo Native Module.
 
 In Xcode, open the `AppDelegate.mm` file and modify it as follows:
