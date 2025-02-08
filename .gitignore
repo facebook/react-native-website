@@ -27,3 +27,12 @@ sync-api-docs/extracted.json
 website/.docusaurus
 website/.cache-loader
 website/build/
+
+# https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
