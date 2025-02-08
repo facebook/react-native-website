@@ -19,7 +19,10 @@ jobs:
           cache: "yarn"
 
       - name: Enable Corepack
-        run: corepack enable && corepack install
+        run: corepack enable
+
+      - name: Setup Corepack
+        run: corepack install
 
       - name: Install dependencies
         run: yarn install --immutable
