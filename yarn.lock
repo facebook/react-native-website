@@ -17864,7 +17864,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "react-native-website-monorepo@workspace:."
   dependencies:
-    case-police: "npm:^0.5.14"
     eslint: "npm:^8"
     eslint-config-prettier: "npm:^9.1.0"
     eslint-plugin-mdx: "npm:^3.1.5"
@@ -17893,6 +17892,7 @@ __metadata:
     "@react-native-website/update-redirects": "npm:0.0.0"
     "@types/google.analytics": "npm:^0.0.46"
     alex: "npm:^10.0.0"
+    case-police: "npm:^0.5.14"
     docusaurus-plugin-sass: "npm:^0.2.5"
     eslint: "npm:^8"
     fs-extra: "npm:^11.2.0"
