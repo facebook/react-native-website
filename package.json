@@ -1,6 +1,9 @@
 {
   "name": "react-native-website-monorepo",
   "private": true,
+  "engines": {
+    "node": ">=20"
+  },
   "workspaces": [
     "website",
     "plugins/*",

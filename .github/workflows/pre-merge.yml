@@ -19,7 +19,7 @@ jobs:
           cache: "yarn"
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile --no-progress --non-interactive
+        run: yarn install --immutable --no-progress --non-interactive
 
       - name: Run Lint
         run: yarn ci:lint
@@ -38,7 +38,7 @@ jobs:
           cache: "yarn"
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile --no-progress --non-interactive
+        run: yarn install --immutable --no-progress --non-interactive
 
       - name: Build
         run: yarn build
