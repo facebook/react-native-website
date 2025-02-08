@@ -18,6 +18,9 @@ jobs:
           node-version: "20"
           cache: "yarn"
 
+      - name: Enable Corepack
+        run: corepack enable
+
       - name: Install dependencies
         run: yarn install --immutable --no-progress --non-interactive
 
@@ -36,6 +39,9 @@ jobs:
         with:
           node-version: "20"
           cache: "yarn"
+
+      - name: Enable Corepack
+        run: corepack enable
 
       - name: Install dependencies
         run: yarn install --immutable --no-progress --non-interactive
