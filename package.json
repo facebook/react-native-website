@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "case-police": "^0.5.14",
-    "eslint": "^8.20.0",
+    "eslint": "^8",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-mdx": "^3.1.5",
     "eslint-plugin-prettier": "^5.2.1",
