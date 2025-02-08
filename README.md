@@ -17,14 +17,15 @@ If you are looking for the source code of the [React Native Archive website](htt
 ### Prerequisites
 
 1. [Git](https://git-scm.com/downloads).
-1. [Node](https://nodejs.org/en/download/) _(version 12 or greater)_.
-1. [Yarn](https://yarnpkg.com/lang/en/docs/install/) _(version 1.5 or greater)_.
+1. [Node](https://nodejs.org/en/download/) _(`engines` field in `package.json`)_.
+1. [Yarn](https://yarnpkg.com/corepack/) _(`packageManager` field in `package.json`)_.
 1. A fork of the repo _(for any contributions)_.
 1. A clone of the `react-native-website` repo.
 
 ### Installation
 
 1. `cd react-native-website` to go into the project root.
+1. Run `corepack enable` to enable Corepack.
 1. Run `yarn` to install the website's workspace dependencies.
 
 ### Running locally
