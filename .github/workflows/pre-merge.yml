@@ -21,7 +21,7 @@ jobs:
         run: corepack enable
 
       - name: Install dependencies
-        run: yarn install --immutable --no-progress --non-interactive
+        run: yarn install --immutable --non-interactive
 
       - name: Run Lint
         run: yarn ci:lint
