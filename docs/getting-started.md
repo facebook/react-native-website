@@ -47,3 +47,49 @@ npx create-expo-app@latest
 Once you’ve created your app, check out the rest of Expo’s getting started guide to start developing your app.
 
 <BoxLink href="https://docs.expo.dev/get-started/set-up-your-environment">Continue with Expo</BoxLink>
+import React from "react";
+import { View, Text, TouchableOpacity, Switch, Slider, ImageBackground } from "react-native";
+
+const SleepPodUI = () => {
+  const [lightOn, setLightOn] = React.useState(true);
+  const [temperature, setTemperature] = React.useState(22);
+  const [soundOn, setSoundOn] = React.useState(false);
+  
+  return (
+    <ImageBackground source={require("./assets/sleeppod_bg.jpg")} style={{ flex: 1, padding: 20, backgroundColor: "#0A0F1D" }}>
+      <View style={{ alignItems: "center", marginBottom: 20 }}>
+        <Text style={{ color: "#00CFCF", fontSize: 24, fontWeight: "bold" }}>SleepPod Control</Text>
+      </View>
+      
+      <View style={{ marginBottom: 20 }}>
+        <Text style={{ color: "#B0E0E6", fontSize: 18 }}>Температура: {temperature}°C</Text>
+        <Slider 
+          minimumValue={16} 
+          maximumValue={30} 
+          step={1} 
+          value={temperature} 
+          onValueChange={(val) => setTemperature(val)} 
+          minimumTrackTintColor="#00CFCF" 
+          thumbTintColor="#00CFCF"
+        />
+      </View>
+      
+      <View style={{ flexDirection: "row", justifyContent: "space-between", marginBottom: 20 }}>
+        <Text style={{ color: "#B0E0E6", fontSize: 18 }}>Освещение</Text>
+        <Switch value={lightOn} onValueChange={() => setLightOn(!lightOn)} thumbColor="#00CFCF" />
+      </View>
+      
+      <View style={{ flexDirection: "row", justifyContent: "space-between", marginBottom: 20 }}>
+        <Text style={{ color: "#B0E0E6", fontSize: 18 }}>Звуковая терапия</Text>
+        <Switch value={soundOn} onValueChange={() => setSoundOn(!soundOn)} thumbColor="#00CFCF" />
+      </View>
+      
+      <TouchableOpacity style={{ backgroundColor: "#00CFCF", padding: 15, borderRadius: 10, alignItems: "center" }}>
+        <Text style={{ color: "#0A0F1D", fontSize: 18, fontWeight: "bold" }}>Запуск сна</Text>
+      </TouchableOpacity>
+    </ImageBackground>
+  );
+};
+
+export default SleepPodUI;
+
