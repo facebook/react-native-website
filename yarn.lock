@@ -3839,7 +3839,7 @@ __metadata:
     "@react-native/eslint-config": "npm:^0.76.0-rc.2"
     "@react-native/typescript-config": "npm:^0.76.0-rc.2"
     "@types/react": "npm:^18.2.79"
-    eslint: "npm:^8"
+    eslint: "npm:^8.57.1"
     glob: "npm:^11.0.0"
     prettier: "npm:^3.4.2"
     react: "npm:18.3.1"
@@ -9220,7 +9220,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^8":
+"eslint@npm:^8.57.1":
   version: 8.57.1
   resolution: "eslint@npm:8.57.1"
   dependencies:
@@ -17864,7 +17864,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "react-native-website-monorepo@workspace:."
   dependencies:
-    eslint: "npm:^8"
+    eslint: "npm:^8.57.1"
     eslint-config-prettier: "npm:^9.1.0"
     eslint-plugin-mdx: "npm:^3.1.5"
     eslint-plugin-prettier: "npm:^5.2.1"
@@ -17894,7 +17894,7 @@ __metadata:
     alex: "npm:^10.0.0"
     case-police: "npm:^0.5.14"
     docusaurus-plugin-sass: "npm:^0.2.5"
-    eslint: "npm:^8"
+    eslint: "npm:^8.57.1"
     fs-extra: "npm:^11.2.0"
     glob: "npm:^11.0.0"
     prettier: "npm:^3.4.2"
