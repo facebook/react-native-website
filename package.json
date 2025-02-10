@@ -11,7 +11,7 @@
     "sync-api-docs"
   ],
   "scripts": {
-    "update-lock": "yarn dedupe",
+    "postinstall": "yarn dedupe",
     "docusaurus": "yarn --cwd website docusaurus",
     "start": "yarn --cwd website start",
     "build": "yarn --cwd website build",
