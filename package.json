@@ -11,6 +11,7 @@
     "sync-api-docs"
   ],
   "scripts": {
+"postinstall": "yarn constraints dedupe",
     "docusaurus": "yarn --cwd website docusaurus",
     "start": "yarn --cwd website start",
     "build": "yarn --cwd website build",
