@@ -11,7 +11,6 @@
     "sync-api-docs"
   ],
   "scripts": {
-"postinstall": "yarn constraints dedupe",
     "docusaurus": "yarn --cwd website docusaurus",
     "start": "yarn --cwd website start",
     "build": "yarn --cwd website build",
@@ -34,5 +33,9 @@
     "prettier": "^3.4.2",
     "pretty-quick": "^4.0.0"
   },
-  "packageManager": "yarn@4.6.0"
+  "packageManager": "yarn@4.6.0",
+  "devDependencies": {
+    "@yarnpkg/core": "^4.2.0",
+    "@yarnpkg/fslib": "^3.1.1"
+  }
 }
