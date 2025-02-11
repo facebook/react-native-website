@@ -371,6 +371,64 @@ The following filter functions work on Android only:
 | ------ |
 | number |
 
+---
+
+### `outlineColor`
+
+:::note
+`outlineColor` is only available on the [New Architecture](/architecture/landing-page)
+:::
+
+Sets the color of an element's outline. See [web documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/outline-color) for more details.
+
+| Type               |
+| ------------------ |
+| [color](colors.md) |
+
+---
+
+### `outlineOffset`
+
+:::note
+`outlineOffset` is only available on the [New Architecture](/architecture/landing-page)
+:::
+
+Sets the amount of space between an outline and the bounds of an element. Does not affect layout. See [web documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/outline-offset) for more details.
+
+| Type   |
+| ------ |
+| number |
+
+---
+
+### `outlineStyle`
+
+:::note
+`outlineStyle` is only available on the [New Architecture](/architecture/landing-page)
+:::
+
+Sets the style of an element's outline. See [web documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/outline-style) for more details.
+
+| Type                                    |
+| --------------------------------------- |
+| enum(`'solid'`, `'dotted'`, `'dashed'`) |
+
+---
+
+### `outlineWidth`
+
+:::note
+`outlineWidth` is only available on the [New Architecture](/architecture/landing-page)
+:::
+
+The width of an outline which is drawn around an element, outside the border. Does not affect layout. See [web documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/outline-width) for more details.
+
+| Type   |
+| ------ |
+| number |
+
+---
+
 ### `pointerEvents`
 
 Controls whether the `View` can be the target of touch events.
