@@ -17,16 +17,18 @@ If you are looking for the source code of the [React Native Archive website](htt
 ### Prerequisites
 
 1. [Git](https://git-scm.com/downloads).
-1. [Node](https://nodejs.org/en/download/) _(>=v20)_.
-1. [Yarn](https://yarnpkg.com/corepack/) _(v4)_.
+1. [Node](https://nodejs.org/en/download/) _(version 20 or greater)_.
+1. [Yarn](https://yarnpkg.com/getting-started/install) _(version 4)_.
 1. A fork of the repo _(for any contributions)_.
 1. A clone of the `react-native-website` repo.
 
 ### Installation
 
 1. `cd react-native-website` to go into the project root.
-1. Run `npm install -g corepack@latest` to make sure [Corepack](https://github.com/nodejs/corepack?tab=readme-ov-file#-corepack) is installed and up to date.
 1. Run `corepack enable` to enable Corepack.
+
+  > If the command above fails, run `npm install -g corepack@latest` to install the latest version of [Corepack](https://yarnpkg.com/corepack#installation).
+
 1. Run `yarn` to install the website's workspace dependencies.
 
 ### Running locally
@@ -168,6 +170,7 @@ If possible, test any visual changes in all latest versions of the following bro
 ### Push it
 
 1. Run `yarn prettier` and `yarn language:lint` in `./website` directory to ensure your changes are consistent with other files in the repo.
+1. Run `yarn update-lock` to [deduplicate dependencies](https://yarnpkg.com/cli/dedupe).
 1. `git add -A && git commit -m "My message"` to stage and commit your changes.
     > replace `My message` with a commit message, such as `Fixed header logo on Android`
 1. `git push my-fork-name the-name-of-my-branch`
