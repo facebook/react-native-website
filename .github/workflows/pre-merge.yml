@@ -17,15 +17,12 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Enable Corepack
-        run: corepack enable
-
       - name: Check dependencies
         run: yarn dedupe --check
 
       - name: Install dependencies
         run: yarn install --immutable
-    
+
       - name: Run Lint
         run: yarn ci:lint
         working-directory: website
@@ -40,9 +37,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-
-      - name: Enable Corepack
-        run: corepack enable
 
       - name: Install dependencies
         run: yarn install --immutable

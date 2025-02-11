@@ -25,10 +25,6 @@ If you are looking for the source code of the [React Native Archive website](htt
 ### Installation
 
 1. `cd react-native-website` to go into the project root.
-1. Run `corepack enable` to enable Corepack.
-
-  > If the command above fails, run `npm install -g corepack@latest` to install the latest version of [Corepack](https://yarnpkg.com/corepack#installation).
-
 1. Run `yarn` to install the website's workspace dependencies.
 
 ### Running locally
@@ -147,7 +143,7 @@ The `showcase.json` file contains the list of users that are highlighted in the 
 1. `git checkout main` from any folder in your local `react-native-website` repository.
 1. `git pull origin main` to ensure you have the latest main code.
 1. `git checkout -b the-name-of-my-branch` to create a branch.
-    > replace `the-name-of-my-branch` with a suitable name, such as `update-animations-page`
+   > replace `the-name-of-my-branch` with a suitable name, such as `update-animations-page`
 
 ### Make the change
 
@@ -172,7 +168,7 @@ If possible, test any visual changes in all latest versions of the following bro
 1. Run `yarn prettier` and `yarn language:lint` in `./website` directory to ensure your changes are consistent with other files in the repo.
 1. Run `yarn update-lock` to [deduplicate dependencies](https://yarnpkg.com/cli/dedupe).
 1. `git add -A && git commit -m "My message"` to stage and commit your changes.
-    > replace `My message` with a commit message, such as `Fixed header logo on Android`
+   > replace `My message` with a commit message, such as `Fixed header logo on Android`
 1. `git push my-fork-name the-name-of-my-branch`
 1. Go to the [react-native-website repo](https://github.com/facebook/react-native-website) and you should see recently pushed branches.
 1. Follow GitHub's instructions.
