@@ -414,7 +414,7 @@ react-native init AwesomeProject
 
 你可以使用 Android Studio 打开项目下的"android"目录，然后可以使用"AVD Manager"来查看可用的虚拟设备，它的图标看起来像下面这样：
 
-![Android Studio AVD Manager](assets/GettingStartedAndroidStudioAVD.png)
+<img src="/docs/assets/GettingStartedAndroidStudioAVD.svg" alt="Android Studio AVD Manager" width="100"/>
 
 如果你刚刚才安装 Android Studio，那么可能需要先[创建一个虚拟设备](https://developer.android.com/studio/run/managing-avds.html)。点击"Create Virtual Device..."，然后选择所需的设备类型并点击"Next"，然后选择**Oreo** API Level 27 image.
 
