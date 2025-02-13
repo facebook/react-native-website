@@ -220,12 +220,3 @@ To link the WebKit framework in your app, follow these steps:
 7. Click on Add.
 
 <img class="half-size" alt="Add webkit framework to your app 2" src="/docs/assets/AddWebKitFramework2.png" />
-
-:::warning
-We are aware of a couple of issues with iOS that would create some problem when building the app with a custom iOS component.
-
-1. The component requires access to the `yoga/style/Style.h` header which is not currently available for the application. To fix this, add the `$(PODS_ROOT)/Headers/Private/Yoga` path to the header search paths build settings of the app.
-2. Codegen is generating a line in the `RCTThirdPartyFabricComponentsProvider` that it should not generate. Remove the lines with the `WebViewCls` symbol in the `RCTThirdPartyFabricComponentsProvider.h` and `RCTThirdPartyFabricComponentsProvider.mm` files.
-
-We have already fixed those issues and they will be released in React Native 0.76.2.
-:::
