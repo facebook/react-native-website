@@ -1,0 +1,8 @@
+# The Code of Conduct calls out language that can't be used so it's not linted.
+CODE_OF_CONDUCT.md
+
+# We will handle the older blog posts later.
+website/blog/201*
+
+# Alex attempts to scan License files from the website output.
+website/build/
