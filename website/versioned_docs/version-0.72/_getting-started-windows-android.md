@@ -145,7 +145,7 @@ If you have a physical Android device, you can use it for development in place o
 
 If you use Android Studio to open `./AwesomeProject/android`, you can see the list of available Android Virtual Devices (AVDs) by opening the "AVD Manager" from within Android Studio. Look for an icon that looks like this:
 
-<img src="/docs/assets/GettingStartedAndroidStudioAVD.jpg" alt="Android Studio AVD Manager" width="100"/>
+<img src="/docs/assets/GettingStartedAndroidStudioAVD.svg" alt="Android Studio AVD Manager" width="100"/>
 
 If you have recently installed Android Studio, you will likely need to [create a new AVD](https://developer.android.com/studio/run/managing-avds.html). Select "Create Virtual Device...", then pick any Phone from the list and click "Next", then select the **Tiramisu** API Level 33 image.
 
