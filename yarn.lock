@@ -7030,15 +7030,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"case-police@npm:^0.5.14":
-  version: 0.5.14
-  resolution: "case-police@npm:0.5.14"
-  bin:
-    case-police: bin/case-police.mjs
-  checksum: 10c0/1aea3d5f21b441681889a800f0d6b5ffe5cbc51e01de9da05f7b0b3fec9901750e211f90797e88bf7b21fcbf53e846353509f3cd92078912de08bd97ac98d55f
-  languageName: node
-  linkType: hard
-
 "ccount@npm:^2.0.0":
   version: 2.0.1
   resolution: "ccount@npm:2.0.1"
@@ -17876,9 +17867,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"react-native-website@workspace:website":
+"react-native-website@workspace:cnwebsite":
   version: 0.0.0-use.local
-  resolution: "react-native-website@workspace:website"
+  resolution: "react-native-website@workspace:cnwebsite"
   dependencies:
     "@docusaurus/core": "npm:3.6.3"
     "@docusaurus/faster": "npm:3.6.3"
@@ -17892,12 +17883,9 @@ __metadata:
     "@react-native-website/update-redirects": "npm:0.0.0"
     "@types/google.analytics": "npm:^0.0.46"
     alex: "npm:^10.0.0"
-    case-police: "npm:^0.5.14"
     docusaurus-plugin-sass: "npm:^0.2.5"
-    eslint: "npm:^8.57.1"
     fs-extra: "npm:^11.2.0"
     glob: "npm:^11.0.0"
-    prettier: "npm:^3.4.2"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
     react-github-btn: "npm:^1.4.0"

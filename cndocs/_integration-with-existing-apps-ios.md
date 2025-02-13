@@ -29,10 +29,10 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import con
 进入根目录并运行以下命令：
 
 ```
-curl -O https://raw.githubusercontent.com/react-native-community/template/refs/heads/0.76-stable/template/package.json
+curl -O https://raw.githubusercontent.com/react-native-community/template/refs/heads/0.77-stable/template/package.json
 ```
 
-这将从[社区模板](https://github.com/react-native-community/template/blob/0.76-stable/template/package.json) 复制 `package.json` 文件到您的项目中。
+这将从[社区模板](https://github.com/react-native-community/template/blob/0.77-stable/template/package.json) 复制 `package.json` 文件到您的项目中。
 
 接下来，运行以下命令安装 NPM 包：
 
@@ -55,7 +55,7 @@ yarn install
 
 安装过程创建了一个新的 `node_modules` 文件夹。该文件夹存储了构建项目所需的 JavaScript 依赖项。
 
-将 `node_modules/` 添加到您的 `.gitignore` 文件中（[社区默认文件](https://github.com/react-native-community/template/blob/0.76-stable/template/_gitignore)）。
+将 `node_modules/` 添加到您的 `.gitignore` 文件中（[社区默认文件](https://github.com/react-native-community/template/blob/0.77-stable/template/_gitignore)）。
 
 ### 3. 安装开发工具
 
@@ -87,22 +87,22 @@ brew install cocoapods
 对于 **Gemfile**，请进入您的项目根目录并运行以下命令：
 
 ```sh
-curl -O https://raw.githubusercontent.com/react-native-community/template/refs/heads/0.76-stable/template/Gemfile
+curl -O https://raw.githubusercontent.com/react-native-community/template/refs/heads/0.77-stable/template/Gemfile
 ```
 
 这将下载 Gemfile 文件。
 对于 **Podfile**，请进入您的项目 `ios` 文件夹并运行以下命令：
 
 ```sh
-curl -O https://raw.githubusercontent.com/react-native-community/template/refs/heads/0.76-stable/template/ios/Podfile
+curl -O https://raw.githubusercontent.com/react-native-community/template/refs/heads/0.77-stable/template/ios/Podfile
 ```
 
-请使用社区模板 作为 [Gemfile](https://github.com/react-native-community/template/blob/0.76-stable/template/Gemfile) 和 [Podfile](https://github.com/react-native-community/template/blob/0.76-stable/template/ios/Podfile) 的参考。
+请使用社区模板 作为 [Gemfile](https://github.com/react-native-community/template/blob/0.77-stable/template/Gemfile) 和 [Podfile](https://github.com/react-native-community/template/blob/0.77-stable/template/ios/Podfile) 的参考。
 
 :::note
-请记住更改 [Podfile](https://github.com/react-native-community/template/blob/0.76-stable/template/ios/Podfile#L17) 和 [Podfile](https://github.com/react-native-community/template/blob/0.76-stable/template/ios/Podfile#L26) 中的这两行，以匹配您的应用名称。
+请记住更改 [Podfile](https://github.com/react-native-community/template/blob/0.77-stable/template/ios/Podfile#L17) 和 [Podfile](https://github.com/react-native-community/template/blob/0.77-stable/template/ios/Podfile#L26) 中的这两行，以匹配您的应用名称。
 
-如果您的应用没有测试，请记住删除 [Podfile](https://github.com/react-native-community/template/blob/0.76-stable/template/ios/Podfile#L26-L29) 中的这段代码。
+如果您的应用没有测试，请记住删除 [Podfile](https://github.com/react-native-community/template/blob/0.77-stable/template/ios/Podfile#L26-L29) 中的这段代码。
 :::
 
 现在，我们需要运行一些额外的命令来安装 Ruby Gem 和 Pods。
@@ -127,7 +127,7 @@ bundle exec pod install
 
 `index.js` 是 React Native 应用程序的起点，并且总是需要。它可以是一个小文件，该文件 `import` 其他文件，这些文件是您的 React Native 组件或应用程序的一部分，或者它可以包含所有需要的代码。
 
-我们的 `index.js` 文件应如下所示（[社区模板文件](https://github.com/react-native-community/template/blob/0.76-stable/template/index.js) 作为参考）：
+我们的 `index.js` 文件应如下所示（[社区模板文件](https://github.com/react-native-community/template/blob/0.77-stable/template/index.js) 作为参考）：
 
 ```js
 import {AppRegistry} from 'react-native';
@@ -138,7 +138,7 @@ AppRegistry.registerComponent('HelloWorld', () => App);
 
 ### 创建一个 `App.tsx` 文件
 
-让我们创建一个 `App.tsx` 文件。这是一个 [TypeScript](https://www.typescriptlang.org/) 文件，可以包含 [JSX](<https://en.wikipedia.org/wiki/JSX_(JavaScript)>) 表达式。它包含我们要集成到 iOS 应用程序中的根 React Native 组件（[链接](https://github.com/react-native-community/template/blob/0.76-stable/template/App.tsx)）：
+让我们创建一个 `App.tsx` 文件。这是一个 [TypeScript](https://www.typescriptlang.org/) 文件，可以包含 [JSX](<https://en.wikipedia.org/wiki/JSX_(JavaScript)>) 表达式。它包含我们要集成到 iOS 应用程序中的根 React Native 组件（[链接](https://github.com/react-native-community/template/blob/0.77-stable/template/App.tsx)）：
 
 ```tsx
 import React from 'react';
@@ -211,7 +211,7 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-[社区模板文件](https://github.com/react-native-community/template/blob/0.76-stable/template/App.tsx) 作为参考
+[社区模板文件](https://github.com/react-native-community/template/blob/0.77-stable/template/App.tsx) 作为参考
 
 ## 5. 与 iOS 代码集成
 
@@ -348,7 +348,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 ```diff title="AppDelegate.swift"
 import UIKit
-+import React_RCTAppDelegate
 +import React_RCTAppDelegate
 
 @main
@@ -551,7 +550,7 @@ const {getDefaultConfig} = require('@react-native/metro-config');
 module.exports = getDefaultConfig(__dirname);
 ```
 
-您可以查看[社区模板文件](https://github.com/react-native-community/template/blob/0.76-stable/template/metro.config.js) 作为参考。
+您可以查看[社区模板文件](https://github.com/react-native-community/template/blob/0.77-stable/template/metro.config.js) 作为参考。
 
 一旦您有了配置文件，您可以运行 bundler。在项目根目录下运行以下命令：
 

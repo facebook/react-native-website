@@ -52,7 +52,7 @@ module.exports = {
       {
         docs: {
           path: '../cndocs',
-          sidebarPath: require.resolve('./sidebars.json'),
+          sidebarPath: require.resolve('./sidebars.ts'),
           editCurrentVersion: true,
           onlyIncludeVersions: isDeployPreview
             ? ['current', ...versions.slice(0, 2)]
@@ -99,7 +99,7 @@ module.exports = {
         id: 'architecture',
         path: 'architecture',
         routeBasePath: '/architecture',
-        sidebarPath: require.resolve('./sidebarsArchitecture.json'),
+        sidebarPath: require.resolve('./sidebarsArchitecture.ts'),
         ...commonDocsOptions,
       }),
     ],
