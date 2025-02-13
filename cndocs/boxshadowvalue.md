@@ -1,11 +1,11 @@
 ---
 id: boxshadowvalue
-title: BoxShadowValue Object Type
+title: BoxShadowValue 对象类型
 ---
 
-The `BoxShadowValue` object is taken by the [`boxShadow`](./view-style-props.md#boxshadow) style prop. It is comprised of 2-4 lengths, an optional color, and an optional `inset` boolean. These values collectively define the box shadow's color, position, size, and blurriness.
+`BoxShadowValue` 对象类型由 [`boxShadow`](./view-style-props.md#boxshadow) 样式属性所使用。它由 2-4 个长度、一个可选的颜色和一个可选的 `inset` 布尔值组成。这些值共同定义了盒阴影的颜色、位置、大小和模糊程度。
 
-## Example
+## 示例
 
 ```js
 {
@@ -18,21 +18,21 @@ The `BoxShadowValue` object is taken by the [`boxShadow`](./view-style-props.md#
 }
 ```
 
-## Keys and values
+## 键和值
 
 ### `offsetX`
 
-The offset on the x-axis. This can be positive or negative. A positive value indicates right and negative indicates left.
+在 x 轴上的偏移量。它可以是正数或负数。正数表示向右，负数表示向左。
 
-| Type             | Optional |
+| 类型             | 可选 |
 | ---------------- | -------- |
 | number \| string | No       |
 
 ### `offsetY`
 
-The offset on the y-axis. This can be positive or negative. A positive value indicates up and negative indicates down.
+在 y 轴上的偏移量。它可以是正数或负数。正数表示向上，负数表示向下。
 
-| Type             | Optional |
+| 类型             | 可选 |
 | ---------------- | -------- |
 | number \| string | No       |
 
