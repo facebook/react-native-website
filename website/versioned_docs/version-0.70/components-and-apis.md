@@ -68,6 +68,12 @@ These common user interface controls will render on any platform.
       <p>A basic button component for handling touches that should render nicely on any platform.</p>
     </a>
   </div>
+   <div className="component">
+    <a href="./pressable">
+      <h3>Pressable</h3>
+      <p>A Core Component wrapper that can detect various stages of press interactions on any of its defined children</p>
+    </a>
+  </div>
   <div className="component">
     <a href="./switch">
       <h3>Switch</h3>
