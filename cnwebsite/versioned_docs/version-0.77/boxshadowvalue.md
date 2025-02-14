@@ -1,11 +1,11 @@
 ---
 id: boxshadowvalue
-title: BoxShadowValue Object Type
+title: BoxShadowValue 对象类型
 ---
 
-The `BoxShadowValue` object is taken by the [`boxShadow`](./view-style-props.md#boxshadow) style prop. It is comprised of 2-4 lengths, an optional color, and an optional `inset` boolean. These values collectively define the box shadow's color, position, size, and blurriness.
+`BoxShadowValue` 对象类型由 [`boxShadow`](./view-style-props.md#boxshadow) 样式属性所使用。它由 2-4 个长度、一个可选的颜色和一个可选的 `inset` 布尔值组成。这些值共同定义了盒阴影的颜色、位置、大小和模糊程度。
 
-## Example
+## 示例
 
 ```js
 {
@@ -18,56 +18,56 @@ The `BoxShadowValue` object is taken by the [`boxShadow`](./view-style-props.md#
 }
 ```
 
-## Keys and values
+## 键和值
 
 ### `offsetX`
 
-The offset on the x-axis. This can be positive or negative. A positive value indicates right and negative indicates left.
+在 x 轴上的偏移量。它可以是正数或负数。正数表示向右，负数表示向左。
 
-| Type             | Optional |
-| ---------------- | -------- |
-| number \| string | No       |
+| 类型             | 可选 |
+| ---------------- | ---- |
+| number \| string | No   |
 
 ### `offsetY`
 
-The offset on the y-axis. This can be positive or negative. A positive value indicates up and negative indicates down.
+在 y 轴上的偏移量。它可以是正数或负数。正数表示向上，负数表示向下。
 
-| Type             | Optional |
-| ---------------- | -------- |
-| number \| string | No       |
+| 类型             | 可选 |
+| ---------------- | ---- |
+| number \| string | No   |
 
 ### `blurRadius`
 
-Represents the radius used in the [Guassian blur](https://en.wikipedia.org/wiki/Gaussian_blur) algorithm. The larger the value the blurrier the shadow is. Only non-negative values are valid. The default is 0.
+表示用于 [高斯模糊](https://en.wikipedia.org/wiki/Gaussian_blur) 算法的半径。值越大，阴影越模糊。仅非负值有效。默认值为 0。
 
-| Type            | Optional |
-| --------------- | -------- |
-| numer \| string | Yes      |
+| 类型            | 可选 |
+| --------------- | ---- |
+| numer \| string | Yes  |
 
 ### `spreadDistance`
 
-How much larger or smaller the shadow grows or shrinks. A positive value will grow the shadow, a negative value will shrink the shadow.
+阴影扩展的距离。正值会使阴影变大，负值会使阴影变小。
 
-| Type            | Optional |
-| --------------- | -------- |
-| numer \| string | Yes      |
+| 类型            | 可选 |
+| --------------- | ---- |
+| numer \| string | Yes  |
 
 ### `color`
 
-The color of the shadow. The default is `black`.
+阴影的颜色。默认值为 `black`。
 
-| Type                 | Optional |
-| -------------------- | -------- |
-| [color](./colors.md) | Yes      |
+| 类型                 | 可选 |
+| -------------------- | ---- |
+| [color](./colors.md) | Yes  |
 
 ### `inset`
 
-Whether the shadow is inset or not. Inset shadows will appear around the inside of the element's border box as opposed to the outside.
+是否为内阴影。内阴影会出现在元素的边框盒内部，而不是外部。
 
-| Type    | Optional |
-| ------- | -------- |
-| boolean | Yes      |
+| 类型    | 可选 |
+| ------- | ---- |
+| boolean | Yes  |
 
-## Used by
+## 由以下对象使用
 
 - [`boxShadow`](./view-style-props.md#boxshadow)
