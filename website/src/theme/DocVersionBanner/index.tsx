@@ -12,8 +12,15 @@ import {
   useDocsVersion,
   useDocsPreferredVersion,
 } from '@docusaurus/plugin-content-docs/client';
+import {type PropVersionMetadata} from '@docusaurus/plugin-content-docs';
 
-function UnreleasedVersionLabel({siteTitle, versionMetadata}) {
+function UnreleasedVersionLabel({
+  siteTitle,
+  versionMetadata,
+}: {
+  siteTitle: string;
+  versionMetadata: PropVersionMetadata;
+}) {
   return (
     <Translate
       id="theme.docs.versions.unreleasedVersionLabel"
@@ -29,7 +36,13 @@ function UnreleasedVersionLabel({siteTitle, versionMetadata}) {
   );
 }
 
-function UnmaintainedVersionLabel({siteTitle, versionMetadata}) {
+function UnmaintainedVersionLabel({
+  siteTitle,
+  versionMetadata,
+}: {
+  siteTitle: string;
+  versionMetadata: PropVersionMetadata;
+}) {
   return (
     <Translate
       id="theme.docs.versions.unmaintainedVersionLabel"
@@ -90,7 +103,13 @@ function LatestVersionSuggestionLabel({
   );
 }
 
-function DocVersionBannerEnabled({className, versionMetadata}) {
+function DocVersionBannerEnabled({
+  className,
+  versionMetadata,
+}: {
+  className: string;
+  versionMetadata: PropVersionMetadata;
+}) {
   const {
     siteConfig: {title: siteTitle},
   } = useDocusaurusContext();
