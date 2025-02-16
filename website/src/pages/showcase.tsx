@@ -13,14 +13,7 @@ import type users from '../../showcase.json';
 import IconExternalLink from '../theme/Icon/ExternalLink';
 import ThemedImage from '@theme/ThemedImage';
 
-type UserType =
-  | typeof users.meta
-  | typeof users.microsoft
-  | typeof users.amazon
-  | typeof users.shopify
-  | typeof users.wix
-  | typeof users.others;
-type UserAppType = UserType[number];
+type UserAppType = (typeof users)[keyof typeof users][number];
 
 const renderApp = (app: UserAppType, i: number) => (
   <AppBox app={app} key={`app-${app.name}-${i}`} />
