@@ -1,3 +1,2 @@
-# .husky/pre-commit
 # Note that you can now have commands on multiple lines
 pretty-quick --staged
