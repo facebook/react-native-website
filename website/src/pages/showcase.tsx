@@ -44,7 +44,7 @@ const AppBox = ({app}: {app: UserAppType}) => {
           <h3>{app.name}</h3>
           {renderLinks(app)}
         </div>
-        {'infoTitle' in app && 'infoLink' in app && app.infoLink && (
+        {'infoTitle' in app && app.infoLink && (
           <a
             className="articleButton"
             href={app.infoLink}
