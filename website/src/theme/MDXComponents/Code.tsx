@@ -1,8 +1,9 @@
 import React from 'react';
 import CodeBlock from '@theme/CodeBlock';
+import type {Props as CodeBlockProps} from '@theme/CodeBlock';
 import InlineCode from './InlineCode';
 
-export default function MDXCode(props) {
+export default function MDXCode(props: CodeBlockProps) {
   const shouldBeInline = React.Children.toArray(props.children).every(
     el => typeof el === 'string' && !el.includes('\n')
   );

@@ -44,6 +44,7 @@ function UnmaintainedVersionLabel({siteTitle, versionMetadata}) {
     </Translate>
   );
 }
+
 const BannerLabelComponents = {
   unreleased: UnreleasedVersionLabel,
   unmaintained: UnmaintainedVersionLabel,
@@ -55,7 +56,15 @@ function BannerLabel(props) {
   return <BannerLabelComponent {...props} />;
 }
 
-function LatestVersionSuggestionLabel({versionLabel, to, onClick}) {
+function LatestVersionSuggestionLabel({
+  versionLabel,
+  to,
+  onClick,
+}: {
+  versionLabel: string;
+  to: string;
+  onClick: () => void;
+}) {
   return (
     <Translate
       id="theme.docs.versions.latestVersionSuggestionLabel"
@@ -117,7 +126,7 @@ function DocVersionBannerEnabled({className, versionMetadata}) {
   );
 }
 
-export default function DocVersionBanner({className}) {
+export default function DocVersionBanner({className}: {className?: string}) {
   const versionMetadata = useDocsVersion();
   if (versionMetadata.banner) {
     return (

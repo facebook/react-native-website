@@ -5,7 +5,7 @@ import Link from '@docusaurus/Link';
 
 const MarkdownInlineCodePrefix = 'md ';
 
-export default function InlineCode(props) {
+export default function InlineCode(props: {children?: React.ReactNode}) {
   if (
     typeof props.children === 'string' &&
     props.children.startsWith(MarkdownInlineCodePrefix)
@@ -34,14 +34,18 @@ const MarkdownInlineCode = React.memo(function MarkdownInlineCodeInner(
 // Gives the ability to use basic Markdown links inside inline code blocks
 // We use RegExp because a full Markdown parser would be quite heavy
 // See https://github.com/facebook/react-native-website/pull/3807
-function linkify(input) {
+function linkify(input: React.ReactNode): React.ReactNode {
+  if (typeof input !== 'string') {
+    return input;
+  }
+
   // Inspired by https://github.com/gakimball/transform-markdown-links
   // Thank you: http://stackoverflow.com/a/32382702 (with some modifications)
   const linkRegExp = /(?<link>\[(?<text>[^\]]+)?\]\((?<url>[^)]+)\))/g;
   const linkSplitRegExp = /\[[^\]]+?\]\([^)]+\)/g;
 
   const links = [];
-  let match;
+  let match: RegExpExecArray | null;
   while ((match = linkRegExp.exec(input)) !== null) {
     const link = match.groups.link;
     const text = match.groups.text;

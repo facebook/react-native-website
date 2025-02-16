@@ -13,7 +13,18 @@ import type users from '../../showcase.json';
 import IconExternalLink from '../theme/Icon/ExternalLink';
 import ThemedImage from '@theme/ThemedImage';
 
-const renderApp = (app, i) => <AppBox app={app} key={`app-${app.name}-${i}`} />;
+type UserType =
+  | typeof users.meta
+  | typeof users.microsoft
+  | typeof users.amazon
+  | typeof users.shopify
+  | typeof users.wix
+  | typeof users.others;
+type UserAppType = UserType[number];
+
+const renderApp = (app: UserAppType, i: number) => (
+  <AppBox app={app} key={`app-${app.name}-${i}`} />
+);
 
 function Section({
   children,
@@ -24,7 +35,7 @@ function Section({
   return <section className={`Section ${background}`}>{children}</section>;
 }
 
-const AppBox = ({app}) => {
+const AppBox = ({app}: {app: UserAppType}) => {
   const imgSource = useBaseUrl(
     app.icon.startsWith('http') ? app.icon : 'img/showcase/' + app.icon
   );
@@ -40,7 +51,7 @@ const AppBox = ({app}) => {
           <h3>{app.name}</h3>
           {renderLinks(app)}
         </div>
-        {app.infoLink && (
+        {'infoTitle' in app && 'infoLink' in app && app.infoLink && (
           <a
             className="articleButton"
             href={app.infoLink}
@@ -55,7 +66,7 @@ const AppBox = ({app}) => {
   );
 };
 
-const renderLinks = app => {
+const renderLinks = (app: UserAppType) => {
   const links = [
     app.linkAppStore ? (
       <a key="ios" href={app.linkAppStore} target="_blank">
@@ -67,12 +78,12 @@ const renderLinks = app => {
         Android
       </a>
     ) : null,
-    app.linkDesktop ? (
+    'linkDesktop' in app && app.linkDesktop ? (
       <a key="desktop" href={app.linkDesktop} target="_blank">
         Desktop
       </a>
     ) : null,
-    app.linkMetaQuest ? (
+    'linkMetaQuest' in app && app.linkMetaQuest ? (
       <a key="quest" href={app.linkMetaQuest} target="_blank">
         Meta&nbsp;Quest
       </a>

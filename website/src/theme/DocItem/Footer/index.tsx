@@ -39,7 +39,15 @@ function EditPage({label, href}: {label: string; href: string}) {
     </Link>
   );
 }
-function EditMetaRow({editUrl, lastUpdatedAt, lastUpdatedBy}) {
+function EditMetaRow({
+  editUrl,
+  lastUpdatedAt,
+  lastUpdatedBy,
+}: {
+  editUrl: string;
+  lastUpdatedAt: number;
+  lastUpdatedBy: string;
+}) {
   const buttons = React.useMemo((): EditUrlButton[] => {
     try {
       return JSON.parse(editUrl);

@@ -7,7 +7,17 @@
 
 import React, {useState, useEffect} from 'react';
 
-function ThemeImage({lightSrc, darkSrc, className, alt}) {
+function ThemeImage({
+  lightSrc,
+  darkSrc,
+  className,
+  alt,
+}: {
+  lightSrc: string;
+  darkSrc: string;
+  className?: string;
+  alt: string;
+}) {
   const [theme, setTheme] = useState('light');
 
   useEffect(() => {
