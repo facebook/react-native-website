@@ -78,4 +78,4 @@ function Platforms() {
   );
 }
 
-export default Platforms;
+export {Platforms};

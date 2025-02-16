@@ -89,4 +89,4 @@ function Framework() {
   );
 }
 
-export default Framework;
+export {Framework};
