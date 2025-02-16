@@ -7,11 +7,12 @@
 
 import React from 'react';
 
-import ThemeImage from '../components/ThemeImage';
 import Section from '../components/Section';
 import SectionTitle from '../components/SectionTitle';
 
 import styles from './styles.module.css';
+import ThemedImage from '@theme/ThemedImage';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 function Framework() {
   return (
@@ -30,11 +31,13 @@ function Framework() {
       />
       <div className={styles.cardContainer}>
         <div className={styles.card}>
-          <ThemeImage
-            lightSrc="/img/homepage/file-based-routing.png"
-            darkSrc="/img/homepage/file-based-routing-dark.png"
-            className={styles.cardImage}
+          <ThemedImage
             alt="File system with folders and files representing screens and navigation"
+            className={styles.cardImage}
+            sources={{
+              light: useBaseUrl('/img/homepage/file-based-routing.png'),
+              dark: useBaseUrl('/img/homepage/file-based-routing-dark.png'),
+            }}
           />
           <div className={styles.cardContent}>
             <h4 className={styles.cardTitle}>File-based routing</h4>
@@ -45,11 +48,13 @@ function Framework() {
           </div>
         </div>
         <div className={styles.card}>
-          <ThemeImage
-            lightSrc="/img/homepage/libraries.png"
-            darkSrc="/img/homepage/libraries-dark.png"
-            className={styles.cardImage}
+          <ThemedImage
             alt="Grid of icons representing libraries, SDKs, and native code"
+            className={styles.cardImage}
+            sources={{
+              light: useBaseUrl('/img/homepage/libraries.png'),
+              dark: useBaseUrl('/img/homepage/libraries-dark.png'),
+            }}
           />
           <div className={styles.cardContent}>
             <h4 className={styles.cardTitle}>
@@ -62,11 +67,13 @@ function Framework() {
           </div>
         </div>
         <div className={styles.card}>
-          <ThemeImage
-            lightSrc="/img/homepage/tools.png"
-            darkSrc="/img/homepage/tools-dark.png"
-            className={styles.cardImage}
+          <ThemedImage
             alt="List of developer tool toggles for debugging, performance, and more"
+            className={styles.cardImage}
+            sources={{
+              light: useBaseUrl('/img/homepage/tools.png'),
+              dark: useBaseUrl('/img/homepage/tools-dark.png'),
+            }}
           />
           <div className={styles.cardContent}>
             <h4 className={styles.cardTitle}>Developer tools</h4>

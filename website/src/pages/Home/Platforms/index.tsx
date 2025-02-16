@@ -9,10 +9,11 @@ import React from 'react';
 
 import Section from '../components/Section';
 import SectionTitle from '../components/SectionTitle';
-import ThemeImage from '../components/ThemeImage';
+import ThemedImage from '@theme/ThemedImage';
 
 import FoxFact from './FoxFact';
 import styles from './styles.module.css';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 function Platforms() {
   return (
@@ -54,11 +55,13 @@ function Platforms() {
             </div>
           </div>
           <div className={styles.deviceContainer}>
-            <ThemeImage
-              lightSrc="/img/homepage/devices.png"
-              darkSrc="/img/homepage/devices-dark.png"
-              className={styles.devices}
+            <ThemedImage
               alt="Android device and iOS device"
+              className={styles.devices}
+              sources={{
+                light: useBaseUrl('/img/homepage/devices.png'),
+                dark: useBaseUrl('/img/homepage/devices-dark.png'),
+              }}
             />
           </div>
         </div>
