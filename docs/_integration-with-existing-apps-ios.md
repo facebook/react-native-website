@@ -490,11 +490,6 @@ Once you reach your React-powered Activity inside the app, it should load the Ja
 
 <center><img src="/docs/assets/EmbeddedAppIOS078.gif" width="300" /></center>
 
-:::note
-We are aware of a small limitation that prevent you to represent a view controller once it is dismissed.
-[This PR](https://github.com/facebook/react-native/pull/49300) fixes this issue and the limitation will be lifted in React Native 0.78.1.
-:::
-
 ### Creating a release build in Xcode
 
 You can use Xcode to create your release builds too! The only additional step is to add a script that is executed when the app is built to package your JS and images into the iOS application.
