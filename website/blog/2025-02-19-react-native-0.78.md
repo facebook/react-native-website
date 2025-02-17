@@ -27,7 +27,7 @@ This release ships React 19 in React Native and some other relevant features lik
 
 React 19 is now available on React Native!
 
-React 19 requires updating your app as we introduced some changes from React 18. For example, we removed some APIs such as `propTypes`, and you need to adjust your app to make it compatible with the new version of React.
+React 19 requires updating your app, as we introduced some changes from React 18. For example, we removed some APIs such as `propTypes`, and you need to adjust your app to make it compatible with the new version of React.
 
 Follow our step-by-step [instructions to upgrade](https://react.dev/blog/2024/04/25/react-19-upgrade-guide) your app to React 19.
 
@@ -59,15 +59,15 @@ If you want to learn more about React Compiler, these are useful resources:
 
 ### Towards smaller and faster releases
 
-WWe’re updating our release process to ship stable React Native releases more frequently in 2025.
+We’re updating our release process to ship stable React Native releases more frequently in 2025.
 
 It will be easier for you to update the React Native version because we’ll be reducing the number of breaking changes we ship. Faster releases also means that all the bugfixes we ship internally are reaching you earlier, and you can benefit from the latest features we develop inside React Native.
 
-We believe this new model will benefit every developer in the React Native ecosystem, as less breaking changes means a more stable framework that everyone can rely on.
+We believe this new model will benefit every developer in the React Native ecosystem, as fewer breaking changes means a more stable framework that everyone can rely on.
 
 ### Opt-in for JavaScript logs in Metro
 
-We've added an opt-in to restore JavaScript log streaming via the Metro dev server, [previously removed in 0.77](https://reactnative.dev/blog/2025/01/21/version-0.77#removal-of-consolelog-streaming-in-metro) for Community CLI users. This is in response to user feedback, as well as reviewing where we are with our replacement offerings today.
+We've added an opt-in to restore JavaScript log streaming via the Metro dev server, [previously removed in 0.77](/blog/2025/01/21/version-0.77#removal-of-consolelog-streaming-in-metro) for Community CLI users. This is in response to user feedback, as well as reviewing where we are with our replacement offerings today.
 
 To opt in, use the new `--client-logs` flag. This can also be aliased via an npm script for convenience.
 
@@ -81,7 +81,7 @@ This update will also be made available in the incoming 0.77.1 minor release.
 
 ### Better Android SVG support through Vector Drawable
 
-In React Native 0.78, we’re shipping a new way to load icons, illustrations, and other graphic elements on Android as [XML resources](https://developer.android.com/guide/topics/resources/drawable-resource). This means you can use [vector drawables](https://developer.android.com/develop/ui/views/graphics/vector-drawable-resources) for displaying vector images at any scale without losing quality, or [shape drawables](https://developer.android.com/guide/topics/resources/drawable-resource#Shape) for drawing more basic embellishments. This is all supported by the same `Image` component that you know and love. To use this feature today, you can import XML resources like any other [static resource](https://reactnative.dev/docs/next/images#static-image-resources) by referencing them in the `source` prop. Furthermore, using XML resources rather than bitmaps will also help you reduce your application size and will result in better rendering across screens with different DPI.
+In React Native 0.78, we’re shipping a new way to load icons, illustrations, and other graphic elements on Android as [XML resources](https://developer.android.com/guide/topics/resources/drawable-resource). This means you can use [vector drawables](https://developer.android.com/develop/ui/views/graphics/vector-drawable-resources) for displaying vector images at any scale without losing quality, or [shape drawables](https://developer.android.com/guide/topics/resources/drawable-resource#Shape) for drawing more basic embellishments. This is all supported by the same `Image` component that you know and love. To use this feature today, you can import XML resources like any other [static resource](/docs/next/images#static-image-resources) by referencing them in the `source` prop. Furthermore, using XML resources rather than bitmaps will also help you reduce your application size and will result in better rendering across screens with different DPI.
 
 ```js
 // via require
@@ -97,7 +97,7 @@ import MyIcon from './img/my_icon.xml';
 
 #### Performance & Quality
 
-[Like all other image types](https://reactnative.dev/docs/next/images#off-thread-decoding), Android’s XML resources are loaded and inflated off the main thread so you don’t drop any frames. This means the resource is not guaranteed to display instantly but also does not prevent user input while the resource is loading. Off-thread decoding is especially important when you need to render many icons at the same time. Internal apps realized some significant performance improvements when using Android’s vector drawables.
+[Like all other image types](/docs/next/images#off-thread-decoding), Android’s XML resources are loaded and inflated off the main thread so you don’t drop any frames. This means the resource is not guaranteed to display instantly but also does not prevent user input while the resource is loading. Off-thread decoding is especially important when you need to render many icons at the same time. Internal apps realized some significant performance improvements when using Android’s vector drawables.
 
 Utilizing resource types like vector drawables are the perfect way to display images without loss of quality, and can result in smaller APK files since you don't need to include an image type for every screen density. Furthermore, vector drawables are copied from memory once they’re loaded so if you render the same icon more than once they will all display at the same time.
 
@@ -118,9 +118,9 @@ Android’s vector drawables are not a 1:1 replacement for libraries like `react
 
 With React Native 0.78 we improved the integration of React Native on iOS.
 
-This version introduces a new class called `RCTReactNativeFactory` that allows you to create instances of ReactNative without the need of an AppDelegate. This should allow you to create a new version of ReactNative in a ViewController, for example. This simplifies dramatically the integration with Brownfield apps.
+This version introduces a new class called `RCTReactNativeFactory` that allows you to create instances of React Native without the need of an AppDelegate. This should allow you to create a new version of React Native in a ViewController, for example. This simplifies dramatically the integration with Brownfield apps.
 
-Imagine that you want to show a React Native view in a View Controller of your app. Starting from React Native 0.78, what you need to do, after installing all the dependencies as shown in [this guide](https://reactnative.dev/docs/next/integration-with-existing-apps?language=apple#1-set-up-directory-structure), is to add this code:
+Imagine that you want to show a React Native view in a View Controller of your app. Starting from React Native 0.78, what you need to do, after installing all the dependencies as shown in [this guide](/docs/next/integration-with-existing-apps?language=apple#1-set-up-directory-structure), is to add this code:
 
 ```diff
 
@@ -161,9 +161,9 @@ public class ViewController {
 
 React Native will be loaded in the View Controller as soon as you navigate to it.
 
-This code creates a `RCTReactNativeFactory`, it assigns a delegate to it and asks it to create a `rootView` for a React Native’s view.
+This code creates an `RCTReactNativeFactory`, assigns a delegate to it, and asks it to create a `rootView` for a React Native’s view.
 
-The delegate is defined below and it overrides the `sourceURL` and the `bundleURL` properties to tell React Native where it can find the JS bundle to load in the view.
+The delegate is defined below, and it overrides the `sourceURL` and the `bundleURL` properties to tell React Native where it can find the JS bundle to load in the view.
 
 ## Other Breaking Changes
 
@@ -179,15 +179,14 @@ The delegate is defined below and it overrides the `sourceURL` and the `bundleUR
 
 - Nullability changes: migrating `RootView` to Kotlin resulted in changes of parameter types from nullable to non nullable.
 - The following classes have been moved from public to internal, or removed, and can’t be accessed anymore:
-  - `com.facebook.react.views.text.frescosupport.FrescoBasedReactTextInlineImageViewManager`
-  - `com.facebook.react.uimanager.ComponentNameResolver`
   - `com.facebook.react.bridge.GuardedResultAsyncTask`
+  - `com.facebook.react.uimanager.ComponentNameResolver`
   - `com.facebook.react.uimanager.FabricViewStateManager`
+  - `com.facebook.react.views.text.frescosupport.FrescoBasedReactTextInlineImageViewManager`
 
 ### iOS
 
-- Change Image load event size info from logical size to pixel
-  - This affects only the Old Architecture
+- Change Image load event size info from logical size to pixel (This only affects the Old Architecture)
 
 ## Acknowledgements
 
@@ -199,7 +198,7 @@ Thanks to all the additional authors that worked on documenting features in this
 - [Nicola Corti](https://github.com/cortinico) for the work on Faster Releases
 - [Alex Hunt](https://github.com/huntie) for the work on the Metro logs opt-in
 - [Peter Abbondanzo](https://github.com/Abbondanzo) for the work on Android XML Drawable Support
-- [Oskar Wasniewski](https://github.com/okwasniewski) for the work on the ReactNativeFactory
+- [Oskar Kwaśniewski](https://github.com/okwasniewski) for the work on the ReactNativeFactory
 
 ## Upgrade to 0.78
 
@@ -211,7 +210,7 @@ To create a new project:
 npx @react-native-community/cli@latest init MyProject --version latest
 ```
 
-If you use Expo, React Native 0.78 will be supported in Expo SDK 53 (instructions on how to update React Native inside your Expo project to 0.78.0 will be available in a separate Expo blog-post in the near future).
+If you use Expo, React Native 0.78 will be supported in a canary release of the Expo SDK. Instructions on how to update React Native inside your Expo project to 0.78.0 are availbale here. <!-- TODO: Add link to the post -->
 
 :::info
 0.78 is now the latest stable version of React Native and 0.75.x moves to unsupported. For more information see [React Native's support policy](https://github.com/reactwg/react-native-releases/blob/main/docs/support.md). We aim to publish a final end-of-life update of 0.75 in the near future.
