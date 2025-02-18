@@ -13,6 +13,7 @@ import TagsListInline, {
 import type {EditUrlButton} from '../../../../docusaurus.config';
 import styles from './styles.module.css';
 import DocsRating from '../../../../core/DocsRating';
+import type {Props} from '@theme/EditMetaRow';
 
 function TagsRow(props: TagsListInlineProps) {
   return (
@@ -39,15 +40,7 @@ function EditPage({label, href}: {label: string; href: string}) {
     </Link>
   );
 }
-function EditMetaRow({
-  editUrl,
-  lastUpdatedAt,
-  lastUpdatedBy,
-}: {
-  editUrl: string;
-  lastUpdatedAt: number;
-  lastUpdatedBy: string;
-}) {
+function EditMetaRow({editUrl, lastUpdatedAt, lastUpdatedBy}: Props) {
   const buttons = React.useMemo((): EditUrlButton[] => {
     try {
       return JSON.parse(editUrl);
@@ -95,6 +88,7 @@ export default function DocItemFooter() {
             editUrl={editUrl}
             lastUpdatedAt={lastUpdatedAt}
             lastUpdatedBy={lastUpdatedBy}
+            className=""
           />
         )}
       </footer>

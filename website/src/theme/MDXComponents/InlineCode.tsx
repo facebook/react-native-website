@@ -1,11 +1,12 @@
 import React from 'react';
 import Link from '@docusaurus/Link';
+import type {Props} from '@theme/CodeInline';
 
 // Note: this component is a custom React-Native-Website feature
 
 const MarkdownInlineCodePrefix = 'md ';
 
-export default function InlineCode(props: {children?: React.ReactNode}) {
+export default function InlineCode(props: Props) {
   if (
     typeof props.children === 'string' &&
     props.children.startsWith(MarkdownInlineCodePrefix)
@@ -25,7 +26,7 @@ export default function InlineCode(props: {children?: React.ReactNode}) {
 // To enable Markdown support, use the "`md " prefix
 // Syntax example: `md ({nativeEvent: [PressEvent](pressevent)})`
 const MarkdownInlineCode = React.memo(function MarkdownInlineCodeInner(
-  props: React.PropsWithChildren
+  props: Props
 ) {
   const children =
     typeof props.children !== 'string'
