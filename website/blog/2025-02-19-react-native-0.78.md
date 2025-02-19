@@ -13,11 +13,11 @@ This release ships React 19 in React Native and some other relevant features lik
 
 ### Highlights
 
-- [React 19](#react-19)
-- [Towards smaller and faster releases](#towards-smaller-and-faster-releases)
-- [Opt-in for JavaScript logs in Metro](#opt-in-for-javascript-logs-in-metro)
-- [Better Android SVG support through Vector Drawable](#better-android-svg-support-through-vector-drawable)
-- [ReactNativeFactory on iOS](#reactnativefactory-on-ios)
+- [React 19](/blog/2025/02/19/react-native-0.78#react-19)
+- [Towards smaller and faster releases](/blog/2025/02/19/react-native-0.78#towards-smaller-and-faster-releases)
+- [Opt-in for JavaScript logs in Metro](/blog/2025/02/19/react-native-0.78#opt-in-for-javascript-logs-in-metro)
+- [Better Android SVG support through Vector Drawable](/blog/2025/02/19/react-native-0.78#better-android-svg-support-through-vector-drawable)
+- [ReactNativeFactory on iOS](/blog/2025/02/19/react-native-0.78#reactnativefactory-on-ios)
 
 <!--truncate-->
 
@@ -170,7 +170,6 @@ The delegate is defined below, and it overrides the `sourceURL` and the `bundleU
 ### General
 
 - React Native DevTools
-  - Synced React Native DevTools to chromium/6613
   - Removed FuseboxClient CDP domain
 - Codegen
   - Separate component array types and command array types
