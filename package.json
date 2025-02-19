@@ -16,7 +16,8 @@
     "start": "yarn --cwd website start",
     "build": "yarn --cwd website build",
     "build:fast": "yarn --cwd website build:fast",
-    "serve": "yarn --cwd website serve"
+    "serve": "yarn --cwd website serve",
+    "prepare": "husky"
   },
   "dependencies": {
     "eslint": "^8.57.1",
