@@ -125,7 +125,7 @@ Imagine that you want to show a React Native view in a View Controller of your a
 ```diff
 
 +import React
-+import import React_RCTAppDelegate
++import React_RCTAppDelegate
 
 public class ViewController {
 
