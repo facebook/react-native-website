@@ -63,7 +63,7 @@ npm install -g yarn
 
 #### 2. 安装 Android SDK
 
-Android Studio 默认会安装最新版本的 Android SDK。目前编译 React Native 应用需要的是`Android 15 (VanillaIceCream)`版本的 SDK（注意 SDK 版本不等于终端系统版本，RN 目前支持 android 6 以上设备）。你可以在 Android Studio 的 SDK Manager 中选择安装各版本的 SDK。
+Android Studio 默认会安装最新版本的 Android SDK。目前编译 React Native 应用需要的是`Android 15 (VanillaIceCream)`版本的 SDK（注意 SDK 版本不等于对用户系统版本的要求，RN 目前最低要求的 Android 版本请点击[这里](https://github.com/facebook/react-native?tab=readme-ov-file#-requirements)查看）。你可以在 Android Studio 的 SDK Manager 中选择安装各版本的 SDK。
 
 你可以在 Android Studio 的欢迎界面中找到 SDK Manager。点击"Configure"，然后就能看到"SDK Manager"。
 
