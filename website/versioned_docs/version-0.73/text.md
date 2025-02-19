@@ -276,7 +276,7 @@ See the [Accessibility guide](accessibility.md#accessibility-actions) for more i
 
 When set to `true`, indicates that the view is an accessibility element.
 
-See the [Accessibility guide](accessibility#accessible-ios-android) for more information.
+See the [Accessibility guide](accessibility#accessible) for more information.
 
 | Type    | Default |
 | ------- | ------- |
