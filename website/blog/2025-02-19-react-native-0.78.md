@@ -16,7 +16,7 @@ This release ships React 19 in React Native and some other relevant features lik
 - [React 19](/blog/2025/02/19/react-native-0.78#react-19)
 - [Towards smaller and faster releases](/blog/2025/02/19/react-native-0.78#towards-smaller-and-faster-releases)
 - [Opt-in for JavaScript logs in Metro](/blog/2025/02/19/react-native-0.78#opt-in-for-javascript-logs-in-metro)
-- [Better Android SVG support through Vector Drawable](/blog/2025/02/19/react-native-0.78#better-android-svg-support-through-vector-drawable)
+- [Added support for Android XML drawables](/blog/2025/02/19/react-native-0.78#added-support-for-android-xml-drawables)
 - [ReactNativeFactory on iOS](/blog/2025/02/19/react-native-0.78#reactnativefactory-on-ios)
 
 <!--truncate-->
@@ -79,7 +79,7 @@ Log streaming in Metro will still be going away in future and remains off by def
 
 This update will also be made available in the incoming 0.77.1 minor release.
 
-### Better Android SVG support through Vector Drawable
+### Added support for Android XML drawables
 
 In React Native 0.78, we’re shipping a new way to load icons, illustrations, and other graphic elements on Android as [XML resources](https://developer.android.com/guide/topics/resources/drawable-resource). This means you can use [vector drawables](https://developer.android.com/develop/ui/views/graphics/vector-drawable-resources) for displaying vector images at any scale without losing quality, or [shape drawables](https://developer.android.com/guide/topics/resources/drawable-resource#Shape) for drawing more basic embellishments. This is all supported by the same `Image` component that you know and love. To use this feature today, you can import XML resources like any other [static resource](/docs/next/images#static-image-resources) by referencing them in the `source` prop. Furthermore, using XML resources rather than bitmaps will also help you reduce your application size and will result in better rendering across screens with different DPI.
 
