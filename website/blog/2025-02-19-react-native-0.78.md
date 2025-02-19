@@ -209,7 +209,7 @@ To create a new project:
 npx @react-native-community/cli@latest init MyProject --version latest
 ```
 
-If you use Expo, React Native 0.78 will be supported in a canary release of the Expo SDK. Instructions on how to update React Native inside your Expo project to 0.78.0 are availbale here. <!-- TODO: Add link to the post -->
+If you use Expo, [React Native 0.78 will be supported in a canary release of the Expo SDK](https://expo.dev/changelog/react-native-78).
 
 :::info
 0.78 is now the latest stable version of React Native and 0.75.x moves to unsupported. For more information see [React Native's support policy](https://github.com/reactwg/react-native-releases/blob/main/docs/support.md). We aim to publish a final end-of-life update of 0.75 in the near future.
