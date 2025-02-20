@@ -180,10 +180,10 @@ class NativeLocalStoragePackage : BaseReactPackage() {
   override fun getReactModuleInfoProvider() = ReactModuleInfoProvider {
     mapOf(
       NativeLocalStorageModule.NAME to ReactModuleInfo(
-        _name = NativeLocalStorageModule.NAME,
-        _className = NativeLocalStorageModule.NAME,
-        _canOverrideExistingModule = false,
-        _needsEagerInit = false,
+        name = NativeLocalStorageModule.NAME,
+        className = NativeLocalStorageModule.NAME,
+        canOverrideExistingModule = false,
+        needsEagerInit = false,
         isCxxModule = false,
         isTurboModule = true
       )
