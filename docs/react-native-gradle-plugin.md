@@ -150,6 +150,14 @@ The list of flags to pass to `hermesc`. By default is `["-O", "-output-source-ma
 hermesFlags = ["-O", "-output-source-map"]
 ```
 
+### `enableBundleCompression`
+
+Whether the Bundle Asset should be compressed when packaged into a `.apk`, or not.
+
+Disabling compression for the `.bundle` allows it to be directly memory-mapped to RAM, hence improving startup time - at the cost of a larger resulting `.apk` size.
+
+By default this is disabled, and you should not turn it on, unless you're really concerned about disk space for your application.
+
 ## Using Flavors & Build Variants
 
 When building Android apps, you might want to use [custom flavors](https://developer.android.com/studio/build/build-variants#product-flavors) to have different versions of your app starting from the same project.
