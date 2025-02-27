@@ -47,7 +47,7 @@ React Native DevTools is only available with the Hermes engine, and requires eit
 
 React Native DevTools replaces the previous Flipper, Experimental Debugger, and Hermes debugger (Chrome) frontends. If you are on an older version of React Native, please go to the docs [for your version](/versions).
 
-We continue to offer legacy debugging methods such as Direct JSC Debugging and Remote JS Debugging (deprecated) (see [Other Debugging Methods](./other-debugging-methods)).
+For apps using JavaScriptCore instead of Hermes, Direct JSC Debugging is still available (see [Other Debugging Methods](./other-debugging-methods)).
 
 React Native DevTools is designed for debugging React app concerns, and not to replace native tools. If you want to inspect React Native’s underlying platform layers (for example, while developing a Native Module), please use the debugging tools available in Xcode and Android Studio (see [Debugging Native Code](/docs/next/debugging-native-code)).
 
