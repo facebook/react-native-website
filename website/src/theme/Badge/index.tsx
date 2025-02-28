@@ -8,7 +8,13 @@
 import React from 'react';
 import styles from './styles.module.css';
 
-export default function Badge({icon, title}) {
+export default function Badge({
+  icon,
+  title,
+}: {
+  icon: React.ReactNode;
+  title: React.ReactNode;
+}) {
   return (
     <div className={styles.container}>
       {icon}
