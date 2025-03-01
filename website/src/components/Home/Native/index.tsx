@@ -9,9 +9,10 @@ import React from 'react';
 
 import Section from '../components/Section';
 import SectionTitle from '../components/SectionTitle';
-import ThemeImage from '../components/ThemeImage';
 
 import styles from './styles.module.css';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import ThemedImage from '@theme/ThemedImage';
 
 function Native() {
   return (
@@ -28,11 +29,13 @@ function Native() {
           </>
         }
       />
-      <ThemeImage
-        lightSrc="/img/homepage/dissection.png"
-        darkSrc="/img/homepage/dissection-dark.png"
-        className={styles.flyoutIllustration}
+      <ThemedImage
         alt="A React Native UI pointing out native elements like Views, ScrollViews, and more"
+        className={styles.flyoutIllustration}
+        sources={{
+          light: useBaseUrl('/img/homepage/dissection.png'),
+          dark: useBaseUrl('/img/homepage/dissection-dark.png'),
+        }}
       />
     </Section>
   );
