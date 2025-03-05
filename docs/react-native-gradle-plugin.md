@@ -154,7 +154,7 @@ hermesFlags = ["-O", "-output-source-map"]
 
 Whether the Bundle Asset should be compressed when packaged into a `.apk`, or not.
 
-Disabling compression for the `.bundle` allows it to be directly memory-mapped to RAM, hence improving startup time - at the cost of a larger resulting `.apk` size.
+Disabling compression for the `.bundle` allows it to be directly memory-mapped to RAM, hence improving startup time - at the cost of a larger resulting app size on disk. Please note that the `.apk` download size will be mostly unaffected as the `.apk` files are compressed before downloading
 
 By default this is disabled, and you should not turn it on, unless you're really concerned about disk space for your application.
 
