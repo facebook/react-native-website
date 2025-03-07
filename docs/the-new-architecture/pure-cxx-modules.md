@@ -323,7 +323,7 @@ To register a pure Cxx Turbo Native Module in your app, you need to:
 1. Create a `ModuleProvider` for the Native Module
 2. Configure the `package.json` to associate the JS module name with the ModuleProvider class.
 
-The ModuleProvider is an Objective-C++ that glues together the Pure Cxx module with the rest of your iOS App.
+The ModuleProvider is an Objective-C++ that glues together the Pure C++ module with the rest of your iOS App.
 
 ##### 3.1 Create the ModuleProvider
 
