@@ -209,7 +209,7 @@ See the [Android `View` docs](http://developer.android.com/reference/android/vie
 
 Describes the current state of a component to the user of an assistive technology.
 
-See the [Accessibility guide](accessibility.md#accessibilitystate-ios-android) for more information.
+See the [Accessibility guide](accessibility.md#accessibilitystate) for more information.
 
 | Type                                                                                             |
 | ------------------------------------------------------------------------------------------------ |
@@ -221,7 +221,7 @@ See the [Accessibility guide](accessibility.md#accessibilitystate-ios-android) f
 
 Represents the current value of a component. It can be a textual description of a component's value, or for range-based components, such as sliders and progress bars, it contains range information (minimum, current, and maximum).
 
-See the [Accessibility guide](accessibility.md#accessibilityvalue-ios-android) for more information.
+See the [Accessibility guide](accessibility.md#accessibilityvalue) for more information.
 
 | Type                                                            |
 | --------------------------------------------------------------- |
