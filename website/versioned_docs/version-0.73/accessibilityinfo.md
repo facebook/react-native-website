@@ -115,7 +115,7 @@ Post a string to be announced by the screen reader.
 ```tsx
 static announceForAccessibilityWithOptions(
   announcement: string,
-  options: options: {queue?: boolean},
+  options: {queue?: boolean},
 );
 ```
 
