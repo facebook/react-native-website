@@ -36,6 +36,7 @@ function ThemeImage({lightSrc, darkSrc, className, alt}) {
       src={theme === 'dark' ? darkSrc : lightSrc}
       alt={alt}
       className={className}
+      loading="lazy"
     />
   );
 }
