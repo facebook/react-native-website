@@ -39,7 +39,7 @@ npx @react-native-community/cli codegen \
     --outputPath third-party/some-library/android/generated
 ```
 
-# Including Generated Code into Libraries
+## Including Generated Code into Libraries
 
 The Codegen CLI is a great tool for library developers. It can be used to take a sneak-peek at the generated code to see which interfaces you need to implement.
 
