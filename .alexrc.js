@@ -21,6 +21,9 @@ exports.allow = [
 
   // allowing this term to prevent reporting "primitive", which is a programming term
   'savage',
+
+  // allowing this term, since it seems to be used not in insensitive cases
+  'straightforward',
 ];
 
 // Use a "maybe" level of profanity instead of the default "unlikely".

@@ -50,8 +50,9 @@
 .codeEditorContentContainer code {
   background-color: var(--home-background);
   padding: 16px 48px 16px 24px;
-  font-family: "Source Code Pro", ui-monospace, SFMono-Regular, Menlo, Monaco,
-    Consolas, "Liberation Mono", "Courier New", monospace;
+  font-family:
+    "Source Code Pro", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
   color: var(--home-text);
   font-size: 14px;
 }
