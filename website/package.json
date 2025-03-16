@@ -26,7 +26,7 @@
     "format:style": "prettier --write src/**/*.{scss,css}",
     "format:examples": "eslint-examples-js --fix && eslint-examples-tsx --fix",
     "prettier": "yarn format:source && yarn format:markdown && yarn format:style",
-    "lint": "eslint ../docs/** blog/** '{core,src}/**/*.{js,jsx,ts,tsx}'",
+    "lint": "eslint ../docs/** blog/** \"{core,src}/**/*.{js,jsx,ts,tsx}\"",
     "lint:examples": "eslint-examples-js && eslint-examples-tsx && tsc-examples",
     "lint:versioned": "eslint versioned_docs/**",
     "lint:markdown": "remark ../docs --quiet -r .remarkrc.mjs",
@@ -69,8 +69,11 @@
     "@react-native-website/update-redirects": "0.0.0",
     "@types/google.analytics": "^0.0.46",
     "alex": "^10.0.0",
+    "case-police": "^0.5.14",
+    "eslint": "^8.57.1",
     "fs-extra": "^11.2.0",
     "glob": "^11.0.0",
+    "prettier": "^3.4.2",
     "remark-cli": "^12.0.1",
     "typescript": "^5.7.2"
   }

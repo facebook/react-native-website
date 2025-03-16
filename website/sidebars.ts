@@ -298,6 +298,8 @@ export default {
       'view-style-props',
     ],
     'Object Types': [
+      'boxshadowvalue',
+      'dropshadowvalue',
       'layoutevent',
       'pressevent',
       'react-node',
