@@ -13,7 +13,7 @@
   --deepdark: #20232a;
   --light: #373940;
   --text: #1a1a1a;
-  --subtle: #767676;
+  --subtle: #565656;
   --divider: #ececec;
   --tintColor: #f7f7f7;
   --rn-note-background: rgba(255, 229, 100, 0.25);
@@ -29,6 +29,7 @@
   --ifm-blockquote-color: var(--ifm-font-color-base);
   --ifm-blockquote-font-size: 16px;
   --ifm-blockquote-border-radius: var(--ifm-global-radius);
+  --ifm-table-head-color: var(--subtle);
   --ifm-link-hover-decoration: none;
   --ifm-navbar-background-color: var(--deepdark);
   --ifm-pre-line-height: 1.5;
@@ -102,6 +103,7 @@ html[data-theme="dark"] {
   --ifm-code-background: rgba(255, 255, 255, 0.06);
   --ifm-toc-border-color: var(--dark);
   --ifm-color-emphasis-300: var(--light);
+  --subtle: #d9d9d9;
 
   *[class^="DocSearch"] {
     --docsearch-searchbox-background: var(--ifm-background-color);
