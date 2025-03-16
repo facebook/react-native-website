@@ -178,7 +178,7 @@ const FlexDirectionBasics = () => {
   return (
     <PreviewLayout
       label="flexDirection"
-      values={['column', 'row', 'row-reverse', 'column-reverse']}
+      values={['column', 'row', 'column-reverse', 'row-reverse']}
       selectedValue={flexDirection}
       setSelectedValue={setflexDirection}>
       <View style={[styles.box, {backgroundColor: 'powderblue'}]} />
