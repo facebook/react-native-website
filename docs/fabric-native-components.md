@@ -60,7 +60,11 @@ Use this specification for our WebView Component:
 <TabItem value="typescript">
 
 ```typescript title="Demo/specs/WebViewNativeComponent.ts"
-import type {CodegenTypes, HostComponent, ViewProps} from 'react-native';
+import type {
+  CodegenTypes,
+  HostComponent,
+  ViewProps,
+} from 'react-native';
 import {codegenNativeComponent} from 'react-native';
 
 type WebViewScriptLoadedEvent = {
