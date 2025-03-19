@@ -67,8 +67,8 @@ You can add this snippet to your app and customize the various fields:
     - `.className`: This module's ObjC class. Or, if it's a [C++-only module](/docs/next/the-new-architecture/pure-cxx-modules), its RCTModuleProvider class.
     - `.unstableRequiresMainQueueSetup`: Initialize this module on the UI Thread, before running any JavaScript.
     - `.conformsToProtocols`: Annotate which of these protocols this module conforms to: [`RCTImageURLLoader`](https://github.com/facebook/react-native/blob/00d5caee9921b6c10be8f7d5b3903c6afe8dbefa/packages/react-native/Libraries/Image/RCTImageURLLoader.h#L26-L81), [`RCTURLRequestHandler`](https://github.com/facebook/react-native/blob/00d5caee9921b6c10be8f7d5b3903c6afe8dbefa/packages/react-native/React/Base/RCTURLRequestHandler.h#L11-L52), [`RCTImageDataDecoder`](https://github.com/facebook/react-native/blob/00d5caee9921b6c10be8f7d5b3903c6afe8dbefa/packages/react-native/Libraries/Image/RCTImageDataDecoder.h#L15-L53).
-  - `.components[componentName]`: 
-    - `.className`: This component's ObjC class (e.g: `TextInput` -> `RCTTextInput`). 
+  - `.components[componentName]`:
+    - `.className`: This component's ObjC class (e.g: `TextInput` -> `RCTTextInput`).
 
 When **Codegen** runs, it searches among all the dependencies of the app, looking for JS files that respects some specific conventions, and it generates the required code:
 
