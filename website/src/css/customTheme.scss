@@ -13,7 +13,7 @@
   --deepdark: #20232a;
   --light: #373940;
   --text: #1a1a1a;
-  --subtle: #767676;
+  --subtle: #505050;
   --divider: #ececec;
   --tintColor: #f7f7f7;
   --rn-note-background: rgba(255, 229, 100, 0.25);
@@ -108,7 +108,8 @@ html[data-theme="dark"] {
   --ifm-toc-border-color: var(--dark);
   --ifm-color-emphasis-300: var(--dark);
   --ifm-table-head-background: var(--deepdark);
-  --ifm-table-head-color: var(--docsearch-muted-color);
+  --subtle: #c4c4c4;
+  --ifm-table-head-color: var(--subtle);
 
   *[class^="DocSearch"] {
     --docsearch-searchbox-background: var(--ifm-background-color);
