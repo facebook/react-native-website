@@ -204,6 +204,14 @@ Called immediately when a touch is engaged, before `onPressOut` and `onPress`.
 | ------------------------------------------------------ |
 | `md ({nativeEvent: [PressEvent](pressevent)}) => void` |
 
+### `onPressMove`
+
+Called when the press location moves.
+
+| Type                                                   |
+| ------------------------------------------------------ |
+| `md ({nativeEvent: [PressEvent](pressevent)}) => void` |
+
 ### `onPressOut`
 
 Called when a touch is released.
