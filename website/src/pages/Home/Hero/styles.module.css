@@ -50,7 +50,8 @@
   height: 300px;
   position: relative;
   top: -4px;
-  background: linear-gradient(
+  background:
+    linear-gradient(
       to bottom,
       var(--home-hero-floor-background) 0%,
       var(--home-hero-floor-background-bottom)
