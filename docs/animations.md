@@ -25,7 +25,7 @@ import React, {useEffect} from 'react';
 import {Animated, Text, View, useAnimatedValue} from 'react-native';
 
 const FadeInView = props => {
-  const fadeAnim = useAnimatedValue(0); // Initial value for opacity: 0
+  const fadeAnim =  useRef(new Animated.Value(0)).current; // Initial value for opacity: 0; Using useRef
 
   useEffect(() => {
     Animated.timing(fadeAnim, {
@@ -607,8 +607,10 @@ import {
 
 const {UIManager} = NativeModules;
 
-UIManager.setLayoutAnimationEnabledExperimental &&
-  UIManager.setLayoutAnimationEnabledExperimental(true);
+if (UIManager) { // For Android & Web
+  UIManager.setLayoutAnimationEnabledExperimental &&
+    UIManager.setLayoutAnimationEnabledExperimental(true);
+}
 
 export default class App extends React.Component {
   state = {
