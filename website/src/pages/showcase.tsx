@@ -32,8 +32,13 @@ const AppBox = ({app}) => {
   return (
     <div className="showcase">
       <div className="iconBox">
-        <img src={imgSource} alt={app.name} className="iconBackground" />
-        <img src={imgSource} alt={app.name} className="icon" />
+        <img
+          src={imgSource}
+          alt={app.name}
+          className="iconBackground"
+          loading="lazy"
+        />
+        <img src={imgSource} alt={app.name} className="icon" loading="lazy" />
       </div>
       <div className="showcaseContent">
         <div>
