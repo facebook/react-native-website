@@ -21,7 +21,7 @@ export interface EditUrlButton {
   href: string;
 }
 
-const commonDocsOptions = {
+const commonDocsOptions: PluginContentDocs.Options = {
   breadcrumbs: false,
   showLastUpdateAuthor: false,
   showLastUpdateTime: true,

@@ -39,7 +39,7 @@ function BlogSidebarMobileSecondaryMenu({sidebar}: Props) {
     </ul>
   );
 }
-export default function BlogSidebarMobile(props) {
+export default function BlogSidebarMobile(props: Props) {
   return (
     <NavbarSecondaryMenuFiller
       component={BlogSidebarMobileSecondaryMenu}
