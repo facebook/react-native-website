@@ -41,15 +41,23 @@ npx @react-native-community/cli codegen \
 
 ## Including Generated Code into Libraries
 
-The **Codegen** CLI is a great tool for library developers. It can be used to peek at the generated code to see which interfaces you need to implement. Or you can generate the code if you want to ship it in your library.
+The Codegen CLI is a great tool for library developers. It can be used to take a sneak-peek at the generated code to see which interfaces you need to implement.
 
-This setup has several benefits:
+Normally the generated code is not included in the library, and the app that uses the library is responsible for running the Codegen at build time.
+This is a good setup for most cases, but Codegen also offers a mechanism to include the generated code in the library itself via the `includesGeneratedCode` property.
+
+It's important to understand what are the implications of using `includesGeneratedCode = true`. Including the generated code comes with several benefits such as:
 
 - No need to rely on the app to run **Codegen** for you, the generated code is always there.
-- The implementation files are always consistent with the generated interfaces.
+- The implementation files are always consistent with the generated interfaces (this makes your library code more resilient against API changes in codegen).
 - No need to include two sets of files to support both architectures on Android. You can only keep the New Architecture one, and it is guaranteed to be backwards compatible.
-- No need to worry about **Codegen** version mismatch between what is used by the app, and what was used during library development.
 - Since all native code is there, it is possible to ship the native part of the library as a prebuild.
+
+On the other hand, you also need to be aware of one drawback:
+
+- The generated code will use the React Native version defined inside your library. So if your library is shipping with React Native 0.76, the generated code will be based on that version. This could mean that the generated code is not compatible with apps using **previous** React Native version used by the app (e.g. an App running on React Native 0.75).
+
+## Enabling `includesGeneratedCode`
 
 To enable this setup:
 

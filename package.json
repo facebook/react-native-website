@@ -16,12 +16,8 @@
     "start": "yarn --cwd website start",
     "build": "yarn --cwd website build",
     "build:fast": "yarn --cwd website build:fast",
-    "serve": "yarn --cwd website serve"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
+    "serve": "yarn --cwd website serve",
+    "prepare": "husky"
   },
   "dependencies": {
     "eslint": "^8.57.1",
@@ -29,7 +25,7 @@
     "eslint-plugin-mdx": "^3.1.5",
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-yml": "^1.2.0",
-    "husky": "^4.3.8",
+    "husky": "^9.1.7",
     "netlify-plugin-cache": "^1.0.3",
     "prettier": "^3.4.2",
     "pretty-quick": "^4.0.0"

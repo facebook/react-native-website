@@ -545,9 +545,13 @@ It is important to note that this aligns the text to the top on iOS, and centers
 
 ---
 
-### `numberOfLines` <div class="label android">Android</div>
+### `numberOfLines`
 
-Sets the number of lines for a `TextInput`. Use it with multiline set to `true` to be able to fill the lines.
+:::note
+`numberOfLines` on iOS is only available on the [New Architecture](/architecture/landing-page)
+:::
+
+Sets the maximum number of lines for a `TextInput`. Use it with multiline set to `true` to be able to fill the lines.
 
 | Type   |
 | ------ |

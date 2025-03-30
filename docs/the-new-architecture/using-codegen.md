@@ -55,6 +55,9 @@ npx @react-native-community/cli@latest init SampleApp --version 0.76.0
       "componentProvider": {
         "<componentName>": "<iOS-class-implementing-the-component>"
       },
+      "modulesProvider": {
+        "<moduleName>": "<iOS-class-implementing-the-RCTModuleProvider-protocol>"
+      }
     }
   },
 ```
@@ -74,6 +77,7 @@ You can add this snippet to your app and customize the various fields:
     - `ios.modulesConformingToProtocol.RCTURLRequestHandler`: list of iOS native module that implements the [`RCTURLRequestHandler` protocol](https://github.com/facebook/react-native/blob/00d5caee9921b6c10be8f7d5b3903c6afe8dbefa/packages/react-native/React/Base/RCTURLRequestHandler.h#L11-L52). You need to pass the class names of iOS classes that implements the `RCTURLRequestHandler`. They must be Native Modules.
     - `ios.modulesConformingToProtocol.RCTImageDataDecoder`: list of iOS native module that implements the [`RCTImageDataDecoder` protocol](https://github.com/facebook/react-native/blob/00d5caee9921b6c10be8f7d5b3903c6afe8dbefa/packages/react-native/Libraries/Image/RCTImageDataDecoder.h#L15-L53). You need to pass the class names of iOS classes that implements the `RCTImageDataDecoder`. They must be Native Modules.
   - `ios.componentProvider`: this field is a map used to generate the association between a custom JS React component and the native class that implements it. The key of the map is the JS name of the component (for example `TextInput`), and the value is the iOS class that implements the component (for example `RCTTextInput`).
+  - `ios.modulesProvider`: this field is a map used to generate the association between a custom JS Native Module and the native class that can provide it. The key of the map is the JS name of the module (for example `NativeLocalStorage`), and the value is the iOS class that implements the [`RCTModuleProvider` protocol](https://github.com/facebook/react-native/blob/0.79-stable/packages/react-native/ReactCommon/react/nativemodule/core/platform/ios/ReactCommon/RCTTurboModule.h#L179-L190). For Objective-C modules, the class implementing the [`RCTTurboModule` protocol](https://github.com/facebook/react-native/blob/0.79-stable/packages/react-native/ReactCommon/react/nativemodule/core/platform/ios/ReactCommon/RCTTurboModule.h#L192-L200) is also implementing the `RCTModuleProvider` protocol. For more information, looks at the [Cross-Platform Native Modules (C++) guide](/docs/next/the-new-architecture/pure-cxx-modules).
 
 When **Codegen** runs, it searches among all the dependencies of the app, looking for JS files that respects some specific conventions, and it generates the required code:
 

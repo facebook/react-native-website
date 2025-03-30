@@ -15,28 +15,34 @@ The event subscriptions are called in reverse order (i.e. the last registered su
 ## Pattern
 
 ```tsx
-BackHandler.addEventListener('hardwareBackPress', function () {
-  /**
-   * this.onMainScreen and this.goBack are just examples,
-   * you need to use your own implementation here.
-   *
-   * Typically you would use the navigator here to go to the last state.
-   */
-
-  if (!this.onMainScreen()) {
-    this.goBack();
+const subscription = BackHandler.addEventListener(
+  'hardwareBackPress',
+  function () {
     /**
-     * When true is returned the event will not be bubbled up
-     * & no other back action will execute
+     * this.onMainScreen and this.goBack are just examples,
+     * you need to use your own implementation here.
+     *
+     * Typically you would use the navigator here to go to the last state.
      */
-    return true;
-  }
-  /**
-   * Returning false will let the event to bubble up & let other event listeners
-   * or the system's default back action to be executed.
-   */
-  return false;
-});
+
+    if (!this.onMainScreen()) {
+      this.goBack();
+      /**
+       * When true is returned the event will not be bubbled up
+       * & no other back action will execute
+       */
+      return true;
+    }
+    /**
+     * Returning false will let the event to bubble up & let other event listeners
+     * or the system's default back action to be executed.
+     */
+    return false;
+  },
+);
+
+// Unsubscribe the listener on unmount
+subscription.remove();
 ```
 
 ## Example
@@ -125,15 +131,4 @@ static addEventListener(
 
 ```tsx
 static exitApp();
-```
-
----
-
-### `removeEventListener()`
-
-```tsx
-static removeEventListener(
-  eventName: BackPressEventName,
-  handler: () => boolean | null | undefined,
-);
 ```

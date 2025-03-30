@@ -78,8 +78,6 @@ static NSString *const RCTNativeLocalStorageKey = @"local-storage";
 
 @implementation RCTNativeLocalStorage
 
-RCT_EXPORT_MODULE(NativeLocalStorage)
-
 - (id) init {
   if (self = [super init]) {
     _localStorage = [[NSUserDefaults alloc] initWithSuiteName:RCTNativeLocalStorageKey];
@@ -111,13 +109,55 @@ RCT_EXPORT_MODULE(NativeLocalStorage)
   }
 }
 
++ (NSString *)moduleName
+{
+  return @"NativeLocalStorage";
+}
+
 @end
 ```
 
 Important things to note:
 
-- `RCT_EXPORT_MODULE` exports and registers the module using the identifier we'll use to access it in the JavaScript environment: `NativeLocalStorage`. See these [docs](./legacy/native-modules-ios#module-name) for more details.
 - You can use Xcode to jump to the Codegen `@protocol NativeLocalStorageSpec`. You can also use Xcode to generate stubs for you.
+
+## Register the Native Module in your app
+
+The last step consist in updating the `package.json` to tell React Native about the link between the JS specs of the Native Module and the concrete implementation of those specs in native code.
+
+Modify the `package.json` as it follows:
+
+```json title="package.json"
+     "start": "react-native start",
+     "test": "jest"
+   },
+   "codegenConfig": {
+     "name": "AppSpecs",
+     "type": "modules",
+     "jsSrcsDir": "specs",
+     "android": {
+       "javaPackageName": "com.sampleapp.specs"
+     }
+     // highlight-add-start
+     "ios":
+        "modulesProvider": {
+          "NativeLocalStorage": "RCTNativeLocalStorage"
+        }
+     // highlight-add-end
+   },
+
+   "dependencies": {
+```
+
+At this point, you need to re-install the pods to make sure that codegen runs again to generate the new files:
+
+```bash
+# from the ios folder
+bundle exec pod install
+open SampleApp.xcworkspace
+```
+
+If you now build your application from Xcode, you should be able to build successfully.
 
 ## Build and run your code on a Simulator
 
