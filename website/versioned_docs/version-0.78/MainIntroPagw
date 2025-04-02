@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoRank - Main Page</title>
+    <link rel="stylesheet" href="style.css"> </head>
+<body>
+    <header>
+        <h1>EcoRank</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="leaderboard.html">Leaderboard</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Welcome to EcoRank!</h2>
+        <p>EcoRank is an app designed to help you and your community adopt sustainable habits and make a positive impact on the environment. We believe that small changes can make a big difference!</p>
+
+        <p><strong>How it works:</strong></p>
+        <ul>
+            <li><strong>Join a Crew:</strong> After signing up, you'll be placed into a team of like-minded individuals. Each team focuses on a specific area of sustainability: Carbon Reduction, Recycling, Energy Conservation, or Water Conservation.</li>
+            <li><strong>Complete Challenges:</strong> Participate in a variety of eco-friendly challenges tailored to your crew's focus. Earn points for completing each challenge.</li>
+            <li><strong>Log Your Activities:</strong> Track your daily sustainable actions, such as reducing water usage, recycling diligently, or using public transportation.</li>
+            <li><strong>Compete and Win:** At the end of each month, the crew with the highest combined points wins exciting prizes from our sponsors!</li>
+        </ul>
+
+        <p><strong>EcoRank is about more than just winning. It's about:</strong></p>
+        <ul>
+            <li><strong>Learning and Growing:</strong> Discover new ways to be sustainable and improve your environmental impact.</li>
+            <li><strong>Connecting with Others:</strong> Meet people who share your passion for sustainability and build a community.</li>
+            <li><strong>Having Fun!</strong> Engage in friendly competition and celebrate your achievements.</li>
+        </ul>
+
+        <p>Ready to make a difference? Join EcoRank today!</p>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 EcoRank. All rights reserved.</p>
+    </footer>
+</body>
+</html>
