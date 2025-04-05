@@ -1050,6 +1050,16 @@ Set line break strategy on iOS 14+. Possible values are `none`, `standard`, `han
 
 ---
 
+### `lineBreakModeIOS` <div class="label ios">iOS</div>
+
+Set line break mode on iOS. Possible values are `wordWrapping`, `char`, `clip`, `head`, `middle` and `tail`.
+
+| Type                                                                       | Default          |
+| -------------------------------------------------------------------------- | ---------------- |
+| enum(`'wordWrapping'`, `'char'`, `'clip'`, `'head'`, `'middle'`, `'tail'`) | `'wordWrapping'` |
+
+---
+
 ### `disableKeyboardShortcuts` <div class="label ios">iOS</div>
 
 If `true`, the keyboard shortcuts (undo/redo and copy buttons) are disabled. The default value is `false`.
