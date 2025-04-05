@@ -191,10 +191,13 @@ Select method returns the most fitting value for the platform you are currently 
 
 The `config` parameter is an object with the following keys:
 
-- `android` (any)
-- `ios` (any)
-- `native` (any)
-- `default` (any)
+- `android`
+- `ios`
+- `macos` (only applicable when using [react-native-macos](https://github.com/microsoft/react-native-macos))
+- `native` (fallback for all platforms except for `web`)
+- `web` (only applicable when using [react-native-web](https://github.com/necolas/react-native-web))
+- `windows` (only applicable when using [react-native-windows](https://github.com/microsoft/react-native-windows))
+- `default` (fallback for all platforms)
 
 **Example usage:**
 
