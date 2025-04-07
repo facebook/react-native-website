@@ -134,37 +134,6 @@ react {
 
 Please note that the APK size will increase in this release, but your users won’t be paying the extra cost in APK download size, as the APKs are compressed when downloaded from the network.
 
-### Android: Faster Builds with Configuration Caching
-
-:::info
-
-Please note that this is an advanced feature that requires understanding of Android Development and build tools.
-
-:::
-
-In this release, we’re adding support for Gradle Configuration Caching.
-
-When you’re running an Android build with `yarn android`, you will be executing a Gradle build that is composed by two steps ([source](https://docs.gradle.org/current/userguide/build_lifecycle.html)):
-
-- Configuration phase, when all the `.gradle` files are evaluated.
-- Execution phase, when the tasks are actually executed so the Java/Kotlin code is compiled and so on.
-
-You will now be able to enable Configuration Caching, which will allow you to skip the Configuration phase on subsequent builds.
-
-This is beneficial when making frequent changes to the native code as it improves build times.
-
-For example here you can see how faster it is to rebuild RN-Tester after a change in the native code:
-
-![metro startup comparison](../static/blog/assets/0.79-gradle-config-caching.gif)
-
-You can enable Gradle Configuration Caching by adding the following line in your `android/gradle.properties` file:
-
-```
-org.gradle.configuration-cache=true
-```
-
-Please refer to the [official Gradle documentation](https://docs.gradle.org/current/userguide/configuration_cache.html) for more resources on Configuration Caching.
-
 ## Breaking Changes
 
 ### Removal of Remote JS Debugging
@@ -253,7 +222,7 @@ This list contains a series of other breaking changes we suspect could have a mi
 
 React Native 0.79 contains over 944 commits from 100 contributors. Thanks for all your hard work!
 
-We want to send a special thank you to those community members that shipped significant contributions in this release:
+We want to send a thank you to those community members that shipped significant contributions in this release:
 
 - [Marc Rousavy](https://github.com/mrousavy) for developing and documenting the “Android: Faster App Startup” feature
 - [Kudo Chien](https://github.com/Kudo) and [Oskar Kwaśniewski](https://github.com/okwasniewski)for working on the `@react-native-community/javascriptcore` package and writing the “JSC moving to Community Package” section
