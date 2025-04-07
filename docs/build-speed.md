@@ -71,7 +71,7 @@ This is beneficial when making frequent changes to the native code as it improve
 
 For example here you can see how rebuilding faster it is to rebuild RN-Tester after a change in the native code:
 
-![gradle config caching](../static/blog/assets/gradle-config-caching.gif)
+![gradle config caching](/docs/assets/gradle-config-caching.gif)
 
 You can enable Gradle Configuration Caching by adding the following line in your `android/gradle.properties` file:
 
