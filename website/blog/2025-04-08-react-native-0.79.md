@@ -112,7 +112,7 @@ We’re also shipping a change to improve your Android startup time by a signifi
 
 Starting with this version, we won’t be compressing the JavaScript bundle anymore inside the APK. Previously, the Android system needed to uncompress the JavaScript bundle before your app could start. This was causing a significant slowdown during the app startup.
 
-Starting from this release, we will be shipping the Javascript Bundle uncompressed by default, so your Android apps will be generally faster to start.
+Starting from this release, we will be shipping the JavaScript Bundle uncompressed by default, so your Android apps will be generally faster to start.
 
 We tested this feature on the Discord app and got a significant performance boost: Discord’s time-to-interactive (TTI) was reduced by 400ms, which was a 12% speedup with a one-line change (tested on a Samsung A14).
 
