@@ -230,7 +230,7 @@ There are very few cases of this pattern, again unaffected when using the root `
 
 We expect the impact of this change to be extremely limited, particularly for projects written in TypeScript and using `import` syntax. Please check for any type errors to update your code.
 
-:::warning
+:::tip
 
 **The root `react-native` import is strongly recommended**
 
