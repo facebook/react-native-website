@@ -5,7 +5,7 @@ tags: [engineering]
 date: 2025-04-08
 ---
 
-# React Native 0.79 - Faster tooling, faster startup and much more\*\*
+# React Native 0.79 - Faster tooling, faster startup and much more
 
 Today we are excited to release React Native 0.79!
 
@@ -47,13 +47,13 @@ Moving JSC to a community maintained package will allow us to update the JSC ver
 
 In this release, we are revamping the way in which you can register your Native Module into the React Native runtime. The new approach follows the same approach of components, described in the [official documentation](https://reactnative.dev/docs/next/the-new-architecture/using-codegen#configuring-codegen).
 
-Starting from this version of ReactNative, you can register your modules by modifying the `package.json` file. We introduced a new `modulesProvider` field in the `ios` property:
+Starting from this version of React Native, you can register your modules by modifying the `package.json` file. We introduced a new `modulesProvider` field in the `ios` property:
 
 ```diff
 "codegenConfig": {
      "ios": {
 +       "modulesProvider": {
-+         "JS Name for the module": "ObjC Module provider for the pure C++ TM"
++         "JS Name for the module": "ObjC Module provider for the pure C++ TM or a class conforming to RCTTurboModule"
 +     }
     }
 }
@@ -104,7 +104,7 @@ NS_ASSUME_NONNULL_END
 
 With this new approach, we unified the registration of Native Modules for both app developers and library maintainers. Libraries can specify the same properties in their `package.json` and Codegen will take care of the rest.
 
-This approach solves the limitation we introduced in 0.77 that prevented the registration of a pure C++ Native Module with a Swift AppDelegate. As you can see, none of these changes modifies the AppDelegates and the generated code will work for AppDelegates implemented with both Swift and Objective-C.
+This approach solves the limitation we introduced in 0.77 that prevented the registration of a pure C++ Native Module with a Swift `AppDelegate`. As you can see, none of these changes modifies the `AppDelegate` and the generated code will work for `AppDelegate` implemented with both Swift and Objective-C.
 
 ### Android: Faster App Startup
 
@@ -114,9 +114,7 @@ Starting with this version, we won’t be compressing the JavaScript bundle anym
 
 Starting from this release, we will be shipping the Javascript Bundle uncompressed by default, so your Android apps will be generally faster to start.
 
-We tested this feature on the Discord app and got a significant performance boost:
-
-Discord’s time-to-interactive (TTI) was reduced by 400ms, which was a 12% speedup with a one-line change (tested on a Samsung A14).
+We tested this feature on the Discord app and got a significant performance boost: Discord’s time-to-interactive (TTI) was reduced by 400ms, which was a 12% speedup with a one-line change (tested on a Samsung A14).
 
 On the other hand, storing the bundle uncompressed, will result in a higher space consumption for your application on the user device. If this is a concern to you, you can toggle this behavior using the `enableBundleCompression` property in your `app/build.gradle` file.
 
@@ -155,7 +153,7 @@ You will now be able to enable Configuration Caching, which will allow you to sk
 
 This is beneficial when making frequent changes to the native code as it improves build times.
 
-For example here you can see how rebuilding faster it is to rebuild RN-Tester after a change in the native code:
+For example here you can see how faster it is to rebuild RN-Tester after a change in the native code:
 
 ![metro startup comparison](../static/blog/assets/0.79-gradle-config-caching.gif)
 
