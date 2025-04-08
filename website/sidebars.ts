@@ -105,10 +105,15 @@ export default {
             id: 'the-new-architecture/pure-cxx-modules',
             label: 'Cross-Platform with C++',
           },
+          // {
+          //   type: 'doc',
+          //   id: 'the-new-architecture/custom-cxx-types',
+          //   label: 'Advanced: Custom C++ Types',
+          // },
           {
             type: 'doc',
-            id: 'the-new-architecture/custom-cxx-types',
-            label: 'Advanced: Custom C++ Types',
+            id: 'the-new-architecture/advanced-topics-modules',
+            label: 'Advanced Topics',
           },
         ],
       },
