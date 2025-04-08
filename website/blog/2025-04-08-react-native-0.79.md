@@ -29,7 +29,7 @@ This release ships with [Metro 0.82](https://github.com/facebook/metro/releases/
 
 ![metro startup comparison](../static/blog/assets/0.79-metro-startup-comparison.gif)
 
-Also in Metro 0.82, we’re promoting `package.json` `exports` and `imports` field resolution to stable. `exports` resolution was [introduced in React Native 0.72](https://reactnative.dev/blog/2023/06/21/package-exports-support), and `imports` support was added in a community contribution - both will now be enabled by default for all the projects on React Native 0.79.
+Also in Metro 0.82, we’re promoting `package.json` `exports` and `imports` field resolution to stable. `exports` resolution was [introduced in React Native 0.72](/blog/2023/06/21/package-exports-support), and `imports` support was added in a community contribution - both will now be enabled by default for all the projects on React Native 0.79.
 
 This improves compatibility with modern npm dependencies, and opens up new, standards-compliant ways to organise your projects.
 
@@ -45,7 +45,7 @@ Moving JSC to a community maintained package will allow us to update the JSC ver
 
 ### iOS: Swift-Compatible Native Modules registration
 
-In this release, we are revamping the way in which you can register your Native Module into the React Native runtime. The new approach follows the same approach of components, described in the [official documentation](https://reactnative.dev/docs/next/the-new-architecture/using-codegen#configuring-codegen).
+In this release, we are revamping the way in which you can register your Native Module into the React Native runtime. The new approach follows the same approach of components, described in the [official documentation](/docs/next/the-new-architecture/using-codegen#configuring-codegen).
 
 Starting from this version of React Native, you can register your modules by modifying the `package.json` file. We introduced a new `modulesProvider` field in the `ios` property:
 
@@ -68,9 +68,7 @@ If you do use a pure C++ Native Module you will have to follow this recommended 
 
 For pure C++ Native Modules, you need to add a new ObjectiveC++ class to glue together the C++ Native Module with the rest of the App:
 
-```objc title=”CppNativeModuleProvider.h”
-// .h file
-
+```objc title="CppNativeModuleProvider.h"
 #import <Foundation/Foundation.h>
 #import <ReactCommon/RCTTurboModule.h>
 
@@ -81,11 +79,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 ```
 
-```objc title=”CppNativeModuleProvider.mm”
-
+```objc title="CppNativeModuleProvider.mm"
 NS_ASSUME_NONNULL_END
 
-// .mm file
 #import "<YourNativeModule>Provider.h"
 #import <ReactCommon/CallInvoker.h>
 #import <ReactCommon/TurboModule.h>
@@ -118,7 +114,7 @@ We tested this feature on the Discord app and got a significant performance boos
 
 On the other hand, storing the bundle uncompressed, will result in a higher space consumption for your application on the user device. If this is a concern to you, you can toggle this behavior using the `enableBundleCompression` property in your `app/build.gradle` file.
 
-```kotlin
+```kotlin title="app/build.gradle"
 react {
   // ...
   // If you want to compress the JS bundle (slower startup, less
@@ -138,7 +134,7 @@ Please note that the APK size will increase in this release, but your users won�
 
 ### Removal of Remote JS Debugging
 
-As part of our ongoing efforts to improve debugging, we're removing Remote JS Debugging via Chrome. This legacy debugging method was deprecated, [and moved to a runtime opt-in, in React Native 0.73](https://reactnative.dev/blog/2023/12/06/0.73-debugging-improvements-stable-symlinks#remote-javascript-debugging). Please use [React Native DevTools](https://reactnative.dev/docs/react-native-devtools) for modern and reliable debugging.
+As part of our ongoing efforts to improve debugging, we're removing Remote JS Debugging via Chrome. This legacy debugging method was deprecated, [and moved to a runtime opt-in, in React Native 0.73](/blog/2023/12/06/0.73-debugging-improvements-stable-symlinks#remote-javascript-debugging). Please use [React Native DevTools](/docs/react-native-devtools) for modern and reliable debugging.
 
 This also means that React Native is no longer compatible with the [react-native-debugger](https://github.com/jhen0409/react-native-debugger) community project. For developers that want to use third party debugging extensions, such as Redux DevTools, we recommend [Expo DevTools Plugins](https://github.com/expo/dev-plugins), or integrating the standalone versions of these tools.
 
@@ -203,7 +199,7 @@ We expect the impact of this change to be extremely limited, particularly for pr
 
 **The root `react-native` import is strongly recommended**
 
-As a general takeaway, we strongly recommend importing from the root `'react-native'` path, to avoid extraneous breaking changes in future. In our next release, we will be deprecating deep imports, as part of better defining React Native's public JavaScript API ([see the RFC](https://github.com/react-native-community/discussions-and-proposals/pull/894)).
+As a general takeaway, we strongly recommend importing from the root `'react-native'` path, to avoid extraneous breaking changes in the future. In our next release, we will be deprecating deep imports, as part of better defining React Native's public JavaScript API ([see the RFC](https://github.com/react-native-community/discussions-and-proposals/pull/894)).
 
 :::
 
@@ -240,7 +236,7 @@ Please use the [React Native Upgrade Helper](https://react-native-community.gith
 
 To create a new project:
 
-```
+```sh
 npx @react-native-community/cli@latest init MyProject --version latest
 ```
 
