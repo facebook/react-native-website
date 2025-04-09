@@ -107,8 +107,8 @@ export default {
           },
           {
             type: 'doc',
-            id: 'the-new-architecture/custom-cxx-types',
-            label: 'Advanced: Custom C++ Types',
+            id: 'the-new-architecture/advanced-topics-modules',
+            label: 'Advanced Topics',
           },
         ],
       },
