@@ -115,9 +115,7 @@ curl -O https://raw.githubusercontent.com/react-native-community/template/refs/h
 Please use the Community Template as a reference point for the [Gemfile](https://github.com/react-native-community/template/blob/0.78-stable/template/Gemfile) and for the [Podfile](https://github.com/react-native-community/template/blob/0.78-stable/template/ios/Podfile).
 
 :::note
-Remember to change [this line](https://github.com/react-native-community/template/blob/0.78-stable/template/ios/Podfile#L17) and [this line](https://github.com/react-native-community/template/blob/0.78-stable/template/ios/Podfile#L26) of the Podfile to match the name of your app.
-
-If your app don't have tests, remember to remove [this block](https://github.com/react-native-community/template/blob/0.78-stable/template/ios/Podfile#L26-L29).
+Remember to change [this line](https://github.com/react-native-community/template/blob/0.78-stable/template/ios/Podfile#L17).
 :::
 
 Now, we need to run a couple of extra commands to install the Ruby gems and the Pods.
@@ -258,6 +256,8 @@ Now open the `ReactViewController.m` file and apply the following changes
 +#import <React/RCTBundleURLProvider.h>
 +#import <RCTReactNativeFactory.h>
 +#import <RCTDefaultReactNativeFactoryDelegate.h>
++#import <RCTAppDependencyProvider.h>
+
 
 @interface ReactViewController ()
 
@@ -275,7 +275,8 @@ Now open the `ReactViewController.m` file and apply the following changes
  - (void)viewDidLoad {
      [super viewDidLoad];
      // Do any additional setup after loading the view.
-+    _factoryDelegate = [ReactNativeDelegate new];
++    _factoryDelegate = [ReactNativeFactoryDelegate new];
++    _factoryDelegate.dependencyProvider = [RCTAppDependencyProvider new];
 +    _factory = [[RCTReactNativeFactory alloc] initWithDelegate:_factoryDelegate];
 +    self.view = [_factory.rootViewFactory viewWithModuleName:@"HelloWorld"];
  }
@@ -311,6 +312,7 @@ Now open the `ReactViewController.swift` file and apply the following changes
 import UIKit
 +import React
 +import React_RCTAppDelegate
++import ReactAppDependencyProvider
 
 class ReactViewController: UIViewController {
 +  var reactNativeFactory: RCTReactNativeFactory?
@@ -319,6 +321,7 @@ class ReactViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 +    reactNativeFactoryDelegate = ReactNativeDelegate()
++    reactNativeFactoryDelegate!.dependencyProvider = RCTAppDependencyProvider()
 +    reactNativeFactory = RCTReactNativeFactory(delegate: reactNativeFactoryDelegate!)
 +    view = reactNativeFactory!.rootViewFactory.view(withModuleName: "HelloWorld")
 
