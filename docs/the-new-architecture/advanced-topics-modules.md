@@ -1,6 +1,6 @@
 # Advanced Topics on Native Modules Development
 
-This document contains a set of advanced topics to implement more complex functionalities of Native Modules. It is recommended to first read the [Codegen](/the-new-architecture/what-is-codegen) section and the guides on [Native Modules](/turbo-native-modules-introduction).
+This document contains a set of advanced topics to implement more complex functionalities of Native Modules. It is recommended to first read the [Codegen](/docs/the-new-architecture/what-is-codegen) section and the guides on [Native Modules](/docs/turbo-native-modules-introduction).
 
 This guide will cover the following topics:
 
