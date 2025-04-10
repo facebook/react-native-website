@@ -1,104 +1,254 @@
----
-id: set-up-your-environment
-title: Set Up Your Environment
-hide_table_of_contents: true
----
+import React, { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button"; // 假設有自定義按鈕組件
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import constants from '@site/core/TabsConstants';
+const AttendanceApp = () => {
+  const [location, setLocation] = useState(null);
+  const [status, setStatus] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [projectCode, setProjectCode] = useState("");
+  const [token, setToken] = useState(localStorage.getItem("token") || "");
+  const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem("token"));
+  const [records, setRecords] = useState([]);
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [showRegister, setShowRegister] = useState(false);
+  const [history, setHistory] = useState([]);
 
-import GuideLinuxAndroid from './\_getting-started-linux-android.md';
-import GuideMacOSAndroid from './\_getting-started-macos-android.md';
-import GuideWindowsAndroid from './\_getting-started-windows-android.md';
-import GuideMacOSIOS from './\_getting-started-macos-ios.md';
+  const getLocation = () => {
+    if (!navigator.geolocation) {
+      alert("瀏覽器不支援定位功能");
+      return;
+    }
+    setIsLoading(true);
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const coords = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+        };
+        setLocation(coords);
+        setIsLoading(false);
+      },
+      (error) => {
+        alert("定位失敗: " + error.message);
+        setIsLoading(false);
+      }
+    );
+  };
 
-In this guide, you'll learn how to set up your environment, so that you can run your project with Android Studio and Xcode. This will allow you to develop with Android emulators and iOS simulators, build your app locally, and more.
+  const handleLogin = async () => {
+    try {
+      const response = await fetch("https://your-backend-api.com/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password, projectCode }),
+      });
+      const data = await response.json();
+      if (data.token) {
+        localStorage.setItem("token", data.token);
+        setToken(data.token);
+        setIsLoggedIn(true);
+        setIsAdmin(data.role === "admin");
+        setStatus("登入成功");
+        fetchUserHistory();
+      } else {
+        setStatus("登入失敗: " + data.message);
+      }
+    } catch (err) {
+      setStatus("登入錯誤");
+    }
+  };
 
-:::note
-This guide requires Android Studio or Xcode. If you already have one of these programs installed, you should be able to get up and running within a few minutes. If they are not installed, you should expect to spend about an hour installing and configuring them.
+  const handleRegister = async () => {
+    try {
+      const response = await fetch("https://your-backend-api.com/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password, projectCode }),
+      });
+      const data = await response.json();
+      if (data.success) {
+        setStatus("註冊成功，請登入");
+        setShowRegister(false);
+      } else {
+        setStatus("註冊失敗: " + data.message);
+      }
+    } catch (err) {
+      setStatus("註冊錯誤");
+    }
+  };
 
-<details>
-<summary>Is setting up my environment required?</summary>
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    setToken("");
+    setIsLoggedIn(false);
+    setStatus("已登出");
+  };
 
-Setting up your environment is not required if you're using a [Framework](/architecture/glossary#react-native-framework). With a React Native Framework, you don't need to setup Android Studio or XCode as a Framework will take care of building the native app for you.
+  const handleSign = async (type) => {
+    if (!location) {
+      alert("請先定位");
+      return;
+    }
 
-If you have constraints that prevent you from using a Framework, or you'd like to write your own Framework, then setting up your local environment is a requirement. After your environment is set up, learn how to [get started without a framework](getting-started-without-a-framework).
+    const response = await fetch("https://your-backend-api.com/sign", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        type,
+        location,
+        time: new Date().toISOString(),
+      }),
+    });
 
-</details>
-:::
+    const data = await response.json();
+    if (data.success) {
+      setStatus(`${type === "signIn" ? "簽到" : "簽退"}成功`);
+      fetchUserHistory();
+    } else {
+      setStatus("操作失敗");
+    }
+  };
 
-#### Development OS
+  const fetchRecords = async () => {
+    try {
+      const res = await fetch("https://your-backend-api.com/records", {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      const data = await res.json();
+      setRecords(data.records);
+    } catch (err) {
+      setStatus("查詢失敗");
+    }
+  };
 
-<Tabs groupId="os" queryString defaultValue={constants.defaultOs} values={constants.oses} className="pill-tabs">
-<TabItem value="macos">
+  const fetchUserHistory = async () => {
+    try {
+      const res = await fetch("https://your-backend-api.com/user/history", {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      const data = await res.json();
+      setHistory(data.history);
+    } catch (err) {
+      console.error("讀取歷史紀錄失敗");
+    }
+  };
 
-#### Target OS
+  useEffect(() => {
+    if (isLoggedIn && isAdmin) {
+      fetchRecords();
+    }
+  }, [isLoggedIn, isAdmin]);
 
-<Tabs groupId="platform" queryString defaultValue={constants.defaultPlatform} values={constants.platforms} className="pill-tabs">
-<TabItem value="android">
+  if (!isLoggedIn) {
+    return (
+      <div className="p-6 max-w-md mx-auto text-center">
+        <h1 className="text-xl font-bold mb-4">
+          {showRegister ? "註冊新帳號" : "請先登入"}
+        </h1>
+        <input
+          type="text"
+          placeholder="帳號"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          className="border p-2 w-full mb-2"
+        />
+        <input
+          type="password"
+          placeholder="密碼"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className="border p-2 w-full mb-2"
+        />
+        <input
+          type="text"
+          placeholder="工程代碼 / 密碼"
+          value={projectCode}
+          onChange={(e) => setProjectCode(e.target.value)}
+          className="border p-2 w-full mb-4"
+        />
+        <Button
+          onClick={showRegister ? handleRegister : handleLogin}
+          className="w-full mb-2"
+        >
+          {showRegister ? "註冊" : "登入"}
+        </Button>
+        <Button
+          variant="ghost"
+          onClick={() => setShowRegister(!showRegister)}
+          className="w-full"
+        >
+          {showRegister ? "已有帳號？登入" : "沒有帳號？註冊"}
+        </Button>
+        {status && <div className="text-red-600 mt-2">{status}</div>}
+      </div>
+    );
+  }
 
-[//]: # 'macOS, Android'
+  if (isAdmin) {
+    return (
+      <div className="p-6 max-w-4xl mx-auto">
+        <h1 className="text-xl font-bold mb-4">管理者後台 - 簽到紀錄查詢</h1>
+        <Button onClick={handleLogout} className="mb-4">登出</Button>
+        <table className="w-full border">
+          <thead>
+            <tr className="bg-gray-200">
+              <th className="border p-2">使用者</th>
+              <th className="border p-2">動作</th>
+              <th className="border p-2">時間</th>
+              <th className="border p-2">位置</th>
+            </tr>
+          </thead>
+          <tbody>
+            {records.map((rec, idx) => (
+              <tr key={idx} className="text-center">
+                <td className="border p-2">{rec.username}</td>
+                <td className="border p-2">{rec.type}</td>
+                <td className="border p-2">{new Date(rec.time).toLocaleString()}</td>
+                <td className="border p-2">{rec.location.lat}, {rec.location.lng}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    );
+  }
 
-<GuideMacOSAndroid/>
+  return (
+    <div className="p-6 max-w-md mx-auto text-center">
+      <h1 className="text-xl font-bold mb-4">工程人員簽到系統</h1>
 
-</TabItem>
-<TabItem value="ios">
+      <Button onClick={getLocation} disabled={isLoading} className="mb-4 w-full">
+        {isLoading ? "定位中..." : "取得定位"}
+      </Button>
 
-[//]: # 'macOS, iOS'
+      {location && (
+        <div className="text-sm text-gray-600 mb-4">
+          目前位置：{location.lat}, {location.lng}
+        </div>
+      )}
 
-<GuideMacOSIOS/>
+      <Button onClick={() => handleSign("signIn")} className="mb-2 w-full">
+        簽到
+      </Button>
+      <Button onClick={() => handleSign("signOut")} variant="secondary" className="w-full">
+        簽退
+      </Button>
 
-</TabItem>
-</Tabs>
+      <h2 className="text-lg font-semibold mt-6 mb-2">今日紀錄</h2>
+      <ul className="text-sm text-left">
+        {history.map((h, i) => (
+          <li key={i} className="mb-1">
+            {new Date(h.time).toLocaleTimeString()} - {h.type} - {h.location.lat}, {h.location.lng}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
 
-</TabItem>
-<TabItem value="windows">
-
-#### Target OS
-
-<Tabs groupId="platform" queryString defaultValue={constants.defaultPlatform} values={constants.platforms} className="pill-tabs">
-<TabItem value="android">
-
-[//]: # 'Windows, Android'
-
-<GuideWindowsAndroid/>
-
-</TabItem>
-<TabItem value="ios">
-
-[//]: # 'Windows, iOS'
-
-## Unsupported
-
-> A Mac is required to build projects with native code for iOS. You can use [Expo Go](https://expo.dev/go) from [Expo](environment-setup#start-a-new-react-native-project-with-expo) to develop your app on your iOS device.
-
-</TabItem>
-</Tabs>
-
-</TabItem>
-<TabItem value="linux">
-
-#### Target OS
-
-<Tabs groupId="platform" queryString defaultValue={constants.defaultPlatform} values={constants.platforms} className="pill-tabs">
-<TabItem value="android">
-
-[//]: # 'Linux, Android'
-
-<GuideLinuxAndroid/>
-
-</TabItem>
-<TabItem value="ios">
-
-[//]: # 'Linux, iOS'
-
-## Unsupported
-
-> A Mac is required to build projects with native code for iOS. You can use [Expo Go](https://expo.dev/go) from [Expo](environment-setup#start-a-new-react-native-project-with-expo) to develop your app on your iOS device.
-
-</TabItem>
-</Tabs>
-
-</TabItem>
-</Tabs>
+export default AttendanceApp;
