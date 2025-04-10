@@ -125,13 +125,8 @@ export default {
           },
           {
             type: 'doc',
-            id: 'the-new-architecture/direct-manipulation-new-architecture',
-            label: 'Direct Manipulation',
-          },
-          {
-            type: 'doc',
-            id: 'the-new-architecture/layout-measurements',
-            label: 'Measuring the Layout',
+            id: 'the-new-architecture/advanced-topics-components',
+            label: 'Advanced Topics',
           },
         ],
       },
