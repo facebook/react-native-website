@@ -640,7 +640,7 @@ When `true`, shows a vertical scroll indicator.
 
 ---
 
-### `snapToAlignment` <div class="label ios">iOS</div>
+### `snapToAlignment`
 
 When `snapToInterval` is set, `snapToAlignment` will define the relationship of the snapping to the scroll view.
 
