@@ -104,7 +104,7 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import con
 
 你可以用 `Linking.addEventListener('url', callback)` 来处理这些事件——它使用链接的 URL 调用 `callback({ url })`
 
-#### 如果应用程序还没有打开，它就会被打开，并将 url 作为 initialURL 传入
+#### 2. 如果应用程序还没有打开，它就会被打开，并将 url 作为 initialURL 传入
 
 你可以用 `Linking.getInitialURL()` 来处理这些事件——它会返回一个解析到 URL 的 Promise (如果有的话)。
 
