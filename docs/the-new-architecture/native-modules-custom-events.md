@@ -10,7 +10,7 @@ Both are good use cases for emitting events from a Native Modules. In this guide
 
 In this example, you will learn how to emit an event when a new key is added to the storage. Changing the value of the key will not emit the event, but adding a new key will.
 
-This guide starts from the iOS implementation of the [Native Module](/docs/next/turbo-native-modules-introduction) guide.
+This guide starts from the [Native Module](/docs/next/turbo-native-modules-introduction) guide.
 Make sure to be familiar with that guide before diving into this one, potentially implementing the example in the guide.
 
 ## Step 1: Update the Specs of NativeLocalStorage
@@ -321,14 +321,6 @@ First, you need to import a couple of types that you need to use to create the e
 
 Secondly, you need to implement the logic that actually emits the event to JS. In case of complex types, like the `KeyValuePair` defined in the specs, Codegen will generate a function that expects a `ReadableMap` as a parameter. You can create the `ReadableMap` by using the `Arguments.createMap()` factory method, and use the `apply` function to populate the map. It's your responsibility to make sure that the the keys you are using in the map are the same properties that are defined in the spec type in JS.
 
-## Step 5: Run Your App
-
-If you now try to run your app, you should see this behavior.
-
-<center>
-<img src="/docs/assets/turbo-native-modules-events-android.gif" width="30%" height="30%"/>
-</center>
-
 </TabItem>
 <TabItem value="ios" label="iOS">
 
@@ -374,13 +366,13 @@ The `NativeLocalStorageSpecBase` is a base class that provides the `emitOnKeyAdd
 
 In case of complex types, like the `KeyValuePair` defined in the specs, Codegen will generate a generic dictionary that you can populate on the native side. It's your responsibility to make sure that the the keys you are using in the dictionary are the same properties that are defined in the spec type in JS.
 
+</TabItem>
+</Tabs>
+
 ## Step 5: Run Your App
 
 If you now try to run your app, you should see this behavior.
 
-<center>
-<img src="/docs/assets/turbo-native-modules-events-ios.gif" width="30%" height="30%"/>
-</center>
-
-</TabItem>
-</Tabs>
+| <center>Android</center>                                                                                    | <center>iOS</center>                                                                                    |
+| ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| <center><img src="/docs/assets/turbo-native-modules-events-android.gif" width="75%" height="75%"/></center> | <center><img src="/docs/assets/turbo-native-modules-events-ios.gif" width="75%" height="75%"/></center> |
