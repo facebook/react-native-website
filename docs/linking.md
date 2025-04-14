@@ -594,7 +594,7 @@ The `Promise` will reject on Android if it was impossible to check if the URL ca
 >     <queries>
 >         <intent>
 >             <action android:name="android.intent.action.VIEW" />
->             <data android:scheme="https"/>
+>             <data android:scheme="https" android:host="*" />
 >         </intent>
 >     </queries>
 > </manifest>
