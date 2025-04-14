@@ -7,26 +7,33 @@ title: Platform
 
 ```SnackPlayer name=Platform%20API%20Example&supportedPlatforms=ios,android
 import React from 'react';
-import { Platform, StyleSheet, Text, ScrollView } from 'react-native';
+import {Platform, StyleSheet, Text, ScrollView} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => {
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <Text>OS</Text>
-      <Text style={styles.value}>{Platform.OS}</Text>
-      <Text>OS Version</Text>
-      <Text style={styles.value}>{Platform.Version}</Text>
-      <Text>isTV</Text>
-      <Text style={styles.value}>{Platform.isTV.toString()}</Text>
-      {Platform.OS === 'ios' && <>
-        <Text>isPad</Text>
-        <Text style={styles.value}>{Platform.isPad.toString()}</Text>
-      </>}
-      <Text>Constants</Text>
-      <Text style={styles.value}>
-        {JSON.stringify(Platform.constants, null, 2)}
-      </Text>
-    </ScrollView>
+    <SafeAreaProvider>
+      <SafeAreaView>
+        <ScrollView contentContainerStyle={styles.container}>
+          <Text>OS</Text>
+          <Text style={styles.value}>{Platform.OS}</Text>
+          <Text>OS Version</Text>
+          <Text style={styles.value}>{Platform.Version}</Text>
+          <Text>isTV</Text>
+          <Text style={styles.value}>{Platform.isTV.toString()}</Text>
+          {Platform.OS === 'ios' && (
+            <>
+              <Text>isPad</Text>
+              <Text style={styles.value}>{Platform.isPad.toString()}</Text>
+            </>
+          )}
+          <Text>Constants</Text>
+          <Text style={styles.value}>
+            {JSON.stringify(Platform.constants, null, 2)}
+          </Text>
+        </ScrollView>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
@@ -39,8 +46,8 @@ const styles = StyleSheet.create({
   value: {
     fontWeight: '600',
     padding: 4,
-    marginBottom: 8
-  }
+    marginBottom: 8,
+  },
 });
 
 export default App;
@@ -54,8 +61,8 @@ export default App;
 
 ### `constants`
 
-```jsx
-Platform.constants;
+```tsx
+static constants: PlatformConstants;
 ```
 
 Returns an object which contains all available common and specific constants related to the platform.
@@ -84,8 +91,8 @@ Returns an object which contains all available common and specific constants rel
 
 ### `isPad` <div class="label ios">iOS</div>
 
-```jsx
-Platform.isPad;
+```tsx
+static isPad: boolean;
 ```
 
 Returns a boolean which defines if device is an iPad.
@@ -98,8 +105,8 @@ Returns a boolean which defines if device is an iPad.
 
 ### `isTV`
 
-```jsx
-Platform.isTV;
+```tsx
+static isTV: boolean;
 ```
 
 Returns a boolean which defines if device is a TV.
@@ -110,10 +117,24 @@ Returns a boolean which defines if device is a TV.
 
 ---
 
+### `isVision`
+
+```tsx
+static isVision: boolean;
+```
+
+Returns a boolean which defines if device is an Apple Vision. _If you are using [Apple Vision Pro (Designed for iPad)](https://developer.apple.com/documentation/visionos/checking-whether-your-app-is-compatible-with-visionos) `isVision` will be `false` but `isPad` will be `true`_
+
+| Type    |
+| ------- |
+| boolean |
+
+---
+
 ### `isTesting`
 
-```jsx
-Platform.isTesting;
+```tsx
+static isTesting: boolean;
 ```
 
 Returns a boolean which defines if application is running in Developer Mode with testing flag set.
@@ -126,8 +147,8 @@ Returns a boolean which defines if application is running in Developer Mode with
 
 ### `OS`
 
-```jsx
-static Platform.OS
+```tsx
+static OS: 'android' | 'ios';
 ```
 
 Returns string value representing the current OS.
@@ -140,8 +161,8 @@ Returns string value representing the current OS.
 
 ### `Version`
 
-```jsx
-Platform.Version;
+```tsx
+static Version: 'number' | 'string';
 ```
 
 Returns the version of the OS.
@@ -154,8 +175,8 @@ Returns the version of the OS.
 
 ### `select()`
 
-```jsx
-static select(config: object): any
+```tsx
+static select(config: Record<string, T>): T;
 ```
 
 Returns the most fitting value for the platform you are currently running on.
@@ -177,25 +198,25 @@ The `config` parameter is an object with the following keys:
 
 **Example usage:**
 
-```jsx
-import { Platform, StyleSheet } from 'react-native';
+```tsx
+import {Platform, StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     ...Platform.select({
       android: {
-        backgroundColor: 'green'
+        backgroundColor: 'green',
       },
       ios: {
-        backgroundColor: 'red'
+        backgroundColor: 'red',
       },
       default: {
         // other platforms, web for example
-        backgroundColor: 'blue'
-      }
-    })
-  }
+        backgroundColor: 'blue',
+      },
+    }),
+  },
 });
 ```
 
@@ -203,19 +224,19 @@ This will result in a container having `flex: 1` on all platforms, a green backg
 
 Since the value of the corresponding platform key can be of type `any`, [`select`](platform.md#select) method can also be used to return platform-specific components, like below:
 
-```jsx
+```tsx
 const Component = Platform.select({
   ios: () => require('ComponentIOS'),
-  android: () => require('ComponentAndroid')
+  android: () => require('ComponentAndroid'),
 })();
 
 <Component />;
 ```
 
-```jsx
+```tsx
 const Component = Platform.select({
   native: () => require('ComponentForNative'),
-  default: () => require('ComponentForWeb')
+  default: () => require('ComponentForWeb'),
 })();
 
 <Component />;

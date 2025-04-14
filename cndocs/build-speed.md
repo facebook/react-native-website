@@ -9,7 +9,9 @@ title: 优化编译速度
 为了减轻性能损失，本页面提供了一些建议来**改善您的构建时间**。
 
 :::info
-如果您注意到使用新架构在 Android 上构建时间较慢，请尽量升级 React Native 到最新版本。
+
+请注意，这些建议是高级功能，需要对原生构建工具有一定的了解。
+
 :::
 
 ## 仅在开发过程中构建一个 ABI（仅适用于 Android）
@@ -53,6 +55,32 @@ reactNativeArchitectures=armeabi-v7a,arm64-v8a,x86,x86_64
 ```
 
 一旦你构建了应用的**发布版本**，不要忘记移除这些标志，因为你希望构建一个适用于所有 ABI 而不仅仅是在日常开发流程中使用的那个的 apk/app bundle。
+
+
+## 启用 Gradle 配置缓存（仅适用于 Android）
+
+从 React Native 0.79 开始，您还可以启用 Gradle 配置缓存。
+
+当您使用 `yarn android` 运行 Android 构建时，您将执行一个由两个步骤组成的 Gradle 构建：
+
+- 配置阶段，当所有 `.gradle` 文件都被评估时。
+- 执行阶段，当任务实际执行时，Java/Kotlin 代码被编译等。
+
+您现在可以启用配置缓存，这将允许您在后续构建中跳过配置阶段。
+
+这对于频繁更改原生代码非常有用，因为它可以提高构建速度。
+
+例如，您可以看到在原生代码更改后重建 RN-Tester 时构建速度有多快：
+
+![gradle config caching](/docs/assets/gradle-config-caching.gif)
+
+您可以通过在 `android/gradle.properties` 文件中添加以下行来启用 Gradle 配置缓存：
+
+```
+org.gradle.configuration-cache=true
+```
+
+请参阅 [官方 Gradle 文档](https://docs.gradle.org/current/userguide/configuration_cache.html) 了解更多信息。
 
 ## 使用编译器缓存
 
