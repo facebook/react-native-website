@@ -115,9 +115,7 @@ curl -O https://raw.githubusercontent.com/react-native-community/template/refs/h
 Please use the Community Template as a reference point for the [Gemfile](https://github.com/react-native-community/template/blob/0.78-stable/template/Gemfile) and for the [Podfile](https://github.com/react-native-community/template/blob/0.78-stable/template/ios/Podfile).
 
 :::note
-Remember to change [this line](https://github.com/react-native-community/template/blob/0.78-stable/template/ios/Podfile#L17) and [this line](https://github.com/react-native-community/template/blob/0.78-stable/template/ios/Podfile#L26) of the Podfile to match the name of your app.
-
-If your app don't have tests, remember to remove [this block](https://github.com/react-native-community/template/blob/0.78-stable/template/ios/Podfile#L26-L29).
+Remember to change [this line](https://github.com/react-native-community/template/blob/0.78-stable/template/ios/Podfile#L17).
 :::
 
 Now, we need to run a couple of extra commands to install the Ruby gems and the Pods.
@@ -258,6 +256,8 @@ Now open the `ReactViewController.m` file and apply the following changes
 +#import <React/RCTBundleURLProvider.h>
 +#import <RCTReactNativeFactory.h>
 +#import <RCTDefaultReactNativeFactoryDelegate.h>
++#import <RCTAppDependencyProvider.h>
+
 
 @interface ReactViewController ()
 
@@ -275,7 +275,8 @@ Now open the `ReactViewController.m` file and apply the following changes
  - (void)viewDidLoad {
      [super viewDidLoad];
      // Do any additional setup after loading the view.
-+    _factoryDelegate = [ReactNativeDelegate new];
++    _factoryDelegate = [ReactNativeFactoryDelegate new];
++    _factoryDelegate.dependencyProvider = [RCTAppDependencyProvider new];
 +    _factory = [[RCTReactNativeFactory alloc] initWithDelegate:_factoryDelegate];
 +    self.view = [_factory.rootViewFactory viewWithModuleName:@"HelloWorld"];
  }
@@ -311,6 +312,7 @@ Now open the `ReactViewController.swift` file and apply the following changes
 import UIKit
 +import React
 +import React_RCTAppDelegate
++import ReactAppDependencyProvider
 
 class ReactViewController: UIViewController {
 +  var reactNativeFactory: RCTReactNativeFactory?
@@ -319,6 +321,7 @@ class ReactViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 +    reactNativeFactoryDelegate = ReactNativeDelegate()
++    reactNativeFactoryDelegate!.dependencyProvider = RCTAppDependencyProvider()
 +    reactNativeFactory = RCTReactNativeFactory(delegate: reactNativeFactoryDelegate!)
 +    view = reactNativeFactory!.rootViewFactory.view(withModuleName: "HelloWorld")
 
@@ -513,6 +516,135 @@ REACT_NATIVE_XCODE="$REACT_NATIVE_PATH/scripts/react-native-xcode.sh"
 
 Now, if you build your app for Release, it will work as expected.
 
-### Now what?
+## 7. Passing initial props to the React Native view
+
+In some case, you'd like to pass some information from the Native app to JavaScript. For example, you might want to pass the user id of the currently logged user to React Native, together with a token that can be used to retrieve information from a database.
+
+This is possible by using the `initialProperties` parameter of the `view(withModuleName:initialProperty)` overload of the `RCTReactNativeFactory` class. The following steps shows you how to do it.
+
+### Update the App.tsx file to read the initial properties.
+
+Open the `App.tsx` file and add the following code:
+
+```diff title="App.tsx"
+import {
+  Colors,
+  DebugInstructions,
+  Header,
+  ReloadInstructions,
+} from 'react-native/Libraries/NewAppScreen';
+
+-function App(): React.JSX.Element {
++function App(props): React.JSX.Element {
+  const isDarkMode = useColorScheme() === 'dark';
+
+  const backgroundStyle = {
+    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+  };
+
+  return (
+    <SafeAreaView style={backgroundStyle}>
+      <StatusBar
+        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+        backgroundColor={backgroundStyle.backgroundColor}
+      />
+      <ScrollView
+        contentInsetAdjustmentBehavior="automatic"
+        style={backgroundStyle}>
+        <Header />
+-       <View
+-         style={{
+-           backgroundColor: isDarkMode
+-             ? Colors.black
+-             : Colors.white,
+-           padding: 24,
+-         }}>
+-         <Text style={styles.title}>Step One</Text>
+-         <Text>
+-           Edit <Text style={styles.bold}>App.tsx</Text> to
+-           change this screen and see your edits.
+-         </Text>
+-         <Text style={styles.title}>See your changes</Text>
+-         <ReloadInstructions />
+-         <Text style={styles.title}>Debug</Text>
+-         <DebugInstructions />
++         <Text style={styles.title}>UserID: {props.userID}</Text>
++         <Text style={styles.title}>Token: {props.token}</Text>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  title: {
+    fontSize: 24,
+    fontWeight: '600',
++   marginLeft: 20,
+  },
+  bold: {
+    fontWeight: '700',
+  },
+});
+
+export default App;
+```
+
+These changes will tell React Native that your App component is now accepting some properties. The `RCTreactNativeFactory` will take care of passing them to the component when it's rendered.
+
+### Update the Native code to pass the initial properties to JavaScript.
+
+<Tabs groupId="ios-language" queryString defaultValue={constants.defaultAppleLanguage} values={constants.appleLanguages}>
+<TabItem value="objc">
+
+Modify the `ReactViewController.mm` to pass the initial properties to JavaScript.
+
+```diff title="ReactViewController.mm"
+ - (void)viewDidLoad {
+   [super viewDidLoad];
+   // Do any additional setup after loading the view.
+
+   _factoryDelegate = [ReactNativeFactoryDelegate new];
+   _factoryDelegate.dependencyProvider = [RCTAppDependencyProvider new];
+   _factory = [[RCTReactNativeFactory alloc] initWithDelegate:_factoryDelegate];
+-  self.view = [_factory.rootViewFactory viewWithModuleName:@"HelloWorld"];
++  self.view = [_factory.rootViewFactory viewWithModuleName:@"HelloWorld" initialProperties:@{
++    @"userID": @"12345678",
++    @"token": @"secretToken"
++  }];
+}
+```
+
+</TabItem>
+<TabItem value="swift">
+
+Modify the `ReactViewController.swift` to pass the initial properties to the React Native view.
+
+```diff title="ReactViewController.swift"
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    reactNativeFactoryDelegate = ReactNativeDelegate()
+    reactNativeFactoryDelegate!.dependencyProvider = RCTAppDependencyProvider()
+    reactNativeFactory = RCTReactNativeFactory(delegate: reactNativeFactoryDelegate!)
+-   view = reactNativeFactory!.rootViewFactory.view(withModuleName: "HelloWorld")
++   view = reactNativeFactory!.rootViewFactory.view(withModuleName: "HelloWorld" initialProperties: [
++     "userID": "12345678",
++     "token": "secretToken"
++])
+
+  }
+}
+```
+
+</TabItem>
+</Tabs>
+
+3. Run your app once again. You should see the following screen after you present the `ReactViewController`:
+
+<center>
+  <img src="/docs/assets/brownfield-with-initial-props.png" width="30%" height="30%"/>
+</center>
+
+## Now what?
 
 At this point you can continue developing your app as usual. Refer to our [debugging](debugging) and [deployment](running-on-device) docs to learn more about working with React Native.

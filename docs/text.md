@@ -134,7 +134,8 @@ On the web, the usual way to set a font family and size for the entire document 
 
 ```css
 html {
-  font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
+  font-family:
+    'lucida grande', tahoma, verdana, arial, sans-serif;
   font-size: 11px;
   color: #141823;
 }

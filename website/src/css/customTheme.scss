@@ -17,8 +17,8 @@
   --divider: #ececec;
   --tintColor: #f7f7f7;
   --rn-note-background: rgba(255, 229, 100, 0.25);
-  --ifm-font-family-base: "Optimistic Display", system-ui, -apple-system,
-    sans-serif;
+  --ifm-font-family-base:
+    "Optimistic Display", system-ui, -apple-system, sans-serif;
   --ifm-color-primary: #06bcee;
   --ifm-font-size-base: 17px;
   --ifm-spacing-horizontal: 16px;
@@ -116,8 +116,8 @@ html[data-theme="dark"] {
     --docsearch-modal-background: var(--deepdark);
     --docsearch-footer-background: var(--dark);
     --docsearch-key-gradient: var(--deepdark);
-    --docsearch-key-shadow: inset 0 -2px 0 0 var(--light),
-      inset 0 0 1px 1px var(--light),
+    --docsearch-key-shadow:
+      inset 0 -2px 0 0 var(--light), inset 0 0 1px 1px var(--light),
       0 1px 2px 1px var(--ifm-table-border-color);
     --docsearch-container-background: rgba(0, 0, 0, 0.6);
   }

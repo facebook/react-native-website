@@ -8,6 +8,12 @@ This can be problematic as your project grows and generally in bigger organizati
 
 To mitigate this performance hit, this page shares some suggestions on how to **improve your build time**.
 
+:::info
+
+Please note that those suggestions are advanced feature that requires some amount of understanding of how the native build tools work.
+
+:::
+
 ## Build only one ABI during development (Android-only)
 
 When building your android app locally, by default you build all the 4 [Application Binary Interfaces (ABIs)](https://developer.android.com/ndk/guides/abis) : `armeabi-v7a`, `arm64-v8a`, `x86` & `x86_64`.
@@ -49,6 +55,31 @@ reactNativeArchitectures=armeabi-v7a,arm64-v8a,x86,x86_64
 ```
 
 Once you build a **release version** of your app, don't forget to remove those flags as you want to build an apk/app bundle that works for all the ABIs and not only for the one you're using in your daily development workflow.
+
+## Enable Configuration Caching (Android-only)
+
+Since React Native 0.79, you can also enable Gradle Configuration Caching.
+
+When you’re running an Android build with `yarn android`, you will be executing a Gradle build that is composed by two steps ([source](https://docs.gradle.org/current/userguide/build_lifecycle.html)):
+
+- Configuration phase, when all the `.gradle` files are evaluated.
+- Execution phase, when the tasks are actually executed so the Java/Kotlin code is compiled and so on.
+
+You will now be able to enable Configuration Caching, which will allow you to skip the Configuration phase on subsequent builds.
+
+This is beneficial when making frequent changes to the native code as it improves build times.
+
+For example here you can see how rebuilding faster it is to rebuild RN-Tester after a change in the native code:
+
+![gradle config caching](/docs/assets/gradle-config-caching.gif)
+
+You can enable Gradle Configuration Caching by adding the following line in your `android/gradle.properties` file:
+
+```
+org.gradle.configuration-cache=true
+```
+
+Please refer to the [official Gradle documentation](https://docs.gradle.org/current/userguide/configuration_cache.html) for more resources on Configuration Caching.
 
 ## Use a compiler cache
 

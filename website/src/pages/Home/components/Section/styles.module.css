@@ -6,7 +6,8 @@
  */
 
 .wrapper {
-  background: linear-gradient(
+  background:
+    linear-gradient(
       to bottom,
       var(--home-section-top),
       var(--home-section-bottom)
