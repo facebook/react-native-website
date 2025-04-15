@@ -496,6 +496,16 @@ Optional custom style for multi-item rows generated when `numColumns > 1`.
 
 ---
 
+### `enabledTalkbackCompatibleInvertedList`
+
+Enable TalkBack support for inverted FlatList. The default implementation of inverted FlatList uses transform scaleX or scaleY and is not compatible with TalkBack. This implementation manually inverts the order of the items, but does not yet support all FlatList functionalities, by default is disabled. Not supported functionalities: initialScrollIndex, infinite list, scrollToEnd, scrollToIndex. See the implementation in rn-tester [flatlist-inverted](https://github.com/facebook/react-native/blob/9202414e72e6bbcbdb83cbd8340d90031ca0000f/packages/rn-tester/js/examples/FlatList/FlatList-inverted.js) for an example of onEndReached implementation compatible with TalkBack.
+
+| Type    |
+| ------- |
+| boolean |
+
+---
+
 ### `extraData`
 
 A marker property for telling the list to re-render (since it implements `PureComponent`). If any of your `renderItem`, Header, Footer, etc. functions depend on anything outside of the `data` prop, stick it here and treat it immutably.
