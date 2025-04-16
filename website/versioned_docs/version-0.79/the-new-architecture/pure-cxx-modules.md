@@ -388,12 +388,13 @@ Modify the `package.json` as it follows:
      "jsSrcsDir": "specs",
      "android": {
        "javaPackageName": "com.sampleapp.specs"
-     }
      // highlight-add-start
-     "ios":
+     },
+     "ios": {
         "modulesProvider": {
           "NativeSampleModule":  "NativeSampleModuleProvider"
         }
+     }
      // highlight-add-end
    },
 
