@@ -10,13 +10,13 @@ The `stable` channel of React Native follows the 0.x.y release policy described 
 
 React Native also offers a `nightly` release channel to encourage early feedback on experimental features.
 
-This page describes our approach to version numbers for `react-native` and packages under the `@react-native` scope.
+This page describes our approach to version numbers for `react-native` and for packages under the `@react-native` scope.
 
 ## Stable Release Versions
 
 React Native releases stable versions at a regular cadence.
 
-We follow the 0.x.y versioning schema as follows:
+We follow the 0.x.y versioning schema:
 
 - Breaking changes will be shipped in a new minor version, i.e. we increment the x number (e.g.: 0.78.0 to 0.79.0).
 - New features and APIs will also be shipped in a new minor version, i.e. we increment the x number (e.g.: 0.78.0 to 0.79.0).
@@ -24,13 +24,13 @@ We follow the 0.x.y versioning schema as follows:
 
 Stable releases are shipped regularly, with the latest tagged as `latest` on NPM.
 
-A series of releases under the same minor number is called a **minor serie** (e.g. 0.76.x is the minor series for 0.76.0, 0.76.1, 0.76.2, etc.).
+A series of releases under the same minor number is called a **minor series** (e.g. 0.76.x is the minor series for 0.76.0, 0.76.1, 0.76.2, etc.).
 
 ## Commitment to Stability
 
 In order to support users upgrading React Native versions, we’re committed to maintain the latest 3 minor series (e.g. 0.78.x, 0.77.x and 0.76.x when 0.78 is the latest release).
 
-For those releases we’ll be publishing regular updates and bug fixes. In the event of a serious security vulnerability or significant disruption, we’ll be releasing updates for minor series outside the latest 3.
+For those releases we’ll be publishing regular updates and bug fixes.
 
 You can read more about our support policy on [the react-native-releases working group](https://github.com/reactwg/react-native-releases/blob/main/docs/support.md).
 
@@ -41,11 +41,11 @@ Breaking changes are inconvenient for everyone, and we’re trying to minimize t
 - The _Breaking_ and the _Removed_ section of [the React Native Changelog](https://github.com/facebook/react-native/blob/main/CHANGELOG.md)
 - Each release blogpost in the _Breaking Changes_ section
 
-For each breaking change we’re committed to explaining the reasoning behind it, provide a replacement API if possible and minimize the impact on final users.
+For each breaking change we’re committed to explaining the reasoning behind it, provide a replacement API if possible, and minimize the impact on final users.
 
-### What counts as a breaking change?
+### What is a breaking change?
 
-We consider a breaking change for React Native either:
+We consider a breaking change for React Native:
 
 - An incompatible API change (i.e. an API that is changed or removed so that your code won’t compile/run anymore due to that change). Examples:
   - Changes of any JS/Java/Kotlin/Obj-c/C++ APIs that would require your code to be changed in order to compile.
@@ -63,7 +63,7 @@ We consider a breaking change for React Native either:
 
 We don’t consider those changes to be breaking:
 
-- APIs starting with `unstable_` prefix: These APIs expose experimental features whose APIs we are not yet confident in. By releasing these with an `unstable_` prefix, we can iterate faster and get to a stable API sooner.
+- Modifying APIs starting with `unstable_` prefix: These APIs expose experimental features, and we are not confident on their final shape. By releasing these with an `unstable_` prefix, we can iterate faster and get to a stable API sooner.
 - Changes to private or internal APIs: These APIs are often prefixed with either `internal_` , `private_` or living inside a `internal/` or `private/` folder/package. While some of those APIs might have public visibility due to tooling constraints, we don’t consider them part of our public API, so we’ll be changing them without previous notice.
   - Similarly, If you access internal property names like `__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED` or `__reactInternalInstance$uk43rzhitjg`, there are no guarantees. You are on your own.
   - Classes annotated with `@FrameworkAPI` are also considered internal
@@ -87,9 +87,7 @@ Sometimes we decide to keep a deprecated API for a longer time, if we feel that 
 React Native relies on a thriving open source community to file bug reports, open pull requests, and submit RFCs. To encourage feedback we do support several release channels.
 
 :::note
-
 This section will be most relevant to developers who work on frameworks, libraries, or developer tooling. Developers who use React Native primarily to build user-facing applications should not need to worry about release channels other than latest.
-
 :::
 
 ### latest
