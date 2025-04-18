@@ -12,6 +12,11 @@ Follow the [installation instructions for your Linux distribution](https://nodej
 
 React Native currently recommends version 17 of the Java SE Development Kit (JDK). You may encounter problems using higher JDK versions. You may download and install [OpenJDK](https://openjdk.java.net) from [AdoptOpenJDK](https://adoptopenjdk.net/) or your system packager.
 
+```shell
+apt update
+apt install temurin-17-jdk
+```
+
 <h3>Android development environment</h3>
 
 Setting up your development environment can be somewhat tedious if you're new to Android development. If you're already familiar with Android development, there are a few things you may need to configure. In either case, please make sure to carefully follow the next few steps.
