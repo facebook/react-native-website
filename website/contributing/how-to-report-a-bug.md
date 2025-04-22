@@ -18,20 +18,20 @@ All the bug reports should also include a **reproducer**: the code necessary for
 
 :::warning
 
-Due to high number of issues we receive, reproducers are **mandatory**. Issues without reproducer cannot be easily investigated and will most likely be closed.
+Due to high number of issues we receive, reproducers are **mandatory**. Issues without reproducer cannot be investigated and will most likely be closed.
 
 :::
 
 ## Providing a Reproducers
 
-The goal of a reproducer is for us to have a way to _reproduce_ your bug. Without a reproducer, we won't be able to easily understand the bug and we also won't be able to fix it.
+The goal of a reproducer is for us to have a way to _reproduce_ your bug. Without a reproducer, we won't be able to understand the bug and we also won't be able to fix it.
 
 The reproducer should be **minimal**: having as little dependencies as possible (ideally none other than `react-native`) as this will help us better isolate the bug.
 When someone on GitHub is asking for a reproducer, they're **not** asking for all of your source code.
 
 You need instead to create a **minimal** project that reproduces the same crash/bug/issue you're reporting.
 
-This process is crucial, as often issues are actually solved just by creating a reproducer. By creating a reproducer, it will be easier to understand if the issue is related to your specific setup or if it's actually a bug inside React Native.
+This process is crucial, as often issues are actually solved by creating a reproducer. By creating a reproducer, it will be easier to understand if the issue is related to your specific setup or if it's actually a bug inside React Native.
 
 Due to the amount of traffic we have on React Native, we can accept only one of those as a valid reproducer:
 
