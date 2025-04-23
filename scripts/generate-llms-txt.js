@@ -246,7 +246,7 @@ if (sidebarConfig) {
       if (result.unavailableUrls.length === 0) {
         // Only generate documentation if all URLs are valid
         const markdown = generateMarkdown(sidebarConfig);
-        fs.writeFileSync(path.join('static/', OUTPUT_FILENAME), markdown);
+        fs.writeFileSync(path.join('build/', OUTPUT_FILENAME), markdown);
         console.log(
           `Successfully generated documentation to: ${OUTPUT_FILENAME}`
         );
