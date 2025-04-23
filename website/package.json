@@ -12,7 +12,7 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
-    "build": "docusaurus build && yarn run update-redirect ./build/_redirects ./versions.json",
+    "build": "docusaurus build && yarn run update-redirect ./build/_redirects ./versions.json && node ../scripts/generate-llms-txt.js",
     "build:fast": "PREVIEW_DEPLOY=true yarn run build",
     "tsc": "npx tsc --noEmit",
     "swizzle": "docusaurus swizzle",
