@@ -381,7 +381,7 @@ public class ReactWebViewPackage extends TurboReactPackage {
   public ReactModuleInfoProvider getReactModuleInfoProvider() {
     return new ReactModuleInfoProvider() {
       @Override
-      public Map<String, ReactModuleInfo> get() {
+      public Map<String, ReactModuleInfo> getReactModuleInfos() {
         Map<String, ReactModuleInfo> map = new HashMap<>();
         map.put(ReactWebViewManager.REACT_CLASS, new ReactModuleInfo(
                 ReactWebViewManager.REACT_CLASS, // name

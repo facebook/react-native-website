@@ -9,6 +9,7 @@ export default {
       collapsible: true,
       items: [
         'overview',
+        'versioning-policy',
         'how-to-contribute-code',
         'how-to-build-from-source',
         'how-to-run-and-write-tests',

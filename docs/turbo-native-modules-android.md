@@ -139,7 +139,7 @@ public class NativeLocalStoragePackage extends BaseReactPackage {
   public ReactModuleInfoProvider getReactModuleInfoProvider() {
     return new ReactModuleInfoProvider() {
       @Override
-      public Map<String, ReactModuleInfo> get() {
+      public Map<String, ReactModuleInfo> getReactModuleInfos() {
         Map<String, ReactModuleInfo> map = new HashMap<>();
         map.put(NativeLocalStorageModule.NAME, new ReactModuleInfo(
           NativeLocalStorageModule.NAME,       // name
@@ -180,10 +180,10 @@ class NativeLocalStoragePackage : BaseReactPackage() {
   override fun getReactModuleInfoProvider() = ReactModuleInfoProvider {
     mapOf(
       NativeLocalStorageModule.NAME to ReactModuleInfo(
-        _name = NativeLocalStorageModule.NAME,
-        _className = NativeLocalStorageModule.NAME,
-        _canOverrideExistingModule = false,
-        _needsEagerInit = false,
+        name = NativeLocalStorageModule.NAME,
+        className = NativeLocalStorageModule.NAME,
+        canOverrideExistingModule = false,
+        needsEagerInit = false,
         isCxxModule = false,
         isTurboModule = true
       )

@@ -13,12 +13,12 @@
   --deepdark: #20232a;
   --light: #373940;
   --text: #1a1a1a;
-  --subtle: #767676;
+  --subtle: #636363;
   --divider: #ececec;
   --tintColor: #f7f7f7;
   --rn-note-background: rgba(255, 229, 100, 0.25);
-  --ifm-font-family-base: "Optimistic Display", system-ui, -apple-system,
-    sans-serif;
+  --ifm-font-family-base:
+    "Optimistic Display", system-ui, -apple-system, sans-serif;
   --ifm-color-primary: #06bcee;
   --ifm-font-size-base: 17px;
   --ifm-spacing-horizontal: 16px;
@@ -39,6 +39,10 @@
   --ifm-pagination-nav-color-hover: var(--ifm-color-emphasis-300);
   --ifm-navbar-sidebar-width: 100%;
   --ifm-hr-border-color: var(--docusaurus-collapse-button-bg-hover);
+  --ifm-table-head-background: var(--ifm-color-emphasis-100);
+  --ifm-table-border-color: var(--ifm-toc-border-color);
+  --ifm-table-cell-padding: 10px;
+  --ifm-table-stripe-background: rgba(0, 0, 0, 0.02);
   --docusaurus-blog-social-icon-size: 16px;
 
   @media (min-width: 340px) {
@@ -103,14 +107,17 @@ html[data-theme="dark"] {
   --ifm-code-background: rgba(255, 255, 255, 0.06);
   --ifm-toc-border-color: var(--dark);
   --ifm-color-emphasis-300: var(--dark);
+  --ifm-table-head-background: var(--deepdark);
+  --subtle: #a7a7a7;
+  --ifm-table-head-color: var(--subtle);
 
   *[class^="DocSearch"] {
     --docsearch-searchbox-background: var(--ifm-background-color);
     --docsearch-modal-background: var(--deepdark);
     --docsearch-footer-background: var(--dark);
     --docsearch-key-gradient: var(--deepdark);
-    --docsearch-key-shadow: inset 0 -2px 0 0 var(--light),
-      inset 0 0 1px 1px var(--light),
+    --docsearch-key-shadow:
+      inset 0 -2px 0 0 var(--light), inset 0 0 1px 1px var(--light),
       0 1px 2px 1px var(--ifm-table-border-color);
     --docsearch-container-background: rgba(0, 0, 0, 0.6);
   }
@@ -305,32 +312,30 @@ hr {
   }
 
   table {
-    border-collapse: collapse;
     display: table;
-    margin: 20px 0;
     width: 100%;
+    table-layout: fixed;
 
     thead tr {
       border: 0;
     }
 
     tr th {
-      text-transform: uppercase;
-      padding: 6px 10px;
-      font-size: 0.7rem;
+      padding: 6px var(--ifm-table-cell-padding);
+      font-size: 80%;
       text-align: start;
     }
 
     tr td {
       font-size: 90%;
       line-height: 1.3em;
-      padding: 10px;
       text-align: start;
 
       code {
         display: inline-block;
         line-height: 1.2em;
         vertical-align: top;
+        word-break: break-word;
       }
 
       ul {
@@ -441,6 +446,16 @@ hr {
       &.tabs__item--active {
         font-weight: 700;
       }
+    }
+  }
+}
+
+@media only screen and (max-width: 996px) {
+  .markdown table {
+    display: block;
+
+    tr td code {
+      word-break: normal;
     }
   }
 }

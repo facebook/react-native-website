@@ -5,9 +5,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import type {Config} from '@docusaurus/types';
-import type * as Preset from '@docusaurus/preset-classic';
 import type * as PluginContentDocs from '@docusaurus/plugin-content-docs';
+import type * as Preset from '@docusaurus/preset-classic';
+import type {Config} from '@docusaurus/types';
+import path from 'path';
 
 import users from './showcase.json';
 import versions from './versions.json';
@@ -15,12 +16,43 @@ import versions from './versions.json';
 const lastVersion = versions[0];
 const copyright = `Copyright © ${new Date().getFullYear()} Meta Platforms, Inc.`;
 
+export interface EditUrlButton {
+  label: string;
+  href: string;
+}
+
 const commonDocsOptions = {
   breadcrumbs: false,
   showLastUpdateAuthor: false,
   showLastUpdateTime: true,
-  editUrl:
-    'https://github.com/facebook/react-native-website/blob/main/website/',
+  editUrl: (options => {
+    const baseUrl =
+      'https://github.com/facebook/react-native-website/edit/main';
+    const nextReleasePath = `docs/${options.docPath}`;
+    const isNextRelease = options.version === 'current';
+    const buttons: EditUrlButton[] = [
+      {
+        label: isNextRelease ? 'Edit this page' : 'Edit page for next release',
+        href: `${baseUrl}/${nextReleasePath}`,
+      },
+    ];
+    if (!isNextRelease) {
+      const label =
+        options.version === lastVersion
+          ? 'Edit page for current release'
+          : `Edit page for ${options.version} release`;
+      const thisVersionPath = path.posix.join(
+        'website',
+        options.versionDocsDirPath,
+        options.docPath
+      );
+      buttons.push({
+        label,
+        href: `${baseUrl}/${thisVersionPath}`,
+      });
+    }
+    return JSON.stringify(buttons);
+  }) as PluginContentDocs.EditUrlFunction,
   remarkPlugins: [
     require('@react-native-website/remark-snackplayer'),
     require('@react-native-website/remark-codeblock-language-as-title'),
@@ -215,9 +247,9 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     announcementBar: {
-      id: 'new-architecture',
+      id: 'react-conf',
       content:
-        'The New Architecture has arrived - <a target="_blank" rel="noopener noreferrer" href="/blog/2024/10/23/the-new-architecture-is-here">learn more</a>',
+        'Join us for React Conf on Oct 7-8. <a target="_blank" rel="noopener noreferrer" href="https://conf.react.dev">Learn more</a>.',
       backgroundColor: '#20232a',
       textColor: '#fff',
       isCloseable: false,
