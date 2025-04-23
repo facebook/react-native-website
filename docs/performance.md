@@ -84,7 +84,7 @@ Sometimes, if we do an action in the same frame that we are adjusting the opacit
 ```tsx
 function handleOnPress() {
   requestAnimationFrame(() => {
-    this.doExpensiveAction()
-  })
+    this.doExpensiveAction();
+  });
 }
 ```
