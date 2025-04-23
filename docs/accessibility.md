@@ -427,8 +427,8 @@ When adding support for standard actions, `name` must be one of the following:
 - `'increment'` - Increment an adjustable component. On iOS, VoiceOver generates this action when the component has a role of `'adjustable'` and the user places focus on it and swipes upward. On Android, TalkBack generates this action when the user places accessibility focus on the component and presses the volume-up button.
 - `'decrement'` - Decrement an adjustable component. On iOS, VoiceOver generates this action when the component has a role of `'adjustable'` and the user places focus on it and swipes downward. On Android, TalkBack generates this action when the user places accessibility focus on the component and presses the volume-down button.
 - `'longpress'` - Android only - This action is generated when the user places accessibility focus on the component, then double-taps and holds one finger on the screen. This should perform the same action with, or without, assistive technology.
-- `'expand'` - Android only - This action "expands" the component so that TalkBack will annouce an "expanded" hint.
-- `'collapse'` - Android only - This action "collapses" the component so that TalkBack will annouce a "collapsed" hint.
+- `'expand'` - Android only - This action "expands" the component so that TalkBack will announce an "expanded" hint.
+- `'collapse'` - Android only - This action "collapses" the component so that TalkBack will announce a "collapsed" hint.
 
 The `label` field is optional for standard actions and is often unused by assistive technologies. For custom actions, it is a localized string containing a description of the action to be presented to the user.
 
