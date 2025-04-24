@@ -1,5 +1,4 @@
 const fs = require('fs');
-const readline = require('readline');
 const https = require('https');
 const url = require('url');
 const path = require('path');
