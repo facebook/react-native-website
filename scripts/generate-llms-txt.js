@@ -43,8 +43,8 @@ function extractUrlsFromSidebar(sidebarConfig) {
   const urls = [];
 
   // Process each section (docs, api, components)
-  Object.entries(sidebarConfig).forEach(([section, categories]) => {
-    Object.entries(categories).forEach(([categoryName, items]) => {
+  Object.entries(sidebarConfig).forEach(([_, categories]) => {
+    Object.entries(categories).forEach(([_, items]) => {
       processItemsForUrls(items, urls);
     });
   });
