@@ -226,10 +226,8 @@ function generateMarkdown(sidebarConfig) {
     });
   });
 
-  // Add newlines after all markdown headers
-  markdown = markdown.replace(/(#+ .*)\n/g, '\n$1\n');
-
-  return markdown;
+  // Format and cleanup whitespaces
+  return markdown.replace(/(#+ .*)\n/g, '\n$1\n').replace(/\n(\n)+/g, '\n\n');
 }
 
 const inputFilePath = './sidebars.ts';
