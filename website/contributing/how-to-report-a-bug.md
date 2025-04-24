@@ -9,7 +9,7 @@ Before opening a new bug, please [search if the bug already exists](https://gith
 If you can't find your bug in the issue tracker, you can open a new one. Once you create a new issue, make sure you:
 
 - Add a description of the problem.
-- Follow the instructions on the **issue template**.
+- Follow the instructions on the [issue template](https://github.com/facebook/react-native/issues/new?template=bug_report.yml).
 - Add the React Native version you're using.
 - Add the output of the `npx @react-native-community/cli info` command.
 - Add screenshots and videos of the problem if applicable.
