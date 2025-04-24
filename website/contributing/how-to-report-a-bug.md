@@ -6,7 +6,7 @@ Reporting a bug for React Native is one of the best way to start contributing to
 
 Before opening a new bug, please [search if the bug already exists](https://github.com/facebook/react-native/issues?q=sort%3Aupdated-desc%20is%3Aissue) in our issue tracker. Most of the time, that's the fastest way to find a response as someone else already experienced the same problem.
 
-If can't find your bug in the issue tracker, you can open a new one. Once you create a new issue, make sure you:
+If you can't find your bug in the issue tracker, you can open a new one. Once you create a new issue, make sure you:
 
 - Add a description of the problem.
 - Follow the instructions on the **issue template**.
@@ -24,7 +24,7 @@ Due to high number of issues we receive, reproducers are **mandatory**. Issues w
 
 ## Providing a Reproducers
 
-The goal of a reproducer is for us to have a way to _reproduce_ your bug. Without a reproducer, we won't be able to understand the bug and we also won't be able to fix it.
+The goal of a reproducer is to provide a way to _reproduce_ your bug. Without a reproducer, we won't be able to understand the bug, and we also won't be able to fix it.
 
 The reproducer should be **minimal**: having as little dependencies as possible (ideally none other than `react-native`) as this will help us better isolate the bug.
 When someone on GitHub is asking for a reproducer, they're **not** asking for all of your source code.
@@ -49,7 +49,7 @@ This reproducer will run your code against `main` of `react-native` and is the *
 
 :::
 
-The `RNTesterPlayground.js` file lives inside the RN-Tester application, our reference App. You can read more about it how it works and how to build it inside its [dedicated README file](https://github.com/facebook/react-native/blob/main/packages/rn-tester/README.md).
+The `RNTesterPlayground.js` file is located inside the RN-Tester application, our reference App. You can read more about it how it works and how to build it inside its [dedicated README file](https://github.com/facebook/react-native/blob/main/packages/rn-tester/README.md).
 
 An example of such type of reproducer is here: [Reproduce modal layout issues #50704](https://github.com/facebook/react-native/pull/50704/).
 
@@ -71,11 +71,11 @@ For most build-related bugs instead, you should reproduce them using the [commun
 
 This template creates a small project that runs with the React Native Community CLI and that can be used to showcase build issues.
 
-The template also comes with its own CI already set up with GitHub Actions, as this will helps to spot any build issues you might be having.
+The template also comes with its own CI already set up with GitHub Actions, as this will help spotting any build issues you might be having.
 
 To use this template:
 
 1. Click the [Use this template](https://github.com/new?template_name=reproducer-react-native&template_owner=react-native-community) button on GitHub to create a new project starting from the template.
 2. Clone your newly created repository locally.
-3. Apply the modifications so that it reproduces your issue.
+3. Apply the modifications to reproduce your issue.
 4. Attach your repository link to the new bug report you're creating.
