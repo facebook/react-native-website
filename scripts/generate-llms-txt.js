@@ -8,8 +8,7 @@ const OUTPUT_FILENAME = 'llms.txt';
 const TITLE = 'React Native Documentation';
 const DESCRIPTION =
   'React Native is a framework for building native apps using React. It lets you create mobile apps using only JavaScript and React.';
-const URL_PREFIX = 'https://reactnative.dev/docs/';
-const DOCS_PATH = '../docs/';
+const URL_PREFIX = 'https://reactnative.dev';
 
 // Function to convert the TypeScript sidebar config to JSON
 function convertSidebarConfigToJson(filePath) {
@@ -26,7 +25,11 @@ function convertSidebarConfigToJson(filePath) {
 
     fs.writeFileSync(tempFilePath, outputText);
 
+    // Clear require cache for the temp file
+    delete require.cache[require.resolve(tempFilePath)];
+
     const sidebarModule = require(tempFilePath);
+
     return sidebarModule.default;
   } catch (error) {
     console.error('Error converting sidebar config:', error);
@@ -38,33 +41,55 @@ function convertSidebarConfigToJson(filePath) {
   }
 }
 
+const SLUG_TO_URL = {
+  'architecture-overview': 'overview',
+  'architecture-glossary': 'glossary',
+};
+
 // Function to extract URLs from sidebar config
-function extractUrlsFromSidebar(sidebarConfig) {
+function extractUrlsFromSidebar(sidebarConfig, prefix) {
   const urls = [];
 
   // Process each section (docs, api, components)
   Object.entries(sidebarConfig).forEach(([_, categories]) => {
     Object.entries(categories).forEach(([_, items]) => {
-      processItemsForUrls(items, urls);
+      processItemsForUrls(items, urls, prefix);
     });
+  });
+
+  // Replace slugs with their mapped URLs
+  urls.forEach((url, index) => {
+    for (const [slug, mappedUrl] of Object.entries(SLUG_TO_URL)) {
+      if (url.includes(slug)) {
+        urls[index] = url.replace(slug, mappedUrl);
+        break;
+      }
+    }
   });
 
   return urls;
 }
 
 // Recursive function to process items and extract URLs
-function processItemsForUrls(items, urls) {
-  items.forEach(item => {
-    if (typeof item === 'string') {
-      urls.push(`${URL_PREFIX}${item}`);
-    } else if (typeof item === 'object') {
-      if (item.type === 'doc' && item.id) {
-        urls.push(`${URL_PREFIX}${item.id}`);
-      } else if (item.type === 'category' && Array.isArray(item.items)) {
-        processItemsForUrls(item.items, urls);
+function processItemsForUrls(items, urls, prefix) {
+  if (typeof items === 'object' && Array.isArray(items.items)) {
+    processItemsForUrls(items.items, urls, prefix);
+    return;
+  }
+
+  if (Array.isArray(items)) {
+    items.forEach(item => {
+      if (typeof item === 'string') {
+        urls.push(`${URL_PREFIX}${prefix}/${item}`);
+      } else if (typeof item === 'object') {
+        if (item.type === 'doc' && item.id) {
+          urls.push(`${URL_PREFIX}${prefix}/${item.id}`);
+        } else if (item.type === 'category' && Array.isArray(item.items)) {
+          processItemsForUrls(item.items, urls, prefix);
+        }
       }
-    }
-  });
+    });
+  }
 }
 
 // Function to check URL status
@@ -143,33 +168,48 @@ async function processUrls(urls) {
 }
 
 // Function to extract title from markdown frontmatter
-function extractTitleFromMarkdown(filePath) {
+function extractMetadataFromMarkdown(filePath) {
   try {
     const content = fs.readFileSync(filePath, 'utf8');
     const frontmatterMatch = content.match(/---\n([\s\S]*?)\n---/);
     if (frontmatterMatch) {
       const frontmatter = frontmatterMatch[1];
       const titleMatch = frontmatter.match(/title:\s*(.*)/);
-      if (titleMatch) {
-        return titleMatch[1].trim();
-      }
+      const slugMatch = frontmatter.match(/slug:\s*(.*)/);
+
+      return {
+        title: titleMatch
+          ? titleMatch[1].trim()
+          : filePath.split('/').pop().replace('.md', ''),
+        slug: slugMatch ? slugMatch[1].trim().replace(/^\//, '') : null,
+      };
     }
-    // If no title found, use the filename
-    return filePath.split('/').pop().replace('.md', '');
+    // If no frontmatter found, use the filename
+    return {
+      title: filePath.split('/').pop().replace('.md', ''),
+      slug: null,
+    };
   } catch (error) {
     console.error(`Error reading file ${filePath}:`, error);
-    return filePath.split('/').pop().replace('.md', '');
+    return {
+      title: filePath.split('/').pop().replace('.md', ''),
+      slug: null,
+    };
   }
 }
 
 // Function to map special cases for file names that don't match the sidebar
-function mapDocPath(item) {
+function mapDocPath(item, prefix) {
   const specialCases = {
     'environment-setup': 'getting-started.md',
     'native-platform': 'native-platforms.md',
     'turbo-native-modules-introduction': 'turbo-native-modules.md',
     'fabric-native-components-introduction': 'fabric-native-components.md',
   };
+
+  if (prefix === '/contributing') {
+    specialCases['overview'] = 'contributing-overview.md';
+  }
 
   if (typeof item === 'string') {
     return specialCases[item] || `${item}.md`;
@@ -179,11 +219,9 @@ function mapDocPath(item) {
   return `${item}.md`;
 }
 
-// Function to generate markdown documentation
-function generateMarkdown(sidebarConfig) {
-  let markdown = `# ${TITLE}\n\n`;
-  markdown += `> ${DESCRIPTION}\n\n`;
-  markdown += `This documentation covers all aspects of using React Native, from installation to advanced usage.\n\n`;
+// Function to generate output for each sidebar
+function generateMarkdown(sidebarConfig, docPath, prefix) {
+  let markdown = '';
 
   // Process each section (docs, api, components)
   Object.entries(sidebarConfig).forEach(([section, categories]) => {
@@ -191,33 +229,46 @@ function generateMarkdown(sidebarConfig) {
 
     // Process each category within the section
     Object.entries(categories).forEach(([categoryName, items]) => {
-      markdown += `### ${categoryName}\n\n`;
+      markdown += `### ${categoryName === '0' ? 'General' : categoryName}\n\n`;
+
+      if (typeof items === 'object' && Array.isArray(items.items)) {
+        items = items.items;
+      }
+      const reorderedArray = items.every(item => typeof item === 'string')
+        ? items
+        : [...items].sort((a, b) =>
+            typeof a === 'string' && typeof b !== 'string'
+              ? -1
+              : typeof a !== 'string' && typeof b === 'string'
+                ? 1
+                : 0
+          );
 
       // Process each item in the category
-      items.forEach(item => {
+      reorderedArray.forEach(item => {
         if (typeof item === 'string') {
           // This is a direct page reference
-          const docPath = `${DOCS_PATH}${mapDocPath(item)}`;
-          const title = extractTitleFromMarkdown(docPath);
-          markdown += `- [${title}](${URL_PREFIX}${item})\n`;
+          const fullDocPath = `${docPath}${mapDocPath(item, prefix)}`;
+          const {title, slug} = extractMetadataFromMarkdown(fullDocPath);
+          markdown += `- [${title}](${URL_PREFIX}${prefix}/${slug ?? item})\n`;
         } else if (typeof item === 'object') {
           if (item.type === 'doc' && item.id) {
             // This is a doc reference with an explicit ID
-            const docPath = `${DOCS_PATH}${mapDocPath(item)}`;
-            const title = extractTitleFromMarkdown(docPath);
-            markdown += `- [${title}](${URL_PREFIX}${item.id})\n`;
+            const fullDocPath = `${docPath}${mapDocPath(item, prefix)}`;
+            const {title, slug} = extractMetadataFromMarkdown(fullDocPath);
+            markdown += `- [${title}](${URL_PREFIX}${prefix}/${slug ?? item.id})\n`;
           } else if (item.type === 'category' && Array.isArray(item.items)) {
             // This is a category with nested items
             markdown += `#### ${item.label}\n\n`;
             item.items.forEach(nestedItem => {
               if (typeof nestedItem === 'string') {
-                const docPath = `${DOCS_PATH}${mapDocPath(nestedItem)}`;
-                const title = extractTitleFromMarkdown(docPath);
-                markdown += `- [${title}](${URL_PREFIX}${nestedItem})\n`;
+                const fullDocPath = `${docPath}${mapDocPath(nestedItem, prefix)}`;
+                const {title, slug} = extractMetadataFromMarkdown(fullDocPath);
+                markdown += `- [${title}](${URL_PREFIX}${prefix}/${slug ?? nestedItem})\n`;
               } else if (nestedItem.type === 'doc' && nestedItem.id) {
-                const docPath = `${DOCS_PATH}${mapDocPath(nestedItem)}`;
-                const title = extractTitleFromMarkdown(docPath);
-                markdown += `- [${title}](${URL_PREFIX}${nestedItem.id})\n`;
+                const fullDocPath = `${docPath}${mapDocPath(nestedItem, prefix)}`;
+                const {title, slug} = extractMetadataFromMarkdown(fullDocPath);
+                markdown += `- [${title}](${URL_PREFIX}${prefix}/${slug ?? nestedItem.id})\n`;
               }
             });
           }
@@ -230,33 +281,94 @@ function generateMarkdown(sidebarConfig) {
   return markdown.replace(/(#+ .*)\n/g, '\n$1\n').replace(/\n(\n)+/g, '\n\n');
 }
 
-const inputFilePath = './sidebars.ts';
-const outputFilePath = inputFilePath.replace(/\.tsx?$/, '-urls.txt');
+const inputFilePaths = [
+  {
+    name: 'sidebars.ts',
+    docPath: '../docs/',
+    prefix: '/docs',
+  },
+  {
+    name: 'sidebarsArchitecture.ts',
+    docPath: './architecture/',
+    prefix: '/architecture',
+  },
+  {
+    name: 'sidebarsCommunity.ts',
+    docPath: './community/',
+    prefix: '/community',
+  },
+  {
+    name: 'sidebarsContributing.ts',
+    docPath: './contributing/',
+    prefix: '/contributing',
+  },
+];
 
-const sidebarConfig = convertSidebarConfigToJson(inputFilePath);
-if (sidebarConfig) {
-  const urls = extractUrlsFromSidebar(sidebarConfig);
+let output = `# ${TITLE}\n\n`;
+output += `> ${DESCRIPTION}\n\n`;
+output += `This documentation covers all aspects of using React Native, from installation to advanced usage.\n\n`;
 
-  // First check URLs for 404 errors
-  processUrls(urls)
-    .then(result => {
-      if (result.unavailableUrls.length === 0) {
-        // Only generate documentation if all URLs are valid
-        const markdown = generateMarkdown(sidebarConfig);
-        fs.writeFileSync(path.join('build/', OUTPUT_FILENAME), markdown);
-        console.log(
-          `Successfully generated documentation to: ${OUTPUT_FILENAME}`
-        );
-      } else {
-        console.error('Documentation generation skipped due to broken links');
-        process.exit(1);
-      }
+const generateOutput = () => {
+  const results = [];
+  const promises = [];
+
+  for (const {name, docPath, prefix} of inputFilePaths) {
+    const inputFilePath = `./${name}`;
+    const outputFilePath = inputFilePath.replace(/\.tsx?$/, '-urls.txt');
+
+    const sidebarConfig = convertSidebarConfigToJson(inputFilePath);
+    if (sidebarConfig) {
+      const urls = extractUrlsFromSidebar(sidebarConfig, prefix);
+
+      // First check URLs for 404 errors
+      const promise = processUrls(urls)
+        .then(result => {
+          if (result.unavailableUrls.length === 0) {
+            // Only generate documentation if all URLs are valid
+            const markdown = generateMarkdown(sidebarConfig, docPath, prefix);
+            results.push({ markdown, prefix });
+            console.log(`Successfully generated output from ${inputFilePath}`);
+          } else {
+            console.error(
+              'Documentation generation skipped due to broken links'
+            );
+            process.exit(1);
+          }
+        })
+        .catch(err => {
+          console.error('Error processing URLs:', err);
+          process.exit(1);
+        });
+
+      promises.push(promise);
+    } else {
+      console.error('Failed to convert sidebar config to JSON');
+      process.exit(1);
+    }
+  }
+
+  // Wait for all promises to complete before writing the file
+  Promise.all(promises)
+    .then(() => {
+      // Sort results to ensure docs section is first
+      results.sort((a, b) => {
+        if (a.prefix === '/docs') return -1;
+        if (b.prefix === '/docs') return 1;
+        return 0;
+      });
+
+      // Combine all markdown content in the correct order
+      output += results.map(r => r.markdown).join('\n');
+      
+      fs.writeFileSync(path.join('build/', OUTPUT_FILENAME), output);
+      console.log(
+        `Successfully generated documentation to: ${OUTPUT_FILENAME}`
+      );
     })
     .catch(err => {
-      console.error('Error processing URLs:', err);
+      console.error('Error during processing:', err);
       process.exit(1);
     });
-} else {
-  console.error('Failed to convert sidebar config to JSON');
-  process.exit(1);
-}
+};
+
+generateOutput();
