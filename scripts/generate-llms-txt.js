@@ -2,6 +2,7 @@ const fs = require('fs');
 const https = require('https');
 const url = require('url');
 const path = require('path');
+const ts = require('typescript');
 
 const OUTPUT_FILENAME = 'llms.txt';
 const TITLE = 'React Native Documentation';
@@ -12,29 +13,28 @@ const DOCS_PATH = '../docs/';
 
 // Function to convert the TypeScript sidebar config to JSON
 function convertSidebarConfigToJson(filePath) {
-  const fileContent = fs.readFileSync(filePath, 'utf8');
+  const inputFileContent = fs.readFileSync(filePath, 'utf8');
+  const tempFilePath = path.join(__dirname, 'temp-sidebar.js');
 
-  // Simple regex to extract the object between curly braces
-  const exportPattern =
-    /export default\s*({[\s\S]*?})\s*satisfies\s*SidebarsConfig;/;
-  const match = fileContent.match(exportPattern);
-
-  if (!match) {
-    console.error('Could not find the sidebar configuration object');
-    return null;
-  }
-
-  let configText = match[1];
-
-  // Manual transformation approach
   try {
-    // First, convert the TypeScript object to a JavaScript object using Function constructor
-    const tempFn = new Function(`return ${configText}`);
-    const jsObject = tempFn();
-    return jsObject;
+    const {outputText} = ts.transpileModule(inputFileContent, {
+      compilerOptions: {
+        module: ts.ModuleKind.CommonJS,
+        target: ts.ScriptTarget.ES2015,
+      },
+    });
+
+    fs.writeFileSync(tempFilePath, outputText);
+
+    const sidebarModule = require(tempFilePath);
+    return sidebarModule.default;
   } catch (error) {
-    console.error('Error evaluating the configuration:', error);
+    console.error('Error converting sidebar config:', error);
     return null;
+  } finally {
+    if (fs.existsSync(tempFilePath)) {
+      fs.unlinkSync(tempFilePath);
+    }
   }
 }
 
