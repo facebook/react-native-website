@@ -314,7 +314,6 @@ const generateOutput = () => {
 
   for (const {name, docPath, prefix} of inputFilePaths) {
     const inputFilePath = `./${name}`;
-    const outputFilePath = inputFilePath.replace(/\.tsx?$/, '-urls.txt');
 
     const sidebarConfig = convertSidebarConfigToJson(inputFilePath);
     if (sidebarConfig) {
@@ -326,7 +325,7 @@ const generateOutput = () => {
           if (result.unavailableUrls.length === 0) {
             // Only generate documentation if all URLs are valid
             const markdown = generateMarkdown(sidebarConfig, docPath, prefix);
-            results.push({ markdown, prefix });
+            results.push({markdown, prefix});
             console.log(`Successfully generated output from ${inputFilePath}`);
           } else {
             console.error(
@@ -359,7 +358,7 @@ const generateOutput = () => {
 
       // Combine all markdown content in the correct order
       output += results.map(r => r.markdown).join('\n');
-      
+
       fs.writeFileSync(path.join('build/', OUTPUT_FILENAME), output);
       console.log(
         `Successfully generated documentation to: ${OUTPUT_FILENAME}`
