@@ -83,16 +83,16 @@ Out of the box, TypeScript sources are transformed by [Babel][babel] during bund
 
 ## What does React Native + TypeScript look like
 
-You can provide an interface for a React Component's [Props](props) and [State](state) via `React.Component<Props, State>` which will provide type-checking and editor auto-completing when working with that component in JSX.
+You can provide an interface for a React Function Component's [Props](props) via `React.FC<Props>` which will provide type-checking and editor auto-completing when working with that component in JSX.
 
 ```tsx title="components/Hello.tsx"
 import React from 'react';
 import {Button, StyleSheet, Text, View} from 'react-native';
 
-export type Props = {
+export interface Props {
   name: string;
   baseEnthusiasmLevel?: number;
-};
+}
 
 const Hello: React.FC<Props> = ({
   name,
