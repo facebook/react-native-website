@@ -3,6 +3,7 @@
     {
       "name": "Facebook",
       "icon": "facebook.webp",
+      "linkAppStore": "https://apps.apple.com/app/facebook/id284882215",
       "linkPlayStore": "https://play.google.com/store/apps/details?id=com.facebook.katana",
       "linkMetaQuest": "https://www.meta.com/experiences/facebook/7495711360547796/",
       "pinned": true
@@ -65,14 +66,6 @@
       "icon": "xboxgamepass.png",
       "linkAppStore": "https://apps.apple.com/gb/app/xbox-game-pass/id1374542474",
       "linkPlayStore": "https://play.google.com/store/apps/details?id=com.gamepass",
-      "infoLink": "https://devblogs.microsoft.com/react-native/",
-      "pinned": true
-    },
-    {
-      "name": "Skype",
-      "icon": "skype.webp",
-      "linkAppStore": "https://apps.apple.com/us/app/skype-for-iphone/id304878510",
-      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.skype.raider",
       "infoLink": "https://devblogs.microsoft.com/react-native/",
       "pinned": true
     }
