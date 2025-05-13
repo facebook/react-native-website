@@ -431,6 +431,10 @@ const config: Config = {
               href: 'https://x.com/reactnative',
             },
             {
+              label: 'Bluesky',
+              href: 'https://bsky.app/profile/reactnative.dev',
+            },
+            {
               label: 'GitHub',
               href: 'https://github.com/facebook/react-native',
             },

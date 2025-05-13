@@ -9,12 +9,13 @@ export default {
       collapsible: true,
       items: [
         'overview',
+        'versioning-policy',
+        'how-to-report-a-bug',
         'how-to-contribute-code',
         'how-to-build-from-source',
         'how-to-run-and-write-tests',
         'how-to-open-a-pull-request',
         'changelogs-in-pull-requests',
-        'how-to-file-an-issue',
         'contribution-license-agreement',
         {
           type: 'category',

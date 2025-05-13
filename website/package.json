@@ -12,7 +12,7 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
-    "build": "docusaurus build && yarn run update-redirect ./build/_redirects ./versions.json",
+    "build": "docusaurus build && yarn run update-redirect ./build/_redirects ./versions.json && yarn run generate-llms-txt",
     "build:fast": "PREVIEW_DEPLOY=true yarn run build",
     "tsc": "npx tsc --noEmit",
     "swizzle": "docusaurus swizzle",
@@ -35,7 +35,8 @@
     "language:lint": "cd ../ && alex && case-police 'docs/*.md' -d ./website/react-native-dict.json --disable SDK,URI",
     "language:lint:versioned": "cd ../ && alex . && case-police '**/*.md' -d ./website/react-native-dict.json --disable SDK,URI",
     "ci:lint": "yarn lint && yarn lint:examples && yarn lint:versioned && yarn language:lint:versioned && yarn lint:markdown && yarn lint:format",
-    "pwa:generate": "npx pwa-asset-generator ./static/img/header_logo.svg ./static/img/pwa --padding '40px' --background 'rgb(32, 35, 42)' --icon-only --opaque true"
+    "pwa:generate": "npx pwa-asset-generator ./static/img/header_logo.svg ./static/img/pwa --padding '40px' --background 'rgb(32, 35, 42)' --icon-only --opaque true",
+    "generate-llms-txt": "node ../scripts/generate-llms-txt.js"
   },
   "browserslist": {
     "production": [

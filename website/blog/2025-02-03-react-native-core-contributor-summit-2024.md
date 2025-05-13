@@ -12,6 +12,8 @@ Last year was no different—with small exception. We usually meet a day before 
 
 ![all-participants](../static/blog/assets/react-native-core-contributor-summit-2024-1.jpeg)
 
+<!--truncate-->
+
 This annual tradition has become a valuable opportunity for contributors to share insights and voice their concerns, and for the core team to share their plans and gather feedback from key contributors to the React Native ecosystem—including partner companies, individual library authors and friends.
 
 We divided the Summit into two tracks covering following topics:

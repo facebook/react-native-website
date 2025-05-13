@@ -12,8 +12,9 @@
 /docs/testing                   /contributing/how-to-run-and-write-tests
 /docs/understanding-cli         https://github.com/react-native-community/cli#react-native-cli
 
-/contributing/how-to-contribute         /contributing/overview
-/releases/release-candidate-minor         /releases/release-branch-cut-and-rc0
+/contributing/how-to-contribute     /contributing/overview
+/contributing/how-to-file-an-issue  /contributing/how-to-report-a-bug
+/releases/release-candidate-minor   /releases/release-branch-cut-and-rc0
 
 # Redirect New Architecture docs of all versions
 # Note: We had to delete the older versions to get redirects to work

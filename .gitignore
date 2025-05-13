@@ -50,3 +50,7 @@ cnwebsite/build/
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+
+# Generated file(s) for llms
+llms.txt
