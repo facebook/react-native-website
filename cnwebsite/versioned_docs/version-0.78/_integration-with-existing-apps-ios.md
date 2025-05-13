@@ -15,7 +15,7 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import con
 
 在您遵循本指南时，我们建议您参考[React Native 社区模板](https://github.com/react-native-community/template/)。该模板包含一个**最小化的 iOS 应用**，将帮助您理解如何将 React Native 集成到现有的 iOS 应用中。
 
-## 先决条件
+## 准备工作
 
 请按照[设置开发环境](getting-started)指南指南来配置您的开发环境，以便构建 iOS 平台的 React Native 应用。
 本指南还假设您熟悉 iOS 开发的基础知识，如创建`UIViewController`和编辑`Podfile`文件。
@@ -29,10 +29,10 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import con
 进入根目录并运行以下命令：
 
 ```
-curl -O https://raw.githubusercontent.com/react-native-community/template/refs/heads/0.77-stable/template/package.json
+curl -O https://raw.githubusercontent.com/react-native-community/template/refs/heads/0.78-stable/template/package.json
 ```
 
-这将从[社区模板](https://github.com/react-native-community/template/blob/0.77-stable/template/package.json) 复制 `package.json` 文件到您的项目中。
+这将从[社区模板](https://github.com/react-native-community/template/blob/0.78-stable/template/package.json) 复制 `package.json` 文件到您的项目中。
 
 接下来，运行以下命令安装 NPM 包：
 
@@ -55,7 +55,7 @@ yarn install
 
 安装过程创建了一个新的 `node_modules` 文件夹。该文件夹存储了构建项目所需的 JavaScript 依赖项。
 
-将 `node_modules/` 添加到您的 `.gitignore` 文件中（[社区默认文件](https://github.com/react-native-community/template/blob/0.77-stable/template/_gitignore)）。
+将 `node_modules/` 添加到您的 `.gitignore` 文件中（[社区默认文件](https://github.com/react-native-community/template/blob/0.78-stable/template/_gitignore)）。
 
 ### 3. 安装开发工具
 
@@ -87,22 +87,20 @@ brew install cocoapods
 对于 **Gemfile**，请进入您的项目根目录并运行以下命令：
 
 ```sh
-curl -O https://raw.githubusercontent.com/react-native-community/template/refs/heads/0.77-stable/template/Gemfile
+curl -O https://raw.githubusercontent.com/react-native-community/template/refs/heads/0.78-stable/template/Gemfile
 ```
 
 这将下载 Gemfile 文件。
 对于 **Podfile**，请进入您的项目 `ios` 文件夹并运行以下命令：
 
 ```sh
-curl -O https://raw.githubusercontent.com/react-native-community/template/refs/heads/0.77-stable/template/ios/Podfile
+curl -O https://raw.githubusercontent.com/react-native-community/template/refs/heads/0.78-stable/template/ios/Podfile
 ```
 
-请使用社区模板 作为 [Gemfile](https://github.com/react-native-community/template/blob/0.77-stable/template/Gemfile) 和 [Podfile](https://github.com/react-native-community/template/blob/0.77-stable/template/ios/Podfile) 的参考。
+请使用社区模板 作为 [Gemfile](https://github.com/react-native-community/template/blob/0.78-stable/template/Gemfile) 和 [Podfile](https://github.com/react-native-community/template/blob/0.78-stable/template/ios/Podfile) 的参考。
 
 :::note
-请记住更改 [Podfile](https://github.com/react-native-community/template/blob/0.77-stable/template/ios/Podfile#L17) 和 [Podfile](https://github.com/react-native-community/template/blob/0.77-stable/template/ios/Podfile#L26) 中的这两行，以匹配您的应用名称。
-
-如果您的应用没有测试，请记住删除 [Podfile](https://github.com/react-native-community/template/blob/0.77-stable/template/ios/Podfile#L26-L29) 中的这段代码。
+请记住更改 [Podfile](https://github.com/react-native-community/template/blob/0.78-stable/template/ios/Podfile#L17) 中的这行，以匹配您的应用名称。
 :::
 
 现在，我们需要运行一些额外的命令来安装 Ruby Gem 和 Pods。
@@ -127,7 +125,7 @@ bundle exec pod install
 
 `index.js` 是 React Native 应用程序的起点，并且总是需要。它可以是一个小文件，该文件 `import` 其他文件，这些文件是您的 React Native 组件或应用程序的一部分，或者它可以包含所有需要的代码。
 
-我们的 `index.js` 文件应如下所示（[社区模板文件](https://github.com/react-native-community/template/blob/0.77-stable/template/index.js) 作为参考）：
+我们的 `index.js` 文件应如下所示（[社区模板文件](https://github.com/react-native-community/template/blob/0.78-stable/template/index.js) 作为参考）：
 
 ```js
 import {AppRegistry} from 'react-native';
@@ -138,7 +136,7 @@ AppRegistry.registerComponent('HelloWorld', () => App);
 
 ### 创建一个 `App.tsx` 文件
 
-让我们创建一个 `App.tsx` 文件。这是一个 [TypeScript](https://www.typescriptlang.org/) 文件，可以包含 [JSX](<https://en.wikipedia.org/wiki/JSX_(JavaScript)>) 表达式。它包含我们要集成到 iOS 应用程序中的根 React Native 组件（[链接](https://github.com/react-native-community/template/blob/0.77-stable/template/App.tsx)）：
+让我们创建一个 `App.tsx` 文件。这是一个 [TypeScript](https://www.typescriptlang.org/) 文件，可以包含 [JSX](<https://en.wikipedia.org/wiki/JSX_(JavaScript)>) 表达式。它包含我们要集成到 iOS 应用程序中的根 React Native 组件（[链接](https://github.com/react-native-community/template/blob/0.78-stable/template/App.tsx)）：
 
 ```tsx
 import React from 'react';
@@ -211,7 +209,7 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-[社区模板文件](https://github.com/react-native-community/template/blob/0.77-stable/template/App.tsx) 作为参考
+[社区模板文件](https://github.com/react-native-community/template/blob/0.78-stable/template/App.tsx) 作为参考
 
 ## 5. 与 iOS 代码集成
 
@@ -219,175 +217,117 @@ export default App;
 
 ### 准备工作
 
-React Native 应该在 `AppDelegate` 中调用。假设您的 `AppDelegate` 如下所示：
+React Native 的初始化与 iOS 应用的其他部分无关。
+
+React Native 可以通过一个名为 `RCTReactNativeFactory` 的类来初始化，该类负责处理 React Native 的生命周期。
+
+一旦类被初始化，您可以启动一个 React Native 视图，提供一个 `UIWindow` 对象，或者您可以要求工厂生成一个 `UIView`，您可以在任何 `UIViewController` 中加载它。
+
+在以下示例中，我们将创建一个可以加载 React Native 视图的 ViewController。
+
+#### 创建一个 ReactViewController
+
+从模板创建一个新文件 (<kbd>⌘</kbd>+<kbd>N</kbd>) 并选择 Cocoa Touch Class 模板。
+
+确保选择 `UIViewController` 作为 "Subclass of" 字段。
 
 <Tabs groupId="ios-language" queryString defaultValue={constants.defaultAppleLanguage} values={constants.appleLanguages}>
 <TabItem value="objc">
 
-```objc title="AppDelegate.m"
-#import "AppDelegate.h"
-#import "ViewController.h"
+现在打开 `ReactViewController.m` 文件并应用以下更改
 
-@interface AppDelegate ()
-
-@end
-
-@implementation AppDelegate {
-  UIWindow *window;
-}
-
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-  window = [UIWindow new];
-  window.rootViewController = [ViewController new];
-  [window makeKeyAndVisible];
-  return YES;
-}
-
-@end
-```
-
-</TabItem>
-<TabItem value="swift">
-
-```swift title="AppDelegate.swift"
-import UIKit
-
-@main
-class AppDelegate: UIResponder, UIApplicationDelegate {
-
-  var window: UIWindow?
-
-  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    // 在应用程序启动后进行自定义。
-    window = UIWindow()
-    window?.rootViewController = ViewController()
-    window?.makeKeyAndVisible()
-    return true
-  }
-}
-```
-
-</TabItem>
-</Tabs>
-
-### 修改 `AppDelegate` 类
-
-首先，我们需要扩展 `AppDelegate` 以继承 React Native 提供的一个类：`RCTAppDelegate`。
-
-<Tabs groupId="ios-language" queryString defaultValue={constants.defaultAppleLanguage} values={constants.appleLanguages}>
-<TabItem value="objc">
-
-要实现这一点，我们需要修改 `AppDelegate.h` 和 `AppDelegate.m` 文件：
-
-1. 打开 `AppDelegate.h` 文件并修改如下（参考[社区模板文件](https://github.com/react-native-community/template/blob/0.76-stable/template/ios/HelloWorld/AppDelegate.h)）：
-
-```diff title="AppDelegate.h changes"
-#import <UIKit/UIKit.h>
-+#import <React-RCTAppDelegate/RCTAppDelegate.h>
-
--@interface AppDelegate : UIResponder <UIApplicationDelegate>
-+@interface AppDelegate : RCTAppDelegate
-
-
-@end
-```
-
-2. 打开 `AppDelegate.mm` 文件并修改如下（参考[社区模板文件](https://github.com/react-native-community/template/blob/0.76-stable/template/ios/HelloWorld/AppDelegate.mm)）：
-
-```diff title="AppDelegate.mm"
-#import "AppDelegate.h"
-#import "ViewController.h"
+```diff title="ReactViewController.m"
+#import "ReactViewController.h"
 +#import <React/RCTBundleURLProvider.h>
++#import <RCTReactNativeFactory.h>
++#import <RCTDefaultReactNativeFactoryDelegate.h>
++#import <RCTAppDependencyProvider.h>
 
-@interface AppDelegate ()
+
+@interface ReactViewController ()
 
 @end
 
-@implementation AppDelegate {
-  UIWindow *window;
-}
++@interface ReactNativeFactoryDelegate: RCTDefaultReactNativeFactoryDelegate
++@end
 
- - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-+ self.automaticallyLoadReactNativeWindow = NO;
-+ return [super application:application didFinishLaunchingWithOptions:launchOptions];
-   window = [UIWindow new];
-   window.rootViewController = [ViewController new];
-   [window makeKeyAndVisible];
-   return YES;
+-@implementation ReactViewController
++@implementation ReactViewController {
++  RCTReactNativeFactory *_factory;
++  id<RCTReactNativeFactoryDelegate> _factoryDelegate;
++}
 
+ - (void)viewDidLoad {
+     [super viewDidLoad];
+     // Do any additional setup after loading the view.
++    _factoryDelegate = [ReactNativeFactoryDelegate new];
++    _factoryDelegate.dependencyProvider = [RCTAppDependencyProvider new];
++    _factory = [[RCTReactNativeFactory alloc] initWithDelegate:_factoryDelegate];
++    self.view = [_factory.rootViewFactory viewWithModuleName:@"HelloWorld"];
  }
 
+@end
+
++@implementation ReactNativeFactoryDelegate
++
 +- (NSURL *)sourceURLForBridge:(RCTBridge *)bridge
 +{
 +  return [self bundleURL];
 +}
-
++
 +- (NSURL *)bundleURL
 +{
 +#if DEBUG
-+  return [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index"];
++  return [RCTBundleURLProvider.sharedSettings jsBundleURLForBundleRoot:@"index"];
 +#else
-+  return [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
++  return [NSBundle.mainBundle URLForResource:@"main" withExtension:@"jsbundle"];
 +#endif
 +}
- @end
+
+@end
+
 ```
-
-让我们看看上面的代码：
-
-1. 我们继承自 `RCTAppDelegate` 并调用 `RCTAppDelegate` 的 `application:didFinishLaunchingWithOptions` 方法。这会将所有 React Native 初始化过程委托给基类。
-2. 我们通过将 `automaticallyLoadReactNativeWindow` 设置为 `NO` 来定制 `RCTAppDelegate`。这一步告诉 React Native 应用程序正在处理 `UIWindow`，React Native 不应担心这一点。
-3. 方法 `sourceURLForBridge:` 和 `bundleURL` 用于告诉 React Native 在哪里可以找到需要渲染的 JS 包。`sourceURLForBridge:` 是旧架构，您可以看到它将决定权委托给了 `bundleURL` 方法，该方法由新架构要求。
 
 </TabItem>
 <TabItem value="swift">
 
-要实现这一点，我们需要修改 `AppDelegate.swift` 文件：
+现在打开 `ReactViewController.swift` 文件并应用以下更改
 
-1. 打开 `AppDelegate.swift` 文件并修改如下（参考[社区模板文件](https://github.com/react-native-community/template/blob/main/template/ios/HelloWorld/AppDelegate.swift)）：
-
-```diff title="AppDelegate.swift"
+```diff title="ReactViewController.swift"
 import UIKit
++import React
 +import React_RCTAppDelegate
++import ReactAppDependencyProvider
 
-@main
--class AppDelegate: UIResponder, UIApplicationDelegate {
-+class AppDelegate: RCTAppDelegate {
+class ReactViewController: UIViewController {
++  var reactNativeFactory: RCTReactNativeFactory?
++  var reactNativeFactoryDelegate: RCTReactNativeFactoryDelegate?
 
--  var window: UIWindow?
+  override func viewDidLoad() {
+    super.viewDidLoad()
++    reactNativeFactoryDelegate = ReactNativeDelegate()
++    reactNativeFactoryDelegate!.dependencyProvider = RCTAppDependencyProvider()
++    reactNativeFactory = RCTReactNativeFactory(delegate: reactNativeFactoryDelegate!)
++    view = reactNativeFactory!.rootViewFactory.view(withModuleName: "HelloWorld")
 
--  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-+  override func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    // Override point for customization after application launch.
-+    self.automaticallyLoadReactNativeWindow = false
-+    super.application(application, didFinishLaunchingWithOptions: launchOptions)
-    window = UIWindow()
--    window?.rootViewController = ViewController()
--    window?.makeKeyAndVisible()
-+    window.rootViewController = ViewController()
-+    window.makeKeyAndVisible()
-    return true
   }
-
-+  override func sourceURL(for bridge: RCTBridge) -> URL? {
-+    self.bundleURL()
-+  }
-
-+  override func bundleURL() -> URL? {
-+#if DEBUG
-+    RCTBundleURLProvider.sharedSettings().jsBundleURL(forBundleRoot: "index")
-+#else
-+    Bundle.main.url(forResource: "main", withExtension: "jsbundle")
-+#endif
-+  }
 }
+
++class ReactNativeDelegate: RCTDefaultReactNativeFactoryDelegate {
++    override func sourceURL(for bridge: RCTBridge) -> URL? {
++      self.bundleURL()
++    }
++
++    override func bundleURL() -> URL? {
++      #if DEBUG
++      RCTBundleURLProvider.sharedSettings().jsBundleURL(forBundleRoot: "index")
++      #else
++      Bundle.main.url(forResource: "main", withExtension: "jsbundle")
++      #endif
++    }
++
++}
 ```
-
-让我们看看上面的代码：
-
-1. 我们继承自 `RCTAppDelegate` 并调用 `RCTAppDelegate` 的 `application(_:didFinishLaunchingWithOptions:)` 方法。这会将所有 React Native 初始化过程委托给基类。
-2. 我们通过将 `automaticallyLoadReactNativeWindow` 设置为 `false` 来定制 `RCTAppDelegate`。这一步告诉 React Native 应用程序正在处理 `UIWindow`，React Native 不应担心这一点。
-3. 方法 `sourceURLForBridge(for:)` 和 `bundleURL()` 用于告诉 React Native 在哪里可以找到需要渲染的 JS 包。`sourceURLForBridge(for:)` 是旧架构，您可以看到它将决定权委托给了 `bundleURL()` 方法，该方法由新架构要求。
 
 </TabItem>
 </Tabs>
@@ -488,56 +428,13 @@ class ViewController: UIViewController {
 </TabItem>
 </Tabs>
 
-3. 更新 `ReactViewController` 代码如下：
-
-<Tabs groupId="ios-language" queryString defaultValue={constants.defaultAppleLanguage} values={constants.appleLanguages}>
-<TabItem value="objc">
-
-```diff title="ReactViewController.m"
-#import "ReactViewController.h"
-+#import <React-RCTAppDelegate/RCTRootViewFactory.h>
-+#import <React-RCTAppDelegate/RCTAppDelegate.h>
-
-@interface ReactViewController ()
-
-@end
-
-@implementation ReactViewController
-
- - (void)viewDidLoad {
-   [super viewDidLoad];
-   // Do any additional setup after loading the view.
-+   RCTRootViewFactory *factory = ((RCTAppDelegate *)RCTSharedApplication().delegate).rootViewFactory;
-+   self.view = [factory viewWithModuleName:@"HelloWorld"];
- }
-
-@end
-```
-
-</TabItem>
-<TabItem value="swift">
-
-```diff title="ReactViewController.swift"
-import UIKit
-+import React_RCTAppDelegate
-
-class ReactViewController: UIViewController {
-
-  override func viewDidLoad() {
-    super.viewDidLoad()
-
-+    let factory = (RCTSharedApplication()?.delegate as? RCTAppDelegate)?.rootViewFactory
-+    self.view = factory?.view(withModuleName: "HelloWorld")
-  }
-}
-```
-
-</TabItem>
-</Tabs>
-
-4. 确保禁用沙盒脚本。为此，在 Xcode 中，点击您的应用，然后点击构建设置。过滤脚本并设置 `User Script Sandboxing` 为 `NO`。这一步是为了在调试和发布版本之间正确切换 [Hermes 引擎](https://github.com/facebook/hermes/blob/main/README.md)。
+确保禁用沙盒脚本。为此，在 Xcode 中，点击您的应用，然后点击构建设置。过滤脚本并设置 `User Script Sandboxing` 为 `NO`。这一步是为了在调试和发布版本之间正确切换 [Hermes 引擎](https://github.com/facebook/hermes/blob/main/README.md)。
 
 ![Disable Sandboxing](/docs/assets/disable-sandboxing.png);
+
+最后，确保在您的 `Info.plist` 文件中添加 `UIViewControllerBasedStatusBarAppearance` 键，值为 `NO`。
+
+![Disable UIViewControllerBasedStatusBarAppearance](/docs/assets/disable-UIViewControllerBasedStatusBarAppearance.png)
 
 ## 6. 测试您的集成
 
@@ -550,7 +447,13 @@ const {getDefaultConfig} = require('@react-native/metro-config');
 module.exports = getDefaultConfig(__dirname);
 ```
 
-您可以查看[社区模板文件](https://github.com/react-native-community/template/blob/0.77-stable/template/metro.config.js) 作为参考。
+您可以查看[社区模板文件](https://github.com/react-native-community/template/blob/0.78-stable/template/metro.config.js) 作为参考。
+
+Then, you need to create a `.watchmanconfig` file in the root of your project. The file must contain an empty json object:
+
+```sh
+echo {} > .watchmanconfig
+```
 
 一旦您有了配置文件，您可以运行 bundler。在项目根目录下运行以下命令：
 
@@ -599,6 +502,135 @@ REACT_NATIVE_XCODE="$REACT_NATIVE_PATH/scripts/react-native-xcode.sh"
 6. 将脚本拖放到名为 `[CP] Embed Pods Frameworks` 的脚本之前。
 
 现在，如果您为发布版本构建您的应用，它将按预期工作。
+
+## 7. 将初始属性传递给 React Native 视图
+
+在某些情况下，您可能希望从原生应用传递一些信息到 JavaScript。例如，您可能希望传递当前登录用户的用户 ID 和令牌，以便从数据库中检索信息。
+
+这可以通过使用 `RCTReactNativeFactory` 类的 `view(withModuleName:initialProperty)` 重载的 `initialProperties` 参数来实现。以下步骤展示了如何实现。
+
+### 更新 App.tsx 文件以读取初始属性。
+
+打开 `App.tsx` 文件并添加以下代码：
+
+```diff title="App.tsx"
+import {
+  Colors,
+  DebugInstructions,
+  Header,
+  ReloadInstructions,
+} from 'react-native/Libraries/NewAppScreen';
+
+-function App(): React.JSX.Element {
++function App(props): React.JSX.Element {
+  const isDarkMode = useColorScheme() === 'dark';
+
+  const backgroundStyle = {
+    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+  };
+
+  return (
+    <SafeAreaView style={backgroundStyle}>
+      <StatusBar
+        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+        backgroundColor={backgroundStyle.backgroundColor}
+      />
+      <ScrollView
+        contentInsetAdjustmentBehavior="automatic"
+        style={backgroundStyle}>
+        <Header />
+-       <View
+-         style={{
+-           backgroundColor: isDarkMode
+-             ? Colors.black
+-             : Colors.white,
+-           padding: 24,
+-         }}>
+-         <Text style={styles.title}>Step One</Text>
+-         <Text>
+-           Edit <Text style={styles.bold}>App.tsx</Text> to
+-           change this screen and see your edits.
+-         </Text>
+-         <Text style={styles.title}>See your changes</Text>
+-         <ReloadInstructions />
+-         <Text style={styles.title}>Debug</Text>
+-         <DebugInstructions />
++         <Text style={styles.title}>UserID: {props.userID}</Text>
++         <Text style={styles.title}>Token: {props.token}</Text>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  title: {
+    fontSize: 24,
+    fontWeight: '600',
++   marginLeft: 20,
+  },
+  bold: {
+    fontWeight: '700',
+  },
+});
+
+export default App;
+```
+
+这些更改将告诉 React Native 您的 App 组件现在接受一些属性。`RCTreactNativeFactory` 将负责在组件渲染时将它们传递给它。
+
+### 更新原生代码以将初始属性传递给 JavaScript。
+
+<Tabs groupId="ios-language" queryString defaultValue={constants.defaultAppleLanguage} values={constants.appleLanguages}>
+<TabItem value="objc">
+
+修改 `ReactViewController.mm` 以将初始属性传递给 JavaScript。
+
+```diff title="ReactViewController.mm"
+ - (void)viewDidLoad {
+   [super viewDidLoad];
+   // Do any additional setup after loading the view.
+
+   _factoryDelegate = [ReactNativeFactoryDelegate new];
+   _factoryDelegate.dependencyProvider = [RCTAppDependencyProvider new];
+   _factory = [[RCTReactNativeFactory alloc] initWithDelegate:_factoryDelegate];
+-  self.view = [_factory.rootViewFactory viewWithModuleName:@"HelloWorld"];
++  self.view = [_factory.rootViewFactory viewWithModuleName:@"HelloWorld" initialProperties:@{
++    @"userID": @"12345678",
++    @"token": @"secretToken"
++  }];
+}
+```
+
+</TabItem>
+<TabItem value="swift">
+
+修改 `ReactViewController.swift` 以将初始属性传递给 React Native 视图。
+
+```diff title="ReactViewController.swift"
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    reactNativeFactoryDelegate = ReactNativeDelegate()
+    reactNativeFactoryDelegate!.dependencyProvider = RCTAppDependencyProvider()
+    reactNativeFactory = RCTReactNativeFactory(delegate: reactNativeFactoryDelegate!)
+-   view = reactNativeFactory!.rootViewFactory.view(withModuleName: "HelloWorld")
++   view = reactNativeFactory!.rootViewFactory.view(withModuleName: "HelloWorld" initialProperties: [
++     "userID": "12345678",
++     "token": "secretToken"
++])
+
+  }
+}
+```
+
+</TabItem>
+</Tabs>
+
+3. 再次运行您的应用。您应该在展示 `ReactViewController` 后看到以下屏幕：
+
+<center>
+  <img src="/docs/assets/brownfield-with-initial-props.png" width="30%" height="30%"/>
+</center>
 
 ### 现在呢？
 
