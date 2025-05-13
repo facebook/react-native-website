@@ -19,9 +19,7 @@ Now to confuse the matter a little bit, open up the [Dev Menu](debugging.md#open
 
 For most React Native applications, your business logic will run on the JavaScript thread. This is where your React application lives, API calls are made, touch events are processed, and more. Updates to native-backed views are batched and sent over to the native side at the end of each iteration of the event loop, before the frame deadline (if all goes well). If the JavaScript thread is unresponsive for a frame, it will be considered a dropped frame. For example, if you were to set a new state on the root component of a complex application and it resulted in re-rendering computationally expensive component subtrees, it's conceivable that this might take 200ms and result in 12 frames being dropped. Any animations controlled by JavaScript would appear to freeze during that time. If enough frames are dropped, the user will feel it.
 
-This often happens during navigation transitions when pushing a new route. For example, with [React Navigation's JavaScript-based stack navigator](https://reactnavigation.org/docs/stack-navigator/), the JavaScript thread needs to render all components for the new screen and send commands to the native side to create backing views. This can take multiple frames and cause [jank](https://jankfree.org/) because the transition animations are controlled by the JavaScript thread. Sometimes components will do additional work inside various hooks that run on mount which might result in additional stutters during the transition.
-
-Another example is responding to touches: if you are doing work across multiple frames on the JavaScript thread, you might notice a delay in responding to `TouchableOpacity`, for example. This is because the JavaScript thread is busy and cannot process the raw touch events sent over from the main thread. As a result, `TouchableOpacity` cannot react to the touch events and command the native view to adjust its opacity.
+An example is responding to touches: if you are doing work across multiple frames on the JavaScript thread, you might notice a delay in responding to `TouchableOpacity`, for example. This is because the JavaScript thread is busy and cannot process the raw touch events sent over from the main thread. As a result, `TouchableOpacity` cannot react to the touch events and command the native view to adjust its opacity.
 
 ### UI frame rate (main thread)
 
@@ -53,9 +51,7 @@ This will automatically remove all `console.*` calls in the release (production)
 
 It is recommended to use the plugin even if no `console.*` calls are made in your project. A third party library could also call them.
 
-### `ListView` initial rendering is too slow or scroll performance is bad for large lists
-
-Use [`FlatList`](flatlist.md) or [`SectionList`](sectionlist.md) component instead. Besides simplifying the API, the new list components also have significant performance enhancements, the main one being nearly constant memory usage for any number of rows.
+### `FlatList` rendering is too slow or scroll performance is bad for large lists
 
 If your [`FlatList`](flatlist.md) is rendering slowly, be sure that you've implemented [`getItemLayout`](flatlist.md#getitemlayout) to optimize rendering speed by skipping measurement of the rendered items.
 
