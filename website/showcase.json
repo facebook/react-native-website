@@ -75,7 +75,8 @@
       "name": "Amazon Shopping",
       "icon": "amazon-shopping.png",
       "linkAppStore": "https://apps.apple.com/us/app/amazon-shopping/id297606951",
-      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.amazon.mShop.android.shopping"
+      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.amazon.mShop.android.shopping",
+      "pinned": true
     },
     {
       "name": "Amazon Alexa",
