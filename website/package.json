@@ -51,11 +51,11 @@
     ]
   },
   "dependencies": {
-    "@docusaurus/core": "3.6.3",
-    "@docusaurus/faster": "3.6.3",
-    "@docusaurus/plugin-google-gtag": "3.6.3",
-    "@docusaurus/plugin-pwa": "3.6.3",
-    "@docusaurus/preset-classic": "3.6.3",
+    "@docusaurus/core": "3.7.0",
+    "@docusaurus/faster": "3.7.0",
+    "@docusaurus/plugin-google-gtag": "3.7.0",
+    "@docusaurus/plugin-pwa": "3.7.0",
+    "@docusaurus/preset-classic": "3.7.0",
     "docusaurus-plugin-sass": "^0.2.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -63,9 +63,9 @@
     "sass": "1.76.0"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "3.6.3",
-    "@docusaurus/tsconfig": "3.6.3",
-    "@docusaurus/types": "3.6.3",
+    "@docusaurus/module-type-aliases": "3.7.0",
+    "@docusaurus/tsconfig": "3.7.0",
+    "@docusaurus/types": "3.7.0",
     "@react-native-website/lint-examples": "0.0.0",
     "@react-native-website/update-redirects": "0.0.0",
     "@types/google.analytics": "^0.0.46",
