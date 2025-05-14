@@ -63,6 +63,8 @@ const isDeployPreview = process.env.PREVIEW_DEPLOY === 'true';
 
 const config: Config = {
   future: {
+    // Turns Docusaurus v4 future flags on to make it easier to upgrade later
+    v4: true,
     // Make Docusaurus build faster - enabled by default
     // See https://github.com/facebook/docusaurus/issues/10556
     // See https://github.com/facebook/react-native-website/pull/4268
