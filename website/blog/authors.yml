@@ -308,3 +308,19 @@ shubham:
     x: https://x.com/sg43245
     github: https://github.com/shubhamguptadream11
   image_url: https://github.com/shubhamguptadream11.png
+
+hezi:
+  name: Jorge Cohen
+  title: Engineer Manager @ Meta
+  socials:
+    x: https://x.com/jorgewritescode
+    github: https://github.com/hezi
+  image_url: https://github.com/hezi.png
+
+chrfalch:
+  name: Christian Falch
+  title: Software Engineer @ Expo
+  socials:
+    x: https://x.com/chrfalch
+    github: https://github.com/chrfalch
+  image_url: https://github.com/chrfalch.png
