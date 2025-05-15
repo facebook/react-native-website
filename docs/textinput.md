@@ -428,6 +428,16 @@ Padding between the inline image, if any, and the text input itself.
 
 ---
 
+### `inputAccessoryViewButtonLabel` <div class="label ios">iOS</div>
+
+An optional label that overrides the default input accessory view button label. Can be used to overwrite return key label in the input accessory view.
+
+| Type   |
+| ------ |
+| string |
+
+---
+
 ### `inputAccessoryViewID` <div class="label ios">iOS</div>
 
 An optional identifier which links a custom [InputAccessoryView](inputaccessoryview.md) to this text input. The InputAccessoryView is rendered above the keyboard when this text input is focused.
