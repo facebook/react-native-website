@@ -1,0 +1,158 @@
+import React, { useState, useEffect } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Phone, Mail, Users } from "lucide-react";
+
+export default function TopcoatRenovations() {
+  const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
+  const [submitted, setSubmitted] = useState(false);
+  const [showMessage, setShowMessage] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+  };
+
+  useEffect(() => {
+    if (submitted) {
+      setShowMessage(true);
+      setTimeout(() => setShowMessage(false), 5000);
+    }
+  }, [submitted]);
+
+  return (
+    <main className="min-h-screen bg-white text-gray-800" style={{ fontFamily: "Times New Roman, serif" }}>
+      {/* Hero Section */}
+      <section className="bg-black text-white text-center py-20 px-4 animate-fade-in">
+        <img src="/WHO%20ARE%20WE%3F%20-%201.png" alt="Topcoat Renovations Logo" className="mx-auto mb-6 h-36" />
+        <h1 className="text-4xl md:text-6xl font-bold mb-4">Topcoat Renovations</h1>
+        <p className="text-lg md:text-xl">Expert Handyman & Renovation Services</p>
+      </section>
+
+      {/* About Section */}
+      <section className="py-12 px-6 max-w-4xl mx-auto text-center animate-fade-in">
+        <p className="text-xl italic">
+          "AT TOPCOAT RENOVATIONS, WE'RE ALL ABOUT CREATING HOMES AND CRAFTING LASTING MEMORIES. WE WORK CLOSELY WITH YOU TO DESIGN SPACES THAT TRULY REFLECT YOUR STYLE AND FIT YOUR NEEDS. OUR LOVE FOR INTERIOR RENOVATIONS COMES FROM A COMMITMENT TO QUALITY AND MAKING SURE YOU'RE THRILLED WITH THE RESULTS EVERY STEP OF THE WAY."
+        </p>
+      </section>
+
+      {/* Services Section */}
+      <section className="py-16 px-6 max-w-6xl mx-auto animate-fade-in">
+        <h2 className="text-3xl font-bold text-center mb-12">Our Services</h2>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {[
+            "General Repairs",
+            "Painting & Finishing",
+            "Renovation Projects"
+          ].map((title, idx) => (
+            <Card key={title} className="border rounded-lg hover:shadow-lg transition-shadow duration-300">
+              <CardContent className="p-6 text-center">
+                <img src="/WHO%20ARE%20WE%3F%20-%201.png" alt={`${title} Icon`} className="mx-auto mb-4 h-10" />
+                <h3 className="text-xl font-semibold mb-2">{title}</h3>
+                <p>
+                  {title === "General Repairs"
+                    ? "Fixing leaks, broken fixtures, furniture assembly, and more."
+                    : title === "Painting & Finishing"
+                    ? "Interior and exterior painting with professional finishes."
+                    : "Kitchen upgrades, bathroom remodels, flooring, and more."}
+                </p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* Gallery Section */}
+      <section className="bg-gray-100 py-16 px-6 animate-fade-in">
+        <h2 className="text-3xl font-bold text-center mb-12">Our Work</h2>
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-6xl mx-auto">
+          <img src="/IMG_0158.jpeg" alt="Project 1" className="rounded-lg w-full h-64 object-cover hover:scale-105 transition-transform duration-300" />
+          <img src="/kitchen1.jpeg" alt="Project 2" className="rounded-lg w-full h-64 object-cover hover:scale-105 transition-transform duration-300" />
+          <img src="/kitchen2.jpeg" alt="Project 3" className="rounded-lg w-full h-64 object-cover hover:scale-105 transition-transform duration-300" />
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-16 px-6 max-w-4xl mx-auto text-center animate-fade-in">
+        <h2 className="text-3xl font-bold mb-12">What Our Clients Say</h2>
+        <div className="space-y-10">
+          {["Topcoat Renovations did an amazing job remodeling our kitchen. Professional and efficient!", "Quick response, fair pricing, and excellent craftsmanship. Highly recommend!"].map((quote, i) => (
+            <Card key={i} className="border p-6">
+              <CardContent>
+                <Users className="h-6 w-6 mx-auto mb-4 text-green-600" />
+                <p className="italic">“{quote}”</p>
+                <p className="text-sm mt-2">— {i === 0 ? "Sarah T." : "Mike L."}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* Free Quote Section */}
+      <section className="py-16 px-6 max-w-3xl mx-auto animate-fade-in">
+        <h2 className="text-3xl font-bold text-center mb-8">Request a Free Quote</h2>
+        {showMessage ? (
+          <p className="text-center text-green-600 text-xl font-semibold">Thank you! Your request has been submitted.</p>
+        ) : (
+          <form
+            action="https://formsubmit.co/Topcoatrenovation@gmail.com"
+            method="POST"
+            encType="multipart/form-data"
+            className="space-y-6"
+            onSubmit={() => setSubmitted(true)}
+          >
+            <input type="hidden" name="_captcha" value="false" />
+
+            <div>
+              <label className="block mb-2 font-semibold">Full Name</label>
+              <input name="name" required onChange={handleChange} className="w-full p-3 border rounded" />
+            </div>
+            <div>
+              <label className="block mb-2 font-semibold">Email</label>
+              <input type="email" name="email" required onChange={handleChange} className="w-full p-3 border rounded" />
+            </div>
+            <div>
+              <label className="block mb-2 font-semibold">Phone Number</label>
+              <input type="tel" name="phone" required onChange={handleChange} className="w-full p-3 border rounded" />
+            </div>
+            <div>
+              <label className="block mb-2 font-semibold">Project Details</label>
+              <textarea name="message" required rows={5} onChange={handleChange} className="w-full p-3 border rounded" />
+            </div>
+            <div>
+              <label className="block mb-2 font-semibold">Upload Photos (Max 15)</label>
+              <input type="file" name="attachments" accept="image/*" multiple className="w-full" />
+            </div>
+            <Button type="submit" className="bg-black text-white hover:bg-gray-800">
+              Submit Request
+            </Button>
+          </form>
+        )}
+      </section>
+
+      {/* Contact Section */}
+      <section className="bg-black text-white py-16 px-6 text-center animate-fade-in">
+        <h2 className="text-3xl font-bold mb-4">Get in Touch</h2>
+        <p className="mb-6">Let’s talk about your next project.</p>
+        <div className="flex flex-col md:flex-row justify-center gap-4 mb-6">
+          <a href="tel:+447376784284">
+            <Button className="bg-white text-black hover:bg-gray-200">
+              <Phone className="w-5 h-5 mr-2" /> +447376784284
+            </Button>
+          </a>
+          <a href="mailto:Topcoatrenovation@gmail.com">
+            <Button variant="outline" className="border-white text-black hover:bg-white">
+              <Mail className="w-5 h-5 mr-2 text-black" /> Topcoatrenovation@gmail.com
+            </Button>
+          </a>
+        </div>
+        <div className="flex justify-center gap-6">
+          <a href="https://www.instagram.com/topcoatrenovations" target="_blank" rel="noopener noreferrer" className="hover:underline">Instagram</a>
+          <a href="https://www.facebook.com/topcoatrenovations" target="_blank" rel="noopener noreferrer" className="hover:underline">Facebook</a>
+          <a href="https://www.tiktok.com/@topcoatrenovations" target="_blank" rel="noopener noreferrer" className="hover:underline">TikTok</a>
+          <a href="https://wa.me/447376784284" target="_blank" rel="noopener noreferrer" className="hover:underline">WhatsApp</a>
+        </div>
+      </section>
+    </main>
+  );
+}
