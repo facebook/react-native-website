@@ -128,7 +128,7 @@ Before uploading the release build to the Play Store, make sure you test it thor
 <TabItem value="npm">
 
 ```shell
-npm run android -- --mode="release"
+npm run android --mode="release"
 ```
 
 </TabItem>
