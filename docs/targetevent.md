@@ -7,7 +7,7 @@ title: TargetEvent Object Type
 
 ## Example
 
-```js
+```
 {
     target: 1127
 }
