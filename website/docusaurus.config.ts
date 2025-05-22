@@ -247,9 +247,9 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     announcementBar: {
-      id: 'new-architecture',
+      id: 'react-conf',
       content:
-        'The New Architecture has arrived - <a target="_blank" rel="noopener noreferrer" href="/blog/2024/10/23/the-new-architecture-is-here">learn more</a>',
+        'Join us for React Conf on Oct 7-8. <a target="_blank" rel="noopener noreferrer" href="https://conf.react.dev">Learn more</a>.',
       backgroundColor: '#20232a',
       textColor: '#fff',
       isCloseable: false,
@@ -429,6 +429,10 @@ const config: Config = {
             {
               label: 'X',
               href: 'https://x.com/reactnative',
+            },
+            {
+              label: 'Bluesky',
+              href: 'https://bsky.app/profile/reactnative.dev',
             },
             {
               label: 'GitHub',
