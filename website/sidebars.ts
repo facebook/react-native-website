@@ -299,6 +299,7 @@ export default {
       'pressevent',
       'react-node',
       'rect',
+      'targetevent',
       'viewtoken',
     ],
   },
