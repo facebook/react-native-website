@@ -565,9 +565,9 @@ Callback that is called when the text input is blurred.
 
 > Note: If you are attempting to access the `text` value from `nativeEvent` keep in mind that the resulting value you get can be `undefined` which can cause unintended errors. If you are trying to find the last value of TextInput, you can use the [`onEndEditing`](textinput#onendediting) event, which is fired upon completion of editing.
 
-| Type     |
-| -------- |
-| function |
+| Type                                                     |
+| -------------------------------------------------------- |
+| `md ({nativeEvent: [TargetEvent](targetevent)}) => void` |
 
 ---
 
@@ -639,7 +639,7 @@ Callback that is called when the text input is focused.
 
 | Type                                                     |
 | -------------------------------------------------------- |
-| `md ({nativeEvent: [LayoutEvent](layoutevent)}) => void` |
+| `md ({nativeEvent: [TargetEvent](targetevent)}) => void` |
 
 ---
 
