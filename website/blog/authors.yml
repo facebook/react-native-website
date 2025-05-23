@@ -313,8 +313,9 @@ hezi:
   name: Jorge Cohen
   title: Engineering Manager @ Meta
   socials:
-    x: https://x.com/jorgewritescode
+    bluesky: https://bsky.app/profile/excbadacc.es
     github: https://github.com/hezi
+    x: jorgewritescode
   image_url: https://github.com/hezi.png
 
 chrfalch:
