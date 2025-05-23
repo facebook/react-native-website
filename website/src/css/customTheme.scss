@@ -1861,6 +1861,10 @@ html[data-theme="dark"] .docsRating {
   border-radius: var(--ifm-global-radius);
 }
 
+.tabs-container .snack-player:last-child {
+  margin-bottom: 0;
+}
+
 /* Two columns code block */
 
 .two-columns {
