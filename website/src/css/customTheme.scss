@@ -273,6 +273,10 @@ hr {
   }
 
   blockquote {
+    > :last-child {
+      margin-bottom: 0;
+    }
+
     background-color: var(--rn-note-background);
     border-left: 8px solid var(--ifm-color-warning);
     padding: 15px 30px 15px 15px;
