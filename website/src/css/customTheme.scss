@@ -1894,10 +1894,15 @@ html[data-theme="dark"] .docsRating {
     color: var(--ifm-font-color-secondary);
   }
 
+  @layer docusaurus.infima.importantOverrides {
+    .container.margin-vert--lg {
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+    }
+  }
+
   .container.margin-vert--lg {
     max-width: calc(100% - (var(--ifm-spacing-horizontal)) * 4);
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
 
     .col.text--right a {
       @extend %button-link-style;
