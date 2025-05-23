@@ -71,6 +71,30 @@ export default App;
 
 ---
 
+### `borderBlockColor`
+
+| Type               |
+| ------------------ |
+| [color](colors.md) |
+
+---
+
+### `borderBlockEndColor`
+
+| Type               |
+| ------------------ |
+| [color](colors.md) |
+
+---
+
+### `borderBlockStartColor`
+
+| Type               |
+| ------------------ |
+| [color](colors.md) |
+
+---
+
 ### `borderBottomColor`
 
 | Type               |
@@ -220,6 +244,30 @@ If the rounded border is not visible, try applying `overflow: 'hidden'` as well.
 ---
 
 ### `borderStartColor`
+
+| Type               |
+| ------------------ |
+| [color](colors.md) |
+
+---
+
+### `borderInlineColor`
+
+| Type               |
+| ------------------ |
+| [color](colors.md) |
+
+---
+
+### `borderInlineEndColor`
+
+| Type               |
+| ------------------ |
+| [color](colors.md) |
+
+---
+
+### `borderInlineStartColor`
 
 | Type               |
 | ------------------ |
