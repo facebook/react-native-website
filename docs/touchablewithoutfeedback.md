@@ -424,9 +424,9 @@ Used to locate this view from native code. Has precedence over `nativeID` prop.
 
 Invoked when the item loses focus.
 
-| Type     |
-| -------- |
-| function |
+| Type                                                     |
+| -------------------------------------------------------- |
+| `md ({nativeEvent: [TargetEvent](targetevent)}) => void` |
 
 ---
 
@@ -434,9 +434,9 @@ Invoked when the item loses focus.
 
 Invoked when the item receives focus.
 
-| Type     |
-| -------- |
-| function |
+| Type                                                     |
+| -------------------------------------------------------- |
+| `md ({nativeEvent: [TargetEvent](targetevent)}) => void` |
 
 ---
 
