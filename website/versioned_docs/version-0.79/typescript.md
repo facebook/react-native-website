@@ -25,14 +25,14 @@ npx create-expo-app --template
 <TabItem value="npm">
 
 ```shell
-npm install -D @tsconfig/react-native @types/jest @types/react @types/react-test-renderer typescript
+npm install -D typescript @react-native/typescript-config @types/jest @types/react @types/react-test-renderer
 ```
 
 </TabItem>
 <TabItem value="yarn">
 
 ```shell
-yarn add --dev @tsconfig/react-native @types/jest @types/react @types/react-test-renderer typescript
+yarn add --dev typescript @react-native/typescript-config @types/jest @types/react @types/react-test-renderer
 ```
 
 </TabItem>
@@ -44,9 +44,9 @@ This command adds the latest version of every dependency. The versions may need 
 
 2. Add a TypeScript config file. Create a `tsconfig.json` in the root of your project:
 
-```json
+```json title="tsconfig.json"
 {
-  "extends": "@tsconfig/react-native/tsconfig.json"
+  "extends": "@react-native/typescript-config"
 }
 ```
 
@@ -86,7 +86,7 @@ Out of the box, TypeScript sources are transformed by [Babel][babel] during bund
 You can provide an interface for a React Component's [Props](props) and [State](state) via `React.Component<Props, State>` which will provide type-checking and editor auto-completing when working with that component in JSX.
 
 ```tsx title="components/Hello.tsx"
-import React from 'react';
+import {useState} from 'react';
 import {Button, StyleSheet, Text, View} from 'react-native';
 
 export type Props = {
@@ -94,11 +94,8 @@ export type Props = {
   baseEnthusiasmLevel?: number;
 };
 
-const Hello: React.FC<Props> = ({
-  name,
-  baseEnthusiasmLevel = 0,
-}) => {
-  const [enthusiasmLevel, setEnthusiasmLevel] = React.useState(
+function Hello({name, baseEnthusiasmLevel = 0}: Props) {
+  const [enthusiasmLevel, setEnthusiasmLevel] = useState(
     baseEnthusiasmLevel,
   );
 
@@ -134,7 +131,7 @@ const Hello: React.FC<Props> = ({
       </View>
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -168,8 +165,8 @@ To use custom path aliases with TypeScript, you need to set the path aliases to 
 
 ```diff
 {
--  "extends": "@tsconfig/react-native/tsconfig.json"
-+  "extends": "@tsconfig/react-native/tsconfig.json",
+-  "extends": "@react-native/typescript-config"
++  "extends": "@react-native/typescript-config",
 +  "compilerOptions": {
 +    "baseUrl": ".",
 +    "paths": {
