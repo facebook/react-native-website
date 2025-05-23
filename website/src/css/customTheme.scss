@@ -223,8 +223,14 @@ html[data-theme="dark"] {
   }
 }
 
-main[class^="docMainContainer"] > .container {
-  padding-top: 2rem !important;
+/*
+Layer needed to override utility rules using !important in the Infima layer
+See also https://css-tricks.com/css-cascade-layers/#aa-important-layers
+*/
+@layer docusaurus.infima.importantOverrides {
+  main[class^="docMainContainer"] > .container {
+    padding-top: 2rem !important;
+  }
 }
 
 div[class^="generatedIndexPage"] {
