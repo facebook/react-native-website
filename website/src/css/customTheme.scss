@@ -1946,8 +1946,10 @@ html[data-theme="dark"] .docsRating {
     }
   }
 
-  article.margin-bottom--xl {
-    margin-bottom: 2.5rem !important;
+  @layer docusaurus.infima.importantOverrides {
+    article.margin-bottom--xl {
+      margin-bottom: 2.5rem !important;
+    }
   }
 
   aside nav {
