@@ -574,8 +574,10 @@ html[data-theme="dark"] .alert--secondary {
     text-decoration-thickness: 1px !important;
   }
 
-  .margin-top--md {
-    margin-top: 0.33rem !important;
+  @layer docusaurus.infima.importantOverrides {
+    .margin-top--md {
+      margin-top: 0.33rem !important;
+    }
   }
 }
 
