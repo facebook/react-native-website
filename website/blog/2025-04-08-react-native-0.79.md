@@ -29,9 +29,22 @@ This release ships with [Metro 0.82](https://github.com/facebook/metro/releases/
 
 ![metro startup comparison](../static/blog/assets/0.79-metro-startup-comparison.gif)
 
-Also in Metro 0.82, we’re promoting `package.json` `exports` and `imports` field resolution to stable. `exports` resolution was [introduced in React Native 0.72](/blog/2023/06/21/package-exports-support), and `imports` support was added in a community contribution - both will now be enabled by default for all the projects on React Native 0.79.
+Also in Metro 0.82, we’re promoting `package.json` `"exports"` and `"imports"` field resolution to stable. `"exports"` resolution was [introduced in React Native 0.72](/blog/2023/06/21/package-exports-support), and `"imports"` support was added in a community contribution - both will now be enabled by default for all the projects on React Native 0.79.
 
 This improves compatibility with modern npm dependencies, and opens up new, standards-compliant ways to organise your projects.
+
+:::warning Breaking change
+
+While we've been testing `package.json` `"exports"` in the community for a while, this switchover can be a breaking change for certain packages and project setups.
+
+In particular, we're aware of user reported incompatibilities for some popular packages including Firebase and AWS Amplify, and are working to get these fixed at source.
+
+If you're encountering issues:
+
+- Please update to the Metro [0.81.5 hotfix](https://github.com/facebook/metro/releases/tag/v0.81.5), or set [`resolver.unstable_enablePackageExports = false`](https://metrobundler.dev/docs/configuration/#unstable_enablepackageexports-experimental) to opt out.
+- See [expo/expo#36551](https://github.com/expo/expo/discussions/36551) for affected packages and future updates.
+
+:::
 
 ### JSC moving to Community Package
 
@@ -150,7 +163,7 @@ This change has a subtle impact on existing imports:
 
 <details>
 <summary>**Case 1: Default export**</summary>
- 
+
 ```diff
   // CHANGED - require() syntax
 - const ImageBackground = require('react-native/Libraries/Image/ImageBackground');
@@ -162,7 +175,7 @@ import ImageBackground from 'react-native/Libraries/Image/ImageBackground';
 // RECOMMENDED - root import
 import {ImageBackground} from 'react-native';
 
-````
+```
 
 </details>
 
@@ -189,7 +202,7 @@ There are very few cases of this pattern, again unaffected when using the root `
 
   // RECOMMENDED - root import
   import {BlobRegistry} from 'react-native';
-````
+```
 
 </details>
 
