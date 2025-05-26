@@ -13,6 +13,10 @@ import path from 'path';
 import users from './showcase.json';
 import versions from './versions.json';
 
+// See https://docs.netlify.com/configure-builds/environment-variables/
+const isProductionDeployment =
+  !!process.env.NETLIFY && process.env.CONTEXT === 'production';
+
 const lastVersion = versions[0];
 const copyright = `Copyright © ${new Date().getFullYear()} Meta Platforms, Inc.`;
 
@@ -156,6 +160,21 @@ const config: Config = {
   ],
   plugins: [
     'docusaurus-plugin-sass',
+    function disableExpensiveBundlerOptimizationPlugin() {
+      return {
+        name: 'disable-expensive-bundler-optimizations',
+        configureWebpack(_config, isServer) {
+          // This optimization is expensive and only reduces by 3% the JS assets size
+          // Let's skip it for local and deploy preview builds
+          // See also https://github.com/facebook/docusaurus/pull/11176
+          return {
+            optimization: {
+              concatenateModules: isProductionDeployment ? !isServer : false,
+            },
+          };
+        },
+      };
+    },
     [
       'content-docs',
       {
