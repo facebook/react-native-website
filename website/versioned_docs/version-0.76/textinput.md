@@ -1021,6 +1021,16 @@ Set line break strategy on iOS 14+. Possible values are `none`, `standard`, `han
 | ----------------------------------------------------------- | -------- |
 | enum(`'none'`, `'standard'`, `'hangul-word'`, `'push-out'`) | `'none'` |
 
+---
+
+### `lineBreakModeIOS` <div class="label ios">iOS</div>
+
+Set line break mode on iOS. Possible values are `wordWrapping`, `char`, `clip`, `head`, `middle` and `tail`.
+
+| Type                                                                       | Default          |
+| -------------------------------------------------------------------------- | ---------------- |
+| enum(`'wordWrapping'`, `'char'`, `'clip'`, `'head'`, `'middle'`, `'tail'`) | `'wordWrapping'` |
+
 ## Methods
 
 ### `.focus()`
