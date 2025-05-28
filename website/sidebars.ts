@@ -204,6 +204,7 @@ export default {
       'devsettings',
       'dimensions',
       'easing',
+      'i18nmanager',
       'interactionmanager',
       'keyboard',
       'layoutanimation',
