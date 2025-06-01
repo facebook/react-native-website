@@ -477,6 +477,49 @@ if (Platform.OS === 'android') {
 }
 ```
 
+## Get Accessibility settings from Device
+
+React Native allows you to get some device settings for accessibility.
+
+### Font Scale
+
+Users may change the font scale in the system settings.
+React Native uses these scale to calculate the absolute font size.
+`PixelRatio.getFontScale()` is a method to get the font scale of the system.
+
+Android gets the ratio which set on the system directly.
+On iOS, there are 7 values from `ExtraSmall` to `ExtraExtraExtraLarge`, and 5 values from `AccessibilityMedium` to `AccessibilityExtraExtraExtraLarge`.
+React Native gets the mapped values, depending on their settings, as shown in the table below.
+
+| Value                             | Scale |
+| --------------------------------- | ----- |
+| ExtraSmall                        | 0.823 |
+| Small                             | 0.882 |
+| Medium                            | 0.941 |
+| Large                             | 1.0   |
+| ExtraLarge                        | 1.118 |
+| ExtraExtraLarge                   | 1.235 |
+| ExtraExtraExtraLarge              | 1.353 |
+| AccessibilityMedium               | 1.786 |
+| AccessibilityLarge                | 2.143 |
+| AccessibilityExtraLarge           | 2.643 |
+| AccessibilityExtraExtraLarge      | 3.143 |
+| AccessibilityExtraExtraExtraLarge | 3.571 |
+
+See the [PixelRatio.getFontScale()](pixelratio#getfontscale) for details.
+
+### Appearance Settings
+
+Users may require the system to have their preferred color scheme, contrast, etc.
+Some settings can be getting with the `Appearance` API.  
+See [Appearance](appearance) for details.
+
+### Other Preferred Settings
+
+The user may change screen settings in system settings, such as grayscale display and reduced motion.  
+React Native allows you to add listeners to some settings and get values using the `AccessibilityInfo` API.
+See the [AccessibilityInfo](accessibilityinfo) for details.
+
 ## Testing TalkBack Support <div class="label android">Android</div>
 
 To enable TalkBack, go to the Settings app on your Android device or emulator. Tap Accessibility, then TalkBack. Toggle the "Use service" switch to enable or disable it.
