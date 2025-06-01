@@ -100,19 +100,30 @@ You can set options such as the screen title for each screen in the `options` pr
 Each screen takes a `component` prop that is a React component. Those components receive a prop called `navigation` which has various methods to link to other screens. For example, you can use `navigation.navigate` to go to the `Profile` screen:
 
 ```tsx
+import { Button } from "react-native";
+
 const HomeScreen = ({navigation}) => {
-  return (
-    <Button
-      title="Go to Jane's profile"
-      onPress={() =>
-        navigation.navigate('Profile', {name: 'Jane'})
-      }
-    />
-  );
+    return (
+      <Button
+        title="Go to Jane's profile"
+        onPress={() =>
+          navigation.navigate('Profile', {name: 'Jane'})
+        }
+      />
+    );
 };
-const ProfileScreen = ({navigation, route}) => {
+
+export default HomeScreen;
+```
+
+```tsx
+import { Text } from "react-native";
+
+const ProfileScreen = ({ navigation, route }) => {
   return <Text>This is {route.params.name}'s profile</Text>;
 };
+
+export default ProfileScreen;
 ```
 
 This `native-stack` navigator uses the native APIs: `UINavigationController` on iOS and `Fragment` on Android so that navigation built with `createNativeStackNavigator` will behave the same and have the same performance characteristics as apps built natively on top of those APIs.
