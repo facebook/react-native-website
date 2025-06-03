@@ -20,6 +20,7 @@ export default {
             'xplat-implementation',
             'view-flattening',
             'threading-model',
+            'test-123',
           ],
         },
         {
