@@ -438,6 +438,18 @@ An optional identifier which links a custom [InputAccessoryView](inputaccessoryv
 
 ---
 
+### `inputAccessoryViewButtonLabel` <div class="label ios">iOS</div>
+
+An optional label that overrides the default [InputAccessoryView](inputaccessoryview.md) button label.
+
+By default, the default button label is not localized. Use this property to provide a localized version.
+
+| Type   |
+| ------ |
+| string |
+
+---
+
 ### `inputMode`
 
 Works like the `inputmode` attribute in HTML, it determines which keyboard to open, e.g. `numeric` and has precedence over `keyboardType`.
