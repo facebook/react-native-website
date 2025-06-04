@@ -5,8 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import React, {useState} from 'react';
 import useIsBrowser from '@docusaurus/useIsBrowser';
-import {useState} from 'react';
 
 const DocsRating = ({label}) => {
   const isBrowser = useIsBrowser();
