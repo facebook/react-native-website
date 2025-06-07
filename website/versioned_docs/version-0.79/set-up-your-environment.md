@@ -1,104 +1,73 @@
----
-id: set-up-your-environment
-title: Set Up Your Environment
-hide_table_of_contents: true
----
+import React, { useState, useEffect } from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+import { RNCamera } from 'react-native-camera';
+import TextRecognition from '@react-native-ml-kit/text-recognition';
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import constants from '@site/core/TabsConstants';
+export default function App() {
+  const [detectedNumbers, setDetectedNumbers] = useState('รอดูตัวเลขจากกล้อง...');
 
-import GuideLinuxAndroid from './\_getting-started-linux-android.md';
-import GuideMacOSAndroid from './\_getting-started-macos-android.md';
-import GuideWindowsAndroid from './\_getting-started-windows-android.md';
-import GuideMacOSIOS from './\_getting-started-macos-ios.md';
+  const handleTextRecognized = async ({ textBlocks }) => {
+    try {
+      let numbers = [];
 
-In this guide, you'll learn how to set up your environment, so that you can run your project with Android Studio and Xcode. This will allow you to develop with Android emulators and iOS simulators, build your app locally, and more.
+      textBlocks.forEach(block => {
+        // กรองข้อความเฉพาะตัวเลขและจุดทศนิยม
+        const filtered = block.text.replace(/[^0-9.]/g, '');
+        if (filtered.length > 0) {
+          numbers.push(filtered);
+        }
+      });
 
-:::note
-This guide requires Android Studio or Xcode. If you already have one of these programs installed, you should be able to get up and running within a few minutes. If they are not installed, you should expect to spend about an hour installing and configuring them.
+      if (numbers.length > 0) {
+        setDetectedNumbers(numbers.join(', '));
+      } else {
+        setDetectedNumbers('ไม่พบตัวเลข');
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  };
 
-<details>
-<summary>Is setting up my environment required?</summary>
+  return (
+    <View style={styles.container}>
+      <RNCamera
+        style={styles.preview}
+        type={RNCamera.Constants.Type.front} // กล้องหน้า
+        captureAudio={false}
+        onTextRecognized={handleTextRecognized}
+        androidCameraPermissionOptions={{
+          title: 'ขออนุญาตใช้กล้อง',
+          message: 'แอปต้องการใช้กล้องเพื่ออ่านข้อความตัวเลข',
+          buttonPositive: 'ตกลง',
+          buttonNegative: 'ยกเลิก',
+        }}
+      />
+      <View style={styles.textContainer}>
+        <Text style={styles.detectedText}>{detectedNumbers}</Text>
+      </View>
+    </View>
+  );
+}
 
-Setting up your environment is not required if you're using a [Framework](/architecture/glossary#react-native-framework). With a React Native Framework, you don't need to setup Android Studio or XCode as a Framework will take care of building the native app for you.
-
-If you have constraints that prevent you from using a Framework, or you'd like to write your own Framework, then setting up your local environment is a requirement. After your environment is set up, learn how to [get started without a framework](getting-started-without-a-framework).
-
-</details>
-:::
-
-#### Development OS
-
-<Tabs groupId="os" queryString defaultValue={constants.defaultOs} values={constants.oses} className="pill-tabs">
-<TabItem value="macos">
-
-#### Target OS
-
-<Tabs groupId="platform" queryString defaultValue={constants.defaultPlatform} values={constants.platforms} className="pill-tabs">
-<TabItem value="android">
-
-[//]: # 'macOS, Android'
-
-<GuideMacOSAndroid/>
-
-</TabItem>
-<TabItem value="ios">
-
-[//]: # 'macOS, iOS'
-
-<GuideMacOSIOS/>
-
-</TabItem>
-</Tabs>
-
-</TabItem>
-<TabItem value="windows">
-
-#### Target OS
-
-<Tabs groupId="platform" queryString defaultValue={constants.defaultPlatform} values={constants.platforms} className="pill-tabs">
-<TabItem value="android">
-
-[//]: # 'Windows, Android'
-
-<GuideWindowsAndroid/>
-
-</TabItem>
-<TabItem value="ios">
-
-[//]: # 'Windows, iOS'
-
-## Unsupported
-
-> A Mac is required to build projects with native code for iOS. You can use [Expo Go](https://expo.dev/go) from [Expo](environment-setup#start-a-new-react-native-project-with-expo) to develop your app on your iOS device.
-
-</TabItem>
-</Tabs>
-
-</TabItem>
-<TabItem value="linux">
-
-#### Target OS
-
-<Tabs groupId="platform" queryString defaultValue={constants.defaultPlatform} values={constants.platforms} className="pill-tabs">
-<TabItem value="android">
-
-[//]: # 'Linux, Android'
-
-<GuideLinuxAndroid/>
-
-</TabItem>
-<TabItem value="ios">
-
-[//]: # 'Linux, iOS'
-
-## Unsupported
-
-> A Mac is required to build projects with native code for iOS. You can use [Expo Go](https://expo.dev/go) from [Expo](environment-setup#start-a-new-react-native-project-with-expo) to develop your app on your iOS device.
-
-</TabItem>
-</Tabs>
-
-</TabItem>
-</Tabs>
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#000',
+  },
+  preview: {
+    flex: 1,
+  },
+  textContainer: {
+    position: 'absolute',
+    bottom: 40,
+    width: '100%',
+    paddingHorizontal: 20,
+    backgroundColor: 'rgba(0,0,0,0.5)',
+  },
+  detectedText: {
+    fontSize: 24,
+    color: 'lime',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+});
