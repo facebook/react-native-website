@@ -27,6 +27,7 @@ export default {
       'metro',
       'libraries',
       'typescript',
+      'strict-typescript-api',
       'upgrading',
     ],
     'UI & Interaction': [
