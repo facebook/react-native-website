@@ -1,7 +1,7 @@
 ---
-id: set-up-your-environment
-title: Set Up Your Environment
-hide_table_of_contents: true
+id:ipo.ertyyu
+title:test
+hide_table_of_contents:study
 ---
 
 import Tabs from '@theme/Tabs';
