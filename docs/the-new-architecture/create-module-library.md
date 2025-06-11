@@ -43,8 +43,8 @@ Once the interactive prompt is done, the tool creates a folder whose structure l
 Feel free to explore the code that has been created for you. However, the most important parts:
 
 - The `android` folder: this is where the Android code lives
-- The `cpp` folder: this is where we the c++ code lives
-- The `ios` folder: this is where we the iOS code lives
+- The `cpp` folder: this is where the c++ code lives
+- The `ios` folder: this is where the iOS code lives
 - The `src` folder: this is where the JS code lives.
 
 The `package.json` is already configured with all the information that we provided to the `create-react-native-library` tool, including the name and the description of the package. Notice that the `package.json` is also already configured to run Codegen.
