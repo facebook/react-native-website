@@ -146,7 +146,7 @@ You will get this size win by updating your React Native version to 0.80 and the
 
 If you’re not using Expo but you’re using the Community CLI & Template, in this version we've moved the New App Screen into its [own package](https://www.npmjs.com/package/@react-native/new-app-screen) and given it a fresh coat of paint. This reduces initial code boilerplate when you create a new app with the Community Template, and also provides a better experience when viewed on larger screens.
 
-![android apk size comparison](../static/blog/assets/0.80-android-apk-size.png)
+![New App Screen redesign](../static/blog/assets/0.80-new-community-template-landing.png)
 
 ### Notice about JSC community support
 
