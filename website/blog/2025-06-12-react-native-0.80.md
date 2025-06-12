@@ -42,8 +42,8 @@ With the above redefinition of the exports in our public API, we're also shippin
 
 Opting into the Strict TypeScript API is a preview of our future, stable JavaScript API for React Native. These new types are:
 
-1. Generated directly from our source code — improving coverage and correctness, so you can expect stronger compatibility guarantees.
-2. Restricted to React Native's index file — more tightly defining our public API, and meaning we won't break the API when making internal file changes.
+1. **Generated directly from our source code** — improving coverage and correctness, so you can expect stronger compatibility guarantees.
+2. **Restricted to React Native's index file** — more tightly defining our public API, and meaning we won't break the API when making internal file changes.
 
 We're shipping these alongside our existing types, meaning you can choose to migrate when ready. Also, if you're using standard React Native APIs, a lot of apps should validate with **no changes**. We strongly encourage early adopters and newly created apps to opt in via your `tsconfig.json` file.
 
