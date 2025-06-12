@@ -547,11 +547,11 @@ See https://developer.mozilla.org/en-US/docs/Web/CSS/bottom for more details of 
 
 `display` sets the display type of this component.
 
-It works similarly to `display` in CSS but only supports 'flex' and 'none'. 'flex' is the default.
+It works similarly to `display` in CSS but only supports the values 'flex', 'none', and 'contents'. The default is `flex`.
 
-| Type                 | Required |
-| -------------------- | -------- |
-| enum('none', 'flex') | No       |
+| Type                             | Required |
+| -------------------------------- | -------- |
+| enum('none', 'flex', 'contents') | No       |
 
 ---
 

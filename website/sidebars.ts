@@ -27,6 +27,7 @@ export default {
       'metro',
       'libraries',
       'typescript',
+      'strict-typescript-api',
       'upgrading',
     ],
     'UI & Interaction': [
@@ -84,11 +85,7 @@ export default {
       'the-new-architecture/codegen-cli',
     ],
     'Native Development': [
-      {
-        type: 'doc',
-        id: 'native-platform',
-        label: 'Introduction',
-      },
+      {type: 'doc', id: 'native-platform', label: 'Introduction'},
       {
         type: 'category',
         label: 'Modules',
@@ -136,15 +133,8 @@ export default {
         collapsible: true,
         collapsed: true,
         items: [
-          {
-            type: 'doc',
-            id: 'appendix',
-            label: 'Appendix',
-          },
-          {
-            type: 'doc',
-            id: 'the-new-architecture/create-module-library',
-          },
+          {type: 'doc', id: 'appendix', label: 'Appendix'},
+          {type: 'doc', id: 'the-new-architecture/create-module-library'},
         ],
       },
     ],
@@ -215,6 +205,7 @@ export default {
       'devsettings',
       'dimensions',
       'easing',
+      'i18nmanager',
       'interactionmanager',
       'keyboard',
       'layoutanimation',
@@ -299,6 +290,7 @@ export default {
       'pressevent',
       'react-node',
       'rect',
+      'targetevent',
       'viewtoken',
     ],
   },
