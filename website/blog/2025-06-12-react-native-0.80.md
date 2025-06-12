@@ -140,7 +140,7 @@ This resulted in a saving of ~1Mb for all the Android apps.
 
 ![android apk size comparison](../static/blog/assets/0.80-android-apk-size.png)
 
-You will get this size win just by updating your React Native version to 0.80 and there are no further changes required to your project.
+You will get this size win by updating your React Native version to 0.80 and there are no further changes required to your project.
 
 ### New App Screen redesign
 
@@ -196,6 +196,8 @@ Further smaller breaking changes are listed [in the CHANGELOG for 0.80](https://
 ## Acknowledgements
 
 React Native 0.80 contains over 1167 commits from 127 contributors. Thanks for all your hard work!
+
+<!--alex ignore special white-->
 
 We want to send a special thank you to those community members that shipped significant contributions in this release:
 
