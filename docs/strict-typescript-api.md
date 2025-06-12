@@ -32,7 +32,7 @@ Opting in is a **breaking change**, since some of our new types have updated nam
 
 :::note Under the hood
 
-This will instruct TypeScript to resolve `react-native` types from our new [`types_generated/`](https://www.npmjs.com/package/react-native?activeTab=code) dir, instead of the previous [`types/`](https://www.npmjs.com/package/react-native?activeTab=code) dir (manually maintained). No restart of TypeScript or your text editor is required.
+This will instruct TypeScript to resolve `react-native` types from our new [`types_generated/`](https://www.npmjs.com/package/react-native?activeTab=code) dir, instead of the previous [`types/`](https://www.npmjs.com/package/react-native?activeTab=code) dir (manually maintained). No restart of TypeScript or your editor is required.
 
 :::
 
@@ -42,7 +42,7 @@ The Strict TypeScript API follows our [RFC](https://github.com/react-native-comm
 
 **Sending feedback**: We will be working with the community to finalize which APIs we export over (at least) the next two React Native releases. Please share your feedback in our [feedback thread](https://github.com/react-native-community/discussions-and-proposals/discussions/893).
 
-See also our announcement blog post (incoming) for more info on our motivation and timelines.
+See also our [announcement blog post](/blog/2025/06/12/moving-towards-a-stable-javascript-api) for more info on our motivation and timelines.
 
 :::
 
