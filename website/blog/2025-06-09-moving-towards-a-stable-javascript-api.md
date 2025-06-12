@@ -281,7 +281,7 @@ Both apps and libraries can opt in at their own pace, since `tsconfig.json` will
 
 Sadly, not yet. In 0.80, we've made a tooling investment so that React Native's existing JS API baseline can be accurately consumed via TypeScript — enabling future stable changes. We're formalizing the existing API you know and love.
 
-Later in 2025 (and beyond), we may take more action to finalise the APIs we currently offer in core — across each language surface. API changes will be communicated via RFCs/announcements, and typically a deprecation cycle.
+In the future, we will take action to finalise the APIs we currently offer in core — across each language surface. API changes will be communicated via RFCs/announcements, and typically a deprecation cycle.
 
 </details>
 
