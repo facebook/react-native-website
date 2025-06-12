@@ -31,13 +31,15 @@ Moreover, the Legacy Architecture of React Native is now officially frozen, and 
 In this release, we are making moves to improve and stabilize React Native's public JavaScript API. The first step towards this is better scoping of which of our APIs are importable by apps and frameworks. In line with this, we are formally deprecating deep imports from React Native ([see RFC](https://github.com/react-native-community/discussions-and-proposals/pull/894)), and are introducing warnings via ESLint and the JS console.
 
 These warnings are scoped to imports from within your project's source code, and can be [opted out from](/docs/strict-typescript-api). However, please bear in mind that we aim to remove deep imports from React Native's API in a future release, and these should instead be updated to the root import.
-\```js title=""
+
+```js
 // Before - import from subpath
 import {Alert} from 'react-native/Libraries/Alert/Alert';
 
 // After - import from `react-native`
 import {Alert} from 'react-native';
-\```
+```
+
 Some APIs are not exported at root, and will become unavailable without deep imports. This is intentional, in order to reduce the overall surface area of React Native's API. We have an open [feedback thread](https://github.com/react-native-community/discussions-and-proposals/discussions/893) for user issues, and will be working with the community to finalize which APIs we export over (at least) the next two React Native releases. Please share your feedback!
 
 Learn more about this change in our dedicated post: [Moving Towards a Stable JavaScript API](/blog/2025/06/12/moving-towards-a-stable-javascript-api).
