@@ -17,10 +17,10 @@ Moreover, the Legacy Architecture of React Native is now officially frozen, and 
 
 ### Highlights
 
-- [JavaScript deep imports deprecation](TODO)
-- [Legacy Architecture Freezing & Warnings](TODO)
-- [React 19.1.0](TODO)
-- [Experimental - React Native iOS dependencies are now prebuilt](TODO)
+- [JavaScript deep imports deprecation](/blog/2025/06/12/react-native-0.80#javascript-deep-imports-deprecation)
+- [Legacy Architecture Freezing & Warnings](/blog/2025/06/12/react-native-0.80#legacy-architecture-freezing--warnings)
+- [React 19.1.0](/blog/2025/06/12/react-native-0.80#react-1910)
+- [Experimental - React Native iOS dependencies are now prebuilt](/blog/2025/06/12/react-native-0.80#experimental---react-native-ios-dependencies-are-now-prebuilt)
 
 <!--truncate-->
 
@@ -81,7 +81,7 @@ You can read about all the new features and bugfixes introduced in React 19.1.0 
 
 One notable feature of React 19.1.0 is the implementation and improvements of owner stacks. This is a development only feature that should help you identify which component is responsible for a specific error.
 
-However, we are aware that owner stacks are not working as expected in React Native if you use the `@babel/plugin-transform-function-name` Babel plugin, which is enabled by default in the React Native Babel Preset. We will be shipping a fix for this in a future patch of React Native 0.80.x.
+However, we are aware that owner stacks are not working as expected in React Native if you use the `@babel/plugin-transform-function-name` Babel plugin, which is enabled by default in the React Native Babel Preset. We will be shipping a fix for this in a future release of React Native.
 
 :::
 
