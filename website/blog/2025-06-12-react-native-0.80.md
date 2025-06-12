@@ -2,7 +2,7 @@
 title: 'React Native 0.80 - React 19.1, JS API Changes, Freezing Legacy Arch and much more'
 authors: [hezi, fabriziocucci, gabrieldonadel, chrfalch]
 tags: [engineering]
-date: 2025-06-12
+date: 2025-06-12T16:01
 ---
 
 # React Native 0.80 - React 19.1, JS API Changes, Freezing Legacy Arch and much more
