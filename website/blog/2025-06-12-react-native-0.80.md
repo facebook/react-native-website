@@ -128,7 +128,7 @@ target 'HelloWorld' do
   config = use_native_modules!
 ```
 
-Please, report any issue that the prebuilds might cause to you and to your app in [this discussion](TODO). We are committed to looking into them and making sure that tier usage is transparent to your app.
+Please, report any issue that the prebuilds might cause to you and to your app in [this discussion](https://github.com/react-native-community/discussions-and-proposals/discussions/912). We are committed to looking into them and making sure that tier usage is transparent to your app.
 
 ## Other Changes
 
