@@ -2,7 +2,7 @@
 title: 'Moving Towards a Stable JavaScript API (New Changes in 0.80)'
 authors: [huntie, iwoplaza, jpiasecki, coado]
 tags: [announcement]
-date: 2025-06-09
+date: 2025-06-12
 ---
 
 In React Native 0.80, we're introducing two significant changes to React Native's JavaScript API — the deprecation of deep imports, and our new Strict TypeScript API. These are part of an ongoing effort to accurately define our API and offer dependable type safety to users and frameworks.
