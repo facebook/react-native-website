@@ -36,8 +36,8 @@ After the migration, you’ll be able to leverage all the new features of React,
 - **[Actions](https://react.dev/blog/2024/12/05/react-19#actions):** these are functions that use async transitions. Async transitions automatically manage submitting data for you: they handle pending states, optimistic updates, error handling and more.
 - **[useActionState](https://react.dev/reference/react/useActionState):** a utility hook built on top of Actions. It takes a function and returns a wrapped Action to call. When the action is called, it will return the last result of the Action and its `pending` state.
 - **[useOptimistic](https://react.dev/reference/react/useOptimistic):** a new hook that simplifies showing the final state of an update optimistically while the async request is underway. If the request errors, React will switch back to the previous value automatically.
-- **[`use`](https://react.dev/reference/react/use):** this is a new API that allows access to resources during render. You can now read a promise or a context with `use` and React will Suspend until they resolve.
-- **[`ref` as `props`](https://react.dev/blog/2024/12/05/react-19#ref-as-a-prop):** you can now pass `ref`as a `prop` like you do with any other prop. Function components will no longer need `forwardRef` and you can migrate your components now.
+- **[use](https://react.dev/reference/react/use):** this is a new API that allows access to resources during render. You can now read a promise or a context with `use` and React will Suspend until they resolve.
+- **[ref as props](https://react.dev/blog/2024/12/05/react-19#ref-as-a-prop):** you can now pass `ref` as a `prop` like you do with any other prop. Function components will no longer need `forwardRef` and you can migrate your components now.
 - And many others
 
 For a complete list of the new available features, have a look at the [React 19 release blog post](https://react.dev/blog/2024/12/05/react-19).
