@@ -60,9 +60,12 @@ Use this specification for our WebView Component:
 <TabItem value="typescript">
 
 ```typescript title="Demo/specs/WebViewNativeComponent.ts"
-import type {HostComponent, ViewProps} from 'react-native';
-import type {BubblingEventHandler} from 'react-native/Libraries/Types/CodegenTypes';
-import codegenNativeComponent from 'react-native/Libraries/Utilities/codegenNativeComponent';
+import type {
+  CodegenTypes,
+  HostComponent,
+  ViewProps,
+} from 'react-native';
+import {codegenNativeComponent} from 'react-native';
 
 type WebViewScriptLoadedEvent = {
   result: 'success' | 'error';
@@ -70,7 +73,7 @@ type WebViewScriptLoadedEvent = {
 
 export interface NativeProps extends ViewProps {
   sourceURL?: string;
-  onScriptLoaded?: BubblingEventHandler<WebViewScriptLoadedEvent> | null;
+  onScriptLoaded?: CodegenTypes.BubblingEventHandler<WebViewScriptLoadedEvent> | null;
 }
 
 export default codegenNativeComponent<NativeProps>(
@@ -84,9 +87,8 @@ export default codegenNativeComponent<NativeProps>(
 ```ts title="Demo/RCTWebView/js/RCTWebViewNativeComponent.js":
 // @flow strict-local
 
-import type {HostComponent, ViewProps} from 'react-native';
-import type {BubblingEventHandler} from 'react-native/Libraries/Types/CodegenTypes';
-import codegenNativeComponent from 'react-native/Libraries/Utilities/codegenNativeComponent';
+import type {CodegenTypes, HostComponent, ViewProps} from 'react-native';
+import {codegenNativeComponent} from 'react-native';
 
 type WebViewScriptLoadedEvent = $ReadOnly<{|
   result: "success" | "error",
@@ -95,7 +97,7 @@ type WebViewScriptLoadedEvent = $ReadOnly<{|
 type NativeProps = $ReadOnly<{|
   ...ViewProps,
   sourceURL?: string;
-  onScriptLoaded?: BubblingEventHandler<WebViewScriptLoadedEvent>?;
+  onScriptLoaded?: CodegenTypes.BubblingEventHandler<WebViewScriptLoadedEvent>?;
 |}>;
 
 export default (codegenNativeComponent<NativeProps>(

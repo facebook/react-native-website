@@ -13,12 +13,12 @@
   --deepdark: #20232a;
   --light: #373940;
   --text: #1a1a1a;
-  --subtle: #767676;
+  --subtle: #636363;
   --divider: #ececec;
   --tintColor: #f7f7f7;
   --rn-note-background: rgba(255, 229, 100, 0.25);
-  --ifm-font-family-base: "Optimistic Display", system-ui, -apple-system,
-    sans-serif;
+  --ifm-font-family-base:
+    "Optimistic Display", system-ui, -apple-system, sans-serif;
   --ifm-color-primary: #06bcee;
   --ifm-font-size-base: 17px;
   --ifm-spacing-horizontal: 16px;
@@ -39,7 +39,10 @@
   --ifm-pagination-nav-color-hover: var(--ifm-color-emphasis-300);
   --ifm-navbar-sidebar-width: 100%;
   --ifm-hr-border-color: var(--docusaurus-collapse-button-bg-hover);
-  --docusaurus-blog-social-icon-size: 16px;
+  --ifm-table-head-background: var(--ifm-color-emphasis-100);
+  --ifm-table-border-color: var(--ifm-toc-border-color);
+  --ifm-table-cell-padding: 10px;
+  --ifm-table-stripe-background: rgba(0, 0, 0, 0.02);
 
   @media (min-width: 340px) {
     --ifm-navbar-sidebar-width: 340px;
@@ -103,14 +106,17 @@ html[data-theme="dark"] {
   --ifm-code-background: rgba(255, 255, 255, 0.06);
   --ifm-toc-border-color: var(--dark);
   --ifm-color-emphasis-300: var(--dark);
+  --ifm-table-head-background: var(--deepdark);
+  --subtle: #a7a7a7;
+  --ifm-table-head-color: var(--subtle);
 
   *[class^="DocSearch"] {
     --docsearch-searchbox-background: var(--ifm-background-color);
     --docsearch-modal-background: var(--deepdark);
     --docsearch-footer-background: var(--dark);
     --docsearch-key-gradient: var(--deepdark);
-    --docsearch-key-shadow: inset 0 -2px 0 0 var(--light),
-      inset 0 0 1px 1px var(--light),
+    --docsearch-key-shadow:
+      inset 0 -2px 0 0 var(--light), inset 0 0 1px 1px var(--light),
       0 1px 2px 1px var(--ifm-table-border-color);
     --docsearch-container-background: rgba(0, 0, 0, 0.6);
   }
@@ -216,8 +222,14 @@ html[data-theme="dark"] {
   }
 }
 
-main[class^="docMainContainer"] > .container {
-  padding-top: 2rem !important;
+/*
+Layer needed to override utility rules using !important in the Infima layer
+See also https://css-tricks.com/css-cascade-layers/#aa-important-layers
+*/
+@layer docusaurus.infima.importantOverrides {
+  main[class^="docMainContainer"] > .container {
+    padding-top: 2rem !important;
+  }
 }
 
 div[class^="generatedIndexPage"] {
@@ -261,6 +273,10 @@ hr {
   }
 
   blockquote {
+    > :last-child {
+      margin-bottom: 0;
+    }
+
     background-color: var(--rn-note-background);
     border-left: 8px solid var(--ifm-color-warning);
     padding: 15px 30px 15px 15px;
@@ -305,32 +321,30 @@ hr {
   }
 
   table {
-    border-collapse: collapse;
     display: table;
-    margin: 20px 0;
     width: 100%;
+    table-layout: fixed;
 
     thead tr {
       border: 0;
     }
 
     tr th {
-      text-transform: uppercase;
-      padding: 6px 10px;
-      font-size: 0.7rem;
+      padding: 6px var(--ifm-table-cell-padding);
+      font-size: 80%;
       text-align: start;
     }
 
     tr td {
       font-size: 90%;
       line-height: 1.3em;
-      padding: 10px;
       text-align: start;
 
       code {
         display: inline-block;
         line-height: 1.2em;
         vertical-align: top;
+        word-break: break-word;
       }
 
       ul {
@@ -445,6 +459,16 @@ hr {
   }
 }
 
+@media only screen and (max-width: 996px) {
+  .markdown table {
+    display: block;
+
+    tr td code {
+      word-break: normal;
+    }
+  }
+}
+
 html[data-theme="dark"] {
   .markdown {
     a {
@@ -553,8 +577,10 @@ html[data-theme="dark"] .alert--secondary {
     text-decoration-thickness: 1px !important;
   }
 
-  .margin-top--md {
-    margin-top: 0.33rem !important;
+  @layer docusaurus.infima.importantOverrides {
+    .margin-top--md {
+      margin-top: 0.33rem !important;
+    }
   }
 }
 
@@ -1839,6 +1865,10 @@ html[data-theme="dark"] .docsRating {
   border-radius: var(--ifm-global-radius);
 }
 
+.tabs-container .snack-player:last-child {
+  margin-bottom: 0;
+}
+
 /* Two columns code block */
 
 .two-columns {
@@ -1873,10 +1903,15 @@ html[data-theme="dark"] .docsRating {
     color: var(--ifm-font-color-secondary);
   }
 
+  @layer docusaurus.infima.importantOverrides {
+    .container.margin-vert--lg {
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+    }
+  }
+
   .container.margin-vert--lg {
     max-width: calc(100% - (var(--ifm-spacing-horizontal)) * 4);
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
 
     .col.text--right a {
       @extend %button-link-style;
@@ -1919,8 +1954,10 @@ html[data-theme="dark"] .docsRating {
     }
   }
 
-  article.margin-bottom--xl {
-    margin-bottom: 2.5rem !important;
+  @layer docusaurus.infima.importantOverrides {
+    article.margin-bottom--xl {
+      margin-bottom: 2.5rem !important;
+    }
   }
 
   aside nav {

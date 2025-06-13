@@ -55,7 +55,7 @@ Component Y coordinate inside the parent component.
 
 ### `target`
 
-The node id of the element receiving the PressEvent.
+The node id of the element receiving the LayoutEvent.
 
 | Type                        | Optional |
 | --------------------------- | -------- |

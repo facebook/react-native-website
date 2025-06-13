@@ -53,7 +53,10 @@ If you wish to receive the intent in an existing instance of MainActivity, you m
 
 > **NOTE:** On iOS, you'll need to add the `LinkingIOS` folder into your header search paths as described in step 3 [here](linking-libraries-ios#step-3). If you also want to listen to incoming app links during your app's execution, you'll need to add the following lines to your `*AppDelegate.m`:
 
-```objectivec
+<Tabs groupId="ios-language" queryString defaultValue={constants.defaultAppleLanguage} values={constants.appleLanguages}>
+<TabItem value="objc">
+
+```objc title="AppDelegate.mm"
 // iOS 9.x or newer
 #import <React/RCTLinkingManager.h>
 
@@ -65,23 +68,9 @@ If you wish to receive the intent in an existing instance of MainActivity, you m
 }
 ```
 
-If you're targeting iOS 8.x or older, you can use the following code instead:
-
-```objectivec
-// iOS 8.x or older
-#import <React/RCTLinkingManager.h>
-
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
-  sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
-{
-  return [RCTLinkingManager application:application openURL:url
-                      sourceApplication:sourceApplication annotation:annotation];
-}
-```
-
 If your app is using [Universal Links](https://developer.apple.com/ios/universal-links/), you'll need to add the following code as well:
 
-```objectivec
+```objc title="AppDelegate.mm"
 - (BOOL)application:(UIApplication *)application continueUserActivity:(nonnull NSUserActivity *)userActivity
  restorationHandler:(nonnull void (^)(NSArray<id<UIUserActivityRestoring>> * _Nullable))restorationHandler
 {
@@ -90,6 +79,33 @@ If your app is using [Universal Links](https://developer.apple.com/ios/universal
                     restorationHandler:restorationHandler];
 }
 ```
+
+</TabItem>
+<TabItem value="swift">
+
+```swift title="AppDelegate.swift"
+override func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+  return RCTLinkingManager.application(app, open: url, options: options)
+}
+```
+
+If your app is using [Universal Links](https://developer.apple.com/ios/universal-links/), you'll need to add the following code as well:
+
+```swift title="AppDelegate.swift"
+override func application(
+  _ application: UIApplication,
+  continue userActivity: NSUserActivity,
+  restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+    return RCTLinkingManager.application(
+      application,
+      continue: userActivity,
+      restorationHandler: restorationHandler
+    )
+  }
+```
+
+</TabItem>
+</Tabs>
 
 </TabItem>
 </Tabs>

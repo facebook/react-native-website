@@ -53,7 +53,7 @@ Finally, removing the bridge allows for faster startup and direct communication 
 
 The New Architecture is now ready to be used in production. It is already used at scale at Meta in the Facebook app and in other products. We successfully used React Native and the New Architecture in the Facebook and Instagram app we developed for our [Quest devices](https://engineering.fb.com/2024/10/02/android/react-at-meta-connect-2024/).
 
-Our partners have already been using the New Architecture in production for months now: have a look at these success stories by [Expensify](https://blog.swmansion.com/sunrising-new-architecture-in-the-new-expensify-app-729d237a02f5) and [Kraken](https://blog.kraken.com/product/engineering/how-kraken-fixed-performance-issues-via-incremental-adoption-of-the-react-native-new-architecture), and give [BlueSky](https://github.com/bluesky-social/social-app/releases/tag/1.92.0-na-rc.2) a shot with their new release.
+Our partners have already been using the New Architecture in production for months now: have a look at these success stories by [Expensify](https://blog.swmansion.com/sunrising-new-architecture-in-the-new-expensify-app-729d237a02f5) and [Kraken](https://blog.kraken.com/product/engineering/how-kraken-fixed-performance-issues-via-incremental-adoption-of-the-react-native-new-architecture), and give [Bluesky](https://github.com/bluesky-social/social-app/releases/tag/1.92.0-na-rc.2) a shot with their new release.
 
 ### New Native Modules
 
@@ -402,5 +402,5 @@ We are also extremely grateful to all the partners who collaborated with us to m
 - [Software Mansion](https://swmansion.com/), for maintaining crucial libraries in the ecosystem, for migrating them to the New Architecture early and for all the help in investigating and fixing various issues.
 - [Callstack](https://www.callstack.com/), for maintaining crucial libraries in the ecosystem, for migrating them to the New Architecture early and for the support with the work on the Community CLI.
 - [Microsoft](https://opensource.microsoft.com/), for adding the New Architecture implementation for `react-native-windows` and `react-native-macos` as well as in several other developer tools.
-- [Expensify](https://www.expensify.com/), [Kraken](https://www.kraken.com/), [BlueSky](https://bsky.app/) and [Brigad](https://www.brigad.co/) for pioneering the adoption of the New Architecture and reporting various issues so that we could fix them for everyone else.
+- [Expensify](https://www.expensify.com/), [Kraken](https://www.kraken.com/), [Bluesky](https://bsky.app/) and [Brigad](https://www.brigad.co/) for pioneering the adoption of the New Architecture and reporting various issues so that we could fix them for everyone else.
 - All the independent library maintainers and developers who contributed to the New Architecture by testing it, fixing some of the issues, and opening questions on unclear matters so that we could clear them.
