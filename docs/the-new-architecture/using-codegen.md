@@ -36,27 +36,17 @@ npx @react-native-community/cli@latest init SampleApp --version 0.76.0
       "javaPackageName": "<java.package.name>"
     },
     "ios": {
-      "modulesConformingToProtocol": {
-        "RCTImageURLLoader": [
-          "<iOS-class-conforming-to-RCTImageURLLoader>",
-          // example from react-native-camera-roll: https://github.com/react-native-cameraroll/react-native-cameraroll/blob/8a6d1b4279c76e5682a4b443e7a4e111e774ec0a/package.json#L118-L127
-          // "RNCPHAssetLoader",
-        ],
-        "RCTURLRequestHandler": [
-          "<iOS-class-conforming-to-RCTURLRequestHandler>",
-          // example from react-native-camera-roll: https://github.com/react-native-cameraroll/react-native-cameraroll/blob/8a6d1b4279c76e5682a4b443e7a4e111e774ec0a/package.json#L118-L127
-          // "RNCPHAssetUploader",
-        ],
-        "RCTImageDataDecoder": [
-          "<iOS-class-conforming-to-RCTImageDataDecoder>",
-          // we don't have a good example for this, but it works in the same way. Pass the name of the class that implements the RCTImageDataDecoder. It must be a Native Module.
-        ]
+      "modules": {
+        "TestModule": {
+          "className": "<iOS-class-implementing-the-RCTModuleProvider-protocol>",
+          "unstableRequiresMainQueueSetup": false
+          "conformsToProtocols": ["RCTImageURLLoader", "RCTURLRequestHandler", "RCTImageDataDecoder"],
+        }
       },
-      "componentProvider": {
-        "<componentName>": "<iOS-class-implementing-the-component>"
-      },
-      "modulesProvider": {
-        "<moduleName>": "<iOS-class-implementing-the-RCTModuleProvider-protocol>"
+      "components": {
+        "TestComponent": {
+          "className": "<iOS-class-implementing-the-component>"
+        }
       }
     }
   },
@@ -64,20 +54,21 @@ npx @react-native-community/cli@latest init SampleApp --version 0.76.0
 
 You can add this snippet to your app and customize the various fields:
 
-- `name:` This is the name that will be used to create files containing your specs. As a convention, It should have the suffix `Spec`, but this is not mandatory.
-- `type`: the type of code we need to generate. Allowed values are `modules`, `components`, `all`.
-  - `modules:` use this value if you only need to generate code for Turbo Native Modules.
-  - `components:` use this value if you only need to generate code for Native Fabric Components.
-  - `all`: use this value if you have a mixture of components and modules.
-- `jsSrcsDir`: this is the root folder where all your specs live.
-- `android.javaPackageName`: this is an Android specific setting to let **Codegen** generate the files in a custom package.
-- `ios`: the `ios` field is an object that can be used by app developers and library maintainers to provide some advanced functionalities. All the following fields are **optional**.
-  - `ios.modulesConformingToProtocol`: React Native offers some protocols that native modules can implement to customize some behaviors. These fields allow you to define the list of module that conforms to those protocols. These modules will be injected in the React Native runtime when the app starts.
-    - `ios.modulesConformingToProtocol.RCTImageURLLoader`: list of iOS native module that implements the [`RCTImageURLLoader` protocol](https://github.com/facebook/react-native/blob/00d5caee9921b6c10be8f7d5b3903c6afe8dbefa/packages/react-native/Libraries/Image/RCTImageURLLoader.h#L26-L81). You need to pass the class names of iOS classes that implements the `RCTImageURLLoader`. They must be Native Modules.
-    - `ios.modulesConformingToProtocol.RCTURLRequestHandler`: list of iOS native module that implements the [`RCTURLRequestHandler` protocol](https://github.com/facebook/react-native/blob/00d5caee9921b6c10be8f7d5b3903c6afe8dbefa/packages/react-native/React/Base/RCTURLRequestHandler.h#L11-L52). You need to pass the class names of iOS classes that implements the `RCTURLRequestHandler`. They must be Native Modules.
-    - `ios.modulesConformingToProtocol.RCTImageDataDecoder`: list of iOS native module that implements the [`RCTImageDataDecoder` protocol](https://github.com/facebook/react-native/blob/00d5caee9921b6c10be8f7d5b3903c6afe8dbefa/packages/react-native/Libraries/Image/RCTImageDataDecoder.h#L15-L53). You need to pass the class names of iOS classes that implements the `RCTImageDataDecoder`. They must be Native Modules.
-  - `ios.componentProvider`: this field is a map used to generate the association between a custom JS React component and the native class that implements it. The key of the map is the JS name of the component (for example `TextInput`), and the value is the iOS class that implements the component (for example `RCTTextInput`).
-  - `ios.modulesProvider`: this field is a map used to generate the association between a custom JS Native Module and the native class that can provide it. The key of the map is the JS name of the module (for example `NativeLocalStorage`), and the value is the iOS class that implements the [`RCTModuleProvider` protocol](https://github.com/facebook/react-native/blob/0.79-stable/packages/react-native/ReactCommon/react/nativemodule/core/platform/ios/ReactCommon/RCTTurboModule.h#L179-L190). For Objective-C modules, the class implementing the [`RCTTurboModule` protocol](https://github.com/facebook/react-native/blob/0.79-stable/packages/react-native/ReactCommon/react/nativemodule/core/platform/ios/ReactCommon/RCTTurboModule.h#L192-L200) is also implementing the `RCTModuleProvider` protocol. For more information, looks at the [Cross-Platform Native Modules (C++) guide](/docs/next/the-new-architecture/pure-cxx-modules).
+- `name:` Name of the codegen config. This will customize the codgen output: the filenames, and the code.
+- `type:`
+  - `modules:` Only generate code for modules.
+  - `components:` Only generate code for components.
+  - `all`: Generate code for everything.
+- `jsSrcsDir`: The root folder where all your specs live.
+- `android`: Codegen configuration for Android (all optional):
+  - `.javaPackageName`: Configure the package name of the Android Java codegen output.
+- `ios`: Codegen configuration for iOS (all optional):
+  - `.modules[moduleName]:`
+    - `.className`: This module's ObjC class. Or, if it's a [C++-only module](/docs/next/the-new-architecture/pure-cxx-modules), its `RCTModuleProvider` class.
+    - `.unstableRequiresMainQueueSetup`: Initialize this module on the UI Thread, before running any JavaScript.
+    - `.conformsToProtocols`: Annotate which of these protocols this module conforms to any of the following protocols: [`RCTImageURLLoader`](https://github.com/facebook/react-native/blob/00d5caee9921b6c10be8f7d5b3903c6afe8dbefa/packages/react-native/Libraries/Image/RCTImageURLLoader.h#L26-L81), [`RCTURLRequestHandler`](https://github.com/facebook/react-native/blob/00d5caee9921b6c10be8f7d5b3903c6afe8dbefa/packages/react-native/React/Base/RCTURLRequestHandler.h#L11-L52), [`RCTImageDataDecoder`](https://github.com/facebook/react-native/blob/00d5caee9921b6c10be8f7d5b3903c6afe8dbefa/packages/react-native/Libraries/Image/RCTImageDataDecoder.h#L15-L53).
+  - `.components[componentName]`:
+    - `.className`: This component's ObjC class (e.g: `TextInput` -> `RCTTextInput`).
 
 When **Codegen** runs, it searches among all the dependencies of the app, looking for JS files that respects some specific conventions, and it generates the required code:
 
