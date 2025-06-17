@@ -206,7 +206,9 @@ See the [Accessibility guide](accessibility.md#accessibilityviewismodal-ios) for
 
 ### `accessible`
 
-When `true`, indicates that the view is an accessibility element. By default, all the touchable elements are accessible.
+When `true`, indicates that the view is an accessibility element and discoverable by assistive technologies such as screen readers and hardware keyboards. By default, all the touchable elements are accessible.
+
+See the [Accessibility guide](accessibility.md#accessible) for more information.
 
 ---
 
