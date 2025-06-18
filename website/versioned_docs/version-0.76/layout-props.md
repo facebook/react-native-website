@@ -651,6 +651,21 @@ It works similarly to `height` in CSS, but in React Native you must use points o
 
 ---
 
+### `isolation`
+
+`isolation` lets you form a [stacking context](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_positioned_layout/Stacking_context). This prop is only available on the [New Architecture](/architecture/landing-page).
+
+There are two values:
+
+* `auto` (default): Does nothing.
+* `isolate`: Forms a stacking context.
+
+| Type                    | Required |
+| ----------------------- | -------- |
+| enum('auto', 'isolate') | No       |
+
+---
+
 ### `justifyContent`
 
 `justifyContent` aligns children in the main direction. For example, if children are flowing vertically, `justifyContent` controls how they align vertically. It works like `justify-content` in CSS (default: flex-start). See https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content for more details.
