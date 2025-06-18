@@ -1,0 +1,50 @@
+
+
+
+```python
+import pygame
+import random
+
+Inicializar Pygame
+pygame.init()
+ancho, alto = 800, 600
+pantalla = pygame.display.set_mode((ancho, alto))
+pygame.display.set_caption("Mini Apocalipsis Zombie")
+
+Colores
+NEGRO = (0, 0, 0)
+VERDE = (0, 255, 0)
+ROJO = (255, 0, 0)
+
+Jugador
+jugador = pygame.Rect(400, 300, 40, 40)
+velocidad = 5
+
+Zombies
+zombies = [pygame.Rect(random.randint(0, 800), random.randint(0, 600), 30, 30) for _ in range(5)]
+
+Bucle principal
+reloj = pygame.time.Clock()
+jugando = True
+while jugando:
+    for evento in pygame.event.get():
+        if evento.type == pygame.QUIT:
+            jugando = False
+
+    teclas = pygame.key.get_pressed()
+    if teclas[pygame.K_LEFT]: jugador.x -= velocidad
+    if teclas[pygame.K_RIGHT]: jugador.x += velocidad
+    if teclas[pygame.K_UP]: jugador.y -= velocidad
+    if teclas[pygame.K_DOWN]: jugador.y += velocidad
+
+    # Mover zombies hacia el jugador
+    for z in zombies:
+        if z.x < jugador.x: z.x += 1
+        if z.x > jugador.x: z.x -= 1
+        if z.y < jugador.y: z.y += 1
+        if z.y > jugador.y: z.y -= 1
+
+    pantalla.fill(NEGRO)
+    pygame.draw.rect(pantalla, VERDE, jugador)
+    for z in zombies:
+        pygame.draw.rect(pantalla, ROJO, z)
