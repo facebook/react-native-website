@@ -667,8 +667,8 @@ It works similarly to `height` in CSS, but in React Native you must use points o
 
 There are two values:
 
-* `auto` (default): Does nothing.
-* `isolate`: Forms a stacking context.
+- `auto` (default): Does nothing.
+- `isolate`: Forms a stacking context.
 
 | Type                    | Required |
 | ----------------------- | -------- |
