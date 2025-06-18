@@ -174,7 +174,6 @@ The `onOrientationChange` callback is called when the orientation changes while 
 | -------- |
 | function |
 
-
 ---
 
 ### `allowSwipeDismissal` <div class="label ios">iOS</div>
@@ -191,7 +190,7 @@ This requires you to implement the `onRequestClose` prop to handle the dismissal
 ### `onRequestClose`
 
 The `onRequestClose` callback is called when the user taps the hardware back button on Android or the menu button on Apple TV. Because of this required prop, be aware that `BackHandler` events will not be emitted as long as the modal is open.
-On iOS, this callback is called when a Modal is being dismissed using a drag gesture when `presentationStyle` is `pageSheet or formSheet`. When `allowSwipeDismissal` is enabled this callback will be called after dismissing the modal. 
+On iOS, this callback is called when a Modal is being dismissed using a drag gesture when `presentationStyle` is `pageSheet or formSheet`. When `allowSwipeDismissal` is enabled this callback will be called after dismissing the modal.
 
 | Type                                                                                                                                                                                           |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
