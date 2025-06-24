@@ -53,6 +53,12 @@ public class NativeLocalStorageModule extends NativeLocalStorageSpec {
     SharedPreferences sharedPref = getReactApplicationContext().getSharedPreferences("my_prefs", Context.MODE_PRIVATE);
     sharedPref.edit().remove(key).apply();
   }
+
+  @Override
+  public void clear() {
+    SharedPreferences sharedPref = getReactApplicationContext().getSharedPreferences("my_prefs", Context.MODE_PRIVATE);
+    sharedPref.edit().clear().apply();
+  }
 }
 ```
 
@@ -331,6 +337,12 @@ class MainApplication : Application(), ReactApplication {
 
 </TabItem>
 </Tabs>
+
+Before building and running your code on an emulator, we recommend cleaning your Android build to avoid potential issues:
+
+```bash
+cd android && ./gradlew clean
+```
 
 You can now build and run your code on an emulator:
 
