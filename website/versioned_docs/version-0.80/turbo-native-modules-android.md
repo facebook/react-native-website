@@ -338,12 +338,6 @@ class MainApplication : Application(), ReactApplication {
 </TabItem>
 </Tabs>
 
-Before building and running your code on an emulator, we recommend cleaning your Android build to avoid potential issues:
-
-```bash
-cd android && ./gradlew clean
-```
-
 You can now build and run your code on an emulator:
 
 <Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
