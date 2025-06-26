@@ -661,6 +661,118 @@ It works similarly to `height` in CSS, but in React Native you must use points o
 
 ---
 
+### `inset` <div class="label fabric">Fabric</div>
+
+`inset` is a shorthand that corresponds to the `top`, `right`, `bottom`, and/or `left` properties.
+
+It works similarly to `inset` in CSS, but in React Native you must use points or percentages. Ems and other units are not supported.
+
+See https://developer.mozilla.org/en-US/docs/Web/CSS/inset for more details of how `inset` affects layout.
+
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
+
+---
+
+### `insetBlock` <div class="label fabric">Fabric</div>
+
+`insetBlock` is a shorthand that corresponds to the `insetBlockStart` and `insetBlockEnd` properties.
+
+It works similarly to `inset-block` in CSS, but in React Native you must use points or percentages. Ems and other units are not supported.
+
+See https://developer.mozilla.org/en-US/docs/Web/CSS/inset-block for more details of how `inset-block` affects layout.
+
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
+
+---
+
+### `insetBlockEnd` <div class="label fabric">Fabric</div>
+
+`insetBlockEnd` is a logical property that sets the length that an element is offset in the block direction from its ending edge.
+
+It works similarly to `inset-block-end` in CSS, but in React Native you must use points or percentages. Ems and other units are not supported.
+
+See https://developer.mozilla.org/en-US/docs/Web/CSS/inset-block-end for more details of how `inset-block-end` affects layout.
+
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
+
+---
+
+### `insetBlockStart` <div class="label fabric">Fabric</div>
+
+`insetBlockStart` is a logical property that sets the length that an element is offset in the block direction from its starting edge.
+
+It works similarly to `inset-block-start` in CSS, but in React Native you must use points or percentages. Ems and other units are not supported.
+
+See https://developer.mozilla.org/en-US/docs/Web/CSS/inset-block-start for more details of how `inset-block-start` affects layout.
+
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
+
+---
+
+### `insetInline` <div class="label fabric">Fabric</div>
+
+`insetInline` is a shorthand that corresponds to the `insetInlineStart` and `insetInlineEnd` properties.
+
+It works similarly to `inset-inline` in CSS, but in React Native you must use points or percentages. Ems and other units are not supported.
+
+See https://developer.mozilla.org/en-US/docs/Web/CSS/inset-inline for more details of how `inset-inline` affects layout.
+
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
+
+---
+
+### `insetInlineEnd` <div class="label fabric">Fabric</div>
+
+`insetInlineEnd` is a logical property that sets the length that an element is offset in the starting inline direction.
+
+It works similarly to `inset-inline-end` in CSS, but in React Native you must use points or percentages. Ems and other units are not supported.
+
+See https://developer.mozilla.org/en-US/docs/Web/CSS/inset-inline-end for more details of how `inset-inline-end` affects layout.
+
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
+
+---
+
+### `insetInlineEnd` <div class="label fabric">Fabric</div>
+
+`insetInlineEnd` is a logical property that sets the length that an element is offset in the starting inline direction.
+
+It works similarly to `inset-inline-end` in CSS, but in React Native you must use points or percentages. Ems and other units are not supported.
+
+See https://developer.mozilla.org/en-US/docs/Web/CSS/inset-inline-end for more details of how `inset-inline-end` affects layout.
+
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
+
+---
+
+### `insetInlineStart` <div class="label fabric">Fabric</div>
+
+`insetInlineStart` is a logical property that sets the length that an element is offset in the starting inline direction.
+
+It works similarly to `inset-inline-start` in CSS, but in React Native you must use points or percentages. Ems and other units are not supported.
+
+See https://developer.mozilla.org/en-US/docs/Web/CSS/inset-inline-start for more details of how `inset-inline-start` affects layout.
+
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
+
+---
+
 ### `justifyContent`
 
 `justifyContent` aligns children in the main direction. For example, if children are flowing vertically, `justifyContent` controls how they align vertically. It works like `justify-content` in CSS (default: flex-start). See https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content for more details.
