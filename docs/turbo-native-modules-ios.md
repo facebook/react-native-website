@@ -143,6 +143,7 @@ Modify the `package.json` as it follows:
         "modulesProvider": {
           "NativeLocalStorage": "RCTNativeLocalStorage"
         }
+    },
      // highlight-add-end
    },
 
