@@ -139,7 +139,7 @@ Modify the `package.json` as it follows:
        "javaPackageName": "com.sampleapp.specs"
      }
      // highlight-add-start
-     "ios":
+     "ios": {
         "modulesProvider": {
           "NativeLocalStorage": "RCTNativeLocalStorage"
         }
