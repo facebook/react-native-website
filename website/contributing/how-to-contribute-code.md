@@ -32,7 +32,7 @@ Now you are set up to run several commands:
 - `yarn test-ios` runs the iOS test suite (macOS required).
 - `yarn build` builds all configured packages — in general, this command only needs to be run by CI ahead of publishing.
   - Packages which require a build are configured in [scripts/build/config.js](https://github.com/facebook/react-native/blob/main/scripts/build/config.js).
-- `yarn build-types` builds the TS types for the public API and generates the snapshot.
+- `yarn build-types` generates TypeScript types for the public API and updates the snapshot.
 
 ## Testing your Changes
 
