@@ -424,7 +424,7 @@ class MyReactActivity : ReactActivity() {
 </TabItem>
 </Tabs>
 
-As usual, here the [MainActivity.kt Community template file as reference](https://github.com/react-native-community/template/blob/0.76-stable/template/android/app/src/main/java/com/helloworld/MainApplication.kt)
+As usual, here the [MainActivity.kt Community template file as reference](https://github.com/react-native-community/template/blob/0.76-stable/template/android/app/src/main/java/com/helloworld/MainActivity.kt)
 
 Whenever you create a new Activity, you need to add it to your `AndroidManifest.xml` file. You also need set the theme of `MyReactActivity` to `Theme.AppCompat.Light.NoActionBar` (or to any non-ActionBar theme) as otherwise your application will render an ActionBar on top of your React Native screen:
 

@@ -76,7 +76,7 @@ import com.facebook.react.bridge.Arguments
 import com.facebook.react.jstasks.HeadlessJsTaskConfig
 
 class MyTaskService : HeadlessJsTaskService() {
-    override fun getTaskConfig(intent: Intent): HeadlessJsTaskConfig? {
+    override fun getTaskConfig(intent: Intent?): HeadlessJsTaskConfig? {
         return intent.extras?.let {
             HeadlessJsTaskConfig(
                 "SomeTaskName",
