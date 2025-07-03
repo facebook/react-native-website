@@ -85,7 +85,7 @@ Please refer to the [official Gradle documentation](https://docs.gradle.org/curr
 
 When building Android apps, your Gradle builds will need to download the necessary dependencies from Maven Central and other repositories from the internet.
 
-If your organization is running a Maven repository mirror, you should consider using as it will speed up your build, by downloading the artifacts from the mirror rather than from the internet.
+If your organization is running a Maven repository mirror, you should consider using it as it will speed up your build, by downloading the artifacts from the mirror rather than from the internet.
 
 You can configure a mirror by specifying the `exclusiveEnterpriseRepository` property in your `android/gradle.properties` file:
 
