@@ -39,7 +39,7 @@ npx @react-native-community/cli@latest init SampleApp --version 0.76.0
       "modules": {
         "TestModule": {
           "className": "<iOS-class-implementing-the-RCTModuleProvider-protocol>",
-          "unstableRequiresMainQueueSetup": false
+          "unstableRequiresMainQueueSetup": false,
           "conformsToProtocols": ["RCTImageURLLoader", "RCTURLRequestHandler", "RCTImageDataDecoder"],
         }
       },
@@ -54,7 +54,7 @@ npx @react-native-community/cli@latest init SampleApp --version 0.76.0
 
 You can add this snippet to your app and customize the various fields:
 
-- `name:` Name of the codegen config. This will customize the codgen output: the filenames, and the code.
+- `name:` Name of the codegen config. This will customize the codegen output: the filenames, and the code.
 - `type:`
   - `modules:` Only generate code for modules.
   - `components:` Only generate code for components.
