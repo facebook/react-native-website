@@ -157,7 +157,7 @@ Then you need to enable [cleartext traffic](https://developer.android.com/traini
 
 As usual, here the AndroidManifest.xml file from the Community template to use as a reference: [main](https://github.com/react-native-community/template/blob/0.76-stable/template/android/app/src/main/AndroidManifest.xml) and [debug](https://github.com/react-native-community/template/blob/0.76-stable/template/android/app/src/debug/AndroidManifest.xml)
 
-This is needed as your application will communicate with your local bundler, [Metro][https://metrobundler.dev/], via HTTP.
+This is needed as your application will communicate with your local bundler, [Metro](https://metrobundler.dev/), via HTTP.
 
 Make sure you add this only to your **debug** manifest.
 
