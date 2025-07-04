@@ -33,6 +33,8 @@ This is required by React Native to handle the back button press event.
 
 Go into your host activity and make sure it implements the `DefaultHardwareBackBtnHandler` interface:
 
+> **Deprecated.** `Activity.onBackPressed()` has been [deprecated](<https://developer.android.com/reference/android/app/Activity#onBackPressed()>) since API level 33. Android 16 devices with apps targeting API level 36 this will [no longer be called](https://developer.android.com/about/versions/16/behavior-changes-16#predictive-back) and [OnBackPressedDispatcher](https://developer.android.com/reference/androidx/activity/OnBackPressedDispatcher) should be used instead.
+
 <Tabs groupId="android-language" queryString defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
 <TabItem value="kotlin">
 
@@ -56,7 +58,7 @@ import androidx.appcompat.app.AppCompatActivity
     }
 
 +   override fun invokeDefaultOnBackPressed() {
-+       super.onBackPressed()
++       onBackPressedDispatcher.onBackPressed()
 +   }
 }
 ```
@@ -86,7 +88,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 +   @Override
 +   public void invokeDefaultOnBackPressed() {
-+       super.onBackPressed();
++       getOnBackPressedDispatcher().onBackPressed();
 +   }
 }
 ```
