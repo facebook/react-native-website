@@ -22,10 +22,10 @@ For example, a container view that fades in when it is mounted may look like thi
 
 ```SnackPlayer ext=js&supportedPlatforms=ios,android
 import React, {useEffect} from 'react';
-import {Animated, Text, View, useAnimatedValue} from 'react-native';
+import {Animated, Text, View} from 'react-native';
 
 const FadeInView = props => {
-  const fadeAnim = useAnimatedValue(0); // Initial value for opacity: 0
+  const fadeAnim = new Animated.Value(0); // Initial value for opacity: 0
 
   useEffect(() => {
     Animated.timing(fadeAnim, {
