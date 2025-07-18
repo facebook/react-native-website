@@ -29,6 +29,5 @@
     "netlify-plugin-cache": "^1.0.3",
     "prettier": "^3.5.3",
     "pretty-quick": "^4.1.1"
-  },
-  "packageManager": "yarn@4.7.0"
+  }
 }

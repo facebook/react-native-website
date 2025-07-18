@@ -25,6 +25,7 @@ export default {
       'metro',
       'libraries',
       'typescript',
+      'strict-typescript-api',
       'upgrading',
     ],
     界面与交互: [
@@ -85,6 +86,7 @@ export default {
       {
         type: 'doc',
         id: 'native-platform',
+        label: '介绍',
       },
       {
         type: 'category',
@@ -95,14 +97,17 @@ export default {
           {
             type: 'doc',
             id: 'turbo-native-modules-introduction',
+            label: 'Android 和 iOS',
           },
           {
             type: 'doc',
             id: 'the-new-architecture/pure-cxx-modules',
+            label: '跨平台 C++ 模块',
           },
           {
             type: 'doc',
-            id: 'the-new-architecture/custom-cxx-types',
+            id: 'the-new-architecture/advanced-topics-modules',
+            label: '高级主题',
           },
         ],
       },
@@ -115,14 +120,12 @@ export default {
           {
             type: 'doc',
             id: 'fabric-native-components-introduction',
+            label: 'Android 和 iOS',
           },
           {
             type: 'doc',
-            id: 'the-new-architecture/direct-manipulation-new-architecture',
-          },
-          {
-            type: 'doc',
-            id: 'the-new-architecture/layout-measurements',
+            id: 'the-new-architecture/advanced-topics-components',
+            label: '高级主题',
           },
         ],
       },
@@ -135,6 +138,7 @@ export default {
           {
             type: 'doc',
             id: 'appendix',
+            label: '附录',
           },
           {
             type: 'doc',
@@ -210,6 +214,7 @@ export default {
       'devsettings',
       'dimensions',
       'easing',
+      'i18nmanager',
       'interactionmanager',
       'keyboard',
       'layoutanimation',
@@ -294,6 +299,7 @@ export default {
       'pressevent',
       'react-node',
       'rect',
+      'targetevent',
       'viewtoken',
     ],
   },
