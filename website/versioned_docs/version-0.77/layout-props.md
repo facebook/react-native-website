@@ -547,11 +547,11 @@ See https://developer.mozilla.org/en-US/docs/Web/CSS/bottom for more details of 
 
 `display` sets the display type of this component.
 
-It works similarly to `display` in CSS but only supports 'flex' and 'none'. 'flex' is the default.
+It works similarly to `display` in CSS but only supports the values 'flex', 'none', and 'contents'. The default is `flex`.
 
-| Type                 | Required |
-| -------------------- | -------- |
-| enum('none', 'flex') | No       |
+| Type                             | Required |
+| -------------------------------- | -------- |
+| enum('none', 'flex', 'contents') | No       |
 
 ---
 
@@ -658,6 +658,21 @@ It works similarly to `height` in CSS, but in React Native you must use points o
 | Type           | Required |
 | -------------- | -------- |
 | number, string | No       |
+
+---
+
+### `isolation`
+
+`isolation` lets you form a [stacking context](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_positioned_layout/Stacking_context). This prop is only available on the [New Architecture](/architecture/landing-page).
+
+There are two values:
+
+- `auto` (default): Does nothing.
+- `isolate`: Forms a stacking context.
+
+| Type                    | Required |
+| ----------------------- | -------- |
+| enum('auto', 'isolate') | No       |
 
 ---
 

@@ -81,6 +81,26 @@ org.gradle.configuration-cache=true
 
 Please refer to the [official Gradle documentation](https://docs.gradle.org/current/userguide/configuration_cache.html) for more resources on Configuration Caching.
 
+## Using a Maven Mirror (Android-only)
+
+When building Android apps, your Gradle builds will need to download the necessary dependencies from Maven Central and other repositories from the internet.
+
+If your organization is running a Maven repository mirror, you should consider using it as it will speed up your build, by downloading the artifacts from the mirror rather than from the internet.
+
+You can configure a mirror by specifying the `exclusiveEnterpriseRepository` property in your `android/gradle.properties` file:
+
+```diff
+# Use this property to enable or disable the Hermes JS engine.
+# If set to false, you will be using JSC instead.
+hermesEnabled=true
+
+# Use this property to configure a Maven enteprise repository
+# that will be used exclusively to fetch all of your dependencies.
++exclusiveEnterpriseRepository=https://my.internal.proxy.net/
+```
+
+By setting this property, your build will fetch dependencies **exclusively** from your specified repository and not from others.
+
 ## Use a compiler cache
 
 If you're running frequent native builds (either C++ or Objective-C), you might benefit from using a **compiler cache**.

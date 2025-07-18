@@ -153,18 +153,10 @@ async function processUrls(urls) {
     }
   }
 
-  const result = {
+  return {
     totalUrls: urls.length,
     unavailableUrls: unavailableUrls,
   };
-
-  if (unavailableUrls.length > 0) {
-    console.log(JSON.stringify(result, null, 2));
-  } else {
-    console.log(JSON.stringify(result, null, 2));
-  }
-
-  return result;
 }
 
 // Function to extract title from markdown frontmatter
@@ -220,7 +212,7 @@ function mapDocPath(item, prefix) {
 }
 
 // Function to generate output for each sidebar
-function generateMarkdown(sidebarConfig, docPath, prefix) {
+function generateMarkdown(sidebarConfig, docPath, prefix, unavailableUrls) {
   let markdown = '';
 
   // Process each section (docs, api, components)
@@ -249,26 +241,36 @@ function generateMarkdown(sidebarConfig, docPath, prefix) {
         if (typeof item === 'string') {
           // This is a direct page reference
           const fullDocPath = `${docPath}${mapDocPath(item, prefix)}`;
-          const {title, slug} = extractMetadataFromMarkdown(fullDocPath);
-          markdown += `- [${title}](${URL_PREFIX}${prefix}/${slug ?? item})\n`;
+          if (!isEntryUnavailable(unavailableUrls, fullDocPath)) {
+            const {title, slug} = extractMetadataFromMarkdown(fullDocPath);
+            markdown += `- [${title}](${URL_PREFIX}${prefix}/${slug ?? item})\n`;
+          }
         } else if (typeof item === 'object') {
           if (item.type === 'doc' && item.id) {
             // This is a doc reference with an explicit ID
             const fullDocPath = `${docPath}${mapDocPath(item, prefix)}`;
-            const {title, slug} = extractMetadataFromMarkdown(fullDocPath);
-            markdown += `- [${title}](${URL_PREFIX}${prefix}/${slug ?? item.id})\n`;
+            if (!isEntryUnavailable(unavailableUrls, fullDocPath)) {
+              const {title, slug} = extractMetadataFromMarkdown(fullDocPath);
+              markdown += `- [${title}](${URL_PREFIX}${prefix}/${slug ?? item.id})\n`;
+            }
           } else if (item.type === 'category' && Array.isArray(item.items)) {
             // This is a category with nested items
             markdown += `#### ${item.label}\n\n`;
             item.items.forEach(nestedItem => {
               if (typeof nestedItem === 'string') {
                 const fullDocPath = `${docPath}${mapDocPath(nestedItem, prefix)}`;
-                const {title, slug} = extractMetadataFromMarkdown(fullDocPath);
-                markdown += `- [${title}](${URL_PREFIX}${prefix}/${slug ?? nestedItem})\n`;
+                if (!isEntryUnavailable(unavailableUrls, fullDocPath)) {
+                  const {title, slug} =
+                    extractMetadataFromMarkdown(fullDocPath);
+                  markdown += `- [${title}](${URL_PREFIX}${prefix}/${slug ?? nestedItem})\n`;
+                }
               } else if (nestedItem.type === 'doc' && nestedItem.id) {
                 const fullDocPath = `${docPath}${mapDocPath(nestedItem, prefix)}`;
-                const {title, slug} = extractMetadataFromMarkdown(fullDocPath);
-                markdown += `- [${title}](${URL_PREFIX}${prefix}/${slug ?? nestedItem.id})\n`;
+                if (!isEntryUnavailable(unavailableUrls, fullDocPath)) {
+                  const {title, slug} =
+                    extractMetadataFromMarkdown(fullDocPath);
+                  markdown += `- [${title}](${URL_PREFIX}${prefix}/${slug ?? nestedItem.id})\n`;
+                }
               }
             });
           }
@@ -319,20 +321,23 @@ const generateOutput = () => {
     if (sidebarConfig) {
       const urls = extractUrlsFromSidebar(sidebarConfig, prefix);
 
-      // First check URLs for 404 errors
       const promise = processUrls(urls)
         .then(result => {
-          if (result.unavailableUrls.length === 0) {
-            // Only generate documentation if all URLs are valid
-            const markdown = generateMarkdown(sidebarConfig, docPath, prefix);
-            results.push({markdown, prefix});
-            console.log(`Successfully generated output from ${inputFilePath}`);
-          } else {
+          if (result.unavailableUrls.length > 0) {
             console.error(
-              'Documentation generation skipped due to broken links'
+              'Skipping new pages not existing in production deployment yet:',
+              result.unavailableUrls.map(entry => entry.url)
             );
-            process.exit(1);
           }
+          const markdown = generateMarkdown(
+            sidebarConfig,
+            docPath,
+            prefix,
+            result.unavailableUrls
+          );
+          results.push({markdown, prefix});
+
+          console.log(`Successfully generated output from ${inputFilePath}`);
         })
         .catch(err => {
           console.error('Error processing URLs:', err);
@@ -369,5 +374,11 @@ const generateOutput = () => {
       process.exit(1);
     });
 };
+
+function isEntryUnavailable(unavailableUrls, docPath) {
+  return !unavailableUrls.find(entry =>
+    entry.url.endsWith(docPath.substring(1))
+  );
+}
 
 generateOutput();

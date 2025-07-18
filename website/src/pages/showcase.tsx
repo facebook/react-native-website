@@ -18,9 +18,7 @@ const renderApp = (app, i) => <AppBox app={app} key={`app-${app.name}-${i}`} />;
 function Section({
   children,
   background = 'light',
-}: React.PropsWithChildren<{
-  background?: 'light' | 'dark';
-}>) {
+}: React.PropsWithChildren<{background?: 'light' | 'dark'}>) {
   return <section className={`Section ${background}`}>{children}</section>;
 }
 
@@ -244,13 +242,13 @@ const Showcase = () => {
             Apply to the Showcase by filling out this form
           </a>
           <p>
-            A curated list of{' '}
+            For a curated list of open source React Native apps, check out{' '}
             <a
               key="demo-apps"
               href="https://github.com/ReactNativeNews/React-Native-Apps">
-              open source React Native apps
+              this list
             </a>{' '}
-            is maintained by <a href="https://infinite.red">Infinite Red</a>.
+            maintained by <a href="https://infinite.red">Infinite Red</a>.
           </p>
         </div>
       </Section>

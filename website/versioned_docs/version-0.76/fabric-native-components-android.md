@@ -425,10 +425,10 @@ class ReactWebViewPackage : TurboReactPackage() {
 
   override fun getReactModuleInfoProvider(): ReactModuleInfoProvider = ReactModuleInfoProvider {
     mapOf(ReactWebViewManager.REACT_CLASS to ReactModuleInfo(
-      _name = ReactWebViewManager.REACT_CLASS,
-      _className = ReactWebViewManager.REACT_CLASS,
-      _canOverrideExistingModule = false,
-      _needsEagerInit = false,
+      name = ReactWebViewManager.REACT_CLASS,
+      className = ReactWebViewManager.REACT_CLASS,
+      canOverrideExistingModule = false,
+      needsEagerInit = false,
       isCxxModule = false,
       isTurboModule = true,
     )

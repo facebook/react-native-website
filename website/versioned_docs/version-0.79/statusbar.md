@@ -266,7 +266,7 @@ If the transition between status bar property changes should be animated. Suppor
 The background color of the status bar.
 
 :::warning
-Due to edge-to-edge enforcement introduced in Android 15, setting background color of the status bar is deprecated in API level 35.
+Due to edge-to-edge enforcement introduced in Android 15, setting background color of the status bar is deprecated in API level 35 and setting it will have no effect. You can read more about our [edge-to-edge recommendations here](https://github.com/react-native-community/discussions-and-proposals/discussions/827).
 :::
 
 | Type            | Required | Default                                                                |
@@ -320,6 +320,10 @@ The transition effect when showing and hiding the status bar using the `hidden` 
 ### `translucent` <div class="label android">Android</div>
 
 If the status bar is translucent. When translucent is set to `true`, the app will draw under the status bar. This is useful when using a semi transparent status bar color.
+
+:::warning
+Due to edge-to-edge enforcement introduced in Android 15, setting the status bar as translucent is deprecated in API level 35 and setting it will have no effect. You can read more about our [edge-to-edge recommendations here](https://github.com/react-native-community/discussions-and-proposals/discussions/827).
+:::
 
 | Type    | Default |
 | ------- | ------- |
@@ -388,7 +392,7 @@ static setBackgroundColor(color: ColorValue, animated?: boolean);
 Set the background color for the status bar.
 
 :::warning
-Due to edge-to-edge enforcement introduced in Android 15, setting background color of the status bar is deprecated in API level 35.
+Due to edge-to-edge enforcement introduced in Android 15, setting background color of the status bar is deprecated in API level 35 and setting it will have no effect. You can read more about our [edge-to-edge recommendations here](https://github.com/react-native-community/discussions-and-proposals/discussions/827).
 :::
 
 **Parameters:**
@@ -457,6 +461,10 @@ static setTranslucent(translucent: boolean);
 ```
 
 Control the translucency of the status bar.
+
+:::warning
+Due to edge-to-edge enforcement introduced in Android 15, setting the status bar as translucent is deprecated in API level 35 and setting it will have no effect. You can read more about our [edge-to-edge recommendations here](https://github.com/react-native-community/discussions-and-proposals/discussions/827).
+:::
 
 **Parameters:**
 
