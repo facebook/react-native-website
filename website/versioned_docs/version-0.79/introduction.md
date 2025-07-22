@@ -38,6 +38,7 @@ const YourApp = () => {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor: "white",
       }}>
       <Text>Try editing me! 🎉</Text>
     </View>
