@@ -48,7 +48,10 @@ import {View, Text, Image, ScrollView, TextInput} from 'react-native';
 
 const App = () => {
   return (
-    <ScrollView>
+    <ScrollView
+      style={{
+      backgroundColor: "white",
+      padding: "20%",}}>
       <Text>Some text</Text>
       <View>
         <Text>Some more text</Text>
