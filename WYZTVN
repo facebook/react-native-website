@@ -1,0 +1,374 @@
+/wyztvn-app
+  /assets
+    /icons
+    /images
+    /sounds
+  /components
+    EmergencyButton.js
+    ContactList.js
+    VoiceVisualizer.js
+    CameraPreview.js
+  /screens
+    HomeScreen.js
+    ContactsScreen.js
+    SettingsScreen.js
+    EmergencyScreen.js
+  /services
+    voiceService.js
+    emergencyService.js
+    authService.js
+    cameraService.js
+  /utils
+    encryption.js
+    helpers.js
+    constants.js
+  App.js
+  app.json
+  import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { AuthProvider } from './services/authService';
+import HomeScreen from './screens/HomeScreen';
+import ContactsScreen from './screens/ContactsScreen';
+import SettingsScreen from './screens/SettingsScreen';
+import EmergencyScreen from './screens/EmergencyScreen';
+
+const Stack = createStackNavigator();
+
+export default function App() {
+  return (
+    <AuthProvider>
+      <NavigationContainer>
+        <Stack.Navigator
+          screenOptions={{
+            headerShown: false,
+            animationEnabled: false
+          }}
+        >
+          <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="Contacts" component={ContactsScreen} />
+          <Stack.Screen name="Settings" component={SettingsScreen} />
+          <Stack.Screen name="Emergency" component={EmergencyScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </AuthProvider>
+  );
+}
+import React, { useState, useEffect } from 'react';
+import { View, Text, StyleSheet, PermissionsAndroid } from 'react-native';
+import EmergencyButton from '../components/EmergencyButton';
+import { checkPermissions } from '../services/cameraService';
+import { initVoiceRecognition } from '../services/voiceService';
+import { connectToEmergencyServices } from '../services/emergencyService';
+
+export default function HomeScreen({ navigation }) {
+  const [emergencyMode, setEmergencyMode] = useState(false);
+  const [voiceActive, setVoiceActive] = useState(false);
+
+  useEffect(() => {
+    const initApp = async () => {
+      await checkPermissions();
+      await initVoiceRecognition(
+        (contact) => navigation.navigate('Emergency', { contact }),
+        (threatLevel) => {
+          if (threatLevel > 70) triggerEmergencyProtocol();
+        }
+      );
+      await connectToEmergencyServices();
+    };
+    
+    initApp();
+  }, []);
+
+  const triggerEmergencyProtocol = async () => {
+    setEmergencyMode(true);
+    const { location, contacts } = await getEmergencyData();
+    await sendEmergencyAlert(location, contacts);
+  };
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>WYZTVN SECURITY</Text>
+      
+      <EmergencyButton 
+        active={emergencyMode}
+        onActivate={() => setVoiceActive(true)}
+      />
+      
+      {voiceActive && (
+        <VoiceVisualizer 
+          onProcessComplete={() => setVoiceActive(false)}
+        />
+      )}
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#0a0a0a',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  title: {
+    color: '#ffffff',
+    fontSize: 24,
+    marginBottom: 40,
+    letterSpacing: 5,
+  },
+});
+import Voice from '@react-native-voice/voice';
+import { analyzeThreatLevel } from './emergencyService';
+import { encryptData } from '../utils/encryption';
+
+let isListening = false;
+let currentContact = null;
+
+export const initVoiceRecognition = async (onContactFound, onThreatDetected) => {
+  try {
+    Voice.onSpeechStart = () => console.log('Voice recognition started');
+    Voice.onSpeechEnd = () => console.log('Voice recognition ended');
+    
+    Voice.onSpeechResults = async (e) => {
+      const transcript = e.value[0];
+      const encrypted = encryptData(transcript);
+      
+      const contact = await findContactInPhrase(transcript);
+      if (contact) {
+        currentContact = contact;
+        onContactFound(contact);
+      }
+      
+      const threatLevel = await analyzeThreatLevel(transcript);
+      if (threatLevel > 50) {
+        onThreatDetected(threatLevel);
+      }
+    };
+    
+    await Voice.start('en-US');
+    isListening = true;
+  } catch (error) {
+    console.error('Voice init error:', error);
+  }
+};
+
+export const stopVoiceRecognition = async () => {
+  if (isListening) {
+    await Voice.stop();
+    isListening = false;
+  }
+};
+
+const findContactInPhrase = async (phrase) => {
+  // Implémentez la logique de recherche de contact ici
+  // Utilisation de l'API Contacts du téléphone
+};
+import Geolocation from 'react-native-geolocation-service';
+import { Platform, PermissionsAndroid } from 'react-native';
+import { countryServices } from '../utils/constants';
+import { sendEncryptedAlert } from './apiService';
+
+export const connectToEmergencyServices = async (country) => {
+  const services = countryServices[country] || countryServices.DEFAULT;
+  console.log('Connected to emergency services for', country);
+  return services;
+};
+
+export const triggerEmergencyAlert = async (contact = null) => {
+  try {
+    const location = await getCurrentLocation();
+    const country = await detectCountry(location);
+    const services = await connectToEmergencyServices(country);
+    
+    const alertData = {
+      timestamp: Date.now(),
+      location,
+      contact,
+      services
+    };
+    
+    await sendEncryptedAlert(alertData);
+    return true;
+  } catch (error) {
+    console.error('Emergency alert failed:', error);
+    return false;
+  }
+};
+
+export const analyzeThreatLevel = async (transcript) => {
+  const keywords = {
+    'aide': 30,
+    'danger': 50,
+    'au secours': 70,
+    'urgent': 40
+  };
+  
+  let threatScore = 0;
+  Object.keys(keywords).forEach(word => {
+    if (transcript.toLowerCase().includes(word)) {
+      threatScore += keywords[word];
+    }
+  });
+  
+  return Math.min(threatScore, 100);
+};
+
+const getCurrentLocation = async () => {
+  if (Platform.OS === 'android') {
+    await PermissionsAndroid.request(
+      PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION
+    );
+  }
+  
+  return new Promise((resolve) => {
+    Geolocation.getCurrentPosition(
+      position => resolve(position.coords),
+      error => {
+        console.error('Location error:', error);
+        resolve(null);
+      },
+      { enableHighAccuracy: true, timeout: 15000 }
+    );
+  });
+};
+import React, { useState } from 'react';
+import { View, TouchableOpacity, Animated, Easing } from 'react-native';
+import { Svg, Path } from 'react-native-svg';
+
+const WLogo = ({ fill = '#ffffff' }) => (
+  <Svg width={40} height={40} viewBox="0 0 100 100">
+    <Path 
+      d="M10,20 L25,80 L40,20 L55,80 L70,20"
+      fill="none"
+      stroke={fill}
+      strokeWidth={8}
+      strokeLinecap="round"
+    />
+  </Svg>
+);
+
+export default function EmergencyButton({ active, onActivate }) {
+  const [animValue] = useState(new Animated.Value(0));
+  
+  const handlePressIn = () => {
+    Animated.timing(animValue, {
+      toValue: 1,
+      duration: 300,
+      easing: Easing.inOut(Easing.quad),
+      useNativeDriver: true
+    }).start();
+    onActivate();
+  };
+  
+  const handlePressOut = () => {
+    Animated.timing(animValue, {
+      toValue: 0,
+      duration: 500,
+      easing: Easing.elastic(1.5),
+      useNativeDriver: true
+    }).start();
+  };
+  
+  const scale = animValue.interpolate({
+    inputRange: [0, 1],
+    outputRange: [1, 1.3]
+  });
+  
+  const backgroundColor = animValue.interpolate({
+    inputRange: [0, 1],
+    outputRange: ['#1a1a1a', '#ff3b30']
+  });
+  
+  return (
+    <Animated.View style={{
+      transform: [{ scale }],
+      backgroundColor,
+      width: 80,
+      height: 80,
+      borderRadius: 40,
+      justifyContent: 'center',
+      alignItems: 'center',
+      shadowColor: '#ff3b30',
+      shadowOffset: { width: 0, height: 0 },
+      shadowOpacity: animValue,
+      shadowRadius: 20
+    }}>
+      <TouchableOpacity
+        activeOpacity={1}
+        onPressIn={handlePressIn}
+        onPressOut={handlePressOut}
+        style={{
+          width: '100%',
+          height: '100%',
+          justifyContent: 'center',
+          alignItems: 'center'
+        }}
+      >
+        <WLogo fill={active ? '#ffffff' : '#ff3b30'} />
+      </TouchableOpacity>
+    </Animated.View>
+  );
+}
+npx react-native init WYZTVN --template react-native-template-typescript
+cd WYZTVN
+npm install @react-native-voice/voice react-native-geolocation-service react-native-svg @react-navigation/native @react-navigation/stack react-native-reanimated react-native-gesture-handler react-native-permissions
+android {
+    defaultConfig {
+        // Ajoutez ces lignes
+        manifestPlaceholders = [
+            auth0Domain: "votre-domaine.auth0.com",
+            auth0Scheme: "wyztvn"
+        ]
+    }
+}
+<key>NSMicrophoneUsageDescription</key>
+<string>WYZTVN a besoin d'accéder au microphone pour la reconnaissance vocale</string>
+<key>NSCameraUsageDescription</key>
+<string>WYZTVN a besoin d'accéder à la caméra pour le streaming d'urgence</string>
+<key>NSLocationWhenInUseUsageDescription</key>
+<string>WYZTVN a besoin de votre position pour les services d'urgence</string>
+// services/authService.js
+import auth0 from 'react-native-auth0';
+
+const auth = new auth0({
+  domain: 'votre-domaine.auth0.com',
+  clientId: 'votre-client-id'
+});
+
+export const loginWithGoogle = async () => {
+  return await auth.webAuth.authorize({
+    scope: 'openid profile email',
+    connection: 'google-oauth2'
+  });
+};
+
+export const loginWithApple = async () => {
+  return await auth.webAuth.authorize({
+    scope: 'openid profile email',
+    connection: 'apple'
+  });
+};
+// services/cameraService.js
+import { RTCPeerConnection, RTCView, mediaDevices } from 'react-native-webrtc';
+
+let peerConnection;
+let localStream;
+let remoteStream;
+
+export const startLocalStream = async () => {
+  localStream = await mediaDevices.getUserMedia({
+    audio: true,
+    video: { facingMode: 'user' }
+  });
+  return localStream;
+};
+
+export const startRemoteStream = async (contactId) => {
+  // Implémentation du WebRTC pour le streaming
+};
+
+
+---
+
+Now that you know how this guide works, it's time to get to know the foundation of React Native: [Native Components](intro-react-native-components.md).
