@@ -81,64 +81,64 @@ export default App;
 
 ### `borderBottomEndRadius`
 
-| Type   |
-| ------ |
+| Type             |
+| ---------------- |
 | number \| string |
 
 ---
 
 ### `borderBottomLeftRadius`
 
-| Type   |
-| ------ |
+| Type             |
+| ---------------- |
 | number \| string |
 
 ---
 
 ### `borderBottomRightRadius`
 
-| Type   |
-| ------ |
+| Type             |
+| ---------------- |
 | number \| string |
 
 ---
 
 ### `borderBottomStartRadius`
 
-| Type   |
-| ------ |
+| Type             |
+| ---------------- |
 | number \| string |
 
 ---
 
 ### `borderStartEndRadius`
 
-| Type   |
-| ------ |
+| Type             |
+| ---------------- |
 | number \| string |
 
 ---
 
 ### `borderStartStartRadius`
 
-| Type   |
-| ------ |
+| Type             |
+| ---------------- |
 | number \| string |
 
 ---
 
 ### `borderEndEndRadius`
 
-| Type   |
-| ------ |
+| Type             |
+| ---------------- |
 | number \| string |
 
 ---
 
 ### `borderEndStartRadius`
 
-| Type   |
-| ------ |
+| Type             |
+| ---------------- |
 | number \| string |
 
 ---
@@ -197,9 +197,9 @@ On iOS 13+, it is possible to change the corner curve of borders.
 
 If the rounded border is not visible, try applying `overflow: 'hidden'` as well.
 
-| Type   |
-| ------ |
-| number \| string  |
+| Type             |
+| ---------------- |
+| number \| string |
 
 ---
 
@@ -245,32 +245,32 @@ If the rounded border is not visible, try applying `overflow: 'hidden'` as well.
 
 ### `borderTopEndRadius`
 
-| Type   |
-| ------ |
+| Type             |
+| ---------------- |
 | number \| string |
 
 ---
 
 ### `borderTopLeftRadius`
 
-| Type   |
-| ------ |
+| Type             |
+| ---------------- |
 | number \| string |
 
 ---
 
 ### `borderTopRightRadius`
 
-| Type   |
-| ------ |
+| Type             |
+| ---------------- |
 | number \| string |
 
 ---
 
 ### `borderTopStartRadius`
 
-| Type   |
-| ------ |
+| Type             |
+| ---------------- |
 | number \| string |
 
 ---
