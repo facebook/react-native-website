@@ -83,7 +83,7 @@ export default App;
 
 | Type   |
 | ------ |
-| number |
+| number \| string |
 
 ---
 
@@ -91,7 +91,7 @@ export default App;
 
 | Type   |
 | ------ |
-| number |
+| number \| string |
 
 ---
 
@@ -99,7 +99,7 @@ export default App;
 
 | Type   |
 | ------ |
-| number |
+| number \| string |
 
 ---
 
@@ -107,7 +107,7 @@ export default App;
 
 | Type   |
 | ------ |
-| number |
+| number \| string |
 
 ---
 
@@ -115,7 +115,7 @@ export default App;
 
 | Type   |
 | ------ |
-| number |
+| number \| string |
 
 ---
 
@@ -123,7 +123,7 @@ export default App;
 
 | Type   |
 | ------ |
-| number |
+| number \| string |
 
 ---
 
@@ -131,7 +131,7 @@ export default App;
 
 | Type   |
 | ------ |
-| number |
+| number \| string |
 
 ---
 
@@ -139,7 +139,7 @@ export default App;
 
 | Type   |
 | ------ |
-| number |
+| number \| string |
 
 ---
 
@@ -199,7 +199,7 @@ If the rounded border is not visible, try applying `overflow: 'hidden'` as well.
 
 | Type   |
 | ------ |
-| number |
+| number \| string  |
 
 ---
 
@@ -247,7 +247,7 @@ If the rounded border is not visible, try applying `overflow: 'hidden'` as well.
 
 | Type   |
 | ------ |
-| number |
+| number \| string |
 
 ---
 
@@ -255,7 +255,7 @@ If the rounded border is not visible, try applying `overflow: 'hidden'` as well.
 
 | Type   |
 | ------ |
-| number |
+| number \| string |
 
 ---
 
@@ -263,7 +263,7 @@ If the rounded border is not visible, try applying `overflow: 'hidden'` as well.
 
 | Type   |
 | ------ |
-| number |
+| number \| string |
 
 ---
 
@@ -271,7 +271,7 @@ If the rounded border is not visible, try applying `overflow: 'hidden'` as well.
 
 | Type   |
 | ------ |
-| number |
+| number \| string |
 
 ---
 
