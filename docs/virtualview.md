@@ -65,7 +65,7 @@ Content to render inside this `VirtualView`.
 
 ---
 
-### **`onModeChange`**
+### `onModeChange`
 
 Invoked when the `VirtualView` changes how it renders its children.
 
