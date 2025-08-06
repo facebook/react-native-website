@@ -1,0 +1,30 @@
+---
+id: integration-with-existing-apps
+title: 集成到现有原生应用
+hide_table_of_contents: true
+---
+
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
+
+import IntegrationApple from './\_integration-with-existing-apps-ios.md'; import
+IntegrationKotlin from './\_integration-with-existing-apps-kotlin.md';
+
+如果你正准备从头开始制作一个新的应用，那么 React Native 会是个非常好的选择。但如果你只想给现有的原生应用中添加一两个视图或是业务流程，React Native 也同样不在话下。只需简单几步，你就可以给原有应用加上新的基于 React Native 的特性、画面和视图等。
+
+具体的步骤根据你所开发的目标平台不同而不同。
+
+> 译注：本文档可能更新不够及时，不能保证适用于最新版本，欢迎了解的朋友使用页面底部的编辑链接帮忙改进此文档。一个实用的建议是可以使用`npx react-native init NewProject`创建一个最新版本的纯 RN 项目，去参考其 Podfile 或是 gradle 等的配置，以它们为准。
+
+<Tabs groupId="language" queryString defaultValue="kotlin" values={[ {label: 'Android (Java & Kotlin)', value: 'kotlin'}, {label: 'iOS (Objective-C and Swift)', value: 'apple'}, ]}>
+
+<TabItem value="kotlin">
+
+<IntegrationKotlin />
+
+</TabItem>
+<TabItem value="apple">
+
+<IntegrationApple />
+
+</TabItem>
+</Tabs>
