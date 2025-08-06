@@ -19,13 +19,13 @@ When it is the descendent of a [`ScrollView`](scrollview), it gains additional v
 </ScrollView>
 ```
 
-A `VirtualView` without an ancestor `ScrollView` does not have any virtualization capabilities.
+A `VirtualView` without an ancestor[`ScrollView`](scrollview) does not have any virtualization capabilities.
 
 ## Virtualization
 
 When a `VirtualView` leaves the visible region of a [`ScrollView`](scrollview), it becomes hidden. When hidden, a `VirtualView` will cache its most recent layout and may unmount its children — a process called virtualization.
 
-When a `VirtualView` returns to the visible region of a `ScrollView`, it becomes visible. When visible, its children are *guaranteed* to be rendered. This guarantee is maintained by blocking the main thread from rendering the next frame that would reveal the `VirtualView` until its children can be rendered.
+When a `VirtualView` returns to the visible region of a [`ScrollView`](scrollview), it becomes visible. When visible, its children are *guaranteed* to be rendered. This guarantee is maintained by blocking the main thread from rendering the next frame that would reveal the `VirtualView` until its children can be rendered.
 
 <img src="/docs/assets/d_virtualview_modes.svg" width="700" alt="Diagram of VirtualView modes and thresholds." />
 
@@ -71,10 +71,10 @@ Invoked when the `VirtualView` changes how it renders its children.
 
 If a callback is supplied, it may be invoked from different threads and priorities depending on the internal state change. This can be detected by checking the `mode` property on the event:
 
-- If `mode` is `VirtualViewMode.Visible`, the callback is being invoked from the main thread with immediate priority.
-- If `mode` is `VirtualViewMode.Prerender` or `VirtualViewMode.Hidden`, the callback is being invoked from a background thread with transition priority.
+- If `mode` is [`VirtualViewMode.Visible`](#virtualviewmode), the callback is being invoked from the main thread with immediate priority.
+- If `mode` is [`VirtualViewMode.Prerender`](#virtualviewmode) or [`VirtualViewMode.Hidden`](#virtualviewmode), the callback is being invoked from a background thread with transition priority.
 
-The callback will never be invoked consecutively with the same `mode` value. However, there are few guarantees about sequencing of events. Also, the callback may never be invoked with `VirtualViewMode.Visible` even if it becomes visible, if the children were successfully prerendered.
+The callback will never be invoked consecutively with the same `mode` value. However, there are few guarantees about sequencing of events. Also, the callback may never be invoked with [`VirtualViewMode.Visible`](#virtualviewmode) even if it becomes visible, if the children were successfully prerendered.
 
 | Type                                               |
 | -------------------------------------------------- |
@@ -122,7 +122,7 @@ Argument supplied to [`onModeChange`](#onmodechange).
 :::note
 For example, if a `VirtualView` enters the visible region of a [`ScrollView`](scrollview)...
 
-- `mode` would be `VirtualViewMode.Visible`
+- `mode` would be [`VirtualViewMode.Visible`](#virtualviewmode)
 - `thresholdRect` would describe the current scroll position of the nearest ancestor [`ScrollView`](scrollview)
 - `targetRect` would be the layout of `target` that overlaps with `thresholdRect` (i.e. it is within the visible region of the [`ScrollView`](scrollview))
 
@@ -150,7 +150,7 @@ static createHiddenVirtualView(height: number): typeof VirtualView;
 
 `VirtualView` initially renders its children as visible, even if it is initially obscured by an ancestor [`ScrollView`](scrollview). This is because when a component is initially rendered, the presence of an ancestor [`ScrollView`](scrollview) — let alone its size and scroll position — are unknown.
 
-For advanced use cases, `createHiddenVirtualView` creates a component that renders an initially hidden `VirtualView` with the supplied estimated layout.
+For advanced use cases, `createHiddenVirtualView()` creates a component that renders an initially hidden `VirtualView` with the supplied estimated layout.
 
 ```tsx
 const HiddenVirtualView = createHiddenVirtualView(100);
