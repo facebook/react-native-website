@@ -25,7 +25,7 @@ A `VirtualView` without an ancestor[`ScrollView`](scrollview) does not have any 
 
 When a `VirtualView` leaves the visible region of a [`ScrollView`](scrollview), it becomes hidden. When hidden, a `VirtualView` will cache its most recent layout and may unmount its children — a process called virtualization.
 
-When a `VirtualView` returns to the visible region of a [`ScrollView`](scrollview), it becomes visible. When visible, its children are *guaranteed* to be rendered. This guarantee is maintained by blocking the main thread from rendering the next frame that would reveal the `VirtualView` until its children can be rendered.
+When a `VirtualView` returns to the visible region of a [`ScrollView`](scrollview), it becomes visible. When visible, its children are _guaranteed_ to be rendered. This guarantee is maintained by blocking the main thread from rendering the next frame that would reveal the `VirtualView` until its children can be rendered.
 
 <img src="/docs/assets/d_virtualview_modes.svg" width="700" alt="Diagram of VirtualView modes and thresholds." />
 
@@ -159,11 +159,11 @@ const HiddenVirtualView = createHiddenVirtualView(100);
   <HiddenVirtualView>
     <Text>Hello world!</Text>
   </HiddenVirtualView>
-</ScrollView>
+</ScrollView>;
 ```
 
 **Parameters:**
 
-| Name                                                       | Type   | Description                                            |
-| ---------------------------------------------------------- | ------ | ------------------------------------------------------ |
-| height <div class="label basic required">Required</div>    | number | Estimated height of initially rendering `VirtualView`. |
+| Name                                                    | Type   | Description                                            |
+| ------------------------------------------------------- | ------ | ------------------------------------------------------ |
+| height <div class="label basic required">Required</div> | number | Estimated height of initially rendering `VirtualView`. |
