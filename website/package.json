@@ -12,7 +12,7 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
-    "build": "docusaurus build && yarn run update-redirect ./build/_redirects ./versions.json",
+    "build": "docusaurus build && yarn run update-redirect ./build/_redirects ./versions.json && yarn run generate-llms-txt",
     "build:fast": "PREVIEW_DEPLOY=true yarn run build",
     "tsc": "npx tsc --noEmit",
     "swizzle": "docusaurus swizzle",
@@ -35,7 +35,8 @@
     "language:lint": "cd ../ && alex && case-police 'docs/*.md' -d ./website/react-native-dict.json --disable SDK,URI",
     "language:lint:versioned": "cd ../ && alex . && case-police '**/*.md' -d ./website/react-native-dict.json --disable SDK,URI",
     "ci:lint": "yarn lint && yarn lint:examples && yarn lint:versioned && yarn language:lint:versioned && yarn lint:markdown && yarn lint:format",
-    "pwa:generate": "npx pwa-asset-generator ./static/img/header_logo.svg ./static/img/pwa --padding '40px' --background 'rgb(32, 35, 42)' --icon-only --opaque true"
+    "pwa:generate": "npx pwa-asset-generator ./static/img/header_logo.svg ./static/img/pwa --padding '40px' --background 'rgb(32, 35, 42)' --icon-only --opaque true",
+    "generate-llms-txt": "node ../scripts/generate-llms-txt.js"
   },
   "browserslist": {
     "production": [
@@ -50,21 +51,21 @@
     ]
   },
   "dependencies": {
-    "@docusaurus/core": "3.6.3",
-    "@docusaurus/faster": "3.6.3",
-    "@docusaurus/plugin-google-gtag": "3.6.3",
-    "@docusaurus/plugin-pwa": "3.6.3",
-    "@docusaurus/preset-classic": "3.6.3",
-    "docusaurus-plugin-sass": "^0.2.5",
+    "@docusaurus/core": "3.8.1",
+    "@docusaurus/faster": "3.8.1",
+    "@docusaurus/plugin-google-gtag": "3.8.1",
+    "@docusaurus/plugin-pwa": "3.8.1",
+    "@docusaurus/preset-classic": "3.8.1",
+    "docusaurus-plugin-sass": "^0.2.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-github-btn": "^1.4.0",
     "sass": "1.76.0"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "3.6.3",
-    "@docusaurus/tsconfig": "3.6.3",
-    "@docusaurus/types": "3.6.3",
+    "@docusaurus/module-type-aliases": "3.8.1",
+    "@docusaurus/tsconfig": "3.8.1",
+    "@docusaurus/types": "3.8.1",
     "@react-native-website/lint-examples": "0.0.0",
     "@react-native-website/update-redirects": "0.0.0",
     "@types/google.analytics": "^0.0.46",

@@ -81,65 +81,65 @@ export default App;
 
 ### `borderBottomEndRadius`
 
-| Type   |
-| ------ |
-| number |
+| Type                              |
+| --------------------------------- |
+| number, string (percentage value) |
 
 ---
 
 ### `borderBottomLeftRadius`
 
-| Type   |
-| ------ |
-| number |
+| Type                              |
+| --------------------------------- |
+| number, string (percentage value) |
 
 ---
 
 ### `borderBottomRightRadius`
 
-| Type   |
-| ------ |
-| number |
+| Type                              |
+| --------------------------------- |
+| number, string (percentage value) |
 
 ---
 
 ### `borderBottomStartRadius`
 
-| Type   |
-| ------ |
-| number |
+| Type                              |
+| --------------------------------- |
+| number, string (percentage value) |
 
 ---
 
 ### `borderStartEndRadius`
 
-| Type   |
-| ------ |
-| number |
+| Type                              |
+| --------------------------------- |
+| number, string (percentage value) |
 
 ---
 
 ### `borderStartStartRadius`
 
-| Type   |
-| ------ |
-| number |
+| Type                              |
+| --------------------------------- |
+| number, string (percentage value) |
 
 ---
 
 ### `borderEndEndRadius`
 
-| Type   |
-| ------ |
-| number |
+| Type                              |
+| --------------------------------- |
+| number, string (percentage value) |
 
 ---
 
 ### `borderEndStartRadius`
 
-| Type   |
-| ------ |
-| number |
+| Type                              |
+| --------------------------------- |
+| number, string (percentage value) |
 
 ---
 
@@ -197,9 +197,9 @@ On iOS 13+, it is possible to change the corner curve of borders.
 
 If the rounded border is not visible, try applying `overflow: 'hidden'` as well.
 
-| Type   |
-| ------ |
-| number |
+| Type                              |
+| --------------------------------- |
+| number, string (percentage value) |
 
 ---
 
@@ -245,41 +245,41 @@ If the rounded border is not visible, try applying `overflow: 'hidden'` as well.
 
 ### `borderTopEndRadius`
 
-| Type   |
-| ------ |
-| number |
+| Type                              |
+| --------------------------------- |
+| number, string (percentage value) |
 
 ---
 
 ### `borderTopLeftRadius`
 
-| Type   |
-| ------ |
-| number |
+| Type                              |
+| --------------------------------- |
+| number, string (percentage value) |
 
 ---
 
 ### `borderTopRightRadius`
 
-| Type   |
-| ------ |
-| number |
+| Type                              |
+| --------------------------------- |
+| number, string (percentage value) |
 
 ---
 
 ### `borderTopStartRadius`
 
-| Type   |
-| ------ |
-| number |
+| Type                              |
+| --------------------------------- |
+| number, string (percentage value) |
 
 ---
 
 ### `borderTopWidth`
 
-| Type   |
-| ------ |
-| number |
+| Type                              |
+| --------------------------------- |
+| number, string (percentage value) |
 
 ---
 

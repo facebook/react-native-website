@@ -438,6 +438,18 @@ An optional identifier which links a custom [InputAccessoryView](inputaccessoryv
 
 ---
 
+### `inputAccessoryViewButtonLabel` <div class="label ios">iOS</div>
+
+An optional label that overrides the default [InputAccessoryView](inputaccessoryview.md) button label.
+
+By default, the default button label is not localized. Use this property to provide a localized version.
+
+| Type   |
+| ------ |
+| string |
+
+---
+
 ### `inputMode`
 
 Works like the `inputmode` attribute in HTML, it determines which keyboard to open, e.g. `numeric` and has precedence over `keyboardType`.
@@ -1041,6 +1053,16 @@ The value to show for the text input. `TextInput` is a controlled component, whi
 | Type   |
 | ------ |
 | string |
+
+---
+
+### `lineBreakModeIOS` <div class="label ios">iOS</div>
+
+Set line break mode on iOS. Possible values are `wordWrapping`, `char`, `clip`, `head`, `middle` and `tail`.
+
+| Type                                                                       | Default          |
+| -------------------------------------------------------------------------- | ---------------- |
+| enum(`'wordWrapping'`, `'char'`, `'clip'`, `'head'`, `'middle'`, `'tail'`) | `'wordWrapping'` |
 
 ---
 

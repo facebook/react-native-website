@@ -157,7 +157,7 @@ Then you need to enable [cleartext traffic](https://developer.android.com/traini
 
 As usual, here the AndroidManifest.xml file from the Community template to use as a reference: [main](https://github.com/react-native-community/template/blob/0.77-stable/template/android/app/src/main/AndroidManifest.xml) and [debug](https://github.com/react-native-community/template/blob/0.77-stable/template/android/app/src/debug/AndroidManifest.xml)
 
-This is needed as your application will communicate with your local bundler, [Metro][https://metrobundler.dev/], via HTTP.
+This is needed as your application will communicate with your local bundler, [Metro](https://metrobundler.dev/), via HTTP.
 
 Make sure you add this only to your **debug** manifest.
 
@@ -424,7 +424,7 @@ class MyReactActivity : ReactActivity() {
 </TabItem>
 </Tabs>
 
-As usual, here the [MainActivity.kt Community template file as reference](https://github.com/react-native-community/template/blob/0.77-stable/template/android/app/src/main/java/com/helloworld/MainApplication.kt)
+As usual, here the [MainActivity.kt Community template file as reference](https://github.com/react-native-community/template/blob/0.79-stable/template/android/app/src/main/java/com/helloworld/MainActivity.kt)
 
 Whenever you create a new Activity, you need to add it to your `AndroidManifest.xml` file. You also need set the theme of `MyReactActivity` to `Theme.AppCompat.Light.NoActionBar` (or to any non-ActionBar theme) as otherwise your application will render an ActionBar on top of your React Native screen:
 

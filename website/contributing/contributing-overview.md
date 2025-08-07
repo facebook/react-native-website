@@ -20,6 +20,11 @@ Contributors and people new to open source alike will find the following guides 
 
 As a reminder, all contributors are expected to adhere to the [Code of Conduct](https://github.com/facebook/react-native/blob/HEAD/CODE_OF_CONDUCT.md).
 
+## Versioning Policy
+
+In order to fully understand the versioning of React Native, we recommend you to check out the [Versioning Policy](/contributing/versioning-policy) page.
+In that page we describe which versions of React Native are supported, how often they're released and which one you should use based on your circumstances.
+
 ## Ways to Contribute
 
 If you are eager to start contributing code right away, we have a list of [good first issues](https://github.com/facebook/react-native/labels/good%20first%20issue) that contain bugs which have a relatively limited scope.
