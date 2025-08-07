@@ -127,8 +127,8 @@ For example, if you have a button that has an `onPress` listener, you want to te
 
 There are several libraries that can help you testing these:
 
-- React’s [Test Renderer](https://reactjs.org/docs/test-renderer.html), developed alongside its core, provides a React renderer that can be used to render React components to pure JavaScript objects, without depending on the DOM or a native mobile environment.
 - [React Native Testing Library](https://callstack.github.io/react-native-testing-library/) builds on top of React’s test renderer and adds `fireEvent` and `query` APIs described in the next paragraph.
+- [Deprecated] React’s [Test Renderer](https://react.dev/blog/2024/04/25/react-19-upgrade-guide#deprecated-react-test-renderer), developed alongside its core, provides a React renderer that can be used to render React components to pure JavaScript objects, without depending on the DOM or a native mobile environment.
 
 > Component tests are only JavaScript tests running in Node.js environment. They do _not_ take into account any iOS, Android, or other platform code which is backing the React Native components. It follows that they cannot give you a 100% confidence that everything works for the user. If there is a bug in the iOS or Android code, they will not find it.
 
@@ -261,7 +261,7 @@ We hope you enjoyed reading and learned something from this guide. There are man
 
 ### Links
 
-- [React testing overview](https://reactjs.org/docs/testing.html)
+- [React testing overview](https://react.dev/reference/react/act)
 - [React Native Testing Library](https://callstack.github.io/react-native-testing-library/)
 - [Jest docs](https://jestjs.io/docs/en/tutorial-react-native)
 - [Detox](https://github.com/wix/detox/)
