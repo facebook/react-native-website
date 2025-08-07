@@ -37,7 +37,7 @@ In future developments, a hidden `VirtualView` may instead render its children i
 
 This is the first time in React Native’s feature set where rendering a React component can block the main thread. This is a new capability enabled by the [New Architecture](/architecture/landing-page)!
 
-Blocking the main thread can provide a better user experience by preventing flashes of blank frames that sometimes occurwhen using components like [`FlatList`](flatlist). It can also enable better performance by using main thread priority, which is also typically run on higher performance cores.
+Blocking the main thread can provide a better user experience by preventing flashes of blank frames that sometimes occur when using components like [`FlatList`](flatlist). It can also enable better performance by using main thread priority, which is also typically run on higher performance cores.
 
 However, blocking the main thread also comes with tradeoffs. If an update operation, such as mounting the children of a `VirtualView`, takes too long to finish, it can now drop frames. Dropping more than a couple frames can lead to a worse user experience by making the app feel sluggish and non-responsive. Dropping too many frames may cause the operating system to display a modal indicating the app is not responsive, or it may even terminate your app!
 
