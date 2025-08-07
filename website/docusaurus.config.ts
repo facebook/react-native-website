@@ -13,6 +13,10 @@ import path from 'path';
 import users from './showcase.json';
 import versions from './versions.json';
 
+// See https://docs.netlify.com/configure-builds/environment-variables/
+const isProductionDeployment =
+  !!process.env.NETLIFY && process.env.CONTEXT === 'production';
+
 const lastVersion = versions[0];
 const copyright = `Copyright © ${new Date().getFullYear()} Meta Platforms, Inc.`;
 
@@ -63,6 +67,8 @@ const isDeployPreview = process.env.PREVIEW_DEPLOY === 'true';
 
 const config: Config = {
   future: {
+    // Turns Docusaurus v4 future flags on to make it easier to upgrade later
+    v4: true,
     // Make Docusaurus build faster - enabled by default
     // See https://github.com/facebook/docusaurus/issues/10556
     // See https://github.com/facebook/react-native-website/pull/4268
@@ -154,6 +160,21 @@ const config: Config = {
   ],
   plugins: [
     'docusaurus-plugin-sass',
+    function disableExpensiveBundlerOptimizationPlugin() {
+      return {
+        name: 'disable-expensive-bundler-optimizations',
+        configureWebpack(_config, isServer) {
+          // This optimization is expensive and only reduces by 3% the JS assets size
+          // Let's skip it for local and deploy preview builds
+          // See also https://github.com/facebook/docusaurus/discussions/11199
+          return {
+            optimization: {
+              concatenateModules: isProductionDeployment ? !isServer : false,
+            },
+          };
+        },
+      };
+    },
     [
       'content-docs',
       {
@@ -247,9 +268,9 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     announcementBar: {
-      id: 'new-architecture',
+      id: 'react-conf',
       content:
-        'The New Architecture has arrived - <a target="_blank" rel="noopener noreferrer" href="/blog/2024/10/23/the-new-architecture-is-here">learn more</a>',
+        'Join us for React Conf on Oct 7-8. <a target="_blank" rel="noopener noreferrer" href="https://conf.react.dev">Learn more</a>.',
       backgroundColor: '#20232a',
       textColor: '#fff',
       isCloseable: false,
@@ -429,6 +450,10 @@ const config: Config = {
             {
               label: 'X',
               href: 'https://x.com/reactnative',
+            },
+            {
+              label: 'Bluesky',
+              href: 'https://bsky.app/profile/reactnative.dev',
             },
             {
               label: 'GitHub',

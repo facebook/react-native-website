@@ -14,18 +14,20 @@ Android and iOS differ slightly in their approaches, and thus the React Native i
 
 ### `accessible`
 
-When `true`, indicates that the view is an accessibility element. When a view is an accessibility element, it groups its children into a single selectable component. By default, all touchable elements are accessible.
+When `true`, indicates that the view is discoverable by assistive technologies such as screen readers and hardware keyboards. Note that this does not necessarily mean that the view will be focused by VoiceOver or TalkBack. There are a number of reasons for this, such as VoiceOver disallowing nested accessibility elements, or TalkBack opting to focus some parent element instead.
 
-On Android, `accessible={true}` property for a react-native View will be translated into native `focusable={true}`.
+By default, all touchable elements are accessible.
+
+On Android, `accessible` will be translated into native [`focusable`](<https://developer.android.com/reference/android/view/View#setFocusable(boolean)>). On iOS, it translates into native [`isAccessibilityElement`](https://developer.apple.com/documentation/uikit/uiaccessibilityelement/isaccessibilityelement?language=objc).
 
 ```tsx
-<View accessible={true}>
-  <Text>text one</Text>
-  <Text>text two</Text>
+<View>
+  <View accessible={true} />
+  <View />
 </View>
 ```
 
-In the above example, accessibility focus is only available on the parent view with the `accessible` property, and not individually for 'text one' and 'text two'.
+In the above example, accessibility focus is only available on the first child view with the `accessible` property, and not for the parent or sibling without `accessible`.
 
 ### `accessibilityLabel`
 
@@ -427,6 +429,8 @@ When adding support for standard actions, `name` must be one of the following:
 - `'increment'` - Increment an adjustable component. On iOS, VoiceOver generates this action when the component has a role of `'adjustable'` and the user places focus on it and swipes upward. On Android, TalkBack generates this action when the user places accessibility focus on the component and presses the volume-up button.
 - `'decrement'` - Decrement an adjustable component. On iOS, VoiceOver generates this action when the component has a role of `'adjustable'` and the user places focus on it and swipes downward. On Android, TalkBack generates this action when the user places accessibility focus on the component and presses the volume-down button.
 - `'longpress'` - Android only - This action is generated when the user places accessibility focus on the component, then double-taps and holds one finger on the screen. This should perform the same action with, or without, assistive technology.
+- `'expand'` - Android only - This action "expands" the component so that TalkBack will announce an "expanded" hint.
+- `'collapse'` - Android only - This action "collapses" the component so that TalkBack will announce a "collapsed" hint.
 
 The `label` field is optional for standard actions and is often unused by assistive technologies. For custom actions, it is a localized string containing a description of the action to be presented to the user.
 
