@@ -1,0 +1,14 @@
+/**
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+.sidebarItemTitle {
+  margin: 0.75rem 0 0.5rem;
+  color: var(--subtle);
+  padding-left: 12px;
+  border-bottom: 0.01rem solid var(--ifm-table-border-color);
+  padding-bottom: 4px;
+}
