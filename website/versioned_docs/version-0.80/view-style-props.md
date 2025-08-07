@@ -81,65 +81,65 @@ export default App;
 
 ### `borderBottomEndRadius`
 
-| Type   |
-| ------ |
-| number |
+| Type             |
+| ---------------- |
+| number \| string |
 
 ---
 
 ### `borderBottomLeftRadius`
 
-| Type   |
-| ------ |
-| number |
+| Type             |
+| ---------------- |
+| number \| string |
 
 ---
 
 ### `borderBottomRightRadius`
 
-| Type   |
-| ------ |
-| number |
+| Type             |
+| ---------------- |
+| number \| string |
 
 ---
 
 ### `borderBottomStartRadius`
 
-| Type   |
-| ------ |
-| number |
+| Type             |
+| ---------------- |
+| number \| string |
 
 ---
 
 ### `borderStartEndRadius`
 
-| Type   |
-| ------ |
-| number |
+| Type             |
+| ---------------- |
+| number \| string |
 
 ---
 
 ### `borderStartStartRadius`
 
-| Type   |
-| ------ |
-| number |
+| Type             |
+| ---------------- |
+| number \| string |
 
 ---
 
 ### `borderEndEndRadius`
 
-| Type   |
-| ------ |
-| number |
+| Type             |
+| ---------------- |
+| number \| string |
 
 ---
 
 ### `borderEndStartRadius`
 
-| Type   |
-| ------ |
-| number |
+| Type             |
+| ---------------- |
+| number \| string |
 
 ---
 
@@ -197,9 +197,9 @@ On iOS 13+, it is possible to change the corner curve of borders.
 
 If the rounded border is not visible, try applying `overflow: 'hidden'` as well.
 
-| Type   |
-| ------ |
-| number |
+| Type             |
+| ---------------- |
+| number \| string |
 
 ---
 
@@ -245,33 +245,33 @@ If the rounded border is not visible, try applying `overflow: 'hidden'` as well.
 
 ### `borderTopEndRadius`
 
-| Type   |
-| ------ |
-| number |
+| Type             |
+| ---------------- |
+| number \| string |
 
 ---
 
 ### `borderTopLeftRadius`
 
-| Type   |
-| ------ |
-| number |
+| Type             |
+| ---------------- |
+| number \| string |
 
 ---
 
 ### `borderTopRightRadius`
 
-| Type   |
-| ------ |
-| number |
+| Type             |
+| ---------------- |
+| number \| string |
 
 ---
 
 ### `borderTopStartRadius`
 
-| Type   |
-| ------ |
-| number |
+| Type             |
+| ---------------- |
+| number \| string |
 
 ---
 
