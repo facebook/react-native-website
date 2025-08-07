@@ -76,7 +76,7 @@ export default (TurboModuleRegistry.get<Spec>(
 </TabItem>
 </Tabs>
 
-With the `import type` statement, you are importing the `CodegenTypes` from react-native, which includes the `EventEmitter` type. This allows you to define the `onKeyAdded` property using `CodegenTypes.EventEmitter<KeyValuePair>`, specifying that the event will emit a payload of type `KeyValuePair`.
+With the `import type` statement, you are importing the `CodegenTypes` from `react-native`, which includes the `EventEmitter` type. This allows you to define the `onKeyAdded` property using `CodegenTypes.EventEmitter<KeyValuePair>`, specifying that the event will emit a payload of type `KeyValuePair`.
 
 When the event is emitted, you expect for it to receive a parameter of type `string`.
 
