@@ -23,9 +23,8 @@ The first step would be to update the specs of the `NativeLocalStorage` specs to
 Open the `NativeLocalStorage.ts` file and update it as it follows:
 
 ```diff title="NativeLocalStorage.ts"
-import type {TurboModule} from 'react-native';
+import type {TurboModule, CodegenTypes} from 'react-native';
 import {TurboModuleRegistry} from 'react-native';
-+import type {EventEmitter} from 'react-native/Libraries/Types/CodegenTypes';
 
 +export type KeyValuePair = {
 +  key: string,
@@ -38,7 +37,7 @@ export interface Spec extends TurboModule {
   removeItem(key: string): void;
   clear(): void;
 
-+ readonly onKeyAdded: EventEmitter<KeyValuePair>;
++ readonly onKeyAdded: CodegenTypes.EventEmitter<KeyValuePair>;
 }
 
 export default TurboModuleRegistry.getEnforcing<Spec>(
@@ -54,9 +53,8 @@ Open the `NativeLocalStorage.js` file and update it as it follows:
 ```diff title="NativeLocalStorage.js"
 
 // @flow
-import type {TurboModule} from 'react-native';
+import type {TurboModule, CodegenTypes} from 'react-native';
 import {TurboModule, TurboModuleRegistry} from 'react-native';
-+import type {EventEmitter} from 'react-native/Libraries/Types/CodegenTypes';
 
 +export type KeyValuePair = {
 +  key: string,
@@ -68,7 +66,7 @@ export interface Spec extends TurboModule {
   getItem(key: string): ?string;
   removeItem(key: string): void;
   clear(): void;
-+ onKeyAdded: EventEmitter<KeyValuePair>
++ onKeyAdded: CodegenTypes.EventEmitter<KeyValuePair>
 }
 export default (TurboModuleRegistry.get<Spec>(
   'NativeLocalStorage'
