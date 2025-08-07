@@ -73,9 +73,9 @@ Inherits [Image Props](image.md#props).
 
 Allows to set a reference to the inner `Image` component
 
-| Type                                                  |
-| ----------------------------------------------------- |
-| [Ref](https://reactjs.org/docs/refs-and-the-dom.html) |
+| Type                                                          |
+| ------------------------------------------------------------- |
+| [Ref](https://react.dev/learn/manipulating-the-dom-with-refs) |
 
 ---
 
