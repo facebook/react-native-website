@@ -559,7 +559,7 @@ When `accessible` is `true`, the system will invoke this function when the user 
 
 ---
 
-### `onAccessibilityTap`
+### `onAccessibilityTap` <div class="label ios">iOS</div>
 
 When `accessible` is true, the system will try to invoke this function when the user performs accessibility tap gesture.
 
@@ -701,23 +701,23 @@ Controls whether the `View` can be the target of touch events.
 - `'none'`: The View is never the target of touch events.
 - `'box-none'`: The View is never the target of touch events but its subviews can be. It behaves like if the view had the following classes in CSS:
 
-```
+```css
 .box-none {
-     pointer-events: none;
+  pointer-events: none;
 }
 .box-none * {
-     pointer-events: auto;
+  pointer-events: auto;
 }
 ```
 
 - `'box-only'`: The view can be the target of touch events but its subviews cannot be. It behaves like if the view had the following classes in CSS:
 
-```
+```css
 .box-only {
-     pointer-events: auto;
+  pointer-events: auto;
 }
 .box-only * {
-     pointer-events: none;
+  pointer-events: none;
 }
 ```
 

@@ -46,9 +46,6 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-- The [`useDimensions`](https://github.com/react-native-community/hooks#usedimensions) hook from the community [React Native Hooks](https://github.com/react-native-community/hooks) library aims to make handling screen/window size changes easier to work with.
-- [React Native Responsive Dimensions](https://github.com/react-native-toolkit/react-native-responsive-dimensions) also comes with responsive hooks.
-
 ## Properties
 
 ### `fontScale`

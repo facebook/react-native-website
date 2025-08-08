@@ -172,7 +172,8 @@ On the web, the usual way to set a font family and size for the entire document 
 
 ```css
 html {
-  font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
+  font-family:
+    'lucida grande', tahoma, verdana, arial, sans-serif;
   font-size: 11px;
   color: #141823;
 }
@@ -210,15 +211,13 @@ You also lose the ability to set up a default font for an entire subtree. Meanwh
 Assuming that `MyAppText` is a component that only renders out its children into a `Text` component with styling, then `MyAppHeaderText` can be defined as follows:
 
 ```tsx
-class MyAppHeaderText extends Component {
-  render() {
-    return (
-      <MyAppText>
-        <Text style={{fontSize: 20}}>{this.props.children}</Text>
-      </MyAppText>
-    );
-  }
-}
+const MyAppHeaderText = ({children}) => {
+  return (
+    <MyAppText>
+      <Text style={{fontSize: 20}}>{children}</Text>
+    </MyAppText>
+  );
+};
 ```
 
 Composing `MyAppText` in this way ensures that we get the styles from a top-level component, but leaves us the ability to add / override them in specific use cases.

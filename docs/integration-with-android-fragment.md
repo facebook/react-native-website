@@ -5,305 +5,195 @@ title: Integration with an Android Fragment
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
-The guide for [Integration with Existing Apps](https://reactnative.dev/docs/integration-with-existing-apps) details how to integrate a full-screen React Native app into an existing Android app as an Activity. To use React Native components within Fragments in an existing app requires some additional setup. The benefit of this is that it allows for a native app to integrate React Native components alongside native fragments in an Activity.
+The guide for [Integration with Existing Apps](https://reactnative.dev/docs/integration-with-existing-apps) details how to integrate a full-screen React Native app into an existing Android app as an **Activity**.
+
+To use React Native components within **Fragments** in an existing app requires some additional setup.
 
 ### 1. Add React Native to your app
 
-Follow the guide for [Integration with Existing Apps](https://reactnative.dev/docs/integration-with-existing-apps) until the Code integration section. Continue to follow Step 1. Create an `index.android.js` file and Step 2. Add your React Native code from this section.
+Follow the guide for [Integration with Existing Apps](https://reactnative.dev/docs/integration-with-existing-apps) until the end to make sure you can safely run your React Native app in a full screen Activity.
 
-### 2. Integrating your App with a React Native Fragment
+### 2. Add a FrameLayout for the React Native Fragment
 
-You can render your React Native component into a Fragment instead of a full screen React Native Activity. The component may be termed a "screen" or "fragment" and it will function in the same manner as an Android fragment, likely containing child components. These components can be placed in a `/fragments` folder and the child components used to compose the fragment can be placed in a `/components` folder.
+In this example, we're going to use a `FrameLayout` to add a React Native Fragment to an Activity. This approach is flexible enough and can be adapted to use React Native in other layouts such as Bottom Sheets or Tab Layouts.
 
-You will need to implement the `ReactApplication` interface in your main Application Java/Kotlin class. If you have created a new project from Android Studio with a default activity, you will need to create a new class (e.g. `MyReactApplication.java` or `MyReactApplication.kt`). If it is an existing class you can find this main class in your `AndroidManifest.xml` file. Under the `<application />` tag you should see a property `android:name` e.g. `android:name=".MyReactApplication"`. This value is the class you want to implement and provide the required methods to.
-
-Ensure your main Application class implements ReactApplication:
-
-<Tabs groupId="android-language" queryString defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
-<TabItem value="kotlin">
-
-```kotlin
-class MyReactApplication: Application(), ReactApplication {...}
-```
-
-</TabItem>
-<TabItem value="java">
-
-```java
-public class MyReactApplication extends Application implements ReactApplication {...}
-```
-
-</TabItem>
-</Tabs>
-
-Override the required methods `getUseDeveloperSupport`, `getPackages` and `getReactNativeHost`:
-
-<Tabs groupId="android-language" queryString defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
-<TabItem value="kotlin">
-
-```kotlin
-class MyReactApplication : Application(), ReactApplication {
-    override fun onCreate() {
-        super.onCreate()
-        SoLoader.init(this, false)
-    }
-    private val reactNativeHost =
-        object : DefaultReactNativeHost(this) {
-            override fun getUseDeveloperSupport() = BuildConfig.DEBUG
-            override fun getPackages(): List<ReactPackage> {
-                val packages = PackageList(this).getPackages().toMutableList()
-                // Packages that cannot be autolinked yet can be added manually here
-                return packages
-            }
-        }
-    override fun getReactNativeHost(): ReactNativeHost = reactNativeHost
-}
-```
-
-</TabItem>
-<TabItem value="java">
-
-```java
-public class MyReactApplication extends Application implements ReactApplication {
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        SoLoader.init(this, false);
-    }
-
-    private final ReactNativeHost mReactNativeHost = new DefaultReactNativeHost(this) {
-        @Override
-        public boolean getUseDeveloperSupport() {
-            return BuildConfig.DEBUG;
-        }
-
-        protected List<ReactPackage> getPackages() {
-            List<ReactPackage> packages = new PackageList(this).getPackages();
-            // Packages that cannot be autolinked yet can be added manually here
-            return packages;
-        }
-    };
-
-    @Override
-    public ReactNativeHost getReactNativeHost() {
-        return mReactNativeHost;
-    }
-}
-```
-
-</TabItem>
-</Tabs>
-
-If you are using Android Studio, use Alt + Enter to add all missing imports in your class. Alternatively these are the required imports to include manually:
-
-<Tabs groupId="android-language" queryString defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
-<TabItem value="kotlin">
-
-```kotlin
-import android.app.Application
-
-import com.facebook.react.PackageList
-import com.facebook.react.ReactApplication
-import com.facebook.react.ReactNativeHost
-import com.facebook.react.ReactPackage
-import com.facebook.react.defaults.DefaultReactNativeHost
-import com.facebook.soloader.SoLoader
-```
-
-</TabItem>
-<TabItem value="java">
-
-```java
-import android.app.Application;
-
-import com.facebook.react.PackageList;
-import com.facebook.react.ReactApplication;
-import com.facebook.react.ReactNativeHost;
-import com.facebook.react.ReactPackage;
-import com.facebook.react.defaults.DefaultReactNativeHost;
-import com.facebook.soloader.SoLoader;
-
-import java.util.List;
-```
-
-</TabItem>
-</Tabs>
-
-Perform a "Sync Project files with Gradle" operation.
-
-### Step 3. Add a FrameLayout for the React Native Fragment
-
-You will now add your React Native Fragment to an Activity. For a new project this Activity will be `MainActivity` but it could be any Activity and more fragments can be added to additional Activities as you integrate more React Native components into your app.
-
-First add the React Native Fragment to your Activity's layout. For example `main_activity.xml` in the `res/layouts` folder.
-
-Add a `<FrameLayout>` with an id, width and height. This is the layout you will find and render your React Native Fragment into.
+First add a `<FrameLayout>` with an id, width and height to your Activity's layout (e.g. `main_activity.xml` in the `res/layouts` folder). This is the layout you will find to render your React Native Fragment.
 
 ```xml
 <FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/reactNativeFragment"
+    android:id="@+id/react_native_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent" />
 ```
 
-### Step 4. Add a React Native Fragment to the FrameLayout
+### 3. Make your host Activity implement `DefaultHardwareBackBtnHandler`
 
-To add your React Native Fragment to your layout you need to have an Activity. As mentioned in a new project this will be `MainActivity`. In this Activity add a button and an event listener. On button click you will render your React Native Fragment.
+As your host activity is not a `ReactActivity`, you need to implement the `DefaultHardwareBackBtnHandler` interface to handle the back button press event.
+This is required by React Native to handle the back button press event.
 
-Modify your Activity layout to add the button:
+Go into your host activity and make sure it implements the `DefaultHardwareBackBtnHandler` interface:
 
-```xml
-<Button
-    android:layout_margin="10dp"
-    android:id="@+id/button"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="Show react fragment" />
-```
-
-Now in your Activity class (e.g. `MainActivity.java` or `MainActivity.kt`) you need to add an `OnClickListener` for the button, instantiate your `ReactFragment` and add it to the frame layout.
-
-Add the button field to the top of your Activity:
+> **Deprecated.** `Activity.onBackPressed()` has been [deprecated](<https://developer.android.com/reference/android/app/Activity#onBackPressed()>) since API level 33. Android 16 devices with apps targeting API level 36 this will [no longer be called](https://developer.android.com/about/versions/16/behavior-changes-16#predictive-back) and [OnBackPressedDispatcher](https://developer.android.com/reference/androidx/activity/OnBackPressedDispatcher) should be used instead.
 
 <Tabs groupId="android-language" queryString defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
 <TabItem value="kotlin">
 
-```kotlin
-private lateinit var button: Button
+```diff
+package <your-package-here>
+
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
++import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler
+
++class MainActivity : AppCompatActivity() {
++class MainActivity : AppCompatActivity(), DefaultHardwareBackBtnHandler {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.main_activity)
+
+        findViewById<Button>(R.id.sample_button).setOnClickListener {
+            // Handle button click
+        }
+    }
+
++   override fun invokeDefaultOnBackPressed() {
++       onBackPressedDispatcher.onBackPressed()
++   }
+}
 ```
 
 </TabItem>
 <TabItem value="java">
 
-```java
-private Button mButton;
+```diff
+package <your-package-here>;
+
+import android.os.Bundle;
+import androidx.appcompat.app.AppCompatActivity;
++import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler;
+
+-class MainActivity extends AppCompatActivity {
++class MainActivity extends AppCompatActivity implements DefaultHardwareBackBtnHandler {
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main_activity);
+
+        findViewById(R.id.button_appcompose).setOnClickListener(button -> {
+            // Handle button click
+        });
+    }
+
++   @Override
++   public void invokeDefaultOnBackPressed() {
++       getOnBackPressedDispatcher().onBackPressed();
++   }
+}
 ```
 
 </TabItem>
 </Tabs>
+
+### 4. Add a React Native Fragment to the FrameLayout
+
+Finally, we can update the Activity to add a React Native Fragment to the FrameLayout.
+In this specific example, we're going to assume that your Activity has a button with id `sample_button` that when clicked will render a React Native Fragment into the FrameLayout.
 
 Update your Activity's `onCreate` method as follows:
 
 <Tabs groupId="android-language" queryString defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
 <TabItem value="kotlin">
 
-```kotlin
-override fun onCreate(savedInstanceState: Bundle) {
-    super.onCreate(savedInstanceState)
-    setContentView(R.layout.main_activity)
-    button = findViewById<Button>(R.id.button)
-    button.setOnClickListener {
-        val reactNativeFragment = ReactFragment.Builder()
-                .setComponentName("HelloWorld")
-                .setLaunchOptions(getLaunchOptions("test message"))
-                .build()
-        getSupportFragmentManager()
-                .beginTransaction()
-                .add(R.id.reactNativeFragment, reactNativeFragment)
-                .commit()
+```diff
+package <your-package-here>
+
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
++import com.facebook.react.ReactFragment
+import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler
+
+public class MainActivity : AppCompatActivity(), DefaultHardwareBackBtnHandler {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.main_activity)
+
+        findViewById<Button>(R.id.sample_button).setOnClickListener {
++           val reactNativeFragment = ReactFragment.Builder()
++               .setComponentName("HelloWorld")
++               .setLaunchOptions(Bundle().apply { putString("message", "my value") })
++               .build()
++           supportFragmentManager
++               .beginTransaction()
++               .add(R.id.react_native_fragment, reactNativeFragment)
++               .commit()
+        }
+    }
+
+   override fun invokeDefaultOnBackPressed() {
+       super.onBackPressed()
+   }
+}
+```
+
+</TabItem>
+<TabItem value="java">
+
+```diff
+package <your-package-here>;
+
+import android.os.Bundle;
+import androidx.appcompat.app.AppCompatActivity;
++import com.facebook.react.ReactFragment;
+import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler;
+
+public class MainActivity extends AppCompatActivity implements DefaultHardwareBackBtnHandler {
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main_activity);
+
+        findViewById(R.id.button_appcompose).setOnClickListener(button -> {
++           Bundle launchOptions = new Bundle();
++           launchOptions.putString("message", "my value");
++
++           ReactFragment fragment = new ReactFragment.Builder()
++                   .setComponentName("HelloWorld")
++                   .setLaunchOptions(launchOptions)
++                   .build();
++           getSupportFragmentManager()
++                   .beginTransaction()
++                   .add(R.id.react_native_fragment, fragment)
++                   .commit();
+        });
+    }
+
+    @Override
+    public void invokeDefaultOnBackPressed() {
+        super.onBackPressed();
     }
 }
 ```
 
 </TabItem>
-<TabItem value="java">
-
-```java
-@Override
-protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    setContentView(R.layout.main_activity);
-
-    mButton = findViewById(R.id.button);
-    mButton.setOnClickListener(new View.OnClickListener() {
-        public void onClick(View v) {
-            Fragment reactNativeFragment = new ReactFragment.Builder()
-                    .setComponentName("HelloWorld")
-                    .setLaunchOptions(getLaunchOptions("test message"))
-                    .build();
-
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .add(R.id.reactNativeFragment, reactNativeFragment)
-                    .commit();
-
-        }
-    });
-}
-```
-
-</TabItem>
 </Tabs>
 
-In the code above `Fragment reactNativeFragment = new ReactFragment.Builder()` creates the ReactFragment and `getSupportFragmentManager().beginTransaction().add()` adds the Fragment to the Frame Layout.
+Let's look at the code above.
 
-If you are using a starter kit for React Native, replace the "HelloWorld" string with the one in your `index.js` or `index.android.js` file (it’s the first argument to the AppRegistry.registerComponent() method).
+The `ReactFragment.Builder()` is used to create a new `ReactFragment` and then we use the `supportFragmentManager` to add that Fragment to the `FrameLayout`.
 
-Add the `getLaunchOptions` method which will allow you to pass props through to your component. This is optional and you can remove `setLaunchOptions` if you don't need to pass any props.
+Inside the builder you can customize how the fragment is created:
 
-<Tabs groupId="android-language" queryString defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
-<TabItem value="kotlin">
+- `setComponentName` is the name of the component you want to render. It's the same string specified in your `index.js` inside the `registerComponent` method.
+- `setLaunchOptions` is an optional method to pass initial props to your component. This is optional and you can remove it if you don't use it.
 
-```kotlin
-private fun getLaunchOptions(message: String) = Bundle().apply {
-    putString("message", message)
-}
+### 5. Test your integration
 
-```
+Make sure you run `yarn start` to run the bundler and then run your android app in Android Studio. The app should load the JavaScript/TypeScript code from the development server and display it in your React Native Fragment in the Activity.
 
-</TabItem>
-<TabItem value="java">
+Your app should look like this one:
 
-```java
-private Bundle getLaunchOptions(String message) {
-    Bundle initialProperties = new Bundle();
-    initialProperties.putString("message", message);
-    return initialProperties;
-}
-```
-
-</TabItem>
-</Tabs>
-
-Add all missing imports in your Activity class. Be careful to use your package’s BuildConfig and not the one from the facebook package! Alternatively these are the required imports to include manually:
-
-<Tabs groupId="android-language" queryString defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
-<TabItem value="kotlin">
-
-```kotlin
-import android.app.Application
-
-import com.facebook.react.ReactApplication
-import com.facebook.react.ReactNativeHost
-import com.facebook.react.ReactPackage
-import com.facebook.react.shell.MainReactPackage
-import com.facebook.soloader.SoLoader
-
-```
-
-</TabItem>
-<TabItem value="java">
-
-```java
-import android.app.Application;
-
-import com.facebook.react.ReactApplication;
-import com.facebook.react.ReactNativeHost;
-import com.facebook.react.ReactPackage;
-import com.facebook.react.shell.MainReactPackage;
-import com.facebook.soloader.SoLoader;
-```
-
-</TabItem>
-</Tabs>
-
-Perform a "Sync Project files with Gradle" operation.
-
-### Step 5. Test your integration
-
-Make sure you run `yarn` to install your react-native dependencies and run `yarn native` to start the metro bundler. Run your android app in Android Studio and it should load the JavaScript code from the development server and display it in your React Native Fragment in the Activity.
-
-### Step 6. Additional setup - Native modules
-
-You may need to call out to existing Java/Kotlin code from your react component. Native modules allow you to call out to native code and run methods in your native app. Follow the setup here [native-modules-android](/docs/native-modules-android)
+![Screenshot](/docs/assets/EmbeddedAppAndroidFragmentVideo.gif)

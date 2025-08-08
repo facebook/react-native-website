@@ -52,7 +52,7 @@ yarn add react-native
 </TabItem>
 </Tabs>
 
-This will print a message similar to the following (scroll up in the yarn output to see it):
+This will print a message similar to the following (scroll up in the installation command output to see it):
 
 > warning "`react-native@0.70.5`" has unmet peer dependency "`react@18.1.0`"
 
@@ -75,7 +75,7 @@ yarn add react@version_printed_above
 </TabItem>
 </Tabs>
 
-Yarn has created a new `/node_modules` folder. This folder stores all the JavaScript dependencies required to build your project.
+Installation process has created a new `/node_modules` folder. This folder stores all the JavaScript dependencies required to build your project.
 
 Add `node_modules/` to your `.gitignore` file.
 
@@ -124,7 +124,7 @@ dependencies {
 }
 ```
 
-Those depedencies are available on `mavenCentral()` so make sure you have it defined in your `repositories{}` block.
+Those dependencies are available on `mavenCentral()` so make sure you have it defined in your `repositories{}` block.
 
 :::info
 We intentionally don't specify the version for those `implementation` dependencies as the React Native Gradle Plugin will take care of it. If you don't use the React Native Gradle Plugin, you'll have to specify version manually.

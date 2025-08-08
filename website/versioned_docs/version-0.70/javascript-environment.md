@@ -71,7 +71,7 @@ A full list of React Native's enabled transformations can be found in [@react-na
   <TableRow name="Babel Template" code="template(`const %%importName%% = require(%%source%%);`);" url="https://babeljs.io/docs/en/babel-template" />
   <TableRow name="Flow" code="function foo(x: ?number): string {};" url="https://flowtype.org/" />
   <TableRow name="ESM to CJS" code="export default 42;" url="https://babeljs.io/docs/en/babel-plugin-transform-modules-commonjs" />
-  <TableRow name="JSX" code="<View style={{ color: 'red' }} />" url="https://reactjs.org/docs/jsx-in-depth" />
+  <TableRow name="JSX" code="<View style={{ color: 'red' }} />" url="https://react.dev/learn/writing-markup-with-jsx" />
   <TableRow name="Object Assign" code="Object.assign(a, b);" url="https://babeljs.io/docs/en/babel-plugin-transform-object-assign" />
   <TableRow name="React Display Name" code="const bar = createReactClass({});" url="https://babeljs.io/docs/en/babel-plugin-transform-react-display-name" />
   <TableRow name="TypeScript" code="function foo(x: { hello: true, target: 'react native!' }): string {};" url="https://www.typescriptlang.org/" />
@@ -85,7 +85,7 @@ Many standard functions are also available on all the supported JavaScript runti
 #### Browser
 
 - [CommonJS `require`](https://nodejs.org/docs/latest/api/modules.html)
-- `md [console.{log, warn, error, info, trace, table, group, groupEnd}](https://developer.chrome.com/devtools/docs/console-api)`
+- `md [console.{log, warn, error, info, debug, trace, table, group, groupCollapsed, groupEnd}](https://developer.chrome.com/devtools/docs/console-api)`
 - [`XMLHttpRequest`, `fetch`](network.md#content)
 - [`{set, clear}{Timeout, Interval, Immediate}, {request, cancel}AnimationFrame`](timers.md#content)
 

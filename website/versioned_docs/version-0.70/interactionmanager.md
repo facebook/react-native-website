@@ -42,7 +42,7 @@ By default, queued tasks are executed together in a loop in one `setImmediate` b
 ### Basic
 
 ```SnackPlayer name=InteractionManager%20Function%20Component%20Basic%20Example&supportedPlatforms=ios,android
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import {
   Alert,
   Animated,
@@ -51,6 +51,7 @@ import {
   StyleSheet,
   Text,
   View,
+  useAnimatedValue,
 } from "react-native";
 
 const instructions = Platform.select({
@@ -63,7 +64,7 @@ const instructions = Platform.select({
 const useMount = func => useEffect(() => func(), []);
 
 const useFadeIn = (duration = 5000) => {
-  const [opacity] = useState(new Animated.Value(0));
+  const opacity = useAnimatedValue(0);
 
   // Running the animation when the component is mounted
   useMount(() => {
@@ -182,8 +183,6 @@ const styles = StyleSheet.create({
 
 export default App;
 ```
-
-> **Note**: `InteractionManager.runAfterInteractions()` is not working properly on web. It triggers immediately without waiting until the interaction is finished.
 
 # Reference
 

@@ -280,7 +280,7 @@ Sometimes a scrollview takes up more space than its content fills. When this is 
 
 ### `fadingEdgeLength` <div class="label android">Android</div>
 
-Fades out the edges of the the scroll content.
+Fades out the edges of the scroll content.
 
 If the value is greater than `0`, the fading edges will be set accordingly to the current scroll direction and position, indicating if there is more content to show.
 
@@ -571,7 +571,7 @@ Note that the view can always be scrolled by calling `scrollTo`.
 
 ---
 
-### `scrollEventThrottle` <div class="label ios">iOS</div>
+### `scrollEventThrottle`
 
 This controls how often the scroll event will be fired while scrolling (as a time interval in ms). A lower number yields better accuracy for code that is tracking the scroll position, but can lead to scroll performance problems due to the volume of information being sent over the bridge. You will not notice a difference between values set between 1-16 as the JS run loop is synced to the screen refresh rate. If you do not need precise scroll position tracking, set this value higher to limit the information being sent across the bridge. The default value is `0`, which results in the scroll event being sent only once each time the view is scrolled.
 
@@ -641,7 +641,7 @@ When `true`, shows a vertical scroll indicator.
 
 ---
 
-### `snapToAlignment` <div class="label ios">iOS</div>
+### `snapToAlignment`
 
 When `snapToInterval` is set, `snapToAlignment` will define the relationship of the snapping to the scroll view.
 

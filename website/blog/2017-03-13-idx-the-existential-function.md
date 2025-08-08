@@ -40,10 +40,10 @@ In practice, try-catching every nested property access is slow, and differentiat
 props.user == null
   ? props.user
   : props.user.friends == null
-  ? props.user.friends
-  : props.user.friends[0] == null
-  ? props.user.friends[0]
-  : props.user.friends[0].friends;
+    ? props.user.friends
+    : props.user.friends[0] == null
+      ? props.user.friends[0]
+      : props.user.friends[0].friends;
 ```
 
 Finally, we added a custom Flow type declaration for `idx` that allows the traversal in the second argument to be properly type-checked while permitting nested access on nullable properties.

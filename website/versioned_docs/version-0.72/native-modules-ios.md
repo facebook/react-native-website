@@ -259,7 +259,7 @@ import NativeCalendarModule from './NativeCalendarModule';
 NativeCalendarModule.createCalendarEvent('foo', 'bar');
 ```
 
-> Note this assumes that the place you are importing `CalendarModule` is in the same hierarchy as `CalendarModule.js`. Please update the relative import as necessary.
+> Note this assumes that the place you are importing `CalendarModule` is in the same hierarchy as `NativeCalendarModule.js`. Please update the relative import as necessary.
 
 ### Argument Types
 
@@ -288,7 +288,7 @@ For iOS, you can also write native module methods with any argument type that is
 
 ### Exporting Constants
 
-A native module can export constants by overriding the native method `constantsToExport()`. Below `constantsToExport()` is overriden, and returns a Dictionary that contains a default event name property you can access in JavaScript like so:
+A native module can export constants by overriding the native method `constantsToExport()`. Below `constantsToExport()` is overridden, and returns a Dictionary that contains a default event name property you can access in JavaScript like so:
 
 ```objectivec
 - (NSDictionary *)constantsToExport

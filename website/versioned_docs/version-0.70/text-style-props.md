@@ -424,6 +424,8 @@ Increase or decrease the spacing between characters. By default there is no extr
 
 ### `lineHeight`
 
+Numeric value that controls the vertical spacing between lines of text within a text element. It specifies the distance between the baselines of consecutive lines of text.
+
 | Type   |
 | ------ |
 | number |

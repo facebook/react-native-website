@@ -63,7 +63,7 @@ export default Flex;
 
 - `row-reverse` Align children from right to left. If wrapping is enabled, then the next line will start under the first item on the right of the container.
 
-You can learn more [here](https://yogalayout.com/docs/flex-direction).
+You can learn more [here](https://www.yogalayout.dev/docs/styling/flex-direction).
 
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
@@ -507,7 +507,7 @@ export default DirectionLayout;
 
 - `space-evenly` Evenly distribute children within the alignment container along the main axis. The spacing between each pair of adjacent items, the main-start edge and the first item, and the main-end edge and the last item, are all exactly the same.
 
-You can learn more [here](https://yogalayout.com/docs/justify-content).
+You can learn more [here](https://www.yogalayout.dev/docs/styling/justify-content).
 
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
@@ -750,7 +750,7 @@ export default JustifyContentBasics;
 For `stretch` to have an effect, children must not have a fixed dimension along the secondary axis. In the following example, setting `alignItems: stretch` does nothing until the `width: 50` is removed from the children.
 :::
 
-You can learn more [here](https://yogalayout.com/docs/align-items).
+You can learn more [here](https://www.yogalayout.dev/docs/styling/align-items-self).
 
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
@@ -1233,7 +1233,7 @@ export default AlignSelfLayout;
 
 - `space-around` Evenly space wrapped lines across the container's cross axis, distributing the remaining space around the lines. Compared to `space-between`, using `space-around` will result in space being distributed to the beginning of the first line and the end of the last line.
 
-You can learn more [here](https://yogalayout.com/docs/align-content).
+You can learn more [here](https://www.yogalayout.dev/docs/styling/align-content).
 
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
@@ -1474,7 +1474,7 @@ export default AlignContentLayout;
 
 The [`flexWrap`](layout-props#flexwrap) property is set on containers and it controls what happens when children overflow the size of the container along the main axis. By default, children are forced into a single line (which can shrink elements). If wrapping is allowed, items are wrapped into multiple lines along the main axis if needed.
 
-When wrapping lines, `alignContent` can be used to specify how the lines are placed in the container. Learn more [here](https://yogalayout.com/docs/flex-wrap).
+When wrapping lines, `alignContent` can be used to specify how the lines are placed in the container. Learn more [here](https://www.yogalayout.dev/docs/styling/flex-wrap).
 
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
@@ -1705,7 +1705,7 @@ export default FlexWrapLayout;
 
   `flexShrink` accepts any floating point value >= 0, with 0 being the default value (on the web, the default is 1). A container will shrink its children weighted by the children’s `flexShrink` values.
 
-You can learn more [here](https://yogalayout.com/docs/flex).
+You can learn more [here](https://www.yogalayout.dev/docs/styling/flex-basis-grow-shrink).
 
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
@@ -2078,7 +2078,7 @@ export default App;
 
 - [`gap`](layout-props#gap) sets the size of the gap (gutter) between rows and columns. It is a shorthand for `rowGap` and `columnGap`.
 
-You can use `flexWrap` and `alignContent` alongwith `gap` to add consistent spacing between items.
+You can use `flexWrap` and `alignContent` along with `gap` to add consistent spacing between items.
 
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
@@ -2861,7 +2861,7 @@ export default PositionLayout;
 
 ## Going Deeper
 
-Check out the interactive [yoga playground](https://yogalayout.com/playground) that you can use to get a better understanding of flexbox.
+Check out the interactive [yoga playground](https://www.yogalayout.dev/playground) that you can use to get a better understanding of flexbox.
 
 We've covered the basics, but there are many other styles you may need for layouts. The full list of props that control layout is documented [here](./layout-props.md).
 

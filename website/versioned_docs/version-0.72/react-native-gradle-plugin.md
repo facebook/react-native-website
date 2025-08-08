@@ -100,7 +100,7 @@ nodeExecutableAndArgs = ["node"]
 
 ### `bundleCommand`
 
-This is the name of the `bundle` command to be invoked when creating the bundle for your app. That's useful if you're using [RAM Bundles](/docs/ram-bundles-inline-requires). By default is `bundle` but can be customized to add extra flags as follows:
+This is the name of the `bundle` command to be invoked when creating the bundle for your app. That's useful if you're using [RAM Bundles](https://reactnative.dev/docs/0.74/ram-bundles-inline-requires). By default is `bundle` but can be customized to add extra flags as follows:
 
 ```groovy
 bundleCommand = "ram-bundle"
@@ -174,7 +174,7 @@ This is necessary because the plugin will skip the JS bundling for all the `debu
 ## What is the plugin doing under the hood?
 
 The React Native Gradle Plugin is responsible for configuring your Application build to ship React Native applications to production.
-The plugin is also used inside 3rd party libraries, to run the [Codegen](/docs/the-new-architecture/pillars-codegen) used for the New Architecture.
+The plugin is also used inside 3rd party libraries, to run the [Codegen](https://github.com/reactwg/react-native-new-architecture/blob/main/docs/codegen.md) used for the New Architecture.
 
 Here is a summary of the plugin responsibilities:
 
@@ -184,4 +184,4 @@ Here is a summary of the plugin responsibilities:
 - Setting up the NDK to let you build apps that are using the New Architecture.
 - Setting up the `buildConfigFields` so that you can know at runtime if Hermes or the New Architecture are enabled.
 - Setting up the Metro DevServer Port as an Android resource so the app knows on which port to connect.
-- Invoking the [React Native Codegen](/docs/the-new-architecture/pillars-codegen) if a library or app is using the Codegen for the New Architecture.
+- Invoking the [React Native Codegen](https://github.com/reactwg/react-native-new-architecture/blob/main/docs/codegen.md) if a library or app is using the Codegen for the New Architecture.

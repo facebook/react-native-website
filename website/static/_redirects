@@ -5,23 +5,75 @@
 /docs/building-for-apple-tv     /docs/building-for-tv
 /docs/building-from-source      /contributing/how-to-build-from-source
 /docs/contributing              /contributing/overview
-/docs/next/sourcemaps           /docs/next/debugging-release-builds
-/docs/next/symbolication        /docs/next/debugging-release-builds
+/docs/sourcemaps                /docs/debugging-release-builds
+/docs/symbolication             /docs/debugging-release-builds
 /docs/publishing-forks          /contributing/how-to-build-from-source#publish-your-own-version-of-react-native
+/docs/react-devtools            /docs/react-native-devtools
 /docs/testing                   /contributing/how-to-run-and-write-tests
 /docs/understanding-cli         https://github.com/react-native-community/cli#react-native-cli
 
-/contributing/how-to-contribute         /contributing/overview
-/releases/release-candidate-minor         /releases/release-branch-cut-and-rc0
+/contributing/how-to-contribute     /contributing/overview
+/contributing/how-to-file-an-issue  /contributing/how-to-report-a-bug
+/releases/release-candidate-minor   /releases/release-branch-cut-and-rc0
+
+# Redirect New Architecture docs of all versions
+# Note: We had to delete the older versions to get redirects to work
+/docs/the-new-architecture/why                             /architecture/landing-page
+/docs/the-new-architecture/use-app-template                https://github.com/reactwg/react-native-new-architecture#guides
+/docs/the-new-architecture/pillars                         https://github.com/reactwg/react-native-new-architecture#guides
+/docs/the-new-architecture/pillars-turbomodules            https://github.com/reactwg/react-native-new-architecture#guides
+/docs/the-new-architecture/pillars-fabric-components       https://github.com/reactwg/react-native-new-architecture#guides
+/docs/the-new-architecture/pillars-codegen                 https://github.com/reactwg/react-native-new-architecture#guides
+/docs/the-new-architecture/cxx-cxxturbomodules             https://github.com/reactwg/react-native-new-architecture#guides
+/docs/the-new-architecture/the-new-architecture/cxx-custom-types https://github.com/reactwg/react-native-new-architecture#guides
+/docs/the-new-architecture/backward-compatibility          https://github.com/reactwg/react-native-new-architecture#guides
+/docs/the-new-architecture/backward-compatibility-turbomodules https://github.com/reactwg/react-native-new-architecture#guides
+/docs/the-new-architecture/backward-compatibility-fabric-components https://github.com/reactwg/react-native-new-architecture#guides
+/docs/the-new-architecture/landing-page                    /architecture/landing-page
+/docs/new-architecture-intro                               https://github.com/reactwg/react-native-new-architecture#guides
+/docs/new-architecture-library-intro                       https://github.com/reactwg/react-native-new-architecture#guides
+/docs/new-architecture-library-android                     https://github.com/reactwg/react-native-new-architecture#guides
+/docs/new-architecture-library-ios                         https://github.com/reactwg/react-native-new-architecture#guides
+/docs/new-architecture-app-intro                           https://github.com/reactwg/react-native-new-architecture#guides
+/docs/react-18-and-react-native                            https://reactnative.dev/docs/0.69/react-18-and-react-native
+/docs/new-architecture-troubleshooting                     https://github.com/reactwg/react-native-new-architecture#guides
+/docs/new-architecture-appendix                            https://github.com/reactwg/react-native-new-architecture#guides
+/docs/:version/the-new-architecture/landing-page                    /architecture/landing-page
+/docs/:version/the-new-architecture/why                             /architecture/landing-page
+/docs/:version/the-new-architecture/use-app-template                https://github.com/reactwg/react-native-new-architecture#guides
+/docs/:version/the-new-architecture/pillars                         https://github.com/reactwg/react-native-new-architecture#guides
+/docs/:version/the-new-architecture/pillars-turbomodules            https://github.com/reactwg/react-native-new-architecture#guides
+/docs/:version/the-new-architecture/pillars-fabric-components       https://github.com/reactwg/react-native-new-architecture#guides
+/docs/:version/the-new-architecture/pillars-codegen                 https://github.com/reactwg/react-native-new-architecture#guides
+/docs/:version/the-new-architecture/cxx-cxxturbomodules             https://github.com/reactwg/react-native-new-architecture#guides
+/docs/:version/the-new-architecture/cxx-custom-types https://github.com/reactwg/react-native-new-architecture#guides
+/docs/:version/the-new-architecture/backward-compatibility          https://github.com/reactwg/react-native-new-architecture#guides
+/docs/:version/the-new-architecture/backward-compatibility-turbomodules https://github.com/reactwg/react-native-new-architecture#guides
+/docs/:version/the-new-architecture/backward-compatibility-fabric-components https://github.com/reactwg/react-native-new-architecture#guides
+/docs/:version/new-architecture-intro                               https://github.com/reactwg/react-native-new-architecture#guides
+/docs/:version/new-architecture-library-intro                       https://github.com/reactwg/react-native-new-architecture#guides
+/docs/:version/new-architecture-library-android                     https://github.com/reactwg/react-native-new-architecture#guides
+/docs/:version/new-architecture-library-ios                         https://github.com/reactwg/react-native-new-architecture#guides
+/docs/:version/new-architecture-app-intro                           https://github.com/reactwg/react-native-new-architecture#guides
+/docs/:version/new-architecture-troubleshooting                     https://github.com/reactwg/react-native-new-architecture#guides
+/docs/:version/new-architecture-appendix                            https://github.com/reactwg/react-native-new-architecture#guides
+
+# New Architecture is enabled by default, these have shifted to a legacy folder
+/docs/next/direct-manipulation      /docs/next/legacy/direct-manipulation
+/docs/next/local-library-setup      /docs/next/legacy/local-library-setup
+/docs/next/native-modules-*         /docs/next/legacy/native-modules-:splat
+/docs/next/native-components-*      /docs/next/legacy/native-components-:splat
 
 # Changed blog post dates
 /blog/2021/03/11/version-0.64   /blog/2021/03/12/version-0.64
 
 # Removed pages
-/docs/new-architecture-app-modules-android   /docs/new-architecture-intro
-/docs/new-architecture-app-renderer-android  /docs/new-architecture-intro
-/docs/new-architecture-app-modules-ios       /docs/new-architecture-intro
-/docs/new-architecture-app-renderer-ios      /docs/new-architecture-intro
+/docs/new-architecture-app-modules-android   https://github.com/reactwg/react-native-new-architecture#guides
+/docs/new-architecture-app-renderer-android  https://github.com/reactwg/react-native-new-architecture#guides
+/docs/new-architecture-app-modules-ios       https://github.com/reactwg/react-native-new-architecture#guides
+/docs/new-architecture-app-renderer-ios      https://github.com/reactwg/react-native-new-architecture#guides
+https://reactnative.dev/docs/0.74/ram-bundles-inline-requires            /docs/optimizing-javascript-loading
+/docs/next/ram-bundles-inline-requires       /docs/next/optimizing-javascript-loading
 
 # Architecture pages move to unversioned docs
 /docs/architecture-overview             /architecture/overview
@@ -47,6 +99,19 @@
 /docs/0.66/view-flattening                   /architecture/view-flattening
 /docs/0.66/threading-model                   /architecture/threading-model
 /docs/0.66/architecture-glossary             /architecture/glossary
+
+# Point to new release documentation
+/contributing/release-branch-cut-and-rc0     https://github.com/reactwg/react-native-releases#release-documentation
+/contributing/release-candidate-patch        https://github.com/reactwg/react-native-releases#release-documentation
+/contributing/release-dependencies           https://github.com/reactwg/react-native-releases#release-documentation
+/contributing/release-faq                    https://github.com/reactwg/react-native-releases#release-documentation
+/contributing/release-roles-responsibilites  https://github.com/reactwg/react-native-releases#release-documentation
+/contributing/release-stable-minor           https://github.com/reactwg/react-native-releases#release-documentation
+/contributing/release-stable-patch           https://github.com/reactwg/react-native-releases#release-documentation
+/contributing/release-testing                https://github.com/reactwg/react-native-releases#release-documentation
+/contributing/release-troubleshooting        https://github.com/reactwg/react-native-releases#release-documentation
+/contributing/release-updating-packages      https://github.com/reactwg/react-native-releases#release-documentation
+/contributing/updating-upgrade-helper        https://github.com/reactwg/react-native-releases#release-documentation
 
 # Rework of the community
 /help         /community/overview

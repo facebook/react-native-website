@@ -128,9 +128,9 @@ If you would like to set such things as the HTTP-Verb, Headers or a Body along w
 />
 ```
 
-## Uri Data Images
+## URI Data Images
 
-Sometimes, you might be getting encoded image data from a REST API call. You can use the `'data:'` uri scheme to use these images. Same as for network resources, _you will need to manually specify the dimensions of your image_.
+Sometimes, you might be getting encoded image data from a REST API call. You can use the `'data:'` URI scheme to use these images. Same as for network resources, _you will need to manually specify the dimensions of your image_.
 
 :::info
 This is recommended for very small and dynamic images only, like icons in a list from a DB.
@@ -179,7 +179,7 @@ iOS saves multiple sizes for the same image in your Camera Roll, it is very impo
 
 ## Why Not Automatically Size Everything?
 
-_In the browser_ if you don't give a size to an image, the browser is going to render a 0x0 element, download the image, and then render the image based with the correct size. The big issue with this behavior is that your UI is going to jump all around as images load, this makes for a very bad user experience.
+_In the browser_ if you don't give a size to an image, the browser is going to render a 0x0 element, download the image, and then render the image based with the correct size. The big issue with this behavior is that your UI is going to jump all around as images load, this makes for a very bad user experience. This is called [Cumulative Layout Shift](https://web.dev/cls/).
 
 _In React Native_ this behavior is intentionally not implemented. It is more work for the developer to know the dimensions (or aspect ratio) of the remote image in advance, but we believe that it leads to a better user experience. Static images loaded from the app bundle via the `require('./my-icon.png')` syntax _can be automatically sized_ because their dimensions are available immediately at the time of mounting.
 

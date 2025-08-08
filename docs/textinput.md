@@ -7,29 +7,32 @@ A foundational component for inputting text into the app via a keyboard. Props p
 
 The most basic use case is to plop down a `TextInput` and subscribe to the `onChangeText` events to read the user input. There are also other events, such as `onSubmitEditing` and `onFocus` that can be subscribed to. A minimal example:
 
-```SnackPlayer name=TextInput
+```SnackPlayer name=TextInput%20Example
 import React from 'react';
-import {SafeAreaView, StyleSheet, TextInput} from 'react-native';
+import {StyleSheet, TextInput} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const TextInputExample = () => {
   const [text, onChangeText] = React.useState('Useless Text');
   const [number, onChangeNumber] = React.useState('');
 
   return (
-    <SafeAreaView>
-      <TextInput
-        style={styles.input}
-        onChangeText={onChangeText}
-        value={text}
-      />
-      <TextInput
-        style={styles.input}
-        onChangeText={onChangeNumber}
-        value={number}
-        placeholder="useless placeholder"
-        keyboardType="numeric"
-      />
-    </SafeAreaView>
+    <SafeAreaProvider>
+      <SafeAreaView>
+        <TextInput
+          style={styles.input}
+          onChangeText={onChangeText}
+          value={text}
+        />
+        <TextInput
+          style={styles.input}
+          onChangeText={onChangeNumber}
+          value={number}
+          placeholder="useless placeholder"
+          keyboardType="numeric"
+        />
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
@@ -45,43 +48,57 @@ const styles = StyleSheet.create({
 export default TextInputExample;
 ```
 
-Two methods exposed via the native element are .focus() and .blur() that will focus or blur the TextInput programmatically.
+Two methods exposed via the native element are `.focus()` and `.blur()` that will focus or blur the TextInput programmatically.
 
 Note that some props are only available with `multiline={true/false}`. Additionally, border styles that apply to only one side of the element (e.g., `borderBottomColor`, `borderLeftWidth`, etc.) will not be applied if `multiline=true`. To achieve the same effect, you can wrap your `TextInput` in a `View`:
 
-```SnackPlayer name=TextInput
+```SnackPlayer name=Multiline%20TextInput%20Example
 import React from 'react';
-import {View, TextInput} from 'react-native';
+import {TextInput, StyleSheet} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const MultilineTextInputExample = () => {
   const [value, onChangeText] = React.useState('Useless Multiline Placeholder');
 
-  // If you type something in the text box that is a color, the background will change to that
-  // color.
+  // If you type something in the text box that is a color,
+  // the background will change to that color.
   return (
-    <View
-      style={{
-        backgroundColor: value,
-        borderBottomColor: '#000000',
-        borderBottomWidth: 1,
-      }}>
-      <TextInput
-        editable
-        multiline
-        numberOfLines={4}
-        maxLength={40}
-        onChangeText={text => onChangeText(text)}
-        value={value}
-        style={{padding: 10}}
-      />
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView
+        style={[
+          styles.container,
+          {
+            backgroundColor: value,
+          },
+        ]}>
+        <TextInput
+          editable
+          multiline
+          numberOfLines={4}
+          maxLength={40}
+          onChangeText={text => onChangeText(text)}
+          value={value}
+          style={styles.textInput}
+        />
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    borderBottomColor: '#000',
+    borderBottomWidth: 1,
+  },
+  textInput: {
+    padding: 10,
+  },
+});
 
 export default MultilineTextInputExample;
 ```
 
-`TextInput` has by default a border at the bottom of its view. This border has its padding set by the background image provided by the system, and it cannot be changed. Solutions to avoid this are to either not set height explicitly, in which case the system will take care of displaying the border in the correct position, or to not display the border by setting `underlineColorAndroid` to transparent.
+`TextInput` has a border at the bottom of its view by default. This border has its padding set by the background image provided by the system, and it cannot be changed. Solutions to avoid this are to either not set height explicitly, in which case the system will take care of displaying the border in the correct position, or to not display the border by setting `underlineColorAndroid` to transparent.
 
 Note that on Android performing text selection in an input can change the app's activity `windowSoftInputMode` param to `adjustResize`. This may cause issues with components that have position: 'absolute' while the keyboard is active. To avoid this behavior either specify `windowSoftInputMode` in AndroidManifest.xml ( https://developer.android.com/guide/topics/manifest/activity-element.html ) or control this param programmatically with native code.
 
@@ -214,7 +231,7 @@ If `false`, disables auto-correct. The default value is `true`.
 
 ### `autoFocus`
 
-If `true`, focuses the input on `componentDidMount` or `useEffect`. The default value is `false`.
+If `true`, focuses the input. The default value is `false`.
 
 | Type |
 | ---- |
@@ -223,6 +240,8 @@ If `true`, focuses the input on `componentDidMount` or `useEffect`. The default 
 ---
 
 ### `blurOnSubmit`
+
+> **Deprecated.** Note that `submitBehavior` now takes the place of `blurOnSubmit` and will override any behavior defined by `blurOnSubmit`. See [submitBehavior](textinput#submitbehavior)
 
 If `true`, the text field will blur when submitted. The default value is true for single-line fields and false for multiline fields. Note that for multiline fields, setting `blurOnSubmit` to `true` means that pressing return will blur the field and trigger the `onSubmitEditing` event instead of inserting a newline into the field.
 
@@ -425,6 +444,18 @@ An optional identifier which links a custom [InputAccessoryView](inputaccessoryv
 
 ---
 
+### `inputAccessoryViewButtonLabel` <div class="label ios">iOS</div>
+
+An optional label that overrides the default [InputAccessoryView](inputaccessoryview.md) button label.
+
+By default, the default button label is not localized. Use this property to provide a localized version.
+
+| Type   |
+| ------ |
+| string |
+
+---
+
 ### `inputMode`
 
 Works like the `inputmode` attribute in HTML, it determines which keyboard to open, e.g. `numeric` and has precedence over `keyboardType`.
@@ -532,9 +563,13 @@ It is important to note that this aligns the text to the top on iOS, and centers
 
 ---
 
-### `numberOfLines` <div class="label android">Android</div>
+### `numberOfLines`
 
-Sets the number of lines for a `TextInput`. Use it with multiline set to `true` to be able to fill the lines.
+:::note
+`numberOfLines` on iOS is only available on the [New Architecture](/architecture/landing-page)
+:::
+
+Sets the maximum number of lines for a `TextInput`. Use it with multiline set to `true` to be able to fill the lines.
 
 | Type   |
 | ------ |
@@ -548,9 +583,9 @@ Callback that is called when the text input is blurred.
 
 > Note: If you are attempting to access the `text` value from `nativeEvent` keep in mind that the resulting value you get can be `undefined` which can cause unintended errors. If you are trying to find the last value of TextInput, you can use the [`onEndEditing`](textinput#onendediting) event, which is fired upon completion of editing.
 
-| Type     |
-| -------- |
-| function |
+| Type                                                     |
+| -------------------------------------------------------- |
+| `md ({nativeEvent: [TargetEvent](targetevent)}) => void` |
 
 ---
 
@@ -622,7 +657,7 @@ Callback that is called when the text input is focused.
 
 | Type                                                     |
 | -------------------------------------------------------- |
-| `md ({nativeEvent: [LayoutEvent](layoutevent)}) => void` |
+| `md ({nativeEvent: [TargetEvent](targetevent)}) => void` |
 
 ---
 
@@ -806,7 +841,17 @@ The start and end of the text input's selection. Set start and end to the same v
 
 ### `selectionColor`
 
-The highlight and cursor color of the text input.
+The highlight, selection handle and cursor color of the text input.
+
+| Type               |
+| ------------------ |
+| [color](colors.md) |
+
+---
+
+### `selectionHandleColor` <div class="label android">Android</div>
+
+Sets the color of the selection handle. Unlike `selectionColor`, it allows the selection handle color to be customized independently of the selection's color.
 
 | Type               |
 | ------------------ |
@@ -841,6 +886,31 @@ If `false`, disables spell-check style (i.e. red underlines). The default value 
 | Type |
 | ---- |
 | bool |
+
+---
+
+### `submitBehavior`
+
+When the return key is pressed,
+
+For single line inputs:
+
+- `'newline'` defaults to `'blurAndSubmit'`
+- `undefined` defaults to `'blurAndSubmit'`
+
+For multiline inputs:
+
+- `'newline'` adds a newline
+- `undefined` defaults to `'newline'`
+
+For both single line and multiline inputs:
+
+- `'submit'` will only send a submit event and not blur the input
+- `'blurAndSubmit`' will both blur the input and send a submit event
+
+| Type                                       |
+| ------------------------------------------ |
+| enum('submit', 'blurAndSubmit', 'newline') |
 
 ---
 
@@ -954,8 +1024,6 @@ Note that not all Text styles are supported, an incomplete list of what is not s
 - `borderBottomRightRadius`
 - `borderBottomLeftRadius`
 
-see [Issue#7070](https://github.com/facebook/react-native/issues/7070) for more detail.
-
 [Styles](style.md)
 
 | Type                  |
@@ -1001,6 +1069,26 @@ Set line break strategy on iOS 14+. Possible values are `none`, `standard`, `han
 | Type                                                        | Default  |
 | ----------------------------------------------------------- | -------- |
 | enum(`'none'`, `'standard'`, `'hangul-word'`, `'push-out'`) | `'none'` |
+
+---
+
+### `lineBreakModeIOS` <div class="label ios">iOS</div>
+
+Set line break mode on iOS. Possible values are `wordWrapping`, `char`, `clip`, `head`, `middle` and `tail`.
+
+| Type                                                                       | Default          |
+| -------------------------------------------------------------------------- | ---------------- |
+| enum(`'wordWrapping'`, `'char'`, `'clip'`, `'head'`, `'middle'`, `'tail'`) | `'wordWrapping'` |
+
+---
+
+### `disableKeyboardShortcuts` <div class="label ios">iOS</div>
+
+If `true`, the keyboard shortcuts (undo/redo and copy buttons) are disabled. The default value is `false`.
+
+| Type |
+| ---- |
+| bool |
 
 ## Methods
 

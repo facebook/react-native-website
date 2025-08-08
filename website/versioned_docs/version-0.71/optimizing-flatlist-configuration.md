@@ -97,7 +97,7 @@ The heavier your components are, the slower they render. Avoid heavy images (use
 
 ### Use shouldComponentUpdate
 
-Implement update verification to your components. React's `PureComponent` implement a [`shouldComponentUpdate`](https://reactjs.org/docs/react-component.html#shouldcomponentupdate) with shallow comparison. This is expensive here because it needs to check all your props. If you want a good bit-level performance, create the strictest rules for your list item components, checking only props that could potentially change. If your list is basic enough, you could even use
+Implement update verification to your components. React's `PureComponent` implement a [`shouldComponentUpdate`](https://react.dev/reference/react/Component#shouldcomponentupdate) with shallow comparison. This is expensive here because it needs to check all your props. If you want a good bit-level performance, create the strictest rules for your list item components, checking only props that could potentially change. If your list is basic enough, you could even use
 
 ```tsx
 shouldComponentUpdate() {
