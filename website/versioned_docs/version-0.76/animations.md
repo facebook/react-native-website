@@ -74,15 +74,15 @@ export default () => {
 <TabItem value="typescript">
 
 ```SnackPlayer ext=tsx
-import React, {useEffect} from 'react';
-import {Animated, Text, View, useAnimatedValue} from 'react-native';
+import React, {useRef, useEffect} from 'react';
+import {Animated, Text, View} from 'react-native';
 import type {PropsWithChildren} from 'react';
 import type {ViewStyle} from 'react-native';
 
 type FadeInViewProps = PropsWithChildren<{style: ViewStyle}>;
 
 const FadeInView: React.FC<FadeInViewProps> = props => {
-  const fadeAnim = useAnimatedValue(0); // Initial value for opacity: 0
+  const fadeAnim = useRef(new Animated.Value(0)).current // Initial value for opacity: 0
 
   useEffect(() => {
     Animated.timing(fadeAnim, {
