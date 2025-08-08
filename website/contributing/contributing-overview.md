@@ -103,7 +103,10 @@ Directly in the repo, there is the [`rn-tester` app](https://github.com/facebook
 The process of proposing a change to React Native can be summarized as follows:
 
 1. Fork the React Native repository and create your branch from `main`.
-2. For editing files in Android Studio, open the root react-native folder.
+2. For editing files, you need to do different operations based on the IDE you want to use:
+    1. If you want to use Android Studio, open the **root** `react-native` folder.
+    2. If you want to use VisualStudio, open the **root** `react-native` folder.
+    3. If you want to use Xcode, run `cd packages/rn-tester && bundle exec pod install && open RNTesterPods.xcworkspace`. Notice that you can't modify JS code or Android code from Xcode. 
 3. Make the desired changes to React Native sources. Use the `packages/rn-tester` app to test them out.
 4. If you've added code that should be tested, add tests.
 5. If you've changed APIs, update the documentation, which lives in [separate repo](https://github.com/facebook/react-native-website/).
