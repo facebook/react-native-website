@@ -79,6 +79,30 @@ export default ViewStyleProps;
 
 ---
 
+### `borderBlockColor`
+
+| Type               |
+| ------------------ |
+| [color](colors.md) |
+
+---
+
+### `borderBlockEndColor`
+
+| Type               |
+| ------------------ |
+| [color](colors.md) |
+
+---
+
+### `borderBlockStartColor`
+
+| Type               |
+| ------------------ |
+| [color](colors.md) |
+
+---
+
 ### `borderBottomEndRadius`
 
 | Type                              |
