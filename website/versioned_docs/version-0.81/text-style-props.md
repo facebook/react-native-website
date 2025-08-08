@@ -819,9 +819,22 @@ Set to `false` to remove extra font padding intended to make space for certain a
 
 Allows you to set all the font variants for a font. Can be set by using an array of enums or a space-separated string e.g. `'small-caps common-ligatures'`.
 
-| Type                                                                                                                 | Default |
-| -------------------------------------------------------------------------------------------------------------------- | ------- |
-| array of enum(`'small-caps'`, `'oldstyle-nums'`, `'lining-nums'`, `'tabular-nums'`, `'proportional-nums'`) or string | `[]`    |
+<table>
+  <thead>
+    <tr>
+      <th colspan="5">Type</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="5">
+        array of enum(`'common-ligatures'`, `'contextual'`, `'discretionary-ligatures'`, `'historical-ligatures'`, `'lining-nums'`, `'no-common-ligatures'`, `'no-contextual'`, `'no-discretionary-ligatures'`, `'no-historical-ligatures'`, `'oldstyle-nums'`, `'proportional-nums'`, `'small-caps'`, `'stylistic-eight'`, `'stylistic-eighteen'`, `'stylistic-eleven'`, `'stylistic-fifteen'`, `'stylistic-five'`, `'stylistic-four'`, `'stylistic-fourteen'`, `'stylistic-nine'`, `'stylistic-nineteen'`, `'stylistic-one'`, `'stylistic-seven'`, `'stylistic-seventeen'`, `'stylistic-six'`, `'stylistic-sixteen'`, `'stylistic-ten'`, `'stylistic-thirteen'`, `'stylistic-three'`, `'stylistic-twelve'`, `'stylistic-twenty'`, `'stylistic-two'`, `'tabular-nums'`) or string
+      </td>
+      <td>`[]`</td>
+    </tr>
+  </tbody>
+</table>
 
 ---
 
