@@ -322,6 +322,16 @@ Provides an initial value that will change when the user starts typing. Useful f
 
 ---
 
+### `disableKeyboardShortcuts` <div className="label ios">iOS</div>
+
+If `true`, the keyboard shortcuts (undo/redo and copy buttons) are disabled.
+
+| Type | Default |
+| ---- | ------- |
+| bool | `false` |
+
+---
+
 ### `cursorColor` <div className="label android">Android</div>
 
 When provided it will set the color of the cursor (or "caret") in the component. Unlike the behavior of `selectionColor` the cursor color will be set independently from the color of the text selection box.
@@ -522,6 +532,26 @@ The following values work on Android only:
 | Type                                                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | enum('default', 'email-address', 'numeric', 'phone-pad', 'ascii-capable', 'numbers-and-punctuation', 'url', 'number-pad', 'name-phone-pad', 'decimal-pad', 'twitter', 'web-search', 'visible-password') |
+
+---
+
+### `lineBreakStrategyIOS` <div class="label ios">iOS</div>
+
+Set line break strategy on iOS 14+. Possible values are `none`, `standard`, `hangul-word` and `push-out`.
+
+| Type                                                        | Default  |
+| ----------------------------------------------------------- | -------- |
+| enum(`'none'`, `'standard'`, `'hangul-word'`, `'push-out'`) | `'none'` |
+
+---
+
+### `lineBreakModeIOS` <div class="label ios">iOS</div>
+
+Set line break mode on iOS. Possible values are `wordWrapping`, `char`, `clip`, `head`, `middle` and `tail`.
+
+| Type                                                                       | Default          |
+| -------------------------------------------------------------------------- | ---------------- |
+| enum(`'wordWrapping'`, `'char'`, `'clip'`, `'head'`, `'middle'`, `'tail'`) | `'wordWrapping'` |
 
 ---
 
@@ -879,6 +909,16 @@ When `false`, it will prevent the soft keyboard from showing when the field is f
 
 ---
 
+### `smartInsertDelete` <div className="label ios">iOS</div>
+
+If `false`, the iOS system will not insert an extra space after a paste operation neither delete one or two spaces after a cut or delete operation.
+
+| Type | Default |
+| ---- | ------- |
+| bool | `true`  |
+
+---
+
 ### `spellCheck` <div className="label ios">iOS</div>
 
 If `false`, disables spell-check style (i.e. red underlines). The default value is inherited from `autoCorrect`.
@@ -1059,36 +1099,6 @@ The value to show for the text input. `TextInput` is a controlled component, whi
 | Type   |
 | ------ |
 | string |
-
----
-
-### `lineBreakStrategyIOS` <div className="label ios">iOS</div>
-
-Set line break strategy on iOS 14+. Possible values are `none`, `standard`, `hangul-word` and `push-out`.
-
-| Type                                                        | Default  |
-| ----------------------------------------------------------- | -------- |
-| enum(`'none'`, `'standard'`, `'hangul-word'`, `'push-out'`) | `'none'` |
-
----
-
-### `lineBreakModeIOS` <div className="label ios">iOS</div>
-
-Set line break mode on iOS. Possible values are `wordWrapping`, `char`, `clip`, `head`, `middle` and `tail`.
-
-| Type                                                                       | Default          |
-| -------------------------------------------------------------------------- | ---------------- |
-| enum(`'wordWrapping'`, `'char'`, `'clip'`, `'head'`, `'middle'`, `'tail'`) | `'wordWrapping'` |
-
----
-
-### `disableKeyboardShortcuts` <div className="label ios">iOS</div>
-
-If `true`, the keyboard shortcuts (undo/redo and copy buttons) are disabled. The default value is `false`.
-
-| Type |
-| ---- |
-| bool |
 
 ## Methods
 
