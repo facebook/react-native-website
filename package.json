@@ -30,5 +30,5 @@
     "prettier": "^3.5.3",
     "pretty-quick": "^4.1.1"
   },
-  "packageManager": "yarn@4.7.0"
+  "packageManager": "yarn@4.9.2"
 }
