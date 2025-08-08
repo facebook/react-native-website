@@ -27,20 +27,22 @@ export default YourApp;
 
 The above code snippet would look like this:
 
-<img width="783" alt="Screenshot 2020-10-03 at 1 11 19 AM" src="https://user-images.githubusercontent.com/11258286/94963203-67de3500-0515-11eb-974a-a2289c0bfdc8.png">
+<img width="783" alt="Screenshot 2020-10-03 at 1 11 19 AM" src="https://user-images.githubusercontent.com/11258286/94963203-67de3500-0515-11eb-974a-a2289c0bfdc8.png"/>
 
 ### Parameters
 
-| Name               | Description                                               | Default             |
-| ------------------ | --------------------------------------------------------- | ------------------- |
-| name               | SnackPlayer name                                          | `"Example"`         |
-| description        | Description of the example                                | `"Example usage"`   |
-| dependencies       | Additional dependencies, eg. `"expo-constant"`            | `""`                |
-| platform           | Example platform                                          | `"web"`             |
-| supportedPlatforms | Supported platforms                                       | `"ios,android,web"` |
-| theme              | SnackPlayer theme, `"light"` or `"dark"`                  | `"light"`           |
-| preview            | Preview visible, `"true"` or `"false"`                    | `"true"`            |
-| loading            | iFrame loading attribute, `"auto"`, `"lazy"` or `"eager"` | `"lazy"`            |
+| Name               | Description                                                                                                     | Default             |
+| ------------------ | --------------------------------------------------------------------------------------------------------------- | ------------------- |
+| name               | SnackPlayer name                                                                                                | `"Example"`         |
+| description        | Description of the example                                                                                      | `"Example usage"`   |
+| dependencies       | Additional dependencies, eg. `"expo-constant"`                                                                  | `""`                |
+| platform           | Example platform                                                                                                | `"web"`             |
+| supportedPlatforms | Supported platforms                                                                                             | `"ios,android,web"` |
+| theme              | SnackPlayer theme, `"light"` or `"dark"`                                                                        | `"light"`           |
+| preview            | Preview visible, `"true"` or `"false"`                                                                          | `"true"`            |
+| loading            | iFrame loading attribute, `"auto"`, `"lazy"` or `"eager"`                                                       | `"lazy"`            |
+| deviceAndroid      | Emulator type used for Android, [see Appetize options](https://docs.appetize.io/core-features/playback-options) | `pixel4`            |
+| deviceIos          | Simulator type used for iOS, [see Appetize options](https://docs.appetize.io/core-features/playback-options)    | `iphone12`          |
 
 ## Styling
 

@@ -9,7 +9,9 @@ This can be problematic as your project grows and generally in bigger organizati
 To mitigate this performance hit, this page shares some suggestions on how to **improve your build time**.
 
 :::info
-If you're noticing slower build time with the **New Architecture on Android**, we recommend to upgrade to React Native 0.71
+
+Please note that those suggestions are advanced feature that requires some amount of understanding of how the native build tools work.
+
 :::
 
 ## Build only one ABI during development (Android-only)
@@ -54,6 +56,51 @@ reactNativeArchitectures=armeabi-v7a,arm64-v8a,x86,x86_64
 
 Once you build a **release version** of your app, don't forget to remove those flags as you want to build an apk/app bundle that works for all the ABIs and not only for the one you're using in your daily development workflow.
 
+## Enable Configuration Caching (Android-only)
+
+Since React Native 0.79, you can also enable Gradle Configuration Caching.
+
+When you’re running an Android build with `yarn android`, you will be executing a Gradle build that is composed by two steps ([source](https://docs.gradle.org/current/userguide/build_lifecycle.html)):
+
+- Configuration phase, when all the `.gradle` files are evaluated.
+- Execution phase, when the tasks are actually executed so the Java/Kotlin code is compiled and so on.
+
+You will now be able to enable Configuration Caching, which will allow you to skip the Configuration phase on subsequent builds.
+
+This is beneficial when making frequent changes to the native code as it improves build times.
+
+For example here you can see how rebuilding faster it is to rebuild RN-Tester after a change in the native code:
+
+![gradle config caching](/docs/assets/gradle-config-caching.gif)
+
+You can enable Gradle Configuration Caching by adding the following line in your `android/gradle.properties` file:
+
+```
+org.gradle.configuration-cache=true
+```
+
+Please refer to the [official Gradle documentation](https://docs.gradle.org/current/userguide/configuration_cache.html) for more resources on Configuration Caching.
+
+## Using a Maven Mirror (Android-only)
+
+When building Android apps, your Gradle builds will need to download the necessary dependencies from Maven Central and other repositories from the internet.
+
+If your organization is running a Maven repository mirror, you should consider using it as it will speed up your build, by downloading the artifacts from the mirror rather than from the internet.
+
+You can configure a mirror by specifying the `exclusiveEnterpriseRepository` property in your `android/gradle.properties` file:
+
+```diff
+# Use this property to enable or disable the Hermes JS engine.
+# If set to false, you will be using JSC instead.
+hermesEnabled=true
+
+# Use this property to configure a Maven enteprise repository
+# that will be used exclusively to fetch all of your dependencies.
++exclusiveEnterpriseRepository=https://my.internal.proxy.net/
+```
+
+By setting this property, your build will fetch dependencies **exclusively** from your specified repository and not from others.
+
 ## Use a compiler cache
 
 If you're running frequent native builds (either C++ or Objective-C), you might benefit from using a **compiler cache**.
@@ -72,47 +119,8 @@ We suggest to use [**ccache**](https://ccache.dev/) to cache the compilation of 
 Ccache works by wrapping the C++ compilers, storing the compilation results, and skipping the compilation
 if an intermediate compilation result was originally stored.
 
-To install it, you can follow the [official installation instructions](https://github.com/ccache/ccache/blob/master/doc/INSTALL.md).
-
-On macOS, we can install ccache with `brew install ccache`.
-Once installed you can configure it as follows to cache NDK compile results:
-
-```
-ln -s $(which ccache) /usr/local/bin/gcc
-ln -s $(which ccache) /usr/local/bin/g++
-ln -s $(which ccache) /usr/local/bin/cc
-ln -s $(which ccache) /usr/local/bin/c++
-ln -s $(which ccache) /usr/local/bin/clang
-ln -s $(which ccache) /usr/local/bin/clang++
-```
-
-This will create symbolic links to `ccache` inside the `/usr/local/bin/` which are called `gcc`, `g++`, and so on.
-
-This works as long as `/usr/local/bin/` comes first than `/usr/bin/` inside your `$PATH` variable, which is the default.
-
-You can verify that it works using the `which` command:
-
-```
-$ which gcc
-/usr/local/bin/gcc
-```
-
-If the results is `/usr/local/bin/gcc`, then you're effectively calling `ccache` which will wrap the `gcc` calls.
-
-:::caution
-Please note that this setup of `ccache` will affect all the compilations that you're running on your machine, not only those related to React Native. Use it at your own risk. If you're failing to install/compile other software, this might be the reason. If that is the case, you can remove the symlink you created with:
-
-```
-unlink /usr/local/bin/gcc
-unlink /usr/local/bin/g++
-unlink /usr/local/bin/cc
-unlink /usr/local/bin/c++
-unlink /usr/local/bin/clang
-unlink /usr/local/bin/clang++
-```
-
-to revert your machine to the original status and use the default compilers.
-:::
+Ccache is available in the package manager for most operating systems. On macOS, we can install ccache with `brew install ccache`.
+Or you can follow the [official installation instructions](https://github.com/ccache/ccache/blob/master/doc/INSTALL.md) to install from source.
 
 You can then do two clean builds (e.g. on Android you can first run `yarn react-native run-android`, delete the `android/app/build` folder and run the first command once more). You will notice that the second build was way faster than the first one (it should take seconds rather than minutes).
 While building, you can verify that `ccache` works correctly and check the cache hits/miss rate `ccache -s`
@@ -139,43 +147,22 @@ Should you need to wipe your cache, you can do so with `ccache --clear`
 
 #### XCode Specific Setup
 
-To make sure `ccache` works correctly with iOS and XCode, you need to follow a couple of extra steps:
+To make sure `ccache` works correctly with iOS and XCode, you need to enable React Native support for ccache in `ios/Podfile`.
 
-1. You must alter the way Xcode and `xcodebuild` call for the compiler command. By default they use _fully specified paths_ to the compiler binaries, so the symbolic links installed in `/usr/local/bin` will not be used. You may configure Xcode to use _relative_ names for the compilers using either of these two options:
-
-- environment variables prefixed on the command line if you use a direct command line: `CLANG=clang CLANGPLUSPLUS=clang++ LD=clang LDPLUSPLUS=clang++ xcodebuild <rest of xcodebuild command line>`
-- A `post_install` section in your `ios/Podfile` that alters the compiler in your Xcode workspace during the `pod install` step:
+Open `ios/Podfile` in your editor and uncomment the `ccache_enabled` line.
 
 ```ruby
   post_install do |installer|
-    react_native_post_install(installer)
-
-    # ...possibly other post_install items here
-
-    installer.pods_project.targets.each do |target|
-      target.build_configurations.each do |config|
-        # Using the un-qualified names means you can swap in different implementations, for example ccache
-        config.build_settings["CC"] = "clang"
-        config.build_settings["LD"] = "clang"
-        config.build_settings["CXX"] = "clang++"
-        config.build_settings["LDPLUSPLUS"] = "clang++"
-      end
-    end
-
-    __apply_Xcode_12_5_M1_post_install_workaround(installer)
+    # https://github.com/facebook/react-native/blob/main/packages/react-native/scripts/react_native_pods.rb#L197-L202
+    react_native_post_install(
+      installer,
+      config[:reactNativePath],
+      :mac_catalyst_enabled => false,
+      # TODO: Uncomment the line below
+      :ccache_enabled => true
+    )
   end
 ```
-
-2. You need a ccache configuration that allows for a certain level of sloppiness and cache behavior such that ccache registers cache hits during Xcode compiles. The ccache configuration variables that are different from standard are as follows if configured by environment variable:
-
-```bash
-export CCACHE_SLOPPINESS=clang_index_store,file_stat_matches,include_file_ctime,include_file_mtime,ivfsoverlay,pch_defines,modules,system_headers,time_macros
-export CCACHE_FILECLONE=true
-export CCACHE_DEPEND=true
-export CCACHE_INODECACHE=true
-```
-
-The same may be configured in a `ccache.conf` file or any other mechanism ccache provides. More on this can be found in the [official ccache manual](https://ccache.dev/manual/4.3.html).
 
 #### Using this approach on a CI
 
@@ -195,40 +182,3 @@ This could be specifically useful in bigger organizations that are doing frequen
 
 We recommend to use [sccache](https://github.com/mozilla/sccache) to achieve this.
 We defer to the sccache [distributed compilation quickstart](https://github.com/mozilla/sccache/blob/main/docs/DistributedQuickstart.md) for instructions on how to setup and use this tool.
-
-## Troubleshooting
-
-Please find instructions on how to solve some of the most common build performance issue in this section.
-
-### Clean Android build with `--active-arch-only` is failing.
-
-If you're using the `--active-arch-only` flag on a clean Android build (e.g. after having cloned a project or after having created a new project) you might experience a build failures as follows:
-
-```
-Android NDK: ERROR:/.../android/app/src/main/jni/Android.mk:fb: LOCAL_SRC_FILES points to a missing file
-Android NDK: Check that /.../android/app/build/react-ndk/exported/armeabi-v7a/libfb.so exists or that its path is correct
-
-/.../Android/sdk/ndk/24.0.8079956/build/core/prebuilt-library.mk:51: *** Android NDK: Aborting    .  Stop.
-```
-
-To overcome this, you can either:
-
-1. Run a full build before without `--active-arch-only`. Subsequent builds with `--active-arch-only` will work correctly.
-2. Add an `abiFilter` block inside your `android/app/build.gradle` file [as follows](https://github.com/facebook/react-native/commit/5dff920177220ae5f4e37c662c63c27ebf696c83):
-
-```diff
-  android {
-    defaultConfig {
-
-      // ...
-
-+     if (!enableSeparateBuildPerCPUArchitecture) {
-+       ndk {
-+         abiFilters (*reactNativeArchitectures())
-+       }
-+     }
-    }
-  }
-```
-
-Projects created with React Native 0.69 and subsequent versions already contain this fix.

@@ -302,6 +302,6 @@ The first time the test is run, it will create a snapshot of the rendered compon
 
 ## Next Steps
 
-Check out the official [React tutorial](https://reactjs.org/tutorial/tutorial.html) and state-management library [Redux](http://redux.js.org). These resources can be helpful when writing React Native apps. Additionally, you may want to look at [ReactXP](https://microsoft.github.io/reactxp/), a component library written entirely in TypeScript that supports both React on the web as well as React Native.
+Check out the official [React tutorial](https://reactjs.org/tutorial/tutorial.html) and state-management library [Redux](https://redux.js.org). These resources can be helpful when writing React Native apps. Additionally, you may want to look at [ReactXP](https://microsoft.github.io/reactxp/), a component library written entirely in TypeScript that supports both React on the web as well as React Native.
 
 Have fun in a more type-safe React Native development environment!

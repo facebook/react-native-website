@@ -30,6 +30,9 @@ Now you are set up to run several commands:
   - `yarn flow-check-ios` does a full Flow check over `*.ios.js` files.
 - `yarn test-typescript` runs the [TypeScript](https://www.typescriptlang.org/) typechecks.
 - `yarn test-ios` runs the iOS test suite (macOS required).
+- `yarn build` builds all configured packages — in general, this command only needs to be run by CI ahead of publishing.
+  - Packages which require a build are configured in [scripts/build/config.js](https://github.com/facebook/react-native/blob/main/scripts/build/config.js).
+- `yarn build-types` generates TypeScript types for the public API and updates the snapshot.
 
 ## Testing your Changes
 
@@ -68,15 +71,16 @@ Code-level contributions to React Native generally come in the form of [a pull r
 3. If you've changed APIs, update the documentation.
 4. Ensure the test suite passes, either locally or on CI once you opened a pull request.
 5. Make sure your code lints (for example via `yarn lint --fix`).
-6. Push the changes to your fork.
-7. Create a pull request to the React Native repository.
-8. Review and address comments on your pull request.
-9. A bot may comment with suggestions. Generally we ask you to resolve these first before a maintainer will review your code.
-10. If you haven't already, submit the [Contributor License Agreement ("CLA")](#contributor-license-agreement).
+6. Verify if your code modifies the JS public API with `yarn build-types --validate`. If so, regenerate the snapshot using `yarn build-types`.
+7. Push the changes to your fork.
+8. Create a pull request to the React Native repository.
+9. Review and address comments on your pull request.
+10. A bot may comment with suggestions. Generally we ask you to resolve these first before a maintainer will review your code.
+11. If you haven't already, submit the [Contributor License Agreement ("CLA")](#contributor-license-agreement).
 
 If all goes well, your pull request will be merged. If it is not merged, maintainers will do their best to explain their reasoning.
 
-If this is your first time sending a pull request, we have created a [step-by-step guide to help you get started](contributing/how-to-open-a-pull-request). For more detailed information on how pull requests are handled, see the [Managing Pull Requests page](Managing-Pull-Requests).
+If this is your first time sending a pull request, we have created a [step-by-step guide to help you get started](/contributing/how-to-open-a-pull-request). For more detailed information on how pull requests are handled, see the [Managing Pull Requests page](managing-pull-requests).
 
 ### Contributor License Agreement
 

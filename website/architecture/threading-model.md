@@ -13,11 +13,10 @@ Here we define the threading model and provide some examples to illustrate threa
 
 React Native renderer is designed to be thread safe. At a high level thread safety is guaranteed by using immutable data structures in the internals of the framework (enforced by C++ “const correctness” feature). This means that every update in React creates or clones new objects in the renderer instead of updating data structures. This allows the framework to expose thread safe and synchronous APIs to React.
 
-The renderer uses three different threads:
+The renderer uses two different threads:
 
 - **UI thread** (often called main): The only thread that can manipulate host views.
-- **JavaScript thread**: This is where React’s render phase is executed.
-- **Background thread**: Thread dedicated to layout.
+- **JavaScript thread**: This is where React’s render phase, as well as layout, are executed.
 
 Let’s review the supported scenarios of execution for each phase:
 
@@ -27,9 +26,9 @@ Let’s review the supported scenarios of execution for each phase:
 
 ## Render Scenarios
 
-### Render in a Background Thread
+### Render in a JS Thread
 
-This is the most common scenario where most of the render pipeline happens on JavaScript and background thread.
+This is the most common scenario where most of the render pipeline happens on JavaScript thread.
 
 <figure>
 	<img src="/docs/assets/Architecture/threading-model/case-1.jpg" alt="Threading model use case one" />
@@ -49,7 +48,7 @@ When there is a high priority event on the UI Thread, the renderer is able to ex
 
 ### Default or continuous event interruption
 
-This scenario shows the interruption of the render phase by a low priority event in the UI thread. React and the React Native renderer are able to interrupt the render phase and merge its state with a low priority event that is executed on the UI thread. In this case the render process continues executing in the background thread.
+This scenario shows the interruption of the render phase by a low priority event in the UI thread. React and the React Native renderer are able to interrupt the render phase and merge its state with a low priority event that is executed on the UI thread. In this case the render process continues executing in the JS thread.
 
 <figure>
 	<img src="/docs/assets/Architecture/threading-model/case-3.jpg" alt="Threading model use case three" />
@@ -63,16 +62,6 @@ The render phase is interruptible. This scenario shows the interruption of the r
 
 <figure>
 	<img src="/docs/assets/Architecture/threading-model/case-4.jpg" alt="Threading model use case four" />
-</figure>
-
----
-
-### Background thread batches updates from JavaScript
-
-Before background thread dispatches update to UI thread, it checks if a newer update hasn’t come in from JavaScript. This way, the renderer doesn’t render stale state when it knows a newer state is coming in.
-
-<figure>
-	<img src="/docs/assets/Architecture/threading-model/case-5.jpg" alt="Threading model use case five" />
 </figure>
 
 ---

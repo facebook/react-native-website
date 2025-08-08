@@ -13,12 +13,12 @@
   --deepdark: #20232a;
   --light: #373940;
   --text: #1a1a1a;
-  --subtle: #767676;
+  --subtle: #636363;
   --divider: #ececec;
   --tintColor: #f7f7f7;
   --rn-note-background: rgba(255, 229, 100, 0.25);
-  --ifm-font-family-base: "Optimistic Display", system-ui, -apple-system,
-    sans-serif;
+  --ifm-font-family-base:
+    "Optimistic Display", system-ui, -apple-system, sans-serif;
   --ifm-color-primary: #06bcee;
   --ifm-font-size-base: 17px;
   --ifm-spacing-horizontal: 16px;
@@ -26,29 +26,74 @@
   --ifm-menu-link-padding-horizontal: 0;
   --ifm-toc-padding-vertical: 6px;
   --ifm-toc-link-color: var(--ifm-color-emphasis-700);
-  --ifm-code-font-size: 90%;
-  --ifm-code-border-radius: 3px;
   --ifm-blockquote-color: var(--ifm-font-color-base);
   --ifm-blockquote-font-size: 16px;
+  --ifm-blockquote-border-radius: var(--ifm-global-radius);
   --ifm-table-head-color: var(--subtle);
   --ifm-link-hover-decoration: none;
   --ifm-navbar-background-color: var(--deepdark);
-  --ifm-transition-fast: 0;
-  --ifm-transition-slow: 0;
   --ifm-pre-line-height: 1.5;
   --ifm-tabs-padding-vertical: 6px;
   --ifm-color-warning: #ffe564;
-  --ifm-alert-border-width: 0;
-  --ifm-alert-border-radius: 0;
   --ifm-alert-color: var(--ifm-font-color-base);
   --ifm-pagination-nav-color-hover: var(--ifm-color-emphasis-300);
-  --ifm-table-border-width: 0.005rem;
   --ifm-navbar-sidebar-width: 100%;
   --ifm-hr-border-color: var(--docusaurus-collapse-button-bg-hover);
+  --ifm-table-head-background: var(--ifm-color-emphasis-100);
+  --ifm-table-border-color: var(--ifm-toc-border-color);
+  --ifm-table-cell-padding: 10px;
+  --ifm-table-stripe-background: rgba(0, 0, 0, 0.02);
 
   @media (min-width: 340px) {
     --ifm-navbar-sidebar-width: 340px;
   }
+
+  --logo: #087ea4;
+  --home-hero-floor-background: rgb(236, 248, 250);
+  --home-hero-floor-background-bottom: white;
+  --home-button-primary: #087ea4;
+  --home-button-primary-text: white;
+  --home-button-primary-hover: #4e98b6;
+  --home-button-secondary: white;
+  --home-button-secondary-text: #404756;
+  --home-button-secondary-border: #bcc1cd;
+  --home-button-secondary-hover: #f8f9fa;
+  --home-hero-devices-border: #5e687e;
+  --home-hero-devices-stop: #66728b;
+  --home-hero-devices-skeleton-element: #cfe6ee;
+  --home-hero-devices-background: #fff;
+  --home-hero-devices-icon: #000;
+  --home-hero-devices-icon-border: #e5e7eb;
+  --home-hero-floor: #acddec;
+  --home-hero-grid-icon-background: #f8f9fa;
+  --home-hero-grid-icon: #e1e4e8;
+  --home-hero-grid-grid: #ced4da;
+  --home-section-top: white;
+  --home-section-bottom: #efeff2;
+  --home-secondary-text: #404756;
+  --home-feature-background-1: #f1dbfc;
+  --home-feature-background-2: #e1eefc;
+  --home-feature-background-3: #d4f3e7;
+  --home-border: #e5e7eb;
+  --home-background: #fff;
+  --home-secondary-background: #f6f7f9;
+  --home-text: #1c1e21;
+  --home-code-red: #d73a49;
+  --home-code-purple: #6f42c1;
+  --home-code-green: #22863a;
+  --home-code-diff-removed: #f8514926;
+  --home-code-diff-removed-word: #f8514966;
+  --home-code-diff-added: #2ea04326;
+  --home-code-diff-added-word: #2ea04366;
+
+  @media (max-width: 900px) {
+    --home-hero-grid-icon: transparent;
+    --home-hero-grid-icon-background: transparent;
+  }
+}
+
+body {
+  font-family: var(--ifm-font-family-base);
 }
 
 html[data-theme="light"] {
@@ -61,16 +106,62 @@ html[data-theme="dark"] {
   --ifm-code-background: rgba(255, 255, 255, 0.06);
   --ifm-toc-border-color: var(--dark);
   --ifm-color-emphasis-300: var(--dark);
+  --ifm-table-head-background: var(--deepdark);
+  --subtle: #a7a7a7;
+  --ifm-table-head-color: var(--subtle);
 
   *[class^="DocSearch"] {
     --docsearch-searchbox-background: var(--ifm-background-color);
     --docsearch-modal-background: var(--deepdark);
     --docsearch-footer-background: var(--dark);
     --docsearch-key-gradient: var(--deepdark);
-    --docsearch-key-shadow: inset 0 -2px 0 0 var(--light),
-      inset 0 0 1px 1px var(--light),
+    --docsearch-key-shadow:
+      inset 0 -2px 0 0 var(--light), inset 0 0 1px 1px var(--light),
       0 1px 2px 1px var(--ifm-table-border-color);
     --docsearch-container-background: rgba(0, 0, 0, 0.6);
+  }
+
+  --logo: #58c4dc;
+  --home-hero-floor-background: #151517;
+  --home-hero-floor-background-bottom: #1b1b1d;
+  --home-button-primary: #58c4dc;
+  --home-button-primary-text: #1b1b1d;
+  --home-button-primary-hover: #71d6ec;
+  --home-button-secondary: #1b1b1d;
+  --home-button-secondary-text: #f6f7f9;
+  --home-button-secondary-border: #4e5668;
+  --home-button-secondary-hover: #2b2b2d;
+  --home-hero-devices-border: #404756;
+  --home-hero-devices-stop: #4a5160;
+  --home-hero-devices-skeleton-element: #404756;
+  --home-hero-devices-background: #242426;
+  --home-hero-devices-icon: #fff;
+  --home-hero-devices-icon-border: #404756;
+  --home-hero-floor: #30363d;
+  --home-hero-grid-icon-background: #1e2025;
+  --home-hero-grid-icon: #282c36;
+  --home-hero-grid-grid: #30363d;
+  --home-section-top: #1b1b1d;
+  --home-section-bottom: #111113;
+  --home-secondary-text: #c0c1c4;
+  --home-feature-background-1: #333049;
+  --home-feature-background-2: #1c3950;
+  --home-feature-background-3: #1d413e;
+  --home-border: #404756;
+  --home-background: #242426;
+  --home-secondary-background: #2c2c2e;
+  --home-text: #e3e3e3;
+  --home-code-red: #f46b78;
+  --home-code-purple: #a77cf7;
+  --home-code-green: #74e68f;
+  --home-code-diff-removed: #f8514926;
+  --home-code-diff-removed-word: #f8514966;
+  --home-code-diff-added: #2ea04326;
+  --home-code-diff-added-word: #2ea04366;
+
+  @media (max-width: 900px) {
+    --home-hero-grid-icon: transparent;
+    --home-hero-grid-icon-background: transparent;
   }
 }
 
@@ -116,7 +207,7 @@ html[data-theme="dark"] {
   align-self: center;
   font-weight: 300;
 
-  div[class*="docPage"] {
+  div[class*="docRoot"] {
     justify-content: center;
   }
 
@@ -131,8 +222,14 @@ html[data-theme="dark"] {
   }
 }
 
-main[class^="docMainContainer"] > .container {
-  padding-top: 2rem !important;
+/*
+Layer needed to override utility rules using !important in the Infima layer
+See also https://css-tricks.com/css-cascade-layers/#aa-important-layers
+*/
+@layer docusaurus.infima.importantOverrides {
+  main[class^="docMainContainer"] > .container {
+    padding-top: 2rem !important;
+  }
 }
 
 div[class^="generatedIndexPage"] {
@@ -165,6 +262,10 @@ hr {
 }
 
 .markdown {
+  h2:first-child {
+    margin-top: 0;
+  }
+
   code {
     border-color: transparent;
     vertical-align: initial;
@@ -172,9 +273,14 @@ hr {
   }
 
   blockquote {
+    > :last-child {
+      margin-bottom: 0;
+    }
+
     background-color: var(--rn-note-background);
     border-left: 8px solid var(--ifm-color-warning);
     padding: 15px 30px 15px 15px;
+    border-radius: var(--ifm-blockquote-border-radius);
 
     code {
       background-color: rgba(0, 0, 0, 0.07);
@@ -215,33 +321,30 @@ hr {
   }
 
   table {
-    border-collapse: collapse;
     display: table;
-    margin: 20px 0;
     width: 100%;
+    table-layout: fixed;
 
     thead tr {
-      background-color: var(--divider);
       border: 0;
     }
 
     tr th {
-      text-transform: uppercase;
-      padding: 6px 10px;
-      font-size: 0.7rem;
-      text-align: left;
+      padding: 6px var(--ifm-table-cell-padding);
+      font-size: 80%;
+      text-align: start;
     }
 
     tr td {
       font-size: 90%;
       line-height: 1.3em;
-      padding: 10px;
-      text-align: left;
+      text-align: start;
 
       code {
         display: inline-block;
         line-height: 1.2em;
         vertical-align: top;
+        word-break: break-word;
       }
 
       ul {
@@ -356,6 +459,16 @@ hr {
   }
 }
 
+@media only screen and (max-width: 996px) {
+  .markdown table {
+    display: block;
+
+    tr td code {
+      word-break: normal;
+    }
+  }
+}
+
 html[data-theme="dark"] {
   .markdown {
     a {
@@ -372,10 +485,6 @@ html[data-theme="dark"] {
       }
     }
 
-    table thead tr {
-      background-color: var(--ifm-menu-color-background-active);
-    }
-
     .prism-code {
       @extend %scrollbar-style-dark;
     }
@@ -387,10 +496,10 @@ html[data-theme="dark"] {
   }
 }
 
-div[class^="docPage"] .hash-link,
+div[class^="docRoot"] .hash-link,
 article[itemprop="blogPost"] .hash-link,
 .mdx-page .hash-link,
-html[data-theme="dark"] div[class^="docPage"] .hash-link,
+html[data-theme="dark"] div[class^="docRoot"] .hash-link,
 html[data-theme="dark"] article[itemprop="blogPost"] .hash-link,
 html[data-theme="dark"].mdx-page .hash-link {
   @extend %hash-link-style;
@@ -468,8 +577,10 @@ html[data-theme="dark"] .alert--secondary {
     text-decoration-thickness: 1px !important;
   }
 
-  .margin-top--md {
-    margin-top: 0.33rem !important;
+  @layer docusaurus.infima.importantOverrides {
+    .margin-top--md {
+      margin-top: 0.33rem !important;
+    }
   }
 }
 
@@ -482,10 +593,13 @@ html[data-theme="dark"] {
 /* Blog */
 
 .avatar__name {
-  line-height: 24px;
+  font-weight: 600;
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
 
-  a {
-    @extend %link-style;
+  h2 {
+    margin-bottom: 0;
   }
 }
 
@@ -499,11 +613,23 @@ html[data-theme="dark"] .avatar__name a {
   color: var(--subtle);
 }
 
-article header h2 a {
-  color: var(--ifm-font-color-base);
+article header h1 {
+  font-size: 2.5rem !important;
+  line-height: 3rem;
+}
 
-  &:hover {
-    color: var(--light);
+article header h2 {
+  line-height: 3rem;
+
+  a {
+    color: var(--ifm-font-color-base);
+    font-size: 2.5rem;
+
+    &:hover,
+    &:focus {
+      color: var(--ifm-font-color-base);
+      opacity: 0.8;
+    }
   }
 }
 
@@ -594,10 +720,6 @@ a[class*="tagRegular"] {
     transform: rotate(180deg) scale(0.9);
   }
 
-  .clean-btn:hover {
-    background: var(--ifm-color-emphasis-800);
-  }
-
   .DocSearch-Button {
     border-radius: var(--ifm-global-radius);
     padding: 0 6px 0 10px;
@@ -630,7 +752,7 @@ a[class*="tagRegular"] {
     }
   }
 
-  .navbar__items div[class^="searchBox"] {
+  .navbar__items div[class^="navbarSearchContainer"] {
     padding-left: 14px;
   }
 
@@ -850,8 +972,6 @@ aside[class^="theme-doc-sidebar-container"] {
 
 .menu__list {
   margin-bottom: 8px;
-  transition: none !important;
-  height: auto !important;
 
   &.blog-menu__list {
     font-size: 14px;
@@ -943,12 +1063,6 @@ aside[class^="theme-doc-sidebar-container"] {
   }
 }
 
-.menu__list-item.menu__list-item--collapsed {
-  .menu__list {
-    height: 0 !important;
-  }
-}
-
 .menu--responsive .menu__button {
   right: 1.3rem;
   bottom: 1.3rem;
@@ -1012,11 +1126,11 @@ div[class^="tableOfContents"] {
     margin-left: -16px;
     padding-left: 12px;
     color: var(--ifm-font-color-base);
-    border-left: 4px solid var(--brand);
+    border-left: 4px solid var(--ifm-link-color);
 
     code {
-      font-weight: 600;
       color: var(--ifm-font-color-base);
+      font-weight: 700;
       white-space: nowrap;
     }
 
@@ -1025,6 +1139,22 @@ div[class^="tableOfContents"] {
 
       code {
         color: var(--ifm-font-color-base);
+      }
+    }
+  }
+}
+
+html[data-theme="dark"] {
+  .table-of-contents {
+    .table-of-contents__link--active {
+      color: var(--ifm-link-color);
+
+      &:hover {
+        color: var(--ifm-link-color);
+
+        code {
+          color: var(--ifm-link-color);
+        }
       }
     }
   }
@@ -1051,7 +1181,9 @@ button[class*="tocCollapsibleButton"] {
   padding: 1.5rem !important;
   border: 1px solid var(--ifm-color-emphasis-300) !important;
   box-shadow: none !important;
-  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out !important;
+  transition:
+    background-color 0.2s ease-in-out,
+    border-color 0.2s ease-in-out !important;
   background-color: var(--ifm-background-color);
 
   &:hover {
@@ -1078,7 +1210,7 @@ button[class*="tocCollapsibleButton"] {
 
   .lastUpdated {
     font-size: 13px;
-    text-align: right;
+    text-align: end;
   }
 
   time,
@@ -1217,7 +1349,13 @@ button[class*="tocCollapsibleButton"] {
   --docusaurus-announcement-bar-height: auto !important;
 }
 
-div[class^="announcementBar"][role="banner"] {
+@media (min-width: 997px) {
+  :root {
+    --docusaurus-announcement-bar-height: auto !important;
+  }
+}
+
+div[class*="announcementBar"][role="banner"] {
   border-bottom-color: var(--deepdark);
 
   button.close {
@@ -1227,7 +1365,7 @@ div[class^="announcementBar"][role="banner"] {
   }
 }
 
-div[class^="announcementBarContent"] {
+div[class*="announcementBarContent"] {
   line-height: 40px;
   font-size: 20px;
   font-weight: bold;
@@ -1245,13 +1383,13 @@ div[class^="announcementBarContent"] {
 }
 
 @media only screen and (max-width: 768px) {
-  div[class^="announcementBarContent"] {
+  div[class*="announcementBarContent"] {
     font-size: 18px;
   }
 }
 
 @media only screen and (max-width: 500px) {
-  div[class^="announcementBarContent"] {
+  div[class*="announcementBarContent"] {
     font-size: 15px;
     line-height: 22px;
     padding: 6px 30px;
@@ -1266,9 +1404,9 @@ div[class^="announcementBarContent"] {
   margin-bottom: 2em;
   position: relative;
   overflow: hidden;
-  width: calc(100% + 1em);
-  left: -1em;
+  width: calc(100%);
   color: var(--dark);
+  border-radius: var(--ifm-global-radius);
 }
 
 .content-banner p {
@@ -1303,6 +1441,7 @@ div[class^="announcementBarContent"] {
   padding: 24px 48px 24px 24px;
   margin-bottom: 24px;
   border-left: 8px solid #6170af;
+  border-radius: var(--ifm-alert-border-radius);
 
   h2,
   h3 {
@@ -1552,9 +1691,7 @@ td .label {
   - to restrict badge only to the next version use "next/PAGEID"
 */
 
-.menu__link[href*="dynamiccolorios"]:after,
-.menu__link[href*="platformcolor"]:after,
-.menu__link[href*="pressable"]:after {
+.menu__link[href*="NO_NEW_PAGES_CURRENTLY"]:after {
   content: "new";
   display: inline-block;
   position: relative;
@@ -1591,13 +1728,19 @@ article .component-grid {
       transform: scale(1.05);
     }
 
+    > a {
+      display: block;
+      height: 100%;
+      border-bottom: none;
+    }
+
     h3 {
       font-size: 16px;
       font-weight: 600;
       margin: 0;
       padding: 0 10px;
-      background-color: var(--ifm-color-primary);
-      color: white;
+      background-color: var(--home-button-primary);
+      color: var(--home-button-primary-text);
       line-height: 36px;
 
       a {
@@ -1714,12 +1857,16 @@ html[data-theme="dark"] .docsRating {
 /* Snack Player */
 
 .snack-player {
-  height: 544px;
+  height: 635px;
   width: 100%;
   overflow: hidden;
   margin-bottom: 24px;
   border: 1px solid var(--ifm-table-border-color);
   border-radius: var(--ifm-global-radius);
+}
+
+.tabs-container .snack-player:last-child {
+  margin-bottom: 0;
 }
 
 /* Two columns code block */
@@ -1756,10 +1903,15 @@ html[data-theme="dark"] .docsRating {
     color: var(--ifm-font-color-secondary);
   }
 
+  @layer docusaurus.infima.importantOverrides {
+    .container.margin-vert--lg {
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+    }
+  }
+
   .container.margin-vert--lg {
     max-width: calc(100% - (var(--ifm-spacing-horizontal)) * 4);
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
 
     .col.text--right a {
       @extend %button-link-style;
@@ -1802,8 +1954,10 @@ html[data-theme="dark"] .docsRating {
     }
   }
 
-  article.margin-bottom--xl {
-    margin-bottom: 2.5rem !important;
+  @layer docusaurus.infima.importantOverrides {
+    article.margin-bottom--xl {
+      margin-bottom: 2.5rem !important;
+    }
   }
 
   aside nav {
@@ -1863,5 +2017,53 @@ html[data-theme="light"].blog-wrapper {
     &.tabs__item--active {
       border-color: var(--ifm-tabs-color-active);
     }
+  }
+}
+
+/*
+Prevent useless bottom margin for multiline <figcaption> tags in MDX:
+<figcaption>
+  some paragraph text
+</figcaption>
+ */
+figcaption > p:last-child {
+  margin-bottom: 0;
+}
+
+/* Diffing with code syntax highlighting */
+.code-remove-line {
+  background-color: var(--home-code-diff-removed);
+  .token {
+    background-color: var(--home-code-diff-removed-word);
+  }
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+}
+
+.code-add-line {
+  background-color: var(--home-code-diff-added);
+  .token {
+    background-color: var(--home-code-diff-added-word);
+  }
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+}
+
+img {
+  &.center {
+    width: 100%;
+    justify-content: center;
+  }
+  &.half-size {
+    max-height: 50vh;
+    object-fit: contain;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .tweet {
+    display: none;
   }
 }

@@ -44,7 +44,7 @@ Hot reloading is available as of 0.22, you can enable it:
 
 Now that we've seen why we want it and how to use it, the fun part begins: how it actually works.
 
-Hot Reloading is built on top of a feature [Hot Module Replacement](https://webpack.js.org/guides/hot-module-replacement/), or HMR. It was first introduced by Webpack and we implemented it inside of React Native Packager. HMR makes the Packager watch for file changes and send HMR updates to a thin HMR runtime included on the app.
+Hot Reloading is built on top of a feature [Hot Module Replacement](https://webpack.js.org/guides/hot-module-replacement/), or HMR. It was first introduced by webpack and we implemented it inside of React Native Packager. HMR makes the Packager watch for file changes and send HMR updates to a thin HMR runtime included on the app.
 
 In a nutshell, the HMR update contains the new code of the JS modules that changed. When the runtime receives them, it replaces the old modules' code with the new one:
 
@@ -85,10 +85,10 @@ This invocation wraps each module's code into an anonymous function which we gen
 
 So say you start your app and require `log`. At this point, neither `log` nor `time`'s factory functions have been executed so no exports have been cached. Then, the user modifies `time` to return the date in `MM/DD`:
 
-```
+```js
 // time.js
 function bar() {
-  var date = new Date();
+  const date = new Date();
   return `${date.getMonth() + 1}/${date.getDate()}`;
 }
 
@@ -120,7 +120,7 @@ For `log` to pick up `time` changes, we'll need to clear its cached exports beca
 
 ## HMR API
 
-HMR in React Native extends the module system by introducing the `hot` object. This API is based on [Webpack](https://webpack.github.io/hot-module-replacement.md)'s one. The `hot` object exposes a function called `accept` which allows you to define a callback that will be executed when the module needs to be hot swapped. For instance, if we would change `time`'s code as follows, every time we save time, we'll see “time changed” in the console:
+HMR in React Native extends the module system by introducing the `hot` object. This API is based on [webpack](https://webpack.github.io/hot-module-replacement.md)'s one. The `hot` object exposes a function called `accept` which allows you to define a callback that will be executed when the module needs to be hot swapped. For instance, if we would change `time`'s code as follows, every time we save time, we'll see “time changed” in the console:
 
 ```
 // time.js
@@ -167,17 +167,17 @@ In order to walk the dependency tree, the runtime receives the inverse dependenc
 
 ## React Components
 
-React components are a bit harder to get to work with Hot Reloading. The problem is that we can't simply replace the old code with the new one as we'd loose the component's state. For React web applications, [Dan Abramov](https://twitter.com/dan_abramov) implemented a babel [transform](http://gaearon.github.io/react-hot-loader/) that uses Webpack's HMR API to solve this issue. In a nutshell, his solution works by creating a proxy for every single React component on _transform time_. The proxies hold the component's state and delegate the lifecycle methods to the actual components, which are the ones we hot reload:
+React components are a bit harder to get to work with Hot Reloading. The problem is that we can't simply replace the old code with the new one as we'd loose the component's state. For React web applications, [Dan Abramov](https://twitter.com/dan_abramov) implemented a babel [transform](https://gaearon.github.io/react-hot-loader/) that uses webpack's HMR API to solve this issue. In a nutshell, his solution works by creating a proxy for every single React component on _transform time_. The proxies hold the component's state and delegate the lifecycle methods to the actual components, which are the ones we hot reload:
 
 ![](/blog/assets/hmr-proxy.png)
 
 Besides creating the proxy component, the transform also defines the `accept` function with a piece of code to force React to re-render the component. This way, we can hot reload rendering code without losing any of the app's state.
 
-The default [transformer](https://github.com/facebook/react-native/blob/master/packager/transformer.js#L92-L95) that comes with React Native uses the `babel-preset-react-native`, which is [configured](https://github.com/facebook/react-native/blob/master/babel-preset/configs/hmr.js#L24-L31) to use `react-transform` the same way you'd use it on a React web project that uses Webpack.
+The default [transformer](https://github.com/facebook/react-native/blob/master/packager/transformer.js#L92-L95) that comes with React Native uses the `babel-preset-react-native`, which is [configured](https://github.com/facebook/react-native/blob/master/babel-preset/configs/hmr.js#L24-L31) to use `react-transform` the same way you'd use it on a React web project that uses webpack.
 
 ## Redux Stores
 
-To enable Hot Reloading on [Redux](http://redux.js.org/) stores you will just need to use the HMR API similarly to what you'd do on a web project that uses Webpack:
+To enable Hot Reloading on [Redux](https://redux.js.org/) stores you will just need to use the HMR API similarly to what you'd do on a web project that uses webpack:
 
 ```
 // configureStore.js

@@ -1,10 +1,6 @@
 ---
 title: 'Implementing Twitter’s App Loading Animation in React Native'
-author: Eli White
-authorTitle: Software Engineer at Facebook
-authorURL: 'https://github.com/TheSavior'
-authorImageURL: 'https://avatars2.githubusercontent.com/u/249164?s=460&v=4'
-authorTwitter: eli_white
+authors: [Eli White]
 tags: [engineering]
 ---
 
@@ -72,8 +68,8 @@ They say a picture is worth 1,000 words. How many words is an interactive visual
   See the Pen{' '}
   <a href="https://codepen.io/TheSavior/pen/NXNoJM/">
     Loading Screen Animation Steps
-  </a>{' '}
-  by Eli White (
+  </a>
+  {' '}by Eli White (
   <a href="https://codepen.io/TheSavior">@TheSavior</a>) on{' '}
   <a href="https://codepen.io">CodePen</a>.
 </iframe>
@@ -286,6 +282,6 @@ This component has been published to npm and is on GitHub as [react-native-mask-
 
 ## More Reading / Extra Credit
 
-1. [This gitbook](http://browniefed.com/react-native-animation-book/) is a great resource to learn more about Animated after you have read the React Native docs.
+1. [This gitbook](https://browniefed.com/react-native-animation-book/) is a great resource to learn more about Animated after you have read the React Native docs.
 1. The actual Twitter animation seems to speed up the mask reveal towards the end. Try modifying the loader to use a different easing function (or a spring!) to better match that behavior.
 1. The current end-scale of the mask is hard coded and likely won’t reveal the entire app on a tablet. Calculating the end scale based on screen size and image size would be an awesome PR.
