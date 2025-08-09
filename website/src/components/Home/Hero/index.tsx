@@ -9,10 +9,10 @@ import React from 'react';
 import GitHubButton from 'react-github-btn';
 
 import Logo from '../Logo';
-
 import GridBackground from './GridBackground';
 import FloorBackground from './FloorBackground';
 import Devices from './Devices';
+
 import styles from './styles.module.css';
 
 function Hero() {

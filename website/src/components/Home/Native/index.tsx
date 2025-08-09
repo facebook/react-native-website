@@ -8,8 +8,9 @@
 import React from 'react';
 
 import ThemedImage from '@theme/ThemedImage';
-import Section from '../components/Section';
-import SectionTitle from '../components/SectionTitle';
+
+import Section from '../Section';
+import SectionTitle from '../SectionTitle';
 
 import styles from './styles.module.css';
 

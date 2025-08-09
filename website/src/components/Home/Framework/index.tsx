@@ -7,9 +7,11 @@
 
 import React from 'react';
 
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import ThemedImage from '@theme/ThemedImage';
-import Section from '../components/Section';
-import SectionTitle from '../components/SectionTitle';
+
+import Section from '../Section';
+import SectionTitle from '../SectionTitle';
 
 import styles from './styles.module.css';
 
@@ -32,8 +34,8 @@ function Framework() {
         <div className={styles.card}>
           <ThemedImage
             sources={{
-              light: "/img/homepage/file-based-routing.png",
-              dark: "/img/homepage/file-based-routing-dark.png",
+              light: '/img/homepage/file-based-routing.png',
+              dark: '/img/homepage/file-based-routing-dark.png',
             }}
             className={styles.cardImage}
             alt="File system with folders and files representing screens and navigation"
@@ -49,8 +51,8 @@ function Framework() {
         <div className={styles.card}>
           <ThemedImage
             sources={{
-              light: "/img/homepage/libraries.png",
-              dark: "/img/homepage/libraries-dark.png",
+              light: useBaseUrl('/img/homepage/libraries.png'),
+              dark: useBaseUrl('/img/homepage/libraries-dark.png'),
             }}
             alt="Grid of icons representing libraries, SDKs, and native code"
             className={styles.cardImage}
@@ -68,8 +70,8 @@ function Framework() {
         <div className={styles.card}>
           <ThemedImage
             sources={{
-              light: "/img/homepage/tools.png",
-              dark: "/img/homepage/tools-dark.png",
+              light: useBaseUrl('/img/homepage/tools.png'),
+              dark: useBaseUrl('/img/homepage/tools-dark.png'),
             }}
             className={styles.cardImage}
             alt="List of developer tool toggles for debugging, performance, and more"

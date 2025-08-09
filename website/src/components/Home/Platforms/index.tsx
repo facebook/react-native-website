@@ -7,11 +7,13 @@
 
 import React from 'react';
 
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import ThemedImage from '@theme/ThemedImage';
-import Section from '../components/Section';
-import SectionTitle from '../components/SectionTitle';
 
+import Section from '../Section';
+import SectionTitle from '../SectionTitle';
 import FoxFact from './FoxFact';
+
 import styles from './styles.module.css';
 
 function Platforms() {
@@ -21,9 +23,11 @@ function Platforms() {
         title="Create native apps for Android, iOS, and more using React"
         description={
           <>
-            React Native brings the best parts of developing with React to native development.
+            React Native brings the best parts of developing with React to
+            native development.
             <br />
-            It's a best-in-class JavaScript library for building user interfaces.
+            It's a best-in-class JavaScript library for building user
+            interfaces.
           </>
         }
       />
@@ -62,8 +66,8 @@ function Platforms() {
           <div className={styles.deviceContainer}>
             <ThemedImage
               sources={{
-                light: '/img/homepage/devices.png',
-                dark: '/img/homepage/devices-dark.png',
+                light: useBaseUrl('/img/homepage/devices.png'),
+                dark: useBaseUrl('/img/homepage/devices-dark.png'),
               }}
               className={styles.devices}
               alt="Android device and iOS device"
