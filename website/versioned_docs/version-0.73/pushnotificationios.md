@@ -23,7 +23,6 @@ React Native versions lower than 0.60.0:
 Add the PushNotificationIOS library to your Podfile: ./ios/Podfile
 
 - CocoaPods:
-
   - Add the PushNotificationIOS library to your Podfile: ./ios/Podfile
 
     ```ruby

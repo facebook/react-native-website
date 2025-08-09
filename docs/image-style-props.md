@@ -334,7 +334,6 @@ For details of how this works under the hood, see [Fresco documentation](https:/
 Determines how to resize the image when the frame doesn't match the raw image dimensions. Defaults to `cover`.
 
 - `cover`: Scale the image uniformly (maintain the image's aspect ratio) so that:
-
   - Both dimensions (width and height) of the image will be equal to or larger than the corresponding dimension of the view (minus padding)
   - At least one dimension of the scaled image will be equal to the corresponding dimension of the view (minus padding)
 
