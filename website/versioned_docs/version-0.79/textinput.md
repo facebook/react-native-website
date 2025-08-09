@@ -368,11 +368,11 @@ Determines what text should be shown to the return key. Has precedence over the 
 
 The following values work across platforms:
 
-- `enter`
 - `done`
 - `next`
 - `search`
 - `send`
+- `go`
 
 _Android Only_
 
@@ -380,9 +380,15 @@ The following values work on Android only:
 
 - `previous`
 
-| Type                                                        |
-| ----------------------------------------------------------- |
-| enum('enter', 'done', 'next', 'previous', 'search', 'send') |
+_iOS Only_
+
+The following values work on iOS only:
+
+- `enter`
+
+| Type                                                              |
+| ----------------------------------------------------------------- |
+| enum('enter', 'done', 'next', 'previous', 'search', 'send', 'go') |
 
 ---
 
@@ -1053,6 +1059,16 @@ The value to show for the text input. `TextInput` is a controlled component, whi
 | Type   |
 | ------ |
 | string |
+
+---
+
+### `lineBreakModeIOS` <div class="label ios">iOS</div>
+
+Set line break mode on iOS. Possible values are `wordWrapping`, `char`, `clip`, `head`, `middle` and `tail`.
+
+| Type                                                                       | Default          |
+| -------------------------------------------------------------------------- | ---------------- |
+| enum(`'wordWrapping'`, `'char'`, `'clip'`, `'head'`, `'middle'`, `'tail'`) | `'wordWrapping'` |
 
 ---
 
