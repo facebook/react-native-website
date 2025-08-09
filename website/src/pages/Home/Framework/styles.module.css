@@ -24,6 +24,11 @@
 
 .cardContent {
   padding: 16px 24px;
+  border-top: 1px solid var(--home-border);
+}
+
+.cardImage {
+  aspect-ratio: 284/148;
 }
 
 .cardTitle {
@@ -40,7 +45,7 @@
   line-height: 150%;
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 996px) {
   .cardContainer {
     display: flex;
     flex-direction: column;
@@ -51,9 +56,13 @@
     text-align: start;
   }
 
+  .cardContent {
+    border-top: 0;
+  }
+
   .cardImage {
     width: auto;
-    height: 150px;
+    max-height: 150px;
     margin: 1rem;
     border-radius: 0.5rem;
     border: 1px solid var(--home-border);

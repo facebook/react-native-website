@@ -7,9 +7,9 @@
 
 import React from 'react';
 
+import ThemedImage from '@theme/ThemedImage';
 import Section from '../components/Section';
 import SectionTitle from '../components/SectionTitle';
-import ThemeImage from '../components/ThemeImage';
 
 import styles from './styles.module.css';
 
@@ -28,9 +28,11 @@ function Native() {
           </>
         }
       />
-      <ThemeImage
-        lightSrc="/img/homepage/dissection.png"
-        darkSrc="/img/homepage/dissection-dark.png"
+      <ThemedImage
+        sources={{
+          light: '/img/homepage/dissection.png',
+          dark: '/img/homepage/dissection-dark.png',
+        }}
         className={styles.flyoutIllustration}
         alt="A React Native UI pointing out native elements like Views, ScrollViews, and more"
       />

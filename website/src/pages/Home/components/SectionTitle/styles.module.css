@@ -24,3 +24,9 @@
   font-weight: normal;
   max-width: 850px;
 }
+
+@media only screen and (max-width: 996px) {
+  .title {
+    font-size: 40px;
+  }
+}
