@@ -879,6 +879,16 @@ When `false`, it will prevent the soft keyboard from showing when the field is f
 
 ---
 
+### `smartInsertDelete` <div class="label ios">iOS</div>
+
+If `false`, the iOS system will not insert an extra space after a paste operation neither delete one or two spaces after a cut or delete operation.
+
+| Type | Default |
+| ---- | ------- |
+| bool | `true`  |
+
+---
+
 ### `spellCheck` <div class="label ios">iOS</div>
 
 If `false`, disables spell-check style (i.e. red underlines). The default value is inherited from `autoCorrect`.
