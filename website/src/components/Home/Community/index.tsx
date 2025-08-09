@@ -6,11 +6,12 @@
  */
 
 import React from 'react';
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
-import Section from '../components/Section';
-import SectionTitle from '../components/SectionTitle';
+import Section from '../Section';
+import SectionTitle from '../SectionTitle';
 
 import styles from './styles.module.css';
 
