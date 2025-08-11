@@ -123,7 +123,7 @@ Argument supplied to [`onModeChange`](#onmodechange).
 For example, if a `VirtualView` enters the visible region of a [`ScrollView`](scrollview)...
 
 - `mode` would be [`VirtualViewMode.Visible`](#virtualviewmode)
-- `thresholdRect` would describe the current scroll position of the nearest ancestor [`ScrollView`](scrollview)
+- `thresholdRect` would describe the visible viewport of the nearest ancestor [`ScrollView`](scrollview)
 - `targetRect` would be the layout of `target` that overlaps with `thresholdRect` (i.e. it is within the visible region of the [`ScrollView`](scrollview))
 
 :::
