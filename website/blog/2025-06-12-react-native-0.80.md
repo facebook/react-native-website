@@ -205,8 +205,6 @@ Further smaller breaking changes are listed [in the CHANGELOG for 0.80](https://
 
 React Native 0.80 contains over 1167 commits from 127 contributors. Thanks for all your hard work!
 
-<!--alex ignore special white-->
-
 We want to send a special thank you to those community members that shipped significant contributions in this release:
 
 - [Christian Falch](https://github.com/chrfalch) for the work on the iOS prebuilds for React Native Dependencies
