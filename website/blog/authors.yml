@@ -347,3 +347,12 @@ coado:
   socials:
     github: coado
   image_url: https://github.com/coado.png
+
+vzaidman:
+  name: Vitali Zaidman
+  title: Software Engineer @ Meta
+  socials:
+    x: https://x.com/vzaidman
+    github: https://github.com/vzaidman
+    threads: https://www.threads.com/@vzaidman
+  image_url: https://github.com/vzaidman.png
