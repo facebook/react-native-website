@@ -1221,22 +1221,30 @@ button[class*="tocCollapsibleButton"] {
   .theme-last-updated {
     line-height: 18px;
   }
+
+  .theme-doc-footer-edit-meta-row {
+    padding: 0 var(--ifm-spacing-horizontal);
+    grid-row-gap: 8px;
+  }
 }
 
-@media only screen and (min-width: 540px) and (max-width: 996px) {
-  .theme-doc-footer .col {
-    flex-basis: 50% !important;
-    max-width: 50% !important;
+@media only screen and (max-width: 1320px) {
+  .theme-doc-footer-edit-meta-row {
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 996px) {
+  div[class^="lastUpdated"] {
+    text-align: end;
   }
 }
 
 @media only screen and (max-width: 539px) {
-  .theme-doc-footer .col {
+  .theme-doc-footer-edit-meta-row div[class^="editButtons"] {
+    flex-direction: column;
+    grid-row-gap: 8px;
     text-align: center;
-
-    &:first-child {
-      margin-bottom: 16px;
-    }
   }
 }
 
