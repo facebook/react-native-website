@@ -21,9 +21,7 @@ Let's walk through a slightly more involved application of the React AX API by l
 <footer>
   <a
     href="https://code.facebook.com/posts/435862739941212/making-react-native-apps-accessible/"
-    className="btn">
-    Read more
-  </a>
+    className="btn">Read more</a>
 </footer>
 
 > This is an excerpt. Read the rest of the post on [Facebook Code](https://code.facebook.com/posts/435862739941212/making-react-native-apps-accessible/).

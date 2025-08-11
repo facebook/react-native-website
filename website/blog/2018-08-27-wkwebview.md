@@ -15,7 +15,7 @@ To opt into this new implementation, please use the [`useWebKit`](https://reactn
 ```js
 <WebView
   useWebKit={true}
-  source={{ url: 'https://www.google.com' }}
+  source={{url: 'https://www.google.com'}}
 />
 ```
 

@@ -12,6 +12,7 @@
       "extends": ["plugin:mdx/recommended"]
     }
   ],
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "sourceType": "module",
     "ecmaVersion": "latest",

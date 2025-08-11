@@ -1,0 +1,30 @@
+{
+  "name": "@react-native-website/remark-lint-no-broken-external-links",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Remark linter rule to check for dead urls",
+  "main": "src/index.js",
+  "type": "module",
+  "keywords": [
+    "remark",
+    "react-native",
+    "lint"
+  ],
+  "files": [
+    "src/*"
+  ],
+  "scripts": {
+    "prettier": "prettier --write '{src,tests}/**/*.{md,js,jsx,ts,tsx}'",
+    "test": "yarn node --experimental-vm-modules $(yarn bin jest)"
+  },
+  "dependencies": {
+    "got": "^13.0.0",
+    "unified-lint-rule": "^3.0.0",
+    "unist-util-visit": "^5.0.0"
+  },
+  "devDependencies": {
+    "dedent": "^1.5.3",
+    "jest": "^29.4.3",
+    "remark": "^15.0.1"
+  }
+}

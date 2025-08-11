@@ -20,6 +20,11 @@ Contributors and people new to open source alike will find the following guides 
 
 As a reminder, all contributors are expected to adhere to the [Code of Conduct](https://github.com/facebook/react-native/blob/HEAD/CODE_OF_CONDUCT.md).
 
+## Versioning Policy
+
+In order to fully understand the versioning of React Native, we recommend you to check out the [Versioning Policy](/contributing/versioning-policy) page.
+In that page we describe which versions of React Native are supported, how often they're released and which one you should use based on your circumstances.
+
 ## Ways to Contribute
 
 If you are eager to start contributing code right away, we have a list of [good first issues](https://github.com/facebook/react-native/labels/good%20first%20issue) that contain bugs which have a relatively limited scope.
@@ -54,7 +59,7 @@ You can learn more about the contribution process in the following documents:
 - [Triaging GitHub Issues](/contributing/triaging-github-issues)
 - [Managing Pull Requests](/contributing/managing-pull-requests)
 
-We also have a thriving community of contributors who would be happy to help you get set up. You can reach out to the React Native team through [@ReactNative](http://twitter.com/reactnative).
+We also have a thriving community of contributors who would be happy to help you get set up. You can reach out to the React Native team through [@ReactNative](https://twitter.com/reactnative).
 
 ### Repositories
 
@@ -89,7 +94,7 @@ If you are adding new functionality or introducing a change in behavior, we will
 
 The React Native blog is generated [from the Markdown sources for the blog](https://github.com/facebook/react-native-website/tree/HEAD/website/blog).
 
-Please open an issue in the React Native website repository or tag us on [@ReactNative on Twitter](http://twitter.com/reactnative) and get the go-ahead from a maintainer before writing an article intended for the React Native blog.
+Please open an issue in the React Native website repository or tag us on [@ReactNative on Twitter](https://twitter.com/reactnative) and get the go-ahead from a maintainer before writing an article intended for the React Native blog.
 In most cases, you might want to share your article on your own blog or writing medium instead. It's worth asking, though, in case we find your article is a good fit for the blog.
 
 We recommend referring to the `react-native-website` repository [Readme file](https://github.com/facebook/react-native-website#-contributing) to learn more about contributing to the website in general.
@@ -97,25 +102,6 @@ We recommend referring to the `react-native-website` repository [Readme file](ht
 ## Contributing Code
 
 Code-level contributions to React Native generally come in the form of [pull requests](https://help.github.com/en/articles/about-pull-requests). These are done by forking the repo and making changes locally.
-
-Directly in the repo, there is the [`rn-tester` app](https://github.com/facebook/react-native/tree/main/packages/rn-tester) that you can install on your device (or simulators) and use to test the changes you're making to React Native sources.
-
-The process of proposing a change to React Native can be summarized as follows:
-
-1. Fork the React Native repository and create your branch from `main`.
-2. Make the desired changes to React Native sources. Use the `packages/rn-tester` app to test them out.
-3. If you've added code that should be tested, add tests.
-4. If you've changed APIs, update the documentation, which lives in [separate repo](https://github.com/facebook/react-native-website/).
-5. Ensure the test suite passes, either locally or on CI once you opened a pull request.
-6. Make sure your code lints (for example via `yarn lint --fix`).
-7. Push the changes to your fork.
-8. Create a pull request to the React Native repository.
-9. Review and address comments on your pull request.
-10. A bot may comment with suggestions. Generally we ask you to resolve these first before a maintainer will review your code.
-11. If changes are requested and addressed, please [request review](https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review) to notify reviewers to take another look.
-12. If you haven't already, please complete the [Contributor License Agreement](/contributing/contribution-license-agreement) ("CLA"). **[Complete your CLA here.](https://code.facebook.com/cla)**
-
-If all goes well, your pull request will be merged. If it is not merged, maintainers will do their best to explain the reason why.
 
 ### Step-by-step Guide
 
@@ -129,4 +115,4 @@ You can learn more about running and writing tests on the [How to Run and Write 
 
 ## Community Contributions
 
-Contributions to React Native are not limited to GitHub. You can help others by sharing your experience using React Native, whether that is through blog posts, presenting talks at conferences, or simply sharing your thoughts on Twitter and tagging @ReactNative.
+Contributions to React Native are not limited to GitHub. You can help others by sharing your experience using React Native, whether that is through blog posts, presenting talks at conferences, or simply sharing your thoughts on Twitter and tagging [@ReactNative](https://twitter.com/reactnative).

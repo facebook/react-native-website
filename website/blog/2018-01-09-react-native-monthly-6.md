@@ -12,7 +12,7 @@ The React Native monthly meeting is still going strong! Make sure to check a not
 
 ### Expo
 
-- Congratulations to [Devin Abbott](https://github.com/dabbott) and [Houssein Djirdeh](https://twitter.com/hdjirdeh) on their pre-release of the "Full Stack React Native" book! It walks you through learning React Native by building several small apps. You can try those apps out on https://www.fullstackreact.com/react-native/ before buying the book.
+- Congratulations to [Devin Abbott](https://github.com/dabbott) and [Houssein Djirdeh](https://twitter.com/hdjirdeh) on their pre-release of the "Full Stack React Native" book! It walks you through learning React Native by building several small apps.
 - Released a first (experimental) version of [reason-react-native-scripts](https://github.com/react-community/reason-react-native-scripts) to help people to easily try out [ReasonML](https://reasonml.github.io/).
 - Expo SDK 24 is [released](https://blog.expo.io/expo-sdk-v24-0-0-is-now-available-bfcac3b50d51)! It uses [React Native 0.51](https://github.com/facebook/react-native/releases/tag/v0.51.0) and includes a bunch of new features and improvements: bundling images in standalone apps (no need to cache on first load!), image manipulation API (crop, resize, rotate, flip), face detection API, new release channel features (set the active release for a given channel and rollback), web dashboard to track standalone app builds, and a fix longstanding bug with OpenGL Android implementation and the Android multi-tasker, just to name a few things.
 - We are allocating more resources to React Navigation starting this January. We strongly believe that it is both possible and desirable to build React Native navigation with just React components and primitives like Animated and `react-native-gesture-handler` and we’re really excited about some of the improvements we have planned. If you're looking to contribute to the community, check out [react-native-maps](https://github.com/react-community/react-native-maps) and [react-native-svg](https://github.com/react-native-community/react-native-svg), which could both use some help!
@@ -20,8 +20,8 @@ The React Native monthly meeting is still going strong! Make sure to check a not
 ### Infinite Red
 
 - We have our Keynote speakers for [Chain React conf](https://infinite.red/ChainReactConf): [Kent C. Dodds](https://twitter.com/kentcdodds) and [Tracy Lee](https://twitter.com/ladyleet). We will be opening CFP very soon.
-- [Community chat](http://community.infinite.red/) now at 1600 people.
-- [React Native Newsletter](http://reactnative.cc/) now at 8500 subscribers.
+- [Community chat](https://community.infinite.red/) now at 1600 people.
+- [React Native Newsletter](https://reactnative.cc/) now at 8500 subscribers.
 - Currently researching best practice for making RN crash resistant, reports to follow.
 - Adding ability to report from [Solidarity](https://shift.infinite.red/effortless-environment-reports-d129d53eb405).
 - Published a HOW-TO for releasing on [React Native and Android](https://shift.infinite.red/simple-react-native-android-releases-319dc5e29605).

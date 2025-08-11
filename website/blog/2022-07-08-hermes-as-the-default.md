@@ -6,7 +6,7 @@ tags: [announcement, release]
 
 # Hermes As the Default Blogpost
 
-Last October, we [announced](https://engineering.fb.com/2019/07/12/android/hermes/) that we had started work towards **making** **Hermes the default engine for all React Native apps**.
+Last October, we [announced](/blog/2021/10/26/toward-hermes-being-the-default) that we had started work towards **making** **Hermes the default engine for all React Native apps**.
 
 Hermes has provided a lot of value to React Native inside of Meta, and we believe the open-source community will benefit as well. Hermes is designed for resource constrained devices and optimizes for start up, app size, and memory consumption. One key difference between Hermes and other JS engines is its ability to compile JavaScript source code to bytecode ahead of time. This precompiled bytecode is bundled inside the binary, and saves the interpreter from having to perform this expensive step during app startup.
 

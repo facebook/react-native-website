@@ -1,0 +1,26 @@
+/**
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+.container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: 48px;
+}
+
+.description {
+  font-size: 20px;
+  color: var(--home-secondary-text);
+  line-height: 150%;
+  margin-top: 1rem;
+  font-weight: normal;
+  max-width: 850px;
+}

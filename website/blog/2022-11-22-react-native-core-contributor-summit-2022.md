@@ -25,7 +25,7 @@ We were impressed by the amount of knowledge-sharing and collaboration over thos
 
 ### React Native Codegen & TypeScript Support
 
-[React Native’s Codegen](/docs/the-new-architecture/pillars-codegen) is a fundamental part of the New Architecture of React Native. Supporting and improving it is among our top priorities for the future of React Native. For instance, earlier this year, we added support for generic code starting from TypeScript specs rather than Flow.
+[React Native’s Codegen](https://github.com/reactwg/react-native-new-architecture/blob/main/docs/codegen.md) is a fundamental part of the New Architecture of React Native. Supporting and improving it is among our top priorities for the future of React Native. For instance, earlier this year, we added support for generic code starting from TypeScript specs rather than Flow.
 
 In this session, we took the opportunity to onboard new contributors to Codegen, by explaining its core concept and describing how it works. We then focused on two major areas:
 

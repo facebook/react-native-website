@@ -20,14 +20,15 @@ The React Native source code is hosted on GitHub. You can interact with the git 
 
 While you can browse the source code for React Native on [GitHub](https://github.com/facebook/react-native), we recommend you set up a fork on your local machine.
 
-1. Go to <https://github.com/facebook/react-native>.
+1. Go to https://github.com/facebook/react-native.
 2. Click on "Fork" button on the upper right.
 3. When asked, select your username as the host for this fork.
 
-You will now have a fork of React Native on GitHub at <https://github.com/your_username/react-native>. Next, you will grab a copy of the source code for your local machine. Open a shell and type the following commands:
+You will now have a fork of React Native on GitHub at https://github.com/your_username/react-native. Next, you will grab a copy of the source code for your local machine. Open a shell and type the following commands:
 
 ```bash
 git clone https://github.com/facebook/react-native.git
+cd react-native
 git remote add fork https://github.com/your_username/react-native.git
 ```
 
@@ -50,25 +51,51 @@ git checkout --branch my_feature_branch --track origin/main
 
 ## Chapter II: Implementing your Changes
 
-### 1. Make changes to the code
+### 1. Install dependencies
 
-You can now make any changes deemed necessary using your code editor of choice. [Visual Studio Code](https://code.visualstudio.com/) is popular with JavaScript developers. If you're mostly making changes to iOS or Android, using Xcode or Android Studio might provide a nicer integrated experience.
+React Native is a JavaScript monorepo managed by [Yarn Workspaces (Yarn Classic)](https://classic.yarnpkg.com/lang/en/docs/workspaces/).
 
-### 2. Test your changes
+Run a project-level install:
+
+```sh
+yarn
+```
+
+You will also need to build the `react-native-codegen` package once:
+
+```sh
+yarn --cwd packages/react-native-codegen build
+```
+
+### 2. Make changes to the code
+
+You can now open the project using your code editor of choice. [Visual Studio Code](https://code.visualstudio.com/) is popular with JavaScript developers, and recommended if you are making general changes to React Native.
+
+IDE project configurations:
+
+- **VS Code**: Open the `react-native.code-workspace` file. This should open with extension recommendations, and configure the Flow Language Service and other editor settings correctly.
+- **Android Studio**: Open the repo root folder (containing the `.idea` config directory).
+- **Xcode**: Open `packages/rn-tester/RNTesterPods.xcworkspace`.
+
+### 3. Run your changes
+
+The package rn-tester can be used to run and validate your changes. You can learn more in [RNTester readme](https://github.com/facebook/react-native/blob/main/packages/rn-tester/README.md).
+
+### 4. Test your changes
 
 Make sure your changes are correct and do not introduce any test failures. You can learn more in [Running and Writing Tests](/contributing/how-to-run-and-write-tests).
 
-### 3. Lint your code
+### 5. Lint your code
 
 We understand it can take a while to ramp up and get a sense of the style followed for each of the languages in use in the core React Native repository. Developers should not need to worry about minor nits, so whenever possible, we use tools that automate the process of rewriting your code to follow conventions.
 
-For example, we use [Prettier](https://prettier.io/) to format our JavaScript code. This saves you time and energy as you can let Prettier fix up any formatting issues automatically through its editor integrations, or by manually running `yarn run prettier`. 
+For example, we use [Prettier](https://prettier.io/) to format our JavaScript code. This saves you time and energy as you can let Prettier fix up any formatting issues automatically through its editor integrations, or by manually running `yarn run prettier`.
 
 We also use a linter to catch styling issues that may exist in your code. You can check the status of your code styling by running `yarn run lint`.
 
 To learn more about coding conventions, refer to the [Coding Style guide](/contributing/how-to-contribute-code#coding-style).
 
-### 4. View your changes
+### 6. View your changes
 
 Many popular editors integrate with source control in some way. You can also use `git status` and `git diff` on the command line to keep track of what has changed.
 

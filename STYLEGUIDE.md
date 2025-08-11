@@ -121,7 +121,7 @@ When it comes to describing property values, be definitive in what is and is not
 
 ## Other grammar policies
 
-* Capitalize “Hooks.”
+- Capitalize “Hooks.”
 
 ## Empathize with readers
 

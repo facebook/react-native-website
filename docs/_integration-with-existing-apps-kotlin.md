@@ -1,71 +1,84 @@
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+
 ## Key Concepts
 
 The keys to integrating React Native components into your Android application are to:
 
-1. Set up React Native dependencies and directory structure.
-2. Develop your React Native components in JavaScript.
-3. Add a `ReactRootView` to your Android app. This view will serve as the container for your React Native component.
-4. Start the React Native server and run your native application.
-5. Verify that the React Native aspect of your application works as expected.
+1. Set up the correct directory structure.
+2. Install the necessary NPM dependencies.
+3. Adding React Native to your Gradle configuration.
+4. Writing the TypeScript code for your first React Native screen.
+5. Integrate React Native with your Android code using a ReactActivity.
+6. Testing your integration by running the bundler and seeing your app in action.
+
+## Using the Community Template
+
+While you follow this guide, we suggest you to use the [React Native Community Template](https://github.com/react-native-community/template/) as reference. The template contains a **minimal Android app** and will help you understanding how to integrate React Native into an existing Android app.
 
 ## Prerequisites
 
-Follow the React Native CLI Quickstart in the [environment setup guide](environment-setup) to configure your development environment for building React Native apps for Android.
+Follow the guide on [setting up your development environment](set-up-your-environment) and using [React Native without a framework](getting-started-without-a-framework) to configure your development environment for building React Native apps for Android.
+This guide also assumes you're familiar with the basics of Android development such as creating Activities and editing the `AndroidManifest.xml` file.
 
-### 1. Set up directory structure
+## 1. Set up directory structure
 
-To ensure a smooth experience, create a new folder for your integrated React Native project, then copy your existing Android project to an `/android` subfolder.
+To ensure a smooth experience, create a new folder for your integrated React Native project, then **move your existing Android project** to the `/android` subfolder.
 
-### 2. Install JavaScript dependencies
+## 2. Install NPM dependencies
 
-Go to the root directory for your project and create a new `package.json` file with the following contents:
-
-```
-{
-  "name": "MyReactNativeApp",
-  "version": "0.0.1",
-  "private": true,
-  "scripts": {
-    "start": "yarn react-native start"
-  }
-}
-```
-
-Next, make sure you have [installed the yarn package manager](https://yarnpkg.com/lang/en/docs/install/).
-
-Install the `react` and `react-native` packages. Open a terminal or command prompt, then navigate to the directory with your `package.json` file and run:
+Go to the root directory and run the following command:
 
 ```shell
-$ yarn add react-native
+curl -O https://raw.githubusercontent.com/react-native-community/template/refs/heads/0.75-stable/template/package.json
 ```
 
-This will print a message similar to the following (scroll up in the yarn output to see it):
+This will copy the `package.json` [file from the Community template](https://github.com/react-native-community/template/blob/0.75-stable/template/package.json) to your project.
 
-> warning "react-native@0.70.5" has unmet peer dependency "react@18.1.0"
+Next, install the NPM packages by running:
 
-This is OK, it means we also need to install React:
+<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<TabItem value="npm">
 
 ```shell
-$ yarn add react@version_printed_above
+npm install
 ```
 
-Yarn has created a new `/node_modules` folder. This folder stores all the JavaScript dependencies required to build your project.
+</TabItem>
+<TabItem value="yarn">
 
-Add `node_modules/` to your `.gitignore` file.
+```shell
+yarn install
+```
 
-## Adding React Native to your app
+</TabItem>
+</Tabs>
+
+Installation process has created a new `node_modules` folder. This folder stores all the JavaScript dependencies required to build your project.
+
+Add `node_modules/` to your `.gitignore` file (here the [Community default one](https://github.com/react-native-community/template/blob/0.75-stable/template/_gitignore)).
+
+## 3. Adding React Native to your app
 
 ### Configuring Gradle
 
 React Native uses the React Native Gradle Plugin to configure your dependencies and project setup.
 
-First, let's edit your `settings.gradle` file by adding this line:
+First, let's edit your `settings.gradle` file by adding those lines (as suggested from the [Community template](https://github.com/react-native-community/template/blob/0.77-stable/template/android/settings.gradle)):
 
 ```groovy
-includeBuild('../node_modules/react-native-gradle-plugin')
+// Configures the React Native Gradle Settings plugin used for autolinking
+pluginManagement { includeBuild("../node_modules/@react-native/gradle-plugin") }
+plugins { id("com.facebook.react.settings") }
+extensions.configure(com.facebook.react.ReactSettingsExtension){ ex -> ex.autolinkLibrariesFromCommand() }
+// If using .gradle.kts files:
+// extensions.configure<com.facebook.react.ReactSettingsExtension> { autolinkLibrariesFromCommand() }
+includeBuild("../node_modules/@react-native/gradle-plugin")
+
+// Include your existing Gradle modules here.
+// include(":app")
 ```
 
-Then you need to open your top level `build.gradle` and include this line:
+Then you need to open your top level `build.gradle` and include this line (as suggested from the [Community template](https://github.com/react-native-community/template/blob/0.77-stable/template/android/build.gradle)):
 
 ```diff
 buildscript {
@@ -80,8 +93,8 @@ buildscript {
 }
 ```
 
-This makes sure the React Native Gradle Plugin is available inside your project.
-Finally, add those lines inside your app's `build.gradle` file (it's a different `build.gradle` file inside your app folder):
+This makes sure the React Native Gradle Plugin (RNGP) is available inside your project.
+Finally, add those lines inside your Applications's `build.gradle` file (it's a different `build.gradle` file usually inside your `app` folder - you can use the [Community template file as reference](https://github.com/react-native-community/template/blob/0.77-stable/template/android/app/build.gradle)):
 
 ```diff
 apply plugin: "com.android.application"
@@ -93,289 +106,401 @@ repositories {
 
 dependencies {
     // Other dependencies here
-+   implementation "com.facebook.react:react-android"
-+   implementation "com.facebook.react:hermes-android"
++   // Note: we intentionally don't specify the version number here as RNGP will take care of it.
++   // If you don't use the RNGP, you'll have to specify version manually.
++   implementation("com.facebook.react:react-android")
++   implementation("com.facebook.react:hermes-android")
 }
+
++react {
++   // Needed to enable Autolinking - https://github.com/react-native-community/cli/blob/master/docs/autolinking.md
++   autolinkLibrariesWithApp()
++}
 ```
 
-Those depedencies are available on `mavenCentral()` so make sure you have it defined in your `repositories{}` block.
+Finally, open your application `gradle.properties` files and add the following line (here the [Community template file as reference](https://github.com/react-native-community/template/blob/0.77-stable/template/android/gradle.properties)):
 
-:::info
-We intentionally don't specify the version for those `implementation` dependencies as the React Native Gradle Plugin will take care of it. If you don't use the React Native Gradle Plugin, you'll have to specify version manually.
-:::
-
-### Enable native modules autolinking
-
-To use the power of [autolinking](https://github.com/react-native-community/cli/blob/master/docs/autolinking.md), we have to apply it a few places. First add the following entry to `settings.gradle`:
-
-```gradle
-apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
+```diff
++reactNativeArchitectures=armeabi-v7a,arm64-v8a,x86,x86_64
++newArchEnabled=true
++hermesEnabled=true
 ```
 
-Next add the following entry at the very bottom of the `app/build.gradle`:
+### Configuring your manifest
 
-```gradle
-apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)
+First, make sure you have the Internet permission in your `AndroidManifest.xml`:
+
+```diff
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
++   <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+      android:name=".MainApplication">
+    </application>
+</manifest>
 ```
 
-### Configuring permissions
+Then you need to enable [cleartext traffic](https://developer.android.com/training/articles/security-config#CleartextTrafficPermitted) in your **debug** `AndroidManifest.xml`:
 
-Next, make sure you have the Internet permission in your `AndroidManifest.xml`:
+```diff
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-
-If you need to access to the `DevSettingsActivity` add to your `AndroidManifest.xml`:
-
-    <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
-
-This is only used in dev mode when reloading JavaScript from the development server, so you can strip this in release builds if you need to.
-
-### Cleartext Traffic (API level 28+)
-
-> Starting with Android 9 (API level 28), cleartext traffic is disabled by default; this prevents your application from connecting to the [Metro bundler][metro]. The changes below allow cleartext traffic in debug builds.
-
-#### 1. Apply the `usesCleartextTraffic` option to your Debug `AndroidManifest.xml`
-
-```xml
-<!-- ... -->
-<application
-  android:usesCleartextTraffic="true" tools:targetApi="28" >
-  <!-- ... -->
-</application>
-<!-- ... -->
+    <application
++       android:usesCleartextTraffic="true"
++       tools:targetApi="28"
+    />
+</manifest>
 ```
 
-This is not required for Release builds.
+As usual, here the AndroidManifest.xml file from the Community template to use as a reference: [main](https://github.com/react-native-community/template/blob/0.77-stable/template/android/app/src/main/AndroidManifest.xml) and [debug](https://github.com/react-native-community/template/blob/0.77-stable/template/android/app/src/debug/AndroidManifest.xml)
 
-To learn more about Network Security Config and the cleartext traffic policy [see this link](https://developer.android.com/training/articles/security-config#CleartextTrafficPermitted).
+This is needed as your application will communicate with your local bundler, [Metro](https://metrobundler.dev/), via HTTP.
 
-### Code integration
+Make sure you add this only to your **debug** manifest.
+
+## 4. Writing the TypeScript Code
 
 Now we will actually modify the native Android application to integrate React Native.
 
-#### The React Native component
+The first bit of code we will write is the actual React Native code for the new screen that will be integrated into our application.
 
-The first bit of code we will write is the actual React Native code for the new "High Score" screen that will be integrated into our application.
-
-##### 1. Create a `index.js` file
+### Create a `index.js` file
 
 First, create an empty `index.js` file in the root of your React Native project.
 
-`index.js` is the starting point for React Native applications, and it is always required. It can be a small file that `require`s other file that are part of your React Native component or application, or it can contain all the code that is needed for it. In our case, we will put everything in `index.js`.
+`index.js` is the starting point for React Native applications, and it is always required. It can be a small file that `import`s other file that are part of your React Native component or application, or it can contain all the code that is needed for it.
 
-##### 2. Add your React Native code
+Our index.js should look as follows (here the [Community template file as reference](https://github.com/react-native-community/template/blob/0.77-stable/template/index.js)):
 
-In your `index.js`, create your component. In our sample here, we will add a `<Text>` component within a styled `<View>`:
+```js
+import {AppRegistry} from 'react-native';
+import App from './App';
 
-```jsx
+AppRegistry.registerComponent('HelloWorld', () => App);
+```
+
+### Create a `App.tsx` file
+
+Let's create an `App.tsx` file. This is a [TypeScript](https://www.typescriptlang.org/) file that can have [JSX](<https://en.wikipedia.org/wiki/JSX_(JavaScript)>) expressions. It contains the root React Native component that we will integrate into our Android application ([link](https://github.com/react-native-community/template/blob/0.77-stable/template/App.tsx)):
+
+```tsx
 import React from 'react';
 import {
-  AppRegistry,
+  SafeAreaView,
+  ScrollView,
+  StatusBar,
   StyleSheet,
   Text,
-  View
+  useColorScheme,
+  View,
 } from 'react-native';
 
-const HelloWorld = () => {
+import {
+  Colors,
+  DebugInstructions,
+  Header,
+  ReloadInstructions,
+} from 'react-native/Libraries/NewAppScreen';
+
+function App(): React.JSX.Element {
+  const isDarkMode = useColorScheme() === 'dark';
+
+  const backgroundStyle = {
+    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+  };
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.hello}>Hello, World</Text>
-    </View>
+    <SafeAreaView style={backgroundStyle}>
+      <StatusBar
+        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+        backgroundColor={backgroundStyle.backgroundColor}
+      />
+      <ScrollView
+        contentInsetAdjustmentBehavior="automatic"
+        style={backgroundStyle}>
+        <Header />
+        <View
+          style={{
+            backgroundColor: isDarkMode
+              ? Colors.black
+              : Colors.white,
+            padding: 24,
+          }}>
+          <Text style={styles.title}>Step One</Text>
+          <Text>
+            Edit <Text style={styles.bold}>App.tsx</Text> to
+            change this screen and see your edits.
+          </Text>
+          <Text style={styles.title}>See your changes</Text>
+          <ReloadInstructions />
+          <Text style={styles.title}>Debug</Text>
+          <DebugInstructions />
+        </View>
+      </ScrollView>
+    </SafeAreaView>
   );
-};
-var styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center'
+}
+
+const styles = StyleSheet.create({
+  title: {
+    fontSize: 24,
+    fontWeight: '600',
   },
-  hello: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10
-  }
+  bold: {
+    fontWeight: '700',
+  },
 });
 
-AppRegistry.registerComponent(
-  'MyReactNativeApp',
-  () => HelloWorld
-);
+export default App;
 ```
 
-##### 3. Configure permissions for development error overlay
+Here the [Community template file as reference](https://github.com/react-native-community/template/blob/0.77-stable/template/App.tsx)
 
-If your app is targeting the Android `API level 23` or greater, make sure you have the permission `android.permission.SYSTEM_ALERT_WINDOW` enabled for the development build. You can check this with `Settings.canDrawOverlays(this)`. This is required in dev builds because React Native development errors must be displayed above all the other windows. Due to the new permissions system introduced in the API level 23 (Android M), the user needs to approve it. This can be achieved by adding the following code to your Activity's in `onCreate()` method.
+## 5. Integrating with your Android code
 
-```kotlin
-companion object {
-    const val OVERLAY_PERMISSION_REQ_CODE = 1  // Choose any value
+We now need to add some native code in order to start the React Native runtime and tell it to render our React components.
+
+### Updating your Application class
+
+First, we need to update your `Application` class to properly initialize React Native as follows:
+
+<Tabs groupId="android-language" queryString defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+
+<TabItem value="java">
+
+```diff
+package <your-package-here>;
+
+import android.app.Application;
++import com.facebook.react.PackageList;
++import com.facebook.react.ReactApplication;
++import com.facebook.react.ReactHost;
++import com.facebook.react.ReactNativeHost;
++import com.facebook.react.ReactPackage;
++import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint;
++import com.facebook.react.defaults.DefaultReactHost;
++import com.facebook.react.defaults.DefaultReactNativeHost;
++import com.facebook.soloader.SoLoader;
++import com.facebook.react.soloader.OpenSourceMergedSoMapping
++import java.util.List;
+
+-class MainApplication extends Application {
++class MainApplication extends Application implements ReactApplication {
++ @Override
++ public ReactNativeHost getReactNativeHost() {
++   return new DefaultReactNativeHost(this) {
++     @Override
++     protected List<ReactPackage> getPackages() { return new PackageList(this).getPackages(); }
++     @Override
++     protected String getJSMainModuleName() { return "index"; }
++     @Override
++     public boolean getUseDeveloperSupport() { return BuildConfig.DEBUG; }
++     @Override
++     protected boolean isNewArchEnabled() { return BuildConfig.IS_NEW_ARCHITECTURE_ENABLED; }
++     @Override
++     protected Boolean isHermesEnabled() { return BuildConfig.IS_HERMES_ENABLED; }
++   };
++ }
+
++ @Override
++ public ReactHost getReactHost() {
++   return DefaultReactHost.getDefaultReactHost(getApplicationContext(), getReactNativeHost());
++ }
+
+  @Override
+  public void onCreate() {
+    super.onCreate();
++   SoLoader.init(this, OpenSourceMergedSoMapping);
++   if (BuildConfig.IS_NEW_ARCHITECTURE_ENABLED) {
++     DefaultNewArchitectureEntryPoint.load();
++   }
+  }
 }
+```
 
-...
+</TabItem>
 
-if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-    if(!Settings.canDrawOverlays(this)) {
-        val intent = Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
-                                    Uri.parse("package: $packageName"))
-        startActivityForResult(intent, OVERLAY_PERMISSION_REQ_CODE);
+<TabItem value="kotlin">
+
+```diff
+// package <your-package-here>
+
+import android.app.Application
++import com.facebook.react.PackageList
++import com.facebook.react.ReactApplication
++import com.facebook.react.ReactHost
++import com.facebook.react.ReactNativeHost
++import com.facebook.react.ReactPackage
++import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.load
++import com.facebook.react.defaults.DefaultReactHost.getDefaultReactHost
++import com.facebook.react.defaults.DefaultReactNativeHost
++import com.facebook.soloader.SoLoader
++import com.facebook.react.soloader.OpenSourceMergedSoMapping
+
+-class MainApplication : Application() {
++class MainApplication : Application(), ReactApplication {
+
++ override val reactNativeHost: ReactNativeHost =
++      object : DefaultReactNativeHost(this) {
++        override fun getPackages(): List<ReactPackage> = PackageList(this).packages
++        override fun getJSMainModuleName(): String = "index"
++        override fun getUseDeveloperSupport(): Boolean = BuildConfig.DEBUG
++        override val isNewArchEnabled: Boolean = BuildConfig.IS_NEW_ARCHITECTURE_ENABLED
++        override val isHermesEnabled: Boolean = BuildConfig.IS_HERMES_ENABLED
++      }
+
++ override val reactHost: ReactHost
++   get() = getDefaultReactHost(applicationContext, reactNativeHost)
+
+  override fun onCreate() {
+    super.onCreate()
++   SoLoader.init(this, OpenSourceMergedSoMapping)
++   if (BuildConfig.IS_NEW_ARCHITECTURE_ENABLED) {
++     load()
++   }
+  }
+}
+```
+
+</TabItem>
+</Tabs>
+
+As usual, here the [MainApplication.kt Community template file as reference](https://github.com/react-native-community/template/blob/0.77-stable/template/android/app/src/main/java/com/helloworld/MainApplication.kt)
+
+#### Creating a `ReactActivity`
+
+Finally, we need to create a new `Activity` that will extend `ReactActivity` and host the React Native code. This activity will be responsible for starting the React Native runtime and rendering the React component.
+
+<Tabs groupId="android-language" queryString defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
+
+<TabItem value="java">
+
+```java
+// package <your-package-here>;
+
+import com.facebook.react.ReactActivity;
+import com.facebook.react.ReactActivityDelegate;
+import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint;
+import com.facebook.react.defaults.DefaultReactActivityDelegate;
+
+public class MyReactActivity extends ReactActivity {
+
+    @Override
+    protected String getMainComponentName() {
+        return "HelloWorld";
+    }
+
+    @Override
+    protected ReactActivityDelegate createReactActivityDelegate() {
+        return new DefaultReactActivityDelegate(this, getMainComponentName(), DefaultNewArchitectureEntryPoint.getFabricEnabled());
     }
 }
 ```
 
-Finally, the `onActivityResult()` method (as shown in the code below) has to be overridden to handle the permission Accepted or Denied cases for consistent UX. Also, for integrating Native Modules which use `startActivityForResult`, we need to pass the result to the `onActivityResult` method of our `ReactInstanceManager` instance.
+</TabItem>
+
+<TabItem value="kotlin">
 
 ```kotlin
-override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-    if (requestCode == OVERLAY_PERMISSION_REQ_CODE) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (!Settings.canDrawOverlays(this)) {
-                // SYSTEM_ALERT_WINDOW permission not granted
-            }
-        }
-    }
-    reactInstanceManager?.onActivityResult(this, requestCode, resultCode, data)
+// package <your-package-here>
+
+import com.facebook.react.ReactActivity
+import com.facebook.react.ReactActivityDelegate
+import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.fabricEnabled
+import com.facebook.react.defaults.DefaultReactActivityDelegate
+
+class MyReactActivity : ReactActivity() {
+
+    override fun getMainComponentName(): String = "HelloWorld"
+
+    override fun createReactActivityDelegate(): ReactActivityDelegate =
+        DefaultReactActivityDelegate(this, mainComponentName, fabricEnabled)
 }
 ```
 
-#### The Magic: `ReactRootView`
+</TabItem>
+</Tabs>
 
-Let's add some native code in order to start the React Native runtime and tell it to render our JS component. To do this, we're going to create an `Activity` that creates a `ReactRootView`, starts a React application inside it and sets it as the main content view.
+As usual, here the [MainActivity.kt Community template file as reference](https://github.com/react-native-community/template/blob/0.80-stable/template/android/app/src/main/java/com/helloworld/MainActivity.kt)
 
-> If you are targeting Android version <5, use the `AppCompatActivity` class from the `com.android.support:appcompat` package instead of `Activity`.
+Whenever you create a new Activity, you need to add it to your `AndroidManifest.xml` file. You also need set the theme of `MyReactActivity` to `Theme.AppCompat.Light.NoActionBar` (or to any non-ActionBar theme) as otherwise your application will render an ActionBar on top of your React Native screen:
 
-```kotlin
-class MyReactActivity : Activity(), DefaultHardwareBackBtnHandler {
-    private lateinit var reactRootView: ReactRootView
-    private lateinit var reactInstanceManager: ReactInstanceManager
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        SoLoader.init(this, false)
-        reactRootView = ReactRootView(this)
-        val packages: List<ReactPackage> = PackageList(application).packages
-        // Packages that cannot be autolinked yet can be added manually here, for example:
-        // packages.add(MyReactNativePackage())
-        // Remember to include them in `settings.gradle` and `app/build.gradle` too.
-        reactInstanceManager = ReactInstanceManager.builder()
-            .setApplication(application)
-            .setCurrentActivity(this)
-            .setBundleAssetName("index.android.bundle")
-            .setJSMainModulePath("index")
-            .addPackages(packages)
-            .setUseDeveloperSupport(BuildConfig.DEBUG)
-            .setInitialLifecycleState(LifecycleState.RESUMED)
-            .build()
-        // The string here (e.g. "MyReactNativeApp") has to match
-        // the string in AppRegistry.registerComponent() in index.js
-        reactRootView?.startReactApplication(reactInstanceManager, "MyReactNativeApp", null)
-        setContentView(reactRootView)
-    }
+```diff
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    override fun invokeDefaultOnBackPressed() {
-        super.onBackPressed()
-    }
-}
-```
+    <uses-permission android:name="android.permission.INTERNET" />
 
-> If you are using a starter kit for React Native, replace the "HelloWorld" string with the one in your index.js file (it’s the first argument to the `AppRegistry.registerComponent()` method).
+    <application
+      android:name=".MainApplication">
 
-Perform a “Sync Project files with Gradle” operation.
-
-If you are using Android Studio, use `Alt + Enter` to add all missing imports in your MyReactActivity class. Be careful to use your package’s `BuildConfig` and not the one from the `facebook` package.
-
-We need set the theme of `MyReactActivity` to `Theme.AppCompat.Light.NoActionBar` because some React Native UI components rely on this theme.
-
-```xml
-<activity
-  android:name=".MyReactActivity"
-  android:label="@string/app_name"
-  android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-</activity>
-```
-
-> A `ReactInstanceManager` can be shared by multiple activities and/or fragments. You will want to make your own `ReactFragment` or `ReactActivity` and have a singleton _holder_ that holds a `ReactInstanceManager`. When you need the `ReactInstanceManager` (e.g., to hook up the `ReactInstanceManager` to the lifecycle of those Activities or Fragments) use the one provided by the singleton.
-
-Next, we need to pass some activity lifecycle callbacks to the `ReactInstanceManager` and `ReactRootView`:
-
-```kotlin
-override fun onPause() {
-    super.onPause()
-    reactInstanceManager.onHostPause(this)
-}
-
-override fun onResume() {
-    super.onResume()
-    reactInstanceManager.onHostResume(this, this)
-}
-
-override fun onDestroy() {
-    super.onDestroy()
-    reactInstanceManager.onHostDestroy(this)
-    reactRootView.unmountReactApplication()
-}
-```
-
-We also need to pass back button events to React Native:
-
-```kotlin
-override fun onBackPressed() {
-    reactInstanceManager.onBackPressed()
-    super.onBackPressed()
-}
-```
-
-This allows JavaScript to control what happens when the user presses the hardware back button (e.g. to implement navigation). When JavaScript doesn't handle the back button press, your `invokeDefaultOnBackPressed` method will be called. By default this finishes your `Activity`.
-
-Finally, we need to hook up the dev menu. By default, this is activated by (rage) shaking the device, but this is not very useful in emulators. So we make it show when you press the hardware menu button (use `Ctrl + M` if you're using Android Studio emulator):
-
-```kotlin
-override fun onKeyUp(keyCode: Int, event: KeyEvent?): Boolean {
-    if (keyCode == KeyEvent.KEYCODE_MENU && reactInstanceManager != null) {
-        reactInstanceManager.showDevOptionsDialog()
-        return true
-    }
-    return super.onKeyUp(keyCode, event)
-}
++     <activity
++       android:name=".MyReactActivity"
++       android:label="@string/app_name"
++       android:theme="@style/Theme.AppCompat.Light.NoActionBar">
++     </activity>
+    </application>
+</manifest>
 ```
 
 Now your activity is ready to run some JavaScript code.
 
-### Test your integration
+## 6. Test your integration
 
-You have now done all the basic steps to integrate React Native with your current application. Now we will start the [Metro bundler][metro] to build the `index.bundle` package and the server running on localhost to serve it.
+You have completed all the basic steps to integrate React Native with your application. Now we will start the [Metro bundler](https://metrobundler.dev/) to build your TypeScript application code into a bundle. Metro's HTTP server shares the bundle from `localhost` on your developer environment to a simulator or device. This allows for [hot reloading](https://reactnative.dev/blog/2016/03/24/introducing-hot-reloading).
 
-##### 1. Run the packager
+First, you need to create a `metro.config.js` file in the root of your project as follows:
 
-To run your app, you need to first start the development server. To do this, run the following command in the root directory of your React Native project:
-
-```shell
-$ yarn start
+```js
+const {getDefaultConfig} = require('@react-native/metro-config');
+module.exports = getDefaultConfig(__dirname);
 ```
 
-##### 2. Run the app
+You can checkout the [metro.config.js file](https://github.com/react-native-community/template/blob/0.77-stable/template/metro.config.js) from the Community template file as reference.
+
+Once you have the config file in place, you can run the bundler. Run the following command in the root directory of your project:
+
+<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<TabItem value="npm">
+
+```shell
+npm start
+```
+
+</TabItem>
+<TabItem value="yarn">
+
+```shell
+yarn start
+```
+
+</TabItem>
+</Tabs>
 
 Now build and run your Android app as normal.
 
-Once you reach your React-powered activity inside the app, it should load the JavaScript code from the development server and display:
+Once you reach your React-powered Activity inside the app, it should load the JavaScript code from the development server and display:
 
-![Screenshot](/docs/assets/EmbeddedAppAndroid.png)
+<center><img src="/docs/assets/EmbeddedAppAndroidVideo.gif" width="300" /></center>
 
 ### Creating a release build in Android Studio
 
 You can use Android Studio to create your release builds too! It’s as quick as creating release builds of your previously-existing native Android app.
 
-If you use the React Native Gradle Plugin as described above, everything should work when running app from Android Studio.
+The React Native Gradle Plugin will take care of bundling the JS code inside your APK/App Bundle.
 
-If you're not using the React Native Gradle Plugin, there’s one additional step which you’ll have to do before every release build. You need to execute the following to create a React Native bundle, which will be included with your native Android app:
+If you're not using Android Studio, you can create a release build with:
 
-```shell
-$ npx react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/com/your-company-name/app-package-name/src/main/assets/index.android.bundle --assets-dest android/com/your-company-name/app-package-name/src/main/res/
 ```
-
-> Don’t forget to replace the paths with correct ones and create the assets folder if it doesn’t exist.
-
-Now, create a release build of your native app from within Android Studio as usual and you should be good to go!
+cd android
+# For a Release APK
+./gradlew :app:assembleRelease
+# For a Release AAB
+./gradlew :app:bundleRelease
+```
 
 ### Now what?
 
 At this point you can continue developing your app as usual. Refer to our [debugging](debugging) and [deployment](running-on-device) docs to learn more about working with React Native.
-
-[metro]: https://facebook.github.io/metro/

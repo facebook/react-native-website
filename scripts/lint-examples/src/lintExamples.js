@@ -10,7 +10,7 @@
 const {execSync} = require('child_process');
 const {promises: fs} = require('fs');
 const path = require('path');
-const glob = require('glob-promise');
+const glob = require('glob');
 
 /**
  * The root document to search for documents
@@ -74,7 +74,7 @@ async function lintExamples({command, args, extension, writeBack}) {
  * @param extension extension to treat the example as if it does not specify
  */
 async function extractExamples(extension) {
-  const documents = await glob('**/*.md', {
+  const documents = await glob.glob('**/*.md', {
     cwd: documentsRoot,
     absolute: true,
   });
@@ -113,7 +113,12 @@ async function extractExamplesFromDocument(filename, extension) {
       const snackParams = new URLSearchParams(match[2].trim());
       const exampleName = snackParams.get('name');
       const exampleExt = snackParams.get('ext');
+      const disableLinting = snackParams.get('disableLinting');
       const content = match[3];
+
+      if (disableLinting === 'true') {
+        return [];
+      }
 
       const baseFileName = path.relative(documentsRoot, filename);
       const outFile = path.join(
@@ -126,7 +131,7 @@ async function extractExamplesFromDocument(filename, extension) {
       if (exampleExt) {
         if (!validExtensions.includes(exampleExt)) {
           console.error(
-            `Invalid extension "${extension}" encountered while parsing ${filename} (should be one of ${JSON.stringify(
+            `Invalid extension "${exampleExt}" encountered while parsing ${filename} (should be one of ${JSON.stringify(
               validExtensions,
             )})`,
           );

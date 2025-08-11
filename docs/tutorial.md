@@ -3,6 +3,8 @@ id: tutorial
 title: Learn the Basics
 ---
 
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+
 React Native is like React, but it uses native components instead of web components as building blocks. So to understand the basic structure of a React Native app, you need to understand some of the basic React concepts, like JSX, components, `state`, and `props`. If you already know React, you still need to learn some React Native specific stuff, like the native components. This tutorial is aimed at all audiences, whether you have React experience or not.
 
 Let's do this thing.
@@ -37,7 +39,7 @@ If you are feeling curious, you can play around with sample code directly in the
 1. First of all, we need to import `React` to be able to use `JSX`, which will then be transformed to the native components of each platform.
 2. On line 2, we import the `Text` and `View` components from `react-native`
 
-Then we define the `HelloWorldApp` function, which is a [functional component](https://reactjs.org/docs/components-and-props.html#function-and-class-components) and behaves in the same way as in React for the web. This function returns a `View` component with some styles and a`Text` as its child.
+Then we define the `HelloWorldApp` function, which is a [function component](https://react.dev/reference/react/Component) and behaves in the same way as in React for the web. This function returns a `View` component with some styles and a`Text` as its child.
 
 The `Text` component allows us to render a text, while the `View` component renders a container. This container has several styles applied, let's analyze what each one is doing.
 
@@ -61,7 +63,10 @@ Most components can be customized when they are created, with different paramete
 
 Your own components can also use `props`. This lets you make a single component that is used in many different places in your app, with slightly different properties in each place. Refer to `props.YOUR_PROP_NAME` in your functional components or `this.props.YOUR_PROP_NAME` in your class components. Here's an example:
 
-```SnackPlayer name=Hello%20Props
+<Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
+<TabItem value="javascript">
+
+```SnackPlayer name=Hello%20Props&ext=js
 import React from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 
@@ -92,6 +97,47 @@ const LotsOfGreetings = () => {
 export default LotsOfGreetings;
 ```
 
+</TabItem>
+<TabItem value="typescript">
+
+```SnackPlayer name=Hello%20Props&ext=tsx
+import React from 'react';
+import {Text, View, StyleSheet} from 'react-native';
+
+const styles = StyleSheet.create({
+  center: {
+    alignItems: 'center',
+  },
+});
+
+type GreetingProps = {
+  name: string;
+};
+
+const Greeting = (props: GreetingProps) => {
+  return (
+    <View style={styles.center}>
+      <Text>Hello {props.name}!</Text>
+    </View>
+  );
+};
+
+const LotsOfGreetings = () => {
+  return (
+    <View style={[styles.center, {top: 50}]}>
+      <Greeting name="Rexxar" />
+      <Greeting name="Jaina" />
+      <Greeting name="Valeera" />
+    </View>
+  );
+};
+
+export default LotsOfGreetings;
+```
+
+</TabItem>
+</Tabs>
+
 Using `name` as a prop lets us customize the `Greeting` component, so we can reuse that component for each of our greetings. This example also uses the `Greeting` component in JSX. The power to do this is what makes React so cool.
 
 The other new thing going on here is the [`View`](view.md) component. A [`View`](view.md) is useful as a container for other components, to help control style and layout.
@@ -100,7 +146,7 @@ With `props` and the basic [`Text`](text.md), [`Image`](image.md), and [`View`](
 
 ## State
 
-Unlike props [that are read-only](https://reactjs.org/docs/components-and-props.html#props-are-read-only) and should not be modified, the `state` allows React components to change their output over time in response to user actions, network responses and anything else.
+Unlike props [that are read-only](https://react.dev/reference/react/Component#props) and should not be modified, the `state` allows React components to change their output over time in response to user actions, network responses and anything else.
 
 #### What's the difference between state and props in React?
 
@@ -110,10 +156,10 @@ In a React component, the props are the variables that we pass from a parent com
 
 <div className="two-columns">
 
-```jsx
+```tsx
 // ReactJS Counter Example using Hooks!
 
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 
 
 
@@ -141,11 +187,11 @@ const App = () => {
 
 ```
 
-```jsx
+```tsx
 // React Native Counter Example using Hooks!
 
-import React, { useState } from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
+import React, {useState} from 'react';
+import {View, Text, Button, StyleSheet} from 'react-native';
 
 const App = () => {
   const [count, setCount] = useState(0);
@@ -166,14 +212,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
-  }
+    alignItems: 'center',
+  },
 });
 ```
 
 </div>
 
-As shown above, there is no difference in handling the `state` between [React](https://reactjs.org/docs/state-and-lifecycle.html) and `React Native`. You can use the state of your components both in classes and in functional components using [hooks](https://reactjs.org/docs/hooks-intro.html)!
+As shown above, there is no difference in handling the `state` between [React](https://react.dev/learn/state-a-components-memory) and `React Native`. You can use the state of your components both in classes and in function components using [hooks](https://react.dev/reference/react/useState)!
 
 In the following example we will show the same above counter example using classes.
 

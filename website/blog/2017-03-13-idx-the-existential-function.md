@@ -24,7 +24,7 @@ There is [an ECMAScript proposal to introduce the existential operator](https://
 We came up with an existential _function_ we call `idx`.
 
 ```jsx
-idx(props, (_) => _.user.friends[0].friends);
+idx(props, _ => _.user.friends[0].friends);
 ```
 
 The invocation in this code snippet behaves similarly to the boolean expression in the code snippet above, except with significantly less repetition. The `idx` function takes exactly two arguments:
@@ -40,10 +40,10 @@ In practice, try-catching every nested property access is slow, and differentiat
 props.user == null
   ? props.user
   : props.user.friends == null
-  ? props.user.friends
-  : props.user.friends[0] == null
-  ? props.user.friends[0]
-  : props.user.friends[0].friends;
+    ? props.user.friends
+    : props.user.friends[0] == null
+      ? props.user.friends[0]
+      : props.user.friends[0].friends;
 ```
 
 Finally, we added a custom Flow type declaration for `idx` that allows the traversal in the second argument to be properly type-checked while permitting nested access on nullable properties.
