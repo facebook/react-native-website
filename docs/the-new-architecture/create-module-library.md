@@ -82,7 +82,6 @@ export default NativeSampleModule;
 ```
 
 3. Copy the native module over:
-
    - Replace the code in the `android/src/main/java/com/<name-of-the-module>` with the code you wrote in the app for your native module, if any.
    - Replace the code in the `ios` folder with the code you wrote in your app for your native module, if any.
    - Replace the code in the `cpp` folder with the code you wrote in your app for your native module, if any.

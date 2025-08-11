@@ -14,7 +14,7 @@ Android and iOS differ slightly in their approaches, and thus the React Native i
 
 ### `accessible`
 
-When `true`, indicates that the view is discoverable by assistive technologies such as screen readers and hardware keyboards. Note that this does not necessarily mean that the view will be focused by VoiceOver or TalkBack. There are a number of reasons for this, such as VoiceOver disallowing nested acecssibility elements, or TalkBack opting to focus some parent element instead.
+When `true`, indicates that the view is discoverable by assistive technologies such as screen readers and hardware keyboards. Note that this does not necessarily mean that the view will be focused by VoiceOver or TalkBack. There are a number of reasons for this, such as VoiceOver disallowing nested accessibility elements, or TalkBack opting to focus some parent element instead.
 
 By default, all touchable elements are accessible.
 

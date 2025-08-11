@@ -26,7 +26,7 @@ Instead, on iOS, there are two additional protocols: [`RCTInitializing`](https:/
 
 If your module needs to run some initialization code, then you can conform to the `RCTInitializing` protocol and implement the `initialize` method. To do so, you have to:
 
-1. Moduify the `NativeModule.h` file by adding the following lines:
+1. Modify the `NativeModule.h` file by adding the following lines:
 
 ```diff title="NativeModule.h"
 + #import <React/RCTInitializing.h>

@@ -21,14 +21,14 @@
   },
   "dependencies": {
     "eslint": "^8.57.1",
-    "eslint-config-prettier": "^10.1.1",
-    "eslint-plugin-mdx": "^3.2.0",
-    "eslint-plugin-prettier": "^5.2.3",
-    "eslint-plugin-yml": "^1.17.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-mdx": "^3.6.2",
+    "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-yml": "^1.18.0",
     "husky": "^9.1.7",
     "netlify-plugin-cache": "^1.0.3",
-    "prettier": "^3.5.3",
-    "pretty-quick": "^4.1.1"
+    "prettier": "^3.6.2",
+    "pretty-quick": "^4.2.2"
   },
-  "packageManager": "yarn@4.7.0"
+  "packageManager": "yarn@4.9.2"
 }
