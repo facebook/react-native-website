@@ -105,6 +105,7 @@ React Native 0.81 contains over 1110 commits from 110 contributors. Thanks for a
 We want to send a special thank you to those community members that shipped significant contributions in this release:
 
 - [Christian Falch](<[https://github.com/chrfalch](https://github.com/chrfalch)>) for the amazing work on precompiled iOS builds.
+<!-- // @case-police-ignore Mathieu -->
 - [Mathieu Acthernoene](https://github.com/zoontek) for crucial contributions to Android edge-to-edge support
 - &lt;TODO> for helping test Android 16 and the SafeAreaView deprecation.
 
