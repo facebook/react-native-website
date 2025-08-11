@@ -33,7 +33,7 @@
     "lint:markdown:versioned": "remark ./versioned_docs --quiet -r .remarkrc.mjs",
     "lint:format": "prettier --check '{core,src}/**/*.{js,jsx,ts,tsx}' ../docs/*.md {versioned_docs/**/*.md,blog/*.md} src/**/*.{scss,css}",
     "language:lint": "cd ../ && alex && case-police 'docs/*.md' -d ./website/react-native-dict.json --disable SDK,URI",
-    "language:lint:versioned": "cd ../ && alex . && case-police '**/*.md' -d ./website/react-native-dict.json --disable SDK,URI",
+    "language:lint:versioned": "cd ../ && alex . && case-police '**/*.md' -d ./website/react-native-dict.json --disable SDK,URI,MATHIEU",
     "ci:lint": "yarn lint && yarn lint:examples && yarn lint:versioned && yarn language:lint:versioned && yarn lint:markdown && yarn lint:format",
     "pwa:generate": "npx pwa-asset-generator ./static/img/header_logo.svg ./static/img/pwa --padding '40px' --background 'rgb(32, 35, 42)' --icon-only --opaque true",
     "generate-llms-txt": "node ../scripts/generate-llms-txt.js"
