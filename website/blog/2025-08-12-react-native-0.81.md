@@ -152,7 +152,7 @@ npx @react-native-community/cli@latest init MyProject --version latest
 
 If you use Expo, React Native 0.81 will be supported in the upcoming Expo SDK 54 as the default version of React Native.
 
-::: info
+:::info
 
 0.81 is now the latest stable version of React Native and 0.78.x moves to unsupported. For more information see [React Native's support policy](https://github.com/reactwg/react-native-releases/blob/main/docs/support.md).
 
