@@ -108,10 +108,10 @@ In Android, returns a Promise which will always be resolved with action being `S
 
 **Properties:**
 
-| Name                                                         | Type   | Description                                                                                                                                                                                                                                                                                                                                                              |
-| ------------------------------------------------------------ | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| content <div className="label basic required">Required</div> | object | `message` - a message to share<br/>`url` - a URL to share <div class="label ios">iOS</div><br/>`title` - title of the message <div class="label android">Android</div><hr/>At least one of `url` and `message` is required.                                                                                                                                              |
-| options                                                      | object | `dialogTitle` <div class="label android">Android</div><br/>`excludedActivityTypes` <div class="label ios">iOS</div><br/>`subject` - a subject to share via email <div class="label ios">iOS</div><br/>`tintColor` <div class="label ios">iOS</div><br/>`anchor` - the node to which the action sheet should be anchored (used for iPad) <div class="label ios">iOS</div> |
+| Name                                                         | Type   | Description                                                                                                                                                                                                                                                                                                                                                                                  |
+| ------------------------------------------------------------ | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| content <div className="label basic required">Required</div> | object | `message` - a message to share<br/>`url` - a URL to share <div className="label ios">iOS</div><br/>`title` - title of the message <div className="label android">Android</div><hr/>At least one of `url` and `message` is required.                                                                                                                                                          |
+| options                                                      | object | `dialogTitle` <div className="label android">Android</div><br/>`excludedActivityTypes` <div className="label ios">iOS</div><br/>`subject` - a subject to share via email <div className="label ios">iOS</div><br/>`tintColor` <div className="label ios">iOS</div><br/>`anchor` - the node to which the action sheet should be anchored (used for iPad) <div className="label ios">iOS</div> |
 
 ---
 
@@ -127,7 +127,7 @@ The content was successfully shared.
 
 ---
 
-### `dismissedAction` <div class="label ios">iOS</div>
+### `dismissedAction` <div className="label ios">iOS</div>
 
 ```tsx
 static dismissedAction: 'dismissedAction';

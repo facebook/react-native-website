@@ -159,7 +159,7 @@ export default ViewStyleProps;
 
 ---
 
-### `borderCurve` <div class="label ios">iOS</div>
+### `borderCurve` <div className="label ios">iOS</div>
 
 On iOS 13+, it is possible to change the corner curve of borders.
 
@@ -291,7 +291,7 @@ If the rounded border is not visible, try applying `overflow: 'hidden'` as well.
 
 ---
 
-### `elevation` <div class="label android">Android</div>
+### `elevation` <div className="label android">Android</div>
 
 Sets the elevation of a view, using Android's underlying [elevation API](https://developer.android.com/training/material/shadows-clipping.html#Elevation). This adds a drop shadow to the item and affects z-order for overlapping views. Only supported on Android 5.0+, has no effect on earlier versions.
 

@@ -66,7 +66,7 @@ If true the user won't be able to toggle the switch.
 
 ---
 
-### `ios_backgroundColor` <div class="label ios">iOS</div>
+### `ios_backgroundColor` <div className="label ios">iOS</div>
 
 On iOS, custom color for the background. This background color can be seen either when the switch value is `false` or when the switch is disabled (and the switch is translucent).
 

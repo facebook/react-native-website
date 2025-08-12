@@ -126,7 +126,7 @@ Possible values:
 
 ---
 
-### `hardwareAccelerated` <div class="label android">Android</div>
+### `hardwareAccelerated` <div className="label android">Android</div>
 
 The `hardwareAccelerated` prop controls whether to force hardware acceleration for the underlying window.
 
@@ -136,7 +136,7 @@ The `hardwareAccelerated` prop controls whether to force hardware acceleration f
 
 ---
 
-### `onDismiss` <div class="label ios">iOS</div>
+### `onDismiss` <div className="label ios">iOS</div>
 
 The `onDismiss` prop allows passing a function that will be called once the modal has been dismissed.
 
@@ -146,7 +146,7 @@ The `onDismiss` prop allows passing a function that will be called once the moda
 
 ---
 
-### `onOrientationChange` <div class="label ios">iOS</div>
+### `onOrientationChange` <div className="label ios">iOS</div>
 
 The `onOrientationChange` callback is called when the orientation changes while the modal is being displayed. The orientation provided is only 'portrait' or 'landscape'. This callback is also called on initial render, regardless of the current orientation.
 
@@ -177,7 +177,7 @@ The `onShow` prop allows passing a function that will be called once the modal h
 
 ---
 
-### `presentationStyle` <div class="label ios">iOS</div>
+### `presentationStyle` <div className="label ios">iOS</div>
 
 The `presentationStyle` prop controls how the modal appears (generally on larger devices such as iPad or plus-sized iPhones). See https://developer.apple.com/reference/uikit/uimodalpresentationstyle for details.
 
@@ -194,7 +194,7 @@ Possible values:
 
 ---
 
-### `statusBarTranslucent` <div class="label android">Android</div>
+### `statusBarTranslucent` <div className="label android">Android</div>
 
 The `statusBarTranslucent` prop determines whether your modal should go under the system statusbar.
 
@@ -204,7 +204,7 @@ The `statusBarTranslucent` prop determines whether your modal should go under th
 
 ---
 
-### `supportedOrientations` <div class="label ios">iOS</div>
+### `supportedOrientations` <div className="label ios">iOS</div>
 
 The `supportedOrientations` prop allows the modal to be rotated to any of the specified orientations. On iOS, the modal is still restricted by what's specified in your app's Info.plist's UISupportedInterfaceOrientations field.
 

@@ -157,7 +157,7 @@ The following values work across platforms:
 - `tel`
 - `username`
 
-<div class="label basic ios">iOS</div>
+<div className="label basic ios">iOS</div>
 
 The following values work on iOS only:
 
@@ -171,7 +171,7 @@ The following values work on iOS only:
 - `organization-title`
 - `url`
 
-<div class="label basic android">Android</div>
+<div className="label basic android">Android</div>
 
 The following values work on Android only:
 
@@ -242,7 +242,7 @@ If `true`, caret is hidden. The default value is `false`.
 
 ---
 
-### `clearButtonMode` <div class="label ios">iOS</div>
+### `clearButtonMode` <div className="label ios">iOS</div>
 
 When the clear button should appear on the right side of the text view. This property is supported only for single-line TextInput component. The default value is `never`.
 
@@ -252,7 +252,7 @@ When the clear button should appear on the right side of the text view. This pro
 
 ---
 
-### `clearTextOnFocus` <div class="label ios">iOS</div>
+### `clearTextOnFocus` <div className="label ios">iOS</div>
 
 If `true`, clears the text field automatically when editing begins.
 
@@ -272,7 +272,7 @@ If `true`, context menu is hidden. The default value is `false`.
 
 ---
 
-### `dataDetectorTypes` <div class="label ios">iOS</div>
+### `dataDetectorTypes` <div className="label ios">iOS</div>
 
 Determines the types of data converted to clickable URLs in the text input. Only valid if `multiline={true}` and `editable={false}`. By default no data types are detected.
 
@@ -303,7 +303,7 @@ Provides an initial value that will change when the user starts typing. Useful f
 
 ---
 
-### `cursorColor` <div class="label android">Android</div>
+### `cursorColor` <div className="label android">Android</div>
 
 When provided it will set the color of the cursor (or "caret") in the component. Unlike the behavior of `selectionColor` the cursor color will be set independently from the color of the text selection box.
 
@@ -313,7 +313,7 @@ When provided it will set the color of the cursor (or "caret") in the component.
 
 ---
 
-### `disableFullscreenUI` <div class="label android">Android</div>
+### `disableFullscreenUI` <div className="label android">Android</div>
 
 When `false`, if there is a small amount of space available around a text input (e.g. landscape orientation on a phone), the OS may choose to have the user edit the text inside of a full screen text input mode. When `true`, this feature is disabled and users will always edit the text directly inside of the text input. Defaults to `false`.
 
@@ -333,7 +333,7 @@ If `false`, text is not editable. The default value is `true`.
 
 ---
 
-### `enablesReturnKeyAutomatically` <div class="label ios">iOS</div>
+### `enablesReturnKeyAutomatically` <div className="label ios">iOS</div>
 
 If `true`, the keyboard disables the return key when there is no text and automatically enables it when there is text. The default value is `false`.
 
@@ -373,7 +373,7 @@ The following values work on iOS only:
 
 ---
 
-### `importantForAutofill` <div class="label android">Android</div>
+### `importantForAutofill` <div className="label android">Android</div>
 
 Tells the operating system whether the individual fields in your app should be included in a view structure for autofill purposes on Android API Level 26+. Possible values are `auto`, `no`, `noExcludeDescendants`, `yes`, and `yesExcludeDescendants`. The default value is `auto`.
 
@@ -389,7 +389,7 @@ Tells the operating system whether the individual fields in your app should be i
 
 ---
 
-### `inlineImageLeft` <div class="label android">Android</div>
+### `inlineImageLeft` <div className="label android">Android</div>
 
 If defined, the provided image resource will be rendered on the left. The image resource must be inside `/android/app/src/main/res/drawable` and referenced like
 
@@ -405,7 +405,7 @@ If defined, the provided image resource will be rendered on the left. The image 
 
 ---
 
-### `inlineImagePadding` <div class="label android">Android</div>
+### `inlineImagePadding` <div className="label android">Android</div>
 
 Padding between the inline image, if any, and the text input itself.
 
@@ -415,7 +415,7 @@ Padding between the inline image, if any, and the text input itself.
 
 ---
 
-### `inputAccessoryViewID` <div class="label ios">iOS</div>
+### `inputAccessoryViewID` <div className="label ios">iOS</div>
 
 An optional identifier which links a custom [InputAccessoryView](inputaccessoryview.md) to this text input. The InputAccessoryView is rendered above the keyboard when this text input is focused.
 
@@ -446,7 +446,7 @@ Support the following values:
 
 ---
 
-### `keyboardAppearance` <div class="label ios">iOS</div>
+### `keyboardAppearance` <div className="label ios">iOS</div>
 
 Determines the color of the keyboard.
 
@@ -532,7 +532,7 @@ It is important to note that this aligns the text to the top on iOS, and centers
 
 ---
 
-### `numberOfLines` <div class="label android">Android</div>
+### `numberOfLines` <div className="label android">Android</div>
 
 Sets the number of lines for a `TextInput`. Use it with multiline set to `true` to be able to fill the lines.
 
@@ -708,7 +708,7 @@ If `true`, text is not editable. The default value is `false`.
 
 ---
 
-### `returnKeyLabel` <div class="label android">Android</div>
+### `returnKeyLabel` <div className="label android">Android</div>
 
 Sets the return key to the label. Use it instead of `returnKeyType`.
 
@@ -754,7 +754,7 @@ The following values work on iOS only:
 | --------------------------------------------------------------------------------------------------------------------------------- |
 | enum('done', 'go', 'next', 'search', 'send', 'none', 'previous', 'default', 'emergency-call', 'google', 'join', 'route', 'yahoo') |
 
-### `rejectResponderTermination` <div class="label ios">iOS</div>
+### `rejectResponderTermination` <div className="label ios">iOS</div>
 
 If `true`, allows TextInput to pass touch events to the parent component. This allows components such as SwipeableListView to be swipeable from the TextInput on iOS, as is the case on Android by default. If `false`, TextInput always asks to handle the input (except when disabled). The default value is `true`.
 
@@ -764,7 +764,7 @@ If `true`, allows TextInput to pass touch events to the parent component. This a
 
 ---
 
-### `rows` <div class="label android">Android</div>
+### `rows` <div className="label android">Android</div>
 
 Sets the number of lines for a `TextInput`. Use it with multiline set to `true` to be able to fill the lines.
 
@@ -774,7 +774,7 @@ Sets the number of lines for a `TextInput`. Use it with multiline set to `true` 
 
 ---
 
-### `scrollEnabled` <div class="label ios">iOS</div>
+### `scrollEnabled` <div className="label ios">iOS</div>
 
 If `false`, scrolling of the text view will be disabled. The default value is `true`. Only works with `multiline={true}`.
 
@@ -834,7 +834,7 @@ When `false`, it will prevent the soft keyboard from showing when the field is f
 
 ---
 
-### `spellCheck` <div class="label ios">iOS</div>
+### `spellCheck` <div className="label ios">iOS</div>
 
 If `false`, disables spell-check style (i.e. red underlines). The default value is inherited from `autoCorrect`.
 
@@ -860,7 +860,7 @@ Possible values for `textAlign` are:
 
 ---
 
-### `textContentType` <div class="label ios">iOS</div>
+### `textContentType` <div className="label ios">iOS</div>
 
 Give the keyboard and the system information about the expected semantic meaning for the content that users enter.
 
@@ -926,7 +926,7 @@ Possible values for `textContentType` are:
 
 ---
 
-### `passwordRules` <div class="label ios">iOS</div>
+### `passwordRules` <div className="label ios">iOS</div>
 
 When using `textContentType` as `newPassword` on iOS we can let the OS know the minimum requirements of the password so that it can generate one that will satisfy them. In order to create a valid string for `PasswordRules` take a look to the [Apple Docs](https://developer.apple.com/password-rules/).
 
@@ -964,7 +964,7 @@ see [Issue#7070](https://github.com/facebook/react-native/issues/7070) for more 
 
 ---
 
-### `textBreakStrategy` <div class="label android">Android</div>
+### `textBreakStrategy` <div className="label android">Android</div>
 
 Set text break strategy on Android API Level 23+, possible values are `simple`, `highQuality`, `balanced` The default value is `highQuality`.
 
@@ -974,7 +974,7 @@ Set text break strategy on Android API Level 23+, possible values are `simple`, 
 
 ---
 
-### `underlineColorAndroid` <div class="label android">Android</div>
+### `underlineColorAndroid` <div className="label android">Android</div>
 
 The color of the `TextInput` underline.
 
@@ -994,7 +994,7 @@ The value to show for the text input. `TextInput` is a controlled component, whi
 
 ---
 
-### `lineBreakStrategyIOS` <div class="label ios">iOS</div>
+### `lineBreakStrategyIOS` <div className="label ios">iOS</div>
 
 Set line break strategy on iOS 14+. Possible values are `none`, `standard`, `hangul-word` and `push-out`.
 

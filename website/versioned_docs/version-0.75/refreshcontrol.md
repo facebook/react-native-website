@@ -69,7 +69,7 @@ Inherits [View Props](view.md#props).
 
 ---
 
-### <div class="label required basic">Required</div>**`refreshing`**
+### <div className="label required basic">Required</div>**`refreshing`**
 
 Whether the view should be indicating an active refresh.
 
@@ -79,7 +79,7 @@ Whether the view should be indicating an active refresh.
 
 ---
 
-### `colors` <div class="label android">Android</div>
+### `colors` <div className="label android">Android</div>
 
 The colors (at least one) that will be used to draw the refresh indicator.
 
@@ -89,7 +89,7 @@ The colors (at least one) that will be used to draw the refresh indicator.
 
 ---
 
-### `enabled` <div class="label android">Android</div>
+### `enabled` <div className="label android">Android</div>
 
 Whether the pull to refresh functionality is enabled.
 
@@ -109,7 +109,7 @@ Called when the view starts refreshing.
 
 ---
 
-### `progressBackgroundColor` <div class="label android">Android</div>
+### `progressBackgroundColor` <div className="label android">Android</div>
 
 The background color of the refresh indicator.
 
@@ -129,7 +129,7 @@ Progress view top offset.
 
 ---
 
-### `size` <div class="label android">Android</div>
+### `size` <div className="label android">Android</div>
 
 Size of the refresh indicator.
 
@@ -139,7 +139,7 @@ Size of the refresh indicator.
 
 ---
 
-### `tintColor` <div class="label ios">iOS</div>
+### `tintColor` <div className="label ios">iOS</div>
 
 The color of the refresh indicator.
 
@@ -149,7 +149,7 @@ The color of the refresh indicator.
 
 ---
 
-### `title` <div class="label ios">iOS</div>
+### `title` <div className="label ios">iOS</div>
 
 The title displayed under the refresh indicator.
 
@@ -159,7 +159,7 @@ The title displayed under the refresh indicator.
 
 ---
 
-### `titleColor` <div class="label ios">iOS</div>
+### `titleColor` <div className="label ios">iOS</div>
 
 The color of the refresh indicator title.
 

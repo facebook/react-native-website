@@ -805,7 +805,7 @@ Specifies font weight. The values `'normal'` and `'bold'` are supported for most
 
 ---
 
-### `includeFontPadding` <div class="label android">Android</div>
+### `includeFontPadding` <div className="label android">Android</div>
 
 Set to `false` to remove extra font padding intended to make space for certain ascenders / descenders. With some fonts, this padding can make text look slightly misaligned when centered vertically. For best results also set `textAlignVertical` to `center`.
 
@@ -855,7 +855,7 @@ Specifies text alignment. On Android, the value 'justify' is only supported on O
 
 ---
 
-### `textAlignVertical` <div class="label android">Android</div>
+### `textAlignVertical` <div className="label android">Android</div>
 
 | Type                                            | Default  |
 | ----------------------------------------------- | -------- |
@@ -863,7 +863,7 @@ Specifies text alignment. On Android, the value 'justify' is only supported on O
 
 ---
 
-### `textDecorationColor` <div class="label ios">iOS</div>
+### `textDecorationColor` <div className="label ios">iOS</div>
 
 | Type               |
 | ------------------ |
@@ -879,7 +879,7 @@ Specifies text alignment. On Android, the value 'justify' is only supported on O
 
 ---
 
-### `textDecorationStyle` <div class="label ios">iOS</div>
+### `textDecorationStyle` <div className="label ios">iOS</div>
 
 | Type                                                | Default   |
 | --------------------------------------------------- | --------- |
@@ -919,7 +919,7 @@ Specifies text alignment. On Android, the value 'justify' is only supported on O
 
 ---
 
-### `verticalAlign` <div class="label android">Android</div>
+### `verticalAlign` <div className="label android">Android</div>
 
 | Type                                            | Default  |
 | ----------------------------------------------- | -------- |
@@ -927,7 +927,7 @@ Specifies text alignment. On Android, the value 'justify' is only supported on O
 
 ---
 
-### `writingDirection` <div class="label ios">iOS</div>
+### `writingDirection` <div className="label ios">iOS</div>
 
 | Type                             | Default  |
 | -------------------------------- | -------- |

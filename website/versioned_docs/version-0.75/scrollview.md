@@ -88,7 +88,7 @@ A React Component that will be used to render sticky headers, should be used tog
 
 ---
 
-### `alwaysBounceHorizontal` <div class="label ios">iOS</div>
+### `alwaysBounceHorizontal` <div className="label ios">iOS</div>
 
 When true, the scroll view bounces horizontally when it reaches the end even if the content is smaller than the scroll view itself.
 
@@ -98,7 +98,7 @@ When true, the scroll view bounces horizontally when it reaches the end even if 
 
 ---
 
-### `alwaysBounceVertical` <div class="label ios">iOS</div>
+### `alwaysBounceVertical` <div className="label ios">iOS</div>
 
 When true, the scroll view bounces vertically when it reaches the end even if the content is smaller than the scroll view itself.
 
@@ -108,7 +108,7 @@ When true, the scroll view bounces vertically when it reaches the end even if th
 
 ---
 
-### `automaticallyAdjustContentInsets` <div class="label ios">iOS</div>
+### `automaticallyAdjustContentInsets` <div className="label ios">iOS</div>
 
 Controls whether iOS should automatically adjust the content inset for scroll views that are placed behind a navigation bar or tab bar/toolbar.
 
@@ -118,7 +118,7 @@ Controls whether iOS should automatically adjust the content inset for scroll vi
 
 ---
 
-### `automaticallyAdjustKeyboardInsets` <div class="label ios">iOS</div>
+### `automaticallyAdjustKeyboardInsets` <div className="label ios">iOS</div>
 
 Controls whether the ScrollView should automatically adjust its `contentInset` and `scrollViewInsets` when the Keyboard changes its size.
 
@@ -128,7 +128,7 @@ Controls whether the ScrollView should automatically adjust its `contentInset` a
 
 ---
 
-### `automaticallyAdjustsScrollIndicatorInsets` <div class="label ios">iOS</div>
+### `automaticallyAdjustsScrollIndicatorInsets` <div className="label ios">iOS</div>
 
 Controls whether iOS should automatically adjust the scroll indicator insets. See Apple's [documentation on the property](https://developer.apple.com/documentation/uikit/uiscrollview/3198043-automaticallyadjustsscrollindica).
 
@@ -138,7 +138,7 @@ Controls whether iOS should automatically adjust the scroll indicator insets. Se
 
 ---
 
-### `bounces` <div class="label ios">iOS</div>
+### `bounces` <div className="label ios">iOS</div>
 
 When true, the scroll view bounces when it reaches the end of the content if the content is larger than the scroll view along the axis of the scroll direction. When `false`, it disables all bouncing even if the `alwaysBounce*` props are `true`.
 
@@ -148,7 +148,7 @@ When true, the scroll view bounces when it reaches the end of the content if the
 
 ---
 
-### `bouncesZoom` <div class="label ios">iOS</div>
+### `bouncesZoom` <div className="label ios">iOS</div>
 
 When `true`, gestures can drive zoom past min/max and the zoom will animate to the min/max value at gesture end, otherwise the zoom will not exceed the limits.
 
@@ -158,7 +158,7 @@ When `true`, gestures can drive zoom past min/max and the zoom will animate to t
 
 ---
 
-### `canCancelContentTouches` <div class="label ios">iOS</div>
+### `canCancelContentTouches` <div className="label ios">iOS</div>
 
 When `false`, once tracking starts, won't try to drag if the touch moves.
 
@@ -168,7 +168,7 @@ When `false`, once tracking starts, won't try to drag if the touch moves.
 
 ---
 
-### `centerContent` <div class="label ios">iOS</div>
+### `centerContent` <div className="label ios">iOS</div>
 
 When `true`, the scroll view automatically centers the content when the content is smaller than the scroll view bounds; when the content is larger than the scroll view, this property has no effect.
 
@@ -201,7 +201,7 @@ const styles = StyleSheet.create({
 
 ---
 
-### `contentInset` <div class="label ios">iOS</div>
+### `contentInset` <div className="label ios">iOS</div>
 
 The amount by which the scroll view content is inset from the edges of the scroll view.
 
@@ -211,7 +211,7 @@ The amount by which the scroll view content is inset from the edges of the scrol
 
 ---
 
-### `contentInsetAdjustmentBehavior` <div class="label ios">iOS</div>
+### `contentInsetAdjustmentBehavior` <div className="label ios">iOS</div>
 
 This property specifies how the safe area insets are used to modify the content area of the scroll view. Available on iOS 11 and later.
 
@@ -244,7 +244,7 @@ A floating-point number that determines how quickly the scroll view decelerates 
 
 ---
 
-### `directionalLockEnabled` <div class="label ios">iOS</div>
+### `directionalLockEnabled` <div className="label ios">iOS</div>
 
 When true, the ScrollView will try to lock to only vertical or horizontal scrolling while dragging.
 
@@ -274,7 +274,7 @@ When true, the default JS pan responder on the ScrollView is disabled, and full 
 
 ---
 
-### `endFillColor` <div class="label android">Android</div>
+### `endFillColor` <div className="label android">Android</div>
 
 Sometimes a scrollview takes up more space than its content fills. When this is the case, this prop will fill the rest of the scrollview with a color to avoid setting a background and creating unnecessary overdraw. This is an advanced optimization that is not needed in the general case.
 
@@ -284,7 +284,7 @@ Sometimes a scrollview takes up more space than its content fills. When this is 
 
 ---
 
-### `fadingEdgeLength` <div class="label android">Android</div>
+### `fadingEdgeLength` <div className="label android">Android</div>
 
 Fades out the edges of the scroll content.
 
@@ -306,7 +306,7 @@ When `true`, the scroll view's children are arranged horizontally in a row inste
 
 ---
 
-### `indicatorStyle` <div class="label ios">iOS</div>
+### `indicatorStyle` <div className="label ios">iOS</div>
 
 The style of the scroll indicators.
 
@@ -379,7 +379,7 @@ Caveat 2: This uses `contentOffset` and `frame.origin` in native code to compute
 
 ---
 
-### `maximumZoomScale` <div class="label ios">iOS</div>
+### `maximumZoomScale` <div className="label ios">iOS</div>
 
 The maximum allowed zoom scale.
 
@@ -389,7 +389,7 @@ The maximum allowed zoom scale.
 
 ---
 
-### `minimumZoomScale` <div class="label ios">iOS</div>
+### `minimumZoomScale` <div className="label ios">iOS</div>
 
 The minimum allowed zoom scale.
 
@@ -399,7 +399,7 @@ The minimum allowed zoom scale.
 
 ---
 
-### `nestedScrollEnabled` <div class="label android">Android</div>
+### `nestedScrollEnabled` <div className="label android">Android</div>
 
 Enables nested scrolling for Android API level 21+.
 
@@ -485,7 +485,7 @@ Called when the user stops dragging the scroll view and it either stops or begin
 
 ---
 
-### `onScrollToTop` <div class="label ios">iOS</div>
+### `onScrollToTop` <div className="label ios">iOS</div>
 
 Fires when the scroll view scrolls to top after the status bar has been tapped.
 
@@ -495,7 +495,7 @@ Fires when the scroll view scrolls to top after the status bar has been tapped.
 
 ---
 
-### `overScrollMode` <div class="label android">Android</div>
+### `overScrollMode` <div className="label android">Android</div>
 
 Used to override default value of overScroll mode.
 
@@ -521,7 +521,7 @@ When true, the scroll view stops on multiples of the scroll view's size when scr
 
 ---
 
-### `persistentScrollbar` <div class="label android">Android</div>
+### `persistentScrollbar` <div className="label android">Android</div>
 
 Causes the scrollbars not to turn transparent when they are not in use.
 
@@ -531,7 +531,7 @@ Causes the scrollbars not to turn transparent when they are not in use.
 
 ---
 
-### `pinchGestureEnabled` <div class="label ios">iOS</div>
+### `pinchGestureEnabled` <div className="label ios">iOS</div>
 
 When true, ScrollView allows use of pinch gestures to zoom in and out.
 
@@ -585,7 +585,7 @@ Limits how often scroll events will be fired while scrolling, specified as a tim
 
 ---
 
-### `scrollIndicatorInsets` <div class="label ios">iOS</div>
+### `scrollIndicatorInsets` <div className="label ios">iOS</div>
 
 The amount by which the scroll view indicators are inset from the edges of the scroll view. This should normally be set to the same value as the `contentInset`.
 
@@ -595,7 +595,7 @@ The amount by which the scroll view indicators are inset from the edges of the s
 
 ---
 
-### `scrollPerfTag` <div class="label android">Android</div>
+### `scrollPerfTag` <div className="label android">Android</div>
 
 Tag used to log scroll performance on this scroll view. Will force momentum events to be turned on (see sendMomentumEvents). This doesn't do anything out of the box and you need to implement a custom native FpsListener for it to be useful.
 
@@ -605,7 +605,7 @@ Tag used to log scroll performance on this scroll view. Will force momentum even
 
 ---
 
-### `scrollToOverflowEnabled` <div class="label ios">iOS</div>
+### `scrollToOverflowEnabled` <div className="label ios">iOS</div>
 
 When `true`, the scroll view can be programmatically scrolled beyond its content size.
 
@@ -615,7 +615,7 @@ When `true`, the scroll view can be programmatically scrolled beyond its content
 
 ---
 
-### `scrollsToTop` <div class="label ios">iOS</div>
+### `scrollsToTop` <div className="label ios">iOS</div>
 
 When `true`, the scroll view scrolls to top when the status bar is tapped.
 
@@ -721,7 +721,7 @@ An array of child indices determining which children get docked to the top of th
 
 ---
 
-### `zoomScale` <div class="label ios">iOS</div>
+### `zoomScale` <div className="label ios">iOS</div>
 
 The current scale of the scroll view content.
 
