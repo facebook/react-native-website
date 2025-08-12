@@ -13,10 +13,10 @@ This ships with support for Android 16 (API level 36) and includes a variety of 
 
 ### Highlights
 
-- [Android 16 support](#android-16-support)
-- [SafeAreaView deprecation](#safeareaview-deprecation)
-- [Community-maintained JavaScriptCore support](#community-maintained-javascriptcore-support)
-- [Experimental Precompiled iOS builds](#experimental-precompiled-ios-builds)
+- [Android 16 support](/blog/2025/08/12/react-native-0.81#android-16-support)
+- [SafeAreaView deprecation](/blog/2025/08/12/react-native-0.81#safeareaview-deprecation)
+- [Community-maintained JavaScriptCore support](/blog/2025/08/12/react-native-0.81#community-maintained-javascriptcore-support)
+- [Experimental Precompiled iOS builds](/blog/2025/08/12/react-native-0.81#experimental-precompiled-ios-builds)
 
 <!--truncate-->
 
