@@ -16,7 +16,7 @@ This ships with support for Android 16 (API level 36) and includes a variety of 
 - [Android 16 support](#android-16-support)
 - [SafeAreaView deprecation](#safeareaview-deprecation)
 - [Community-maintained JavaScriptCore support](#community-maintained-javascriptcore-support)
-- [[Experimental] Precompiled iOS builds](#experimental-precompiled-ios-builds)
+- [Experimental Precompiled iOS builds](#experimental-precompiled-ios-builds)
 
 <!--truncate-->
 
@@ -28,13 +28,13 @@ Android apps built with React Native 0.81 will now default to targeting **Androi
 
 As previously announced by Google, Android 16 requires that [apps are displayed edge-to-edge](https://developer.android.com/develop/ui/views/layout/edge-to-edge) with no support for [opting out](https://developer.android.com/about/versions/16/behavior-changes-16).
 
-To support this, we are deprecating the `<SafeAreaView>` component [as previously announced](https://github.com/react-native-community/discussions-and-proposals/discussions/827) in favor of alternatives ([see below](#safeareaview-deprecation) which will provide better edge-to-edge support.
+To support this, we are deprecating the `<SafeAreaView>` component [as previously announced](https://github.com/react-native-community/discussions-and-proposals/discussions/827) in favor of alternatives. [See below](#safeareaview-deprecation) which will provide better edge-to-edge support.
 
-We are also adding a new gradle property `edgeToEdgeEnabled `to let you choose if you wish to enable edge-to-edge on all supported Android versions beyond 16.
+We are also adding a new gradle property `edgeToEdgeEnabled` to let you choose if you wish to enable edge-to-edge on all supported Android versions beyond 16.
 
 [Predictive back gesture](https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture) is now enabled by default for apps targeting Android 16. The [BackHandler](https://reactnative.dev/docs/backhandler) API should continue to work as before for most use cases. However, if your app relies on custom native code for back handling (such as overriding the `onBackPressed()` method), you may need to manually migrate your code or [temporarily opt-out](https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture#opt-out). Please test your app’s back navigation thoroughly after upgrading.
 
-Google now expects apps to support adaptive layouts on large screen devices, regardless of orientation or size restrictions. While you can opt-out for now, it’s recommended to test and update your app for responsive UI on large screens before Android 17.
+Google now expects apps to support [adaptive layouts](https://developer.android.com/develop/ui/compose/layouts/adaptive) on large screen devices, regardless of orientation or size restrictions. While you can opt-out for now, it’s recommended to test and update your app for responsive UI on large screens before Android 17.
 
 Starting November 1, 2025, all Google Play app submissions must meet the 16 KB page size requirement for native binaries. This applies to new apps and updates targeting Android 15+ devices. **React Native is already 16KB page size compliant**. Ensure all your native code and third-party libraries are compliant as well.
 
@@ -77,7 +77,7 @@ You can read more about this feature in Expo’s full blog post, [Precompiled Re
 
 ### Minimum Node.js bumped to 20
 
-React Native now requires [Node.js](http://Node.js) version 20.19.4 (the latest [Maintenance LTS](https://nodejs.org/en/about/previous-releases) version at the time of writing) or higher. You may need to upgrade Node.js in your development or CI environment when you upgrade to React Native 0.81.
+React Native now requires [Node.js](https://nodejs.org/) version 20.19.4 (the latest [Maintenance LTS](https://nodejs.org/en/about/previous-releases) version at the time of writing) or higher. You may need to upgrade Node.js in your development or CI environment when you upgrade to React Native 0.81.
 
 ### Minimum Xcode bumped to 16.1
 
@@ -85,11 +85,11 @@ React Native now requires [Xcode 16.1](https://developer.apple.com/documentation
 
 ### Metro: Better support for advanced configuration in Community CLI projects
 
-Metro now respects the <code>[resolveRequest](https://metrobundler.dev/docs/configuration#resolverequest)</code> and <code>[getModulesRunBeforeMainModule](getModulesRunBeforeMainModule)</code> options if specified in the `metro.config.js` file of a React Native Community CLI project. Previously, setting them would have no effect. If you have custom values for these options in your <code>[metro.config.js](metro.config.js)</code> file, you may need to delete them in order to restore the previous behavior.
+Metro now respects the <code>[resolveRequest](https://metrobundler.dev/docs/configuration#resolverequest)</code> and <code>[getModulesRunBeforeMainModule](https://metrobundler.dev/docs/configuration/#getmodulesrunbeforemainmodule)</code> options if specified in the `metro.config.js` file of a React Native Community CLI project. Previously, setting them would have no effect. If you have custom values for these options in your <code>[metro.config.js](https://metrobundler.dev/docs/configuration/)</code> file, you may need to delete them in order to restore the previous behavior.
 
 ### Improved reporting of uncaught JavaScript errors
 
-React Native DevTools now shows the original message and stack trace of uncaught JavaScript errors, as well as the error’s [cause](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/cause) if any, and an Owner Stack for errors thrown by components. This makes errors easier to debug and fix.
+React Native DevTools now shows the original message and stack trace of uncaught JavaScript errors, as well as the error’s [cause](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/cause) if any, and an [Owner Stack](https://react.dev/reference/react/captureOwnerStack#owner-stack-vs-component-stack) for errors thrown by components. This makes errors easier to debug and fix.
 
 ![Example error including a cause and Owner Stack](../static/blog/assets/0.81-improved-uncaught-error.png)
 
@@ -122,7 +122,7 @@ This list contains a series of other breaking changes we suspect could have a mi
   - `com.facebook.react.views.text.TextLayoutManager`
 - We moved the `textAlignVertical` [native prop](https://github.com/facebook/react-native/blob/841866c35401ae05fa9c6a2a3e9b42714bbd291e/packages/react-native/ReactCommon/react/renderer/attributedstring/ParagraphAttributes.h#L83) from `TextAttribute.h` to `ParagraphAttribute.h`
   - The prop `textAlignVertical` only affects the top most text view (paragraph view). Yet, it exists in text attribute props nonetheless. To better reflect this platform limitation it was moved to paragraph props.
-  - This change is **not** affecting the JS Api of the `<Text>` component.
+  - This change is **not** affecting the JS API of the `<Text>` component.
   - You will be affected by this change only if you implement a Fabric component that interacts with the C++ Text API.
   - If you’re affected by this change, you can replace `TextAttributes.h` with `ParagraphAttribute.h` in your code
 
@@ -136,8 +136,7 @@ React Native 0.81 contains over 1110 commits from 110 contributors. Thanks for a
 
 We want to send a special thank you to those community members that shipped significant contributions in this release:
 
-- [Christian Falch](https://github.com/chrfalch) for the amazing work on precompiled iOS builds.
-<!-- // @case-police-ignore Mathieu -->
+- [Christian Falch](https://github.com/chrfalch) for the amazing work on precompiled iOS builds. <!-- // @case-police-ignore Mathieu -->
 - [Mathieu Acthernoene](https://github.com/zoontek) for crucial contributions to Android edge-to-edge support
 - [Enrique López-Mañas](https://github.com/kikoso) and for helping test Android 16 integration and the SafeAreaView deprecation.
 
