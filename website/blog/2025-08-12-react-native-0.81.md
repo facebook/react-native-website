@@ -42,7 +42,7 @@ For more details on Android 16 changes and migration steps, refer to this [post 
 
 ### SafeAreaView deprecation
 
-The built-in `<SafeAreaView>` component was originally designed to provide **limited, iOS-only support** for keeping content in the “safe areas” of the screen (away from camera notches, rounded corners, etc). It is not compatible with edge-to-edge rendering on Android, and does not permit customization beyond simple padding. As a result, many apps have opted for more portable and flexible solutions, such as <code>[react-native-safe-area-context](https://appandflow.github.io/react-native-safe-area-context/)</code>.
+The built-in `<SafeAreaView>` component was originally designed to provide **limited, iOS-only support** for keeping content in the “safe areas” of the screen (away from camera notches, rounded corners, etc). It is not compatible with edge-to-edge rendering on Android, and does not permit customization beyond padding. As a result, many apps have opted for more portable and flexible solutions, such as <code>[react-native-safe-area-context](https://appandflow.github.io/react-native-safe-area-context/)</code>.
 
 In React Native 0.81, the legacy `<SafeAreaView>` component is deprecated, and you will see warnings in React Native DevTools if your app uses it.
 
