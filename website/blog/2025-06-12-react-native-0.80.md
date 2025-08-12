@@ -130,7 +130,7 @@ if linkage != nil
   use_frameworks! :linkage => linkage.to_sym
 end
 
-+ENV[‘`RCT_USE_RN_DEP`’] = ‘1’
++ENV['RCT_USE_RN_DEP'] = '1'
 
 target 'HelloWorld' do
   config = use_native_modules!
