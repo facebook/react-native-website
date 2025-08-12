@@ -24,7 +24,7 @@ This ships with support for Android 16 (API level 36) and includes a variety of 
 
 ### Android 16 support
 
-Android apps built with React Native 0.81 will now default to targeting **Android 16** (API level 36). 
+Android apps built with React Native 0.81 will now default to targeting **Android 16** (API level 36).
 
 As previously announced by Google, Android 16 requires that [apps are displayed edge-to-edge](https://developer.android.com/develop/ui/views/layout/edge-to-edge) with no support for [opting out](https://developer.android.com/about/versions/16/behavior-changes-16).
 
@@ -44,7 +44,7 @@ For more details on Android 16 changes and migration steps, refer to this [post 
 
 The built-in `<SafeAreaView>` component was originally designed to provide **limited, iOS-only support** for keeping content in the “safe areas” of the screen (away from camera notches, rounded corners, etc). It is not compatible with edge-to-edge rendering on Android, and does not permit customization beyond simple padding. As a result, many apps have opted for more portable and flexible solutions, such as <code>[react-native-safe-area-context](https://appandflow.github.io/react-native-safe-area-context/)</code>.
 
-In React Native 0.81, the legacy `<SafeAreaView>` component is deprecated, and you will see warnings in React Native DevTools if your app uses it. 
+In React Native 0.81, the legacy `<SafeAreaView>` component is deprecated, and you will see warnings in React Native DevTools if your app uses it.
 
 It will be removed in a future version of React Native. We recommend that you migrate to `react-native-safe-area-context` or a similar library to ensure your app looks its best across all platforms.
 
@@ -67,8 +67,9 @@ RCT_USE_RN_DEP=1 RCT_USE_PREBUILT_RNCORE=1 bundle exec pod install
 Please provide feedback in [this GitHub discussion](https://github.com/react-native-community/discussions-and-proposals/discussions/923).
 
 There are two limitations we are already aware of, and are working to resolve:
-* In precompiled builds, you cannot debug and step into React Native's internals. You can still debug your *own* native code while using a precompiled version of React Native.
-* Prebuilds are not supported in Xcode 26 Beta, because the IDE builds all targets with [Swift explicit modules](https://developer.apple.com/documentation/xcode-release-notes/xcode-26-release-notes#Resolved-Issues-in-Xcode-26-Beta:~:text=Starting%20from%20Xcode%2026%2C%20Swift%20explicit%20modules%20will%20be%20the%20default%20mode%20for%20building%20all%20Swift%20targets)) enabled. To use precompiled builds with Xcode 26, set the `SWIFT_ENABLE_EXPLICIT_MODULES` flag to `NO` in your Xcode project. We will address this in an upcoming patch release.
+
+- In precompiled builds, you cannot debug and step into React Native's internals. You can still debug your _own_ native code while using a precompiled version of React Native.
+- Prebuilds are not supported in Xcode 26 Beta, because the IDE builds all targets with [Swift explicit modules](https://developer.apple.com/documentation/xcode-release-notes/xcode-26-release-notes#Resolved-Issues-in-Xcode-26-Beta:~:text=Starting%20from%20Xcode%2026%2C%20Swift%20explicit%20modules%20will%20be%20the%20default%20mode%20for%20building%20all%20Swift%20targets)) enabled. To use precompiled builds with Xcode 26, set the `SWIFT_ENABLE_EXPLICIT_MODULES` flag to `NO` in your Xcode project. We will address this in an upcoming patch release.
 
 You can read more about this feature in Expo’s full blog post, [Precompiled React Native for iOS: Faster builds are coming in 0.81](https://expo.dev/blog/precompiled-react-native-for-ios).
 
@@ -111,17 +112,19 @@ You can see an example of [how react-native-screens has set up this macro](https
 This change will affect only more advanced and complex libraries. If your library is using codegen and you don’t have a custom CMake file, you won’t be affected by this change.
 
 ### Other Breaking Changes
+
 This list contains a series of other breaking changes we suspect could have a minor impact to your product code and are worth noting:
 
 #### Android
-* We made several classes internal. Those classes are not part of the public API and should not be accessed. We already notified or submitted patches to the affected libraries:
-    * `com.facebook.react.fabric.mounting.MountingManager`
-    * `com.facebook.react.views.text.TextLayoutManager`
-* We moved the `textAlignVertical` [native prop](https://github.com/facebook/react-native/blob/841866c35401ae05fa9c6a2a3e9b42714bbd291e/packages/react-native/ReactCommon/react/renderer/attributedstring/ParagraphAttributes.h#L83) from `TextAttribute.h` to `ParagraphAttribute.h`
-    * The prop `textAlignVertical` only affects the top most text view (paragraph view). Yet, it exists in text attribute props nonetheless. To better reflect this platform limitation it was moved to paragraph props.
-    * This change is **not** affecting the JS Api of the `<Text>` component.
-    * You will be affected by this change only if you implement a Fabric component that interacts with the C++ Text API.
-    * If you’re affected by this change, you can replace `TextAttributes.h` with `ParagraphAttribute.h` in your code
+
+- We made several classes internal. Those classes are not part of the public API and should not be accessed. We already notified or submitted patches to the affected libraries:
+  - `com.facebook.react.fabric.mounting.MountingManager`
+  - `com.facebook.react.views.text.TextLayoutManager`
+- We moved the `textAlignVertical` [native prop](https://github.com/facebook/react-native/blob/841866c35401ae05fa9c6a2a3e9b42714bbd291e/packages/react-native/ReactCommon/react/renderer/attributedstring/ParagraphAttributes.h#L83) from `TextAttribute.h` to `ParagraphAttribute.h`
+  - The prop `textAlignVertical` only affects the top most text view (paragraph view). Yet, it exists in text attribute props nonetheless. To better reflect this platform limitation it was moved to paragraph props.
+  - This change is **not** affecting the JS Api of the `<Text>` component.
+  - You will be affected by this change only if you implement a Fabric component that interacts with the C++ Text API.
+  - If you’re affected by this change, you can replace `TextAttributes.h` with `ParagraphAttribute.h` in your code
 
 Read the full list of breaking changes [in the CHANGELOG for 0.81](https://github.com/facebook/react-native/blob/main/CHANGELOG.md#v0810).
 
@@ -133,16 +136,17 @@ React Native 0.81 contains over 1110 commits from 110 contributors. Thanks for a
 
 We want to send a special thank you to those community members that shipped significant contributions in this release:
 
-* [Christian Falch](https://github.com/chrfalch) for the amazing work on precompiled iOS builds.
+- [Christian Falch](https://github.com/chrfalch) for the amazing work on precompiled iOS builds.
 <!-- // @case-police-ignore Mathieu -->
-* [Mathieu Acthernoene](https://github.com/zoontek) for crucial contributions to Android edge-to-edge support
-* [Enrique López-Mañas](https://github.com/kikoso) and for helping test Android 16 integration and the SafeAreaView deprecation.
+- [Mathieu Acthernoene](https://github.com/zoontek) for crucial contributions to Android edge-to-edge support
+- [Enrique López-Mañas](https://github.com/kikoso) and for helping test Android 16 integration and the SafeAreaView deprecation.
 
 ## Upgrade to 0.81
 
 Please use the [React Native Upgrade Helper](https://react-native-community.github.io/upgrade-helper/) to view code changes between React Native versions for existing projects, in addition to the Upgrading docs.
 
 To create a new project:
+
 ```
 npx @react-native-community/cli@latest init MyProject --version latest
 ```
