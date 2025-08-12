@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React from 'react';
+import React, {Fragment} from 'react';
 import Link from '@docusaurus/Link';
 import {NavbarSecondaryMenuFiller} from '@docusaurus/theme-common';
 import styles from './styles.module.css';
@@ -22,7 +22,7 @@ function BlogSidebarMobileSecondaryMenu({sidebar}: Props) {
         );
         cachedYear = postYear;
         return (
-          <>
+          <Fragment key={item.permalink}>
             {yearHeader}
             <li key={item.permalink} className="menu__list-item">
               <Link
@@ -33,7 +33,7 @@ function BlogSidebarMobileSecondaryMenu({sidebar}: Props) {
                 {item.title}
               </Link>
             </li>
-          </>
+          </Fragment>
         );
       })}
     </ul>
