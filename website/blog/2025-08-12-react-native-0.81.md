@@ -5,11 +5,11 @@ tags: [engineering]
 date: 2025-08-12
 ---
 
-# React Native 0.81 - Android 16 support, faster iOS builds, and more
+# **React Native 0.81 - Android 16 support, faster iOS builds, and more**
 
 Today we are excited to release React Native 0.81!
 
-This release increases the target Android version to Android 16 (API level 36) and includes a variety of other stability improvements and bugfixes, as well as **experimental** support for faster iOS builds using precompilation.
+This ships with support for Android 16 (API level 36) and includes a variety of other stability improvements and bugfixes, as well as experimental support for faster iOS builds using precompilation.
 
 ### Highlights
 
@@ -24,33 +24,41 @@ This release increases the target Android version to Android 16 (API level 36) a
 
 ### Android 16 support
 
-Android apps built with React Native 0.81 will now default to targeting Android 16 (API level 36). Android 16 mandates that [apps are displayed edge-to-edge](https://developer.android.com/develop/ui/views/layout/edge-to-edge) with no support for opting out. To this end, we are also deprecating the `<SafeAreaView>` component ([see below](#safeareaview-deprecation)) in favor of alternatives that provide better edge-to-edge support.
+Android apps built with React Native 0.81 will now default to targeting **Android 16** (API level 36). 
 
-Another big change for apps targeting Android 16 is that the [predictive back gesture](https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture) is enabled by default. With this change, [`onBackPressed()`](<https://developer.android.com/reference/androidx/activity/ComponentActivity#onBackPressed()>) is not called and [`KeyEvent.KEYCODE_BACK`](https://developer.android.com/reference/android/view/KeyEvent#KEYCODE_BACK) is not dispatched anymore. So existing apps updating to `targetSdk` 36 may not behave as expected unless the code is migrated properly. You can opt-out for now but this option will likely be removed in the next major Android release. Refer to [this post in the discussions-and-proposal repository](TODO: add link) for additional information around handling predictive back in React Native apps.
+As previously announced by Google, Android 16 requires that [apps are displayed edge-to-edge](https://developer.android.com/develop/ui/views/layout/edge-to-edge) with no support for [opting out](https://developer.android.com/about/versions/16/behavior-changes-16).
 
-To learn more about the edge-to-edge requirements, predictive back and other changes to expect when migrating, read the official guidance for Android developers on [behavior changes in Android 16](https://developer.android.com/about/versions/16/behavior-changes-16).
+To support this, we are deprecating the `<SafeAreaView>` component [as previously announced](https://github.com/react-native-community/discussions-and-proposals/discussions/827) in favor of alternatives ([see below](#safeareaview-deprecation) which will provide better edge-to-edge support.
 
-Here is also a [video from Google I/O 2025](https://youtu.be/IaNpcrCSDiI?si=K0N9Qm21oBE0Z8_k&t=2333) announcing the changes.
+We are also adding a new gradle property `edgeToEdgeEnabled `to let you choose if you wish to enable edge-to-edge on all supported Android versions beyond 16.
+
+[Predictive back gesture](https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture) is now enabled by default for apps targeting Android 16. The [BackHandler](https://reactnative.dev/docs/backhandler) API should continue to work as before for most use cases. However, if your app relies on custom native code for back handling (such as overriding the `onBackPressed()` method), you may need to manually migrate your code or [temporarily opt-out](https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture#opt-out). Please test your app’s back navigation thoroughly after upgrading.
+
+Google now expects apps to support adaptive layouts on large screen devices, regardless of orientation or size restrictions. While you can opt-out for now, it’s recommended to test and update your app for responsive UI on large screens before Android 17.
+
+Starting November 1, 2025, all Google Play app submissions must meet the 16 KB page size requirement for native binaries. This applies to new apps and updates targeting Android 15+ devices. **React Native is already 16KB page size compliant**. Ensure all your native code and third-party libraries are compliant as well.
+
+For more details on Android 16 changes and migration steps, refer to this [post in the discussions-and-proposals](https://github.com/react-native-community/discussions-and-proposals/discussions/921) repository.
 
 ### SafeAreaView deprecation
 
-<!--alex ignore simple retext-equality-->
+The built-in `<SafeAreaView>` component was originally designed to provide **limited, iOS-only support** for keeping content in the “safe areas” of the screen (away from camera notches, rounded corners, etc). It is not compatible with edge-to-edge rendering on Android, and does not permit customization beyond simple padding. As a result, many apps have opted for more portable and flexible solutions, such as <code>[react-native-safe-area-context](https://appandflow.github.io/react-native-safe-area-context/)</code>.
 
-The built-in `<SafeAreaView>` component was originally designed to provide **limited, iOS-only support** for keeping content in the "safe areas" of the screen (away from camera notches, rounded corners, etc). It is not compatible with edge-to-edge rendering on Android, and does not permit customization beyond simple padding. As a result, many apps have opted for more portable and flexible solutions, such as [`react-native-safe-area-context`](https://appandflow.github.io/react-native-safe-area-context/).
+In React Native 0.81, the legacy `<SafeAreaView>` component is deprecated, and you will see warnings in React Native DevTools if your app uses it. 
 
-In React Native 0.81, the legacy `<SafeAreaView>` component is deprecated, and you will see warnings in React Native DevTools if your app uses it. It will be removed in a future version of React Native. We recommend that you migrate to `react-native-safe-area-context` or a similar library now to ensure your app looks its best across all platforms.
+It will be removed in a future version of React Native. We recommend that you migrate to `react-native-safe-area-context` or a similar library to ensure your app looks its best across all platforms.
 
 ### Community-maintained JavaScriptCore support
 
-[As we announced last year](./2025-04-08-react-native-0.79.md#jsc-moving-to-community-package), support for the JavaScriptCore (JSC) engine has moved to a [community-maintained package](https://github.com/react-native-community/javascriptcore) that is released separately from React Native itself. In React Native 0.81, we're removing the built-in version of JavaScriptCore. All apps that require JavaScriptCore should now use the community package in order to upgrade to 0.81. [Read the installation instructions](https://github.com/react-native-community/javascriptcore#installation) for the details.
+[As we announced last year](https://reactnative.dev/blog/2025/04/08/react-native-0.79#jsc-moving-to-community-package), support for the JavaScriptCore (JSC) engine has moved to a [community-maintained package](https://github.com/react-native-community/javascriptcore) that is released separately from React Native itself. In React Native 0.81, we're removing the built-in version of JavaScriptCore. All apps that require JavaScriptCore should now use the community package in order to upgrade to 0.81. [Read the installation instructions](https://github.com/react-native-community/javascriptcore#installation) for the details.
 
 This change does not affect apps that are using Hermes.
 
-### [Experimental] Precompiled iOS builds
+### Experimental Precompiled iOS builds
 
-React Native 0.81 introduces precompiled iOS builds, cutting compile times by up to 10x in projects where React Native is the primary dependency. This is the result of a collaboration between Expo and Meta, and expands on [work we previously shipped in 0.80](./2025-06-12-react-native-0.80.md#experimental---react-native-ios-dependencies-are-now-prebuilt).
+React Native 0.81 introduces precompiled iOS builds, cutting compile times by up to 10x in projects where React Native is the primary dependency. This is the result of a collaboration between Expo and Meta, and expands on [work we previously shipped in React Native 0.80](https://reactnative.dev/blog/2025/06/12/react-native-0.80#experimental---react-native-ios-dependencies-are-now-prebuilt).
 
-This feature is still experimental, but we are hoping to enable it for all apps in a future release. If you'd like to try precompiled builds in your own app, you can enable them by specifying the following environment variables when you run `pod install`:
+This feature is still experimental, but we are hoping to enable it for all apps in a future release. If you’d like to try precompiled builds in your own app, you can enable them by specifying the following environment variables when you run `pod install`:
 
 ```bash
 RCT_USE_RN_DEP=1 RCT_USE_PREBUILT_RNCORE=1 bundle exec pod install
@@ -59,11 +67,10 @@ RCT_USE_RN_DEP=1 RCT_USE_PREBUILT_RNCORE=1 bundle exec pod install
 Please provide feedback in [this GitHub discussion](https://github.com/react-native-community/discussions-and-proposals/discussions/923).
 
 There are two limitations we are already aware of, and are working to resolve:
+* In precompiled builds, you cannot debug and step into React Native's internals. You can still debug your *own* native code while using a precompiled version of React Native.
+* Prebuilds are not supported in Xcode 26 Beta, because the IDE builds all targets with [Swift explicit modules](https://developer.apple.com/documentation/xcode-release-notes/xcode-26-release-notes#Resolved-Issues-in-Xcode-26-Beta:~:text=Starting%20from%20Xcode%2026%2C%20Swift%20explicit%20modules%20will%20be%20the%20default%20mode%20for%20building%20all%20Swift%20targets)) enabled. To use precompiled builds with Xcode 26, set the `SWIFT_ENABLE_EXPLICIT_MODULES` flag to `NO` in your Xcode project. We will address this in an upcoming patch release.
 
-- In precompiled builds, you cannot debug and step into React Native's internals like you can when building from source. You can, however, still debug your own native code while using a precompiled version of React Native.
-- Precompiled builds are not supported in Xcode 26 Beta out of the box, since it builds all targets with [Swift explicit modules](https://developer.apple.com/documentation/xcode-release-notes/xcode-26-release-notes#Resolved-Issues-in-Xcode-26-Beta:~:text=Starting%20from%20Xcode%2026%2C%20Swift%20explicit%20modules%20will%20be%20the%20default%20mode%20for%20building%20all%20Swift%20targets)). You can use precompiled React Native builds with Xcode 26 by setting `SWIFT_ENABLE_EXPLICIT_MODULES` to `NO` in your Xcode project. We will address this limitation in an upcoming React Native 0.81 patch release.
-
-You can read more about this feature in Expo's full blog post, [Precompiled React Native for iOS: Faster builds are coming in 0.81](https://expo.dev/blog/precompiled-react-native-for-ios).
+You can read more about this feature in Expo’s full blog post, [Precompiled React Native for iOS: Faster builds are coming in 0.81](https://expo.dev/blog/precompiled-react-native-for-ios).
 
 ## Breaking Changes
 
@@ -77,22 +84,44 @@ React Native now requires [Xcode 16.1](https://developer.apple.com/documentation
 
 ### Metro: Better support for advanced configuration in Community CLI projects
 
-Metro now respects the [`resolveRequest`](https://metrobundler.dev/docs/configuration#resolverequest) and [`getModulesRunBeforeMainModule`](getModulesRunBeforeMainModule) options if specified in the `metro.config.js` file of a React Native Community CLI project. Previously, setting them would have no effect. If you have custom values for these options in your [`metro.config.js`](metro.config.js) file, you may need to delete them in order to restore the previous behavior.
+Metro now respects the <code>[resolveRequest](https://metrobundler.dev/docs/configuration#resolverequest)</code> and <code>[getModulesRunBeforeMainModule](getModulesRunBeforeMainModule)</code> options if specified in the `metro.config.js` file of a React Native Community CLI project. Previously, setting them would have no effect. If you have custom values for these options in your <code>[metro.config.js](metro.config.js)</code> file, you may need to delete them in order to restore the previous behavior.
 
 ### Improved reporting of uncaught JavaScript errors
 
-React Native DevTools now shows the original message and stack trace of uncaught JavaScript errors, as well as the error's [cause](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/cause) if any, and an Owner Stack for errors thrown by components. This makes errors easier to debug and fix.
+React Native DevTools now shows the original message and stack trace of uncaught JavaScript errors, as well as the error’s [cause](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/cause) if any, and an Owner Stack for errors thrown by components. This makes errors easier to debug and fix.
 
 ![Example error including a cause and Owner Stack](../static/blog/assets/0.81-improved-uncaught-error.png)
 
 If you are logging JavaScript errors to your backend or to a third-party error reporting service, this may affect the logs you see after upgrading to React Native 0.81 (for example: you might see more thrown errors that used to be reported via `console.error`), and you may need to update some backend logic accordingly.
 
-### Miscellaneous API changes
+### `RN_SERIALIZABLE_STATE` and C++ flags.
 
-You may be affected by these changes if your app (or a library you use) relies on the old or private version of a particular API. For most apps, we don't anticipate any changes other than upgrading some libraries to their latest versions.
+In this version of React Native, we introduced a new macro called `RN_SERIALIZABLE_STATE` to support serializable state for the Components on New Architecture.
 
-- Android: MountingManager is now Kotlin `internal`.
-- Android: Cleaned up measurements path and ReactTextViewManagerCallback injection.
+If you’re a library author and you have a **custom** `CMakeLists.txt` file, you will need to specify this macro in your CMakeLists.txt file or your C++ code could fail to compile.
+
+To support this, we introduce a new CMake function called `target_compile_reactnative_options` which will take care of setting up this macro and all the necessary C++ flags for you. You can invoke it as such in your CMakeLists file:
+
+```cmake
+target_compile_reactnative_options(myLibraryName PRIVATE)
+```
+
+You can see an example of [how react-native-screens has set up this macro](https://github.com/software-mansion/react-native-screens/pull/3114/commits/b4d283c8fc65e36ec60726fd7513735ccc7e1fe9).
+
+This change will affect only more advanced and complex libraries. If your library is using codegen and you don’t have a custom CMake file, you won’t be affected by this change.
+
+### Other Breaking Changes
+This list contains a series of other breaking changes we suspect could have a minor impact to your product code and are worth noting:
+
+#### Android
+* We made several classes internal. Those classes are not part of the public API and should not be accessed. We already notified or submitted patches to the affected libraries:
+    * `com.facebook.react.fabric.mounting.MountingManager`
+    * `com.facebook.react.views.text.TextLayoutManager`
+* We moved the `textAlignVertical` [native prop](https://github.com/facebook/react-native/blob/841866c35401ae05fa9c6a2a3e9b42714bbd291e/packages/react-native/ReactCommon/react/renderer/attributedstring/ParagraphAttributes.h#L83) from `TextAttribute.h` to `ParagraphAttribute.h`
+    * The prop `textAlignVertical` only affects the top most text view (paragraph view). Yet, it exists in text attribute props nonetheless. To better reflect this platform limitation it was moved to paragraph props.
+    * This change is **not** affecting the JS Api of the `<Text>` component.
+    * You will be affected by this change only if you implement a Fabric component that interacts with the C++ Text API.
+    * If you’re affected by this change, you can replace `TextAttributes.h` with `ParagraphAttribute.h` in your code
 
 Read the full list of breaking changes [in the CHANGELOG for 0.81](https://github.com/facebook/react-native/blob/main/CHANGELOG.md#v0810).
 
@@ -104,25 +133,24 @@ React Native 0.81 contains over 1110 commits from 110 contributors. Thanks for a
 
 We want to send a special thank you to those community members that shipped significant contributions in this release:
 
-- [Christian Falch](<[https://github.com/chrfalch](https://github.com/chrfalch)>) for the amazing work on precompiled iOS builds.
+* [Christian Falch](https://github.com/chrfalch) for the amazing work on precompiled iOS builds.
 <!-- // @case-police-ignore Mathieu -->
-- [Mathieu Acthernoene](https://github.com/zoontek) for crucial contributions to Android edge-to-edge support
-- &lt;TODO> for helping test Android 16 and the SafeAreaView deprecation.
-
-Moreover, we also want to thank the additional authors that worked on documenting features in this release post:
-
-- &lt;TODO>
+* [Mathieu Acthernoene](https://github.com/zoontek) for crucial contributions to Android edge-to-edge support
+* [Enrique López-Mañas](https://github.com/kikoso) and for helping test Android 16 integration and the SafeAreaView deprecation.
 
 ## Upgrade to 0.81
 
 Please use the [React Native Upgrade Helper](https://react-native-community.github.io/upgrade-helper/) to view code changes between React Native versions for existing projects, in addition to the Upgrading docs.
 
 To create a new project:
+```
+npx @react-native-community/cli@latest init MyProject --version latest
+```
 
 If you use Expo, React Native 0.81 will be supported in the upcoming Expo SDK 54 as the default version of React Native.
 
 ::: info
 
-0.81 is now the latest stable version of React Native and 0.78.x moves to unsupported. For more information see React Native's support policy. We aim to publish a final end-of-life update of 0.78 in the near future.
+0.81 is now the latest stable version of React Native and 0.78.x moves to unsupported. For more information see [React Native's support policy](https://github.com/reactwg/react-native-releases/blob/main/docs/support.md).
 
 :::
