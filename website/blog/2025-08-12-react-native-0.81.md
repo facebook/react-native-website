@@ -2,7 +2,7 @@
 title: 'React Native 0.81 - Android 16 support, faster iOS builds, and more'
 authors: [motiz88, vzaidman, gabrieldonadel, chrfalch]
 tags: [engineering]
-date: 2025-08-11
+date: 2025-08-12
 ---
 
 # React Native 0.81 - Android 16 support, faster iOS builds, and more
@@ -56,7 +56,7 @@ This feature is still experimental, but we are hoping to enable it for all apps 
 RCT_USE_RN_DEP=1 RCT_USE_PREBUILT_RNCORE=1 bundle exec pod install
 ```
 
-Please provide feedback in [this GitHub discussion](TODO).
+Please provide feedback in [this GitHub discussion](https://github.com/react-native-community/discussions-and-proposals/discussions/923).
 
 There are two limitations we are already aware of, and are working to resolve:
 
