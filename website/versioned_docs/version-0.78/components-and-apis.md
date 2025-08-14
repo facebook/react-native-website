@@ -44,6 +44,12 @@ Most apps will end up using one or more of these basic components.
     </a>
   </div>
   <div className="component">
+    <a href="./pressable">
+      <h3>Pressable</h3>
+      <p>A wrapper component that can detect various stages of press interactions on any of its children.</p>
+    </a>
+  </div>
+  <div className="component">
     <a href="./scrollview">
       <h3>ScrollView</h3>
       <p>Provides a scrolling container that can host multiple components and views.</p>
