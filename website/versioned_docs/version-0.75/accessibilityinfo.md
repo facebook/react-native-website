@@ -87,16 +87,16 @@ static addEventListener(
 
 Add an event handler. Supported events:
 
-| Event name                                                                           | Description                                                                                                                                                                                                                                                                                              |
-| ------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `accessibilityServiceChanged`<br/><div class="label two-lines android">Android</div> | Fires when some services such as TalkBack, other Android assistive technologies, and third-party accessibility services are enabled. The argument to the event handler is a boolean. The boolean is `true` when a some accessibility services is enabled and `false` otherwise.                          |
-| `announcementFinished`<br/><div class="label two-lines ios">iOS</div>                | Fires when the screen reader has finished making an announcement. The argument to the event handler is a dictionary with these keys:<ul><li>`announcement`: The string announced by the screen reader.</li><li>`success`: A boolean indicating whether the announcement was successfully made.</li></ul> |
-| `boldTextChanged`<br/><div class="label two-lines ios">iOS</div>                     | Fires when the state of the bold text toggle changes. The argument to the event handler is a boolean. The boolean is `true` when bold text is enabled and `false` otherwise.                                                                                                                             |
-| `grayscaleChanged`<br/><div class="label two-lines ios">iOS</div>                    | Fires when the state of the gray scale toggle changes. The argument to the event handler is a boolean. The boolean is `true` when a gray scale is enabled and `false` otherwise.                                                                                                                         |
-| `invertColorsChanged`<br/><div class="label two-lines ios">iOS</div>                 | Fires when the state of the invert colors toggle changes. The argument to the event handler is a boolean. The boolean is `true` when invert colors is enabled and `false` otherwise.                                                                                                                     |
-| `reduceMotionChanged`                                                                | Fires when the state of the reduce motion toggle changes. The argument to the event handler is a boolean. The boolean is `true` when a reduce motion is enabled (or when "Transition Animation Scale" in "Developer options" is "Animation off") and `false` otherwise.                                  |
-| `reduceTransparencyChanged`<br/><div class="label two-lines ios">iOS</div>           | Fires when the state of the reduce transparency toggle changes. The argument to the event handler is a boolean. The boolean is `true` when reduce transparency is enabled and `false` otherwise.                                                                                                         |
-| `screenReaderChanged`                                                                | Fires when the state of the screen reader changes. The argument to the event handler is a boolean. The boolean is `true` when a screen reader is enabled and `false` otherwise.                                                                                                                          |
+| Event name                                                                               | Description                                                                                                                                                                                                                                                                                              |
+| ---------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `accessibilityServiceChanged`<br/><div className="label two-lines android">Android</div> | Fires when some services such as TalkBack, other Android assistive technologies, and third-party accessibility services are enabled. The argument to the event handler is a boolean. The boolean is `true` when a some accessibility services is enabled and `false` otherwise.                          |
+| `announcementFinished`<br/><div className="label two-lines ios">iOS</div>                | Fires when the screen reader has finished making an announcement. The argument to the event handler is a dictionary with these keys:<ul><li>`announcement`: The string announced by the screen reader.</li><li>`success`: A boolean indicating whether the announcement was successfully made.</li></ul> |
+| `boldTextChanged`<br/><div className="label two-lines ios">iOS</div>                     | Fires when the state of the bold text toggle changes. The argument to the event handler is a boolean. The boolean is `true` when bold text is enabled and `false` otherwise.                                                                                                                             |
+| `grayscaleChanged`<br/><div className="label two-lines ios">iOS</div>                    | Fires when the state of the gray scale toggle changes. The argument to the event handler is a boolean. The boolean is `true` when a gray scale is enabled and `false` otherwise.                                                                                                                         |
+| `invertColorsChanged`<br/><div className="label two-lines ios">iOS</div>                 | Fires when the state of the invert colors toggle changes. The argument to the event handler is a boolean. The boolean is `true` when invert colors is enabled and `false` otherwise.                                                                                                                     |
+| `reduceMotionChanged`                                                                    | Fires when the state of the reduce motion toggle changes. The argument to the event handler is a boolean. The boolean is `true` when a reduce motion is enabled (or when "Transition Animation Scale" in "Developer options" is "Animation off") and `false` otherwise.                                  |
+| `reduceTransparencyChanged`<br/><div className="label two-lines ios">iOS</div>           | Fires when the state of the reduce transparency toggle changes. The argument to the event handler is a boolean. The boolean is `true` when reduce transparency is enabled and `false` otherwise.                                                                                                         |
+| `screenReaderChanged`                                                                    | Fires when the state of the screen reader changes. The argument to the event handler is a boolean. The boolean is `true` when a screen reader is enabled and `false` otherwise.                                                                                                                          |
 
 ---
 
@@ -123,14 +123,14 @@ Post a string to be announced by the screen reader with modification options. By
 
 **Parameters:**
 
-| Name                                                          | Type   | Description                                                                              |
-| ------------------------------------------------------------- | ------ | ---------------------------------------------------------------------------------------- |
-| announcement <div class="label basic required">Required</div> | string | The string to be announced                                                               |
-| options <div class="label basic required">Required</div>      | object | `queue` - queue the announcement behind existing speech <div class="label ios">iOS</div> |
+| Name                                                              | Type   | Description                                                                                  |
+| ----------------------------------------------------------------- | ------ | -------------------------------------------------------------------------------------------- |
+| announcement <div className="label basic required">Required</div> | string | The string to be announced                                                                   |
+| options <div className="label basic required">Required</div>      | object | `queue` - queue the announcement behind existing speech <div className="label ios">iOS</div> |
 
 ---
 
-### `getRecommendedTimeoutMillis()` <div class="label android">Android</div>
+### `getRecommendedTimeoutMillis()` <div className="label android">Android</div>
 
 ```tsx
 static getRecommendedTimeoutMillis(originalTimeout: number): Promise<number>;
@@ -141,13 +141,13 @@ This value is set in "Time to take action (Accessibility timeout)" of "Accessibi
 
 **Parameters:**
 
-| Name                                                             | Type   | Description                                                                           |
-| ---------------------------------------------------------------- | ------ | ------------------------------------------------------------------------------------- |
-| originalTimeout <div class="label basic required">Required</div> | number | The timeout to return if "Accessibility timeout" is not set. Specify in milliseconds. |
+| Name                                                                 | Type   | Description                                                                           |
+| -------------------------------------------------------------------- | ------ | ------------------------------------------------------------------------------------- |
+| originalTimeout <div className="label basic required">Required</div> | number | The timeout to return if "Accessibility timeout" is not set. Specify in milliseconds. |
 
 ---
 
-### `isAccessibilityServiceEnabled()` <div class="label android">Android</div>
+### `isAccessibilityServiceEnabled()` <div className="label android">Android</div>
 
 ```tsx
 static isAccessibilityServiceEnabled(): Promise<boolean>;
@@ -159,7 +159,7 @@ Check whether any accessibility service is enabled. This includes TalkBack but a
 
 ---
 
-### `isBoldTextEnabled()` <div class="label ios">iOS</div>
+### `isBoldTextEnabled()` <div className="label ios">iOS</div>
 
 ```tsx
 static isBoldTextEnabled(): Promise<boolean>:
@@ -169,7 +169,7 @@ Query whether a bold text is currently enabled. Returns a promise which resolves
 
 ---
 
-### `isGrayscaleEnabled()` <div class="label ios">iOS</div>
+### `isGrayscaleEnabled()` <div className="label ios">iOS</div>
 
 ```tsx
 static isGrayscaleEnabled(): Promise<boolean>;
@@ -179,7 +179,7 @@ Query whether grayscale is currently enabled. Returns a promise which resolves t
 
 ---
 
-### `isInvertColorsEnabled()` <div class="label ios">iOS</div>
+### `isInvertColorsEnabled()` <div className="label ios">iOS</div>
 
 ```tsx
 static isInvertColorsEnabled(): Promise<boolean>;
@@ -199,7 +199,7 @@ Query whether reduce motion is currently enabled. Returns a promise which resolv
 
 ---
 
-### `isReduceTransparencyEnabled()` <div class="label ios">iOS</div>
+### `isReduceTransparencyEnabled()` <div className="label ios">iOS</div>
 
 ```tsx
 static isReduceTransparencyEnabled(): Promise<boolean>;
@@ -219,7 +219,7 @@ Query whether a screen reader is currently enabled. Returns a promise which reso
 
 ---
 
-### `prefersCrossFadeTransitions()` <div class="label ios">iOS</div>
+### `prefersCrossFadeTransitions()` <div className="label ios">iOS</div>
 
 ```tsx
 static prefersCrossFadeTransitions(): Promise<boolean>;

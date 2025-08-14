@@ -116,7 +116,7 @@ export default App;
 
 ## Props
 
-### <div class="label required basic">Required</div>**`onPress`**
+### <div className="label required basic">Required</div>**`onPress`**
 
 Handler to be called when the user taps the button.
 
@@ -126,7 +126,7 @@ Handler to be called when the user taps the button.
 
 ---
 
-### <div class="label required basic">Required</div>**`title`**
+### <div className="label required basic">Required</div>**`title`**
 
 Text to display inside the button. On Android the given title will be converted to the uppercased form.
 
@@ -146,7 +146,7 @@ Text to display for blindness accessibility features.
 
 ---
 
-### `accessibilityLanguage` <div class="label ios">iOS</div>
+### `accessibilityLanguage` <div className="label ios">iOS</div>
 
 A value indicating which language should be used by the screen reader when the user interacts with the element. It should follow the [BCP 47 specification](https://www.rfc-editor.org/info/bcp47).
 
@@ -216,7 +216,7 @@ If `true`, disable all interactions for this component.
 
 ---
 
-### `hasTVPreferredFocus` <div class="label tv">TV</div>
+### `hasTVPreferredFocus` <div className="label tv">TV</div>
 
 TV preferred focus.
 
@@ -226,7 +226,7 @@ TV preferred focus.
 
 ---
 
-### `nextFocusDown` <div class="label android">Android</div><div class="label tv">TV</div>
+### `nextFocusDown` <div className="label android">Android</div><div className="label tv">TV</div>
 
 Designates the next view to receive focus when the user navigates down. See the [Android documentation](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusDown).
 
@@ -236,7 +236,7 @@ Designates the next view to receive focus when the user navigates down. See the 
 
 ---
 
-### `nextFocusForward` <div class="label android">Android</div><div class="label tv">TV</div>
+### `nextFocusForward` <div className="label android">Android</div><div className="label tv">TV</div>
 
 Designates the next view to receive focus when the user navigates forward. See the [Android documentation](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusForward).
 
@@ -246,7 +246,7 @@ Designates the next view to receive focus when the user navigates forward. See t
 
 ---
 
-### `nextFocusLeft` <div class="label android">Android</div><div class="label tv">TV</div>
+### `nextFocusLeft` <div className="label android">Android</div><div className="label tv">TV</div>
 
 Designates the next view to receive focus when the user navigates left. See the [Android documentation](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusLeft).
 
@@ -256,7 +256,7 @@ Designates the next view to receive focus when the user navigates left. See the 
 
 ---
 
-### `nextFocusRight` <div class="label android">Android</div><div class="label tv">TV</div>
+### `nextFocusRight` <div className="label android">Android</div><div className="label tv">TV</div>
 
 Designates the next view to receive focus when the user navigates right. See the [Android documentation](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusRight).
 
@@ -266,7 +266,7 @@ Designates the next view to receive focus when the user navigates right. See the
 
 ---
 
-### `nextFocusUp` <div class="label android">Android</div><div class="label tv">TV</div>
+### `nextFocusUp` <div className="label android">Android</div><div className="label tv">TV</div>
 
 Designates the next view to receive focus when the user navigates up. See the [Android documentation](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusUp).
 
@@ -286,7 +286,7 @@ Used to locate this view in end-to-end tests.
 
 ---
 
-### `touchSoundDisabled` <div class="label android">Android</div>
+### `touchSoundDisabled` <div className="label android">Android</div>
 
 If `true`, doesn't play system sound on touch.
 

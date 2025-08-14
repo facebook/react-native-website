@@ -49,7 +49,7 @@ The following helpers are used to modify other easing functions.
 <TabItem value="javascript">
 
 ```SnackPlayer name=Easing%20Demo&ext=js&supportedPlatforms=ios,android
-import React from 'react';
+import React, {useRef} from 'react';
 import {
   Animated,
   Easing,
@@ -59,12 +59,11 @@ import {
   Text,
   TouchableOpacity,
   View,
-  useAnimatedValue,
 } from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => {
-  const opacity = useAnimatedValue(0);
+  const opacity = useRef(new Animated.Value(0)).current;
 
   const animate = easing => {
     opacity.setValue(0);
@@ -210,7 +209,7 @@ export default App;
 <TabItem value="typescript">
 
 ```SnackPlayer name=Easing%20Demo&ext=tsx
-import React from 'react';
+import React, {useRef} from 'react';
 import {
   Animated,
   Easing,
@@ -220,13 +219,12 @@ import {
   Text,
   TouchableOpacity,
   View,
-  useAnimatedValue,
   type EasingFunction,
 } from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => {
-  const opacity = useAnimatedValue(0);
+  const opacity = useRef(new Animated.Value(0)).current;
 
   const animate = (easing: EasingFunction) => {
     opacity.setValue(0);

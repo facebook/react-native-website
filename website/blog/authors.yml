@@ -347,3 +347,21 @@ coado:
   socials:
     github: coado
   image_url: https://github.com/coado.png
+
+motiz88:
+  name: Moti Zilberman
+  title: Software Engineer @ Meta
+  socials:
+    github: motiz88
+    threads: motizilberman
+    bluesky: moti.zlbr.mn
+  image_url: https://github.com/motiz88.png
+
+vzaidman:
+  name: Vitali Zaidman
+  title: Software Engineer @ Meta
+  socials:
+    x: vzaidman
+    github: vzaidman
+    threads: vzaidman
+  image_url: https://github.com/vzaidman.png

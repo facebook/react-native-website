@@ -20,12 +20,12 @@ For example, a container view that fades in when it is mounted may look like thi
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
-```SnackPlayer ext=js&supportedPlatforms=ios,android
-import React, {useEffect} from 'react';
-import {Animated, Text, View, useAnimatedValue} from 'react-native';
+```SnackPlayer ext=js
+import React, {useEffect, useRef} from 'react';
+import {Animated, Text, View} from 'react-native';
 
 const FadeInView = props => {
-  const fadeAnim = useAnimatedValue(0); // Initial value for opacity: 0
+  const fadeAnim = useRef(new Animated.Value(0)).current; // Initial value for opacity: 0
 
   useEffect(() => {
     Animated.timing(fadeAnim, {
@@ -74,15 +74,13 @@ export default () => {
 <TabItem value="typescript">
 
 ```SnackPlayer ext=tsx
-import React, {useEffect} from 'react';
-import {Animated, Text, View, useAnimatedValue} from 'react-native';
-import type {PropsWithChildren} from 'react';
-import type {ViewStyle} from 'react-native';
+import React, {useEffect, useRef, type PropsWithChildren} from 'react';
+import {Animated, Text, View, type ViewStyle} from 'react-native';
 
 type FadeInViewProps = PropsWithChildren<{style: ViewStyle}>;
 
 const FadeInView: React.FC<FadeInViewProps> = props => {
-  const fadeAnim = useAnimatedValue(0); // Initial value for opacity: 0
+  const fadeAnim = useRef(new Animated.Value(0)).current; // Initial value for opacity: 0
 
   useEffect(() => {
     Animated.timing(fadeAnim, {
@@ -594,8 +592,8 @@ Note that in order to get this to work on **Android** you need to set the follow
 UIManager.setLayoutAnimationEnabledExperimental(true);
 ```
 
-```SnackPlayer name=LayoutAnimations&supportedPlatforms=ios,android
-import React from 'react';
+```SnackPlayer name=LayoutAnimations
+import React, {useState} from 'react';
 import {
   NativeModules,
   LayoutAnimation,
@@ -610,32 +608,30 @@ const {UIManager} = NativeModules;
 UIManager.setLayoutAnimationEnabledExperimental &&
   UIManager.setLayoutAnimationEnabledExperimental(true);
 
-export default class App extends React.Component {
-  state = {
+export default function App() {
+  const [state, setState] = useState({
     w: 100,
     h: 100,
-  };
+  });
 
-  _onPress = () => {
+  const onPress = () => {
     // Animate the update
     LayoutAnimation.spring();
-    this.setState({w: this.state.w + 15, h: this.state.h + 15});
+    setState({w: state.w + 15, h: state.h + 15});
   };
 
-  render() {
-    return (
-      <View style={styles.container}>
-        <View
-          style={[styles.box, {width: this.state.w, height: this.state.h}]}
-        />
-        <TouchableOpacity onPress={this._onPress}>
-          <View style={styles.button}>
-            <Text style={styles.buttonText}>Press me!</Text>
-          </View>
-        </TouchableOpacity>
-      </View>
-    );
-  }
+  return (
+    <View style={styles.container}>
+      <View
+        style={[styles.box, {width: state.w, height: state.h}]}
+      />
+      <TouchableOpacity onPress={onPress}>
+        <View style={styles.button}>
+          <Text style={styles.buttonText}>Press me!</Text>
+        </View>
+      </TouchableOpacity>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({

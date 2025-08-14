@@ -226,7 +226,7 @@ This property will only work on Android API 28 and above. For similar functional
 
 ---
 
-### `shadowOffset` <div class="label ios">iOS</div>
+### `shadowOffset` <div className="label ios">iOS</div>
 
 Sets the drop shadow offset.
 
@@ -236,7 +236,7 @@ Sets the drop shadow offset.
 
 ---
 
-### `shadowOpacity` <div class="label ios">iOS</div>
+### `shadowOpacity` <div className="label ios">iOS</div>
 
 Sets the drop shadow opacity (multiplied by the color's alpha component).
 
@@ -246,7 +246,7 @@ Sets the drop shadow opacity (multiplied by the color's alpha component).
 
 ---
 
-### `shadowRadius` <div class="label ios">iOS</div>
+### `shadowRadius` <div className="label ios">iOS</div>
 
 Sets the drop shadow blur radius.
 

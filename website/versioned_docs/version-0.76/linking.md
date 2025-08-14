@@ -636,7 +636,7 @@ The method returns a `Promise` object. If the user confirms the open dialog or t
 
 ---
 
-### `sendIntent()` <div class="label android">Android</div>
+### `sendIntent()` <div className="label android">Android</div>
 
 ```tsx
 static sendIntent(
