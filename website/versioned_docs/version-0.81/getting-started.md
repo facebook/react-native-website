@@ -1,49 +1,225 @@
----
-id: environment-setup
-title: Get Started with React Native
-hide_table_of_contents: true
----
+# nexuschat3d_unificado.py
+# Protótipo unificado: Protótipo 1 + Protótipo 5
+# GUI, avatares, salas, mini-jogos, chat online, lives simuladas, conquistas e moeda virtual
 
-import PlatformSupport from '@site/src/theme/PlatformSupport';
-import BoxLink from '@site/src/theme/BoxLink';
+import tkinter as tk
+from tkinter import messagebox
+from PIL import Image, ImageTk
+import threading
+import socket
+import random
 
-**React Native allows developers who know React to create native apps.** At the same time, native developers can use React Native to gain parity between native platforms by writing common features once.
+# ---------- CONFIGURAÇÃO DE REDE ----------
+HOST = '127.0.0.1'
+PORT = 12345
 
-We believe that the best way to experience React Native is through a **Framework**, a toolbox with all the necessary APIs to let you build production ready apps.
+# ---------- AVATAR ----------
+class Avatar:
+    def __init__(self, nome, imagem_path):
+        self.nome = nome
+        self.imagem_path = imagem_path
+        self.imagem = Image.open(imagem_path).resize((100, 100))
+        self.photo = ImageTk.PhotoImage(self.imagem)
+        self.moeda = 100
+        self.conquistas = []
 
-You can also use React Native without a Framework, however we’ve found that most developers benefit from using a React Native Framework like [Expo](https://expo.dev). Expo provides features like file-based routing, high-quality universal libraries, and the ability to write plugins that modify native code without having to manage native files.
+    def adicionar_moeda(self, valor):
+        self.moeda += valor
 
-<details>
-<summary>Can I use React Native without a Framework?</summary>
+    def ganhar_conquista(self, titulo):
+        if titulo not in self.conquistas:
+            self.conquistas.append(titulo)
 
-Yes. You can use React Native without a Framework. **However, if you’re building a new app with React Native, we recommend using a Framework.**
+    def mostrar_avatar_console(self):
+        print(f"{self.nome} -> Moeda: {self.moeda}, Conquistas: {self.conquistas}")
 
-In short, you’ll be able to spend time writing your app instead of writing an entire Framework yourself in addition to your app.
+# ---------- SALAS ----------
+class Sala:
+    def __init__(self, nome, tipo='publica'):
+        self.nome = nome
+        self.tipo = tipo
+        self.usuarios = []
 
-The React Native community has spent years refining approaches to navigation, accessing native APIs, dealing with native dependencies, and more. Most apps need these core features. A React Native Framework provides them from the start of your app.
+    def entrar(self, usuario):
+        if usuario not in self.usuarios:
+            self.usuarios.append(usuario)
+            print(f"{usuario} entrou na sala {self.nome}")
 
-Without a Framework, you’ll either have to write your own solutions to implement core features, or you’ll have to piece together a collection of pre-existing libraries to create a skeleton of a Framework. This takes real work, both when starting your app, then later when maintaining it.
+    def sair(self, usuario):
+        if usuario in self.usuarios:
+            self.usuarios.remove(usuario)
+            print(f"{usuario} saiu da sala {self.nome}")
 
-If your app has unusual constraints that are not served well by a Framework, or you prefer to solve these problems yourself, you can make a React Native app without a Framework using Android Studio, Xcode. If you’re interested in this path, learn how to [set up your environment](set-up-your-environment) and how to [get started without a framework](getting-started-without-a-framework).
+# ---------- MINI-JOGO SIMPLES (Protótipo 1) ----------
+def mini_jogo_trivia_console(usuarios):
+    perguntas = {
+        "Qual a capital do Brasil?": "Brasília",
+        "Qual a cor do céu?": "azul",
+        "Quanto é 2+2?": "4"
+    }
+    pergunta, resposta = random.choice(list(perguntas.items()))
+    print(f"\n🕹️ Mini-jogo Trivia - Pergunta: {pergunta}")
+    for usuario in usuarios:
+        chute = input(f"{usuario} responde: ")
+        if chute.lower() == resposta.lower():
+            print(f"{usuario} acertou! ✅")
+        else:
+            print(f"{usuario} errou. Resposta correta: {resposta} ❌")
 
-</details>
+# ---------- MINI-JOGO VISUAL (Protótipo 5) ----------
+class MiniJogoNumero:
+    def __init__(self, master, avatar):
+        self.master = master
+        self.avatar = avatar
+        self.numero_secreto = random.randint(1, 10)
 
-## Start a new React Native project with Expo
+        self.label = tk.Label(master, text="Mini-jogo: Adivinhe o número (1-10)")
+        self.label.pack()
 
-<PlatformSupport platforms={['android', 'ios', 'tv', 'web']} />
+        self.entry = tk.Entry(master)
+        self.entry.pack()
 
-Expo is a production-grade React Native Framework. Expo provides developer tooling that makes developing apps easier, such as file-based routing, a standard library of native modules, and much more.
+        self.botao = tk.Button(master, text="Chutar", command=self.checar)
+        self.botao.pack()
 
-Expo's Framework is free and open source, with an active community on [GitHub](https://github.com/expo) and [Discord](https://chat.expo.dev). The Expo team works in close collaboration with the React Native team at Meta to bring the latest React Native features to the Expo SDK.
+    def checar(self):
+        try:
+            chute = int(self.entry.get())
+            if chute == self.numero_secreto:
+                messagebox.showinfo("Parabéns!", f"Você acertou! Número secreto: {self.numero_secreto}")
+                self.avatar.adicionar_moeda(10)
+                self.avatar.ganhar_conquista("Acerto no Mini-Jogo")
+                self.entry.delete(0, tk.END)
+                self.numero_secreto = random.randint(1, 10)
+            else:
+                messagebox.showwarning("Tente novamente", "Número errado! Tente novamente.")
+        except ValueError:
+            messagebox.showerror("Erro", "Digite um número válido!")
 
-The team at Expo also provides Expo Application Services (EAS), an optional set of services that complements Expo, the Framework, in each step of the development process.
+# ---------- LIVE SIMULADA ----------
+class Live:
+    def __init__(self, avatar, chat_box):
+        self.avatar = avatar
+        self.chat_box = chat_box
+        self.online = False
 
-To create a new Expo project, run the following in your terminal:
+    def iniciar(self):
+        self.online = True
+        self.chat_box.insert(tk.END, f"{self.avatar.nome} começou uma live! 🎥\n")
+        self.chat_box.see(tk.END)
 
-```shell
-npx create-expo-app@latest
-```
+    def terminar(self):
+        self.online = False
+        self.chat_box.insert(tk.END, f"{self.avatar.nome} terminou a live ❌\n")
+        self.chat_box.see(tk.END)
 
-Once you’ve created your app, check out the rest of Expo’s getting started guide to start developing your app.
+# ---------- CLIENTE CHAT ----------
+class ChatCliente:
+    def __init__(self, master, avatar):
+        self.master = master
+        self.avatar = avatar
+        self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.sock.connect((HOST, PORT))
 
-<BoxLink href="https://docs.expo.dev/get-started/set-up-your-environment">Continue with Expo</BoxLink>
+        self.chat_box = tk.Text(master, height=10, width=50)
+        self.chat_box.pack()
+        self.entry_msg = tk.Entry(master, width=40)
+        self.entry_msg.pack(side=tk.LEFT)
+        self.botao_enviar = tk.Button(master, text="Enviar", command=self.enviar_mensagem)
+        self.botao_enviar.pack(side=tk.LEFT)
+
+        threading.Thread(target=self.receber_mensagens, daemon=True).start()
+
+    def enviar_mensagem(self):
+        msg = self.entry_msg.get()
+        if msg:
+            full_msg = f"{self.avatar.nome}: {msg}"
+            self.sock.sendall(full_msg.encode())
+            self.entry_msg.delete(0, tk.END)
+
+    def receber_mensagens(self):
+        while True:
+            try:
+                data = self.sock.recv(1024)
+                if data:
+                    self.chat_box.insert(tk.END, data.decode() + "\n")
+                    self.chat_box.see(tk.END)
+            except:
+                break
+
+# ---------- COMUNIDADE ----------
+class Comunidade:
+    def __init__(self, nome):
+        self.nome = nome
+        self.membros = []
+
+    def adicionar_membro(self, usuario):
+        if usuario not in self.membros:
+            self.membros.append(usuario)
+            print(f"{usuario} entrou na comunidade {self.nome} 🌐")
+
+# ---------- GUI PRINCIPAL ----------
+class NexusChatGUI:
+    def __init__(self, master, avatar, sala, comunidade):
+        self.master = master
+        master.title("NexusChat 3D - Protótipo Unificado")
+
+        self.avatar = avatar
+        self.sala = sala
+        self.comunidade = comunidade
+
+        # Frame Avatares
+        self.frame_avatar = tk.Frame(master)
+        self.frame_avatar.pack()
+        tk.Label(self.frame_avatar, image=self.avatar.photo).pack(side=tk.LEFT)
+        tk.Label(self.frame_avatar, text=self.avatar.nome).pack(side=tk.LEFT)
+        tk.Label(self.frame_avatar, text=f"Moeda: {self.avatar.moeda}").pack(side=tk.LEFT)
+
+        # Chat
+        self.chat_cliente = ChatCliente(master, avatar)
+
+        # Mini-jogo
+        self.mini_jogo = MiniJogoNumero(master, avatar)
+
+        # Live
+        self.live = Live(avatar, self.chat_cliente.chat_box)
+        self.botao_live_iniciar = tk.Button(master, text="Iniciar Live", command=self.live.iniciar)
+        self.botao_live_iniciar.pack()
+        self.botao_live_terminar = tk.Button(master, text="Terminar Live", command=self.live.terminar)
+        self.botao_live_terminar.pack()
+
+        # Conquistas
+        self.botao_conquistas = tk.Button(master, text="Minhas Conquistas", command=self.mostrar_conquistas)
+        self.botao_conquistas.pack()
+
+        # Console: mini-jogo trivia (Protótipo 1)
+        self.botao_trivia = tk.Button(master, text="Mini-jogo Trivia Console", command=self.trivia_console)
+        self.botao_trivia.pack()
+
+    def mostrar_conquistas(self):
+        conquistas = "\n".join(self.avatar.conquistas) if self.avatar.conquistas else "Nenhuma conquista ainda."
+        messagebox.showinfo("Conquistas", conquistas)
+
+    def trivia_console(self):
+        mini_jogo_trivia_console(self.sala.usuarios)
+
+# ---------- EXECUÇÃO ----------
+def main():
+    nome_usuario = input("Digite seu nome de usuário: ")
+    avatar = Avatar(nome_usuario, "avatar1.png")
+
+    # Sala e Comunidade (Protótipo 1)
+    sala = Sala("Sala Unificada")
+    sala.entrar(avatar.nome)
+    comunidade = Comunidade("Gamers Nexus")
+    comunidade.adicionar_membro(avatar.nome)
+
+    # Mostrar console do avatar
+    avatar.mostrar_avatar_console()
+
+    root = tk.Tk()
+    app = NexusChatGUI(root, avatar, sala, comunidade)
+    root.mainloop()
+
+if __name__ == "__main__":
+    main()
