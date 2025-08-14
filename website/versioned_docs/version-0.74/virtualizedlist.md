@@ -178,7 +178,7 @@ Opaque data type passed to `getItem` and `getItemCount` to retrieve items.
 
 ---
 
-### <div class="label required basic">Required</div> **`getItem`**
+### <div className="label required basic">Required</div> **`getItem`**
 
 ```tsx
 (data: any, index: number) => any;
@@ -192,7 +192,7 @@ A generic accessor for extracting an item from any sort of data blob.
 
 ---
 
-### <div class="label required basic">Required</div> **`getItemCount`**
+### <div className="label required basic">Required</div> **`getItemCount`**
 
 ```tsx
 (data: any) => number;
@@ -206,7 +206,7 @@ Determines how many items are in the data blob.
 
 ---
 
-### <div class="label required basic">Required</div> **`renderItem`**
+### <div className="label required basic">Required</div> **`renderItem`**
 
 ```tsx
 (info: any) => ?React.Element<any>

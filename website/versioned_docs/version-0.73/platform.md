@@ -84,7 +84,7 @@ Returns an object which contains all available common and specific constants rel
 
 ---
 
-### `isPad` <div class="label ios">iOS</div>
+### `isPad` <div className="label ios">iOS</div>
 
 ```tsx
 static isPad: boolean;

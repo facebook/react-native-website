@@ -227,7 +227,7 @@ For cases where using a component is not ideal, there is also an imperative API 
 
 ## Constants
 
-### `currentHeight` <div class="label android">Android</div>
+### `currentHeight` <div className="label android">Android</div>
 
 The height of the status bar, which includes the notch height, if present.
 
@@ -245,7 +245,7 @@ If the transition between status bar property changes should be animated. Suppor
 
 ---
 
-### `backgroundColor` <div class="label android">Android</div>
+### `backgroundColor` <div className="label android">Android</div>
 
 The background color of the status bar.
 
@@ -277,7 +277,7 @@ If the status bar is hidden.
 
 ---
 
-### `networkActivityIndicatorVisible` <div class="label ios">iOS</div>
+### `networkActivityIndicatorVisible` <div className="label ios">iOS</div>
 
 If the network activity indicator should be visible.
 
@@ -287,7 +287,7 @@ If the network activity indicator should be visible.
 
 ---
 
-### `showHideTransition` <div class="label ios">iOS</div>
+### `showHideTransition` <div className="label ios">iOS</div>
 
 The transition effect when showing and hiding the status bar using the `hidden` prop.
 
@@ -297,7 +297,7 @@ The transition effect when showing and hiding the status bar using the `hidden` 
 
 ---
 
-### `translucent` <div class="label android">Android</div>
+### `translucent` <div className="label android">Android</div>
 
 If the status bar is translucent. When translucent is set to `true`, the app will draw under the status bar. This is useful when using a semi transparent status bar color.
 
@@ -317,9 +317,9 @@ Get and remove the last StatusBar entry from the stack.
 
 **Parameters:**
 
-| Name                                                   | Type | Description                           |
-| ------------------------------------------------------ | ---- | ------------------------------------- |
-| entry <div class="label basic required">Required</div> | any  | Entry returned from `pushStackEntry`. |
+| Name                                                       | Type | Description                           |
+| ---------------------------------------------------------- | ---- | ------------------------------------- |
+| entry <div className="label basic required">Required</div> | any  | Entry returned from `pushStackEntry`. |
 
 ---
 
@@ -333,9 +333,9 @@ Push a StatusBar entry onto the stack. The return value should be passed to `pop
 
 **Parameters:**
 
-| Name                                                   | Type | Description                                                      |
-| ------------------------------------------------------ | ---- | ---------------------------------------------------------------- |
-| props <div class="label basic required">Required</div> | any  | Object containing the StatusBar props to use in the stack entry. |
+| Name                                                       | Type | Description                                                      |
+| ---------------------------------------------------------- | ---- | ---------------------------------------------------------------- |
+| props <div className="label basic required">Required</div> | any  | Object containing the StatusBar props to use in the stack entry. |
 
 ---
 
@@ -352,14 +352,14 @@ Replace an existing StatusBar stack entry with new props.
 
 **Parameters:**
 
-| Name                                                   | Type | Description                                                                  |
-| ------------------------------------------------------ | ---- | ---------------------------------------------------------------------------- |
-| entry <div class="label basic required">Required</div> | any  | Entry returned from `pushStackEntry` to replace.                             |
-| props <div class="label basic required">Required</div> | any  | Object containing the StatusBar props to use in the replacement stack entry. |
+| Name                                                       | Type | Description                                                                  |
+| ---------------------------------------------------------- | ---- | ---------------------------------------------------------------------------- |
+| entry <div className="label basic required">Required</div> | any  | Entry returned from `pushStackEntry` to replace.                             |
+| props <div className="label basic required">Required</div> | any  | Object containing the StatusBar props to use in the replacement stack entry. |
 
 ---
 
-### `setBackgroundColor()` <div class="label android">Android</div>
+### `setBackgroundColor()` <div className="label android">Android</div>
 
 ```tsx
 static setBackgroundColor(color: ColorValue, animated?: boolean);
@@ -369,10 +369,10 @@ Set the background color for the status bar.
 
 **Parameters:**
 
-| Name                                                   | Type    | Description               |
-| ------------------------------------------------------ | ------- | ------------------------- |
-| color <div class="label basic required">Required</div> | string  | Background color.         |
-| animated                                               | boolean | Animate the style change. |
+| Name                                                       | Type    | Description               |
+| ---------------------------------------------------------- | ------- | ------------------------- |
+| color <div className="label basic required">Required</div> | string  | Background color.         |
+| animated                                                   | boolean | Animate the style change. |
 
 ---
 
@@ -386,10 +386,10 @@ Set the status bar style.
 
 **Parameters:**
 
-| Name                                                   | Type                                       | Description               |
-| ------------------------------------------------------ | ------------------------------------------ | ------------------------- |
-| style <div class="label basic required">Required</div> | [StatusBarStyle](statusbar#statusbarstyle) | Status bar style to set.  |
-| animated                                               | boolean                                    | Animate the style change. |
+| Name                                                       | Type                                       | Description               |
+| ---------------------------------------------------------- | ------------------------------------------ | ------------------------- |
+| style <div className="label basic required">Required</div> | [StatusBarStyle](statusbar#statusbarstyle) | Status bar style to set.  |
+| animated                                                   | boolean                                    | Animate the style change. |
 
 ---
 
@@ -403,14 +403,14 @@ Show or hide the status bar.
 
 **Parameters:**
 
-| Name                                                    | Type                                               | Description                                             |
-| ------------------------------------------------------- | -------------------------------------------------- | ------------------------------------------------------- |
-| hidden <div class="label basic required">Required</div> | boolean                                            | Hide the status bar.                                    |
-| animation <div class="label ios">iOS</div>              | [StatusBarAnimation](statusbar#statusbaranimation) | Animation when changing the status bar hidden property. |
+| Name                                                        | Type                                               | Description                                             |
+| ----------------------------------------------------------- | -------------------------------------------------- | ------------------------------------------------------- |
+| hidden <div className="label basic required">Required</div> | boolean                                            | Hide the status bar.                                    |
+| animation <div className="label ios">iOS</div>              | [StatusBarAnimation](statusbar#statusbaranimation) | Animation when changing the status bar hidden property. |
 
 ---
 
-### `setNetworkActivityIndicatorVisible()` <div class="label ios">iOS</div>
+### `setNetworkActivityIndicatorVisible()` <div className="label ios">iOS</div>
 
 ```tsx
 static setNetworkActivityIndicatorVisible(visible: boolean);
@@ -420,13 +420,13 @@ Control the visibility of the network activity indicator.
 
 **Parameters:**
 
-| Name                                                     | Type    | Description         |
-| -------------------------------------------------------- | ------- | ------------------- |
-| visible <div class="label basic required">Required</div> | boolean | Show the indicator. |
+| Name                                                         | Type    | Description         |
+| ------------------------------------------------------------ | ------- | ------------------- |
+| visible <div className="label basic required">Required</div> | boolean | Show the indicator. |
 
 ---
 
-### `setTranslucent()` <div class="label android">Android</div>
+### `setTranslucent()` <div className="label android">Android</div>
 
 ```tsx
 static setTranslucent(translucent: boolean);
@@ -436,9 +436,9 @@ Control the translucency of the status bar.
 
 **Parameters:**
 
-| Name                                                         | Type    | Description         |
-| ------------------------------------------------------------ | ------- | ------------------- |
-| translucent <div class="label basic required">Required</div> | boolean | Set as translucent. |
+| Name                                                             | Type    | Description         |
+| ---------------------------------------------------------------- | ------- | ------------------- |
+| translucent <div className="label basic required">Required</div> | boolean | Set as translucent. |
 
 ## Type Definitions
 
