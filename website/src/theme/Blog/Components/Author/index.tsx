@@ -53,6 +53,7 @@ export default function BlogAuthor({as, author, className, count}) {
             className={clsx('avatar__photo', styles.authorImage)}
             src={imageURL}
             alt={name}
+            loading="lazy"
           />
         </MaybeLink>
       )}
