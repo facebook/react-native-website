@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React from 'react';
+import React, {Fragment} from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import {translate} from '@docusaurus/Translate';
@@ -34,7 +34,7 @@ export default function BlogSidebarDesktop({sidebar}: Props) {
             );
             cachedYear = postYear;
             return (
-              <>
+              <Fragment key={item.permalink}>
                 {yearHeader}
                 <li key={item.permalink} className={styles.sidebarItem}>
                   <Link
@@ -45,7 +45,7 @@ export default function BlogSidebarDesktop({sidebar}: Props) {
                     {item.title}
                   </Link>
                 </li>
-              </>
+              </Fragment>
             );
           })}
         </ul>
