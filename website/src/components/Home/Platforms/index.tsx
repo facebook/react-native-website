@@ -7,11 +7,13 @@
 
 import React from 'react';
 
-import Section from '../components/Section';
-import SectionTitle from '../components/SectionTitle';
-import ThemeImage from '../components/ThemeImage';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import ThemedImage from '@theme/ThemedImage';
 
+import Section from '../Section';
+import SectionTitle from '../SectionTitle';
 import FoxFact from './FoxFact';
+
 import styles from './styles.module.css';
 
 function Platforms() {
@@ -19,7 +21,15 @@ function Platforms() {
     <Section>
       <SectionTitle
         title="Create native apps for Android, iOS, and more using React"
-        description="React Native brings the best parts of developing with React to native development. It's a best-in-class JavaScript library for building user interfaces."
+        description={
+          <>
+            React Native brings the best parts of developing with React to
+            native development.
+            <br />
+            It's a best-in-class JavaScript library for building user
+            interfaces.
+          </>
+        }
       />
       <div className={styles.platformsContainer}>
         <div className={styles.featureContainer}>
@@ -54,9 +64,11 @@ function Platforms() {
             </div>
           </div>
           <div className={styles.deviceContainer}>
-            <ThemeImage
-              lightSrc="/img/homepage/devices.png"
-              darkSrc="/img/homepage/devices-dark.png"
+            <ThemedImage
+              sources={{
+                light: useBaseUrl('/img/homepage/devices.png'),
+                dark: useBaseUrl('/img/homepage/devices-dark.png'),
+              }}
               className={styles.devices}
               alt="Android device and iOS device"
             />

@@ -7,8 +7,8 @@
 
 import React from 'react';
 
-import Section from '../components/Section';
-import SectionTitle from '../components/SectionTitle';
+import Section from '../Section';
+import SectionTitle from '../SectionTitle';
 
 import styles from './styles.module.css';
 
@@ -20,7 +20,12 @@ function Watch() {
         description={
           <>
             Watch talks by the React team and learn how to get the most out of
-            React Native. Find the latest on{' '}
+            React Native.
+            <br />
+            Find the latest on{' '}
+            <a href="https://bsky.app/profile/reactnative.dev">
+              Bluesky
+            </a> and{' '}
             <a href="https://twitter.com/intent/follow?screen_name=reactnative&region=follow_link">
               X
             </a>

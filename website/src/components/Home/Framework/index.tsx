@@ -7,9 +7,11 @@
 
 import React from 'react';
 
-import ThemeImage from '../components/ThemeImage';
-import Section from '../components/Section';
-import SectionTitle from '../components/SectionTitle';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import ThemedImage from '@theme/ThemedImage';
+
+import Section from '../Section';
+import SectionTitle from '../SectionTitle';
 
 import styles from './styles.module.css';
 
@@ -30,9 +32,11 @@ function Framework() {
       />
       <div className={styles.cardContainer}>
         <div className={styles.card}>
-          <ThemeImage
-            lightSrc="/img/homepage/file-based-routing.png"
-            darkSrc="/img/homepage/file-based-routing-dark.png"
+          <ThemedImage
+            sources={{
+              light: '/img/homepage/file-based-routing.png',
+              dark: '/img/homepage/file-based-routing-dark.png',
+            }}
             className={styles.cardImage}
             alt="File system with folders and files representing screens and navigation"
           />
@@ -45,11 +49,13 @@ function Framework() {
           </div>
         </div>
         <div className={styles.card}>
-          <ThemeImage
-            lightSrc="/img/homepage/libraries.png"
-            darkSrc="/img/homepage/libraries-dark.png"
-            className={styles.cardImage}
+          <ThemedImage
+            sources={{
+              light: useBaseUrl('/img/homepage/libraries.png'),
+              dark: useBaseUrl('/img/homepage/libraries-dark.png'),
+            }}
             alt="Grid of icons representing libraries, SDKs, and native code"
+            className={styles.cardImage}
           />
           <div className={styles.cardContent}>
             <h4 className={styles.cardTitle}>
@@ -62,9 +68,11 @@ function Framework() {
           </div>
         </div>
         <div className={styles.card}>
-          <ThemeImage
-            lightSrc="/img/homepage/tools.png"
-            darkSrc="/img/homepage/tools-dark.png"
+          <ThemedImage
+            sources={{
+              light: useBaseUrl('/img/homepage/tools.png'),
+              dark: useBaseUrl('/img/homepage/tools-dark.png'),
+            }}
             className={styles.cardImage}
             alt="List of developer tool toggles for debugging, performance, and more"
           />
