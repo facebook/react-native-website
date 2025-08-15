@@ -16,10 +16,18 @@
   --subtle: #636363;
   --divider: #ececec;
   --tintColor: #f7f7f7;
+
+  --navbar-background: #111317ee;
+  --navbar-active-item-background: #61dafb11;
+
+  --doc-sidebar-width: 266px !important;
+  --docsearch-container-background: rgba(32, 35, 42, 0.6);
   --rn-note-background: rgba(255, 229, 100, 0.25);
+
   --ifm-font-family-base:
     "Optimistic Display", system-ui, -apple-system, sans-serif;
   --ifm-color-primary: #06bcee;
+  --ifm-code-background: rgba(0, 0, 0, 0.06);
   --ifm-font-size-base: 17px;
   --ifm-spacing-horizontal: 16px;
   --ifm-navbar-item-padding-horizontal: 18px;
@@ -97,29 +105,28 @@ body {
 }
 
 html[data-theme="light"] {
-  --ifm-code-background: rgba(0, 0, 0, 0.06);
-  --docsearch-container-background: rgba(32, 35, 42, 0.6);
   --ifm-link-color: #357da1;
 }
 
 html[data-theme="dark"] {
+  --subtle: #a7a7a7;
+
+  --navbar-background: #20232aee;
+
   --ifm-code-background: rgba(255, 255, 255, 0.06);
   --ifm-toc-border-color: var(--dark);
   --ifm-color-emphasis-300: var(--dark);
   --ifm-table-head-background: var(--deepdark);
-  --subtle: #a7a7a7;
   --ifm-table-head-color: var(--subtle);
 
-  *[class^="DocSearch"] {
-    --docsearch-searchbox-background: var(--ifm-background-color);
-    --docsearch-modal-background: var(--deepdark);
-    --docsearch-footer-background: var(--dark);
-    --docsearch-key-gradient: var(--deepdark);
-    --docsearch-key-shadow:
-      inset 0 -2px 0 0 var(--light), inset 0 0 1px 1px var(--light),
-      0 1px 2px 1px var(--ifm-table-border-color);
-    --docsearch-container-background: rgba(0, 0, 0, 0.6);
-  }
+  --docsearch-searchbox-background: var(--ifm-background-color);
+  --docsearch-modal-background: var(--deepdark);
+  --docsearch-footer-background: var(--dark);
+  --docsearch-key-gradient: var(--deepdark);
+  --docsearch-key-shadow:
+    inset 0 -2px 0 0 var(--light), inset 0 0 1px 1px var(--light),
+    0 1px 2px 1px var(--ifm-table-border-color);
+  --docsearch-container-background: rgba(0, 0, 0, 0.6);
 
   --logo: #58c4dc;
   --home-hero-floor-background: #151517;
@@ -163,10 +170,6 @@ html[data-theme="dark"] {
     --home-hero-grid-icon: transparent;
     --home-hero-grid-icon-background: transparent;
   }
-}
-
-:root {
-  --doc-sidebar-width: 266px !important;
 }
 
 ::marker {
@@ -670,7 +673,7 @@ a[class*="tagRegular"] {
   padding: 0;
 
   &.navbar--dark {
-    background-color: #20232aee;
+    background-color: var(--navbar-background);
   }
 
   .navbar__inner {
@@ -704,11 +707,11 @@ a[class*="tagRegular"] {
   }
 
   .navbar__link--active {
-    background-color: #61dafb11;
+    background-color: var(--navbar-active-item-background);
 
     &:hover {
       color: var(--brand);
-      background-color: #61dafb11;
+      background-color: var(--navbar-active-item-background);
     }
   }
 
@@ -858,12 +861,6 @@ a[class*="tagRegular"] {
 
   .navbar-sidebar__back:hover {
     background: var(--ifm-code-background);
-  }
-}
-
-html[data-theme="light"] {
-  .navbar.navbar--dark {
-    background-color: #111317ee;
   }
 }
 
