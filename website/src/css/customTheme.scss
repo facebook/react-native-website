@@ -27,6 +27,7 @@
   --ifm-font-family-base:
     "Optimistic Display", system-ui, -apple-system, sans-serif;
   --ifm-color-primary: #06bcee;
+  --ifm-color-primary-75: #087ea4cc;
   --ifm-code-background: rgba(0, 0, 0, 0.06);
   --ifm-font-size-base: 17px;
   --ifm-spacing-horizontal: 16px;
@@ -109,7 +110,7 @@ html[data-theme="light"] {
 }
 
 html[data-theme="dark"] {
-  --subtle: #a7a7a7;
+  --subtle: #7c7c7c;
 
   --navbar-background: #20232aee;
 
@@ -279,7 +280,6 @@ hr {
   code {
     border-color: transparent;
     vertical-align: initial;
-    font-size: var(--ifm-code-font-size) !important;
   }
 
   blockquote {
@@ -307,10 +307,8 @@ hr {
 
     code {
       background-color: transparent;
-      font-size: 90%;
-      padding: 0 6px;
-      top: -1px;
       position: relative;
+      padding-inline: 0;
     }
 
     .hermes-logo {
@@ -506,17 +504,15 @@ html[data-theme="dark"] {
   }
 }
 
-div[class^="docRoot"] .hash-link,
-article[itemprop="blogPost"] .hash-link,
-.mdx-page .hash-link,
-html[data-theme="dark"] div[class^="docRoot"] .hash-link,
-html[data-theme="dark"] article[itemprop="blogPost"] .hash-link,
-html[data-theme="dark"].mdx-page .hash-link {
+.hash-link,
+html[data-theme="dark"] .hash-link {
   @extend %hash-link-style;
 }
 
 article .badge {
   font-weight: 500;
+  border-radius: 16px;
+  margin-bottom: 4px;
 }
 
 html[data-theme="dark"] article .badge {
@@ -535,6 +531,11 @@ html[data-theme="dark"] article .badge {
   div[class^="admonitionContent"] {
     a {
       border-bottom: 0;
+      color: var(--ifm-font-color-base);
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 
@@ -567,6 +568,16 @@ html[data-theme="dark"] .alert--secondary {
     .prism-code {
       font-size: 90%;
     }
+  }
+
+  a:not([class*="Button"]) {
+    @extend %link-style;
+  }
+}
+
+html[data-theme="dark"] .homepage {
+  a:not([class*="Button"]) {
+    @extend %link-style-dark;
   }
 }
 
@@ -647,12 +658,14 @@ div[class^="blogPostData"] {
   color: var(--subtle);
 }
 
-.main-wrapper.blog-wrapper .container.margin-vert--lg .col.text--right a {
-  padding: 8px 16px !important;
+.blog-wrapper .main-wrapper .container.margin-vert--lg .col.text--right a {
+  padding: 8px 20px;
+  border-radius: 32px;
 }
 
 a[class*="tagRegular"] {
-  padding: 6px 12px !important;
+  padding: 6px 12px;
+  border-radius: 32px;
 
   &:hover {
     background: var(--ifm-menu-color-background-active);
@@ -1341,9 +1354,13 @@ button[class*="tocCollapsibleButton"] {
     font-size: 15px;
   }
 
+  .pagination-nav__link {
+    border: 0;
+    transition: background-color 0.15s;
+  }
+
   .pagination-nav__link:hover {
-    background: var(--ifm-menu-color-background-hover);
-    border-color: var(--ifm-color-emphasis-300);
+    background-color: var(--ifm-menu-color-background-hover);
   }
 }
 
@@ -1607,34 +1624,10 @@ td .color-box {
   font-weight: 500;
   color: #fff;
   padding: 2px 12px;
-  border-radius: 0 2px 2px 0;
-
-  /* Label sharp end */
-  &:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -12px;
-    border-color: transparent;
-    border-style: solid;
-    border-width: 12px 12px 12px 0;
-  }
-
-  /* Label skeuomorphic hole */
-  &:after {
-    content: "";
-    position: absolute;
-    top: 10px;
-    left: 0;
-    width: 4px;
-    height: 4px;
-    border-radius: 2px;
-    background: #fff;
-  }
+  border-radius: 32px;
 
   /* Basic label */
   &.basic {
-    border-radius: 3px;
     border-style: solid;
     border-width: 2px;
 
@@ -1671,9 +1664,10 @@ td .color-box {
 
   &.required {
     margin-left: 0;
-    margin-right: 16px;
+    margin-right: 8px;
     color: #fa5035;
     border-color: #fa5035;
+    border-radius: 32px;
   }
 }
 
@@ -1701,20 +1695,20 @@ html[data-theme="dark"] .label {
 
 h2 .label {
   top: -6px;
-  margin-left: 12px;
+  margin-left: 6px;
   padding: 3px 12px;
 }
 
 h3 .label {
   top: -3px;
-  margin-left: 22px;
+  margin-left: 8px;
   line-height: 20px;
 }
 
 td .label {
   padding: 0 8px 0 10px;
   font-size: 0.7rem;
-  margin-left: 14px;
+  margin-left: 6px;
 
   &:before {
     left: -8px;
@@ -1726,7 +1720,7 @@ td .label {
   }
 
   &.required {
-    margin-left: 8px;
+    margin-left: 6px;
     letter-spacing: 0.02rem;
     padding: 0 6px;
     border-width: 1px;
@@ -1842,6 +1836,7 @@ article .component-grid {
       padding: 10px;
       font-size: 15px;
       margin: 2px;
+      color: var(--ifm-font-color-base);
 
       code {
         font-size: 15px;
@@ -1906,7 +1901,7 @@ html[data-theme="dark"] .component {
   color: #057594;
   line-height: 32px;
   font-weight: 500;
-  border-radius: 0 var(--ifm-global-radius) var(--ifm-global-radius) 0;
+  border-radius: 0 32px 32px 0;
 
   svg {
     height: 1.5em;
@@ -2096,12 +2091,12 @@ html[data-theme="light"].blog-wrapper {
   border-bottom: 0;
 
   .tabs__item {
-    margin-right: 10px;
-    border-radius: var(--ifm-global-radius);
+    margin-right: 8px;
+    border-radius: 32px;
     border: 2px solid var(--ifm-table-border-color);
 
     &:hover {
-      border-radius: var(--ifm-global-radius);
+      border-radius: 32px;
     }
 
     &.tabs__item--active {
