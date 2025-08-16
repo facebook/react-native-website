@@ -22,13 +22,13 @@ jobs:
           cache: "yarn"
 
       - name: Check lock for duplications
-        run: yarn update-lock --check
-
-      - name: Check dependencies alignment
-        run: yarn check-dependencies
+        run: yarn dedupe --check
 
       - name: Install dependencies
         run: yarn install --immutable
+
+      - name: Check dependencies alignment
+        run: yarn check-dependencies
 
       - name: Run Lint
         run: yarn ci:lint
