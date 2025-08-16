@@ -23,13 +23,11 @@ Thank you to all the community members who have participated. You are truly movi
 - [Added talkback support for TouchableNativeFeedback accessibility: disabled prop #31224](https://github.com/facebook/react-native/pull/31224) closed by [@kyamashiro73](https://twitter.com/kyamashiro73)
 
 - [Accessibility/button test #31189](https://github.com/facebook/react-native/pull/31189) closed by [@huzaifaaak ](https://twitter.com/huzaifaaak)
-
   - Adds a test for accessibilityState for button
 
 ## Fixes
 
 - `Button` component (fixed by [#31001](https://github.com/facebook/react-native/pull/31001)):
-
   - Now announces when it is disabled
 
   - Disables click functionality for screen readers when the button is disabled
@@ -37,15 +35,12 @@ Thank you to all the community members who have participated. You are truly movi
   - Announces the selected state of the button
 
 - `TextInput` component (fixed by [#31144](https://github.com/facebook/react-native/pull/31144)):
-
   - Announces "selected" when the "selected" accessibilityState is set to true and the element is focused
 
 - `TouchableHighlight` component (fixed by [#31135](https://github.com/facebook/react-native/pull/31135)):
-
   - Disables click functionality for screen readers when the component is disabled
 
 - `TouchableNativeFeedback` component (fixed by [#31224](https://github.com/facebook/react-native/pull/31224)):
-
   - Disables click functionality for screen readers when the component is disabled
 
 ## Other Progress

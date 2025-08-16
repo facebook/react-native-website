@@ -7,7 +7,7 @@ Profiling is the process of analyzing an app's performance, resource usage, and 
 
 For iOS, Instruments is an invaluable tool, and on Android you should learn to use the [Android Studio Profiler](profiling.md#profiling-android-ui-performance-with-system-tracing).
 
-But first, [**make sure that Development Mode is OFF!**](performance.md#running-in-development-mode-devtrue) You should see `__DEV__ === false, development-level warning are OFF, performance optimizations are ON` in your application logs.
+But first, [**make sure that Development Mode is OFF!**](performance.md#running-in-development-mode-devtrue).
 
 ## Profiling Android UI Performance with System Tracing
 
@@ -93,7 +93,7 @@ If you identified a JS problem, look for clues in the specific JS that you're ex
 
 ![Too much JS](/docs/assets/SystraceBadJS2.png)
 
-This doesn't seem right. Why is it being called so often? Are they actually different events? The answers to these questions will probably depend on your product code. And many times, you'll want to look into [shouldComponentUpdate](https://reactjs.org/docs/react-component.html#shouldcomponentupdate).
+This doesn't seem right. Why is it being called so often? Are they actually different events? The answers to these questions will probably depend on your product code. And many times, you'll want to look into [shouldComponentUpdate](https://react.dev/reference/react/Component#shouldcomponentupdate).
 
 ## Resolving native UI Issues
 

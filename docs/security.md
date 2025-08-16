@@ -19,7 +19,9 @@ If you must have an API key or a secret to access some resource from your app, t
 
 **For persisted user data, choose the right type of storage based on its sensitivity.** As your app is used, you’ll often find the need to save data on the device, whether to support your app being used offline, cut down on network requests or save your user’s access token between sessions so they wouldn’t have to re-authenticate each time they use the app.
 
-> **Persisted vs unpersisted** — persisted data is written to the device’s disk, which lets the data be read by your app across application launches without having to do another network request to fetch it or asking the user to re-enter it. But this also can make that data more vulnerable to being accessed by attackers. Unpersisted data is never written to disk—so there's no data to access!
+:::info
+**Persisted vs unpersisted** — persisted data is written to the device’s disk, which lets the data be read by your app across application launches without having to do another network request to fetch it or asking the user to re-enter it. But this also can make that data more vulnerable to being accessed by attackers. Unpersisted data is never written to disk—so there's no data to access!
+:::
 
 ### Async Storage
 
@@ -38,7 +40,9 @@ If you must have an API key or a secret to access some resource from your app, t
 
 <TabItem value="web">
 
-> Async Storage is the React Native equivalent of Local Storage from the web
+:::note
+Async Storage is the React Native equivalent of Local Storage from the web
+:::
 
 </TabItem>
 </Tabs>
@@ -64,7 +68,9 @@ In order to use iOS Keychain services or Android Secure Shared Preferences, you 
 - [expo-secure-store](https://docs.expo.dev/versions/latest/sdk/securestore/)
 - [react-native-keychain](https://github.com/oblador/react-native-keychain)
 
-> **Be mindful of unintentionally storing or exposing sensitive info.** This could happen accidentally, for example saving sensitive form data in redux state and persisting the whole state tree in Async Storage. Or sending user tokens and personal info to an application monitoring service such as Sentry or Crashlytics.
+:::warning Caution
+**Be mindful of unintentionally storing or exposing sensitive info.** This could happen accidentally, for example saving sensitive form data in redux state and persisting the whole state tree in Async Storage. Or sending user tokens and personal info to an application monitoring service such as Sentry or Crashlytics.
+:::
 
 ## Authentication and Deep Linking
 
@@ -105,7 +111,9 @@ This guarantees that only the application that triggered the initial authorizati
 
 A library to consider for native OAuth is [react-native-app-auth](https://github.com/FormidableLabs/react-native-app-auth). React-native-app-auth is an SDK for communicating with OAuth2 providers. It wraps the native [AppAuth-iOS](https://github.com/openid/AppAuth-iOS) and [AppAuth-Android](https://github.com/openid/AppAuth-Android) libraries and can support PKCE.
 
-> React-native-app-auth can support PKCE only if your Identity Provider supports it.
+:::note
+`react-native-app-auth` can support PKCE only if your Identity Provider supports it.
+:::
 
 ![OAuth2 with PKCE](/docs/assets/diagram_pkce.svg)
 
@@ -119,7 +127,9 @@ Using https endpoints could still leave your data vulnerable to interception. Wi
 
 **SSL pinning** is a technique that can be used on the client side to avoid this attack. It works by embedding (or pinning) a list of trusted certificates to the client during development, so that only the requests signed with one of the trusted certificates will be accepted, and any self-signed certificates will not be.
 
-> When using SSL pinning, you should be mindful of certificate expiry. Certificates expire every 1-2 years and when one does, it’ll need to be updated in the app as well as on the server. As soon as the certificate on the server has been updated, any apps with the old certificate embedded in them will cease to work.
+:::warning Caution
+When using SSL pinning, you should be mindful of certificate expiry. Certificates expire every 1-2 years and when one does, it’ll need to be updated in the app as well as on the server. As soon as the certificate on the server has been updated, any apps with the old certificate embedded in them will cease to work.
+:::
 
 ## Summary
 

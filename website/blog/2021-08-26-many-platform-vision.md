@@ -47,8 +47,6 @@ As another example, our research into user perception of speed on the web led to
 
 In addition to domain-specific engineers and meetups and conferences, each platform also brings other unique players solving similar problems. On the web, React (which directly powers React Native) frequently draws inspiration from other open source web frameworks like [Vue](https://vuejs.org/), [Preact](https://preactjs.com/), and [Svelte](https://svelte.dev/). On mobile, React Native has been inspired by other open source mobile frameworks, and we have been learning from other mobile frameworks built inside Facebook.
 
-<!-- alex ignore special -->
-
 **We believe that competition leads to better outcomes for everyone in the long run.** By studying what makes other players on each platform great, we can learn lessons that may apply to other platforms. For example, the race to simplify complex websites influenced the development of React and gave React Native a head start to offer a declarative framework for mobile apps. The demand for faster iteration cycles and build times for the web also led to the development of Fast Refresh which significantly benefited React Native. Similarly, performance optimizations in our internal mobile frameworks — especially around data fetching and parallelization — challenged us to improve React Native in a way that has also influenced React when we built the new [Facebook.com](https://facebook.com/) website.
 
 <figure>

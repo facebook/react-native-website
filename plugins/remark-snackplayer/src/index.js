@@ -62,7 +62,7 @@ async function toJsxNode(node) {
     type: 'mdxJsxTextElement',
     name: 'div',
     attributes: [
-      attr('class', 'snack-player'),
+      attr('className', 'snack-player'),
       attr('data-snack-name', name),
       attr('data-snack-description', description),
       attr('data-snack-files', files),

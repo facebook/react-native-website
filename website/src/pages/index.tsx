@@ -8,10 +8,9 @@
 import React from 'react';
 
 import Head from '@docusaurus/Head';
-
 import Layout from '@theme/Layout';
 
-import Home from './Home';
+import Home from '../components/Home';
 
 const Index = () => {
   return (

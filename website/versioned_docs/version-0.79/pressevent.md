@@ -31,7 +31,7 @@ Array of all PressEvents that have changed since the last event.
 | -------------------- | -------- |
 | array of PressEvents | No       |
 
-### `force` <div class="label ios">iOS</div>
+### `force` <div className="label ios">iOS</div>
 
 Amount of force used during the 3D Touch press. Returns the float value in range from `0.0` to `1.0`.
 

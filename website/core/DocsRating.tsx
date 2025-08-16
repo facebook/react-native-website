@@ -10,11 +10,12 @@ import useIsBrowser from '@docusaurus/useIsBrowser';
 
 const DocsRating = ({label}) => {
   const isBrowser = useIsBrowser();
+  const [haveVoted, setHaveVoted] = useState(false);
+
   if (!isBrowser) {
     return null;
   }
 
-  const [haveVoted, setHaveVoted] = useState(false);
   const giveFeedback = value => {
     if (window.ga) {
       window.ga('send', {

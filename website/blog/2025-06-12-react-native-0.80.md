@@ -130,7 +130,7 @@ if linkage != nil
   use_frameworks! :linkage => linkage.to_sym
 end
 
-+ENV[‘`RCT_USE_RN_DEP`’] = ‘1’
++ENV['RCT_USE_RN_DEP'] = '1'
 
 target 'HelloWorld' do
   config = use_native_modules!
@@ -204,8 +204,6 @@ Further smaller breaking changes are listed [in the CHANGELOG for 0.80](https://
 ## Acknowledgements
 
 React Native 0.80 contains over 1167 commits from 127 contributors. Thanks for all your hard work!
-
-<!--alex ignore special white-->
 
 We want to send a special thank you to those community members that shipped significant contributions in this release:
 
