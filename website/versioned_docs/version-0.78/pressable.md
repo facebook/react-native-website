@@ -108,7 +108,7 @@ export default App;
 
 ## Props
 
-### `android_disableSound` <div class="label android">Android</div>
+### `android_disableSound` <div className="label android">Android</div>
 
 If true, doesn't play Android system sound on press.
 
@@ -116,7 +116,7 @@ If true, doesn't play Android system sound on press.
 | ------- | ------- |
 | boolean | `false` |
 
-### `android_ripple` <div class="label android">Android</div>
+### `android_ripple` <div className="label android">Android</div>
 
 Enables the Android ripple effect and configures its properties.
 

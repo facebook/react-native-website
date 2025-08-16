@@ -175,7 +175,7 @@ See the documentation for [`getTransformOptions` in Metro](https://metrobundler.
 
 ## Advanced: Use random access module bundles (non-Hermes)
 
-:::info
+:::tip
 **Not supported when [using Hermes](#use-hermes).** Hermes bytecode is not compatible with the RAM bundle format, and provides the same (or better) performance in all use cases.
 :::
 

@@ -31,6 +31,8 @@ If you are looking for the source code of the [React Native Archive website](htt
 
 1. Run `yarn` to install the website's workspace dependencies.
 
+  > If you want to retain the globally instaled `yarn` v1, you can use `corepack yarn` instead.
+
 ### Running locally
 
 1. Run `yarn start` to start the development server _(powered by [Docusaurus](https://docusaurus.io))_.
@@ -126,7 +128,8 @@ This can be done by updating the `package.json` and configuration files in `scri
 
 1. `cd react-native-website` to go into the project root.
 1. `cd website` to go into the website portion of the project.
-1. Run `yarn version:cut <newVersion>` where `<newVersion>` is the new version being released.
+1. Run `yarn version:cut <newVersion>` where `<newVersion>` is the new version being released (e.g. `0.81`).
+1. Open a PR and commit this change as "Cut branch <newVersion>"
 
 ## 🔧 Website configuration
 

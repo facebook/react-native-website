@@ -74,8 +74,6 @@ This is a shortcut for `rgba(0,0,0,0)`, same like in [CSS3](https://www.w3.org/T
 
 Named colors implementation follows the [CSS3/SVG specification](https://www.w3.org/TR/css-color-3/#svg-color):
 
-<!-- alex ignore black white -->
-
 - <ins style={{background: '#f0f8ff'}} className="color-box" /> aliceblue (<code>#f0f8ff</code>)
 - <ins style={{background: '#faebd7'}} className="color-box" /> antiquewhite (<code>#faebd7</code>)
 - <ins style={{background: '#00ffff'}} className="color-box" /> aqua (<code>#00ffff</code>)
