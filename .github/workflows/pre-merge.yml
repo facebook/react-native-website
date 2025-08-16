@@ -21,8 +21,11 @@ jobs:
           node-version: "20"
           cache: "yarn"
 
-      - name: Check dependencies
-        run: yarn dedupe --check
+      - name: Check lock for duplications
+        run: yarn update-lock --check
+
+      - name: Check dependencies alignment
+        run: yarn check-dependencies
 
       - name: Install dependencies
         run: yarn install --immutable
