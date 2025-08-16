@@ -8,20 +8,20 @@
     "tsc-examples": "./bin/tsc-examples.js"
   },
   "devDependencies": {
-    "@babel/core": "^7.25.2",
-    "@babel/preset-env": "^7.25.4",
-    "@babel/runtime": "^7.26.10",
-    "@react-native-community/slider": "^4.5.3",
-    "@react-native/babel-preset": "^0.76.0-rc.2",
-    "@react-native/eslint-config": "^0.76.0-rc.2",
-    "@react-native/typescript-config": "^0.76.0-rc.2",
-    "@types/react": "^18.2.79",
+    "@babel/core": "^7.28.3",
+    "@babel/preset-env": "^7.28.3",
+    "@babel/runtime": "^7.28.3",
+    "@react-native-community/slider": "^4.5.7",
+    "@react-native/babel-preset": "^0.81.0",
+    "@react-native/eslint-config": "^0.81.0",
+    "@react-native/typescript-config": "^0.81.0",
+    "@types/react": "^19.1.10",
     "eslint": "^8.57.1",
     "glob": "^11.0.0",
-    "prettier": "^3.4.2",
-    "react": "18.3.1",
-    "react-native": "^0.76.0-rc.2",
-    "react-native-safe-area-context": "^4.11.0",
-    "typescript": "5.5.4"
+    "prettier": "^3.6.2",
+    "react": "^19.1.1",
+    "react-native": "^0.81.0",
+    "react-native-safe-area-context": "^5.6.0",
+    "typescript": "^5.9.2"
   }
 }

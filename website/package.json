@@ -57,8 +57,8 @@
     "@docusaurus/plugin-pwa": "3.8.1",
     "@docusaurus/preset-classic": "3.8.1",
     "docusaurus-plugin-sass": "^0.2.6",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
     "react-github-btn": "^1.4.0",
     "sass": "1.76.0"
   },
@@ -69,14 +69,14 @@
     "@react-native-website/lint-examples": "0.0.0",
     "@react-native-website/update-redirects": "0.0.0",
     "@types/google.analytics": "^0.0.46",
-    "@types/react": "^18.2.79",
+    "@types/react": "^19.1.10",
     "alex": "^11.0.1",
     "case-police": "^1.0.0",
     "eslint": "^8.57.1",
     "fs-extra": "^11.2.0",
     "glob": "^11.0.0",
-    "prettier": "^3.5.3",
+    "prettier": "^3.6.2",
     "remark-cli": "^12.0.1",
-    "typescript": "^5.7.2"
+    "typescript": "^5.9.2"
   }
 }
