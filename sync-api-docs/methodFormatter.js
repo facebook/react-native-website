@@ -7,7 +7,6 @@
 
 'use strict';
 
-const {typeOf} = require('tokenize-comment/lib/utils');
 const magic = require('./magic');
 const {formatMultiplePlatform} = require('./utils');
 
@@ -47,8 +46,6 @@ function formatMethodDescription(param) {
   let tag = param.description;
   const isMatch = tag.match(/{@platform [a-z ,]*}/);
   if (isMatch) {
-    const platform = isMatch[0].match(/ [a-z ,]*/);
-
     // Replaces @platform strings with empty string
     // and appends type with formatted platform
     tag = tag.replace(/{@platform [a-z ,]*}/g, '');

@@ -12,6 +12,10 @@ import path from 'path';
 
 import users from './showcase.json';
 import versions from './versions.json';
+import prismTheme from './core/PrismTheme';
+
+import remarkSnackPlayer from '@react-native-website/remark-snackplayer';
+import remarkCodeblockLanguageTitle from '@react-native-website/remark-codeblock-language-as-title';
 
 // See https://docs.netlify.com/configure-builds/environment-variables/
 const isProductionDeployment =
@@ -20,10 +24,10 @@ const isProductionDeployment =
 const lastVersion = versions[0];
 const copyright = `Copyright © ${new Date().getFullYear()} Meta Platforms, Inc.`;
 
-export interface EditUrlButton {
+export type EditUrlButton = {
   label: string;
   href: string;
-}
+};
 
 const commonDocsOptions = {
   breadcrumbs: false,
@@ -57,10 +61,7 @@ const commonDocsOptions = {
     }
     return JSON.stringify(buttons);
   }) as PluginContentDocs.EditUrlFunction,
-  remarkPlugins: [
-    require('@react-native-website/remark-snackplayer'),
-    require('@react-native-website/remark-codeblock-language-as-title'),
-  ],
+  remarkPlugins: [remarkSnackPlayer, remarkCodeblockLanguageTitle],
 };
 
 const isDeployPreview = process.env.PREVIEW_DEPLOY === 'true';
@@ -83,8 +84,8 @@ const config: Config = {
   url: 'https://reactnative.dev',
   baseUrl: '/',
   clientModules: [
-    require.resolve('./modules/snackPlayerInitializer.js'),
-    require.resolve('./modules/jumpToFragment.js'),
+    './modules/snackPlayerInitializer.js',
+    './modules/jumpToFragment.js',
   ],
   trailingSlash: false, // because trailing slashes can break some existing relative links
   scripts: [
@@ -277,7 +278,7 @@ const config: Config = {
     },
     prism: {
       defaultLanguage: 'tsx',
-      theme: require('./core/PrismTheme'),
+      theme: prismTheme,
       additionalLanguages: [
         'diff',
         'bash',

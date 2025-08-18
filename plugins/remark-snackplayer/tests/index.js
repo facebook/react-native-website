@@ -5,10 +5,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-const path = require('path');
-const fs = require('fs');
-const test = require('tape');
-const snackplayer = require('../');
+import path from 'node:path';
+import fs from 'node:fs';
+import test from 'tape';
+import snackplayer from '../';
 
 const read = name => fs.readFileSync(path.join(__dirname, name), 'utf8');
 const normalizeLineEndings = str => str.replace(/\r\n/g, '\n');

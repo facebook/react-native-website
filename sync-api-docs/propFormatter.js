@@ -7,13 +7,10 @@
 
 'use strict';
 
-const {typeOf} = require('tokenize-comment/lib/utils');
 const magic = require('./magic');
 const {
   formatMultiplePlatform,
   stringToInlineCodeForTable,
-  maybeLinkifyType,
-  maybeLinkifyTypeName,
   formatType,
 } = require('./utils');
 

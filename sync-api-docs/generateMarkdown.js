@@ -12,13 +12,7 @@ const {
   formatMethodDescription,
 } = require('./methodFormatter');
 
-const {
-  formatMultiplePlatform,
-  stringToInlineCodeForTable,
-  maybeLinkifyType,
-  maybeLinkifyTypeName,
-  formatType,
-} = require('./utils');
+const {formatMultiplePlatform, maybeLinkifyTypeName} = require('./utils');
 
 // Formats an array of rows as a Markdown table
 function generateTable(rows) {

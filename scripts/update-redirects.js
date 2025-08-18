@@ -4,13 +4,10 @@
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
- *
- * @format
  */
 
-const fs = require('fs');
-const path = require('path');
-const assert = require('assert');
+import assert from 'node:assert';
+import fs from 'node:fs';
 
 if (process.argv.length < 4) {
   console.log(
@@ -28,7 +25,7 @@ assert.match(
 assert.match(
   versions,
   /versions.json$/,
-  'Expects versions.jsoon path as 3nd argument'
+  'Expects versions.json path as 3nd argument'
 );
 
 const latestPublicVersion = JSON.parse(fs.readFileSync(versions, 'utf8'))[0];

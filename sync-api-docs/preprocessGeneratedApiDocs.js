@@ -12,21 +12,6 @@
 // `generate-api-docs` script.
 
 const tokenizeComment = require('tokenize-comment');
-const {typeOf} = require('tokenize-comment/lib/utils');
-
-function joinDescriptionAndExamples(tokenized) {
-  let sections = [];
-  if (tokenized.description) {
-    sections.push(tokenized.description);
-  }
-  for (const {raw} of tokenized.examples) {
-    sections.push(raw);
-  }
-  if (tokenized.footer) {
-    sections.push(tokenized.footer);
-  }
-  return sections.join('\n\n');
-}
 
 function preprocessTagsInDescription(obj) {
   if (obj && obj.description) {

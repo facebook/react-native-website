@@ -8,7 +8,7 @@
   },
   "devDependencies": {
     "@motiz88/react-native-docgen": "0.0.3",
-    "fs-extra": "^11.2.0",
+    "fs-extra": "^11.3.1",
     "glob": "^11.0.0",
     "he": "^1.2.0",
     "react-docgen-markdown-renderer": "^2.1.3",

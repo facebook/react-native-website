@@ -5,15 +5,17 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-const glob = require('glob');
-const fs = require('fs-extra');
-const path = require('path');
-const siteConfig = require('./docusaurus.config.js');
+import glob from 'glob';
+import fs from 'fs-extra';
+import path from 'path';
+
+import siteConfig from './docusaurus.config.js';
 
 const imageReferenceRegExp = new RegExp(/!\[.*?\]\((.*)\)/g);
 
-let missingAssets = [];
+const missingAssets = [];
 let queue = Promise.resolve();
+
 glob
   .glob('./docs/**/*.md')
   .then(files => {
@@ -43,8 +45,7 @@ glob
         .then(() => {
           return fs.stat('./static/' + imagePath);
         })
-        .then(stats => {})
-        .catch(e => {
+        .catch(() => {
           console.error(
             'Could not find ' +
               'static/' +

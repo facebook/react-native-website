@@ -25,7 +25,7 @@ async function generateApiDocs(rnPath) {
   const apiDocs = await extractDocsFromRN(rnPath);
   preprocessGeneratedApiDocs(apiDocs);
   await Promise.all(
-    apiDocs.map(async ({component, file}, index) => {
+    apiDocs.map(async ({component, file}) => {
       if (!component.displayName) {
         console.log(
           `react-docgen data for ${path.basename(file)} was malformed, skipping`
