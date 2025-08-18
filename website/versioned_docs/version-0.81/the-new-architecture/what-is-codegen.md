@@ -2,7 +2,7 @@
 
 **Codegen** is a tool to avoid writing a lot of repetitive code. Using Codegen **is not mandatory**: you can write all the generated code manually. However, Codegen generates scaffolding code that could save you a lot of time.
 
-React Native invokes Codegen automatically every time an iOS or Android app is built. Occasionally, you would like to manually run the Codegen scripts to know which types and files are actually generated: this is a common scenario when developing [Turbo Native Modules](https://reactnative.dev/docs/turbo-native-modules-introduction) and Fabric Native Components.
+React Native invokes Codegen automatically every time an iOS or Android app is built. Occasionally, you would like to manually run the Codegen scripts to know which types and files are actually generated: this is a common scenario when developing [Turbo Native Modules](/docs/turbo-native-modules-introduction) and Fabric Native Components.
 
 <!-- TODO: Add links to TM and FC -->
 
