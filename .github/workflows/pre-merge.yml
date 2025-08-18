@@ -21,11 +21,14 @@ jobs:
           node-version: "20"
           cache: "yarn"
 
-      - name: Check dependencies
+      - name: Check lock for duplications
         run: yarn dedupe --check
 
       - name: Install dependencies
         run: yarn install --immutable
+
+      - name: Check dependencies alignment
+        run: yarn check-dependencies
 
       - name: Run Lint
         run: yarn ci:lint
