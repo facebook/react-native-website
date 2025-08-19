@@ -1770,8 +1770,9 @@ td .label {
 /* Components grid */
 
 article .component-grid {
-  max-width: 800px;
   margin-bottom: 22px;
+  display: grid;
+  grid-column-gap: 22px;
 
   .component {
     border: 1px solid var(--ifm-color-emphasis-500);
@@ -1783,13 +1784,14 @@ article .component-grid {
     overflow: hidden;
 
     &:hover {
-      transform: scale(1.05);
+      transform: scale(1.033);
     }
 
     > a {
       display: block;
       height: 100%;
       border-bottom: none;
+      background: none !important;
     }
 
     h3 {
@@ -1797,7 +1799,7 @@ article .component-grid {
       font-weight: 600;
       margin: 0;
       padding: 0 10px;
-      background-color: var(--home-button-primary);
+      background-color: var(--ifm-color-info-darkest);
       color: var(--home-button-primary-text);
       line-height: 36px;
 
@@ -1807,7 +1809,7 @@ article .component-grid {
     }
 
     p {
-      padding: 10px;
+      padding: 6px 10px 8px;
       font-size: 15px;
       margin: 2px;
       color: var(--ifm-font-color-base);
@@ -1815,6 +1817,7 @@ article .component-grid {
       code {
         font-size: 15px;
         padding: 0 1px;
+        top: 0;
       }
     }
   }
@@ -1822,13 +1825,6 @@ article .component-grid {
 
 html[data-theme="dark"] .component {
   border: 1px solid var(--ifm-color-emphasis-200);
-}
-
-@supports (display: grid) {
-  article .component-grid {
-    display: grid;
-    grid-column-gap: 22px;
-  }
 }
 
 @media only screen and (min-width: 768px) {
@@ -1843,22 +1839,20 @@ html[data-theme="dark"] .component {
     vertical-align: top;
   }
 
-  @supports (display: grid) {
+  article .component-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media only screen and (min-width: 1440px) {
     article .component-grid {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
     }
+  }
 
-    @media only screen and (min-width: 1440px) {
-      article .component-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-
-    article .component {
-      width: auto;
-      height: auto;
-      margin: 0;
-    }
+  article .component {
+    width: auto;
+    height: auto;
+    margin: 0;
   }
 }
 
