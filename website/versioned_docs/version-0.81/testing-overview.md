@@ -41,13 +41,17 @@ To make your app more testable, start by separating the view part of your app—
 
 Theoretically, you could go so far as to move all logic and data fetching out of your components. This way your components would be solely dedicated to rendering. Your state would be entirely independent of your components. Your app’s logic would work without any React components at all!
 
-> We encourage you to further explore the topic of testable code in other learning resources.
+:::tip
+We encourage you to further explore the topic of testable code in other learning resources.
+:::
 
 ## Writing Tests
 
 After writing testable code, it’s time to write some actual tests! The default template of React Native ships with [Jest](https://jestjs.io) testing framework. It includes a preset that's tailored to this environment so you can get productive without tweaking the configuration and mocks straight away—[more on mocks](#mocking) shortly. You can use Jest to write all types of tests featured in this guide.
 
-> If you do test-driven development, you actually write tests first! That way, testability of your code is given.
+:::note
+If you do test-driven development, you actually write tests first! That way, testability of your code is given.
+:::
 
 ### Structuring Tests
 
@@ -87,7 +91,9 @@ The great thing about unit tests is that they are quick to write and run. Theref
 
 Sometimes, when your tested objects have external dependencies, you’ll want to “mock them out.” “Mocking” is when you replace some dependency of your code with your own implementation.
 
-> Generally, using real objects in your tests is better than using mocks but there are situations where this is not possible. For example: when your JS unit test relies on a native module written in Java or Objective-C.
+:::info
+Generally, using real objects in your tests is better than using mocks but there are situations where this is not possible. For example: when your JS unit test relies on a native module written in Java or Objective-C.
+:::
 
 Imagine you’re writing an app that shows the current weather in your city and you’re using some external service or other dependency that provides you with the weather information. If the service tells you that it’s raining, you want to show an image with a rainy cloud. You don’t want to call that service in your tests, because:
 
@@ -97,7 +103,9 @@ Imagine you’re writing an app that shows the current weather in your city and 
 
 Therefore, you can provide a mock implementation of the service, effectively replacing thousands of lines of code and some internet-connected thermometers!
 
-> Jest comes with [support for mocking](https://jestjs.io/docs/en/mock-functions#mocking-modules) from function level all the way to module level mocking.
+:::note
+Jest comes with [support for mocking](https://jestjs.io/docs/en/mock-functions#mocking-modules) from function level all the way to module level mocking.
+:::
 
 ## Integration Tests
 
@@ -105,12 +113,14 @@ When writing larger software systems, individual pieces of it need to interact w
 
 In integration testing, real individual units are combined (same as in your app) and tested together to ensure that their cooperation works as expected. This is not to say that mocking does not happen here: you’ll still need mocks (for example, to mock communication with a weather service), but you'll need them much less than in unit testing.
 
-> Please note that the terminology around what integration testing means is not always consistent. Also, the line between what is a unit test and what is an integration test may not always be clear. For this guide, your test falls into "integration testing" if it:
->
-> - Combines several modules of your app as described above
-> - Uses an external system
-> - Makes a network call to other application (such as the weather service API)
-> - Does any kind of file or database <abbr title="Input/Output">I/O</abbr>
+:::info
+Please note that the terminology around what integration testing means is not always consistent. Also, the line between what is a unit test and what is an integration test may not always be clear. For this guide, your test falls into "integration testing" if it:
+
+- Combines several modules of your app as described above
+- Uses an external system
+- Makes a network call to other application (such as the weather service API)
+- Does any kind of file or database <abbr title="Input/Output">I/O</abbr>
+  :::
 
 <img src="/docs/assets/p_tests-integration.svg" alt=" " />
 
@@ -130,7 +140,9 @@ There are several libraries that can help you testing these:
 - [React Native Testing Library](https://callstack.github.io/react-native-testing-library/) builds on top of React’s test renderer and adds `fireEvent` and `query` APIs described in the next paragraph.
 - [Deprecated] React’s [Test Renderer](https://react.dev/blog/2024/04/25/react-19-upgrade-guide#deprecated-react-test-renderer), developed alongside its core, provides a React renderer that can be used to render React components to pure JavaScript objects, without depending on the DOM or a native mobile environment.
 
-> Component tests are only JavaScript tests running in Node.js environment. They do _not_ take into account any iOS, Android, or other platform code which is backing the React Native components. It follows that they cannot give you a 100% confidence that everything works for the user. If there is a bug in the iOS or Android code, they will not find it.
+:::warning
+Component tests are only JavaScript tests running in Node.js environment. They do _not_ take into account any iOS, Android, or other platform code which is backing the React Native components. It follows that they cannot give you a 100% confidence that everything works for the user. If there is a bug in the iOS or Android code, they will not find it.
+:::
 
 <img src="/docs/assets/p_tests-component.svg" alt=" " />
 
@@ -180,7 +192,9 @@ Conversely, you should avoid:
 
 Avoid testing implementation details like props or state—while such tests work, they are not oriented toward how users will interact with the component and tend to break by refactoring (for example when you'd like to rename some things or rewrite class component using hooks).
 
-> React class components are especially prone to testing their implementation details such as internal state, props or event handlers. To avoid testing implementation details, prefer using function components with Hooks, which make relying on component internals _harder_.
+:::info
+React class components are especially prone to testing their implementation details such as internal state, props or event handlers. To avoid testing implementation details, prefer using function components with Hooks, which make relying on component internals _harder_.
+:::
 
 Component testing libraries such as [React Native Testing Library](https://callstack.github.io/react-native-testing-library/) facilitate writing user-centric tests by careful choice of provided APIs. The following example uses `fireEvent` methods `changeText` and `press` that simulate a user interacting with the component and a query function `getAllByText` that finds matching `Text` nodes in the rendered output.
 

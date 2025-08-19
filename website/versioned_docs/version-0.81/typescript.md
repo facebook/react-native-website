@@ -52,7 +52,9 @@ This command adds the latest version of every dependency. The versions may need 
 
 3. Rename a JavaScript file to be `*.tsx`
 
-> You should leave the `./index.js` entrypoint file as it is otherwise you may run into an issue when it comes to bundling a production build.
+:::warning
+You should leave the `./index.js` entrypoint file as it is otherwise you may run into an issue when it comes to bundling a production build.
+:::
 
 4. Run `tsc` to type-check your new TypeScript files.
 
