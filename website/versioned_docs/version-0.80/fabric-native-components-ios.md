@@ -46,7 +46,7 @@ open Demo.xcworkspace
 
 3. In the `WebView` group, create <code>New</code>→<code>File from Template</code>.
 
-<img className="half-size" alt="Create a new file using the Cocoa Touch Classs template" src="/docs/assets/fabric-native-components/3.webp" />
+<img className="half-size" alt="Create a new file using the Cocoa Touch Class template" src="/docs/assets/fabric-native-components/3.webp" />
 
 4. Use the <code>Objective-C File</code> template, and name it <code>RCTWebView</code>.
 
