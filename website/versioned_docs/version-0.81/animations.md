@@ -73,7 +73,7 @@ export default () => {
 </TabItem>
 <TabItem value="typescript">
 
-```SnackPlayer ext=tsx
+```SnackPlayer ext=tsx&supportedPlatforms=ios,android
 import React, {useEffect} from 'react';
 import {Animated, Text, View, useAnimatedValue} from 'react-native';
 import type {PropsWithChildren} from 'react';
