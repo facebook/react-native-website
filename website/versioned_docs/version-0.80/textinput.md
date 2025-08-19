@@ -320,7 +320,7 @@ Provides an initial value that will change when the user starts typing. Useful f
 | ------ |
 | string |
 
-### `disableKeyboardShortcuts` <div class="label ios">iOS</div>
+### `disableKeyboardShortcuts` <div className="label ios">iOS</div>
 
 If `true`, the keyboard shortcuts (undo/redo and copy buttons) are disabled.
 
@@ -533,7 +533,7 @@ The following values work on Android only:
 
 ---
 
-### `lineBreakModeIOS` <div class="label ios">iOS</div>
+### `lineBreakModeIOS` <div className="label ios">iOS</div>
 
 Set line break mode on iOS. Possible values are `wordWrapping`, `char`, `clip`, `head`, `middle` and `tail`.
 
@@ -543,7 +543,7 @@ Set line break mode on iOS. Possible values are `wordWrapping`, `char`, `clip`, 
 
 ---
 
-### `lineBreakStrategyIOS` <div class="label ios">iOS</div>
+### `lineBreakStrategyIOS` <div className="label ios">iOS</div>
 
 Set line break strategy on iOS 14+. Possible values are `none`, `standard`, `hangul-word` and `push-out`.
 
