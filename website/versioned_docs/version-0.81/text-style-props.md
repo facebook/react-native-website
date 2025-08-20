@@ -805,7 +805,7 @@ Specifies font weight. The values `'normal'` and `'bold'` are supported for most
 
 ---
 
-### `includeFontPadding` <div class="label android">Android</div>
+### `includeFontPadding` <div className="label android">Android</div>
 
 Set to `false` to remove extra font padding intended to make space for certain ascenders / descenders. With some fonts, this padding can make text look slightly misaligned when centered vertically. For best results also set `textAlignVertical` to `center`.
 
@@ -819,22 +819,9 @@ Set to `false` to remove extra font padding intended to make space for certain a
 
 Allows you to set all the font variants for a font. Can be set by using an array of enums or a space-separated string e.g. `'small-caps common-ligatures'`.
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="5">Type</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td colspan="5">
-        array of enum(`'common-ligatures'`, `'contextual'`, `'discretionary-ligatures'`, `'historical-ligatures'`, `'lining-nums'`, `'no-common-ligatures'`, `'no-contextual'`, `'no-discretionary-ligatures'`, `'no-historical-ligatures'`, `'oldstyle-nums'`, `'proportional-nums'`, `'small-caps'`, `'stylistic-eight'`, `'stylistic-eighteen'`, `'stylistic-eleven'`, `'stylistic-fifteen'`, `'stylistic-five'`, `'stylistic-four'`, `'stylistic-fourteen'`, `'stylistic-nine'`, `'stylistic-nineteen'`, `'stylistic-one'`, `'stylistic-seven'`, `'stylistic-seventeen'`, `'stylistic-six'`, `'stylistic-sixteen'`, `'stylistic-ten'`, `'stylistic-thirteen'`, `'stylistic-three'`, `'stylistic-twelve'`, `'stylistic-twenty'`, `'stylistic-two'`, `'tabular-nums'`) or string
-      </td>
-      <td>`[]`</td>
-    </tr>
-  </tbody>
-</table>
+| Type                                                                                                                 | Default |
+| -------------------------------------------------------------------------------------------------------------------- | ------- |
+| array of enum(`'small-caps'`, `'oldstyle-nums'`, `'lining-nums'`, `'tabular-nums'`, `'proportional-nums'`) or string | `[]`    |
 
 ---
 
@@ -868,7 +855,7 @@ Specifies text alignment. On Android, the value 'justify' is only supported on O
 
 ---
 
-### `textAlignVertical` <div class="label android">Android</div>
+### `textAlignVertical` <div className="label android">Android</div>
 
 | Type                                            | Default  |
 | ----------------------------------------------- | -------- |
@@ -876,7 +863,7 @@ Specifies text alignment. On Android, the value 'justify' is only supported on O
 
 ---
 
-### `textDecorationColor` <div class="label ios">iOS</div>
+### `textDecorationColor` <div className="label ios">iOS</div>
 
 | Type               |
 | ------------------ |
@@ -892,7 +879,7 @@ Specifies text alignment. On Android, the value 'justify' is only supported on O
 
 ---
 
-### `textDecorationStyle` <div class="label ios">iOS</div>
+### `textDecorationStyle` <div className="label ios">iOS</div>
 
 | Type                                                | Default   |
 | --------------------------------------------------- | --------- |
@@ -932,7 +919,7 @@ Specifies text alignment. On Android, the value 'justify' is only supported on O
 
 ---
 
-### `verticalAlign` <div class="label android">Android</div>
+### `verticalAlign` <div className="label android">Android</div>
 
 | Type                                            | Default  |
 | ----------------------------------------------- | -------- |
@@ -940,7 +927,7 @@ Specifies text alignment. On Android, the value 'justify' is only supported on O
 
 ---
 
-### `writingDirection` <div class="label ios">iOS</div>
+### `writingDirection` <div className="label ios">iOS</div>
 
 | Type                             | Default  |
 | -------------------------------- | -------- |
