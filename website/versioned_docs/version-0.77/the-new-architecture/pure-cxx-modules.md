@@ -297,7 +297,7 @@ bundle exec pod install
 
 This step adds the `shared` folder to the project to make it visible to Xcode.
 
-1. Open the CocoPods generated Xcode Workspace.
+1. Open the CocoaPods generated Xcode Workspace.
 
 ```bash
 cd ios
