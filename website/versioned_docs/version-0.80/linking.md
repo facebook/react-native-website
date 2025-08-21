@@ -21,10 +21,10 @@ As mentioned in the introduction, there are some URL schemes for core functional
 
 | Scheme           | Description                                | iOS | Android |
 | ---------------- | ------------------------------------------ | --- | ------- |
-| `mailto`         | Open mail app, eg: mailto: support@expo.io | ✅  | ✅      |
+| `mailto`         | Open mail app, eg: mailto: hello@world.dev | ✅  | ✅      |
 | `tel`            | Open phone app, eg: tel:+123456789         | ✅  | ✅      |
 | `sms`            | Open SMS app, eg: sms:+123456789           | ✅  | ✅      |
-| `https` / `http` | Open web browser app, eg: https://expo.io  | ✅  | ✅      |
+| `https` / `http` | Open web browser app, eg: https://expo.dev | ✅  | ✅      |
 
 ### Enabling Deep Links
 
