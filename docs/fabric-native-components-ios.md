@@ -31,7 +31,7 @@ You should be careful about committing generated code to your repository. Genera
 
 We need to prepare your iOS project using Xcode by completing these **5 steps**:
 
-1. Open the CocoPods generated Xcode Workspace:
+1. Open the CocoaPods generated Xcode Workspace:
 
 ```bash
 cd ios
