@@ -207,18 +207,18 @@ Later you’ll learn how to distribute your Native Modules as [npm packages](the
 <TabItem value="java">
 
 ```java title="android/app/src/main/java/com/turobmoduleexample/MainApplication.java"
-package com.inappmodule;
+package com.turbomoduleexample;
 
 import android.app.Application;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
 import com.facebook.react.ReactHost;
+import com.facebook.react.ReactNativeApplicationEntryPoint;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint;
 import com.facebook.react.defaults.DefaultReactHost;
 import com.facebook.react.defaults.DefaultReactNativeHost;
-import com.facebook.soloader.SoLoader;
 // highlight-add-next-line
 import com.nativelocalstorage.NativeLocalStoragePackage;
 
@@ -260,18 +260,19 @@ public class MainApplication extends Application implements ReactApplication {
   };
 
   @Override
+  public ReactNativeHost getReactNativeHost() {
+      return reactNativeHost;
+  }
+
+  @Override
   public ReactHost getReactHost() {
-    return DefaultReactHost.getDefaultReactHost(getApplicationContext(), reactNativeHost);
+    return DefaultReactHost.getDefaultReactHost(getApplicationContext(), reactNativeHost, null);
   }
 
   @Override
   public void onCreate() {
     super.onCreate();
-    SoLoader.init(this, false);
-    if (BuildConfig.IS_NEW_ARCHITECTURE_ENABLED) {
-      // If you opted-in for the New Architecture, we load the native entry point for this app.
-      DefaultNewArchitectureEntryPoint.load();
-    }
+    ReactNativeApplicationEntryPoint.loadReactNative(this);
   }
 }
 ```
@@ -280,18 +281,17 @@ public class MainApplication extends Application implements ReactApplication {
 <TabItem value="kotlin">
 
 ```kotlin title="android/app/src/main/java/com/turobmoduleexample/MainApplication.kt"
-package com.inappmodule
+package com.turbomoduleexample
 
 import android.app.Application
 import com.facebook.react.PackageList
 import com.facebook.react.ReactApplication
 import com.facebook.react.ReactHost
+import com.facebook.react.ReactNativeApplicationEntryPoint.loadReactNative
 import com.facebook.react.ReactNativeHost
 import com.facebook.react.ReactPackage
-import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.load
 import com.facebook.react.defaults.DefaultReactHost.getDefaultReactHost
 import com.facebook.react.defaults.DefaultReactNativeHost
-import com.facebook.soloader.SoLoader
 // highlight-add-next-line
 import com.nativelocalstorage.NativeLocalStoragePackage
 
@@ -320,11 +320,7 @@ class MainApplication : Application(), ReactApplication {
 
   override fun onCreate() {
     super.onCreate()
-    SoLoader.init(this, false)
-    if (BuildConfig.IS_NEW_ARCHITECTURE_ENABLED) {
-      // If you opted-in for the New Architecture, we load the native entry point for this app.
-      load()
-    }
+    loadReactNative(this)
   }
 }
 ```

@@ -20,7 +20,7 @@ The basic steps are:
 Lets work through each of these steps by building an example Turbo Native Module. The rest of this guide assume that you have created your application running the command:
 
 ```shell
-npx @react-native-community/cli@latest init TurboModuleExample --version 0.76.0
+npx @react-native-community/cli@latest init TurboModuleExample --version 0.81.0
 ```
 
 ## Native Persistent Storage
