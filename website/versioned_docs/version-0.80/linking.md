@@ -84,7 +84,7 @@ If your app is using [Universal Links](https://developer.apple.com/ios/universal
 <TabItem value="swift">
 
 ```swift title="AppDelegate.swift"
-override func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
   return RCTLinkingManager.application(app, open: url, options: options)
 }
 ```
@@ -92,7 +92,7 @@ override func application(_ app: UIApplication, open url: URL, options: [UIAppli
 If your app is using [Universal Links](https://developer.apple.com/ios/universal-links/), you'll need to add the following code as well:
 
 ```swift title="AppDelegate.swift"
-override func application(
+func application(
   _ application: UIApplication,
   continue userActivity: NSUserActivity,
   restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
