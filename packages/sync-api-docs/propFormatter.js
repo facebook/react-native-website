@@ -7,14 +7,14 @@
 
 'use strict';
 
-const magic = require('./magic');
-const {
+import magic from './magic.js';
+import {
   formatMultiplePlatform,
   stringToInlineCodeForTable,
   formatType,
-} = require('./utils');
+} from './utils.js';
 
-function formatTypeColumn(prop) {
+export function formatTypeColumn(prop) {
   // Checks for @type pragma comment
   if (prop.rnTags && prop.rnTags.type) {
     let tableRows = '';
@@ -93,14 +93,11 @@ function formatTypeColumn(prop) {
         return prop.flowType.type;
       }
     } else if (prop.flowType.name.includes('$ReadOnlyArray')) {
-      prop?.flowType?.elements[0]?.elements &&
-        prop?.flowType?.elements[0]?.elements.forEach(elem => {
-          if (
-            Object.hasOwnProperty.call(magic.linkableTypeAliases, elem.name)
-          ) {
-            ({url, text} = magic.linkableTypeAliases[elem.name]);
-          }
-        });
+      prop?.flowType?.elements[0]?.elements.forEach(elem => {
+        if (Object.hasOwnProperty.call(magic.linkableTypeAliases, elem.name)) {
+          ({url, text} = magic.linkableTypeAliases[elem.name]);
+        }
+      });
       if (url) return `array of [${text}](${url})`;
       else if (prop?.flowType?.elements[0].name === 'union') {
         const unionTypes = prop?.flowType?.elements[0]?.elements.reduce(
@@ -195,7 +192,7 @@ function formatTypeColumn(prop) {
 }
 
 // Adds proper markdown formatting to component's default value.
-function formatDefaultColumn(prop) {
+export function formatDefaultColumn(prop) {
   if (prop?.rnTags?.default) {
     // Parse from @default annotation
     let tableRows = '';
@@ -236,8 +233,3 @@ function formatDefaultColumn(prop) {
       : '';
   }
 }
-
-module.exports = {
-  formatTypeColumn,
-  formatDefaultColumn,
-};

@@ -5,13 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-'use strict';
-
 // Preprocess the react-docgen artifact before rendering it to Markdown.
 // This file may end up in the React Native repo, as part of the
 // `generate-api-docs` script.
 
-const tokenizeComment = require('tokenize-comment');
+import tokenizeComment from 'tokenize-comment';
 
 function preprocessTagsInDescription(obj) {
   if (obj && obj.description) {
@@ -54,7 +52,7 @@ function preprocessTagsInDescription(obj) {
 }
 
 // NOTE: This function mutates `docs`.
-function preprocessGeneratedApiDocs(docs) {
+export default function preprocessGeneratedApiDocs(docs) {
   for (const {component} of docs) {
     if (component.props && component.description) {
       for (const prop of Object.values(component.props)) {
@@ -66,5 +64,3 @@ function preprocessGeneratedApiDocs(docs) {
     }
   }
 }
-
-module.exports = preprocessGeneratedApiDocs;

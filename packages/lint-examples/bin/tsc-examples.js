@@ -8,7 +8,7 @@
  * @format
  */
 
-const lintExamples = require('../src/lintExamples');
+import lintExamples from '../src/lintExamples.js';
 
 lintExamples({
   command: 'tsc',

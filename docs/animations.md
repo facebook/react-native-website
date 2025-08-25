@@ -20,7 +20,7 @@ For example, a container view that fades in when it is mounted may look like thi
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
-```SnackPlayer ext=js
+```SnackPlayer ext=jsx
 import React, {useEffect, useRef} from 'react';
 import {Animated, Text, View} from 'react-native';
 
@@ -622,9 +622,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <View
-        style={[styles.box, {width: state.w, height: state.h}]}
-      />
+      <View style={[styles.box, {width: state.w, height: state.h}]} />
       <TouchableOpacity onPress={onPress}>
         <View style={styles.button}>
           <Text style={styles.buttonText}>Press me!</Text>

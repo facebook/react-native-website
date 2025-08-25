@@ -77,7 +77,7 @@ Don't forget to catch any errors that may be thrown by `fetch`, otherwise they w
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
-```SnackPlayer name=Fetch%20Example&ext=js
+```SnackPlayer name=Fetch%20Example&ext=jsx
 import React, {useEffect, useState} from 'react';
 import {ActivityIndicator, FlatList, Text, View} from 'react-native';
 

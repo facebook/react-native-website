@@ -7,20 +7,20 @@
  * @format
  */
 
-const {execSync} = require('child_process');
-const {promises: fs} = require('fs');
-const path = require('path');
-const glob = require('glob');
+import {execSync} from 'node:child_process';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import {glob} from 'glob';
 
 /**
  * The root document to search for documents
  */
-const documentsRoot = path.join(__dirname, '..', '..', '..', 'docs');
+const documentsRoot = path.join(import.meta.dirname, '..', '..', '..', 'docs');
 
 /**
  * The directory to output generated files to
  */
-const outputRoot = path.join(__dirname, '..', 'out');
+const outputRoot = path.join(import.meta.dirname, '..', 'out');
 
 /**
  * Process arguments to be forwarded to the linter
@@ -30,7 +30,7 @@ const processArgs = process.argv.slice(2);
 /**
  * Valid extensions for snack examples
  */
-const validExtensions = ['js', 'tsx'];
+const validExtensions = ['jsx', 'tsx'];
 
 /**
  * Extracts snack examples based on extension to output files, then runs an
@@ -54,7 +54,7 @@ async function lintExamples({command, args, extension, writeBack}) {
   }
 
   try {
-    const mappings = await extractExamples(extension ?? 'js');
+    const mappings = await extractExamples(extension ?? 'jsx');
     process.exitCode = await runLinter(command, args ?? []);
 
     if (writeBack) {
@@ -223,4 +223,4 @@ async function updateDocuments(mappings) {
   );
 }
 
-module.exports = lintExamples;
+export default lintExamples;

@@ -11,7 +11,7 @@ This is a controlled component that requires an `onValueChange` callback that up
 
 ## Example
 
-```SnackPlayer name=CheckBox%20Component%20Example&supportedPlatforms=android,web&ext=js
+```SnackPlayer name=CheckBox%20Component%20Example&supportedPlatforms=android,web&ext=jsx
 import React, {useState} from 'react';
 import {CheckBox, Text, StyleSheet, View} from 'react-native';
 

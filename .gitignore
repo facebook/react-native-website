@@ -19,10 +19,9 @@ node_modules
 
 *.tsbuildinfo
 
-scripts/lint-examples/out/
-
-sync-api-docs/generatedComponentApiDocs.js
-sync-api-docs/extracted.json
+packages/lint-examples/out/
+packages/sync-api-docs/generatedComponentApiDocs.js
+packages/sync-api-docs/extracted.json
 
 website/.docusaurus
 website/.cache-loader

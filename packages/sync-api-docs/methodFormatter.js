@@ -5,12 +5,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-'use strict';
+import magic from './magic.js';
+import {formatMultiplePlatform} from './utils.js';
 
-const magic = require('./magic');
-const {formatMultiplePlatform} = require('./utils');
-
-function formatMethodType(param) {
+export function formatMethodType(param) {
   let text, url;
   if (param?.type?.name === 'union') {
     if (param?.type?.alias) {
@@ -28,7 +26,7 @@ function formatMethodType(param) {
   }
 }
 
-function formatMethodName(param) {
+export function formatMethodName(param) {
   let tag = param.description;
   if (tag) {
     const isMatch = tag.match(/{@platform [a-z ,]*}/);
@@ -42,7 +40,7 @@ function formatMethodName(param) {
   return param.name;
 }
 
-function formatMethodDescription(param) {
+export function formatMethodDescription(param) {
   let tag = param.description;
   const isMatch = tag.match(/{@platform [a-z ,]*}/);
   if (isMatch) {
@@ -52,9 +50,3 @@ function formatMethodDescription(param) {
   }
   return tag;
 }
-
-module.exports = {
-  formatMethodType,
-  formatMethodName,
-  formatMethodDescription,
-};

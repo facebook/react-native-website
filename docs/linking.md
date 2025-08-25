@@ -131,7 +131,7 @@ You can handle these events with `Linking.getInitialURL()` - it returns a Promis
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
-```SnackPlayer name=Linking%20Example&supportedPlatforms=ios,android&ext=js
+```SnackPlayer name=Linking%20Example&supportedPlatforms=ios,android&ext=jsx
 import React, {useCallback} from 'react';
 import {Alert, Button, Linking, StyleSheet, View} from 'react-native';
 
@@ -237,7 +237,7 @@ export default App;
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
-```SnackPlayer name=Linking%20Example&supportedPlatforms=ios,android&ext=js
+```SnackPlayer name=Linking%20Example&supportedPlatforms=ios,android&ext=jsx
 import React, {useCallback} from 'react';
 import {Button, Linking, StyleSheet, View} from 'react-native';
 
@@ -316,7 +316,7 @@ export default App;
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
-```SnackPlayer name=Linking%20Example&supportedPlatforms=ios,android&ext=js
+```SnackPlayer name=Linking%20Example&supportedPlatforms=ios,android&ext=jsx
 import React, {useState, useEffect} from 'react';
 import {Linking, StyleSheet, Text, View} from 'react-native';
 
@@ -429,7 +429,7 @@ export default App;
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
-```SnackPlayer name=Linking%20Example&supportedPlatforms=android&ext=js
+```SnackPlayer name=Linking%20Example&supportedPlatforms=android&ext=jsx
 import React, {useCallback} from 'react';
 import {Alert, Button, Linking, StyleSheet, View} from 'react-native';
 

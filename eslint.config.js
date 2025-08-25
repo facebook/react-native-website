@@ -20,10 +20,7 @@ export default defineConfig([
   globalIgnores([
     '**/.yarn',
     '**/node_modules',
-    // TODO(simek): move `lint-examples` to 'packages' directory, refactor ESLint setup
-    'scripts/lint-examples/out',
-    // TODO(simek): move `sync-api-docs` to 'packages' directory, refactor ESLint setup
-    'sync-api-docs',
+    'packages/lint-examples/out',
     'website/.docusaurus',
     'website/build',
     'website/static',
@@ -48,7 +45,7 @@ export default defineConfig([
   },
 
   {
-    files: ['**/*.js', '**/*.mjs'],
+    files: ['**/*.{js,mjs}'],
     ...eslintJs.configs.recommended,
     rules: {
       'no-unused-vars': 'off',
@@ -56,7 +53,7 @@ export default defineConfig([
   },
 
   {
-    files: ['**/*.ts', '**/*.tsx', '**/*.d.ts'],
+    files: ['**/*.{ts,tsx,d.ts}'],
     settings: {
       'import/resolver': {
         typescript: {
@@ -99,7 +96,7 @@ export default defineConfig([
   },
 
   {
-    files: ['**/*.md', '**/*.mdx'],
+    files: ['**/*.{md,mdx}'],
     ...eslintPluginMdx.flat,
     processor: eslintPluginMdx.createRemarkProcessor({
       lintCodeBlocks: false,

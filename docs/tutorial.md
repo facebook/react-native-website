@@ -66,7 +66,7 @@ Your own components can also use `props`. This lets you make a single component 
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
-```SnackPlayer name=Hello%20Props&ext=js
+```SnackPlayer name=Hello%20Props&ext=jsx
 import React from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 

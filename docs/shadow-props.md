@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import con
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
-```SnackPlayer name=Shadow%20Props&supportedPlatforms=ios&ext=js&dependencies=@react-native-community/slider
+```SnackPlayer name=Shadow%20Props&supportedPlatforms=ios&ext=jsx&dependencies=@react-native-community/slider
 import React, {useState} from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';

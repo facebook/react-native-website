@@ -7,9 +7,8 @@
   },
   "workspaces": [
     "website",
-    "plugins/*",
-    "scripts/*",
-    "sync-api-docs"
+    "packages/*",
+    "plugins/*"
   ],
   "scripts": {
     "update-lock": "yarn dedupe",
@@ -20,8 +19,8 @@
     "serve": "yarn --cwd website serve",
     "prepare": "husky",
     "lint": "eslint .",
+    "lint:packages": "eslint ./packages",
     "lint:plugins": "eslint ./plugins",
-    "lint:scripts": "eslint ./scripts",
     "lint:website": "eslint ./website",
     "check-dependencies": "manypkg check"
   },

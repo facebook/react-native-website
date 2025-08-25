@@ -92,7 +92,7 @@ Any JavaScript expression will work between curly braces, including function cal
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
-```SnackPlayer name=Curly%20Braces&ext=js
+```SnackPlayer name=Curly%20Braces&ext=jsx
 import React from 'react';
 import {Text} from 'react-native';
 
@@ -226,7 +226,7 @@ You can put as many cats in your cafe as you like. Each `<Cat>` renders a unique
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
-```SnackPlayer name=Multiple%20Props&ext=js
+```SnackPlayer name=Multiple%20Props&ext=jsx
 import React from 'react';
 import {Text, View} from 'react-native';
 
@@ -332,7 +332,7 @@ You can add state to a component by calling [React’s `useState` Hook](https://
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
-```SnackPlayer name=State&ext=js
+```SnackPlayer name=State&ext=jsx
 import React, {useState} from 'react';
 import {Button, Text, View} from 'react-native';
 
