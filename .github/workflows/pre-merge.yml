@@ -19,7 +19,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-          cache: yarn
+      #          cache: yarn
 
       - name: Check lock for duplications
         run: yarn dedupe --check
@@ -29,22 +29,6 @@ jobs:
 
       - name: Check dependencies alignment
         run: yarn check-dependencies
-
-      - name: "[TEMP] Debug bins"
-        run: |
-          yarn workspaces foreach \
-            --all \
-            --parallel \
-            --topological \
-            exec sh -c '
-            test -f package.json || exit 0
-            jq -r "
-            .bin?
-            | to_entries[]
-            | \"\(.key) → \(.value)\"
-            " package.json \
-              | sed "s|^|$(pwd)/|"
-            '
 
       - name: Run Lint
         run: yarn ci:lint
