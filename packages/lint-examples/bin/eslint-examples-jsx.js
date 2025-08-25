@@ -10,6 +10,8 @@
 
 import lintExamples from '../src/lintExamples.js';
 
+console.log('Linting JSX docs code examples...');
+
 lintExamples({
   command: 'eslint',
   args: ['--max-warnings=0', '.'],

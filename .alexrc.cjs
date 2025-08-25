@@ -8,29 +8,29 @@
 exports.allow = [
   // We frequently refer to form props by their name "disabled".
   // Ideally we would alex-ignore only the valid uses (PRs accepted).
-  'invalid',
+  "invalid",
 
   // Unfortunately "watchman" is a library name that we depend on.
-  'watchman-watchwoman',
+  "watchman-watchwoman",
 
   // ignore rehab rule, Detox is an e2e testing library
-  'rehab',
+  "rehab",
 
   // host refers to host objects in native code
-  'host-hostess',
+  "host-hostess",
 
   // allowing this term to prevent reporting "primitive", which is a programming term
-  'savage',
+  "savage",
 
   // allowing this term, since it seems to be used not in insensitive cases
-  'straightforward',
+  "straightforward",
 
   // allowing those terms, since they refer to colors and the surname of one of core contributors
-  'black',
-  'white',
+  "black",
+  "white",
 
   // allowing this term, since we use it for expressing gratitude for certain contributors
-  'special',
+  "special",
 ];
 
 // Use a "maybe" level of profanity instead of the default "unlikely".

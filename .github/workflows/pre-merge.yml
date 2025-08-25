@@ -32,7 +32,6 @@ jobs:
 
       - name: Run Lint
         run: yarn ci:lint
-        working-directory: website
 
   build:
     runs-on: ubuntu-latest

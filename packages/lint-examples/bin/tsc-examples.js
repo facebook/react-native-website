@@ -10,6 +10,8 @@
 
 import lintExamples from '../src/lintExamples.js';
 
+console.log('Typechecking TSX docs code examples...');
+
 lintExamples({
   command: 'tsc',
   extension: 'tsx',

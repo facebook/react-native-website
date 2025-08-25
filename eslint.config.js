@@ -45,7 +45,7 @@ export default defineConfig([
   },
 
   {
-    files: ['**/*.{js,mjs}'],
+    files: ['**/*.{js,mjs,cjs}'],
     ...eslintJs.configs.recommended,
     rules: {
       'no-unused-vars': 'off',
