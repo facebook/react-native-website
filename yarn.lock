@@ -3899,7 +3899,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-native-website/lint-examples@workspace:packages/lint-examples":
+"@react-native-website/lint-examples@npm:*, @react-native-website/lint-examples@workspace:packages/lint-examples":
   version: 0.0.0-use.local
   resolution: "@react-native-website/lint-examples@workspace:packages/lint-examples"
   dependencies:
@@ -3959,6 +3959,7 @@ __metadata:
     dedent: "npm:^1.5.3"
     object.fromentries: "npm:^2.0.3"
     remark: "npm:^15.0.1"
+    remark-mdx: "npm:^3.1.0"
     tape: "npm:^5.7.0"
     unist-util-visit-parents: "npm:^3.1.1"
   languageName: unknown
@@ -5116,16 +5117,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/fs-extra@npm:^11.0.4":
-  version: 11.0.4
-  resolution: "@types/fs-extra@npm:11.0.4"
-  dependencies:
-    "@types/jsonfile": "npm:*"
-    "@types/node": "npm:*"
-  checksum: 10c0/9e34f9b24ea464f3c0b18c3f8a82aefc36dc524cc720fc2b886e5465abc66486ff4e439ea3fb2c0acebf91f6d3f74e514f9983b1f02d4243706bdbb7511796ad
-  languageName: node
-  linkType: hard
-
 "@types/google.analytics@npm:^0.0.46":
   version: 0.0.46
   resolution: "@types/google.analytics@npm:0.0.46"
@@ -5240,15 +5231,6 @@ __metadata:
   version: 7.0.15
   resolution: "@types/json-schema@npm:7.0.15"
   checksum: 10c0/a996a745e6c5d60292f36731dd41341339d4eeed8180bb09226e5c8d23759067692b1d88e5d91d72ee83dfc00d3aca8e7bd43ea120516c17922cbcb7c3e252db
-  languageName: node
-  linkType: hard
-
-"@types/jsonfile@npm:*":
-  version: 6.1.4
-  resolution: "@types/jsonfile@npm:6.1.4"
-  dependencies:
-    "@types/node": "npm:*"
-  checksum: 10c0/b12d068b021e4078f6ac4441353965769be87acf15326173e2aea9f3bf8ead41bd0ad29421df5bbeb0123ec3fc02eb0a734481d52903704a1454a1845896b9eb
   languageName: node
   linkType: hard
 
@@ -9850,7 +9832,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fs-extra@npm:^11.1.1, fs-extra@npm:^11.2.0, fs-extra@npm:^11.3.1":
+"fs-extra@npm:^11.1.1, fs-extra@npm:^11.2.0":
   version: 11.3.1
   resolution: "fs-extra@npm:11.3.1"
   dependencies:
@@ -17315,6 +17297,7 @@ __metadata:
     "@eslint/css": "npm:^0.10.0"
     "@eslint/js": "npm:^9.33.0"
     "@manypkg/cli": "npm:^0.25.0"
+    "@react-native-website/lint-examples": "npm:*"
     "@typescript-eslint/parser": "npm:^8.40.0"
     eslint: "npm:^9.33.0"
     eslint-config-prettier: "npm:^10.1.8"
@@ -17342,14 +17325,12 @@ __metadata:
     "@docusaurus/preset-classic": "npm:3.8.1"
     "@docusaurus/tsconfig": "npm:3.8.1"
     "@docusaurus/types": "npm:3.8.1"
-    "@types/fs-extra": "npm:^11.0.4"
     "@types/google.analytics": "npm:^0.0.46"
     "@types/react": "npm:^19.1.10"
     alex: "npm:^11.0.1"
     case-police: "npm:^1.0.0"
     docusaurus-plugin-sass: "npm:^0.2.6"
     eslint: "npm:^9.33.0"
-    fs-extra: "npm:^11.3.1"
     glob: "npm:^11.0.0"
     prettier: "npm:^3.6.2"
     react: "npm:^19.1.1"
