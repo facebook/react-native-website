@@ -5,17 +5,19 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+// Forked from: https://github.com/davidtheclark/remark-lint-no-dead-urls
+
 import {URL} from 'node:url';
 import {lintRule} from 'unified-lint-rule';
 import {visit} from 'unist-util-visit';
-import {fetch} from './lib.js';
 
-// Forked from: https://github.com/davidtheclark/remark-lint-no-dead-urls
+import {fetch} from './lib.js';
 
 const linkCache = new Map();
 
 const HTTP = {
   OK: 200,
+  FOUND: 302,
   NOT_FOUND: 404,
   TOO_MANY_REQUESTS: 429,
 };
@@ -99,7 +101,7 @@ async function noDeadUrls(ast, file, options = {}) {
     const [url, statusCode] = value;
     const nodes = urlToNodes.get(url) ?? [];
 
-    if (statusCode === HTTP.OK) {
+    if (statusCode === HTTP.OK || statusCode === HTTP.FOUND) {
       continue;
     }
 

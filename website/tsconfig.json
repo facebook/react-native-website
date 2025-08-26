@@ -1,8 +1,7 @@
 {
   "extends": "@docusaurus/tsconfig",
   "compilerOptions": {
-    "baseUrl": ".",
-    "allowImportingTsExtensions": true
+    "baseUrl": "."
   },
   "exclude": ["node_modules", "build"]
 }
