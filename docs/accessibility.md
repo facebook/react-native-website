@@ -381,7 +381,7 @@ then the new order will be `B` then `A`, even though `C` is still in `experiment
 </View>
 ```
 
-The order of the above example would be `B`, `C`, `A`. `D` will never get focused. In this sense `experimental_accessibilityOrder` is *exhaustive*.
+The order of the above example would be `B`, `C`, `A`. `D` will never get focused. In this sense `experimental_accessibilityOrder` is _exhaustive_.
 
 There are still valid reasons to include an non-accessible component in `experimental_accessibilityOrder`. Consider
 
@@ -397,7 +397,7 @@ There are still valid reasons to include an non-accessible component in `experim
 </View>
 ```
 
-The focus order will be `B`, `D`, `E`, `F`, `A`. Even though `D`, `E`, and `F` are not directly referenced in `experimental_accessibilityOrder`, `C` is directly referenced. In this instance `C` in an *accessibility container* - it contains accessible elements, but is not accessible itself. If an accessibility container is referenced in `experimental_accessibilityOrder` then the default order of the elements it contains is applied. In this sense `experimental_accessibilityOrder` is *nestable*.
+The focus order will be `B`, `D`, `E`, `F`, `A`. Even though `D`, `E`, and `F` are not directly referenced in `experimental_accessibilityOrder`, `C` is directly referenced. In this instance `C` in an _accessibility container_ - it contains accessible elements, but is not accessible itself. If an accessibility container is referenced in `experimental_accessibilityOrder` then the default order of the elements it contains is applied. In this sense `experimental_accessibilityOrder` is _nestable_.
 
 `experimental_accessibilityOrder` can also reference another component with `experimental_accessibilityOrder`
 
@@ -430,7 +430,6 @@ A component cannot be both an accessibility container and an accessibility eleme
 ```
 
 The focus order would be `B`, `C`, `A`. `D`, `E`, and `F` are no longer in a container, so the exhaustive nature of `experimental_accessibilityOrder` means they will be excluded.
-
 
 ### `importantForAccessibility` <div className="label android">Android</div>
 
