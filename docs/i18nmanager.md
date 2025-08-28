@@ -24,12 +24,13 @@ const App = () => {
   return (
     <SafeAreaProvider>
       <SafeAreaView>
-        <View style={{ position: 'absolute', left: isRTL ? undefined : 0, right: isRTL ? 0 : undefined }}>
-          {isRTL ? (
-            <Text>Back &gt;</Text>
-          ) : (
-            <Text>&lt; Back</Text>
-          )}
+        <View
+          style={{
+            position: 'absolute',
+            left: isRTL ? undefined : 0,
+            right: isRTL ? 0 : undefined,
+          }}>
+          {isRTL ? <Text>Back &gt;</Text> : <Text>&lt; Back</Text>}
         </View>
       </SafeAreaView>
     </SafeAreaProvider>
@@ -54,16 +55,19 @@ const App = () => {
         <View style={styles.container}>
           <View style={styles.forceRtl}>
             <Text>Force RTL in Development:</Text>
-            <Switch value={rtl} onValueChange={(value) => {
-              setRTL(value);
-              I18nManager.forceRTL(value);
-              Alert.alert(
-                'Reload this page',
-                'Please reload this page to change the UI direction! ' +
-                  'All examples in this app will be affected. ' +
-                  'Check them out to see what they look like in RTL layout.',
-              );
-            }} />
+            <Switch
+              value={rtl}
+              onValueChange={value => {
+                setRTL(value);
+                I18nManager.forceRTL(value);
+                Alert.alert(
+                  'Reload this page',
+                  'Please reload this page to change the UI direction! ' +
+                    'All examples in this app will be affected. ' +
+                    'Check them out to see what they look like in RTL layout.',
+                );
+              }}
+            />
           </View>
         </View>
       </SafeAreaView>

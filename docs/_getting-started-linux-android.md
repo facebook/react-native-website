@@ -18,7 +18,7 @@ Setting up your development environment can be somewhat tedious if you're new to
 
 <h4 id="android-studio">1. Install Android Studio</h4>
 
-[Download and install Android Studio](https://developer.android.com/studio/index.html). While on Android Studio installation wizard, make sure the boxes next to all of the following items are checked:
+[Download and install Android Studio](https://developer.android.com/studio). While on Android Studio installation wizard, make sure the boxes next to all of the following items are checked:
 
 - `Android SDK`
 - `Android SDK Platform`

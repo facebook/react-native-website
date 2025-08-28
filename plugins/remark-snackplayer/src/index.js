@@ -7,8 +7,8 @@
 
 'use strict';
 
-const visit = require('unist-util-visit-parents');
-const fromEntries = require('object.fromentries');
+import visit from 'unist-util-visit-parents';
+import fromEntries from 'object.fromentries';
 
 const parseParams = (paramString = '') => {
   const params = fromEntries(new URLSearchParams(paramString));
@@ -84,7 +84,7 @@ async function toJsxNode(node) {
   Object.keys(jsxNode).forEach(key => (node[key] = jsxNode[key]));
 }
 
-const SnackPlayer = () => {
+export default function SnackPlayer() {
   return async tree => {
     const nodesToProcess = [];
     visit(tree, 'code', (node, parent) => {
@@ -94,6 +94,4 @@ const SnackPlayer = () => {
     });
     await Promise.all(nodesToProcess);
   };
-};
-
-module.exports = SnackPlayer;
+}

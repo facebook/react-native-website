@@ -40,7 +40,7 @@ Members of the React Native team at Meta aim to review pull requests quickly and
 
 ## How does a PR get merged?
 
-The React Native GitHub repository is actually a mirror of a subdirectory from one of Meta's monorepos. Pull requests are therefore not merged in the traditional sense. Instead, they need to be imported into Meta's internal code review system as a ["diff"](https://www.phacility.com/phabricator/differential/). 
+The React Native GitHub repository is actually a mirror of a subdirectory from one of Meta's monorepos. Pull requests are therefore not merged in the traditional sense. Instead, they need to be imported into Meta's internal code review system as a ["diff"](https://www.phacility.com/phabricator/differential/).
 
 Once imported, the changes will go through a suite of tests. Some of these tests are land-blocking, meaning they need to succeed before the contents of the diff can be merged. Meta always runs React Native from `main` and some changes may require a Facebook employee to attach internal changes to your pull request before it can be merged. For example, if you rename a module name, all Facebook internal callsites have to be updated in the same change in order to merge it. If the diff lands successfully, the changes will eventually get synced back to GitHub by [ShipIt](https://github.com/facebook/fbshipit) as a single commit.
 
