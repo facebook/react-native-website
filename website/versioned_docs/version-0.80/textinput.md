@@ -65,12 +65,10 @@ const MultilineTextInputExample = () => {
   return (
     <SafeAreaProvider>
       <SafeAreaView
-        style={[
-          styles.container,
-          {
-            backgroundColor: value,
-          },
-        ]}>
+        style={{
+          flex: 1,
+          backgroundColor: value.toLowerCase(),
+        }}>
         <TextInput
           editable
           multiline
@@ -86,12 +84,11 @@ const MultilineTextInputExample = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    borderBottomColor: '#000',
-    borderBottomWidth: 1,
-  },
   textInput: {
     padding: 10,
+    borderColor: '#000',
+    borderWidth: 1,
+    margin: 12,
   },
 });
 
