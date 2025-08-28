@@ -337,6 +337,100 @@ Indicates whether a selectable element is currently selected or not.
 | ------- |
 | boolean |
 
+### `experimental_accessibilityOrder`
+
+:::important Experimental ⚗️
+**This API is experimental.** Experimental APIs may contain bugs and are likely to change in a future version of React Native. Don't use them in production.
+:::
+:::note
+For the sake of brevity, layout is excluded in the following examples even though it dictates the default focus order. Assume the document order matches the layout order.
+:::
+
+`experimental_accessibilityOrder` lets you define the order in which assistive technologies focus descendant components. It is an array of [`nativeIDs`](view.md#nativeid) that are set on the components whose order you are controlling. For example:
+
+```
+<View experimental_accessibilityOrder={['B', 'C', 'A']}>
+  <View accessible={true} nativeID="A"/>
+  <View accessible={true} nativeID="B"/>
+  <View accessible={true} nativeID="C"/>
+</View>
+```
+
+Assistive technologies will focus the `View` with `nativeID` of `B`, then `C`, then `A`.
+
+`experimental_accessibilityOrder` will not “turn on” accessibility for the components it references, that still needs to be done. So if we remove `accessible={true}` on `C` above like so
+
+```
+<View experimental_accessibilityOrder={['B', 'C', 'A']}>
+  <View accessible={true} nativeID="A"/>
+  <View accessible={true} nativeID="B"/>
+  <View nativeID="C"/>
+</View>
+```
+
+then the new order will be `B` then `A`, even though `C` is still in `experimental_accessibilityOrder`.
+
+`experimental_accessibilityOrder` will “turn off” accessibility of components it doesn’t reference, however.
+
+```
+<View experimental_accessibilityOrder={['B', 'C', 'A']}>
+  <View accessible={true} nativeID="A"/>
+  <View accessible={true} nativeID="B"/>
+  <View accessible={true} nativeID="C"/>
+  <View accessible={true} nativeID="D"/>
+</View>
+```
+
+The order of the above example would be `B`, `C`, `A`. `D` will never get focused. In this sense `experimental_accessibilityOrder` is _exhaustive_.
+
+There are still valid reasons to include an non-accessible component in `experimental_accessibilityOrder`. Consider
+
+```
+<View experimental_accessibilityOrder={['B', 'C', 'A']}>
+  <View accessible={true} nativeID="A"/>
+  <View accessible={true} nativeID="B"/>
+  <View nativeID="C">
+    <View accessible={true} nativeID="D"/>
+    <View accessible={true} nativeID="E"/>
+    <View accessible={true} nativeID="F"/>
+  </View>
+</View>
+```
+
+The focus order will be `B`, `D`, `E`, `F`, `A`. Even though `D`, `E`, and `F` are not directly referenced in `experimental_accessibilityOrder`, `C` is directly referenced. In this instance `C` in an _accessibility container_ - it contains accessible elements, but is not accessible itself. If an accessibility container is referenced in `experimental_accessibilityOrder` then the default order of the elements it contains is applied. In this sense `experimental_accessibilityOrder` is _nestable_.
+
+`experimental_accessibilityOrder` can also reference another component with `experimental_accessibilityOrder`
+
+```
+<View experimental_accessibilityOrder={['B', 'C', 'A']}>
+  <View accessible={true} nativeID="A"/>
+  <View accessible={true} nativeID="B"/>
+  <View nativeID="C" experimental_accessibilityOrder={['F', 'E', 'D']}>
+    <View accessible={true} nativeID="D"/>
+    <View accessible={true} nativeID="E"/>
+    <View accessible={true} nativeID="F"/>
+  </View>
+</View>
+```
+
+The focus order will be `B`, `F`, `E`, `D`, `A`.
+
+A component cannot be both an accessibility container and an accessibility element (`accessible={true}`). So if we have
+
+```
+<View experimental_accessibilityOrder={['B', 'C', 'A']}>
+  <View accessible={true} nativeID="A"/>
+  <View accessible={true} nativeID="B"/>
+  <View accessible={true} nativeID="C" experimental_accessibilityOrder={['F', 'E', 'D']}>
+    <View accessible={true} nativeID="D"/>
+    <View accessible={true} nativeID="E"/>
+    <View accessible={true} nativeID="F"/>
+  </View>
+</View>
+```
+
+The focus order would be `B`, `C`, `A`. `D`, `E`, and `F` are no longer in a container, so the exhaustive nature of `experimental_accessibilityOrder` means they will be excluded.
+
 ### `importantForAccessibility` <div className="label android">Android</div>
 
 In the case of two overlapping UI components with the same parent, default accessibility focus can have unpredictable behavior. The `importantForAccessibility` property will resolve this by controlling if a view fires accessibility events and if it is reported to accessibility services. It can be set to `auto`, `yes`, `no` and `no-hide-descendants` (the last value will force accessibility services to ignore the component and all of its children).

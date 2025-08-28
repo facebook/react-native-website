@@ -383,6 +383,25 @@ Setting to false prevents direct children of the view from being removed from th
 
 ---
 
+### `experimental_accessibilityOrder`
+
+:::important Experimental ⚗️
+**This API is experimental.** Experimental APIs may contain bugs and are likely to change in a future version of React Native. Don't use them in production.
+:::
+
+`experimental_accessibilityOrder` indicates the order in which an assistive technology focuses descendants of this `View`. This prop takes an array of strings where each string is a [`nativeID`](view.md#nativeid) of some descendant component whose order is being defined. This prop does not enable accessibility itself, each referenced component still needs to be accessible by setting [`accessible`](view.md#accessible) to true. This prop is both **nestable** and **exhaustive** meaning
+
+- If `experimental_accessibilityOrder` contains a reference to some non-accessible component, it will focus the descendants of that component in the default order. Additionally, it can also contain a reference to other components that also have an `experimental_accessibilityOrder`.
+- If some component that is otherwise accessible is not directly referenced in `experimental_accessibilityOrder`, or nested within some container directly referenced in `experimental_accessibilityOrder`, then it will not be accessible.
+
+See the [accessibility guide](accessibility.md#experimental_accessibilityorder) for more information.
+
+| Type             |
+| ---------------- |
+| array of strings |
+
+---
+
 ### `focusable` <div className="label android">Android</div>
 
 Whether this `View` should be focusable with a non-touch input device, eg. receive focus with a hardware keyboard.
