@@ -518,7 +518,11 @@ html[data-theme="dark"] article .badge {
 .admonition,
 .theme-admonition {
   font-size: var(--ifm-blockquote-font-size);
-  margin-bottom: 1.5rem !important;
+  margin-bottom: var(--ifm-paragraph-margin-bottom);
+  padding: 28px;
+  border-radius: 20px;
+  border: 1px solid var(--ifm-alert-background-color-highlight);
+  box-shadow: none;
 
   div[class^="admonitionContent"] {
     a {
@@ -531,23 +535,40 @@ html[data-theme="dark"] article .badge {
     }
   }
 
+  span[class^="admonitionIcon"] svg {
+    max-width: 20px;
+    max-height: 20px;
+    fill: hsl(from var(--ifm-alert-border-color) h calc(s + 30) calc(l - 20));
+  }
+
   div[class^="admonitionHeading"] {
-    font-size: 14px;
+    font-size: 18px;
+    margin-bottom: 12px;
+    color: hsl(from var(--ifm-alert-border-color) h calc(s + 30) calc(l - 20));
   }
 }
 
-.alert--warning {
-  background-color: var(--rn-note-background);
-}
-
 .alert--secondary {
+  --ifm-alert-border-color: hsl(from var(--light) h calc(s - 20) calc(l + 30));
   --ifm-alert-background-color: var(--ifm-color-secondary-lightest);
   --ifm-alert-background-color-highlight: rgba(225, 227, 230, 0.7);
 }
 
-html[data-theme="dark"] .alert--secondary {
-  --ifm-alert-background-color: var(--ifm-color-secondary-contrast-background);
-  --ifm-alert-background-color-highlight: rgba(225, 227, 230, 0.15);
+html[data-theme="dark"] {
+  span[class^="admonitionIcon"] svg {
+    fill: hsl(from var(--ifm-alert-border-color) h calc(s + 10) calc(l + 10));
+  }
+
+  div[class^="admonitionHeading"] {
+    color: hsl(from var(--ifm-alert-border-color) h calc(s + 10) calc(l + 10));
+  }
+
+  .alert--secondary {
+    --ifm-alert-background-color: var(
+      --ifm-color-secondary-contrast-background
+    );
+    --ifm-alert-background-color-highlight: rgba(225, 227, 230, 0.15);
+  }
 }
 
 /* Home page */
