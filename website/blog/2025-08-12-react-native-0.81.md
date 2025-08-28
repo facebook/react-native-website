@@ -69,7 +69,7 @@ Please provide feedback in [this GitHub discussion](https://github.com/react-nat
 There are two limitations we are already aware of, and are working to resolve:
 
 - In precompiled builds, you cannot debug and step into React Native's internals. You can still debug your _own_ native code while using a precompiled version of React Native.
-- Prebuilds are not supported in Xcode 26 Beta, because the IDE builds all targets with [Swift explicit modules](https://developer.apple.com/documentation/xcode-release-notes/xcode-26-release-notes#Resolved-Issues-in-Xcode-26-Beta:~:text=Starting%20from%20Xcode%2026%2C%20Swift%20explicit%20modules%20will%20be%20the%20default%20mode%20for%20building%20all%20Swift%20targets)) enabled. To use precompiled builds with Xcode 26, set the `SWIFT_ENABLE_EXPLICIT_MODULES` flag to `NO` in your Xcode project. We will address this in an upcoming patch release.
+- Prebuilds are not supported in Xcode 26 Beta, because the IDE builds all targets with [Swift explicit modules](https://developer.apple.com/documentation/xcode-release-notes/xcode-26-release-notes#Resolved-Issues-in-Xcode-26-Beta:~:text=Starting%20from%20Xcode%2026%2C%20Swift%20explicit%20modules%20will%20be%20the%20default%20mode%20for%20building%20all%20Swift%20targets) enabled. To use precompiled builds with Xcode 26, set the `SWIFT_ENABLE_EXPLICIT_MODULES` flag to `NO` in your Xcode project. We will address this in an upcoming patch release.
 
 You can read more about this feature in Expo’s full blog post, [Precompiled React Native for iOS: Faster builds are coming in 0.81](https://expo.dev/blog/precompiled-react-native-for-ios).
 
