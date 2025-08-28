@@ -14,7 +14,7 @@ It is possible to have multiple `StatusBar` components mounted at the same time.
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
-```SnackPlayer name=StatusBar%20Component%20Example&supportedPlatforms=android,ios&ext=jsx
+```SnackPlayer name=StatusBar%20Component%20Example&supportedPlatforms=android,ios&ext=js
 import React, {useState} from 'react';
 import {
   Button,

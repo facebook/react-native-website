@@ -14,7 +14,7 @@ Virtualization massively improves memory consumption and performance of large li
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
-```SnackPlayer name=VirtualizedListExample&ext=jsx
+```SnackPlayer name=VirtualizedListExample&ext=js
 import React from 'react';
 import {View, VirtualizedList, StyleSheet, Text, StatusBar} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';

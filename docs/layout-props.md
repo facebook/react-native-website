@@ -14,7 +14,7 @@ The following example shows how different properties can affect or shape a React
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
-```SnackPlayer name=LayoutProps%20Example&ext=jsx
+```SnackPlayer name=LayoutProps%20Example&ext=js
 import React, {useState} from 'react';
 import {Button, ScrollView, StyleSheet, Text, View} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';

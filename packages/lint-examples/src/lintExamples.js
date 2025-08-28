@@ -30,7 +30,7 @@ const processArgs = process.argv.slice(2);
 /**
  * Valid extensions for snack examples
  */
-const validExtensions = ['jsx', 'tsx'];
+const validExtensions = ['js', 'tsx'];
 
 /**
  * Extracts snack examples based on extension to output files, then runs an
@@ -54,7 +54,7 @@ async function lintExamples({command, args, extension, writeBack}) {
   }
 
   try {
-    const mappings = await extractExamples(extension ?? 'jsx');
+    const mappings = await extractExamples(extension === 'tsx' ? 'tsx' : 'jsx');
     process.exitCode = await runLinter(command, args ?? []);
 
     if (writeBack) {

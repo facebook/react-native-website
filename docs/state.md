@@ -14,7 +14,7 @@ For example, let's say we want to make text that blinks all the time. The text i
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
-```SnackPlayer name=State&ext=jsx
+```SnackPlayer name=State&ext=js
 import React, {useState, useEffect} from 'react';
 import {Text, View} from 'react-native';
 

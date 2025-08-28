@@ -66,7 +66,7 @@ Composite components are not backed by a native view, so you cannot call `setNat
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
-```SnackPlayer name=setNativeProps%20with%20Composite%20Components&ext=jsx
+```SnackPlayer name=setNativeProps%20with%20Composite%20Components&ext=js
 import React from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 
@@ -119,7 +119,7 @@ Since the `setNativeProps` method exists on any ref to a `View` component, it is
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
-```SnackPlayer name=Forwarding%20setNativeProps&ext=jsx
+```SnackPlayer name=Forwarding%20setNativeProps&ext=js
 import React from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 
@@ -174,7 +174,7 @@ Another very common use case of `setNativeProps` is to edit the value of the Tex
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
-```SnackPlayer name=Clear%20text&ext=jsx
+```SnackPlayer name=Clear%20text&ext=js
 import React from 'react';
 import {useCallback, useRef} from 'react';
 import {
@@ -319,7 +319,7 @@ This method can also be called with a `relativeToNativeNode` handler (instead of
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
-```SnackPlayer name=measureLayout%20example&supportedPlatforms=android,ios&ext=jsx
+```SnackPlayer name=measureLayout%20example&supportedPlatforms=android,ios&ext=js
 import React, {useEffect, useRef, useState} from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 

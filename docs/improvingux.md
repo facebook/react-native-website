@@ -20,7 +20,7 @@ Check out [`TextInput` docs](textinput.md) for more configuration options.
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
-```SnackPlayer name=TextInput%20form%20example&ext=jsx
+```SnackPlayer name=TextInput%20form%20example&ext=js
 import React, {useState, useRef} from 'react';
 import {
   Alert,
@@ -215,7 +215,7 @@ Software keyboard takes almost half of the screen. If you have interactive eleme
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
-```SnackPlayer name=KeyboardAvoidingView%20example&ext=jsx
+```SnackPlayer name=KeyboardAvoidingView%20example&ext=js
 import React, {useState, useRef} from 'react';
 import {
   Alert,

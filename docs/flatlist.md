@@ -25,7 +25,7 @@ If you need section support, use [`<SectionList>`](sectionlist.md).
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
-```SnackPlayer name=Simple%20FlatList%20Example&ext=jsx
+```SnackPlayer name=Simple%20FlatList%20Example&ext=js
 import React from 'react';
 import {View, FlatList, StyleSheet, Text, StatusBar} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
@@ -157,7 +157,7 @@ More complex, selectable example below.
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
-```SnackPlayer name=flatlist-selectable&ext=jsx
+```SnackPlayer name=flatlist-selectable&ext=js
 import React, {useState} from 'react';
 import {
   FlatList,

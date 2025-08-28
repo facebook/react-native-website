@@ -68,7 +68,7 @@ You can learn more [here](https://www.yogalayout.dev/docs/styling/flex-direction
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
-```SnackPlayer name=Flex%20Direction&ext=jsx
+```SnackPlayer name=Flex%20Direction&ext=js
 import React, {useState} from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
@@ -285,7 +285,7 @@ Layout [`direction`](layout-props#direction) specifies the direction in which ch
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
-```SnackPlayer name=Flex%20Direction&ext=jsx
+```SnackPlayer name=Flex%20Direction&ext=js
 import React, {useState} from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 
@@ -512,7 +512,7 @@ You can learn more [here](https://www.yogalayout.dev/docs/styling/justify-conten
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
-```SnackPlayer name=Justify%20Content&ext=jsx
+```SnackPlayer name=Justify%20Content&ext=js
 import React, {useState} from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 
@@ -755,7 +755,7 @@ You can learn more [here](https://www.yogalayout.dev/docs/styling/align-items-se
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
-```SnackPlayer name=Align%20Items&ext=jsx
+```SnackPlayer name=Align%20Items&ext=js
 import React, {useState} from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 
@@ -988,7 +988,7 @@ export default AlignItemsLayout;
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
-```SnackPlayer name=Align%20Self&ext=jsx
+```SnackPlayer name=Align%20Self&ext=js
 import React, {useState} from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 
@@ -1240,7 +1240,7 @@ You can learn more [here](https://www.yogalayout.dev/docs/styling/align-content)
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
-```SnackPlayer name=Align%20Content&ext=jsx
+```SnackPlayer name=Align%20Content&ext=js
 import React, {useState} from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 
@@ -1481,7 +1481,7 @@ When wrapping lines, `alignContent` can be used to specify how the lines are pla
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
-```SnackPlayer name=Flex%20Wrap&ext=jsx
+```SnackPlayer name=Flex%20Wrap&ext=js
 import React, {useState} from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 
@@ -1712,7 +1712,7 @@ You can learn more [here](https://www.yogalayout.dev/docs/styling/flex-basis-gro
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
-```SnackPlayer name=Flex%20Basis%2C%20Grow%2C%20and%20Shrink&ext=jsx
+```SnackPlayer name=Flex%20Basis%2C%20Grow%2C%20and%20Shrink&ext=js
 import React, {useState} from 'react';
 import {View, Text, TextInput, StyleSheet} from 'react-native';
 
@@ -2085,7 +2085,7 @@ You can use `flexWrap` and `alignContent` along with `gap` to add consistent spa
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
-```SnackPlayer name=Row%20Gap%20and%20Column%20Gap&ext=jsx
+```SnackPlayer name=Row%20Gap%20and%20Column%20Gap&ext=js
 import React, {useState} from 'react';
 import {View, Text, StyleSheet, TextInput} from 'react-native';
 
@@ -2312,7 +2312,7 @@ Both `width` and `height` can take the following values:
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
-```SnackPlayer name=Width%20and%20Height&ext=jsx
+```SnackPlayer name=Width%20and%20Height&ext=js
 import React, {useState} from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
@@ -2588,7 +2588,7 @@ The `position` type of an element defines how it is positioned relative to eithe
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
-```SnackPlayer name=Position&ext=jsx
+```SnackPlayer name=Position&ext=js
 import React, {useState} from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 

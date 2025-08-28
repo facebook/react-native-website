@@ -20,7 +20,7 @@ For example, a container view that fades in when it is mounted may look like thi
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
-```SnackPlayer ext=jsx
+```SnackPlayer ext=js
 import React, {useEffect, useRef} from 'react';
 import {Animated, Text, View} from 'react-native';
 
