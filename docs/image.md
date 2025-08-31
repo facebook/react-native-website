@@ -7,7 +7,9 @@ A React component for displaying different types of images, including network im
 
 This example shows fetching and displaying an image from local storage as well as one from network and even from data provided in the `'data:'` uri scheme.
 
-> Note that for network and data images, you will need to manually specify the dimensions of your image!
+:::note
+For network and data images, you will need to manually specify the dimensions of your image!
+:::
 
 ## Examples
 
@@ -111,7 +113,9 @@ dependencies {
 }
 ```
 
-> Note: the version listed above may not be updated in time. Please check [`packages/react-native/gradle/libs.versions.toml`](https://github.com/facebook/react-native/blob/main/packages/react-native/gradle/libs.versions.toml) in the main repo to see which fresco version is being used in a specific tagged version.
+:::note
+The version listed above may not be updated in time. Please check [`packages/react-native/gradle/libs.versions.toml`](https://github.com/facebook/react-native/blob/main/packages/react-native/gradle/libs.versions.toml) in the main repo to see which fresco version is being used in a specific tagged version.
+:::
 
 ---
 
@@ -163,7 +167,9 @@ blurRadius: the blur radius of the blur filter added to the image.
 | ------ |
 | number |
 
-> Tip: On IOS, you will need to increase `blurRadius` by more than `5`.
+:::tip
+On IOS, you will need to increase `blurRadius` by more than `5`.
+:::
 
 ---
 
@@ -198,7 +204,9 @@ A static image to display while loading the image source.
 | -------------------------------- |
 | [ImageSource](image#imagesource) |
 
-> **Note:** On Android, the default source prop is ignored on debug builds.
+:::note
+On Android, the default source prop is ignored on debug builds.
+:::
 
 ---
 

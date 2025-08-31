@@ -203,7 +203,9 @@ The skew transformations require a string so that the transform may be expressed
 
 ### `decomposedMatrix`, `rotation`, `scaleX`, `scaleY`, `transformMatrix`, `translateX`, `translateY`
 
-> **Deprecated.** Use the [`transform`](transforms#transform) prop instead.
+:::warning Deprecated
+Use the [`transform`](transforms#transform) prop instead.
+:::
 
 ## Transform Origin
 

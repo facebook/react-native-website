@@ -312,7 +312,9 @@ Application configuration for the `registerConfig` method.
 | run                                                         | function          |
 | section                                                     | boolean           |
 
-> **Note:** Every config is expected to set either `component` or `run` function.
+:::note
+Every config is expected to set either `component` or `run` function.
+:::
 
 ### Registry
 

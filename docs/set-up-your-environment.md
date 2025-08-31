@@ -71,7 +71,9 @@ If you have constraints that prevent you from using a Framework, or you'd like t
 
 ## Unsupported
 
-> A Mac is required to build projects with native code for iOS. You can use [Expo Go](https://expo.dev/go) from [Expo](environment-setup#start-a-new-react-native-project-with-expo) to develop your app on your iOS device.
+:::info
+A Mac is required to build projects with native code for iOS. You can use [Expo Go](https://expo.dev/go) from [Expo](environment-setup#start-a-new-react-native-project-with-expo) to develop your app on your iOS device.
+:::
 
 </TabItem>
 </Tabs>
@@ -95,7 +97,9 @@ If you have constraints that prevent you from using a Framework, or you'd like t
 
 ## Unsupported
 
-> A Mac is required to build projects with native code for iOS. You can use [Expo Go](https://expo.dev/go) from [Expo](environment-setup#start-a-new-react-native-project-with-expo) to develop your app on your iOS device.
+:::info
+A Mac is required to build projects with native code for iOS. You can use [Expo Go](https://expo.dev/go) from [Expo](environment-setup#start-a-new-react-native-project-with-expo) to develop your app on your iOS device.
+:::
 
 </TabItem>
 </Tabs>

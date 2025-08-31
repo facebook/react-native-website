@@ -249,7 +249,9 @@ Set this true while waiting for new data from a refresh.
 
 ### `removeClippedSubviews`
 
-> Note: may have bugs (missing content) in some circumstances - use at your own risk.
+:::warning
+Using this property may lead to bugs (missing content) in some circumstances - use at your own risk.
+:::
 
 This may improve scroll performance for large lists.
 

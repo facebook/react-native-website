@@ -300,7 +300,9 @@ Styling for internal View for `ListHeaderComponent`.
 
 ### `disableVirtualization`
 
-> **Deprecated.** Virtualization provides significant performance and memory optimizations, but fully unmounts react instances that are outside of the render window. You should only need to disable this for debugging purposes.
+:::warning Deprecated
+Virtualization provides significant performance and memory optimizations, but fully unmounts react instances that are outside of the render window. You should only need to disable this for debugging purposes.
+:::
 
 | Type    |
 | ------- |
@@ -521,7 +523,9 @@ Set this true while waiting for new data from a refresh.
 
 This may improve scroll performance for large lists.
 
-> Note: May have bugs (missing content) in some circumstances - use at your own risk.
+:::warning
+Using this property may lead to bugs (missing content) in some circumstances - use at your own risk.
+:::
 
 | Type    |
 | ------- |

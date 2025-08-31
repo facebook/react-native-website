@@ -3,6 +3,8 @@ id: statusbarios
 title: '🚧 StatusBarIOS'
 ---
 
-> **Deleted.** Use [`StatusBar`](statusbar.md) for mutating the status bar.
+:::danger Removed from React Native
+Use [`StatusBar`](statusbar.md) for mutating the status bar.
+:::
 
 ---
