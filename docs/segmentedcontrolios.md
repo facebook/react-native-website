@@ -1,6 +1,6 @@
 ---
 id: segmentedcontrolios
-title: '🚧 SegmentedControlIOS'
+title: '❌ SegmentedControlIOS'
 ---
 
 :::danger Removed from React Native

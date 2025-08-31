@@ -1,6 +1,6 @@
 ---
 id: statusbarios
-title: '🚧 StatusBarIOS'
+title: '❌ StatusBarIOS'
 ---
 
 :::danger Removed from React Native
