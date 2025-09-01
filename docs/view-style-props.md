@@ -326,7 +326,7 @@ These shadows can be composed together so that a single `boxShadow` can be compr
 `boxShadow` takes either a string which mimics the [web syntax](https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow#syntax) or an array of [BoxShadowValue](./boxshadowvalue) objects.
 | Type |
 | --------------------------- |
-| array of BoxShadowValue ojects \| string |
+| array of BoxShadowValue objects \| string |
 
 ### `cursor` <div className="label ios">iOS</div>
 
