@@ -26,7 +26,7 @@ Stable releases are shipped regularly, with the latest tagged as `latest` on NPM
 
 A series of releases under the same minor number is called a **minor series** (e.g. 0.76.x is the minor series for 0.76.0, 0.76.1, 0.76.2, etc.).
 
-You can read more about our **commitment to stability** in [the releases page](/releases).
+You can read more about our **commitment to stability** in [the releases page](/docs/releases).
 
 ### Breaking changes
 
