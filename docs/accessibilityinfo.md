@@ -158,7 +158,9 @@ static isAccessibilityServiceEnabled(): Promise<boolean>;
 
 Check whether any accessibility service is enabled. This includes TalkBack but also any third-party accessibility app that may be installed. To only check whether TalkBack is enabled, use [isScreenReaderEnabled](#isscreenreaderenabled). Returns a promise which resolves to a boolean. The result is `true` when some accessibility services is enabled and `false` otherwise.
 
-> **Note**: Please use [isScreenReaderEnabled](#isscreenreaderenabled) if you only want to check the status of TalkBack.
+:::note
+Please use [`isScreenReaderEnabled`](#isscreenreaderenabled) if you only want to check the status of TalkBack.
+:::
 
 ---
 
@@ -242,4 +244,6 @@ Set accessibility focus to a React component.
 
 On Android, this calls `UIManager.sendAccessibilityEvent` method with passed `reactTag` and `UIManager.AccessibilityEventTypes.typeViewFocused` arguments.
 
-> **Note**: Make sure that any `View` you want to receive the accessibility focus has `accessible={true}`.
+:::note
+Make sure that any `View` you want to receive the accessibility focus has `accessible={true}`.
+:::

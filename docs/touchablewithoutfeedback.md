@@ -3,7 +3,9 @@ id: touchablewithoutfeedback
 title: TouchableWithoutFeedback
 ---
 
-> If you're looking for a more extensive and future-proof way to handle touch-based input, check out the [Pressable](pressable.md) API.
+:::tip
+If you're looking for a more extensive and future-proof way to handle touch-based input, check out the [Pressable](pressable.md) API.
+:::
 
 Do not use unless you have a very good reason. All elements that respond to press should have a visual feedback when touched.
 
@@ -404,7 +406,9 @@ If true, disable all interactions for this component.
 
 This defines how far your touch can start away from the button. This is added to `pressRetentionOffset` when moving off of the button.
 
-> The touch area never extends past the parent view bounds and the Z-index of sibling views always takes precedence if a touch hits two overlapping views.
+:::note
+The touch area never extends past the parent view bounds and the Z-index of sibling views always takes precedence if a touch hits two overlapping views.
+:::
 
 | Type                   |
 | ---------------------- |

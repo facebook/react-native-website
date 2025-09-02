@@ -3,7 +3,9 @@ id: dimensions
 title: Dimensions
 ---
 
-> [`useWindowDimensions`](usewindowdimensions) is the preferred API for React components. Unlike `Dimensions`, it updates as the window's dimensions update. This works nicely with the React paradigm.
+:::info
+[`useWindowDimensions`](usewindowdimensions) is the preferred API for React components. Unlike `Dimensions`, it updates as the window's dimensions update. This works nicely with the React paradigm.
+:::
 
 ```tsx
 import {Dimensions} from 'react-native';
@@ -16,7 +18,9 @@ const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 ```
 
-> Although dimensions are available immediately, they may change (e.g due to device rotation, foldable devices etc) so any rendering logic or styles that depend on these constants should try to call this function on every render, rather than caching the value (for example, using inline styles rather than setting a value in a `StyleSheet`).
+:::note
+Although dimensions are available immediately, they may change (e.g due to device rotation, foldable devices etc) so any rendering logic or styles that depend on these constants should try to call this function on every render, rather than caching the value (for example, using inline styles rather than setting a value in a `StyleSheet`).
+:::
 
 If you are targeting foldable devices or devices which can change the screen size or app window size, you can use the event listener available in the Dimensions module as shown in the below example.
 
@@ -119,9 +123,9 @@ Example: `const {height, width} = Dimensions.get('window');`
 | ------------------------------------------------------------------ | ------ | --------------------------------------------------------------------------------- |
 | dim <div className="label basic required two-lines">Required</div> | string | Name of dimension as defined when calling `set`. Returns value for the dimension. |
 
-> For Android the `window` dimension will exclude the size used by the `status bar` (if not translucent) and `bottom navigation bar`
-
----
+:::note
+For Android the `window` dimension will be reduced by the size of status bar (if not translucent) and bottom navigation bar.
+:::
 
 ## Type Definitions
 

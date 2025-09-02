@@ -17,19 +17,27 @@ The `Appearance` module exposes information about the user's appearance preferen
 
 <TabItem value="web">
 
-> The `Appearance` API is inspired by the [Media Queries draft](https://drafts.csswg.org/mediaqueries-5/) from the W3C. The color scheme preference is modeled after the [`prefers-color-scheme` CSS media feature](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme).
+:::info
+The `Appearance` API is inspired by the [Media Queries draft](https://drafts.csswg.org/mediaqueries-5/) from the W3C. The color scheme preference is modeled after the [`prefers-color-scheme` CSS media feature](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme).
+:::
 
 </TabItem>
 <TabItem value="android">
 
-> The color scheme preference will map to the user's Light or [Dark theme](https://developer.android.com/guide/topics/ui/look-and-feel/darktheme) preference on Android 10 (API level 29) devices and higher.
+:::info
+The color scheme preference will map to the user's Light or [Dark theme](https://developer.android.com/guide/topics/ui/look-and-feel/darktheme) preference on Android 10 (API level 29) devices and higher.
+:::
 
 </TabItem>
 <TabItem value="ios">
 
-> The color scheme preference will map to the user's Light or [Dark Mode](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/dark-mode/) preference on iOS 13 devices and higher.
+:::info
+The color scheme preference will map to the user's Light or [Dark Mode](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/dark-mode/) preference on iOS 13 devices and higher.
+:::
 
-> Note: When taking a screenshot, by default, the color scheme may flicker between light and dark mode. It happens because the iOS takes snapshots on both color schemes and updating the user interface with color scheme is asynchronous.
+:::note
+When taking a screenshot, by default, the color scheme may flicker between light and dark mode. It happens because the iOS takes snapshots on both color schemes and updating the user interface with color scheme is asynchronous.
+:::
 
 </TabItem>
 </Tabs>
@@ -63,13 +71,15 @@ Indicates the current user preferred color scheme. The value may be updated late
 
 Supported color schemes:
 
-- `light`: The user prefers a light color theme.
-- `dark`: The user prefers a dark color theme.
-- null: The user has not indicated a preferred color theme.
+- `'light'`: The user prefers a light color theme.
+- `'dark'`: The user prefers a dark color theme.
+- `null`: The user has not indicated a preferred color theme.
 
 See also: `useColorScheme` hook.
 
-> Note: `getColorScheme()` will always return `light` when debugging with Chrome.
+::note
+`getColorScheme()` will always return `light` when debugging with Chrome.
+:::
 
 ---
 
@@ -87,7 +97,9 @@ Supported color schemes:
 - `dark`: Apply dark user interface style.
 - null: Follow the system's interface style.
 
-> Note: The change will not affect the system's selected interface style or any style set in other applications.
+:::note
+The change will not affect the system's selected interface style or any style set in other applications.
+:::
 
 ---
 

@@ -5,7 +5,9 @@ title: Layout Props
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
-> More detailed examples about those properties can be found on the [Layout with Flexbox](flexbox) page.
+:::info
+More detailed examples about those properties can be found on the [Layout with Flexbox](flexbox) page.
+:::
 
 ### Example
 
