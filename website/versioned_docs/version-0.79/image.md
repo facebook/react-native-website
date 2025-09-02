@@ -100,14 +100,14 @@ dependencies {
   implementation 'com.facebook.fresco:animated-base-support:1.3.0'
 
   // For animated GIF support
-  implementation 'com.facebook.fresco:animated-gif:3.2.0'
+  implementation 'com.facebook.fresco:animated-gif:3.6.0'
 
   // For WebP support, including animated WebP
-  implementation 'com.facebook.fresco:animated-webp:3.2.0'
-  implementation 'com.facebook.fresco:webpsupport:3.2.0'
+  implementation 'com.facebook.fresco:animated-webp:3.6.0'
+  implementation 'com.facebook.fresco:webpsupport:3.6.0'
 
   // For WebP support, without animations
-  implementation 'com.facebook.fresco:webpsupport:3.2.0'
+  implementation 'com.facebook.fresco:webpsupport:3.6.0'
 }
 ```
 
