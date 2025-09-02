@@ -222,9 +222,9 @@ For example, in a window that contains sibling views `A` and `B`, setting `acces
 
 ### `accessibilityElementsHidden` <div className="label ios">iOS</div>
 
-A boolean value indicating whether the accessibility elements contained within this accessibility element are hidden.
+A boolean value indicating whether the given accessibility element, and any accessibility elements it contains, are hidden.
 
-For example, in a window that contains sibling views `A` and `B`, setting `accessibilityElementsHidden` to `true` on view `B` causes VoiceOver to ignore the elements in view `B`. This is similar to the Android property `importantForAccessibility="no-hide-descendants"`.
+For example, in a window that contains sibling views `A` and `B`, setting `accessibilityElementsHidden` to `true` on view `B` causes VoiceOver to ignore the `B` view and any elements it contains. This is similar to the Android property `importantForAccessibility="no-hide-descendants"`.
 
 ### `aria-valuemax`
 
@@ -276,9 +276,9 @@ Indicates whether an expandable element is currently expanded or collapsed.
 
 ### `aria-hidden`
 
-Indicates whether the accessibility elements contained within this accessibility element are hidden.
+Indicates whether the element is hidden from assistive technologies.
 
-For example, in a window that contains sibling views `A` and `B`, setting `aria-hidden` to `true` on view `B` causes VoiceOver to ignore the elements in view `B`.
+For example, in a window that contains sibling views `A` and `B`, setting `aria-hidden` to `true` on view `B` causes VoiceOver to ignore the `B` element and its children.
 
 | Type    | Default |
 | ------- | ------- |

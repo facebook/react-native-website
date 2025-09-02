@@ -244,9 +244,9 @@ Indicates whether an expandable element is currently expanded or collapsed.
 
 ### `aria-hidden`
 
-Indicates whether the accessibility elements contained within this accessibility element are hidden.
+Indicates whether the element is hidden from assistive technologies.
 
-For example, in a window that contains sibling views `A` and `B`, setting `aria-hidden` to `true` on view `B` causes VoiceOver to ignore the elements in the view `B`.
+For example, in a window that contains sibling views `A` and `B`, setting `aria-hidden` to `true` on view `B` causes VoiceOver to ignore the `B` element and its children.
 
 | Type    | Default |
 | ------- | ------- |
