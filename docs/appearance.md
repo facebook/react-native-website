@@ -77,7 +77,7 @@ Supported color schemes:
 
 See also: `useColorScheme` hook.
 
-::note
+:::note
 `getColorScheme()` will always return `light` when debugging with Chrome.
 :::
 
