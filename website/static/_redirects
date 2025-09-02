@@ -117,7 +117,7 @@ https://reactnative.dev/docs/0.74/ram-bundles-inline-requires            /docs/o
 /help         /community/overview
 
 # Releases
-/releases     /docs/releases
+/releases     /docs/next/releases
 
 # Latest version might be linked to directly and should redirect
 /docs/$LATEST_VERSION$/*  /docs/:splat
