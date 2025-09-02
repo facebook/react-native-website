@@ -26,13 +26,7 @@ Stable releases are shipped regularly, with the latest tagged as `latest` on NPM
 
 A series of releases under the same minor number is called a **minor series** (e.g. 0.76.x is the minor series for 0.76.0, 0.76.1, 0.76.2, etc.).
 
-## Commitment to Stability
-
-In order to support users upgrading React Native versions, we’re committed to maintain the latest 3 minor series (e.g. 0.78.x, 0.77.x and 0.76.x when 0.78 is the latest release).
-
-For those releases we’ll be publishing regular updates and bug fixes.
-
-You can read more about our support policy on [the react-native-releases working group](https://github.com/reactwg/react-native-releases/blob/main/docs/support.md).
+You can read more about our **commitment to stability** in [the releases page](/releases).
 
 ### Breaking changes
 
