@@ -276,7 +276,7 @@ Indicates whether an expandable element is currently expanded or collapsed.
 
 ### `aria-hidden`
 
-Indicates whether whether the element is hidden from assistive technologies.
+Indicates whether the element is hidden from assistive technologies.
 
 For example, in a window that contains sibling views `A` and `B`, setting `aria-hidden` to `true` on view `B` causes VoiceOver to ignore the `B` element and its children.
 
