@@ -11,6 +11,7 @@ export default {
       'using-a-listview',
       'troubleshooting',
       'platform-specific-code',
+      'releases',
       'more-resources',
     ],
     'Environment setup': [
