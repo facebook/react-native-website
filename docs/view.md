@@ -57,7 +57,7 @@ See the [Accessibility guide](accessibility.md#accessibility-actions) for more i
 
 ### `accessibilityElementsHidden` <div className="label ios">iOS</div>
 
-A value indicating whether the accessibility elements contained within this accessibility element are hidden. Default is `false`.
+A boolean value indicating whether the given accessibility element, and any accessibility elements it contains, are hidden. Default is `false`.
 
 See the [Accessibility guide](accessibility.md#accessibilityelementshidden-ios) for more information.
 
@@ -254,9 +254,9 @@ Indicates whether an expandable element is currently expanded or collapsed.
 
 ### `aria-hidden`
 
-Indicates whether the accessibility elements contained within this accessibility element are hidden.
+Indicates whether whether the element is hidden from assistive technologies.
 
-For example, in a window that contains sibling views `A` and `B`, setting `aria-hidden` to `true` on view `B` causes VoiceOver to ignore the elements in the view `B`.
+For example, in a window that contains sibling views `A` and `B`, setting `aria-hidden` to `true` on view `B` causes VoiceOver to ignore the `B` element and its children.
 
 | Type    | Default |
 | ------- | ------- |
