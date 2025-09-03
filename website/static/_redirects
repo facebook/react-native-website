@@ -15,8 +15,6 @@
 /contributing/how-to-contribute     /contributing/overview
 /contributing/how-to-file-an-issue  /contributing/how-to-report-a-bug
 
-/releases                           /docs/next/releases
-
 # Redirect New Architecture docs of all versions
 # Note: We had to delete the older versions to get redirects to work
 /docs/the-new-architecture/why                             /architecture/landing-page
