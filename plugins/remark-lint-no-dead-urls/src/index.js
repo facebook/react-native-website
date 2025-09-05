@@ -5,18 +5,19 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import assert from 'node:assert';
+// Forked from: https://github.com/davidtheclark/remark-lint-no-dead-urls
+
 import {URL} from 'node:url';
 import {lintRule} from 'unified-lint-rule';
 import {visit} from 'unist-util-visit';
-import {fetch} from './lib.js';
 
-// Forked from: https://github.com/davidtheclark/remark-lint-no-dead-urls
+import {fetch} from './lib.js';
 
 const linkCache = new Map();
 
 const HTTP = {
   OK: 200,
+  FOUND: 302,
   NOT_FOUND: 404,
   TOO_MANY_REQUESTS: 429,
 };
@@ -46,7 +47,7 @@ async function naiveLinkCheck(urls, options) {
     urls.map(async url => {
       try {
         return await cacheFetch(url, 'HEAD', options);
-      } catch (e) {
+      } catch {
         try {
           // Fallback, some endpoints don't support HEAD requests
           return await cacheFetch(url, 'GET', options);
@@ -96,11 +97,11 @@ async function noDeadUrls(ast, file, options = {}) {
 
   const results = await naiveLinkCheck([...urlToNodes.keys()], clientOptions);
 
-  for (const {value, ...other} of results) {
+  for (const {value} of results) {
     const [url, statusCode] = value;
     const nodes = urlToNodes.get(url) ?? [];
 
-    if (statusCode === HTTP.OK) {
+    if (statusCode === HTTP.OK || statusCode === HTTP.FOUND) {
       continue;
     }
 

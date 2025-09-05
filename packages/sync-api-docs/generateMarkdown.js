@@ -4,21 +4,15 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-const tokenizeComment = require('tokenize-comment');
-const {formatTypeColumn, formatDefaultColumn} = require('./propFormatter');
-const {
+import tokenizeComment from 'tokenize-comment';
+import {formatTypeColumn, formatDefaultColumn} from './propFormatter.js';
+import {
   formatMethodType,
   formatMethodName,
   formatMethodDescription,
-} = require('./methodFormatter');
+} from './methodFormatter.js';
 
-const {
-  formatMultiplePlatform,
-  stringToInlineCodeForTable,
-  maybeLinkifyType,
-  maybeLinkifyTypeName,
-  formatType,
-} = require('./utils');
+import {formatMultiplePlatform, maybeLinkifyTypeName} from './utils.js';
 
 // Formats an array of rows as a Markdown table
 function generateTable(rows) {
@@ -114,7 +108,6 @@ function generateMethod(method, component) {
       })
       .join('\n');
     const docblockTokenized = tokenizeComment(dblock);
-    dblock = dblock.replace(/@platform .*/g, '');
     method.rnTags = {};
     const platformTag = docblockTokenized.tags.find(
       ({key}) => key === 'platform'
@@ -140,28 +133,7 @@ function generateMethod(method, component) {
   ).trim();
 }
 
-function lowerFirst(s) {
-  return s[0].toLowerCase() + s.slice(1);
-}
-
-function generateMethodSignatureBlock(method, component) {
-  return (
-    '```jsx\n' +
-    (method.modifiers.includes('static')
-      ? component.displayName + '.'
-      : lowerFirst(component.displayName + '.')) +
-    method.name +
-    '(' +
-    method.params
-      .map(param => (param.optional ? `[${param.name}]` : param.name))
-      .join(', ') +
-    ');' +
-    '\n' +
-    '```\n\n'
-  );
-}
-
-function generateMethodSignatureTable(method, component) {
+function generateMethodSignatureTable(method) {
   if (!method.params.length) {
     return '';
   }
@@ -309,7 +281,7 @@ function preprocessDescription(desc) {
   }
 }
 
-function generateMarkdown({id, title}, component) {
+export default function generateMarkdown({id, title}, component) {
   const markdownString =
     generateHeader({id, title}) +
     '\n' +
@@ -322,5 +294,3 @@ function generateMarkdown({id, title}, component) {
 
   return markdownString.replace(/\n{3,}/g, '\n\n');
 }
-
-module.exports = generateMarkdown;

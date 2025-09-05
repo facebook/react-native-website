@@ -5,33 +5,30 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-const path = require('path');
-const fs = require('fs');
-const test = require('tape');
-const snackplayer = require('../');
+import path from 'node:path';
+import fs from 'node:fs';
+import {remark} from 'remark';
+import remarkMdx from 'remark-mdx';
+import test from 'tape';
 
-const read = name => fs.readFileSync(path.join(__dirname, name), 'utf8');
-const normalizeLineEndings = str => str.replace(/\r\n/g, '\n');
+import SnackPlayer from '../src/index.js';
+
+function read(name) {
+  return fs.readFileSync(path.join(import.meta.dirname, name), 'utf8');
+}
 
 test('remark-snackplayer', async t => {
-  const {remark} = await import('remark');
-  const processor = remark().use(snackplayer);
+  const processor = remark().use(remarkMdx).use(SnackPlayer);
 
-  processor.process(read('markdown/test1.md'), (err, file) => {
-    if (err) t.fail('Failed to process markdown/test1.md');
-    t.equal(
-      normalizeLineEndings(String(file)),
-      normalizeLineEndings(read('output/output1.html')),
-      'With 1 Code Block'
-    );
-  });
+  const in1 = read('markdown/test1.md');
+  const out1 = read('output/output1.html');
+  const file1 = await processor.process(in1);
+  t.equal(String(file1), out1, 'With 1 Code Block');
 
-  processor.process(read('markdown/test2.md'), (err, file) => {
-    if (err) t.fail('Failed to process markdown/test2.md');
-    t.equal(
-      normalizeLineEndings(String(file)),
-      normalizeLineEndings(read('output/output2.html')),
-      'With 2 Code Blocks'
-    );
-  });
+  const in2 = read('markdown/test2.md');
+  const out2 = read('output/output2.html');
+  const file2 = await processor.process(in2);
+  t.equal(String(file2), out2, 'With 2 Code Blocks');
+
+  t.end();
 });

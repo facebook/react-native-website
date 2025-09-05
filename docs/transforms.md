@@ -215,12 +215,7 @@ The `transformOrigin` property sets the origin for a view's transformations. The
 
 ```SnackPlayer name=TransformOrigin%20Example
 import React, {useEffect, useRef} from 'react';
-import {
-  Animated,
-  View,
-  StyleSheet,
-  Easing,
-} from 'react-native';
+import {Animated, View, StyleSheet, Easing} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => {

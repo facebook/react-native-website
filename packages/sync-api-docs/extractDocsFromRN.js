@@ -7,18 +7,14 @@
  * @format
  */
 
-'use strict';
-
-const fs = require('fs-extra');
-const glob = require('glob');
-const path = require('path');
-const reactDocs = require('@motiz88/react-native-docgen');
+import fs from 'node:fs/promises';
+import {glob} from 'glob';
+import path from 'node:path';
+import reactDocs from '@motiz88/react-native-docgen';
 
 const GENERATE_ANNOTATION = '@' + 'generate-docs';
 
-module.exports = extractDocsFromRN;
-
-async function extractDocsFromRN(rnRoot) {
+export default async function extractDocsFromRN(rnRoot) {
   const allComponentFiles = await glob.glob(
     path.join(rnRoot, '/Libraries/{Components,Image,}/**/*.js'),
     {
@@ -59,7 +55,7 @@ async function extractDocsFromRN(rnRoot) {
   // Make sure output is JSON-safe
   const docsSerialized = JSON.parse(JSON.stringify(docs));
   await fs.writeFile(
-    path.join(__dirname, 'extracted.json'),
+    path.join(import.meta.dirname, 'extracted.json'),
     JSON.stringify(docsSerialized, null, 2),
     'utf8'
   );

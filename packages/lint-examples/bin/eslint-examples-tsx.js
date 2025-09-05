@@ -8,10 +8,13 @@
  * @format
  */
 
-const lintExamples = require('../src/lintExamples');
+import lintExamples from '../src/lintExamples.js';
+
+console.log('Linting TSX docs code examples...');
 
 lintExamples({
-  command: 'tsc',
+  command: 'eslint',
+  args: ['--max-warnings=0', '.'],
   extension: 'tsx',
-  writeBack: false,
+  writeBack: true,
 });
