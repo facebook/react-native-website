@@ -99,7 +99,7 @@ Received when the user is not actively interacting with the app. Useful in situa
 ### `addEventListener()`
 
 ```tsx
-static addEventListener(
+static addEventListener( appas 
   type: AppStateEvent,
   listener: (state: AppStateStatus) => void,
 ): NativeEventSubscription;
