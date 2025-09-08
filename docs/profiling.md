@@ -142,37 +142,6 @@ Perform the interactions and press "Stop recording". Recording is resource-inten
 
 Unlike System Trace, CPU hotspot profiling is slow so it won't give you accurate measurements. However, it should give you an idea of what native methods are being called, and where the time is being spent proportionally during each frame.
 
-## Flipper
-
-[Flipper](https://fbflipper.com/) is a platform for debugging mobile apps on iOS and Android. It provides a suite of tools for profiling, inspecting, and debugging React Native applications.
-
-### Installation and Setup
-
-1. Install Flipper desktop app from the [official website](https://fbflipper.com/)
-2. Add the `react-native-flipper` package to your project:
-
-```bash
-npm install react-native-flipper
-```
-
-3. Configure Flipper in your React Native app by following the [setup instructions](https://fbflipper.com/docs/getting-started/)
-
-### Key Features for Profiling
-
-- **Network Inspector**: Monitor network requests and responses
-- **Layout Inspector**: Visualize component hierarchy and layout
-- **Performance Monitor**: Track FPS, memory usage, and CPU usage
-- **Database Inspector**: Inspect SQLite databases
-- **Crash Reporter**: View crash logs and stack traces
-
-### Using Flipper for Performance Profiling
-
-1. Launch your app with Flipper enabled
-2. Open Flipper desktop app
-3. Select your device from the dropdown
-4. Use the Performance Monitor plugin to track real-time metrics
-5. Use the Layout Inspector to identify rendering bottlenecks
-
 ## Chrome DevTools
 
 Chrome DevTools provides powerful profiling capabilities for JavaScript performance analysis in React Native apps.
