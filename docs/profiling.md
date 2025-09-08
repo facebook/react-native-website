@@ -35,7 +35,7 @@ Once the trace starts collecting, perform the animation or interaction you care 
 
 After opening the trace in Android Studio Profiler, you should see something like this:
 
-![Android Studio Profiler Example](/docs/assets/AndroidProfilerExample.png)
+![Android Studio Profiler Example](/docs/assets/SystraceExample.png)
 
 :::note Hint
 Use the WASD keys to strafe and zoom.
@@ -46,7 +46,7 @@ The exact UI might be different but the instructions below will apply regardless
 :::info Enable VSync highlighting
 Check this option in Android Studio Profiler to highlight the 16ms frame boundaries:
 
-![Enable Frame Timing](/docs/assets/AndroidProfilerFrameTiming.png)
+![Enable Frame Timing](/docs/assets/SystraceHighlightVSync.png)
 
 You should see zebra stripes as in the screenshot above. If you don't, try profiling on a different device: Samsung has been known to have issues displaying vsyncs while the Nexus series is generally pretty reliable.
 :::
@@ -59,37 +59,37 @@ On the left side, you'll see a set of threads which correspond to the timeline r
 
 - **UI Thread.** This is where standard android measure/layout/draw happens. The thread name on the right will be your package name or UI Thread. The events that you see on this thread should look something like this and have to do with `Choreographer`, `traversals`, and `DispatchUI`:
 
-  ![UI Thread Example](/docs/assets/AndroidProfilerUIThread.png)
+  ![UI Thread Example](/docs/assets/SystraceUIThreadExample.png)
 
 - **JS Thread.** This is where JavaScript is executed. The thread name will be either `mqt_js` or similar. To identify it, look for JavaScript execution patterns:
 
-  ![JS Thread Example](/docs/assets/AndroidProfilerJSThread.png)
+  ![JS Thread Example](/docs/assets/SystraceJSThreadExample.png)
 
 - **Native Modules Thread.** This is where native module calls (e.g. the `UIManager`) are executed. Look for native bridge communication patterns:
 
-  ![Native Modules Thread Example](/docs/assets/AndroidProfilerNativeThread.png)
+  ![Native Modules Thread Example](/docs/assets/SystraceNativeModulesThreadExample.png)
 
 - **Bonus: Render Thread.** If you're using Android L (5.0) and up, you will also have a render thread in your application. This thread generates the actual OpenGL commands used to draw your UI. Look for GPU-related activities:
 
-  ![Render Thread Example](/docs/assets/AndroidProfilerRenderThread.png)
+  ![Render Thread Example](/docs/assets/SystraceRenderThreadExample.png)
 
 ## Identifying a culprit
 
 A smooth animation should look something like the following:
 
-![Smooth Animation](/docs/assets/AndroidProfilerSmooth.png)
+![Smooth Animation](/docs/assets/SystraceWellBehaved.png)
 
 Each change in color is a frame -- remember that in order to display a frame, all our UI work needs to be done by the end of that 16ms period. Notice that no thread is working close to the frame boundary. An application rendering like this is rendering at 60 FPS.
 
 If you noticed chop, however, you might see something like this:
 
-![Choppy Animation from JS](/docs/assets/AndroidProfilerBadJS.png)
+![Choppy Animation from JS](/docs/assets/SystraceBadJS.png)
 
 Notice that the JS thread is executing almost all the time, and across frame boundaries! This app is not rendering at 60 FPS. In this case, **the problem lies in JS**.
 
 You might also see something like this:
 
-![Choppy Animation from UI](/docs/assets/AndroidProfilerBadUI.png)
+![Choppy Animation from UI](/docs/assets/SystraceBadUI.png)
 
 In this case, the UI and render threads are the ones that have work crossing frame boundaries. The UI that we're trying to render on each frame is requiring too much work to be done. In this case, **the problem lies in the native views being rendered**.
 
@@ -99,7 +99,7 @@ At this point, you'll have some very helpful information to inform your next ste
 
 If you identified a JS problem, look for clues in the specific JS that you're executing. In the scenario above, we see `RCTEventEmitter` being called multiple times per frame. Here's a zoom-in of the JS thread from the trace above:
 
-![Too much JS](/docs/assets/AndroidProfilerBadJS2.png)
+![Too much JS](/docs/assets/SystraceBadJS2.png)
 
 This doesn't seem right. Why is it being called so often? Are they actually different events? The answers to these questions will probably depend on your product code. And many times, you'll want to look into [shouldComponentUpdate](https://react.dev/reference/react/Component#shouldcomponentupdate).
 
@@ -114,7 +114,7 @@ If you identified a native UI problem, there are usually two scenarios:
 
 In the first scenario, you'll see a trace that has the UI thread and/or Render Thread looking like this:
 
-![Overloaded GPU](/docs/assets/AndroidProfilerBadUI.png)
+![Overloaded GPU](/docs/assets/SystraceBadUI.png)
 
 Notice the long amount of time spent in `DrawFrame` that crosses frame boundaries. This is time spent waiting for the GPU to drain its command buffer from the previous frame.
 
@@ -127,7 +127,7 @@ To mitigate this, you should:
 
 In the second scenario, you'll see something more like this:
 
-![Creating Views](/docs/assets/AndroidProfilerBadCreateUI.png)
+![Creating Views](/docs/assets/SystraceBadCreateUI.png)
 
 Notice that first the JS thread thinks for a bit, then you see some work done on the native modules thread, followed by an expensive traversal on the UI thread.
 
