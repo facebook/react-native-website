@@ -35,5 +35,5 @@
   "resolutions": {
     "@typescript-eslint/typescript-estree": "8.39.1"
   },
-  "packageManager": "yarn@4.9.2"
+  "packageManager": "yarn@1.22.22"
 }

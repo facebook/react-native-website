@@ -3,6 +3,10 @@ id: systrace
 title: Systrace
 ---
 
+:::caution Deprecated
+Systrace is deprecated as of React Native 0.82. For modern Android profiling, use [Android Studio Profiler](profiling#profiling-android-ui-performance-with-system-tracing) instead. Systrace may be removed in future versions.
+:::
+
 `Systrace` is a standard Android marker-based profiling tool (and is installed when you install the Android platform-tools package). Profiled code blocks are surrounded by start/end markers which are then visualized in a colorful chart format. Both the Android SDK and React Native framework provide standard markers that you can visualize.
 
 ## Example

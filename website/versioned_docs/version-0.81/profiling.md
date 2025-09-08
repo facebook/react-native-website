@@ -11,6 +11,10 @@ But first, [**make sure that Development Mode is OFF!**](performance.md#running-
 
 ## Profiling Android UI Performance with System Tracing
 
+:::caution Systrace Deprecation Notice
+While this section describes System Tracing (Systrace), note that Systrace is deprecated as of React Native 0.82. For new projects and ongoing development, use [Android Studio Profiler](#profiling-android-ui-performance-with-system-tracing) instead, which provides more comprehensive profiling capabilities.
+:::
+
 Android supports 10k+ different phones and is generalized to support software rendering: the framework architecture and need to generalize across many hardware targets unfortunately means you get less for free relative to iOS. But sometimes, there are things you can improve -- and many times it's not native code's fault at all!
 
 The first step for debugging this jank is to answer the fundamental question of where your time is being spent during each 16ms frame. For that, we'll be using the [built-in System Tracing profiler in the Android Studio](https://developer.android.com/studio/profile).
