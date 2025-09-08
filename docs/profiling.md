@@ -5,19 +5,15 @@ title: Profiling
 
 Profiling is the process of analyzing an app's performance, resource usage, and behavior to identify potential bottlenecks or inefficiencies. It's worth making use of profiling tools to ensure your app works smoothly across different devices and conditions.
 
-React Native provides several modern profiling tools for different platforms and use cases:
-
-- **Android**: [Android Studio Profiler](#profiling-android-ui-performance-with-system-tracing) (recommended), [Flipper](#flipper)
-- **iOS**: [Instruments](#ios-instruments), [Flipper](#flipper)
-- **JavaScript/React**: [Chrome DevTools](#chrome-devtools), [React DevTools](#react-devtools)
-
-:::note Legacy Tool
-[Systrace](systrace.md) is deprecated as of React Native 0.82. Use Android Studio Profiler for Android profiling instead.
-:::
+For iOS, Instruments is an invaluable tool, and on Android you should learn to use the Android Studio Profiler.
 
 But first, [**make sure that Development Mode is OFF!**](performance.md#running-in-development-mode-devtrue).
 
 ## Profiling Android UI Performance with System Tracing
+
+:::caution Systrace Deprecation Notice
+Systrace is deprecated as of React Native 0.82. For modern Android profiling, use [Android Studio Profiler](#profiling-android-ui-performance-with-system-tracing) instead.
+:::
 
 Android supports 10k+ different phones and is generalized to support software rendering: the framework architecture and need to generalize across many hardware targets unfortunately means you get less for free relative to iOS. But sometimes, there are things you can improve -- and many times it's not native code's fault at all!
 
