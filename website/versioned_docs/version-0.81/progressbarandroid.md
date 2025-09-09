@@ -1,6 +1,6 @@
 ---
 id: progressbarandroid
-title: '🚧 ProgressBarAndroid'
+title: '🗑️ ProgressBarAndroid'
 ---
 
 > **Deprecated.** Use one of the [community packages](https://reactnative.directory/?search=progressbar) instead.
