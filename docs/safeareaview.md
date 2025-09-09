@@ -1,6 +1,6 @@
 ---
 id: safeareaview
-title: '🚧 SafeAreaView'
+title: '🗑️ SafeAreaView'
 ---
 
 :::warning Deprecated

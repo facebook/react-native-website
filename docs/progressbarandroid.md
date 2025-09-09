@@ -1,6 +1,6 @@
 ---
 id: progressbarandroid
-title: '🚧 ProgressBarAndroid'
+title: '🗑️ ProgressBarAndroid'
 ---
 
 :::warning Deprecated

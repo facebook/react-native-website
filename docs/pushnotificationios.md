@@ -1,6 +1,6 @@
 ---
 id: pushnotificationios
-title: '🚧 PushNotificationIOS'
+title: '🗑️ PushNotificationIOS'
 ---
 
 :::warning Deprecated
