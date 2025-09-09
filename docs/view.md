@@ -29,7 +29,9 @@ const ViewBoxesWithColorAndText = () => {
 export default ViewBoxesWithColorAndText;
 ```
 
-> `View`s are designed to be used with [`StyleSheet`](style.md) for clarity and performance, although inline styles are also supported.
+:::note
+`View`s are designed to be used with [`StyleSheet`](style.md) for clarity and performance, although inline styles are also supported.
+:::
 
 ### Synthetic Touch Events
 
@@ -418,7 +420,9 @@ This defines how far a touch event can start away from the view. Typical interfa
 
 For example, if a touchable view has a height of 20 the touchable height can be extended to 40 with `hitSlop={{top: 10, bottom: 10, left: 0, right: 0}}`
 
-> The touch area never extends past the parent view bounds and the Z-index of sibling views always takes precedence if a touch hits two overlapping views.
+:::note
+The touch area never extends past the parent view bounds, and the Z-index of sibling views always takes precedence if a touch hits two overlapping views.
+:::
 
 | Type                                                                 |
 | -------------------------------------------------------------------- |
@@ -430,7 +434,9 @@ For example, if a touchable view has a height of 20 the touchable height can be 
 
 Used to locate this view from native classes. Has precedence over `nativeID` prop.
 
-> This disables the 'layout-only view removal' optimization for this view!
+:::warning
+This disables the 'layout-only view removal' optimization for this view!
+:::
 
 | Type   |
 | ------ |
@@ -461,7 +467,9 @@ See the [Android `importantForAccessibility` docs](https://developer.android.com
 
 Used to locate this view from native classes.
 
-> This disables the 'layout-only view removal' optimization for this view!
+:::warning
+This disables the 'layout-only view removal' optimization for this view!
+:::
 
 | Type   |
 | ------ |
@@ -793,7 +801,9 @@ Supports the following values:
 
 Used to locate this view in end-to-end tests.
 
-> This disables the 'layout-only view removal' optimization for this view!
+:::warning
+This disables the 'layout-only view removal' optimization for this view!
+:::
 
 | Type   |
 | ------ |

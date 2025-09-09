@@ -38,7 +38,9 @@ If you want to enable deep links in your app, please read the below guide:
 <Tabs groupId="syntax" queryString defaultValue={constants.defaultPlatform} values={constants.platforms}>
 <TabItem value="android">
 
-> For instructions on how to add support for deep linking on Android, refer to [Enabling Deep Links for App Content - Add Intent Filters for Your Deep Links](https://developer.android.com/training/app-indexing/deep-linking.html#adding-filters).
+:::info
+For instructions on how to add support for deep linking on Android, refer to [Enabling Deep Links for App Content - Add Intent Filters for Your Deep Links](https://developer.android.com/training/app-indexing/deep-linking.html#adding-filters).
+:::
 
 If you wish to receive the intent in an existing instance of MainActivity, you may set the `launchMode` of MainActivity to `singleTask` in `AndroidManifest.xml`. See [`<activity>`](https://developer.android.com/guide/topics/manifest/activity-element.html) documentation for more information.
 
@@ -51,7 +53,8 @@ If you wish to receive the intent in an existing instance of MainActivity, you m
 </TabItem>
 <TabItem value="ios">
 
-> **NOTE:** On iOS, you'll need to add the `LinkingIOS` folder into your header search paths as described in step 3 [here](linking-libraries-ios#step-3). If you also want to listen to incoming app links during your app's execution, you'll need to add the following lines to your `*AppDelegate.m`:
+:::note
+On iOS, you'll need to add the `LinkingIOS` folder into your header search paths as described in step 3 [here](linking-libraries-ios#step-3). If you also want to listen to incoming app links during your app's execution, you'll need to add the following lines to your `*AppDelegate.m`:
 
 <Tabs groupId="ios-language" queryString defaultValue={constants.defaultAppleLanguage} values={constants.appleLanguages}>
 <TabItem value="objc">
@@ -106,6 +109,8 @@ override func application(
 
 </TabItem>
 </Tabs>
+
+:::
 
 </TabItem>
 </Tabs>
@@ -577,28 +582,34 @@ The `Promise` will reject on Android if it was impossible to check if the URL ca
 | -------------------------------------------------------- | ------ | ---------------- |
 | url <div className="label basic required">Required</div> | string | The URL to open. |
 
-> For web URLs, the protocol (`"http://"`, `"https://"`) must be set accordingly!
+:::note
+For web URLs, the protocol (`"http://"`, `"https://"`) must be set accordingly!
+:::
 
-> This method has limitations on iOS 9+. From [the official Apple documentation](https://developer.apple.com/documentation/uikit/uiapplication/1622952-canopenurl):
->
-> - If your app is linked against an earlier version of iOS but is running in iOS 9.0 or later, you can call this method up to 50 times. After reaching that limit, subsequent calls always resolve to `false`. If the user reinstalls or upgrades the app, iOS resets the limit.
->
-> As of iOS 9, your app also needs to provide the `LSApplicationQueriesSchemes` key inside `Info.plist` or `canOpenURL()` will always resolve to `false`.
+:::warning
+This method has limitations on iOS 9+. From [the official Apple documentation](https://developer.apple.com/documentation/uikit/uiapplication/1622952-canopenurl):
 
-> When targeting Android 11 (SDK 30) you must specify the intents for the schemes you want to handle in `AndroidManifest.xml`. A list of common intents can be found [here](https://developer.android.com/guide/components/intents-common).
->
-> For example to handle `https` schemes the following needs to be added to your manifest:
->
-> ```
-> <manifest ...>
->     <queries>
->         <intent>
->             <action android:name="android.intent.action.VIEW" />
->             <data android:scheme="https"/>
->         </intent>
->     </queries>
-> </manifest>
-> ```
+- If your app is linked against an earlier version of iOS but is running in iOS 9.0 or later, you can call this method up to 50 times. After reaching that limit, subsequent calls always resolve to `false`. If the user reinstalls or upgrades the app, iOS resets the limit.
+- As of iOS 9, your app also needs to provide the `LSApplicationQueriesSchemes` key inside `Info.plist` or `canOpenURL()` will always resolve to `false`.
+  :::
+
+:::info
+When targeting Android 11 (SDK 30) you must specify the intents for the schemes you want to handle in `AndroidManifest.xml`. A list of common intents can be found [here](https://developer.android.com/guide/components/intents-common).
+
+For example to handle `https` schemes the following needs to be added to your manifest:
+
+```
+<manifest ...>
+  <queries>
+    <intent>
+      <action android:name="android.intent.action.VIEW" />
+      <data android:scheme="https"/>
+    </intent>
+  </queries>
+</manifest>
+```
+
+:::
 
 ---
 
@@ -610,9 +621,13 @@ static getInitialURL(): Promise<string | null>;
 
 If the app launch was triggered by an app link, it will give the link url, otherwise it will give `null`.
 
-> To support deep linking on Android, refer https://developer.android.com/training/app-indexing/deep-linking.html#handling-intents
+:::info
+To support deep linking on Android, refer https://developer.android.com/training/app-indexing/deep-linking.html#handling-intents.
+:::
 
-> getInitialURL may return `null` when Remote JS Debugging is active. Disable the debugger to ensure it gets passed.
+:::tip
+`getInitialURL` may return `null` when Remote JS Debugging is active. Disable the debugger to ensure it gets passed.
+:::
 
 ---
 
@@ -644,11 +659,13 @@ The method returns a `Promise` object. If the user confirms the open dialog or t
 | -------------------------------------------------------- | ------ | ---------------- |
 | url <div className="label basic required">Required</div> | string | The URL to open. |
 
-> This method will fail if the system doesn't know how to open the specified URL. If you're passing in a non-http(s) URL, it's best to check `canOpenURL()` first.
+:::note
+This method will fail if the system doesn't know how to open the specified URL. If you're passing in a non-http(s) URL, it's best to check `canOpenURL()` first. For web URLs, the protocol (`"http://"`, `"https://"`) must be set accordingly!
+:::
 
-> For web URLs, the protocol (`"http://"`, `"https://"`) must be set accordingly!
-
-> This method may behave differently in a simulator e.g. `"tel:"` links are not able to be handled in the iOS simulator as there's no access to the dialer app.
+:::warning
+This method may behave differently in a simulator e.g. `"tel:"` links are not able to be handled in the iOS simulator as there's no access to the dialer app.
+:::
 
 ---
 
