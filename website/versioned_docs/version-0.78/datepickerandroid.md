@@ -1,6 +1,6 @@
 ---
 id: datepickerandroid
-title: '🚧 DatePickerAndroid'
+title: '❌ DatePickerAndroid'
 ---
 
 > **Removed.** Use one of the [community packages](https://reactnative.directory/?search=datepicker) instead.

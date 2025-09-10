@@ -1,6 +1,6 @@
 ---
 id: asyncstorage
-title: '🚧 AsyncStorage'
+title: '❌ AsyncStorage'
 ---
 
 > **Removed.** Use one of the [community packages](https://reactnative.directory/?search=storage) instead.
