@@ -15,7 +15,7 @@ import GuideMacOSIOS from './\_getting-started-macos-ios.md';
 
 In this guide, you'll learn how to set up your environment, so that you can run your project with Android Studio and Xcode. This will allow you to develop with Android emulators and iOS simulators, build your app locally, and more.
 
-:::note
+:::info
 This guide requires Android Studio or Xcode. If you already have one of these programs installed, you should be able to get up and running within a few minutes. If they are not installed, you should expect to spend about an hour installing and configuring them.
 
 <details>
