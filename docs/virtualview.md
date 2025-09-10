@@ -1,11 +1,11 @@
 ---
 id: virtualview
-title: VirtualView ⚗️
+title: VirtualView 🧪
 ---
 
-:::important
-**This API is experimental.** Experimental APIs may contain bugs and are likely to change in a future version of React Native. Don't use them in production.
-:::
+import ExperimentalAPIWarning from './\_experimental-api-warning.mdx';
+
+<ExperimentalAPIWarning />
 
 `VirtualView` is a core component that behaves similar to [`View`](view).
 
@@ -164,6 +164,6 @@ const HiddenVirtualView = createHiddenVirtualView(100);
 
 **Parameters:**
 
-| Name                                                    | Type   | Description                                            |
-| ------------------------------------------------------- | ------ | ------------------------------------------------------ |
-| height <div class="label basic required">Required</div> | number | Estimated height of initially rendering `VirtualView`. |
+| Name                                                        | Type   | Description                                            |
+| ----------------------------------------------------------- | ------ | ------------------------------------------------------ |
+| height <div className="label basic required">Required</div> | number | Estimated height of initially rendering `VirtualView`. |

@@ -11,7 +11,7 @@ Now it's time to write some iOS platform code to make sure `localStorage` surviv
 
 We need to prepare your iOS project using Xcode. After completing these **6 steps** you'll have `RCTNativeLocalStorage` that implements the generated `NativeLocalStorageSpec` interface.
 
-1. Open the CocoPods generated Xcode Workspace:
+1. Open the CocoaPods generated Xcode Workspace:
 
 ```bash
 cd ios
@@ -137,12 +137,13 @@ Modify the `package.json` as it follows:
      "jsSrcsDir": "specs",
      "android": {
        "javaPackageName": "com.sampleapp.specs"
-     }
+     },
      // highlight-add-start
-     "ios":
+     "ios": {
         "modulesProvider": {
           "NativeLocalStorage": "RCTNativeLocalStorage"
         }
+     }
      // highlight-add-end
    },
 

@@ -105,7 +105,9 @@ RCT_EXPORT_METHOD(createCalendarEvent:(NSString *)name location:(NSString *)loca
 }
 ```
 
-> Please note that the `RCT_EXPORT_METHOD` macro will not be necessary with TurboModules unless your method relies on RCT argument conversion (see argument types below). Ultimately, React Native will remove `RCT_EXPORT_MACRO,` so we discourage people from using `RCTConvert`. Instead, you can do the argument conversion within the method body.
+:::note
+Please note that the `RCT_EXPORT_METHOD` macro will not be necessary with TurboModules unless your method relies on RCT argument conversion (see argument types below). Ultimately, React Native will remove `RCT_EXPORT_MACRO,` so we discourage people from using `RCTConvert`. Instead, you can do the argument conversion within the method body.
+:::
 
 Before you build out the `createCalendarEvent()` method’s functionality, add a console log in the method so you can confirm it has been invoked from JavaScript in your React Native application. Use the `RCTLog` APIs from React. Let’s import that header at the top of your file and then add the log call.
 
@@ -259,7 +261,9 @@ import NativeCalendarModule from './NativeCalendarModule';
 NativeCalendarModule.createCalendarEvent('foo', 'bar');
 ```
 
-> Note this assumes that the place you are importing `CalendarModule` is in the same hierarchy as `NativeCalendarModule.js`. Please update the relative import as necessary.
+:::note
+This assumes that the place you are importing `CalendarModule` is in the same hierarchy as `NativeCalendarModule.js`. Please update the relative import as necessary.
+:::
 
 ### Argument Types
 
@@ -277,12 +281,14 @@ When a native module method is invoked in JavaScript, React Native converts the 
 | RCTResponseSenderBlock, RCTResponseErrorBlock | Function (failure) |
 | RCTPromiseResolveBlock, RCTPromiseRejectBlock | Promise            |
 
-> The following types are currently supported but will not be supported in TurboModules. Please avoid using them.
->
-> - Function (failure) -> RCTResponseErrorBlock
-> - Number -> NSInteger
-> - Number -> CGFloat
-> - Number -> float
+:::info
+The following types are currently supported but will not be supported in TurboModules. Please avoid using them.
+
+- Function (failure) -> RCTResponseErrorBlock
+- Number -> NSInteger
+- Number -> CGFloat
+- Number -> float
+  :::
 
 For iOS, you can also write native module methods with any argument type that is supported by the `RCTConvert` class (see [RCTConvert](https://github.com/facebook/react-native/blob/main/packages/react-native/React/Base/RCTConvert.h) for details about what is supported). The RCTConvert helper functions all accept a JSON value as input and map it to a native Objective-C type or class.
 
@@ -306,7 +312,9 @@ console.log(DEFAULT_EVENT_NAME);
 
 Technically, it is possible to access constants exported in `constantsToExport()` directly off the `NativeModule` object. This will no longer be supported with TurboModules, so we encourage the community to switch to the above approach to avoid necessary migration down the line.
 
-> Note that the constants are exported only at initialization time, so if you change `constantsToExport()` values at runtime it won't affect the JavaScript environment.
+:::note
+The constants are exported only at initialization time, so if you change `constantsToExport()` values at runtime it won't affect the JavaScript environment.
+:::
 
 For iOS, if you override `constantsToExport()` then you should also implement `+ requiresMainQueueSetup` to let React Native know if your module needs to be initialized on the main thread, before any JavaScript code executes. Otherwise you will see a warning that in the future your module may be initialized on a background thread unless you explicitly opt out with `+ requiresMainQueueSetup:`. If your module does not require access to UIKit, then you should respond to `+ requiresMainQueueSetup` with NO.
 
@@ -325,7 +333,9 @@ RCT_EXPORT_METHOD(createCalendarEvent:(NSString *)title
 
 You can then invoke the callback in your native function, providing whatever result you want to pass to JavaScript in an array. Note that `RCTResponseSenderBlock` accepts only one argument - an array of parameters to pass to the JavaScript callback. Below you will pass back the ID of an event created in an earlier call.
 
-> It is important to highlight that the callback is not invoked immediately after the native function completes—remember the communication is asynchronous.
+:::info
+It is important to highlight that the callback is not invoked immediately after the native function completes—remember the communication is asynchronous.
+:::
 
 ```objectivec
 RCT_EXPORT_METHOD(createCalendarEvent:(NSString *)title location:(NSString *)location callback: (RCTResponseSenderBlock)callback)
@@ -541,9 +551,9 @@ RCT_EXPORT_METHOD(doSomethingExpensive:(NSString *)param callback:(RCTResponseSe
 
 ```
 
-> Sharing dispatch queues between modules
->
-> The `methodQueue` method will be called once when the module is initialized, and then retained by React Native, so there is no need to keep a reference to the queue yourself, unless you wish to make use of it within your module. However, if you wish to share the same queue between multiple modules then you will need to ensure that you retain and return the same queue instance for each of them.
+:::info Sharing dispatch queues between modules
+The `methodQueue` method will be called once when the module is initialized, and then retained by React Native, so there is no need to keep a reference to the queue yourself, unless you wish to make use of it within your module. However, if you wish to share the same queue between multiple modules then you will need to ensure that you retain and return the same queue instance for each of them.
+:::
 
 ### Dependency Injection
 
@@ -585,7 +595,9 @@ class CalendarModule: NSObject {
 }
 ```
 
-> It is important to use the `@objc` modifiers to ensure the class and functions are exported properly to the Objective-C runtime.
+:::note
+It is important to use the `@objc` modifiers to ensure the class and functions are exported properly to the Objective-C runtime.
+:::
 
 Then create a private implementation file that will register the required information with React Native:
 
@@ -609,10 +621,12 @@ For those of you new to Swift and Objective-C, whenever you [mix the two languag
 
 You can also use `RCT_EXTERN_REMAP_MODULE` and `_RCT_EXTERN_REMAP_METHOD` to alter the JavaScript name of the module or methods you are exporting. For more information see [`RCTBridgeModule`](https://github.com/facebook/react-native/blob/main/packages/react-native/React/Base/RCTBridgeModule.h).
 
-> Important when making third party modules: Static libraries with Swift are only supported in Xcode 9 and later. In order for the Xcode project to build when you use Swift in the iOS static library you include in the module, your main app project must contain Swift code and a bridging header itself. If your app project does not contain any Swift code, a workaround can be a single empty .swift file and an empty bridging header.
+:::note
+Important when making third party modules: Static libraries with Swift are only supported in Xcode 9 and later. In order for the Xcode project to build when you use Swift in the iOS static library you include in the module, your main app project must contain Swift code and a bridging header itself. If your app project does not contain any Swift code, a workaround can be a single empty .swift file and an empty bridging header.
+:::
 
 ### Reserved Method Names
 
 #### invalidate()
 
-Native modules can conform to the [RCTInvalidating](https://github.com/facebook/react-native/blob/main/packages/react-native/React/Base/RCTInvalidating.h) protocol on iOS by implementing the `invalidate()` method. This method [can be invoked](https://github.com/facebook/react-native/blob/0.62-stable/ReactCommon/turbomodule/core/platform/ios/RCTTurboModuleManager.mm#L456) when the native bridge is invalidated (ie: on devmode reload). Please use this mechanism as necessary to do the required cleanup for your native module.
+Native modules can conform to the [RCTInvalidating](https://github.com/facebook/react-native/blob/main/packages/react-native/React/Base/RCTInvalidating.h) protocol on iOS by implementing the `invalidate()` method. This method [can be invoked](https://github.com/facebook/react-native/blob/0.62-stable/ReactCommon/turbomodule/core/platform/ios/RCTTurboModuleManager.mm#L456) when the native bridge is invalidated (i.e.: on devmode reload). Please use this mechanism as necessary to do the required cleanup for your native module.

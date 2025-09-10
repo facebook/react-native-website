@@ -99,7 +99,9 @@ If everything is set up correctly, you should see your new app running in your A
 
 This is one way to run your app - you can also run it directly from within Android Studio.
 
-> If you can't get this to work, see the [Troubleshooting](troubleshooting.md) page.
+:::tip
+If you can't get this to work, see the [Troubleshooting](troubleshooting.md) page.
+:::
 
 ### Step 4: Modifying your app
 

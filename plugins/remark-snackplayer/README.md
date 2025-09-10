@@ -40,6 +40,7 @@ The above code snippet would look like this:
 | supportedPlatforms | Supported platforms                                                                                             | `"ios,android,web"` |
 | theme              | SnackPlayer theme, `"light"` or `"dark"`                                                                        | `"light"`           |
 | preview            | Preview visible, `"true"` or `"false"`                                                                          | `"true"`            |
+| deviceAppearance   | Sets the preview mobile device appearance, `"light"` or `"dark"`                                                | `"light"`           |
 | loading            | iFrame loading attribute, `"auto"`, `"lazy"` or `"eager"`                                                       | `"lazy"`            |
 | deviceAndroid      | Emulator type used for Android, [see Appetize options](https://docs.appetize.io/core-features/playback-options) | `pixel4`            |
 | deviceIos          | Simulator type used for iOS, [see Appetize options](https://docs.appetize.io/core-features/playback-options)    | `iphone12`          |

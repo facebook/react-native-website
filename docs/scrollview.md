@@ -97,9 +97,9 @@ When true, the scroll view bounces horizontally when it reaches the end even if 
 
 When true, the scroll view bounces vertically when it reaches the end even if the content is smaller than the scroll view itself.
 
-| Type | Default                                             |
-| ---- | --------------------------------------------------- |
-| bool | `false` when `vertical={true}`<hr/>`true` otherwise |
+| Type | Default                                               |
+| ---- | ----------------------------------------------------- |
+| bool | `false` when `horizontal={true}`<hr/>`true` otherwise |
 
 ---
 
@@ -754,7 +754,9 @@ Scrolls to a given x, y offset, either immediately, with a smooth animation.
 
 `scrollTo({x: 0, y: 0, animated: true})`
 
-> Note: The weird function signature is due to the fact that, for historical reasons, the function also accepts separate arguments as an alternative to the options object. This is deprecated due to ambiguity (y before x), and SHOULD NOT BE USED.
+:::note
+The weird function signature is due to the fact that, for historical reasons, the function also accepts separate arguments as an alternative to the options object. This is deprecated due to ambiguity (y before x), and SHOULD NOT BE USED.
+:::
 
 ---
 

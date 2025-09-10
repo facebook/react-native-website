@@ -1,6 +1,6 @@
 ---
 id: timepickerandroid
-title: '🚧 TimePickerAndroid'
+title: '❌ TimePickerAndroid'
 ---
 
 > **Removed.** Use one of the [community packages](https://reactnative.directory/?search=timepicker) instead.

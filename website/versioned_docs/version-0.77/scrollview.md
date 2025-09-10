@@ -97,9 +97,9 @@ When true, the scroll view bounces horizontally when it reaches the end even if 
 
 When true, the scroll view bounces vertically when it reaches the end even if the content is smaller than the scroll view itself.
 
-| Type | Default                                             |
-| ---- | --------------------------------------------------- |
-| bool | `false` when `vertical={true}`<hr/>`true` otherwise |
+| Type | Default                                               |
+| ---- | ----------------------------------------------------- |
+| bool | `false` when `horizontal={true}`<hr/>`true` otherwise |
 
 ---
 
