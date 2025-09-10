@@ -5,7 +5,9 @@ title: Layout Props
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
-> More detailed examples about those properties can be found on the [Layout with Flexbox](flexbox) page.
+:::info
+More detailed examples about those properties can be found on the [Layout with Flexbox](flexbox) page.
+:::
 
 ### Example
 
@@ -513,6 +515,16 @@ See https://developer.mozilla.org/en-US/docs/Web/CSS/bottom for more details of 
 
 ---
 
+### `boxSizing`
+
+`boxSizing` defines how the element's various sizing props (`width`, `height`, `minWidth`, `minHeight`, etc.) are computed. If `boxSizing` is `border-box`, these sizes apply to the border box of the element. If it is `content-box`, they apply to the content box of the element. The default value is `border-box`. The [web documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing) is a good source of information if you wish to learn more about how this prop works.
+
+| Type                              | Required |
+| --------------------------------- | -------- |
+| enum('border-box', 'content-box') | No       |
+
+---
+
 ### `columnGap`
 
 `columnGap` works like `column-gap` in CSS. Only pixel units are supported in React Native. See https://developer.mozilla.org/en-US/docs/Web/CSS/column-gap for more details.
@@ -537,11 +549,11 @@ See https://developer.mozilla.org/en-US/docs/Web/CSS/bottom for more details of 
 
 `display` sets the display type of this component.
 
-It works similarly to `display` in CSS but only supports 'flex' and 'none'. 'flex' is the default.
+It works similarly to `display` in CSS but only supports the values 'flex', 'none', and 'contents'. The default is `flex`.
 
-| Type                 | Required |
-| -------------------- | -------- |
-| enum('none', 'flex') | No       |
+| Type                             | Required |
+| -------------------------------- | -------- |
+| enum('none', 'flex', 'contents') | No       |
 
 ---
 
@@ -648,6 +660,21 @@ It works similarly to `height` in CSS, but in React Native you must use points o
 | Type           | Required |
 | -------------- | -------- |
 | number, string | No       |
+
+---
+
+### `isolation`
+
+`isolation` lets you form a [stacking context](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_positioned_layout/Stacking_context). This prop is only available on the [New Architecture](/architecture/landing-page).
+
+There are two values:
+
+- `auto` (default): Does nothing.
+- `isolate`: Forms a stacking context.
+
+| Type                    | Required |
+| ----------------------- | -------- |
+| enum('auto', 'isolate') | No       |
 
 ---
 
@@ -923,17 +950,20 @@ Setting `paddingVertical` is like setting both of `paddingTop` and `paddingBotto
 
 ### `position`
 
-`position` in React Native is similar to regular CSS, but everything is set to `relative` by default, so `absolute` positioning is always relative to the parent.
+`position` in React Native is similar to [regular CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/position), but everything is set to `relative` by default.
 
-If you want to position a child using specific numbers of logical pixels relative to its parent, set the child to have `absolute` position.
+`relative` will position an element according to the normal flow of the layout. Insets (`top`, `bottom`, `left`, `right`) will offset relative to this layout.
 
-If you want to position a child relative to something that is not its parent, don't use styles for that. Use the component tree.
+`absolute` takes the element out of the normal flow of the layout. Insets will offset relative to its [containing block](./flexbox.md#the-containing-block).
 
-See https://github.com/facebook/yoga for more details on how `position` differs between React Native and CSS.
+`static` will position an element according to the normal flow of the layout. Insets will have no effect.
+`static` elements do not form a containing block for absolute descendants.
 
-| Type                         | Required |
-| ---------------------------- | -------- |
-| enum('absolute', 'relative') | No       |
+For more information, see the [Layout with Flexbox docs](./flexbox.md#position). Also, [the Yoga documentation](https://www.yogalayout.dev/docs/styling/position) has more details on how `position` differs between React Native and CSS.
+
+| Type                                   | Required |
+| -------------------------------------- | -------- |
+| enum('absolute', 'relative', 'static') | No       |
 
 ---
 

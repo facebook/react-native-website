@@ -1,11 +1,24 @@
+/**
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 .lastUpdated {
   margin-top: 0.2rem;
   font-style: italic;
   font-size: smaller;
 }
 
+.editButtons {
+  column-gap: 0.4rem;
+  display: flex;
+  flex: 1;
+}
+
 @media (min-width: 997px) {
   .lastUpdated {
-    text-align: right;
+    text-align: end;
   }
 }

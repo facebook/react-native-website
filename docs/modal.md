@@ -106,7 +106,9 @@ Inherits [View Props](view.md#props).
 
 ### `animated`
 
-> **Deprecated.** Use the [`animationType`](modal.md#animationtype) prop instead.
+:::warning Deprecated
+Use the [`animationType`](modal.md#animationtype) prop instead.
+:::
 
 ---
 
@@ -116,9 +118,9 @@ The `animationType` prop controls how the modal animates.
 
 Possible values:
 
-- `slide` slides in from the bottom,
-- `fade` fades into view,
-- `none` appears without an animation.
+- `slide` slides in from the bottom
+- `fade` fades into view
+- `none` appears without an animation
 
 | Type                                | Default |
 | ----------------------------------- | ------- |
@@ -126,7 +128,17 @@ Possible values:
 
 ---
 
-### `hardwareAccelerated` <div class="label android">Android</div>
+### `backdropColor`
+
+The `backdropColor` of the modal (or background color of the modal's container.) Defaults to `white` if not provided and transparent is `false`. Ignored if `transparent` is `true`.
+
+| Type            | Default |
+| --------------- | ------- |
+| [color](colors) | white   |
+
+---
+
+### `hardwareAccelerated` <div className="label android">Android</div>
 
 The `hardwareAccelerated` prop controls whether to force hardware acceleration for the underlying window.
 
@@ -136,7 +148,17 @@ The `hardwareAccelerated` prop controls whether to force hardware acceleration f
 
 ---
 
-### `onDismiss` <div class="label ios">iOS</div>
+### `navigationBarTranslucent` <div className="label android">Android</div>
+
+The `navigationBarTranslucent` prop determines whether your modal should go under the system navigation bar. However, `statusBarTranslucent` also needs to be set to `true` to make navigation bar translucent.
+
+| Type | Default |
+| ---- | ------- |
+| bool | `false` |
+
+---
+
+### `onDismiss` <div className="label ios">iOS</div>
 
 The `onDismiss` prop allows passing a function that will be called once the modal has been dismissed.
 
@@ -146,7 +168,7 @@ The `onDismiss` prop allows passing a function that will be called once the moda
 
 ---
 
-### `onOrientationChange` <div class="label ios">iOS</div>
+### `onOrientationChange` <div className="label ios">iOS</div>
 
 The `onOrientationChange` callback is called when the orientation changes while the modal is being displayed. The orientation provided is only 'portrait' or 'landscape'. This callback is also called on initial render, regardless of the current orientation.
 
@@ -156,10 +178,21 @@ The `onOrientationChange` callback is called when the orientation changes while 
 
 ---
 
+### `allowSwipeDismissal` <div className="label ios">iOS</div>
+
+Controls whether the modal can be dismissed by swiping down on iOS.
+This requires you to implement the `onRequestClose` prop to handle the dismissal.
+
+| Type | Default |
+| ---- | ------- |
+| bool | `false` |
+
+---
+
 ### `onRequestClose`
 
 The `onRequestClose` callback is called when the user taps the hardware back button on Android or the menu button on Apple TV. Because of this required prop, be aware that `BackHandler` events will not be emitted as long as the modal is open.
-On iOS, this callback is called when a Modal is being dismissed using a drag gesture when `presentationStyle` is `pageSheet or formSheet`
+On iOS, this callback is called when a Modal is being dismissed using a drag gesture when `presentationStyle` is `pageSheet or formSheet`. When `allowSwipeDismissal` is enabled this callback will be called after dismissing the modal.
 
 | Type                                                                                                                                                                                           |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -177,7 +210,7 @@ The `onShow` prop allows passing a function that will be called once the modal h
 
 ---
 
-### `presentationStyle` <div class="label ios">iOS</div>
+### `presentationStyle` <div className="label ios">iOS</div>
 
 The `presentationStyle` prop controls how the modal appears (generally on larger devices such as iPad or plus-sized iPhones). See https://developer.apple.com/reference/uikit/uimodalpresentationstyle for details.
 
@@ -194,7 +227,7 @@ Possible values:
 
 ---
 
-### `statusBarTranslucent` <div class="label android">Android</div>
+### `statusBarTranslucent` <div className="label android">Android</div>
 
 The `statusBarTranslucent` prop determines whether your modal should go under the system statusbar.
 
@@ -204,11 +237,13 @@ The `statusBarTranslucent` prop determines whether your modal should go under th
 
 ---
 
-### `supportedOrientations` <div class="label ios">iOS</div>
+### `supportedOrientations` <div className="label ios">iOS</div>
 
 The `supportedOrientations` prop allows the modal to be rotated to any of the specified orientations. On iOS, the modal is still restricted by what's specified in your app's Info.plist's UISupportedInterfaceOrientations field.
 
-> When using `presentationStyle` of `pageSheet` or `formSheet`, this property will be ignored by iOS.
+:::note
+When using `presentationStyle` of `pageSheet` or `formSheet`, this property will be ignored on iOS.
+:::
 
 | Type                                                                                                           | Default        |
 | -------------------------------------------------------------------------------------------------------------- | -------------- |

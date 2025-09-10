@@ -1,6 +1,9 @@
 {
   "name": "react-native-website-monorepo",
   "private": true,
+  "engines": {
+    "node": ">=20"
+  },
   "workspaces": [
     "website",
     "plugins/*",
@@ -8,36 +11,29 @@
     "sync-api-docs"
   ],
   "scripts": {
-    "postinstall": "yarn update-lock",
-    "update-lock": "yarn-deduplicate",
+    "update-lock": "yarn dedupe",
     "docusaurus": "yarn --cwd website docusaurus",
     "start": "yarn --cwd website start",
     "build": "yarn --cwd website build",
     "build:fast": "yarn --cwd website build:fast",
-    "serve": "yarn --cwd website serve"
+    "serve": "yarn --cwd website serve",
+    "prepare": "husky",
+    "check-dependencies": "manypkg check"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
-  },
-  "dependencies": {
-    "babel-eslint": "^10.1.0",
-    "case-police": "^0.5.14",
-    "eslint": "^8.20.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-mdx": "^1.16.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-yml": "^1.2.0",
-    "husky": "^4.3.8",
+  "devDependencies": {
+    "@manypkg/cli": "^0.25.0",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-mdx": "^3.6.2",
+    "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-yml": "^1.18.0",
+    "husky": "^9.1.7",
     "netlify-plugin-cache": "^1.0.3",
-    "prettier": "^2.7.1",
-    "pretty-quick": "^3.1.3",
-    "yarn-deduplicate": "^5.0.0"
+    "prettier": "^3.6.2",
+    "pretty-quick": "^4.2.2"
   },
   "resolutions": {
-    "trim": "^1.0.1",
-    "update-notifier": "^6.0.2",
-    "@sideway/formula": ">=3.0.1"
-  }
+    "@typescript-eslint/typescript-estree": "8.39.1"
+  },
+  "packageManager": "yarn@4.9.2"
 }

@@ -21,7 +21,7 @@ This guide requires Android Studio or Xcode. If you already have one of these pr
 <details>
 <summary>Is setting up my environment required?</summary>
 
-Setting up your environment is not required if you're using a [Framework](/architecture/glossary#react-native-framework). With a React Native Framework, you don't need to setup Android Studio or XCode as a Framework will take care of building the native app for you.
+Setting up your environment is not required if you're using a [Framework](/architecture/glossary#react-native-framework). With a React Native Framework, you don't need to setup Android Studio or Xcode as a Framework will take care of building the native app for you.
 
 If you have constraints that prevent you from using a Framework, or you'd like to write your own Framework, then setting up your local environment is a requirement. After your environment is set up, learn how to [get started without a framework](getting-started-without-a-framework).
 
@@ -71,7 +71,9 @@ If you have constraints that prevent you from using a Framework, or you'd like t
 
 ## Unsupported
 
-> A Mac is required to build projects with native code for iOS. You can use [Expo Go](https://expo.dev/go) from [Expo](environment-setup#start-a-new-react-native-project-with-expo) to develop your app on your iOS device.
+:::info
+A Mac is required to build projects with native code for iOS. You can use [Expo Go](https://expo.dev/go) from [Expo](environment-setup#start-a-new-react-native-project-with-expo) to develop your app on your iOS device.
+:::
 
 </TabItem>
 </Tabs>
@@ -95,7 +97,9 @@ If you have constraints that prevent you from using a Framework, or you'd like t
 
 ## Unsupported
 
-> A Mac is required to build projects with native code for iOS. You can use [Expo Go](https://expo.dev/go) from [Expo](environment-setup#start-a-new-react-native-project-with-expo) to develop your app on your iOS device.
+:::info
+A Mac is required to build projects with native code for iOS. You can use [Expo Go](https://expo.dev/go) from [Expo](environment-setup#start-a-new-react-native-project-with-expo) to develop your app on your iOS device.
+:::
 
 </TabItem>
 </Tabs>

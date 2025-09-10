@@ -1,7 +1,11 @@
 ---
 id: safeareaview
-title: SafeAreaView
+title: '🗑️ SafeAreaView'
 ---
+
+:::warning Deprecated
+Use [react-native-safe-area-context](https://github.com/AppAndFlow/react-native-safe-area-context) instead.
+:::
 
 The purpose of `SafeAreaView` is to render content within the safe area boundaries of a device. It is currently only applicable to iOS devices with iOS version 11 or later.
 

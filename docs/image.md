@@ -7,7 +7,9 @@ A React component for displaying different types of images, including network im
 
 This example shows fetching and displaying an image from local storage as well as one from network and even from data provided in the `'data:'` uri scheme.
 
-> Note that for network and data images, you will need to manually specify the dimensions of your image!
+:::note
+For network and data images, you will need to manually specify the dimensions of your image!
+:::
 
 ## Examples
 
@@ -100,18 +102,20 @@ dependencies {
   implementation 'com.facebook.fresco:animated-base-support:1.3.0'
 
   // For animated GIF support
-  implementation 'com.facebook.fresco:animated-gif:3.1.3'
+  implementation 'com.facebook.fresco:animated-gif:3.6.0'
 
   // For WebP support, including animated WebP
-  implementation 'com.facebook.fresco:animated-webp:3.1.3'
-  implementation 'com.facebook.fresco:webpsupport:3.1.3'
+  implementation 'com.facebook.fresco:animated-webp:3.6.0'
+  implementation 'com.facebook.fresco:webpsupport:3.6.0'
 
   // For WebP support, without animations
-  implementation 'com.facebook.fresco:webpsupport:3.1.3'
+  implementation 'com.facebook.fresco:webpsupport:3.6.0'
 }
 ```
 
-> Note: the version listed above may not be updated in time. Please check [`packages/react-native/gradle/libs.versions.toml`](https://github.com/facebook/react-native/blob/main/packages/react-native/gradle/libs.versions.toml) in the main repo to see which fresco version is being used in a specific tagged version.
+:::note
+The version listed above may not be updated in time. Please check [`packages/react-native/gradle/libs.versions.toml`](https://github.com/facebook/react-native/blob/main/packages/react-native/gradle/libs.versions.toml) in the main repo to see which fresco version is being used in a specific tagged version.
+:::
 
 ---
 
@@ -163,11 +167,13 @@ blurRadius: the blur radius of the blur filter added to the image.
 | ------ |
 | number |
 
-> Tip: On IOS, you will need to increase `blurRadius` by more than `5`.
+:::tip
+On IOS, you will need to increase `blurRadius` by more than `5`.
+:::
 
 ---
 
-### `capInsets` <div class="label ios">iOS</div>
+### `capInsets` <div className="label ios">iOS</div>
 
 When the image is resized, the corners of the size specified by `capInsets` will stay a fixed size, but the center content and borders of the image will be stretched. This is useful for creating resizable rounded buttons, shadows, and other resizable assets. More info in the [official Apple documentation](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIImage_Class/index.html#//apple_ref/occ/instm/UIImage/resizableImageWithCapInsets).
 
@@ -198,11 +204,13 @@ A static image to display while loading the image source.
 | -------------------------------- |
 | [ImageSource](image#imagesource) |
 
-> **Note:** On Android, the default source prop is ignored on debug builds.
+:::note
+On Android, the default source prop is ignored on debug builds.
+:::
 
 ---
 
-### `fadeDuration` <div class="label android">Android</div>
+### `fadeDuration` <div className="label android">Android</div>
 
 Fade animation duration in milliseconds.
 
@@ -286,7 +294,7 @@ Invoked on load start.
 
 ---
 
-### `onPartialLoad` <div class="label ios">iOS</div>
+### `onPartialLoad` <div className="label ios">iOS</div>
 
 Invoked when a partial load of the image is complete. The definition of what constitutes a "partial load" is loader specific though this is meant for progressive JPEG loads.
 
@@ -306,7 +314,7 @@ Invoked on download progress.
 
 ---
 
-### `progressiveRenderingEnabled` <div class="label android">Android</div>
+### `progressiveRenderingEnabled` <div className="label android">Android</div>
 
 When `true`, enables progressive jpeg streaming - https://frescolib.org/docs/progressive-jpegs.
 
@@ -326,7 +334,7 @@ A string indicating which referrer to use when fetching the resource. Sets the v
 
 ---
 
-### `resizeMethod` <div class="label android">Android</div>
+### `resizeMethod` <div className="label android">Android</div>
 
 The mechanism that should be used to resize the image when the image's dimensions differ from the image view's dimensions. Defaults to `auto`.
 
@@ -336,11 +344,13 @@ The mechanism that should be used to resize the image when the image's dimension
 
 - `scale`: The image gets drawn downscaled or upscaled. Compared to `resize`, `scale` is faster (usually hardware accelerated) and produces higher quality images. This should be used if the image is smaller than the view. It should also be used if the image is slightly bigger than the view.
 
+- `none`: No sampling is performed and the image is displayed in its full resolution. This should only be used in rare circumstances because it is considered unsafe as Android will throw a runtime exception when trying to render images that consume too much memory.
+
 More details about `resize` and `scale` can be found at https://frescolib.org/docs/resizing.
 
-| Type                                  | Default  |
-| ------------------------------------- | -------- |
-| enum(`'auto'`, `'resize'`, `'scale'`) | `'auto'` |
+| Type                                            | Default  |
+| ----------------------------------------------- | -------- |
+| enum(`'auto'`, `'resize'`, `'scale'`, `'none'`) | `'auto'` |
 
 ---
 
@@ -349,7 +359,6 @@ More details about `resize` and `scale` can be found at https://frescolib.org/do
 Determines how to resize the image when the frame doesn't match the raw image dimensions. Defaults to `cover`.
 
 - `cover`: Scale the image uniformly (maintain the image's aspect ratio) so that
-
   - both dimensions (width and height) of the image will be equal to or larger than the corresponding dimension of the view (minus padding)
   - at least one dimension of the scaled image will be equal to the corresponding dimension of the view (minus padding)
 
@@ -367,7 +376,7 @@ Determines how to resize the image when the frame doesn't match the raw image di
 
 ---
 
-### `resizeMultiplier` <div class="label android">Android</div>
+### `resizeMultiplier` <div className="label android">Android</div>
 
 When the `resizeMethod` is set to `resize`, the destination dimensions are multiplied by this value. The `scale` method is used to perform the remainder of the resize. A default of `1.0` means the bitmap size is designed to fit the destination dimensions. A multiplier greater than `1.0` will set the resize options larger than that of the destination dimensions, and the resulting bitmap will be scaled down from the hardware size. Defaults to `1.0`.
 
@@ -385,9 +394,11 @@ If you have a source image with dimensions 200x200 and destination dimensions of
 
 The image source (either a remote URL or a local file resource).
 
-This prop can also contain several remote URLs, specified together with their width and height and potentially with scale/other URI arguments. The native side will then choose the best `uri` to display based on the measured size of the image container. A `cache` property can be added to control how networked request interacts with the local cache. (For more information see [Cache Control for Images](images#cache-control-ios-only)).
+This prop can also contain several remote URLs, specified together with their width and height and potentially with scale/other URI arguments. The native side will then choose the best `uri` to display based on the measured size of the image container. A `cache` property can be added to control how networked request interacts with the local cache. (For more information see [Cache Control for Images](images#cache-control)).
 
 The currently supported formats are `png`, `jpg`, `jpeg`, `bmp`, `gif`, `webp`, `psd` (iOS only). In addition, iOS supports several RAW image formats. Refer to Apple's documentation for the current list of supported camera models (for iOS 12, see https://support.apple.com/en-ca/HT208967).
+
+Please note that the `webp` format is supported on iOS **only** when bundled with the JavaScript code.
 
 | Type                             |
 | -------------------------------- |
@@ -461,7 +472,7 @@ Width of the image component.
 
 ## Methods
 
-### `abortPrefetch()` <div class="label android">Android</div>
+### `abortPrefetch()` <div className="label android">Android</div>
 
 ```tsx
 static abortPrefetch(requestId: number);
@@ -471,20 +482,16 @@ Abort prefetch request.
 
 **Parameters:**
 
-| Name                                                       | Type   | Description                             |
-| ---------------------------------------------------------- | ------ | --------------------------------------- |
-| requestId <div class="label basic required">Required</div> | number | Request id as returned by `prefetch()`. |
+| Name                                                           | Type   | Description                             |
+| -------------------------------------------------------------- | ------ | --------------------------------------- |
+| requestId <div className="label basic required">Required</div> | number | Request id as returned by `prefetch()`. |
 
 ---
 
 ### `getSize()`
 
 ```tsx
-static getSize(
-  uri: string,
-  success: (width: number, height: number) => void,
-  failure?: (error: any) => void,
-): any;
+static getSize(uri: string): Promise<{width: number, height: number}>;
 ```
 
 Retrieve the width and height (in pixels) of an image prior to displaying it. This method can fail if the image cannot be found, or fails to download.
@@ -493,11 +500,9 @@ In order to retrieve the image dimensions, the image may first need to be loaded
 
 **Parameters:**
 
-| <div className="wideColumn">Name</div>                   | Type     | Description                                                                                          |
-| -------------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------- |
-| uri <div class="label basic required">Required</div>     | string   | The location of the image.                                                                           |
-| success <div class="label basic required">Required</div> | function | The function that will be called if the image was successfully found and width and height retrieved. |
-| failure                                                  | function | The function that will be called if there was an error, such as failing to retrieve the image.       |
+| <div className="wideColumn">Name</div>                   | Type   | Description                |
+| -------------------------------------------------------- | ------ | -------------------------- |
+| uri <div className="label basic required">Required</div> | string | The location of the image. |
 
 ---
 
@@ -506,10 +511,8 @@ In order to retrieve the image dimensions, the image may first need to be loaded
 ```tsx
 static getSizeWithHeaders(
   uri: string,
-  headers: {[index: string]: string},
-  success: (width: number, height: number) => void,
-  failure?: (error: any) => void,
-): any;
+  headers: {[index: string]: string}
+): Promise<{width: number, height: number}>;
 ```
 
 Retrieve the width and height (in pixels) of an image prior to displaying it with the ability to provide the headers for the request. This method can fail if the image cannot be found, or fails to download. It also does not work for static image resources.
@@ -518,12 +521,10 @@ In order to retrieve the image dimensions, the image may first need to be loaded
 
 **Parameters:**
 
-| <div className="wideColumn">Name</div>                   | Type     | Description                                                                                          |
-| -------------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------- |
-| uri <div class="label basic required">Required</div>     | string   | The location of the image.                                                                           |
-| headers <div class="label basic required">Required</div> | object   | The headers for the request.                                                                         |
-| success <div class="label basic required">Required</div> | function | The function that will be called if the image was successfully found and width and height retrieved. |
-| failure                                                  | function | The function that will be called if there was an error, such as failing to retrieve the image.       |
+| <div className="wideColumn">Name</div>                       | Type   | Description                  |
+| ------------------------------------------------------------ | ------ | ---------------------------- |
+| uri <div className="label basic required">Required</div>     | string | The location of the image.   |
+| headers <div className="label basic required">Required</div> | object | The headers for the request. |
 
 ---
 
@@ -537,10 +538,10 @@ Prefetches a remote image for later use by downloading it to the disk cache. Ret
 
 **Parameters:**
 
-| Name                                                 | Type                                              | Description                                            |
-| ---------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------------ |
-| url <div class="label basic required">Required</div> | string                                            | The remote location of the image.                      |
-| callback                                             | function <div class="label android">Android</div> | The function that will be called with the `requestId`. |
+| Name                                                     | Type                                                  | Description                                            |
+| -------------------------------------------------------- | ----------------------------------------------------- | ------------------------------------------------------ |
+| url <div className="label basic required">Required</div> | string                                                | The remote location of the image.                      |
+| callback                                                 | function <div className="label android">Android</div> | The function that will be called with the `requestId`. |
 
 ---
 
@@ -556,9 +557,9 @@ Perform cache interrogation. Returns a promise which resolves to a mapping from 
 
 **Parameters:**
 
-| Name                                                  | Type  | Description                                |
-| ----------------------------------------------------- | ----- | ------------------------------------------ |
-| urls <div class="label basic required">Required</div> | array | List of image URLs to check the cache for. |
+| Name                                                      | Type  | Description                                |
+| --------------------------------------------------------- | ----- | ------------------------------------------ |
+| urls <div className="label basic required">Required</div> | array | List of image URLs to check the cache for. |
 
 ---
 
@@ -577,15 +578,15 @@ Resolves an asset reference into an object which has the properties `uri`, `scal
 
 **Parameters:**
 
-| <div className="wideColumn">Name</div>                  | Type                                     | Description                                                                  |
-| ------------------------------------------------------- | ---------------------------------------- | ---------------------------------------------------------------------------- |
-| source <div class="label basic required">Required</div> | [ImageSource](image#imagesource), number | A number (opaque type returned by `require('./foo.png')`) or an ImageSource. |
+| <div className="wideColumn">Name</div>                      | Type                                     | Description                                                                  |
+| ----------------------------------------------------------- | ---------------------------------------- | ---------------------------------------------------------------------------- |
+| source <div className="label basic required">Required</div> | [ImageSource](image#imagesource), number | A number (opaque type returned by `require('./foo.png')`) or an ImageSource. |
 
 ## Type Definitions
 
-### ImageCacheEnum <div class="label ios">iOS</div>
+### ImageCacheEnum <div className="label ios">iOS</div>
 
-Enum which can be used to set the cache handling or stategy for the potentially cached responses.
+Enum which can be used to set the cache handling or strategy for the potentially cached responses.
 
 | Type                                                               | Default     |
 | ------------------------------------------------------------------ | ----------- |
@@ -628,17 +629,17 @@ Object returned in the `onLoad` callback.
 
 **Properties (if passing as object or array of objects):**
 
-| <div className="wideColumn">Name</div> | Type                                       | Description                                                                                                                                                                          |
-| -------------------------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| uri                                    | string                                     | A string representing the resource identifier for the image, which could be an http address, a local file path, or the name of a static image resource.                              |
-| width                                  | number                                     | Can be specified if known at build time, in which case the value will be used to set the default `<Image/>` component dimension.                                                     |
-| height                                 | number                                     | Can be specified if known at build time, in which case the value will be used to set the default `<Image/>` component dimension.                                                     |
-| scale                                  | number                                     | Used to indicate the scale factor of the image. Defaults to `1.0` if unspecified, meaning that one image pixel equates to one display point / DIP.                                   |
-| bundle<div class="label ios">iOS</div> | string                                     | The iOS asset bundle which the image is included in. This will default to `[NSBundle mainBundle]` if not set.                                                                        |
-| method                                 | string                                     | The HTTP Method to use. Defaults to `'GET'` if not specified.                                                                                                                        |
-| headers                                | object                                     | An object representing the HTTP headers to send along with the request for a remote image.                                                                                           |
-| body                                   | string                                     | The HTTP body to send with the request. This must be a valid UTF-8 string, and will be sent exactly as specified, with no additional encoding (e.g. URL-escaping or base64) applied. |
-| cache<div class="label ios">iOS</div>  | [ImageCacheEnum](image#imagecacheenum-ios) | Determines how the requests handles potentially cached responses.                                                                                                                    |
+| <div className="wideColumn">Name</div>     | Type                                       | Description                                                                                                                                                                          |
+| ------------------------------------------ | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| uri                                        | string                                     | A string representing the resource identifier for the image, which could be an http address, a local file path, or the name of a static image resource.                              |
+| width                                      | number                                     | Can be specified if known at build time, in which case the value will be used to set the default `<Image/>` component dimension.                                                     |
+| height                                     | number                                     | Can be specified if known at build time, in which case the value will be used to set the default `<Image/>` component dimension.                                                     |
+| scale                                      | number                                     | Used to indicate the scale factor of the image. Defaults to `1.0` if unspecified, meaning that one image pixel equates to one display point / DIP.                                   |
+| bundle<div className="label ios">iOS</div> | string                                     | The iOS asset bundle which the image is included in. This will default to `[NSBundle mainBundle]` if not set.                                                                        |
+| method                                     | string                                     | The HTTP Method to use. Defaults to `'GET'` if not specified.                                                                                                                        |
+| headers                                    | object                                     | An object representing the HTTP headers to send along with the request for a remote image.                                                                                           |
+| body                                       | string                                     | The HTTP body to send with the request. This must be a valid UTF-8 string, and will be sent exactly as specified, with no additional encoding (e.g. URL-escaping or base64) applied. |
+| cache<div className="label ios">iOS</div>  | [ImageCacheEnum](image#imagecacheenum-ios) | Determines how the requests handles potentially cached responses.                                                                                                                    |
 
 **If passing a number:**
 

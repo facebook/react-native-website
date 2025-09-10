@@ -15,16 +15,16 @@
     "src"
   ],
   "scripts": {
-    "prettier": "prettier --write \"{src/**/*.js,tests/**/*.js,*.md}\"",
+    "prettier": "prettier --write '{src,tests}/**/*.{md,js,jsx,ts,tsx}'",
     "test": "yarn tape tests/index.js"
   },
   "dependencies": {
-    "dedent": "^0.7.0",
+    "dedent": "^1.5.3",
     "object.fromentries": "^2.0.3",
     "unist-util-visit-parents": "^3.1.1"
   },
   "devDependencies": {
-    "remark": "^14.0.3",
+    "remark": "^15.0.1",
     "tape": "^5.7.0"
   }
 }

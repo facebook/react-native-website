@@ -203,7 +203,9 @@ The skew transformations require a string so that the transform may be expressed
 
 ### `decomposedMatrix`, `rotation`, `scaleX`, `scaleY`, `transformMatrix`, `translateX`, `translateY`
 
-> **Deprecated.** Use the [`transform`](transforms#transform) prop instead.
+:::warning Deprecated
+Use the [`transform`](transforms#transform) prop instead.
+:::
 
 ## Transform Origin
 
@@ -212,8 +214,13 @@ The `transformOrigin` property sets the origin for a view's transformations. The
 # Example
 
 ```SnackPlayer name=TransformOrigin%20Example
-import React, {useRef, useEffect} from 'react';
-import {Animated, View, StyleSheet, Easing} from 'react-native';
+import React, {useEffect, useRef} from 'react';
+import {
+  Animated,
+  View,
+  StyleSheet,
+  Easing,
+} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => {

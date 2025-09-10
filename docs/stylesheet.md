@@ -107,7 +107,7 @@ export default App;
 ### `create()`
 
 ```tsx
-static create(styles: Object extends Record<string, ViewStyle | ImageStyle | TextSyle>): Object;
+static create(styles: Object extends Record<string, ViewStyle | ImageStyle | TextStyle>): Object;
 ```
 
 An identity function for creating styles. The main practical benefit of creating styles inside `StyleSheet.create()` is static type checking against native style properties.
@@ -117,7 +117,7 @@ An identity function for creating styles. The main practical benefit of creating
 ### `flatten()`
 
 ```tsx
-static flatten(style: Array<Object extends Record<string, ViewStyle | ImageStyle | TextSyle>>): Object;
+static flatten(style: Array<Object extends Record<string, ViewStyle | ImageStyle | TextStyle>>): Object;
 ```
 
 Flattens an array of style objects, into one aggregated style object.
@@ -174,7 +174,9 @@ export default App;
 
 ### `setStyleAttributePreprocessor()`
 
-> **WARNING: EXPERIMENTAL.** Breaking changes will probably happen a lot and will not be reliably announced. The whole thing might be deleted, who knows? Use at your own risk.
+:::warning Experimental
+Breaking changes will probably happen a lot and will not be reliably announced. The whole thing might be deleted, who knows? Use at your own risk.
+:::
 
 ```tsx
 static setStyleAttributePreprocessor(

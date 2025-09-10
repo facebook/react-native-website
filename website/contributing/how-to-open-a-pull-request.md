@@ -28,6 +28,7 @@ You will now have a fork of React Native on GitHub at https://github.com/your_us
 
 ```bash
 git clone https://github.com/facebook/react-native.git
+cd react-native
 git remote add fork https://github.com/your_username/react-native.git
 ```
 
@@ -76,11 +77,15 @@ IDE project configurations:
 - **Android Studio**: Open the repo root folder (containing the `.idea` config directory).
 - **Xcode**: Open `packages/rn-tester/RNTesterPods.xcworkspace`.
 
-### 3. Test your changes
+### 3. Run your changes
+
+The package rn-tester can be used to run and validate your changes. You can learn more in [RNTester readme](https://github.com/facebook/react-native/blob/main/packages/rn-tester/README.md).
+
+### 4. Test your changes
 
 Make sure your changes are correct and do not introduce any test failures. You can learn more in [Running and Writing Tests](/contributing/how-to-run-and-write-tests).
 
-### 4. Lint your code
+### 5. Lint your code
 
 We understand it can take a while to ramp up and get a sense of the style followed for each of the languages in use in the core React Native repository. Developers should not need to worry about minor nits, so whenever possible, we use tools that automate the process of rewriting your code to follow conventions.
 
@@ -90,7 +95,7 @@ We also use a linter to catch styling issues that may exist in your code. You ca
 
 To learn more about coding conventions, refer to the [Coding Style guide](/contributing/how-to-contribute-code#coding-style).
 
-### 5. View your changes
+### 6. View your changes
 
 Many popular editors integrate with source control in some way. You can also use `git status` and `git diff` on the command line to keep track of what has changed.
 

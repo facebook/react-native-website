@@ -54,6 +54,7 @@ async function toJsxNode(node) {
   const theme = params.theme ?? 'light';
   const preview = params.preview ?? 'true';
   const loading = params.loading ?? 'lazy';
+  const deviceAppearance = params.deviceAppearance ?? 'light';
 
   // Need help constructing this AST node?
   // Use the MDX Playground and explore what your output mdast should look like
@@ -62,7 +63,7 @@ async function toJsxNode(node) {
     type: 'mdxJsxTextElement',
     name: 'div',
     attributes: [
-      attr('class', 'snack-player'),
+      attr('className', 'snack-player'),
       attr('data-snack-name', name),
       attr('data-snack-description', description),
       attr('data-snack-files', files),
@@ -72,6 +73,7 @@ async function toJsxNode(node) {
       attr('data-snack-theme', theme),
       attr('data-snack-preview', preview),
       attr('data-snack-loading', loading),
+      attr('data-snack-device-appearance', deviceAppearance),
       attr('data-snack-device-frame', 'false'),
     ],
     children: [],
