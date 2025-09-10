@@ -3,6 +3,8 @@ id: view
 title: View
 ---
 
+import ExperimentalAPIWarning from './\_experimental-api-warning.mdx';
+
 The most fundamental component for building a UI, `View` is a container that supports layout with [flexbox](flexbox.md), [style](style.md), [some touch handling](handling-touches.md), and [accessibility](accessibility.md) controls. `View` maps directly to the native view equivalent on whatever platform React Native is running on, whether that is a `UIView`, `<div>`, `android.view`, etc.
 
 `View` is designed to be nested inside other views and can have 0 to many children of any type.
@@ -385,9 +387,7 @@ Setting to false prevents direct children of the view from being removed from th
 
 ### `experimental_accessibilityOrder`
 
-:::important Experimental 🧪
-**This API is experimental.** Experimental APIs may contain bugs and are likely to change in a future version of React Native. Don't use them in production.
-:::
+<ExperimentalAPIWarning />
 
 `experimental_accessibilityOrder` indicates the order in which an assistive technology focuses descendants of this `View`. This prop takes an array of strings where each string is a [`nativeID`](view.md#nativeid) of some descendant component whose order is being defined. This prop does not enable accessibility itself, each referenced component still needs to be accessible by setting [`accessible`](view.md#accessible) to true. This prop is both **nestable** and **exhaustive** meaning
 

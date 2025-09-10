@@ -4,6 +4,8 @@ title: Accessibility
 description: Create mobile apps accessible to assistive technology with React Native's suite of APIs designed to work with Android and iOS.
 ---
 
+import ExperimentalAPIWarning from './\_experimental-api-warning.mdx';
+
 Both Android and iOS provide APIs for integrating apps with assistive technologies like the bundled screen readers VoiceOver (iOS) and TalkBack (Android). React Native has complementary APIs that let your app accommodate all users.
 
 :::info
@@ -339,9 +341,8 @@ Indicates whether a selectable element is currently selected or not.
 
 ### `experimental_accessibilityOrder`
 
-:::important Experimental 🧪
-**This API is experimental.** Experimental APIs may contain bugs and are likely to change in a future version of React Native. Don't use them in production.
-:::
+<ExperimentalAPIWarning />
+
 :::note
 For the sake of brevity, layout is excluded in the following examples even though it dictates the default focus order. Assume the document order matches the layout order.
 :::
