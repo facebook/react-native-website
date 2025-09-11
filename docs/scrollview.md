@@ -285,9 +285,9 @@ Fades out the edges of the scroll content.
 
 If the value is greater than `0`, the fading edges will be set accordingly to the current scroll direction and position, indicating if there is more content to show.
 
-| Type   | Default |
-| ------ | ------- |
-| number | `0`     |
+| Type                                               | Default |
+| -------------------------------------------------- | ------- |
+| number<hr />object: `{start: number, end: number}` | `0`     |
 
 ---
 
