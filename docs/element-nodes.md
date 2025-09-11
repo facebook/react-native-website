@@ -49,7 +49,9 @@ const styles = StyleSheet.create({
 export default ViewWithRefs;
 ```
 
-Note that some built-in components are only a container for other components (including native components). For example, `ScrollView` internally renders a native scroll view and a native view, which are accessible through the ref is provides using methods like `getNativeScrollRef()` and `getInnerViewRef()`.
+:::info
+Note that some built-in components are only a container for other components (including native components). For example, `ScrollView` internally renders a native scroll view and a native view, which are accessible through the ref it provides using methods like `getNativeScrollRef()` and `getInnerViewRef()`.
+:::
 
 ---
 
@@ -67,9 +69,7 @@ From [`HTMLElement`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElemen
   - [`offsetWidth`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetWidth)
 - Methods
   - [`blur()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/blur).
-    - ℹ️ This method was also [available](/docs/next/legacy/direct-manipulation#blur) in the legacy architecture.
   - [`focus()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/focus).
-    - ℹ️ This method was also [available](/docs/next/legacy/direct-manipulation#focus) in the legacy architecture.
     - ⚠️ The `options` parameter is not supported.
 
 From [`Element`](https://developer.mozilla.org/en-US/docs/Web/API/Element):
