@@ -11,4 +11,8 @@ React Native provides 3 types of nodes:
 - [Text](/docs/next/text-nodes): text nodes represent raw text content on the tree (similar to [`Text`](https://developer.mozilla.org/en-US/docs/Web/API/Text) nodes on Web). They are not directly accessible via `refs`, but can be accessed using methods like [`childNodes`](https://developer.mozilla.org/en-US/docs/Web/API/Node/childNodes) on element refs.
 - [Documents](/docs/next/document-nodes): document nodes represent a complete native view tree (similar to [`Document`](https://developer.mozilla.org/en-US/docs/Web/API/Document) nodes on Web). Like text nodes, they can only be accessed through other nodes, using properties like [`ownerDocument`](https://developer.mozilla.org/en-US/docs/Web/API/Node/ownerDocument).
 
-As on Web, these nodes can be used to traverse the rendered UI tree, access layout information or execute imperative operations like `focus`. **Unlike on Web, they do not allow mutation** (e.g.: [`node.appendChild`](https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild)), as the tree contents are fully managed by the React renderer.
+As on Web, these nodes can be used to traverse the rendered UI tree, access layout information or execute imperative operations like `focus`.
+
+:::info
+**Unlike on Web, these nodes do not allow mutation** (e.g.: [`node.appendChild`](https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild)), as the tree contents are fully managed by the React renderer.
+:::
