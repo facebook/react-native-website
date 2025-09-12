@@ -8,7 +8,7 @@
 // Hard-coded knowledge about the React Native codebase and how to document it
 // Ideally this file should go away.
 
-module.exports = {
+export default {
   linkableTypeAliases: {
     NativeColorValue: {
       text: 'color',
