@@ -238,7 +238,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:^7.11.6, @babel/core@npm:^7.12.3, @babel/core@npm:^7.21.3, @babel/core@npm:^7.23.9, @babel/core@npm:^7.24.4, @babel/core@npm:^7.25.2, @babel/core@npm:^7.25.9, @babel/core@npm:^7.28.3, @babel/core@npm:^7.7.5":
+"@babel/core@npm:^7.11.6, @babel/core@npm:^7.12.3, @babel/core@npm:^7.21.3, @babel/core@npm:^7.23.9, @babel/core@npm:^7.24.4, @babel/core@npm:^7.25.2, @babel/core@npm:^7.25.9, @babel/core@npm:^7.28.3":
   version: 7.28.3
   resolution: "@babel/core@npm:7.28.3"
   dependencies:
@@ -1682,7 +1682,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.1.2, @babel/runtime@npm:^7.10.3, @babel/runtime@npm:^7.11.2, @babel/runtime@npm:^7.12.13, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.25.0, @babel/runtime@npm:^7.25.9, @babel/runtime@npm:^7.28.3, @babel/runtime@npm:^7.7.6":
+"@babel/runtime@npm:^7.1.2, @babel/runtime@npm:^7.10.3, @babel/runtime@npm:^7.11.2, @babel/runtime@npm:^7.12.13, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.25.0, @babel/runtime@npm:^7.25.9, @babel/runtime@npm:^7.28.3":
   version: 7.28.3
   resolution: "@babel/runtime@npm:7.28.3"
   checksum: 10c0/b360f82c2c5114f2a062d4d143d7b4ec690094764853937110585a9497977aed66c102166d0e404766c274e02a50ffb8f6d77fef7251ecf3f607f0e03e6397bc
@@ -3657,32 +3657,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@motiz88/ast-types@npm:^0.13.3":
-  version: 0.13.3
-  resolution: "@motiz88/ast-types@npm:0.13.3"
-  checksum: 10c0/d45596283fa99cd0d193aecae3f389d02b0aba5ed4f758395f330dde3a315d70cc919f14a9ff95f82a90d0fc105481d8674d03f27a9d9fed10e646bc4700c48c
-  languageName: node
-  linkType: hard
-
-"@motiz88/react-native-docgen@npm:0.0.3":
-  version: 0.0.3
-  resolution: "@motiz88/react-native-docgen@npm:0.0.3"
-  dependencies:
-    "@babel/core": "npm:^7.7.5"
-    "@babel/runtime": "npm:^7.7.6"
-    "@motiz88/ast-types": "npm:^0.13.3"
-    commander: "npm:^2.19.0"
-    doctrine: "npm:^3.0.0"
-    neo-async: "npm:^2.6.1"
-    node-dir: "npm:^0.1.10"
-    resolve: "npm:^1.10.1"
-    strip-indent: "npm:^3.0.0"
-  bin:
-    react-docgen: bin/react-docgen.js
-  checksum: 10c0/7135f6a52583335c15fb5780d7e41e71787e3cbcbf9c18db333c079dfbd193b347c1cb87f3e0813be9bbc85b0918ca25a6a5925b45e4250ff2d7c0366494c24d
-  languageName: node
-  linkType: hard
-
 "@napi-rs/wasm-runtime@npm:^1.0.1":
   version: 1.0.1
   resolution: "@napi-rs/wasm-runtime@npm:1.0.1"
@@ -3962,18 +3936,6 @@ __metadata:
     remark-mdx: "npm:^3.1.0"
     tape: "npm:^5.7.0"
     unist-util-visit-parents: "npm:^3.1.1"
-  languageName: unknown
-  linkType: soft
-
-"@react-native-website/sync-api@workspace:packages/sync-api-docs":
-  version: 0.0.0-use.local
-  resolution: "@react-native-website/sync-api@workspace:packages/sync-api-docs"
-  dependencies:
-    "@motiz88/react-native-docgen": "npm:0.0.3"
-    glob: "npm:^11.0.0"
-    he: "npm:^1.2.0"
-    react-docgen-markdown-renderer: "npm:^2.1.3"
-    tokenize-comment: "npm:^3.0.1"
   languageName: unknown
   linkType: soft
 
@@ -7401,7 +7363,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commander@npm:^2.19.0, commander@npm:^2.20.0":
+"commander@npm:^2.20.0":
   version: 2.20.3
   resolution: "commander@npm:2.20.3"
   checksum: 10c0/74c781a5248c2402a0a3e966a0a2bba3c054aad144f5c023364be83265e796b20565aa9feff624132ff629aa64e16999fa40a743c10c12f7c61e96a794b99288
@@ -8302,15 +8264,6 @@ __metadata:
   dependencies:
     esutils: "npm:^2.0.2"
   checksum: 10c0/b6416aaff1f380bf56c3b552f31fdf7a69b45689368deca72d28636f41c16bb28ec3ebc40ace97db4c1afc0ceeb8120e8492fe0046841c94c2933b2e30a7d5ac
-  languageName: node
-  linkType: hard
-
-"doctrine@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "doctrine@npm:3.0.0"
-  dependencies:
-    esutils: "npm:^2.0.2"
-  checksum: 10c0/c96bdccabe9d62ab6fea9399fdff04a66e6563c1d6fb3a3a063e8d53c3bb136ba63e84250bbf63d00086a769ad53aef92d2bd483f03f837fc97b71cbee6b2520
   languageName: node
   linkType: hard
 
@@ -14749,7 +14702,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"min-indent@npm:^1.0.0, min-indent@npm:^1.0.1":
+"min-indent@npm:^1.0.1":
   version: 1.0.1
   resolution: "min-indent@npm:1.0.1"
   checksum: 10c0/7e207bd5c20401b292de291f02913230cb1163abca162044f7db1d951fa245b174dc00869d40dd9a9f32a885ad6a5f3e767ee104cf278f399cb4e92d3f582d5c
@@ -14775,7 +14728,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"minimatch@npm:3.1.2, minimatch@npm:^3.0.2, minimatch@npm:^3.0.4, minimatch@npm:^3.1.1, minimatch@npm:^3.1.2":
+"minimatch@npm:3.1.2, minimatch@npm:^3.0.4, minimatch@npm:^3.1.1, minimatch@npm:^3.1.2":
   version: 3.1.2
   resolution: "minimatch@npm:3.1.2"
   dependencies:
@@ -15016,7 +14969,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"neo-async@npm:^2.6.1, neo-async@npm:^2.6.2":
+"neo-async@npm:^2.6.2":
   version: 2.6.2
   resolution: "neo-async@npm:2.6.2"
   checksum: 10c0/c2f5a604a54a8ec5438a342e1f356dff4bc33ccccdb6dc668d94fe8e5eccfc9d2c2eea6064b0967a767ba63b33763f51ccf2cd2441b461a7322656c1f06b3f5d
@@ -15087,15 +15040,6 @@ __metadata:
     lower-case: "npm:^2.0.2"
     tslib: "npm:^2.0.3"
   checksum: 10c0/8ef545f0b3f8677c848f86ecbd42ca0ff3cd9dd71c158527b344c69ba14710d816d8489c746b6ca225e7b615108938a0bda0a54706f8c255933703ac1cf8e703
-  languageName: node
-  linkType: hard
-
-"node-dir@npm:^0.1.10":
-  version: 0.1.17
-  resolution: "node-dir@npm:0.1.17"
-  dependencies:
-    minimatch: "npm:^3.0.2"
-  checksum: 10c0/16222e871708c405079ff8122d4a7e1d522c5b90fc8f12b3112140af871cfc70128c376e845dcd0044c625db0d2efebd2d852414599d240564db61d53402b4c1
   languageName: node
   linkType: hard
 
@@ -17171,24 +17115,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-docgen-markdown-renderer@npm:^2.1.3":
-  version: 2.1.3
-  resolution: "react-docgen-markdown-renderer@npm:2.1.3"
-  dependencies:
-    react-docgen-renderer-template: "npm:^0.1.0"
-  peerDependencies:
-    react-docgen: ^2 || ^3
-  checksum: 10c0/d8c09685384efc453606ac0d50fc145fd70f512c3ccc91f171276444b402cbedf30676fd9ba2b79cda19f762248a7f9aa40c8c7eb6861718dc7a1d1b978a1fb0
-  languageName: node
-  linkType: hard
-
-"react-docgen-renderer-template@npm:^0.1.0":
-  version: 0.1.0
-  resolution: "react-docgen-renderer-template@npm:0.1.0"
-  checksum: 10c0/9496ce986014de3041b1f35dbb0eb1bb846000f0ef40167eab4f5951e03cac4f742ab0eca09674e1fc89fd5439f03f129426c87824477d8c8ec7e25f3bce3c5f
-  languageName: node
-  linkType: hard
-
 "react-dom@npm:^19.1.1":
   version: 19.1.1
   resolution: "react-dom@npm:19.1.1"
@@ -18061,7 +17987,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve@npm:^1.10.1, resolve@npm:^1.20.0, resolve@npm:^1.22.1, resolve@npm:^1.22.10":
+"resolve@npm:^1.20.0, resolve@npm:^1.22.1, resolve@npm:^1.22.10":
   version: 1.22.10
   resolution: "resolve@npm:1.22.10"
   dependencies:
@@ -18087,7 +18013,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve@patch:resolve@npm%3A^1.10.1#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.20.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.22.1#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.22.10#optional!builtin<compat/resolve>":
+"resolve@patch:resolve@npm%3A^1.20.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.22.1#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.22.10#optional!builtin<compat/resolve>":
   version: 1.22.10
   resolution: "resolve@patch:resolve@npm%3A1.22.10#optional!builtin<compat/resolve>::version=1.22.10&hash=c3c19d"
   dependencies:
@@ -18775,13 +18701,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"snapdragon-lexer@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "snapdragon-lexer@npm:4.0.0"
-  checksum: 10c0/bbdbd16b1c6eaa80fab22abe0dad6ee5527308d4c82c3fbde26eb90a2f2dbdd1acf58e65df6e801ef1670fd771b92e20747c31859302437e66796420b1f028ff
-  languageName: node
-  linkType: hard
-
 "sockjs@npm:^0.3.24":
   version: 0.3.24
   resolution: "sockjs@npm:0.3.24"
@@ -19289,15 +19208,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"strip-indent@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "strip-indent@npm:3.0.0"
-  dependencies:
-    min-indent: "npm:^1.0.0"
-  checksum: 10c0/ae0deaf41c8d1001c5d4fbe16cb553865c1863da4fae036683b474fa926af9fc121e155cb3fc57a68262b2ae7d5b8420aa752c97a6428c315d00efe2a3875679
-  languageName: node
-  linkType: hard
-
 "strip-indent@npm:^4.0.0":
   version: 4.0.0
   resolution: "strip-indent@npm:4.0.0"
@@ -19661,15 +19571,6 @@ __metadata:
   version: 1.0.1
   resolution: "toidentifier@npm:1.0.1"
   checksum: 10c0/93937279934bd66cc3270016dd8d0afec14fb7c94a05c72dc57321f8bd1fa97e5bea6d1f7c89e728d077ca31ea125b78320a616a6c6cd0e6b9cb94cb864381c1
-  languageName: node
-  linkType: hard
-
-"tokenize-comment@npm:^3.0.1":
-  version: 3.0.1
-  resolution: "tokenize-comment@npm:3.0.1"
-  dependencies:
-    snapdragon-lexer: "npm:^4.0.0"
-  checksum: 10c0/a51131a4177de54aef060d9893a11566c7d8e92650f413740a74f3929f85d20b10b1da78429216436e464f39cd929ec6871e4fb174f35eb4936a44c4d619a33e
   languageName: node
   linkType: hard
 
