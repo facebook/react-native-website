@@ -2,13 +2,13 @@
   "name": "@react-native-website/sync-api",
   "version": "0.0.1",
   "private": true,
+  "type": "module",
   "scripts": {
     "prettier": "prettier --write \"**/*.js\"",
-    "sync": "node sync-api-docs ../../react-native"
+    "sync": "node sync-api-docs ../../../react-native/packages/react-native"
   },
   "devDependencies": {
     "@motiz88/react-native-docgen": "0.0.3",
-    "fs-extra": "^11.2.0",
     "glob": "^11.0.0",
     "he": "^1.2.0",
     "react-docgen-markdown-renderer": "^2.1.3",

@@ -8,24 +8,22 @@
 // ***** EXPERIMENTAL *****
 // Updates the API docs from the React Native source code.
 
-'use strict';
+import fs from 'node:fs/promises';
+import process from 'node:process';
+import path from 'node:path';
 
-const process = require('process');
-const fs = require('fs-extra');
-const path = require('path');
+import extractDocsFromRN from './extractDocsFromRN.js';
+import preprocessGeneratedApiDocs from './preprocessGeneratedApiDocs.js';
+import generateMarkdown from './generateMarkdown.js';
+import {titleToId} from './utils.js';
 
-const extractDocsFromRN = require('./extractDocsFromRN');
-const preprocessGeneratedApiDocs = require('./preprocessGeneratedApiDocs');
-const generateMarkdown = require('./generateMarkdown');
-const {titleToId} = require('./utils');
-
-const DOCS_ROOT_DIR = path.resolve(__dirname, '..', 'docs');
+const DOCS_ROOT_DIR = path.resolve(import.meta.dirname, '..', '..', 'docs');
 
 async function generateApiDocs(rnPath) {
   const apiDocs = await extractDocsFromRN(rnPath);
   preprocessGeneratedApiDocs(apiDocs);
   await Promise.all(
-    apiDocs.map(async ({component, file}, index) => {
+    apiDocs.map(async ({component, file}) => {
       if (!component.displayName) {
         console.log(
           `react-docgen data for ${path.basename(file)} was malformed, skipping`
@@ -48,4 +46,6 @@ async function main(args) {
   await generateApiDocs(args[0]);
 }
 
-main(process.argv.slice(2));
+main(process.argv.slice(2)).catch(error => {
+  console.error(error);
+});

@@ -79,7 +79,8 @@
 svg[class^="authorSocialLink"] {
   fill: var(--subtle) !important;
 
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     fill: var(--ifm-hero-text-color) !important;
   }
 }

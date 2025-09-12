@@ -19,7 +19,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-          cache: "yarn"
+          cache: yarn
 
       - name: Check lock for duplications
         run: yarn dedupe --check
@@ -32,7 +32,6 @@ jobs:
 
       - name: Run Lint
         run: yarn ci:lint
-        working-directory: website
 
   build:
     runs-on: ubuntu-latest
@@ -47,7 +46,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-          cache: "yarn"
+          cache: yarn
 
       - name: Install dependencies
         run: yarn install --immutable
@@ -56,4 +55,4 @@ jobs:
         run: yarn build
         working-directory: website
         env:
-          NODE_OPTIONS: "--max_old_space_size=8192"
+          NODE_OPTIONS: --max_old_space_size=8192
