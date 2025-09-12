@@ -105,12 +105,11 @@ Execution failed for task ':app:installDebug'.
 ```
 
 Restart the ADB server by running the following commands in your terminal:
+
 ```
 adb kill-server
 adb start-server
 ```
-
-
 
 ## Unable to start react-native package manager (on Linux)
 
