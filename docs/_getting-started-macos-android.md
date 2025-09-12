@@ -65,7 +65,7 @@ Setting up your development environment can be somewhat tedious if you're new to
 
 Then, click "Next" to install all of these components.
 
-::note
+:::note
 If the checkboxes are grayed out, you will have a chance to install these components later on.
 :::
 
