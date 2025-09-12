@@ -121,34 +121,7 @@ Important things to note:
 
 - You can use Xcode to jump to the Codegen `@protocol NativeLocalStorageSpec`. You can also use Xcode to generate stubs for you.
 
-## Register the Native Module in your app
-
-The last step consist in updating the `package.json` to tell React Native about the link between the JS specs of the Native Module and the concrete implementation of those specs in native code.
-
-Modify the `package.json` as it follows:
-
-```json title="package.json"
-     "start": "react-native start",
-     "test": "jest"
-   },
-   "codegenConfig": {
-     "name": "AppSpecs",
-     "type": "modules",
-     "jsSrcsDir": "specs",
-     "android": {
-       "javaPackageName": "com.sampleapp.specs"
-     },
-     // highlight-add-start
-     "ios": {
-        "modulesProvider": {
-          "NativeLocalStorage": "RCTNativeLocalStorage"
-        }
-     }
-     // highlight-add-end
-   },
-
-   "dependencies": {
-```
+## Regenerate code
 
 At this point, you need to re-install the pods to make sure that codegen runs again to generate the new files:
 
