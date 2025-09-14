@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import "shared";
+@use "shared";
 
 :root {
   --brand: #61dafb;
@@ -1147,13 +1147,24 @@ aside[class^="theme-doc-sidebar-container"] {
     .menu__link {
       font-weight: 600;
       font-size: 15px;
-      color: var(--subtle);
       padding-left: 8px !important;
 
       .menu__link {
         padding-left: 12px !important;
       }
     }
+  }
+
+  .theme-doc-sidebar-item-category-level-1
+    .menu__list-item-collapsible
+    .menu__link {
+    color: var(--ifm-color-content-secondary);
+  }
+
+  .theme-doc-sidebar-item-category-level-2
+    .menu__list-item-collapsible
+    .menu__link {
+    color: var(--subtle);
   }
 
   .menu__list-item--collapsed .menu__list {

@@ -20,8 +20,6 @@ node_modules
 *.tsbuildinfo
 
 packages/lint-examples/out/
-packages/sync-api-docs/generatedComponentApiDocs.js
-packages/sync-api-docs/extracted.json
 
 website/.docusaurus
 website/.cache-loader
