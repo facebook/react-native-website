@@ -1219,6 +1219,7 @@ div[class^="tableOfContents"] {
 
 .table-of-contents {
   padding-top: 0;
+  padding-bottom: 20px;
 
   li {
     margin: 0 var(--ifm-toc-padding-vertical);
