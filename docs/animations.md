@@ -622,9 +622,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <View
-        style={[styles.box, {width: state.w, height: state.h}]}
-      />
+      <View style={[styles.box, {width: state.w, height: state.h}]} />
       <TouchableOpacity onPress={onPress}>
         <View style={styles.button}>
           <Text style={styles.buttonText}>Press me!</Text>

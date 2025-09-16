@@ -65,12 +65,10 @@ const MultilineTextInputExample = () => {
   return (
     <SafeAreaProvider>
       <SafeAreaView
-        style={[
-          styles.container,
-          {
-            backgroundColor: value,
-          },
-        ]}>
+        style={{
+          flex: 1,
+          backgroundColor: value.toLowerCase(),
+        }}>
         <TextInput
           editable
           multiline
@@ -86,12 +84,11 @@ const MultilineTextInputExample = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    borderBottomColor: '#000',
-    borderBottomWidth: 1,
-  },
   textInput: {
     padding: 10,
+    borderColor: '#000',
+    borderWidth: 1,
+    margin: 12,
   },
 });
 
@@ -241,7 +238,9 @@ If `true`, focuses the input. The default value is `false`.
 
 ### `blurOnSubmit`
 
-> **Deprecated.** Note that `submitBehavior` now takes the place of `blurOnSubmit` and will override any behavior defined by `blurOnSubmit`. See [submitBehavior](textinput#submitbehavior)
+:::warning Deprecated
+Note that `submitBehavior` now takes the place of `blurOnSubmit` and will override any behavior defined by `blurOnSubmit`. See [submitBehavior](textinput#submitbehavior).
+:::
 
 If `true`, the text field will blur when submitted. The default value is true for single-line fields and false for multiline fields. Note that for multiline fields, setting `blurOnSubmit` to `true` means that pressing return will blur the field and trigger the `onSubmitEditing` event instead of inserting a newline into the field.
 
@@ -319,6 +318,16 @@ Provides an initial value that will change when the user starts typing. Useful f
 | Type   |
 | ------ |
 | string |
+
+---
+
+### `disableKeyboardShortcuts` <div className="label ios">iOS</div>
+
+If `true`, the keyboard shortcuts (undo/redo and copy buttons) are disabled.
+
+| Type | Default |
+| ---- | ------- |
+| bool | `false` |
 
 ---
 
@@ -525,6 +534,26 @@ The following values work on Android only:
 
 ---
 
+### `lineBreakStrategyIOS` <div className="label ios">iOS</div>
+
+Set line break strategy on iOS 14+. Possible values are `none`, `standard`, `hangul-word` and `push-out`.
+
+| Type                                                        | Default  |
+| ----------------------------------------------------------- | -------- |
+| enum(`'none'`, `'standard'`, `'hangul-word'`, `'push-out'`) | `'none'` |
+
+---
+
+### `lineBreakModeIOS` <div className="label ios">iOS</div>
+
+Set line break mode on iOS. Possible values are `wordWrapping`, `char`, `clip`, `head`, `middle` and `tail`.
+
+| Type                                                                       | Default          |
+| -------------------------------------------------------------------------- | ---------------- |
+| enum(`'wordWrapping'`, `'char'`, `'clip'`, `'head'`, `'middle'`, `'tail'`) | `'wordWrapping'` |
+
+---
+
 ### `maxFontSizeMultiplier`
 
 Specifies largest possible scale a font can reach when `allowFontScaling` is enabled. Possible values:
@@ -581,7 +610,9 @@ Sets the maximum number of lines for a `TextInput`. Use it with multiline set to
 
 Callback that is called when the text input is blurred.
 
-> Note: If you are attempting to access the `text` value from `nativeEvent` keep in mind that the resulting value you get can be `undefined` which can cause unintended errors. If you are trying to find the last value of TextInput, you can use the [`onEndEditing`](textinput#onendediting) event, which is fired upon completion of editing.
+:::note
+If you are attempting to access the `text` value from `nativeEvent` keep in mind that the resulting value you get can be `undefined` which can cause unintended errors. If you are trying to find the last value of TextInput, you can use the [`onEndEditing`](textinput#onendediting) event, which is fired upon completion of editing.
+:::
 
 | Type                                                     |
 | -------------------------------------------------------- |
@@ -879,6 +910,16 @@ When `false`, it will prevent the soft keyboard from showing when the field is f
 
 ---
 
+### `smartInsertDelete` <div className="label ios">iOS</div>
+
+If `false`, the iOS system will not insert an extra space after a paste operation neither delete one or two spaces after a cut or delete operation.
+
+| Type | Default |
+| ---- | ------- |
+| bool | `true`  |
+
+---
+
 ### `spellCheck` <div className="label ios">iOS</div>
 
 If `false`, disables spell-check style (i.e. red underlines). The default value is inherited from `autoCorrect`.
@@ -1000,10 +1041,12 @@ Possible values for `textContentType` are:
 
 When using `textContentType` as `newPassword` on iOS we can let the OS know the minimum requirements of the password so that it can generate one that will satisfy them. In order to create a valid string for `PasswordRules` take a look to the [Apple Docs](https://developer.apple.com/password-rules/).
 
-> If passwords generation dialog doesn't appear please make sure that:
->
-> - AutoFill is enabled: **Settings** → **Passwords & Accounts** → toggle "On" the **AutoFill Passwords**,
-> - iCloud Keychain is used: **Settings** → **Apple ID** → **iCloud** → **Keychain** → toggle "On" the **iCloud Keychain**.
+:::tip
+If passwords generation dialog doesn't appear please make sure that:
+
+- AutoFill is enabled: **Settings** → **Passwords & Accounts** → toggle "On" the **AutoFill Passwords**,
+- iCloud Keychain is used: **Settings** → **Apple ID** → **iCloud** → **Keychain** → toggle "On" the **iCloud Keychain**.
+  :::
 
 | Type   |
 | ------ |
@@ -1059,36 +1102,6 @@ The value to show for the text input. `TextInput` is a controlled component, whi
 | Type   |
 | ------ |
 | string |
-
----
-
-### `lineBreakStrategyIOS` <div className="label ios">iOS</div>
-
-Set line break strategy on iOS 14+. Possible values are `none`, `standard`, `hangul-word` and `push-out`.
-
-| Type                                                        | Default  |
-| ----------------------------------------------------------- | -------- |
-| enum(`'none'`, `'standard'`, `'hangul-word'`, `'push-out'`) | `'none'` |
-
----
-
-### `lineBreakModeIOS` <div className="label ios">iOS</div>
-
-Set line break mode on iOS. Possible values are `wordWrapping`, `char`, `clip`, `head`, `middle` and `tail`.
-
-| Type                                                                       | Default          |
-| -------------------------------------------------------------------------- | ---------------- |
-| enum(`'wordWrapping'`, `'char'`, `'clip'`, `'head'`, `'middle'`, `'tail'`) | `'wordWrapping'` |
-
----
-
-### `disableKeyboardShortcuts` <div className="label ios">iOS</div>
-
-If `true`, the keyboard shortcuts (undo/redo and copy buttons) are disabled. The default value is `false`.
-
-| Type |
-| ---- |
-| bool |
 
 ## Methods
 

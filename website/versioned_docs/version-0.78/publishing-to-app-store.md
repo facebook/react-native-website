@@ -47,7 +47,7 @@ You can also use the `React Native CLI` to perform this operation using the opti
 Once you are done with the testing and ready to publish to App Store, follow along with this guide.
 
 - Launch your terminal, and navigate into the iOS folder of your app and type `open .`.
-- Double click on YOUR_APP_NAME.xcworkspace. It should launch XCode.
+- Double click on YOUR_APP_NAME.xcworkspace. It should launch Xcode.
 - Click on `Product` → `Archive`. Make sure to set the device to "Any iOS Device (arm64)".
 
 :::note

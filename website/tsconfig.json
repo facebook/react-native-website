@@ -2,7 +2,6 @@
   "extends": "@docusaurus/tsconfig",
   "compilerOptions": {
     "baseUrl": "."
-    // "esModuleInterop": true
   },
   "exclude": ["node_modules", "build"]
 }

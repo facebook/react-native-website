@@ -1,6 +1,6 @@
 ---
 id: clipboard
-title: '🚧 Clipboard'
+title: '❌ Clipboard'
 ---
 
 > **Removed.** Use one of the [community packages](https://reactnative.directory/?search=clipboard) instead.

@@ -104,36 +104,12 @@ Execution failed for task ':app:installDebug'.
   com.android.builder.testing.api.DeviceException: com.android.ddmlib.ShellCommandUnresponsiveException
 ```
 
-Try [downgrading your Gradle version to 1.2.3](https://github.com/facebook/react-native/issues/2720) in `android/build.gradle`.
+Restart the ADB server by running the following commands in your terminal:
 
-## react-native init hangs
-
-If you run into issues where running `npx react-native init` hangs in your system, try running it again in verbose mode and referring to [#2797](https://github.com/facebook/react-native/issues/2797) for common causes:
-
-```shell
-npx react-native init --verbose
 ```
-
-When you're debugging a process or need to know a little more about the error being thrown, you may want to use the verbose option to output more logs and information to nail down your issue.
-
-Run the following command in your project's root directory.
-
-<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
-<TabItem value="npm">
-
-```shell
-npm run android -- --verbose
+adb kill-server
+adb start-server
 ```
-
-</TabItem>
-<TabItem value="yarn">
-
-```shell
-yarn android --verbose
-```
-
-</TabItem>
-</Tabs>
 
 ## Unable to start react-native package manager (on Linux)
 

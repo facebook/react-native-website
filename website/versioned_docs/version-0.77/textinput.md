@@ -65,12 +65,10 @@ const MultilineTextInputExample = () => {
   return (
     <SafeAreaProvider>
       <SafeAreaView
-        style={[
-          styles.container,
-          {
-            backgroundColor: value,
-          },
-        ]}>
+        style={{
+          flex: 1,
+          backgroundColor: value.toLowerCase(),
+        }}>
         <TextInput
           editable
           multiline
@@ -86,12 +84,11 @@ const MultilineTextInputExample = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    borderBottomColor: '#000',
-    borderBottomWidth: 1,
-  },
   textInput: {
     padding: 10,
+    borderColor: '#000',
+    borderWidth: 1,
+    margin: 12,
   },
 });
 
@@ -872,6 +869,16 @@ When `false`, it will prevent the soft keyboard from showing when the field is f
 | Type |
 | ---- |
 | bool |
+
+---
+
+### `smartInsertDelete` <div className="label ios">iOS</div>
+
+If `false`, the iOS system will not insert an extra space after a paste operation neither delete one or two spaces after a cut or delete operation.
+
+| Type | Default |
+| ---- | ------- |
+| bool | `true`  |
 
 ---
 

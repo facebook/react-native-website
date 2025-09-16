@@ -105,7 +105,7 @@ Inherits [VirtualizedList Props](virtualizedlist.md#props).
 
 ---
 
-### <div class="label required basic">Required</div>**`renderItem`**
+### <div className="label required basic">Required</div>**`renderItem`**
 
 Default renderer for every item in every section. Can be over-ridden on a per-section basis. Should return a React element.
 
@@ -127,7 +127,7 @@ The render function will be passed an object with the following keys:
 
 ---
 
-### <div class="label required basic">Required</div>**`sections`**
+### <div className="label required basic">Required</div>**`sections`**
 
 The actual data to render, akin to the `data` prop in [`FlatList`](flatlist.md).
 
@@ -293,13 +293,13 @@ Rendered at the top and bottom of each section (note this is different from `Ite
 
 Makes section headers stick to the top of the screen until the next one pushes it off. Only enabled by default on iOS because that is the platform standard there.
 
-| Type    | Default                                                                                          |
-| ------- | ------------------------------------------------------------------------------------------------ |
-| boolean | `false` <div class="label android">Android</div><hr/>`true` <div className="label ios">iOS</div> |
+| Type    | Default                                                                                              |
+| ------- | ---------------------------------------------------------------------------------------------------- |
+| boolean | `false` <div className="label android">Android</div><hr/>`true` <div className="label ios">iOS</div> |
 
 ## Methods
 
-### `flashScrollIndicators()` <div class="label ios">iOS</div>
+### `flashScrollIndicators()` <div className="label ios">iOS</div>
 
 ```tsx
 flashScrollIndicators();
@@ -331,9 +331,9 @@ Scrolls to the item at the specified `sectionIndex` and `itemIndex` (within the 
 
 **Parameters:**
 
-| Name                                                    | Type   |
-| ------------------------------------------------------- | ------ |
-| params <div class="label basic required">Required</div> | object |
+| Name                                                        | Type   |
+| ----------------------------------------------------------- | ------ |
+| params <div className="label basic required">Required</div> | object |
 
 Valid `params` keys are:
 
@@ -355,10 +355,10 @@ An object that identifies the data to be rendered for a given section.
 
 **Properties:**
 
-| Name                                                  | Type               | Description                                                                                                                                                         |
-| ----------------------------------------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| data <div class="label basic required">Required</div> | array              | The data for rendering items in this section. Array of objects, much like [`FlatList`'s data prop](flatlist#required-data).                                         |
-| key                                                   | string             | Optional key to keep track of section re-ordering. If you don't plan on re-ordering sections, the array index will be used by default.                              |
-| renderItem                                            | function           | Optionally define an arbitrary item renderer for this section, overriding the default [`renderItem`](sectionlist#renderitem) for the list.                          |
-| ItemSeparatorComponent                                | component, element | Optionally define an arbitrary item separator for this section, overriding the default [`ItemSeparatorComponent`](sectionlist#itemseparatorcomponent) for the list. |
-| keyExtractor                                          | function           | Optionally define an arbitrary key extractor for this section, overriding the default [`keyExtractor`](sectionlist#keyextractor).                                   |
+| Name                                                      | Type               | Description                                                                                                                                                         |
+| --------------------------------------------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| data <div className="label basic required">Required</div> | array              | The data for rendering items in this section. Array of objects, much like [`FlatList`'s data prop](flatlist#required-data).                                         |
+| key                                                       | string             | Optional key to keep track of section re-ordering. If you don't plan on re-ordering sections, the array index will be used by default.                              |
+| renderItem                                                | function           | Optionally define an arbitrary item renderer for this section, overriding the default [`renderItem`](sectionlist#renderitem) for the list.                          |
+| ItemSeparatorComponent                                    | component, element | Optionally define an arbitrary item separator for this section, overriding the default [`ItemSeparatorComponent`](sectionlist#itemseparatorcomponent) for the list. |
+| keyExtractor                                              | function           | Optionally define an arbitrary key extractor for this section, overriding the default [`keyExtractor`](sectionlist#keyextractor).                                   |

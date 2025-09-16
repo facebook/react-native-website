@@ -21,7 +21,9 @@ You can start here and read through these docs linearly like a book; or you can 
 
 To work with React Native, you will need to have an understanding of JavaScript fundamentals. If you’re new to JavaScript or need a refresher, you can [dive in](https://developer.mozilla.org/en-US/docs/Web/JavaScript) or [brush up](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript) at Mozilla Developer Network.
 
-> While we do our best to assume no prior knowledge of React, Android, or iOS development, these are valuable topics of study for the aspiring React Native developer. Where sensible, we have linked to resources and articles that go more in depth.
+:::info
+While we do our best to assume no prior knowledge of React, Android, or iOS development, these are valuable topics of study for the aspiring React Native developer. Where sensible, we have linked to resources and articles that go more in depth.
+:::
 
 ## Interactive examples
 
@@ -49,7 +51,9 @@ export default YourApp;
 
 The above is a Snack Player. It’s a handy tool created by Expo to embed and run React Native projects and share how they render in platforms like Android and iOS. The code is live and editable, so you can play directly with it in your browser. Go ahead and try changing the "Try editing me!" text above to "Hello, world!"
 
-> Optionally, if you want to set up a local development environment, [you can follow our guide to setting up your environment on your local machine](set-up-your-environment) and paste the code examples into your project. (If you are a web developer, you may already have a local environment set up for mobile browser testing!)
+:::tip
+Optionally, if you want to set up a local development environment, [you can follow our guide to setting up your environment on your local machine](set-up-your-environment) and paste the code examples into your project. (If you are a web developer, you may already have a local environment set up for mobile browser testing!)
+:::
 
 ## Developer Notes
 
@@ -59,17 +63,23 @@ People from many different development backgrounds are learning React Native. Yo
 
 <TabItem value="android">
 
-> Android developers may be familiar with this concept.
+:::info
+Android developers may be familiar with this concept.
+:::
 
 </TabItem>
 <TabItem value="ios">
 
-> iOS developers may be familiar with this concept.
+:::info
+iOS developers may be familiar with this concept.
+:::
 
 </TabItem>
 <TabItem value="web">
 
-> Web developers may be familiar with this concept.
+:::info
+Web developers may be familiar with this concept.
+:::
 
 </TabItem>
 </Tabs>

@@ -17,9 +17,9 @@ import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 const ViewBoxesWithColorAndText = () => {
   return (
     <SafeAreaProvider>
-      <SafeAreaView style={{height: 100, flexDirection: 'row'}}>
-        <View style={{backgroundColor: 'blue', flex: 0.2}} />
-        <View style={{backgroundColor: 'red', flex: 0.4}} />
+      <SafeAreaView style={{flexDirection: 'row'}}>
+        <View style={{height: 100, backgroundColor: 'blue', flex: 0.2}} />
+        <View style={{height: 100, backgroundColor: 'red', flex: 0.4}} />
         <Text>Hello World!</Text>
       </SafeAreaView>
     </SafeAreaProvider>
@@ -55,9 +55,9 @@ See the [Accessibility guide](accessibility.md#accessibility-actions) for more i
 
 ---
 
-### `accessibilityElementsHidden` <div class="label ios">iOS</div>
+### `accessibilityElementsHidden` <div className="label ios">iOS</div>
 
-A value indicating whether the accessibility elements contained within this accessibility element are hidden. Default is `false`.
+A boolean value indicating whether the given accessibility element, and any accessibility elements it contains, are hidden. Default is `false`.
 
 See the [Accessibility guide](accessibility.md#accessibilityelementshidden-ios) for more information.
 
@@ -77,7 +77,7 @@ An accessibility hint helps users understand what will happen when they perform 
 
 ---
 
-### `accessibilityLanguage` <div class="label ios">iOS</div>
+### `accessibilityLanguage` <div className="label ios">iOS</div>
 
 A value indicating which language should be used by the screen reader when the user interacts with the element. It should follow the [BCP 47 specification](https://www.rfc-editor.org/info/bcp47).
 
@@ -89,7 +89,7 @@ See the [iOS `accessibilityLanguage` doc](https://developer.apple.com/documentat
 
 ---
 
-### `accessibilityIgnoresInvertColors` <div class="label ios">iOS</div>
+### `accessibilityIgnoresInvertColors` <div className="label ios">iOS</div>
 
 A value indicating this view should or should not be inverted when color inversion is turned on. A value of `true` will tell the view to not be inverted even if color inversion is turned on.
 
@@ -111,7 +111,7 @@ Overrides the text that's read by the screen reader when the user interacts with
 
 ---
 
-### `accessibilityLiveRegion` <div class="label android">Android</div>
+### `accessibilityLiveRegion` <div className="label android">Android</div>
 
 Indicates to accessibility services whether the user should be notified when this view changes. Works for Android API >= 19 only. Possible values:
 
@@ -192,7 +192,7 @@ See the [Accessibility guide](accessibility.md#accessibilityvalue-ios-android) f
 
 ---
 
-### `accessibilityViewIsModal` <div class="label ios">iOS</div>
+### `accessibilityViewIsModal` <div className="label ios">iOS</div>
 
 A value indicating whether VoiceOver should ignore the elements within views that are siblings of the receiver. Default is `false`.
 
@@ -254,9 +254,9 @@ Indicates whether an expandable element is currently expanded or collapsed.
 
 ### `aria-hidden`
 
-Indicates whether the accessibility elements contained within this accessibility element are hidden.
+Indicates whether the element is hidden from assistive technologies.
 
-For example, in a window that contains sibling views `A` and `B`, setting `aria-hidden` to `true` on view `B` causes VoiceOver to ignore the elements in the view `B`.
+For example, in a window that contains sibling views `A` and `B`, setting `aria-hidden` to `true` on view `B` causes VoiceOver to ignore the `B` element and its children.
 
 | Type    | Default |
 | ------- | ------- |
@@ -274,7 +274,7 @@ Defines a string value that labels an interactive element.
 
 ---
 
-### `aria-labelledby` <div class="label android">Android</div>
+### `aria-labelledby` <div className="label android">Android</div>
 
 Identifies the element that labels the element it is applied to. The value of `aria-labelledby` should match the [`nativeID`](view.md#nativeid) of the related element:
 
@@ -291,7 +291,7 @@ Identifies the element that labels the element it is applied to. The value of `a
 
 ---
 
-### `aria-live` <div class="label android">Android</div>
+### `aria-live` <div className="label android">Android</div>
 
 Indicates that an element will be updated, and describes the types of updates the user agents, assistive technologies, and user can expect from the live region.
 
@@ -305,7 +305,7 @@ Indicates that an element will be updated, and describes the types of updates th
 
 ---
 
-### `aria-modal` <div class="label ios">iOS</div>
+### `aria-modal` <div className="label ios">iOS</div>
 
 Boolean value indicating whether VoiceOver should ignore the elements within views that are siblings of the receiver. Has precedence over the [`accessibilityViewIsModal`](#accessibilityviewismodal-ios) prop.
 
@@ -383,7 +383,7 @@ Setting to false prevents direct children of the view from being removed from th
 
 ---
 
-### `focusable` <div class="label android">Android</div>
+### `focusable` <div className="label android">Android</div>
 
 Whether this `View` should be focusable with a non-touch input device, eg. receive focus with a hardware keyboard.
 
@@ -419,7 +419,7 @@ Used to locate this view from native classes. Has precedence over `nativeID` pro
 
 ---
 
-### `importantForAccessibility` <div class="label android">Android</div>
+### `importantForAccessibility` <div className="label android">Android</div>
 
 Controls how view is important for accessibility which is if it fires accessibility events and if it is reported to accessibility services that query the screen. Works for Android only.
 
@@ -462,7 +462,7 @@ Rendering offscreen to preserve correct alpha behavior is extremely expensive an
 
 ---
 
-### `nextFocusDown` <div class="label android">Android</div>
+### `nextFocusDown` <div className="label android">Android</div>
 
 Designates the next view to receive focus when the user navigates down. See the [Android documentation](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusDown).
 
@@ -472,7 +472,7 @@ Designates the next view to receive focus when the user navigates down. See the 
 
 ---
 
-### `nextFocusForward` <div class="label android">Android</div>
+### `nextFocusForward` <div className="label android">Android</div>
 
 Designates the next view to receive focus when the user navigates forward. See the [Android documentation](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusForward).
 
@@ -482,7 +482,7 @@ Designates the next view to receive focus when the user navigates forward. See t
 
 ---
 
-### `nextFocusLeft` <div class="label android">Android</div>
+### `nextFocusLeft` <div className="label android">Android</div>
 
 Designates the next view to receive focus when the user navigates left. See the [Android documentation](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusLeft).
 
@@ -492,7 +492,7 @@ Designates the next view to receive focus when the user navigates left. See the 
 
 ---
 
-### `nextFocusRight` <div class="label android">Android</div>
+### `nextFocusRight` <div className="label android">Android</div>
 
 Designates the next view to receive focus when the user navigates right. See the [Android documentation](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusRight).
 
@@ -502,7 +502,7 @@ Designates the next view to receive focus when the user navigates right. See the
 
 ---
 
-### `nextFocusUp` <div class="label android">Android</div>
+### `nextFocusUp` <div className="label android">Android</div>
 
 Designates the next view to receive focus when the user navigates up. See the [Android documentation](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusUp).
 
@@ -524,7 +524,7 @@ See the [Accessibility guide](accessibility.md#accessibility-actions) for more i
 
 ---
 
-### `onAccessibilityEscape` <div class="label ios">iOS</div>
+### `onAccessibilityEscape` <div className="label ios">iOS</div>
 
 When `accessible` is `true`, the system will invoke this function when the user performs the escape gesture.
 
@@ -534,7 +534,7 @@ When `accessible` is `true`, the system will invoke this function when the user 
 
 ---
 
-### `onAccessibilityTap` <div class="label ios">iOS</div>
+### `onAccessibilityTap` <div className="label ios">iOS</div>
 
 When `accessible` is true, the system will try to invoke this function when the user performs accessibility tap gesture.
 
@@ -556,7 +556,7 @@ This event is fired immediately once the layout has been calculated, but the new
 
 ---
 
-### `onMagicTap` <div class="label ios">iOS</div>
+### `onMagicTap` <div className="label ios">iOS</div>
 
 When `accessible` is `true`, the system will invoke this function when the user performs the magic tap gesture.
 
@@ -712,7 +712,7 @@ This is a reserved performance property exposed by `RCTView` and is useful for s
 
 ---
 
-### `renderToHardwareTextureAndroid` <div class="label android">Android</div>
+### `renderToHardwareTextureAndroid` <div className="label android">Android</div>
 
 Whether this `View` should render itself (and all of its children) into a single hardware texture on the GPU.
 
@@ -734,7 +734,7 @@ On Android, this is useful for animations and interactions that only modify opac
 
 ---
 
-### `shouldRasterizeIOS` <div class="label ios">iOS</div>
+### `shouldRasterizeIOS` <div className="label ios">iOS</div>
 
 Whether this `View` should be rendered as a bitmap before compositing.
 
@@ -756,7 +756,7 @@ Rasterization incurs an off-screen drawing pass and the bitmap consumes memory. 
 
 ---
 
-### `tabIndex` <div class="label android">Android</div>
+### `tabIndex` <div className="label android">Android</div>
 
 Whether this `View` should be focusable with a non-touch input device, eg. receive focus with a hardware keyboard.
 Supports the following values:

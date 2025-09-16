@@ -1,6 +1,6 @@
 ---
 id: imagepickerios
-title: '🚧 ImagePickerIOS'
+title: '❌ ImagePickerIOS'
 ---
 
 > **Removed.** Use one of the [community packages](https://reactnative.directory/?search=image+picker) instead.

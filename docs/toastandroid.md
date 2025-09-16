@@ -12,7 +12,9 @@ You can alternatively use `showWithGravity(message, duration, gravity)` to speci
 
 The `showWithGravityAndOffset(message, duration, gravity, xOffset, yOffset)` method adds the ability to specify an offset with in pixels.
 
-> Starting with Android 11 (API level 30), setting the gravity has no effect on text toasts. Read about the changes [here](https://developer.android.com/about/versions/11/behavior-changes-11#text-toast-api-changes).
+:::note
+Starting with Android 11 (API level 30), setting the gravity has no effect on text toasts. Read about the changes [here](https://developer.android.com/about/versions/11/behavior-changes-11#text-toast-api-changes).
+:::
 
 ```SnackPlayer name=Toast%20Android%20API%20Example&supportedPlatforms=android
 import React from 'react';

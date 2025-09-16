@@ -101,7 +101,9 @@ This can be any of the following:
 - `keyboardWillChangeFrame`
 - `keyboardDidChangeFrame`
 
-> Note that only `keyboardDidShow` and `keyboardDidHide` events are available on Android. The events will not be fired when using Android 10 and under if your activity has `android:windowSoftInputMode` set to `adjustNothing`.
+:::note
+Only `keyboardDidShow` and `keyboardDidHide` events are available on Android. The events will not be fired when using Android 10 or below if your activity has `android:windowSoftInputMode` set to `adjustResize` or `adjustNothing`.
+:::
 
 ---
 

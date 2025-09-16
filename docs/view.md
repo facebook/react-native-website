@@ -3,6 +3,8 @@ id: view
 title: View
 ---
 
+import ExperimentalAPIWarning from './\_experimental-api-warning.mdx';
+
 The most fundamental component for building a UI, `View` is a container that supports layout with [flexbox](flexbox.md), [style](style.md), [some touch handling](handling-touches.md), and [accessibility](accessibility.md) controls. `View` maps directly to the native view equivalent on whatever platform React Native is running on, whether that is a `UIView`, `<div>`, `android.view`, etc.
 
 `View` is designed to be nested inside other views and can have 0 to many children of any type.
@@ -17,9 +19,9 @@ import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 const ViewBoxesWithColorAndText = () => {
   return (
     <SafeAreaProvider>
-      <SafeAreaView style={{height: 100, flexDirection: 'row'}}>
-        <View style={{backgroundColor: 'blue', flex: 0.2}} />
-        <View style={{backgroundColor: 'red', flex: 0.4}} />
+      <SafeAreaView style={{flexDirection: 'row'}}>
+        <View style={{height: 100, backgroundColor: 'blue', flex: 0.2}} />
+        <View style={{height: 100, backgroundColor: 'red', flex: 0.4}} />
         <Text>Hello World!</Text>
       </SafeAreaView>
     </SafeAreaProvider>
@@ -29,7 +31,9 @@ const ViewBoxesWithColorAndText = () => {
 export default ViewBoxesWithColorAndText;
 ```
 
-> `View`s are designed to be used with [`StyleSheet`](style.md) for clarity and performance, although inline styles are also supported.
+:::note
+`View`s are designed to be used with [`StyleSheet`](style.md) for clarity and performance, although inline styles are also supported.
+:::
 
 ### Synthetic Touch Events
 
@@ -57,7 +61,7 @@ See the [Accessibility guide](accessibility.md#accessibility-actions) for more i
 
 ### `accessibilityElementsHidden` <div className="label ios">iOS</div>
 
-A value indicating whether the accessibility elements contained within this accessibility element are hidden. Default is `false`.
+A boolean value indicating whether the given accessibility element, and any accessibility elements it contains, are hidden. Default is `false`.
 
 See the [Accessibility guide](accessibility.md#accessibilityelementshidden-ios) for more information.
 
@@ -254,9 +258,9 @@ Indicates whether an expandable element is currently expanded or collapsed.
 
 ### `aria-hidden`
 
-Indicates whether the accessibility elements contained within this accessibility element are hidden.
+Indicates whether the element is hidden from assistive technologies.
 
-For example, in a window that contains sibling views `A` and `B`, setting `aria-hidden` to `true` on view `B` causes VoiceOver to ignore the elements in the view `B`.
+For example, in a window that contains sibling views `A` and `B`, setting `aria-hidden` to `true` on view `B` causes VoiceOver to ignore the `B` element and its children.
 
 | Type    | Default |
 | ------- | ------- |
@@ -383,6 +387,23 @@ Setting to false prevents direct children of the view from being removed from th
 
 ---
 
+### `experimental_accessibilityOrder`
+
+<ExperimentalAPIWarning />
+
+`experimental_accessibilityOrder` indicates the order in which an assistive technology focuses descendants of this `View`. This prop takes an array of strings where each string is a [`nativeID`](view.md#nativeid) of some descendant component whose order is being defined. This prop does not enable accessibility itself, each referenced component still needs to be accessible by setting [`accessible`](view.md#accessible) to true. This prop is both **nestable** and **exhaustive** meaning
+
+- If `experimental_accessibilityOrder` contains a reference to some non-accessible component, it will focus the descendants of that component in the default order. Additionally, it can also contain a reference to other components that also have an `experimental_accessibilityOrder`.
+- If some component that is otherwise accessible is not directly referenced in `experimental_accessibilityOrder`, or nested within some container directly referenced in `experimental_accessibilityOrder`, then it will not be accessible.
+
+See the [accessibility guide](accessibility.md#experimental_accessibilityorder) for more information.
+
+| Type             |
+| ---------------- |
+| array of strings |
+
+---
+
 ### `focusable` <div className="label android">Android</div>
 
 Whether this `View` should be focusable with a non-touch input device, eg. receive focus with a hardware keyboard.
@@ -399,7 +420,9 @@ This defines how far a touch event can start away from the view. Typical interfa
 
 For example, if a touchable view has a height of 20 the touchable height can be extended to 40 with `hitSlop={{top: 10, bottom: 10, left: 0, right: 0}}`
 
-> The touch area never extends past the parent view bounds and the Z-index of sibling views always takes precedence if a touch hits two overlapping views.
+:::note
+The touch area never extends past the parent view bounds, and the Z-index of sibling views always takes precedence if a touch hits two overlapping views.
+:::
 
 | Type                                                                 |
 | -------------------------------------------------------------------- |
@@ -411,7 +434,9 @@ For example, if a touchable view has a height of 20 the touchable height can be 
 
 Used to locate this view from native classes. Has precedence over `nativeID` prop.
 
-> This disables the 'layout-only view removal' optimization for this view!
+:::warning
+This disables the 'layout-only view removal' optimization for this view!
+:::
 
 | Type   |
 | ------ |
@@ -442,7 +467,9 @@ See the [Android `importantForAccessibility` docs](https://developer.android.com
 
 Used to locate this view from native classes.
 
-> This disables the 'layout-only view removal' optimization for this view!
+:::warning
+This disables the 'layout-only view removal' optimization for this view!
+:::
 
 | Type   |
 | ------ |
@@ -774,7 +801,9 @@ Supports the following values:
 
 Used to locate this view in end-to-end tests.
 
-> This disables the 'layout-only view removal' optimization for this view!
+:::warning
+This disables the 'layout-only view removal' optimization for this view!
+:::
 
 | Type   |
 | ------ |

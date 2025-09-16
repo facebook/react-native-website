@@ -79,6 +79,30 @@ export default App;
 
 ---
 
+### `borderBlockColor`
+
+| Type               |
+| ------------------ |
+| [color](colors.md) |
+
+---
+
+### `borderBlockEndColor`
+
+| Type               |
+| ------------------ |
+| [color](colors.md) |
+
+---
+
+### `borderBlockStartColor`
+
+| Type               |
+| ------------------ |
+| [color](colors.md) |
+
+---
+
 ### `borderBottomEndRadius`
 
 | Type                              |
@@ -159,7 +183,7 @@ export default App;
 
 ---
 
-### `borderCurve` <div class="label ios">iOS</div>
+### `borderCurve` <div className="label ios">iOS</div>
 
 On iOS 13+, it is possible to change the corner curve of borders.
 
@@ -304,7 +328,7 @@ These shadows can be composed together so that a single `boxShadow` can be compr
 | --------------------------- |
 | array of BoxShadowValue ojects \| string |
 
-### `cursor` <div class="label ios">iOS</div>
+### `cursor` <div className="label ios">iOS</div>
 
 On iOS 17+, Setting to `pointer` allows hover effects when a pointer (such as a trackpad or stylus on iOS, or the users' gaze on visionOS) is over the view.
 
@@ -314,7 +338,7 @@ On iOS 17+, Setting to `pointer` allows hover effects when a pointer (such as a 
 
 ---
 
-### `elevation` <div class="label android">Android</div>
+### `elevation` <div className="label android">Android</div>
 
 Sets the elevation of a view, using Android's underlying [elevation API](https://developer.android.com/training/material/shadows-clipping.html#Elevation). This adds a drop shadow to the item and affects z-order for overlapping views. Only supported on Android 5.0+, has no effect on earlier versions.
 
@@ -341,7 +365,7 @@ The following filter functions work across all platforms:
 Due to issues with performance and spec compliance, these are the only two filter functions available on iOS. There are plans to explore some potential workarounds using SwiftUI instead of UIKit for this implementation.
 :::
 
-<div class="label basic android">Android</div>
+<div className="label basic android">Android</div>
 
 The following filter functions work on Android only:
 

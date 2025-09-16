@@ -19,21 +19,7 @@ node_modules
 
 *.tsbuildinfo
 
-scripts/lint-examples/out/
-
-.nvmrc
-website/scripts/sync-api-docs/generatedComponentApiDocs.js
-website/scripts/sync-api-docs/extracted.json
-
-cnwebsite/translated_docs
-cnwebsite/build/
-cnwebsite/community-repos.json
-cnwebsite/node_modules
-
-cnwebsite/scripts/sync-api-docs/generatedComponentApiDocs.js
-cnwebsite/scripts/sync-api-docs/extracted.json
-sync-api-docs/generatedComponentApiDocs.js
-sync-api-docs/extracted.json
+packages/lint-examples/out/
 
 website/.docusaurus
 website/.cache-loader
@@ -50,7 +36,3 @@ cnwebsite/build/
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
-
-
-# Generated file(s) for llms
-llms.txt

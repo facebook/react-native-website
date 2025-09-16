@@ -640,7 +640,9 @@ Set this true while waiting for new data from a refresh.
 
 This may improve scroll performance for large lists. On Android the default value is `true`.
 
-> Note: May have bugs (missing content) in some circumstances - use at your own risk.
+:::warning
+May have bugs (missing content) in some circumstances - use at your own risk.
+:::
 
 | Type    |
 | ------- |
@@ -787,7 +789,9 @@ scrollToIndex: (params: {
 
 Scrolls to the item at the specified index such that it is positioned in the viewable area such that `viewPosition` 0 places it at the top, 1 at the bottom, and 0.5 centered in the middle.
 
-> Note: Cannot scroll to locations outside the render window without specifying the `getItemLayout` prop.
+:::note
+Cannot scroll to locations outside the render window without specifying the `getItemLayout` prop.
+:::
 
 **Parameters:**
 
@@ -816,7 +820,9 @@ scrollToItem(params: {
 
 Requires linear scan through data - use `scrollToIndex` instead if possible.
 
-> Note: Cannot scroll to locations outside the render window without specifying the `getItemLayout` prop.
+:::note
+Cannot scroll to locations outside the render window without specifying the `getItemLayout` prop.
+:::
 
 **Parameters:**
 

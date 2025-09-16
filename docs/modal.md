@@ -106,7 +106,9 @@ Inherits [View Props](view.md#props).
 
 ### `animated`
 
-> **Deprecated.** Use the [`animationType`](modal.md#animationtype) prop instead.
+:::warning Deprecated
+Use the [`animationType`](modal.md#animationtype) prop instead.
+:::
 
 ---
 
@@ -239,7 +241,9 @@ The `statusBarTranslucent` prop determines whether your modal should go under th
 
 The `supportedOrientations` prop allows the modal to be rotated to any of the specified orientations. On iOS, the modal is still restricted by what's specified in your app's Info.plist's UISupportedInterfaceOrientations field.
 
-> When using `presentationStyle` of `pageSheet` or `formSheet`, this property will be ignored by iOS.
+:::note
+When using `presentationStyle` of `pageSheet` or `formSheet`, this property will be ignored on iOS.
+:::
 
 | Type                                                                                                           | Default        |
 | -------------------------------------------------------------------------------------------------------------- | -------------- |

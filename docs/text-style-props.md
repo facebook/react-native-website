@@ -777,6 +777,8 @@ export default App;
 | ------ |
 | string |
 
+The generic font families `system-ui`, `ui-sans-serif`, `ui-serif`, `ui-monospace`, and `ui-rounded` are supported on iOS.
+
 ---
 
 ### `fontSize`

@@ -430,7 +430,9 @@ This can be one of the following values:
 - `tail` - The line is displayed so that the beginning fits in the container and the missing text at the end of the line is indicated by an ellipsis glyph. e.g., "abcd..."
 - `clip` - Lines are not drawn past the edge of the text container.
 
-> On Android, when `numberOfLines` is set to a value higher than `1`, only `tail` value will work correctly.
+:::note
+On Android, when `numberOfLines` is set to a value higher than `1`, only `tail` value will work correctly.
+:::
 
 | Type                                           | Default |
 | ---------------------------------------------- | ------- |

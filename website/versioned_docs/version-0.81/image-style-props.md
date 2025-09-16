@@ -312,7 +312,7 @@ Set an opacity value for the image. The number should be in the range from `0.0`
 
 ---
 
-### `overlayColor` <div class="label android">Android</div>
+### `overlayColor` <div className="label android">Android</div>
 
 When the image has rounded corners, specifying an overlayColor will cause the remaining space in the corners to be filled with a solid color. This is useful in cases which are not supported by the Android implementation of rounded corners:
 

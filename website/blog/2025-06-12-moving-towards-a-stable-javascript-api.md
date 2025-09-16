@@ -5,7 +5,7 @@ tags: [announcement]
 date: 2025-06-12T16:00
 ---
 
-In React Native 0.80, we're introducing two significant changes to React Native's JavaScript API — the deprecation of deep imports, and our new Strict TypeScript API. These are part of an ongoing effort to accurately define our API and offer dependable type safety to users and frameworks.
+In React Native 0.80, we're introducing two significant changes to React Native's JavaScript API — the deprecation of deep imports, and our new Strict TypeScript API. These are part of an ongoing effort to accurately define our API and offer dependable type safety to users and frameworks.
 
 **Quick takeaways:**
 
@@ -17,13 +17,13 @@ In React Native 0.80, we're introducing two significant changes to React Native'
 
 ## What's changing and why
 
-We are moving to improve and stabilise React Native's public JavaScript API — i.e. what you get when you import `'react-native'`.
+We are moving to improve and stabilise React Native's public JavaScript API — i.e. what you get when you import `'react-native'`.
 
-Historically, we've approximated this. React Native is authored in [Flow](https://flow.org/), but the community has long since moved to TypeScript in open source, which is how the public API is consumed and validated for compatibility. Our types have been (lovingly) [community-contributed](https://www.npmjs.com/package/@types/react-native), and since merged and aligned in our codebase. However, these have relied on manual maintenance and no automated tooling, introducing correctness gaps.
+Historically, we've approximated this. React Native is authored in [Flow](https://flow.org/), but the community has long since moved to TypeScript in open source, which is how the public API is consumed and validated for compatibility. Our types have been (lovingly) [community-contributed](https://www.npmjs.com/package/@types/react-native), and since merged and aligned in our codebase. However, these have relied on manual maintenance and no automated tooling, introducing correctness gaps.
 
-Additionally, our public JS API has been poorly defined in terms of module boundaries — e.g. internal `'react-native/Libraries/'` deep imports were reachable by app code, but could frequently change as we updated these internals.
+Additionally, our public JS API has been poorly defined in terms of module boundaries — e.g. internal `'react-native/Libraries/'` deep imports were reachable by app code, but could frequently change as we updated these internals.
 
-In 0.80, we're addressing these issues by deprecating deep imports, and introducing a user opt-in to a new, generated API baseline in TypeScript. We're calling this our **Strict TypeScript API**. Ultimately, this is the groundwork to offer a stable React Native API in future.
+In 0.80, we're addressing these issues by deprecating deep imports, and introducing a user opt-in to a new, generated API baseline in TypeScript. We're calling this our **Strict TypeScript API**. Ultimately, this is the groundwork to offer a stable React Native API in the future.
 
 ## Deprecating deep imports from `react-native`
 
@@ -131,12 +131,12 @@ npx expo start --clear
 
 ## Strict TypeScript API (opt-in)
 
-The Strict TypeScript API is a new set of TypeScript types in the `react-native` package, which can be opted into via your `tsconfig.json`. We're shipping these alongside our existing TS types, meaning you can choose to migrate when ready.
+The Strict TypeScript API is a new set of TypeScript types in the `react-native` package, which can be opted into via your `tsconfig.json`. We're shipping these alongside our existing TS types, meaning you can choose to migrate when ready.
 
 The new types are:
 
-1. **Generated directly from our source code** — improving coverage and correctness, so you can expect stronger compatibility guarantees.
-2. **Restricted to `react-native`'s index file** — more tightly defining our public API, and meaning we won't break the API when making internal file changes.
+1. **Generated directly from our source code** — improving coverage and correctness, so you can expect stronger compatibility guarantees.
+2. **Restricted to `react-native`'s index file** — more tightly defining our public API, and meaning we won't break the API when making internal file changes.
 
 When the community is ready, the Strict TypeScript API will become our default API in future — synchronized with deep imports removal. This means it's a **good idea** to begin opting in, as you'll be ready for React Native's future stable JS API.
 
@@ -178,7 +178,7 @@ We've scoped our public API to the exports of React Native's `index.js` file, wh
 
 Types are now generated from source, rather than manually maintained. In doing this:
 
-- We've aligned differences that had built up from the community contributed types — and also increased the type coverage of our source code.
+- We've aligned differences that had built up from the community contributed types — and also increased the type coverage of our source code.
 - We've intentionally updated some type names and type shapes, where there was scope to simplify or reduce ambiguity.
 
 :::tip Key win
@@ -225,7 +225,7 @@ Please refer to our [dedicated guide](/docs/strict-typescript-api) in the docs w
 
 We appreciate that any breaking change to React Native will take time for developers to update to in their apps.
 
-#### Now — Opt-in launch (0.80)
+#### Now — Opt-in launch (0.80)
 
 The `"react-native-strict-api"` opt-in is stable in the 0.80 release.
 
@@ -235,13 +235,13 @@ The `"react-native-strict-api"` opt-in is stable in the 0.80 release.
 
 :::tip Recommended
 
-The Strict TypeScript API will become our default API in future.
+The Strict TypeScript API will become our default API in the future.
 
-If you have time, it's worth testing the opt-in now in your `tsconfig.json`, to futureproof your app or library. This will immediately evaluate if there are any type errors introduced in your app under the Strict API. **There may be none(!)** — in which case, you're good to go.
+If you have time, it's worth testing the opt-in now in your `tsconfig.json`, to futureproof your app or library. This will immediately evaluate if there are any type errors introduced in your app under the Strict API. **There may be none(!)** — in which case, you're good to go.
 
 :::
 
-#### Future — Strict TypeScript API by default
+#### Future — Strict TypeScript API by default
 
 In the future, we will require all codebases to use our Strict API, and will remove the legacy types.
 
@@ -304,17 +304,17 @@ Thanks also to [Pieter Vanderwerff](https://github.com/pieterv), [Rubén Norte](
 
 :::note Learn more
 
-<div style={{display: 'flex'}}>
-<p style={{flex: 1, marginRight: 40, marginBottom: 0}}>
-<strong style={{ display: 'block', marginTop: 8, marginBottom: 8 }}>Watch the talk!</strong>
-<span style={{ display: 'block', marginBottom: 8 }}>We shared a deep dive into our motivations and the work behind the Strict TypeScript API at <strong>App.js 2025</strong>.</span>
-**[View on YouTube](https://www.youtube.com/live/UTaJlqhTk2g?si=SDRmj80kss7hXuGG&t=6520)**
-</p>
-<img
-  src="/blog/assets/0.80-js-stable-api-appjs.jpg"
-  style={{ flexShrink: 0, width: '200px', aspectRatio: '16/9', objectFit: 'contain' }}
-  alt="App.js 2025 Talk"
-/>
+<div style={{ display: 'flex', alignItems: 'center', gap: 40 }}>
+  <div style={{ flex: 1 }}>
+    <strong style={{ display: 'block', marginTop: 8, marginBottom: 8 }}>Watch the talk!</strong>
+    <span style={{ display: 'block', marginBottom: 8 }}>We shared a deep dive into our motivations and the work behind the Strict TypeScript API at <strong>App.js 2025</strong>.</span>
+    <p style={{ marginBottom: 8 }}>**[View on YouTube](https://www.youtube.com/live/UTaJlqhTk2g?si=SDRmj80kss7hXuGG&t=6520)**</p>
+  </div>
+  <img
+    src="/blog/assets/0.80-js-stable-api-appjs.jpg"
+    style={{ flexShrink: 0, maxWidth: '200px', aspectRatio: '16/9', borderRadius: 10 }}
+    alt="App.js 2025 Talk"
+  />
 </div>
 
 :::

@@ -4,6 +4,8 @@ title: Accessibility
 description: Create mobile apps accessible to assistive technology with React Native's suite of APIs designed to work with Android and iOS.
 ---
 
+import ExperimentalAPIWarning from './\_experimental-api-warning.mdx';
+
 Both Android and iOS provide APIs for integrating apps with assistive technologies like the bundled screen readers VoiceOver (iOS) and TalkBack (Android). React Native has complementary APIs that let your app accommodate all users.
 
 :::info
@@ -222,9 +224,9 @@ For example, in a window that contains sibling views `A` and `B`, setting `acces
 
 ### `accessibilityElementsHidden` <div className="label ios">iOS</div>
 
-A boolean value indicating whether the accessibility elements contained within this accessibility element are hidden.
+A boolean value indicating whether the given accessibility element, and any accessibility elements it contains, are hidden.
 
-For example, in a window that contains sibling views `A` and `B`, setting `accessibilityElementsHidden` to `true` on view `B` causes VoiceOver to ignore the elements in view `B`. This is similar to the Android property `importantForAccessibility="no-hide-descendants"`.
+For example, in a window that contains sibling views `A` and `B`, setting `accessibilityElementsHidden` to `true` on view `B` causes VoiceOver to ignore the `B` view and any elements it contains. This is similar to the Android property `importantForAccessibility="no-hide-descendants"`.
 
 ### `aria-valuemax`
 
@@ -276,9 +278,9 @@ Indicates whether an expandable element is currently expanded or collapsed.
 
 ### `aria-hidden`
 
-Indicates whether the accessibility elements contained within this accessibility element are hidden.
+Indicates whether the element is hidden from assistive technologies.
 
-For example, in a window that contains sibling views `A` and `B`, setting `aria-hidden` to `true` on view `B` causes VoiceOver to ignore the elements in view `B`.
+For example, in a window that contains sibling views `A` and `B`, setting `aria-hidden` to `true` on view `B` causes VoiceOver to ignore the `B` element and its children.
 
 | Type    | Default |
 | ------- | ------- |
@@ -286,7 +288,7 @@ For example, in a window that contains sibling views `A` and `B`, setting `aria-
 
 ### `aria-label`
 
-Defines a string value that labels an interactive element.
+Defines a string value that can be used to name an element.
 
 | Type   |
 | ------ |
@@ -336,6 +338,99 @@ Indicates whether a selectable element is currently selected or not.
 | Type    |
 | ------- |
 | boolean |
+
+### `experimental_accessibilityOrder`
+
+<ExperimentalAPIWarning />
+
+:::note
+For the sake of brevity, layout is excluded in the following examples even though it dictates the default focus order. Assume the document order matches the layout order.
+:::
+
+`experimental_accessibilityOrder` lets you define the order in which assistive technologies focus descendant components. It is an array of [`nativeIDs`](view.md#nativeid) that are set on the components whose order you are controlling. For example:
+
+```
+<View experimental_accessibilityOrder={['B', 'C', 'A']}>
+  <View accessible={true} nativeID="A"/>
+  <View accessible={true} nativeID="B"/>
+  <View accessible={true} nativeID="C"/>
+</View>
+```
+
+Assistive technologies will focus the `View` with `nativeID` of `B`, then `C`, then `A`.
+
+`experimental_accessibilityOrder` will not “turn on” accessibility for the components it references, that still needs to be done. So if we remove `accessible={true}` on `C` above like so
+
+```
+<View experimental_accessibilityOrder={['B', 'C', 'A']}>
+  <View accessible={true} nativeID="A"/>
+  <View accessible={true} nativeID="B"/>
+  <View nativeID="C"/>
+</View>
+```
+
+then the new order will be `B` then `A`, even though `C` is still in `experimental_accessibilityOrder`.
+
+`experimental_accessibilityOrder` will “turn off” accessibility of components it doesn’t reference, however.
+
+```
+<View experimental_accessibilityOrder={['B', 'C', 'A']}>
+  <View accessible={true} nativeID="A"/>
+  <View accessible={true} nativeID="B"/>
+  <View accessible={true} nativeID="C"/>
+  <View accessible={true} nativeID="D"/>
+</View>
+```
+
+The order of the above example would be `B`, `C`, `A`. `D` will never get focused. In this sense `experimental_accessibilityOrder` is _exhaustive_.
+
+There are still valid reasons to include an non-accessible component in `experimental_accessibilityOrder`. Consider
+
+```
+<View experimental_accessibilityOrder={['B', 'C', 'A']}>
+  <View accessible={true} nativeID="A"/>
+  <View accessible={true} nativeID="B"/>
+  <View nativeID="C">
+    <View accessible={true} nativeID="D"/>
+    <View accessible={true} nativeID="E"/>
+    <View accessible={true} nativeID="F"/>
+  </View>
+</View>
+```
+
+The focus order will be `B`, `D`, `E`, `F`, `A`. Even though `D`, `E`, and `F` are not directly referenced in `experimental_accessibilityOrder`, `C` is directly referenced. In this instance `C` in an _accessibility container_ - it contains accessible elements, but is not accessible itself. If an accessibility container is referenced in `experimental_accessibilityOrder` then the default order of the elements it contains is applied. In this sense `experimental_accessibilityOrder` is _nestable_.
+
+`experimental_accessibilityOrder` can also reference another component with `experimental_accessibilityOrder`
+
+```
+<View experimental_accessibilityOrder={['B', 'C', 'A']}>
+  <View accessible={true} nativeID="A"/>
+  <View accessible={true} nativeID="B"/>
+  <View nativeID="C" experimental_accessibilityOrder={['F', 'E', 'D']}>
+    <View accessible={true} nativeID="D"/>
+    <View accessible={true} nativeID="E"/>
+    <View accessible={true} nativeID="F"/>
+  </View>
+</View>
+```
+
+The focus order will be `B`, `F`, `E`, `D`, `A`.
+
+A component cannot be both an accessibility container and an accessibility element (`accessible={true}`). So if we have
+
+```
+<View experimental_accessibilityOrder={['B', 'C', 'A']}>
+  <View accessible={true} nativeID="A"/>
+  <View accessible={true} nativeID="B"/>
+  <View accessible={true} nativeID="C" experimental_accessibilityOrder={['F', 'E', 'D']}>
+    <View accessible={true} nativeID="D"/>
+    <View accessible={true} nativeID="E"/>
+    <View accessible={true} nativeID="F"/>
+  </View>
+</View>
+```
+
+The focus order would be `B`, `C`, `A`. `D`, `E`, and `F` are no longer in a container, so the exhaustive nature of `experimental_accessibilityOrder` means they will be excluded.
 
 ### `importantForAccessibility` <div className="label android">Android</div>
 

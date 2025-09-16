@@ -31,7 +31,7 @@ You should be careful about committing generated code to your repository. Genera
 
 We need to prepare your iOS project using Xcode by completing these **5 steps**:
 
-1. Open the CocoPods generated Xcode Workspace:
+1. Open the CocoaPods generated Xcode Workspace:
 
 ```bash
 cd ios
@@ -46,7 +46,7 @@ open Demo.xcworkspace
 
 3. In the `WebView` group, create <code>New</code>→<code>File from Template</code>.
 
-<img className="half-size" alt="Create a new file using the Cocoa Touch Classs template" src="/docs/assets/fabric-native-components/3.webp" />
+<img className="half-size" alt="Create a new file using the Cocoa Touch Class template" src="/docs/assets/fabric-native-components/3.webp" />
 
 4. Use the <code>Objective-C File</code> template, and name it <code>RCTWebView</code>.
 

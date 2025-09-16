@@ -1,9 +1,11 @@
 ---
 id: safeareaview
-title: SafeAreaView
+title: '🗑️ SafeAreaView'
 ---
 
-> **Deprecated.** Use [react-native-safe-area-context](https://github.com/AppAndFlow/react-native-safe-area-context) instead.
+:::warning Deprecated
+Use [react-native-safe-area-context](https://github.com/AppAndFlow/react-native-safe-area-context) instead.
+:::
 
 The purpose of `SafeAreaView` is to render content within the safe area boundaries of a device. It is currently only applicable to iOS devices with iOS version 11 or later.
 
@@ -48,4 +50,6 @@ export default App;
 
 Inherits [View Props](view.md#props).
 
-> As padding is used to implement the behavior of the component, padding rules in styles applied to a `SafeAreaView` will be ignored and can cause different results depending on the platform. See [#22211](https://github.com/facebook/react-native/issues/22211) for details.
+:::note
+As padding is used to implement the behavior of the component, padding rules in styles applied to a `SafeAreaView` will be ignored and can cause different results depending on the platform. See [#22211](https://github.com/facebook/react-native/issues/22211) for details.
+:::

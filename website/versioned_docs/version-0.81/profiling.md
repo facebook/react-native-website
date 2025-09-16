@@ -7,7 +7,7 @@ Profiling is the process of analyzing an app's performance, resource usage, and 
 
 For iOS, Instruments is an invaluable tool, and on Android you should learn to use the [Android Studio Profiler](profiling.md#profiling-android-ui-performance-with-system-tracing).
 
-But first, [**make sure that Development Mode is OFF!**](performance.md#running-in-development-mode-devtrue) You should see `__DEV__ === false, development-level warning are OFF, performance optimizations are ON` in your application logs.
+But first, [**make sure that Development Mode is OFF!**](performance.md#running-in-development-mode-devtrue).
 
 ## Profiling Android UI Performance with System Tracing
 
