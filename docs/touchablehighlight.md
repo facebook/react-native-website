@@ -142,10 +142,6 @@ The color of the underlay that will show through when the touch is active.
 
 ### `hasTVPreferredFocus` <div className="label ios">tvOS</div>
 
-:::warning Deprecated
-Use [`focusable` prop](view#focusable) form `View` instead.
-:::
-
 TV preferred focus.
 
 | Type |

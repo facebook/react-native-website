@@ -214,10 +214,6 @@ If `true`, disable all interactions for this component.
 
 ### `hasTVPreferredFocus` <div className="label ios">tvOS</div>
 
-:::warning Deprecated
-Use [`focusable` prop](view#focusable) form `View` instead.
-:::
-
 TV preferred focus.
 
 | Type | Default |

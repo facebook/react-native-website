@@ -88,10 +88,6 @@ Determines what the opacity of the wrapped view should be when touch is active. 
 
 ### `hasTVPreferredFocus` <div className="label ios">tvOS</div>
 
-:::warning Deprecated
-Use [`focusable` prop](view#focusable) form `View` instead.
-:::
-
 | Type |
 | ---- |
 | bool |
