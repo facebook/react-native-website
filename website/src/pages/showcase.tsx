@@ -195,10 +195,8 @@ const Showcase = () => {
             />
           </h2>
           <p className="showcaseSectionDescription">
-            All new mobile apps at Shopify are React Native and we are actively
-            migrating our flagship merchant admin app Shopify Mobile to React
-            Native as well. You can read more about React Native development at
-            Shopify on our{' '}
+            All mobile apps at Shopify are built using React Native. You can
+            read more about React Native development at Shopify on our{' '}
             <a href="https://shopify.engineering/topics/mobile" target="_blank">
               blog
             </a>
