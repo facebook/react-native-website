@@ -3,7 +3,7 @@ id: modal
 title: Modal
 ---
 
-The Modal component is a basic way to present content above an enclosing view.
+The `Modal` component is a basic way to present content above an enclosing view.
 
 ## Example
 
