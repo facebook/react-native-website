@@ -13,7 +13,7 @@
   --deepdark: #20232a;
   --light: #373940;
   --text: #1a1a1a;
-  --subtle: #636363;
+  --subtle: #6c707b;
   --divider: #ececec;
   --tintColor: #f7f7f7;
 
@@ -46,6 +46,8 @@
   --ifm-toc-link-color: var(--ifm-color-emphasis-700);
   --ifm-blockquote-color: var(--ifm-font-color-base);
   --ifm-blockquote-font-size: 16px;
+  --ifm-global-radius: 9px;
+  --ifm-code-border-radius: 0.4rem;
   --ifm-blockquote-border-radius: var(--ifm-global-radius);
   --ifm-table-head-color: var(--subtle);
   --ifm-link-hover-decoration: none;
@@ -61,6 +63,7 @@
   --ifm-table-border-color: var(--ifm-toc-border-color);
   --ifm-table-cell-padding: 10px;
   --ifm-table-stripe-background: rgba(0, 0, 0, 0.02);
+  --ifm-table-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
   --ifm-alert-border-radius: 20px;
 
   @media (min-width: 340px) {
@@ -120,7 +123,7 @@ html[data-theme="light"] {
 }
 
 html[data-theme="dark"] {
-  --subtle: #7c7c7c;
+  --subtle: #858993;
 
   --navbar-background: #20232aee;
   --sidebar-active-item-background: #61dafb15;
@@ -130,6 +133,8 @@ html[data-theme="dark"] {
   --ifm-color-emphasis-300: var(--dark);
   --ifm-table-head-background: var(--deepdark);
   --ifm-table-head-color: var(--subtle);
+  --ifm-table-stripe-background: rgba(0, 0, 0, 0.08);
+  --ifm-table-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
 
   --docsearch-searchbox-background: var(--ifm-background-color);
   --docsearch-modal-background: var(--deepdark);
@@ -352,10 +357,19 @@ hr {
     font-weight: 600;
   }
 
+  .table-wrapper {
+    border: 1px solid var(--ifm-table-border-color);
+    border-radius: var(--ifm-global-radius);
+    overflow: hidden;
+    box-shadow: var(--ifm-table-box-shadow);
+    margin-bottom: var(--ifm-spacing-vertical);
+  }
+
   table {
     display: table;
     width: 100%;
     table-layout: fixed;
+    margin-bottom: 0;
 
     thead tr {
       border: 0;
@@ -365,12 +379,24 @@ hr {
       padding: 6px var(--ifm-table-cell-padding);
       font-size: 80%;
       text-align: start;
+      border: 0;
+      border-right: 1px solid var(--ifm-table-border-color);
+
+      &:last-child {
+        border-right: 0;
+      }
     }
 
     tr td {
       font-size: 90%;
       line-height: 1.3em;
       text-align: start;
+      border: 0;
+      border-right: 1px solid var(--ifm-table-border-color);
+
+      &:last-child {
+        border-right: 0;
+      }
 
       code {
         display: inline-block;
