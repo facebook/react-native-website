@@ -42,7 +42,9 @@ Blocking the main thread can provide a better user experience by preventing flas
 However, blocking the main thread also comes with tradeoffs. If an update operation, such as mounting the children of a `VirtualView`, takes too long to finish, it can now drop frames. Dropping more than a couple frames can lead to a worse user experience by making the app feel sluggish and non-responsive. Dropping too many frames may cause the operating system to display a modal indicating the app is not responsive, or it may even terminate your app!
 
 :::warning
-DevTools currently does not support debugging JavaScript on the main thread. This means if you are debugging code called from `onModeChange` that is rendered on the main thread, your debugger may freeze.
+DevTools currently does not support debugging JavaScript on the main thread. This means if you are using breakpoints to debug code called from `onModeChange` that is executed on the main thread, your debugger may freeze.
+
+Debugging all other parts of your JavaScript code should work as expected. We are working on closing this gap before releasing `VirtualView` to stable channels of React Native.
 :::
 
 
