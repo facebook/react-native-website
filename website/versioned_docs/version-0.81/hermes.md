@@ -83,6 +83,8 @@ yarn ios --mode Release
 </TabItem>
 </Tabs>
 
+Add `export USE_HERMES=true` to `/ios/.xcode.env` for [Hermes bytecoded](https://github.com/facebook/react-native/blob/4d2e38edd97a87e93cb95a8a0021abf73765cf28/packages/react-native/scripts/react-native-xcode.sh#L166C8-L166C18) bundle on iOS.
+
 </TabItem>
 </Tabs>
 
