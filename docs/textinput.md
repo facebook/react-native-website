@@ -1105,21 +1105,15 @@ The value to show for the text input. `TextInput` is a controlled component, whi
 
 ## Methods
 
-### `.focus()`
-
-```tsx
-focus();
-```
-
-Makes the native input request focus.
-
-### `.blur()`
+### `blur()`
 
 ```tsx
 blur();
 ```
 
 Makes the native input lose focus.
+
+---
 
 ### `clear()`
 
@@ -1128,6 +1122,16 @@ clear();
 ```
 
 Removes all text from the `TextInput`.
+
+---
+
+### `focus()`
+
+```tsx
+focus();
+```
+
+Makes the native input request focus.
 
 ---
 

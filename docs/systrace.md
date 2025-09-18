@@ -7,7 +7,7 @@ title: Systrace
 
 ## Example
 
-`Systrace` allows you to mark JavaScript (JS) events with a tag and an integer value. Capture the non-Timed JS events in EasyProfiler.
+`Systrace` allows you to mark JavaScript events with a tag and an integer value. Capture the non-Timed JS events in EasyProfiler.
 
 ```SnackPlayer name=Systrace%20Example
 import React from 'react';

@@ -5,8 +5,8 @@ title: ToastAndroid
 
 React Native's ToastAndroid API exposes the Android platform's ToastAndroid module as a JS module. It provides the method `show(message, duration)` which takes the following parameters:
 
-- _message_ A string with the text to toast
-- _duration_ The duration of the toast—either `ToastAndroid.SHORT` or `ToastAndroid.LONG`
+- **message** - A string with the text to toast
+- **duration** - The duration of the toast, either `ToastAndroid.SHORT` or `ToastAndroid.LONG`
 
 You can alternatively use `showWithGravity(message, duration, gravity)` to specify where the toast appears in the screen's layout. May be `ToastAndroid.TOP`, `ToastAndroid.BOTTOM` or `ToastAndroid.CENTER`.
 

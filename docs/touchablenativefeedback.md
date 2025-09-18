@@ -7,9 +7,9 @@ title: TouchableNativeFeedback
 If you're looking for a more extensive and future-proof way to handle touch-based input, check out the [Pressable](pressable.md) API.
 :::
 
-A wrapper for making views respond properly to touches (Android only). On Android this component uses native state drawable to display touch feedback.
+An Android only wrapper for making views respond properly to touches. This component uses native state drawable to display touch feedback.
 
-At the moment it only supports having a single View instance as a child node, as it's implemented by replacing that View with another instance of RCTView node with some additional properties set.
+At the moment it only supports having a single `View` instance as a child node, as it's implemented by replacing that View with another instance of `RCTView` node with some additional properties set.
 
 Background drawable of native feedback touchable can be customized with `background` property.
 
@@ -76,7 +76,7 @@ export default App;
 
 # Reference
 
-## Props
+## Props <div className="label android">Android</div>
 
 ### [TouchableWithoutFeedback Props](touchablewithoutfeedback.md#props)
 
@@ -98,7 +98,7 @@ Determines the type of background drawable that's going to be used to display fe
 
 Set to true to add the ripple effect to the foreground of the view, instead of the background. This is useful if one of your child views has a background of its own, or you're e.g. displaying images, and you don't want the ripple to be covered by them.
 
-Check TouchableNativeFeedback.canUseNativeForeground() first, as this is only available on Android 6.0 and above. If you try to use this on older versions you will get a warning and fallback to background.
+Check `TouchableNativeFeedback.canUseNativeForeground()` first, as this is only available on Android 6.0 and above. If you try to use this on older versions you will get a warning and fallback to background.
 
 | Type |
 | ---- |
@@ -106,17 +106,7 @@ Check TouchableNativeFeedback.canUseNativeForeground() first, as this is only av
 
 ---
 
-### `hasTVPreferredFocus` <div className="label android">Android</div>
-
-TV preferred focus (see documentation for the View component).
-
-| Type |
-| ---- |
-| bool |
-
----
-
-### `nextFocusDown` <div className="label android">Android</div>
+### `nextFocusDown`
 
 TV next focus down (see documentation for the View component).
 
@@ -126,7 +116,7 @@ TV next focus down (see documentation for the View component).
 
 ---
 
-### `nextFocusForward` <div className="label android">Android</div>
+### `nextFocusForward`
 
 TV next focus forward (see documentation for the View component).
 
@@ -136,7 +126,7 @@ TV next focus forward (see documentation for the View component).
 
 ---
 
-### `nextFocusLeft` <div className="label android">Android</div>
+### `nextFocusLeft`
 
 TV next focus left (see documentation for the View component).
 
@@ -146,7 +136,7 @@ TV next focus left (see documentation for the View component).
 
 ---
 
-### `nextFocusRight` <div className="label android">Android</div>
+### `nextFocusRight`
 
 TV next focus right (see documentation for the View component).
 
@@ -156,7 +146,7 @@ TV next focus right (see documentation for the View component).
 
 ---
 
-### `nextFocusUp` <div className="label android">Android</div>
+### `nextFocusUp`
 
 TV next focus up (see documentation for the View component).
 
@@ -204,11 +194,11 @@ Creates an object that represents ripple drawable with specified color (as a str
 
 **Parameters:**
 
-| Name         | Type    | Required | Description                                 |
-| ------------ | ------- | -------- | ------------------------------------------- |
-| color        | string  | Yes      | The ripple color                            |
-| borderless   | boolean | Yes      | If the ripple can render outside its bounds |
-| rippleRadius | ?number | No       | controls the radius of the ripple effect    |
+| Name                                                            | Type    | Description                                  |
+| --------------------------------------------------------------- | ------- | -------------------------------------------- |
+| color <div className="label basic required">Required</div>      | string  | The ripple color.                            |
+| borderless <div className="label basic required">Required</div> | boolean | If the ripple can render outside its bounds. |
+| rippleRadius                                                    | ?number | Controls the radius of the ripple effect.    |
 
 ---
 

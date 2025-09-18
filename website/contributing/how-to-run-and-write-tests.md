@@ -35,9 +35,9 @@ At this point, you can run iOS tests by invoking the following script from the r
 ./scripts/objc-test.sh test
 ```
 
-You can also use Xcode to run iOS tests. Open `RNTester/RNTesterPods.xcworkspace` and run tests locally by pressing <kbd>Command + U</kbd> or selecting `Product` then `Test` from the menubar.
+You can also use Xcode to run iOS tests. Open `RNTester/RNTesterPods.xcworkspace` and run tests locally by pressing <kbd>Cmd ⌘</kbd> + <kbd>U</kbd> or selecting `Product` then `Test` from the menubar.
 
-Xcode also allows running individual tests through its Test Navigator. You can also use <kbd>Command + 6</kbd> shortcut.
+Xcode also allows running individual tests through its Test Navigator. You can also use <kbd>Cmd ⌘</kbd> + <kbd>6</kbd> shortcut.
 
 :::note
 `objc-test.sh` ensures your test environment is set up to run all tests. It also disables tests that are known to be flaky or broken. Keep this in mind when running tests using Xcode. If you see an unexpected failure, see if it's disabled in `objc-test.sh` first.

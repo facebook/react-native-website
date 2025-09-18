@@ -5,7 +5,7 @@ title: Button
 
 A basic button component that should render nicely on any platform. Supports a minimal level of customization.
 
-If this button doesn't look right for your app, you can build your own button using [Pressable](pressable). For inspiration, look at the [source code for the Button component](https://github.com/facebook/react-native/blob/main/packages/react-native/Libraries/Components/Button.js).
+If this button doesn't look right for your app, you can build your own button using [`Pressable`](pressable). For inspiration, look at the [source code for the `Button` component](https://github.com/facebook/react-native/blob/main/packages/react-native/Libraries/Components/Button.js).
 
 ```tsx
 <Button
@@ -212,7 +212,7 @@ If `true`, disable all interactions for this component.
 
 ---
 
-### `hasTVPreferredFocus` <div className="label tv">TV</div>
+### `hasTVPreferredFocus` <div className="label ios">tvOS</div>
 
 TV preferred focus.
 
@@ -222,7 +222,7 @@ TV preferred focus.
 
 ---
 
-### `nextFocusDown` <div className="label android">Android</div><div className="label tv">TV</div>
+### `nextFocusDown` <div className="label android">Android TV</div>
 
 Designates the next view to receive focus when the user navigates down. See the [Android documentation](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusDown).
 
@@ -232,7 +232,7 @@ Designates the next view to receive focus when the user navigates down. See the 
 
 ---
 
-### `nextFocusForward` <div className="label android">Android</div><div className="label tv">TV</div>
+### `nextFocusForward` <div className="label android">Android TV</div>
 
 Designates the next view to receive focus when the user navigates forward. See the [Android documentation](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusForward).
 
@@ -242,7 +242,7 @@ Designates the next view to receive focus when the user navigates forward. See t
 
 ---
 
-### `nextFocusLeft` <div className="label android">Android</div><div className="label tv">TV</div>
+### `nextFocusLeft` <div className="label android">Android TV</div>
 
 Designates the next view to receive focus when the user navigates left. See the [Android documentation](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusLeft).
 
@@ -252,7 +252,7 @@ Designates the next view to receive focus when the user navigates left. See the 
 
 ---
 
-### `nextFocusRight` <div className="label android">Android</div><div className="label tv">TV</div>
+### `nextFocusRight` <div className="label android">Android TV</div>
 
 Designates the next view to receive focus when the user navigates right. See the [Android documentation](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusRight).
 
@@ -262,7 +262,7 @@ Designates the next view to receive focus when the user navigates right. See the
 
 ---
 
-### `nextFocusUp` <div className="label android">Android</div><div className="label tv">TV</div>
+### `nextFocusUp` <div className="label android">Android TV</div>
 
 Designates the next view to receive focus when the user navigates up. See the [Android documentation](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusUp).
 

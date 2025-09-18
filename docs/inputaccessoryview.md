@@ -3,7 +3,7 @@ id: inputaccessoryview
 title: InputAccessoryView
 ---
 
-A component which enables customization of the keyboard input accessory view on iOS. The input accessory view is displayed above the keyboard whenever a `TextInput` has focus. This component can be used to create custom toolbars.
+An iOS only component which enables customization of the keyboard input accessory view. The input accessory view is displayed above the keyboard whenever a `TextInput` has focus. This component can be used to create custom toolbars.
 
 To use this component wrap your custom toolbar with the InputAccessoryView component, and set a `nativeID`. Then, pass that `nativeID` as the `inputAccessoryViewID` of whatever `TextInput` you desire. A basic example:
 
@@ -66,7 +66,7 @@ This component can also be used to create sticky text inputs (text inputs which 
 
 # Reference
 
-## Props
+## Props <div className="label ios">iOS</div>
 
 ### `backgroundColor`
 

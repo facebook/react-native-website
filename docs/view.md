@@ -404,7 +404,7 @@ See the [accessibility guide](accessibility.md#experimental_accessibilityorder) 
 
 ---
 
-### `focusable` <div className="label android">Android</div>
+### `focusable`
 
 Whether this `View` should be focusable with a non-touch input device, eg. receive focus with a hardware keyboard.
 

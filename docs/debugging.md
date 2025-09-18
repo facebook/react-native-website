@@ -27,7 +27,7 @@ Alternative (Android): `adb shell input keyevent 82`.
 To open DevTools, either:
 
 - Select "Open DevTools" in the Dev Menu.
-- Press <kbd>j</kbd> from the CLI (`npx react-native start`).
+- Press <kbd>J</kbd> from the CLI (`npx react-native start`).
 
 On first launch, DevTools will open to a welcome panel, along with an open console drawer where you can view logs and interact with the JavaScript runtime. From the top of the window, you can navigate to other panels, including the integrated React Components Inspector and Profiler.
 

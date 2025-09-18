@@ -86,9 +86,7 @@ Determines what the opacity of the wrapped view should be when touch is active. 
 
 ---
 
-### `hasTVPreferredFocus` <div className="label ios">iOS</div>
-
-_(Apple TV only)_ TV preferred focus (see documentation for the View component).
+### `hasTVPreferredFocus` <div className="label ios">tvOS</div>
 
 | Type |
 | ---- |
@@ -96,7 +94,7 @@ _(Apple TV only)_ TV preferred focus (see documentation for the View component).
 
 ---
 
-### `nextFocusDown` <div className="label android">Android</div>
+### `nextFocusDown` <div className="label android">Android TV</div>
 
 TV next focus down (see documentation for the View component).
 
@@ -106,7 +104,7 @@ TV next focus down (see documentation for the View component).
 
 ---
 
-### `nextFocusForward` <div className="label android">Android</div>
+### `nextFocusForward` <div className="label android">Android TV</div>
 
 TV next focus forward (see documentation for the View component).
 
@@ -116,7 +114,7 @@ TV next focus forward (see documentation for the View component).
 
 ---
 
-### `nextFocusLeft` <div className="label android">Android</div>
+### `nextFocusLeft` <div className="label android">Android TV</div>
 
 TV next focus left (see documentation for the View component).
 
@@ -126,7 +124,7 @@ TV next focus left (see documentation for the View component).
 
 ---
 
-### `nextFocusRight` <div className="label android">Android</div>
+### `nextFocusRight` <div className="label android">Android TV</div>
 
 TV next focus right (see documentation for the View component).
 
@@ -136,7 +134,7 @@ TV next focus right (see documentation for the View component).
 
 ---
 
-### `nextFocusUp` <div className="label android">Android</div>
+### `nextFocusUp` <div className="label android">Android TV</div>
 
 TV next focus up (see documentation for the View component).
 

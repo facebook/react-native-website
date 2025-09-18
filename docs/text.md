@@ -3,9 +3,7 @@ id: text
 title: Text
 ---
 
-A React component for displaying text.
-
-`Text` supports nesting, styling, and touch handling.
+A React component for displaying text. `Text` supports nesting, styling, and touch handling.
 
 In the following example, the nested title and body text will inherit the `fontFamily` from `styles.baseText`, but the title provides its own additional styles. The title and body will stack on top of each other on account of the literal newlines:
 
