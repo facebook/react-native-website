@@ -13,7 +13,7 @@
   --deepdark: #20232a;
   --light: #373940;
   --text: #1a1a1a;
-  --subtle: #636363;
+  --subtle: #6c707b;
   --divider: #ececec;
   --tintColor: #f7f7f7;
 
@@ -48,6 +48,8 @@
   --ifm-toc-link-color: var(--ifm-color-emphasis-700);
   --ifm-blockquote-color: var(--ifm-font-color-base);
   --ifm-blockquote-font-size: 16px;
+  --ifm-global-radius: 9px;
+  --ifm-code-border-radius: 0.4rem;
   --ifm-blockquote-border-radius: var(--ifm-global-radius);
   --ifm-table-head-color: var(--subtle);
   --ifm-link-hover-decoration: none;
@@ -63,6 +65,7 @@
   --ifm-table-border-color: var(--ifm-toc-border-color);
   --ifm-table-cell-padding: 10px;
   --ifm-table-stripe-background: rgba(0, 0, 0, 0.02);
+  --ifm-table-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
   --ifm-alert-border-radius: 20px;
 
   @media (min-width: 340px) {
@@ -122,7 +125,7 @@ html[data-theme="light"] {
 }
 
 html[data-theme="dark"] {
-  --subtle: #7c7c7c;
+  --subtle: #858993;
 
   --navbar-background: #20232aee;
   --sidebar-active-item-background: #61dafb15;
@@ -132,6 +135,8 @@ html[data-theme="dark"] {
   --ifm-color-emphasis-300: var(--dark);
   --ifm-table-head-background: var(--deepdark);
   --ifm-table-head-color: var(--subtle);
+  --ifm-table-stripe-background: rgba(0, 0, 0, 0.08);
+  --ifm-table-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
 
   --docsearch-searchbox-background: var(--ifm-background-color);
   --docsearch-modal-background: var(--deepdark);
@@ -376,10 +381,19 @@ hr {
     font-weight: 600;
   }
 
+  .table-wrapper {
+    border: 1px solid var(--ifm-table-border-color);
+    border-radius: var(--ifm-global-radius);
+    overflow: hidden;
+    box-shadow: var(--ifm-table-box-shadow);
+    margin-bottom: var(--ifm-spacing-vertical);
+  }
+
   table {
     display: table;
     width: 100%;
     table-layout: fixed;
+    margin-bottom: 0;
 
     thead tr {
       border: 0;
@@ -389,12 +403,24 @@ hr {
       padding: 6px var(--ifm-table-cell-padding);
       font-size: 80%;
       text-align: start;
+      border: 0;
+      border-right: 1px solid var(--ifm-table-border-color);
+
+      &:last-child {
+        border-right: 0;
+      }
     }
 
     tr td {
       font-size: 90%;
       line-height: 1.3em;
       text-align: start;
+      border: 0;
+      border-right: 1px solid var(--ifm-table-border-color);
+
+      &:last-child {
+        border-right: 0;
+      }
 
       code {
         display: inline-block;
@@ -464,10 +490,10 @@ hr {
 
   div[class*="codeBlockContainer"] {
     box-shadow: none;
-    border-radius: 8px;
+    border-radius: var(--ifm-global-radius);
 
     pre {
-      border-radius: 8px;
+      border-radius: var(--ifm-global-radius);
     }
 
     button {
@@ -1132,7 +1158,7 @@ aside[class^="theme-doc-sidebar-container"] {
   }
 
   .menu__link {
-    border-radius: 8px;
+    border-radius: var(--ifm-global-radius);
     padding: 6px 12px;
   }
 
@@ -1315,7 +1341,6 @@ div[class^="tableOfContents"] {
   .table-of-contents__link--active {
     font-weight: 500;
     color: var(--home-button-primary) !important;
-    border-radius: 8px;
 
     code {
       font-weight: 700;
@@ -1636,7 +1661,7 @@ div[class*="announcementBarContent"] {
       float: left;
       width: 36px;
       height: 36px;
-      border-radius: 8px;
+      border-radius: var(--ifm-global-radius);
       background-color: #6170af;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 23 21' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0 18.036c.042.507.221 1.016.692 1.699.558.81 1.518 1.254 2.218.54.473-.481 5.582-9.335 8.045-12.69a.737.737 0 011.202 0c2.463 3.355 7.572 12.209 8.045 12.69.7.714 1.66.27 2.218-.54.55-.798.702-1.358.702-1.955 0-.407-7.958-15.086-8.76-16.308C13.593.297 13.357.042 12.053 0h-.994c-1.304.041-1.54.297-2.31 1.472C7.964 2.67.317 16.77 0 17.737v.299z' fill='%23fff'/%3E%3C/svg%3E%0A");
       background-repeat: no-repeat;
@@ -2038,7 +2063,7 @@ html[data-theme="dark"] .docsRating {
   a[class*="sidebarItemLink"] {
     border-left: 0 !important;
     padding: 4px 12px !important;
-    border-radius: 8px;
+    border-radius: var(--ifm-global-radius);
     transition:
       color 0.15s,
       background-color 0.15s;
