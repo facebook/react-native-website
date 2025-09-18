@@ -33,12 +33,14 @@
   --ifm-font-family-base:
     "Optimistic Display", system-ui, -apple-system, sans-serif;
   --ifm-font-family-monospace:
-    Source Code Pro, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
-    "Courier New", monospace;
+    "Source Code Pro", SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+
   --ifm-color-primary: #06bcee;
   --ifm-color-primary-75: #087ea4cc;
   --ifm-code-background: rgba(0, 0, 0, 0.06);
   --ifm-font-size-base: 17px;
+  --ifm-code-font-size: 92%;
   --ifm-spacing-horizontal: 16px;
   --ifm-navbar-item-padding-horizontal: 18px;
   --ifm-menu-link-padding-horizontal: 0;
@@ -192,24 +194,42 @@ html[data-theme="dark"] {
 
 @font-face {
   font-family: "Optimistic Display";
-  src: url("https://facebookmicrosites.github.io/design/public/fonts/OptimisticDisplayLight-199be98cf48e5b4c688356b08a02362c.woff2")
-    format("woff2");
+  src: url("/static/fonts/Optimistic-Display-Light.woff2") format("woff2");
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Optimistic Display";
-  src: url("https://facebookmicrosites.github.io/design/public/fonts/OptimisticDisplayRegular-b0e4e99f91efd0021c3ab8e4df0e6e1b.woff2")
-    format("woff2");
+  src: url("/static/fonts/Optimistic-Display-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Optimistic Display";
+  src: url("/static/fonts/Optimistic-Display-Medium.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Optimistic Display";
-  src: url("https://facebookmicrosites.github.io/design/public/fonts/OptimisticDisplayBold-3a50548145f36de582c3b36d9626f4d6.woff2")
-    format("woff2");
+  src: url("/static/fonts/Optimistic-Display-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Source Code Pro";
+  src: url("/static/fonts/Source-Code-Pro-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Source Code Pro";
+  src: url("/static/fonts/Source-Code-Pro-Bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
 }
@@ -288,9 +308,13 @@ hr {
     margin-top: 0;
   }
 
+  pre code {
+    line-height: 1.4 !important;
+  }
+
   code {
     border-color: transparent;
-    vertical-align: initial;
+    vertical-align: baseline;
   }
 
   kbd {
@@ -572,6 +596,10 @@ html[data-theme="dark"] article .badge {
   }
 }
 
+.alert {
+  padding: 24px 28px;
+}
+
 .alert--secondary {
   --ifm-alert-border-color: hsl(from var(--light) h calc(s - 20) calc(l + 30));
   --ifm-alert-background-color: var(--ifm-color-secondary-lightest);
@@ -629,6 +657,7 @@ html[data-theme="dark"] .homepage {
   line-height: var(--ifm-pre-line-height);
   text-align: center;
   border-radius: var(--ifm-alert-border-radius);
+  padding: var(--ifm-alert-padding-vertical) var(--ifm-alert-padding-horizontal);
 
   a {
     color: var(--ifm-font-color-base) !important;
@@ -1271,6 +1300,7 @@ div[class^="tableOfContents"] {
       background: none;
       padding: 0;
       border: 0;
+      vertical-align: baseline;
     }
 
     &:hover {
