@@ -7,29 +7,34 @@ Document nodes represent a complete native view tree. Apps using native navigati
 
 ```SnackPlayer ext=js&name=Document%20instance%20example
 import * as React from 'react';
-import {Text, View} from 'react-native';
+import {Text, TextInput, View} from 'react-native';
 
-function countNodes(node) {
-  let count = 1;
-  for (const child of node.childNodes) {
-    count += countNodes(child);
-  }
-  return count;
+function MyComponent(props) {
+  return (
+    <View ref={props.ref}>
+      <Text>Start typing below</Text>
+      <TextInput id="main-text-input" />
+    </View>
+  )
 }
 
 export default function AccessingDocument() {
-  const [nodeCount, setNodeCount] = React.useState(0);
+  const ref = React.useRef(null);
+
+  React.useEffect(() => {
+    const element = ref.current;
+    if (!element) {
+      return;
+    }
+
+    // Get the main text input in the screen and focus it after initial load.
+    const doc = element.ownerDocument;
+    const textInput = doc.getElementById('main-text-input');
+    textInput?.focus();
+  }, []);
 
   return (
-      <View ref={instance => {
-        if (instance != null) {
-          // or instance.getRootNode()
-          const document = instance.ownerDocument;
-          setNodeCount(countNodes(document));
-        }
-      }}>
-        <Text>Number of nodes in tree: {nodeCount}</Text>
-      </View>
+    <MyComponent ref={ref} />
   );
 }
 ```

@@ -19,14 +19,12 @@ const ViewWithRefs = () => {
       <View
         style={styles.content}
         ref={(instance) => {
-          // `instance` is an object implementing the interface described here,
-          // or `null` when the component is unmounted.
-          if (instance != null) {
-            const rect = JSON.stringify(instance.getBoundingClientRect());
-            setViewInfo(
-              `Bounding rect is: ${rect}.\nText content is: ${instance.textContent}`,
-            );
-          }
+          // `instance` is an object implementing the interface described here.
+          const rect = JSON.stringify(instance.getBoundingClientRect());
+          setViewInfo(
+            `Bounding rect is: ${rect}.\nText content is: ${instance.textContent}`,
+          );
+          return () => {};
         }}
       >
         <Text>Hello world!</Text>

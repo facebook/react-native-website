@@ -16,14 +16,12 @@ const TextWithRefs = () => {
     <SafeAreaView style={styles.container}>
       <Text
         ref={(instance) => {
-          // `instance` is an object implementing the interface described here,
-          // or `null` when the component is unmounted.
-          if (instance != null) {
-            const textNode = instance.childNodes[0];
-            setViewInfo(
-              `Text content is: ${textNode.nodeValue}`,
-            );
-          }
+          // `instance` is an object implementing the interface described here.
+          const textNode = instance.childNodes[0];
+          setViewInfo(
+            `Text content is: ${textNode.nodeValue}`,
+          );
+          return () => {};
         }}
       >
         Hello world!
