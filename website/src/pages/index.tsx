@@ -15,7 +15,7 @@ import Home from '../components/Home';
 const Index = () => {
   return (
     <Layout
-      description="Framework for creating native apps for Android, iOS, and more using React"
+      description="A framework for building native apps for Android, iOS, and more using React"
       wrapperClassName="homepage">
       <Head>
         <title>React Native · Learn once, write anywhere</title>
