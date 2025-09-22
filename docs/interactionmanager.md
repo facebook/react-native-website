@@ -6,7 +6,7 @@ title: 🗑️ InteractionManager
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 :::warning Deprecated
-Avoid long-running work and use [`requestIdleCallback`](global-requestIdleCallback) or [`setImmediate`](timers) instead.
+Avoid long-running work and use [`requestIdleCallback`](global-requestIdleCallback) instead.
 :::
 
 InteractionManager allows long-running work to be scheduled after any interactions/animations have completed. In particular, this allows JavaScript animations to run smoothly.
