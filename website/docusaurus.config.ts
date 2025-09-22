@@ -78,8 +78,9 @@ const config: Config = {
   },
 
   title: 'React Native',
-  tagline: 'A framework for building native apps using React',
-  organizationName: 'facebook',
+  tagline:
+    'A framework for building native apps for Android, iOS, and more using React',
+  organizationName: 'Meta Platforms, Inc.',
   projectName: 'react-native',
   url: 'https://reactnative.dev',
   baseUrl: '/',
@@ -100,7 +101,7 @@ const config: Config = {
     {src: 'https://snack.expo.dev/embed.js', defer: true},
     {src: 'https://platform.twitter.com/widgets.js', async: true},
   ],
-  favicon: 'img/favicon.ico',
+  favicon: 'favicon.ico',
   titleDelimiter: '·',
   customFields: {
     users,
@@ -111,6 +112,55 @@ const config: Config = {
     locales: ['en'],
   },
   onBrokenLinks: 'warn',
+  headTags: [
+    {
+      tagName: 'script',
+      attributes: {
+        type: 'application/ld+json',
+      },
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org/',
+        '@type': 'WebPage',
+        '@id': 'https://reactnative.dev/',
+        url: 'https://reactnative.dev/',
+        name: 'React Native · Learn once, write anywhere',
+        description:
+          'A framework for building native apps for Android, iOS, and more using React',
+        logo: 'https://reactnative.dev/img/pwa/manifest-icon-192.png',
+        inLanguage: 'en-US',
+      }),
+    },
+    {
+      tagName: 'script',
+      attributes: {
+        type: 'application/ld+json',
+      },
+      innerHTML: JSON.stringify({
+        '@type': 'WebSite',
+        '@id': 'https://reactnative.dev/',
+        url: 'https://reactnative.dev/',
+        name: 'React Native · Learn once, write anywhere',
+        description:
+          'A framework for building native apps for Android, iOS, and more using React',
+        publisher: 'Meta Platforms, Inc.',
+        potentialAction: [
+          {
+            '@type': 'SearchAction',
+            target: {
+              '@type': 'EntryPoint',
+              urlTemplate: 'https://reactnative.dev/search?q={query}',
+            },
+            'query-input': {
+              '@type': 'PropertyValueSpecification',
+              valueRequired: true,
+              valueName: 'query',
+            },
+          },
+        ],
+        inLanguage: 'en-US',
+      }),
+    },
+  ],
   presets: [
     [
       '@docusaurus/preset-classic',

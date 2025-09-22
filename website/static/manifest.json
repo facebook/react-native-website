@@ -1,7 +1,7 @@
 {
-  "name": "React Native Documentation",
+  "name": "React Native · Learn once, write anywhere",
   "short_name": "React Native",
-  "description": "Learn once, write anywhere.",
+  "description": "A framework for building native apps for Android, iOS, and more using React",
   "theme_color": "#20232a",
   "background_color": "#20232a",
   "display": "minimal-ui",
