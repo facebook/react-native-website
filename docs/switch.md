@@ -96,6 +96,12 @@ Invoked when the user tries to change the value of the switch. Receives the new 
 
 ---
 
+### `ref`
+
+A ref setter that will be assigned an [element node](element-nodes) when mounted.
+
+---
+
 ### `thumbColor`
 
 Color of the foreground switch grip. If this is set on iOS, the switch grip will lose its drop shadow.
