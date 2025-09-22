@@ -7,10 +7,10 @@ Timers are an important part of an application and React Native implements the [
 
 ## Timers
 
-- setTimeout, clearTimeout
-- setInterval, clearInterval
-- setImmediate, clearImmediate
-- requestAnimationFrame, cancelAnimationFrame
+- `setTimeout` and `clearTimeout`
+- `setInterval` and `clearInterval`
+- `setImmediate` and `clearImmediate`
+- `requestAnimationFrame` and `cancelAnimationFrame`
 
 `requestAnimationFrame(fn)` is not the same as `setTimeout(fn, 0)` - the former will fire after all the frames have flushed, whereas the latter will fire as quickly as possible (over 1000x per second on a iPhone 5S).
 
@@ -24,6 +24,10 @@ Please correct this by running ``adb shell "date `date +%m%d%H%M%Y.%S%3N`"`` on 
 :::
 
 ## InteractionManager
+
+:::warning Deprecated
+The `InteractionManager` behavior has been changed to be the same as `setImmediate`, which should be used instead.
+:::
 
 One reason why well-built native apps feel so smooth is by avoiding expensive operations during interactions and animations. In React Native, we currently have a limitation that there is only a single JS execution thread, but you can use `InteractionManager` to make sure long-running work is scheduled to start after any interactions/animations have completed.
 
@@ -43,7 +47,7 @@ Compare this to other scheduling alternatives:
 
 The touch handling system considers one or more active touches to be an 'interaction' and will delay `runAfterInteractions()` callbacks until all touches have ended or been cancelled.
 
-InteractionManager also allows applications to register animations by creating an interaction 'handle' on animation start, and clearing it upon completion:
+`InteractionManager` also allows applications to register animations by creating an interaction 'handle' on animation start, and clearing it upon completion:
 
 ```tsx
 const handle = InteractionManager.createInteractionHandle();
