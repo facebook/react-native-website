@@ -4,20 +4,11 @@
   command = "yarn && cd website && yarn build"
 
 [context.production.environment]
-  NODE_VERSION = "20"
-  NODE_OPTIONS = "--max_old_space_size=4096"
+  NODE_VERSION = "22"
 
 [context.deploy-preview.environment]
-  NODE_VERSION = "20"
-  NODE_OPTIONS = "--max_old_space_size=4096"
+  NODE_VERSION = "22"
   PREVIEW_DEPLOY = "true"
-
-[[plugins]]
-  package = "netlify-plugin-cache"
-  [plugins.inputs]
-    paths = [
-      "website/node_modules/.cache",
-    ]
 
 [[headers]]
   for = "/movies.json"
