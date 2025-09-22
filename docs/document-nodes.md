@@ -22,12 +22,8 @@ export default function AccessingDocument() {
   const ref = React.useRef(null);
 
   React.useEffect(() => {
-    const element = ref.current;
-    if (!element) {
-      return;
-    }
-
     // Get the main text input in the screen and focus it after initial load.
+    const element = ref.current;
     const doc = element.ownerDocument;
     const textInput = doc.getElementById('main-text-input');
     textInput?.focus();

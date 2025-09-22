@@ -10,20 +10,21 @@ import * as React from 'react';
 import { SafeAreaView, StyleSheet, Text } from 'react-native';
 
 const TextWithRefs = () => {
+  const ref = React.useRef(null);
   const [viewInfo, setViewInfo] = React.useState('');
+
+  React.useEffect(() => {
+    // `textElement` is an object implementing the interface described here.
+    const textElement = ref.current;
+    const textNode = textElement.childNodes[0];
+    setViewInfo(
+      `Text content is: ${textNode.nodeValue}`,
+    );
+  }, []);
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text
-        ref={(instance) => {
-          // `instance` is an object implementing the interface described here.
-          const textNode = instance.childNodes[0];
-          setViewInfo(
-            `Text content is: ${textNode.nodeValue}`,
-          );
-          return () => {};
-        }}
-      >
+      <Text ref={ref}>
         Hello world!
       </Text>
       <Text>{viewInfo}</Text>

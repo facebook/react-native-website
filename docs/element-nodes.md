@@ -12,21 +12,21 @@ import * as React from 'react';
 import { View, SafeAreaView, StyleSheet, Text } from 'react-native';
 
 const ViewWithRefs = () => {
+  const ref = React.useRef(null);
   const [viewInfo, setViewInfo] = React.useState('');
+
+  React.useEffect(() => {
+    // `element` is an object implementing the interface described here.
+    const element = ref.current;
+    const rect = JSON.stringify(element.getBoundingClientRect());
+    setViewInfo(
+      `Bounding rect is: ${rect}.\nText content is: ${element.textContent}`,
+    );
+  }, []);
 
   return (
     <SafeAreaView style={styles.container}>
-      <View
-        style={styles.content}
-        ref={(instance) => {
-          // `instance` is an object implementing the interface described here.
-          const rect = JSON.stringify(instance.getBoundingClientRect());
-          setViewInfo(
-            `Bounding rect is: ${rect}.\nText content is: ${instance.textContent}`,
-          );
-          return () => {};
-        }}
-      >
+      <View ref={ref} style={styles.content}>
         <Text>Hello world!</Text>
       </View>
       <Text>{viewInfo}</Text>
