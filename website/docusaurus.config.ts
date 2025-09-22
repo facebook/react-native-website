@@ -160,6 +160,13 @@ const config: Config = {
         inLanguage: 'en-US',
       }),
     },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'apple-touch-icon',
+        href: '/img/pwa/apple-icon-180.png',
+      },
+    },
   ],
   presets: [
     [
@@ -550,6 +557,7 @@ const config: Config = {
         content: 'https://reactnative.dev/img/logo-share.png',
       },
       {name: 'twitter:site', content: '@reactnative'},
+      {name: 'apple-mobile-web-app-capable', content: 'yes'},
     ],
   } satisfies Preset.ThemeConfig,
 };
