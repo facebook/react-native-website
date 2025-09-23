@@ -1,0 +1,38 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(RechargeApp());
+}
+
+class RechargeApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Recharge App',
+      home: RechargePage(),
+    );
+  }
+}
+
+class RechargePage extends StatefulWidget {
+  @override
+  _RechargePageState createState() => _RechargePageState();
+}
+
+class _RechargePageState extends State<RechargePage> {
+  final TextEditingController numberController = TextEditingController();
+  final TextEditingController amountController = TextEditingController();
+  String operator = "Jio";
+
+  void doRecharge() {
+    String number = numberController.text;
+    String amt = amountController.text;
+
+    if (number.isEmpty || amt.isEmpty) {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text("Please enter details")));
+      return;
+    }
+
+    // TODO: Call Backend API
+    ScaffoldMessenger.of(context).showSnackBar(
