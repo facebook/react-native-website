@@ -554,11 +554,15 @@ See [RefreshControl](refreshcontrol).
 
 ### `removeClippedSubviews`
 
-Experimental: When `true`, offscreen child views (whose `overflow` value is `hidden`) are removed from their native backing superview when offscreen. This can improve scrolling performance on long lists.
+:::warning
+Using this property may lead to bugs (missing content) in some circumstances - use at your own risk.
+:::
 
-| Type | Default |
-| ---- | ------- |
-| bool | `false` |
+When `true`, offscreen child views are removed from their native backing superview when offscreen. This may improve scroll performance for large lists. On Android the default value is `true`.
+
+| Type    |
+| ------- |
+| boolean |
 
 ---
 
