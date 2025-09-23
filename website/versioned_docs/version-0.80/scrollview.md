@@ -440,7 +440,7 @@ Called when the momentum scroll ends (scroll which occurs as the ScrollView glid
 
 ### `onScroll`
 
-Fires at most once per frame during scrolling. The event has the following shape (all values are numbers):
+Fires at most once per frame during scrolling. The event has the following shape (all values with unspecified type are numbers):
 
 ```js
 {
@@ -449,7 +449,11 @@ Fires at most once per frame during scrolling. The event has the following shape
     contentOffset: {x, y},
     contentSize: {height, width},
     layoutMeasurement: {height, width},
-    zoomScale
+    velocity: {x, y},
+    responderIgnoreScroll: boolean,
+    zoomScale,
+    // iOS only
+    targetContentOffset: {x, y}
   }
 }
 ```
