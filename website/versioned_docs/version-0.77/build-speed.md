@@ -61,7 +61,7 @@ Specifically you can use two type of caches: local compiler caches and distribut
 :::info
 The following instructions will work for **both Android & iOS**.
 If you're building only Android apps, you should be good to go.
-If you're building also iOS apps, please follow the instructions in the [XCode Specific Setup](#xcode-specific-setup) section below.
+If you're building also iOS apps, please follow the instructions in the [Xcode Specific Setup](#xcode-specific-setup) section below.
 :::
 
 We suggest to use [**ccache**](https://ccache.dev/) to cache the compilation of your native builds.
@@ -94,9 +94,9 @@ Note that `ccache` aggregates the stats over all builds. You can use `ccache --z
 
 Should you need to wipe your cache, you can do so with `ccache --clear`
 
-#### XCode Specific Setup
+#### Xcode Specific Setup
 
-To make sure `ccache` works correctly with iOS and XCode, you need to enable React Native support for ccache in `ios/Podfile`.
+To make sure `ccache` works correctly with iOS and Xcode, you need to enable React Native support for ccache in `ios/Podfile`.
 
 Open `ios/Podfile` in your editor and uncomment the `ccache_enabled` line.
 

@@ -166,7 +166,7 @@ Opaque data type passed to `getItem` and `getItemCount` to retrieve items.
 
 ---
 
-### <div class="label required basic">Required</div> **`getItem`**
+### <div className="label required basic">Required</div> **`getItem`**
 
 ```tsx
 (data: any, index: number) => any;
@@ -180,7 +180,7 @@ A generic accessor for extracting an item from any sort of data blob.
 
 ---
 
-### <div class="label required basic">Required</div> **`getItemCount`**
+### <div className="label required basic">Required</div> **`getItemCount`**
 
 ```tsx
 (data: any) => number;
@@ -194,7 +194,7 @@ Determines how many items are in the data blob.
 
 ---
 
-### <div class="label required basic">Required</div> **`renderItem`**
+### <div className="label required basic">Required</div> **`renderItem`**
 
 ```tsx
 (info: any) => ?React.Element<any>
@@ -300,7 +300,9 @@ Styling for internal View for `ListHeaderComponent`.
 
 ### `disableVirtualization`
 
-> **Deprecated.** Virtualization provides significant performance and memory optimizations, but fully unmounts react instances that are outside of the render window. You should only need to disable this for debugging purposes.
+:::warning Deprecated
+Virtualization provides significant performance and memory optimizations, but fully unmounts react instances that are outside of the render window. You should only need to disable this for debugging purposes.
+:::
 
 | Type    |
 | ------- |
@@ -521,7 +523,9 @@ Set this true while waiting for new data from a refresh.
 
 This may improve scroll performance for large lists.
 
-> Note: May have bugs (missing content) in some circumstances - use at your own risk.
+:::warning
+Using this property may lead to bugs (missing content) in some circumstances - use at your own risk.
+:::
 
 | Type    |
 | ------- |

@@ -89,7 +89,7 @@ Returns an object which contains all available common and specific constants rel
 
 ---
 
-### `isPad` <div class="label ios">iOS</div>
+### `isPad` <div className="label ios">iOS</div>
 
 ```tsx
 static isPad: boolean;
@@ -123,7 +123,7 @@ Returns a boolean which defines if device is a TV.
 static isVision: boolean;
 ```
 
-Returns a boolean which defines if device is an Apple Vision. _If you are using [Apple Vision Pro (Designed for iPad)](https://developer.apple.com/documentation/visionos/checking-whether-your-app-is-compatible-with-visionos) `isVision` will be `false` but `isPad` will be `true`_
+Returns a boolean which defines if device is an Apple Vision. _If you are using [Apple Vision Pro (Designed for iPad)](https://developer.apple.com/documentation/visionos/determining-whether-to-bring-your-app-to-visionos) `isVision` will be `false` but `isPad` will be `true`_
 
 | Type    |
 | ------- |

@@ -38,7 +38,7 @@ npx create-react-native-library@latest <Name of Your Library>
 
 Once the interactive prompt is done, the tool creates a folder whose structure looks like this in Visual Studio Code:
 
-<img class="half-size" alt="Folder structure after initializing a new library." src="/docs/assets/turbo-native-modules/c++visualstudiocode.webp" />
+<img className="half-size" alt="Folder structure after initializing a new library." src="/docs/assets/turbo-native-modules/c++visualstudiocode.webp" />
 
 Feel free to explore the code that has been created for you. However, the most important parts:
 
@@ -82,7 +82,6 @@ export default NativeSampleModule;
 ```
 
 3. Copy the native module over:
-
    - Replace the code in the `android/src/main/java/com/<name-of-the-module>` with the code you wrote in the app for your native module, if any.
    - Replace the code in the `ios` folder with the code you wrote in your app for your native module, if any.
    - Replace the code in the `cpp` folder with the code you wrote in your app for your native module, if any.

@@ -6,7 +6,7 @@ export default {
       type: 'category',
       label: 'Contributing to React Native',
       collapsed: false,
-      collapsible: true,
+      collapsible: false,
       items: [
         'overview',
         'versioning-policy',

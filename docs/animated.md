@@ -7,27 +7,22 @@ The `Animated` library is designed to make animations fluid, powerful, and painl
 
 The core workflow for creating an animation is to create an `Animated.Value`, hook it up to one or more style attributes of an animated component, and then drive updates via animations using `Animated.timing()`.
 
-> Don't modify the animated value directly. You can use the [`useRef` Hook](https://react.dev/reference/react/useRef) to return a mutable ref object. This ref object's `current` property is initialized as the given argument and persists throughout the component lifecycle.
+:::note
+Don't modify the animated value directly. You can use the [`useRef` Hook](https://react.dev/reference/react/useRef) to return a mutable ref object. This ref object's `current` property is initialized as the given argument and persists throughout the component lifecycle.
+:::
 
 ## Example
 
 The following example contains a `View` which will fade in and fade out based on the animated value `fadeAnim`
 
-```SnackPlayer name=Animated%20Example&supportedPlatforms=ios,android
-import React from 'react';
+```SnackPlayer name=Animated%20Example
+import React, {useRef} from 'react';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
-import {
-  Animated,
-  Text,
-  View,
-  StyleSheet,
-  Button,
-  useAnimatedValue,
-} from 'react-native';
+import {Animated, Text, View, StyleSheet, Button} from 'react-native';
 
 const App = () => {
   // fadeAnim will be used as the value for opacity. Initial Value: 0
-  const fadeAnim = useAnimatedValue(0);
+  const fadeAnim = useRef(new Animated.Value(0)).current;
 
   const fadeIn = () => {
     // Will change fadeAnim value to 1 in 5 seconds

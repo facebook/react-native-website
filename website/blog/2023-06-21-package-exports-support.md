@@ -61,9 +61,9 @@ import helpers from '@storybook/addon-actions/src/preset/addArgsHelpers';
 
 The headlining features of Package Exports are:
 
-- **Package encapsulation**: Only subpaths defined in `"exports"` can be imported from outside the package — giving packages control over their public API.
+- **Package encapsulation**: Only subpaths defined in `"exports"` can be imported from outside the package — giving packages control over their public API.
 - **Subpath aliases**: Packages can define custom subpaths which map to a different file location (including via [subpath patterns](https://nodejs.org/docs/latest-v19.x/api/packages.html#subpath-patterns)) — allowing relocation of files while preserving the public API.
-- **Conditional exports**: A subpath may resolve to a different underlying file depending on environment. For example, to target `"node"`, `"browser"`, or `"react-native"` runtimes — replacing the [`"browser"` field spec](https://github.com/defunctzombie/package-browser-field-spec).
+- **Conditional exports**: A subpath may resolve to a different underlying file depending on environment. For example, to target `"node"`, `"browser"`, or `"react-native"` runtimes — replacing the [`"browser"` field spec](https://github.com/defunctzombie/package-browser-field-spec).
 
 :::note
 The full capabilities for `"exports"` are detailed in the [Node.js Package Entry Points spec](https://nodejs.org/docs/latest-v19.x/api/packages.html#package-entry-points).
@@ -97,8 +97,8 @@ const config = {
 
 Metro exposes two further resolver options which configure how conditional exports behave:
 
-- [`unstable_conditionNames`](https://metrobundler.dev/docs/configuration/#unstable_conditionnames-experimental) — The set of [condition names](https://nodejs.org/docs/latest-v19.x/api/packages.html#community-conditions-definitions) to assert when resolving conditional exports. By default, we match `['require', 'import', 'react-native']`.
-- [`unstable_conditionsByPlatform`](https://metrobundler.dev/docs/configuration/#unstable_conditionsbyplatform-experimental) — The additional condition names to assert when resolving for a given platform target. By default, this matches `'browser'` when the platform is `'web'`.
+- [`unstable_conditionNames`](https://metrobundler.dev/docs/configuration/#unstable_conditionnames-experimental) — The set of [condition names](https://nodejs.org/docs/latest-v19.x/api/packages.html#community-conditions-definitions) to assert when resolving conditional exports. By default, we match `['require', 'import', 'react-native']`.
+- [`unstable_conditionsByPlatform`](https://metrobundler.dev/docs/configuration/#unstable_conditionsbyplatform-experimental) — The additional condition names to assert when resolving for a given platform target. By default, this matches `'browser'` when the platform is `'web'`.
 
 :::tip
 **Remember to use the React Native [Jest preset](https://github.com/facebook/react-native/blob/main/template/jest.config.js#L2)!** Jest includes support for Package Exports by default. In tests, you can override which `customExportConditions` are resolved using the [`testEnvironmentOptions`](https://jestjs.io/docs/configuration#testenvironmentoptions-object) option.
@@ -146,7 +146,7 @@ If you are not using Yarn, substitute `yarn` for `npx` (or the relevant tool use
 
 We decided on an implementation of Package Exports in Metro that is spec-compliant (necessitating some breaking changes), but backwards compatible otherwise (helping apps with existing imports to migrate gradually).
 
-The key breaking change is that when `"exports"` is provided by a package, it will be consulted first (before any other `package.json` fields) — and a matched subpath target will be used directly.
+The key breaking change is that when `"exports"` is provided by a package, it will be consulted first (before any other `package.json` fields) — and a matched subpath target will be used directly.
 
 - Metro will not expand [`sourceExts`](https://metrobundler.dev/docs/configuration/#sourceexts) against the import specifier.
 - Metro will not resolve [platform-specific extensions](/docs/platform-specific-code) against the target file.
@@ -187,7 +187,7 @@ In practice, we anticipate the main change for users will be the enforcement (vi
 
 ### Migrating to `"exports"`
 
-**Adding an `"exports"` field to your package is entirely optional**. Existing package resolution features will behave identically for packages which don't use `"exports"` — and we have no plans to remove this behaviour.
+**Adding an `"exports"` field to your package is entirely optional**. Existing package resolution features will behave identically for packages which don't use `"exports"` — and we have no plans to remove this behaviour.
 
 We believe that the new features of `"exports"` provide a compelling feature set for React Native package maintainers.
 
@@ -204,11 +204,13 @@ If you decide to introduce `"exports"`, **we recommend making this as a breaking
 
 We've introduced `"react-native"` as a community condition (for use with conditional exports). This represents React Native, the framework, sitting alongside other recognised runtimes such as `"node"` and `"deno"` ([RFC](https://github.com/nodejs/node/pull/45367)).
 
-> [Community Conditions Definitions — **`"react-native"`**](https://nodejs.org/docs/latest-v19.x/api/packages.html#community-conditions-definitions)
->
-> _Will be matched by the React Native framework (all platforms). To target React Native for Web, "browser" should be specified before this condition._
+:::info
+[Community Conditions Definitions — **`"react-native"`**](https://nodejs.org/docs/latest-v19.x/api/packages.html#community-conditions-definitions)
 
-This replaces the previous `"react-native"` root field. The priority order for how this was previously resolved was determined by projects, [which created ambiguity when using React Native for Web](https://github.com/expo/router/issues/37#issuecomment-1275925758). Under `"exports"`, _packages concretely define the resolution order for conditional entry points_ — removing this ambiguity.
+_Will be matched by the React Native framework (all platforms). To target React Native for Web, "browser" should be specified before this condition._
+:::
+
+This replaces the previous `"react-native"` root field. The priority order for how this was previously resolved was determined by projects, [which created ambiguity when using React Native for Web](https://github.com/expo/router/issues/37#issuecomment-1275925758). Under `"exports"`, _packages concretely define the resolution order for conditional entry points_ — removing this ambiguity.
 
 ```json
   "exports": {

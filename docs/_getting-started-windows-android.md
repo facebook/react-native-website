@@ -20,9 +20,13 @@ choco install -y nodejs-lts microsoft-openjdk17
 
 If you have already installed Node on your system, make sure it is Node 18 or newer. If you already have a JDK on your system, we recommend JDK17. You may encounter problems using higher JDK versions.
 
-> You can find additional installation options on [Node's Downloads page](https://nodejs.org/en/download/).
+:::note
+You can find additional installation options on [Node's Downloads page](https://nodejs.org/en/download/).
+:::
 
-> If you're using the latest version of Java Development Kit, you'll need to change the Gradle version of your project so it can recognize the JDK. You can do that by going to `{project root folder}\android\gradle\wrapper\gradle-wrapper.properties` and changing the `distributionUrl` value to upgrade the Gradle version. You can check out [here the latest releases of Gradle](https://gradle.org/releases/).
+:::info
+If you're using the latest version of Java Development Kit, you'll need to change the Gradle version of your project so it can recognize the JDK. You can do that by going to `{project root folder}\android\gradle\wrapper\gradle-wrapper.properties` and changing the `distributionUrl` value to upgrade the Gradle version. You can check out [here the latest releases of Gradle](https://gradle.org/releases/).
+:::
 
 <h3>Android development environment</h3>
 
@@ -30,7 +34,7 @@ Setting up your development environment can be somewhat tedious if you're new to
 
 <h4 id="android-studio">1. Install Android Studio</h4>
 
-[Download and install Android Studio](https://developer.android.com/studio/index.html). While on Android Studio installation wizard, make sure the boxes next to all of the following items are checked:
+[Download and install Android Studio](https://developer.android.com/studio). While on Android Studio installation wizard, make sure the boxes next to all of the following items are checked:
 
 - `Android SDK`
 - `Android SDK Platform`
@@ -39,7 +43,9 @@ Setting up your development environment can be somewhat tedious if you're new to
 
 Then, click "Next" to install all of these components.
 
-> If the checkboxes are grayed out, you will have a chance to install these components later on.
+:::note
+If the checkboxes are grayed out, you will have a chance to install these components later on.
+:::
 
 Once setup has finalized and you're presented with the Welcome screen, proceed to the next step.
 
@@ -51,7 +57,9 @@ To do that, open Android Studio, click on "More Actions" button and select "SDK 
 
 ![Android Studio Welcome](/docs/assets/GettingStartedAndroidStudioWelcomeWindows.png)
 
-> The SDK Manager can also be found within the Android Studio "Settings" dialog, under **Languages & Frameworks** → **Android SDK**.
+:::tip
+The SDK Manager can also be found within the Android Studio "Settings" dialog, under **Languages & Frameworks** → **Android SDK**.
+:::
 
 Select the "SDK Platforms" tab from within the SDK Manager, then check the box next to "Show Package Details" in the bottom right corner. Look for and expand the `Android 15 (VanillaIceCream)` entry, then make sure the following items are checked:
 
@@ -120,7 +128,9 @@ If you use Android Studio to open `./AwesomeProject/android`, you can see the li
 
 If you have recently installed Android Studio, you will likely need to [create a new AVD](https://developer.android.com/studio/run/managing-avds.html). Select "Create Virtual Device...", then pick any Phone from the list and click "Next", then select the **VanillaIceCream** API Level 35 image.
 
-> If you don't have HAXM installed, click on "Install HAXM" or follow [these instructions](https://github.com/intel/haxm/wiki/Installation-Instructions-on-Windows) to set it up, then go back to the AVD Manager.
+:::note
+If you don't have HAXM installed, click on "Install HAXM" or follow [these instructions](https://github.com/intel/haxm/wiki/Installation-Instructions-on-Windows) to set it up, then go back to the AVD Manager.
+:::
 
 Click "Next" then "Finish" to create your AVD. At this point you should be able to click on the green triangle button next to your AVD to launch it.
 

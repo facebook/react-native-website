@@ -3,7 +3,9 @@ id: touchablewithoutfeedback
 title: TouchableWithoutFeedback
 ---
 
-> If you're looking for a more extensive and future-proof way to handle touch-based input, check out the [Pressable](pressable.md) API.
+:::tip
+If you're looking for a more extensive and future-proof way to handle touch-based input, check out the [Pressable](pressable.md) API.
+:::
 
 Do not use unless you have a very good reason. All elements that respond to press should have a visual feedback when touched.
 
@@ -84,7 +86,7 @@ export default TouchableWithoutFeedbackExample;
 
 ## Props
 
-### `accessibilityIgnoresInvertColors` <div class="label ios">iOS</div>
+### `accessibilityIgnoresInvertColors` <div className="label ios">iOS</div>
 
 A value indicating this view should or should not be inverted when color inversion is turned on. A value of `true` will tell the view to not be inverted even if color inversion is turned on.
 
@@ -116,7 +118,7 @@ Overrides the text that's read by the screen reader when the user interacts with
 
 ---
 
-### `accessibilityLanguage` <div class="label ios">iOS</div>
+### `accessibilityLanguage` <div className="label ios">iOS</div>
 
 A value indicating which language should be used by the screen reader when the user interacts with the element. It should follow the [BCP 47 specification](https://www.rfc-editor.org/info/bcp47).
 
@@ -244,9 +246,9 @@ Indicates whether an expandable element is currently expanded or collapsed.
 
 ### `aria-hidden`
 
-Indicates whether the accessibility elements contained within this accessibility element are hidden.
+Indicates whether the element is hidden from assistive technologies.
 
-For example, in a window that contains sibling views `A` and `B`, setting `aria-hidden` to `true` on view `B` causes VoiceOver to ignore the elements in the view `B`.
+For example, in a window that contains sibling views `A` and `B`, setting `aria-hidden` to `true` on view `B` causes VoiceOver to ignore the `B` element and its children.
 
 | Type    | Default |
 | ------- | ------- |
@@ -264,7 +266,7 @@ Defines a string value that labels an interactive element.
 
 ---
 
-### `aria-live` <div class="label android">Android</div>
+### `aria-live` <div className="label android">Android</div>
 
 Indicates that an element will be updated, and describes the types of updates the user agents, assistive technologies, and user can expect from the live region.
 
@@ -278,7 +280,7 @@ Indicates that an element will be updated, and describes the types of updates th
 
 ---
 
-### `aria-modal` <div class="label ios">iOS</div>
+### `aria-modal` <div className="label ios">iOS</div>
 
 Boolean value indicating whether VoiceOver should ignore the elements within views that are siblings of the receiver. Has precedence over the [`accessibilityViewIsModal`](#accessibilityviewismodal-ios) prop.
 
@@ -404,7 +406,9 @@ If true, disable all interactions for this component.
 
 This defines how far your touch can start away from the button. This is added to `pressRetentionOffset` when moving off of the button.
 
-> The touch area never extends past the parent view bounds and the Z-index of sibling views always takes precedence if a touch hits two overlapping views.
+:::note
+The touch area never extends past the parent view bounds and the Z-index of sibling views always takes precedence if a touch hits two overlapping views.
+:::
 
 | Type                   |
 | ---------------------- |
@@ -518,7 +522,7 @@ Used to locate this view in end-to-end tests.
 
 ---
 
-### `touchSoundDisabled` <div class="label android">Android</div>
+### `touchSoundDisabled` <div className="label android">Android</div>
 
 If true, doesn't play a system sound on touch.
 

@@ -21,7 +21,7 @@ title: Optimizing Flatlist Configuration
 
 Here are a list of props that can help to improve `FlatList` performance:
 
-### removeClippedSubviews
+### `removeClippedSubviews`
 
 | Type    | Default                              |
 | ------- | ------------------------------------ |
@@ -33,7 +33,7 @@ If `true`, views that are outside of the viewport are detached from the native v
 
 **Cons:** Be aware that this implementation can have bugs, such as missing content (mainly observed on iOS), especially if you are doing complex things with transforms and/or absolute positioning. Also note this does not save significant memory because the views are not deallocated, only detached.
 
-### maxToRenderPerBatch
+### `maxToRenderPerBatch`
 
 | Type   | Default |
 | ------ | ------- |
@@ -45,7 +45,7 @@ It is a `VirtualizedList` prop that can be passed through `FlatList`. This contr
 
 **Cons:** More items per batch means longer periods of JavaScript execution potentially blocking other event processing, like presses, hurting responsiveness.
 
-### updateCellsBatchingPeriod
+### `updateCellsBatchingPeriod`
 
 | Type   | Default |
 | ------ | ------- |
@@ -69,7 +69,7 @@ The initial amount of items to render.
 
 **Cons:** Setting a low `initialNumToRender` may cause blank areas, especially if it's too small to cover the viewport on initial render.
 
-### windowSize
+### `windowSize`
 
 | Type   | Default |
 | ------ | ------- |
@@ -121,19 +121,19 @@ In this example, we have determined that MyListItem should be re-rendered only w
 
 You can use the community packages (such as [react-native-fast-image](https://github.com/DylanVann/react-native-fast-image) from [@DylanVann](https://github.com/DylanVann)) for more performant images. Every image in your list is a `new Image()` instance. The faster it reaches the `loaded` hook, the faster your JavaScript thread will be free again.
 
-### Use getItemLayout
+### Use `getItemLayout`
 
 If all your list item components have the same height (or width, for a horizontal list), providing the [getItemLayout](flatlist#getitemlayout) prop removes the need for your `FlatList` to manage async layout calculations. This is a very desirable optimization technique.
 
 If your components have dynamic size and you really need performance, consider asking your design team if they may think of a redesign in order to perform better.
 
-### Use keyExtractor or key
+### Use `keyExtractor` or `key`
 
 You can set the [`keyExtractor`](flatlist#keyextractor) to your `FlatList` component. This prop is used for caching and as the React `key` to track item re-ordering.
 
 You can also use a `key` prop in your item component.
 
-### Avoid anonymous function on renderItem
+### Avoid anonymous function on `renderItem`
 
 For functional components, move the `renderItem` function outside of the returned JSX. Also, ensure that it is wrapped in a `useCallback` hook to prevent it from being recreated each render.
 

@@ -29,7 +29,9 @@ Fingers are not the most precise instruments, and it is common for users to acci
 
 `PressRect` allows presses to move beyond the element and its `HitRect` while maintaining activation and being eligible for a "press"—think of sliding your finger slowly away from a button you're pressing down on.
 
-> The touch area never extends past the parent view bounds and the Z-index of sibling views always takes precedence if a touch hits two overlapping views.
+:::note
+The touch area never extends past the parent view bounds and the Z-index of sibling views always takes precedence if a touch hits two overlapping views.
+:::
 
 <figure>
   <img src="/docs/assets/d_pressable_anatomy.svg" width="1000" alt="Diagram of HitRect and PressRect and how they work." />
@@ -38,7 +40,9 @@ Fingers are not the most precise instruments, and it is common for users to acci
   </figcaption>
 </figure>
 
-> `Pressable` uses React Native's `Pressability` API. For more information around the state machine flow of Pressability and how it works, check out the implementation for [Pressability](https://github.com/facebook/react-native/blob/main/packages/react-native/Libraries/Pressability/Pressability.js#L350).
+:::info
+`Pressable` uses React Native's `Pressability` API. For more information around the state machine flow of Pressability and how it works, check out the implementation for [Pressability](https://github.com/facebook/react-native/blob/main/packages/react-native/Libraries/Pressability/Pressability.js#L350).
+:::
 
 ## Example
 
@@ -108,7 +112,7 @@ export default App;
 
 ## Props
 
-### `android_disableSound` <div class="label android">Android</div>
+### `android_disableSound` <div className="label android">Android</div>
 
 If true, doesn't play Android system sound on press.
 
@@ -116,7 +120,7 @@ If true, doesn't play Android system sound on press.
 | ------- | ------- |
 | boolean | `false` |
 
-### `android_ripple` <div class="label android">Android</div>
+### `android_ripple` <div className="label android">Android</div>
 
 Enables the Android ripple effect and configures its properties.
 

@@ -62,13 +62,13 @@ Whether to show the indicator (`true`) or hide it (`false`).
 
 The foreground color of the spinner.
 
-| Type            | Default                                                                                                                                                                                     |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [color](colors) | `null` (system accent default color)<div class="label android">Android</div><hr/><ins style={{background: '#999'}} className="color-box" />`'#999999'` <div className="label ios">iOS</div> |
+| Type            | Default                                                                                                                                                                                         |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [color](colors) | `null` (system accent default color)<div className="label android">Android</div><hr/><ins style={{background: '#999'}} className="color-box" />`'#999999'` <div className="label ios">iOS</div> |
 
 ---
 
-### `hidesWhenStopped` <div class="label ios">iOS</div>
+### `hidesWhenStopped` <div className="label ios">iOS</div>
 
 Whether the indicator should hide when not animating.
 
@@ -78,10 +78,16 @@ Whether the indicator should hide when not animating.
 
 ---
 
+### `ref`
+
+A ref setter that will be assigned an [element node](element-nodes) when mounted.
+
+---
+
 ### `size`
 
 Size of the indicator.
 
-| Type                                                                           | Default   |
-| ------------------------------------------------------------------------------ | --------- |
-| enum(`'small'`, `'large'`)<hr/>number <div class="label android">Android</div> | `'small'` |
+| Type                                                                               | Default   |
+| ---------------------------------------------------------------------------------- | --------- |
+| enum(`'small'`, `'large'`)<hr/>number <div className="label android">Android</div> | `'small'` |

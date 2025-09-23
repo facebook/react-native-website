@@ -1,8 +1,8 @@
-const fs = require('fs');
-const https = require('https');
-const url = require('url');
-const path = require('path');
-const ts = require('typescript');
+import fs from 'node:fs';
+import https from 'node:https';
+import path from 'node:path';
+import url from 'node:url';
+import ts from 'typescript';
 
 const OUTPUT_FILENAME = 'llms.txt';
 const TITLE = 'React Native Documentation';
@@ -10,27 +10,55 @@ const DESCRIPTION =
   'React Native is a framework for building native apps using React. It lets you create mobile apps using only JavaScript and React.';
 const URL_PREFIX = 'https://reactnative.dev';
 
+const INPUT_FILE_PATHS = [
+  {
+    name: 'sidebars.ts',
+    docPath: '../docs/',
+    prefix: '/docs',
+  },
+  {
+    name: 'sidebarsArchitecture.ts',
+    docPath: './architecture/',
+    prefix: '/architecture',
+  },
+  {
+    name: 'sidebarsCommunity.ts',
+    docPath: './community/',
+    prefix: '/community',
+  },
+  {
+    name: 'sidebarsContributing.ts',
+    docPath: './contributing/',
+    prefix: '/contributing',
+  },
+];
+
+const SLUG_TO_URL = {
+  'architecture-overview': 'overview',
+  'architecture-glossary': 'glossary',
+};
+
 // Function to convert the TypeScript sidebar config to JSON
-function convertSidebarConfigToJson(filePath) {
-  const inputFileContent = fs.readFileSync(filePath, 'utf8');
-  const tempFilePath = path.join(__dirname, 'temp-sidebar.js');
+async function convertSidebarConfigToJson(fileName) {
+  const inputFileContent = fs.readFileSync(
+    path.join(import.meta.dirname, '../website', fileName),
+    'utf8'
+  );
+  const tempFilePath = path.join(import.meta.dirname, `temp-${fileName}.cjs`);
 
   try {
     const {outputText} = ts.transpileModule(inputFileContent, {
       compilerOptions: {
-        module: ts.ModuleKind.CommonJS,
-        target: ts.ScriptTarget.ES2015,
+        module: ts.ModuleKind.NodeNext,
+        target: ts.ScriptTarget.ES2023,
       },
     });
 
     fs.writeFileSync(tempFilePath, outputText);
 
-    // Clear require cache for the temp file
-    delete require.cache[require.resolve(tempFilePath)];
+    const sidebarModule = await import(`${tempFilePath}?update=${Date.now()}`);
 
-    const sidebarModule = require(tempFilePath);
-
-    return sidebarModule.default;
+    return sidebarModule.default.default;
   } catch (error) {
     console.error('Error converting sidebar config:', error);
     return null;
@@ -41,18 +69,13 @@ function convertSidebarConfigToJson(filePath) {
   }
 }
 
-const SLUG_TO_URL = {
-  'architecture-overview': 'overview',
-  'architecture-glossary': 'glossary',
-};
-
 // Function to extract URLs from sidebar config
 function extractUrlsFromSidebar(sidebarConfig, prefix) {
   const urls = [];
 
   // Process each section (docs, api, components)
-  Object.entries(sidebarConfig).forEach(([_, categories]) => {
-    Object.entries(categories).forEach(([_, items]) => {
+  Object.entries(sidebarConfig).forEach(([, categories]) => {
+    Object.entries(categories).forEach(([, items]) => {
       processItemsForUrls(items, urls, prefix);
     });
   });
@@ -108,7 +131,6 @@ function checkUrl(urlString) {
       resolve({
         url: urlString,
         status: res.statusCode,
-        is404: res.statusCode === 404,
       });
     });
 
@@ -116,7 +138,6 @@ function checkUrl(urlString) {
       resolve({
         url: urlString,
         status: 'Error',
-        is404: false,
         error: error.message,
       });
     });
@@ -126,7 +147,6 @@ function checkUrl(urlString) {
       resolve({
         url: urlString,
         status: 'Timeout',
-        is404: false,
       });
     });
 
@@ -140,11 +160,7 @@ async function processUrls(urls) {
 
   for (const urlToCheck of urls) {
     const result = await checkUrl(urlToCheck);
-    if (
-      result.is404 ||
-      result.status === 'Error' ||
-      result.status === 'Timeout'
-    ) {
+    if (result.status !== 200) {
       unavailableUrls.push({
         url: urlToCheck,
         status: result.status,
@@ -176,18 +192,14 @@ function extractMetadataFromMarkdown(filePath) {
         slug: slugMatch ? slugMatch[1].trim().replace(/^\//, '') : null,
       };
     }
-    // If no frontmatter found, use the filename
-    return {
-      title: filePath.split('/').pop().replace('.md', ''),
-      slug: null,
-    };
   } catch (error) {
     console.error(`Error reading file ${filePath}:`, error);
-    return {
-      title: filePath.split('/').pop().replace('.md', ''),
-      slug: null,
-    };
   }
+  // If no frontmatter found, on an error occurred use the filename
+  return {
+    title: filePath.split('/').pop().replace('.md', ''),
+    slug: null,
+  };
 }
 
 // Function to map special cases for file names that don't match the sidebar
@@ -283,41 +295,17 @@ function generateMarkdown(sidebarConfig, docPath, prefix, unavailableUrls) {
   return markdown.replace(/(#+ .*)\n/g, '\n$1\n').replace(/\n(\n)+/g, '\n\n');
 }
 
-const inputFilePaths = [
-  {
-    name: 'sidebars.ts',
-    docPath: '../docs/',
-    prefix: '/docs',
-  },
-  {
-    name: 'sidebarsArchitecture.ts',
-    docPath: './architecture/',
-    prefix: '/architecture',
-  },
-  {
-    name: 'sidebarsCommunity.ts',
-    docPath: './community/',
-    prefix: '/community',
-  },
-  {
-    name: 'sidebarsContributing.ts',
-    docPath: './contributing/',
-    prefix: '/contributing',
-  },
-];
-
-let output = `# ${TITLE}\n\n`;
-output += `> ${DESCRIPTION}\n\n`;
-output += `This documentation covers all aspects of using React Native, from installation to advanced usage.\n\n`;
-
-const generateOutput = () => {
+async function generateOutput() {
   const results = [];
   const promises = [];
 
-  for (const {name, docPath, prefix} of inputFilePaths) {
-    const inputFilePath = `./${name}`;
+  let output = `# ${TITLE}\n\n`;
+  output += `> ${DESCRIPTION}\n\n`;
+  output += `This documentation covers all aspects of using React Native, from installation to advanced usage.\n\n`;
 
-    const sidebarConfig = convertSidebarConfigToJson(inputFilePath);
+  for (const {name, docPath, prefix} of INPUT_FILE_PATHS) {
+    const sidebarConfig = await convertSidebarConfigToJson(name);
+
     if (sidebarConfig) {
       const urls = extractUrlsFromSidebar(sidebarConfig, prefix);
 
@@ -325,8 +313,10 @@ const generateOutput = () => {
         .then(result => {
           if (result.unavailableUrls.length > 0) {
             console.error(
-              'Skipping new pages not existing in production deployment yet:',
-              result.unavailableUrls.map(entry => entry.url)
+              'Skipping new pages not existing in the latest version docs yet:',
+              result.unavailableUrls.map(entry =>
+                entry.url.replace('/docs', '/docs/next')
+              )
             );
           }
           const markdown = generateMarkdown(
@@ -337,7 +327,7 @@ const generateOutput = () => {
           );
           results.push({markdown, prefix});
 
-          console.log(`Successfully generated output from ${inputFilePath}`);
+          console.log(`Successfully generated output from ${name}`);
         })
         .catch(err => {
           console.error('Error processing URLs:', err);
@@ -373,12 +363,14 @@ const generateOutput = () => {
       console.error('Error during processing:', err);
       process.exit(1);
     });
-};
+}
 
 function isEntryUnavailable(unavailableUrls, docPath) {
-  return !unavailableUrls.find(entry =>
+  return !!unavailableUrls.find(entry =>
     entry.url.endsWith(docPath.substring(1))
   );
 }
 
-generateOutput();
+generateOutput().catch(error => {
+  console.error(error);
+});

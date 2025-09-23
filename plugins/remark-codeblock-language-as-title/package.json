@@ -14,7 +14,7 @@
     "src/*"
   ],
   "scripts": {
-    "prettier": "prettier --write '{src}/**/*.{md,js,jsx,ts,tsx}'"
+    "lint": "eslint ."
   },
   "dependencies": {
     "unist-util-visit": "^5.0.0"
