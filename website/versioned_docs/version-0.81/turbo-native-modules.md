@@ -3,7 +3,11 @@ id: turbo-native-modules-introduction
 title: 'Native Modules: Introduction'
 ---
 
-import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import constants from '@site/core/TabsConstants';
+import CodeBlock from '@theme/CodeBlock';
+import {getCurrentVersion} from '@site/src/getCurrentVersion';
 import {TurboNativeModulesAndroid, TurboNativeModulesIOS} from './\_turbo-native-modules-components';
 
 # Native Modules
@@ -19,9 +23,9 @@ The basic steps are:
 
 Lets work through each of these steps by building an example Turbo Native Module. The rest of this guide assume that you have created your application running the command:
 
-```shell
-npx @react-native-community/cli@latest init TurboModuleExample --version 0.76.0
-```
+<CodeBlock language="bash" title="shell">
+{`npx @react-native-community/cli@latest init TurboModuleExample --version ${getCurrentVersion()}.0`}
+</CodeBlock>
 
 ## Native Persistent Storage
 

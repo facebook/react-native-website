@@ -1,3 +1,6 @@
+import CodeBlock from '@theme/CodeBlock';
+import {getCurrentVersion} from '@site/src/getCurrentVersion';
+
 # Using Codegen
 
 This guide teaches how to:
@@ -15,9 +18,9 @@ The **Codegen** process is tightly coupled with the build of the app, and the sc
 
 For the sake of this guide, create a project using the React Native CLI as follows:
 
-```bash
-npx @react-native-community/cli@latest init SampleApp --version 0.76.0
-```
+<CodeBlock language="bash" title="shell">
+{`npx @react-native-community/cli@latest init SampleApp --version ${getCurrentVersion()}`}
+</CodeBlock>
 
 **Codegen** is used to generate the glue-code for your custom modules or components. See the guides for Turbo Native Modules and Fabric Native Components for more details on how to create them.
 
