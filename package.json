@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
   "workspaces": [
     "website",
@@ -36,10 +36,9 @@
     "eslint-plugin-yml": "^1.18.0",
     "globals": "^16.4.0",
     "husky": "^9.1.7",
-    "netlify-plugin-cache": "^1.0.3",
     "prettier": "^3.6.2",
     "pretty-quick": "^4.2.2",
     "typescript-eslint": "^8.43.0"
   },
-  "packageManager": "yarn@4.9.2"
+  "packageManager": "yarn@4.10.2"
 }

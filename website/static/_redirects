@@ -1,5 +1,9 @@
 # Redirects from what the browser requests to what we serve
 
+# RSS feed
+/blog/feed                      /blog/rss.xml
+/blog/feed.xml                  /blog/rss.xml
+
 # Renamed pages
 /docs/android-setup             /docs/getting-started
 /docs/building-for-apple-tv     /docs/building-for-tv

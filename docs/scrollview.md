@@ -440,7 +440,7 @@ Called when the momentum scroll ends (scroll which occurs as the ScrollView glid
 
 ### `onScroll`
 
-Fires at most once per frame during scrolling. The event has the following shape (all values are numbers):
+Fires at most once per frame during scrolling. The event has the following shape (all values with unspecified type are numbers):
 
 ```js
 {
@@ -449,7 +449,11 @@ Fires at most once per frame during scrolling. The event has the following shape
     contentOffset: {x, y},
     contentSize: {height, width},
     layoutMeasurement: {height, width},
-    zoomScale
+    velocity: {x, y},
+    responderIgnoreScroll: boolean,
+    zoomScale,
+    // iOS only
+    targetContentOffset: {x, y}
   }
 }
 ```
@@ -550,11 +554,15 @@ See [RefreshControl](refreshcontrol).
 
 ### `removeClippedSubviews`
 
-Experimental: When `true`, offscreen child views (whose `overflow` value is `hidden`) are removed from their native backing superview when offscreen. This can improve scrolling performance on long lists.
+:::warning
+Using this property may lead to bugs (missing content) in some circumstances - use at your own risk.
+:::
 
-| Type | Default |
-| ---- | ------- |
-| bool | `false` |
+When `true`, offscreen child views are removed from their native backing superview when offscreen. This may improve scroll performance for large lists. On Android the default value is `true`.
+
+| Type    |
+| ------- |
+| boolean |
 
 ---
 

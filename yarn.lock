@@ -15149,13 +15149,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"netlify-plugin-cache@npm:^1.0.3":
-  version: 1.0.3
-  resolution: "netlify-plugin-cache@npm:1.0.3"
-  checksum: 10c0/0f80bdd52a9407e13ad26930435cd28cb1dddfb140c6a9cd3f7e8489ab46e7060bab0bb6ebddc16e542d19435cb21e58688d95a3756fd45051dd220b4b15ff13
-  languageName: node
-  linkType: hard
-
 "nlcst-is-literal@npm:^2.0.0":
   version: 2.1.1
   resolution: "nlcst-is-literal@npm:2.1.1"
@@ -17413,7 +17406,6 @@ __metadata:
     eslint-plugin-yml: "npm:^1.18.0"
     globals: "npm:^16.4.0"
     husky: "npm:^9.1.7"
-    netlify-plugin-cache: "npm:^1.0.3"
     prettier: "npm:^3.6.2"
     pretty-quick: "npm:^4.2.2"
     typescript-eslint: "npm:^8.43.0"

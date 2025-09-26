@@ -1,6 +1,6 @@
 ---
 id: optimizing-flatlist-configuration
-title: Optimizing Flatlist Configuration
+title: Optimizing FlatList Configuration
 ---
 
 ## Terms
@@ -23,9 +23,9 @@ Here are a list of props that can help to improve `FlatList` performance:
 
 ### `removeClippedSubviews`
 
-| Type    | Default |
-| ------- | ------- |
-| Boolean | False   |
+| Type    | Default                              |
+| ------- | ------------------------------------ |
+| Boolean | `true` on Android, otherwise `false` |
 
 If `true`, views that are outside of the viewport are detached from the native view hierarchy.
 
@@ -148,7 +148,6 @@ const renderItem = useCallback(({item}) => (
 
 return (
   // ...
-
   <FlatList data={items} renderItem={renderItem} />;
   // ...
 );

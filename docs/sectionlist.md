@@ -253,11 +253,11 @@ Set this true while waiting for new data from a refresh.
 Using this property may lead to bugs (missing content) in some circumstances - use at your own risk.
 :::
 
-This may improve scroll performance for large lists.
+When `true`, offscreen child views are removed from their native backing superview when offscreen. This may improve scroll performance for large lists. On Android the default value is `true`.
 
-| Type    | Default |
-| ------- | ------- |
-| boolean | `false` |
+| Type    |
+| ------- |
+| boolean |
 
 ---
 

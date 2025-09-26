@@ -78,6 +78,12 @@ Whether the indicator should hide when not animating.
 
 ---
 
+### `ref`
+
+A ref setter that will be assigned an [element node](element-nodes) when mounted.
+
+---
+
 ### `size`
 
 Size of the indicator.
