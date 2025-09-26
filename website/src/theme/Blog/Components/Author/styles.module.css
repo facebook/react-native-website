@@ -76,7 +76,7 @@
   margin-left: 0.3rem;
 }
 
-svg[class^="authorSocialLink"] {
+a[class^="authorSocialLink"] svg {
   fill: var(--subtle) !important;
 
   &:hover,
