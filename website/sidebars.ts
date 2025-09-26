@@ -315,6 +315,7 @@ export default {
         items: ['inputaccessoryview', 'safeareaview'],
       },
     ],
+    Refs: ['nodes', 'element-nodes', 'text-nodes', 'document-nodes'],
     Props: [
       'image-style-props',
       'layout-props',

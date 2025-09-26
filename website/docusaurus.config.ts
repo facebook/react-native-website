@@ -78,8 +78,9 @@ const config: Config = {
   },
 
   title: 'React Native',
-  tagline: 'A framework for building native apps using React',
-  organizationName: 'facebook',
+  tagline:
+    'A framework for building native apps for Android, iOS, and more using React',
+  organizationName: 'Meta Platforms, Inc.',
   projectName: 'react-native',
   url: 'https://reactnative.dev',
   baseUrl: '/',
@@ -100,7 +101,7 @@ const config: Config = {
     {src: 'https://snack.expo.dev/embed.js', defer: true},
     {src: 'https://platform.twitter.com/widgets.js', async: true},
   ],
-  favicon: 'img/favicon.ico',
+  favicon: 'favicon.ico',
   titleDelimiter: '·',
   customFields: {
     users,
@@ -111,6 +112,62 @@ const config: Config = {
     locales: ['en'],
   },
   onBrokenLinks: 'warn',
+  headTags: [
+    {
+      tagName: 'script',
+      attributes: {
+        type: 'application/ld+json',
+      },
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org/',
+        '@type': 'WebPage',
+        '@id': 'https://reactnative.dev/',
+        url: 'https://reactnative.dev/',
+        name: 'React Native · Learn once, write anywhere',
+        description:
+          'A framework for building native apps for Android, iOS, and more using React',
+        logo: 'https://reactnative.dev/img/pwa/manifest-icon-192.png',
+        inLanguage: 'en-US',
+      }),
+    },
+    {
+      tagName: 'script',
+      attributes: {
+        type: 'application/ld+json',
+      },
+      innerHTML: JSON.stringify({
+        '@type': 'WebSite',
+        '@id': 'https://reactnative.dev/',
+        url: 'https://reactnative.dev/',
+        name: 'React Native · Learn once, write anywhere',
+        description:
+          'A framework for building native apps for Android, iOS, and more using React',
+        publisher: 'Meta Platforms, Inc.',
+        potentialAction: [
+          {
+            '@type': 'SearchAction',
+            target: {
+              '@type': 'EntryPoint',
+              urlTemplate: 'https://reactnative.dev/search?q={query}',
+            },
+            'query-input': {
+              '@type': 'PropertyValueSpecification',
+              valueRequired: true,
+              valueName: 'query',
+            },
+          },
+        ],
+        inLanguage: 'en-US',
+      }),
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'apple-touch-icon',
+        href: '/img/pwa/apple-icon-180.png',
+      },
+    },
+  ],
   presets: [
     [
       '@docusaurus/preset-classic',
@@ -148,10 +205,6 @@ const config: Config = {
             require.resolve('./src/css/showcase.scss'),
             require.resolve('./src/css/versions.scss'),
           ],
-        },
-        // TODO: GA is deprecated, remove once we're sure data is streaming in GA4 via gtag.
-        googleAnalytics: {
-          trackingID: 'UA-41298772-2',
         },
         gtag: {
           trackingID: 'G-58L13S6BDP',
@@ -504,6 +557,7 @@ const config: Config = {
         content: 'https://reactnative.dev/img/logo-share.png',
       },
       {name: 'twitter:site', content: '@reactnative'},
+      {name: 'apple-mobile-web-app-capable', content: 'yes'},
     ],
   } satisfies Preset.ThemeConfig,
 };

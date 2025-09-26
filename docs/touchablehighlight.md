@@ -122,6 +122,12 @@ Called immediately after the underlay is shown.
 
 ---
 
+### `ref`
+
+A ref setter that will be assigned an [element node](element-nodes) when mounted.
+
+---
+
 ### `style`
 
 | Type       |
