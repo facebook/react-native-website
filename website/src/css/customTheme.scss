@@ -1075,7 +1075,7 @@ So we need to "revert" some CSS vars to not enforce dark mode
 }
 
 .DocSearch-Button-Keys {
-  min-width: auto;
+  min-width: 42px;
   margin-right: 4px;
   margin-top: 1px;
   gap: 2px;
@@ -1085,7 +1085,7 @@ So we need to "revert" some CSS vars to not enforce dark mode
     font-weight: 600;
     background: color-mix(
       in srgb,
-      var(--docsearch-subtle-color) 30%,
+      var(--docsearch-subtle-color) 40%,
       transparent
     );
     color: var(--docsearch-muted-color);
@@ -1099,9 +1099,10 @@ So we need to "revert" some CSS vars to not enforce dark mode
 .DocSearch-Commands-Key {
   background: color-mix(
     in srgb,
-    var(--docsearch-subtle-color) 30%,
+    var(--docsearch-subtle-color) 40%,
     transparent
   );
+  border-radius: var(--ifm-code-border-radius);
   color: var(--docsearch-muted-color);
 }
 
@@ -1180,6 +1181,7 @@ html[data-theme="dark"] {
       transparent
     );
   }
+
   .DocSearch-Commands-Key {
     background: color-mix(
       in srgb,
