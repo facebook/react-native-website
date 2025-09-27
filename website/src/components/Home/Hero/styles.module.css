@@ -22,6 +22,8 @@
   gap: 1rem;
   margin-top: 1rem;
   margin-right: 1rem;
+  min-height: 36px;
+  font-size: 14px;
 }
 
 .gridBackground {
