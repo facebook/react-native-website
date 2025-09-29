@@ -24,7 +24,9 @@ You can [read more about the technical implementation on this page](/architectur
 
 If you've recently created a new app from scratch, you should see if Hermes is enabled in the welcome view:
 
-![Where to find JS engine status in AwesomeProject](/docs/assets/HermesApp.jpg)
+<figure>
+<img src="/docs/assets/HermesApp.png" height="600" alt="Where to find JS engine status in the new project?" />
+</figure>
 
 A `HermesInternal` global variable will be available in JavaScript that can be used to verify that Hermes is in use:
 
