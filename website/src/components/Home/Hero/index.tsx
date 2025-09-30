@@ -7,6 +7,7 @@
 
 import React from 'react';
 import GitHubButton from 'react-github-btn';
+import {useColorMode} from '@docusaurus/theme-common';
 
 import Logo from '../Logo';
 import GridBackground from './GridBackground';
@@ -16,6 +17,7 @@ import Devices from './Devices';
 import styles from './styles.module.css';
 
 function Hero() {
+  const {colorMode} = useColorMode();
   return (
     <div className={styles.container}>
       <div className={styles.socialLinks}>
@@ -30,6 +32,7 @@ function Hero() {
           href="https://github.com/facebook/react-native"
           data-icon="octicon-star"
           data-size="large"
+          data-color-scheme={colorMode}
           aria-label="Star facebook/react-native on GitHub">
           Star
         </GitHubButton>

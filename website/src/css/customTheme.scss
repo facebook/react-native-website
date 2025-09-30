@@ -21,14 +21,27 @@
   --navbar-active-item-background: #61dafb11;
   --sidebar-active-item-background: #e6f7ff;
   --docs-rating-background: #64d7ff33;
+  --key-shadow:
+    inset 0 -2px 0 0 var(--ifm-hr-border-color), inset 0 0 1px 1px #fff,
+    0 1px 2px 1px rgba(30, 35, 90, 0.3);
 
   --doc-sidebar-width: 266px !important;
   --rn-note-background: rgba(255, 229, 100, 0.25);
 
+  --docsearch-key-background: none;
+  --docsearch-searchbox-background: white;
+  --docsearch-modal-background: white;
+  --docsearch-subtle-color: var(--ifm-table-border-color);
   --docsearch-container-background: rgba(32, 35, 42, 0.6);
-  --docsearch-key-shadow:
-    inset 0 -2px 0 0 var(--ifm-hr-border-color), inset 0 0 1px 1px #fff,
-    0 1px 2px 1px rgba(30, 35, 90, 0.3);
+  --docsearch-muted-color: #969faf;
+  --docsearch-key-pressed-shadow: inset 0 2px 5px rgba(120, 122, 165, 0.11);
+  --docsearch-icon-color: var(--subtle);
+  --docsearch-secondary-text-color: var(--subtle);
+  --docsearch-hit-background: none;
+  --docsearch-hit-highlight-color: var(--home-button-primary);
+  --docsearch-highlight-color: white;
+  --docsearch-footer-height: 46px;
+  --docsearch-soft-primary-color: var(--sidebar-active-item-background);
 
   --ifm-font-family-base:
     "Optimistic Display", system-ui, -apple-system, sans-serif;
@@ -129,6 +142,9 @@ html[data-theme="dark"] {
 
   --navbar-background: #20232aee;
   --sidebar-active-item-background: #61dafb15;
+  --key-shadow:
+    inset 0 -2px 0 0 var(--dark), inset 0 0 1px 1px var(--light),
+    0 2px 2px 0 rgba(3, 4, 9, 0.3);
 
   --ifm-code-background: rgba(255, 255, 255, 0.06);
   --ifm-toc-border-color: var(--dark);
@@ -139,13 +155,13 @@ html[data-theme="dark"] {
   --ifm-table-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
 
   --docsearch-searchbox-background: var(--ifm-background-color);
-  --docsearch-modal-background: var(--deepdark);
-  --docsearch-footer-background: var(--dark);
-  --docsearch-key-gradient: var(--deepdark);
-  --docsearch-key-shadow:
-    inset 0 -2px 0 0 var(--dark), inset 0 0 1px 1px var(--light),
-    0 2px 2px 0 rgba(3, 4, 9, 0.3);
+  --docsearch-modal-background: var(--ifm-background-color);
   --docsearch-container-background: rgba(0, 0, 0, 0.6);
+  --docsearch-muted-color: #7f8497;
+  --docsearch-subtle-color: #282833;
+  --docsearch-key-pressed-shadow: inset 0 2px 5px rgba(12, 13, 20, 0.4);
+  --docsearch-modal-shadow: 0 3px 8px 0 #000309;
+  --docsearch-hit-highlight-color: var(--ifm-color-primary);
 
   --logo: #58c4dc;
   --home-hero-floor-background: #151517;
@@ -329,7 +345,7 @@ hr {
     position: relative;
     padding: 0.2rem 0.3rem;
     background: none;
-    box-shadow: var(--docsearch-key-shadow);
+    box-shadow: var(--key-shadow);
     display: inline-block;
     text-align: center;
     min-width: 24px;
@@ -892,38 +908,6 @@ a[class*="tagRegular"] {
     transform: rotate(180deg) scale(0.9);
   }
 
-  .DocSearch-Button {
-    border-radius: 32px;
-    border: 1px solid var(--light);
-    padding: 0 8px 0 12px;
-    font-family: var(--ifm-font-family-base);
-
-    .DocSearch-Search-Icon {
-      width: 16px;
-      margin-top: -1px;
-      color: var(--docsearch-muted-color);
-    }
-
-    .DocSearch-Button-Key--pressed {
-      box-shadow: var(--docsearch-key-shadow);
-      transform: none;
-    }
-  }
-
-  .DocSearch-Button-Placeholder {
-    font-size: 14px;
-  }
-
-  .DocSearch-Button-Key {
-    font-size: 12px;
-    font-weight: 600;
-    background: none;
-  }
-
-  .DocSearch-Button-Keys {
-    margin-top: 1px;
-  }
-
   .dropdown__menu {
     min-width: 120px;
 
@@ -1051,6 +1035,168 @@ So we need to "revert" some CSS vars to not enforce dark mode
 
   .navbar-github-link {
     display: none !important;
+  }
+}
+
+/* DocSearch */
+
+.DocSearch-Container {
+  backdrop-filter: none !important;
+}
+
+.DocSearch-Button {
+  border-radius: 32px;
+  border: 1px solid var(--light);
+  padding: 0 8px 0 12px;
+  font-family: var(--ifm-font-family-base);
+  color: var(--subtle);
+  box-sizing: border-box;
+
+  &:hover {
+    box-shadow: inset 0 0 0 2px var(--ifm-color-primary);
+
+    .DocSearch-Search-Icon,
+    .DocSearch-Button-Placeholder {
+      color: var(--subtle);
+    }
+  }
+}
+
+.navbar {
+  .DocSearch-Search-Icon {
+    width: 16px;
+    margin-top: -1px;
+    color: var(--docsearch-muted-color);
+  }
+}
+
+.DocSearch-Button-Placeholder {
+  font-size: 14px;
+}
+
+.DocSearch-Button-Keys {
+  min-width: 42px;
+  margin-right: 4px;
+  margin-top: 1px;
+  gap: 2px;
+
+  .DocSearch-Button-Key {
+    font-size: 12px;
+    font-weight: 600;
+    background: color-mix(
+      in srgb,
+      var(--docsearch-subtle-color) 40%,
+      transparent
+    );
+    color: var(--docsearch-muted-color);
+    transform: none;
+    margin: 0;
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.DocSearch-Commands-Key {
+  background: color-mix(
+    in srgb,
+    var(--docsearch-subtle-color) 40%,
+    transparent
+  );
+  border-radius: var(--ifm-code-border-radius);
+  color: var(--docsearch-muted-color);
+}
+
+.DocSearch-Modal {
+  border-radius: var(--ifm-global-radius);
+  border: 1px solid var(--ifm-table-border-color);
+}
+
+.DocSearch-Form {
+  border-radius: var(--ifm-global-radius) var(--ifm-global-radius) 0 0;
+}
+
+.DocSearch-Input {
+  padding-block-start: 0;
+}
+
+.DocSearch-Actions {
+  button:hover {
+    color: var(--home-button-primary);
+  }
+}
+
+.DocSearch-Hit {
+  &,
+  & a {
+    border-radius: var(--ifm-global-radius);
+  }
+
+  mark {
+    color: var(--home-button-primary);
+  }
+
+  &[aria-selected="true"] {
+    span,
+    mark {
+      color: white;
+    }
+  }
+
+  .DocSearch-Hit-content-wrapper {
+    gap: 0;
+  }
+}
+
+.DocSearch-Form:focus-within .DocSearch-MagnifierLabel svg {
+  color: var(--home-button-primary);
+}
+
+.DocSearch-Footer {
+  font-size: 14px;
+  border-radius: 0 0 var(--ifm-global-radius) var(--ifm-global-radius);
+
+  .DocSearch-Logo a {
+    display: flex;
+    align-items: center;
+
+    svg {
+      filter: grayscale(1);
+      opacity: 0.6;
+    }
+  }
+}
+
+html[data-theme="dark"] {
+  .DocSearch-Button:hover {
+    .DocSearch-Search-Icon,
+    .DocSearch-Button-Placeholder {
+      color: var(--ifm-font-color-base);
+    }
+  }
+
+  .DocSearch-Button-Key {
+    background: color-mix(
+      in srgb,
+      var(--docsearch-subtle-color) 60%,
+      transparent
+    );
+  }
+
+  .DocSearch-Commands-Key {
+    background: color-mix(
+      in srgb,
+      var(--docsearch-subtle-color) 50%,
+      transparent
+    );
+  }
+
+  .DocSearch-Logo a svg {
+    filter: grayscale(1) brightness(3);
+  }
+
+  .DocSearch-Form,
+  .DocSearch-Footer {
+    background: none;
   }
 }
 
