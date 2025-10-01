@@ -92,4 +92,4 @@ This will compile JavaScript to Hermes Bytecode during build time which will imp
 
 ## Switching back to JavaScriptCore
 
-React Native also supports using JavaScriptCore as the [JavaScript engine](javascript-environment). Follow the instructions to opt-out of Hermes: https://github.com/react-native-community/javascriptcore
+React Native also supports using JavaScriptCore as the [JavaScript engine](javascript-environment). Follow the instructions [from the community repository](https://github.com/react-native-community/javascriptcore) to opt-out of Hermes.
