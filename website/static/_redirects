@@ -18,7 +18,8 @@
 
 /contributing/how-to-contribute     /contributing/overview
 /contributing/how-to-file-an-issue  /contributing/how-to-report-a-bug
-/releases/release-candidate-minor   /releases/release-branch-cut-and-rc0
+/contributing/versioning-policy     /docs/next/releases/versioning-policy
+/releases/release-candidate-minor   /docs/next/releases/versioning-policy
 
 # Redirect New Architecture docs of all versions
 # Note: We had to delete the older versions to get redirects to work

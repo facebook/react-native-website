@@ -11,7 +11,6 @@ export default {
       'using-a-listview',
       'troubleshooting',
       'platform-specific-code',
-      'releases',
       'more-resources',
     ],
     'Environment setup': [
@@ -63,6 +62,11 @@ export default {
         collapsed: false,
         items: ['accessibility'],
       },
+    ],
+    Releases: [
+      'releases/releases',
+      'releases/release-levels',
+      'releases/versioning-policy',
     ],
     Debugging: [
       'debugging',
