@@ -168,4 +168,4 @@ Avoid forcing RTL in production apps as it requires a full app restart to take e
 static swapLeftAndRightInRTL: (swapLeftAndRight: boolean) => void;
 ```
 
-Swap left and right style properties in RTL mode. When enabled, left becomes right and right becomes left in RTL layouts. Does not affect the value of `isRTL`. 
+Swap left and right style properties in RTL mode. When enabled, left becomes right and right becomes left in RTL layouts. Does not affect the value of `isRTL`.
