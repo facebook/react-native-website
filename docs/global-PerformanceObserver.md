@@ -3,9 +3,9 @@ id: global-PerformanceObserver
 title: PerformanceObserver 🧪
 ---
 
-import ExperimentalAPIWarning from './\_experimental-api-warning.mdx';
+import CanaryAPIWarning from './\_canary-channel-api-warning.mdx';
 
-<ExperimentalAPIWarning />
+<CanaryAPIWarning />
 
 The global [`PerformanceObserver`](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceObserver) class, as defined in Web specifications.
 

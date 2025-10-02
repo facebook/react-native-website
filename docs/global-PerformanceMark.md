@@ -3,8 +3,8 @@ id: global-PerformanceMark
 title: PerformanceMark 🧪
 ---
 
-import ExperimentalAPIWarning from './\_experimental-api-warning.mdx';
+import CanaryAPIWarning from './\_canary-channel-api-warning.mdx';
 
-<ExperimentalAPIWarning />
+<CanaryAPIWarning />
 
 The global [`PerformanceMark`](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceMark) class, as defined in Web specifications.

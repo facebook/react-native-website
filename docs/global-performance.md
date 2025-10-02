@@ -3,9 +3,9 @@ id: global-performance
 title: performance 🧪
 ---
 
-import ExperimentalAPIWarning from './\_experimental-api-warning.mdx';
+import CanaryAPIWarning from './\_canary-channel-api-warning.mdx';
 
-<ExperimentalAPIWarning />
+<CanaryAPIWarning />
 
 The global [`performance`](https://developer.mozilla.org/en-US/docs/Web/API/Window/performance) object, as defined in Web specifications.
 

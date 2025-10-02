@@ -3,9 +3,9 @@ id: global-PerformanceLongTaskTiming
 title: PerformanceLongTaskTiming 🧪
 ---
 
-import ExperimentalAPIWarning from './\_experimental-api-warning.mdx';
+import CanaryAPIWarning from './\_canary-channel-api-warning.mdx';
 
-<ExperimentalAPIWarning />
+<CanaryAPIWarning />
 
 The global [`PerformanceLongTaskTiming`](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceLongTaskTiming) class, as defined in Web specifications.
 

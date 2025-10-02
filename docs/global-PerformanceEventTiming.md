@@ -3,9 +3,9 @@ id: global-PerformanceEventTiming
 title: PerformanceEventTiming 🧪
 ---
 
-import ExperimentalAPIWarning from './\_experimental-api-warning.mdx';
+import CanaryAPIWarning from './\_canary-channel-api-warning.mdx';
 
-<ExperimentalAPIWarning />
+<CanaryAPIWarning />
 
 The global [`PerformanceEventTiming`](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceEventTiming) class, as defined in Web specifications.
 
