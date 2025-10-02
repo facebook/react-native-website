@@ -47,7 +47,7 @@ The `ReactNativeStartupTiming` interface provides the following fields:
 ### `timeOrigin`
 
 :::info Partial support
-Provides the number of milliseconds from the Unix epoch until system boot, instead of the number of milliseconds from the Unix epoch until app startup.
+Provides the number of milliseconds from the UNIX epoch until system boot, instead of the number of milliseconds from the UNIX epoch until app startup.
 :::
 
 See [documentation in MDN](https://developer.mozilla.org/en-US/docs/Web/API/Performance/timeOrigin).
