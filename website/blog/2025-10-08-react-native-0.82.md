@@ -278,7 +278,7 @@ Due to a bug, these were completely swallowed and ignored previously, so please 
 - Deprecate `MessageQueueThreadPerfStats`
   - We deprecated this API and replaced it with stub. You should not rely on stats from this API anymore as the provided stats were not reliable
 - Bump Gradle from 8.x to 9.0.0
-  - List of all the changes in the next major stable version of Gradle 9.0.0 is available here: [https://gradle.org/whats-new/gradle-9/](https://gradle.org/whats-new/gradle-9/) but we expect no impact at all to users
+  - List of all the changes in the next major stable version of Gradle 9.0.0 is available [here](https://gradle.org/whats-new/gradle-9/) but we expect no impact at all to users
 
 #### C++
 
