@@ -288,7 +288,7 @@ Due to a bug, these were completely swallowed and ignored previously, so please 
 
 Read the full list of breaking changes in the [CHANGELOG for 0.82](https://github.com/facebook/react-native/blob/main/CHANGELOG.md#v0820).
 
-## Acknowledgements[​](https://reactnative.dev/blog/2024/08/12/release-0.75#acknowledgements)
+## Acknowledgements
 
 React Native 0.82 contains over 868 commits from 93 contributors. Thanks for all your hard work!
 
