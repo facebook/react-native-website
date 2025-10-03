@@ -49,9 +49,9 @@ If a bug in React Native core prevents you from migrating, we recommend you reac
 
 ### Interop Layers & 3P library compatibility
 
-We are keeping the interop layers in the codebase for the foreseeable future. All the classes and functions that are required by the interop layers won’t be removed anytime soon. We will share further updates in the future regarding the removals of Interop Layers later on.
+We will keep the interop layers in the codebase for the foreseeable future. All the classes and functions that are required by the interop layers won’t be removed anytime soon. We will share further updates in the future regarding the removals of Interop Layers later on.
 
-We’ve also verified that the 3p libraries that offer backward compatibility with both old and New Architectures will keep on working with 0.82 where New Architecture is the only architecture.
+We’ve also verified that the 3P libraries that offer backward compatibility with both old and New Architectures will keep on working with 0.82 where New Architecture is the only architecture.
 
 ### Removal of Legacy Architecture classes
 
@@ -69,7 +69,7 @@ Hermes V1 is the next evolution of Hermes. We've been experimenting with it inte
 
 From initial tests and benchmarks, Hermes V1 outperforms Legacy Hermes in various scenarios. We have seen improvements in bundle loading and TTI. The improvements strongly depend on the details of your apps.
 
-On the [Expensify app](https://github.com/Expensify/App), a real world and complex application, and we have seen the following improvements:
+On the [Expensify app](https://github.com/Expensify/App), a real world and complex application, we have seen the following improvements:
 | Metric | Android (low end device) | iOS |
 | --- | --- | --- |
 | Bundle Load Time | 3.16% | 9% |
@@ -80,7 +80,7 @@ For Total TTI, we measured the time it takes from bundle loading to when the fir
 
 For Content TTI, we measured the time it takes for a component to be interactive from the first rendering of the component itself.
 
-Hermes V1 does not yet contain JS-to-native compilation (previously known as “Static Hermes”) or the JIT compilation that was [presented during React Native EU 2023](https://www.youtube.com/watch?v=q-xKYA0EO-c). We are still testing these features and we will share more as we make progress.
+Hermes V1 does not yet contain JS-to-native compilation (previously known as “Static Hermes”) or the JIT compilation that was [presented during React Native EU 2023](https://www.youtube.com/watch?v=q-xKYA0EO-c). We are still testing these features, and will share more as we make progress.
 
 ### How to enable Hermes V1
 
@@ -140,15 +140,15 @@ RCT_HERMES_V1_ENABLED=1 bundle exec pod install
 
 ## React 19.1.1
 
-This release of React Native ships with the latest React stable: [19.1.1](https://github.com/facebook/react/releases/tag/v19.1.1).
+This release of React Native ships with the latest React stable: [React 19.1.1](https://github.com/facebook/react/releases/tag/v19.1.1).
 
-This release of React contains full support for owner stacks for React Native. Back in React Native 0.80, when we shipped support for 19.1.0, we mentioned that owner stacks were not fully supported if you were using the [`@babel/plugin-transform-function-name`](https://babeljs.io/docs/babel-plugin-transform-function-name) Babel plugin. This release lifts this restriction and enables owner stacks for all React Native users.
+This release of React contains full support for owner stacks for React Native. Back in React Native 0.80, when we shipped support for 19.1.0, we [mentioned](/blog/2025/06/12/react-native-0.80#react-1910) that owner stacks were not fully supported if you were using the [`@babel/plugin-transform-function-name`](https://babeljs.io/docs/babel-plugin-transform-function-name) Babel plugin. This release lifts this restriction and enables owner stacks for all React Native users.
 
 | BEFORE                                                                                           | AFTER                                                                                        |
 | ------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------- |
 | ![Example error thrown without Owner Stacks](../static/blog/assets/0.82-owners-stack-before.png) | ![Example error thrown with Owner Stacks](../static/blog/assets/0.82-owners-stack-after.png) |
 
-React 19.1.1 also improves the reliability of [`useDeferredValue`](https://react.dev/reference/react/useDeferredValue) and [`startTransition`](https://react.dev/reference/react/startTransition) in a Suspense boundary for React Native. These are essential React features, designed to boost app responsiveness. Previously both were wrongly showing the fallback component when used together with a Suspense boundary on React Native. With 19.1.1, they now consistently perform as expected on React Native, aligning their behavior with Web.
+React 19.1.1 also improves the reliability of [`useDeferredValue`](https://react.dev/reference/react/useDeferredValue) and [`startTransition`](https://react.dev/reference/react/startTransition) in a Suspense boundary for React Native. These are essential React features, designed to boost app responsiveness. Previously both were wrongly showing the fallback component when used together with a Suspense boundary on React Native. With React 19.1.1, they now consistently perform as expected on React Native, aligning their behavior with Web.
 
 ## DOM Node APIs
 
