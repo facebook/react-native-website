@@ -47,7 +47,6 @@ DevTools does not currently support debugging JavaScript on the main thread. Thi
 Debugging all other parts of your JavaScript code should work as expected. We are working on closing this gap before releasing `VirtualView` to stable channels of React Native.
 :::
 
-
 ### Prerendering
 
 `VirtualView` enables you to benefit from main thread rendering while mitigating the disadvantages of dropped frames by rendering earlier before it is needed. This is called “prerendering”.
