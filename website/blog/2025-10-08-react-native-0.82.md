@@ -1,5 +1,5 @@
 ---
-title: 'React Native 0.82 - Legacy Architecture Sunsetting,  React 19.1.1, Hermes V1, DOM Node APIs, and more'
+title: 'React Native 0.82 - Legacy Architecture Sunsetted,  React 19.1.1, Hermes V1, DOM Node APIs, and more'
 authors: [vzaidman, cortinico, gabrieldonadel, alanjhughes]
 tags: [engineering]
 date: 2025-10-08
@@ -8,7 +8,7 @@ date: 2025-10-08
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# **React Native 0.82 - Legacy Architecture Sunsetting, Experimental Hermes V1, React 19.1.1, DOM Node APIs, and more!**
+# **React Native 0.82 - Legacy Architecture Sunsetted, Experimental Hermes V1, React 19.1.1, DOM Node APIs, and more!**
 
 Today we are excited to release React Native 0.82!
 
@@ -16,7 +16,7 @@ This release is a crucial milestone for React Native: after multiple years of ro
 
 ### Highlights
 
-- [Sunsetting the Legacy Architecture](/blog/2025/10/08/react-native-0.82#sunsetting-the-legacy-architecture)
+- [Legacy Architecture Sunsetted](/blog/2025/10/08/react-native-0.82#legacy-architecture-sunsetted)
 - [Experimental Hermes V1](/blog/2025/10/08/react-native-0.82#experimental-hermes-v1)
 - [React 19.1.1](/blog/2025/10/08/react-native-0.82#react-1911)
 - [DOM Node APIs](/blog/2025/10/08/react-native-0.82#dom-node-apis)
@@ -25,7 +25,7 @@ This release is a crucial milestone for React Native: after multiple years of ro
 
 # Highlights
 
-## Sunsetting the Legacy Architecture
+## Legacy Architecture Sunsetted
 
 Starting with this version, [the New Architecture](https://reactnative.dev/blog/2024/10/23/the-new-architecture-is-here) will be the **only** architecture for React Native, there will no longer be an option to opt-out of the New Architecture.
 
