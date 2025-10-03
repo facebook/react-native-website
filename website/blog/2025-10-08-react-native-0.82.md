@@ -144,9 +144,9 @@ This release of React Native ships with the latest React stable: [React 19.1.1](
 
 This release of React contains full support for owner stacks for React Native. Back in React Native 0.80, when we shipped support for 19.1.0, we [mentioned](/blog/2025/06/12/react-native-0.80#react-1910) that owner stacks were not fully supported if you were using the [`@babel/plugin-transform-function-name`](https://babeljs.io/docs/babel-plugin-transform-function-name) Babel plugin. This release lifts this restriction and enables owner stacks for all React Native users.
 
-| BEFORE                                                                                           | AFTER                                                                                        |
-| ------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------- |
-| ![Example error thrown without Owner Stacks](../static/blog/assets/0.82-owners-stack-before.png) | ![Example error thrown with Owner Stacks](../static/blog/assets/0.82-owners-stack-after.png) |
+| BEFORE                                                                                                            | AFTER                                                                                                         |
+| ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| <center>![Example error thrown without Owner Stacks](../static/blog/assets/0.82-owners-stack-before.png)</center> | <center>![Example error thrown with Owner Stacks](../static/blog/assets/0.82-owners-stack-after.png)</center> |
 
 React 19.1.1 also improves the reliability of [`useDeferredValue`](https://react.dev/reference/react/useDeferredValue) and [`startTransition`](https://react.dev/reference/react/startTransition) in a Suspense boundary for React Native. These are essential React features, designed to boost app responsiveness. Previously both were wrongly showing the fallback component when used together with a Suspense boundary on React Native. With React 19.1.1, they now consistently perform as expected on React Native, aligning their behavior with Web.
 
