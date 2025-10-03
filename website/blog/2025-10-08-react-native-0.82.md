@@ -296,7 +296,7 @@ We want to send a special thank you to those community members that shipped sign
 
 - [Dawid Małecki](https://github.com/coado) and [Jakub Piasecki](https://github.com/j-piasecki) for the help in rolling out Hermes V1.
 - [Krystof Woldrich](https://github.com/krystofwoldrich) for the support with fixing the swallowing of uncaught promise rejections.
-- [Riccardo Cipolleschi](<[https://github.com/cipolleschi](https://github.com/cipolleschi)>) for the support with writing the React 19.1.1 and Hermes V1 paragraph above.
+- [Riccardo Cipolleschi](https://github.com/cipolleschi) for the support with writing the React 19.1.1 and Hermes V1 paragraph above.
 - [Rubén Norte](https://github.com/rubennorte) for the support with writing the DOM API and Performance API paragraphs.
 - [Tomasz Zawadzki](https://github.com/tomekzaw/) for the support with the `debugOptimized` benchmarking.
 
