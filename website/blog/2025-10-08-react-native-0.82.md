@@ -310,6 +310,8 @@ If you use Expo, React Native 0.82 will be available as part of the expo@canary 
 
 The next stable SDK 55 will be shipped with the next stable release of React Native: 0.83.
 
-::: info
+:::info
 
 0.82 is now the latest stable version of React Native and 0.79.x moves to unsupported. For more information see [React Native's support policy](https://github.com/reactwg/react-native-releases/blob/main/docs/support.md).
+
+:::
