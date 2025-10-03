@@ -18,7 +18,7 @@ This release is a crucial milestone for React Native: after multiple years of ro
 
 - [Sunsetting the Legacy Architecture](/blog/2025/10/08/react-native-0.82#sunsetting-the-legacy-architecture)
 - [Experimental Hermes V1](/blog/2025/10/08/react-native-0.82#experimental-hermes-v1)
-- [React 19.1.1](/blog/2025/10/08/react-native-0.82#react-19.1.1)
+- [React 19.1.1](/blog/2025/10/08/react-native-0.82#react-1911)
 - [DOM Node APIs](/blog/2025/10/08/react-native-0.82#dom-node-apis)
 
 <!--truncate-->
@@ -29,7 +29,7 @@ This release is a crucial milestone for React Native: after multiple years of ro
 
 Starting with this version, [the New Architecture](https://reactnative.dev/blog/2024/10/23/the-new-architecture-is-here) will be the **only** architecture for React Native, there will no longer be an option to opt-out of the New Architecture.
 
-The New Architecture has been tested and refined over a long period of time, and [has been the default architecture since version 0.76](/blog/2024/10/23/the-new-architecture-is-here). We're now confident in making it the only architecture.
+The New Architecture has been tested and refined over a long period of time, and [has been the default architecture since version 0.76](https://reactnative.dev/blog/2024/10/23/the-new-architecture-is-here). We're now confident in making it the only architecture.
 
 In 0.82, if you try to set `newArchEnabled=false` on Android, or if you try to install Cocoapods with `RCT_NEW_ARCH_ENABLED=0` on iOS, these will be ignored and your app will still run with the New Architecture enabled.
 
@@ -153,6 +153,8 @@ React 19.1.1 also improves the reliability of [`useDeferredValue`](https://react
 ## DOM Node APIs
 
 Starting from React Native 0.82, native components will provide DOM-like nodes via refs.
+
+<!--alex ignore just retext-equality-->
 
 Before, native components provided React Native-specific objects with just a handful of methods like `measure` and `setNativeProps`. After this release, they will provide [nodes implementing a subset of the DOM API](https://reactnative.dev/docs/element-nodes) that allow traversing the UI tree, measuring layout, etc. as they do on Web, e.g.:
 
@@ -292,11 +294,11 @@ React Native 0.82 contains over 868 commits from 93 contributors. Thanks for all
 
 We want to send a special thank you to those community members that shipped significant contributions in this release:
 
-- [Dawid Małecki](https://github.com/coado) and [Jakub Piasecki](https://github.com/j-piasecki) for their help in rolling out Hermes V1.
-- [Riccardo Cipolleschi](<[https://github.com/cipolleschi](https://github.com/cipolleschi)>) for his support with writing the React 19.1.1 and Hermes V1 paragraph.
-- [Rubén Norte](https://github.com/rubennorte) for his support with writing the DOM Api and Performance API paragraphs.
-- [Tomasz Zawadzki](https://github.com/tomekzaw/) for his support with the `debugOptimized` benchmarking.
-- [Krystof Woldrich](https://github.com/krystofwoldrich) for his support with fixing the swallowing of uncaught promise rejections.
+- [Dawid Małecki](https://github.com/coado) and [Jakub Piasecki](https://github.com/j-piasecki) for the help in rolling out Hermes V1.
+- [Krystof Woldrich](https://github.com/krystofwoldrich) for the support with fixing the swallowing of uncaught promise rejections.
+- [Riccardo Cipolleschi](<[https://github.com/cipolleschi](https://github.com/cipolleschi)>) for the support with writing the React 19.1.1 and Hermes V1 paragraph above.
+- [Rubén Norte](https://github.com/rubennorte) for the support with writing the DOM Api and Performance API paragraphs.
+- [Tomasz Zawadzki](https://github.com/tomekzaw/) for the support with the `debugOptimized` benchmarking.
 
 ## Upgrade to 0.82
 
