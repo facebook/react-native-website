@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 
 Today we are excited to release React Native 0.82!
 
-This release is a crucial milestone for React Native: after multiple years of rollout of the New Architecture, we’re finally sunsetting the Legacy Architecture. The New Architecture is now the **only** architecture of React Native. This release also ships with a newer version of our Javascript engine: Hermes V1, which is available via an experimental opt-in. We’re also updating the React version to 19.1.1 and shipping support for DOM Node APIs.
+This release is a crucial milestone for React Native: after multiple years of rollout of the New Architecture, we’re finally sunsetting the Legacy Architecture. The New Architecture is now the **only** architecture of React Native. This release also ships with a newer version of our JavaScript engine: Hermes V1, which is available via an experimental opt-in. We’re also updating the React version to 19.1.1 and shipping support for DOM Node APIs.
 
 ### Highlights
 
@@ -31,7 +31,7 @@ Starting with this version, [the New Architecture](https://reactnative.dev/blog/
 
 The New Architecture has been tested and refined over a long period of time, and [has been the default architecture since version 0.76](https://reactnative.dev/blog/2024/10/23/the-new-architecture-is-here). We're now confident in making it the only architecture.
 
-In 0.82, if you try to set `newArchEnabled=false` on Android, or if you try to install Cocoapods with `RCT_NEW_ARCH_ENABLED=0` on iOS, these will be ignored and your app will still run with the New Architecture enabled.
+In 0.82, if you try to set `newArchEnabled=false` on Android, or if you try to install CocoaPods with `RCT_NEW_ARCH_ENABLED=0` on iOS, these will be ignored and your app will still run with the New Architecture enabled.
 
 ### How to migrate
 
@@ -297,7 +297,7 @@ We want to send a special thank you to those community members that shipped sign
 - [Dawid Małecki](https://github.com/coado) and [Jakub Piasecki](https://github.com/j-piasecki) for the help in rolling out Hermes V1.
 - [Krystof Woldrich](https://github.com/krystofwoldrich) for the support with fixing the swallowing of uncaught promise rejections.
 - [Riccardo Cipolleschi](<[https://github.com/cipolleschi](https://github.com/cipolleschi)>) for the support with writing the React 19.1.1 and Hermes V1 paragraph above.
-- [Rubén Norte](https://github.com/rubennorte) for the support with writing the DOM Api and Performance API paragraphs.
+- [Rubén Norte](https://github.com/rubennorte) for the support with writing the DOM API and Performance API paragraphs.
 - [Tomasz Zawadzki](https://github.com/tomekzaw/) for the support with the `debugOptimized` benchmarking.
 
 ## Upgrade to 0.82
