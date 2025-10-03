@@ -72,9 +72,9 @@ From initial tests and benchmarks, Hermes V1 outperforms Legacy Hermes in variou
 On the [Expensify app](https://github.com/Expensify/App), a real world and complex application, we have seen the following improvements:
 | Metric | Android (low end device) | iOS |
 | --- | --- | --- |
-| Bundle Load Time | 3.16% | 9% |
-| Total TTI | 7.62% | 2.5% |
-| Content TTI | 7.19% | 7.5% |
+| Bundle Load Time | 3.16% faster | 9% faster |
+| Total TTI | 7.62% faster | 2.5% faster |
+| Content TTI | 7.19% faster | 7.5% faster |
 
 For Total TTI, we measured the time it takes from bundle loading to when the first screen in the app is rendered and it is interactive.
 
