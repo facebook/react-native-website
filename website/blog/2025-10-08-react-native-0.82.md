@@ -138,6 +138,12 @@ To try Hermes V1 in your own project, use the following steps:
 RCT_HERMES_V1_ENABLED=1 bundle exec pod install
 ```
 
+4. To verify whether the app is running Hermes V1, you could run the following in your JavaScript code or DevTools console:
+
+```jsx
+HermesInternal.getRuntimeProperties()['Static Hermes'] === true;
+```
+
 ## React 19.1.1
 
 This release of React Native ships with the latest React stable: [React 19.1.1](https://github.com/facebook/react/releases/tag/v19.1.1).
