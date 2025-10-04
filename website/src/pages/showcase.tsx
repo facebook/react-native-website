@@ -126,8 +126,8 @@ const Showcase = () => {
               alt="Meta logo"
               width={140}
               sources={{
-                light: useBaseUrl('/img/meta_positive_primary.svg'),
-                dark: useBaseUrl('/img/meta_negative_primary.svg'),
+                light: useBaseUrl('/img/showcase/meta_positive_primary.svg'),
+                dark: useBaseUrl('/img/showcase/meta_negative_primary.svg'),
               }}
             />
           </h2>
@@ -144,8 +144,8 @@ const Showcase = () => {
               alt="Microsoft logo"
               width={180}
               sources={{
-                light: useBaseUrl('/img/microsoft-logo-gray.png'),
-                dark: useBaseUrl('/img/microsoft-logo-white.png'),
+                light: useBaseUrl('/img/showcase/microsoft-logo-gray.png'),
+                dark: useBaseUrl('/img/showcase/microsoft-logo-white.png'),
               }}
             />
           </h2>
@@ -170,8 +170,8 @@ const Showcase = () => {
               alt="Amazon logo"
               width={140}
               sources={{
-                light: useBaseUrl('/img/amazon_logo_lightbg.png'),
-                dark: useBaseUrl('/img/amazon_logo_darkbg.png'),
+                light: useBaseUrl('/img/showcase/amazon_logo_lightbg.png'),
+                dark: useBaseUrl('/img/showcase/amazon_logo_darkbg.png'),
               }}
             />
           </h2>
@@ -189,8 +189,8 @@ const Showcase = () => {
               alt="Shopify logo"
               width={160}
               sources={{
-                light: useBaseUrl('/img/shopify_logo_whitebg.svg'),
-                dark: useBaseUrl('/img/shopify_logo_darkbg.svg'),
+                light: useBaseUrl('/img/showcase/shopify_logo_whitebg.svg'),
+                dark: useBaseUrl('/img/showcase/shopify_logo_darkbg.svg'),
               }}
             />
           </h2>
