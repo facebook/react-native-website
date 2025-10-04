@@ -61,7 +61,7 @@ To enable source map generation:
 - Above the other exports, add a `SOURCEMAP_FILE` entry with the desired output path.
 
 ```diff
-+ SOURCEMAP_FILE="$(pwd)/../main.jsbundle.map";
++ export SOURCEMAP_FILE="$(pwd)/../main.jsbundle.map"
   WITH_ENVIRONMENT="../node_modules/react-native/scripts/xcode/with-environment.sh"
 ```
 
