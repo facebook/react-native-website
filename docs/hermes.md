@@ -24,7 +24,9 @@ You can [read more about the technical implementation on this page](/architectur
 
 If you've recently created a new app from scratch, you should see if Hermes is enabled in the welcome view:
 
-![Where to find JS engine status in AwesomeProject](/docs/assets/HermesApp.jpg)
+<figure>
+<img src="/docs/assets/HermesApp.png" height="600" alt="Where to find JS engine status in the new project?" />
+</figure>
 
 A `HermesInternal` global variable will be available in JavaScript that can be used to verify that Hermes is in use:
 
@@ -90,27 +92,4 @@ This will compile JavaScript to Hermes Bytecode during build time which will imp
 
 ## Switching back to JavaScriptCore
 
-React Native also supports using JavaScriptCore as the [JavaScript engine](javascript-environment). Follow these instructions to opt-out of Hermes.
-
-### Android
-
-Edit your `android/gradle.properties` file and flip `hermesEnabled` back to false:
-
-```diff
-# Use this property to enable or disable the Hermes JS engine.
-# If set to false, you will be using JSC instead.
-hermesEnabled=false
-```
-
-### iOS
-
-Edit your `ios/Podfile` file and make the change illustrated below:
-
-```diff
-   use_react_native!(
-     :path => config[:reactNativePath],
-+    :hermes_enabled => false,
-     # An absolute path to your application root.
-     :app_path => "#{Pod::Config.instance.installation_root}/.."
-   )
-```
+React Native also supports using JavaScriptCore as the [JavaScript engine](javascript-environment). Follow the instructions [from the community repository](https://github.com/react-native-community/javascriptcore) to opt-out of Hermes.

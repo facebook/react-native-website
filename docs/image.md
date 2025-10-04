@@ -334,6 +334,12 @@ A string indicating which referrer to use when fetching the resource. Sets the v
 
 ---
 
+### `ref`
+
+A ref setter that will be assigned an [element node](element-nodes) when mounted.
+
+---
+
 ### `resizeMethod` <div className="label android">Android</div>
 
 The mechanism that should be used to resize the image when the image's dimensions differ from the image view's dimensions. Defaults to `auto`.

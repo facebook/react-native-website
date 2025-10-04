@@ -1,7 +1,7 @@
 {
-  "name": "React Native Documentation",
+  "name": "React Native · Learn once, write anywhere",
   "short_name": "React Native",
-  "description": "Learn once, write anywhere.",
+  "description": "A framework for building native apps for Android, iOS, and more using React",
   "theme_color": "#20232a",
   "background_color": "#20232a",
   "display": "minimal-ui",
@@ -43,16 +43,28 @@
   ],
   "icons": [
     {
-      "src": "img/pwa/manifest-icon-192.png",
+      "src": "static/img/pwa/manifest-icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
-      "src": "img/pwa/manifest-icon-512.png",
+      "src": "static/img/pwa/manifest-icon-192.maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "static/img/pwa/manifest-icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "static/img/pwa/manifest-icon-512.maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }

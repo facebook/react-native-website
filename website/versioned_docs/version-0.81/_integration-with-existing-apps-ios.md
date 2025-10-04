@@ -1,4 +1,9 @@
-import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import constants from '@site/core/TabsConstants';
+import CodeBlock from '@theme/CodeBlock';
+import RNTemplateRepoLink from '@site/core/RNTemplateRepoLink';
+import {getTemplateBranchNameForCurrentVersion} from '@site/src/getTemplateBranchNameForCurrentVersion';
 
 ## Key Concepts
 
@@ -28,11 +33,11 @@ To ensure a smooth experience, create a new folder for your integrated React Nat
 
 Go to the root directory and run the following command:
 
-```shell
-curl -O https://raw.githubusercontent.com/react-native-community/template/refs/heads/0.78-stable/template/package.json
-```
+<CodeBlock language="bash" title="shell">
+{`curl -O https://raw.githubusercontent.com/react-native-community/template/refs/heads/${getTemplateBranchNameForCurrentVersion()}/template/package.json`}
+</CodeBlock>
 
-This will copy the `package.json` [file from the Community template](https://github.com/react-native-community/template/blob/0.78-stable/template/package.json) to your project.
+This will copy the `package.json` <RNTemplateRepoLink href="template/package.json">file from the Community template</RNTemplateRepoLink> to your project.
 
 Next, install the NPM packages by running:
 
@@ -55,7 +60,7 @@ yarn install
 
 Installation process has created a new `node_modules` folder. This folder stores all the JavaScript dependencies required to build your project.
 
-Add `node_modules/` to your `.gitignore` file (here the [Community default one](https://github.com/react-native-community/template/blob/0.78-stable/template/_gitignore)).
+Add `node_modules/` to your `.gitignore` file (here the <RNTemplateRepoLink href="template/_gitignore">Community default one</RNTemplateRepoLink>).
 
 ### 3. Install Development tools
 
@@ -86,9 +91,9 @@ To configure CocoaPods, we need two files:
 
 For the **Gemfile**, go to the root directory of your project and run this command
 
-```sh
-curl -O https://raw.githubusercontent.com/react-native-community/template/refs/heads/0.78-stable/template/Gemfile
-```
+<CodeBlock language="bash" title="shell">
+{`curl -O https://raw.githubusercontent.com/react-native-community/template/refs/heads/${getTemplateBranchNameForCurrentVersion()}/template/Gemfile`}
+</CodeBlock>
 
 This will download the Gemfile from the template.
 
@@ -108,14 +113,14 @@ Xcode 16 generates a project in a slightly different ways from previous versions
 
 Similarly, for the **Podfile**, go to the `ios` folder of your project and run
 
-```sh
-curl -O https://raw.githubusercontent.com/react-native-community/template/refs/heads/0.78-stable/template/ios/Podfile
-```
+<CodeBlock language="bash" title="shell">
+{`curl -O https://raw.githubusercontent.com/react-native-community/template/refs/heads/${getTemplateBranchNameForCurrentVersion()}/template/ios/Podfile`}
+</CodeBlock>
 
-Please use the Community Template as a reference point for the [Gemfile](https://github.com/react-native-community/template/blob/0.78-stable/template/Gemfile) and for the [Podfile](https://github.com/react-native-community/template/blob/0.78-stable/template/ios/Podfile).
+Please use the Community Template as a reference point for the <RNTemplateRepoLink href="template/Gemfile">Gemfile</RNTemplateRepoLink> and for the <RNTemplateRepoLink href="template/ios/Podfile">Podfile</RNTemplateRepoLink>.
 
 :::note
-Remember to change [this line](https://github.com/react-native-community/template/blob/0.78-stable/template/ios/Podfile#L17).
+Remember to change <RNTemplateRepoLink href="template/ios/Podfile#L17">this line</RNTemplateRepoLink>.
 :::
 
 Now, we need to run a couple of extra commands to install the Ruby gems and the Pods.
@@ -140,7 +145,7 @@ First, create an empty `index.js` file in the root of your React Native project.
 
 `index.js` is the starting point for React Native applications, and it is always required. It can be a small file that `import`s other file that are part of your React Native component or application, or it can contain all the code that is needed for it.
 
-Our `index.js` should look as follows (here the [Community template file as reference](https://github.com/react-native-community/template/blob/0.78-stable/template/index.js)):
+Our `index.js` should look as follows (here the <RNTemplateRepoLink href="template/index.js">Community template file as reference</RNTemplateRepoLink>):
 
 ```js
 import {AppRegistry} from 'react-native';
@@ -151,7 +156,7 @@ AppRegistry.registerComponent('HelloWorld', () => App);
 
 ### Create a `App.tsx` file
 
-Let's create an `App.tsx` file. This is a [TypeScript](https://www.typescriptlang.org/) file that can have [JSX](<https://en.wikipedia.org/wiki/JSX_(JavaScript)>) expressions. It contains the root React Native component that we will integrate into our iOS application ([link](https://github.com/react-native-community/template/blob/0.78-stable/template/App.tsx)):
+Let's create an `App.tsx` file. This is a [TypeScript](https://www.typescriptlang.org/) file that can have [JSX](<https://en.wikipedia.org/wiki/JSX_(JavaScript)>) expressions. It contains the root React Native component that we will integrate into our iOS application (<RNTemplateRepoLink href="template/App.tsx">link</RNTemplateRepoLink>):
 
 ```tsx
 import React from 'react';
@@ -224,7 +229,7 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-Here the [Community template file as reference](https://github.com/react-native-community/template/blob/0.78-stable/template/App.tsx)
+Here is the <RNTemplateRepoLink href="template/App.tsx">Community template file as reference</RNTemplateRepoLink>.
 
 ## 5. Integrating with your iOS code
 
@@ -460,7 +465,7 @@ const {getDefaultConfig} = require('@react-native/metro-config');
 module.exports = getDefaultConfig(__dirname);
 ```
 
-You can checkout the [metro.config.js file](https://github.com/react-native-community/template/blob/0.78-stable/template/metro.config.js) from the Community template file as reference.
+You can checkout the <RNTemplateRepoLink href="template/metro.config.js">`metro.config.js` file</RNTemplateRepoLink> from the Community template file as reference.
 
 Then, you need to create a `.watchmanconfig` file in the root of your project. The file must contain an empty json object:
 
@@ -468,7 +473,7 @@ Then, you need to create a `.watchmanconfig` file in the root of your project. T
 echo {} > .watchmanconfig
 ```
 
-Once you have the configurations file in place, you can run the bundler. Run the following command in the root directory of your project:
+Once you have the configuration file in place, you can run the bundler. Run the following command in the root directory of your project:
 
 <Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
 <TabItem value="npm">

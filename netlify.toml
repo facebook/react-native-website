@@ -4,12 +4,10 @@
   command = "yarn && cd cnwebsite && yarn build"
 
 [context.production.environment]
-  NODE_VERSION = "20"
-  NODE_OPTIONS = "--max_old_space_size=4096"
+  NODE_VERSION = "22"
 
 [context.deploy-preview.environment]
-  NODE_VERSION = "20"
-  NODE_OPTIONS = "--max_old_space_size=4096"
+  NODE_VERSION = "22"
   PREVIEW_DEPLOY = "true"
 
 [[plugins]]

@@ -1,6 +1,6 @@
 ---
 id: releases
-title: Releases
+title: Releases Overview
 ---
 
 import ReleasesTable from '@site/src/components/releases/ReleasesTable';
@@ -13,13 +13,13 @@ Below is the schedule and current status of recent and upcoming React Native rel
 
 The different support level presented in the table are defined as such:
 
-- Future
+- **Future**
   - After a new version branch gets cut, creating new Release Candidates to allow the community to test the upcoming version is very important. New RC releases are done at a high pace, as soon as viable.
-- Active
+- **Active**
   - Stable releases in active support receive frequent updates. Latest stable has the highest priority, and at the start of its stable cycle (right after .0 is released) multiple patches will be done as soon as possible to stabilize the version and ensure a good upgrade experience to the community.
-- End of Cycle
+- **End of Cycle**
   - A version in this support bracket will receive less patches, unless some important regressions need to be addressed. Once a next version becomes the new latest stable, before the version in EoC moves over into Unsupported one last patch released will be produced with the latest receive pick requests.
-- Unsupported
+- **Unsupported**
   - When a version is in the unsupported stage, no new released are to be expected. Only very important regressions might create exceptions to this rule; it is recommended that codebases using an unsupported version upgrade as soon as possible.
 
 ## Commitment to Stability
@@ -30,4 +30,4 @@ For those releases we’ll be publishing regular updates and bug fixes.
 
 You can read more about our support policy on [the react-native-releases working group](https://github.com/reactwg/react-native-releases/blob/main/docs/support.md).
 
-More information on our versioning, and what we consider a breaking change is available in our [versioning policy](/contributing/versioning-policy) page.
+More information on our versioning, and what we consider a breaking change is available in our [versioning policy](./releases/versioning-policy) page.

@@ -464,7 +464,7 @@ Specifies the largest possible scale a font can reach when `allowFontScaling` is
 
 ---
 
-### `minimumFontScale` <div className="label ios">iOS</div>
+### `minimumFontScale`
 
 Specifies the smallest possible scale a font can reach when `adjustsFontSizeToFit` is enabled. (values 0.01-1.0).
 
@@ -635,6 +635,14 @@ When the scroll view is disabled, this defines how far your touch may move off o
 | Type                 |
 | -------------------- |
 | [Rect](rect), number |
+
+---
+
+### `ref`
+
+A ref setter that will be assigned an [element node](element-nodes) when mounted.
+
+Note that `Text` components don't provide text nodes, the same way that paragraph elements (`<p>`) on Web are element nodes instead of text nodes. Text nodes can be found as their child nodes instead.
 
 ---
 

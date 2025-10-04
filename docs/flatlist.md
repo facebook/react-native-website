@@ -638,11 +638,11 @@ Set this true while waiting for new data from a refresh.
 
 ### `removeClippedSubviews`
 
-This may improve scroll performance for large lists. On Android the default value is `true`.
-
 :::warning
-May have bugs (missing content) in some circumstances - use at your own risk.
+Using this property may lead to bugs (missing content) in some circumstances - use at your own risk.
 :::
+
+When `true`, offscreen child views are removed from their native backing superview when offscreen. This may improve scroll performance for large lists. On Android the default value is `true`.
 
 | Type    |
 | ------- |

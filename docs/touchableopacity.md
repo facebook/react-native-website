@@ -143,3 +143,9 @@ TV next focus up (see documentation for the View component).
 | Type   |
 | ------ |
 | number |
+
+---
+
+### `ref`
+
+A ref setter that will be assigned an [element node](element-nodes) when mounted.

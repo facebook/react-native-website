@@ -462,7 +462,7 @@ Specifies the largest possible scale a font can reach when `allowFontScaling` is
 
 ---
 
-### `minimumFontScale` <div className="label ios">iOS</div>
+### `minimumFontScale`
 
 Specifies the smallest possible scale a font can reach when `adjustsFontSizeToFit` is enabled. (values 0.01-1.0).
 

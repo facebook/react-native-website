@@ -71,11 +71,7 @@ Inherits [Image Props](image.md#props).
 
 ### `imageRef`
 
-Allows to set a reference to the inner `Image` component
-
-| Type                                                          |
-| ------------------------------------------------------------- |
-| [Ref](https://react.dev/learn/manipulating-the-dom-with-refs) |
+A ref setter that will be assigned the [element node](element-nodes) of the inner `Image` component when mounted.
 
 ---
 

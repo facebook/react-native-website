@@ -189,6 +189,12 @@ This requires you to implement the `onRequestClose` prop to handle the dismissal
 
 ---
 
+### `ref`
+
+A ref setter that will be assigned an [element node](element-nodes) when mounted.
+
+---
+
 ### `onRequestClose`
 
 The `onRequestClose` callback is called when the user taps the hardware back button on Android or the menu button on Apple TV. Because of this required prop, be aware that `BackHandler` events will not be emitted as long as the modal is open.
