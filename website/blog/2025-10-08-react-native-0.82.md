@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 # **React Native 0.82 - New Architecture Only**
 
-Today we're exited to release React Native 0.82: the first React Native release that removes the legacy architecture and runs entirely on the New Architecture.
+Today we're excited to release React Native 0.82: the first React Native release that removes the legacy architecture and runs entirely on the New Architecture.
 
 This is a milestone release for React Native and we believe it's the start of a new era. In future versions we will be removing the remaining code from the legacy architecture to reduce install size and streamline the codebase.
 
@@ -31,15 +31,15 @@ In addition, 0.82 also ships with experimental opt-in to a newer version of Herm
 
 In React Native 0.76 we announced that [The New Architecture](/blog/2024/10/23/the-new-architecture-is-here) became the default architecture of React Native.
 
-Since then, the New Architecture has been tested and refined and we're confident in making it the **only** architecture for this and future version of React Native.
+Since then, the New Architecture has been tested and refined and we're confident in making it the **only** architecture for this and future versions of React Native.
 
 This means that if you try to set `newArchEnabled=false` on Android, or if you try to install CocoaPods with `RCT_NEW_ARCH_ENABLED=0` on iOS, these will be ignored and your app will still run using the New Architecture.
 
 ### How to migrate
 
 If you haven’t migrated your project to the New Architecture, we recommendation first migrating your project to React Native 0.81 or Expo SDK 54. These are the last versions that allow you to opt-in to the Legacy Architecture. They contain warning and performance improvements specifically to help migrating to the New Architecture.
-<be/> Then enable the New Architecture in 0.81 and verify that your application is working fine.
-<br/> Once you're using the New Architecture in 0.81, you can update safely to React Native 0.82 which removes the legacy achitecture.
+<br/> Then enable the New Architecture in 0.81 and verify that your application is working fine.
+<br/> Once you're using the New Architecture in 0.81, you can update safely to React Native 0.82 which removes the legacy architecture.
 
 If an incompatible 3rd party dependency prevents you from migrating to the New Architecture, we recommend you reach out to the library maintainers directly.
 
