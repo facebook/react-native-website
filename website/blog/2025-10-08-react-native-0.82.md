@@ -11,7 +11,8 @@ import TabItem from '@theme/TabItem';
 # **React Native 0.82 - New Architecture Only**
 
 Today we're exited to release React Native 0.82: the first React Native release that removes the legacy architecture and runs entirely on the New Architecture.
-<br/> This is a milestone release for React Native and we believe it's the start of a new era. In future versions we will be removing the remaining code from the legacy architecture to reduce install size and streamline the codebase.
+
+This is a milestone release for React Native and we believe it's the start of a new era. In future versions we will be removing the remaining code from the legacy architecture to reduce install size and streamline the codebase.
 
 In addition, 0.82 also ships with experimental opt-in to a newer version of Hermes called Hermes V1. We’re also enabling several React features by updating the React version to 19.1.1, and shipping support for DOM Node APIs.
 
