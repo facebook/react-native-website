@@ -39,8 +39,7 @@ The `ReactNativeStartupTiming` interface provides the following fields:
 
 | Name                                     | Type           | Description                                               |
 | ---------------------------------------- | -------------- | --------------------------------------------------------- |
-| `startTime`                              | number \| void | When the application startup was started.                 |
-| `initializeRuntimeStart`                 | number \| void | When the React Native runtime initialization was started. |
+| `startTime`                              | number \| void | When the React Native runtime initialization was started. |
 | `executeJavaScriptBundleEntryPointStart` | number \| void | When the execution of the application bundle was started. |
 | `endTime`                                | number \| void | When the React Native runtime was fully initialized.      |
 
