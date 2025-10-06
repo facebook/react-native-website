@@ -29,9 +29,11 @@ In addition, 0.82 also ships with experimental opt-in to a newer version of Herm
 
 ## New Architecture Only
 
-In React Native 0.76 we announced that [The New Architecture](/blog/2024/10/23/the-new-architecture-is-here) became the default architecture. Since then, the New Architecture has been tested and refined and we're confident in making it the only architecture.
+In React Native 0.76 we announced that [The New Architecture](/blog/2024/10/23/the-new-architecture-is-here) became the default architecture of React Native.
 
-Starting today, new versions of React Native will **only** run with the New Architecture. This means, if you try to set `newArchEnabled=false` on Android, or if you try to install CocoaPods with `RCT_NEW_ARCH_ENABLED=0` on iOS, these will be ignored and your app will still run with the New Architecture enabled.
+Since then, the New Architecture has been tested and refined and we're confident in making it the **only** architecture for this and future version of React Native.
+
+This means that if you try to set `newArchEnabled=false` on Android, or if you try to install CocoaPods with `RCT_NEW_ARCH_ENABLED=0` on iOS, these will be ignored and your app will still run using the New Architecture.
 
 ### How to migrate
 
