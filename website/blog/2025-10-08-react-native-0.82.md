@@ -1,5 +1,5 @@
 ---
-title: 'React Native 0.82 - New Architecture Only,  React 19.1.1, Hermes V1, DOM Node APIs, and more'
+title: 'React Native 0.82 - New Architecture Only'
 authors: [vzaidman, cortinico, gabrieldonadel, alanjhughes]
 tags: [engineering]
 date: 2025-10-08
@@ -8,11 +8,12 @@ date: 2025-10-08
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# **React Native 0.82 - New Architecture Only, Experimental Hermes V1, React 19.1.1, DOM Node APIs, and more!**
+# **React Native 0.82 - New Architecture Only**
 
-Today we are excited to release React Native 0.82!
+Today we're exited to release React Native 0.82: the first React Native release that removes the legacy architecture and runs entirely on the New Architecture.
+<br/> This is a milestone release for React Native and we believe it's the start of a new era. In future versions we will be removing the remaining code from the legacy architecture to reduce install size and streamline the codebase.
 
-This release is a crucial milestone for React Native: after multiple years of rollout of the New Architecture, we’re finally sunsetting the Legacy Architecture. The New Architecture is now the **only** architecture of React Native. This release also ships with a newer version of our JavaScript engine: Hermes V1, which is available via an experimental opt-in. We’re also updating the React version to 19.1.1 and shipping support for DOM Node APIs.
+This release also ships with a newer version of our JavaScript engine: Hermes V1, which is available via an experimental opt-in. We’re also updating the React version to 19.1.1 and shipping support for DOM Node APIs.
 
 ### Highlights
 
@@ -27,21 +28,19 @@ This release is a crucial milestone for React Native: after multiple years of ro
 
 ## New Architecture Only
 
-Starting with this version, [the New Architecture](https://reactnative.dev/blog/2024/10/23/the-new-architecture-is-here) will be the **only** architecture for React Native, there will no longer be an option to opt-out of the New Architecture.
+In React Native 0.76 we announced that [The New Architecture was here](/blog/2024/10/23/the-new-architecture-is-here) and enabled by default. Since then, the New Architecture has been tested and refined and we're confident in making it the only architecture.
 
-The New Architecture has been tested and refined over a long period of time, and [has been the default architecture since version 0.76](https://reactnative.dev/blog/2024/10/23/the-new-architecture-is-here). We're now confident in making it the only architecture.
+Starting today, new versions of React Native will **only** run with the New Architecture. This means, if you try to set `newArchEnabled=false` on Android, or if you try to install CocoaPods with `RCT_NEW_ARCH_ENABLED=0` on iOS, these will be ignored and your app will still run with the New Architecture enabled.
 
-In 0.82, if you try to set `newArchEnabled=false` on Android, or if you try to install CocoaPods with `RCT_NEW_ARCH_ENABLED=0` on iOS, these will be ignored and your app will still run with the New Architecture enabled.
+To learn more about the New Architecture, see [The New Architecture was here](/blog/2024/10/23/the-new-architecture-is-here).
 
 ### How to migrate
 
-If you haven’t migrated your project to the New Architecture, our recommendations are the following:
+If you haven’t migrated your project to the New Architecture, we recommendation first migrating your project to React Native 0.81 or Expo SDK 54. These are the last versions that allow you to opt-in to the Legacy Architecture. They contain warning and performance improvements specifically to help migrating to the New Architecture.
 
-First, migrate your project to React Native 0.81 or Expo SDK 54. Those are the last versions that support the opt-out and contain various performance improvements specifically for users migrating to the New Architecture.
+Once you're using the New Architecture in 0.81, you can update safely to React Native 0.82 which removes the legacy achitecture.
 
-Then enable the New Architecture in 0.81 and verify that your application is working fine.
-
-You can then update safely to React Native 0.82 and future versions.
+#### Issues migrating
 
 If an incompatible 3rd party dependency prevents you from migrating to the New Architecture, we recommend you reach out to the library maintainers directly.
 
@@ -56,7 +55,6 @@ We’ve also verified that the 3P libraries that offer backward compatibility wi
 ### Removal of Legacy Architecture classes
 
 To ensure backward compatibility and reduce breaking changes, we are not removing any APIs of the Legacy Architecture from the core of React Native in this version.
-
 Removing the Legacy Architecture will allow us to save significant size on the overall bundle size, therefore the removal is scheduled to start from the next version of React Native.
 
 You can find more information in [RFC0929: Removal of the Legacy Architecture of React Native](https://github.com/react-native-community/discussions-and-proposals/pull/929).
