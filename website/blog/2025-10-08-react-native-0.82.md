@@ -37,10 +37,8 @@ To learn more about the New Architecture, see [The New Architecture was here](/b
 ### How to migrate
 
 If you haven’t migrated your project to the New Architecture, we recommendation first migrating your project to React Native 0.81 or Expo SDK 54. These are the last versions that allow you to opt-in to the Legacy Architecture. They contain warning and performance improvements specifically to help migrating to the New Architecture.
-
-Once you're using the New Architecture in 0.81, you can update safely to React Native 0.82 which removes the legacy achitecture.
-
-#### Issues migrating
+<be/> Then enable the New Architecture in 0.81 and verify that your application is working fine.
+<br/> Once you're using the New Architecture in 0.81, you can update safely to React Native 0.82 which removes the legacy achitecture.
 
 If an incompatible 3rd party dependency prevents you from migrating to the New Architecture, we recommend you reach out to the library maintainers directly.
 
@@ -54,8 +52,7 @@ We’ve also verified that the 3P libraries that offer backward compatibility wi
 
 ### Removal of Legacy Architecture classes
 
-To ensure backward compatibility and reduce breaking changes, we are not removing any APIs of the Legacy Architecture from the core of React Native in this version.
-Removing the Legacy Architecture will allow us to save significant size on the overall bundle size, therefore the removal is scheduled to start from the next version of React Native.
+To ensure backward compatibility and reduce breaking changes, we are not removing any APIs of the Legacy Architecture from the core of React Native in this version. Removing the Legacy Architecture will allow us to save significant size on the overall bundle size, therefore the removal is scheduled to start from the next version of React Native.
 
 You can find more information in [RFC0929: Removal of the Legacy Architecture of React Native](https://github.com/react-native-community/discussions-and-proposals/pull/929).
 
