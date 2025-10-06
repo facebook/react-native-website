@@ -28,11 +28,9 @@ In addition to removing the legacy architecture opt-out, 0.82 also ships with ex
 
 ## New Architecture Only
 
-In React Native 0.76 we announced that [The New Architecture was here](/blog/2024/10/23/the-new-architecture-is-here) and enabled by default. Since then, the New Architecture has been tested and refined and we're confident in making it the only architecture.
+In React Native 0.76 we announced that [The New Architecture](/blog/2024/10/23/the-new-architecture-is-here) became the default architecture. Since then, the New Architecture has been tested and refined and we're confident in making it the only architecture.
 
 Starting today, new versions of React Native will **only** run with the New Architecture. This means, if you try to set `newArchEnabled=false` on Android, or if you try to install CocoaPods with `RCT_NEW_ARCH_ENABLED=0` on iOS, these will be ignored and your app will still run with the New Architecture enabled.
-
-To learn more about the New Architecture, see [The New Architecture was here](/blog/2024/10/23/the-new-architecture-is-here).
 
 ### How to migrate
 
