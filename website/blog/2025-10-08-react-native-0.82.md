@@ -310,6 +310,10 @@ Please use the [React Native Upgrade Helper](https://react-native-community.gith
 
 To create a new project:
 
+```bash
+npx @react-native-community/cli@latest init MyProject --version latest
+```
+
 If you use Expo, React Native 0.82 will be available as part of the expo@canary releases.
 
 The next SDK, SDK 55, will be shipped with the next stable release of React Native: 0.83.
