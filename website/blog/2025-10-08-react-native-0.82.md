@@ -206,7 +206,7 @@ React Native now implements a subset of the performance APIs available on Web:
 
 They allow tracking different aspects of performance in your app at runtime (for telemetry) and they will be visible in the performance panel in React Native DevTools (available in a future version of React Native).
 
-They are currently **available only in the [canary release level](https://reactnative.dev/docs/next/releases/release-levels)**, and will be released as stable in a future version of React Native.
+They are currently **available only in the [canary release level](https://reactnative.dev/docs/releases/release-levels)**, and will be released as stable in a future version of React Native.
 
 ### Create a `debugOptimized` build type for Android
 
