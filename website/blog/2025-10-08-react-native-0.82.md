@@ -47,9 +47,9 @@ If a bug in React Native core is blocking you from migrating, we recommend you r
 
 ### Interop Layers & 3P library compatibility
 
-We will keep the interop layers in the codebase for the foreseeable future. All the classes and functions that are required by the interop layers won’t be removed anytime soon. We will share further updates in the future regarding the removals of Interop Layers.
+We will keep the interop layers in the codebase for the foreseeable future. All the classes and functions that are required by the interop layers won’t be removed anytime soon. We will share further updates in the future regarding the removal of Interop Layers.
 
-We’ve also verified that the 3P libraries that offer backward compatibility with both legacy and New Architectures will keep on working with 0.82 where New Architecture is the only architecture.
+We’ve also verified that the 3P libraries that offer backward compatibility with both architectures will keep on working with 0.82 where New Architecture is the only architecture.
 
 ### Removal of Legacy Architecture classes
 
