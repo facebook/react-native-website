@@ -1,5 +1,5 @@
 ---
-title: 'React Native 0.82 - New Architecture Only'
+title: 'React Native 0.82 - A New Era'
 authors: [vzaidman, cortinico, gabrieldonadel, alanjhughes]
 tags: [engineering]
 date: 2025-10-08
@@ -8,13 +8,13 @@ date: 2025-10-08
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# **React Native 0.82 - New Architecture Only**
+# **React Native 0.82 - A New Era**
 
 Today we're excited to release React Native 0.82: the first React Native that runs entirely on the New Architecture.
 
 This is a milestone release for React Native and we believe it's the start of a new era. In future versions we will be removing the remaining code from the Legacy Architecture to reduce install size and streamline the codebase.
 
-In addition, 0.82 also ships with experimental opt-in to a newer version of Hermes called Hermes V1. We’re also enabling several React features by updating the React version to 19.1.1, and shipping support for DOM Node APIs.
+In addition, 0.82 also ships with an experimental opt-in to a newer version of Hermes called Hermes V1. We’re also enabling several React features by updating the React version to 19.1.1, and shipping support for DOM Node APIs.
 
 ### Highlights
 
@@ -304,7 +304,7 @@ We want to send a special thank you to those community members that shipped sign
 
 ## Upgrade to 0.82
 
-Please use the [React Native Upgrade Helper](https://react-native-community.github.io/upgrade-helper/) to view code changes between React Native versions for existing projects, in addition to the Upgrading docs.
+Please use the [React Native Upgrade Helper](https://react-native-community.github.io/upgrade-helper/) to view code changes between React Native versions for existing projects, in addition to the [upgrading to new versions docs](/docs/upgrading).
 
 To create a new project:
 
