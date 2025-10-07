@@ -136,10 +136,10 @@ RCT_HERMES_V1_ENABLED=1 bundle exec pod install
 
 Keep in mind that Hermes V1 is not compatible with the precompiled React Native builds, so make sure you don’t use the `RCT_USE_PREBUILT_RNCORE` flag when installing pods.
 
-4. To verify whether the app is running Hermes V1, you could run the following in your JavaScript code or DevTools console:
+4. To confirm if your app is running Hermes V1, execute the following code within your app or DevTools console. This code will return the Hermes version, which should match the version specified in step 1 (`250829098.0.1`):
 
 ```jsx
-HermesInternal.getRuntimeProperties()['Static Hermes'] === true;
+HermesInternal.getRuntimeProperties()['OSS Release Version'];
 ```
 
 ## React 19.1.1
