@@ -158,7 +158,7 @@ Starting from React Native 0.82, native components will provide DOM-like nodes v
 
 <!--alex ignore just retext-equality-->
 
-Before, native components provided React Native-specific objects with just a handful of methods like `measure` and `setNativeProps`. After this release, they will provide [nodes implementing a subset of the DOM API](https://reactnative.dev/docs/element-nodes) that allow traversing the UI tree, measuring layout, etc. as they do on Web, e.g.:
+Before, native components provided React Native-specific objects with just a handful of methods like `measure` and `setNativeProps`. After this release, they will provide [nodes implementing a subset of the DOM API](https://reactnative.dev/docs/element-nodes) to traverse the UI tree, measure layout, and more as on Web. For example:
 
 ```jsx
 function MyComponent(props) {
