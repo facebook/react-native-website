@@ -25,8 +25,6 @@ In addition, 0.82 also ships with experimental opt-in to a newer version of Herm
 
 <!--truncate-->
 
-# Highlights
-
 ## New Architecture Only
 
 In React Native 0.76 we announced that [The New Architecture](/blog/2024/10/23/the-new-architecture-is-here) became the default architecture of React Native.
