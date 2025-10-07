@@ -223,10 +223,10 @@ With `debugOptimized` your animations and re-rendering will be faster, because y
 
 When using `debugOptimized`, you won’t be able to use the C++ native debuggers, but you will still be able to use it if you use the debug build type.
 
-To run the `debugOptimized` variant for your app built with the Community CLI you can invoke:
+To run the `debugOptimized` variant for your app you can invoke:
 
 <Tabs>
-  <TabItem label="Raw React Native" value="Raw React Native" default>
+  <TabItem label="Community CLI" value="Community CLI" default>
     ```
     npx react-native run-android --mode debugOptimized
     ```
