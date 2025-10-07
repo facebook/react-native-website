@@ -10,9 +10,9 @@ import TabItem from '@theme/TabItem';
 
 # **React Native 0.82 - New Architecture Only**
 
-Today we're excited to release React Native 0.82: the first React Native release that removes the legacy architecture and runs entirely on the New Architecture.
+Today we're excited to release React Native 0.82: the first React Native that runs entirely on the New Architecture.
 
-This is a milestone release for React Native and we believe it's the start of a new era. In future versions we will be removing the remaining code from the legacy architecture to reduce install size and streamline the codebase.
+This is a milestone release for React Native and we believe it's the start of a new era. In future versions we will be removing the remaining code from the Legacy Architecture to reduce install size and streamline the codebase.
 
 In addition, 0.82 also ships with experimental opt-in to a newer version of Hermes called Hermes V1. We’re also enabling several React features by updating the React version to 19.1.1, and shipping support for DOM Node APIs.
 
@@ -37,19 +37,19 @@ This means that if you try to set `newArchEnabled=false` on Android, or if you t
 
 ### How to migrate
 
-If you haven’t migrated your project to the New Architecture, we recommendation first migrating your project to React Native 0.81 or Expo SDK 54. These are the last versions that allow you to opt-in to the Legacy Architecture. They contain warning and performance improvements specifically to help migrating to the New Architecture.
+If you haven’t migrated your project to the New Architecture, we recommend first migrating your project to React Native 0.81 or Expo SDK 54. These are the last versions that allow you to use the Legacy Architecture. They contain warnings and performance improvements specifically to help migrating to the New Architecture.
 <br/> Then enable the New Architecture in 0.81 and verify that your application is working fine.
-<br/> Once you're using the New Architecture in 0.81, you can update safely to React Native 0.82 which removes the legacy architecture.
+<br/> Once you're using the New Architecture in 0.81, you can update safely to React Native 0.82 which prevents enabling the Legacy Architecture.
 
-If an incompatible 3rd party dependency prevents you from migrating to the New Architecture, we recommend you reach out to the library maintainers directly.
+If an incompatible 3rd party dependency is blocking you from migrating to the New Architecture, we recommend you reach out to the library maintainers directly.
 
-If a bug in React Native core prevents you from migrating, we recommend you reach out to us [through our issue tracker](https://github.com/facebook/react-native/issues/new/choose).
+If a bug in React Native core is blocking you from migrating, we recommend you reach out to us [through our issue tracker](https://github.com/facebook/react-native/issues/new/choose).
 
 ### Interop Layers & 3P library compatibility
 
-We will keep the interop layers in the codebase for the foreseeable future. All the classes and functions that are required by the interop layers won’t be removed anytime soon. We will share further updates in the future regarding the removals of Interop Layers later on.
+We will keep the interop layers in the codebase for the foreseeable future. All the classes and functions that are required by the interop layers won’t be removed anytime soon. We will share further updates in the future regarding the removals of Interop Layers.
 
-We’ve also verified that the 3P libraries that offer backward compatibility with both old and New Architectures will keep on working with 0.82 where New Architecture is the only architecture.
+We’ve also verified that the 3P libraries that offer backward compatibility with both legacy and New Architectures will keep on working with 0.82 where New Architecture is the only architecture.
 
 ### Removal of Legacy Architecture classes
 
@@ -61,20 +61,20 @@ You can find more information in [RFC0929: Removal of the Legacy Architecture of
 
 React Native 0.82 adds support for opting into Hermes V1.
 
-Hermes V1 is the next evolution of Hermes. We've been experimenting with it internally in our apps, and it is now time for the community to try it as well. It comes with improvements in the compiler and in the VM that boosts Hermes performance.
+Hermes V1 is the next evolution of Hermes. We've been experimenting with it internally in our apps, and it is now time for the community to try it as well. It comes with improvements in the compiler and in the VM that boost Hermes performance.
 
-From initial tests and benchmarks, Hermes V1 outperforms Legacy Hermes in various scenarios. We have seen improvements in bundle loading and TTI. The improvements strongly depend on the details of your apps.
+From initial tests and benchmarks, Hermes V1 outperforms current Hermes in various scenarios. We have seen improvements in bundle loading and TTI. The improvements strongly depend on the details of your apps.
 
 On the [Expensify app](https://github.com/Expensify/App), a real world and complex application, we have seen the following improvements:
 | Metric | Android (low end device) | iOS |
 | --- | --- | --- |
-| Bundle Load Time | 3.16% faster | 9% faster |
-| Total TTI | 7.62% faster | 2.5% faster |
-| Content TTI | 7.19% faster | 7.5% faster |
+| Bundle Load Time | 3.2% faster | 9% faster |
+| Total TTI | 7.6% faster | 2.5% faster |
+| Content TTI | 7.2% faster | 7.5% faster |
 
 For Total TTI, we measured the time it takes from bundle loading to when the first screen in the app is rendered and it is interactive.
 
-For Content TTI, we measured the time it takes for a component to be interactive from the first rendering of the component itself.
+For Content TTI, we measured the time it takes for a component to be interactive, starting from the first rendering of the component itself.
 
 Hermes V1 does not yet contain JS-to-native compilation (previously known as “Static Hermes”) or the JIT compilation that was [presented during React Native EU 2023](https://www.youtube.com/watch?v=q-xKYA0EO-c). We are still testing these features, and will share more as we make progress.
 
@@ -82,7 +82,7 @@ Hermes V1 does not yet contain JS-to-native compilation (previously known as “
 
 :::info
 
-While Hermes V1 is in the experimental phase, in order to try it, you’ll need to build React Native from source. Once Hermes V1 ships as default in a future React Native version, this restriction will be lifted.
+While Hermes V1 is in the experimental phase, you’ll need to build React Native from source to try it out. Once Hermes V1 ships as default in a future React Native version, this restriction will be lifted.
 
 :::
 
@@ -128,11 +128,13 @@ To try Hermes V1 in your own project, use the following steps:
   </TabItem>
 </Tabs>
 
-3. Enable Hermes V1 for iOS by installing pods with `RCT_HERMES_V1_ENABLED=1` environment variable. Keep in mind that Hermes V1 is not compatible with the precompiled React Native builds, so make sure you don’t use the `RCT_USE_PREBUILT_RNCORE` flag when installing pods:
+3. Enable Hermes V1 for iOS by installing pods with `RCT_HERMES_V1_ENABLED=1` environment variable.
 
 ```sh
 RCT_HERMES_V1_ENABLED=1 bundle exec pod install
 ```
+
+Keep in mind that Hermes V1 is not compatible with the precompiled React Native builds, so make sure you don’t use the `RCT_USE_PREBUILT_RNCORE` flag when installing pods.
 
 4. To verify whether the app is running Hermes V1, you could run the following in your JavaScript code or DevTools console:
 
@@ -221,7 +223,7 @@ As most React Native developers won’t need to use the C++ debugger when develo
 
 With `debugOptimized` your animations and re-rendering will be faster, because you’re running a React Native build with several C++ optimizations enabled. At the same time you will still be able to use React Native Dev Tools to debug your JavaScript code.
 
-When using `debugOptimized`, you won’t be able to use the JVM or C++ native debuggers, but you will still be able to use them if you use the `debug` build type.
+When using `debugOptimized`, you won’t be able to use the C++ native debuggers, but you will still be able to use it if you use the debug build type.
 
 To run the `debugOptimized` variant for your app built with the Community CLI you can invoke:
 
@@ -310,7 +312,7 @@ To create a new project:
 
 If you use Expo, React Native 0.82 will be available as part of the expo@canary releases.
 
-The next stable SDK 55 will be shipped with the next stable release of React Native: 0.83.
+The next SDK, SDK 55, will be shipped with the next stable release of React Native: 0.83.
 
 :::info
 
