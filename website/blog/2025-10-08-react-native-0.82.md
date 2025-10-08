@@ -105,26 +105,23 @@ To try Hermes V1 in your own project, use the following steps:
   </TabItem>
 </Tabs>
 
-2. Enable Hermes V1 for Android by adding `hermesV1Enabled=true` inside the `android/gradle.properties` file, and configure React Native [to build from source](https://reactnative.dev/contributing/how-to-build-from-source#android) by editing `android/settings.gradle`:
+2. Enable Hermes V1 for Android by adding `hermesV1Enabled=true` inside the `android/gradle.properties`:
 
-<Tabs>
-  <TabItem value="android/gradle.properties" label="android/gradle.properties" default>
-    ```diff
-    + hermesV1Enabled=true
-    ```
-  </TabItem>
-  <TabItem label="android/settings.gradle" value="android/settings.gradle">
-    ```diff
-    + includeBuild('../node_modules/react-native') {
-    +    dependencySubstitution {
-    +        substitute(module("com.facebook.react:react-android")).using(project(":packages:react-native:ReactAndroid"))
-    +        substitute(module("com.facebook.react:react-native")).using(project(":packages:react-native:ReactAndroid"))
-    +        substitute(project(":packages:react-native:ReactAndroid:hermes-engine")).using(module("com.facebook.hermes:hermes-android:250829098.0.1"))
-    +    }
-    + }
-    ```
-  </TabItem>
-</Tabs>
+```sh title="android/gradle.properties"
+hermesV1Enabled=true
+```
+
+Also, configure React Native [to build from source](https://reactnative.dev/contributing/how-to-build-from-source#android) by editing `android/settings.gradle`:
+
+```jsx title="android/settings.gradle"
+  includeBuild('../node_modules/react-native') {
+      dependencySubstitution {
+          substitute(module("com.facebook.react:react-android")).using(project(":packages:react-native:ReactAndroid"))
+          substitute(module("com.facebook.react:react-native")).using(project(":packages:react-native:ReactAndroid"))
+          substitute(project(":packages:react-native:ReactAndroid:hermes-engine")).using(module("com.facebook.hermes:hermes-android:250829098.0.1"))
+      }
+  }
+```
 
 3. Enable Hermes V1 for iOS by installing pods with `RCT_HERMES_V1_ENABLED=1` environment variable.
 
@@ -137,6 +134,7 @@ Keep in mind that Hermes V1 is not compatible with the precompiled React Native 
 4. To confirm if your app is running Hermes V1, execute the following code within your app or DevTools console. This code will return the Hermes version, which should match the version specified in step 1 (`250829098.0.1`):
 
 ```jsx
+// expecting "250829098.0.1" in Hermes V1
 HermesInternal.getRuntimeProperties()['OSS Release Version'];
 ```
 
@@ -208,7 +206,7 @@ They allow tracking different aspects of performance in your app at runtime (for
 
 They are currently **available only in the [canary release level](https://reactnative.dev/docs/releases/release-levels)**, and will be released as stable in a future version of React Native.
 
-### Create a `debugOptimized` build type for Android
+### Optimized Debug Build Type for Android
 
 Starting with React Native 0.82, you will be able to use the `debugOptimized` build type to speed up your development experience.
 
