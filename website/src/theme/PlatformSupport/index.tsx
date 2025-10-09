@@ -16,11 +16,7 @@ import Windows from '@site/src/theme/Icon/Windows';
 import TV from '@site/src/theme/Icon/TV';
 import Web from '@site/src/theme/Icon/Web';
 
-export default function PlatformSupport({
-  platforms,
-}: {
-  platforms: Array<string>;
-}) {
+export default function PlatformSupport({platforms}) {
   return (
     <div className={styles.container}>
       <strong>Platform support</strong>

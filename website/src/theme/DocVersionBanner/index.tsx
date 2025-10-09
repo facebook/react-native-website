@@ -1,10 +1,9 @@
-import React, {ComponentType} from 'react';
+import React from 'react';
 import clsx from 'clsx';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Link from '@docusaurus/Link';
 import Translate from '@docusaurus/Translate';
 import {
-  GlobalVersion,
   useActivePlugin,
   useDocVersionSuggestions,
 } from '@docusaurus/plugin-content-docs/client';
@@ -13,21 +12,8 @@ import {
   useDocsVersion,
   useDocsPreferredVersion,
 } from '@docusaurus/plugin-content-docs/client';
-import type {Props} from '@theme/DocVersionBanner';
-import type {
-  VersionBanner,
-  PropVersionMetadata,
-} from '@docusaurus/plugin-content-docs';
 
-type BannerLabelComponentProps = {
-  siteTitle: string;
-  versionMetadata: PropVersionMetadata;
-};
-
-function UnreleasedVersionLabel({
-  siteTitle,
-  versionMetadata,
-}: BannerLabelComponentProps) {
+function UnreleasedVersionLabel({siteTitle, versionMetadata}) {
   return (
     <Translate
       id="theme.docs.versions.unreleasedVersionLabel"
@@ -43,10 +29,7 @@ function UnreleasedVersionLabel({
   );
 }
 
-function UnmaintainedVersionLabel({
-  siteTitle,
-  versionMetadata,
-}: BannerLabelComponentProps) {
+function UnmaintainedVersionLabel({siteTitle, versionMetadata}) {
   return (
     <Translate
       id="theme.docs.versions.unmaintainedVersionLabel"
@@ -56,34 +39,23 @@ function UnmaintainedVersionLabel({
         versionLabel: <b>{versionMetadata.label}</b>,
       }}>
       {
-        'This is documentation for {siteTitle} {versionLabel}, which is no longer actively maintained.'
+        'This is documentation for {siteTitle} {versionLabel}, which is no longer in active development.'
       }
     </Translate>
   );
 }
-
-const BannerLabelComponents: {
-  [banner in VersionBanner]: ComponentType<BannerLabelComponentProps>;
-} = {
+const BannerLabelComponents = {
   unreleased: UnreleasedVersionLabel,
   unmaintained: UnmaintainedVersionLabel,
 };
 
-function BannerLabel(props: BannerLabelComponentProps) {
+function BannerLabel(props) {
   const BannerLabelComponent =
-    BannerLabelComponents[props.versionMetadata.banner!];
+    BannerLabelComponents[props.versionMetadata.banner];
   return <BannerLabelComponent {...props} />;
 }
 
-function LatestVersionSuggestionLabel({
-  versionLabel,
-  to,
-  onClick,
-}: {
-  to: string;
-  onClick: () => void;
-  versionLabel: string;
-}) {
+function LatestVersionSuggestionLabel({versionLabel, to, onClick}) {
   return (
     <Translate
       id="theme.docs.versions.latestVersionSuggestionLabel"
@@ -109,22 +81,14 @@ function LatestVersionSuggestionLabel({
   );
 }
 
-function DocVersionBannerEnabled({
-  className,
-  versionMetadata,
-}: Props & {
-  versionMetadata: PropVersionMetadata;
-}) {
+function DocVersionBannerEnabled({className, versionMetadata}) {
   const {
     siteConfig: {title: siteTitle},
   } = useDocusaurusContext();
-  const {pluginId} = useActivePlugin({failfast: true})!;
-
-  const getVersionMainDoc = (version: GlobalVersion) =>
-    version.docs.find(doc => doc.id === version.mainDocId)!;
-
+  const {pluginId} = useActivePlugin({failfast: true});
+  const getVersionMainDoc = version =>
+    version.docs.find(doc => doc.id === version.mainDocId);
   const {savePreferredVersionName} = useDocsPreferredVersion(pluginId);
-
   const {latestDocSuggestion, latestVersionSuggestion} =
     useDocVersionSuggestions(pluginId);
 
@@ -141,9 +105,7 @@ function DocVersionBannerEnabled({
         'alert alert--warning margin-bottom--md'
       )}
       role="alert">
-      <div>
-        <BannerLabel siteTitle={siteTitle} versionMetadata={versionMetadata} />
-      </div>
+      <BannerLabel siteTitle={siteTitle} versionMetadata={versionMetadata} />
       <div className="margin-top--md">
         <LatestVersionSuggestionLabel
           versionLabel={latestVersionSuggestion.label}
@@ -155,7 +117,7 @@ function DocVersionBannerEnabled({
   );
 }
 
-export default function DocVersionBanner({className}: Props) {
+export default function DocVersionBanner({className}) {
   const versionMetadata = useDocsVersion();
   if (versionMetadata.banner) {
     return (

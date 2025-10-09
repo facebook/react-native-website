@@ -1,24 +1,24 @@
-import Link, {type Props as LinkProps} from '@docusaurus/Link';
-import type {Props} from '@theme/Blog/Components/Author';
+import React from 'react';
+import clsx from 'clsx';
+import Link from '@docusaurus/Link';
 import AuthorSocials from '@theme/Blog/Components/Author/Socials';
 import Heading from '@theme/Heading';
-import clsx from 'clsx';
 import styles from './styles.module.css';
 
-function MaybeLink(props: LinkProps) {
+function MaybeLink(props) {
   if (props.href) {
     return <Link {...props} />;
   }
   return <>{props.children}</>;
 }
-function AuthorTitle({title}: {title: string}) {
+function AuthorTitle({title}) {
   return (
     <small className={styles.authorTitle} title={title}>
       {title}
     </small>
   );
 }
-function AuthorName({name, as}: {name: string; as: Props['as']}) {
+function AuthorName({name, as}) {
   if (!as) {
     return <span className={styles.authorName}>{name}</span>;
   } else {
@@ -29,18 +29,17 @@ function AuthorName({name, as}: {name: string; as: Props['as']}) {
     );
   }
 }
-function AuthorBlogPostCount({count}: {count: number}) {
+function AuthorBlogPostCount({count}) {
   return <span className={clsx(styles.authorBlogPostCount)}>{count}</span>;
 }
 // Note: in the future we might want to have multiple "BlogAuthor" components
 // Creating different display modes with the "as" prop may not be the best idea
 // Explainer: https://kyleshevlin.com/prefer-multiple-compositions/
 // For now, we almost use the same design for all cases, so it's good enough
-export default function BlogAuthor({as, author, className, count}: Props) {
+export default function BlogAuthor({as, author, className, count}) {
   const {name, title, url, imageURL, email, page} = author;
   const link =
     page?.permalink || url || (email && `mailto:${email}`) || undefined;
-
   return (
     <div
       className={clsx(
@@ -66,14 +65,14 @@ export default function BlogAuthor({as, author, className, count}: Props) {
                 <AuthorName name={name} as={as} />
               </MaybeLink>
             )}
-            {count !== undefined && <AuthorBlogPostCount count={count} />}
+            {count && <AuthorBlogPostCount count={count} />}
           </div>
           {!!title && <AuthorTitle title={title} />}
 
           {/*
-            We always render AuthorSocials even if there's none
-            This keeps other things aligned with flexbox layout
-          */}
+              We always render AuthorSocials even if there's none
+              This keeps other things aligned with flexbox layout
+            */}
           <AuthorSocials author={author} />
         </div>
       )}
