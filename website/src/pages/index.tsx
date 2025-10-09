@@ -8,15 +8,14 @@
 import React from 'react';
 
 import Head from '@docusaurus/Head';
-
 import Layout from '@theme/Layout';
 
-import Home from './Home';
+import Home from '../components/Home';
 
 const Index = () => {
   return (
     <Layout
-      description="A framework for building native apps using React"
+      description="A framework for building native apps for Android, iOS, and more using React"
       wrapperClassName="homepage">
       <Head>
         <title>React Native · Learn once, write anywhere</title>

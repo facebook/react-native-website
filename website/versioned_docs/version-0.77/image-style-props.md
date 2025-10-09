@@ -312,7 +312,7 @@ Set an opacity value for the image. The number should be in the range from `0.0`
 
 ---
 
-### `overlayColor` <div class="label android">Android</div>
+### `overlayColor` <div className="label android">Android</div>
 
 When the image has rounded corners, specifying an overlayColor will cause the remaining space in the corners to be filled with a solid color. This is useful in cases which are not supported by the Android implementation of rounded corners:
 
@@ -334,7 +334,6 @@ For details of how this works under the hood, see [Fresco documentation](https:/
 Determines how to resize the image when the frame doesn't match the raw image dimensions. Defaults to `cover`.
 
 - `cover`: Scale the image uniformly (maintain the image's aspect ratio) so that:
-
   - Both dimensions (width and height) of the image will be equal to or larger than the corresponding dimension of the view (minus padding)
   - At least one dimension of the scaled image will be equal to the corresponding dimension of the view (minus padding)
 

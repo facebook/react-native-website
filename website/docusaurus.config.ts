@@ -12,14 +12,22 @@ import path from 'path';
 
 import users from './showcase.json';
 import versions from './versions.json';
+import prismTheme from './core/PrismTheme';
+
+import remarkSnackPlayer from '@react-native-website/remark-snackplayer';
+import remarkCodeblockLanguageTitle from '@react-native-website/remark-codeblock-language-as-title';
+
+// See https://docs.netlify.com/configure-builds/environment-variables/
+const isProductionDeployment =
+  !!process.env.NETLIFY && process.env.CONTEXT === 'production';
 
 const lastVersion = versions[0];
 const copyright = `Copyright © ${new Date().getFullYear()} Meta Platforms, Inc.`;
 
-export interface EditUrlButton {
+export type EditUrlButton = {
   label: string;
   href: string;
-}
+};
 
 const commonDocsOptions: PluginContentDocs.Options = {
   breadcrumbs: false,
@@ -53,16 +61,15 @@ const commonDocsOptions: PluginContentDocs.Options = {
     }
     return JSON.stringify(buttons);
   }) as PluginContentDocs.EditUrlFunction,
-  remarkPlugins: [
-    require('@react-native-website/remark-snackplayer'),
-    require('@react-native-website/remark-codeblock-language-as-title'),
-  ],
+  remarkPlugins: [remarkSnackPlayer, remarkCodeblockLanguageTitle],
 };
 
 const isDeployPreview = process.env.PREVIEW_DEPLOY === 'true';
 
 const config: Config = {
   future: {
+    // Turns Docusaurus v4 future flags on to make it easier to upgrade later
+    v4: true,
     // Make Docusaurus build faster - enabled by default
     // See https://github.com/facebook/docusaurus/issues/10556
     // See https://github.com/facebook/react-native-website/pull/4268
@@ -71,14 +78,15 @@ const config: Config = {
   },
 
   title: 'React Native',
-  tagline: 'A framework for building native apps using React',
-  organizationName: 'facebook',
+  tagline:
+    'A framework for building native apps for Android, iOS, and more using React',
+  organizationName: 'Meta Platforms, Inc.',
   projectName: 'react-native',
   url: 'https://reactnative.dev',
   baseUrl: '/',
   clientModules: [
-    require.resolve('./modules/snackPlayerInitializer.js'),
-    require.resolve('./modules/jumpToFragment.js'),
+    './modules/snackPlayerInitializer.js',
+    './modules/jumpToFragment.js',
   ],
   trailingSlash: false, // because trailing slashes can break some existing relative links
   scripts: [
@@ -93,7 +101,7 @@ const config: Config = {
     {src: 'https://snack.expo.dev/embed.js', defer: true},
     {src: 'https://platform.twitter.com/widgets.js', async: true},
   ],
-  favicon: 'img/favicon.ico',
+  favicon: 'favicon.ico',
   titleDelimiter: '·',
   customFields: {
     users,
@@ -104,6 +112,62 @@ const config: Config = {
     locales: ['en'],
   },
   onBrokenLinks: 'warn',
+  headTags: [
+    {
+      tagName: 'script',
+      attributes: {
+        type: 'application/ld+json',
+      },
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org/',
+        '@type': 'WebPage',
+        '@id': 'https://reactnative.dev/',
+        url: 'https://reactnative.dev/',
+        name: 'React Native · Learn once, write anywhere',
+        description:
+          'A framework for building native apps for Android, iOS, and more using React',
+        logo: 'https://reactnative.dev/img/pwa/manifest-icon-192.png',
+        inLanguage: 'en-US',
+      }),
+    },
+    {
+      tagName: 'script',
+      attributes: {
+        type: 'application/ld+json',
+      },
+      innerHTML: JSON.stringify({
+        '@type': 'WebSite',
+        '@id': 'https://reactnative.dev/',
+        url: 'https://reactnative.dev/',
+        name: 'React Native · Learn once, write anywhere',
+        description:
+          'A framework for building native apps for Android, iOS, and more using React',
+        publisher: 'Meta Platforms, Inc.',
+        potentialAction: [
+          {
+            '@type': 'SearchAction',
+            target: {
+              '@type': 'EntryPoint',
+              urlTemplate: 'https://reactnative.dev/search?q={query}',
+            },
+            'query-input': {
+              '@type': 'PropertyValueSpecification',
+              valueRequired: true,
+              valueName: 'query',
+            },
+          },
+        ],
+        inLanguage: 'en-US',
+      }),
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'apple-touch-icon',
+        href: '/img/pwa/apple-icon-180.png',
+      },
+    },
+  ],
   presets: [
     [
       '@docusaurus/preset-classic',
@@ -142,10 +206,6 @@ const config: Config = {
             require.resolve('./src/css/versions.scss'),
           ],
         },
-        // TODO: GA is deprecated, remove once we're sure data is streaming in GA4 via gtag.
-        googleAnalytics: {
-          trackingID: 'UA-41298772-2',
-        },
         gtag: {
           trackingID: 'G-58L13S6BDP',
         },
@@ -154,6 +214,21 @@ const config: Config = {
   ],
   plugins: [
     'docusaurus-plugin-sass',
+    function disableExpensiveBundlerOptimizationPlugin() {
+      return {
+        name: 'disable-expensive-bundler-optimizations',
+        configureWebpack(_config, isServer) {
+          // This optimization is expensive and only reduces by 3% the JS assets size
+          // Let's skip it for local and deploy preview builds
+          // See also https://github.com/facebook/docusaurus/discussions/11199
+          return {
+            optimization: {
+              concatenateModules: isProductionDeployment ? !isServer : false,
+            },
+          };
+        },
+      };
+    },
     [
       'content-docs',
       {
@@ -247,16 +322,16 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     announcementBar: {
-      id: 'new-architecture',
+      id: 'react-conf',
       content:
-        'The New Architecture has arrived - <a target="_blank" rel="noopener noreferrer" href="/blog/2024/10/23/the-new-architecture-is-here">learn more</a>',
+        'Join us for React Conf on Oct 7-8. <a target="_blank" rel="noopener noreferrer" href="https://conf.react.dev">Learn more</a>.',
       backgroundColor: '#20232a',
       textColor: '#fff',
       isCloseable: false,
     },
     prism: {
       defaultLanguage: 'tsx',
-      theme: require('./core/PrismTheme'),
+      theme: prismTheme,
       additionalLanguages: [
         'diff',
         'bash',
@@ -431,6 +506,10 @@ const config: Config = {
               href: 'https://x.com/reactnative',
             },
             {
+              label: 'Bluesky',
+              href: 'https://bsky.app/profile/reactnative.dev',
+            },
+            {
               label: 'GitHub',
               href: 'https://github.com/facebook/react-native',
             },
@@ -478,8 +557,9 @@ const config: Config = {
         content: 'https://reactnative.dev/img/logo-share.png',
       },
       {name: 'twitter:site', content: '@reactnative'},
+      {name: 'apple-mobile-web-app-capable', content: 'yes'},
     ],
   } satisfies Preset.ThemeConfig,
 };
 
-module.exports = config;
+export default config;

@@ -1,5 +1,9 @@
 # Redirects from what the browser requests to what we serve
 
+# RSS feed
+/blog/feed                      /blog/rss.xml
+/blog/feed.xml                  /blog/rss.xml
+
 # Renamed pages
 /docs/android-setup             /docs/getting-started
 /docs/building-for-apple-tv     /docs/building-for-tv
@@ -12,8 +16,10 @@
 /docs/testing                   /contributing/how-to-run-and-write-tests
 /docs/understanding-cli         https://github.com/react-native-community/cli#react-native-cli
 
-/contributing/how-to-contribute         /contributing/overview
-/releases/release-candidate-minor         /releases/release-branch-cut-and-rc0
+/contributing/how-to-contribute     /contributing/overview
+/contributing/how-to-file-an-issue  /contributing/how-to-report-a-bug
+/contributing/versioning-policy     /docs/next/releases/versioning-policy
+/releases/release-candidate-minor   /docs/next/releases/versioning-policy
 
 # Redirect New Architecture docs of all versions
 # Note: We had to delete the older versions to get redirects to work

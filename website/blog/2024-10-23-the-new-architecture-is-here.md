@@ -53,7 +53,7 @@ Finally, removing the bridge allows for faster startup and direct communication 
 
 The New Architecture is now ready to be used in production. It is already used at scale at Meta in the Facebook app and in other products. We successfully used React Native and the New Architecture in the Facebook and Instagram app we developed for our [Quest devices](https://engineering.fb.com/2024/10/02/android/react-at-meta-connect-2024/).
 
-Our partners have already been using the New Architecture in production for months now: have a look at these success stories by [Expensify](https://blog.swmansion.com/sunrising-new-architecture-in-the-new-expensify-app-729d237a02f5) and [Kraken](https://blog.kraken.com/product/engineering/how-kraken-fixed-performance-issues-via-incremental-adoption-of-the-react-native-new-architecture), and give [BlueSky](https://github.com/bluesky-social/social-app/releases/tag/1.92.0-na-rc.2) a shot with their new release.
+Our partners have already been using the New Architecture in production for months now: have a look at these success stories by [Expensify](https://blog.swmansion.com/sunrising-new-architecture-in-the-new-expensify-app-729d237a02f5) and [Kraken](https://blog.kraken.com/product/engineering/how-kraken-fixed-performance-issues-via-incremental-adoption-of-the-react-native-new-architecture), and give [Bluesky](https://github.com/bluesky-social/social-app/releases/tag/1.92.0-na-rc.2) a shot with their new release.
 
 ### New Native Modules
 
@@ -230,17 +230,17 @@ Separating urgent events from transitions allows for a more responsive user inte
 Here's a comparison of the old architecture without transitions and the new architecture with transitions. Imagine that each tile isn't a trivial view with a background color, but a rich component containing images and other components that are expensive to render. **After** using `useTransition` you avoid thrashing your app with updates and falling behind.
 
 <div className="TwoColumns TwoFigures">
-<figure>
- <img src="/img/new-architecture/without-transitions.gif" alt="A video demonstrating an app rendering many views (tiles) according to a slider input. The views are rendered in batches as the slider is quickly adjusted from 0 to 1000." />
- <figcaption><b>Before:</b> rendering tiles without marking it as a transition.</figcaption>
-</figure>
-<figure>
- <img src="/img/new-architecture/with-transitions.gif" alt="A video demonstrating an app rendering many views (tiles) according to a slider input. The views are rendered in batches as the slider is quickly adjusted from 0 to 1000. There are less batch renders in comparison to the next video." />
- <figcaption><b>After:</b> rendering tiles <em>with transitions</em> to interrupt in-progress renders of stale state.</figcaption>
-</figure>
+  <figure>
+    <img src="/img/new-architecture/without-transitions.gif" alt="A video demonstrating an app rendering many views (tiles) according to a slider input. The views are rendered in batches as the slider is quickly adjusted from 0 to 1000." />
+    <figcaption><b>Before:</b> rendering tiles without marking it as a transition.</figcaption>
+  </figure>
+  <figure>
+    <img src="/img/new-architecture/with-transitions.gif" alt="A video demonstrating an app rendering many views (tiles) according to a slider input. The views are rendered in batches as the slider is quickly adjusted from 0 to 1000. There are less batch renders in comparison to the next video." />
+    <figcaption><b>After:</b> rendering tiles <em>with transitions</em> to interrupt in-progress renders of stale state.</figcaption>
+  </figure>
 </div>
 
-For more information, see [Support for Concurrent Renderer and Features](/docs/0.75/the-new-architecture/landing-page#support-for-concurrent-renderer-and-features).
+For more information, see [Support for Concurrent Renderer and Features](/architecture/landing-page#support-for-concurrent-renderer-and-features).
 
 ### Automatic Batching
 
@@ -249,19 +249,19 @@ When upgrading to the New Architecture, you will benefit from automatic batching
 Automatic batching allows React to batch together more state updates when rendering to avoid the rendering of intermediate states. This allows React Native to be faster and less susceptible to lags, without any additional code from the developer.
 
 <div className="TwoColumns TwoFigures">
-<figure>
- <img src="/img/new-architecture/legacy-renderer.gif" alt="A video demonstrating an app rendering many views according to a slider input. The slider value is adjusted from 0 to 1000 and the UI slowly catches up to rendering 1000 views." />
- <figcaption><b>Before:</b> rendering frequent state updates with legacy renderer.</figcaption>
-</figure>
-<figure>
- <img src="/img/new-architecture/react18-renderer.gif" alt="A video demonstrating an app rendering many views according to a slider input. The slider value is adjusted from 0 to 1000 and the UI resolves to 1000 views faster than the previous example, without as many intermediate states." />
- <figcaption><b>After:</b> rendering frequent state updates with <em>automatic batching</em>.</figcaption>
-</figure>
+  <figure>
+    <img src="/img/new-architecture/legacy-renderer.gif" alt="A video demonstrating an app rendering many views according to a slider input. The slider value is adjusted from 0 to 1000 and the UI slowly catches up to rendering 1000 views." />
+    <figcaption><b>Before:</b> rendering frequent state updates with legacy renderer.</figcaption>
+  </figure>
+  <figure>
+    <img src="/img/new-architecture/react18-renderer.gif" alt="A video demonstrating an app rendering many views according to a slider input. The slider value is adjusted from 0 to 1000 and the UI resolves to 1000 views faster than the previous example, without as many intermediate states." />
+    <figcaption><b>After:</b> rendering frequent state updates with <em>automatic batching</em>.</figcaption>
+  </figure>
 </div>
 
 In the old architecture, more intermediate states are rendered, and the UI keeps updating even when the slider stops moving. The New Architecture, renders fewer intermediate states and completes the rendering much sooner thanks to automatically batching the updates.
 
-For more information, see [Support for Concurrent Renderer and Features](/docs/0.75/the-new-architecture/landing-page#support-for-concurrent-renderer-and-features).
+For more information, see [Support for Concurrent Renderer and Features](/architecture/landing-page#support-for-concurrent-renderer-and-features).
 
 ### useLayoutEffect
 
@@ -303,14 +303,14 @@ useLayoutEffect(() => {
 This change allows you to read layout information synchronously and update the UI in the same frame, allowing you to position elements correctly before they are displayed to the user:
 
 <div className="TwoColumns TwoFigures">
-<figure>
- <img src="/img/new-architecture/async-on-layout.gif" alt="A view that is moving to the corners of the viewport and center with a tooltip rendered either above or below it. The tooltip is rendered after a short delay after the view moves" />
- <figcaption>In the old architecture, layout was read asynchronously in `onLayout`, causing the position of the tooltip to be delayed.</figcaption>
-</figure>
-<figure>
- <img src="/img/new-architecture/sync-use-layout-effect.gif" alt="A view that is moving to the corners of the viewport and center with a tooltip rendered either above or below it. The view and tooltip move in unison." />
- <figcaption>In the New Architecture, layout can be read in `useLayoutEffect` synchronously, updating the tooltip position before displaying.</figcaption>
-</figure>
+  <figure>
+    <img src="/img/new-architecture/async-on-layout.gif" alt="A view that is moving to the corners of the viewport and center with a tooltip rendered either above or below it. The tooltip is rendered after a short delay after the view moves" />
+    <figcaption>In the old architecture, layout was read asynchronously in `onLayout`, causing the position of the tooltip to be delayed.</figcaption>
+  </figure>
+  <figure>
+    <img src="/img/new-architecture/sync-use-layout-effect.gif" alt="A view that is moving to the corners of the viewport and center with a tooltip rendered either above or below it. The view and tooltip move in unison." />
+    <figcaption>In the New Architecture, layout can be read in `useLayoutEffect` synchronously, updating the tooltip position before displaying.</figcaption>
+  </figure>
 </div>
 
 For more information, see the docs for [Synchronous Layout and Effects](/docs/0.75/the-new-architecture/landing-page#synchronous-layout-and-effects).
@@ -379,7 +379,7 @@ If, for any reason, the New Architecture is not behaving properly in your applic
 
 To opt-out from the New Architecture:
 
-- On Android, modify the `android/gradle.properties` file and turn off the `newArchEnabled` flag
+- On Android, modify the `android/gradle.properties` file and turn off the `newArchEnabled` flag:
 
 ```diff title=”gradle.properties”
 -newArchEnabled=true
@@ -402,5 +402,5 @@ We are also extremely grateful to all the partners who collaborated with us to m
 - [Software Mansion](https://swmansion.com/), for maintaining crucial libraries in the ecosystem, for migrating them to the New Architecture early and for all the help in investigating and fixing various issues.
 - [Callstack](https://www.callstack.com/), for maintaining crucial libraries in the ecosystem, for migrating them to the New Architecture early and for the support with the work on the Community CLI.
 - [Microsoft](https://opensource.microsoft.com/), for adding the New Architecture implementation for `react-native-windows` and `react-native-macos` as well as in several other developer tools.
-- [Expensify](https://www.expensify.com/), [Kraken](https://www.kraken.com/), [BlueSky](https://bsky.app/) and [Brigad](https://www.brigad.co/) for pioneering the adoption of the New Architecture and reporting various issues so that we could fix them for everyone else.
+- [Expensify](https://www.expensify.com/), [Kraken](https://www.kraken.com/), [Bluesky](https://bsky.app/) and [Brigad](https://www.brigad.co/) for pioneering the adoption of the New Architecture and reporting various issues so that we could fix them for everyone else.
 - All the independent library maintainers and developers who contributed to the New Architecture by testing it, fixing some of the issues, and opening questions on unclear matters so that we could clear them.

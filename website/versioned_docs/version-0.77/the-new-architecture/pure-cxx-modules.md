@@ -15,7 +15,7 @@ In this guide, we will go through the creation of a pure C++ Turbo Native Module
 The rest of this guide assume that you have created your application running the command:
 
 ```shell
-npx @react-native-community/cli@latest init SampleApp --version 0.76.0
+npx @react-native-community/cli@latest init SampleApp --version 0.77.0
 ```
 
 ## 1. Create the JS specs
@@ -297,7 +297,7 @@ bundle exec pod install
 
 This step adds the `shared` folder to the project to make it visible to Xcode.
 
-1. Open the CocoPods generated Xcode Workspace.
+1. Open the CocoaPods generated Xcode Workspace.
 
 ```bash
 cd ios
