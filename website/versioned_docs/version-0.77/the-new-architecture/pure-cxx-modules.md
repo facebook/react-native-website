@@ -15,7 +15,7 @@ In this guide, we will go through the creation of a pure C++ Turbo Native Module
 The rest of this guide assume that you have created your application running the command:
 
 ```shell
-npx @react-native-community/cli@latest init SampleApp --version 0.76.0
+npx @react-native-community/cli@latest init SampleApp --version 0.77.0
 ```
 
 ## 1. Create the JS specs
@@ -297,7 +297,7 @@ bundle exec pod install
 
 This step adds the `shared` folder to the project to make it visible to Xcode.
 
-1. Open the CocoPods generated Xcode Workspace.
+1. Open the CocoaPods generated Xcode Workspace.
 
 ```bash
 cd ios
@@ -317,6 +317,14 @@ If you did everything right, your project on the left should look like this:
 ![Xcode Project](/docs/assets/CxxTMGuideXcodeProject.png)
 
 #### 3. Registering the Cxx Turbo Native Module in your app
+
+:::warning
+If your app has some local modules that are written in C++, you would not be able to use the AppDelegate in Swift that we shipped in React Native 0.77.
+
+If your app falls in this category, please skip the migration of the AppDelegate to Swift, and keep using Objective-C++ for your app's AppDelegate.
+
+React Native core is mostly developed using C++ to encourage code sharing between iOS and Android and other platforms. The interoperability between Swift and C++ is not mature nor stable, yet. We are looking into ways to fill this gap and let you migrate to Swift too.
+:::
 
 With this last step, we will tell the iOS app where to look for to find the pure C++ Turbo Native Module.
 

@@ -79,67 +79,91 @@ export default App;
 
 ---
 
+### `borderBlockColor`
+
+| Type               |
+| ------------------ |
+| [color](colors.md) |
+
+---
+
+### `borderBlockEndColor`
+
+| Type               |
+| ------------------ |
+| [color](colors.md) |
+
+---
+
+### `borderBlockStartColor`
+
+| Type               |
+| ------------------ |
+| [color](colors.md) |
+
+---
+
 ### `borderBottomEndRadius`
 
-| Type   |
-| ------ |
-| number |
+| Type                              |
+| --------------------------------- |
+| number, string (percentage value) |
 
 ---
 
 ### `borderBottomLeftRadius`
 
-| Type   |
-| ------ |
-| number |
+| Type                              |
+| --------------------------------- |
+| number, string (percentage value) |
 
 ---
 
 ### `borderBottomRightRadius`
 
-| Type   |
-| ------ |
-| number |
+| Type                              |
+| --------------------------------- |
+| number, string (percentage value) |
 
 ---
 
 ### `borderBottomStartRadius`
 
-| Type   |
-| ------ |
-| number |
+| Type                              |
+| --------------------------------- |
+| number, string (percentage value) |
 
 ---
 
 ### `borderStartEndRadius`
 
-| Type   |
-| ------ |
-| number |
+| Type                              |
+| --------------------------------- |
+| number, string (percentage value) |
 
 ---
 
 ### `borderStartStartRadius`
 
-| Type   |
-| ------ |
-| number |
+| Type                              |
+| --------------------------------- |
+| number, string (percentage value) |
 
 ---
 
 ### `borderEndEndRadius`
 
-| Type   |
-| ------ |
-| number |
+| Type                              |
+| --------------------------------- |
+| number, string (percentage value) |
 
 ---
 
 ### `borderEndStartRadius`
 
-| Type   |
-| ------ |
-| number |
+| Type                              |
+| --------------------------------- |
+| number, string (percentage value) |
 
 ---
 
@@ -159,7 +183,7 @@ export default App;
 
 ---
 
-### `borderCurve` <div class="label ios">iOS</div>
+### `borderCurve` <div className="label ios">iOS</div>
 
 On iOS 13+, it is possible to change the corner curve of borders.
 
@@ -197,9 +221,9 @@ On iOS 13+, it is possible to change the corner curve of borders.
 
 If the rounded border is not visible, try applying `overflow: 'hidden'` as well.
 
-| Type   |
-| ------ |
-| number |
+| Type                              |
+| --------------------------------- |
+| number, string (percentage value) |
 
 ---
 
@@ -245,33 +269,33 @@ If the rounded border is not visible, try applying `overflow: 'hidden'` as well.
 
 ### `borderTopEndRadius`
 
-| Type   |
-| ------ |
-| number |
+| Type                              |
+| --------------------------------- |
+| number, string (percentage value) |
 
 ---
 
 ### `borderTopLeftRadius`
 
-| Type   |
-| ------ |
-| number |
+| Type                              |
+| --------------------------------- |
+| number, string (percentage value) |
 
 ---
 
 ### `borderTopRightRadius`
 
-| Type   |
-| ------ |
-| number |
+| Type                              |
+| --------------------------------- |
+| number, string (percentage value) |
 
 ---
 
 ### `borderTopStartRadius`
 
-| Type   |
-| ------ |
-| number |
+| Type                              |
+| --------------------------------- |
+| number, string (percentage value) |
 
 ---
 
@@ -304,7 +328,7 @@ These shadows can be composed together so that a single `boxShadow` can be compr
 | --------------------------- |
 | array of BoxShadowValue ojects \| string |
 
-### `cursor` <div class="label ios">iOS</div>
+### `cursor` <div className="label ios">iOS</div>
 
 On iOS 17+, Setting to `pointer` allows hover effects when a pointer (such as a trackpad or stylus on iOS, or the users' gaze on visionOS) is over the view.
 
@@ -314,7 +338,7 @@ On iOS 17+, Setting to `pointer` allows hover effects when a pointer (such as a 
 
 ---
 
-### `elevation` <div class="label android">Android</div>
+### `elevation` <div className="label android">Android</div>
 
 Sets the elevation of a view, using Android's underlying [elevation API](https://developer.android.com/training/material/shadows-clipping.html#Elevation). This adds a drop shadow to the item and affects z-order for overlapping views. Only supported on Android 5.0+, has no effect on earlier versions.
 
@@ -341,7 +365,7 @@ The following filter functions work across all platforms:
 Due to issues with performance and spec compliance, these are the only two filter functions available on iOS. There are plans to explore some potential workarounds using SwiftUI instead of UIKit for this implementation.
 :::
 
-<div class="label basic android">Android</div>
+<div className="label basic android">Android</div>
 
 The following filter functions work on Android only:
 
@@ -370,6 +394,64 @@ The following filter functions work on Android only:
 | Type   |
 | ------ |
 | number |
+
+---
+
+### `outlineColor`
+
+:::note
+`outlineColor` is only available on the [New Architecture](/architecture/landing-page)
+:::
+
+Sets the color of an element's outline. See [web documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/outline-color) for more details.
+
+| Type               |
+| ------------------ |
+| [color](colors.md) |
+
+---
+
+### `outlineOffset`
+
+:::note
+`outlineOffset` is only available on the [New Architecture](/architecture/landing-page)
+:::
+
+Sets the amount of space between an outline and the bounds of an element. Does not affect layout. See [web documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/outline-offset) for more details.
+
+| Type   |
+| ------ |
+| number |
+
+---
+
+### `outlineStyle`
+
+:::note
+`outlineStyle` is only available on the [New Architecture](/architecture/landing-page)
+:::
+
+Sets the style of an element's outline. See [web documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/outline-style) for more details.
+
+| Type                                    |
+| --------------------------------------- |
+| enum(`'solid'`, `'dotted'`, `'dashed'`) |
+
+---
+
+### `outlineWidth`
+
+:::note
+`outlineWidth` is only available on the [New Architecture](/architecture/landing-page)
+:::
+
+The width of an outline which is drawn around an element, outside the border. Does not affect layout. See [web documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/outline-width) for more details.
+
+| Type   |
+| ------ |
+| number |
+
+---
 
 ### `pointerEvents`
 

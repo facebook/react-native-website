@@ -13,18 +13,20 @@ import type users from '../../showcase.json';
 import IconExternalLink from '../theme/Icon/ExternalLink';
 import ThemedImage from '@theme/ThemedImage';
 
-const renderApp = (app, i) => <AppBox app={app} key={`app-${app.name}-${i}`} />;
+type UserAppType = (typeof users)[keyof typeof users][number];
+
+const renderApp = (app: UserAppType, i: number) => (
+  <AppBox app={app} key={`app-${app.name}-${i}`} />
+);
 
 function Section({
   children,
   background = 'light',
-}: React.PropsWithChildren<{
-  background?: 'light' | 'dark';
-}>) {
+}: React.PropsWithChildren<{background?: 'light' | 'dark'}>) {
   return <section className={`Section ${background}`}>{children}</section>;
 }
 
-const AppBox = ({app}) => {
+const AppBox = ({app}: {app: UserAppType}) => {
   const imgSource = useBaseUrl(
     app.icon.startsWith('http') ? app.icon : 'img/showcase/' + app.icon
   );
@@ -40,7 +42,7 @@ const AppBox = ({app}) => {
           <h3>{app.name}</h3>
           {renderLinks(app)}
         </div>
-        {app.infoLink && (
+        {'infoTitle' in app && app.infoLink && (
           <a
             className="articleButton"
             href={app.infoLink}
@@ -55,7 +57,7 @@ const AppBox = ({app}) => {
   );
 };
 
-const renderLinks = app => {
+const renderLinks = (app: UserAppType) => {
   const links = [
     app.linkAppStore ? (
       <a key="ios" href={app.linkAppStore} target="_blank">
@@ -67,12 +69,12 @@ const renderLinks = app => {
         Android
       </a>
     ) : null,
-    app.linkDesktop ? (
+    'linkDesktop' in app && app.linkDesktop ? (
       <a key="desktop" href={app.linkDesktop} target="_blank">
         Desktop
       </a>
     ) : null,
-    app.linkMetaQuest ? (
+    'linkMetaQuest' in app && app.linkMetaQuest ? (
       <a key="quest" href={app.linkMetaQuest} target="_blank">
         Meta&nbsp;Quest
       </a>
@@ -128,8 +130,8 @@ const Showcase = () => {
               alt="Meta logo"
               width={140}
               sources={{
-                light: useBaseUrl('/img/meta_positive_primary.svg'),
-                dark: useBaseUrl('/img/meta_negative_primary.svg'),
+                light: useBaseUrl('/img/showcase/meta_positive_primary.svg'),
+                dark: useBaseUrl('/img/showcase/meta_negative_primary.svg'),
               }}
             />
           </h2>
@@ -146,8 +148,8 @@ const Showcase = () => {
               alt="Microsoft logo"
               width={180}
               sources={{
-                light: useBaseUrl('/img/microsoft-logo-gray.png'),
-                dark: useBaseUrl('/img/microsoft-logo-white.png'),
+                light: useBaseUrl('/img/showcase/microsoft-logo-gray.png'),
+                dark: useBaseUrl('/img/showcase/microsoft-logo-white.png'),
               }}
             />
           </h2>
@@ -172,8 +174,8 @@ const Showcase = () => {
               alt="Amazon logo"
               width={140}
               sources={{
-                light: useBaseUrl('/img/amazon_logo_lightbg.png'),
-                dark: useBaseUrl('/img/amazon_logo_darkbg.png'),
+                light: useBaseUrl('/img/showcase/amazon_logo_lightbg.png'),
+                dark: useBaseUrl('/img/showcase/amazon_logo_darkbg.png'),
               }}
             />
           </h2>
@@ -191,16 +193,14 @@ const Showcase = () => {
               alt="Shopify logo"
               width={160}
               sources={{
-                light: useBaseUrl('/img/shopify_logo_whitebg.svg'),
-                dark: useBaseUrl('/img/shopify_logo_darkbg.svg'),
+                light: useBaseUrl('/img/showcase/shopify_logo_whitebg.svg'),
+                dark: useBaseUrl('/img/showcase/shopify_logo_darkbg.svg'),
               }}
             />
           </h2>
           <p className="showcaseSectionDescription">
-            All new mobile apps at Shopify are React Native and we are actively
-            migrating our flagship merchant admin app Shopify Mobile to React
-            Native as well. You can read more about React Native development at
-            Shopify on our{' '}
+            All mobile apps at Shopify are built using React Native. You can
+            read more about React Native development at Shopify on our{' '}
             <a href="https://shopify.engineering/topics/mobile" target="_blank">
               blog
             </a>
@@ -244,13 +244,13 @@ const Showcase = () => {
             Apply to the Showcase by filling out this form
           </a>
           <p>
-            A curated list of{' '}
+            For a curated list of open source React Native apps, check out{' '}
             <a
               key="demo-apps"
               href="https://github.com/ReactNativeNews/React-Native-Apps">
-              open source React Native apps
+              this list
             </a>{' '}
-            is maintained by <a href="https://infinite.red">Infinite Red</a>.
+            maintained by <a href="https://infinite.red">Infinite Red</a>.
           </p>
         </div>
       </Section>

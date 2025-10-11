@@ -1,8 +1,8 @@
-# [reactnative.dev](https://reactnative.dev/) &middot; [![CC BY 4.0 license](https://img.shields.io/badge/license-CC%20BY%204.0-blue.svg)](LICENSE-docs) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md) <a href="https://twitter.com/intent/follow?screen_name=reactnative"><img src="https://img.shields.io/twitter/follow/reactnative.svg?label=Follow%20@reactnative" alt="Follow @reactnative" /></a>
+# [reactnative.dev](https://reactnative.dev/) &middot; [![CC BY 4.0 license](https://img.shields.io/badge/license-CC%20BY%204.0-blue.svg)](LICENSE-docs) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md) <a href="https://twitter.com/intent/follow?screen_name=reactnative"><img src="https://img.shields.io/twitter/follow/reactnative.svg?label=Follow%20@reactnative" alt="Follow @reactnative on X" /></a> <a href="https://bsky.app/profile/reactnative.dev"><img src="https://img.shields.io/badge/Bluesky-0285FF?logo=bluesky&logoColor=fff" alt="Follow @reactnative.dev on Bluesky" /></a>
 
 This repo contains the website configuration and documentation powering the [React Native website](https://reactnative.dev/).
 
-If you are looking for the source code of the [React Native Archive website](https://archive.reactnative.dev/) select the [`archive`](https://github.com/facebook/react-native-website/tree/archive) branch.
+> If you are looking for the source code of the [React Native Archive website](https://archive.reactnative.dev/) select the [`archive`](https://github.com/facebook/react-native-website/tree/archive) branch.
 
 ## Contents
 
@@ -17,15 +17,19 @@ If you are looking for the source code of the [React Native Archive website](htt
 ### Prerequisites
 
 1. [Git](https://git-scm.com/downloads).
-1. [Node](https://nodejs.org/en/download/) _(version 12 or greater)_.
-1. [Yarn](https://yarnpkg.com/lang/en/docs/install/) _(version 1.5 or greater)_.
-1. A fork of the repo _(for any contributions)_.
-1. A clone of the `react-native-website` repo.
+1. [Node](https://nodejs.org/en/download/) _(version 22 or greater)_.
+1. [Yarn](https://yarnpkg.com/getting-started/install) _(version 4)_.
+1. A fork and clone of the `react-native-website` repo _(for any contributions)_.
 
 ### Installation
 
 1. `cd react-native-website` to go into the project root.
+1. Run `corepack enable` to enable Corepack.
+
+   > If the command above fails, run `npm install -g corepack@latest` to install the latest version of [Corepack](https://yarnpkg.com/corepack#installation).
+
 1. Run `yarn` to install the website's workspace dependencies.
+   > If you want to retain the globally installed `yarn` classic, you can use `corepack yarn` instead.
 
 ### Running locally
 
@@ -106,7 +110,8 @@ If you're adding a new doc or you need to alter the order the docs appear in the
 
 Part of the React Native website is versioned to allow users to go back and see the Guides or API reference documentation for any given release. A new version of the website is generally generated whenever there is a new React Native release. When this happens, any changes made to the `docs` and `website/sidebars.ts` files will be copied over to the corresponding location within `website/versioned_docs` and `website/versioned_sidebars`.
 
-> **_Note:_** Do not edit the auto-generated files within `versioned_docs` or `versioned_sidebars` unless you are sure it is necessary. Edits made to older versions will not be propagated to newer versions of the versioned docs.
+> [!NOTE]
+> Do not edit the auto-generated files within `versioned_docs` or `versioned_sidebars` unless you are sure it is necessary. Edits made to older versions will not be propagated to newer versions of the versioned docs.
 
 Docusaurus keeps track of the list of versions for the site in the `website/versions.json` file. The ordering of versions in this file should be in reverse chronological order.
 
@@ -122,7 +127,8 @@ This can be done by updating the `package.json` and configuration files in `scri
 
 1. `cd react-native-website` to go into the project root.
 1. `cd website` to go into the website portion of the project.
-1. Run `yarn version:cut <newVersion>` where `<newVersion>` is the new version being released.
+1. Run `yarn version:cut <newVersion>` where `<newVersion>` is the new version being released (e.g. `0.81`).
+1. Open a PR and commit this change as "Cut branch <newVersion>"
 
 ## 🔧 Website configuration
 
@@ -143,7 +149,7 @@ The `showcase.json` file contains the list of users that are highlighted in the 
 1. `git checkout main` from any folder in your local `react-native-website` repository.
 1. `git pull origin main` to ensure you have the latest main code.
 1. `git checkout -b the-name-of-my-branch` to create a branch.
-    > replace `the-name-of-my-branch` with a suitable name, such as `update-animations-page`
+   > replace `the-name-of-my-branch` with a suitable name, such as `update-animations-page`
 
 ### Make the change
 
@@ -154,7 +160,11 @@ The `showcase.json` file contains the list of users that are highlighted in the 
 
 Visit **<http://localhost:3000/docs/next/YOUR-DOCS-PAGE>** to see your work.
 
-> Visit <http://localhost:3000/versions> to see the list of all versions of the docs.
+> [!NOTE]
+> Visit <http://localhost:3000/versions> to see the list of all versions of the docs, if you have backported some of the changes.
+
+> [!TIP]
+> If you're adding assets, make sure they’re optimized for the web. You can use tools like [ImageOptim](https://imageoptim.com/mac) to automatically apply lossless compression to various file types.
 
 ### Test the change
 
@@ -166,8 +176,9 @@ If possible, test any visual changes in all latest versions of the following bro
 ### Push it
 
 1. Run `yarn prettier` and `yarn language:lint` in `./website` directory to ensure your changes are consistent with other files in the repo.
+1. Run `yarn update-lock` to [deduplicate dependencies](https://yarnpkg.com/cli/dedupe).
 1. `git add -A && git commit -m "My message"` to stage and commit your changes.
-    > replace `My message` with a commit message, such as `Fixed header logo on Android`
+   > replace `My message` with a commit message, such as `Fixed header logo on Android`
 1. `git push my-fork-name the-name-of-my-branch`
 1. Go to the [react-native-website repo](https://github.com/facebook/react-native-website) and you should see recently pushed branches.
 1. Follow GitHub's instructions.

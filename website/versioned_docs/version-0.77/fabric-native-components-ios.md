@@ -31,26 +31,26 @@ You should be careful about committing generated code to your repository. Genera
 
 We need to prepare your iOS project using Xcode by completing these **5 steps**:
 
-1. Open the CocoPods generated Xcode Workspace:
+1. Open the CocoaPods generated Xcode Workspace:
 
 ```bash
 cd ios
 open Demo.xcworkspace
 ```
 
-<img class="half-size" alt="Open Xcode Workspace" src="/docs/assets/fabric-native-components/1.webp" />
+<img className="half-size" alt="Open Xcode Workspace" src="/docs/assets/fabric-native-components/1.webp" />
 
 2. Right click on app and select <code>New Group</code>, call the new group `WebView`.
 
-<img class="half-size" alt="Right click on app and select New Group" src="/docs/assets/fabric-native-components/2.webp" />
+<img className="half-size" alt="Right click on app and select New Group" src="/docs/assets/fabric-native-components/2.webp" />
 
 3. In the `WebView` group, create <code>New</code>→<code>File from Template</code>.
 
-<img class="half-size" alt="Create a new file using the Cocoa Touch Classs template" src="/docs/assets/fabric-native-components/3.webp" />
+<img className="half-size" alt="Create a new file using the Cocoa Touch Class template" src="/docs/assets/fabric-native-components/3.webp" />
 
 4. Use the <code>Objective-C File</code> template, and name it <code>RCTWebView</code>.
 
-<img class="half-size" alt="Create an Objective-C RCTWebView class" src="/docs/assets/fabric-native-components/4.webp" />
+<img className="half-size" alt="Create an Objective-C RCTWebView class" src="/docs/assets/fabric-native-components/4.webp" />
 
 5. Repeat step 4 and create a header file named `RCTWebView.h`.
 
@@ -213,19 +213,10 @@ To link the WebKit framework in your app, follow these steps:
 3. Select the General tab
 4. Scroll down until you find the _"Frameworks, Libraries, and Embedded Contents"_ section, and press the `+` button
 
-<img class="half-size" alt="Add webkit framework to your app 1" src="/docs/assets/AddWebKitFramework1.png" />
+<img className="half-size" alt="Add webkit framework to your app 1" src="/docs/assets/AddWebKitFramework1.png" />
 
 5. In the search bar, filter for WebKit
 6. Select the WebKit framework
 7. Click on Add.
 
-<img class="half-size" alt="Add webkit framework to your app 2" src="/docs/assets/AddWebKitFramework2.png" />
-
-:::warning
-We are aware of a couple of issues with iOS that would create some problem when building the app with a custom iOS component.
-
-1. The component requires access to the `yoga/style/Style.h` header which is not currently available for the application. To fix this, add the `$(PODS_ROOT)/Headers/Private/Yoga` path to the header search paths build settings of the app.
-2. Codegen is generating a line in the `RCTThirdPartyFabricComponentsProvider` that it should not generate. Remove the lines with the `WebViewCls` symbol in the `RCTThirdPartyFabricComponentsProvider.h` and `RCTThirdPartyFabricComponentsProvider.mm` files.
-
-We have already fixed those issues and they will be released in React Native 0.76.2.
-:::
+<img className="half-size" alt="Add webkit framework to your app 2" src="/docs/assets/AddWebKitFramework2.png" />

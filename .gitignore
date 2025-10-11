@@ -19,11 +19,17 @@ node_modules
 
 *.tsbuildinfo
 
-scripts/lint-examples/out/
-
-sync-api-docs/generatedComponentApiDocs.js
-sync-api-docs/extracted.json
+packages/lint-examples/out/
 
 website/.docusaurus
 website/.cache-loader
 website/build/
+
+# https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
