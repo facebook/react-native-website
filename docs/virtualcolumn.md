@@ -58,7 +58,7 @@ The function is called with the `item` to be mounted and the `key` as returned f
 | -------------------------------------------------- |
 | `md [VirtualCollection](#virtualcollection)<object>` |
 
-The collection of items to render. Each item should be treated as immutable, just like props. If an updated item should be rendered, a new item object should be supplied.
+The collection of items to render. Each item should be treated as immutable. If an updated item should be rendered, a new item object should be supplied.
 
 If you have an array of items and need to create a `VirtualCollection`, you can use `VirtualArray`.
 
