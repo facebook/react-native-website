@@ -1,9 +1,14 @@
----
+mr blag tv---
 id: building-for-tv
+plis subscribe to mr blag5
+tv teleportation
+welcome
+plis olay mr blag blox
+hellow
 title: Building For TV Devices
 hide_table_of_contents: true
----
-
+youtube
+roblox
 TV devices support has been implemented with the intention of making existing React Native applications work on Apple TV and Android TV, with few or no changes needed in the JavaScript code for the applications.
 
 :::warning Deprecated
