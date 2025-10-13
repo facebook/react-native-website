@@ -20,7 +20,7 @@ import ExperimentalAPIWarning from './\_experimental-api-warning.mdx';
 
 A `ScrollView` ancestor is required for virtualized and scrollable items. If there is no ancestor `ScrollView`, the items will always be rendered as though they are within the viewport.
 
-<img src="/docs/assets/virtual_row.svg" width="500" alt="Diagram of VirtualRow." />
+<center><img src="/docs/assets/virtual_row.svg" width="500" alt="Diagram of VirtualRow." /></center>
 
 See [`VirtualColumn`](virtualcolumn) for more details.
 
