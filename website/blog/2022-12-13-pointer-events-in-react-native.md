@@ -108,7 +108,7 @@ Our Pointer Events implementation is still experimental but we’re interested i
 
 :::danger
 
-Overriding the native feature flags below (such as RCTConstants and ReactFeatureFlags) is technically reaching into React Native's internals so doing so may break your setup soon as we are working to phase them out in order for us to roll Pointer Events out more broadly.
+Overriding the native feature flags below (such as `RCTConstants` and `ReactFeatureFlags`) is technically reaching into React Native's internals so doing so may break your setup soon as we are working to phase them out in order for us to roll Pointer Events out more broadly.
 
 :::
 
