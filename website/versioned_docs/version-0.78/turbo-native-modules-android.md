@@ -53,6 +53,12 @@ public class NativeLocalStorageModule extends NativeLocalStorageSpec {
     SharedPreferences sharedPref = getReactApplicationContext().getSharedPreferences("my_prefs", Context.MODE_PRIVATE);
     sharedPref.edit().remove(key).apply();
   }
+
+  @Override
+  public void clear() {
+    SharedPreferences sharedPref = getReactApplicationContext().getSharedPreferences("my_prefs", Context.MODE_PRIVATE);
+    sharedPref.edit().clear().apply();
+  }
 }
 ```
 
