@@ -22,7 +22,7 @@ As a reminder, all contributors are expected to adhere to the [Code of Conduct](
 
 ## Versioning Policy
 
-In order to fully understand the versioning of React Native, we recommend you to check out the [Versioning Policy](/contributing/versioning-policy) page.
+In order to fully understand the versioning of React Native, we recommend you to check out the [Versioning Policy](/docs/releases/versioning-policy) page.
 In that page we describe which versions of React Native are supported, how often they're released and which one you should use based on your circumstances.
 
 ## Ways to Contribute
