@@ -46,7 +46,7 @@ A new `react-native` directory will be created with the contents of the core Rea
 We recommend creating a new branch in your fork to keep track of your changes:
 
 ```bash
-git checkout --branch my_feature_branch --track origin/main
+git checkout -b my_feature_branch --track origin/main
 ```
 
 ## Chapter II: Implementing your Changes

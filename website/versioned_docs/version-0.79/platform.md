@@ -13,7 +13,7 @@ import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 const App = () => {
   return (
     <SafeAreaProvider>
-      <SafeAreaView>
+      <SafeAreaView style={styles.safeArea}>
         <ScrollView contentContainerStyle={styles.container}>
           <Text>OS</Text>
           <Text style={styles.value}>{Platform.OS}</Text>
@@ -47,6 +47,9 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     padding: 4,
     marginBottom: 8,
+  },
+  safeArea: {
+    flex: 1,
   },
 });
 

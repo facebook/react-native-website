@@ -27,7 +27,7 @@ Here are a list of props that can help to improve `FlatList` performance:
 | ------- | ------------------------------------ |
 | Boolean | `true` on Android, otherwise `false` |
 
-If `true`, views that are outside of the viewport are detached from the native view hierarchy.
+If `true`, views that are outside of the viewport are automatically detached from the native view hierarchy.
 
 **Pros:** This reduces time spent on the main thread, and thus reduces the risk of dropped frames, by excluding views outside of the viewport from the native rendering and drawing traversals.
 

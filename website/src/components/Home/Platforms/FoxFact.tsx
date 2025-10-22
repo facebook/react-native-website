@@ -7,7 +7,7 @@
 
 import React from 'react';
 
-function FoxFact({className}) {
+function FoxFact({className}: {className: string}) {
   return (
     <svg
       width={167}

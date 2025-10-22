@@ -74,8 +74,8 @@ Breakpoints are a fundamental tool in your debugging toolkit!
 
 #### Useful tips
 
-- A "Paused in Debugger" overlay will appear when your app is paused. Tap it to resume.
-- Pay attention to the right hand side panels when on a breakpoint, which allow you to inspect the current scope and call stack, and set watch expressions.
+- A "Paused in Debugger" overlay appears when your app is paused. Tap it to resume.
+- Pay attention to the right-hand panels when on a breakpoint, which allow you to inspect the current scope and call stack, and set watch expressions.
 - Use a `debugger;` statement to quickly set a breakpoint from your text editor. This will reach the device immediately via Fast Refresh.
 - There are multiple kinds of breakpoints! For example, [Conditional Breakpoints and Logpoints](https://developer.chrome.com/docs/devtools/javascript/breakpoints#overview).
 
@@ -102,7 +102,7 @@ In the integrated Components and Profiler panels, you'll find all the features o
 
 The React Components panel allows you to inspect and update the rendered React component tree.
 
-- Hover or select an element in DevTools to highlight it on device.
+- Hover or select an element in DevTools to highlight it on the device.
 - To locate an element in DevTools, click the top-left "Select element" button, then tap any element in the app.
 
 #### Useful tips
@@ -136,7 +136,7 @@ Occasionally, DevTools might disconnect from the target device. This can happen 
 
 - The app is closed.
 - The app is rebuilt (a new native build is installed).
-- The app has crashed on the native side.
+- The app crashes on the native side.
 - The dev server (Metro) is quit.
 - A physical device is disconnected.
 
