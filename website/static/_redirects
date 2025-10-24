@@ -8,7 +8,7 @@
 /docs/android-setup             /docs/getting-started
 /docs/building-for-apple-tv     /docs/building-for-tv
 /docs/building-from-source      /contributing/how-to-build-from-source
-/docs/contributing              /contributing/overview
+# /docs/contributing              /contributing/overview
 /docs/sourcemaps                /docs/debugging-release-builds
 /docs/symbolication             /docs/debugging-release-builds
 /docs/publishing-forks          /contributing/how-to-build-from-source#publish-your-own-version-of-react-native
@@ -106,17 +106,17 @@ https://reactnative.dev/docs/0.74/ram-bundles-inline-requires            /docs/o
 /docs/0.66/architecture-glossary             /architecture/glossary
 
 # Point to new release documentation
-/contributing/release-branch-cut-and-rc0     https://github.com/reactwg/react-native-releases#release-documentation
-/contributing/release-candidate-patch        https://github.com/reactwg/react-native-releases#release-documentation
-/contributing/release-dependencies           https://github.com/reactwg/react-native-releases#release-documentation
-/contributing/release-faq                    https://github.com/reactwg/react-native-releases#release-documentation
-/contributing/release-roles-responsibilites  https://github.com/reactwg/react-native-releases#release-documentation
-/contributing/release-stable-minor           https://github.com/reactwg/react-native-releases#release-documentation
-/contributing/release-stable-patch           https://github.com/reactwg/react-native-releases#release-documentation
-/contributing/release-testing                https://github.com/reactwg/react-native-releases#release-documentation
-/contributing/release-troubleshooting        https://github.com/reactwg/react-native-releases#release-documentation
-/contributing/release-updating-packages      https://github.com/reactwg/react-native-releases#release-documentation
-/contributing/updating-upgrade-helper        https://github.com/reactwg/react-native-releases#release-documentation
+# /contributing/release-branch-cut-and-rc0     https://github.com/reactwg/react-native-releases#release-documentation
+# /contributing/release-candidate-patch        https://github.com/reactwg/react-native-releases#release-documentation
+# /contributing/release-dependencies           https://github.com/reactwg/react-native-releases#release-documentation
+# /contributing/release-faq                    https://github.com/reactwg/react-native-releases#release-documentation
+# /contributing/release-roles-responsibilites  https://github.com/reactwg/react-native-releases#release-documentation
+# /contributing/release-stable-minor           https://github.com/reactwg/react-native-releases#release-documentation
+# /contributing/release-stable-patch           https://github.com/reactwg/react-native-releases#release-documentation
+# /contributing/release-testing                https://github.com/reactwg/react-native-releases#release-documentation
+# /contributing/release-troubleshooting        https://github.com/reactwg/react-native-releases#release-documentation
+# /contributing/release-updating-packages      https://github.com/reactwg/react-native-releases#release-documentation
+# /contributing/updating-upgrade-helper        https://github.com/reactwg/react-native-releases#release-documentation
 
 # Rework of the community
 /help         /community/overview
