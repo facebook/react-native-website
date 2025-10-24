@@ -53,7 +53,8 @@ const config: Config = {
   ],
   favicon: cdnUrl + 'img/favicon.ico',
   titleDelimiter: '·',
-  onBrokenLinks: 'warn',
+  onBrokenLinks: 'log',
+  onBrokenAnchors: 'log',
   presets: [
     [
       '@docusaurus/preset-classic',

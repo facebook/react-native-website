@@ -5,7 +5,7 @@ title: 和原生端通信
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
-通过[植入原生应用](integration-with-existing-apps)和[原生 UI 组件](native-components-android)两篇文档，我们学习了 React Native 和原生组件的互相整合。在整合的过程中，我们会需要在两个世界间互相通信。有些方法已经在其他的指南中提到了，这篇文章总结了所有可行的技术。
+通过[植入原生应用](integration-with-existing-apps)和[原生 UI 组件](legacy/native-components-android)两篇文档，我们学习了 React Native 和原生组件的互相整合。在整合的过程中，我们会需要在两个世界间互相通信。有些方法已经在其他的指南中提到了，这篇文章总结了所有可行的技术。
 
 ## 简介
 
@@ -118,7 +118,7 @@ var imageList = arrayListOf("http://foo.com/bar3.png", "http://foo.com/bar4.png"
 
 ### 从React Native传递属性到原生组件
 
-在[native-components-android#3-expose-view-property-setters-using-reactprop-or-reactpropgroup-annotation](native-components-android#3-expose-view-property-setters-using-reactprop-or-reactpropgroup-annotation)这篇文章中详细介绍了暴露原生组件属性的问题。简而言之，要将需要在JavaScript中反映的属性公开为带有`@ReactProp`注解的setter方法，然后在React Native中使用它们，就像该组件是普通的React Native组件一样。
+在[native-components-android#3-expose-view-property-setters-using-reactprop-or-reactpropgroup-annotation](legacy/native-components-android#3-expose-view-property-setters-using-reactprop-or-reactpropgroup-annotation)这篇文章中详细介绍了暴露原生组件属性的问题。简而言之，要将需要在JavaScript中反映的属性公开为带有`@ReactProp`注解的setter方法，然后在React Native中使用它们，就像该组件是普通的React Native组件一样。
 
 ### 属性的限制
 
@@ -134,7 +134,7 @@ React Native使您能够执行跨语言函数调用。您可以从JS执行自定
 
 ### 从原生调用React Native函数（事件）
 
-事件在[native-components-android#events](native-components-android#events)这篇文章中有详细描述。请注意，使用事件不能保证执行时间，因为事件是在单独线程上处理的。
+事件在[native-components-android#events](legacy/native-components-android#events)这篇文章中有详细描述。请注意，使用事件不能保证执行时间，因为事件是在单独线程上处理的。
 
 事件非常强大，因为它们允许我们无需引用即可更改React Native组件。但是，在使用它们时可能会遇到一些陷阱：
 
@@ -144,6 +144,6 @@ React Native使您能够执行跨语言函数调用。您可以从JS执行自定
 
 ### 从React Native调用原生函数（原生模块）
 
-原生模块是在JS中可用的Java/Kotlin类。通常，每个JS桥接器都会创建一个模块实例。它们可以向React Native导出任意函数和常量。有关详细信息，请参阅[native-modules-android](native-modules-android)中对其进行了详细介绍。
+原生模块是在JS中可用的Java/Kotlin类。通常，每个JS桥接器都会创建一个模块实例。它们可以向React Native导出任意函数和常量。有关详细信息，请参阅[native-modules-android](legacy/native-modules-android)中对其进行了详细介绍。
 
 > **_警告_**：所有原生模块共享相同的命名空间。
