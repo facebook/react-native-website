@@ -1,0 +1,332 @@
+{
+  "docs": {
+    "入门基础": [
+      "getting-started",
+      "intro-react-native-components",
+      "intro-react",
+      "handling-text-input",
+      "using-a-scrollview",
+      "using-a-listview",
+      "platform-specific-code",
+      "more-resources"
+    ],
+    "环境搭建": [
+      "environment-setup",
+      "integration-with-existing-apps",
+      "integration-with-android-fragment",
+      "building-for-tv",
+      "out-of-tree-platforms"
+    ],
+    "开发流程": [
+      "running-on-device",
+      "fast-refresh",
+      "metro",
+      "libraries",
+      "typescript",
+      "strict-typescript-api",
+      "upgrading"
+    ],
+    "界面与交互": [
+      "style",
+      "height-and-width",
+      "flexbox",
+      "images",
+      "colors",
+      {
+        "type": "category",
+        "label": "交互",
+        "collapsible": false,
+        "collapsed": false,
+        "items": [
+          "handling-touches",
+          "navigation",
+          "animations",
+          "gesture-responder-system"
+        ]
+      },
+      {
+        "type": "category",
+        "label": "网络连接",
+        "collapsible": false,
+        "collapsed": false,
+        "items": [
+          "network",
+          "security"
+        ]
+      },
+      {
+        "type": "category",
+        "label": "包容性",
+        "collapsible": false,
+        "collapsed": false,
+        "items": [
+          "accessibility"
+        ]
+      }
+    ],
+    "调试": [
+      "debugging",
+      "react-native-devtools",
+      "debugging-native-code",
+      "debugging-release-builds",
+      "other-debugging-methods"
+    ],
+    "测试": [
+      "testing-overview"
+    ],
+    "性能调优": [
+      "performance",
+      "build-speed",
+      "optimizing-flatlist-configuration",
+      "optimizing-javascript-loading",
+      "profiling"
+    ],
+    "JavaScript 运行环境": [
+      "javascript-environment",
+      "timers",
+      "hermes"
+    ],
+    "Codegen": [
+      "the-new-architecture/what-is-codegen",
+      "the-new-architecture/using-codegen",
+      "the-new-architecture/codegen-cli"
+    ],
+    "原生开发": [
+      {
+        "type": "doc",
+        "id": "native-platform",
+        "label": "介绍"
+      },
+      {
+        "type": "category",
+        "label": "原生模块",
+        "collapsible": false,
+        "collapsed": false,
+        "items": [
+          {
+            "type": "doc",
+            "id": "turbo-native-modules-introduction",
+            "label": "Android 和 iOS"
+          },
+          {
+            "type": "doc",
+            "id": "the-new-architecture/pure-cxx-modules",
+            "label": "跨平台 C++ 模块"
+          },
+          {
+            "type": "doc",
+            "id": "the-new-architecture/advanced-topics-modules",
+            "label": "高级主题"
+          }
+        ]
+      },
+      {
+        "type": "category",
+        "label": "Components",
+        "collapsible": false,
+        "collapsed": false,
+        "items": [
+          {
+            "type": "doc",
+            "id": "fabric-native-components-introduction",
+            "label": "Android 和 iOS"
+          },
+          {
+            "type": "doc",
+            "id": "the-new-architecture/advanced-topics-components",
+            "label": "高级主题"
+          }
+        ]
+      },
+      {
+        "type": "category",
+        "label": "其他",
+        "collapsible": true,
+        "collapsed": true,
+        "items": [
+          {
+            "type": "doc",
+            "id": "appendix",
+            "label": "附录"
+          },
+          {
+            "type": "doc",
+            "id": "the-new-architecture/create-module-library"
+          }
+        ]
+      }
+    ],
+    "Android 与 iOS 指南": [
+      {
+        "type": "category",
+        "label": "Android",
+        "collapsible": false,
+        "collapsed": false,
+        "items": [
+          "headless-js-android",
+          "signed-apk-android",
+          "communication-android",
+          "react-native-gradle-plugin"
+        ]
+      },
+      {
+        "type": "category",
+        "label": "iOS",
+        "collapsible": false,
+        "collapsed": false,
+        "items": [
+          "linking-libraries-ios",
+          "running-on-simulator-ios",
+          "communication-ios",
+          "app-extensions",
+          "publishing-to-app-store"
+        ]
+      }
+    ],
+    "旧架构": [
+      {
+        "type": "category",
+        "label": "原生模块（旧架构）",
+        "collapsible": true,
+        "collapsed": true,
+        "items": [
+          "legacy/native-modules-intro",
+          "legacy/native-modules-android",
+          "legacy/native-modules-ios",
+          "legacy/native-modules-setup",
+          "legacy/local-library-setup"
+        ]
+      },
+      {
+        "type": "category",
+        "label": "原生 UI 组件（旧架构）",
+        "collapsible": true,
+        "collapsed": true,
+        "items": [
+          "legacy/native-components-android",
+          "legacy/native-components-ios",
+          "legacy/direct-manipulation"
+        ]
+      }
+    ]
+  },
+  "api": {
+    "API": [
+      "accessibilityinfo",
+      "alert",
+      "animated",
+      "animatedvalue",
+      "animatedvaluexy",
+      "appearance",
+      "appregistry",
+      "appstate",
+      "devsettings",
+      "dimensions",
+      "easing",
+      "i18nmanager",
+      "interactionmanager",
+      "keyboard",
+      "layoutanimation",
+      "linking",
+      "panresponder",
+      "pixelratio",
+      "platform",
+      "platformcolor",
+      "roottag",
+      "share",
+      "stylesheet",
+      "systrace",
+      "transforms",
+      "vibration",
+      {
+        "type": "category",
+        "label": "Hooks",
+        "collapsed": false,
+        "items": [
+          "usecolorscheme",
+          "usewindowdimensions"
+        ]
+      },
+      {
+        "type": "category",
+        "label": "Android API",
+        "collapsed": false,
+        "items": [
+          "backhandler",
+          "permissionsandroid",
+          "toastandroid"
+        ]
+      },
+      {
+        "type": "category",
+        "label": "iOS API",
+        "collapsed": false,
+        "items": [
+          "actionsheetios",
+          "dynamiccolorios",
+          "settings"
+        ]
+      }
+    ]
+  },
+  "组件": {
+    "核心组件": [
+      "components-and-apis",
+      "activityindicator",
+      "button",
+      "flatlist",
+      "image",
+      "imagebackground",
+      "keyboardavoidingview",
+      "modal",
+      "pressable",
+      "refreshcontrol",
+      "scrollview",
+      "sectionlist",
+      "statusbar",
+      "switch",
+      "text",
+      "textinput",
+      "touchablehighlight",
+      "touchableopacity",
+      "touchablewithoutfeedback",
+      "view",
+      "virtualizedlist",
+      {
+        "type": "category",
+        "label": "Android 组件",
+        "collapsed": false,
+        "items": [
+          "drawerlayoutandroid",
+          "touchablenativefeedback"
+        ]
+      },
+      {
+        "type": "category",
+        "label": "iOS 组件",
+        "collapsed": false,
+        "items": [
+          "inputaccessoryview",
+          "safeareaview"
+        ]
+      }
+    ],
+    "Props": [
+      "image-style-props",
+      "layout-props",
+      "shadow-props",
+      "text-style-props",
+      "view-style-props"
+    ],
+    "内部对象类型": [
+      "boxshadowvalue",
+      "dropshadowvalue",
+      "layoutevent",
+      "pressevent",
+      "react-node",
+      "rect",
+      "targetevent",
+      "viewtoken"
+    ]
+  }
+}

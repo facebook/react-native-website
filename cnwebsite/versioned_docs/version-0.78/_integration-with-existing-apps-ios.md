@@ -509,7 +509,7 @@ REACT_NATIVE_XCODE="$REACT_NATIVE_PATH/scripts/react-native-xcode.sh"
 
 这可以通过使用 `RCTReactNativeFactory` 类的 `view(withModuleName:initialProperty)` 重载的 `initialProperties` 参数来实现。以下步骤展示了如何实现。
 
-### 更新 App.tsx 文件以读取初始属性。
+### 更新 App.tsx 文件以读取初始属性
 
 打开 `App.tsx` 文件并添加以下代码：
 
@@ -579,7 +579,7 @@ export default App;
 
 这些更改将告诉 React Native 您的 App 组件现在接受一些属性。`RCTreactNativeFactory` 将负责在组件渲染时将它们传递给它。
 
-### 更新原生代码以将初始属性传递给 JavaScript。
+### 更新原生代码以将初始属性传递给 JavaScript
 
 <Tabs groupId="ios-language" queryString defaultValue={constants.defaultAppleLanguage} values={constants.appleLanguages}>
 <TabItem value="objc">
