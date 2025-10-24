@@ -97,6 +97,7 @@ export default {
           {
             type: 'doc',
             id: 'turbo-native-modules-introduction',
+            key: 'turbo-native-modules-introduction',
             label: 'Android 和 iOS',
           },
           {
@@ -107,7 +108,7 @@ export default {
           {
             type: 'doc',
             id: 'the-new-architecture/advanced-topics-modules',
-            label: '高级主题',
+            label: '深入原生模块开发',
           },
         ],
       },
@@ -120,12 +121,13 @@ export default {
           {
             type: 'doc',
             id: 'fabric-native-components-introduction',
+            key: 'fabric-native-components-introduction',
             label: 'Android 和 iOS',
           },
           {
             type: 'doc',
             id: 'the-new-architecture/advanced-topics-components',
-            label: '高级主题',
+            label: '深入原生组件开发',
           },
         ],
       },

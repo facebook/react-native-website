@@ -49,19 +49,14 @@
         "label": "网络连接",
         "collapsible": false,
         "collapsed": false,
-        "items": [
-          "network",
-          "security"
-        ]
+        "items": ["network", "security"]
       },
       {
         "type": "category",
         "label": "包容性",
         "collapsible": false,
         "collapsed": false,
-        "items": [
-          "accessibility"
-        ]
+        "items": ["accessibility"]
       }
     ],
     "调试": [
@@ -71,9 +66,7 @@
       "debugging-release-builds",
       "other-debugging-methods"
     ],
-    "测试": [
-      "testing-overview"
-    ],
+    "测试": ["testing-overview"],
     "性能调优": [
       "performance",
       "build-speed",
@@ -81,11 +74,7 @@
       "optimizing-javascript-loading",
       "profiling"
     ],
-    "JavaScript 运行环境": [
-      "javascript-environment",
-      "timers",
-      "hermes"
-    ],
+    "JavaScript 运行环境": ["javascript-environment", "timers", "hermes"],
     "Codegen": [
       "the-new-architecture/what-is-codegen",
       "the-new-architecture/using-codegen",
@@ -106,6 +95,7 @@
           {
             "type": "doc",
             "id": "turbo-native-modules-introduction",
+            "key": "turbo-native-modules-introduction",
             "label": "Android 和 iOS"
           },
           {
@@ -116,7 +106,7 @@
           {
             "type": "doc",
             "id": "the-new-architecture/advanced-topics-modules",
-            "label": "高级主题"
+            "label": "深入原生模块开发"
           }
         ]
       },
@@ -129,12 +119,13 @@
           {
             "type": "doc",
             "id": "fabric-native-components-introduction",
+            "key": "fabric-native-components-introduction",
             "label": "Android 和 iOS"
           },
           {
             "type": "doc",
             "id": "the-new-architecture/advanced-topics-components",
-            "label": "高级主题"
+            "label": "深入原生组件开发"
           }
         ]
       },
@@ -242,30 +233,19 @@
         "type": "category",
         "label": "Hooks",
         "collapsed": false,
-        "items": [
-          "usecolorscheme",
-          "usewindowdimensions"
-        ]
+        "items": ["usecolorscheme", "usewindowdimensions"]
       },
       {
         "type": "category",
         "label": "Android API",
         "collapsed": false,
-        "items": [
-          "backhandler",
-          "permissionsandroid",
-          "toastandroid"
-        ]
+        "items": ["backhandler", "permissionsandroid", "toastandroid"]
       },
       {
         "type": "category",
         "label": "iOS API",
         "collapsed": false,
-        "items": [
-          "actionsheetios",
-          "dynamiccolorios",
-          "settings"
-        ]
+        "items": ["actionsheetios", "dynamiccolorios", "settings"]
       }
     ]
   },
@@ -296,19 +276,13 @@
         "type": "category",
         "label": "Android 组件",
         "collapsed": false,
-        "items": [
-          "drawerlayoutandroid",
-          "touchablenativefeedback"
-        ]
+        "items": ["drawerlayoutandroid", "touchablenativefeedback"]
       },
       {
         "type": "category",
         "label": "iOS 组件",
         "collapsed": false,
-        "items": [
-          "inputaccessoryview",
-          "safeareaview"
-        ]
+        "items": ["inputaccessoryview", "safeareaview"]
       }
     ],
     "Props": [
