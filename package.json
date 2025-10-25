@@ -11,16 +11,16 @@
     "plugins/*"
   ],
   "scripts": {
-    "docusaurus": "yarn --cwd website docusaurus",
-    "start": "yarn --cwd website start",
-    "build": "yarn --cwd website build",
-    "build:fast": "yarn --cwd website build:fast",
-    "serve": "yarn --cwd website serve",
+    "docusaurus": "yarn --cwd cnwebsite docusaurus",
+    "start": "yarn --cwd cnwebsite start",
+    "build": "yarn --cwd cnwebsite build",
+    "build:fast": "yarn --cwd cnwebsite build:fast",
+    "serve": "yarn --cwd cnwebsite serve",
     "prepare": "husky",
     "lint": "eslint .",
     "lint:packages": "eslint ./packages",
     "lint:plugins": "eslint ./plugins",
-    "lint:website": "eslint ./website",
+    "lint:website": "eslint ./cnwebsite",
     "update-lock": "yarn dedupe",
     "check-dependencies": "manypkg check"
   },
