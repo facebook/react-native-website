@@ -193,7 +193,7 @@ React Native 0.78 contains over 509 commits from 87 contributors. Thanks for all
 
 Thanks to all the additional authors that worked on documenting features in this release post:
 
-- [Dream11](https://github.com/dream-sports-labs) team for the thorough testing of React 19 features in React Native
+- [Dream11](https://github.com/ds-horizon) team for the thorough testing of React 19 features in React Native
 - [Nicola Corti](https://github.com/cortinico) for the work on Faster Releases
 - [Alex Hunt](https://github.com/huntie) for the work on the Metro logs opt-in
 - [Peter Abbondanzo](https://github.com/Abbondanzo) for the work on Android XML Drawable Support
