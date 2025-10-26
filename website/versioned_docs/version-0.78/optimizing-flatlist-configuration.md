@@ -119,7 +119,7 @@ In this example, we have determined that MyListItem should be re-rendered only w
 
 ### Use cached optimized images
 
-You can use the community packages (such as [@d11/react-native-fast-image](https://github.com/dream-sports-labs/react-native-fast-image) from [@dream-sports-labs](https://github.com/dream-sports-labs)) for more performant images. Every image in your list is a `new Image()` instance. The faster it reaches the `loaded` hook, the faster your JavaScript thread will be free again.
+You can use the community packages (such as [@d11/react-native-fast-image](https://github.com/ds-horizon/react-native-fast-image) from [@ds-horizon](https://github.com/ds-horizon)) for more performant images. Every image in your list is a `new Image()` instance. The faster it reaches the `loaded` hook, the faster your JavaScript thread will be free again.
 
 ### Use getItemLayout
 
