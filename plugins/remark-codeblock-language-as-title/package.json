@@ -1,0 +1,25 @@
+{
+  "name": "@react-native-website/remark-codeblock-language-as-title",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Remark plugin for using codeblock language as title",
+  "main": "src/index.js",
+  "type": "module",
+  "keywords": [
+    "remark",
+    "react-native",
+    "lint"
+  ],
+  "files": [
+    "src/*"
+  ],
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "unist-util-visit": "^5.0.0"
+  },
+  "devDependencies": {
+    "remark": "^15.0.1"
+  }
+}

@@ -1,6 +1,6 @@
 abernathyca:
   name: Christine Abernathy
-  title: Developer Advocate at Meta
+  title: Developer Advocate @ Meta
   socials:
     x: abernathyca
     github: caabernathy
@@ -8,7 +8,7 @@ abernathyca:
 
 Eli White:
   name: Eli White
-  title: Software Engineer at Meta
+  title: Software Engineer @ Meta
   socials:
     x: Eli_White
     github: elicwhite
@@ -16,7 +16,7 @@ Eli White:
 
 frankcalise:
   name: Frank Calise
-  title: Software Engineer at Infinite Red
+  title: Software Engineer @ Infinite Red
   socials:
     x: frankcalise
     github: frankcalise
@@ -24,7 +24,7 @@ frankcalise:
 
 lunaleaps:
   name: Luna Wei
-  title: Software Engineer at Meta
+  title: Software Engineer @ Meta
   socials:
     x: lunaleaps
     github: lunaleaps
@@ -32,7 +32,7 @@ lunaleaps:
 
 SamuelSusla:
   name: Samuel Susla
-  title: Software Engineer at Meta
+  title: Software Engineer @ Meta
   socials:
     x: SamuelSusla
     github: sammy-SC
@@ -40,7 +40,7 @@ SamuelSusla:
 
 yungsters:
   name: Timothy Yung
-  title: Software Engineer at Meta
+  title: Software Engineer @ Meta
   socials:
     x: yungsters
     github: yungsters
@@ -48,7 +48,7 @@ yungsters:
 
 huxpro:
   name: Xuan Huang
-  title: Software Engineer at Meta
+  title: Software Engineer @ Meta
   socials:
     x: huxpro
     github: huxpro
@@ -56,7 +56,7 @@ huxpro:
 
 kelset:
   name: Lorenzo Sciandra
-  title: Senior Software Engineer at Microsoft
+  title: Senior Software Engineer @ Microsoft
   socials:
     x: kelset
     github: kelset
@@ -64,15 +64,16 @@ kelset:
 
 cortinico:
   name: Nicola Corti
-  title: Software Engineer at Meta
+  title: Software Engineer @ Meta
   socials:
     x: cortinico
     github: cortinico
+    bluesky: cortini.co
   image_url: https://github.com/cortinico.png
 
 shikaSD:
   name: Andrei Shikov
-  title: Software Engineer at Meta
+  title: Software Engineer @ Meta
   socials:
     x: shikasd_
     github: ShikaSD
@@ -80,7 +81,7 @@ shikaSD:
 
 cipolleschi:
   name: Riccardo Cipolleschi
-  title: Software Engineer at Meta
+  title: Software Engineer @ Meta
   socials:
     x: CipolleschiR
     github: cipolleschi
@@ -88,7 +89,7 @@ cipolleschi:
 
 fortmarek:
   name: Marek Fořt
-  title: Software Engineer at Shopify
+  title: Software Engineer @ Shopify
   socials:
     x: marekfort
     github: fortmarek
@@ -96,19 +97,19 @@ fortmarek:
 
 micleo:
   name: Michael Leon
-  title: Software Engineer at Meta
+  title: Software Engineer @ Meta
   image_url: https://github.com/fbmal7.png
 
 dmytrorykun:
   name: Dmytro Rykun
-  title: Software Engineer at Meta
+  title: Software Engineer @ Meta
   socials:
     github: dmytrorykun
   image_url: https://github.com/dmytrorykun.png
 
 titozzz:
   name: Thibault Malbranche
-  title: Lead Mobile Engineer at Brigad
+  title: Lead Mobile Engineer @ Brigad
   socials:
     x: titozzz
     github: titozzz
@@ -116,7 +117,7 @@ titozzz:
 
 thymikee:
   name: Michał Pierzchała
-  title: Head of Technology at Callstack
+  title: Head of Technology @ Callstack
   socials:
     x: thymikee
     github: thymikee
@@ -124,7 +125,7 @@ thymikee:
 
 vincentriemer:
   name: Vincent Riemer
-  title: Software Engineer at Meta
+  title: Software Engineer @ Meta
   socials:
     x: vincentriemer
     github: vincentriemer
@@ -132,36 +133,36 @@ vincentriemer:
 
 NickGerleman:
   name: Nick Gerleman
-  title: Software Engineer at Meta
+  title: Software Engineer @ Meta
   socials:
     github: NickGerleman
   image_url: https://github.com/NickGerleman.png
 
 rickhanlonii:
   name: Ricky Hanlon
-  title: Software Engineer at Meta
+  title: Software Engineer @ Meta
   socials:
     github: rickhanlonii
   image_url: https://github.com/rickhanlonii.png
 
 mattcarrollcode:
   name: Matt Carroll
-  title: Developer Advocate at Meta
+  title: Developer Advocate @ Meta
   socials:
     github: mattcarrollcode
   image_url: https://github.com/mattcarrollcode.png
 
 huntie:
   name: Alex Hunt
-  title: Software Engineer at Meta
+  title: Software Engineer @ Meta
   socials:
-    x: alxhnt
+    x: huntie
     github: huntie
   image_url: https://github.com/huntie.png
 
 hurali:
   name: Hur Ali
-  title: Software Engineer at Callstack
+  title: Software Engineer @ Callstack
   socials:
     x: hurali97
     github: hurali97
@@ -169,35 +170,35 @@ hurali:
 
 ingridwang:
   name: Ingrid Wang
-  title: Software Engineer at Meta
+  title: Software Engineer @ Meta
   socials:
     github: ingridwang
   image_url: https://github.com/ingridwang.png
 
 alfonsocj:
   name: Alfonso Curbelo
-  title: Software Engineer at Coinbase
+  title: Software Engineer @ Coinbase
   socials:
     github: alfonsocj
   image_url: https://github.com/alfonsocj.png
 
 alanjhughes:
   name: Alan Hughes
-  title: Software Engineer at Expo
+  title: Software Engineer @ Expo
   socials:
     github: alanjhughes
   image_url: https://github.com/alanjhughes.png
 
 blakef:
   name: Blake Friedman
-  title: Software Engineer at Meta
+  title: Software Engineer @ Meta
   socials:
     github: blakef
   image_url: https://github.com/blakef.png
 
 gabrieldonadel:
   name: Gabriel Donadel Dall'Agnol
-  title: Software Engineer at Expo
+  title: Software Engineer @ Expo
   socials:
     x: donadeldev
     github: gabrieldonadel
@@ -205,21 +206,21 @@ gabrieldonadel:
 
 siddharthkul:
   name: Siddharth Kulkarni
-  title: Software Engineer at Coinbase
+  title: Software Engineer @ Coinbase
   socials:
     github: siddharthkul
   image_url: https://github.com/siddharthkul.png
 
 hectorramos:
   name: Héctor Ramos
-  title: Former Developer Advocate at Facebook
+  title: Former Developer Advocate @ Facebook
   socials:
     x: hectorramos
   image_url: https://s.gravatar.com/avatar/f2223874e66e884c99087e452501f2da?s=128
 
 cpojer:
   name: Christoph Nakazawa
-  title: Former Engineer at Facebook
+  title: Former Engineer @ Facebook
   socials:
     x: cpojer
   image_url: https://avatars2.githubusercontent.com/u/13352?s=460&v=4
@@ -233,10 +234,42 @@ alexmarlette:
 
 grabbou:
   name: Mike Grabowski
-  title: CTO and Co-Founder at Callstack
+  title: CTO and Co-Founder @ Callstack
   socials:
     x: grabbou
   image_url: https://avatars0.githubusercontent.com/u/2464966?s=460&v=4
+
+vonovak:
+  name: Vojtech Novak
+  title: Software Engineer @ Expo
+  socials:
+    x: vonovak
+    github: vonovak
+  image_url: https://avatars.githubusercontent.com/u/1566403?v=4
+
+mazen:
+  name: Mazen Chami
+  title: Software Engineer @ InfiniteRed
+  socials:
+    x: mazenchami
+    github: mazenchami
+  image_url: https://avatars.githubusercontent.com/u/9324607?v=4
+
+robhogan:
+  name: Rob Hogan
+  title: Software Engineer @ Meta
+  socials:
+    x: robjhogan
+    github: robhogan
+  image_url: https://avatars.githubusercontent.com/u/2590098?v=4
+
+fabriziocucci:
+  name: Fabrizio Cucci
+  title: Software Engineer @ Meta
+  socials:
+    x: fabriziocucci
+    github: https://github.com/fabriziocucci
+  image_url: https://avatars.githubusercontent.com/u/8156463?v=4
 
 reactteam:
   name: The React Team
@@ -244,3 +277,92 @@ reactteam:
   socials:
     x: reactnative
   image_url: https://github.com/react-native-bot.png
+
+szymonrybczak:
+  name: Szymon Rybczak
+  title: Software Engineer @ Callstack
+  socials:
+    x: szymonrybczak
+    github: szymonrybczak
+  image_url: https://github.com/szymonrybczak.png
+
+mojavad:
+  name: Mo Javad
+  title: Head of Mobile (UK) @ Theodo
+  socials:
+    x: mo__javad
+    github: mojavad
+  image_url: https://github.com/mojavad.png
+
+stmoy:
+  name: Steven Moyes
+  title: Senior Product Manager @ Microsoft
+  socials:
+    x: moyessa
+    github: stmoy
+  image_url: https://github.com/stmoy.png
+
+shubham:
+  name: Shubham Gupta
+  title: Software Engineer @ Dream11
+  socials:
+    x: https://x.com/sg43245
+    github: https://github.com/shubhamguptadream11
+  image_url: https://github.com/shubhamguptadream11.png
+
+hezi:
+  name: Jorge Cohen
+  title: Engineering Manager @ Meta
+  socials:
+    x: https://x.com/jorgewritescode
+    github: https://github.com/hezi
+  image_url: https://github.com/hezi.png
+
+chrfalch:
+  name: Christian Falch
+  title: Software Engineer @ Expo
+  socials:
+    x: https://x.com/chrfalch
+    github: https://github.com/chrfalch
+  image_url: https://github.com/chrfalch.png
+
+iwoplaza:
+  name: Iwo Plaza
+  title: Software Engineer @ Software Mansion
+  socials:
+    x: iwoplaza
+    github: iwoplaza
+  image_url: https://github.com/iwoplaza.png
+
+jpiasecki:
+  name: Jakub Piasecki
+  title: Software Engineer @ Software Mansion
+  socials:
+    x: https://x.com/breskin67
+    github: https://github.com/j-piasecki
+  image_url: https://github.com/j-piasecki.png
+
+coado:
+  name: Dawid Małecki
+  title: Software Engineer @ Software Mansion
+  socials:
+    github: coado
+  image_url: https://github.com/coado.png
+
+motiz88:
+  name: Moti Zilberman
+  title: Software Engineer @ Meta
+  socials:
+    github: motiz88
+    threads: motizilberman
+    bluesky: moti.zlbr.mn
+  image_url: https://github.com/motiz88.png
+
+vzaidman:
+  name: Vitali Zaidman
+  title: Software Engineer @ Meta
+  socials:
+    x: vzaidman
+    github: vzaidman
+    threads: vzaidman
+  image_url: https://github.com/vzaidman.png

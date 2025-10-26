@@ -4,6 +4,7 @@
   "private": true,
   "description": "Remark Expo Snack Plugin",
   "main": "src/index.js",
+  "type": "module",
   "keywords": [
     "remark",
     "react-native",
@@ -15,16 +16,17 @@
     "src"
   ],
   "scripts": {
-    "prettier": "prettier --write \"{src/**/*.js,tests/**/*.js,*.md}\"",
+    "lint": "eslint .",
     "test": "yarn tape tests/index.js"
   },
   "dependencies": {
-    "dedent": "^0.7.0",
+    "dedent": "^1.5.3",
     "object.fromentries": "^2.0.3",
     "unist-util-visit-parents": "^3.1.1"
   },
   "devDependencies": {
-    "remark": "^14.0.3",
+    "remark": "^15.0.1",
+    "remark-mdx": "^3.1.0",
     "tape": "^5.7.0"
   }
 }
