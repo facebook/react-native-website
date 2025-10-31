@@ -33,23 +33,22 @@ To achieve that, please follow these steps:
 ```swift title="NativeLocalStorage.swift"
 import Foundation
 
-@objc public class NativeLocalStorage: NSObject {
+@objcMembers public class NativeLocalStorage: NSObject {
   let userDefaults = UserDefaults(suiteName: "local-storage");
 
-
-  @objc public func getItem(for key: String) -> String? {
+  public func getItem(for key: String) -> String? {
     return userDefaults?.string(forKey: key)
   }
 
-  @objc public func setItem(for key: String, value: String) {
+  public func setItem(for key: String, value: String) {
     userDefaults?.set(value, forKey: key)
   }
 
-  @objc public func removeItem(for key: String) {
+  public func removeItem(for key: String) {
     userDefaults?.removeObject(forKey: key)
   }
 
-  @objc public  func clear() {
+  public func clear() {
     userDefaults?.dictionaryRepresentation().keys.forEach { removeItem(for: $0) }
   }
 }
