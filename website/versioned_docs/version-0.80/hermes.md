@@ -116,3 +116,5 @@ Edit your `ios/Podfile` file and make the change illustrated below:
      :app_path => "#{Pod::Config.instance.installation_root}/.."
    )
 ```
+
+_Run `pod install` in case of any `:hermes_enabled` changes._
