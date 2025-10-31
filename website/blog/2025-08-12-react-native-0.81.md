@@ -30,7 +30,7 @@ As previously announced by Google, Android 16 requires that [apps are displayed 
 
 To support this, we are deprecating the `<SafeAreaView>` component [as previously announced](https://github.com/react-native-community/discussions-and-proposals/discussions/827) in favor of alternatives. [See below](#safeareaview-deprecation) which will provide better edge-to-edge support.
 
-We are also adding a new gradle property `edgeToEdgeEnabled` to let you choose if you wish to enable edge-to-edge on all supported Android versions beyond 16.
+We are also adding a new gradle property `edgeToEdgeEnabled` to let you choose if you wish to enable edge-to-edge on all supported Android versions below 16.
 
 [Predictive back gesture](https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture) is now enabled by default for apps targeting Android 16. The [BackHandler](https://reactnative.dev/docs/backhandler) API should continue to work as before for most use cases. However, if your app relies on custom native code for back handling (such as overriding the `onBackPressed()` method), you may need to manually migrate your code or [temporarily opt-out](https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture#opt-out). Please test your app’s back navigation thoroughly after upgrading.
 
