@@ -26,14 +26,14 @@
     "prettier": "yarn format:style",
     "lint": "eslint .",
     "lint:examples": "eslint-examples-jsx && eslint-examples-tsx && tsc-examples",
-    "lint:markdown:images": "yarn ../scripts/image-check.ts",
+    "lint:markdown:images": "node ../scripts/image-check.ts",
     "lint:markdown:links": "remark ../docs --quiet -r .remarkrc.withBrokenLinks.mjs",
     "language:lint": "cd ../ && alex && case-police 'docs/*.md' -d ./website/react-native-dict.json --disable SDK,URI",
     "language:lint:versioned": "cd ../ && alex . && case-police '**/*.md' -d ./website/react-native-dict.json --disable SDK,URI",
     "ci:lint": "yarn lint && yarn lint:examples && yarn language:lint:versioned && yarn lint:markdown:images && prettier --check src/**/*.scss",
     "pwa:generate": "npx pwa-asset-generator ./static/img/header_logo.svg ./static/img/pwa --padding '40px' --background 'rgb(32, 35, 42)' --icon-only --opaque true",
-    "generate-llms-txt": "yarn ../scripts/generate-llms-txt.ts",
-    "update-redirects": "yarn ../scripts/update-redirects.ts"
+    "generate-llms-txt": "node ../scripts/generate-llms-txt.ts",
+    "update-redirects": "node ../scripts/update-redirects.ts"
   },
   "browserslist": {
     "production": [
