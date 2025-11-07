@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { Root } from 'mdast';
+import {Root} from 'mdast';
 
 export default function codeblockLanguageAsTitleRemarkPlugin() {
   return async (root: Root) => {

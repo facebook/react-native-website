@@ -4,9 +4,9 @@
   "private": true,
   "type": "module",
   "bin": {
-    "eslint-examples-jsx": "./bin/eslint-examples-jsx.js",
-    "eslint-examples-tsx": "./bin/eslint-examples-tsx.js",
-    "tsc-examples": "./bin/tsc-examples.js"
+    "eslint-examples-jsx": "./bin/eslint-examples-jsx.ts",
+    "eslint-examples-tsx": "./bin/eslint-examples-tsx.ts",
+    "tsc-examples": "./bin/tsc-examples.ts"
   },
   "scripts": {
     "lint": "eslint"

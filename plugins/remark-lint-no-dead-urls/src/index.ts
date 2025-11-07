@@ -12,10 +12,10 @@ import {lintRule} from 'unified-lint-rule';
 import {visit} from 'unist-util-visit';
 
 import {fetch} from './lib.js';
-import { Node, Data } from 'unist';
-import { Root } from 'mdast';
+import {Node, Data} from 'unist';
+import {Root} from 'mdast';
 
-import { Method } from 'got';
+import {Method} from 'got';
 
 const linkCache = new Map();
 
@@ -27,12 +27,17 @@ const HTTP = {
 };
 
 const uri = {
-  isLocalhost: (url: string) => /^(https?:\/\/)(localhost|127\.0\.0\.1)(:\d+)?/.test(url),
+  isLocalhost: (url: string) =>
+    /^(https?:\/\/)(localhost|127\.0\.0\.1)(:\d+)?/.test(url),
   isExternal: (url: string) => /(https?:\/\/)/.test(url),
   isPath: (url: string) => /^\/.*/.test(url),
 };
 
-async function cacheFetch(urlOrPath: string, method: Method, options: { [x: string]: any; baseUrl: any; }) {
+async function cacheFetch(
+  urlOrPath: string,
+  method: Method,
+  options: {[x: string]: any; baseUrl: any}
+) {
   if (linkCache.has(urlOrPath)) {
     return [urlOrPath, linkCache.get(urlOrPath)];
   }
@@ -46,9 +51,12 @@ async function cacheFetch(urlOrPath: string, method: Method, options: { [x: stri
   return [urlOrPath, code];
 }
 
-async function naiveLinkCheck(urls: string[] , options : { [x: string]: any; baseUrl: any; }) {
+async function naiveLinkCheck(
+  urls: string[],
+  options: {[x: string]: any; baseUrl: any}
+) {
   return Promise.allSettled(
-    urls.map(async (url) => {
+    urls.map(async url => {
       try {
         return await cacheFetch(url, 'HEAD', options);
       } catch {
@@ -56,6 +64,7 @@ async function naiveLinkCheck(urls: string[] , options : { [x: string]: any; bas
           // Fallback, some endpoints don't support HEAD requests
           return await cacheFetch(url, 'GET', options);
         } catch (e) {
+          // @ts-expect-error
           if (e.code === 'ERR_GOT_REQUEST_ERROR') {
             throw e;
           }
