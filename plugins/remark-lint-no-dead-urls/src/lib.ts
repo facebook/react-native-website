@@ -5,9 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import got from 'got';
+import got, { Method } from 'got';
 
-export async function fetch(url, method, options = {}) {
+export async function fetch(url: string, method: Method, options = {}) {
   const {statusCode} = await got(url, {
     ...options,
     method,

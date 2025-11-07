@@ -5,12 +5,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { Root } from 'mdast';
+
 export default function codeblockLanguageAsTitleRemarkPlugin() {
-  /**
-   * @param {import('mdast').Root} root - The root node of the Markdown AST
-   * @returns {Promise<void>}
-   */
-  return async root => {
+  return async (root: Root) => {
     const {visit} = await import('unist-util-visit');
     visit(root, 'code', node => {
       if (node.lang) {

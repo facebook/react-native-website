@@ -39,7 +39,7 @@ const SLUG_TO_URL = {
 };
 
 // Function to convert the TypeScript sidebar config to JSON
-async function convertSidebarConfigToJson(fileName) {
+async function convertSidebarConfigToJson(fileName: string) {
   const inputFileContent = fs.readFileSync(
     path.join(import.meta.dirname, '../website', fileName),
     'utf8'
@@ -70,8 +70,8 @@ async function convertSidebarConfigToJson(fileName) {
 }
 
 // Function to extract URLs from sidebar config
-function extractUrlsFromSidebar(sidebarConfig, prefix) {
-  const urls = [];
+function extractUrlsFromSidebar(sidebarConfig: SidebarConfig, prefix: string) {
+  const urls: string[] = [];
 
   // Process each section (docs, api, components)
   Object.entries(sidebarConfig).forEach(([, categories]) => {
@@ -93,15 +93,19 @@ function extractUrlsFromSidebar(sidebarConfig, prefix) {
   return urls;
 }
 
-// Recursive function to process items and extract URLs
-function processItemsForUrls(items, urls, prefix) {
-  if (typeof items === 'object' && Array.isArray(items.items)) {
-    processItemsForUrls(items.items, urls, prefix);
-    return;
-  }
+type SidebarItem = string | {type: string; id?: string; items?: SidebarItem[]; label?: string};
+type Items = SidebarItem[] | {items: SidebarItem[]};
 
-  if (Array.isArray(items)) {
-    items.forEach(item => {
+interface SidebarConfig {
+  [section: string]: {
+    [category: string]: Items;
+  };
+}
+// Recursive function to process items and extract URLs
+function processItemsForUrls(items: Items, urls: string[], prefix: string) {
+  const itemsArray = getItemsArray(items);
+
+  itemsArray.forEach(item => {
       if (typeof item === 'string') {
         urls.push(`${URL_PREFIX}${prefix}/${item}`);
       } else if (typeof item === 'object') {
@@ -112,11 +116,16 @@ function processItemsForUrls(items, urls, prefix) {
         }
       }
     });
-  }
+}
+
+interface UrlCheckResult {
+  url: string;
+  status: number | string;
+  error?: string;
 }
 
 // Function to check URL status
-function checkUrl(urlString) {
+function checkUrl(urlString: string): Promise<UrlCheckResult> {
   return new Promise(resolve => {
     const parsedUrl = url.parse(urlString);
 
@@ -130,7 +139,7 @@ function checkUrl(urlString) {
     const req = https.request(options, res => {
       resolve({
         url: urlString,
-        status: res.statusCode,
+        status: res.statusCode || 0,
       });
     });
 
@@ -155,8 +164,8 @@ function checkUrl(urlString) {
 }
 
 // Process each URL
-async function processUrls(urls) {
-  const unavailableUrls = [];
+async function processUrls(urls: string[]) {
+  const unavailableUrls: UnavailableUrl[] = [];
 
   for (const urlToCheck of urls) {
     const result = await checkUrl(urlToCheck);
@@ -176,7 +185,7 @@ async function processUrls(urls) {
 }
 
 // Function to extract title from markdown frontmatter
-function extractMetadataFromMarkdown(filePath) {
+function extractMetadataFromMarkdown(filePath: string) {
   try {
     const content = fs.readFileSync(filePath, 'utf8');
     const frontmatterMatch = content.match(/---\n([\s\S]*?)\n---/);
@@ -188,7 +197,7 @@ function extractMetadataFromMarkdown(filePath) {
       return {
         title: titleMatch
           ? titleMatch[1].trim()
-          : filePath.split('/').pop().replace('.md', ''),
+          : filePath.split('/').pop()?.replace('.md', ''),
         slug: slugMatch ? slugMatch[1].trim().replace(/^\//, '') : null,
       };
     }
@@ -197,14 +206,18 @@ function extractMetadataFromMarkdown(filePath) {
   }
   // If no frontmatter found, on an error occurred use the filename
   return {
-    title: filePath.split('/').pop().replace('.md', ''),
+    title: filePath.split('/').pop()?.replace('.md', ''),
     slug: null,
   };
 }
 
 // Function to map special cases for file names that don't match the sidebar
-function mapDocPath(item, prefix) {
-  const specialCases = {
+interface SpecialCases {
+  [key: string]: string;
+}
+
+function mapDocPath(item: string | SidebarItem, prefix: string): string {
+  const specialCases: SpecialCases = {
     'environment-setup': 'getting-started.md',
     'native-platform': 'native-platforms.md',
     'turbo-native-modules-introduction': 'turbo-native-modules.md',
@@ -223,8 +236,19 @@ function mapDocPath(item, prefix) {
   return `${item}.md`;
 }
 
+type UnavailableUrl = {url: string; status: number | string; error: string | null;};
+
+// Helper function to extract items array from Items type
+function getItemsArray(items: Items): SidebarItem[] {
+  if (Array.isArray(items)) {
+    return items;
+  } else {
+    return items.items;
+  }
+}
+
 // Function to generate output for each sidebar
-function generateMarkdown(sidebarConfig, docPath, prefix, unavailableUrls) {
+function generateMarkdown(sidebarConfig: SidebarConfig, docPath: string, prefix: string, unavailableUrls: UnavailableUrl[]) {
   let markdown = '';
 
   // Process each section (docs, api, components)
@@ -235,12 +259,10 @@ function generateMarkdown(sidebarConfig, docPath, prefix, unavailableUrls) {
     Object.entries(categories).forEach(([categoryName, items]) => {
       markdown += `### ${categoryName === '0' ? 'General' : categoryName}\n\n`;
 
-      if (typeof items === 'object' && Array.isArray(items.items)) {
-        items = items.items;
-      }
-      const reorderedArray = items.every(item => typeof item === 'string')
-        ? items
-        : [...items].sort((a, b) =>
+      const itemsArray = getItemsArray(items);
+      const reorderedArray = itemsArray.every(item => typeof item === 'string')
+        ? itemsArray
+        : [...itemsArray].sort((a, b) =>
             typeof a === 'string' && typeof b !== 'string'
               ? -1
               : typeof a !== 'string' && typeof b === 'string'
@@ -268,7 +290,7 @@ function generateMarkdown(sidebarConfig, docPath, prefix, unavailableUrls) {
           } else if (item.type === 'category' && Array.isArray(item.items)) {
             // This is a category with nested items
             markdown += `#### ${item.label}\n\n`;
-            item.items.forEach(nestedItem => {
+            item.items.forEach((nestedItem: SidebarItem) => {
               if (typeof nestedItem === 'string') {
                 const fullDocPath = `${docPath}${mapDocPath(nestedItem, prefix)}`;
                 if (!isEntryUnavailable(unavailableUrls, fullDocPath)) {
@@ -296,7 +318,7 @@ function generateMarkdown(sidebarConfig, docPath, prefix, unavailableUrls) {
 }
 
 async function generateOutput() {
-  const results = [];
+  const results: { markdown: string; prefix: string; }[] = [];
   const promises = [];
 
   let output = `# ${TITLE}\n\n`;
@@ -365,7 +387,7 @@ async function generateOutput() {
     });
 }
 
-function isEntryUnavailable(unavailableUrls, docPath) {
+function isEntryUnavailable(unavailableUrls: UnavailableUrl[], docPath: string) {
   return !!unavailableUrls.find(entry =>
     entry.url.endsWith(docPath.substring(1))
   );

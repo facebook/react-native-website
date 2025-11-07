@@ -9,6 +9,8 @@
 
 import visit from 'unist-util-visit-parents';
 import fromEntries from 'object.fromentries';
+import { Node, Data } from 'unist';
+import { Root } from 'mdast';
 
 const parseParams = (paramString = '') => {
   const params = fromEntries(new URLSearchParams(paramString));
@@ -20,7 +22,7 @@ const parseParams = (paramString = '') => {
   return params;
 };
 
-function attr(name, value) {
+function attr(name: string, value: string) {
   return {
     type: 'mdxJsxAttribute',
     name,
@@ -28,7 +30,7 @@ function attr(name, value) {
   };
 }
 
-async function toJsxNode(node) {
+async function toJsxNode(node: Node<Data>) {
   const params = parseParams(node.meta);
 
   // Gather necessary Params
@@ -85,7 +87,7 @@ async function toJsxNode(node) {
 }
 
 export default function SnackPlayer() {
-  return async tree => {
+  return async (tree: Node<Data>) => {
     const nodesToProcess = [];
     visit(tree, 'code', (node, parent) => {
       if (node.lang === 'SnackPlayer') {
