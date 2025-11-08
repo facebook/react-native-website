@@ -247,6 +247,8 @@ export default {
           'global-FormData',
           'global-global',
           'global-Headers',
+          'global-intersectionobserver',
+          'global-intersectionobserverentry',
           'global-navigator',
           'global-performance',
           'global-PerformanceEntry',
