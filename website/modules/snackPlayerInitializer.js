@@ -65,8 +65,27 @@ export default (() => {
     });
   };
 
+  const setupSnackObserver = () => {
+    const targetContainer =
+      document.querySelector('.container') || document.body;
+
+    const observer = new MutationObserver(() => {
+      const snacks = targetContainer?.querySelectorAll('.snack-player');
+      if (snacks.length && window.ExpoSnack) {
+        updateSnacksTheme();
+        window.ExpoSnack.initialize();
+      }
+    });
+
+    observer.observe(targetContainer, {
+      childList: true,
+      subtree: true,
+    });
+  };
+
   // Need to set the theme before the snack script (deferred) initialize
   updateSnacksTheme();
+  setupSnackObserver();
   setupThemeSynchronization();
 
   return {
