@@ -1,122 +1,120 @@
----
-id: getting-started-without-a-framework
-title: Get Started Without a Framework
-hide_table_of_contents: true
----
+import React from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, SafeAreaView } from 'react-native';
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import constants from '@site/core/TabsConstants';
-import PlatformSupport from '@site/src/theme/PlatformSupport';
+// --- (NOTA: La prop 'navigation' se usa para cambiar de pantalla en React Native) ---
+const WelcomeScreen = ({ navigation }) => {
 
-import RemoveGlobalCLI from './\_remove-global-cli.md';
+    // Función que maneja la acción de pulsar el botón de registro
+    const handleRegisterPress = (userType) => {
+        // Por ahora, solo mostraremos el tipo de usuario, 
+        // pero luego esto nos llevará a una pantalla de registro con un formulario.
+        console.log(`Navegando a Registro como: ${userType}`);
+        
+        // **FUTURO:** Aquí se usaría: navigation.navigate('Register', { type: userType });
+    };
 
-<PlatformSupport platforms={['android', 'ios', 'macOS', 'tv', 'watchOS', 'web', 'windows', 'visionOS']} />
+    return (
+        // SafeAreaView asegura que el contenido no se oculte detrás de la barra de estado
+        <SafeAreaView style={styles.container}>
+            <View style={styles.header}>
+                <Text style={styles.title}>¡Bienvenido a Tu App de Contratistas!</Text>
+                <Text style={styles.subtitle}>Encuentra profesionales o expón tu trabajo.</Text>
+            </View>
 
-If you have constraints that are not served well by a [Framework](/architecture/glossary#react-native-framework), or you prefer to write your own Framework, you can create a React Native app without using a Framework.
+            <View style={styles.buttonContainer}>
+                {/* Botón para registrarse como Cliente */}
+                <TouchableOpacity 
+                    style={[styles.button, styles.clientButton]}
+                    onPress={() => handleRegisterPress('Cliente')}
+                >
+                    <Text style={styles.buttonText}>Soy un Cliente (Buscar Contratistas)</Text>
+                </TouchableOpacity>
 
-To do so, you'll first need to [set up your environment](set-up-your-environment). Once you're set up, continue with the steps below to create an application and start developing.
+                {/* Botón para registrarse como Proveedor/Contratista */}
+                <TouchableOpacity 
+                    style={[styles.button, styles.providerButton]}
+                    onPress={() => handleRegisterPress('Contratista')}
+                >
+                    <Text style={styles.buttonText}>Soy un Contratista (Ofrecer Servicios)</Text>
+                </TouchableOpacity>
+            </View>
 
-### Step 1: Creating a new application
+            <View style={styles.loginArea}>
+                <Text style={styles.loginText}>¿Ya tienes una cuenta?</Text>
+                <TouchableOpacity 
+                    // **FUTURO:** navigation.navigate('Login');
+                    onPress={() => console.log('Navegando a Iniciar Sesión')}
+                >
+                    <Text style={styles.loginLink}>Iniciar Sesión</Text>
+                </TouchableOpacity>
+            </View>
 
-<RemoveGlobalCLI />
+        </SafeAreaView>
+    );
+};
 
-You can use [React Native Community CLI](https://github.com/react-native-community/cli) to generate a new project. Let's create a new React Native project called "AwesomeProject":
+// --- (ESTILOS: Define cómo se verá la pantalla) ---
+const styles = StyleSheet.create({
+    container: {
+        flex: 1, // Hace que el contenedor ocupe toda la pantalla
+        backgroundColor: '#FFFFFF',
+        alignItems: 'center',
+        justifyContent: 'space-between', // Distribuye el contenido verticalmente
+        paddingHorizontal: 20,
+        paddingVertical: 50,
+    },
+    header: {
+        alignItems: 'center',
+        marginBottom: 40,
+    },
+    title: {
+        fontSize: 28,
+        fontWeight: 'bold',
+        color: '#333333',
+        textAlign: 'center',
+        marginBottom: 10,
+    },
+    subtitle: {
+        fontSize: 16,
+        color: '#666666',
+        textAlign: 'center',
+    },
+    buttonContainer: {
+        width: '100%',
+        alignItems: 'center',
+    },
+    button: {
+        width: '90%',
+        paddingVertical: 15,
+        borderRadius: 8,
+        marginVertical: 10,
+        alignItems: 'center',
+    },
+    clientButton: {
+        backgroundColor: '#007AFF', // Azul para Clientes
+    },
+    providerButton: {
+        backgroundColor: '#4CD964', // Verde para Contratistas
+    },
+    buttonText: {
+        color: 'white',
+        fontSize: 16,
+        fontWeight: '600',
+    },
+    loginArea: {
+        flexDirection: 'row',
+        marginTop: 20,
+    },
+    loginText: {
+        fontSize: 14,
+        color: '#666666',
+        marginRight: 5,
+    },
+    loginLink: {
+        fontSize: 14,
+        color: '#007AFF',
+        fontWeight: 'bold',
+    }
+});
 
-```shell
-npx @react-native-community/cli@latest init AwesomeProject
-```
-
-This is not necessary if you are integrating React Native into an existing application, or if you've installed [Expo](https://docs.expo.dev/bare/installing-expo-modules/) in your project, or if you're adding Android support to an existing React Native project (see [Integration with Existing Apps](integration-with-existing-apps.md)). You can also use a third-party CLI to set up your React Native app, such as [Ignite CLI](https://github.com/infinitered/ignite).
-
-:::info
-
-If you are having trouble with iOS, try to reinstall the dependencies by running:
-
-1. `cd ios` to navigate to the `ios` folder.
-2. `bundle install` to install [Bundler](https://bundler.io/)
-3. `bundle exec pod install` to install the iOS dependencies managed by CocoaPods.
-
-:::
-
-#### [Optional] Using a specific version or template
-
-If you want to start a new project with a specific React Native version, you can use the `--version` argument:
-
-```shell
-npx @react-native-community/cli@X.XX.X init AwesomeProject --version X.XX.X
-```
-
-You can also start a project with a custom React Native template with the `--template` argument, read more [here](https://github.com/react-native-community/cli/blob/main/docs/init.md#initializing-project-with-custom-template).
-
-### Step 2: Start Metro
-
-[**Metro**](https://metrobundler.dev/) is the JavaScript build tool for React Native. To start the Metro development server, run the following from your project folder:
-
-<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
-<TabItem value="npm">
-
-```shell
-npm start
-```
-
-</TabItem>
-<TabItem value="yarn">
-
-```shell
-yarn start
-```
-
-</TabItem>
-</Tabs>
-
-:::note
-If you're familiar with web development, Metro is similar to bundlers such as Vite and webpack, but is designed end-to-end for React Native. For instance, Metro uses [Babel](https://babel.dev/) to transform syntax such as JSX into executable JavaScript.
-:::
-
-### Step 3: Start your application
-
-Let Metro Bundler run in its own terminal. Open a new terminal inside your React Native project folder. Run the following:
-
-<Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
-<TabItem value="npm">
-
-```shell
-npm run android
-```
-
-</TabItem>
-<TabItem value="yarn">
-
-```shell
-yarn android
-```
-
-</TabItem>
-</Tabs>
-
-If everything is set up correctly, you should see your new app running in your Android emulator shortly.
-
-This is one way to run your app - you can also run it directly from within Android Studio.
-
-:::tip
-If you can't get this to work, see the [Troubleshooting](troubleshooting.md) page.
-:::
-
-### Step 4: Modifying your app
-
-Now that you have successfully run the app, let's modify it.
-
-- Open `App.tsx` in your text editor of choice and edit some lines.
-- Press the <kbd>R</kbd> key twice or select `Reload` from the Dev Menu (<kbd>Ctrl</kbd> + <kbd>M</kbd>) to see your changes!
-
-### That's it!
-
-Congratulations! You've successfully run and modified your first barebone React Native app.
-
-<center><img src="/docs/assets/GettingStartedCongratulations.png" width="150"></img></center>
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](integration-with-existing-apps.md).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](getting-started).
+export default WelcomeScreen;
