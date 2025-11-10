@@ -8,7 +8,7 @@
  * @format
  */
 
-import lintExamples from '../src/lintExamples';
+import lintExamples from '../src/lintExamples.ts';
 
 console.log('Linting TSX docs code examples...');
 

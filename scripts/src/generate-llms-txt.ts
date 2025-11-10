@@ -41,7 +41,7 @@ const SLUG_TO_URL = {
 // Function to convert the TypeScript sidebar config to JSON
 async function convertSidebarConfigToJson(fileName: string) {
   const inputFileContent = fs.readFileSync(
-    path.join(import.meta.dirname, '../website', fileName),
+    path.join(import.meta.dirname, '../../website', fileName),
     'utf8'
   );
   const tempFilePath = path.join(import.meta.dirname, `temp-${fileName}.cjs`);
