@@ -12,7 +12,7 @@ import path from 'node:path';
 const imageReferenceRegExp = new RegExp(/!\[.*?\]\((.*)\)/g);
 
 async function main() {
-  const assets: { imagePath: string; markdownPath: string; }[] = [];
+  const assets: {imagePath: string; markdownPath: string}[] = [];
   const missingAssets = [];
   const queue = [];
 

@@ -93,7 +93,9 @@ function extractUrlsFromSidebar(sidebarConfig: SidebarConfig, prefix: string) {
   return urls;
 }
 
-type SidebarItem = string | {type: string; id?: string; items?: SidebarItem[]; label?: string};
+type SidebarItem =
+  | string
+  | {type: string; id?: string; items?: SidebarItem[]; label?: string};
 type Items = SidebarItem[] | {items: SidebarItem[]};
 
 interface SidebarConfig {
@@ -106,16 +108,16 @@ function processItemsForUrls(items: Items, urls: string[], prefix: string) {
   const itemsArray = getItemsArray(items);
 
   itemsArray.forEach(item => {
-      if (typeof item === 'string') {
-        urls.push(`${URL_PREFIX}${prefix}/${item}`);
-      } else if (typeof item === 'object') {
-        if (item.type === 'doc' && item.id) {
-          urls.push(`${URL_PREFIX}${prefix}/${item.id}`);
-        } else if (item.type === 'category' && Array.isArray(item.items)) {
-          processItemsForUrls(item.items, urls, prefix);
-        }
+    if (typeof item === 'string') {
+      urls.push(`${URL_PREFIX}${prefix}/${item}`);
+    } else if (typeof item === 'object') {
+      if (item.type === 'doc' && item.id) {
+        urls.push(`${URL_PREFIX}${prefix}/${item.id}`);
+      } else if (item.type === 'category' && Array.isArray(item.items)) {
+        processItemsForUrls(item.items, urls, prefix);
       }
-    });
+    }
+  });
 }
 
 interface UrlCheckResult {
@@ -236,7 +238,11 @@ function mapDocPath(item: string | SidebarItem, prefix: string): string {
   return `${item}.md`;
 }
 
-type UnavailableUrl = {url: string; status: number | string; error: string | null;};
+type UnavailableUrl = {
+  url: string;
+  status: number | string;
+  error: string | null;
+};
 
 // Helper function to extract items array from Items type
 function getItemsArray(items: Items): SidebarItem[] {
@@ -248,7 +254,12 @@ function getItemsArray(items: Items): SidebarItem[] {
 }
 
 // Function to generate output for each sidebar
-function generateMarkdown(sidebarConfig: SidebarConfig, docPath: string, prefix: string, unavailableUrls: UnavailableUrl[]) {
+function generateMarkdown(
+  sidebarConfig: SidebarConfig,
+  docPath: string,
+  prefix: string,
+  unavailableUrls: UnavailableUrl[]
+) {
   let markdown = '';
 
   // Process each section (docs, api, components)
@@ -318,7 +329,7 @@ function generateMarkdown(sidebarConfig: SidebarConfig, docPath: string, prefix:
 }
 
 async function generateOutput() {
-  const results: { markdown: string; prefix: string; }[] = [];
+  const results: {markdown: string; prefix: string}[] = [];
   const promises = [];
 
   let output = `# ${TITLE}\n\n`;
@@ -387,7 +398,10 @@ async function generateOutput() {
     });
 }
 
-function isEntryUnavailable(unavailableUrls: UnavailableUrl[], docPath: string) {
+function isEntryUnavailable(
+  unavailableUrls: UnavailableUrl[],
+  docPath: string
+) {
   return !!unavailableUrls.find(entry =>
     entry.url.endsWith(docPath.substring(1))
   );
