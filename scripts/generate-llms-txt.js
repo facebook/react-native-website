@@ -36,6 +36,7 @@ const INPUT_FILE_PATHS = [
 const SLUG_TO_URL = {
   'architecture-overview': 'overview',
   'architecture-glossary': 'glossary',
+  'releases/releases': 'releases',
 };
 
 // Function to convert the TypeScript sidebar config to JSON
@@ -249,50 +250,57 @@ function generateMarkdown(sidebarConfig, docPath, prefix, unavailableUrls) {
           );
 
       // Process each item in the category
-      reorderedArray.forEach(item => {
+      for (const item of reorderedArray) {
         if (typeof item === 'string') {
-          // This is a direct page reference
           const fullDocPath = `${docPath}${mapDocPath(item, prefix)}`;
           if (!isEntryUnavailable(unavailableUrls, fullDocPath)) {
-            const {title, slug} = extractMetadataFromMarkdown(fullDocPath);
-            markdown += `- [${title}](${URL_PREFIX}${prefix}/${slug ?? item})\n`;
+            if (item.includes('/')) {
+              const pathChunks = item.split('/');
+              if (pathChunks[0] === pathChunks[1]) {
+                markdown += appendPageLink(fullDocPath, prefix, pathChunks[0]);
+                continue;
+              }
+            }
+            markdown += appendPageLink(fullDocPath, prefix, item);
           }
         } else if (typeof item === 'object') {
           if (item.type === 'doc' && item.id) {
-            // This is a doc reference with an explicit ID
             const fullDocPath = `${docPath}${mapDocPath(item, prefix)}`;
             if (!isEntryUnavailable(unavailableUrls, fullDocPath)) {
-              const {title, slug} = extractMetadataFromMarkdown(fullDocPath);
-              markdown += `- [${title}](${URL_PREFIX}${prefix}/${slug ?? item.id})\n`;
+              markdown += appendPageLink(fullDocPath, prefix, item.id);
             }
           } else if (item.type === 'category' && Array.isArray(item.items)) {
-            // This is a category with nested items
             markdown += `#### ${item.label}\n\n`;
             item.items.forEach(nestedItem => {
               if (typeof nestedItem === 'string') {
                 const fullDocPath = `${docPath}${mapDocPath(nestedItem, prefix)}`;
                 if (!isEntryUnavailable(unavailableUrls, fullDocPath)) {
-                  const {title, slug} =
-                    extractMetadataFromMarkdown(fullDocPath);
-                  markdown += `- [${title}](${URL_PREFIX}${prefix}/${slug ?? nestedItem})\n`;
+                  markdown += appendPageLink(fullDocPath, prefix, nestedItem);
                 }
               } else if (nestedItem.type === 'doc' && nestedItem.id) {
                 const fullDocPath = `${docPath}${mapDocPath(nestedItem, prefix)}`;
                 if (!isEntryUnavailable(unavailableUrls, fullDocPath)) {
-                  const {title, slug} =
-                    extractMetadataFromMarkdown(fullDocPath);
-                  markdown += `- [${title}](${URL_PREFIX}${prefix}/${slug ?? nestedItem.id})\n`;
+                  markdown += appendPageLink(
+                    fullDocPath,
+                    prefix,
+                    nestedItem.id
+                  );
                 }
               }
             });
           }
         }
-      });
+      }
     });
   });
 
   // Format and cleanup whitespaces
   return markdown.replace(/(#+ .*)\n/g, '\n$1\n').replace(/\n(\n)+/g, '\n\n');
+}
+
+function appendPageLink(fullDocPath, prefix, fsPath) {
+  const {title, slug} = extractMetadataFromMarkdown(fullDocPath);
+  return `- [${title}](${URL_PREFIX}${prefix}/${slug ?? fsPath})\n`;
 }
 
 async function generateOutput() {
