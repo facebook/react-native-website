@@ -196,7 +196,7 @@ async function runLinter(command: string, args: string[]) {
 
     return 0;
   } catch (ex) {
-    // @ts-expect-error
+    // @ts-expect-error TODO: find proper type
     return ex.status;
   }
 }
