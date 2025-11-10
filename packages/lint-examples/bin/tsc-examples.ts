@@ -8,7 +8,7 @@
  * @format
  */
 
-import lintExamples from '../src/lintExamples.js';
+import lintExamples from '../src/lintExamples';
 
 console.log('Typechecking TSX docs code examples...');
 
