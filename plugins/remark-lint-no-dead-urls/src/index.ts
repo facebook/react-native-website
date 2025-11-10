@@ -10,6 +10,7 @@
 import {URL} from 'node:url';
 import {lintRule} from 'unified-lint-rule';
 import {visit} from 'unist-util-visit';
+import type {VFile} from 'vfile';
 
 import {Root} from 'mdast';
 import {fetch} from './lib.js';
@@ -35,8 +36,7 @@ const uri = {
 async function cacheFetch(
   urlOrPath: string,
   method: Method,
-  // @ts-expect-error TODO: find proper type
-  options: {[x: string]; baseUrl}
+  options: {[x: string]: unknown; baseUrl?: string}
 ) {
   if (linkCache.has(urlOrPath)) {
     return [urlOrPath, linkCache.get(urlOrPath)];
@@ -53,8 +53,7 @@ async function cacheFetch(
 
 async function naiveLinkCheck(
   urls: string[],
-  // @ts-expect-error TODO: find proper type
-  options: {[x: string]; baseUrl}
+  options: {[x: string]: unknown; baseUrl?: string}
 ) {
   return Promise.allSettled(
     urls.map(async url => {
@@ -79,13 +78,11 @@ async function naiveLinkCheck(
 
 async function noDeadUrls(
   ast: Root,
-  // @ts-expect-error TODO: find proper type
-  file,
+  file: VFile,
   options: {
     skipUrlPatterns?: string[];
     baseUrl?: string;
-    // @ts-expect-error TODO: find proper type
-    [key: string];
+    [key: string]: unknown;
   } = {}
 ) {
   const urlToNodes = new Map();
@@ -94,8 +91,7 @@ async function noDeadUrls(
 
   // Grab all possible urls from the markdown
   visit(ast, ['link', 'image', 'definition'], node => {
-    // @ts-expect-error TODO: find proper type
-    const {url} = node;
+    const {url} = node as {url?: string};
     if (
       !url ||
       uri.isLocalhost(url) ||
@@ -119,30 +115,30 @@ async function noDeadUrls(
     urlToNodes.get(url).push(node);
   });
 
-  // @ts-expect-error TODO: find proper type
   const results = await naiveLinkCheck([...urlToNodes.keys()], clientOptions);
 
-  // @ts-expect-error TODO: find proper type
-  for (const {value} of results) {
-    const [url, statusCode] = value;
-    const nodes = urlToNodes.get(url) ?? [];
+  for (const result of results) {
+    if (result.status === 'fulfilled') {
+      const [url, statusCode] = result.value;
+      const nodes = urlToNodes.get(url) ?? [];
 
-    if (statusCode === HTTP.OK || statusCode === HTTP.FOUND) {
-      continue;
-    }
+      if (statusCode === HTTP.OK || statusCode === HTTP.FOUND) {
+        continue;
+      }
 
-    for (const node of nodes) {
-      switch (statusCode) {
-        case 'ENOTFOUND':
-          file.message(`Link to ${url} is broken, domain not found`, node);
-          break;
-        case HTTP.TOO_MANY_REQUESTS:
-          file.message(`Link to ${url} is being rate limited`, node);
-          break;
-        case HTTP.NOT_FOUND:
-        default:
-          file.message(`Link to ${url} is broken`, node);
-          break;
+      for (const node of nodes) {
+        switch (statusCode) {
+          case 'ENOTFOUND':
+            file.message(`Link to ${url} is broken, domain not found`, node);
+            break;
+          case HTTP.TOO_MANY_REQUESTS:
+            file.message(`Link to ${url} is being rate limited`, node);
+            break;
+          case HTTP.NOT_FOUND:
+          default:
+            file.message(`Link to ${url} is broken`, node);
+            break;
+        }
       }
     }
   }
