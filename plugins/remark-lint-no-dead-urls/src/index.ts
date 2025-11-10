@@ -11,9 +11,8 @@ import {URL} from 'node:url';
 import {lintRule} from 'unified-lint-rule';
 import {visit} from 'unist-util-visit';
 
-import {fetch} from './lib.js';
-import {Node, Data} from 'unist';
 import {Root} from 'mdast';
+import {fetch} from './lib.js';
 
 import {Method} from 'got';
 
@@ -36,7 +35,8 @@ const uri = {
 async function cacheFetch(
   urlOrPath: string,
   method: Method,
-  options: {[x: string]: any; baseUrl: any}
+  // @ts-expect-error TODO: find proper type
+  options: {[x: string]; baseUrl}
 ) {
   if (linkCache.has(urlOrPath)) {
     return [urlOrPath, linkCache.get(urlOrPath)];
@@ -53,7 +53,8 @@ async function cacheFetch(
 
 async function naiveLinkCheck(
   urls: string[],
-  options: {[x: string]: any; baseUrl: any}
+  // @ts-expect-error TODO: find proper type
+  options: {[x: string]; baseUrl}
 ) {
   return Promise.allSettled(
     urls.map(async url => {
@@ -64,10 +65,11 @@ async function naiveLinkCheck(
           // Fallback, some endpoints don't support HEAD requests
           return await cacheFetch(url, 'GET', options);
         } catch (e) {
-          // @ts-expect-error
+          // @ts-expect-error TODO: find proper type
           if (e.code === 'ERR_GOT_REQUEST_ERROR') {
             throw e;
           }
+          // @ts-expect-error TODO: find proper type
           const code = e.statusCode ?? e?.response?.statusCode ?? e.code;
           linkCache.set(url, code);
           return [url, code];
@@ -79,11 +81,13 @@ async function naiveLinkCheck(
 
 async function noDeadUrls(
   ast: Root,
-  file: any,
+  // @ts-expect-error TODO: find proper type
+  file,
   options: {
     skipUrlPatterns?: string[];
     baseUrl?: string;
-    [key: string]: any;
+    // @ts-expect-error TODO: find proper type
+    [key: string];
   } = {}
 ) {
   const urlToNodes = new Map();
@@ -92,6 +96,7 @@ async function noDeadUrls(
 
   // Grab all possible urls from the markdown
   visit(ast, ['link', 'image', 'definition'], node => {
+    // @ts-expect-error TODO: find proper type
     const {url} = node;
     if (
       !url ||
@@ -116,8 +121,10 @@ async function noDeadUrls(
     urlToNodes.get(url).push(node);
   });
 
+  // @ts-expect-error TODO: find proper type
   const results = await naiveLinkCheck([...urlToNodes.keys()], clientOptions);
 
+  // @ts-expect-error TODO: find proper type
   for (const {value} of results) {
     const [url, statusCode] = value;
     const nodes = urlToNodes.get(url) ?? [];

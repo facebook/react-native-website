@@ -9,8 +9,7 @@
 
 import visit from 'unist-util-visit-parents';
 import fromEntries from 'object.fromentries';
-import { Node, Data } from 'unist';
-import { Root } from 'mdast';
+import {Node, Data} from 'unist';
 
 const parseParams = (paramString = '') => {
   const params = fromEntries(new URLSearchParams(paramString));
@@ -31,6 +30,7 @@ function attr(name: string, value: string) {
 }
 
 async function toJsxNode(node: Node<Data>) {
+  // @ts-expect-error: TODO: find proper type
   const params = parseParams(node.meta);
 
   // Gather necessary Params
@@ -44,6 +44,7 @@ async function toJsxNode(node: Node<Data>) {
     JSON.stringify({
       [filename]: {
         type: 'CODE',
+        // @ts-expect-error: TODO: find proper type
         contents: node.value,
       },
     })
@@ -82,18 +83,24 @@ async function toJsxNode(node: Node<Data>) {
   };
 
   // We "replace" the current node by a JSX node
+  // @ts-expect-error: TODO: find proper type
   Object.keys(node).forEach(key => delete node[key]);
+  // @ts-expect-error: TODO: find proper type
   Object.keys(jsxNode).forEach(key => (node[key] = jsxNode[key]));
 }
 
 export default function SnackPlayer() {
   return async (tree: Node<Data>) => {
+    // @ts-expect-error: TODO: find proper type
     const nodesToProcess = [];
     visit(tree, 'code', (node, parent) => {
+      // @ts-expect-error: TODO: find proper type
       if (node.lang === 'SnackPlayer') {
+        // @ts-expect-error: TODO: find proper type
         nodesToProcess.push(toJsxNode(node, parent));
       }
     });
+    // @ts-expect-error: TODO: find proper type
     await Promise.all(nodesToProcess);
   };
 }
