@@ -6,7 +6,6 @@
  */
 
 import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
-// import './types/expo-snack';
 
 export default (() => {
   if (!ExecutionEnvironment.canUseDOM) {
