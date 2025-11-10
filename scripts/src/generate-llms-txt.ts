@@ -244,7 +244,6 @@ type UnavailableUrl = {
   error: string | null;
 };
 
-// Helper function to extract items array from Items type
 function getItemsArray(items: Items): SidebarItem[] {
   if (Array.isArray(items)) {
     return items;
