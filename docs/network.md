@@ -88,7 +88,7 @@ const App = () => {
   const getMovies = async () => {
     try {
       const response = await fetch('https://reactnative.dev/movies.json');
-      const json = await response.json();
+      const json = (await response.json()) as any;
       setData(json.movies);
     } catch (error) {
       console.error(error);
@@ -143,7 +143,7 @@ const App = () => {
   const getMovies = async () => {
     try {
       const response = await fetch('https://reactnative.dev/movies.json');
-      const json = await response.json();
+      const json = (await response.json()) as any;
       setData(json.movies);
     } catch (error) {
       console.error(error);
