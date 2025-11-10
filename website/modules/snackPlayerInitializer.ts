@@ -6,6 +6,7 @@
  */
 
 import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
+// import './types/expo-snack';
 
 export default (() => {
   if (!ExecutionEnvironment.canUseDOM) {
@@ -15,14 +16,12 @@ export default (() => {
   const updateSnacksTheme = () => {
     const theme = document.querySelector('html').dataset.theme;
     document.querySelectorAll('.snack-player').forEach(snack => {
-      // @ts-expect-error: dataset exists
-      snack.dataset.snackTheme = theme;
+      (snack as HTMLElement).dataset.snackTheme = theme;
     });
   };
 
   const initSnackPlayers = () => {
     updateSnacksTheme();
-    // @ts-expect-error: ExpoSnack exists
     window?.ExpoSnack?.initialize();
   };
 
@@ -55,9 +54,7 @@ export default (() => {
       if ('ExpoSnack' in window) {
         document.querySelectorAll('.snack-player').forEach(container => {
           updateSnacksTheme();
-          // @ts-expect-error: ExpoSnack exists
           window?.ExpoSnack?.remove(container);
-          // @ts-expect-error: ExpoSnack exists
           window?.ExpoSnack?.append(container);
         });
       }
