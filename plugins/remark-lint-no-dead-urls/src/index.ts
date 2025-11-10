@@ -14,7 +14,7 @@ import {visit} from 'unist-util-visit';
 import {Root} from 'mdast';
 import {fetch} from './lib.js';
 
-import {Method} from 'got';
+import {Method, RequestError} from 'got';
 
 const linkCache = new Map();
 
@@ -65,12 +65,10 @@ async function naiveLinkCheck(
           // Fallback, some endpoints don't support HEAD requests
           return await cacheFetch(url, 'GET', options);
         } catch (e) {
-          // @ts-expect-error TODO: find proper type
-          if (e.code === 'ERR_GOT_REQUEST_ERROR') {
+          if (!(e instanceof RequestError)) {
             throw e;
           }
-          // @ts-expect-error TODO: find proper type
-          const code = e.statusCode ?? e?.response?.statusCode ?? e.code;
+          const code = e.response?.statusCode ?? e.code;
           linkCache.set(url, code);
           return [url, code];
         }
