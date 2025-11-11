@@ -66,18 +66,15 @@ export default (() => {
   };
 
   const setupSnackObserver = () => {
-    const targetContainer =
-      document.querySelector('.container') || document.body;
-
     const observer = new MutationObserver(() => {
-      const snacks = targetContainer?.querySelectorAll('.snack-player');
-      if (snacks.length && window.ExpoSnack) {
-        updateSnacksTheme();
-        window.ExpoSnack.initialize();
+      const snacks = document.body.querySelectorAll('.snack-player');
+
+      if (snacks.length) {
+        initSnackPlayers();
       }
     });
 
-    observer.observe(targetContainer, {
+    observer.observe(document.querySelector('.container'), {
       childList: true,
       subtree: true,
     });
@@ -91,6 +88,7 @@ export default (() => {
   return {
     onRouteDidUpdate() {
       initSnackPlayers();
+      setupSnackObserver();
       setupTabPanelsMutationObservers();
     },
   };
