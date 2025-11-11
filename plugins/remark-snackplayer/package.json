@@ -29,7 +29,6 @@
     "@types/tape": "^5.8.1",
     "remark": "^15.0.1",
     "remark-mdx": "^3.1.0",
-    "tape": "^5.7.0",
-    "typescript": "^5.9.2"
+    "tape": "^5.7.0"
   }
 }
