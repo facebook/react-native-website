@@ -325,7 +325,7 @@ function generateMarkdown(
   return markdown.replace(/(#+ .*)\n/g, '\n$1\n').replace(/\n(\n)+/g, '\n\n');
 }
 
-function appendPageLink(fullDocPath, prefix, fsPath) {
+function appendPageLink(fullDocPath: string, prefix: string, fsPath: string) {
   const {title, slug} = extractMetadataFromMarkdown(fullDocPath);
   return `- [${title}](${URL_PREFIX}${prefix}/${slug ?? fsPath})\n`;
 }
