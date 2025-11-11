@@ -14,7 +14,7 @@
     "src/*"
   ],
   "scripts": {
-    "lint": "eslint ."
+    "lint": "tsc --noEmit && eslint ."
   },
   "dependencies": {
     "unist-util-visit": "^5.0.0"

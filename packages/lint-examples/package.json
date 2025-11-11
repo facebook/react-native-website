@@ -9,7 +9,7 @@
     "tsc-examples": "./bin/tsc-examples.ts"
   },
   "scripts": {
-    "lint": "eslint"
+    "lint": "tsc --noEmit && eslint"
   },
   "devDependencies": {
     "@babel/core": "^7.28.4",
