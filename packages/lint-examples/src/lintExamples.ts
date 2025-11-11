@@ -48,10 +48,10 @@ const validExtensions = ['js', 'tsx'];
  * file made by the linter. Commands passed to node are passed to the
  * underlying command.
  *
- * @param opts.command an npx command to run as the linter tool
- * @param opts.args extra arguments to be passed to the linter
- * @param opts.extension extension to treat the example as if it does not specify one
- * @param opts.writeBack whether to update examples with mutations made by the linter
+ * @param command an npx command to run as the linter tool
+ * @param args extra arguments to be passed to the linter
+ * @param extension extension to treat the example as if it does not specify one
+ * @param writeBack whether to update examples with mutations made by the linter
  */
 async function lintExamples({
   command,
@@ -190,7 +190,7 @@ async function extractExamplesFromDocument(
  * @param command an npx command to run as the linter tool
  * @param args extra arguments to be passed to the linter
  */
-async function runLinter(command: string, args: string[]) {
+async function runLinter(command: string, args: string[]): Promise<number> {
   const combinedArgs = [...processArgs, ...args];
 
   try {
@@ -201,8 +201,14 @@ async function runLinter(command: string, args: string[]) {
 
     return 0;
   } catch (ex) {
-    // @ts-expect-error TODO: find proper type
-    return ex.status;
+    if (
+      ex instanceof Error &&
+      'status' in ex &&
+      typeof ex.status === 'number'
+    ) {
+      return ex.status;
+    }
+    return 1;
   }
 }
 

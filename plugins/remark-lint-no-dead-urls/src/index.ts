@@ -7,15 +7,14 @@
 
 // Forked from: https://github.com/davidtheclark/remark-lint-no-dead-urls
 
+import {Method, RequestError} from 'got';
+import {Root} from 'mdast';
 import {URL} from 'node:url';
 import {lintRule} from 'unified-lint-rule';
 import {visit} from 'unist-util-visit';
 import type {VFile} from 'vfile';
 
-import {Root} from 'mdast';
 import {fetch} from './lib.js';
-
-import {Method, RequestError} from 'got';
 
 const linkCache = new Map();
 
@@ -36,7 +35,7 @@ const uri = {
 async function cacheFetch(
   urlOrPath: string,
   method: Method,
-  options: {[x: string]: unknown; baseUrl?: string}
+  options: {baseUrl?: string} & Record<string, unknown>
 ) {
   if (linkCache.has(urlOrPath)) {
     return [urlOrPath, linkCache.get(urlOrPath)];
@@ -53,7 +52,7 @@ async function cacheFetch(
 
 async function naiveLinkCheck(
   urls: string[],
-  options: {[x: string]: unknown; baseUrl?: string}
+  options: {baseUrl?: string} & Record<string, unknown>
 ) {
   return Promise.allSettled(
     urls.map(async url => {
@@ -82,8 +81,7 @@ async function noDeadUrls(
   options: {
     skipUrlPatterns?: string[];
     baseUrl?: string;
-    [key: string]: unknown;
-  } = {}
+  } & Record<string, unknown> = {}
 ) {
   const urlToNodes = new Map();
 

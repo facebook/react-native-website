@@ -38,6 +38,23 @@ const SLUG_TO_URL = {
   'architecture-glossary': 'glossary',
 };
 
+type SidebarItem =
+  | string
+  | {type: string; id?: string; items?: SidebarItem[]; label?: string};
+type Items = SidebarItem[] | {items: SidebarItem[]};
+
+type SidebarConfig = {
+  [section: string]: {
+    [category: string]: Items;
+  };
+};
+
+type UrlData = {
+  url: string;
+  status: number | string;
+  error?: string | null;
+};
+
 // Function to convert the TypeScript sidebar config to JSON
 async function convertSidebarConfigToJson(fileName: string) {
   const inputFileContent = fs.readFileSync(
@@ -93,16 +110,6 @@ function extractUrlsFromSidebar(sidebarConfig: SidebarConfig, prefix: string) {
   return urls;
 }
 
-type SidebarItem =
-  | string
-  | {type: string; id?: string; items?: SidebarItem[]; label?: string};
-type Items = SidebarItem[] | {items: SidebarItem[]};
-
-interface SidebarConfig {
-  [section: string]: {
-    [category: string]: Items;
-  };
-}
 // Recursive function to process items and extract URLs
 function processItemsForUrls(items: Items, urls: string[], prefix: string) {
   const itemsArray = getItemsArray(items);
@@ -120,14 +127,8 @@ function processItemsForUrls(items: Items, urls: string[], prefix: string) {
   });
 }
 
-interface UrlCheckResult {
-  url: string;
-  status: number | string;
-  error?: string;
-}
-
 // Function to check URL status
-function checkUrl(urlString: string): Promise<UrlCheckResult> {
+function checkUrl(urlString: string): Promise<UrlData> {
   return new Promise(resolve => {
     const parsedUrl = url.parse(urlString);
 
@@ -141,7 +142,7 @@ function checkUrl(urlString: string): Promise<UrlCheckResult> {
     const req = https.request(options, res => {
       resolve({
         url: urlString,
-        status: res.statusCode || 0,
+        status: res.statusCode ?? 0,
       });
     });
 
@@ -167,7 +168,7 @@ function checkUrl(urlString: string): Promise<UrlCheckResult> {
 
 // Process each URL
 async function processUrls(urls: string[]) {
-  const unavailableUrls: UnavailableUrl[] = [];
+  const unavailableUrls: UrlData[] = [];
 
   for (const urlToCheck of urls) {
     const result = await checkUrl(urlToCheck);
@@ -238,12 +239,6 @@ function mapDocPath(item: string | SidebarItem, prefix: string): string {
   return `${item}.md`;
 }
 
-type UnavailableUrl = {
-  url: string;
-  status: number | string;
-  error: string | null;
-};
-
 function getItemsArray(items: Items): SidebarItem[] {
   if (Array.isArray(items)) {
     return items;
@@ -257,7 +252,7 @@ function generateMarkdown(
   sidebarConfig: SidebarConfig,
   docPath: string,
   prefix: string,
-  unavailableUrls: UnavailableUrl[]
+  unavailableUrls: UrlData[]
 ) {
   let markdown = '';
 
@@ -397,10 +392,7 @@ async function generateOutput() {
     });
 }
 
-function isEntryUnavailable(
-  unavailableUrls: UnavailableUrl[],
-  docPath: string
-) {
+function isEntryUnavailable(unavailableUrls: UrlData[], docPath: string) {
   return !!unavailableUrls.find(entry =>
     entry.url.endsWith(docPath.substring(1))
   );

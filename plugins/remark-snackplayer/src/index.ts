@@ -9,9 +9,10 @@
 
 import visit from 'unist-util-visit-parents';
 import fromEntries from 'object.fromentries';
-import {Node, Data} from 'unist';
+import type {Code} from 'mdast';
+import type {Node} from 'unist';
 
-const parseParams = (paramString = '') => {
+function parseParams(paramString = '') {
   const params = fromEntries(new URLSearchParams(paramString));
 
   if (!params.platform) {
@@ -19,7 +20,7 @@ const parseParams = (paramString = '') => {
   }
 
   return params;
-};
+}
 
 function attr(name: string, value: string) {
   return {
@@ -29,9 +30,8 @@ function attr(name: string, value: string) {
   };
 }
 
-async function toJsxNode(node: Node<Data>) {
-  // @ts-expect-error: TODO: find proper type
-  const params = parseParams(node.meta);
+async function toJsxNode(node: Code) {
+  const params = parseParams(node.meta ?? undefined);
 
   // Gather necessary Params
   const name = params.name ? decodeURIComponent(params.name) : 'Example';
@@ -44,7 +44,6 @@ async function toJsxNode(node: Node<Data>) {
     JSON.stringify({
       [filename]: {
         type: 'CODE',
-        // @ts-expect-error: TODO: find proper type
         contents: node.value,
       },
     })
@@ -83,24 +82,17 @@ async function toJsxNode(node: Node<Data>) {
   };
 
   // We "replace" the current node by a JSX node
-  // @ts-expect-error: TODO: find proper type
-  Object.keys(node).forEach(key => delete node[key]);
-  // @ts-expect-error: TODO: find proper type
-  Object.keys(jsxNode).forEach(key => (node[key] = jsxNode[key]));
+  Object.assign(node, jsxNode as Node);
 }
 
 export default function SnackPlayer() {
-  return async (tree: Node<Data>) => {
-    // @ts-expect-error: TODO: find proper type
-    const nodesToProcess = [];
-    visit(tree, 'code', (node, parent) => {
-      // @ts-expect-error: TODO: find proper type
-      if (node.lang === 'SnackPlayer') {
-        // @ts-expect-error: TODO: find proper type
-        nodesToProcess.push(toJsxNode(node, parent));
+  return async (tree: Node) => {
+    const nodesToProcess: Promise<void>[] = [];
+    visit(tree, 'code', (node: Node) => {
+      if ('lang' in node && node.lang === 'SnackPlayer') {
+        nodesToProcess.push(toJsxNode(node as Code));
       }
     });
-    // @ts-expect-error: TODO: find proper type
     await Promise.all(nodesToProcess);
   };
 }
