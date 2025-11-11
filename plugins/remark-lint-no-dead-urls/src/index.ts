@@ -7,9 +7,12 @@
 
 // Forked from: https://github.com/davidtheclark/remark-lint-no-dead-urls
 
+import {Method, RequestError} from 'got';
+import {Root} from 'mdast';
 import {URL} from 'node:url';
 import {lintRule} from 'unified-lint-rule';
 import {visit} from 'unist-util-visit';
+import type {VFile} from 'vfile';
 
 import {fetch} from './lib.js';
 
@@ -23,12 +26,17 @@ const HTTP = {
 };
 
 const uri = {
-  isLocalhost: url => /^(https?:\/\/)(localhost|127\.0\.0\.1)(:\d+)?/.test(url),
-  isExternal: url => /(https?:\/\/)/.test(url),
-  isPath: url => /^\/.*/.test(url),
+  isLocalhost: (url: string) =>
+    /^(https?:\/\/)(localhost|127\.0\.0\.1)(:\d+)?/.test(url),
+  isExternal: (url: string) => /(https?:\/\/)/.test(url),
+  isPath: (url: string) => /^\/.*/.test(url),
 };
 
-async function cacheFetch(urlOrPath, method, options) {
+async function cacheFetch(
+  urlOrPath: string,
+  method: Method,
+  options: {baseUrl?: string} & Record<string, unknown>
+) {
   if (linkCache.has(urlOrPath)) {
     return [urlOrPath, linkCache.get(urlOrPath)];
   }
@@ -42,7 +50,10 @@ async function cacheFetch(urlOrPath, method, options) {
   return [urlOrPath, code];
 }
 
-async function naiveLinkCheck(urls, options) {
+async function naiveLinkCheck(
+  urls: string[],
+  options: {baseUrl?: string} & Record<string, unknown>
+) {
   return Promise.allSettled(
     urls.map(async url => {
       try {
@@ -52,10 +63,10 @@ async function naiveLinkCheck(urls, options) {
           // Fallback, some endpoints don't support HEAD requests
           return await cacheFetch(url, 'GET', options);
         } catch (e) {
-          if (e.code === 'ERR_GOT_REQUEST_ERROR') {
+          if (!(e instanceof RequestError)) {
             throw e;
           }
-          const code = e.statusCode ?? e?.response?.statusCode ?? e.code;
+          const code = e.response?.statusCode ?? e.code;
           linkCache.set(url, code);
           return [url, code];
         }
@@ -64,14 +75,21 @@ async function naiveLinkCheck(urls, options) {
   );
 }
 
-async function noDeadUrls(ast, file, options = {}) {
+async function noDeadUrls(
+  ast: Root,
+  file: VFile,
+  options: {
+    skipUrlPatterns?: string[];
+    baseUrl?: string;
+  } & Record<string, unknown> = {}
+) {
   const urlToNodes = new Map();
 
   const {skipUrlPatterns, ...clientOptions} = options;
 
   // Grab all possible urls from the markdown
   visit(ast, ['link', 'image', 'definition'], node => {
-    const {url} = node;
+    const {url} = node as {url?: string};
     if (
       !url ||
       uri.isLocalhost(url) ||
@@ -97,26 +115,28 @@ async function noDeadUrls(ast, file, options = {}) {
 
   const results = await naiveLinkCheck([...urlToNodes.keys()], clientOptions);
 
-  for (const {value} of results) {
-    const [url, statusCode] = value;
-    const nodes = urlToNodes.get(url) ?? [];
+  for (const result of results) {
+    if (result.status === 'fulfilled') {
+      const [url, statusCode] = result.value;
+      const nodes = urlToNodes.get(url) ?? [];
 
-    if (statusCode === HTTP.OK || statusCode === HTTP.FOUND) {
-      continue;
-    }
+      if (statusCode === HTTP.OK || statusCode === HTTP.FOUND) {
+        continue;
+      }
 
-    for (const node of nodes) {
-      switch (statusCode) {
-        case 'ENOTFOUND':
-          file.message(`Link to ${url} is broken, domain not found`, node);
-          break;
-        case HTTP.TOO_MANY_REQUESTS:
-          file.message(`Link to ${url} is being rate limited`, node);
-          break;
-        case HTTP.NOT_FOUND:
-        default:
-          file.message(`Link to ${url} is broken`, node);
-          break;
+      for (const node of nodes) {
+        switch (statusCode) {
+          case 'ENOTFOUND':
+            file.message(`Link to ${url} is broken, domain not found`, node);
+            break;
+          case HTTP.TOO_MANY_REQUESTS:
+            file.message(`Link to ${url} is being rate limited`, node);
+            break;
+          case HTTP.NOT_FOUND:
+          default:
+            file.message(`Link to ${url} is broken`, node);
+            break;
+        }
       }
     }
   }

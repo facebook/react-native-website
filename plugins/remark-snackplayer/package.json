@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "description": "Remark Expo Snack Plugin",
-  "main": "src/index.js",
+  "main": "src/index.ts",
   "type": "module",
   "keywords": [
     "remark",
@@ -16,8 +16,8 @@
     "src"
   ],
   "scripts": {
-    "lint": "eslint .",
-    "test": "yarn tape tests/index.js"
+    "lint": "tsc --noEmit && eslint .",
+    "test": "yarn tape tests/index.ts"
   },
   "dependencies": {
     "dedent": "^1.5.3",
@@ -25,8 +25,11 @@
     "unist-util-visit-parents": "^3.1.1"
   },
   "devDependencies": {
+    "@types/object.fromentries": "^2.0.4",
+    "@types/tape": "^5.8.1",
     "remark": "^15.0.1",
     "remark-mdx": "^3.1.0",
-    "tape": "^5.7.0"
+    "tape": "^5.7.0",
+    "typescript": "^5.9.2"
   }
 }

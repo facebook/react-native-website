@@ -9,8 +9,10 @@
 
 import visit from 'unist-util-visit-parents';
 import fromEntries from 'object.fromentries';
+import type {Code} from 'mdast';
+import type {Node} from 'unist';
 
-const parseParams = (paramString = '') => {
+function parseParams(paramString = '') {
   const params = fromEntries(new URLSearchParams(paramString));
 
   if (!params.platform) {
@@ -18,9 +20,9 @@ const parseParams = (paramString = '') => {
   }
 
   return params;
-};
+}
 
-function attr(name, value) {
+function attr(name: string, value: string) {
   return {
     type: 'mdxJsxAttribute',
     name,
@@ -28,8 +30,8 @@ function attr(name, value) {
   };
 }
 
-async function toJsxNode(node) {
-  const params = parseParams(node.meta);
+async function toJsxNode(node: Code) {
+  const params = parseParams(node.meta ?? undefined);
 
   // Gather necessary Params
   const name = params.name ? decodeURIComponent(params.name) : 'Example';
@@ -80,16 +82,15 @@ async function toJsxNode(node) {
   };
 
   // We "replace" the current node by a JSX node
-  Object.keys(node).forEach(key => delete node[key]);
-  Object.keys(jsxNode).forEach(key => (node[key] = jsxNode[key]));
+  Object.assign(node, jsxNode as Node);
 }
 
 export default function SnackPlayer() {
-  return async tree => {
-    const nodesToProcess = [];
-    visit(tree, 'code', (node, parent) => {
-      if (node.lang === 'SnackPlayer') {
-        nodesToProcess.push(toJsxNode(node, parent));
+  return async (tree: Node) => {
+    const nodesToProcess: Promise<void>[] = [];
+    visit(tree, 'code', (node: Node) => {
+      if ('lang' in node && node.lang === 'SnackPlayer') {
+        nodesToProcess.push(toJsxNode(node as Code));
       }
     });
     await Promise.all(nodesToProcess);
