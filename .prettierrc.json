@@ -31,6 +31,13 @@
         "printWidth": 80,
         "endOfLine": "auto"
       }
+    },
+    {
+      "files": ["*.yml"],
+      "options": {
+        "printWidth": 80,
+        "endOfLine": "auto"
+      }
     }
   ]
 }

@@ -11,9 +11,9 @@ import {remark} from 'remark';
 import remarkMdx from 'remark-mdx';
 import test from 'tape';
 
-import SnackPlayer from '../src/index.js';
+import SnackPlayer from '../src/index';
 
-function read(name) {
+function read(name: string) {
   return fs.readFileSync(path.join(import.meta.dirname, name), 'utf8');
 }
 

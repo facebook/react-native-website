@@ -4,12 +4,12 @@
   "private": true,
   "type": "module",
   "bin": {
-    "eslint-examples-jsx": "./bin/eslint-examples-jsx.js",
-    "eslint-examples-tsx": "./bin/eslint-examples-tsx.js",
-    "tsc-examples": "./bin/tsc-examples.js"
+    "eslint-examples-jsx": "./bin/eslint-examples-jsx.ts",
+    "eslint-examples-tsx": "./bin/eslint-examples-tsx.ts",
+    "tsc-examples": "./bin/tsc-examples.ts"
   },
   "scripts": {
-    "lint": "eslint"
+    "lint": "tsc --noEmit && eslint"
   },
   "devDependencies": {
     "@babel/core": "^7.28.4",
@@ -22,7 +22,7 @@
     "@react-native/eslint-plugin": "^0.81.1",
     "@react-native/typescript-config": "^0.81.1",
     "@types/react": "^19.1.13",
-    "eslint": "^9.35.0",
+    "eslint": "^9.39.1",
     "eslint-plugin-eslint-comments": "^3.2.0",
     "eslint-plugin-jest": "^29.0.1",
     "eslint-plugin-react": "^7.37.5",

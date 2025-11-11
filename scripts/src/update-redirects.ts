@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 /**
  * Copyright (c) Meta Platforms, Inc. and affiliates.
  *
@@ -48,5 +47,5 @@ Someone must have committed the _redirects after build.`
 
 fs.writeFileSync(redirects, before.replace(VERSION_KEY, latestPublicVersion));
 console.log(
-  `Successfully added direct for /docs/${latestPublicVersion}/* -> /docs/*`
+  `Successfully added redirect for /docs/${latestPublicVersion}/* -> /docs/*`
 );
