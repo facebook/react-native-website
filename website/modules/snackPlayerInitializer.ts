@@ -65,13 +65,30 @@ export default (() => {
     });
   };
 
+  const setupSnackObserver = () => {
+    const observer = new MutationObserver(() => {
+      const snacks = document.body.querySelectorAll('.snack-player');
+
+      if (snacks.length) {
+        initSnackPlayers();
+      }
+    });
+
+    observer.observe(document.querySelector('.container'), {
+      childList: true,
+      subtree: true,
+    });
+  };
+
   // Need to set the theme before the snack script (deferred) initialize
   updateSnacksTheme();
+  setupSnackObserver();
   setupThemeSynchronization();
 
   return {
     onRouteDidUpdate() {
       initSnackPlayers();
+      setupSnackObserver();
       setupTabPanelsMutationObservers();
     },
   };
