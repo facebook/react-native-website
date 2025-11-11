@@ -8,13 +8,12 @@
  * @format
  */
 
-import lintExamples from '../src/lintExamples.js';
+import lintExamples from '../src/lintExamples.ts';
 
-console.log('Linting JSX docs code examples...');
+console.log('Typechecking TSX docs code examples...');
 
 lintExamples({
-  command: 'eslint',
-  args: ['--max-warnings=0', '.'],
-  extension: 'js',
-  writeBack: true,
+  command: 'tsc',
+  extension: 'tsx',
+  writeBack: false,
 });

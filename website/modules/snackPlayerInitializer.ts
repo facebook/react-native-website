@@ -15,7 +15,7 @@ export default (() => {
   const updateSnacksTheme = () => {
     const theme = document.querySelector('html').dataset.theme;
     document.querySelectorAll('.snack-player').forEach(snack => {
-      snack.dataset.snackTheme = theme;
+      (snack as HTMLElement).dataset.snackTheme = theme;
     });
   };
 

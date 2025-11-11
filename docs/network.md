@@ -136,6 +136,12 @@ type Movie = {
   releaseYear: string;
 };
 
+type MoviesResponse = {
+  title: string;
+  description: string;
+  movies: Movie[];
+};
+
 const App = () => {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState<Movie[]>([]);
@@ -143,7 +149,7 @@ const App = () => {
   const getMovies = async () => {
     try {
       const response = await fetch('https://reactnative.dev/movies.json');
-      const json = await response.json();
+      const json = (await response.json()) as MoviesResponse;
       setData(json.movies);
     } catch (error) {
       console.error(error);

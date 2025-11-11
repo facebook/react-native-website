@@ -85,8 +85,8 @@ const config: Config = {
   url: 'https://reactnative.dev',
   baseUrl: '/',
   clientModules: [
-    './modules/snackPlayerInitializer.js',
-    './modules/jumpToFragment.js',
+    './modules/snackPlayerInitializer.ts',
+    './modules/jumpToFragment.ts',
   ],
   trailingSlash: false, // because trailing slashes can break some existing relative links
   scripts: [
