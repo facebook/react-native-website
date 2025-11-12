@@ -74,10 +74,14 @@ export default (() => {
       }
     });
 
-    observer.observe(document.querySelector('.container'), {
-      childList: true,
-      subtree: true,
-    });
+    // Homepage or Showcase pages does not use MDX content, so `.container` node is not present there
+    const mdxContentContainer = document.body.querySelector('.container');
+    if (mdxContentContainer) {
+      observer.observe(mdxContentContainer, {
+        childList: true,
+        subtree: true,
+      });
+    }
   };
 
   // Need to set the theme before the snack script (deferred) initialize
