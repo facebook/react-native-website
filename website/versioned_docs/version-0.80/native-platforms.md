@@ -8,7 +8,7 @@ Your application may need access to platform features that aren’t directly ava
 This guide introduces:
 
 - **Native Modules:** native libraries that have no User Interface (UI) for the user. Examples would be persistent storage, notifications, network events. These are accessible to your user as JavaScript functions and objects.
-- **Native Component:** native platform views, widgets and controllers that are available to your application's JavaScript code through React Components.
+- **Fabric Native Component:** native platform views, widgets and controllers that are available to your application's JavaScript code through React Components.
 
 :::note
 You might have previously been familiar with:
