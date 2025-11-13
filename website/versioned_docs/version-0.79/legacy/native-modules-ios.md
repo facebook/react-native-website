@@ -19,7 +19,7 @@ In the following guide you will create a native module, `CalendarModule`, that w
 To get started, open up the iOS project within your React Native application in Xcode. You can find your iOS project here within a React Native app:
 
 <figure>
-  <img src="/docs/assets/native-modules-ios-open-project.png" width="500" alt="Image of opening up an iOS project within a React Native app inside of xCode." />
+  <img src="/docs/assets/native-modules-ios-open-project.png" width="500" alt="Image of opening up an iOS project within a React Native app inside of Xcode." />
   <figcaption>Image of where you can find your iOS project</figcaption>
 </figure>
 

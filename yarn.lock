@@ -4143,7 +4143,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pkgr/core@npm:^0.2.7, @pkgr/core@npm:^0.2.9":
+"@pkgr/core@npm:^0.2.0, @pkgr/core@npm:^0.2.7, @pkgr/core@npm:^0.2.9":
   version: 0.2.9
   resolution: "@pkgr/core@npm:0.2.9"
   checksum: 10c0/ac8e4e8138b1a7a4ac6282873aef7389c352f1f8b577b4850778f5182e4a39a5241facbe48361fec817f56d02b51691b383010843fb08b34a8e8ea3614688fd5
@@ -6109,7 +6109,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/utils@npm:8.46.4, @typescript-eslint/utils@npm:^8.0.0":
+"@typescript-eslint/utils@npm:8.46.4, @typescript-eslint/utils@npm:^8.0.0, @typescript-eslint/utils@npm:^8.28.0":
   version: 8.46.4
   resolution: "@typescript-eslint/utils@npm:8.46.4"
   dependencies:
@@ -7443,12 +7443,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"case-police@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "case-police@npm:1.0.0"
+"case-police@npm:2.0.0, case-police@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "case-police@npm:2.0.0"
   bin:
     case-police: bin/case-police.mjs
-  checksum: 10c0/e9f64625b5e8cb481c0483ab548943fbc18701f04c7fdd746a63110a60cb179be661d33c54e870845503a3a92acd1f1fe603a50bd0ff15dd3f58c661dcdc36de
+  checksum: 10c0/df897ccf7e7c4ccbf66666f9c438908dcf2f08b0670f4919019e6aa6bc12248f19a4478c99756c088a4c1b6111129fc398942c4c7336e49ef4778b0fd646d51b
   languageName: node
   linkType: hard
 
@@ -9309,6 +9309,32 @@ __metadata:
     remark-lint-file-extension:
       optional: true
   checksum: 10c0/07238395e932f5caf47a0301fc61f350a24c57e4bf923601f3e767f02d5f7ac18d708dd59819bcc1af54f16e5e6cc6aabb37a08614faade2a5e3fc317e802424
+  languageName: node
+  linkType: hard
+
+"eslint-plugin-case-police@npm:2.0.0":
+  version: 2.0.0
+  resolution: "eslint-plugin-case-police@npm:2.0.0"
+  dependencies:
+    "@typescript-eslint/utils": "npm:^8.28.0"
+    case-police: "npm:2.0.0"
+    synckit: "npm:^0.10.3"
+  peerDependencies:
+    eslint: ^9.9.0
+  checksum: 10c0/b46f37b24bbcd856c9a3d2074940c71f39ad68f6778e7a7b5cec4d0e4ed55a8f94275284c9f7a5d6b434250d3c4c313a5618440245a38bea77d4eb1d6f8c8a85
+  languageName: node
+  linkType: hard
+
+"eslint-plugin-case-police@patch:eslint-plugin-case-police@npm%3A2.0.0#~/.yarn/patches/eslint-plugin-case-police-npm-2.0.0-7acbdb1f19.patch":
+  version: 2.0.0
+  resolution: "eslint-plugin-case-police@patch:eslint-plugin-case-police@npm%3A2.0.0#~/.yarn/patches/eslint-plugin-case-police-npm-2.0.0-7acbdb1f19.patch::version=2.0.0&hash=9d2d09"
+  dependencies:
+    "@typescript-eslint/utils": "npm:^8.28.0"
+    case-police: "npm:2.0.0"
+    synckit: "npm:^0.10.3"
+  peerDependencies:
+    eslint: ^9.9.0
+  checksum: 10c0/a40977645105405662a3111cc32b209ac7b7fc6a193ee7fa56485a85b133fbc9e65d760484ce511033220e47b7466910cf43238cefc9793d2243d9d93cec063f
   languageName: node
   linkType: hard
 
@@ -17791,8 +17817,10 @@ __metadata:
     "@eslint/js": "npm:^9.39.1"
     "@manypkg/cli": "npm:^0.25.1"
     "@typescript-eslint/parser": "npm:^8.46.4"
+    case-police: "npm:^2.0.0"
     eslint: "npm:^9.39.1"
     eslint-config-prettier: "npm:^10.1.8"
+    eslint-plugin-case-police: "patch:eslint-plugin-case-police@npm%3A2.0.0#~/.yarn/patches/eslint-plugin-case-police-npm-2.0.0-7acbdb1f19.patch"
     eslint-plugin-mdx: "npm:^3.6.2"
     eslint-plugin-prettier: "npm:^5.5.4"
     eslint-plugin-yml: "npm:^1.19.0"
@@ -17821,7 +17849,6 @@ __metadata:
     "@types/google.analytics": "npm:^0.0.46"
     "@types/react": "npm:^19.1.13"
     alex: "npm:^11.0.1"
-    case-police: "npm:^1.0.0"
     docusaurus-plugin-sass: "npm:^0.2.6"
     eslint: "npm:^9.39.1"
     glob: "npm:^11.1.0"
@@ -19923,6 +19950,16 @@ __metadata:
   peerDependencies:
     react: ^16.11.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
   checksum: 10c0/9534f350982e36a3ae0a13da8c0f7da7011fc979e77f306e60c4e5db0f9b84f17172c44f973441ba56bb684b69b0d9838ab40011a6b6b3e32d0cd7f3d5405f99
+  languageName: node
+  linkType: hard
+
+"synckit@npm:^0.10.3":
+  version: 0.10.4
+  resolution: "synckit@npm:0.10.4"
+  dependencies:
+    "@pkgr/core": "npm:^0.2.0"
+    tslib: "npm:^2.8.1"
+  checksum: 10c0/ad545018cd6dcd728e509282546a7351c718c9802fe3cfcdc5c92519bc2081e4d9b83fa276d9c912f973048d270afd70795a4de931c06a4cf22baccb1d71cf75
   languageName: node
   linkType: hard
 
