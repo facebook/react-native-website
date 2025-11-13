@@ -14,9 +14,9 @@ In this guide, we will go through the creation of a pure C++ Turbo Native Module
 
 The rest of this guide assume that you have created your application running the command:
 
-<CodeBlock language="bash" title="shell">
-{`npx @react-native-community/cli@latest init SampleApp --version 0.81.0`}
-</CodeBlock>
+```shell
+npx @react-native-community/cli@latest init SampleApp --version 0.81.0
+```
 
 ## 1. Create the JS specs
 
