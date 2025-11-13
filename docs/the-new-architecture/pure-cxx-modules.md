@@ -1,4 +1,5 @@
 import {getCurrentVersion} from '@site/src/getCurrentVersion';
+import CodeBlock from '@theme/CodeBlock';
 
 # Cross-Platform Native Modules (C++)
 

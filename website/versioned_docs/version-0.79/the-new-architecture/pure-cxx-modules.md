@@ -1,5 +1,3 @@
-import {getCurrentVersion} from '@site/src/getCurrentVersion';
-
 # Cross-Platform Native Modules (C++)
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
@@ -17,7 +15,7 @@ In this guide, we will go through the creation of a pure C++ Turbo Native Module
 The rest of this guide assume that you have created your application running the command:
 
 <CodeBlock language="bash" title="shell">
-{`npx @react-native-community/cli@latest init SampleApp --version ${getCurrentVersion()}`}
+{`npx @react-native-community/cli@latest init SampleApp --version 0.79.0`}
 </CodeBlock>
 
 ## 1. Create the JS specs
@@ -227,7 +225,7 @@ The final step is to register the new C++ Turbo Native Module in the runtime, so
 1. From the folder `SampleApp/android/app/src/main/jni`, run the following command:
 
 ```sh
-curl -O https://raw.githubusercontent.com/facebook/react-native/v${getCurrentVersion()}/packages/react-native/ReactAndroid/cmake-utils/default-app-setup/OnLoad.cpp
+curl -O https://raw.githubusercontent.com/facebook/react-native/v0.79.0/packages/react-native/ReactAndroid/cmake-utils/default-app-setup/OnLoad.cpp
 ```
 
 2. Then, modify this file as follows:
