@@ -1,5 +1,6 @@
 import {getCurrentVersion} from '@site/src/getCurrentVersion';
 import CodeBlock from '@theme/CodeBlock';
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 # Cross-Platform Native Modules (C++)
 

@@ -1,9 +1,8 @@
 import {getCurrentVersion} from '@site/src/getCurrentVersion';
 import CodeBlock from '@theme/CodeBlock';
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 # Cross-Platform Native Modules (C++)
-
-import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 Writing a module in C++ is the best way to share platform-agnostic code between Android and iOS. With pure C++ modules, you can write your logic only once and reuse it right away from all the platforms, without the need of writing platform-specific code.
 
