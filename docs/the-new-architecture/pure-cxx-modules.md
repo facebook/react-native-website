@@ -227,9 +227,9 @@ The final step is to register the new C++ Turbo Native Module in the runtime, so
 
 1. From the folder `SampleApp/android/app/src/main/jni`, run the following command:
 
-```sh
-curl -O https://raw.githubusercontent.com/facebook/react-native/v${getCurrentVersion()}/packages/react-native/ReactAndroid/cmake-utils/default-app-setup/OnLoad.cpp
-```
+<CodeBlock language="sh" title="shell">
+{`curl -O https://raw.githubusercontent.com/facebook/react-native/${getCurrentVersion() === 'latest' ? '' : 'v'}${getCurrentVersion()}/packages/react-native/ReactAndroid/cmake-utils/default-app-setup/OnLoad.cpp`}
+</CodeBlock>
 
 2. Then, modify this file as follows:
 
