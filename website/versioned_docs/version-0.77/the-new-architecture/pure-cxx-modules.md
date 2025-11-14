@@ -1,6 +1,8 @@
-# Cross-Platform Native Modules (C++)
-
+import {getCurrentVersion} from '@site/src/getCurrentVersion';
+import CodeBlock from '@theme/CodeBlock';
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+
+# Cross-Platform Native Modules (C++)
 
 Writing a module in C++ is the best way to share platform-agnostic code between Android and iOS. With pure C++ modules, you can write your logic only once and reuse it right away from all the platforms, without the need of writing platform-specific code.
 
@@ -14,9 +16,9 @@ In this guide, we will go through the creation of a pure C++ Turbo Native Module
 
 The rest of this guide assume that you have created your application running the command:
 
-```shell
-npx @react-native-community/cli@latest init SampleApp --version 0.77.0
-```
+<CodeBlock language="bash" title="shell">
+{`npx @react-native-community/cli@latest init SampleApp --version ${getCurrentVersion()}`}
+</CodeBlock>
 
 ## 1. Create the JS specs
 
@@ -224,9 +226,9 @@ The final step is to register the new C++ Turbo Native Module in the runtime, so
 
 1. From the folder `SampleApp/android/app/src/main/jni`, run the following command:
 
-```sh
-curl -O https://raw.githubusercontent.com/facebook/react-native/v0.76.0/packages/react-native/ReactAndroid/cmake-utils/default-app-setup/OnLoad.cpp
-```
+<CodeBlock language="sh" title="shell">
+{`curl -O https://raw.githubusercontent.com/facebook/react-native/${getCurrentVersion() === 'latest' ? '' : 'v'}${getCurrentVersion()}/packages/react-native/ReactAndroid/cmake-utils/default-app-setup/OnLoad.cpp`}
+</CodeBlock>
 
 2. Then, modify this file as follows:
 
