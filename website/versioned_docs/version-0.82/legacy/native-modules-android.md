@@ -23,7 +23,7 @@ To get started, open up the Android project within your React Native application
   <figcaption>Image of where you can find your Android project</figcaption>
 </figure>
 
-We recommend using Android Studio to write your native code. Android studio is an IDE built for Android development and using it will help you resolve minor issues like code syntax errors quickly.
+We recommend using Android Studio to write your native code. Android Studio is an IDE built for Android development and using it will help you resolve minor issues like code syntax errors quickly.
 
 We also recommend enabling [Gradle Daemon](https://docs.gradle.org/2.9/userguide/gradle_daemon.html) to speed up builds as you iterate on Java/Kotlin code.
 

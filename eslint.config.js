@@ -8,6 +8,7 @@
 import {defineConfig, globalIgnores} from 'eslint/config';
 import globals from 'globals';
 
+import eslintPluginCasePolice from 'eslint-plugin-case-police';
 import eslintCss from '@eslint/css';
 import eslintJs from '@eslint/js';
 import eslintPluginYml from 'eslint-plugin-yml';
@@ -102,5 +103,26 @@ export default defineConfig([
       lintCodeBlocks: false,
       remarkConfigPath: 'website/.remarkrc.mjs',
     }),
+    plugins: {
+      'case-police': eslintPluginCasePolice,
+    },
+    rules: {
+      'case-police/string-check': [
+        'warn',
+        {
+          ignore: ['sdk', 'uri'],
+          dict: {
+            'android studio': 'Android Studio',
+            'apple developer': 'Apple Developer',
+            avd: 'AVD',
+            cocoapods: 'CocoaPods',
+            facebook: 'Facebook',
+            hermes: 'Hermes',
+            meta: 'Meta',
+            xcode: 'Xcode',
+          },
+        },
+      ],
+    },
   },
 ]);
