@@ -1,4 +1,4 @@
----
+@v_devil_69_---
 id: environment-setup
 title: Get Started with React Native
 hide_table_of_contents: true
