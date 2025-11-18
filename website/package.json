@@ -12,7 +12,7 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
-    "build": "docusaurus build && yarn run update-redirects ./build/_redirects ./versions.json && yarn run generate-llms-txt",
+    "build": "docusaurus build && yarn run update-redirects ./build/_redirects ./versions.json",
     "build:fast": "PREVIEW_DEPLOY=true yarn run build",
     "tsc": "npx tsc --noEmit",
     "swizzle": "docusaurus swizzle",
@@ -32,7 +32,6 @@
     "language:lint:versioned": "cd ../ && alex . && case-police '**/*.md' -d ./website/react-native-dict.json --disable SDK,URI",
     "ci:lint": "yarn lint && yarn lint:examples && yarn language:lint:versioned && yarn lint:markdown:images && prettier --check src/**/*.scss",
     "pwa:generate": "npx pwa-asset-generator ./static/img/header_logo.svg ./static/img/pwa --padding '40px' --background 'rgb(32, 35, 42)' --icon-only --opaque true",
-    "generate-llms-txt": "node ../scripts/src/generate-llms-txt.ts",
     "update-redirects": "node ../scripts/src/update-redirects.ts"
   },
   "browserslist": {
@@ -63,6 +62,7 @@
     "@docusaurus/tsconfig": "3.9.2",
     "@docusaurus/types": "3.9.2",
     "@react-native-website/lint-examples": "*",
+    "@signalwire/docusaurus-plugin-llms-txt": "^1.2.2",
     "@types/google.analytics": "^0.0.46",
     "@types/react": "^19.1.13",
     "alex": "^11.0.1",
