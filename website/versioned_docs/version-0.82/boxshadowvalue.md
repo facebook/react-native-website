@@ -38,19 +38,19 @@ The offset on the y-axis. This can be positive or negative. A positive value ind
 
 ### `blurRadius`
 
-Represents the radius used in the [Guassian blur](https://en.wikipedia.org/wiki/Gaussian_blur) algorithm. The larger the value the blurrier the shadow is. Only non-negative values are valid. The default is 0.
+Represents the radius used in the [Gaussian blur](https://en.wikipedia.org/wiki/Gaussian_blur) algorithm. The larger the value the blurrier the shadow is. Only non-negative values are valid. The default is 0.
 
-| Type            | Optional |
-| --------------- | -------- |
-| numer \| string | Yes      |
+| Type             | Optional |
+| ---------------- | -------- |
+| number \| string | Yes      |
 
 ### `spreadDistance`
 
 How much larger or smaller the shadow grows or shrinks. A positive value will grow the shadow, a negative value will shrink the shadow.
 
-| Type            | Optional |
-| --------------- | -------- |
-| numer \| string | Yes      |
+| Type             | Optional |
+| ---------------- | -------- |
+| number \| string | Yes      |
 
 ### `color`
 

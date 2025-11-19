@@ -10,11 +10,12 @@ import globals from 'globals';
 
 import eslintCss from '@eslint/css';
 import eslintJs from '@eslint/js';
-import eslintPluginYml from 'eslint-plugin-yml';
+import tsParser from '@typescript-eslint/parser';
+import eslintPluginCasePolice from 'eslint-plugin-case-police';
 import * as eslintPluginMdx from 'eslint-plugin-mdx';
 import eslintPluginPrettier from 'eslint-plugin-prettier/recommended';
+import eslintPluginYml from 'eslint-plugin-yml';
 import eslintTs from 'typescript-eslint';
-import tsParser from '@typescript-eslint/parser';
 
 export default defineConfig([
   globalIgnores([
@@ -102,5 +103,28 @@ export default defineConfig([
       lintCodeBlocks: false,
       remarkConfigPath: 'website/.remarkrc.mjs',
     }),
+    plugins: {
+      'case-police': eslintPluginCasePolice,
+    },
+    rules: {
+      'case-police/string-check': [
+        'warn',
+        {
+          ignore: ['sdk', 'uri'],
+          dict: {
+            'android studio': 'Android Studio',
+            'apple developer': 'Apple Developer',
+            avd: 'AVD',
+            cocoapods: 'CocoaPods',
+            codegen: 'Codegen',
+            facebook: 'Facebook',
+            hermes: 'Hermes',
+            logcat: 'Logcat',
+            meta: 'Meta',
+            xcode: 'Xcode',
+          },
+        },
+      ],
+    },
   },
 ]);
