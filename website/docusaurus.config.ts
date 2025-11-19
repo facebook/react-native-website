@@ -349,7 +349,7 @@ const config: Config = {
           includeBlog: true,
           includePages: true,
           includeVersionedDocs: false,
-          enableLlmsFullTxt: false,
+          enableLlmsFullTxt: true,
           excludeRoutes: [
             '/blog/201*/**',
             '/blog/2020/**',
