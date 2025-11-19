@@ -50,14 +50,12 @@
         "collapsible": false,
         "collapsed": false,
         "items": ["network", "security"]
-      },
-      {
-        "type": "category",
-        "label": "包容性",
-        "collapsible": false,
-        "collapsed": false,
-        "items": ["accessibility"]
       }
+    ],
+    "版本规划": [
+      "releases/releases",
+      "releases/release-levels",
+      "releases/versioning-policy"
     ],
     "调试": [
       "debugging",
@@ -112,7 +110,7 @@
       },
       {
         "type": "category",
-        "label": "Components",
+        "label": "原生 UI 组件",
         "collapsible": false,
         "collapsed": false,
         "items": [
@@ -231,6 +229,52 @@
       "vibration",
       {
         "type": "category",
+        "label": "全局变量",
+        "collapsed": true,
+        "items": [
+          "global-__DEV__",
+          "global-AbortController",
+          "global-AbortSignal",
+          "global-alert",
+          "global-Blob",
+          "global-cancelAnimationFrame",
+          "global-cancelIdleCallback",
+          "global-clearInterval",
+          "global-clearTimeout",
+          "global-console",
+          "global-EventCounts",
+          "global-fetch",
+          "global-File",
+          "global-FileReader",
+          "global-FormData",
+          "global-global",
+          "global-Headers",
+          "global-navigator",
+          "global-performance",
+          "global-PerformanceEntry",
+          "global-PerformanceEventTiming",
+          "global-PerformanceLongTaskTiming",
+          "global-PerformanceMark",
+          "global-PerformanceMeasure",
+          "global-PerformanceObserver",
+          "global-PerformanceObserverEntryList",
+          "global-process",
+          "global-queueMicrotask",
+          "global-Request",
+          "global-requestAnimationFrame",
+          "global-requestIdleCallback",
+          "global-Response",
+          "global-setInterval",
+          "global-setTimeout",
+          "global-URL",
+          "global-URLSearchParams",
+          "global-WebSocket",
+          "global-window",
+          "global-XMLHttpRequest"
+        ]
+      },
+      {
+        "type": "category",
         "label": "Hooks",
         "collapsed": false,
         "items": ["usecolorscheme", "usewindowdimensions"]
@@ -285,6 +329,7 @@
         "items": ["inputaccessoryview", "safeareaview"]
       }
     ],
+    "Refs": ["nodes", "element-nodes", "text-nodes", "document-nodes"],
     "Props": [
       "image-style-props",
       "layout-props",

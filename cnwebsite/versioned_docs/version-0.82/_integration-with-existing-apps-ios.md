@@ -579,7 +579,7 @@ export default App;
 
 这些更改将告诉 React Native 您的 App 组件现在接受一些属性。`RCTreactNativeFactory` 将负责在组件渲染时将它们传递给它。
 
-### 更新原生代码以将初始属性传递给 JavaScript。
+### 更新原生代码以将初始属性传递给 JavaScript
 
 <Tabs groupId="ios-language" queryString defaultValue={constants.defaultAppleLanguage} values={constants.appleLanguages}>
 <TabItem value="objc">

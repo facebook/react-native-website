@@ -3,7 +3,7 @@ id: communication-ios
 title: 和原生端通信
 ---
 
-通过[植入原生应用](integration-with-existing-apps)和[原生 UI 组件](native-components-ios)两篇文档，我们学习了 React Native 和原生组件的互相整合。在整合的过程中，我们会需要在两个世界间互相通信。有些方法已经在其他的指南中提到了，这篇文章总结了所有可行的技术。
+通过[植入原生应用](integration-with-existing-apps)和[原生 UI 组件](legacy/native-components-ios)两篇文档，我们学习了 React Native 和原生组件的互相整合。在整合的过程中，我们会需要在两个世界间互相通信。有些方法已经在其他的指南中提到了，这篇文章总结了所有可行的技术。
 
 ## 简介
 
@@ -75,13 +75,13 @@ rootView.appProperties = @{@"images" : imageList};
 
 ### 从 React Native 传递属性到原生组件
 
-这篇[文档](native-components-ios#属性)详细讨论了暴露原生组件属性的问题。简而言之，在你自定义的原生组件中通过`RCT_CUSTOM_VIEW_PROPERTY`宏导出属性，就可以直接在 React Native 中使用，就好像它们是普通的 React Native 组件一样。
+这篇[文档](legacy/native-components-ios#属性)详细讨论了暴露原生组件属性的问题。简而言之，在你自定义的原生组件中通过`RCT_CUSTOM_VIEW_PROPERTY`宏导出属性，就可以直接在 React Native 中使用，就好像它们是普通的 React Native 组件一样。
 
 ## 属性的限制
 
 跨语言属性的主要缺点是不支持回调方法，因而无法实现自下而上的数据绑定。设想你有一个小的 RN 视图，当一个 JS 动作触发时你想从原生的父视图中移除它。此时你会发现根本做不到，因为信息需要自下而上进行传递。
 
-虽然我们有跨语言回调（[参阅这里](native-modules-ios#回调函数)），但是这些回调函数并不总能满足需求。最主要的问题是它们并不是被设计来当作属性进行传递。这一机制的本意是允许我们从 JS 触发一个原生动作，然后用 JS 处理那个动作的处理结果。
+虽然我们有跨语言回调（[参阅这里](legacy/native-modules-ios#回调函数)），但是这些回调函数并不总能满足需求。最主要的问题是它们并不是被设计来当作属性进行传递。这一机制的本意是允许我们从 JS 触发一个原生动作，然后用 JS 处理那个动作的处理结果。
 
 ## 其他的跨语言交互（事件和原生模块）
 
@@ -91,7 +91,7 @@ React Native 允许使用跨语言的函数调用。你可以在 JS 中调用原
 
 ### 从原生代码调用 React Native 函数（事件）
 
-事件的详细用法在这篇[文章](native-components-ios#事件)中进行了讨论。注意使用事件无法确保执行的时间，因为事件的处理函数是在单独的线程中执行。
+事件的详细用法在这篇[文章](legacy/native-components-ios#事件)中进行了讨论。注意使用事件无法确保执行的时间，因为事件的处理函数是在单独的线程中执行。
 
 事件很强大，它可以不需要引用直接修改 React Native 组件。但是，当你使用时要注意下面这些陷阱：
 
@@ -117,7 +117,7 @@ React Native 允许使用跨语言的函数调用。你可以在 JS 中调用原
 
 ### 在 React Native 中嵌入一个原生组件
 
-这个情况在[这篇文章](native-components-ios#样式)中进行了讨论。基本上，由于所有的原生视图都是`UIView`的子集，大多数类型和尺寸属性将和你期望的一样可以使用。
+这个情况在[这篇文章](legacynative-components-ios#样式)中进行了讨论。基本上，由于所有的原生视图都是`UIView`的子集，大多数类型和尺寸属性将和你期望的一样可以使用。
 
 ### 在原生中嵌入一个 React Native 组件
 

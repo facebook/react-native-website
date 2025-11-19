@@ -19,9 +19,9 @@ title: TargetEvent 对象类型
 
 接收 TargetEvent 的元素的节点 ID。
 
-| Type                        | Optional |
-| --------------------------- | -------- |
-| number, `null`, `undefined` | No       |
+| 类型                        | 可选 |
+| --------------------------- | ---- |
+| number, `null`, `undefined` | 否   |
 
 ## 被下列组件引用
 

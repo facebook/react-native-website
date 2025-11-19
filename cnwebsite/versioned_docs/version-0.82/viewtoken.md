@@ -1,15 +1,15 @@
 ---
 id: viewtoken
-title: ViewToken 对象
+title: ViewToken 对象类型
 ---
 
-`ViewToken` object is returned as one of properties in the `onViewableItemsChanged` callback, for example in [FlatList](flatlist) component. It is exported by [`ViewabilityHelper.js`](https://github.com/facebook/react-native/blob/master/Libraries/Lists/ViewabilityHelper.js).
+`ViewToken` 对象作为 `onViewableItemsChanged` 回调中的属性之一返回（例如，在 [FlatList](flatlist) 组件中）。它由 [`ViewabilityHelper.js`](https://github.com/facebook/react-native/blob/main/packages/react-native/Libraries/Lists/ViewabilityHelper.js) 导出。
 
 ## 示例
 
 ```js
 {
-  item: { key: "key-12" },
+  item: {key: "key-12"},
   key: "key-12",
   index: 11,
   isViewable: true
@@ -20,43 +20,43 @@ title: ViewToken 对象
 
 ### `index`
 
-Unique numeric identifier assigned to the data element.
+分配给数据元素的唯一数字标识符。
 
-| Type   | Optional |
-| ------ | -------- |
-| number | Yes      |
+| 类型   | 可选 |
+| ------ | ---- |
+| number | 是   |
 
 ### `isViewable`
 
-Specifies if at least some part of list element is visible in the viewport.
+指定列表元素的至少一部分在视口中是否可见。
 
-| Type    | Optional |
-| ------- | -------- |
-| boolean | No       |
+| 类型    | 可选 |
+| ------- | ---- |
+| boolean | 否   |
 
 ### `item`
 
-Item data
+元素数据。
 
-| Type | Optional |
-| ---- | -------- |
-| any  | No       |
+| 类型 | 可选 |
+| ---- | ---- |
+| any  | 否   |
 
 ### `key`
 
-Key identifier assigned of the data element extracted to the top level.
+提取到顶层的分配给数据元素的键标识符。
 
-| Type   | Optional |
-| ------ | -------- |
-| string | No       |
+| 类型   | 可选 |
+| ------ | ---- |
+| string | 否   |
 
 ### `section`
 
-Item section data when used with `SectionList`.
+与 `SectionList` 一起使用时的元素分组数据。
 
-| Type | Optional |
-| ---- | -------- |
-| any  | Yes      |
+| 类型 | 可选 |
+| ---- | ---- |
+| any  | 是   |
 
 ## 被下列组件引用
 

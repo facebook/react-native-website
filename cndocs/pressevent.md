@@ -37,7 +37,7 @@ title: 点击事件对象
 
 | 类型   | 可选 |
 | ------ | ---- |
-| number | Yes  |
+| number | 是   |
 
 ### `identifier`
 
@@ -45,7 +45,7 @@ title: 点击事件对象
 
 | 类型   | 可选 |
 | ------ | ---- |
-| number | No   |
+| number | 否   |
 
 ### `locationX`
 
@@ -53,7 +53,7 @@ title: 点击事件对象
 
 | 类型   | 可选 |
 | ------ | ---- |
-| number | No   |
+| number | 否   |
 
 ### `locationY`
 
@@ -61,7 +61,7 @@ title: 点击事件对象
 
 | 类型   | 可选 |
 | ------ | ---- |
-| number | No   |
+| number | 否   |
 
 ### `pageX`
 
@@ -69,7 +69,7 @@ title: 点击事件对象
 
 | 类型   | 可选 |
 | ------ | ---- |
-| number | No   |
+| number | 否   |
 
 ### `pageY`
 
@@ -77,7 +77,7 @@ title: 点击事件对象
 
 | 类型   | 可选 |
 | ------ | ---- |
-| number | No   |
+| number | 否   |
 
 ### `target`
 
@@ -85,7 +85,7 @@ title: 点击事件对象
 
 | 类型                        | 可选 |
 | --------------------------- | ---- |
-| number, `null`, `undefined` | No   |
+| number, `null`, `undefined` | 否   |
 
 ### `timestamp`
 
@@ -93,7 +93,7 @@ title: 点击事件对象
 
 | 类型   | 可选 |
 | ------ | ---- |
-| number | No   |
+| number | 否   |
 
 ### `touches`
 
@@ -101,7 +101,7 @@ title: 点击事件对象
 
 | 类型             | 可选 |
 | ---------------- | ---- |
-| 点击事件对象数组 | No   |
+| 点击事件对象数组 | 否   |
 
 ## 使用点击事件对象的组件
 

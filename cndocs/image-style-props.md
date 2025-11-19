@@ -3,7 +3,6 @@ id: image-style-props
 title: 图片样式属性
 ---
 
-
 ## 示例
 
 ### Image Resize Mode
@@ -233,7 +232,6 @@ const styles = StyleSheet.create({
 export default DisplayAnImageWithStyle;
 ```
 
-
 # 文档
 
 ## Props
@@ -242,7 +240,7 @@ export default DisplayAnImageWithStyle;
 
 这个属性定义了一个旋转后的图像的背面是否应该可见。
 
-| 类型                          | 默认值     |
+| 类型                          | 默认值      |
 | ----------------------------- | ----------- |
 | enum(`'visible'`, `'hidden'`) | `'visible'` |
 
@@ -352,7 +350,6 @@ export default DisplayAnImageWithStyle;
 当框架与原始图像尺寸不匹配时如何调整图像大小。默认值为 `cover`。
 
 - `cover`：均匀缩放图像(保持图像的纵横比)使得：
-
   - 图像的两个尺寸(宽度和高度)都将等于或大于视图的相应尺寸(减去padding)
   - 至少有一个缩放后的图像尺寸将等于视图的相应尺寸(减去padding)
 
@@ -364,7 +361,7 @@ export default DisplayAnImageWithStyle;
 
 - `center`：在两个维度上将图像居中在视图中。如果图像大于视图，则均匀缩小以适应视图。
 
-| 类型                                                              | 默认值   |
+| 类型                                                              | 默认值    |
 | ----------------------------------------------------------------- | --------- |
 | enum(`'cover'`, `'contain'`, `'stretch'`, `'repeat'`, `'center'`) | `'cover'` |
 
@@ -374,7 +371,7 @@ export default DisplayAnImageWithStyle;
 
 当框架与原始图像尺寸不匹配时如何调整图像大小。
 
-| 类型                                                   | 默认值   |
+| 类型                                                   | 默认值    |
 | ------------------------------------------------------ | --------- |
 | enum(`'cover'`, `'contain'`, `'fill'`, `'scale-down'`) | `'cover'` |
 

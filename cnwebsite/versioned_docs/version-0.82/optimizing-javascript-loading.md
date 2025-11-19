@@ -1,6 +1,6 @@
 ---
 id: optimizing-javascript-loading
-title: Optimizing JavaScript loading
+title: 优化 JavaScript 加载
 ---
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';

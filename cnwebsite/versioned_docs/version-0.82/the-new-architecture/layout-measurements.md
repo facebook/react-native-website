@@ -1,12 +1,12 @@
-# 测量布局
+# Measuring the Layout
 
-有时，您需要测量当前布局以应用某些更改或做出决策并调用某些特定逻辑。
+Sometimes, you need to measure the current layout to apply some changes to the overall layout or to make decisions and call some specific logic.
 
-React Native 提供了一些原生方法来了解视图的测量值。
+React Native provides some native methods to know what are the measurements of the views.
 
-最推荐的方法是在 `useLayoutEffect` 钩子中调用这些方法：这将为您提供最新的测量值，并且当测量值计算完成后，您可以在同一帧中应用更改。
+The best way to invoke those methods is in a `useLayoutEffect` hook: this will give you the most recent values for those measurements and it will let you apply changes in the same frame when the measurements are computed.
 
-典型的代码如下所示：
+Typical code will look like this:
 
 ```tsx
 function AComponent(children) {
@@ -26,28 +26,28 @@ function AComponent(children) {
 }
 ```
 
-:::note 注意
-这里描述的方法在大多数默认组件中都可用。然而，它们在不是直接由原生视图支持的复合组件中是不可用的。这通常包括您在应用中自定义的大多数组件。
+:::note
+The methods described here are available on most of the default components provided by React Native. However, they are _not_ available on composite components that aren't directly backed by a native view. This will generally include most components that you define in your own app.
 :::
 
 ## measure(callback)
 
-确定视图在屏幕上的位置 (`x` 和 `y`)、`width` 和 `height`。通过异步回调返回这些值。如果成功，回调将使用以下参数调用：
+Determines the location on screen (`x` and `y`), `width`, and `height` in the viewport of the given view. Returns the values via an async callback. If successful, the callback will be called with the following arguments:
 
-- `x`: 视图在视口中的 `x` 坐标（左上角）。
-- `y`: 视图在视口中的 `y` 坐标（左上角）。
-- `width`: 视图的 `width`。
-- `height`: 视图的 `height`。
-- `pageX`: 视图在视口中的 `x` 坐标（通常是整个屏幕）。
-- `pageY`: 视图在视口中的 `y` 坐标（通常是整个屏幕）。
+- `x`: the `x` coordinate of the origin (top-left corner) of the measured view in the viewport.
+- `y`: the `y` coordinate of the origin (top-left corner) of the measured view in the viewport.
+- `width`: the `width` of the view.
+- `height`: the `height` of the view.
+- `pageX`: the `x` coordinate of the view in the viewport (typically the whole screen).
+- `pageY`: the `y` coordinate of the view in the viewport (typically the whole screen).
 
-`measure()` 返回的 `width` 和 `height` 是视图在视口中的 `width` 和 `height`。
+Also the `width` and `height` returned by `measure()` are the `width` and `height` of the component in the viewport.
 
 ## measureInWindow(callback)
 
-确定视图在窗口中的位置 (`x` 和 `y`) 并返回这些值通过异步回调。如果 React 根视图嵌套在另一个原生视图中，这将为您提供绝对坐标。如果成功，回调将使用以下参数调用：
+Determines the location (`x` and `y`) of the given view in the window and returns the values via an async callback. If the React root view is embedded in another native view, this will give you the absolute coordinates. If successful, the callback will be called with the following arguments:
 
-- `x`: 视图在当前窗口中的 `x` 坐标。
-- `y`: 视图在当前窗口中的 `y` 坐标。
-- `width`: 视图的 `width`。
-- `height`: 视图的 `height`。
+- `x`: the `x` coordinate of the view in the current window.
+- `y`: the `y` coordinate of the view in the current window.
+- `width`: the `width` of the view.
+- `height`: the `height` of the view.

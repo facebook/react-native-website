@@ -3,41 +3,49 @@ id: systrace
 title: Systrace
 ---
 
-import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+`Systrace` 是一个标准的基于标记的 Android 性能分析工具（在安装 Android platform-tools 包时会一起安装）。被分析的代码块会被开始/结束标记包围，然后以彩色图表格式可视化。Android SDK 和 React Native 框架都提供了可以可视化的标准标记。
 
-`Systrace` is a standard Android marker-based profiling tool (and is installed when you install the Android platform-tools package). Profiled code blocks are surrounded by start/end markers which are then visualized in a colorful chart format. Both the Android SDK and React Native framework provide standard markers that you can visualize.
+## 示例
 
-## Example
+`Systrace` 允许您使用标签和整数值标记 JavaScript (JS) 事件。在 EasyProfiler 中捕获非计时的 JS 事件。
 
-`Systrace` allows you to mark JavaScript (JS) events with a tag and an integer value. Capture the non-Timed JS events in EasyProfiler.
+```SnackPlayer name=Systrace%20Example
+import React from 'react';
+import {Button, Text, View, StyleSheet, Systrace} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
-<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
-<TabItem value="functional">
-
-```SnackPlayer name=Systrace%20Function%20Component%20Example
-import React from "react";
-import { Button, Text, View, StyleSheet, Systrace } from "react-native";
-
-const App = () =>  {
-
+const App = () => {
   const enableProfiling = () => {
-    Systrace.setEnabled(true); // Call setEnabled to turn on the profiling.
-    Systrace.beginEvent('event_label')
+    Systrace.setEnabled(true); // 调用 setEnabled 来开启性能分析
+    Systrace.beginEvent('event_label');
     Systrace.counterEvent('event_label', 10);
-  }
+  };
 
   const stopProfiling = () => {
-    Systrace.endEvent()
-  }
+    Systrace.endEvent();
+  };
 
   return (
-    <View style={styles.container}>
-      <Text style={[styles.header, styles.paragraph]}>React Native Systrace API</Text>
-      <Button title="Capture the non-Timed JS events in EasyProfiler" onPress={()=> enableProfiling()}/>
-      <Button title="Stop capturing" onPress={()=> stopProfiling()} color="#FF0000"/>
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <Text style={[styles.header, styles.paragraph]}>
+          React Native Systrace API
+        </Text>
+        <View style={styles.buttonsColumn}>
+          <Button
+            title="在 EasyProfiler 中捕获非计时的 JS 事件"
+            onPress={() => enableProfiling()}
+          />
+          <Button
+            title="停止捕获"
+            onPress={() => stopProfiling()}
+            color="#FF0000"
+          />
+        </View>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -45,149 +53,87 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingTop: 44,
-    padding: 8
+    padding: 8,
+    gap: 16,
   },
-   header: {
+  header: {
     fontSize: 18,
-    fontWeight: "bold",
-    textAlign: "center"
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
   paragraph: {
-    margin: 24,
-    textAlign: "center"
-  }
+    fontSize: 25,
+    textAlign: 'center',
+  },
+  buttonsColumn: {
+    gap: 16,
+  },
 });
 
 export default App;
 ```
 
-</TabItem>
-<TabItem value="classical">
-
-```SnackPlayer name=Systrace%20Class%20Component%20Example
-import React, { Component } from "react";
-import { Button, Text, View, StyleSheet, Systrace } from "react-native";
-
-class App extends Component {
-
-  enableProfiling = () => {
-    Systrace.setEnabled(true); // Call setEnabled to turn on the profiling.
-    Systrace.beginEvent('event_label')
-    Systrace.counterEvent('event_label', 10);
-  }
-
-  stopProfiling = () => {
-    Systrace.endEvent()
-  }
-
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={[styles.header, styles.paragraph]}>React Native Systrace API</Text>
-        <Button title="Capture the non-Timed JS events in EasyProfiler" onPress={()=> this.enableProfiling()}/>
-        <Button title="Stop capturing" onPress={()=> this.stopProfiling()} color="#FF0000"/>
-      </View>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingTop: 44,
-    padding: 8
-  },
-   header: {
-    fontSize: 18,
-    fontWeight: "bold",
-    textAlign: "center"
-  },
-  paragraph: {
-    margin: 24,
-    textAlign: "center"
-  }
-});
-
-export default App;
-```
-
-</TabItem>
-</Tabs>
-
 ---
 
-# Reference
+# 参考
 
-## Methods
-
-### `installReactHook()`
-
-```jsx
-static installReactHook(useFiber)
-```
-
----
-
-### `setEnabled()`
-
-```jsx
-static setEnabled(enabled)
-```
-
----
+## 方法
 
 ### `isEnabled()`
 
-```jsx
-static isEnabled()
+```tsx
+static isEnabled(): boolean;
 ```
 
 ---
 
 ### `beginEvent()`
 
-```jsx
-static beginEvent(profileName?, args?)
+```tsx
+static beginEvent(eventName: string | (() => string), args?: EventArgs);
 ```
 
-beginEvent/endEvent for starting and then ending a profile within the same call stack frame.
+beginEvent/endEvent 用于在同一个调用栈帧内开始和结束性能分析。
 
 ---
 
 ### `endEvent()`
 
-```jsx
-static endEvent()
+```tsx
+static endEvent(args?: EventArgs);
 ```
 
 ---
 
 ### `beginAsyncEvent()`
 
-```jsx
-static beginAsyncEvent(profileName?)
+```tsx
+static beginAsyncEvent(
+  eventName: string | (() => string),
+  args?: EventArgs,
+): number;
 ```
 
-beginAsyncEvent/endAsyncEvent for starting and then ending a profile where the end can either occur on another thread or out of the current stack frame, eg await the returned cookie variable should be used as input into the endAsyncEvent call to end the profile.
+beginAsyncEvent/endAsyncEvent 用于开始和结束性能分析，其中结束可以发生在另一个线程上或在当前堆栈帧之外，例如 await。返回的 cookie 变量应该用作 endAsyncEvent 调用的输入以结束性能分析。
 
 ---
 
 ### `endAsyncEvent()`
 
-```jsx
-static endAsyncEvent(profileName?, cookie?)
+```tsx
+static endAsyncEvent(
+  eventName: EventName,
+  cookie: number,
+  args?: EventArgs,
+);
 ```
 
 ---
 
 ### `counterEvent()`
 
-```jsx
-static counterEvent(profileName?, value?)
+```tsx
+static counterEvent(eventName: string | (() => string), value: number);
 ```
 
-Register the value to the profileName on the systrace timeline.
+将值注册到 systrace 时间线上的 profileName。
