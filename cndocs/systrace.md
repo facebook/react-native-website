@@ -3,41 +3,49 @@ id: systrace
 title: Systrace
 ---
 
-import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
-
 `Systrace` is a standard Android marker-based profiling tool (and is installed when you install the Android platform-tools package). Profiled code blocks are surrounded by start/end markers which are then visualized in a colorful chart format. Both the Android SDK and React Native framework provide standard markers that you can visualize.
 
 ## Example
 
 `Systrace` allows you to mark JavaScript (JS) events with a tag and an integer value. Capture the non-Timed JS events in EasyProfiler.
 
-<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
-<TabItem value="functional">
+```SnackPlayer name=Systrace%20Example
+import React from 'react';
+import {Button, Text, View, StyleSheet, Systrace} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
-```SnackPlayer name=Systrace%20Function%20Component%20Example
-import React from "react";
-import { Button, Text, View, StyleSheet, Systrace } from "react-native";
-
-const App = () =>  {
-
+const App = () => {
   const enableProfiling = () => {
     Systrace.setEnabled(true); // Call setEnabled to turn on the profiling.
-    Systrace.beginEvent('event_label')
+    Systrace.beginEvent('event_label');
     Systrace.counterEvent('event_label', 10);
-  }
+  };
 
   const stopProfiling = () => {
-    Systrace.endEvent()
-  }
+    Systrace.endEvent();
+  };
 
   return (
-    <View style={styles.container}>
-      <Text style={[styles.header, styles.paragraph]}>React Native Systrace API</Text>
-      <Button title="Capture the non-Timed JS events in EasyProfiler" onPress={()=> enableProfiling()}/>
-      <Button title="Stop capturing" onPress={()=> stopProfiling()} color="#FF0000"/>
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <Text style={[styles.header, styles.paragraph]}>
+          React Native Systrace API
+        </Text>
+        <View style={styles.buttonsColumn}>
+          <Button
+            title="Capture the non-Timed JS events in EasyProfiler"
+            onPress={() => enableProfiling()}
+          />
+          <Button
+            title="Stop capturing"
+            onPress={() => stopProfiling()}
+            color="#FF0000"
+          />
+        </View>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -45,78 +53,25 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingTop: 44,
-    padding: 8
+    padding: 8,
+    gap: 16,
   },
-   header: {
+  header: {
     fontSize: 18,
-    fontWeight: "bold",
-    textAlign: "center"
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
   paragraph: {
-    margin: 24,
-    textAlign: "center"
-  }
+    fontSize: 25,
+    textAlign: 'center',
+  },
+  buttonsColumn: {
+    gap: 16,
+  },
 });
 
 export default App;
 ```
-
-</TabItem>
-<TabItem value="classical">
-
-```SnackPlayer name=Systrace%20Class%20Component%20Example
-import React, { Component } from "react";
-import { Button, Text, View, StyleSheet, Systrace } from "react-native";
-
-class App extends Component {
-
-  enableProfiling = () => {
-    Systrace.setEnabled(true); // Call setEnabled to turn on the profiling.
-    Systrace.beginEvent('event_label')
-    Systrace.counterEvent('event_label', 10);
-  }
-
-  stopProfiling = () => {
-    Systrace.endEvent()
-  }
-
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={[styles.header, styles.paragraph]}>React Native Systrace API</Text>
-        <Button title="Capture the non-Timed JS events in EasyProfiler" onPress={()=> this.enableProfiling()}/>
-        <Button title="Stop capturing" onPress={()=> this.stopProfiling()} color="#FF0000"/>
-      </View>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingTop: 44,
-    padding: 8
-  },
-   header: {
-    fontSize: 18,
-    fontWeight: "bold",
-    textAlign: "center"
-  },
-  paragraph: {
-    margin: 24,
-    textAlign: "center"
-  }
-});
-
-export default App;
-```
-
-</TabItem>
-</Tabs>
 
 ---
 
@@ -124,34 +79,18 @@ export default App;
 
 ## Methods
 
-### `installReactHook()`
-
-```jsx
-static installReactHook(useFiber)
-```
-
----
-
-### `setEnabled()`
-
-```jsx
-static setEnabled(enabled)
-```
-
----
-
 ### `isEnabled()`
 
-```jsx
-static isEnabled()
+```tsx
+static isEnabled(): boolean;
 ```
 
 ---
 
 ### `beginEvent()`
 
-```jsx
-static beginEvent(profileName?, args?)
+```tsx
+static beginEvent(eventName: string | (() => string), args?: EventArgs);
 ```
 
 beginEvent/endEvent for starting and then ending a profile within the same call stack frame.
@@ -160,16 +99,19 @@ beginEvent/endEvent for starting and then ending a profile within the same call 
 
 ### `endEvent()`
 
-```jsx
-static endEvent()
+```tsx
+static endEvent(args?: EventArgs);
 ```
 
 ---
 
 ### `beginAsyncEvent()`
 
-```jsx
-static beginAsyncEvent(profileName?)
+```tsx
+static beginAsyncEvent(
+  eventName: string | (() => string),
+  args?: EventArgs,
+): number;
 ```
 
 beginAsyncEvent/endAsyncEvent for starting and then ending a profile where the end can either occur on another thread or out of the current stack frame, eg await the returned cookie variable should be used as input into the endAsyncEvent call to end the profile.
@@ -178,16 +120,20 @@ beginAsyncEvent/endAsyncEvent for starting and then ending a profile where the e
 
 ### `endAsyncEvent()`
 
-```jsx
-static endAsyncEvent(profileName?, cookie?)
+```tsx
+static endAsyncEvent(
+  eventName: EventName,
+  cookie: number,
+  args?: EventArgs,
+);
 ```
 
 ---
 
 ### `counterEvent()`
 
-```jsx
-static counterEvent(profileName?, value?)
+```tsx
+static counterEvent(eventName: string | (() => string), value: number);
 ```
 
 Register the value to the profileName on the systrace timeline.
