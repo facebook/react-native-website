@@ -8,14 +8,14 @@
 import {defineConfig, globalIgnores} from 'eslint/config';
 import globals from 'globals';
 
-import eslintPluginCasePolice from 'eslint-plugin-case-police';
 import eslintCss from '@eslint/css';
 import eslintJs from '@eslint/js';
-import eslintPluginYml from 'eslint-plugin-yml';
+import tsParser from '@typescript-eslint/parser';
+import eslintPluginCasePolice from 'eslint-plugin-case-police';
 import * as eslintPluginMdx from 'eslint-plugin-mdx';
 import eslintPluginPrettier from 'eslint-plugin-prettier/recommended';
+import eslintPluginYml from 'eslint-plugin-yml';
 import eslintTs from 'typescript-eslint';
-import tsParser from '@typescript-eslint/parser';
 
 export default defineConfig([
   globalIgnores([
@@ -116,8 +116,10 @@ export default defineConfig([
             'apple developer': 'Apple Developer',
             avd: 'AVD',
             cocoapods: 'CocoaPods',
+            codegen: 'Codegen',
             facebook: 'Facebook',
             hermes: 'Hermes',
+            logcat: 'Logcat',
             meta: 'Meta',
             xcode: 'Xcode',
           },
