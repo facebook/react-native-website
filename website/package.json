@@ -24,7 +24,7 @@
     "format:style": "prettier --write src/**/*.scss",
     "format:examples": "eslint-examples-jsx --fix && eslint-examples-tsx --fix",
     "prettier": "yarn format:style",
-    "lint": "eslint .",
+    "lint": "yarn lint:website",
     "lint:examples": "eslint-examples-jsx && eslint-examples-tsx && tsc-examples",
     "lint:markdown:images": "node ../scripts/src/image-check.ts",
     "lint:markdown:links": "remark ../docs --quiet -r .remarkrc.withBrokenLinks.mjs",
