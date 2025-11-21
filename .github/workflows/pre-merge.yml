@@ -30,7 +30,11 @@ jobs:
       - name: Check dependencies alignment
         run: yarn check-dependencies
 
-      - name: Run Lint
+      - name: Run Workspace Lint
+        run: yarn lint
+
+      - name: Run Website Specific Lints
+        working-directory: website
         run: yarn ci:lint
 
   build:
