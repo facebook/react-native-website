@@ -43,4 +43,6 @@ In this example, we store `text` in the state, because it changes over time.
 
 There are a lot more things you might want to do with a text input. For example, you could validate the text inside while the user types. For more detailed examples, see the [React docs on controlled components](https://react.dev/reference/react-dom/components/input#controlling-an-input-with-a-state-variable), or the [reference docs for TextInput](textinput.md).
 
-Text input is one of the ways the user interacts with the app. Next, let's look at another type of input and [learn how to handle touches](handling-touches.md).
+A TextInput is one of many ways for the user to interact with your app. For examples of other ways to handle input, see the documentation on [how to handle touches](handling-touches.md).
+
+Now let's take a look at [ScrollView](using-a-scrollview) which is another Core Component.
