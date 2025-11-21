@@ -25,10 +25,10 @@
     "check-dependencies": "manypkg check"
   },
   "devDependencies": {
-    "@eslint/css": "^0.10.0",
+    "@eslint/css": "^0.14.1",
     "@eslint/js": "^9.39.1",
     "@manypkg/cli": "^0.25.1",
-    "@typescript-eslint/parser": "^8.46.4",
+    "@typescript-eslint/parser": "^8.47.0",
     "case-police": "^2.1.1",
     "eslint": "^9.39.1",
     "eslint-config-prettier": "^10.1.8",
@@ -40,8 +40,8 @@
     "husky": "^9.1.7",
     "prettier": "^3.6.2",
     "pretty-quick": "^4.2.2",
-    "typescript": "^5.9.2",
-    "typescript-eslint": "^8.46.4"
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.47.0"
   },
   "packageManager": "yarn@4.11.0"
 }
