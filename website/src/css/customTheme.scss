@@ -325,6 +325,14 @@ hr {
   background-color: var(--ifm-table-border-color);
 }
 
+.table-wrapper {
+  border: 1px solid var(--ifm-table-border-color);
+  border-radius: var(--ifm-global-radius);
+  overflow: hidden;
+  box-shadow: var(--ifm-table-box-shadow);
+  margin-bottom: var(--ifm-spacing-vertical);
+}
+
 .markdown {
   h2:first-child {
     margin-top: 0;
@@ -394,14 +402,6 @@ hr {
 
   strong {
     font-weight: 600;
-  }
-
-  .table-wrapper {
-    border: 1px solid var(--ifm-table-border-color);
-    border-radius: var(--ifm-global-radius);
-    overflow: hidden;
-    box-shadow: var(--ifm-table-box-shadow);
-    margin-bottom: var(--ifm-spacing-vertical);
   }
 
   table {
