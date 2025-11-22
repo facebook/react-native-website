@@ -9166,6 +9166,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eslint-plugin-alex@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "eslint-plugin-alex@npm:1.0.0"
+  dependencies:
+    micromatch: "npm:^4.0.8"
+  peerDependencies:
+    alex: ^11.0.0
+    eslint: ">=8.56.0 || >=9.0.0"
+  checksum: 10c0/1f8a048a1f91244217c1c54b5c8b254b9f2e107b50e27df7c5c819b9290c14083354ce764a1abbe6195dd38b128bfb919d240409cbf895279ec9870add53b824
+  languageName: node
+  linkType: hard
+
 "eslint-plugin-case-police@npm:2.1.1":
   version: 2.1.1
   resolution: "eslint-plugin-case-police@npm:2.1.1"
@@ -17827,9 +17839,11 @@ __metadata:
     "@eslint/js": "npm:^9.39.1"
     "@manypkg/cli": "npm:^0.25.1"
     "@typescript-eslint/parser": "npm:^8.47.0"
+    alex: "npm:^11.0.1"
     case-police: "npm:^2.1.1"
     eslint: "npm:^9.39.1"
     eslint-config-prettier: "npm:^10.1.8"
+    eslint-plugin-alex: "npm:^1.0.0"
     eslint-plugin-case-police: "npm:2.1.1"
     eslint-plugin-mdx: "npm:^3.6.2"
     eslint-plugin-prettier: "npm:^5.5.4"
@@ -17859,7 +17873,6 @@ __metadata:
     "@signalwire/docusaurus-plugin-llms-txt": "npm:^1.2.2"
     "@types/google.analytics": "npm:^0.0.46"
     "@types/react": "npm:^19.1.17"
-    alex: "npm:^11.0.1"
     docusaurus-plugin-sass: "npm:^0.2.6"
     eslint: "npm:^9.39.1"
     glob: "npm:^13.0.0"
