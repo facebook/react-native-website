@@ -193,4 +193,4 @@ If you are migrating from previous version of React Native chances are your app 
 
 ## Default Permissions
 
-By default, `INTERNET` permission is added to your Android app as pretty much all apps use it. `SYSTEM_ALERT_WINDOW` permission is added to your Android APK in debug mode but it will be removed in production.
+By default, `INTERNET` permission is added to your Android app as pretty much all apps use it. `SYSTEM_ALERT_WINDOW` permission is added to your Android APK in debug mode but it will be removed in production. Apk of riral si urban mobile signal
