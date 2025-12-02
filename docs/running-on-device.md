@@ -400,7 +400,7 @@ If you run into any issues, please take a look at Apple's [Launching Your App on
 
 You can also iterate quickly on a device using the development server. You only have to be on the same Wi-Fi network as your computer. Shake your device to open the [Dev Menu](debugging.md#opening-the-dev-menu), then enable Fast Refresh. Your app will reload whenever your JavaScript code has changed.
 
-![](/docs/assets/debugging-dev-menu-076.jpg)
+![](/docs/assets/debugging-dev-menu-083.jpg)
 
 ### Troubleshooting
 
