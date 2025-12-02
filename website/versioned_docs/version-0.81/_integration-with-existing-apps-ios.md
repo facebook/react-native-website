@@ -237,7 +237,7 @@ We now need to add some native code in order to start the React Native runtime a
 
 ### Requirements
 
-React Native intialization is now unbound to any specific part of an iOS app.
+React Native initialization is now unbound to any specific part of an iOS app.
 
 React Native can be initialized using a class called `RCTReactNativeFactory`, that takes care of handling the React Native lifecycle for you.
 
