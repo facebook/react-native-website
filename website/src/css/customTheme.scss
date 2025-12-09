@@ -404,6 +404,18 @@ hr {
     font-weight: 600;
   }
 
+  img {
+    border-radius: var(--ifm-global-radius);
+    &.center {
+      width: 100%;
+      justify-content: center;
+    }
+    &.half-size {
+      max-height: 50vh;
+      object-fit: contain;
+    }
+  }
+
   table {
     display: table;
     width: 100%;
@@ -2359,17 +2371,6 @@ figcaption > p:last-child {
   display: block;
   margin: 0 calc(-1 * var(--ifm-pre-padding));
   padding: 0 var(--ifm-pre-padding);
-}
-
-img {
-  &.center {
-    width: 100%;
-    justify-content: center;
-  }
-  &.half-size {
-    max-height: 50vh;
-    object-fit: contain;
-  }
 }
 
 @media only screen and (max-width: 600px) {
