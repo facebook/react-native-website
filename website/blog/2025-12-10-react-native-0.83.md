@@ -66,7 +66,7 @@ To solve this, most users disable the lint rule and exclude the dependency. But 
 
 With `useEffectEvent`, you can split the "event" part of this logic out of the Effect that emits it.
 
-You can read more about `useEffectEvent` in the [React docs](https://react.dev/reference/react/Activity).
+You can read more about `useEffectEvent` in the [React docs](https://react.dev/reference/react/useEffectEvent).
 
 ## New DevTools features
 
