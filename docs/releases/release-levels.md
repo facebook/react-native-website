@@ -44,8 +44,8 @@ The build system generates different feature flag override classes for each rele
 
 The `RCTReactNativeFactory` class now has an initializer that accepts a `releaseLevel` parameter. The feature flag setup uses this parameter to select the correct feature flag overrides.
 
-```objc title="Example usage"
-[[RCTReactNativeFactory alloc] initWithDelegate:delegate releaseLevel:Canary];
+```swift title="Example usage"
+let factory = RCTReactNativeFactory(delegate: delegate, releaseLevel: RCTReleaseLevel.Canary)
 ```
 
 The system ensures that only one release level is active per app instance, and will crash if multiple factories are created with different release levels.
