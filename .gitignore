@@ -1,13 +1,35 @@
-node_modules
-.DS_Store
-.idea
-.nvmrc
-.docusaurus
+# Logs
+logs
+*.log
+yarn-debug.log*
+yarn-error.log*
 
+node_modules
+*.local
+
+# Editor directories and files
+.vscode/*
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+*.tsbuildinfo
+
+packages/lint-examples/out/
+
+website/.docusaurus
+website/.cache-loader
 website/build/
 
-sync-api-docs/generatedComponentApiDocs.js
-sync-api-docs/extracted.json
-
-scripts/lint-examples/out/
-
+# https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions

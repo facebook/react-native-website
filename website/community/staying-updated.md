@@ -42,6 +42,7 @@ Listed here are but a few of the main React Native related conferences, with lin
 
 #### [ChainReact](https://cr.infinite.red/), organized by [InfiniteRed](https://infinite.red/)
 
+- [ChainReact 2024](https://www.youtube.com/playlist?list=PLFHvL21g9bk0XOO9XK6d6S9w1jBU6Dz_U)
 - [ChainReact 2023](https://www.youtube.com/playlist?list=PLFHvL21g9bk30F2UaJfn6TqJn15MAoBOc)
 - [ChainReact 2019](https://www.youtube.com/playlist?list=PLFHvL21g9bk2bTWTCP1BueiiIz8q258z9)
 - [ChainReact 2018](https://www.youtube.com/playlist?list=PLFHvL21g9bk1skdjnKVGXREDmP_HVDj-u)
@@ -49,6 +50,7 @@ Listed here are but a few of the main React Native related conferences, with lin
 
 #### [AppJS](https://appjs.co/), organized by [Software Mansion](https://swmansion.com/)
 
+- [AppJS 2024](https://www.youtube.com/playlist?list=PLSk21zn8fFZDMGB9UCnqz4WqLbnOgLnp5)
 - [AppJS 2023](https://www.youtube.com/playlist?list=PLSk21zn8fFZCfYEMpSqQOHMgyNKc8B7_s)
 - [AppJS 2022](https://www.youtube.com/playlist?list=PLSk21zn8fFZC3UIvyRjDb4Uog3244BwM6)
 - [AppJS 2019](https://www.youtube.com/playlist?list=PLSk21zn8fFZBKEJxmkdSzzmMJrxkfyjph)

@@ -81,6 +81,4 @@ It’s extremely important for us to prepare the ecosystem for a smooth adoption
 
 We’d love to thank the Hermes team, the React Native team, and the many contributors from the React Native community for their work to improve Hermes.
 
-<!-- alex ignore white -->
-
 I’d also love to personally thank (in alphabetic order) Eli White, Luna Wei, Neil Dhar, Tim Yung, Tzvetan Mikov, and many others for their help during the writing.

@@ -1,10 +1,6 @@
 ---
 title: The GAAD Pledge - One Year Later
-author: Alexandra Marlette
-authorTitle: GAAD Pledge Open Source Accessibility Community Manager for React Native
-authorURL: 'https://twitter.com/alexmarlette'
-authorImageURL: 'https://avatars.githubusercontent.com/u/10052470?s=460&u=7f2304cb929d1de703856717af86324c66728f3a&v=4'
-authorTwitter: alexmarlette
+authors: [alexmarlette]
 tags: [announcement]
 ---
 
@@ -92,7 +88,7 @@ We want to thank all the contributors mentioned below who have submitted and mer
 - [@natural_clar](https://twitter.com/natural_clar) closed 1 issue with:
   - [feat: set disabled accessibilityState when `TouchableHighlight` is disabled #31135](https://github.com/facebook/react-native/pull/31135)
 - [fabriziobertoglio1987](https://github.com/fabriziobertoglio1987) closed 2 issues with:
-  - [[Android] Selected State does not annonce when `TextInput` Component selected #31144](https://github.com/facebook/react-native/pull/31144)
+  - [[Android] Selected State does not announce when `TextInput` Component selected #31144](https://github.com/facebook/react-native/pull/31144)
   - [Accessibility Fix Image does not announce "disabled" #31252](https://github.com/facebook/react-native/pull/31252)
 - [@kyamashiro73](https://twitter.com/kyamashiro73) closed 1 issue with:
   - [Added talkback support for `TouchableNativeFeedback` accessibility: disabled prop #31224](https://github.com/facebook/react-native/pull/31224)

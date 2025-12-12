@@ -136,6 +136,12 @@ type Movie = {
   releaseYear: string;
 };
 
+type MoviesResponse = {
+  title: string;
+  description: string;
+  movies: Movie[];
+};
+
 const App = () => {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState<Movie[]>([]);
@@ -143,7 +149,7 @@ const App = () => {
   const getMovies = async () => {
     try {
       const response = await fetch('https://reactnative.dev/movies.json');
-      const json = await response.json();
+      const json = (await response.json()) as MoviesResponse;
       setData(json.movies);
     } catch (error) {
       console.error(error);
@@ -181,9 +187,13 @@ export default App;
 </TabItem>
 </Tabs>
 
-> By default, iOS 9.0 or later enforce App Transport Secruity (ATS). ATS requires any HTTP connection to use HTTPS. If you need to fetch from a cleartext URL (one that begins with `http`) you will first need to [add an ATS exception](integration-with-existing-apps.md#test-your-integration). If you know ahead of time what domains you will need access to, it is more secure to add exceptions only for those domains; if the domains are not known until runtime you can [disable ATS completely](publishing-to-app-store.md#1-enable-app-transport-security). Note however that from January 2017, [Apple's App Store review will require reasonable justification for disabling ATS](https://forums.developer.apple.com/thread/48979). See [Apple's documentation](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW33) for more information.
+:::info
+By default, iOS 9.0 or later enforce App Transport Security (ATS). ATS requires any HTTP connection to use HTTPS. If you need to fetch from a cleartext URL (one that begins with `http`) you will first need to [add an ATS exception](integration-with-existing-apps.md#test-your-integration). If you know ahead of time what domains you will need access to, it is more secure to add exceptions only for those domains; if the domains are not known until runtime you can [disable ATS completely](publishing-to-app-store.md#1-enable-app-transport-security). Note however that from January 2017, [Apple's App Store review will require reasonable justification for disabling ATS](https://forums.developer.apple.com/thread/48979). See [Apple's documentation](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW33) for more information.
+:::
 
-> On Android, as of API Level 28, clear text traffic is also blocked by default. This behaviour can be overridden by setting [`android:usesCleartextTraffic`](https://developer.android.com/guide/topics/manifest/application-element#usesCleartextTraffic) in the app manifest file.
+:::tip
+On Android, as of API Level 28, clear text traffic is also blocked by default. This behaviour can be overridden by setting [`android:usesCleartextTraffic`](https://developer.android.com/guide/topics/manifest/application-element#usesCleartextTraffic) in the app manifest file.
+:::
 
 ## Using Other Networking Libraries
 
@@ -207,7 +217,9 @@ request.open('GET', 'https://mywebsite.com/endpoint/');
 request.send();
 ```
 
-> The security model for XMLHttpRequest is different than on web as there is no concept of [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) in native apps.
+:::warning Caution
+The security model for XMLHttpRequest is different than on web as there is no concept of [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) in native apps.
+:::
 
 ## WebSocket Support
 
