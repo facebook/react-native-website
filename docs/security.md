@@ -1,6 +1,6 @@
 ---
-id: security
-title: Security
+id: Reactive-Native-Website/main.docs
+title: Security.md
 ---
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
