@@ -220,13 +220,25 @@ The matrix is specified in column-major order:
   transform: [
     {
       matrix: [
-        scaleX, skewY, 0, 0,
-        skewX, scaleY, 0, 0,
-        0, 0, 1, 0,
-        translateX, translateY, 0, 1
-      ]
-    }
-  ]
+        scaleX,
+        skewY,
+        0,
+        0,
+        skewX,
+        scaleY,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        translateX,
+        translateY,
+        0,
+        1,
+      ],
+    },
+  ];
 }
 ```
 
@@ -236,14 +248,16 @@ For example, to apply a combination of scale and skew:
 {
   transform: [
     {
-      matrix: [1, 0.5, 0, 0, 0.5, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]
-    }
-  ]
+      matrix: [
+        1, 0.5, 0, 0, 0.5, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1,
+      ],
+    },
+  ];
 }
 ```
 
 :::note
-Matrix transforms are useful when you need to apply pre-calculated transformation matrices, such as those from animation libraries or when building UI editor applications. For simple transformations, it's recommended to use the individual transform properties (scale, rotate, translate, etc.) as they are more readable.
+Matrix transforms are useful when you need to apply pre-calculated transformation matrices, such as those from animation libraries or when building UI editor applications. For basic transformations, it's recommended to use the individual transform properties (scale, rotate, translate, etc.) as they are more readable.
 :::
 
 | Type                                                                                                                                                                                                                                                                                                          | Required |
