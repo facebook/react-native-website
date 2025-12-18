@@ -32,7 +32,7 @@ Listed here are but a few of the main React Native related conferences, with lin
 
 #### [ReactConf](https://conf.react.dev/), organized by Meta
 
-- [React Conf 2025](https://www.youtube.com/watch?v=zyVRg2QR6LA&t=29411s)
+- [React Conf 2025](https://www.youtube.com/watch?v=p9OcztRyDl0?t=2291)
 - [React Conf 2024](https://www.youtube.com/watch?v=T8TZQ6k4SLE&list=PLNG_1j3cPCaaY3NEriypd7FKyWqbBNuAB)
 - [React Conf 2021](https://www.youtube.com/watch?v=FZ0cG47msEk&list=PLNG_1j3cPCaZZ7etkzWA7JfdmKWT0pMsa)
 - [React Conf 2019](https://www.youtube.com/playlist?list=PLPxbbTqCLbGHPxZpw4xj_Wwg8-fdNxJRh)
