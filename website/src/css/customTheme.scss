@@ -1493,6 +1493,7 @@ div[class^="tableOfContents"] {
 
     &:hover {
       color: var(--home-button-primary) !important;
+      text-decoration: underline;
 
       code {
         color: var(--home-button-primary) !important;
