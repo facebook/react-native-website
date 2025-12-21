@@ -3,6 +3,8 @@ id: strict-typescript-api
 title: Strict TypeScript API (opt in)
 ---
 
+import RNRepoLink from '@site/core/RNRepoLink';
+
 The Strict TypeScript API is a preview of our future, stable JavaScript API for React Native.
 
 Specifically, this is a new set of TypeScript types for the `react-native` npm package, available from 0.80 onwards. These provide stronger and more futureproof type accuracy, and will allow us to confidently evolve React Native's API into a stable shape. Opting in to the Strict TypeScript API brings some structural type differences, and is therefore a one-time breaking change.
@@ -178,7 +180,7 @@ In the new types, every optional prop will be typed as `type | undefined`.
 
 ### Removal of some deprecated types
 
-All types listed in [`DeprecatedPropertiesAlias.d.ts`](https://github.com/facebook/react-native/blob/0.80-stable/packages/react-native/types/public/DeprecatedPropertiesAlias.d.ts) are inaccessible under the Strict API.
+All types listed in <RNRepoLink href="/packages/react-native/types/public/DeprecatedPropertiesAlias.d.ts">`DeprecatedPropertiesAlias.d.ts`</RNRepoLink> are inaccessible under the Strict API.
 
 ### Removal of leftover component props
 

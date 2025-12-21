@@ -325,6 +325,14 @@ hr {
   background-color: var(--ifm-table-border-color);
 }
 
+.table-wrapper {
+  border: 1px solid var(--ifm-table-border-color);
+  border-radius: var(--ifm-global-radius);
+  overflow: hidden;
+  box-shadow: var(--ifm-table-box-shadow);
+  margin-bottom: var(--ifm-spacing-vertical);
+}
+
 .markdown {
   h2:first-child {
     margin-top: 0;
@@ -396,12 +404,16 @@ hr {
     font-weight: 600;
   }
 
-  .table-wrapper {
-    border: 1px solid var(--ifm-table-border-color);
+  img {
     border-radius: var(--ifm-global-radius);
-    overflow: hidden;
-    box-shadow: var(--ifm-table-box-shadow);
-    margin-bottom: var(--ifm-spacing-vertical);
+    &.center {
+      width: 100%;
+      justify-content: center;
+    }
+    &.half-size {
+      max-height: 50vh;
+      object-fit: contain;
+    }
   }
 
   table {
@@ -1889,6 +1901,10 @@ td .color-box {
   }
 
   /* Label variants */
+  &.primary {
+    background: var(--ifm-color-primary);
+  }
+
   &.android {
     background: #a4c936;
 
@@ -2359,17 +2375,6 @@ figcaption > p:last-child {
   display: block;
   margin: 0 calc(-1 * var(--ifm-pre-padding));
   padding: 0 var(--ifm-pre-padding);
-}
-
-img {
-  &.center {
-    width: 100%;
-    justify-content: center;
-  }
-  &.half-size {
-    max-height: 50vh;
-    object-fit: contain;
-  }
 }
 
 @media only screen and (max-width: 600px) {

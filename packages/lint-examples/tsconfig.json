@@ -1,4 +1,4 @@
 {
   "extends": "@react-native/typescript-config/tsconfig.json",
-  "include": ["./out"]
+  "include": ["./src", "./bin", "./out"]
 }
