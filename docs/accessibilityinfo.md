@@ -260,7 +260,7 @@ Make sure that any `View` you want to receive the accessibility focus has `acces
 static sendAccessibilityEvent(host: HostInstance, eventType: AccessibilityEventTypes);
 ```
 
-Imperatively trigger an accessibility event to a React component, like
+Imperatively trigger an accessibility event on a React component, like changing the focused element for a screen reader.
 
 :::note
 Make sure that any `View` you want to receive the accessibility focus has `accessible={true}`.
