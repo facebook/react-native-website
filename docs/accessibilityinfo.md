@@ -266,7 +266,7 @@ Imperatively trigger an accessibility event to a React component, like
 Make sure that any `View` you want to receive the accessibility focus has `accessible={true}`.
 :::
 
-| Name | Type | Description |
-| - | - | - |
-| host <div className="label basic required">Required</div> | HostInstance | The component ref to send the event to. |
-| eventType <div className="label basic required">Required</div>      | AccessibilityEventTypes | One of `'click'` (Android only), `'focus'`, `'viewHoverEnter'` (Android only), or `'windowStateChange'` (Android only) |
+| Name                                                           | Type                    | Description                                                                                                            |
+| -------------------------------------------------------------- | ----------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| host <div className="label basic required">Required</div>      | HostInstance            | The component ref to send the event to.                                                                                |
+| eventType <div className="label basic required">Required</div> | AccessibilityEventTypes | One of `'click'` (Android only), `'focus'`, `'viewHoverEnter'` (Android only), or `'windowStateChange'` (Android only) |
