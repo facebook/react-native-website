@@ -260,7 +260,7 @@ Make sure that any `View` you want to receive the accessibility focus has `acces
 static sendAccessibilityEvent(host: HostInstance, eventType: AccessibilityEventTypes);
 ```
 
-Send an accessibility event to a React component.
+Imperatively trigger an accessibility event to a React component, like
 
 :::note
 Make sure that any `View` you want to receive the accessibility focus has `accessible={true}`.
@@ -269,4 +269,4 @@ Make sure that any `View` you want to receive the accessibility focus has `acces
 | Name | Type | Description |
 | - | - | - |
 | host <div className="label basic required">Required</div> | HostInstance | The component ref to send the event to. |
-| eventType <div className="label basic required">Required</div>      | AccessibilityEventTypes | One of `'click'`, `'focus'`, or `'viewHoverEnter'` |
+| eventType <div className="label basic required">Required</div>      | AccessibilityEventTypes | One of `'click'` (Android only), `'focus'`, `'viewHoverEnter'` (Android only), or `'windowStateChange'` (Android only) |
