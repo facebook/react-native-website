@@ -236,6 +236,10 @@ Query whether reduce motion and prefer cross-fade transitions settings are curre
 
 ### `setAccessibilityFocus()`
 
+:::warning Deprecated
+Prefer using `sendAccessibilityEvent` with eventType `focus` instead.
+:::
+
 ```tsx
 static setAccessibilityFocus(reactTag: number);
 ```
@@ -247,3 +251,22 @@ On Android, this calls `UIManager.sendAccessibilityEvent` method with passed `re
 :::note
 Make sure that any `View` you want to receive the accessibility focus has `accessible={true}`.
 :::
+
+---
+
+### `sendAccessibilityEvent()`
+
+```tsx
+static sendAccessibilityEvent(host: HostInstance, eventType: AccessibilityEventTypes);
+```
+
+Send an accessibility event to a React component.
+
+:::note
+Make sure that any `View` you want to receive the accessibility focus has `accessible={true}`.
+:::
+
+| Name | Type | Description |
+| - | - | - |
+| host <div className="label basic required">Required</div> | HostInstance | The component ref to send the event to. |
+| eventType <div className="label basic required">Required</div>      | AccessibilityEventTypes | One of `'click'`, `'focus'`, or `'viewHoverEnter'` |
