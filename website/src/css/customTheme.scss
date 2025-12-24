@@ -1493,6 +1493,7 @@ div[class^="tableOfContents"] {
 
     &:hover {
       color: var(--home-button-primary) !important;
+      text-decoration: underline;
 
       code {
         color: var(--home-button-primary) !important;
@@ -1503,6 +1504,7 @@ div[class^="tableOfContents"] {
   .table-of-contents__link--active {
     font-weight: 500;
     color: var(--home-button-primary) !important;
+    text-decoration: underline;
 
     code {
       font-weight: 700;
