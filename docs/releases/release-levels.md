@@ -3,6 +3,8 @@ id: release-levels
 title: Release Levels
 ---
 
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+
 React Native provides the community with the ability to adopt individual new features as soon as their design and implementation are nearly complete, even before they are included in a stable release. This approach is known as **release levels**.
 
 You can configure the release level of React Native so that your React Native instance will initialize with Feature Flags set to either `EXPERIMENTAL`, `CANARY`, or `STABLE` modes.
@@ -44,8 +46,21 @@ The build system generates different feature flag override classes for each rele
 
 The `RCTReactNativeFactory` class now has an initializer that accepts a `releaseLevel` parameter. The feature flag setup uses this parameter to select the correct feature flag overrides.
 
-```objc title="Example usage"
+<Tabs groupId="ios-language" queryString defaultValue={constants.defaultAppleLanguage} values={constants.appleLanguages}>
+<TabItem value="objc">
+  
+```objc title="AppDelegate.mm"
 [[RCTReactNativeFactory alloc] initWithDelegate:delegate releaseLevel:Canary];
 ```
+
+</TabItem>
+<TabItem value="swift">
+  
+```swift title="AppDelegate.swift"
+let factory = RCTReactNativeFactory(delegate: delegate, releaseLevel: RCTReleaseLevel.Canary)
+```
+
+</TabItem>
+</Tabs>
 
 The system ensures that only one release level is active per app instance, and will crash if multiple factories are created with different release levels.
