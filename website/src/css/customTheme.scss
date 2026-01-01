@@ -1267,6 +1267,13 @@ aside[class^="theme-doc-sidebar-container"] {
   }
 
   .menu__list-item-collapsible {
+    border-radius: var(--ifm-global-radius);
+
+    // Disable background color on hover for collapsible items with direct child anchor without href
+    &:has(> a:not([href])):hover {
+      background-color: transparent;
+    }
+
     .menu__caret {
       padding: 0 6px;
 
@@ -1274,14 +1281,6 @@ aside[class^="theme-doc-sidebar-container"] {
         display: block;
         background-size: 1.66rem 1.66rem;
         margin-top: -1px;
-      }
-    }
-
-    &:hover {
-      background: none !important;
-
-      .menu__link--sublist-caret:hover {
-        background: var(--ifm-menu-color-background-hover) !important;
       }
     }
   }
