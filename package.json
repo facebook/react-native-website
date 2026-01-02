@@ -26,24 +26,24 @@
   },
   "devDependencies": {
     "@eslint/css": "^0.14.1",
-    "@eslint/js": "^9.39.1",
+    "@eslint/js": "^9.39.2",
     "@manypkg/cli": "^0.25.1",
     "@typescript-eslint/parser": "^8.48.1",
     "alex": "^11.0.1",
     "case-police": "^2.1.1",
-    "eslint": "^9.39.1",
+    "eslint": "^9.39.2",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-alex": "^1.0.0",
     "eslint-plugin-case-police": "2.1.1",
     "eslint-plugin-mdx": "^3.6.2",
     "eslint-plugin-prettier": "^5.5.4",
-    "eslint-plugin-yml": "^1.19.0",
-    "globals": "^16.5.0",
+    "eslint-plugin-yml": "^1.19.1",
+    "globals": "^17.0.0",
     "husky": "^9.1.7",
     "prettier": "^3.7.4",
     "pretty-quick": "^4.2.2",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.48.1"
+    "typescript-eslint": "^8.51.0"
   },
   "packageManager": "yarn@4.12.0"
 }

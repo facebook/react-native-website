@@ -19,7 +19,7 @@ import tsParser from '@typescript-eslint/parser';
 import jestPlugin from 'eslint-plugin-jest';
 
 export default defineConfig([
-  globalIgnores(['**/node_modules']),
+  globalIgnores(['node_modules']),
 
   eslintPluginPrettier,
 
