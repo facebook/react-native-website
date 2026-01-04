@@ -460,6 +460,7 @@ The width of an outline which is drawn around an element, outside the border. Do
 :::
 
 Controls how the `View` blends its colors with the other elements in its **stacking context**. Check out the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/mix-blend-mode) for a full overview of each blending function.
+
 For more granular control over what should be blending together see [isolation](layout-props.md#isolation).
 
 ##### mixBlendMode Values
