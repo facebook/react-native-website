@@ -25,14 +25,14 @@ import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const Separator = () => <View style={styles.separator} />;
 
-function showAlert(message: string){
-  if(Platform.OS === "web"){
-    window.alert(message);
+  function showAlert(message: string){
+    if(Platform.OS === "web"){
+      window.alert(message);
+    }
+    else{
+      Alert.alert(message)
+    }
   }
-  else{
-    Alert.alert(message)
-  }
-}
 
 const App = () => (
   <SafeAreaProvider>
