@@ -47,3 +47,29 @@ npx create-expo-app@latest
 Once you’ve created your app, check out the rest of Expo’s getting started guide to start developing your app.
 
 <BoxLink href="https://docs.expo.dev/get-started/set-up-your-environment">Continue with Expo</BoxLink>
+# Configuração da "Memória Permanente"
+historico_conversa = [
+    {"role": "system", "content": "Você é um personagem de RPG chamado Kael. Você nunca esquece que é um mago exilado."}
+]
+
+def chat_com_memoria(mensagem_usuario):
+    # Adiciona a fala do usuário ao histórico (Memória)
+    historico_conversa.append({"role": "user", "content": mensagem_usuario})
+    
+    # Chama a IA (Pode usar modelos gratuitos via API)
+    resposta = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo", # Ou um modelo gratuito como Gemini
+        messages=historico_conversa
+    )
+    
+    texto_ia = resposta.choices[0].message.content
+    
+    # Adiciona a resposta da IA para ela lembrar depois
+    historico_conversa.append({"role": "assistant", "content": texto_ia})
+    
+    return texto_ia
+
+# Loop de conversa
+while True:
+    user_in = input("Você: ")
+    print("IA: " + chat_com_memoria(user_in))
