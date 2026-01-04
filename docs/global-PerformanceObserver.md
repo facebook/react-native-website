@@ -1,11 +1,7 @@
 ---
 id: global-PerformanceObserver
-title: PerformanceObserver 🧪
+title: PerformanceObserver
 ---
-
-import CanaryAPIWarning from './\_canary-channel-api-warning.mdx';
-
-<CanaryAPIWarning />
 
 The global [`PerformanceObserver`](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceObserver) class, as defined in Web specifications.
 
@@ -49,7 +45,7 @@ See [documentation in MDN](https://developer.mozilla.org/en-US/docs/Web/API/Perf
 
 See [documentation in MDN](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceObserver/supportedEntryTypes).
 
-Returns `['mark', 'measure', 'event', 'longtask']`.
+Returns `['mark', 'measure', 'event', 'longtask', 'resource']`.
 
 ## Instance methods
 

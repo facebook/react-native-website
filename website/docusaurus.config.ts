@@ -85,8 +85,8 @@ const config: Config = {
   url: 'https://reactnative.dev',
   baseUrl: '/',
   clientModules: [
-    './modules/snackPlayerInitializer.js',
-    './modules/jumpToFragment.js',
+    './modules/snackPlayerInitializer.ts',
+    './modules/jumpToFragment.ts',
   ],
   trailingSlash: false, // because trailing slashes can break some existing relative links
   scripts: [
@@ -314,20 +314,62 @@ const config: Config = {
         ],
       },
     ],
+    [
+      '@signalwire/docusaurus-plugin-llms-txt',
+      {
+        siteTitle: 'React Native · Learn once, write anywhere',
+        siteDescription:
+          'A framework for building native apps for Android, iOS, and more using React',
+        depth: 3,
+        includeOrder: [
+          '/docs/getting-started',
+          '/docs/environment-setup',
+          '/docs/set-up-your-environment',
+          '/docs/integration-with-existing-apps',
+          '/docs/integration-with-android-fragment',
+          '/docs/intro-react-native-components',
+          '/docs/intro-react',
+          '/docs/handling-text-input',
+          '/docs/using-a-scrollview',
+          '/docs/using-a-listview',
+          '/docs/troubleshooting',
+          '/docs/platform-specific-code',
+          '/docs/building-for-tv',
+          '/docs/out-of-tree-platforms',
+          '/docs/more-resources',
+          '/docs/**',
+          '/architecture/**',
+          '/community/**',
+          '/showcase/**',
+          '/contributing/**',
+          '/versions',
+          '/blog/**',
+        ],
+        content: {
+          includeBlog: true,
+          includePages: true,
+          includeVersionedDocs: false,
+          enableLlmsFullTxt: true,
+          excludeRoutes: [
+            '/blog/201*/**',
+            '/blog/2020/**',
+            '/blog/2021/**',
+            '/blog/2022/**',
+            '/blog/page/**',
+            '/blog/tags/**',
+            '/blog/archive',
+            '/blog/authors',
+            '/search',
+          ],
+        },
+      },
+    ],
   ],
   themeConfig: {
     colorMode: {
       defaultMode: 'light',
       disableSwitch: false,
       respectPrefersColorScheme: true,
-    },
-    announcementBar: {
-      id: 'react-conf',
-      content:
-        'Join us for React Conf on Oct 7-8. <a target="_blank" rel="noopener noreferrer" href="https://conf.react.dev">Learn more</a>.',
-      backgroundColor: '#20232a',
-      textColor: '#fff',
-      isCloseable: false,
     },
     prism: {
       defaultLanguage: 'tsx',

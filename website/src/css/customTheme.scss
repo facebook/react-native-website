@@ -325,6 +325,14 @@ hr {
   background-color: var(--ifm-table-border-color);
 }
 
+.table-wrapper {
+  border: 1px solid var(--ifm-table-border-color);
+  border-radius: var(--ifm-global-radius);
+  overflow: hidden;
+  box-shadow: var(--ifm-table-box-shadow);
+  margin-bottom: var(--ifm-spacing-vertical);
+}
+
 .markdown {
   h2:first-child {
     margin-top: 0;
@@ -396,12 +404,16 @@ hr {
     font-weight: 600;
   }
 
-  .table-wrapper {
-    border: 1px solid var(--ifm-table-border-color);
+  img {
     border-radius: var(--ifm-global-radius);
-    overflow: hidden;
-    box-shadow: var(--ifm-table-box-shadow);
-    margin-bottom: var(--ifm-spacing-vertical);
+    &.center {
+      width: 100%;
+      justify-content: center;
+    }
+    &.half-size {
+      max-height: 50vh;
+      object-fit: contain;
+    }
   }
 
   table {
@@ -1255,6 +1267,13 @@ aside[class^="theme-doc-sidebar-container"] {
   }
 
   .menu__list-item-collapsible {
+    border-radius: var(--ifm-global-radius);
+
+    // Disable background color on hover for collapsible items with direct child anchor without href
+    &:has(> a:not([href])):hover {
+      background-color: transparent;
+    }
+
     .menu__caret {
       padding: 0 6px;
 
@@ -1262,14 +1281,6 @@ aside[class^="theme-doc-sidebar-container"] {
         display: block;
         background-size: 1.66rem 1.66rem;
         margin-top: -1px;
-      }
-    }
-
-    &:hover {
-      background: none !important;
-
-      .menu__link--sublist-caret:hover {
-        background: var(--ifm-menu-color-background-hover) !important;
       }
     }
   }
@@ -1889,6 +1900,10 @@ td .color-box {
   }
 
   /* Label variants */
+  &.primary {
+    background: var(--ifm-color-primary);
+  }
+
   &.android {
     background: #a4c936;
 
@@ -2359,17 +2374,6 @@ figcaption > p:last-child {
   display: block;
   margin: 0 calc(-1 * var(--ifm-pre-padding));
   padding: 0 var(--ifm-pre-padding);
-}
-
-img {
-  &.center {
-    width: 100%;
-    justify-content: center;
-  }
-  &.half-size {
-    max-height: 50vh;
-    object-fit: contain;
-  }
 }
 
 @media only screen and (max-width: 600px) {
