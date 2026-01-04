@@ -10,17 +10,20 @@ import globals from 'globals';
 
 import eslintCss from '@eslint/css';
 import eslintJs from '@eslint/js';
-import eslintPluginYml from 'eslint-plugin-yml';
+import tsParser from '@typescript-eslint/parser';
+import eslintPluginCasePolice from 'eslint-plugin-case-police';
 import * as eslintPluginMdx from 'eslint-plugin-mdx';
 import eslintPluginPrettier from 'eslint-plugin-prettier/recommended';
+import eslintPluginYml from 'eslint-plugin-yml';
 import eslintTs from 'typescript-eslint';
-import tsParser from '@typescript-eslint/parser';
+import eslintPluginAlex from 'eslint-plugin-alex';
 
 export default defineConfig([
   globalIgnores([
     '**/.yarn',
     '**/node_modules',
     'packages/lint-examples/out',
+    'plugins/remark-snackplayer/tests/(markdown|output)',
     'website/.docusaurus',
     'website/build',
     'website/static',
@@ -102,5 +105,62 @@ export default defineConfig([
       lintCodeBlocks: false,
       remarkConfigPath: 'website/.remarkrc.mjs',
     }),
+    plugins: {
+      alex: eslintPluginAlex,
+      'case-police': eslintPluginCasePolice,
+    },
+    rules: {
+      'alex/no-problematic-language': [
+        'warn',
+        {
+          ignore: [
+            'CODE_OF_CONDUCT.md',
+            // skip older blog posts
+            'website/blog/201*',
+          ],
+          alexOptions: {
+            // use a "maybe" level of profanity instead of the default "unlikely"
+            profanitySureness: 1,
+            allow: [
+              // we frequently refer to form props by their name "disabled"
+              'invalid',
+              // unfortunately "watchman" is a library name that we depend on
+              'watchman-watchwoman',
+              // ignore rehab rule, Detox is an e2e testing library
+              'rehab',
+              // host refers to host objects in native code
+              'host-hostess',
+              // allowing this term to prevent reporting "primitive", which is a programming term
+              'savage',
+              // allowing this term, since it seems to be used not in insensitive cases
+              'straightforward',
+              // allowing those terms, since they refer to colors and the surname of one of core contributors
+              'black',
+              'white',
+              // allowing this term, since we use it for expressing gratitude for certain contributors
+              'special',
+            ],
+          },
+        },
+      ],
+      'case-police/string-check': [
+        'warn',
+        {
+          ignore: ['sdk', 'uri'],
+          dict: {
+            'android studio': 'Android Studio',
+            'apple developer': 'Apple Developer',
+            avd: 'AVD',
+            cocoapods: 'CocoaPods',
+            codegen: 'Codegen',
+            facebook: 'Facebook',
+            hermes: 'Hermes',
+            logcat: 'Logcat',
+            meta: 'Meta',
+            xcode: 'Xcode',
+          },
+        },
+      ],
+    },
   },
 ]);
