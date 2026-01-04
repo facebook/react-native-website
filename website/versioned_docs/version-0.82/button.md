@@ -18,21 +18,20 @@ If this button doesn't look right for your app, you can build your own button us
 
 ## Example
 
-```SnackPlayer name=Button%20Example
+```SnackPlayer name=Button%20Example&ext=js
 import React from 'react';
 import {StyleSheet, Button, View, Text, Alert, Platform} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const Separator = () => <View style={styles.separator} />;
 
-  function showAlert(message: string){
-    if(Platform.OS === "web"){
-      window.alert(message);
-    }
-    else{
-      Alert.alert(message)
-    }
+function showAlert(message) {
+  if (Platform.OS === 'web') {
+    window.alert(message);
+  } else {
+    Alert.alert(message);
   }
+}
 
 const App = () => (
   <SafeAreaProvider>
