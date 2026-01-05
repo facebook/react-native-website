@@ -453,6 +453,41 @@ The width of an outline which is drawn around an element, outside the border. Do
 
 ---
 
+### `mixBlendMode`
+
+:::note
+`mixBlendMode` is only available on the [New Architecture](/architecture/landing-page)
+:::
+
+Controls how the `View` blends its colors with the other elements in its **stacking context**. Check out the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/mix-blend-mode) for a full overview of each blending function.
+
+For more granular control over what should be blending together see [isolation](layout-props#isolation).
+
+##### mixBlendMode Values
+
+- `normal`: The element is drawn on top of its background without blending.
+- `multiply`: The source color is multiplied by the destination color and replaces the destination.
+- `screen`: Multiplies the complements of the backdrop and source color values, then complements the result.
+- `overlay`: Multiplies or screens the colors, depending on the backdrop color value.
+- `darken`: Selects the darker of the backdrop and source colors.
+- `lighten`: Selects the lighter of the backdrop and source colors.
+- `color-dodge`: Brightens the backdrop color to reflect the source color. Painting with black produces no changes.
+- `color-burn`: Darkens the backdrop color to reflect the source color. Painting with white produces no change.
+- `hard-light`: Multiplies or screens the colors, depending on the source color value. The effect is similar to shining a harsh spotlight on the backdrop.
+- `soft-light`: Darkens or lightens the colors, depending on the source color value. The effect is similar to shining a diffused spotlight on the backdrop.
+- `difference`: Subtracts the darker of the two constituent colors from the lighter color.
+- `exclusion`: Produces an effect similar to that of the Difference mode but lower in contrast.
+- `hue`: Creates a color with the hue of the source color and the saturation and luminosity of the backdrop color.
+- `saturation`: Creates a color with the saturation of the source color and the hue and luminosity of the backdrop color.
+- `color`: Creates a color with the hue and saturation of the source color and the luminosity of the backdrop color. This preserves the gray levels of the backdrop and is useful for coloring monochrome images or tinting color images.
+- `luminosity`: Creates a color with the luminosity of the source color and the hue and saturation of the backdrop color. This produces an inverse effect to that of the Color mode.
+
+| Type                                                                                                                                                                                                                                 |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| enum(`'normal'`, `'multiply'`, `'screen'`, `'overlay'`, `'darken'`, `'lighten'`, `'color-dodge'`, `'color-burn'`, `'hard-light'`, `'soft-light'`, `'difference'`, `'exclusion'`, `'hue'`, `'saturation'`, `'color'`, `'luminosity'`) |
+
+---
+
 ### `pointerEvents`
 
 Controls whether the `View` can be the target of touch events.
