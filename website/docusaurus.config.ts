@@ -411,7 +411,7 @@ const config: Config = {
       title: 'React Native',
       logo: {
         src: 'img/header_logo.svg',
-        alt: 'React Native',
+        alt: '',
       },
       style: 'dark',
       items: [

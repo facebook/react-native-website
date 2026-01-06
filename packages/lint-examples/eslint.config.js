@@ -56,6 +56,7 @@ export default defineConfig([
       ...reactNativeConfig.rules,
       // Many existing inline styles in examples
       'react-native/no-inline-styles': 'off',
+      'no-alert': 'off',
     },
 
     settings: {
