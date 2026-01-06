@@ -282,7 +282,7 @@ const config: Config = {
           },
           {
             tagName: 'meta',
-            name: 'apple-mobile-web-app-capable',
+            name: 'mobile-web-app-capable',
             content: 'yes',
           },
           {
@@ -599,7 +599,7 @@ const config: Config = {
         content: 'https://reactnative.dev/img/logo-share.png',
       },
       {name: 'twitter:site', content: '@reactnative'},
-      {name: 'apple-mobile-web-app-capable', content: 'yes'},
+      {name: 'mobile-web-app-capable', content: 'yes'},
     ],
   } satisfies Preset.ThemeConfig,
 };
