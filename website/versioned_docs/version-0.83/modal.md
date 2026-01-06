@@ -104,7 +104,7 @@ Inherits [View Props](view.md#props).
 
 ---
 
-### `animated`
+### 🗑️ `animated`
 
 :::warning Deprecated
 Use the [`animationType`](modal.md#animationtype) prop instead.
