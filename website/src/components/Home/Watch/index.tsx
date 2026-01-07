@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React from 'react';
+import {useState} from 'react';
 
 import Section from '../Section';
 import SectionTitle from '../SectionTitle';
@@ -13,6 +13,8 @@ import SectionTitle from '../SectionTitle';
 import styles from './styles.module.css';
 
 function Watch() {
+  const [playingId, setPlayingId] = useState<string | null>(null);
+
   return (
     <Section>
       <SectionTitle
@@ -34,29 +36,61 @@ function Watch() {
         }
       />
       <div className={styles.videos}>
-        <div className={styles.videoContainer}>
-          <iframe
-            src="https://www.youtube.com/embed/NCAY0HIfrwc"
-            title="Mobile Innovation with React Native, ComponentKit, and Litho"
-            frameBorder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            className={styles.video}
-          />
+        <div
+          role="button"
+          aria-label="Play: FB 2019: Mobile innovation with React Native"
+          className={[
+            styles.videoContainer,
+            playingId === 'fb2019'
+              ? styles.videoContainerPlaying
+              : styles.videoContainerHover,
+          ].join(' ')}
+          onClick={() => setPlayingId('fb2019')}>
+          {playingId === 'fb2019' ? (
+            <iframe
+              src="https://www.youtube.com/embed/NCAY0HIfrwc?autoplay=1"
+              title="Mobile Innovation with React Native, ComponentKit, and Litho"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className={styles.video}
+            />
+          ) : (
+            <img
+              src="https://img.youtube.com/vi/NCAY0HIfrwc/maxresdefault.jpg"
+              alt="Mobile Innovation with React Native, ComponentKit, and Litho"
+              className={styles.video}
+            />
+          )}
           <div className={styles.videoInfo}>
             <h4>FB 2019: Mobile innovation with React Native</h4>
             <p>45:29</p>
           </div>
         </div>
-        <div className={styles.videoContainer}>
-          <iframe
-            src="https://www.youtube.com/embed/wUDeLT6WXnQ"
-            title="Explain Like I'm 5: React Native"
-            frameBorder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            className={styles.video}
-          />
+        <div
+          role="button"
+          aria-label="Play: Why React Native?"
+          className={[
+            styles.videoContainer,
+            playingId === 'why'
+              ? styles.videoContainerPlaying
+              : styles.videoContainerHover,
+          ].join(' ')}
+          onClick={() => setPlayingId('why')}>
+          {playingId === 'why' ? (
+            <iframe
+              src="https://www.youtube.com/embed/wUDeLT6WXnQ?autoplay=1"
+              title="Explain Like I'm 5: React Native"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className={styles.video}
+            />
+          ) : (
+            <img
+              src="https://img.youtube.com/vi/wUDeLT6WXnQ/maxresdefault.jpg"
+              alt="Explain Like I'm 5: React Native"
+              className={styles.video}
+            />
+          )}
           <div className={styles.videoInfo}>
             <h4>Why React Native?</h4>
             <p>1:42</p>
