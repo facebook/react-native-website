@@ -1504,6 +1504,7 @@ div[class^="tableOfContents"] {
     color: var(--home-button-primary) !important;
 
     code {
+      word-break: break-all;
       font-weight: 700;
       color: var(--home-button-primary) !important;
     }
