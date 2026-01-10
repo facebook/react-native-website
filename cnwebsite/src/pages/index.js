@@ -55,11 +55,10 @@ const WelcomeScreen = () =>
    </View>
   `,
   forEveryone: `
-React Native 使你可以创建真正原生的应用，用户体验绝不拉胯。它提供了一些平台无关的抽象核心组件，像是<code>View</code>, <code>Text</code> 以及 <code>Image</code>等，可直接映射渲染为
-对应平台的原生UI组件。
+React Native 使你可以创建真正原生的应用，用户体验绝不拉胯。它提供了一些平台无关的抽象核心组件，像是<code>View</code>, <code>Text</code> 以及 <code>Image</code>等，可直接映射渲染为对应平台的原生 UI 组件。
   `,
   crossPlatform: `
-  通过 React 的声明式组件机制和 JavaScript 代码，现有的原生代码和api可以完美地封装嵌合到 React 组件中。这样既为更多新的开发团队赋予原生应用的开发能力，也能极大地提升现有原生团队的开发效率。
+  通过 React 的声明式组件机制和 JavaScript 代码，现有的原生代码和 api 可以完美地封装嵌合到 React 组件中。这样既为更多新的开发团队赋予原生应用的开发能力，也能极大地提升现有原生团队的开发效率。
   `,
   fastRefresh: `
 <strong>保存即刷新。</strong> 借助 JavaScript 的动态特性，
