@@ -289,7 +289,7 @@ import android.app.Application;
 +import com.facebook.react.defaults.DefaultReactHost;
 +import com.facebook.react.defaults.DefaultReactNativeHost;
 +import com.facebook.soloader.SoLoader;
-+import com.facebook.react.soloader.OpenSourceMergedSoMapping
++import com.facebook.react.soloader.OpenSourceMergedSoMapping;
 +import java.util.List;
 
 -class MainApplication extends Application {
@@ -318,7 +318,7 @@ import android.app.Application;
   @Override
   public void onCreate() {
     super.onCreate();
-+   SoLoader.init(this, OpenSourceMergedSoMapping);
++   SoLoader.init(this, OpenSourceMergedSoMapping.INSTANCE);
 +   if (BuildConfig.IS_NEW_ARCHITECTURE_ENABLED) {
 +     DefaultNewArchitectureEntryPoint.load();
 +   }
