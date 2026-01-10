@@ -257,12 +257,6 @@ const config: Config = {
           ],
         },
         {
-          label: '实战课',
-          href: '//time.geekbang.org/column/intro/100110101?code=FAqHFVRUur%2FgAP-yJQWitk9ieF80imRky3PVsIs%2FX6A%3D',
-          position: 'right',
-          className: 'hot-link',
-        },
-        {
           label: '讨论',
           href: '//github.com/reactnativecn/react-native-website/issues',
           position: 'right',
