@@ -76,10 +76,11 @@
   margin-left: 0.3rem;
 }
 
-svg[class^="authorSocialLink"] {
+a[class^="authorSocialLink"] svg {
   fill: var(--subtle) !important;
 
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     fill: var(--ifm-hero-text-color) !important;
   }
 }

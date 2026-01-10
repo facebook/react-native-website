@@ -23,11 +23,11 @@ Here are a list of props that can help to improve `FlatList` performance:
 
 ### removeClippedSubviews
 
-| Type    | Default |
-| ------- | ------- |
-| Boolean | False   |
+| Type    | Default                              |
+| ------- | ------------------------------------ |
+| Boolean | `true` on Android, otherwise `false` |
 
-If `true`, views that are outside of the viewport are detached from the native view hierarchy.
+If `true`, views that are outside of the viewport are automatically detached from the native view hierarchy.
 
 **Pros:** This reduces time spent on the main thread, and thus reduces the risk of dropped frames, by excluding views outside of the viewport from the native rendering and drawing traversals.
 
@@ -119,7 +119,7 @@ In this example, we have determined that MyListItem should be re-rendered only w
 
 ### Use cached optimized images
 
-You can use the community packages (such as [@d11/react-native-fast-image](https://github.com/dream-sports-labs/react-native-fast-image) from [@dream-sports-labs](https://github.com/dream-sports-labs)) for more performant images. Every image in your list is a `new Image()` instance. The faster it reaches the `loaded` hook, the faster your JavaScript thread will be free again.
+You can use the community packages (such as [@d11/react-native-fast-image](https://github.com/ds-horizon/react-native-fast-image) from [Dream11](https://github.com/ds-horizon)) for more performant images. Every image in your list is a `new Image()` instance. The faster it reaches the `loaded` hook, the faster your JavaScript thread will be free again.
 
 ### Use getItemLayout
 

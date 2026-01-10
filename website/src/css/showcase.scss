@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import "shared";
+@use "shared";
 
 :root {
   --showcase-icon-background: rgb(0 0 0 / 1.5%);
@@ -174,7 +174,7 @@ html[data-theme="dark"] {
   }
 
   .articleButton {
-    color: var(--ifm-color-emphasis-600);
+    color: var(--ifm-color-emphasis-700);
     font-weight: 500;
     font-size: 15px;
     padding: 6px 12px;

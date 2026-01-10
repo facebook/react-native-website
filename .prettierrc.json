@@ -1,7 +1,10 @@
 {
+  "plugins": [
+    "@prettier/plugin-oxc"
+  ],
   "overrides": [
     {
-      "files": ["*.js", "*.jsx", "*.ts", "*.tsx"],
+      "files": ["*.js", "*.mjs", "*.cjs", "*.jsx", "*.ts", "*.tsx"],
       "options": {
         "arrowParens": "avoid",
         "bracketSpacing": false,
@@ -13,7 +16,7 @@
       }
     },
     {
-      "files": "*.md",
+      "files": ["*.md", "*.mdx"],
       "options": {
         "arrowParens": "avoid",
         "bracketSpacing": false,
@@ -26,7 +29,7 @@
       }
     },
     {
-      "files": ["*.scss", "*.css"],
+      "files": ["*.scss", "*.css", "*.yml"],
       "options": {
         "printWidth": 80,
         "endOfLine": "auto"

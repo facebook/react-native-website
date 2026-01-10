@@ -1,6 +1,9 @@
-# Cross-Platform Native Modules (C++)
-
+import {getCoreBranchNameForCurrentVersion} from '@site/src/getCoreBranchNameForCurrentVersion';
+import {getCurrentVersion} from '@site/src/getCurrentVersion';
+import CodeBlock from '@theme/CodeBlock';
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+
+# Cross-Platform Native Modules (C++)
 
 Writing a module in C++ is the best way to share platform-agnostic code between Android and iOS. With pure C++ modules, you can write your logic only once and reuse it right away from all the platforms, without the need of writing platform-specific code.
 
@@ -12,11 +15,11 @@ In this guide, we will go through the creation of a pure C++ Turbo Native Module
 4. Register the module in the Android and iOS application
 5. Test your changes in JS
 
-The rest of this guide assume that you have created your application running the command:
+The rest of this guide assumes that you have created your application running the command:
 
-```shell
-npx @react-native-community/cli@latest init SampleApp --version 0.78.0
-```
+<CodeBlock language="bash" title="shell">
+{`npx @react-native-community/cli@latest init SampleApp --version ${getCurrentVersion()}`}
+</CodeBlock>
 
 ## 1. Create the JS specs
 
@@ -91,7 +94,7 @@ This configuration tells Codegen to look for spec files in the `specs` folder. I
 
 ## 3. Write the Native Code
 
-Writing a C++ Turbo Native Module allows you to share the code between Android an iOS. Therefore we will be writing the code once, and we will look into what changes we need to apply to the platforms so that the C++ code can be picked up.
+Writing a C++ Turbo Native Module allows you to share the code between Android and iOS. Therefore we will be writing the code once, and we will look into what changes we need to apply to the platforms so that the C++ code can be picked up.
 
 1. Create a folder named `shared` at the same level as the `android` and `ios` folders.
 2. Inside the `shared` folder, create a new file called `NativeSampleModule.h`.
@@ -192,7 +195,7 @@ The CMake file does the following things:
 Gradle is the tool that orchestrates the Android build. We need to tell it where it can find the `CMake` files to build the Turbo Native Module.
 
 1. Open the `SampleApp/android/app/build.gradle` file.
-2. Add the following block into the Gradle file, within the existent `android` block:
+2. Add the following block into the Gradle file, within the existing `android` block:
 
 ```diff title="android/app/build.gradle"
     buildTypes {
@@ -224,9 +227,9 @@ The final step is to register the new C++ Turbo Native Module in the runtime, so
 
 1. From the folder `SampleApp/android/app/src/main/jni`, run the following command:
 
-```sh
-curl -O https://raw.githubusercontent.com/facebook/react-native/v0.76.0/packages/react-native/ReactAndroid/cmake-utils/default-app-setup/OnLoad.cpp
-```
+<CodeBlock language="sh" title="shell">
+{`curl -O https://raw.githubusercontent.com/facebook/react-native/${getCoreBranchNameForCurrentVersion()}/packages/react-native/ReactAndroid/cmake-utils/default-app-setup/OnLoad.cpp`}
+</CodeBlock>
 
 2. Then, modify this file as follows:
 
@@ -254,7 +257,7 @@ std::shared_ptr<TurboModule> cxxModuleProvider(
   //   return std::make_shared<NativeCxxModuleExample>(jsInvoker);
   // }
 
-+  // This code register the module so that when the JS side asks for it, the app can return it
++  // This code registers the module so that when the JS side asks for it, the app can return it
 +  if (name == NativeSampleModule::kModuleName) {
 +    return std::make_shared<NativeSampleModule>(jsInvoker);
 +  }
@@ -297,7 +300,7 @@ bundle exec pod install
 
 This step adds the `shared` folder to the project to make it visible to Xcode.
 
-1. Open the CocoPods generated Xcode Workspace.
+1. Open the CocoaPods generated Xcode Workspace.
 
 ```bash
 cd ios
@@ -395,7 +398,7 @@ function App(): React.JSX.Element {
         <Text style={styles.title}>
           Welcome to C++ Turbo Native Module Example
         </Text>
-        <Text>Write down here he text you want to revert</Text>
+        <Text>Write down here the text you want to reverse</Text>
         <TextInput
           style={styles.textInput}
           placeholder="Write your text here"

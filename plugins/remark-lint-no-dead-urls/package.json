@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "description": "Remark linter rule to check for dead urls",
-  "main": "src/index.js",
+  "main": "src/index.ts",
   "type": "module",
   "keywords": [
     "remark",
@@ -14,17 +14,19 @@
     "src/*"
   ],
   "scripts": {
-    "prettier": "prettier --write '{src,tests}/**/*.{md,js,jsx,ts,tsx}'",
+    "lint": "tsc --noEmit && eslint .",
     "test": "yarn node --experimental-vm-modules $(yarn bin jest)"
   },
   "dependencies": {
-    "got": "^13.0.0",
-    "unified-lint-rule": "^3.0.0",
-    "unist-util-visit": "^5.0.0"
+    "got": "^14.6.4",
+    "unified-lint-rule": "^3.0.1",
+    "unist-util-visit": "^5.0.0",
+    "vfile": "^6.0.3"
   },
   "devDependencies": {
-    "dedent": "^1.5.3",
-    "jest": "^29.4.3",
+    "@types/mdast": "^4.0.4",
+    "dedent": "^1.7.0",
+    "jest": "^29.7.0",
     "remark": "^15.0.1"
   }
 }

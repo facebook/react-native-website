@@ -86,11 +86,11 @@ This event is received when the app state has changed. The listener is called wi
 
 This event is used in the need of throwing memory warning or releasing it.
 
-### `focus` <div class="label android">Android</div>
+### `focus` <div className="label android">Android</div>
 
 Received when the app gains focus (the user is interacting with the app).
 
-### `blur` <div class="label android">Android</div>
+### `blur` <div className="label android">Android</div>
 
 Received when the user is not actively interacting with the app. Useful in situations when the user pulls down the [notification drawer](https://developer.android.com/guide/topics/ui/notifiers/notifications#bar-and-drawer). `AppState` won't change but the `blur` event will get fired.
 

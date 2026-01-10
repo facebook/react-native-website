@@ -12,6 +12,10 @@ import path from 'path';
 
 import users from './showcase.json';
 import versions from './versions.json';
+import prismTheme from './core/PrismTheme';
+
+import remarkSnackPlayer from '@react-native-website/remark-snackplayer';
+import remarkCodeblockLanguageTitle from '@react-native-website/remark-codeblock-language-as-title';
 
 // See https://docs.netlify.com/configure-builds/environment-variables/
 const isProductionDeployment =
@@ -20,12 +24,12 @@ const isProductionDeployment =
 const lastVersion = versions[0];
 const copyright = `Copyright © ${new Date().getFullYear()} Meta Platforms, Inc.`;
 
-export interface EditUrlButton {
+export type EditUrlButton = {
   label: string;
   href: string;
-}
+};
 
-const commonDocsOptions = {
+const commonDocsOptions: PluginContentDocs.Options = {
   breadcrumbs: false,
   showLastUpdateAuthor: false,
   showLastUpdateTime: true,
@@ -57,10 +61,7 @@ const commonDocsOptions = {
     }
     return JSON.stringify(buttons);
   }) as PluginContentDocs.EditUrlFunction,
-  remarkPlugins: [
-    require('@react-native-website/remark-snackplayer'),
-    require('@react-native-website/remark-codeblock-language-as-title'),
-  ],
+  remarkPlugins: [remarkSnackPlayer, remarkCodeblockLanguageTitle],
 };
 
 const isDeployPreview = process.env.PREVIEW_DEPLOY === 'true';
@@ -77,14 +78,15 @@ const config: Config = {
   },
 
   title: 'React Native',
-  tagline: 'A framework for building native apps using React',
-  organizationName: 'facebook',
+  tagline:
+    'A framework for building native apps for Android, iOS, and more using React',
+  organizationName: 'Meta Platforms, Inc.',
   projectName: 'react-native',
   url: 'https://reactnative.dev',
   baseUrl: '/',
   clientModules: [
-    require.resolve('./modules/snackPlayerInitializer.js'),
-    require.resolve('./modules/jumpToFragment.js'),
+    './modules/snackPlayerInitializer.ts',
+    './modules/jumpToFragment.ts',
   ],
   trailingSlash: false, // because trailing slashes can break some existing relative links
   scripts: [
@@ -99,7 +101,7 @@ const config: Config = {
     {src: 'https://snack.expo.dev/embed.js', defer: true},
     {src: 'https://platform.twitter.com/widgets.js', async: true},
   ],
-  favicon: 'img/favicon.ico',
+  favicon: 'favicon.ico',
   titleDelimiter: '·',
   customFields: {
     users,
@@ -110,6 +112,62 @@ const config: Config = {
     locales: ['en'],
   },
   onBrokenLinks: 'warn',
+  headTags: [
+    {
+      tagName: 'script',
+      attributes: {
+        type: 'application/ld+json',
+      },
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org/',
+        '@type': 'WebPage',
+        '@id': 'https://reactnative.dev/',
+        url: 'https://reactnative.dev/',
+        name: 'React Native · Learn once, write anywhere',
+        description:
+          'A framework for building native apps for Android, iOS, and more using React',
+        logo: 'https://reactnative.dev/img/pwa/manifest-icon-192.png',
+        inLanguage: 'en-US',
+      }),
+    },
+    {
+      tagName: 'script',
+      attributes: {
+        type: 'application/ld+json',
+      },
+      innerHTML: JSON.stringify({
+        '@type': 'WebSite',
+        '@id': 'https://reactnative.dev/',
+        url: 'https://reactnative.dev/',
+        name: 'React Native · Learn once, write anywhere',
+        description:
+          'A framework for building native apps for Android, iOS, and more using React',
+        publisher: 'Meta Platforms, Inc.',
+        potentialAction: [
+          {
+            '@type': 'SearchAction',
+            target: {
+              '@type': 'EntryPoint',
+              urlTemplate: 'https://reactnative.dev/search?q={query}',
+            },
+            'query-input': {
+              '@type': 'PropertyValueSpecification',
+              valueRequired: true,
+              valueName: 'query',
+            },
+          },
+        ],
+        inLanguage: 'en-US',
+      }),
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'apple-touch-icon',
+        href: '/img/pwa/apple-icon-180.png',
+      },
+    },
+  ],
   presets: [
     [
       '@docusaurus/preset-classic',
@@ -147,10 +205,6 @@ const config: Config = {
             require.resolve('./src/css/showcase.scss'),
             require.resolve('./src/css/versions.scss'),
           ],
-        },
-        // TODO: GA is deprecated, remove once we're sure data is streaming in GA4 via gtag.
-        googleAnalytics: {
-          trackingID: 'UA-41298772-2',
         },
         gtag: {
           trackingID: 'G-58L13S6BDP',
@@ -228,7 +282,7 @@ const config: Config = {
           },
           {
             tagName: 'meta',
-            name: 'apple-mobile-web-app-capable',
+            name: 'mobile-web-app-capable',
             content: 'yes',
           },
           {
@@ -260,6 +314,56 @@ const config: Config = {
         ],
       },
     ],
+    [
+      '@signalwire/docusaurus-plugin-llms-txt',
+      {
+        siteTitle: 'React Native · Learn once, write anywhere',
+        siteDescription:
+          'A framework for building native apps for Android, iOS, and more using React',
+        depth: 3,
+        includeOrder: [
+          '/docs/getting-started',
+          '/docs/environment-setup',
+          '/docs/set-up-your-environment',
+          '/docs/integration-with-existing-apps',
+          '/docs/integration-with-android-fragment',
+          '/docs/intro-react-native-components',
+          '/docs/intro-react',
+          '/docs/handling-text-input',
+          '/docs/using-a-scrollview',
+          '/docs/using-a-listview',
+          '/docs/troubleshooting',
+          '/docs/platform-specific-code',
+          '/docs/building-for-tv',
+          '/docs/out-of-tree-platforms',
+          '/docs/more-resources',
+          '/docs/**',
+          '/architecture/**',
+          '/community/**',
+          '/showcase/**',
+          '/contributing/**',
+          '/versions',
+          '/blog/**',
+        ],
+        content: {
+          includeBlog: true,
+          includePages: true,
+          includeVersionedDocs: false,
+          enableLlmsFullTxt: true,
+          excludeRoutes: [
+            '/blog/201*/**',
+            '/blog/2020/**',
+            '/blog/2021/**',
+            '/blog/2022/**',
+            '/blog/page/**',
+            '/blog/tags/**',
+            '/blog/archive',
+            '/blog/authors',
+            '/search',
+          ],
+        },
+      },
+    ],
   ],
   themeConfig: {
     colorMode: {
@@ -267,17 +371,9 @@ const config: Config = {
       disableSwitch: false,
       respectPrefersColorScheme: true,
     },
-    announcementBar: {
-      id: 'react-conf',
-      content:
-        'Join us for React Conf on Oct 7-8. <a target="_blank" rel="noopener noreferrer" href="https://conf.react.dev">Learn more</a>.',
-      backgroundColor: '#20232a',
-      textColor: '#fff',
-      isCloseable: false,
-    },
     prism: {
       defaultLanguage: 'tsx',
-      theme: require('./core/PrismTheme'),
+      theme: prismTheme,
       additionalLanguages: [
         'diff',
         'bash',
@@ -311,11 +407,19 @@ const config: Config = {
         },
       ],
     },
+    announcementBar: {
+      id: 'watch_keynote',
+      content:
+        'Re-watch the latest <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=NiYwlvXsBKw">React Native Keynote</a> from React Conf 2025',
+      backgroundColor: '#20232a',
+      textColor: '#fff',
+      isCloseable: false,
+    },
     navbar: {
       title: 'React Native',
       logo: {
         src: 'img/header_logo.svg',
-        alt: 'React Native',
+        alt: '',
       },
       style: 'dark',
       items: [
@@ -503,8 +607,9 @@ const config: Config = {
         content: 'https://reactnative.dev/img/logo-share.png',
       },
       {name: 'twitter:site', content: '@reactnative'},
+      {name: 'mobile-web-app-capable', content: 'yes'},
     ],
   } satisfies Preset.ThemeConfig,
 };
 
-module.exports = config;
+export default config;

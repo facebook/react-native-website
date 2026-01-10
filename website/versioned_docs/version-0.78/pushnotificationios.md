@@ -1,6 +1,6 @@
 ---
 id: pushnotificationios
-title: '🚧 PushNotificationIOS'
+title: '🗑️ PushNotificationIOS'
 ---
 
 > **Deprecated.** Use the [community package](https://github.com/react-native-push-notification/ios) instead.
