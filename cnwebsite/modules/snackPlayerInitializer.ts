@@ -15,13 +15,13 @@ export default (() => {
   const updateSnacksTheme = () => {
     const theme = document.querySelector('html').dataset.theme;
     document.querySelectorAll('.snack-player').forEach(snack => {
-      snack.dataset.snackTheme = theme;
+      (snack as HTMLElement).dataset.snackTheme = theme;
     });
   };
 
   const initSnackPlayers = () => {
     updateSnacksTheme();
-    window.ExpoSnack && window.ExpoSnack.initialize();
+    window?.ExpoSnack?.initialize();
   };
 
   const setupTabPanelsMutationObservers = () => {
@@ -53,8 +53,8 @@ export default (() => {
       if ('ExpoSnack' in window) {
         document.querySelectorAll('.snack-player').forEach(container => {
           updateSnacksTheme();
-          window.ExpoSnack && window.ExpoSnack.remove(container);
-          window.ExpoSnack && window.ExpoSnack.append(container);
+          window?.ExpoSnack?.remove(container);
+          window?.ExpoSnack?.append(container);
         });
       }
     }).observe(document.getElementsByTagName('html')[0], {
@@ -65,13 +65,34 @@ export default (() => {
     });
   };
 
+  const setupSnackObserver = () => {
+    const observer = new MutationObserver(() => {
+      const snacks = document.body.querySelectorAll('.snack-player');
+
+      if (snacks.length) {
+        initSnackPlayers();
+      }
+    });
+
+    // Homepage or Showcase pages does not use MDX content, so `.container` node is not present there
+    const mdxContentContainer = document.body.querySelector('.container');
+    if (mdxContentContainer) {
+      observer.observe(mdxContentContainer, {
+        childList: true,
+        subtree: true,
+      });
+    }
+  };
+
   // Need to set the theme before the snack script (deferred) initialize
   updateSnacksTheme();
+  setupSnackObserver();
   setupThemeSynchronization();
 
   return {
     onRouteDidUpdate() {
       initSnackPlayers();
+      setupSnackObserver();
       setupTabPanelsMutationObservers();
     },
   };

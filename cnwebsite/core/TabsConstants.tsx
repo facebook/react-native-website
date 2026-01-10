@@ -15,8 +15,8 @@ const isWindows = ExecutionEnvironment.canUseDOM
   : false;
 
 const syntax = [
-  {label: '函数式组件', value: 'functional'},
-  {label: 'Class 组件', value: 'classical'},
+  {label: 'Function Component', value: 'functional'},
+  {label: 'Class Component', value: 'classical'},
 ];
 const defaultSyntax = 'functional';
 
@@ -58,10 +58,10 @@ const jsDebuggers = [
 const defaultJsDebugger = 'flipper';
 
 const guides = [
-  {label: '完整原生环境', value: 'native'},
-  {label: '简易沙盒环境', value: 'quickstart'},
+  {label: 'Expo Go Quickstart', value: 'quickstart'},
+  {label: 'React Native CLI Quickstart', value: 'native'},
 ];
-const defaultGuide = 'native';
+const defaultGuide = 'quickstart';
 
 const platforms = [
   {label: 'Android', value: 'android'},
