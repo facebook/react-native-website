@@ -7,7 +7,8 @@
     "moduleResolution": "NodeNext",
     "allowSyntheticDefaultImports": true,
     "allowImportingTsExtensions": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "noEmit": true
   },
   "include": ["./src"]
 }
