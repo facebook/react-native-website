@@ -8,12 +8,11 @@
 'use strict';
 
 import visit from 'unist-util-visit-parents';
-import fromEntries from 'object.fromentries';
 import type {Code} from 'mdast';
 import type {Node} from 'unist';
 
 function parseParams(paramString = '') {
-  const params = fromEntries(new URLSearchParams(paramString));
+  const params = Object.fromEntries(new URLSearchParams(paramString).entries());
 
   if (!params.platform) {
     params.platform = 'web';
@@ -90,7 +89,7 @@ export default function SnackPlayer() {
     const nodesToProcess: Promise<void>[] = [];
     visit(tree, 'code', (node: Node) => {
       if ('lang' in node && node.lang === 'SnackPlayer') {
-        nodesToProcess.push(toJsxNode(node as Code));
+        nodesToProcess.push(toJsxNode(node as unknown as Code));
       }
     });
     await Promise.all(nodesToProcess);

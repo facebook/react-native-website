@@ -18,15 +18,18 @@
     "test": "yarn node --experimental-vm-modules $(yarn bin jest)"
   },
   "dependencies": {
-    "got": "^14.6.4",
+    "got": "^14.6.6",
     "unified-lint-rule": "^3.0.1",
     "unist-util-visit": "^5.0.0",
     "vfile": "^6.0.3"
   },
   "devDependencies": {
+    "@types/jest": "^29.5.14",
     "@types/mdast": "^4.0.4",
-    "dedent": "^1.7.0",
+    "dedent": "^1.7.1",
     "jest": "^29.7.0",
-    "remark": "^15.0.1"
+    "remark": "^15.0.1",
+    "ts-jest": "^29.4.6",
+    "typescript": "^5.9.3"
   }
 }
