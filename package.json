@@ -18,8 +18,8 @@
     "serve": "yarn --cwd website serve",
     "prepare": "husky",
     "lint": "eslint .",
-    "lint:packages": "eslint ./packages",
-    "lint:plugins": "eslint ./plugins",
+    "lint:packages": "yarn workspaces foreach --from \"packages/*\" -p -R run lint",
+    "lint:plugins": "yarn workspaces foreach --from \"plugins/*\" -p -R run lint && yarn workspaces foreach --from \"plugins/*\" -p -R run test",
     "lint:website": "eslint ./website ./docs",
     "update-lock": "yarn dedupe",
     "check-dependencies": "manypkg check"
