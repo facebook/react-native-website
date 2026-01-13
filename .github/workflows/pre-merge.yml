@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  lint-workspace:
+  lint:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
