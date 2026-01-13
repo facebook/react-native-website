@@ -5,39 +5,41 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import remark from 'remark';
+import {remark} from 'remark';
 import dedent from 'dedent';
-import {jest} from '@jest/globals';
+import {jest, describe, beforeEach, test, expect} from '@jest/globals';
 
-jest.unstable_mockModule('../lib.js', () => ({
-  fetch: jest.fn(),
+const mockFetch = jest.fn() as jest.MockedFunction<
+  (url: string, method: unknown, options?: object) => Promise<number>
+>;
+
+jest.unstable_mockModule('../lib.ts', () => ({
+  fetch: mockFetch,
 }));
 
-const {fetch} = await import('../lib.js');
-const plugin = (await import('../')).default;
+const plugin = (await import('../index.ts')).default;
 
-const processMarkdown = (md, opts) => {
+function processMarkdown(md: string, opts = {}) {
   return remark().use(plugin, opts).process(md);
-};
+}
 
 describe('remark-lint-no-dead-urls', () => {
-  beforeEach(() => fetch.mockReset());
+  beforeEach(() => mockFetch.mockReset());
 
-  test('works with no URLs', () => {
+  test('works with no URLs', async () => {
     const lint = processMarkdown(dedent`
       # Title
 
       No URLs in here.
     `);
 
-    return lint.then(vFile => {
-      expect(fetch).toHaveBeenCalledTimes(0);
-      expect(vFile.messages.length).toBe(0);
-    });
+    const vFile = await lint;
+    expect(mockFetch).toHaveBeenCalledTimes(0);
+    expect(vFile.messages.length).toBe(0);
   });
 
-  test('works a good, bad a local link', () => {
-    fetch.mockReturnValueOnce(200).mockReturnValueOnce(404);
+  test('works a good, bad a local link', async () => {
+    mockFetch.mockResolvedValueOnce(200).mockResolvedValueOnce(404);
 
     const lint = processMarkdown(
       dedent`
@@ -51,17 +53,16 @@ describe('remark-lint-no-dead-urls', () => {
     `
     );
 
-    return lint.then(vFile => {
-      expect(fetch).toHaveBeenCalledTimes(2);
-      expect(vFile.messages.length).toBe(1);
-      expect(vFile.messages[0].reason).toBe(
-        'Link to https://github.com/unified/oops is broken'
-      );
-    });
+    const vFile = await lint;
+    expect(mockFetch).toHaveBeenCalledTimes(2);
+    expect(vFile.messages.length).toBe(1);
+    expect(vFile.messages[0].reason).toBe(
+      'Link to https://github.com/unified/oops is broken'
+    );
   }, 15000);
 
-  test('works with definitions and images', () => {
-    fetch.mockReturnValueOnce(200).mockReturnValueOnce(404);
+  test('works with definitions and images', async () => {
+    mockFetch.mockResolvedValueOnce(200).mockResolvedValueOnce(404);
 
     const lint = processMarkdown(
       dedent`
@@ -80,27 +81,25 @@ describe('remark-lint-no-dead-urls', () => {
       }
     );
 
-    return lint.then(vFile => {
-      expect(fetch).toHaveBeenCalledTimes(2);
-      expect(vFile.messages.length).toBe(1);
-      expect(vFile.messages[0].reason).toBe('Link to /oops/broken is broken');
-    });
+    const vFile = await lint;
+    expect(mockFetch).toHaveBeenCalledTimes(2);
+    expect(vFile.messages.length).toBe(1);
+    expect(vFile.messages[0].reason).toBe('Link to /oops/broken is broken');
   });
 
-  test('skips URLs with unsupported protocols', () => {
+  test('skips URLs with unsupported protocols', async () => {
     const lint = processMarkdown(dedent`
       [Send me an email.](mailto:me@me.com)
       [Look at this file.](ftp://path/to/file.txt)
       [Special schema.](flopper://a/b/c)
     `);
 
-    return lint.then(vFile => {
-      expect(fetch).toHaveBeenCalledTimes(0);
-      expect(vFile.messages.length).toBe(0);
-    });
+    const vFile = await lint;
+    expect(mockFetch).toHaveBeenCalledTimes(0);
+    expect(vFile.messages.length).toBe(0);
   });
 
-  test('localhost', () => {
+  test('localhost', async () => {
     const lint = processMarkdown(
       dedent`
         - [http://localhost](http://localhost)
@@ -114,12 +113,11 @@ describe('remark-lint-no-dead-urls', () => {
       `
     );
 
-    return lint.then(vFile => {
-      expect(vFile.messages.length).toBe(0);
-    });
+    const vFile = await lint;
+    expect(vFile.messages.length).toBe(0);
   });
 
-  test('local IP 127.0.0.1', () => {
+  test('local IP 127.0.0.1', async () => {
     const lint = processMarkdown(
       dedent`
         - [http://127.0.0.1](http://127.0.0.1)
@@ -133,9 +131,8 @@ describe('remark-lint-no-dead-urls', () => {
       `
     );
 
-    return lint.then(vFile => {
-      expect(vFile.messages.length).toBe(0);
-    });
+    const vFile = await lint;
+    expect(vFile.messages.length).toBe(0);
   });
 
   test.each([
@@ -143,13 +140,12 @@ describe('remark-lint-no-dead-urls', () => {
     '[Ignore this](http://www.url-to-ignore.com/somePath)',
     '[Ignore this](http://www.url-to-ignore.com/somePath?withQuery=wow)',
     '[its complicated](http://url-to-ignore.com/somePath/maybe)',
-  ])('skipUrlPatterns for content: %s', markdownContent => {
+  ])('skipUrlPatterns for content: %s', async markdownContent => {
     const lint = processMarkdown(markdownContent, {
       skipUrlPatterns: [/^http:\/\/(.*)url-to-ignore\.com/],
     });
 
-    return lint.then(vFile => {
-      expect(vFile.messages.length).toBe(0);
-    });
+    const vFile = await lint;
+    expect(vFile.messages.length).toBe(0);
   });
 });
