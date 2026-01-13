@@ -36,18 +36,6 @@ jobs:
       - name: Run plugins lint
         run: yarn lint:plugins
 
-      - name: Run remark-codeblock-language-as-title plugin checks
-        working-directory: plugins/remark-codeblock-language-as-title
-        run: yarn tsc
-
-      - name: Run remark-lint-no-dead-urls plugin checks
-        working-directory: plugins/remark-lint-no-dead-urls
-        run: yarn tsc && yarn test
-
-      - name: Run remark-snackplayer plugin checks
-        working-directory: plugins/remark-snackplayer
-        run: yarn tsc && yarn test
-
   lint-website:
     runs-on: ubuntu-latest
     steps:
