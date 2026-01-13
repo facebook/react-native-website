@@ -14,7 +14,7 @@ import {lintRule} from 'unified-lint-rule';
 import {visit} from 'unist-util-visit';
 import type {VFile} from 'vfile';
 
-import {fetch} from './lib.js';
+import {fetch} from './lib.ts';
 
 const linkCache = new Map();
 

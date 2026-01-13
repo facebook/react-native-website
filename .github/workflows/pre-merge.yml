@@ -30,8 +30,41 @@ jobs:
       - name: Check dependencies alignment
         run: yarn check-dependencies
 
-      - name: Run Workspace Lint
-        run: yarn lint
+      - name: Run packages lint
+        run: yarn lint:packages
+
+      - name: Run plugins lint
+        run: yarn lint:plugins
+
+      - name: Run remark-codeblock-language-as-title plugin checks
+        working-directory: plugins/remark-codeblock-language-as-title
+        run: yarn tsc
+
+      - name: Run remark-lint-no-dead-urls plugin checks
+        working-directory: plugins/remark-lint-no-dead-urls
+        run: yarn tsc && yarn test
+
+      - name: Run remark-snackplayer plugin checks
+        working-directory: plugins/remark-snackplayer
+        run: yarn tsc && yarn test
+
+  lint-website:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: "22"
+          cache: yarn
+
+      - name: Install dependencies
+        run: yarn install --immutable
 
       - name: Run Website Specific Lints
         working-directory: website
