@@ -8,6 +8,7 @@
 import {remark} from 'remark';
 import dedent from 'dedent';
 import {jest, describe, beforeEach, test, expect} from '@jest/globals';
+import {Options} from '../index.ts';
 
 const mockFetch = jest.fn() as jest.MockedFunction<
   (url: string, method: unknown, options?: object) => Promise<number>
@@ -19,7 +20,7 @@ jest.unstable_mockModule('../lib.ts', () => ({
 
 const plugin = (await import('../index.ts')).default;
 
-function processMarkdown(md: string, opts = {}) {
+function processMarkdown(md: string, opts: Options = {}) {
   return remark().use(plugin, opts).process(md);
 }
 

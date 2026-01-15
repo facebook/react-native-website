@@ -120,7 +120,7 @@ Ccache works by wrapping the C++ compilers, storing the compilation results, and
 if an intermediate compilation result was originally stored.
 
 Ccache is available in the package manager for most operating systems. On macOS, we can install ccache with `brew install ccache`.
-Or you can follow the [official installation instructions](https://github.com/ccache/ccache/blob/master/doc/INSTALL.md) to install from source.
+Or you can follow the [official installation instructions](https://github.com/ccache/ccache/blob/master/doc/install.md) to install from source.
 
 You can then do two clean builds (e.g. on Android you can first run `yarn react-native run-android`, delete the `android/app/build` folder and run the first command once more). You will notice that the second build was way faster than the first one (it should take seconds rather than minutes).
 While building, you can verify that `ccache` works correctly and check the cache hits/miss rate `ccache -s`
