@@ -12,7 +12,7 @@ Timers are an important part of an application and React Native implements the [
 - `setImmediate` and `clearImmediate`
 - `requestAnimationFrame` and `cancelAnimationFrame`
 
-`requestAnimationFrame(fn)` is not the same as `setTimeout(fn, 0)` - the former will fire after all the frames have flushed, whereas the latter will fire as quickly as possible (over 1000x per second on a iPhone 5S).
+`requestAnimationFrame(fn)` is not the same as `setInterval(fn, 0)` - the former will fire after all the frames have flushed, whereas the latter will fire as quickly as possible (over 1000x per second on a iPhone 5S).
 
 `setImmediate` is executed at the end of the current JavaScript execution block, right before sending the batched response back to native. Note that if you call `setImmediate` within a `setImmediate` callback, it will be executed right away, it won't yield back to native in between.
 
