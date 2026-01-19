@@ -63,6 +63,8 @@ To enable source map generation:
 ```diff
 + export SOURCEMAP_FILE="$(pwd)/../main.jsbundle.map"
   WITH_ENVIRONMENT="../node_modules/react-native/scripts/xcode/with-environment.sh"
+- /bin/sh -c "$WITH_ENVIRONMENT $REACT_NATIVE_XCODE"
++ /bin/sh -c "SOURCEMAP_FILE=\"$SOURCEMAP_FILE\" $WITH_ENVIRONMENT $REACT_NATIVE_XCODE"
 ```
 
 If done correctly you should see the output location of the source map during Metro build output.
