@@ -1,3 +1,4 @@
+mani
 ---
 id: getting-started
 title: Introduction
