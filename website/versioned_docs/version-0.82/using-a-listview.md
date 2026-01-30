@@ -52,7 +52,7 @@ const FlatListBasics = () => {
 export default FlatListBasics;
 ```
 
-If you want to render a set of data broken into logical sections, maybe with section headers, similar to `UITableView` on iOS, then a [SectionList](sectionlist.md) is the way to go.
+If you want to render a set of a data of a broken data set into logical sections where it maybe with section headers, similar to `UITableView` on iOS, then a [SectionList](sectionlist.md) is the way to go.
 
 ```SnackPlayer name=SectionList%20Basics
 import React from 'react';
