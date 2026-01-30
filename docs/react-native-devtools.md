@@ -134,7 +134,7 @@ Performance tracing allows you to record a performance session within your app t
 
 #### Useful tips
 
-- Use [Annotations](https://developer.chrome.com/docs/devtools/performance/annotations) to label and mark up a performance trace — useful before [downloading and sharing](https://developer.chrome.com/docs/devtools/performance/save-trace) with a teammate.
+- Use [Annotations](https://developer.chrome.com/docs/devtools/performance/annotations) (shift-drag) to label and mark up a performance trace — useful before [downloading and sharing](https://developer.chrome.com/docs/devtools/performance/save-trace) a trace with a teammate. Annotations also provide a quick way to gauge time spans in **seconds**.
 - Use the [`PerformanceObserver` API](./global-PerformanceObserver.md) in your app to observe performance events at runtime — useful if you want to capture performance telemetry.
 
 #### Learn more
