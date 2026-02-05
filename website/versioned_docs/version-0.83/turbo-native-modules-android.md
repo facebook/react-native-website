@@ -219,12 +219,9 @@ import android.app.Application;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
 import com.facebook.react.ReactHost;
-import com.facebook.react.ReactNativeHost;
+import com.facebook.react.ReactNativeApplicationEntryPoint
 import com.facebook.react.ReactPackage;
-import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint;
 import com.facebook.react.defaults.DefaultReactHost;
-import com.facebook.react.defaults.DefaultReactNativeHost;
-import com.facebook.soloader.SoLoader;
 // highlight-add-next-line
 import com.nativelocalstorage.NativeLocalStoragePackage;
 
@@ -233,51 +230,21 @@ import java.util.List;
 
 public class MainApplication extends Application implements ReactApplication {
 
-  private final ReactNativeHost reactNativeHost = new DefaultReactNativeHost(this) {
-    @Override
-    public List<ReactPackage> getPackages() {
-      List<ReactPackage> packages = new PackageList(this).getPackages();
-      // Packages that cannot be autolinked yet can be added manually here, for example:
-      // packages.add(new MyReactNativePackage());
-      // highlight-add-next-line
-      packages.add(new NativeLocalStoragePackage());
-      return packages;
-    }
-
-    @Override
-    public String getJSMainModuleName() {
-      return "index";
-    }
-
-    @Override
-    public boolean getUseDeveloperSupport() {
-      return BuildConfig.DEBUG;
-    }
-
-    @Override
-    public boolean isNewArchEnabled() {
-      return BuildConfig.IS_NEW_ARCHITECTURE_ENABLED;
-    }
-
-    @Override
-    public boolean isHermesEnabled() {
-      return BuildConfig.IS_HERMES_ENABLED;
-    }
-  };
-
   @Override
   public ReactHost getReactHost() {
-    return DefaultReactHost.getDefaultReactHost(getApplicationContext(), reactNativeHost);
+    List<ReactPackage> packages = new PackageList(this).getPackages();
+    // Packages that cannot be autolinked yet can be added manually here, for example:
+    // packages.add(new MyReactNativePackage());
+    // highlight-add-next-line
+    packages.add(new NativeLocalStoragePackage());
+    return packages;
+    return DefaultReactHost.getDefaultReactHost(getApplicationContext(), packages);
   }
 
   @Override
   public void onCreate() {
     super.onCreate();
-    SoLoader.init(this, false);
-    if (BuildConfig.IS_NEW_ARCHITECTURE_ENABLED) {
-      // If you opted-in for the New Architecture, we load the native entry point for this app.
-      DefaultNewArchitectureEntryPoint.load();
-    }
+    ReactNativeApplicationEntryPoint.loadReactNative(this)
   }
 }
 ```
@@ -292,45 +259,29 @@ import android.app.Application
 import com.facebook.react.PackageList
 import com.facebook.react.ReactApplication
 import com.facebook.react.ReactHost
-import com.facebook.react.ReactNativeHost
-import com.facebook.react.ReactPackage
-import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.load
+import com.facebook.react.ReactNativeApplicationEntryPoint.loadReactNative
 import com.facebook.react.defaults.DefaultReactHost.getDefaultReactHost
-import com.facebook.react.defaults.DefaultReactNativeHost
-import com.facebook.soloader.SoLoader
 // highlight-add-next-line
 import com.nativelocalstorage.NativeLocalStoragePackage
 
 class MainApplication : Application(), ReactApplication {
 
-  override val reactNativeHost: ReactNativeHost =
-      object : DefaultReactNativeHost(this) {
-        override fun getPackages(): List<ReactPackage> =
-            PackageList(this).packages.apply {
-              // Packages that cannot be autolinked yet can be added manually here, for example:
-              // add(MyReactNativePackage())
-              // highlight-add-next-line
-              add(NativeLocalStoragePackage())
-            }
-
-        override fun getJSMainModuleName(): String = "index"
-
-        override fun getUseDeveloperSupport(): Boolean = BuildConfig.DEBUG
-
-        override val isNewArchEnabled: Boolean = BuildConfig.IS_NEW_ARCHITECTURE_ENABLED
-        override val isHermesEnabled: Boolean = BuildConfig.IS_HERMES_ENABLED
-      }
-
-  override val reactHost: ReactHost
-    get() = getDefaultReactHost(applicationContext, reactNativeHost)
+  override val reactHost: ReactHost by lazy {
+    getDefaultReactHost(
+      context = applicationContext,
+      packageList =
+        PackageList(this).packages.apply {
+          // Packages that cannot be autolinked yet can be added manually here, for example:
+          // add(MyReactNativePackage())
+          // highlight-add-next-line
+          add(NativeLocalStoragePackage())
+        },
+    )
+  }
 
   override fun onCreate() {
     super.onCreate()
-    SoLoader.init(this, false)
-    if (BuildConfig.IS_NEW_ARCHITECTURE_ENABLED) {
-      // If you opted-in for the New Architecture, we load the native entry point for this app.
-      load()
-    }
+    loadReactNative(this)
   }
 }
 ```
