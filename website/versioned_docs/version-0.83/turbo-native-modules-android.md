@@ -87,7 +87,7 @@ class NativeLocalStorageModule(reactContext: ReactApplicationContext) : NativeLo
   override fun getItem(key: String): String? {
     val sharedPref = reactApplicationContext.getSharedPreferences("my_prefs", Context.MODE_PRIVATE)
     val username = sharedPref.getString(key, null)
-    return username.toString()
+    return username
   }
 
   override fun removeItem(key: String) {
