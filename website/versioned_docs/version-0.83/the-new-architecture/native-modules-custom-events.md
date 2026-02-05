@@ -138,12 +138,12 @@ import React from 'react';
 import {
 + Alert,
 + EventSubscription,
-  SafeAreaView,
   StyleSheet,
   Text,
   TextInput,
   Button,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 import NativeLocalStorage from './specs/NativeLocalStorage';
 
