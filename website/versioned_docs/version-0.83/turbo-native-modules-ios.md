@@ -155,7 +155,7 @@ At this point, you need to re-install the pods to make sure that codegen runs ag
 ```bash
 # from the ios folder
 bundle exec pod install
-open SampleApp.xcworkspace
+open TurboModuleExample.xcworkspace
 ```
 
 If you now build your application from Xcode, you should be able to build successfully.
