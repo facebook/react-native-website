@@ -168,12 +168,12 @@ The `TurboModuleRegistry` supports 2 modes of retrieving a Turbo Native Module:
 ```tsx title="App.tsx"
 import React from 'react';
 import {
-  SafeAreaView,
   StyleSheet,
   Text,
   TextInput,
   Button,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 import NativeLocalStorage from './specs/NativeLocalStorage';
 
