@@ -71,6 +71,7 @@ package com.nativelocalstorage
 import android.content.Context
 import com.nativelocalstorage.NativeLocalStorageSpec
 import com.facebook.react.bridge.ReactApplicationContext
+import androidx.core.content.edit
 
 class NativeLocalStorageModule(reactContext: ReactApplicationContext) : NativeLocalStorageSpec(reactContext) {
 
