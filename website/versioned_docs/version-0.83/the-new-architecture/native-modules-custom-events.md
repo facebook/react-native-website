@@ -276,11 +276,10 @@ To do so, you have to:
 package com.nativelocalstorage
 
 import android.content.Context
-import android.content.SharedPreferences
 import com.nativelocalstorage.NativeLocalStorageSpec
 +import com.facebook.react.bridge.Arguments
 import com.facebook.react.bridge.ReactApplicationContext
-+import com.facebook.react.bridge.WritableMap
+import androidx.core.content.edit
 
 class NativeLocalStorageModule(reactContext: ReactApplicationContext) : NativeLocalStorageSpec(reactContext) {
 
@@ -292,30 +291,28 @@ class NativeLocalStorageModule(reactContext: ReactApplicationContext) : NativeLo
 +       shouldEmit = true
 +   }
     val sharedPref = getReactApplicationContext().getSharedPreferences("my_prefs", Context.MODE_PRIVATE)
-    val editor = sharedPref.edit()
-    editor.putString(key, value)
-    editor.apply()
-
-+   if (shouldEmit == true) {
+    sharedPref.edit {
+      putString(key, value)
++     if (shouldEmit) {
 +       val eventData = Arguments.createMap().apply {
-+           putString("key", key)
-+           putString("value", value)
++         putString("key", key)
++         putString("value", value)
 +       }
 +       emitOnKeyAdded(eventData)
-+   }
++     }
+    }
   }
 
   override fun getItem(key: String): String? {
     val sharedPref = getReactApplicationContext().getSharedPreferences("my_prefs", Context.MODE_PRIVATE)
     val username = sharedPref.getString(key, null)
-    return username.toString()
+    return username
   }
 ```
 
-First, you need to import a couple of types that you need to use to create the eventData that needs to be sent from Native to JS. These imports are:
+First, you need to import a type that you need to use to create the eventData that needs to be sent from Native to JS. This import is:
 
 - `import com.facebook.react.bridge.Arguments`
-- `import com.facebook.react.bridge.WritableMap`
 
 Secondly, you need to implement the logic that actually emits the event to JS. In case of complex types, like the `KeyValuePair` defined in the specs, Codegen will generate a function that expects a `ReadableMap` as a parameter. You can create the `ReadableMap` by using the `Arguments.createMap()` factory method, and use the `apply` function to populate the map. It's your responsibility to make sure that the the keys you are using in the map are the same properties that are defined in the spec type in JS.
 
