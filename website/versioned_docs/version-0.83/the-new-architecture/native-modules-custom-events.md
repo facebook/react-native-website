@@ -287,7 +287,7 @@ class NativeLocalStorageModule(reactContext: ReactApplicationContext) : NativeLo
 
   override fun setItem(value: String, key: String) {
 +   var shouldEmit = false
-+   if (getItem(key) != null) {
++   if (getItem(key) == null) {
 +       shouldEmit = true
 +   }
     val sharedPref = getReactApplicationContext().getSharedPreferences("my_prefs", Context.MODE_PRIVATE)
