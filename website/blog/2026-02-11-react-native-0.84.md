@@ -65,7 +65,7 @@ When installing CocoaPods dependencies, pass the `RCT_HERMES_V1_ENABLED=0` and `
 
 **Android**
 
-Add `hermesV1Enabled=false` inside the `android/gradle.properties` file, and configure the application to [build React Native from source](https://reactnative.dev/contributing/how-to-build-from-source#update-your-project-to-build-from-source).
+Add `hermesV1Enabled=false` inside the `android/gradle.properties` file, and configure the application to [build React Native from source](/contributing/how-to-build-from-source#update-your-project-to-build-from-source).
 
 </details>
 
@@ -154,8 +154,7 @@ We want to send a special thank you to those who shipped significant contributio
 - [Dawid Małecki](https://github.com/coado) for the Hermes V1 rollout.
 - [Christian Falch](https://github.com/chrfalch) for precompiled binary documentation and tooling.
 - [Rob Hogan](https://github.com/robhogan) for the Node.js 22 minimum version bump.
-- [Fabrizio Cucci](https://github.com/fabriziocucci) for extensive accessibility improvements on Android.
-- [Tommy Nguyen](https://github.com/tido64) for fixing pnpm monorepo compatibility issues.
+- [Fabrizio Cucci](https://github.com/fabriziocucci) for accessibility improvements on Android.
 - [@pipopotamasu](https://github.com/pipopotamasu) for ESLint v9 Flat Config support.
 
 ## Upgrade to 0.84
@@ -168,7 +167,7 @@ To create a new project:
 npx @react-native-community/cli@latest init MyProject --version latest
 ```
 
-If you use Expo, React Native 0.84 will be available as part of the expo@canary releases.
+If you use Expo, React Native 0.84 will be available as part of the `expo@canary` releases.
 The next SDK, SDK 56, will be shipped with the next stable release of React Native: 0.85.
 
 :::info
