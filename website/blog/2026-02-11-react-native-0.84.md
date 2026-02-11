@@ -12,13 +12,13 @@ import TabItem from '@theme/TabItem';
 
 Today we're excited to release React Native 0.84!
 
-This release makes Hermes V1 the default JavaScript engine, bringing significant performance improvements to all React Native apps. We've also removed the Legacy Architecture on iOS and are shipping precompiled iOS binaries by default.
+This release makes Hermes V1 the default JavaScript engine, bringing significant performance improvements to all React Native apps. We've also continued removing the Legacy Architecture on both iOS and Android, and are shipping precompiled iOS binaries by default.
 
 ### Highlights
 
 - [Hermes V1 as Default](/blog/2026/02/11/react-native-0.84#hermes-v1-as-default)
 - [Precompiled Binaries on iOS by Default](/blog/2026/02/11/react-native-0.84#precompiled-binaries-on-ios-by-default)
-- [Legacy Architecture Removed on iOS](/blog/2026/02/11/react-native-0.84#legacy-architecture-removed-on-ios)
+- [Legacy Architecture Components Removed](/blog/2026/02/11/react-native-0.84#legacy-architecture-components-removed)
 - [Node.js 22 Minimum](/blog/2026/02/11/react-native-0.84#nodejs-22-minimum)
 
 <!--truncate-->
@@ -79,11 +79,52 @@ This means you no longer need to compile React Native core from source every tim
 If you need to build React Native from source (for example, to opt out of Hermes V1), you can disable precompiled binaries by setting `RCT_USE_PREBUILT_RNCORE=0` when installing pods.
 :::
 
-## Legacy Architecture Removed on iOS
+## Legacy Architecture Components Removed
 
-Building on the work started in 0.82 (which made the New Architecture the only runtime option), React Native 0.84 now **removes the Legacy Architecture code from iOS builds by default**.
+Building on the work started in 0.82 (which made the New Architecture the only runtime option), React Native 0.84 continues removing Legacy Architecture code from both iOS and Android. As described in the [RFC](https://github.com/react-native-community/discussions-and-proposals/pull/929), we're removing several Legacy Architecture classes in each release.
+
+#### iOS
 
 In 0.83, we introduced the experimental `RCT_REMOVE_LEGACY_ARCH` flag to compile out Legacy Architecture code. In 0.84, this is now the default behaviour — Legacy Architecture code is no longer included in your iOS builds, reducing both build time and app size.
+
+No breakages are expected for apps already on the New Architecture — the Interop Layer code required for compatibility remains in place.
+
+<details>
+<summary><strong>Re-enabling Legacy Architecture code on iOS</strong></summary>
+
+If you need to re-enable Legacy Architecture code in your iOS builds, you'll need to build from source. Install CocoaPods dependencies with the following flags:
+
+```bash
+RCT_USE_PREBUILT_RNCORE=0 RCT_REMOVE_LEGACY_ARCH=0 bundle exec pod install
+```
+
+</details>
+
+#### Android
+
+<details>
+<summary><strong>Removed Legacy Architecture classes</strong></summary>
+
+The following classes have been removed in this release:
+
+```
+com.facebook.react.LazyReactPackage
+com.facebook.react.bridge.CxxModuleWrapper
+com.facebook.react.bridge.CxxModuleWrapperBase
+com.facebook.react.bridge.CallbackImpl
+com.facebook.react.bridge.NotThreadSafeBridgeIdleDebugListener
+com.facebook.react.bridge.OnBatchCompleteListener
+com.facebook.react.bridge.ReactCxxErrorHandler
+com.facebook.react.bridge.ReactInstanceManagerInspectorTarget
+com.facebook.react.modules.debug.DidJSUpdateUiDuringFrameDetector
+com.facebook.react.devsupport.BridgeDevSupportManager
+com.facebook.react.uimanager.NativeKind
+com.facebook.react.uimanager.debug.NotThreadSafeViewHierarchyUpdateDebugListener
+com.facebook.react.uimanager.layoutanimation.LayoutAnimationController
+com.facebook.react.uimanager.layoutanimation.LayoutAnimationListener
+```
+
+</details>
 
 ## Node.js 22 Minimum
 
@@ -150,10 +191,8 @@ React Native 0.84 contains over 650 commits from 95 contributors. Thank you for 
 
 We want to send a special thank you to those who shipped significant contributions in this release:
 
-- [Riccardo Cipolleschi](https://github.com/cipolleschi) for shipping precompiled iOS binaries by default and removing the Legacy Architecture on iOS.
-- [Dawid Małecki](https://github.com/coado) for the Hermes V1 rollout.
-- [Christian Falch](https://github.com/chrfalch) for precompiled binary documentation and tooling.
-- [Rob Hogan](https://github.com/robhogan) for the Node.js 22 minimum version bump.
+- [Riccardo Cipolleschi](https://github.com/cipolleschi) for precompiled iOS binaries by default and removing the Legacy Architecture on iOS.
+- [Rob Hogan](https://github.com/robhogan) for the Node.js 22 version bump.
 - [Fabrizio Cucci](https://github.com/fabriziocucci) for accessibility improvements on Android.
 - [@pipopotamasu](https://github.com/pipopotamasu) for ESLint v9 Flat Config support.
 
