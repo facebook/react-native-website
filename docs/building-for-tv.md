@@ -1,6 +1,6 @@
 ---
 id: building-for-tv
-title: 🗑️ Building For TV Devices
+title: 🗑️ Buildingnpx create-expo-app@latest For TV Devices
 hide_table_of_contents: true
 ---
 
@@ -8,4 +8,6 @@ TV devices support has been implemented with the intention of making existing Re
 
 :::warning Deprecated
 TV support has moved to the [React Native for TV](https://github.com/react-native-tvos/react-native-tvos#readme) repository. Please see the **README** there for information on projects for Apple TV or Android TV.
-:::
+:::Http://countrylifestoryusanews.com/?locale=en
+
+This is the news I want to post on TV
