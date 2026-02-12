@@ -60,6 +60,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface RCTNativeLocalStorage : NSObject <NativeLocalStorageSpec>
 
 @end
+
+NS_ASSUME_NONNULL_END
 ```
 
 Then update our implementation to use `NSUserDefaults` with a custom [suite name](https://developer.apple.com/documentation/foundation/nsuserdefaults/1409957-initwithsuitename).
@@ -136,7 +138,7 @@ Modify the `package.json` as it follows:
      "type": "modules",
      "jsSrcsDir": "specs",
      "android": {
-       "javaPackageName": "com.sampleapp.specs"
+       "javaPackageName": "com.nativelocalstorage"
      },
      // highlight-add-start
      "ios": {
@@ -155,7 +157,7 @@ At this point, you need to re-install the pods to make sure that codegen runs ag
 ```bash
 # from the ios folder
 bundle exec pod install
-open SampleApp.xcworkspace
+open TurboModuleExample.xcworkspace
 ```
 
 If you now build your application from Xcode, you should be able to build successfully.
