@@ -140,7 +140,6 @@ const styles = StyleSheet.create({
     marginHorizontal: '1%',
     marginBottom: 6,
     minWidth: '48%',
-    textAlign: 'center',
   },
   selected: {
     backgroundColor: 'coral',
@@ -150,6 +149,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: '500',
     color: 'coral',
+    textAlign: 'center',
   },
   selectedLabel: {
     color: 'white',
