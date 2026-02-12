@@ -18,7 +18,14 @@ The following example contains a `View` which will fade in and fade out based on
 ```SnackPlayer name=Animated%20Example
 import React from 'react';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
-import {Animated, Text, View, StyleSheet, Button, useAnimatedValue} from 'react-native';
+import {
+  Animated,
+  Text,
+  View,
+  StyleSheet,
+  Button,
+  useAnimatedValue,
+} from 'react-native';
 
 const App = () => {
   // fadeAnim will be used as the value for opacity. Initial Value: 0
