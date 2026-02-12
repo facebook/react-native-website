@@ -198,19 +198,25 @@ We want to send a special thank you to those who shipped significant contributio
 
 ## Upgrade to 0.84
 
-Please use the [React Native Upgrade Helper](https://react-native-community.github.io/upgrade-helper/) to view code changes between React Native versions for existing projects, in addition to the Upgrading docs.
-
-To create a new project:
-
-```sh
-npx @react-native-community/cli@latest init MyProject --version latest
-```
-
-If you use Expo, React Native 0.84 will be available as part of the `expo@canary` releases.
-The next SDK, SDK 56, will be shipped with the next stable release of React Native: 0.85.
-
 :::info
 
 0.84 is now the latest stable version of React Native and 0.81.x moves to unsupported. For more information see [React Native's support policy](https://github.com/reactwg/react-native-releases/blob/main/docs/support.md).
 
 :::
+
+#### Upgrading
+
+Please use the [React Native Upgrade Helper](https://react-native-community.github.io/upgrade-helper/) to view code changes between React Native versions for existing projects, in addition to the [Upgrading docs](/docs/upgrading).
+
+> **💡 New**: Try the experimental [`upgrade-react-native` AI skill for Community CLI Projects](https://skills.sh/react-native-community/skills/upgrade-react-native).
+
+#### Create a new project
+
+```text
+npx @react-native-community/cli@latest init MyProject --version latest
+```
+
+#### Expo
+
+For Expo projects, React Native 0.84 will be available as part of the `expo@canary` releases.
+The next SDK, SDK 56, will be shipped with the next stable release of React Native: 0.85.
