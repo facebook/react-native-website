@@ -39,7 +39,7 @@ React Native provides a tool called [Codegen](/the-new-architecture/what-is-code
 To create a specs file:
 
 1. Inside the root folder of your app, create a new folder called `specs`.
-2. Create a new file called `NativeLocalStorage.ts`.
+2. Create a new file called `NativeLocalStorage.ts`. (File/Spec must include the prefix Native)
 
 :::info
 You can see all of the types you can use in your specification and the native types that are generated in the [Appendix](/appendix.md) documentation.
