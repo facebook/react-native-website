@@ -117,6 +117,12 @@ static doLeftAndRightSwapInRTL: boolean;
 
 A boolean value indicating whether left and right style properties should be automatically swapped when in RTL mode. When enabled, left becomes right and right becomes left in RTL layouts.
 
+**Important Notes:**
+
+- doLeftAndRightSwapInRTL is `true` by default. This can be set to `false` with `swapLeftAndRightinRTL()`.
+- Does only affect `marginLeft` / `marginRight` / `paddingLeft` / `paddingRight` / `borderLeftWidth` / `borderRightWidth`
+- Does not affect position (relative/absolute) `left` / `right`
+
 ## Methods
 
 ### `allowRTL()`
