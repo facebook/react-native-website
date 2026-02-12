@@ -367,6 +367,13 @@ vzaidman:
     threads: vzaidman
   image_url: https://github.com/vzaidman.png
 
+alanleedev:
+  name: Alan Lee
+  title: Software Engineer @ Meta
+  socials:
+    github: alanleedev
+  image_url: https://github.com/alanleedev.png
+
 lukaszchludzinski:
   name: Łukasz Chludziński
   title: Engineering Manager @ Callstack
