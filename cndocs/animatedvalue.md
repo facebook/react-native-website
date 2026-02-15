@@ -3,208 +3,182 @@ id: animatedvalue
 title: Animated.Value
 ---
 
-驱动动画的一维标量值. 一个`Animated.Value`可以同步地驱动多个属性，但每次只能以一种动画机制变化。如果改用了其他动画机制（例如开始一个新的动画或是调用`setValue`），则会停止先前的动画。
+用于驱动动画的标准数值。一个 `Animated.Value` 可以以同步方式驱动多个属性，但同一时间只能由一种机制驱动。使用新的机制（例如启动新动画，或调用 `setValue`）会停止之前的机制。
 
-一般这样来初始化`new Animated.Value(0);`
+通常在函数组件中通过 `useAnimatedValue(0);` 初始化，在类组件中通过 `new Animated.Value(0);` 初始化。
 
 ---
 
-# 文档
+# 参考
 
 ## 方法
 
 ### `setValue()`
 
-```jsx
-setValue(value);
+```tsx
+setValue(value: number);
 ```
 
-直接赋值。注意这会导致正在运行的动画中断而直接更新到新值。
+直接设置值。这会停止该值上正在运行的任何动画，并更新所有已绑定的属性。
 
 **参数：**
 
-| 名称  | 类型   | 必需 | 说明       |
-| ----- | ------ | ---- | ---------- |
-| value | number | 是   | 新的动画值 |
+| 名称  | 类型   | 必填 | 说明 |
+| ----- | ------ | ---- | ---- |
+| value | number | 是   | 值   |
 
 ---
 
 ### `setOffset()`
 
-```jsx
-setOffset(offset);
+```tsx
+setOffset(offset: number);
 ```
 
-设置一个偏移量，该偏移量会叠加在通过`setValue`、动画或`Animated.event`设置的任何值之上。对于补偿诸如平移手势的起始位置等情况非常有用。
+设置一个偏移量。该偏移量会叠加到当前值之上，无论当前值来自 `setValue`、动画，还是 `Animated.event`。常用于补偿例如拖拽手势起点等场景。
 
 **参数：**
 
-| 名称   | 类型   | 必需 | 说明         |
-| ------ | ------ | ---- | ------------ |
-| offset | number | 是   | 偏移量 |
+| 名称   | 类型   | 必填 | 说明   |
+| ------ | ------ | ---- | ------ |
+| offset | number | 是   | 偏移值 |
 
 ---
 
 ### `flattenOffset()`
 
-```jsx
+```tsx
 flattenOffset();
 ```
 
-将偏移值合并到基础值中，并将偏移重置为零。最终输出的数值保持不变。
+将偏移值合并到基础值中，并将偏移重置为 0。最终输出值不变。
 
 ---
 
 ### `extractOffset()`
 
-```jsx
+```tsx
 extractOffset();
 ```
 
-将偏移值设置为基准值，并将基准值重置为零。最终输出的数值保持不变。
+将偏移值设为当前基础值，并将基础值重置为 0。最终输出值不变。
 
 ---
 
 ### `addListener()`
 
-```jsx
-addListener(callback);
+```tsx
+addListener(callback: (state: {value: number}) => void): string;
 ```
 
-给动画值添加一个异步监听器，以便您可以观察动画值的更新。这很有用，因为没有办法同步读取该值，因为它可能是由原生驱动的。
+给该值添加异步监听器，以便观察动画更新。由于该值可能由原生驱动，无法同步读取，因此此方法很有用。
 
-返回一个作为监听器标识符的字符串。
+返回一个字符串，作为监听器标识符。
 
 **参数：**
 
-| 名称     | 类型     | 必需 | 说明                                                                                        |
-| -------- | -------- | ---- | ------------------------------------------------------------------------------------------- |
-| callback | function | 是   | 回调函数将接收一个对象，其中`value`键的值设置为新值。 |
+| 名称     | 类型     | 必填 | 说明                                             |
+| -------- | -------- | ---- | ------------------------------------------------ |
+| callback | function | 是   | 回调函数，接收形如 `{value: number}` 的最新值对象。 |
 
 ---
 
 ### `removeListener()`
 
-```jsx
-removeListener(id);
+```tsx
+removeListener(id: string);
 ```
 
-移除一个监听函数。 `id`参数应与之前由`addListener()`返回的标识符匹配。
+注销某个监听器。`id` 参数应与 `addListener()` 返回的标识符一致。
 
 **参数：**
 
-| 名称 | 类型   | 必需 | 说明                               |
-| ---- | ------ | ---- | ---------------------------------- |
-| id   | string | 是   | 正在移除的监听器的ID。 |
+| 名称 | 类型   | 必填 | 说明                 |
+| ---- | ------ | ---- | -------------------- |
+| id   | string | 是   | 要移除的监听器 ID。 |
 
 ---
 
 ### `removeAllListeners()`
 
-```jsx
+```tsx
 removeAllListeners();
 ```
 
-移除所有监听函数。
+移除所有已注册的监听器。
 
 ---
 
 ### `stopAnimation()`
 
-```jsx
-stopAnimation([callback]);
+```tsx
+stopAnimation(callback?: (value: number) => void);
 ```
 
-停止任何正在运行的动画或跟踪。在停止动画后，将使用最终值调用`callback`，这对于更新状态以匹配布局中的动画位置非常有用。
+停止任何正在运行的动画或跟踪。停止后会以最终值调用 `callback`，这对将状态更新为与布局中的动画位置一致很有帮助。
 
 **参数：**
 
-| 名称     | 类型     | 必需 | 说明                                          |
-| -------- | -------- | ---- | --------------------------------------------- |
-| callback | function | 否   | 一个将接收最终值的函数。 |
+| 名称     | 类型     | 必填 | 说明                   |
+| -------- | -------- | ---- | ---------------------- |
+| callback | function | 否   | 接收最终值的回调函数。 |
 
 ---
 
 ### `resetAnimation()`
 
-```jsx
-resetAnimation([callback]);
+```tsx
+resetAnimation(callback?: (value: number) => void);
 ```
 
-停止任何动画并将值重置为其原始状态。
+停止任何动画，并将值重置为初始值。
 
 **参数：**
 
-| 名称     | 类型     | 必需 | 说明                                             |
-| -------- | -------- | ---- | ------------------------------------------------ |
-| callback | function | 否   | 一个接收原始值的函数。 |
+| 名称     | 类型     | 必填 | 说明                   |
+| -------- | -------- | ---- | ---------------------- |
+| callback | function | 否   | 接收初始值的回调函数。 |
 
 ---
 
 ### `interpolate()`
 
-```jsx
-interpolate(config);
+```tsx
+interpolate(config: InterpolationConfigType);
 ```
 
-在更新属性之前进行插值，例如将 0-1 映射到 0-10。
+在更新属性之前先对该值进行插值，例如将 0-1 映射到 0-10。
 
-请参阅`AnimatedInterpolation.js`
+参见 `AnimatedInterpolation.js`。
 
 **参数：**
 
-| 名称   | 类型   | 必需 | 说明         |
-| ------ | ------ | ---- | ------------ |
-| config | object | 是   | 看下面的说明 |
+| 名称   | 类型   | 必填 | 说明     |
+| ------ | ------ | ---- | -------- |
+| config | object | 是   | 见下文。 |
 
-`config` 对象由以下键组成：
+`config` 对象包含以下键：
 
-- `inputRange`：一个数字数组
-- `outputRange`：一个数字或字符串的数组
-- `easing`（可选）：一个函数，给定输入数字返回一个数字
-- `extrapolate`（可选）：一个字符串，如 'extend'、'identity' 或 'clamp'
-- `extrapolateLeft`（可选）：一个字符串，如 'extend'、'identity' 或 'clamp'
-- `extrapolateRight`（可选）：
+- `inputRange`: number 数组
+- `outputRange`: number 或 string 数组
+- `easing`（可选）：输入一个 number，返回一个 number 的函数
+- `extrapolate`（可选）：字符串，如 `'extend'`、`'identity'`、`'clamp'`
+- `extrapolateLeft`（可选）：字符串，如 `'extend'`、`'identity'`、`'clamp'`
+- `extrapolateRight`（可选）：字符串，如 `'extend'`、`'identity'`、`'clamp'`
 
 ---
 
 ### `animate()`
 
-```jsx
+```tsx
 animate(animation, callback);
 ```
 
-通常只在内部使用，但也可以由自定义的动画类使用。
+通常仅供内部使用，但也可用于自定义 Animation 类。
 
 **参数：**
 
-| 名称      | 类型      | 必需 | 说明                |
-| --------- | --------- | ---- | ------------------- |
-| animation | Animation | 是   | 请参阅 `Animation.js`. |
-| callback  | function  | 是   | 回调函数  |
-
----
-
-### `stopTracking()`
-
-```jsx
-stopTracking();
-```
-
-一般只在内部使用。
-
----
-
-### `track()`
-
-```jsx
-track(tracking);
-```
-
-一般只在内部使用。
-
-**参数：**
-
-| 名称     | 类型         | 必需 | 说明                  |
-| -------- | ------------ | ---- | --------------------- |
-| tracking | AnimatedNode | 是   | 请参阅 `AnimatedNode.js` |
+| 名称      | 类型      | 必填 | 说明                  |
+| --------- | --------- | ---- | --------------------- |
+| animation | Animation | 是   | 参见 `Animation.js`。 |
+| callback  | function  | 是   | 回调函数。            |
