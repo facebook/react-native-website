@@ -84,9 +84,9 @@ From [`Element`](https://developer.mozilla.org/en-US/docs/Web/API/Element):
     - ℹ️ Returns the value of the `id` or `nativeID` props.
   - [`lastElementChild`](https://developer.mozilla.org/en-US/docs/Web/API/Element/lastElementChild)
   - [`nextElementSibling`](https://developer.mozilla.org/en-US/docs/Web/API/Element/nextElementSibling)
-  - [`nodeName`](https://developer.mozilla.org/en-US/docs/Web/API/Element/nodeName)
-  - [`nodeType`](https://developer.mozilla.org/en-US/docs/Web/API/Element/nodeType)
-  - [`nodeValue`](https://developer.mozilla.org/en-US/docs/Web/API/Element/nodeValue)
+  - [`nodeName`](https://developer.mozilla.org/en-US/docs/Web/API/Node/nodeName)
+  - [`nodeType`](https://developer.mozilla.org/en-US/docs/Web/API/Node/nodeType)
+  - [`nodeValue`](https://developer.mozilla.org/en-US/docs/Web/API/Node/nodeValue)
   - [`previousElementSibling`](https://developer.mozilla.org/en-US/docs/Web/API/Element/previousElementSibling)
   - [`scrollHeight`](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollHeight)
   - [`scrollLeft`](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollLeft)
@@ -96,7 +96,7 @@ From [`Element`](https://developer.mozilla.org/en-US/docs/Web/API/Element):
   - [`scrollWidth`](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollWidth)
   - [`tagName`](https://developer.mozilla.org/en-US/docs/Web/API/Element/tagName)
     - ℹ️ Returns a normalized native component name prefixed with `RN:`, like `RN:View`.
-  - [`textContent`](https://developer.mozilla.org/en-US/docs/Web/API/Element/textContent)
+  - [`textContent`](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent)
 - Methods
   - [`getBoundingClientRect()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect)
   - [`hasPointerCapture()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/hasPointerCapture)

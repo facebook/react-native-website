@@ -282,7 +282,7 @@ const config: Config = {
           },
           {
             tagName: 'meta',
-            name: 'apple-mobile-web-app-capable',
+            name: 'mobile-web-app-capable',
             content: 'yes',
           },
           {
@@ -407,11 +407,19 @@ const config: Config = {
         },
       ],
     },
+    announcementBar: {
+      id: 'watch_keynote',
+      content:
+        'Re-watch the latest <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=NiYwlvXsBKw">React Native Keynote</a> from React Conf 2025',
+      backgroundColor: '#20232a',
+      textColor: '#fff',
+      isCloseable: false,
+    },
     navbar: {
       title: 'React Native',
       logo: {
         src: 'img/header_logo.svg',
-        alt: 'React Native',
+        alt: '',
       },
       style: 'dark',
       items: [
@@ -599,7 +607,7 @@ const config: Config = {
         content: 'https://reactnative.dev/img/logo-share.png',
       },
       {name: 'twitter:site', content: '@reactnative'},
-      {name: 'apple-mobile-web-app-capable', content: 'yes'},
+      {name: 'mobile-web-app-capable', content: 'yes'},
     ],
   } satisfies Preset.ThemeConfig,
 };

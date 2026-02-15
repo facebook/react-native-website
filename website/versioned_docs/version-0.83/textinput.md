@@ -236,7 +236,7 @@ If `true`, focuses the input. The default value is `false`.
 
 ---
 
-### `blurOnSubmit`
+### 🗑️ `blurOnSubmit`
 
 :::warning Deprecated
 Note that `submitBehavior` now takes the place of `blurOnSubmit` and will override any behavior defined by `blurOnSubmit`. See [submitBehavior](textinput#submitbehavior).
