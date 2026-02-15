@@ -1,6 +1,6 @@
 ---
 id: animatedvaluexy
-title: 动画.ValueXY
+title: Animated.ValueXY
 ---
 
 用于驱动 2D 动画的 2D 值，例如平移手势。与普通的 [`Animated.Value`](animatedvalue) 几乎相同的 API，但是是多路复用的。包含两个常规的“Animated.Value”。

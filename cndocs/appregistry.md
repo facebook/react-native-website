@@ -1,6 +1,6 @@
 ---
 id: appregistry
-title: 应用程序注册中心
+title: AppRegistry
 ---
 
 <div className="banner-native-code-required">
