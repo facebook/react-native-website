@@ -1,15 +1,16 @@
 ---
 id: animatedvaluexy
-title: Animated.ValueXY
+title: 动画.ValueXY
 ---
 
-2D 值用于驱动 2D 动画，例如平移手势。与普通的[`Animated.Value`](animatedvalue)几乎相同的 API，但是可以多路复用。在内部包含两个常规的`Animated.Value`。
+用于驱动 2D 动画的 2D 值，例如平移手势。与普通的 [`Animated.Value`](animatedvalue) 几乎相同的 API，但是是多路复用的。包含两个常规的“Animated.Value”。
 
-## 示例
+＃＃ 例子
 
-```SnackPlayer name=Animated.ValueXY
+```SnackPlayer name=Animated.ValueXY%20Example
 import React, {useRef} from 'react';
-import {Animated, PanResponder, StyleSheet, View} from 'react-native';
+import {Animated, PanResponder, StyleSheet} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const DraggableView = () => {
   const pan = useRef(new Animated.ValueXY()).current;
@@ -32,12 +33,14 @@ const DraggableView = () => {
   });
 
   return (
-    <View style={styles.container}>
-      <Animated.View
-        {...panResponder.panHandlers}
-        style={[pan.getLayout(), styles.box]}
-      />
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <Animated.View
+          {...panResponder.panHandlers}
+          style={[pan.getLayout(), styles.box]}
+        />
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
@@ -60,9 +63,9 @@ export default DraggableView;
 
 ---
 
-# 文档
+＃ 参考
 
-## 方法
+＃＃ 方法
 
 ### `setValue()`
 
@@ -70,13 +73,13 @@ export default DraggableView;
 setValue(value: {x: number; y: number});
 ```
 
-直接设置值。这将停止任何正在运行的动画，并更新所有绑定的属性。
+直接设定值。这将停止在该值上运行的任何动画并更新所有绑定的属性。
 
-**参数:**
+**参数：**
 
-| 名称  | 类型                     | 必需 | 描述 |
-| ----- | ------------------------ | ---- | ---- |
-| value | `{x: number; y: number}` | 是   | 值   |
+|名称 |类型 |必填|描述 |
+| -----| ------------------------ | -------- | ----------- |
+|价值| `{x：数字； y: 数字}` |是的 |价值|
 
 ---
 
@@ -86,13 +89,13 @@ setValue(value: {x: number; y: number});
 setOffset(offset: {x: number; y: number});
 ```
 
-设置一个偏移量，该偏移量会在已经设置的任何值（无论是通过`setValue`、动画还是`Animated.event`）之上应用。对于补偿诸如平移手势的起始位置等情况非常有用。
+设置一个偏移量，该偏移量应用于设置的任何值，无论是通过“setValue”、动画还是“Animated.event”。对于补偿诸如平移手势的开始之类的事情很有用。
 
-**参数:**
+**参数：**
 
-| 名称   | 类型                     | 必填 | 描述   |
-| ------ | ------------------------ | ---- | ------ |
-| offset | `{x: number; y: number}` | 是   | 偏移值 |
+|名称 |类型 |必填|描述 |
+| ------ | ------------------------ | -------- | ------------ |
+|偏移| `{x：数字； y: 数字}` |是的 |偏移值|
 
 ---
 
@@ -102,7 +105,7 @@ setOffset(offset: {x: number; y: number});
 flattenOffset();
 ```
 
-将偏移值合并到基础值中，并将偏移重置为零。最终输出的数值保持不变。
+将偏移值合并到基值并将偏移重置为零。最终输出的值没有变化。
 
 ---
 
@@ -112,7 +115,7 @@ flattenOffset();
 extractOffset();
 ```
 
-将偏移值设置为基准值，并将基准值重置为零。最终输出的数值保持不变。
+将偏移值设置为基值，并将基值重置为零。最终输出的值没有变化。
 
 ---
 
@@ -122,15 +125,15 @@ extractOffset();
 addListener(callback: (value: {x: number; y: number}) => void);
 ```
 
-向值添加一个异步监听器，以便您可以观察动画的更新。这很有用，因为没有办法同步读取该值，因为它可能是由原生驱动的。
+向值添加异步侦听器，以便您可以观察动画的更新。这很有用，因为无法同步读取该值，因为它可能是本机驱动的。
 
-返回一个字符串作为监听器的标识符。
+返回一个字符串，用作侦听器的标识符。
 
-**参数:**
+**参数：**
 
-| 名称     | 类型 | 必需 | 描述       |
-| -------- | ---- | ---- | ---------- |
-| callback | 函数 | 是   | 回调函数将 |
+|名称 |类型 |必填|描述 |
+| -------- | -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+|回调 |功能|是的 |回调函数将接收一个对象，该对象的“value”键设置为新值。 |
 
 ---
 
@@ -140,13 +143,13 @@ addListener(callback: (value: {x: number; y: number}) => void);
 removeListener(id: string);
 ```
 
-取消注册监听器。`id` 参数应与先前由 `addListener()` 返回的标识符匹配。
+取消注册侦听器。 “id”参数应与之前由“addListener()”返回的标识符匹配。
 
-**参数:**
+**参数：**
 
-| 名称 | 类型   | 必需 | 描述                     |
-| ---- | ------ | ---- | ------------------------ |
-| id   | string | 是   | 要移除的监听器的标识符。 |
+|名称 |类型 |必填|描述 |
+| ---- | ------ | -------- | ---------------------------------- |
+|编号 |字符串|是的 |正在删除的侦听器的 ID。 |
 
 ---
 
@@ -156,39 +159,39 @@ removeListener(id: string);
 removeAllListeners();
 ```
 
-移除所有已注册的监听器。
+删除所有已注册的侦听器。
 
 ---
 
-### `stopAnimation()`
+### `停止动画()`
 
 ```tsx
 stopAnimation(callback?: (value: {x: number; y: number}) => void);
 ```
 
-停止任何正在运行的动画或跟踪。在停止动画后，将使用`callback`调用最终值，这对于更新状态以匹配布局中的动画位置非常有用。
+停止任何正在运行的动画或跟踪。停止动画后使用最终值调用“callback”，这对于更新状态以将动画位置与布局相匹配非常有用。
 
-**参数:**
+**参数：**
 
-| 名称     | 类型 | 是否必需 | 描述                   |
-| -------- | ---- | -------- | ---------------------- |
-| callback | 函数 | 否       | 将接收到最终值的函数。 |
+|名称 |类型 |必填|描述 |
+| -------- | -------- | -------- | -------------------------------------------------------- |
+|回调 |功能|没有 |将接收最终值的函数。 |
 
 ---
 
-### `resetAnimation()`
+### `重置动画()`
 
 ```tsx
 resetAnimation(callback?: (value: {x: number; y: number}) => void);
 ```
 
-停止任何动画并将值重置为其原始状态。
+停止任何动画并将值重置为其原始值。
 
-**参数:**
+**参数：**
 
-| 名称     | 类型     | 是否必需 | 描述                   |
-| -------- | -------- | -------- | ---------------------- |
-| callback | function | 否       | 一个接收原始值的函数。 |
+|名称 |类型 |必填|描述 |
+| -------- | -------- | -------- | ------------------------------------------------ |
+|回调 |功能|没有 |将接收原始值的函数。 |
 
 ---
 
@@ -198,7 +201,7 @@ resetAnimation(callback?: (value: {x: number; y: number}) => void);
 getLayout(): {left: Animated.Value, top: Animated.Value};
 ```
 
-将`{x, y}`转换为`{left, top}`以在样式中使用，例如：
+将 `{x, y}` 转换为 `{left, top}` 以在样式中使用，例如
 
 ```tsx
 style={this.state.anim.getLayout()}
@@ -215,7 +218,7 @@ getTranslateTransform(): [
 ];
 ```
 
-将`{x, y}`转换为可用的平移变换，例如：
+将 `{x, y}` 转换为可用的平移变换，例如
 
 ```tsx
 style={{
