@@ -1,6 +1,6 @@
 ---
 id: app-extensions
-title: App Extensions
+title: iOS 应用小组件
 ---
 
 App Extensions 允许你在主应用之外提供自定义功能和内容。iOS 上有多种类型的 App Extensions，均在 [App Extension Programming Guide](https://developer.apple.com/library/content/documentation/General/Conceptual/ExtensibilityPG/index.html#//apple_ref/doc/uid/TP40014214-CH20-SW1) 中有所介绍。本指南将简要介绍如何在 iOS 上利用 App Extensions 的优势。

@@ -1,6 +1,6 @@
 ---
 id: build-speed
-title: 加快构建阶段
+title: 优化编译速度
 ---
 
 构建 React Native 应用程序可能**昂贵**并且需要开发人员花费几分钟的时间。

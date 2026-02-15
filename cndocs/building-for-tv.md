@@ -1,6 +1,6 @@
 ---
 id: building-for-tv
-title: 🗑️ 电视设备构建
+title: 为电视和机顶盒制作应用
 hide_table_of_contents: true
 ---
 

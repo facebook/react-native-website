@@ -1,6 +1,6 @@
 ---
 id: alertios
-title: '❌ AlertIOS'
+title: AlertIOS
 ---
 
 :::danger 已从 React Native 中移除

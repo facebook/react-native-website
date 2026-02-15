@@ -1,6 +1,6 @@
 ---
 id: backhandler
-title: 返回处理程序
+title: BackHandler
 ---
 
 Backhandler API 检测用于后退导航的硬件按钮按下情况，允许您注册系统后退操作的事件侦听器，并允许您控制应用程序的响应方式。它仅适用于 Android。
