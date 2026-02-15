@@ -5,13 +5,13 @@ title: I18nManager
 
 # I18nManager
 
-The `I18nManager` module provides utilities for managing Right-to-Left (RTL) layout support for languages like Arabic, Hebrew, and others. It provides methods to control RTL behavior and check the current layout direction.
+`I18nManager` 模块提供了管理从右到左（RTL）布局方向的工具方法，适用于阿拉伯语、希伯来语等 RTL 语言。它提供了控制 RTL 行为以及查询当前布局方向的方法。
 
-## Examples
+## 示例
 
-### Change positions and animations based on RTL
+### 根据 RTL 调整位置和动画
 
-If you absolutely position elements to align with other flexbox elements, they may not align in RTL languages. Using `isRTL` can be used to adjust alignment or animations.
+如果你使用绝对定位来对齐元素，在 RTL 语言下可能无法正确对齐。使用 `isRTL` 可以动态调整对齐方向或动画方向。
 
 ```SnackPlayer name=I18nManager%20Change%20Absolute%20Positions%20And%20Animations
 import React from 'react';
@@ -24,12 +24,13 @@ const App = () => {
   return (
     <SafeAreaProvider>
       <SafeAreaView>
-        <View style={{ position: 'absolute', left: isRTL ? undefined : 0, right: isRTL ? 0 : undefined }}>
-          {isRTL ? (
-            <Text>Back &gt;</Text>
-          ) : (
-            <Text>&lt; Back</Text>
-          )}
+        <View
+          style={{
+            position: 'absolute',
+            left: isRTL ? undefined : 0,
+            right: isRTL ? 0 : undefined,
+          }}>
+          {isRTL ? <Text>Back &gt;</Text> : <Text>&lt; Back</Text>}
         </View>
       </SafeAreaView>
     </SafeAreaProvider>
@@ -39,7 +40,7 @@ const App = () => {
 export default App;
 ```
 
-### During Development
+### 开发调试
 
 ```SnackPlayer name=I18nManager%20During%20Development
 import React, {useState} from 'react';
@@ -54,16 +55,19 @@ const App = () => {
         <View style={styles.container}>
           <View style={styles.forceRtl}>
             <Text>Force RTL in Development:</Text>
-            <Switch value={rtl} onValueChange={(value) => {
-              setRTL(value);
-              I18nManager.forceRTL(value);
-              Alert.alert(
-                'Reload this page',
-                'Please reload this page to change the UI direction! ' +
-                  'All examples in this app will be affected. ' +
-                  'Check them out to see what they look like in RTL layout.',
-              );
-            }} />
+            <Switch
+              value={rtl}
+              onValueChange={value => {
+                setRTL(value);
+                I18nManager.forceRTL(value);
+                Alert.alert(
+                  'Reload this page',
+                  'Please reload this page to change the UI direction! ' +
+                    'All examples in this app will be affected. ' +
+                    'Check them out to see what they look like in RTL layout.',
+                );
+              }}
+            />
           </View>
         </View>
       </SafeAreaView>
@@ -85,9 +89,9 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-# Reference
+# 参考
 
-## Properties
+## 属性
 
 ### `isRTL`
 
@@ -95,19 +99,19 @@ export default App;
 static isRTL: boolean;
 ```
 
-A boolean value indicating whether the app is currently in RTL layout mode.
+一个布尔值，指示应用当前是否处于 RTL 布局模式。
 
-The value of `isRTL` is determined by the following logic:
+`isRTL` 的值由以下逻辑决定：
 
-- If `forceRTL` is `true`, `isRTL` returns `true`
-- If `allowRTL` is `false`, `isRTL` returns `false`
-- Otherwise, `isRTL` will be `true` given the following:
-  - **iOS:**
-    - The user-preferred language on the device is an RTL language
-    - The application-defined localizations include the user-chosen language (as defined in the Xcode project file (`knownRegions = (...)`)
-  - **Android:**
-    - The user-preferred language on the device is an RTL language
-    - The application's `AndroidManifest.xml` defines `android:supportsRTL="true"` on the `<application>` element
+- 如果 `forceRTL` 为 `true`，则 `isRTL` 返回 `true`
+- 如果 `allowRTL` 为 `false`，则 `isRTL` 返回 `false`
+- 其他情况下，满足以下条件时 `isRTL` 为 `true`：
+  - **iOS：**
+    - 设备上用户首选语言为 RTL 语言
+    - 应用定义的本地化列表包含用户选择的语言（在 Xcode 项目文件中的 `knownRegions = (...)` 中定义）
+  - **Android：**
+    - 设备上用户首选语言为 RTL 语言
+    - 应用的 `AndroidManifest.xml` 在 `<application>` 元素上定义了 `android:supportsRTL="true"`
 
 ### `doLeftAndRightSwapInRTL`
 
@@ -115,9 +119,9 @@ The value of `isRTL` is determined by the following logic:
 static doLeftAndRightSwapInRTL: boolean;
 ```
 
-A boolean value indicating whether left and right style properties should be automatically swapped when in RTL mode. When enabled, left becomes right and right becomes left in RTL layouts.
+一个布尔值，指示在 RTL 模式下是否自动交换 left 和 right 样式属性。启用后，RTL 布局中 left 变为 right，right 变为 left。
 
-## Methods
+## 方法
 
 ### `allowRTL()`
 
@@ -125,16 +129,16 @@ A boolean value indicating whether left and right style properties should be aut
 static allowRTL: (allowRTL: boolean) => void;
 ```
 
-Enables or disables RTL layout support for the application.
+启用或禁用应用的 RTL 布局支持。
 
-**Parameters:**
+**参数：**
 
-- `allowRTL` (boolean): Whether to allow RTL layout
+- `allowRTL` (boolean)：是否允许 RTL 布局
 
-**Important Notes:**
+**重要说明：**
 
-- Changes take effect on the next application start, not immediately
-- This setting is persisted across app restarts
+- 更改在下次应用启动时生效，不会立即生效
+- 此设置会在应用重启后持久保留
 
 ### `forceRTL()`
 
@@ -142,19 +146,19 @@ Enables or disables RTL layout support for the application.
 static forceRTL: (forced: boolean) => void;
 ```
 
-Forces the app to use RTL layout regardless of the device language settings. This is primarily useful for testing RTL layouts during development.
+强制应用使用 RTL 布局，无论设备语言设置如何。此方法主要用于开发阶段测试 RTL 布局。
 
-Avoid forcing RTL in production apps as it requires a full app restart to take effect, which makes for a poor user-experience.
+不建议在生产环境中强制开启 RTL，因为该设置需要完全重启应用才能生效，用户体验不佳。
 
-**Parameters:**
+**参数：**
 
-- `forced` (boolean): Whether to force RTL layout
+- `forced` (boolean)：是否强制使用 RTL 布局
 
-**Important Notes:**
+**重要说明：**
 
-- Changes take full effect on the next application start, not immediately
-- The setting is persisted across app restarts
-- Only meant for development and testing. In production, you should either disallow RTL fully or handle it appropriately (see `isRTL`)
+- 更改在下次应用启动时完全生效，不会立即生效
+- 此设置会在应用重启后持久保留
+- 仅用于开发和测试。在生产环境中，你应该完全禁用 RTL 或正确处理 RTL（参见 `isRTL`）
 
 ### `swapLeftAndRightInRTL()`
 
@@ -162,4 +166,4 @@ Avoid forcing RTL in production apps as it requires a full app restart to take e
 static swapLeftAndRightInRTL: (swapLeftAndRight: boolean) => void;
 ```
 
-Swap left and right style properties in RTL mode. When enabled, left becomes right and right becomes left in RTL layouts. Does not affect the value of `isRTL`.
+在 RTL 模式下交换 left 和 right 样式属性。启用后，RTL 布局中 left 变为 right，right 变为 left。不会影响 `isRTL` 的值。
