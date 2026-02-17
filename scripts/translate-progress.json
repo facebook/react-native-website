@@ -1,0 +1,16 @@
+{
+  "merged": [
+    "cndocs/accessibility.md",
+    "cndocs/accessibilityinfo.md",
+    "cndocs/alertios.md",
+    "cndocs/animatedvaluexy.md",
+    "cndocs/app-extensions.md",
+    "cndocs/appregistry.md",
+    "cndocs/asyncstorage.md",
+    "cndocs/backhandler.md",
+    "cndocs/build-speed.md",
+    "cndocs/building-for-tv.md"
+  ],
+  "updatedAt": "2026-02-17T12:11:00Z",
+  "note": "seeded from merged title-fix and translation PR context; cron should append after future merged PRs"
+}
