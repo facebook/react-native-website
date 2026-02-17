@@ -2,18 +2,17 @@
 
 ## 一、术语
 
-整个与新架构相关的指南将遵循以下**术语**：
+- **Spec** - TypeScript 或 Flow 形式的代码，用于描述 Turbo Native 模块或 Fabric 原生组件的 API。**Codegen** 根据它来生成样板代码。
 
-- **Spec** - TypeScript 或 Flow 形式的代码，用于描述 Turbo Native 模块或 Fabric 原生组件的 API。 **Codegen** 根据它来生成样板代码。
+- **原生模块（Native Modules）** - 没有用户界面（UI）的原生库。例如持久化存储、通知、网络事件等。在 JavaScript 应用代码中以函数和对象的形式使用。
+- **原生组件（Native Component）** - 原生平台视图，可以通过 React 组件的方式在 JavaScript 应用代码中使用。
 
-- **Fabric 原生组件** - 指已经适配以与新架构（即新渲染器）良好协同工作的组件。为简洁起见，您可能会看到它们被称为**Fabric 组件**。
-- **Turbo 原生模块** - 指已经适配以与新架构（即新原生模块系统）良好协同工作的模块。为简洁起见，您可能会看到它们被称为**Turbo 模块**。
-- **传统原生组件** - 指运行在 React Native 旧架构上的组件。
-- **传统原生模块** - 指运行在 React Native 旧架构上的模块。
+- **传统原生组件（Legacy Native Components）** - 运行在 React Native 旧架构上的组件。
+- **传统原生模块（Legacy Native Modules）** - 运行在 React Native 旧架构上的模块。
 
-## II. Codegen 类型
+## 二、Codegen 类型
 
-您可以使用以下表格作为参考，了解每种类型在不同平台上的支持情况：
+你可以使用以下表格作为参考，了解每种类型的支持情况及其在各平台上的映射关系：
 
 | Flow                                                                       | TypeScript                                          | Flow Nullable Support                                   | TypeScript Nullable Support                          | Android (Java)                       | iOS (ObjC)                                                     |
 | -------------------------------------------------------------------------- | --------------------------------------------------- | ------------------------------------------------------- | ---------------------------------------------------- | ------------------------------------ | -------------------------------------------------------------- |
@@ -30,8 +29,8 @@
 
 ### Notes:
 
-<b>[1]</b> 我们强烈建议使用对象字面量而不是对象。
+<b>[1]</b> 我们强烈建议使用对象字面量（Object Literal）而不是 Object。
 
 :::info
-您也可以参考 React Native 核心模块的 JavaScript 规范。这些位于 React Native 仓库的 [`Libraries/`](https://github.com/facebook/react-native/tree/main/packages/react-native/Libraries) 目录中。
+你也可以参考 React Native 核心模块的 JavaScript 规范，这些文件位于 React Native 仓库的 `Libraries/` 目录中。
 :::

@@ -3,7 +3,7 @@ id: boxshadowvalue
 title: BoxShadowValue 对象类型
 ---
 
-`BoxShadowValue` 对象类型由 [`boxShadow`](./view-style-props.md#boxshadow) 样式属性所使用。它由 2-4 个长度、一个可选的颜色和一个可选的 `inset` 布尔值组成。这些值共同定义了盒阴影的颜色、位置、大小和模糊程度。
+`BoxShadowValue` 对象由 [`boxShadow`](./view-style-props.md#boxshadow) 样式属性所使用。它由 2-4 个长度值、一个可选的颜色和一个可选的 `inset` 布尔值组成，这些值共同定义了盒阴影的颜色、位置、大小和模糊程度。
 
 ## 示例
 
@@ -22,7 +22,7 @@ title: BoxShadowValue 对象类型
 
 ### `offsetX`
 
-在 x 轴上的偏移量。它可以是正数或负数。正数表示向右，负数表示向左。
+x 轴上的偏移量，可以是正数或负数。正值表示向右，负值表示向左。
 
 | 类型             | 可选 |
 | ---------------- | ---- |
@@ -30,7 +30,7 @@ title: BoxShadowValue 对象类型
 
 ### `offsetY`
 
-在 y 轴上的偏移量。它可以是正数或负数。正数表示向上，负数表示向下。
+y 轴上的偏移量，可以是正数或负数。正值表示向上，负值表示向下。
 
 | 类型             | 可选 |
 | ---------------- | ---- |
@@ -38,18 +38,18 @@ title: BoxShadowValue 对象类型
 
 ### `blurRadius`
 
-表示用于 [高斯模糊](https://en.wikipedia.org/wiki/Gaussian_blur) 算法的半径。值越大，阴影越模糊。仅非负值有效。默认值为 0。
+用于[高斯模糊](https://en.wikipedia.org/wiki/Gaussian_blur)算法的半径。值越大，阴影越模糊。仅接受非负值。默认值为 0。
 
-| 类型            | 可选 |
-| --------------- | ---- |
+| 类型             | 可选 |
+| ---------------- | ---- |
 | number \| string | 是   |
 
 ### `spreadDistance`
 
-阴影扩展的距离。正值会使阴影变大，负值会使阴影变小。
+阴影扩展或收缩的距离。正值会使阴影变大，负值会使阴影变小。
 
-| 类型            | 可选 |
-| --------------- | ---- |
+| 类型             | 可选 |
+| ---------------- | ---- |
 | number \| string | 是   |
 
 ### `color`

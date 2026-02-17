@@ -3,9 +3,9 @@ id: button
 title: Button
 ---
 
-一个简单的跨平台的按钮组件。可以进行一些简单的定制。
+一个简单的跨平台按钮组件，支持最基本的自定义。
 
-这个组件的样式是固定的。所以如果它的外观并不怎么搭配你的设计，那你需要使用 [`Pressable`](pressable) 组件来定制自己所需要的按钮，或者你也可以在 [github.com](github.com) 网站上搜索 'react native button' 来看看社区其他人的作品。
+如果这个按钮的外观不适合你的应用，你可以使用 [Pressable](pressable) 来构建自定义按钮。你也可以参考 [Button 组件的源代码](https://github.com/facebook/react-native/blob/main/packages/react-native/Libraries/Components/Button.js)获得灵感。
 
 ```tsx
 <Button
@@ -18,72 +18,76 @@ title: Button
 
 ## 示例
 
-```SnackPlayer name=Button%20Example
+```SnackPlayer name=Button%20Example&ext=js
 import React from 'react';
-import {
-  StyleSheet,
-  Button,
-  View,
-  SafeAreaView,
-  Text,
-  Alert,
-} from 'react-native';
+import {StyleSheet, Button, View, Text, Alert, Platform} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const Separator = () => <View style={styles.separator} />;
 
+function showAlert(message) {
+  if (Platform.OS === 'web') {
+    window.alert(message);
+  } else {
+    Alert.alert(message);
+  }
+}
+
 const App = () => (
-  <SafeAreaView style={styles.container}>
-    <View>
-      <Text style={styles.title}>
-        The title and onPress handler are required. It is recommended to set
-        accessibilityLabel to help make your app usable by everyone.
-      </Text>
-      <Button
-        title="Press me"
-        onPress={() => Alert.alert('Simple Button pressed')}
-      />
-    </View>
-    <Separator />
-    <View>
-      <Text style={styles.title}>
-        Adjust the color in a way that looks standard on each platform. On iOS,
-        the color prop controls the color of the text. On Android, the color
-        adjusts the background color of the button.
-      </Text>
-      <Button
-        title="Press me"
-        color="#f194ff"
-        onPress={() => Alert.alert('Button with adjusted color pressed')}
-      />
-    </View>
-    <Separator />
-    <View>
-      <Text style={styles.title}>
-        All interaction for the component are disabled.
-      </Text>
-      <Button
-        title="Press me"
-        disabled
-        onPress={() => Alert.alert('Cannot press this one')}
-      />
-    </View>
-    <Separator />
-    <View>
-      <Text style={styles.title}>
-        This layout strategy lets the title define the width of the button.
-      </Text>
-      <View style={styles.fixToText}>
+  <SafeAreaProvider>
+    <SafeAreaView style={styles.container}>
+      <View>
+        <Text style={styles.title}>
+          The title and onPress handler are required. It is recommended to set
+          accessibilityLabel to help make your app usable by everyone.
+        </Text>
         <Button
-          title="Left button"
-          onPress={() => Alert.alert('Left button pressed')}
-        />
-        <Button
-          title="Right button"
-          onPress={() => Alert.alert('Right button pressed')}
+          title="Press me"
+          onPress={() => showAlert('Simple Button pressed')}
         />
       </View>
-    </View>
-  </SafeAreaView>
+      <Separator />
+      <View>
+        <Text style={styles.title}>
+          Adjust the color in a way that looks standard on each platform. On
+          iOS, the color prop controls the color of the text. On Android, the
+          color adjusts the background color of the button.
+        </Text>
+        <Button
+          title="Press me"
+          color="#f194ff"
+          onPress={() => showAlert('Button with adjusted color pressed')}
+        />
+      </View>
+      <Separator />
+      <View>
+        <Text style={styles.title}>
+          All interaction for the component are disabled.
+        </Text>
+        <Button
+          title="Press me"
+          disabled
+          onPress={() => showAlert('Cannot press this one')}
+        />
+      </View>
+      <Separator />
+      <View>
+        <Text style={styles.title}>
+          This layout strategy lets the title define the width of the button.
+        </Text>
+        <View style={styles.fixToText}>
+          <Button
+            title="Left button"
+            onPress={() => showAlert('Left button pressed')}
+          />
+          <Button
+            title="Right button"
+            onPress={() => showAlert('Right button pressed')}
+          />
+        </View>
+      </View>
+    </SafeAreaView>
+  </SafeAreaProvider>
 );
 
 const styles = StyleSheet.create({
@@ -116,9 +120,9 @@ export default App;
 
 ## Props
 
-### <div class="label required basic">必需</div>**`onPress`**
+### <div className="label required basic">必需</div>**`onPress`**
 
-当用户点击按钮时要调用的处理函数。
+当用户点击按钮时调用的处理函数。
 
 | Type                                           |
 | ---------------------------------------------- |
@@ -126,9 +130,9 @@ export default App;
 
 ---
 
-### <div class="label required basic">必需</div>**`title`**
+### <div className="label required basic">必需</div>**`title`**
 
-按钮内显示的文本。在安卓中，给定的标题将转换为大写形式。
+按钮内显示的文本。在 Android 上，给定的标题会被转换为大写形式。
 
 | Type   |
 | ------ |
@@ -138,7 +142,7 @@ export default App;
 
 ### `accessibilityLabel`
 
-为盲人无障碍访问功能显示的文本。
+供无障碍辅助功能使用的显示文本。
 
 | Type   |
 | ------ |
@@ -146,11 +150,11 @@ export default App;
 
 ---
 
-### `accessibilityLanguage` <div class="label ios">iOS</div>
+### `accessibilityLanguage` <div className="label ios">iOS</div>
 
-一个指示屏幕阅读器在用户与元素交互时应使用哪种语言的值。它应遵循[BCP 47规范](https://www.rfc-editor.org/info/bcp47)。
+指定读屏器在用户与该元素交互时应使用的语言。该值应遵循 [BCP 47 规范](https://www.rfc-editor.org/info/bcp47)。
 
-有关更多信息，请参阅[iOS `accessibilityLanguage`文档]([***/nsobject/1615192-accessibilitylanguage](https://developer.apple.com/documentation/objectivec/nsobject/1615192-accessibilitylanguage))。
+更多信息请参阅 [iOS `accessibilityLanguage` 文档](https://developer.apple.com/documentation/objectivec/nsobject/1615192-accessibilitylanguage)。
 
 | Type   |
 | ------ |
@@ -160,11 +164,11 @@ export default App;
 
 ### `accessibilityActions`
 
-无障碍操作允许辅助技术以编程方式调用组件的操作。`accessibilityActions`属性应包含一个操作对象列表。每个操作对象应包含字段名称和标签。
+无障碍操作允许辅助技术以编程方式调用组件的操作。`accessibilityActions` 属性应包含一个操作对象列表，每个操作对象应包含 name 和 label 字段。
 
-有关更多信息，请参阅[无障碍指南](accessibility.md#accessibility-actions)。
+更多信息请参阅[无障碍指南](accessibility.md#accessibility-actions)。
 
-| Type  | 必需 |
+| Type  | Required |
 | ----- | -------- |
 | array | No       |
 
@@ -172,11 +176,11 @@ export default App;
 
 ### `onAccessibilityAction`
 
-当用户执行可访问性操作时，将调用此函数。此函数的唯一参数是一个包含要执行的操作名称的事件。
+当用户执行无障碍操作时调用。此函数的唯一参数是一个包含要执行的操作名称的事件。
 
-有关更多信息，请参阅[可访问性指南](accessibility.md#accessibility-actions)。
+更多信息请参阅[无障碍指南](accessibility.md#accessibility-actions)。
 
-| Type     | 必需 |
+| Type     | Required |
 | -------- | -------- |
 | function | No       |
 
@@ -216,7 +220,7 @@ export function ColorDefaults() {
 
 ---
 
-### `hasTVPreferredFocus` <div class="label tv">TV</div>
+### `hasTVPreferredFocus` <div className="label tv">TV</div>
 
 TV 平台上的首选焦点。
 
@@ -226,19 +230,9 @@ TV 平台上的首选焦点。
 
 ---
 
-### `nextFocusDown` <div class="label android">Android</div><div class="label tv">TV</div>
+### `nextFocusDown` <div className="label android">Android</div><div className="label tv">TV</div>
 
-指定用户向下导航时接收焦点的下一个视图。请参阅 [Android 文档](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusDown).
-
-| Type   |
-| ------ |
-| number |
-
----
-
-### `nextFocusForward` <div class="label android">Android</div><div class="label tv">TV</div>
-
-指定用户向前导航时接收焦点的下一个视图。请参阅 [Android 文档](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusForward).
+指定用户向下导航时接收焦点的下一个视图。参见 [Android 文档](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusDown)。
 
 | Type   |
 | ------ |
@@ -246,19 +240,9 @@ TV 平台上的首选焦点。
 
 ---
 
-### `nextFocusLeft` <div class="label android">Android</div><div class="label tv">TV</div>
+### `nextFocusForward` <div className="label android">Android</div><div className="label tv">TV</div>
 
-指定用户向左导航时接收焦点的下一个视图。请参阅 [Android 文档](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusLeft).
-
-| Type   |
-| ------ |
-| number |
-
----
-
-### `nextFocusRight` <div class="label android">Android</div><div class="label tv">TV</div>
-
-指定用户向右导航时接收焦点的下一个视图。请参阅 [Android 文档](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusRight).
+指定用户向前导航时接收焦点的下一个视图。参见 [Android 文档](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusForward)。
 
 | Type   |
 | ------ |
@@ -266,9 +250,29 @@ TV 平台上的首选焦点。
 
 ---
 
-### `nextFocusUp` <div class="label android">Android</div><div class="label tv">TV</div>
+### `nextFocusLeft` <div className="label android">Android</div><div className="label tv">TV</div>
 
-指定用户向上导航时接收焦点的下一个视图。请参阅 [Android 文档](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusUp).
+指定用户向左导航时接收焦点的下一个视图。参见 [Android 文档](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusLeft)。
+
+| Type   |
+| ------ |
+| number |
+
+---
+
+### `nextFocusRight` <div className="label android">Android</div><div className="label tv">TV</div>
+
+指定用户向右导航时接收焦点的下一个视图。参见 [Android 文档](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusRight)。
+
+| Type   |
+| ------ |
+| number |
+
+---
+
+### `nextFocusUp` <div className="label android">Android</div><div className="label tv">TV</div>
+
+指定用户向上导航时接收焦点的下一个视图。参见 [Android 文档](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusUp)。
 
 | Type   |
 | ------ |
@@ -286,9 +290,9 @@ TV 平台上的首选焦点。
 
 ---
 
-### `touchSoundDisabled` <div class="label android">Android</div>
+### `touchSoundDisabled` <div className="label android">Android</div>
 
-如果为`true`，则不播放系统声音。
+如果为 `true`，则触摸时不播放系统声音。
 
 | Type    | Default |
 | ------- | ------- |
