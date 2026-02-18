@@ -9,8 +9,6 @@ import TabItem from '@theme/TabItem';
 import constants from '@site/core/TabsConstants';
 import PlatformSupport from '@site/src/theme/PlatformSupport';
 
-import RemoveGlobalCLI from './\_remove-global-cli.md';
-
 <PlatformSupport platforms={['android', 'ios', 'macOS', 'tv', 'watchOS', 'web', 'windows', 'visionOS']} />
 
 如果[框架](/architecture/glossary#react-native-framework)无法很好地满足你的需求，或者你更倾向于自己编写框架，那么你可以在不使用框架的情况下创建 React Native 应用。
@@ -18,8 +16,6 @@ import RemoveGlobalCLI from './\_remove-global-cli.md';
 为此，你首先需要[搭建开发环境](set-up-your-environment)。环境准备就绪后，继续按以下步骤创建应用并开始开发。
 
 ### 第 1 步：创建新项目
-
-<RemoveGlobalCLI />
 
 你可以使用 [React Native Community CLI](https://github.com/react-native-community/cli) 来生成新项目。让我们创建一个名为 "AwesomeProject" 的 React Native 项目：
 

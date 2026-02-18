@@ -56,7 +56,7 @@ brew info --cask zulu@17
 # Installed using the formulae.brew.sh API on 2024-06-06 at 10:00:00
 
 # 导航到上面打印出来的路径
-open /opt/homebrew/Caskroom/zulu@17/<版本号> 
+open /opt/homebrew/Caskroom/zulu@17/<版本号>
 # 或者可能是 /usr/local/Caskroom/zulu@17/<版本号>
 ```
 
@@ -131,8 +131,6 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 <h2>创建新项目</h2>
 
-<RemoveGlobalCLI />
-
 使用 React Native 内建的命令行工具来创建一个名为"AwesomeProject"的新项目。这个命令行工具不需要安装，可以直接用 node 自带的`npx`命令来使用：
 
 > **必须要看的注意事项**：请`不要`单独使用常见的关键字作为项目名（如 class, native, new, package 等等）。请`不要`使用与核心模块同名的项目名（如 react, react-native 等）。请`不要`在目录、文件名中使用中文、空格等特殊符号。
@@ -190,7 +188,7 @@ yarn react-native run-android
 
 > 译注：建议在`run-android`成功后再尝试使用 Android Studio 启动。请不要轻易点击 Android Studio 中可能弹出的建议更新项目中某依赖项的建议，否则可能导致无法运行。
 
-> 如果你无法正常运行，遇到奇奇怪怪的红屏错误，先回头`仔细对照文档检查`，然后可以看看[问题讨论区](https://github.com/reactnativecn/react-native-website/issues)。不同时期不同版本可能会碰到不同的问题，我们会在论坛中及时解答更新。但请注意**_千万不要_**执行 bundle 命令，那样会导致代码完全无法刷新。
+> 如果你无法正常运行，遇到奇奇怪怪的红屏错误，先回头`仔细对照文档检查`，然后可以看看[问题讨论区](https://github.com/reactnativecn/react-native-website/issues)。不同时期不同版本可能会碰到不同的问题，我们会在论坛中及时解答更新。但请注意***千万不要***执行 bundle 命令，那样会导致代码完全无法刷新。
 
 ### 修改项目
 

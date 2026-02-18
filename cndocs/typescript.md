@@ -9,7 +9,7 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import con
 
 ## 使用 TypeScript 开始新项目
 
-由 [React Native CLI](/docs/environment-setup#creating-a-new-application) 创建的新项目或使用 [Ignite][ignite] 等流行模板将默认使用 TypeScript。
+由 [React Native CLI](getting-started-without-a-framework#step-1-creating-a-new-application) 创建的新项目或使用 [Ignite][ignite] 等流行模板将默认使用 TypeScript。
 
 TypeScript 也可以与 [Expo][expo] 一起使用，Expo 维护 TypeScript 模板，或者当向项目添加 `.ts` 或 `.tsx` 文件时，Expo 将提示您自动安装和配置 TypeScript。
 
