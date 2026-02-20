@@ -20,7 +20,7 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import con
 
 在上述堆栈跟踪中，类似`p@1:132161`的条目是经过压缩的函数名称和字节码偏移量。为了调试这些调用，我们希望将它们转换为文件、行和函数名称，例如`AwesomeProject/App.js:54:initializeMap`。这被称为**符号化**。
 
-您可以通过将堆栈跟踪和生成的源映射传递给[`metro-symbolicate`](http://npmjs.com/package/metro-symbolicate)来对上述类似的经过压缩的函数名称和字节码进行符号化。
+您可以通过将堆栈跟踪和生成的源映射传递给[`metro-symbolicate`](https://www.npmjs.com/package/metro-symbolicate)来对上述类似的经过压缩的函数名称和字节码进行符号化。
 
 
 ### 启用源映射（source map）
@@ -62,7 +62,7 @@ Writing sourcemap output to:, android/app/build/intermediates/sourcemaps/react/r
 - 在其他导出项之上，添加具有所需输出路径的 `SOURCEMAP_FILE` 条目。
 
 ```diff
-+ SOURCEMAP_FILE="$(pwd)/../main.jsbundle.map";
++ export SOURCEMAP_FILE="$(pwd)/../main.jsbundle.map"
   WITH_ENVIRONMENT="../node_modules/react-native/scripts/xcode/with-environment.sh"
 ```
 

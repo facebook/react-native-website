@@ -84,9 +84,9 @@ export default ViewWithRefs;
     - ℹ️ 返回 `id` 或 `nativeID` props 的值。
   - [`lastElementChild`](https://developer.mozilla.org/zh-CN/docs/Web/API/Element/lastElementChild)
   - [`nextElementSibling`](https://developer.mozilla.org/zh-CN/docs/Web/API/Element/nextElementSibling)
-  - [`nodeName`](https://developer.mozilla.org/zh-CN/docs/Web/API/Element/nodeName)
-  - [`nodeType`](https://developer.mozilla.org/zh-CN/docs/Web/API/Element/nodeType)
-  - [`nodeValue`](https://developer.mozilla.org/zh-CN/docs/Web/API/Element/nodeValue)
+  - [`nodeName`](https://developer.mozilla.org/zh-CN/docs/Web/API/Node/nodeName)
+  - [`nodeType`](https://developer.mozilla.org/zh-CN/docs/Web/API/Node/nodeType)
+  - [`nodeValue`](https://developer.mozilla.org/zh-CN/docs/Web/API/Node/nodeValue)
   - [`previousElementSibling`](https://developer.mozilla.org/zh-CN/docs/Web/API/Element/previousElementSibling)
   - [`scrollHeight`](https://developer.mozilla.org/zh-CN/docs/Web/API/Element/scrollHeight)
   - [`scrollLeft`](https://developer.mozilla.org/zh-CN/docs/Web/API/Element/scrollLeft)
@@ -96,7 +96,7 @@ export default ViewWithRefs;
   - [`scrollWidth`](https://developer.mozilla.org/zh-CN/docs/Web/API/Element/scrollWidth)
   - [`tagName`](https://developer.mozilla.org/zh-CN/docs/Web/API/Element/tagName)
     - ℹ️ 返回带有 `RN:` 前缀的规范化原生组件名称，如 `RN:View`。
-  - [`textContent`](https://developer.mozilla.org/zh-CN/docs/Web/API/Element/textContent)
+  - [`textContent`](https://developer.mozilla.org/zh-CN/docs/Web/API/Node/textContent)
 - 方法
   - [`getBoundingClientRect()`](https://developer.mozilla.org/zh-CN/docs/Web/API/Element/getBoundingClientRect)
   - [`hasPointerCapture()`](https://developer.mozilla.org/zh-CN/docs/Web/API/Element/hasPointerCapture)
