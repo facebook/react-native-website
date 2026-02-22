@@ -5,50 +5,30 @@ title: 布局属性
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
-> 更多关于这些属性的详细示例可以在[Flexbox 布局](flexbox)页面上找到。
+:::info
+更多关于这些属性的详细示例可以在[Flexbox 布局](flexbox)页面上找到。
+:::
 
 ### 示例
 
-以下示例展示了不同属性如何影响或塑造 React Native 布局。您可以尝试添加或删除 UI 中的正方形，同时更改属性`flexWrap`的值。
+以下示例展示了不同属性如何影响或塑造 React Native 布局。你可以尝试添加或删除 UI 中的方块，同时更改属性`flexWrap`的值来体验效果。
 
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
 ```SnackPlayer name=LayoutProps%20Example&ext=js
 import React, {useState} from 'react';
-import {
-  Button,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import {Button, ScrollView, StyleSheet, Text, View} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => {
-  const flexDirections = ['row', 'row-reverse', 'column', 'column-reverse'];
-  const justifyContents = [
-    'flex-start',
-    'flex-end',
-    'center',
-    'space-between',
-    'space-around',
-    'space-evenly',
-  ];
-  const alignItemsArr = [
-    'flex-start',
-    'flex-end',
-    'center',
-    'stretch',
-    'baseline',
-  ];
-  const wraps = ['nowrap', 'wrap', 'wrap-reverse'];
-  const directions = ['inherit', 'ltr', 'rtl'];
   const [flexDirection, setFlexDirection] = useState(0);
   const [justifyContent, setJustifyContent] = useState(0);
   const [alignItems, setAlignItems] = useState(0);
   const [direction, setDirection] = useState(0);
   const [wrap, setWrap] = useState(0);
+
+  const [squares, setSquares] = useState([<Square />, <Square />, <Square />]);
 
   const hookedStyles = {
     flexDirection: flexDirections[flexDirection],
@@ -65,99 +45,126 @@ const App = () => {
     }
     setterFunction(value + 1);
   };
-  const [squares, setSquares] = useState([<Square />, <Square />, <Square />]);
+
   return (
-    <>
-      <View style={{paddingTop: StatusBar.currentHeight}} />
-      <View style={[styles.container, styles.playingSpace, hookedStyles]}>
-        {squares.map(elem => elem)}
-      </View>
-      <ScrollView style={styles.container}>
-        <View style={styles.controlSpace}>
-          <View style={styles.buttonView}>
-            <Button
-              title="Change Flex Direction"
-              onPress={() =>
-                changeSetting(flexDirection, flexDirections, setFlexDirection)
-              }
-            />
-            <Text style={styles.text}>{flexDirections[flexDirection]}</Text>
-          </View>
-          <View style={styles.buttonView}>
-            <Button
-              title="Change Justify Content"
-              onPress={() =>
-                changeSetting(
-                  justifyContent,
-                  justifyContents,
-                  setJustifyContent,
-                )
-              }
-            />
-            <Text style={styles.text}>{justifyContents[justifyContent]}</Text>
-          </View>
-          <View style={styles.buttonView}>
-            <Button
-              title="Change Align Items"
-              onPress={() =>
-                changeSetting(alignItems, alignItemsArr, setAlignItems)
-              }
-            />
-            <Text style={styles.text}>{alignItemsArr[alignItems]}</Text>
-          </View>
-          <View style={styles.buttonView}>
-            <Button
-              title="Change Direction"
-              onPress={() => changeSetting(direction, directions, setDirection)}
-            />
-            <Text style={styles.text}>{directions[direction]}</Text>
-          </View>
-          <View style={styles.buttonView}>
-            <Button
-              title="Change Flex Wrap"
-              onPress={() => changeSetting(wrap, wraps, setWrap)}
-            />
-            <Text style={styles.text}>{wraps[wrap]}</Text>
-          </View>
-          <View style={styles.buttonView}>
-            <Button
-              title="Add Square"
-              onPress={() => setSquares([...squares, <Square />])}
-            />
-          </View>
-          <View style={styles.buttonView}>
-            <Button
-              title="Delete Square"
-              onPress={() =>
-                setSquares(squares.filter((v, i) => i !== squares.length - 1))
-              }
-            />
-          </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <View style={[styles.container, styles.playingSpace, hookedStyles]}>
+          {squares.map(elem => elem)}
         </View>
-      </ScrollView>
-    </>
+        <ScrollView style={styles.layoutContainer}>
+          <View style={styles.controlSpace}>
+            <View style={styles.buttonView}>
+              <Button
+                title="Change Flex Direction"
+                onPress={() =>
+                  changeSetting(flexDirection, flexDirections, setFlexDirection)
+                }
+              />
+              <Text style={styles.text}>{flexDirections[flexDirection]}</Text>
+            </View>
+            <View style={styles.buttonView}>
+              <Button
+                title="Change Justify Content"
+                onPress={() =>
+                  changeSetting(
+                    justifyContent,
+                    justifyContents,
+                    setJustifyContent,
+                  )
+                }
+              />
+              <Text style={styles.text}>{justifyContents[justifyContent]}</Text>
+            </View>
+            <View style={styles.buttonView}>
+              <Button
+                title="Change Align Items"
+                onPress={() =>
+                  changeSetting(alignItems, alignItemsArr, setAlignItems)
+                }
+              />
+              <Text style={styles.text}>{alignItemsArr[alignItems]}</Text>
+            </View>
+            <View style={styles.buttonView}>
+              <Button
+                title="Change Direction"
+                onPress={() =>
+                  changeSetting(direction, directions, setDirection)
+                }
+              />
+              <Text style={styles.text}>{directions[direction]}</Text>
+            </View>
+            <View style={styles.buttonView}>
+              <Button
+                title="Change Flex Wrap"
+                onPress={() => changeSetting(wrap, wraps, setWrap)}
+              />
+              <Text style={styles.text}>{wraps[wrap]}</Text>
+            </View>
+            <View style={styles.buttonView}>
+              <Button
+                title="Add Square"
+                onPress={() => setSquares([...squares, <Square />])}
+              />
+            </View>
+            <View style={styles.buttonView}>
+              <Button
+                title="Delete Square"
+                onPress={() =>
+                  setSquares(squares.filter((v, i) => i !== squares.length - 1))
+                }
+              />
+            </View>
+          </View>
+        </ScrollView>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
+const flexDirections = ['row', 'row-reverse', 'column', 'column-reverse'];
+const justifyContents = [
+  'flex-start',
+  'flex-end',
+  'center',
+  'space-between',
+  'space-around',
+  'space-evenly',
+];
+const alignItemsArr = [
+  'flex-start',
+  'flex-end',
+  'center',
+  'stretch',
+  'baseline',
+];
+const wraps = ['nowrap', 'wrap', 'wrap-reverse'];
+const directions = ['inherit', 'ltr', 'rtl'];
+
 const styles = StyleSheet.create({
   container: {
-    height: '50%',
+    flex: 1,
+  },
+  layoutContainer: {
+    flex: 0.5,
   },
   playingSpace: {
     backgroundColor: 'white',
     borderColor: 'blue',
     borderWidth: 3,
+    overflow: 'hidden',
   },
   controlSpace: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    backgroundColor: '#F5F5F5',
   },
   buttonView: {
     width: '50%',
     padding: 10,
   },
-  text: {textAlign: 'center'},
+  text: {
+    textAlign: 'center',
+  },
 });
 
 const Square = () => (
@@ -172,7 +179,7 @@ const Square = () => (
 
 const randomHexColor = () => {
   return '#000000'.replace(/0/g, () => {
-    return Math.round(Math.random() * 16).toString(16);
+    return Math.round(Math.random() * 14).toString(16);
   });
 };
 
@@ -187,41 +194,22 @@ import React, {useState} from 'react';
 import {
   Button,
   ScrollView,
-  StatusBar,
   StyleSheet,
   Text,
   View,
+  FlexAlignType,
+  FlexStyle,
 } from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => {
-  const flexDirections = [
-    'row',
-    'row-reverse',
-    'column',
-    'column-reverse',
-  ] as const;
-  const justifyContents = [
-    'flex-start',
-    'flex-end',
-    'center',
-    'space-between',
-    'space-around',
-    'space-evenly',
-  ] as const;
-  const alignItemsArr = [
-    'flex-start',
-    'flex-end',
-    'center',
-    'stretch',
-    'baseline',
-  ] as const;
-  const wraps = ['nowrap', 'wrap', 'wrap-reverse'] as const;
-  const directions = ['inherit', 'ltr', 'rtl'] as const;
   const [flexDirection, setFlexDirection] = useState(0);
   const [justifyContent, setJustifyContent] = useState(0);
   const [alignItems, setAlignItems] = useState(0);
   const [direction, setDirection] = useState(0);
   const [wrap, setWrap] = useState(0);
+
+  const [squares, setSquares] = useState([<Square />, <Square />, <Square />]);
 
   const hookedStyles = {
     flexDirection: flexDirections[flexDirection],
@@ -229,11 +217,11 @@ const App = () => {
     alignItems: alignItemsArr[alignItems],
     direction: directions[direction],
     flexWrap: wraps[wrap],
-  };
+  } as FlexStyle;
 
   const changeSetting = (
     value: number,
-    options: readonly unknown[],
+    options: any[],
     setterFunction: (index: number) => void,
   ) => {
     if (value === options.length - 1) {
@@ -242,99 +230,131 @@ const App = () => {
     }
     setterFunction(value + 1);
   };
-  const [squares, setSquares] = useState([<Square />, <Square />, <Square />]);
+
   return (
-    <>
-      <View style={{paddingTop: StatusBar.currentHeight}} />
-      <View style={[styles.container, styles.playingSpace, hookedStyles]}>
-        {squares.map(elem => elem)}
-      </View>
-      <ScrollView style={styles.container}>
-        <View style={styles.controlSpace}>
-          <View style={styles.buttonView}>
-            <Button
-              title="Change Flex Direction"
-              onPress={() =>
-                changeSetting(flexDirection, flexDirections, setFlexDirection)
-              }
-            />
-            <Text style={styles.text}>{flexDirections[flexDirection]}</Text>
-          </View>
-          <View style={styles.buttonView}>
-            <Button
-              title="Change Justify Content"
-              onPress={() =>
-                changeSetting(
-                  justifyContent,
-                  justifyContents,
-                  setJustifyContent,
-                )
-              }
-            />
-            <Text style={styles.text}>{justifyContents[justifyContent]}</Text>
-          </View>
-          <View style={styles.buttonView}>
-            <Button
-              title="Change Align Items"
-              onPress={() =>
-                changeSetting(alignItems, alignItemsArr, setAlignItems)
-              }
-            />
-            <Text style={styles.text}>{alignItemsArr[alignItems]}</Text>
-          </View>
-          <View style={styles.buttonView}>
-            <Button
-              title="Change Direction"
-              onPress={() => changeSetting(direction, directions, setDirection)}
-            />
-            <Text style={styles.text}>{directions[direction]}</Text>
-          </View>
-          <View style={styles.buttonView}>
-            <Button
-              title="Change Flex Wrap"
-              onPress={() => changeSetting(wrap, wraps, setWrap)}
-            />
-            <Text style={styles.text}>{wraps[wrap]}</Text>
-          </View>
-          <View style={styles.buttonView}>
-            <Button
-              title="Add Square"
-              onPress={() => setSquares([...squares, <Square />])}
-            />
-          </View>
-          <View style={styles.buttonView}>
-            <Button
-              title="Delete Square"
-              onPress={() =>
-                setSquares(squares.filter((v, i) => i !== squares.length - 1))
-              }
-            />
-          </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <View style={[styles.container, styles.playingSpace, hookedStyles]}>
+          {squares.map(elem => elem)}
         </View>
-      </ScrollView>
-    </>
+        <ScrollView style={styles.layoutContainer}>
+          <View style={styles.controlSpace}>
+            <View style={styles.buttonView}>
+              <Button
+                title="Change Flex Direction"
+                onPress={() =>
+                  changeSetting(flexDirection, flexDirections, setFlexDirection)
+                }
+              />
+              <Text style={styles.text}>{flexDirections[flexDirection]}</Text>
+            </View>
+            <View style={styles.buttonView}>
+              <Button
+                title="Change Justify Content"
+                onPress={() =>
+                  changeSetting(
+                    justifyContent,
+                    justifyContents,
+                    setJustifyContent,
+                  )
+                }
+              />
+              <Text style={styles.text}>{justifyContents[justifyContent]}</Text>
+            </View>
+            <View style={styles.buttonView}>
+              <Button
+                title="Change Align Items"
+                onPress={() =>
+                  changeSetting(alignItems, alignItemsArr, setAlignItems)
+                }
+              />
+              <Text style={styles.text}>{alignItemsArr[alignItems]}</Text>
+            </View>
+            <View style={styles.buttonView}>
+              <Button
+                title="Change Direction"
+                onPress={() =>
+                  changeSetting(direction, directions, setDirection)
+                }
+              />
+              <Text style={styles.text}>{directions[direction]}</Text>
+            </View>
+            <View style={styles.buttonView}>
+              <Button
+                title="Change Flex Wrap"
+                onPress={() => changeSetting(wrap, wraps, setWrap)}
+              />
+              <Text style={styles.text}>{wraps[wrap]}</Text>
+            </View>
+            <View style={styles.buttonView}>
+              <Button
+                title="Add Square"
+                onPress={() => setSquares([...squares, <Square />])}
+              />
+            </View>
+            <View style={styles.buttonView}>
+              <Button
+                title="Delete Square"
+                onPress={() =>
+                  setSquares(squares.filter((v, i) => i !== squares.length - 1))
+                }
+              />
+            </View>
+          </View>
+        </ScrollView>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
+const flexDirections = [
+  'row',
+  'row-reverse',
+  'column',
+  'column-reverse',
+] as FlexStyle['flexDirection'][];
+const justifyContents = [
+  'flex-start',
+  'flex-end',
+  'center',
+  'space-between',
+  'space-around',
+  'space-evenly',
+] as FlexStyle['justifyContent'][];
+const alignItemsArr = [
+  'flex-start',
+  'flex-end',
+  'center',
+  'stretch',
+  'baseline',
+] as FlexAlignType[];
+const wraps = ['nowrap', 'wrap', 'wrap-reverse'];
+const directions = ['inherit', 'ltr', 'rtl'];
+
 const styles = StyleSheet.create({
   container: {
-    height: '50%',
+    flex: 1,
+  },
+  layoutContainer: {
+    flex: 0.5,
   },
   playingSpace: {
     backgroundColor: 'white',
     borderColor: 'blue',
     borderWidth: 3,
+    overflow: 'hidden',
   },
   controlSpace: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    backgroundColor: '#F5F5F5',
   },
   buttonView: {
     width: '50%',
     padding: 10,
   },
-  text: {textAlign: 'center'},
+  text: {
+    textAlign: 'center',
+  },
 });
 
 const Square = () => (
@@ -349,7 +369,7 @@ const Square = () => (
 
 const randomHexColor = () => {
   return '#000000'.replace(/0/g, () => {
-    return Math.round(Math.random() * 16).toString(16);
+    return Math.round(Math.random() * 14).toString(16);
   });
 };
 
@@ -361,143 +381,161 @@ export default App;
 
 ---
 
-# 文档
+# Reference
 
-## 属性
+## Props
 
 ### `alignContent`
 
-`alignContent`控制行在交叉轴上的对齐方式,会覆盖父级元素设置的`alignContent`属性。访问 https://developer.mozilla.org/en-US/docs/Web/CSS/align-content 来进一步了解。
+`alignContent` controls how rows align in the cross direction, overriding the `alignContent` of the parent.
 
-| 类型                                                                                                 | 必需 |
-| ---------------------------------------------------------------------------------------------------- | ---- |
-| enum('flex-start', 'flex-end', 'center', 'stretch', 'space-between', 'space-around', 'space-evenly') | 否   |
+See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/align-content) for more details.
+
+| Type                                                                                                 | Required |
+| ---------------------------------------------------------------------------------------------------- | -------- |
+| enum('flex-start', 'flex-end', 'center', 'stretch', 'space-between', 'space-around', 'space-evenly') | No       |
 
 ---
 
 ### `alignItems`
 
-`alignItems` 属性用于控制子元素在交叉轴上的对齐方式。举个例子，如果子元素垂直排列,那么 `alignItems` 就决定了它们在水平方向上的对齐方式。它的用法类似 CSS 中的`align-items`(默认值为 stretch)。详情请参阅 https://developer.mozilla.org/en-US/docs/Web/CSS/align-items
+`alignItems` aligns children in the cross direction. For example, if children are flowing vertically, `alignItems` controls how they align horizontally. It works like `align-items` in CSS (default: stretch).
 
-| 类型                                                            | 必需 |
-| --------------------------------------------------------------- | ---- |
-| enum('flex-start', 'flex-end', 'center', 'stretch', 'baseline') | 否   |
+See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items) for more details.
+
+| Type                                                            | Required |
+| --------------------------------------------------------------- | -------- |
+| enum('flex-start', 'flex-end', 'center', 'stretch', 'baseline') | No       |
 
 ---
 
 ### `alignSelf`
 
-`alignSelf` 控制子元素在纵向上的对齐方式，会覆盖父元素的 `alignItems` 属性。其作用类似于 CSS 中的`align-self`(默认值:auto)。详情请参阅 https://developer.mozilla.org/zh-CN/docs/Web/CSS/align-self
+`alignSelf` controls how a child aligns in the cross direction, overriding the `alignItems` of the parent. It works like `align-self` in CSS (default: auto).
 
-| 类型                                                                    | 必需 |
-| ----------------------------------------------------------------------- | ---- |
-| enum('auto', 'flex-start', 'flex-end', 'center', 'stretch', 'baseline') | 否   |
+See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/align-self) for more details.
+
+| Type                                                                    | Required |
+| ----------------------------------------------------------------------- | -------- |
+| enum('auto', 'flex-start', 'flex-end', 'center', 'stretch', 'baseline') | No       |
 
 ---
 
 ### `aspectRatio`
 
-长宽比控制了节点未定义维度的尺寸。详情请参阅 https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio
+Aspect ratio controls the size of the undefined dimension of a node.
 
-- 对于设置了宽度/高度的节点，长宽比控制着未设置尺寸的一边大小。
-- 对于设置了 flex 值的节点，若未设置其在交叉轴方向的尺寸，长宽比决定着该节点沿交叉轴的尺寸。
-- 若节点使用了测量函数，长宽比将视同测量函数测量了 flex 值。
-- 对于设置了 flex grow/shrink 的节点，若其在交叉轴方向的尺寸未设置，长宽比将决定该尺寸。
-- 长宽比同时考虑了最小/最大尺寸约束。
+- On a node with a set width/height, aspect ratio controls the size of the unset dimension
+- On a node with a set flex basis, aspect ratio controls the size of the node in the cross axis if unset
+- On a node with a measure function, aspect ratio works as though the measure function measures the flex basis
+- On a node with flex grow/shrink, aspect ratio controls the size of the node in the cross axis if unset
+- Aspect ratio takes min/max dimensions into account
 
-| 类型           | 必需 |
-| -------------- | ---- |
-| number, string | 否   |
+See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio) for more details.
+
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
 
 ---
 
 ### `borderBottomWidth`
 
-borderBottomWidth 与 CSS 中的 border-bottom-width 属性作用相同。详情请参阅 https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-bottom-width
+`borderBottomWidth` works like `border-bottom-width` in CSS.
 
-| 类型   | 必需 |
-| ------ | ---- |
-| number | 否   |
+See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/border-bottom-width) for more details.
+
+| Type   | Required |
+| ------ | -------- |
+| number | No       |
 
 ---
 
 ### `borderEndWidth`
 
-当方向为 `ltr` 时，`borderEndWidth` 等同于 `borderRightWidth`。当方向为 `rtl` 时，`borderEndWidth` 等同于 `borderLeftWidth`。
+When direction is `ltr`, `borderEndWidth` is equivalent to `borderRightWidth`. When direction is `rtl`, `borderEndWidth` is equivalent to `borderLeftWidth`.
 
-| 类型   | 必需 |
-| ------ | ---- |
-| number | 否   |
+| Type   | Required |
+| ------ | -------- |
+| number | No       |
 
 ---
 
 ### `borderLeftWidth`
 
-`borderLeftWidth` 的作用类似于 CSS 中的 `border-left-width`。详情请参阅 https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-left-width
+`borderLeftWidth` works like `border-left-width` in CSS.
 
-| 类型   | 必需 |
-| ------ | ---- |
-| number | 否   |
+See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/border-left-width) for more details.
+
+| Type   | Required |
+| ------ | -------- |
+| number | No       |
 
 ---
 
 ### `borderRightWidth`
 
-`borderRightWidth` 的作用与 CSS 中的 `border-right-width` 属性类似。详情请参阅 https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-right-width
+`borderRightWidth` works like `border-right-width` in CSS.
 
-| 类型   | 必需 |
-| ------ | ---- |
-| number | 否   |
+See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/border-right-width) for more details.
+
+| Type   | Required |
+| ------ | -------- |
+| number | No       |
 
 ---
 
 ### `borderStartWidth`
 
-当方向为 `ltr` 时，`borderStartWidth` 相当于 `borderLeftWidth`。当方向为 `rtl` 时，`borderStartWidth` 相当于 `borderRightWidth`。
+When direction is `ltr`, `borderStartWidth` is equivalent to `borderLeftWidth`. When direction is `rtl`, `borderStartWidth` is equivalent to `borderRightWidth`.
 
-| 类型   | 必需 |
-| ------ | ---- |
-| number | 否   |
+| Type   | Required |
+| ------ | -------- |
+| number | No       |
 
 ---
 
 ### `borderTopWidth`
 
-`borderTopWidth` 的作用类似于 CSS 中的 `border-top-width`。详情请参阅 https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-top-width
+`borderTopWidth` works like `border-top-width` in CSS.
 
-| 类型   | 必需 |
-| ------ | ---- |
-| number | 否   |
+See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/border-top-width) for more details.
+
+| Type   | Required |
+| ------ | -------- |
+| number | No       |
 
 ---
 
 ### `borderWidth`
 
-`borderWidth` 的作用类似于 CSS 中的 `border-width`。详情请参阅 https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-width
+`borderWidth` works like `border-width` in CSS.
 
-| 类型   | 必需 |
-| ------ | ---- |
-| number | 否   |
+See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/border-width) for more details.
+
+| Type   | Required |
+| ------ | -------- |
+| number | No       |
 
 ---
 
 ### `bottom`
 
-`bottom` 是指将此组件底部边缘向下偏移的逻辑像素数。
+`bottom` is the number of logical pixels to offset the bottom edge of this component.
 
-它与 CSS 中的 `bottom` 类似，但在 React Native 中，您必须使用点或百分比。不支持 em 和其他单位。
+It works similarly to `bottom` in CSS, but in React Native you must use points or percentages. Ems and other units are not supported.
 
-有关 `bottom` 如何影响布局的更多详细信息，请参见 https://developer.mozilla.org/en-US/docs/Web/CSS/bottom
+See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/bottom) for more details of how `bottom` affects layout.
 
-| 类型           | 必需 |
-| -------------- | ---- |
-| number, string | 否   |
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
 
 ---
 
 ### `boxSizing`
 
-`boxSizing` 定义了元素的尺寸相关的属性 （如`width`, `height`, `minWidth`, `minHeight`等）的计算方式。如果 `boxSizing` 是 `border-box`，这些尺寸会应用到元素的边框盒。如果它是 `content-box`，这些尺寸会应用到元素的内容盒。默认值是 `border-box`。有关更多信息，请参阅 [web 文档](https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing)。
+`boxSizing` defines how the element's various sizing props (`width`, `height`, `minWidth`, `minHeight`, etc.) are computed. If `boxSizing` is `border-box`, these sizes apply to the border box of the element. If it is `content-box`, they apply to the content box of the element. The default value is `border-box`. The [web documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing) is a good source of information if you wish to learn more about how this prop works.
 
 | Type                              | Required |
 | --------------------------------- | -------- |
@@ -507,504 +545,816 @@ borderBottomWidth 与 CSS 中的 border-bottom-width 属性作用相同。详情
 
 ### `columnGap`
 
-`columnGap` 的作用类似于 CSS 中的 `column-gap`。在 React Native 中仅支持像素单位。有关更多详细信息，请查看 https://developer.mozilla.org/en-US/docs/Web/CSS/column-gap。
+`columnGap` works like `column-gap` in CSS. Only pixel units are supported in React Native.
 
-| 类型   | 必需 |
-| ------ | ---- |
-| number | 否   |
+See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/column-gap) for more details.
+
+| Type   | Required |
+| ------ | -------- |
+| number | No       |
 
 ---
 
 ### `direction`
 
-`direction`指定了用户界面的阅读顺序。`ltr`表示 left to right，即从左往右阅读。反之`rtl`为从右往左阅读。默认值为`inherit`，但根节点的值会根据用户所在地的不同而不同。访问 https://yogalayout.com/docs/layout-direction 来进一步了解。
+`direction` specifies the directional flow of the user interface. The default is `inherit`, except for root node which will have value based on the current locale.
 
-| 类型                          | 必需 | 平台 |
-| ----------------------------- | ---- | ---- |
-| enum('inherit', 'ltr', 'rtl') | 否   | iOS  |
+See [MDN CSS Reference](https://www.yogalayout.dev/docs/styling/layout-direction) for more details.
+
+| Type                          | Required |
+| ----------------------------- | -------- |
+| enum('inherit', 'ltr', 'rtl') | No       |
 
 ---
 
 ### `display`
 
-`display`设置组件的显示类型。可用于元素的显示和隐藏。
+`display` sets the display type of this component.
 
-它的表现和 CSS 上的`display`类似，但目前只支持'flex'和'none'两个值。默认值是'flex'。
+It works similarly to `display` in CSS but only supports the values 'flex', 'none', and 'contents'. The default is `flex`.
 
-| 类型                 | 必需 |
-| -------------------- | ---- |
-| enum('none', 'flex') | 否   |
+| Type                             | Required |
+| -------------------------------- | -------- |
+| enum('none', 'flex', 'contents') | No       |
 
 ---
 
 ### `end`
 
-当`direction`设置为`ltr`时，`end`等同于`right`。当`direction`设置为`rtl`，`end`等同于`left`。
+When the direction is `ltr`, `end` is equivalent to `right`. When the direction is `rtl`, `end` is equivalent to `left`.
 
-此样式的优先级高于`left`和`right`。
+This style takes precedence over the `left` and `right` styles.
 
-| 类型           | 必需 |
-| -------------- | ---- |
-| number, string | 否   |
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
 
 ---
 
 ### `flex`
 
-在 React Native 中`flex`的表现和 CSS 有些区别。`flex`在 RN 中只能为整数值，其具体表现请参考`yoga`布局引擎的文档，其地址为 https://github.com/facebook/yoga
+In React Native `flex` does not work the same way that it does in CSS. `flex` is a number rather than a string, and it works according to the [Yoga](https://github.com/facebook/yoga) layout engine.
 
-当`flex`为一个正整数时，组件尺寸会具有弹性，并根据具体的 flex 值来按比例分配。比如两个组件在同一个父容器中，一个`flex`为 2，另一个`flex`为 1，则两者的尺寸比为 2：1。 `flex: <positive number>` equates to `flexGrow: <positive number>, flexShrink: 1, flexBasis: 0`.
+When `flex` is a positive number, it makes the component flexible, and it will be sized proportional to its flex value. So a component with `flex` set to `2` will take twice the space as a component with `flex` set to 1. `flex: <positive number>` equates to `flexGrow: <positive number>, flexShrink: 1, flexBasis: 0`.
 
-当`flex`为 0 时，组件尺寸由`width`和`height`决定，此时不再具有弹性。
+When `flex` is `0`, the component is sized according to `width` and `height`, and it is inflexible.
 
-当`flex`为-1 时，组件尺寸一般还是由`width`和`height`决定。但是当空间不够时，组件尺寸会收缩到`minWidth`和`minHeight`所设定的值。
+When `flex` is `-1`, the component is normally sized according to `width` and `height`. However, if there's not enough space, the component will shrink to its `minWidth` and `minHeight`.
 
-`flexGrow`、`flexShrink`、`flexBasis`和在 CSS 上表现一致。
+`flexGrow`, `flexShrink`, and `flexBasis` work the same as in CSS.
 
-| 类型   | 必需 |
-| ------ | ---- |
-| number | 否   |
+| Type   | Required |
+| ------ | -------- |
+| number | No       |
 
 ---
 
 ### `flexBasis`
 
-`flexBasis` 是一种与轴无关的提供项目沿主轴默认大小的方式。设置一个子元素的 `flexBasis` 与其父元素为 `flexDirection: row` 的容器时设置该子元素的 `width` 类似，或者与其父元素为 `flexDirection: column` 的容器时设置该子元素的 `height` 类似。一个项目的 `flexBasis` 是该项目的默认大小，即在执行任何 `flexGrow` 和 `flexShrink` 计算之前项目的大小。
+`flexBasis` is an axis-independent way of providing the default size of an item along the main axis. Setting the `flexBasis` of a child is similar to setting the `width` of that child if its parent is a container with `flexDirection: row` or setting the `height` of a child if its parent is a container with `flexDirection: column`. The `flexBasis` of an item is the default size of that item, the size of the item before any `flexGrow` and `flexShrink` calculations are performed.
 
-| 类型           | 必需 |
-| -------------- | ---- |
-| number, string | 否   |
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
 
 ---
 
 ### `flexDirection`
 
-`flexDirection` 控制容器内子元素的排列方向。`row` 为从左到右排列,`column` 为从上到下排列,你可以猜测其他两种方式的效果。它的作用类似于 CSS 中的 `flex-direction` 属性，只不过默认值是 `column`。 访问 https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction 来进一步了解。
+`flexDirection` controls which directions children of a container go. `row` goes left to right, `column` goes top to bottom, and you may be able to guess what the other two do. It works like `flex-direction` in CSS, except the default is `column`.
 
-| 类型                                                   | 必需 |
-| ------------------------------------------------------ | ---- |
-| enum('row', 'row-reverse', 'column', 'column-reverse') | 否   |
+See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction) for more details.
+
+| Type                                                   | Required |
+| ------------------------------------------------------ | -------- |
+| enum('row', 'row-reverse', 'column', 'column-reverse') | No       |
 
 ---
 
 ### `flexGrow`
 
-在设置 flexGrow 属性时,它描述了在主轴方向上容器中的剩余空间应该如何分配给子元素。在布局子元素后,容器将根据子元素的 flexGrow 值按比例分配剩余空间。
-flexGrow 接受任意大于等于 0 的浮点数,默认值为 0。容器中剩余的空间将按子元素的 flexGrow 值加权分配。
+`flexGrow` describes how any space within a container should be distributed among its children along the main axis. After laying out its children, a container will distribute any remaining space according to the flex grow values specified by its children.
 
-| 类型   | 必需 |
-| ------ | ---- |
-| number | 否   |
+`flexGrow` accepts any floating point value >= 0, with 0 being the default value. A container will distribute any remaining space among its children weighted by the children’s `flexGrow` values.
+
+| Type   | Required |
+| ------ | -------- |
+| number | No       |
 
 ---
 
 ### `flexShrink`
 
-[`flexShrink`](layout-props#flexshrink) 描述了在子元素的总大小超出主轴方向容器大小时，如何沿着主轴缩小子元素。`flexShrink` 与 `flexGrow` 非常相似，如果将任何溢出的大小视为负剩余空间，可以以相同的方式考虑它。这两个属性一起使用效果也很好，允许子元素根据需要进行扩展和收缩。
+[`flexShrink`](layout-props#flexshrink) describes how to shrink children along the main axis in the case in which the total size of the children overflows the size of the container on the main axis. `flexShrink` is very similar to `flexGrow` and can be thought of in the same way if any overflowing size is considered to be negative remaining space. These two properties also work well together by allowing children to grow and shrink as needed.
 
-`flexShrink` 接受任何大于等于 0 的浮点值，其中 0 是默认值。容器会根据子元素的 `flexShrink` 值加权缩小其子元素。
+`flexShrink` accepts any floating point value >= 0, with 0 being the default value. A container will shrink its children weighted by the children’s `flexShrink` values.
 
-| 类型   | 必需 |
-| ------ | ---- |
-| number | 否   |
+| Type   | Required |
+| ------ | -------- |
+| number | No       |
 
 ---
 
 ### `flexWrap`
 
-`flexWrap` 控制子元素在到达弹性容器末端后是否可以换行。它的工作原理类似于 CSS 中的 `flex-wrap`（默认值：nowrap）。访问 https://developer.mozilla.org/zh-CN/docs/Web/CSS/flex-wrap
-以获取更多信息。注意，它不再与 `alignItems: stretch`（默认值）一起工作，因此您可能希望使用例如 `alignItems: flex-start`（破坏性变更详情：https://github.com/facebook/react-native/releases/tag/v0.28.0）。
+`flexWrap` controls whether children can wrap around after they hit the end of a flex container. It works like `flex-wrap` in CSS (default: nowrap).
 
-| 类型                                   | 必需 |
-| -------------------------------------- | ---- |
-| enum('wrap', 'nowrap', 'wrap-reverse') | 否   |
+Note it does not work anymore with `alignItems: stretch` (the default), so you may want to use `alignItems: flex-start` for example (breaking change details: https://github.com/facebook/react-native/releases/tag/v0.28.0).
+
+See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap) for more details.
+
+| Type                                   | Required |
+| -------------------------------------- | -------- |
+| enum('wrap', 'nowrap', 'wrap-reverse') | No       |
 
 ---
 
 ### `gap`
 
-`gap`效果和 CSS 中的`gap`一样。React Native 中仅支持像素单位。更多细节请参阅https://developer.mozilla.org/en-US/docs/Web/CSS/gap
+`gap` works like `gap` in CSS. Only pixel units are supported in React Native.
 
-| 类型   | 必需 |
-| ------ | ---- |
-| number | 否   |
+See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/gap) for more details.
+
+| Type   | Required |
+| ------ | -------- |
+| number | No       |
 
 ---
 
 ### `height`
 
-`height`用于设置组件的高度。
+`height` sets the height of this component.
 
-它的表现和 CSS 上的`height`类似， but in React Native 只能使用逻辑像素值（数字单位）或百分比，而不能使用 em 或是任何其他单位。 访问 https://developer.mozilla.org/en-US/docs/Web/CSS/height 来进一步了解。
+It works similarly to `height` in CSS, but in React Native you must use points or percentages. Ems and other units are not supported.
 
-| 类型           | 必需 |
-| -------------- | ---- |
-| number, string | 否   |
+See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/height) for more details.
+
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
+
+---
+
+### `inset`
+
+:::note
+`inset` is only available on the [New Architecture](/architecture/landing-page)
+:::
+
+Setting `inset` has the same effect as setting each of `top`, `bottom`, `right` and `left` props.
+
+See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/inset) for more details.
+
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
+
+---
+
+### `insetBlock`
+
+:::note
+`insetBlock` is only available on the [New Architecture](/architecture/landing-page)
+:::
+
+Equivalent to [`top`](layout-props#top) and [`bottom`](layout-props#bottom).
+
+See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/inset-block) for more details.
+
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
+
+---
+
+### `insetBlockEnd`
+
+:::note
+`insetBlockEnd` is only available on the [New Architecture](/architecture/landing-page)
+:::
+
+Equivalent to [`bottom`](layout-props#bottom).
+
+See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/inset-block-end) for more details.
+
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
+
+---
+
+### `insetBlockStart`
+
+:::note
+`insetBlockStart` is only available on the [New Architecture](/architecture/landing-page)
+:::
+
+Equivalent to [`top`](layout-props#top).
+
+See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/inset-block-start) for more details.
+
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
+
+---
+
+### `insetInline`
+
+:::note
+`insetInline` is only available on the [New Architecture](/architecture/landing-page)
+:::
+
+Equivalent to [`right`](layout-props#right) and [`left`](layout-props#left).
+
+See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/inset-inline) for more details.
+
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
+
+---
+
+### `insetInlineEnd`
+
+:::note
+`insetInlineEnd` is only available on the [New Architecture](/architecture/landing-page)
+:::
+
+When direction is `ltr`, `insetInlineEnd` is equivalent to [`right`](layout-props#right). When direction is `rtl`, `insetInlineEnd` is equivalent to [`left`](layout-props#left).
+
+See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/inset-inline-end) for more details.
+
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
+
+---
+
+### `insetInlineStart`
+
+:::note
+`insetInlineStart` is only available on the [New Architecture](/architecture/landing-page)
+:::
+
+When direction is `ltr`, `insetInlineStart` is equivalent to [`left`](layout-props#left). When direction is `rtl`, `insetInlineStart` is equivalent to [`right`](layout-props#right).
+
+See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/inset-inline-start) for more details.
+
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
+
+---
+
+### `isolation`
+
+:::note
+`isolation` is only available on the [New Architecture](/architecture/landing-page)
+:::
+
+`isolation` lets you form a [stacking context](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_positioned_layout/Stacking_context).
+
+There are two values:
+
+- `auto` (default): Does nothing.
+- `isolate`: Forms a stacking context.
+
+| Type                    | Required |
+| ----------------------- | -------- |
+| enum('auto', 'isolate') | No       |
 
 ---
 
 ### `justifyContent`
 
-`justifyContent` 用于在主方向上对齐子元素。例如，如果子元素垂直流动，`justifyContent` 控制它们如何垂直对齐。它的作用类似于 CSS 中的 `justify-content`（默认值：flex-start）。 访问 https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content 来进一步了解。
+`justifyContent` aligns children in the main direction. For example, if children are flowing vertically, `justifyContent` controls how they align vertically. It works like `justify-content` in CSS (default: flex-start).
 
-| 类型                                                                                      | 必需 |
-| ----------------------------------------------------------------------------------------- | ---- |
-| enum('flex-start', 'flex-end', 'center', 'space-between', 'space-around', 'space-evenly') | 否   |
+See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content) for more details.
+
+| Type                                                                                      | Required |
+| ----------------------------------------------------------------------------------------- | -------- |
+| enum('flex-start', 'flex-end', 'center', 'space-between', 'space-around', 'space-evenly') | No       |
 
 ---
 
 ### `left`
 
-`left`值是指将本组件定位到距离左边多少个逻辑像素（左边的定义取决于`position`属性）。
+`left` is the number of logical pixels to offset the left edge of this component.
 
-它的表现和 CSS 上的`left`类似， but in React Native 只能使用逻辑像素值（数字单位）或百分比，而不能使用 em 或是任何其他单位。
+It works similarly to `left` in CSS, but in React Native you must use points or percentages. Ems and other units are not supported.
 
-想了解 `left` 属性对布局的影响,请访问 https://developer.mozilla.org/zh-CN/docs/Web/CSS/left 查看更多细节。
+See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/left) for more details of how `left` affects layout.
 
-| 类型           | 必需 |
-| -------------- | ---- |
-| number, string | 否   |
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
 
 ---
 
 ### `margin`
 
-设置`margin`相当于同时设置`marginTop`、`marginLeft`、`marginBottom`以及`marginRight`。访问 https://developer.mozilla.org/en-US/docs/Web/CSS/margin 来进一步了解。
+Setting `margin` has the same effect as setting each of `marginTop`, `marginLeft`, `marginBottom`, and `marginRight`.
 
-| 类型           | 必需 |
-| -------------- | ---- |
-| number, string | 否   |
+See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/margin) for more details.
+
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
 
 ---
 
 ### `marginBottom`
 
-`marginBottom`和 CSS 上的`margin-bottom`表现一致。访问 https://developer.mozilla.org/en-US/docs/Web/CSS/margin-bottom 来进一步了解。
+`marginBottom` works like `margin-bottom` in CSS. See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/margin-bottom) for more details.
 
-| 类型           | 必需 |
-| -------------- | ---- |
-| number, string | 否   |
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
+
+---
+
+### `marginBlock`
+
+Equivalent to [`marginVertical`](layout-props#marginvertical).
+
+See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/margin-block) for more details.
+
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
+
+---
+
+### `marginBlockEnd`
+
+Equivalent to [`marginBottom`](layout-props#marginbottom).
+
+See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/margin-block-end) for more details.
+
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
+
+---
+
+### `marginBlockStart`
+
+Equivalent to [`marginTop`](layout-props#margintop).
+
+See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/margin-block-start) for more details.
+
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
 
 ---
 
 ### `marginEnd`
 
-当方向为 `ltr` 时，`marginEnd` 相当于 `marginRight`。当方向为 `rtl` 时，`marginEnd` 相当于 `marginLeft`。
+When direction is `ltr`, `marginEnd` is equivalent to `marginRight`. When direction is `rtl`, `marginEnd` is equivalent to `marginLeft`.
 
-| 类型           | 必需 |
-| -------------- | ---- |
-| number, string | 否   |
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
 
 ---
 
 ### `marginHorizontal`
 
-设置`marginHorizontal`相当于同时设置`marginLeft`和`marginRight`。
+Setting `marginHorizontal` has the same effect as setting both `marginLeft` and `marginRight`.
 
-| 类型           | 必需 |
-| -------------- | ---- |
-| number, string | 否   |
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
+
+---
+
+### `marginInline`
+
+Equivalent to [`marginHorizontal`](layout-props#marginhorizontal).
+
+See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/margin-inline) for more details.
+
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
+
+---
+
+### `marginInlineEnd`
+
+When direction is `ltr`, `marginInlineEnd` is equivalent to [`marginEnd`](layout-props#marginend) (i.e. `marginRight`). When direction is `rtl`, `marginInlineEnd` is equivalent to [`marginEnd`](layout-props#marginend) (i.e. `marginLeft`).
+
+See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/margin-inline-end) for more details.
+
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
+
+---
+
+### `marginInlineStart`
+
+When direction is `ltr`, `marginInlineStart` is equivalent to [`marginStart`](layout-props#marginstart) (i.e. `marginLeft`). When direction is `rtl`, `marginInlineStart` is equivalent to [`marginStart`](layout-props#marginstart) (i.e. `marginRight`).
+
+See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/margin-inline-start) for more details.
+
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
 
 ---
 
 ### `marginLeft`
 
-`marginLeft`和 CSS 上的`margin-left`表现一致。访问 https://developer.mozilla.org/en-US/docs/Web/CSS/margin-left 来进一步了解。
+`marginLeft` works like `margin-left` in CSS. See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/margin-left) for more details.
 
-| 类型           | 必需 |
-| -------------- | ---- |
-| number, string | 否   |
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
 
 ---
 
 ### `marginRight`
 
-`marginRight`和 CSS 上的`margin-right`表现一致。访问 https://developer.mozilla.org/en-US/docs/Web/CSS/margin-right 来进一步了解。
+`marginRight` works like `margin-right` in CSS.
 
-| 类型           | 必需 |
-| -------------- | ---- |
-| number, string | 否   |
+See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/margin-right) for more details.
+
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
 
 ---
 
 ### `marginStart`
 
-当方向为 `ltr` 时，`marginStart` 相当于 `marginLeft`。当方向为 `rtl` 时，`marginStart` 相当于 `marginRight`。
+When direction is `ltr`, `marginStart` is equivalent to `marginLeft`. When direction is `rtl`, `marginStart` is equivalent to `marginRight`.
 
-| 类型           | 必需 |
-| -------------- | ---- |
-| number, string | 否   |
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
 
 ---
 
 ### `marginTop`
 
-`marginTop`和 CSS 上的`margin-top`表现一致。访问 https://developer.mozilla.org/en-US/docs/Web/CSS/margin-top 来进一步了解。
+`marginTop` works like `margin-top` in CSS.
 
-| 类型           | 必需 |
-| -------------- | ---- |
-| number, string | 否   |
+See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/margin-top) for more details.
+
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
 
 ---
 
 ### `marginVertical`
 
-设置`marginVertical`相当于同时设置`marginTop`和`marginBottom`。
+Setting `marginVertical` has the same effect as setting both `marginTop` and `marginBottom`.
 
-| 类型           | 必需 |
-| -------------- | ---- |
-| number, string | 否   |
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
 
 ---
 
 ### `maxHeight`
 
-`maxHeight` 是该组件的最大高度，以逻辑像素为单位。
+`maxHeight` is the maximum height for this component, in logical pixels.
 
-它的表现和 CSS 上的`max-height`类似，但是在 React Native 上只能使用逻辑像素值（数字单位）或百分比，而不能使用 em 或是任何其他单位。
+It works similarly to `max-height` in CSS, but in React Native you must use points or percentages. Ems and other units are not supported.
 
-访问 https://developer.mozilla.org/en-US/docs/Web/CSS/max-height 来进一步了解。
+See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/max-height) for more details.
 
-| 类型           | 必需 |
-| -------------- | ---- |
-| number, string | 否   |
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
 
 ---
 
 ### `maxWidth`
 
-`maxWidth` 是该组件的最大宽度，以逻辑像素为单位。
+`maxWidth` is the maximum width for this component, in logical pixels.
 
-它的表现和 CSS 上的`max-width`类似，但是在 React Native 上只能使用逻辑像素值（数字单位）或百分比，而不能使用 em 或是任何其他单位。
+It works similarly to `max-width` in CSS, but in React Native you must use points or percentages. Ems and other units are not supported.
 
-访问 https://developer.mozilla.org/en-US/docs/Web/CSS/max-width 来进一步了解。
+See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/max-width) for more details.
 
-| 类型           | 必需 |
-| -------------- | ---- |
-| number, string | 否   |
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
 
 ---
 
 ### `minHeight`
 
-`minHeight` 是该组件的最小高度，以逻辑像素为单位。
+`minHeight` is the minimum height for this component, in logical pixels.
 
-它的表现和 CSS 上的`min-height`类似，但是在 React Native 上只能使用逻辑像素值（数字单位）或百分比，而不能使用 em 或是任何其他单位。
+It works similarly to `min-height` in CSS, but in React Native you must use points or percentages. Ems and other units are not supported.
 
-访问 https://developer.mozilla.org/en-US/docs/Web/CSS/min-height 来进一步了解。
+See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/min-height) for more details.
 
-| 类型           | 必需 |
-| -------------- | ---- |
-| number, string | 否   |
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
 
 ---
 
 ### `minWidth`
 
-`minWidth` 是该组件的最小宽度，以逻辑像素为单位。
+`minWidth` is the minimum width for this component, in logical pixels.
 
-它的表现和 CSS 上的`min-width`类似，但是在 React Native 上只能使用逻辑像素值（数字单位）或百分比，而不能使用 em 或是任何其他单位。
+It works similarly to `min-width` in CSS, but in React Native you must use points or percentages. Ems and other units are not supported.
 
-访问 https://developer.mozilla.org/en-US/docs/Web/CSS/min-width 来进一步了解。
+See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/min-width) for more details.
 
-| 类型           | 必需 |
-| -------------- | ---- |
-| number, string | 否   |
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
 
 ---
 
 ### `overflow`
 
-`overflow` 控制子元素的测量和显示方式。`overflow: hidden` 会导致视图被裁剪，而 `overflow: scroll` 会导致视图独立于其父元素的主轴进行测量。它的工作原理类似于 CSS 中的 `overflow`（默认值：visible）。 访问 https://developer.mozilla.org/en/docs/Web/CSS/overflow 来进一步了解。
+`overflow` controls how children are measured and displayed. `overflow: hidden` causes views to be clipped while `overflow: scroll` causes views to be measured independently of their parents' main axis. It works like `overflow` in CSS (default: visible).
 
-| 类型                                | 必需 |
-| ----------------------------------- | ---- |
-| enum('visible', 'hidden', 'scroll') | 否   |
+See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/overflow) for more details.
+
+| Type                                | Required |
+| ----------------------------------- | -------- |
+| enum('visible', 'hidden', 'scroll') | No       |
 
 ---
 
 ### `padding`
 
-设置`padding`相当于同时设置`paddingTop`、`paddingBottom`、`paddingLeft`以及`paddingRight`。访问 https://developer.mozilla.org/en-US/docs/Web/CSS/padding 来进一步了解。
+Setting `padding` has the same effect as setting each of `paddingTop`, `paddingBottom`, `paddingLeft`, and `paddingRight`.
 
-| 类型           | 必需 |
-| -------------- | ---- |
-| number, string | 否   |
+See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/padding) for more details.
+
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
 
 ---
 
 ### `paddingBottom`
 
-`paddingBottom`和 CSS 上的`padding-bottom`表现一致。访问 https://developer.mozilla.org/en-US/docs/Web/CSS/padding-bottom 来进一步了解。
+`paddingBottom` works like `padding-bottom` in CSS.
 
-| 类型           | 必需 |
-| -------------- | ---- |
-| number, string | 否   |
+See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/padding-bottom) for more details.
+
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
+
+---
+
+### `paddingBlock`
+
+Equivalent to [`paddingVertical`](layout-props#paddingvertical).
+
+See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/padding-block) for more details.
+
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
+
+---
+
+### `paddingBlockEnd`
+
+Equivalent to [`paddingBottom`](layout-props#paddingbottom).
+
+See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/padding-block-end) for more details.
+
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
+
+---
+
+### `paddingBlockStart`
+
+Equivalent to [`paddingTop`](layout-props#paddingtop).
+
+See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/padding-block-start) for more details.
+
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
 
 ---
 
 ### `paddingEnd`
 
-当方向为 `ltr` 时,`paddingEnd` 相当于 `paddingRight`。当方向为 `rtl` 时,`paddingEnd` 相当于 `paddingLeft`。
+When direction is `ltr`, `paddingEnd` is equivalent to `paddingRight`. When direction is `rtl`, `paddingEnd` is equivalent to `paddingLeft`.
 
-| 类型           | 必需 |
-| -------------- | ---- |
-| number, string | 否   |
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
 
 ---
 
 ### `paddingHorizontal`
 
-设置`paddingHorizontal`相当于同时设置`paddingLeft`和`paddingRight`。
+Setting `paddingHorizontal` is like setting both of `paddingLeft` and `paddingRight`.
 
-| 类型           | 必需 |
-| -------------- | ---- |
-| number, string | 否   |
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
+
+---
+
+### `paddingInline`
+
+Equivalent to [`paddingHorizontal`](layout-props#paddinghorizontal).
+
+See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/padding-inline) for more details.
+
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
+
+---
+
+### `paddingInlineEnd`
+
+When direction is `ltr`, `paddingInlineEnd` is equivalent to [`paddingEnd`](layout-props#paddingend) (i.e. `paddingRight`). When direction is `rtl`, `paddingInlineEnd` is equivalent to [`paddingEnd`](layout-props#paddingend) (i.e. `paddingLeft`).
+
+See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/padding-inline-end) for more details.
+
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
+
+---
+
+### `paddingInlineStart`
+
+When direction is `ltr`, `paddingInlineStart` is equivalent to [`paddingStart`](layout-props#paddingstart) (i.e. `paddingLeft`). When direction is `rtl`, `paddingInlineStart` is equivalent to [`paddingStart`](layout-props#paddingstart) (i.e. `paddingRight`).
+
+See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/padding-inline-start) for more details.
+
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
 
 ---
 
 ### `paddingLeft`
 
-`paddingLeft`和 CSS 上的`padding-left`表现一致。访问 https://developer.mozilla.org/en-US/docs/Web/CSS/padding-left 来进一步了解。
+`paddingLeft` works like `padding-left` in CSS.
 
-| 类型           | 必需 |
-| -------------- | ---- |
-| number, string | 否   |
+See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/padding-left) for more details.
+
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
 
 ---
 
 ### `paddingRight`
 
-`paddingRight`和 CSS 上的`padding-right`表现一致。访问 https://developer.mozilla.org/en-US/docs/Web/CSS/padding-right 来进一步了解。
+`paddingRight` works like `padding-right` in CSS.
 
-| 类型           | 必需 |
-| -------------- | ---- |
-| number, string | 否   |
+See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/padding-right) for more details.
+
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
 
 ---
 
 ### `paddingStart`
 
-当方向为 `ltr` 时，`paddingStart` 等同于 `paddingLeft`。当方向为 `rtl` 时，`paddingStart` 等同于 `paddingRight`。
+When direction is `ltr`, `paddingStart` is equivalent to `paddingLeft`. When direction is `rtl`, `paddingStart` is equivalent to `paddingRight`.
 
-| 类型           | 必需 |
-| -------------- | ---- |
-| number, string | 否   |
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
 
 ---
 
 ### `paddingTop`
 
-`paddingTop`和 CSS 上的`padding-top`表现一致。访问 https://developer.mozilla.org/en-US/docs/Web/CSS/padding-top 来进一步了解。
+`paddingTop` works like `padding-top` in CSS.
 
-| 类型           | 必需 |
-| -------------- | ---- |
-| number, string | 否   |
+See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/padding-top) for more details.
+
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
 
 ---
 
 ### `paddingVertical`
 
-设置`paddingVertical`相当于同时设置`paddingTop`和`paddingBottom`。
+Setting `paddingVertical` is like setting both of `paddingTop` and `paddingBottom`.
 
-| 类型           | 必需 |
-| -------------- | ---- |
-| number, string | 否   |
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
 
 ---
 
 ### `position`
 
-在 React Native 中，`position`与 [常规 CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/position) 类似，但默认情况下所有元素都设置为`relative`，因此`absolute`定位始终是相对于父元素的。
+`position` in React Native is similar to [regular CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/position), but everything is set to `relative` by default.
 
-`relative` 会根据布局的正常流来定位元素。内边距（`top`, `bottom`, `left`, `right`）会相对于这个布局进行偏移。
+`relative` will position an element according to the normal flow of the layout. Insets (`top`, `bottom`, `left`, `right`) will offset relative to this layout.
 
-`absolute` 会从布局的正常流中移除元素。内边距（`top`, `bottom`, `left`, `right`）会相对于它的[包含块](./flexbox.md#the-containing-block)进行偏移。
+`absolute` takes the element out of the normal flow of the layout. Insets will offset relative to its [containing block](./flexbox.md#the-containing-block).
 
-`static` 会根据布局的正常流来定位元素。内边距（`top`, `bottom`, `left`, `right`）不会产生任何效果。
+`static` will position an element according to the normal flow of the layout. Insets will have no effect.
+`static` elements do not form a containing block for absolute descendants.
 
-`static` 元素不会形成包含块来容纳绝对定位的子元素。
+For more information, see the [Layout with Flexbox docs](./flexbox.md#position). Also, [the Yoga documentation](https://www.yogalayout.dev/docs/styling/position) has more details on how `position` differs between React Native and CSS.
 
-有关更多信息，请参阅 [Flexbox 布局文档](./flexbox.md#position)。此外，有关 React Native 和 CSS 之间`position`差异的更多详细信息，请参见 [Yoga 布局引擎的文档](https://www.yogalayout.dev/docs/styling/position)。
-
-| 类型                                   | 必需 |
-| -------------------------------------- | ---- |
-| enum('absolute', 'relative', 'static') | 否   |
+| Type                                   | Required |
+| -------------------------------------- | -------- |
+| enum('absolute', 'relative', 'static') | No       |
 
 ---
 
 ### `right`
 
-`right`值是指将本组件定位到距离右边多少个逻辑像素（右边的定义取决于`position`属性）。
+`right` is the number of logical pixels to offset the right edge of this component.
 
-它的表现和 CSS 上的`right`类似，但是在 React Native 上只能使用逻辑像素值（数字单位）或百分比，而不能使用 em 或是任何其他单位。
+It works similarly to `right` in CSS, but in React Native you must use points or percentages. Ems and other units are not supported.
 
-访问 https://developer.mozilla.org/en-US/docs/Web/CSS/right 来进一步了解。
+See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/right) for more details of how `right` affects layout.
 
-| 类型           | 必需 |
-| -------------- | ---- |
-| number, string | 否   |
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
 
 ---
 
 ### `rowGap`
 
-`rowGap` 的功能类似于 CSS 中的 `row-gap`。React Native 仅支持像素单位。有关更多详细信息，请查看 https://developer.mozilla.org/en-US/docs/Web/CSS/row-gap
+`rowGap` works like `row-gap` in CSS. Only pixel units are supported in React Native.
 
-| 类型   | 必需 |
-| ------ | ---- |
-| number | 否   |
+See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/row-gap) for more details.
+
+| Type   | Required |
+| ------ | -------- |
+| number | No       |
 
 ---
 
 ### `start`
 
-当`direction`设置为`ltr`时，`start`等同于`left`。当`direction`设置为`rtl`，`start`等同于`right`。
+When the direction is `ltr`, `start` is equivalent to `left`. When the direction is `rtl`, `start` is equivalent to `right`.
 
-此样式的优先级高于`left`、`right`和`end`。
+This style takes precedence over the `left`, `right`, and `end` styles.
 
-| 类型           | 必需 |
-| -------------- | ---- |
-| number, string | 否   |
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
 
 ---
 
 ### `top`
 
-`top`值是指将本组件定位到距离顶部多少个逻辑像素（顶部的定义取决于`position`属性）。
+`top` is the number of logical pixels to offset the top edge of this component.
 
-它的表现和 CSS 上的`top`类似，但是在 React Native 上只能使用逻辑像素值（数字单位）或百分比，而不能使用 em 或是任何其他单位。
+It works similarly to `top` in CSS, but in React Native you must use points or percentages. Ems and other units are not supported.
 
-访问 https://developer.mozilla.org/en-US/docs/Web/CSS/top 来进一步了解。
+See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/top) for more details of how `top` affects layout.
 
-| 类型           | 必需 |
-| -------------- | ---- |
-| number, string | 否   |
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
 
 ---
 
 ### `width`
 
-`width`设置组件的宽度。
+`width` sets the width of this component.
 
-它的表现和 CSS 上的`width`类似，但是在 React Native 上只能使用逻辑像素值（数字单位）或百分比，而不能使用 em 或是任何其他单位。 访问 https://developer.mozilla.org/en-US/docs/Web/CSS/width 来进一步了解。
+It works similarly to `width` in CSS, but in React Native you must use points or percentages. Ems and other units are not supported.
 
-| 类型           | 必需 |
-| -------------- | ---- |
-| number, string | 否   |
+See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/width) for more details.
+
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
 
 ---
 
 ### `zIndex`
 
-`zIndex`控制着组件的堆叠覆盖顺序。多数情况下你不会用到此样式。默认情况下组件按其在文档树的顺序依次渲染，所以在代码结构上靠后的组件会覆盖前面的组件（如果它们在布局上有重叠的部分）。有时候在写一些动画或者自定义的模态窗口时，你可能会需要设置`zIndex`样式来改变层叠覆盖顺序。
+`zIndex` controls which components display on top of others. Normally, you don't use `zIndex`. Components render according to their order in the document tree, so later components draw over earlier ones. `zIndex` may be useful if you have animations or custom modal interfaces where you don't want this behavior.
 
-它的表现和 CSS 上的`z-index`一致——`zIndex`大的在上面。这里面的`z`意味着三维空间中的`z轴`，你可以想象成垂直于手机屏幕指向你的眼睛的坐标轴。访问 https://developer.mozilla.org/en-US/docs/Web/CSS/z-index 来进一步了解。
+It works like the CSS `z-index` property - components with a larger `zIndex` will render on top. Think of the z-direction like it's pointing from the phone into your eyeball.
 
-在 iOS 上，使用`zIndex`可能需要`View`彼此为兄弟节点才能生效。
+On iOS, `zIndex` may require `View`s to be siblings of each other for it to work as expected.
 
-| 类型   | 必需 |
-| ------ | ---- |
-| number | 否   |
+See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/z-index) for more details.
 
----
+| Type   | Required |
+| ------ | -------- |
+| number | No       |
