@@ -5,43 +5,43 @@ title: Easing
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
-`Easing`模块实现了常见的动画缓动函数。 这个模块被[Animated.timing()](animated.md#timing)用于在动画中传达真实可信的运动。
+`Easing` 模块实现了常见的缓动函数。此模块被 [`Animated.timing()`](animated.md#timing) 使用，用于在动画中传达物理上可信的运动效果。
 
-你可以在 http://easings.net/ 查看一些常见的缓动函数的视觉展示。
+你可以在 https://easings.net/ 查看一些常见缓动函数的可视化效果。
 
-### 查看预置动画
+### 预定义动画
 
-`Easing`模块通过以下几个方法提供了几种预置的动画：
+`Easing` 模块通过以下方法提供了几种预定义动画：
 
-* [`back`](easing.md#back) 提供了一个简单的动画，物体在向前移动之前稍微往后退
-* [`bounce`](easing.md#bounce) 提供了一个弹跳的动画效果
-* [`ease`](easing.md#ease) 提供了一个简单的惯性动画效果
-* [`elastic`](easing.md#elastic) 提供了一个简单的弹簧交互效果
+- [`back`](easing.md#back) 提供了一种对象在向前运动之前先稍微后退的基础动画
+- [`bounce`](easing.md#bounce) 提供了弹跳动画
+- [`ease`](easing.md#ease) 提供了基础的惯性动画
+- [`elastic`](easing.md#elastic) 提供了基础的弹簧交互效果
 
-### 查看标准函数
+### 标准函数
 
-目前提供了三种标准缓动函数：
+提供了三种标准缓动函数：
 
-* [`linear`](easing.md#linear)
-* [`quad`](easing.md#quad)
-* [`cubic`](easing.md#cubic)
+- [`linear`](easing.md#linear)
+- [`quad`](easing.md#quad)
+- [`cubic`](easing.md#cubic)
 
-[`poly`](easing.md#poly) 函数可用于实现四次方、五次方和其他更高阶的函数。
+[`poly`](easing.md#poly) 函数可用于实现四次方、五次方及其他更高次幂的函数。
 
-### 查看补充函数
+### 额外函数
 
-此外还通过以下几个方法提供了几种数学函数：
+以下方法提供了额外的数学函数：
 
-* [`bezier`](easing.md#bezier) 提供了一个三次贝塞尔曲线
-* [`circle`](easing.md#circle) 提供了一个圆形函数
-* [`sin`](easing.md#sin) 提供了一个正弦函数
-* [`exp`](easing.md#exp) 提供了一个指数函数
+- [`bezier`](easing.md#bezier) 提供三次贝塞尔曲线
+- [`circle`](easing.md#circle) 提供圆形函数
+- [`sin`](easing.md#sin) 提供正弦函数
+- [`exp`](easing.md#exp) 提供指数函数
 
-以下辅助函数用于修改其他缓动函数。
+以下辅助函数用于修改其他缓动函数：
 
-* [`in`](easing.md#in) 正向运行缓动函数
-* [`inOut`](easing.md#inout) 使任何缓动函数对称化
-* [`out`](easing.md#out) 反向运行缓动函数
+- [`in`](easing.md#in) 正向运行缓动函数
+- [`inOut`](easing.md#inout) 使任何缓动函数变为对称的
+- [`out`](easing.md#out) 反向运行缓动函数
 
 ## 示例
 
@@ -49,7 +49,7 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import con
 <TabItem value="javascript">
 
 ```SnackPlayer name=Easing%20Demo&ext=js
-import React from 'react';
+import React, {useRef} from 'react';
 import {
   Animated,
   Easing,
@@ -60,9 +60,10 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => {
-  let opacity = new Animated.Value(0);
+  const opacity = useRef(new Animated.Value(0)).current;
 
   const animate = easing => {
     opacity.setValue(0);
@@ -70,7 +71,7 @@ const App = () => {
       toValue: 1,
       duration: 1200,
       easing,
-      useNativeDriver: true,
+      useNativeDriver: false,
     }).start();
   };
 
@@ -89,28 +90,32 @@ const App = () => {
   ];
 
   return (
-    <View style={styles.container}>
-      <StatusBar hidden={true} />
-      <Text style={styles.title}>Press rows below to preview the Easing!</Text>
-      <View style={styles.boxContainer}>
-        <Animated.View style={animatedStyles} />
-      </View>
-      <SectionList
-        style={styles.list}
-        sections={SECTIONS}
-        keyExtractor={item => item.title}
-        renderItem={({item}) => (
-          <TouchableOpacity
-            onPress={() => animate(item.easing)}
-            style={styles.listRow}>
-            <Text>{item.title}</Text>
-          </TouchableOpacity>
-        )}
-        renderSectionHeader={({section: {title}}) => (
-          <Text style={styles.listHeader}>{title}</Text>
-        )}
-      />
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container} edges={['right', 'top', 'left']}>
+        <StatusBar hidden={true} />
+        <Text style={styles.title}>
+          Press rows below to preview the Easing!
+        </Text>
+        <View style={styles.boxContainer}>
+          <Animated.View style={animatedStyles} />
+        </View>
+        <SectionList
+          style={styles.list}
+          sections={SECTIONS}
+          keyExtractor={item => item.title}
+          renderItem={({item}) => (
+            <TouchableOpacity
+              onPress={() => animate(item.easing)}
+              style={styles.listRow}>
+              <Text>{item.title}</Text>
+            </TouchableOpacity>
+          )}
+          renderSectionHeader={({section: {title}}) => (
+            <Text style={styles.listHeader}>{title}</Text>
+          )}
+        />
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
@@ -204,7 +209,7 @@ export default App;
 <TabItem value="typescript">
 
 ```SnackPlayer name=Easing%20Demo&ext=tsx
-import React from 'react';
+import React, {useRef} from 'react';
 import {
   Animated,
   Easing,
@@ -214,11 +219,12 @@ import {
   Text,
   TouchableOpacity,
   View,
+  type EasingFunction,
 } from 'react-native';
-import type {EasingFunction} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => {
-  let opacity = new Animated.Value(0);
+  const opacity = useRef(new Animated.Value(0)).current;
 
   const animate = (easing: EasingFunction) => {
     opacity.setValue(0);
@@ -226,7 +232,7 @@ const App = () => {
       toValue: 1,
       duration: 1200,
       easing,
-      useNativeDriver: true,
+      useNativeDriver: false,
     }).start();
   };
 
@@ -245,28 +251,32 @@ const App = () => {
   ];
 
   return (
-    <View style={styles.container}>
-      <StatusBar hidden={true} />
-      <Text style={styles.title}>Press rows below to preview the Easing!</Text>
-      <View style={styles.boxContainer}>
-        <Animated.View style={animatedStyles} />
-      </View>
-      <SectionList
-        style={styles.list}
-        sections={SECTIONS}
-        keyExtractor={item => item.title}
-        renderItem={({item}) => (
-          <TouchableOpacity
-            onPress={() => animate(item.easing)}
-            style={styles.listRow}>
-            <Text>{item.title}</Text>
-          </TouchableOpacity>
-        )}
-        renderSectionHeader={({section: {title}}) => (
-          <Text style={styles.listHeader}>{title}</Text>
-        )}
-      />
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container} edges={['right', 'top', 'left']}>
+        <StatusBar hidden={true} />
+        <Text style={styles.title}>
+          Press rows below to preview the Easing!
+        </Text>
+        <View style={styles.boxContainer}>
+          <Animated.View style={animatedStyles} />
+        </View>
+        <SectionList
+          style={styles.list}
+          sections={SECTIONS}
+          keyExtractor={item => item.title}
+          renderItem={({item}) => (
+            <TouchableOpacity
+              onPress={() => animate(item.easing)}
+              style={styles.listRow}>
+              <Text>{item.title}</Text>
+            </TouchableOpacity>
+          )}
+          renderSectionHeader={({section: {title}}) => (
+            <Text style={styles.listHeader}>{title}</Text>
+          )}
+        />
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
@@ -361,7 +371,7 @@ export default App;
 
 ---
 
-# 文档
+# 参考文档
 
 ## 方法
 
@@ -371,7 +381,7 @@ export default App;
 static step0(n: number);
 ```
 
-一个步进函数，对于任何正数的`n`返回1。
+阶跃函数，对任何 `n` 的正值返回 1。
 
 ---
 
@@ -381,7 +391,7 @@ static step0(n: number);
 static step1(n: number);
 ```
 
-一个步进函数，如果`n`大于或等于1，则返回1。
+阶跃函数，当 `n` 大于等于 1 时返回 1。
 
 ---
 
@@ -391,9 +401,9 @@ static step1(n: number);
 static linear(t: number);
 ```
 
-线性函数，`f(t) = t`。位置与经过的时间一一对应。
+线性函数，`f(t) = t`。位置与已经过的时间成一比一的对应关系。
 
-http://cubic-bezier.com/#0,0,1,1
+https://cubic-bezier.com/#0,0,1,1
 
 ---
 
@@ -402,17 +412,96 @@ http://cubic-bezier.com/#0,0,1,1
 ```tsx
 static ease(t: number);
 ```
-使任何缓动函数成为对称的。缓动函数将在持续时间的前半部分向前运行，然后在剩余时间内向后运行。
 
-http://cubic-bezier.com/#.42,0,1,1
+基础惯性交互，类似于物体缓慢加速的效果。
+
+https://cubic-bezier.com/#.42,0,1,1
 
 ---
 
 ### `quad()`
 
-默认的弹性为1，会稍微超过一次。0的弹性不会超过，而大于1的弹性将会超过N次。
+```tsx
+static quad(t: number);
+```
 
-http://easings.net/#easeInElastic
+二次函数，`f(t) = t * t`。位置等于已经过时间的平方。
+
+https://easings.net/#easeInQuad
+
+---
+
+### `cubic()`
+
+```tsx
+static cubic(t: number);
+```
+
+三次函数，`f(t) = t * t * t`。位置等于已经过时间的立方。
+
+https://easings.net/#easeInCubic
+
+---
+
+### `poly()`
+
+```tsx
+static poly(n: number);
+```
+
+幂函数。位置等于已经过时间的 N 次幂。
+
+n = 4: https://easings.net/#easeInQuart n = 5: https://easings.net/#easeInQuint
+
+---
+
+### `sin()`
+
+```tsx
+static sin(t: number);
+```
+
+正弦函数。
+
+https://easings.net/#easeInSine
+
+---
+
+### `circle()`
+
+```tsx
+static circle(t: number);
+```
+
+圆形函数。
+
+https://easings.net/#easeInCirc
+
+---
+
+### `exp()`
+
+```tsx
+static exp(t: number);
+```
+
+指数函数。
+
+https://easings.net/#easeInExpo
+
+---
+
+### `elastic()`
+
+```tsx
+static elastic(bounciness: number);
+```
+
+基础弹性交互，类似于弹簧来回振荡的效果。
+
+默认弹性系数为 1，会稍微过冲一次。弹性系数为 0 时完全不会过冲，弹性系数 N > 1 时大约会过冲 N 次。
+
+https://easings.net/#easeInElastic
 
 ---
 
@@ -422,7 +511,7 @@ http://easings.net/#easeInElastic
 static back(s)
 ```
 
-与`Animated.parallel()`一起使用，可以创建一个基本效果，在动画开始时对象会稍微向后移动。
+与 `Animated.parallel()` 配合使用，创建动画开始时对象稍微后退的基础效果。
 
 ---
 
@@ -432,9 +521,9 @@ static back(s)
 static bounce(t: number);
 ```
 
-提供了一个基本的反弹效果。
+提供基础的弹跳效果。
 
-http://easings.net/#easeInBounce
+https://easings.net/#easeInBounce
 
 ---
 
@@ -444,9 +533,9 @@ http://easings.net/#easeInBounce
 static bezier(x1: number, y1: number, x2: number, y2: number);
 ```
 
-提供了一个三次贝塞尔曲线，相当于CSS Transitions中的`transition-timing-function`。
+提供三次贝塞尔曲线，等同于 CSS Transitions 的 `transition-timing-function`。
 
-可以在 http://cubic-bezier.com/ 找到一个有用的工具来可视化三次贝塞尔曲线。
+可以在 https://cubic-bezier.com/ 查看三次贝塞尔曲线的可视化工具。
 
 ---
 
@@ -455,21 +544,25 @@ static bezier(x1: number, y1: number, x2: number, y2: number);
 ```tsx
 static in(easing: number);
 ```
-以正向运行缓动函数。
+
+正向运行缓动函数。
 
 ---
 
 ### `out()`
+
 ```tsx
 static out(easing: number);
 ```
-以反向运行缓动函数。
- 
----
- 
- ###  `inOut()` 
 
- ``` tsx 
- static inOut (easing：number);  
- ```
-使任何缓动函数对称。 缓动函数将在持续时间的前半部分正向运行，然后在剩余时间内反向运行。
+反向运行缓动函数。
+
+---
+
+### `inOut()`
+
+```tsx
+static inOut(easing: number);
+```
+
+使任何缓动函数变为对称的。缓动函数在前半段时间内正向运行，在后半段时间内反向运行。

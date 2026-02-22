@@ -3,343 +3,273 @@ id: modal
 title: Modal
 ---
 
-import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
-
-Modal 组件是一种简单的覆盖在其他视图之上显示内容的方式。
+Modal 组件是一种在外层视图之上展示内容的基本方式。
 
 ## 示例
 
-<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
-<TabItem value="functional">
-
 ```SnackPlayer name=Modal&supportedPlatforms=android,ios
-import React, { useState } from "react";
-import {
-  Alert,
-  Modal,
-  StyleSheet,
-  Text,
-  TouchableHighlight,
-  View
-} from "react-native";
+import React, {useState} from 'react';
+import {Alert, Modal, StyleSheet, Text, Pressable, View} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => {
   const [modalVisible, setModalVisible] = useState(false);
   return (
-    <View style={styles.centeredView}>
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => {
-          Alert.alert("Modal has been closed.");
-          setModalVisible(!modalVisible);
-        }}
-      >
-        <View style={styles.centeredView}>
-          <View style={styles.modalView}>
-            <Text style={styles.modalText}>Hello World!</Text>
-
-            <TouchableHighlight
-              style={{ ...styles.openButton, backgroundColor: "#2196F3" }}
-              onPress={() => {
-                setModalVisible(!modalVisible);
-              }}
-            >
-              <Text style={styles.textStyle}>Hide Modal</Text>
-            </TouchableHighlight>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.centeredView}>
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={modalVisible}
+          onRequestClose={() => {
+            Alert.alert('Modal has been closed.');
+            setModalVisible(!modalVisible);
+          }}>
+          <View style={styles.centeredView}>
+            <View style={styles.modalView}>
+              <Text style={styles.modalText}>Hello World!</Text>
+              <Pressable
+                style={[styles.button, styles.buttonClose]}
+                onPress={() => setModalVisible(!modalVisible)}>
+                <Text style={styles.textStyle}>Hide Modal</Text>
+              </Pressable>
+            </View>
           </View>
-        </View>
-      </Modal>
-
-      <TouchableHighlight
-        style={styles.openButton}
-        onPress={() => {
-          setModalVisible(true);
-        }}
-      >
-        <Text style={styles.textStyle}>Show Modal</Text>
-      </TouchableHighlight>
-    </View>
+        </Modal>
+        <Pressable
+          style={[styles.button, styles.buttonOpen]}
+          onPress={() => setModalVisible(true)}>
+          <Text style={styles.textStyle}>Show Modal</Text>
+        </Pressable>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
 const styles = StyleSheet.create({
   centeredView: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 22
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   modalView: {
     margin: 20,
-    backgroundColor: "white",
+    backgroundColor: 'white',
     borderRadius: 20,
     padding: 35,
-    alignItems: "center",
-    shadowColor: "#000",
+    alignItems: 'center',
+    shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 2
+      height: 2,
     },
     shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5
+    shadowRadius: 4,
+    elevation: 5,
   },
-  openButton: {
-    backgroundColor: "#F194FF",
+  button: {
     borderRadius: 20,
     padding: 10,
-    elevation: 2
+    elevation: 2,
+  },
+  buttonOpen: {
+    backgroundColor: '#F194FF',
+  },
+  buttonClose: {
+    backgroundColor: '#2196F3',
   },
   textStyle: {
-    color: "white",
-    fontWeight: "bold",
-    textAlign: "center"
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
   modalText: {
     marginBottom: 15,
-    textAlign: "center"
-  }
+    textAlign: 'center',
+  },
 });
 
 export default App;
 ```
-
-</TabItem>
-<TabItem value="classical">
-
-```SnackPlayer name=Modal&supportedPlatforms=android,ios
-import React, { Component } from "react";
-import {
-  Alert,
-  Modal,
-  StyleSheet,
-  Text,
-  TouchableHighlight,
-  View
-} from "react-native";
-
-class App extends Component {
-  state = {
-    modalVisible: false
-  };
-
-  setModalVisible = (visible) => {
-    this.setState({ modalVisible: visible });
-  }
-
-  render() {
-    const { modalVisible } = this.state;
-    return (
-      <View style={styles.centeredView}>
-        <Modal
-          animationType="slide"
-          transparent={true}
-          visible={modalVisible}
-          onRequestClose={() => {
-            Alert.alert("Modal has been closed.");
-            this.setModalVisible(!modalVisible);
-          }}
-        >
-          <View style={styles.centeredView}>
-            <View style={styles.modalView}>
-              <Text style={styles.modalText}>Hello World!</Text>
-
-              <TouchableHighlight
-                style={{ ...styles.openButton, backgroundColor: "#2196F3" }}
-                onPress={() => {
-                  this.setModalVisible(!modalVisible);
-                }}
-              >
-                <Text style={styles.textStyle}>Hide Modal</Text>
-              </TouchableHighlight>
-            </View>
-          </View>
-        </Modal>
-
-        <TouchableHighlight
-          style={styles.openButton}
-          onPress={() => {
-            this.setModalVisible(true);
-          }}
-        >
-          <Text style={styles.textStyle}>Show Modal</Text>
-        </TouchableHighlight>
-      </View>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  centeredView: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 22
-  },
-  modalView: {
-    margin: 20,
-    backgroundColor: "white",
-    borderRadius: 20,
-    padding: 35,
-    alignItems: "center",
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5
-  },
-  openButton: {
-    backgroundColor: "#F194FF",
-    borderRadius: 20,
-    padding: 10,
-    elevation: 2
-  },
-  textStyle: {
-    color: "white",
-    fontWeight: "bold",
-    textAlign: "center"
-  },
-  modalText: {
-    marginBottom: 15,
-    textAlign: "center"
-  }
-});
-
-export default App;
-```
-
-</TabItem>
-</Tabs>
 
 ---
 
-# 文档
+# 参考文档
 
 ## Props
 
-### `visible`
+### [View Props](view.md#props)
 
-`visible`属性决定 modal 是否显示。
-
-| 类型 | 必需 |
-| ---- | ---- |
-| bool | 否   |
+继承 [View Props](view.md#props)。
 
 ---
 
-### `supportedOrientations`
+### 🗑️ `animated`
 
-`supportedOrientations`用于指定在设备切换横竖屏方向时，modal 会在哪些屏幕朝向下跟随旋转。在 iOS 上，除了本属性外，还会受到应用的 Info.plist 文件中`UISupportedInterfaceOrientations`的限制。如果还设置了`presentationStyle`属性为`pageSheet`或`formSheet`，则在 iOS 上本属性将被忽略。
-
-| 类型                                                                                                | 必需 | 平台 |
-| --------------------------------------------------------------------------------------------------- | ---- | ---- |
-| array of enum('portrait', 'portrait-upside-down', 'landscape', 'landscape-left', 'landscape-right') | 否   | iOS  |
-
----
-
-### `onRequestClose`
-
-`onRequestClose`回调会在用户按下 Android 设备上的后退按键或是 Apple TV 上的菜单键时触发。请务必注意本属性在 Android 平台上为必需，且会在 modal 处于开启状态时阻止`BackHandler`事件。
-
-| 类型     | 必需 | 平台                     |
-| -------- | ---- | ------------------------ |
-| function | 是   | Android, Platform.isTVOS |
-| function | 否   | (Others)                 |
-
----
-
-### `onShow`
-
-`onShow`回调函数会在 modal 显示时调用。
-
-| 类型     | 必需 |
-| -------- | ---- |
-| function | 否   |
-
----
-
-### `transparent`
-
-`transparent` 属性是指背景是否透明，默认为白色，将这个属性设为：true 的时候弹出一个透明背景层的 modal。
-
-| 类型 | 必需 |
-| ---- | ---- |
-| bool | 否   |
+:::warning 已弃用
+请改用 [`animationType`](modal.md#animationtype) 属性。
+:::
 
 ---
 
 ### `animationType`
 
-`animationType`指定了 modal 的动画类型。
+`animationType` 属性控制模态框的动画方式。
 
-- `slide` 从底部滑入滑出。
-- `fade` 淡入淡出。
-- `none` 没有动画，直接蹦出来。
+可选值：
 
-默认值为`none`。
+- `slide` 从底部滑入
+- `fade` 淡入显示
+- `none` 无动画直接出现
 
-| 类型                          | 必需 |
-| ----------------------------- | ---- |
-| enum('none', 'slide', 'fade') | 否   |
-
----
-
-### `hardwareAccelerated`
-
-`hardwareAccelerated`属性决定是否强制启用硬件加速来绘制弹出层。
-
-| 类型 | 必需 | 平台    |
-| ---- | ---- | ------- |
-| bool | 否   | Android |
+| 类型                                | 默认值 |
+| ----------------------------------- | ------ |
+| enum(`'none'`, `'slide'`, `'fade'`) | `none` |
 
 ---
 
-### `statusBarTranslucent`
+### `backdropColor`
 
-The `statusBarTranslucent` prop determines whether your modal should go under the system statusbar.
+模态框的背景色（即模态框容器的背景颜色）。如果未提供且 `transparent` 为 `false`，则默认为 `white`。当 `transparent` 为 `true` 时此属性被忽略。
 
-| 类型 | 必需 | 平台    |
-| ---- | ---- | ------- |
-| bool | 否   | Android |
-
----
-
-### `onDismiss`
-
-`onDismiss`回调会在 modal 被关闭时调用。
-
-| 类型     | 必需 | 平台 |
-| -------- | ---- | ---- |
-| function | 否   | iOS  |
+| 类型            | 默认值 |
+| --------------- | ------ |
+| [color](colors) | white  |
 
 ---
 
-### `onOrientationChange`
+### `hardwareAccelerated` <div className="label android">Android</div>
 
-模态窗显示的时候，当设备方向发生更改时，将调用`onOrientationChange`回调方法。 提供的设备方向仅为“竖屏”或“横屏”。 无论当前方向如何，也会在初始渲染时调用此回调方法。
+`hardwareAccelerated` 属性控制是否为底层窗口强制启用硬件加速。
 
-| 类型     | 必需 | 平台 |
-| -------- | ---- | ---- |
-| function | 否   | iOS  |
+| 类型 | 默认值  |
+| ---- | ------- |
+| bool | `false` |
 
 ---
 
-### `presentationStyle`
+### `navigationBarTranslucent` <div className="label android">Android</div>
 
-`presentationStyle`决定 modal（在较大屏幕的设备比如 iPad 或是 Plus 机型）如何展现。更多细节请参阅 https://developer.apple.com/reference/uikit/uimodalpresentationstyle
+`navigationBarTranslucent` 属性决定模态框是否延伸到系统导航栏下方。但同时需要将 `statusBarTranslucent` 也设置为 `true` 才能使导航栏变为半透明。
 
-- `fullScreen`完全盖满屏幕。
-- `pageSheet`竖直方向几乎盖满，水平居中，左右留出一定空白（仅用于大屏设备）。
-- `formSheet`竖直和水平都居中，四周都留出一定空白（仅用于大屏设备）。
-- `overFullScreen`完全盖满屏幕，同时允许透明。
+| 类型 | 默认值  |
+| ---- | ------- |
+| bool | `false` |
 
-默认会根据`transparent`属性而设置为`overFullScreen`或是`fullScreen`。
+---
 
-| 类型                                                           | 必需 | 平台 |
-| -------------------------------------------------------------- | ---- | ---- |
-| enum('fullScreen', 'pageSheet', 'formSheet', 'overFullScreen') | 否   | iOS  |
+### `onDismiss` <div className="label ios">iOS</div>
+
+`onDismiss` 属性允许传入一个函数，该函数会在模态框关闭后被调用。
+
+| 类型     |
+| -------- |
+| function |
+
+---
+
+### `onOrientationChange` <div className="label ios">iOS</div>
+
+`onOrientationChange` 回调会在模态框显示期间设备方向发生变化时被调用。提供的方向值仅为 'portrait' 或 'landscape'。此回调在初次渲染时也会被调用，无论当前的设备方向如何。
+
+| 类型     |
+| -------- |
+| function |
+
+---
+
+### `allowSwipeDismissal` <div className="label ios">iOS</div>
+
+控制在 iOS 上是否可以通过下滑手势关闭模态框。使用此功能需要同时实现 `onRequestClose` 属性来处理关闭事件。
+
+| 类型 | 默认值  |
+| ---- | ------- |
+| bool | `false` |
+
+---
+
+### `ref`
+
+一个 ref 设置器，在组件挂载时会被赋值为一个[元素节点](element-nodes)。
+
+---
+
+### `onRequestClose`
+
+`onRequestClose` 回调会在用户按下 Android 上的硬件返回键或 Apple TV 上的菜单键时被调用。由于这是一个必需的属性，请注意只要模态框处于打开状态，`BackHandler` 事件就不会被触发。
+在 iOS 上，当使用 `pageSheet` 或 `formSheet` 的 `presentationStyle` 并通过拖拽手势关闭模态框时，也会调用此回调。当启用了 `allowSwipeDismissal` 时，此回调将在模态框关闭后被调用。
+
+| 类型                                                                                                                                                                                           |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| function <div className="label basic required">必需</div><div className="label android">Android</div><div className="label tv">TV</div><hr />function <div className="label ios">iOS</div> |
+
+---
+
+### `onShow`
+
+`onShow` 属性允许传入一个函数，该函数会在模态框显示后被调用。
+
+| 类型     |
+| -------- |
+| function |
+
+---
+
+### `presentationStyle` <div className="label ios">iOS</div>
+
+`presentationStyle` 属性控制模态框的显示方式（通常用于较大设备，如 iPad 或大屏 iPhone）。详情请参阅 https://developer.apple.com/reference/uikit/uimodalpresentationstyle 。
+
+可选值：
+
+- `fullScreen` 覆盖整个屏幕
+- `pageSheet` 覆盖竖屏宽度的居中视图（仅限大屏设备）
+- `formSheet` 覆盖窄宽度的居中视图（仅限大屏设备）
+- `overFullScreen` 覆盖整个屏幕，但允许透明
+
+| 类型                                                                   | 默认值                                                                              |
+| ---------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| enum(`'fullScreen'`, `'pageSheet'`, `'formSheet'`, `'overFullScreen'`) | `transparent={false}` 时为 `fullScreen`<hr />`transparent={true}` 时为 `overFullScreen` |
+
+---
+
+### `statusBarTranslucent` <div className="label android">Android</div>
+
+`statusBarTranslucent` 属性决定模态框是否延伸到系统状态栏下方。
+
+| 类型 | 默认值  |
+| ---- | ------- |
+| bool | `false` |
+
+---
+
+### `supportedOrientations` <div className="label ios">iOS</div>
+
+`supportedOrientations` 属性允许模态框旋转到指定的任何方向。在 iOS 上，模态框仍受应用 Info.plist 中 UISupportedInterfaceOrientations 字段所指定方向的限制。
+
+:::note
+当 `presentationStyle` 设置为 `pageSheet` 或 `formSheet` 时，此属性在 iOS 上会被忽略。
+:::
+
+| 类型                                                                                                           | 默认值         |
+| -------------------------------------------------------------------------------------------------------------- | -------------- |
+| array of enums(`'portrait'`, `'portrait-upside-down'`, `'landscape'`, `'landscape-left'`, `'landscape-right'`) | `['portrait']` |
+
+---
+
+### `transparent`
+
+`transparent` 属性决定模态框是否填充整个视图。将其设置为 `true` 会使模态框在透明背景上渲染。
+
+| 类型 | 默认值  |
+| ---- | ------- |
+| bool | `false` |
+
+---
+
+### `visible`
+
+`visible` 属性决定模态框是否可见。
+
+| 类型 | 默认值 |
+| ---- | ------ |
+| bool | `true` |

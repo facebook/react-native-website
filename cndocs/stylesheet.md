@@ -3,68 +3,75 @@ id: stylesheet
 title: StyleSheet
 ---
 
-StyleSheet 提供了一种类似 CSS 样式表的抽象。
+StyleSheet 是一个类似于 CSS StyleSheets 的抽象层。
 
 ```SnackPlayer name=StyleSheet
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import React from 'react';
+import {StyleSheet, Text} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => (
-  <View style={styles.container}>
-    <Text style={styles.title}>React Native</Text>
-  </View>
+  <SafeAreaProvider>
+    <SafeAreaView style={styles.container}>
+      <Text style={styles.title}>React Native</Text>
+    </SafeAreaView>
+  </SafeAreaProvider>
 );
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 24,
-    backgroundColor: "#eaeaea"
+    backgroundColor: '#eaeaea',
   },
   title: {
     marginTop: 16,
     paddingVertical: 8,
     borderWidth: 4,
-    borderColor: "#20232a",
+    borderColor: '#20232a',
     borderRadius: 6,
-    backgroundColor: "#61dafb",
-    color: "#20232a",
-    textAlign: "center",
+    backgroundColor: '#61dafb',
+    color: '#20232a',
+    textAlign: 'center',
     fontSize: 30,
-    fontWeight: "bold"
-  }
+    fontWeight: 'bold',
+  },
 });
 
 export default App;
 ```
 
-从代码质量角度：
+代码质量建议：
 
-- 从渲染函数中移除具体的样式内容，可以使代码更清晰易读。
-- 给样式命名也可以对渲染函数中的组件增加语义化的描述。
+- 将样式从渲染函数中分离出来，可以使代码更容易理解。
+- 为样式命名是为渲染函数中的低级组件赋予语义的好方法，也有助于样式复用。
+- 在大多数 IDE 中，使用 `StyleSheet.create()` 可以提供静态类型检查和建议，帮助你编写合法的样式。
 
 ---
 
-# 文档
+# 参考文档
 
 ## 方法
 
 ### `compose()`
 
-```jsx
-static compose(style1: object, style2: object): object | array<object>
+```tsx
+static compose(style1: Object, style2: Object): Object | Object[];
 ```
 
-Combines two styles such that `style2` will override any styles in `style1`. If either style is falsy, the other one is returned without allocating an array, saving allocations and maintaining reference equality for PureComponent checks.
+将两个样式组合在一起，使得 `style2` 会覆盖 `style1` 中的任何样式。如果其中任何一个样式为 falsy，则直接返回另一个，不会分配数组，从而节省内存分配并保持 PureComponent 检查的引用相等性。
 
 ```SnackPlayer name=Compose
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {StyleSheet, Text} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => (
-  <View style={container}>
-    <Text style={text}>React Native</Text>
-  </View>
+  <SafeAreaProvider>
+    <SafeAreaView style={container}>
+      <Text style={text}>React Native</Text>
+    </SafeAreaView>
+  </SafeAreaProvider>
 );
 
 const page = StyleSheet.create({
@@ -75,7 +82,7 @@ const page = StyleSheet.create({
   },
   text: {
     fontSize: 30,
-    color: '#000'
+    color: '#000',
   },
 });
 
@@ -85,8 +92,7 @@ const lists = StyleSheet.create({
     backgroundColor: '#61dafb',
   },
   listItem: {
-    fontStyle: 'italic',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
   },
 });
 
@@ -100,115 +106,119 @@ export default App;
 
 ### `create()`
 
-```jsx
-static create(obj: object): object
+```tsx
+static create(styles: Object extends Record<string, ViewStyle | ImageStyle | TextStyle>): Object;
 ```
 
-Creates a StyleSheet style reference from the given object.
+一个用于创建样式的恒等函数。在 `StyleSheet.create()` 中创建样式的主要实际好处是可以对原生样式属性进行静态类型检查。
 
 ---
 
 ### `flatten()`
 
-```jsx
-static flatten(style: array<object>): object
+```tsx
+static flatten(style: Array<Object extends Record<string, ViewStyle | ImageStyle | TextStyle>>): Object;
 ```
 
-Flattens an array of style objects, into one aggregated style object. Alternatively, this method can be used to lookup IDs, returned by `StyleSheet.register`.
-
-> **NOTE:** Exercise caution as abusing this can tax you in terms of optimizations. IDs enable optimizations through the bridge and memory in general. Referring to style objects directly will deprive you of these optimizations.
+将样式对象数组扁平化为一个聚合的样式对象。
 
 ```SnackPlayer name=Flatten
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import React from 'react';
+import {StyleSheet, Text} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => (
-  <View style={page.container}>
-    <Text style={flattenStyle}>React Native</Text>
-    <Text>Flatten Style</Text>
-    <Text style={page.code}>
-      {JSON.stringify(flattenStyle, null, 2)}
-    </Text>
-  </View>
+  <SafeAreaProvider>
+    <SafeAreaView style={page.container}>
+      <Text style={flattenStyle}>React Native</Text>
+      <Text>Flatten Style</Text>
+      <Text style={page.code}>{JSON.stringify(flattenStyle, null, 2)}</Text>
+    </SafeAreaView>
+  </SafeAreaProvider>
 );
 
 const page = StyleSheet.create({
   container: {
     flex: 1,
     padding: 24,
-    alignItems: "center"
+    alignItems: 'center',
   },
   text: {
-    color: "#000",
+    color: '#000',
     fontSize: 14,
-    fontWeight: "bold"
+    fontWeight: 'bold',
   },
   code: {
     marginTop: 12,
     padding: 12,
     borderRadius: 8,
-    color: "#666",
-    backgroundColor: "#eaeaea"
-  }
+    color: '#666',
+    backgroundColor: '#eaeaea',
+  },
 });
 
 const typography = StyleSheet.create({
   header: {
-    color: "#61dafb",
+    color: '#61dafb',
     fontSize: 30,
-    marginBottom: 36
-  }
+    marginBottom: 36,
+  },
 });
 
-const flattenStyle = StyleSheet.flatten([
-  page.text,
-  typography.header
-]);
+const flattenStyle = StyleSheet.flatten([page.text, typography.header]);
 
 export default App;
 ```
-
-This method internally uses `StyleSheetRegistry.getStyleByID(style)` to resolve style objects represented by IDs. Thus, an array of style objects (instances of `StyleSheet.create()`), are individually resolved to, their respective objects, merged as one and then returned. This also explains the alternative use.
 
 ---
 
 ### `setStyleAttributePreprocessor()`
 
-```jsx
-static setStyleAttributePreprocessor(property, process)
+:::warning 实验性功能
+可能会频繁发生破坏性变更，且不一定会提前通知。整个功能都可能被删除。使用需自担风险。
+:::
+
+```tsx
+static setStyleAttributePreprocessor(
+  property: string,
+  process: (propValue: any) => any,
+);
 ```
 
-WARNING: EXPERIMENTAL. Breaking changes will probably happen a lot and will not be reliably announced. The whole thing might be deleted, who knows? Use at your own risk.
+设置一个用于预处理样式属性值的函数。此方法在内部用于处理颜色和变换值。除非你确实清楚自己在做什么并且已经穷尽了其他方案，否则不应使用此方法。
 
-Sets a function to use to pre-process a style property value. This is used internally to process color and transform values. You should not use this unless you really know what you are doing and have exhausted other options.
+## 属性
 
-## 常量
+---
 
 ### `absoluteFill`
 
-A very common pattern is to create overlays with position absolute and zero positioning (`position: 'absolute', left: 0, right: 0, top: 0, bottom: 0`), so `absoluteFill` can be used for convenience and to reduce duplication of these repeated styles. If you want, absoluteFill can be used to create a customized entry in a StyleSheet, e.g.:
+一种非常常见的模式是使用 `position: 'absolute'` 和零定位（`position: 'absolute', left: 0, right: 0, top: 0, bottom: 0`）来创建覆盖层，因此可以使用 `absoluteFill` 来简化代码并减少这些重复样式。如果需要，absoluteFill 可用于在 StyleSheet 中创建自定义条目，例如：
 
 ```SnackPlayer name=absoluteFill
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => (
-  <View style={styles.container}>
-    <View style={styles.box1}>
-      <Text style={styles.text}>1</Text>
-    </View>
-    <View style={styles.box2}>
-      <Text style={styles.text}>2</Text>
-    </View>
-    <View style={styles.box3}>
-      <Text style={styles.text}>3</Text>
-    </View>
-  </View>
+  <SafeAreaProvider>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.box1}>
+        <Text style={styles.text}>1</Text>
+      </View>
+      <View style={[styles.box2, StyleSheet.absoluteFill]}>
+        <Text style={styles.text}>2</Text>
+      </View>
+      <View style={styles.box3}>
+        <Text style={styles.text}>3</Text>
+      </View>
+    </SafeAreaView>
+  </SafeAreaProvider>
 );
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
   },
   box1: {
     position: 'absolute',
@@ -216,13 +226,12 @@ const styles = StyleSheet.create({
     left: 40,
     width: 100,
     height: 100,
-    backgroundColor: 'red'
+    backgroundColor: 'red',
   },
   box2: {
-    ...StyleSheet.absoluteFill,
     width: 100,
     height: 100,
-    backgroundColor: 'blue'
+    backgroundColor: 'blue',
   },
   box3: {
     position: 'absolute',
@@ -230,12 +239,12 @@ const styles = StyleSheet.create({
     left: 120,
     width: 100,
     height: 100,
-    backgroundColor: 'green'
+    backgroundColor: 'green',
   },
   text: {
     color: '#FFF',
-    fontSize: 80
-  }
+    fontSize: 80,
+  },
 });
 
 export default App;
@@ -245,29 +254,32 @@ export default App;
 
 ### `absoluteFillObject`
 
-Sometimes you may want `absoluteFill` but with a couple tweaks - `absoluteFillObject` can be used to create a customized entry in a `StyleSheet`, e.g.:
+有时你可能想要 `absoluteFill` 但需要做一些微调——`absoluteFillObject` 可用于在 `StyleSheet` 中创建自定义条目，例如：
 
 ```SnackPlayer name=absoluteFillObject
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => (
-  <View style={styles.container}>
-    <View style={styles.box1}>
-      <Text style={styles.text}>1</Text>
-    </View>
-    <View style={styles.box2}>
-      <Text style={styles.text}>2</Text>
-    </View>
-    <View style={styles.box3}>
-      <Text style={styles.text}>3</Text>
-    </View>
-  </View>
+  <SafeAreaProvider>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.box1}>
+        <Text style={styles.text}>1</Text>
+      </View>
+      <View style={styles.box2}>
+        <Text style={styles.text}>2</Text>
+      </View>
+      <View style={styles.box3}>
+        <Text style={styles.text}>3</Text>
+      </View>
+    </SafeAreaView>
+  </SafeAreaProvider>
 );
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
   },
   box1: {
     position: 'absolute',
@@ -275,15 +287,15 @@ const styles = StyleSheet.create({
     left: 40,
     width: 100,
     height: 100,
-    backgroundColor: 'red'
+    backgroundColor: 'red',
   },
   box2: {
-    ...StyleSheet.absoluteFill,
+    ...StyleSheet.absoluteFillObject,
     top: 120,
     left: 50,
     width: 100,
     height: 100,
-    backgroundColor: 'blue'
+    backgroundColor: 'blue',
   },
   box3: {
     ...StyleSheet.absoluteFillObject,
@@ -291,12 +303,12 @@ const styles = StyleSheet.create({
     left: 120,
     width: 100,
     height: 100,
-    backgroundColor: 'green'
+    backgroundColor: 'green',
   },
   text: {
     color: '#FFF',
-    fontSize: 80
-  }
+    fontSize: 80,
+  },
 });
 
 export default App;
@@ -306,9 +318,11 @@ export default App;
 
 ### `hairlineWidth`
 
+定义为平台上细线的宽度。可以用作边框或两个元素之间分隔线的粗细。示例：
+
 ```SnackPlayer name=hairlineWidth
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import React from 'react';
+import {StyleSheet, Text, View} from 'react-native';
 
 const App = () => (
   <View style={styles.container}>
@@ -320,24 +334,18 @@ const App = () => (
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 24
+    padding: 24,
   },
   row: {
     padding: 4,
-    borderBottomColor: "red",
-    borderBottomWidth: StyleSheet.hairlineWidth
-  }
+    borderBottomColor: 'red',
+    borderBottomWidth: StyleSheet.hairlineWidth,
+  },
 });
 
 export default App;
 ```
 
-这一常量始终是一个整数的像素值（线看起来会像头发丝一样细），并会尽量符合当前平台最细的线的标准。可以用作边框或是两个元素间的分隔线。然而，你不能把它“视为一个常量”，因为不同的平台和不同的屏幕像素密度会导致不同的结果。
+此常量始终是整数像素值（因此由它定义的线条看起来会很清晰），并且会尽量匹配底层平台上细线的标准宽度。但你不应依赖它是一个固定大小，因为在不同平台和屏幕密度下，其值可能会以不同方式计算。
 
-如果模拟器缩放过，可能会看不到这么细的线。
-
----
-
-## `absoluteFill` vs. `absoluteFillObject`
-
-Currently, there is no difference between using `absoluteFill` vs. `absoluteFillObject`.
+如果模拟器被缩小显示，hairline width 的线条可能不可见。

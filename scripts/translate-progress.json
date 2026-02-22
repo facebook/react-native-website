@@ -19,7 +19,17 @@
     "cndocs/statusbar.md",
     "cndocs/debugging-native-code.md",
     "cndocs/touchablewithoutfeedback.md",
-    "cndocs/hermes.md"
+    "cndocs/hermes.md",
+    "cndocs/share.md",
+    "cndocs/toastandroid.md",
+    "cndocs/modal.md",
+    "cndocs/stylesheet.md",
+    "cndocs/layoutanimation.md",
+    "cndocs/image-style-props.md",
+    "cndocs/view-style-props.md",
+    "cndocs/easing.md",
+    "cndocs/pushnotificationios.md",
+    "cndocs/text-style-props.md"
   ],
-  "updatedAt": "2026-02-21T22:20:00Z"
+  "updatedAt": "2026-02-22T22:33:21Z"
 }
