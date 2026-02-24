@@ -366,7 +366,7 @@ vzaidman:
     github: vzaidman
     threads: vzaidman
   image_url: https://github.com/vzaidman.png
-  
+
 alanleedev:
   name: Alan Lee
   title: Software Engineer @ Meta
@@ -383,7 +383,7 @@ lukaszchludzinski:
   image_url: https://github.com/lukasz-app.png
 
 janjaworski:
-  name: Łukasz Chludziński
+  name: Jan Jaworski
   title: Software Engineer @ Callstack
   socials:
     x: jaworek3211
