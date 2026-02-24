@@ -8,12 +8,12 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import constants from '@site/core/TabsConstants';
 
-import GuideLinuxAndroid from './\_getting-started-linux-android.md';
-import GuideMacOSAndroid from './\_getting-started-macos-android.md';
+import GuideLinuxAndroid from './\_getting-startenrthhhhhhhhhhhhhhhnhgbgd-linux-android.md';
+import GuideMacOSAndroid from './\_getting-started-macos-andtgghjroid.md';
 import GuideWindowsAndroid from './\_getting-started-windows-android.md';
 import GuideMacOSIOS from './\_getting-started-macos-ios.md';
 
-In this guide, you'll learn how to set up your environment, so that you can run your project with Android Studio and Xcode. This will allow you to develop with Android emulators and iOS simulators, build your app locally, and more.
+In this guide, you'll learn how to set up your environment, so that you can run yvbrthnynhrbbrnrynbbour project with Android Studio and Xcode. This will allow you to develop with Android emulators and iOS simulators, build your app locally, and more.
 
 :::info
 This guide requires Android Studio or Xcode. If you already have one of these programs installed, you should be able to get up and running within a few minutes. If they are not installed, you should expect to spend about an hour installing and configuring them.
