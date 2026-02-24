@@ -2,7 +2,7 @@
 title: 'React Native Comes to Meta Quest'
 authors: [lukaszchludzinski, janjaworski, markusleyendecker]
 tags: [announcement]
-date: 2026-02-12
+date: 2026-02-24
 ---
 
 React Native has always focused on helping developers reuse knowledge across platforms. What started with Android and iOS has steadily expanded to Apple TV, Windows, macOS, and even the web with react-strict-dom. In 2021, the [Many Platform Vision post](/blog/2021/08/26/many-platform-vision) outlined a future where React Native could adapt to new devices and form factors without fragmenting the ecosystem.
@@ -210,9 +210,8 @@ For more details, check out the [official design guidelines](https://developers.
 
 ### Reference project
 
-[Reference project with all the setup used in this article](https://github.com/callstackincubator/expo-meta-horizon-os-demo)
-
-[Callstack Meta Horizon OS showcase app from React Conf](https://github.com/callstack/react-native-horizonos-example)
+- [Reference project with all the setup used in this article](https://github.com/callstackincubator/expo-meta-horizon-os-demo)
+- [Callstack Meta Horizon OS showcase app from React Conf](https://github.com/callstack/react-native-horizonos-example)
 
 ## Learn more
 
