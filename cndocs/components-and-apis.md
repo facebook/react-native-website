@@ -12,7 +12,7 @@ React Native 提供了一些内置的[核心组件](intro-react-native-component
 - [iOS 独有组件](components-and-apis#ios-独有的组件和-api)
 - [其他](components-and-apis#其他)
 
-需要说明的是，你不会被局限在这些内置组件上。React Native 有一个由数千名开发者组成的庞大社区。如果你正在寻找某个特定功能的库，请参阅[查找第三方库](libraries#finding-libraries)的指南。
+需要说明的是，你不会被局限在这些内置组件上。React Native 有一个由数千名开发者组成的庞大社区。如果你正在寻找某个特定功能的库，请参阅[查找第三方库](libraries#搜索第三方库)的指南。
 
 ## 基础组件
 
