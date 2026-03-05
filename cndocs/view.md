@@ -3,6 +3,8 @@ id: view
 title: View
 ---
 
+import ExperimentalAPIWarning from './\_experimental-api-warning.mdx';
+
 作为构建 UI 的最基础组件，`View` 是一个支持 [flexbox 布局](flexbox.md)、[样式](style.md)、[一些触摸处理](handling-touches.md)和[无障碍](accessibility.md)控制的容器。`View` 直接映射到 React Native 运行的任何平台上的原生视图等价物，无论是 `UIView`、`<div>`、`android.view` 等。
 
 `View` 被设计为可以嵌套在其他视图内，并且可以有 0 到多个任何类型的子组件。
@@ -17,9 +19,9 @@ import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 const ViewBoxesWithColorAndText = () => {
   return (
     <SafeAreaProvider>
-      <SafeAreaView style={{height: 100, flexDirection: 'row'}}>
-        <View style={{backgroundColor: 'blue', flex: 0.2}} />
-        <View style={{backgroundColor: 'red', flex: 0.4}} />
+      <SafeAreaView style={{flexDirection: 'row'}}>
+        <View style={{height: 100, backgroundColor: 'blue', flex: 0.2}} />
+        <View style={{height: 100, backgroundColor: 'red', flex: 0.4}} />
         <Text>Hello World!</Text>
       </SafeAreaView>
     </SafeAreaProvider>
@@ -29,7 +31,9 @@ const ViewBoxesWithColorAndText = () => {
 export default ViewBoxesWithColorAndText;
 ```
 
-> `View` 被设计为与 [`StyleSheet`](style.md) 一起使用以获得清晰性和性能，尽管也支持内联样式。
+:::note
+`View` 被设计为与 [`StyleSheet`](style.md) 一起使用以获得清晰性和性能，尽管也支持内联样式。
+:::
 
 ### 合成触摸事件
 
@@ -55,7 +59,7 @@ export default ViewBoxesWithColorAndText;
 
 ---
 
-### `accessibilityElementsHidden` <div class="label ios">iOS</div>
+### `accessibilityElementsHidden` <div className="label ios">iOS</div>
 
 一个值，指示此无障碍元素中包含的无障碍元素是否隐藏。默认值为 `false`。
 
@@ -77,7 +81,7 @@ export default ViewBoxesWithColorAndText;
 
 ---
 
-### `accessibilityLanguage` <div class="label ios">iOS</div>
+### `accessibilityLanguage` <div className="label ios">iOS</div>
 
 一个值，指示当用户与元素交互时屏幕阅读器应使用哪种语言。它应遵循 [BCP 47 规范](https://www.rfc-editor.org/info/bcp47)。
 
@@ -89,7 +93,7 @@ export default ViewBoxesWithColorAndText;
 
 ---
 
-### `accessibilityIgnoresInvertColors` <div class="label ios">iOS</div>
+### `accessibilityIgnoresInvertColors` <div className="label ios">iOS</div>
 
 一个值，指示当开启颜色反转时，此视图是否应该被反转。值为 `true` 会告诉视图即使开启了颜色反转也不要被反转。
 
@@ -111,7 +115,7 @@ export default ViewBoxesWithColorAndText;
 
 ---
 
-### `accessibilityLiveRegion` <div class="label android">Android</div>
+### `accessibilityLiveRegion` <div className="label android">Android</div>
 
 向无障碍服务指示当此视图发生更改时是否应通知用户。仅适用于 Android API >= 19。可能的值：
 
@@ -192,7 +196,7 @@ export default ViewBoxesWithColorAndText;
 
 ---
 
-### `accessibilityViewIsModal` <div class="label ios">iOS</div>
+### `accessibilityViewIsModal` <div className="label ios">iOS</div>
 
 一个值，指示 VoiceOver 是否应忽略接收器同级视图中的元素。默认值为 `false`。
 
@@ -254,9 +258,9 @@ export default ViewBoxesWithColorAndText;
 
 ### `aria-hidden`
 
-指示此无障碍元素中包含的无障碍元素是否隐藏。
+指示元素是否对辅助技术隐藏。
 
-例如，在包含同级视图 `A` 和 `B` 的窗口中，在视图 `B` 上将 `aria-hidden` 设置为 `true` 会导致 VoiceOver 忽略视图 `B` 中的元素。
+例如，在包含同级视图 `A` 和 `B` 的窗口中，在视图 `B` 上将 `aria-hidden` 设置为 `true` 会导致 VoiceOver 忽略 `B` 元素及其子元素。
 
 | 类型    | 默认值 |
 | ------- | ------ |
@@ -274,7 +278,7 @@ export default ViewBoxesWithColorAndText;
 
 ---
 
-### `aria-labelledby` <div class="label android">Android</div>
+### `aria-labelledby` <div className="label android">Android</div>
 
 标识标记应用它的元素的元素。`aria-labelledby` 的值应与相关元素的 [`nativeID`](view.md#nativeid) 匹配：
 
@@ -291,7 +295,7 @@ export default ViewBoxesWithColorAndText;
 
 ---
 
-### `aria-live` <div class="label android">Android</div>
+### `aria-live` <div className="label android">Android</div>
 
 指示将更新元素，并描述用户代理、辅助技术和用户可以从实时区域期望的更新类型。
 
@@ -305,7 +309,7 @@ export default ViewBoxesWithColorAndText;
 
 ---
 
-### `aria-modal` <div class="label ios">iOS</div>
+### `aria-modal` <div className="label ios">iOS</div>
 
 布尔值，指示 VoiceOver 是否应忽略接收器同级视图中的元素。优先于 [`accessibilityViewIsModal`](#accessibilityviewismodal-ios) prop。
 
@@ -383,7 +387,24 @@ export default ViewBoxesWithColorAndText;
 
 ---
 
-### `focusable` <div class="label android">Android</div>
+### `experimental_accessibilityOrder`
+
+<ExperimentalAPIWarning />
+
+`experimental_accessibilityOrder` 指示辅助技术聚焦此 `View` 后代的顺序。此 prop 接受一个字符串数组，其中每个字符串是某个正在定义顺序的后代组件的 [`nativeID`](view.md#nativeid)。此 prop 本身不启用无障碍功能，每个被引用的组件仍需通过将 [`accessible`](view.md#accessible) 设置为 true 来使其可访问。此 prop 是**可嵌套的**和**穷举的**，这意味着：
+
+- 如果 `experimental_accessibilityOrder` 包含对某个非无障碍组件的引用，它将按默认顺序聚焦该组件的后代。此外，它还可以包含对也具有 `experimental_accessibilityOrder` 的其他组件的引用。
+- 如果某个本来可访问的组件没有直接在 `experimental_accessibilityOrder` 中被引用，或者没有嵌套在 `experimental_accessibilityOrder` 中直接引用的某个容器内，那么它将不可访问。
+
+有关更多信息，请参阅[无障碍指南](accessibility.md#experimental_accessibilityorder)。
+
+| 类型             |
+| ---------------- |
+| array of strings |
+
+---
+
+### `focusable` <div className="label android">Android</div>
 
 此 `View` 是否应该可以通过非触摸输入设备获得焦点，例如通过硬件键盘接收焦点。
 
@@ -399,7 +420,9 @@ export default ViewBoxesWithColorAndText;
 
 例如，如果可触摸视图的高度为 20，则可以使用 `hitSlop={{top: 10, bottom: 10, left: 0, right: 0}}` 将可触摸高度扩展到 40
 
-> 触摸区域永远不会超出父视图边界，如果触摸命中两个重叠的视图，同级视图的 Z 索引始终优先。
+:::note
+触摸区域永远不会超出父视图边界，如果触摸命中两个重叠的视图，同级视图的 Z 索引始终优先。
+:::
 
 | 类型                                                                 |
 | -------------------------------------------------------------------- |
@@ -411,7 +434,9 @@ export default ViewBoxesWithColorAndText;
 
 用于从原生类定位此视图。优先于 `nativeID` prop。
 
-> 这会禁用此视图的"仅布局视图删除"优化！
+:::warning
+这会禁用此视图的"仅布局视图删除"优化！
+:::
 
 | 类型   |
 | ------ |
@@ -419,7 +444,7 @@ export default ViewBoxesWithColorAndText;
 
 ---
 
-### `importantForAccessibility` <div class="label android">Android</div>
+### `importantForAccessibility` <div className="label android">Android</div>
 
 控制视图对无障碍的重要性，即它是否触发无障碍事件以及是否报告给查询屏幕的无障碍服务。仅适用于 Android。
 
@@ -442,7 +467,9 @@ export default ViewBoxesWithColorAndText;
 
 用于从原生类定位此视图。
 
-> 这会禁用此视图的"仅布局视图删除"优化！
+:::warning
+这会禁用此视图的"仅布局视图删除"优化！
+:::
 
 | 类型   |
 | ------ |
@@ -462,7 +489,7 @@ export default ViewBoxesWithColorAndText;
 
 ---
 
-### `nextFocusDown` <div class="label android">Android</div>
+### `nextFocusDown` <div className="label android">Android</div>
 
 指定用户向下导航时接收焦点的下一个视图。参见 [Android 文档](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusDown)。
 
@@ -472,7 +499,7 @@ export default ViewBoxesWithColorAndText;
 
 ---
 
-### `nextFocusForward` <div class="label android">Android</div>
+### `nextFocusForward` <div className="label android">Android</div>
 
 指定用户向前导航时接收焦点的下一个视图。参见 [Android 文档](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusForward)。
 
@@ -482,7 +509,7 @@ export default ViewBoxesWithColorAndText;
 
 ---
 
-### `nextFocusLeft` <div class="label android">Android</div>
+### `nextFocusLeft` <div className="label android">Android</div>
 
 指定用户向左导航时接收焦点的下一个视图。参见 [Android 文档](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusLeft)。
 
@@ -492,7 +519,7 @@ export default ViewBoxesWithColorAndText;
 
 ---
 
-### `nextFocusRight` <div class="label android">Android</div>
+### `nextFocusRight` <div className="label android">Android</div>
 
 指定用户向右导航时接收焦点的下一个视图。参见 [Android 文档](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusRight)。
 
@@ -502,7 +529,7 @@ export default ViewBoxesWithColorAndText;
 
 ---
 
-### `nextFocusUp` <div class="label android">Android</div>
+### `nextFocusUp` <div className="label android">Android</div>
 
 指定用户向上导航时接收焦点的下一个视图。参见 [Android 文档](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusUp)。
 
@@ -524,7 +551,7 @@ export default ViewBoxesWithColorAndText;
 
 ---
 
-### `onAccessibilityEscape` <div class="label ios">iOS</div>
+### `onAccessibilityEscape` <div className="label ios">iOS</div>
 
 当 `accessible` 为 `true` 时，系统将在用户执行转义手势时调用此函数。
 
@@ -534,7 +561,7 @@ export default ViewBoxesWithColorAndText;
 
 ---
 
-### `onAccessibilityTap` <div class="label ios">iOS</div>
+### `onAccessibilityTap` <div className="label ios">iOS</div>
 
 当 `accessible` 为 true 时，系统将在用户执行无障碍点击手势时尝试调用此函数。
 
@@ -556,7 +583,7 @@ export default ViewBoxesWithColorAndText;
 
 ---
 
-### `onMagicTap` <div class="label ios">iOS</div>
+### `onMagicTap` <div className="label ios">iOS</div>
 
 当 `accessible` 为 `true` 时，系统将在用户执行魔术点击手势时调用此函数。
 
@@ -702,6 +729,12 @@ View 现在正在响应触摸事件。这是高亮显示并向用户显示正在
 
 ---
 
+### `ref`
+
+一个 ref setter，在挂载时将被分配一个[元素节点](element-nodes)。
+
+---
+
 ### `removeClippedSubviews`
 
 这是由 `RCTView` 公开的保留性能属性，当有许多子视图时对滚动内容很有用，其中大多数都在屏幕外。为了使此属性有效，它必须应用于包含许多扩展到其边界之外的子视图的视图。子视图还必须具有 `overflow: hidden`，包含视图（或其超级视图之一）也应该如此。
@@ -712,7 +745,7 @@ View 现在正在响应触摸事件。这是高亮显示并向用户显示正在
 
 ---
 
-### `renderToHardwareTextureAndroid` <div class="label android">Android</div>
+### `renderToHardwareTextureAndroid` <div className="label android">Android</div>
 
 此 `View` 是否应将自身（及其所有子项）渲染到 GPU 上的单个硬件纹理中。
 
@@ -734,7 +767,7 @@ View 现在正在响应触摸事件。这是高亮显示并向用户显示正在
 
 ---
 
-### `shouldRasterizeIOS` <div class="label ios">iOS</div>
+### `shouldRasterizeIOS` <div className="label ios">iOS</div>
 
 此 `View` 是否应在合成之前呈现为位图。
 
@@ -756,7 +789,7 @@ View 现在正在响应触摸事件。这是高亮显示并向用户显示正在
 
 ---
 
-### `tabIndex` <div class="label android">Android</div>
+### `tabIndex` <div className="label android">Android</div>
 
 此 `View` 是否应该可以通过非触摸输入设备获得焦点，例如通过硬件键盘接收焦点。
 支持以下值：
@@ -774,7 +807,9 @@ View 现在正在响应触摸事件。这是高亮显示并向用户显示正在
 
 用于在端到端测试中定位此视图。
 
-> 这会禁用此视图的"仅布局视图删除"优化！
+:::warning
+这会禁用此视图的"仅布局视图删除"优化！
+:::
 
 | 类型   |
 | ------ |

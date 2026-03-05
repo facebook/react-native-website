@@ -52,33 +52,44 @@ export default TextInputExample;
 
 注意有些属性仅在 `multiline` 为 `true/false` 时才有效。此外，当 `multiline=true` 时，为元素的某一个边添加边框样式（例如：`borderBottomColor`、`borderLeftWidth` 等）将不会生效。为了实现同样的效果，你可以使用一个 `View` 来包裹 `TextInput`：
 
-```SnackPlayer name=TextInput
+```SnackPlayer name=Multiline%20TextInput%20Example
 import React from 'react';
-import {View, TextInput} from 'react-native';
+import {TextInput, StyleSheet} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const MultilineTextInputExample = () => {
   const [value, onChangeText] = React.useState('Useless Multiline Placeholder');
 
   // 你可以试着输入一种颜色，比如red，那么这个red就会作用到View的背景色样式上
   return (
-    <View
-      style={{
-        backgroundColor: value,
-        borderBottomColor: '#000000',
-        borderBottomWidth: 1,
-      }}>
-      <TextInput
-        editable
-        multiline
-        numberOfLines={4}
-        maxLength={40}
-        onChangeText={text => onChangeText(text)}
-        value={value}
-        style={{padding: 10}}
-      />
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView
+        style={{
+          flex: 1,
+          backgroundColor: value.toLowerCase(),
+        }}>
+        <TextInput
+          editable
+          multiline
+          numberOfLines={4}
+          maxLength={40}
+          onChangeText={text => onChangeText(text)}
+          value={value}
+          style={styles.textInput}
+        />
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
+
+const styles = StyleSheet.create({
+  textInput: {
+    padding: 10,
+    borderColor: '#000',
+    borderWidth: 1,
+    margin: 12,
+  },
+});
 
 export default MultilineTextInputExample;
 ```
@@ -159,7 +170,7 @@ The following values work across platforms:
 - `tel`
 - `username`
 
-<div class="label basic ios">iOS</div>
+<div className="label basic ios">iOS</div>
 
 下列取值仅在 iOS 上生效：
 
@@ -173,7 +184,7 @@ The following values work across platforms:
 - `organization-title`
 - `url`
 
-<div class="label basic android">Android</div>
+<div className="label basic android">Android</div>
 
 下列取值仅在 Android 上生效：
 
@@ -224,11 +235,11 @@ The following values work across platforms:
 
 ---
 
-### `blurOnSubmit`
+### 🗑️ `blurOnSubmit`
 
-::::warning Deprecated
+:::warning Deprecated
 `submitBehavior` 现在取代了 `blurOnSubmit`，并会覆盖由 `blurOnSubmit` 定义的行为。详见 [submitBehavior](textinput#submitbehavior)。
-::::
+:::
 
 如果为 `true`，文本框会在提交的时候失焦。对于单行输入框默认值为 `true`，多行则为 `false`。注意：对于多行输入框来说，如果将 `blurOnSubmit` 设为 `true`，按下回车键时会失去焦点并触发 `onSubmitEditing` 事件，而不会在输入框中插入换行。
 
@@ -248,7 +259,7 @@ The following values work across platforms:
 
 ---
 
-### `clearButtonMode` <div class="label ios">iOS</div>
+### `clearButtonMode` <div className="label ios">iOS</div>
 
 是否要在文本框右侧显示“清除”按钮。仅在单行模式下可用。默认值为`never`。
 
@@ -258,7 +269,7 @@ The following values work across platforms:
 
 ---
 
-### `clearTextOnFocus` <div class="label ios">iOS</div>
+### `clearTextOnFocus` <div className="label ios">iOS</div>
 
 如果为 true，每次开始输入的时候都会清除文本框的内容。
 
@@ -278,7 +289,7 @@ The following values work across platforms:
 
 ---
 
-### `dataDetectorTypes` <div class="label ios">iOS</div>
+### `dataDetectorTypes` <div className="label ios">iOS</div>
 
 设置 text input 内能被转化为可点击 URL 的数据的类型。当且仅当`multiline={true}`和`editable={false}`时起作用。默认情况下不检测任何数据类型。
 
@@ -309,7 +320,7 @@ The following values work across platforms:
 
 ---
 
-### `disableKeyboardShortcuts` <div class="label ios">iOS</div>
+### `disableKeyboardShortcuts` <div className="label ios">iOS</div>
 
 如果为 `true`，将禁用键盘上的快捷按钮（撤销/重做和复制按钮）。默认值为 `false`。
 
@@ -319,7 +330,7 @@ The following values work across platforms:
 
 ---
 
-### `cursorColor` <div class="label android">Android</div>
+### `cursorColor` <div className="label android">Android</div>
 
 如果设置，将改变组件中光标（caret）的颜色。与 `selectionColor` 不同，光标颜色会独立于选区高亮颜色单独设置。
 
@@ -329,7 +340,7 @@ The following values work across platforms:
 
 ---
 
-### `disableFullscreenUI` <div class="label android">Android</div>
+### `disableFullscreenUI` <div className="label android">Android</div>
 
 当值为 false 时, 如果 text input 的周围有少量可用空间的话（比如说，当手机横过来时），操作系统可能会将这个 text input 设置为全屏模式。当值为 true 时, 这个特性不可用，text input 就是普通的模式。默认为 false。
 
@@ -349,7 +360,7 @@ The following values work across platforms:
 
 ---
 
-### `enablesReturnKeyAutomatically` <div class="label ios">iOS</div>
+### `enablesReturnKeyAutomatically` <div className="label ios">iOS</div>
 
 如果为 `true`，当输入框内容为空时，键盘会禁用回车键；一旦有文本输入，则自动启用回车键。默认值为 `false`。
 
@@ -389,7 +400,7 @@ _仅 iOS 可用_
 
 ---
 
-### `importantForAutofill` <div class="label android">Android</div>
+### `importantForAutofill` <div className="label android">Android</div>
 
 告知操作系统：应用中的某个输入字段是否应该被包含在用于自动填充（autofill）的视图结构中（Android API 26+）。可选值有 `auto`、`no`、`noExcludeDescendants`、`yes` 和 `yesExcludeDescendants`，默认值为 `auto`。
 
@@ -405,7 +416,7 @@ _仅 iOS 可用_
 
 ---
 
-### `inlineImageLeft` <div class="label android">Android</div>
+### `inlineImageLeft` <div className="label android">Android</div>
 
 指定一个图片放置在左侧。图片必须放置在`/android/app/src/main/res/drawable`目录下，经过编译后按如下形式引用（无路径无后缀）：
 
@@ -421,7 +432,7 @@ _仅 iOS 可用_
 
 ---
 
-### `inlineImagePadding` <div class="label android">Android</div>
+### `inlineImagePadding` <div className="label android">Android</div>
 
 若有内联图片，设置图片与文本输入框之间的内边距。
 
@@ -431,7 +442,7 @@ _仅 iOS 可用_
 
 ---
 
-### `inputAccessoryViewID` <div class="label ios">iOS</div>
+### `inputAccessoryViewID` <div className="label ios">iOS</div>
 
 一个可选的标识符，用来将自定义的 [InputAccessoryView](inputaccessoryview.md) 绑定到当前输入框。当该输入框获得焦点时，这个 InputAccessoryView 会显示在键盘上方。
 
@@ -441,7 +452,7 @@ _仅 iOS 可用_
 
 ---
 
-### `inputAccessoryViewButtonLabel` <div class="label ios">iOS</div>
+### `inputAccessoryViewButtonLabel` <div className="label ios">iOS</div>
 
 可选的按钮文案，用来覆盖默认 [InputAccessoryView](inputaccessoryview.md) 上的按钮标签。
 
@@ -474,7 +485,7 @@ _仅 iOS 可用_
 
 ---
 
-### `keyboardAppearance` <div class="label ios">iOS</div>
+### `keyboardAppearance` <div className="label ios">iOS</div>
 
 设置键盘的配色风格。
 
@@ -500,6 +511,7 @@ _仅 iOS 可用_
 - `phone-pad`
 - `url`
 
+_iOS Only_
 
 下面的值仅 iOS 可用：
 
@@ -509,6 +521,8 @@ _仅 iOS 可用_
 - `twitter`
 - `web-search`
 
+_Android Only_
+
 下面的值仅 Android 可用：
 
 - `visible-password`
@@ -516,6 +530,26 @@ _仅 iOS 可用_
 | Type                                                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | enum('default', 'email-address', 'numeric', 'phone-pad', 'ascii-capable', 'numbers-and-punctuation', 'url', 'number-pad', 'name-phone-pad', 'decimal-pad', 'twitter', 'web-search', 'visible-password') |
+
+---
+
+### `lineBreakStrategyIOS` <div className="label ios">iOS</div>
+
+在 iOS 14+ 上设置换行策略。可选值有 `none`、`standard`、`hangul-word` 和 `push-out`。
+
+| Type                                                        | Default  |
+| ----------------------------------------------------------- | -------- |
+| enum(`'none'`, `'standard'`, `'hangul-word'`, `'push-out'`) | `'none'` |
+
+---
+
+### `lineBreakModeIOS` <div className="label ios">iOS</div>
+
+在 iOS 上设置换行模式。可选值有：`wordWrapping`、`char`、`clip`、`head`、`middle` 和 `tail`。
+
+| Type                                                                       | Default          |
+| -------------------------------------------------------------------------- | ---------------- |
+| enum(`'wordWrapping'`, `'char'`, `'clip'`, `'head'`, `'middle'`, `'tail'`) | `'wordWrapping'` |
 
 ---
 
@@ -545,7 +579,11 @@ _仅 iOS 可用_
 
 ### `multiline`
 
-如果为 true，文本框中可以输入多行文字。默认值为 false。注意安卓上如果设置`multiline = {true}`，文本默认会垂直居中，可设置`textAlignVertical: 'top'`样式来使其居顶显示。
+如果为 true，文本框中可以输入多行文字。默认值为 false。
+
+:::note
+需要注意的是，此属性在 iOS 上会使文字顶部对齐，而在 Android 上会使文字垂直居中。如需在两个平台上保持一致的行为，可配合 `textAlignVertical` 设为 `top`。
+:::
 
 | Type |
 | ---- |
@@ -553,7 +591,7 @@ _仅 iOS 可用_
 
 ---
 
-### `numberOfLines` <div class="label android">Android</div>
+### `numberOfLines`
 
 :::note
 `numberOfLines` 在 iOS 上仅在[新架构](/architecture/landing-page)中可用。
@@ -663,7 +701,7 @@ _仅 iOS 可用_
 
 ### `onLayout`
 
-当组件加载或者布局变化的时候调用，回调参数为`{ nativeEvent: {layout: {x, y, width, height}, target } }`。
+当组件加载或者布局变化的时候调用。
 
 | Type                                                     |
 | -------------------------------------------------------- |
@@ -693,7 +731,7 @@ _仅 iOS 可用_
 
 ### `onSubmitEditing`
 
-此回调函数当软键盘的`确定`/`提交`按钮被按下的时候调用此函数，所传参数为`{nativeEvent: {text, eventCount, target}}`。如果`multiline={true}`，此属性不可用。
+此回调函数当软键盘的`确定`/`提交`按钮被按下的时候调用此函数，所传参数为`{nativeEvent: {text, eventCount, target}}`。
 
 | Type                                                  |
 | ----------------------------------------------------- |
@@ -733,7 +771,7 @@ Note that on iOS this method isn't called when using `keyboardType="phone-pad"`.
 
 ---
 
-### `returnKeyLabel` <div class="label android">Android</div>
+### `returnKeyLabel` <div className="label android">Android</div>
 
 设置“回车”键上显示的文字。优先级高于 `returnKeyType`。
 
@@ -747,6 +785,8 @@ Note that on iOS this method isn't called when using `keyboardType="phone-pad"`.
 
 决定“确定”按钮显示的内容。在 Android 上你还可以使用`returnKeyLabel`。
 
+_Cross platform_
+
 下列这些选项是跨平台可用的：
 
 - `done`
@@ -755,10 +795,14 @@ Note that on iOS this method isn't called when using `keyboardType="phone-pad"`.
 - `search`
 - `send`
 
+_Android Only_
+
 下列这些选项仅 Android 可用：
 
 - `none`
 - `previous`
+
+_iOS Only_
 
 下列这些选项仅 iOS 可用：
 
@@ -773,7 +817,7 @@ Note that on iOS this method isn't called when using `keyboardType="phone-pad"`.
 | --------------------------------------------------------------------------------------------------------------------------------- |
 | enum('done', 'go', 'next', 'search', 'send', 'none', 'previous', 'default', 'emergency-call', 'google', 'join', 'route', 'yahoo') |
 
-### `rejectResponderTermination` <div class="label ios">iOS</div>
+### `rejectResponderTermination` <div className="label ios">iOS</div>
 
 如果为 `true`，允许 TextInput 将触摸事件传递给父组件。这样像 SwipeableListView 这样的组件就可以在 iOS 上从 TextInput 开始滑动（Android 默认就是这种行为）。如果为 `false`，则 TextInput 会始终请求自己处理输入事件（除非被禁用）。默认值为 `true`。
 
@@ -783,7 +827,7 @@ Note that on iOS this method isn't called when using `keyboardType="phone-pad"`.
 
 ---
 
-### `rows` <div class="label android">Android</div>
+### `rows` <div className="label android">Android</div>
 
 设置 `TextInput` 的行数。通常配合 `multiline={true}` 一起使用，以便填满对应的行数。
 
@@ -793,7 +837,7 @@ Note that on iOS this method isn't called when using `keyboardType="phone-pad"`.
 
 ---
 
-### `scrollEnabled` <div class="label ios">iOS</div>
+### `scrollEnabled` <div className="label ios">iOS</div>
 
 如果为 `false`，将禁用文本视图的滚动。默认值为 `true`。仅在 `multiline={true}` 时生效。
 
@@ -833,7 +877,7 @@ Note that on iOS this method isn't called when using `keyboardType="phone-pad"`.
 
 ---
 
-### `selectionHandleColor` <div class="label android">Android</div>
+### `selectionHandleColor` <div className="label android">Android</div>
 
 设置选择句柄（光标两端拖拽小圆点）的颜色。与 `selectionColor` 不同，它允许单独定制选择句柄的颜色，而不影响选区高亮的颜色。
 
@@ -863,7 +907,17 @@ Note that on iOS this method isn't called when using `keyboardType="phone-pad"`.
 
 ---
 
-### `spellCheck` <div class="label ios">iOS</div>
+### `smartInsertDelete` <div className="label ios">iOS</div>
+
+如果为 `false`，iOS 系统在粘贴操作后不会自动插入额外空格，在剪切或删除操作后也不会自动删除一个或两个空格。
+
+| Type | Default |
+| ---- | ------- |
+| bool | `true`  |
+
+---
+
+### `spellCheck` <div className="label ios">iOS</div>
 
 如果设置为`false`，则禁用拼写检查的样式（比如错误拼写的单词下的红线）。默认值继承自`autoCorrect`。
 
@@ -873,13 +927,28 @@ Note that on iOS this method isn't called when using `keyboardType="phone-pad"`.
 
 ---
 
-### `smartInsertDelete` <div class="label ios">iOS</div>
+### `submitBehavior`
 
-如果为 `false`，iOS 系统在粘贴操作后不会自动插入额外空格，在剪切或删除操作后也不会自动删除一个或两个空格。
+当回车键按下时，
 
-| Type | Default |
-| ---- | ------- |
-| bool | `true`  |
+对于单行输入框：
+
+- `'newline'` 默认等同于 `'blurAndSubmit'`
+- `undefined` 默认等同于 `'blurAndSubmit'`
+
+对于多行输入框：
+
+- `'newline'` 会插入一个新行
+- `undefined` 默认等同于 `'newline'`
+
+对于单行和多行输入框：
+
+- `'submit'` 只发送提交事件，不使输入框失焦
+- `'blurAndSubmit`' 会使输入框失焦并发送提交事件
+
+| Type                                       |
+| ------------------------------------------ |
+| enum('submit', 'blurAndSubmit', 'newline') |
 
 ---
 
@@ -897,7 +966,7 @@ Note that on iOS this method isn't called when using `keyboardType="phone-pad"`.
 
 ---
 
-### `textContentType` <div class="label ios">iOS</div>
+### `textContentType` <div className="label ios">iOS</div>
 
 向键盘和系统提供用户输入内容的语义信息，让系统更好地理解该字段的用途。
 
@@ -963,13 +1032,16 @@ Possible values for `textContentType` are:
 
 ---
 
-### `passwordRules` <div class="label ios">iOS</div>
+### `passwordRules` <div className="label ios">iOS</div>
 
 当在 iOS 上将 `textContentType` 设置为 `newPassword` 时，可以告诉系统密码的最小要求，以便系统为你生成一个满足条件的密码。如何编写合法的 `PasswordRules` 字符串，请参考 [Apple 文档](https://developer.apple.com/password-rules/)。
 
-> 如果没有看到系统弹出的密码生成对话框，请检查：
-> - 是否开启了自动填充：**设置** → **密码与账户** → 打开 **自动填充密码**；
-> - 是否启用了 iCloud 钥匙串：**设置** → **Apple ID** → **iCloud** → **钥匙串** → 打开 **iCloud 钥匙串**。
+:::tip
+如果没有看到系统弹出的密码生成对话框，请检查：
+
+- 是否开启了自动填充：**设置** → **密码与账户** → 打开 **自动填充密码**；
+- 是否启用了 iCloud 钥匙串：**设置** → **Apple ID** → **iCloud** → **钥匙串** → 打开 **iCloud 钥匙串**。
+:::
 
 | Type   |
 | ------ |
@@ -998,7 +1070,7 @@ Possible values for `textContentType` are:
 
 ---
 
-### `textBreakStrategy` <div class="label android">Android</div>
+### `textBreakStrategy` <div className="label android">Android</div>
 
 在 Android API Level 23+ 上设置文本换行策略，可选值有 `simple`、`highQuality`、`balanced`，默认值为 `highQuality`。
 
@@ -1008,7 +1080,7 @@ Possible values for `textContentType` are:
 
 ---
 
-### `underlineColorAndroid` <div class="label android">Android</div>
+### `underlineColorAndroid` <div className="label android">Android</div>
 
 `TextInput` 下划线的颜色。
 
@@ -1025,26 +1097,6 @@ Possible values for `textContentType` are:
 | Type   |
 | ------ |
 | string |
-
----
-
-### `lineBreakStrategyIOS` <div class="label ios">iOS</div>
-
-在 iOS 14+ 上设置换行策略。可选值有 `none`、`standard`、`hangul-word` 和 `push-out`。
-
-| Type                                                        | Default  |
-| ----------------------------------------------------------- | -------- |
-| enum(`'none'`, `'standard'`, `'hangul-word'`, `'push-out'`) | `'none'` |
-
----
-
-### `lineBreakModeIOS` <div class="label ios">iOS</div>
-
-在 iOS 上设置换行模式。可选值有：`wordWrapping`、`char`、`clip`、`head`、`middle` 和 `tail`。
-
-| Type                                                                       | Default          |
-| -------------------------------------------------------------------------- | ---------------- |
-| enum(`'wordWrapping'`, `'char'`, `'clip'`, `'head'`, `'middle'`, `'tail'`) | `'wordWrapping'` |
 
 ## Methods
 
@@ -1082,7 +1134,7 @@ isFocused(): boolean;
 
 如果当前输入框处于焦点状态，则返回 `true`，否则返回 `false`。
 
-# 已知问题
+# Known issues
 
 - [react-native#19096](https://github.com/facebook/react-native/issues/19096)：不支持 Android 的 `onKeyPreIme`。
 - [react-native#19366](https://github.com/facebook/react-native/issues/19366)：在通过返回键关闭 Android 键盘之后调用 `.focus()` 无法再次唤起键盘。

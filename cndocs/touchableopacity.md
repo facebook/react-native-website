@@ -3,121 +3,58 @@ id: touchableopacity
 title: TouchableOpacity
 ---
 
-import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
-
-> If you're looking for a more extensive and future-proof way to handle touch-based input, check out the [Pressable](pressable.md) API.
+:::tip
+如果你正在寻找一种更全面且面向未来的方式来处理触摸输入，请查看 [Pressable](pressable.md) API。
+:::
 
 本组件用于封装视图，使其可以正确响应触摸操作。当按下的时候，封装的视图的不透明度会降低。
 
-不透明度的变化是通过把子元素封装在一个`Animated.View`中来实现的，这个动画视图会被添加到视图层级中，少数情况下有可能会影响到布局。（译注：此组件与 TouchableHighlight 的区别在于并没有额外的颜色变化，更适于一般场景。）
+不透明度的变化是通过把子元素封装在一个 `Animated.View` 中来实现的，这个动画视图会被添加到视图层级中，少数情况下有可能会影响到布局。
 
 ## 示例
 
-<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
-<TabItem value="functional">
-
-```SnackPlayer name=TouchableOpacity%20Function%20Component%20Example
-import React, { useState } from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+```SnackPlayer name=TouchableOpacity%20Example
+import React, {useState} from 'react';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => {
   const [count, setCount] = useState(0);
   const onPress = () => setCount(prevCount => prevCount + 1);
 
   return (
-    <View style={styles.container}>
-      <View style={styles.countContainer}>
-        <Text>Count: {count}</Text>
-      </View>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={onPress}
-      >
-        <Text>Press Here</Text>
-      </TouchableOpacity>
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <View style={styles.countContainer}>
+          <Text>Count: {count}</Text>
+        </View>
+        <TouchableOpacity style={styles.button} onPress={onPress}>
+          <Text>Press Here</Text>
+        </TouchableOpacity>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    paddingHorizontal: 10
+    justifyContent: 'center',
+    paddingHorizontal: 10,
   },
   button: {
-    alignItems: "center",
-    backgroundColor: "#DDDDDD",
-    padding: 10
+    alignItems: 'center',
+    backgroundColor: '#DDDDDD',
+    padding: 10,
   },
   countContainer: {
-    alignItems: "center",
-    padding: 10
-  }
+    alignItems: 'center',
+    padding: 10,
+  },
 });
 
 export default App;
 ```
-
-</TabItem>
-<TabItem value="classical">
-
-```SnackPlayer name=TouchableOpacity%20Class%20Component%20Example
-import React, { Component } from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { count: 0 };
-  }
-
-  onPress = () => {
-    this.setState({
-      count: this.state.count + 1
-    });
-  };
-
-  render() {
-    const { count } = this.state;
-    return (
-      <View style={styles.container}>
-        <View style={styles.countContainer}>
-          <Text>Count: {count}</Text>
-        </View>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={this.onPress}
-        >
-          <Text>Press Here</Text>
-        </TouchableOpacity>
-      </View>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    paddingHorizontal: 10
-  },
-  button: {
-    alignItems: "center",
-    backgroundColor: "#DDDDDD",
-    padding: 10
-  },
-  countContainer: {
-    alignItems: "center",
-    padding: 10
-  }
-});
-
-export default App;
-```
-
-</TabItem>
-</Tabs>
 
 ---
 
@@ -125,99 +62,90 @@ export default App;
 
 ## Props
 
-Inherits [TouchableWithoutFeedback Props](touchablewithoutfeedback.md#props).
+### [TouchableWithoutFeedback Props](touchablewithoutfeedback.md#props)
+
+继承 [TouchableWithoutFeedback Props](touchablewithoutfeedback.md#props)。
+
+---
 
 ### `style`
 
-| 类型       | 必需 |
-| ---------- | ---- |
-| View.style | 否   |
+| Type                           |
+| ------------------------------ |
+| [View.style](view-style-props) |
 
 ---
 
 ### `activeOpacity`
 
-指定封装的视图在被触摸操作激活时以多少不透明度显示（0 到 1 之间）。默认值为 0.2。
+指定封装的视图在被触摸操作激活时以多少不透明度显示（0 到 1 之间，0 表示完全透明，1 表示完全不透明）。默认值为 `0.2`。
 
-| 类型   | 必需 |
-| ------ | ---- |
-| number | 否   |
-
----
-
-### `tvParallaxProperties`
-
-_(Apple TV only)_ Object with properties to control Apple TV parallax effects.
-
-- `enabled`: If `true`, parallax effects are enabled. Defaults to `true`.
-- `shiftDistanceX`: Defaults to `2.0`.
-- `shiftDistanceY`: Defaults to `2.0`.
-- `tiltAngle`: Defaults to `0.05`.
-- `magnification`: Defaults to `1.0`.
-- `pressMagnification`: Defaults to `1.0`.
-- `pressDuration`: Defaults to `0.3`.
-- `pressDelay`: Defaults to `0.0`.
-
-| 类型   | 必需 | 平台 |
-| ------ | ---- | ---- |
-| object | 否   | iOS  |
+| Type   |
+| ------ |
+| number |
 
 ---
 
-### `hasTVPreferredFocus`
+### `hasTVPreferredFocus` <div className="label ios">iOS</div>
 
-_(Apple TV only)_ TV preferred focus (see documentation for the View component).
+_(仅 Apple TV)_ TV 首选焦点（参见 View 组件文档）。
 
-| 类型 | 必需 | 平台 |
-| ---- | ---- | ---- |
-| bool | 否   | iOS  |
-
----
-
-### `nextFocusDown`
-
-TV next focus down (see documentation for the View component).
-
-| 类型 | Required | 平台    |
-| ---- | -------- | ------- |
-| bool | No       | Android |
+| Type |
+| ---- |
+| bool |
 
 ---
 
-### `nextFocusForward`
+### `nextFocusDown` <div className="label android">Android</div>
 
-TV next focus forward (see documentation for the View component).
+TV 下一个向下焦点（参见 View 组件文档）。
 
-| 类型 | Required | 平台    |
-| ---- | -------- | ------- |
-| bool | No       | Android |
-
----
-
-### `nextFocusLeft`
-
-TV next focus left (see documentation for the View component).
-
-| 类型 | Required | 平台    |
-| ---- | -------- | ------- |
-| bool | No       | Android |
+| Type   |
+| ------ |
+| number |
 
 ---
 
-### `nextFocusRight`
+### `nextFocusForward` <div className="label android">Android</div>
 
-TV next focus right (see documentation for the View component).
+TV 下一个向前焦点（参见 View 组件文档）。
 
-| 类型 | Required | 平台    |
-| ---- | -------- | ------- |
-| bool | No       | Android |
+| Type   |
+| ------ |
+| number |
 
 ---
 
-### `nextFocusUp`
+### `nextFocusLeft` <div className="label android">Android</div>
 
-TV next focus up (see documentation for the View component).
+TV 下一个向左焦点（参见 View 组件文档）。
 
-| 类型 | Required | 平台    |
-| ---- | -------- | ------- |
-| bool | No       | Android |
+| Type   |
+| ------ |
+| number |
+
+---
+
+### `nextFocusRight` <div className="label android">Android</div>
+
+TV 下一个向右焦点（参见 View 组件文档）。
+
+| Type   |
+| ------ |
+| number |
+
+---
+
+### `nextFocusUp` <div className="label android">Android</div>
+
+TV 下一个向上焦点（参见 View 组件文档）。
+
+| Type   |
+| ------ |
+| number |
+
+---
+
+### `ref`
+
+一个 ref 设置器，在组件挂载时会被赋值为一个[元素节点](element-nodes)。
