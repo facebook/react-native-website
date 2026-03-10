@@ -222,6 +222,26 @@ Query whether a screen reader is currently enabled. Returns a promise which reso
 
 ---
 
+### `isHighTextContrastEnabled()` <div className="label android">Android</div>
+
+```tsx
+static isHighTextContrastEnabled(): Promise<boolean>
+```
+
+Query whether high text contrast is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when high text contrast is enabled and `false` otherwise.
+
+---
+
+### `isDarkerSystemColorsEnabled()` <div className="label ios">iOS</div>
+
+```tsx
+static isDarkerSystemColorsEnabled(): Promise<boolean>
+```
+
+Query whether dark system colors is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when dark system colors is enabled and `false` otherwise.
+
+---
+
 ### `prefersCrossFadeTransitions()` <div className="label ios">iOS</div>
 
 ```tsx
