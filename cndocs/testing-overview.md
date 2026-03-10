@@ -245,7 +245,7 @@ test('given empty GroceryShoppingList, user can add an item to it', () => {
 
 快照本身并不能确保你的组件渲染逻辑是正确的，它们只是很好地守护着意外的变化，并检查测试的 React 树下的组件是否接收了预期的 props（样式等）。
 
-我们建议你只使用小的快照（见 [`no-large-snapshots` 规则](https://github.com/jest-community/eslint-plugin-jest/blob/master/docs/rules/no-large-snapshots.md)）。如果你想要测试两个 React 组件状态之间的变化，使用 [`snapshot-diff`](https://github.com/jest-community/snapshot-diff)。在不确定的情况下，优先使用前面段落中描述的显式期望。
+我们建议你只使用小的快照（见 [`no-large-snapshots` 规则](https://github.com/jest-community/eslint-plugin-jest/blob/main/docs/rules/no-large-snapshots.md)）。如果你想要测试两个 React 组件状态之间的变化，使用 [`snapshot-diff`](https://github.com/jest-community/snapshot-diff)。在不确定的情况下，优先使用前面段落中描述的显式期望。
 
 <img src="/docs/assets/p_tests-snapshot.svg" alt=" " />
 

@@ -235,7 +235,7 @@ static prefersCrossFadeTransitions(): Promise<boolean>;
 
 ---
 
-### `setAccessibilityFocus()`
+### 🗑️ `setAccessibilityFocus()`
 
 ```tsx
 static setAccessibilityFocus(reactTag: number);

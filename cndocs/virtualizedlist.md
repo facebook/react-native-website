@@ -557,7 +557,7 @@ CellRendererComponent 允许自定义由 `renderItem`/`ListItemComponent` 渲染
 
 ---
 
-### `disableVirtualization`
+### 🗑️ `disableVirtualization`
 
 **已过时** : Virtualization 提供了显著的性能和内存优化，并且完全卸载了位于可视区之外的 react 实例。当且仅当为了调试，你才可以关闭这个特性。
 

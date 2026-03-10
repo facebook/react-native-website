@@ -45,6 +45,10 @@ React Native 提供了一个名为 [Codegen](/the-new-architecture/what-is-codeg
 你可以在 [附录](/appendix.md) 文档中看到可以在规范中使用的类型以及生成的原生类型。
 :::
 
+:::info
+如果你想更改模块名称和相关规范文件的名称，请确保始终使用 'Native' 作为前缀（例如 `NativeStorage` 或 `NativeUsersDefault`）。
+:::
+
 以下是一个 `localStorage` 规范的实现：
 
 <Tabs groupId="language" queryString defaultValue={constants.defaultJavaScriptSpecLanguage} values={constants.javaScriptSpecLanguages}>

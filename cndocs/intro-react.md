@@ -396,7 +396,10 @@ const Cat = (props) => {
 />
 ```
 
-> 你可能注意到虽然`isHungry`使用了常量关键字[const](https://developer.mozilla.org/Web/JavaScript/Reference/Statements/const)，但它看起来还是可以修改！简单来说，当你调用`setIsHungry`这样的设置状态的函数时，其所在的组件会重新渲染。此处这一整个`Cat`函数都会从头重新执行一遍。重新执行的时候，`useState`会返回给我们新设置的值。
+:::info
+你可能注意到虽然 `isHungry` 使用了常量关键字 [const](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/const)，但它看起来还是可以修改！这里的 `const` 并不意味着状态本身不可变，而是指"包含状态和更新函数"的引用不会改变。
+实际上，当你调用 `setIsHungry` 这样的状态设置函数时，其所在的组件会重新渲染。此处 `Cat` 函数会从头重新执行一遍——而这一次，`useState` 会返回给我们新的 `isHungry` 值。
+:::
 
 最后再把猫咪放进`Cafe`组件：
 

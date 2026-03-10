@@ -67,7 +67,7 @@ const icon = this.props.active
 
 ## 静态的非图片资源
 
-上面描述的`require`语法也可以用来静态地加载你项目中的声音、视频或者文档文件。大多数常见文件类型都支持，包括`.mp3`, `.wav`, `.mp4`, `.mov`, `.html`, `.pdf`等（完整列表请看 [bundler defaults](https://github.com/facebook/metro/blob/main/packages/metro-config/src/defaults/defaults.js#L16-L51))。
+上面描述的`require`语法也可以用来静态地加载你项目中的声音、视频或者文档文件。大多数常见文件类型都支持，包括`.mp3`, `.wav`, `.mp4`, `.mov`, `.html`, `.pdf`等。完整列表请看 [bundler defaults](https://github.com/facebook/metro/blob/main/packages/metro-config/src/defaults/defaults.js#L16-L51)。
 
 你也可以在 [Metro 配置文件](https://metrobundler.dev/docs/configuration)中添加 [`assetExts` resolver 配置项](https://metrobundler.dev/docs/configuration#resolver-options)来支持其他类型的文件。
 
