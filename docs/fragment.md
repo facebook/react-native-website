@@ -148,15 +148,15 @@ Each first-level host child of a Fragment with a `ref` gets a `reactFragments` p
 
 The following `FragmentInstance` methods are available on Web but are **not supported** in React Native:
 
-| Method                 | Description                                                         |
-| ---------------------- | ------------------------------------------------------------------- |
-| `addEventListener`     | Adds an event listener to all first-level host children.            |
-| `removeEventListener`  | Removes an event listener from all first-level host children.       |
-| `dispatchEvent`        | Dispatches an event on the Fragment.                                |
-| `focus`                | Focuses the first focusable node depth-first.                      |
-| `focusLast`            | Focuses the last focusable node depth-first.                       |
-| `blur`                 | Removes focus from the active element if within the Fragment.       |
-| `scrollIntoView`       | Scrolls the Fragment's children into view.                          |
+| Method                | Description                                                   |
+| --------------------- | ------------------------------------------------------------- |
+| `addEventListener`    | Adds an event listener to all first-level host children.      |
+| `removeEventListener` | Removes an event listener from all first-level host children. |
+| `dispatchEvent`       | Dispatches an event on the Fragment.                          |
+| `focus`               | Focuses the first focusable node depth-first.                 |
+| `focusLast`           | Focuses the last focusable node depth-first.                  |
+| `blur`                | Removes focus from the active element if within the Fragment. |
+| `scrollIntoView`      | Scrolls the Fragment's children into view.                    |
 
 See the [react.dev FragmentInstance documentation](https://react.dev/reference/react/Fragment#fragmentinstance) for details on these methods.
 
