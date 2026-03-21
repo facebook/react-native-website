@@ -34,7 +34,7 @@ In the current architecture, we use `onLayout` to get the measurements of the vi
 function ViewWithTooltip() {
   // ...
 
-  // We get the layout information and pass to ToolTip to position itself
+  // We get the layout information and pass to Tooltip to position itself
   const onLayout = React.useCallback(event => {
     targetRef.current?.measureInWindow((x, y, width, height) => {
       // This state update is not guaranteed to run in the same commit
