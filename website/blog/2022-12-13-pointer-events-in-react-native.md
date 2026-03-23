@@ -106,6 +106,12 @@ Our Pointer Events implementation is still experimental but we’re interested i
 
 ### Enable Feature Flags
 
+:::danger
+
+Overriding the native feature flags below (such as `RCTConstants` and `ReactFeatureFlags`) is technically reaching into React Native's internals so doing so may break your setup soon as we are working to phase them out in order for us to roll Pointer Events out more broadly.
+
+:::
+
 :::note
 
 Pointer Events are only implemented for the [New Architecture (Fabric)](https://reactnative.dev/docs/the-new-architecture/use-app-template) and are only available for React Native 0.71+ which at the time of writing is a release candidate.

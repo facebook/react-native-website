@@ -162,7 +162,7 @@ The prebuilt artifacts for Hermes do not contain debug symbols (dSYMs) by defaul
 
 ### I'm afraid this change is impacting me
 
-We'd like to stress that this is essentially an organizational change on _where_ Hermes is built and _how_ the code is syncronized between the two repositories. The change should be fully transparent to our users.
+We'd like to stress that this is essentially an organizational change on _where_ Hermes is built and _how_ the code is synchronized between the two repositories. The change should be fully transparent to our users.
 
 Historically, we used to cut a release of Hermes for a specific version of React Native (e.g. [`v0.11.0 for RN0.68.x`](https://github.com/facebook/hermes/releases/tag/v0.11.0)).
 

@@ -1,0 +1,37 @@
+{
+  "name": "@react-native-website/lint-examples",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "eslint-examples-jsx": "./bin/eslint-examples-jsx.ts",
+    "eslint-examples-tsx": "./bin/eslint-examples-tsx.ts",
+    "tsc-examples": "./bin/tsc-examples.ts"
+  },
+  "scripts": {
+    "lint": "tsc --noEmit && eslint"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.29.0",
+    "@babel/preset-env": "^7.29.0",
+    "@babel/runtime": "^7.28.6",
+    "@eslint/compat": "^2.0.2",
+    "@react-native-community/slider": "^5.1.2",
+    "@react-native/babel-preset": "^0.84.0",
+    "@react-native/eslint-config": "^0.84.0",
+    "@react-native/eslint-plugin": "^0.84.0",
+    "@react-native/typescript-config": "^0.84.0",
+    "@types/node": "^24.10.15",
+    "@types/react": "^19.2.14",
+    "eslint": "^9.39.3",
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-jest": "^29.15.0",
+    "eslint-plugin-react": "^7.37.5",
+    "glob": "^13.0.6",
+    "prettier": "^3.8.1",
+    "react": "^19.2.4",
+    "react-native": "^0.84.0",
+    "react-native-safe-area-context": "^5.7.0",
+    "typescript": "^5.9.3"
+  }
+}

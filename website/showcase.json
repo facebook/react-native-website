@@ -5,17 +5,25 @@
       "icon": "facebook.webp",
       "linkAppStore": "https://apps.apple.com/app/facebook/id284882215",
       "linkPlayStore": "https://play.google.com/store/apps/details?id=com.facebook.katana",
+      "linkMetaQuest": "https://www.meta.com/experiences/facebook/7495711360547796/",
       "pinned": true
+    },
+    {
+      "name": "Instagram",
+      "icon": "instagram.png",
+      "linkMetaQuest": "https://www.meta.com/experiences/instagram/6894135610696226/",
+      "infoLink": "https://engineering.fb.com/2024/10/02/android/react-at-meta-connect-2024/"
     },
     {
       "name": "Facebook Ads Manager",
       "icon": "adsmanager.png",
       "linkAppStore": "https://apps.apple.com/us/app/facebook-ads-manager/id964397083",
-      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.facebook.adsmanager"
+      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.facebook.adsmanager",
+      "pinned": true
     },
     {
-      "name": "Meta Quest",
-      "icon": "metaquest.png",
+      "name": "Meta Horizon",
+      "icon": "metahorizon.webp",
       "linkAppStore": "https://apps.apple.com/us/app/oculus/id1366478176",
       "linkPlayStore": "https://play.google.com/store/apps/details?id=com.oculus.twilight&hl=en_US",
       "pinned": true
@@ -60,14 +68,6 @@
       "linkPlayStore": "https://play.google.com/store/apps/details?id=com.gamepass",
       "infoLink": "https://devblogs.microsoft.com/react-native/",
       "pinned": true
-    },
-    {
-      "name": "Skype",
-      "icon": "skype.webp",
-      "linkAppStore": "https://apps.apple.com/us/app/skype-for-iphone/id304878510",
-      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.skype.raider",
-      "infoLink": "https://devblogs.microsoft.com/react-native/",
-      "pinned": true
     }
   ],
   "amazon": [
@@ -75,7 +75,8 @@
       "name": "Amazon Shopping",
       "icon": "amazon-shopping.png",
       "linkAppStore": "https://apps.apple.com/us/app/amazon-shopping/id297606951",
-      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.amazon.mShop.android.shopping"
+      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.amazon.mShop.android.shopping",
+      "pinned": true
     },
     {
       "name": "Amazon Alexa",
@@ -94,12 +95,6 @@
       "icon": "amazon-kindle.png",
       "infoLink": "https://www.amazon.com/b/?node=6669702011",
       "infoTitle": "Purpose-built for reading, Kindle e-readers let you take your stories wherever you go"
-    },
-    {
-      "name": "Amazon Appstore",
-      "icon": "amazon-appstore.png",
-      "infoLink": "https://www.amazon.com/gp/mas/get/amazonapp",
-      "infoTitle": "Amazon Appstore is an app store for Android devices, all Amazon Fire tablets, and Windows 11 devices"
     }
   ],
   "shopify": [
@@ -256,15 +251,6 @@
       "pinned": true
     },
     {
-      "name": "Pinterest",
-      "icon": "pinterest.webp",
-      "linkAppStore": "https://apps.apple.com/us/app/pinterest/id429047995",
-      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.pinterest",
-      "infoLink": "https://medium.com/@Pinterest_Engineering/supporting-react-native-at-pinterest-f8c2233f90e6",
-      "infoTitle": "Supporting React Native at Pinterest",
-      "pinned": true
-    },
-    {
       "name": "Tesla",
       "icon": "tesla.png",
       "linkAppStore": "https://apps.apple.com/us/app/tesla/id582007913",
@@ -272,31 +258,6 @@
       "infoLink": "https://www.tesla.com/blog",
       "infoTitle": "Tesla Blog",
       "pinned": true
-    },
-    {
-      "name": "Walmart Shopping & Grocery",
-      "icon": "walmart.webp",
-      "linkAppStore": "https://apps.apple.com/us/app/walmart-app-shopping-savings/id338137227",
-      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.walmart.android",
-      "infoLink": " https://medium.com/walmartlabs/react-native-at-walmartlabs-cdd140589560#.ueonqqloc",
-      "infoTitle": "React Native at Walmart Labs",
-      "pinned": true
-    },
-    {
-      "name": "Words with Friends 2",
-      "icon": "words2.png",
-      "linkAppStore": "https://apps.apple.com/app/words-with-friends-2-word-game/id1196764367",
-      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.zynga.words3&hl=en_US&gl=US",
-      "infoLink": "https://medium.com/zynga-engineering/why-how-words-with-friends-is-adopting-react-native-b24a405f421c",
-      "infoTitle": "Why & How Words With Friends Is Adopting React Native"
-    },
-    {
-      "name": "Call of Duty Companion App",
-      "icon": "callofduty_companion.png",
-      "linkAppStore": "https://apps.apple.com/us/app/call-of-duty-companion-app/id1405837628",
-      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.activision.callofduty.companion",
-      "infoLink": "https://www.callofduty.com/app",
-      "infoTitle": ""
     },
     {
       "name": "Foreca",
@@ -342,7 +303,6 @@
       "name": "Gyroscope",
       "icon": "gyroscope.png",
       "linkAppStore": "https://itunes.apple.com/app/apple-store/id1104085053?pt=117927205&ct=website&mt=8",
-      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.gyroscope.gyroscope",
       "infoLink": "https://blog.gyrosco.pe/building-the-app-1dac1a97d253",
       "infoTitle": "Building a visualization experience with React Native"
     },
@@ -355,19 +315,12 @@
       "infoTitle": "JD.com is China’s largest ecommerce company by revenue and a member of the Fortune Global 500."
     },
     {
-      "name": "Tencent QQ",
-      "icon": "qq.webp",
-      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.tencent.mobileqq&hl=en&gl=US",
-      "infoLink": "https://www.tencent.com/en-us/business.html",
-      "infoTitle": "QQ is China's largest messaging platform, with over 829 million active accounts",
-      "pinned": true
-    },
-    {
       "name": "Bolt Food: Delivery & Takeaway",
       "icon": "bolt.png",
       "linkAppStore": "https://apps.apple.com/us/app/bolt-food/id1451492388",
       "linkPlayStore": "https://play.google.com/store/apps/details?id=com.bolt.deliveryclient",
-      "infoLink": "https://medium.com/bolt-labs/how-we-built-a-react-native-app-in-2-months-aeadf210a764"
+      "infoLink": "https://medium.com/bolt-labs/how-we-built-a-react-native-app-in-2-months-aeadf210a764",
+      "pinned": true
     },
     {
       "name": "Mattermost",
@@ -381,7 +334,8 @@
       "name": "Klarna | Shop now. Pay later.",
       "icon": "klarna.jpg",
       "linkAppStore": "https://apps.apple.com/us/app/klarna-shop-now-pay-later/id1115120118",
-      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.myklarnamobile"
+      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.myklarnamobile",
+      "pinned": true
     },
     {
       "name": "NFL",

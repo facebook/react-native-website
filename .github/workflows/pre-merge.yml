@@ -9,33 +9,75 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: "22"
+          cache: yarn
+
+      - name: Check lock for duplications
+        run: yarn dedupe --check
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile --no-progress --non-interactive
+        run: yarn install --immutable
 
-      - name: Run Lint
-        run: yarn ci:lint
+      - name: Check dependencies alignment
+        run: yarn check-dependencies
+
+      - name: Run packages lint
+        run: yarn lint:packages
+
+      - name: Run plugins lint
+        run: yarn lint:plugins
+
+  lint-website:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: "22"
+          cache: yarn
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Run Website Specific Lints
         working-directory: website
+        run: yarn ci:lint
 
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: "22"
+          cache: yarn
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile --no-progress --non-interactive
+        run: yarn install --immutable
 
       - name: Build
         run: yarn build
         working-directory: website
         env:
-          NODE_OPTIONS: "--max_old_space_size=4096"
+          NODE_OPTIONS: --max_old_space_size=8192

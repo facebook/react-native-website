@@ -109,7 +109,7 @@ To do this, change `recordMode` flag to `_runner.recordMode = YES;` in [RNTester
 
 ### Android Unit Tests
 
-It's a good idea to add an Android unit test whenever you are working on code that can be tested by Java/Kotlin code alone. The Android unit tests are located in `packages/react-native/ReactAndroid/src/test/`. 
+It's a good idea to add an Android unit test whenever you are working on code that can be tested by Java/Kotlin code alone. The Android unit tests are located in `packages/react-native/ReactAndroid/src/test/`.
 
 We recommend browsing through these to get an idea of what a good unit test might look like.
 

@@ -8,7 +8,9 @@ date: 2022-03-15
 Hi everyone,
 [As previously announced](/blog/2022/01/21/react-native-h2-2021-recap#the-new-architecture-rollout-and-releases):
 
-> 2022 is going to be the year of the New Architecture in open source
+:::info
+2022 is going to be the year of the New Architecture in open source.
+:::
 
 If you still haven’t had the time to look into the New React Native Architecture (the Fabric Renderer and the TurboModule system), there is no better time to do it **than now**!
 

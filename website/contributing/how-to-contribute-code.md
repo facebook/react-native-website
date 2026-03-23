@@ -4,8 +4,8 @@ title: How to Contribute Code
 
 Thank you for your interest in contributing to React Native! From commenting on and triaging issues, to reviewing and sending PRs, [all contributions are welcome](/contributing/overview). In this document, we'll cover the steps to contributing code to React Native.
 
-If you are eager to start contributing code right away, we have a list of [`good first issues`](https://github.com/facebook/react-native/labels/good%20first%20issue) that contain bugs which have a relatively limited scope.
-Issues labeled [`help wanted`](https://github.com/facebook/react-native/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3A%22help+wanted+%3Aoctocat%3A%22+sort%3Aupdated-desc+) are good issues to submit a PR for.
+If you are eager to start contributing code right away, we have a list of [`Good first issues`](https://github.com/facebook/react-native/labels/good%20first%20issue) that contain bugs which have a relatively limited scope.
+Issues labeled [`Help wanted`](https://github.com/facebook/react-native/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3A%22help+wanted+%3Aoctocat%3A%22+sort%3Aupdated-desc+) are good issues to submit a PR for.
 
 ## Prerequisites
 
@@ -32,6 +32,7 @@ Now you are set up to run several commands:
 - `yarn test-ios` runs the iOS test suite (macOS required).
 - `yarn build` builds all configured packages — in general, this command only needs to be run by CI ahead of publishing.
   - Packages which require a build are configured in [scripts/build/config.js](https://github.com/facebook/react-native/blob/main/scripts/build/config.js).
+- `yarn build-types` generates TypeScript types for the public API and updates the snapshot.
 
 ## Testing your Changes
 
@@ -70,11 +71,12 @@ Code-level contributions to React Native generally come in the form of [a pull r
 3. If you've changed APIs, update the documentation.
 4. Ensure the test suite passes, either locally or on CI once you opened a pull request.
 5. Make sure your code lints (for example via `yarn lint --fix`).
-6. Push the changes to your fork.
-7. Create a pull request to the React Native repository.
-8. Review and address comments on your pull request.
-9. A bot may comment with suggestions. Generally we ask you to resolve these first before a maintainer will review your code.
-10. If you haven't already, submit the [Contributor License Agreement ("CLA")](#contributor-license-agreement).
+6. Verify if your code modifies the JS public API with `yarn build-types --validate`. If so, regenerate the snapshot using `yarn build-types`.
+7. Push the changes to your fork.
+8. Create a pull request to the React Native repository.
+9. Review and address comments on your pull request.
+10. A bot may comment with suggestions. Generally we ask you to resolve these first before a maintainer will review your code.
+11. If you haven't already, submit the [Contributor License Agreement ("CLA")](#contributor-license-agreement).
 
 If all goes well, your pull request will be merged. If it is not merged, maintainers will do their best to explain their reasoning.
 

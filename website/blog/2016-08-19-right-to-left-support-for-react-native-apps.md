@@ -45,7 +45,6 @@ With this update, when you allow RTL layout for your app:
 ## Making an App RTL-ready
 
 1. To support RTL, you should first add the RTL language bundles to your app.
-
    - See the general guides from [iOS](https://developer.apple.com/library/ios/documentation/MacOSX/Conceptual/BPInternational/LocalizingYourApp/LocalizingYourApp.html#//apple_ref/doc/uid/10000171i-CH5-SW1) and [Android](https://developer.android.com/training/basics/supporting-devices/languages.html).
 
 2. Allow RTL layout for your app by calling the `allowRTL()` function at the beginning of native code. We provided this utility to only apply to an RTL layout when your app is ready. Here is an example:
