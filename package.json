@@ -25,10 +25,10 @@
     "check-dependencies": "manypkg check"
   },
   "devDependencies": {
-    "@eslint/css": "^0.14.1",
+    "@eslint/css": "^1.0.0",
     "@eslint/js": "^9.39.3",
     "@manypkg/cli": "^0.25.1",
-    "@typescript-eslint/parser": "^8.56.1",
+    "@typescript-eslint/parser": "^8.57.1",
     "alex": "^11.0.1",
     "case-police": "^2.2.0",
     "eslint": "^9.39.3",
@@ -37,13 +37,13 @@
     "eslint-plugin-case-police": "2.2.0",
     "eslint-plugin-mdx": "^3.7.0",
     "eslint-plugin-prettier": "^5.5.5",
-    "eslint-plugin-yml": "^3.2.1",
+    "eslint-plugin-yml": "^3.3.1",
     "globals": "^17.4.0",
     "husky": "^9.1.7",
     "prettier": "^3.8.1",
     "pretty-quick": "^4.2.2",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.56.1"
+    "typescript-eslint": "^8.57.1"
   },
   "packageManager": "yarn@4.13.0",
   "resolutions": {

@@ -11,7 +11,7 @@ export default function codeblockLanguageAsTitleRemarkPlugin() {
   return async (root: Root) => {
     const {visit} = await import('unist-util-visit');
     visit(root, 'code', node => {
-      if (node.lang) {
+      if (node.lang && !['shell', 'bash'].includes(node.lang)) {
         if (node.meta) {
           if (node.meta.includes('title=')) {
             return;
