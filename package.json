@@ -47,7 +47,7 @@
   },
   "packageManager": "yarn@4.13.0",
   "resolutions": {
-    "serialize-javascript": "^7.0.3",
+    "serialize-javascript": "^7.0.5",
     "serve-handler/minimatch": "3.1.4"
   }
 }
