@@ -28,7 +28,7 @@
     "lint:examples": "eslint-examples-jsx && eslint-examples-tsx && tsc-examples",
     "lint:markdown:images": "node ../scripts/src/image-check.ts",
     "lint:markdown:links": "remark ../docs --quiet -r .remarkrc.withBrokenLinks.mjs",
-    "ci:lint": "yarn lint:examples && yarn lint:markdown:images && prettier --check src/**/*.scss",
+    "ci:lint": "yarn lint && yarn lint:examples && yarn lint:markdown:images && prettier --check src/**/*.scss",
     "pwa:generate": "npx pwa-asset-generator ./static/img/header_logo.svg ./static/img/pwa --padding '40px' --background 'rgb(32, 35, 42)' --icon-only --opaque true",
     "update-redirects": "node ../scripts/src/update-redirects.ts"
   },
@@ -51,8 +51,8 @@
     "@docusaurus/plugin-pwa": "3.9.2",
     "@docusaurus/preset-classic": "3.9.2",
     "docusaurus-plugin-sass": "^0.2.6",
-    "react": "^19.1.2",
-    "react-dom": "^19.1.2",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
     "react-github-btn": "^1.4.0"
   },
   "devDependencies": {
@@ -63,12 +63,12 @@
     "@react-native-website/lint-examples": "*",
     "@signalwire/docusaurus-plugin-llms-txt": "^1.2.2",
     "@types/google.analytics": "^0.0.46",
-    "@types/react": "^19.1.17",
-    "eslint": "^9.39.1",
-    "glob": "^13.0.0",
-    "prettier": "^3.7.4",
+    "@types/react": "^19.2.14",
+    "eslint": "^9.39.3",
+    "glob": "^13.0.6",
+    "prettier": "^3.8.1",
     "remark-cli": "^12.0.1",
-    "sass": "1.94.2",
+    "sass": "1.98.0",
     "typescript": "^5.9.3"
   }
 }

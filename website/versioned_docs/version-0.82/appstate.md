@@ -20,7 +20,11 @@ For more information, see [Apple's documentation](https://developer.apple.com/do
 
 ## Basic Usage
 
-To see the current state, you can check `AppState.currentState`, which will be kept up-to-date. However, `currentState` will be null at launch while `AppState` retrieves it over the bridge.
+To see the current state, you can check `AppState.currentState`, which will be kept up-to-date.
+
+:::info
+If you are using the legacy architecture, `currentState` will be `null` at launch until it is retrieved asynchronously from the native side.
+:::
 
 ```SnackPlayer name=AppState%20Example
 import React, {useRef, useState, useEffect} from 'react';
@@ -70,7 +74,7 @@ const styles = StyleSheet.create({
 export default AppStateExample;
 ```
 
-This example will only ever appear to say "Current state is: active" because the app is only visible to the user when in the `active` state, and the null state will happen only momentarily. If you want to experiment with the code we recommend to use your own device instead of embedded preview.
+This example will only ever appear to say "Current state is: active" because the app is only visible to the user when in the `active` state. If you want to experiment with the code we recommend to use your own device instead of embedded preview.
 
 ---
 
@@ -82,9 +86,9 @@ This example will only ever appear to say "Current state is: active" because the
 
 This event is received when the app state has changed. The listener is called with one of [the current app state values](appstate#app-states).
 
-### `memoryWarning`
+### `memoryWarning` <div className="label ios">iOS</div>
 
-This event is used in the need of throwing memory warning or releasing it.
+Fires when the app receives a memory warning from the operating system.
 
 ### `focus` <div className="label android">Android</div>
 

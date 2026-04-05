@@ -113,7 +113,7 @@
   --home-feature-background-1: #f4e3fc;
   --home-feature-background-2: #e1eefc;
   --home-feature-background-3: #d4f3e7;
-  --home-border: #e5e7eb;
+  --home-border: #dfe1e6;
   --home-background: #fff;
   --home-secondary-background: #f6f7f9;
   --home-text: #1c1e21;
@@ -1267,6 +1267,13 @@ aside[class^="theme-doc-sidebar-container"] {
   }
 
   .menu__list-item-collapsible {
+    border-radius: var(--ifm-global-radius);
+
+    // Disable background color on hover for collapsible items with direct child anchor without href
+    &:has(> a:not([href])):hover {
+      background-color: transparent;
+    }
+
     .menu__caret {
       padding: 0 6px;
 
@@ -1274,14 +1281,6 @@ aside[class^="theme-doc-sidebar-container"] {
         display: block;
         background-size: 1.66rem 1.66rem;
         margin-top: -1px;
-      }
-    }
-
-    &:hover {
-      background: none !important;
-
-      .menu__link--sublist-caret:hover {
-        background: var(--ifm-menu-color-background-hover) !important;
       }
     }
   }
@@ -1505,6 +1504,7 @@ div[class^="tableOfContents"] {
     color: var(--home-button-primary) !important;
 
     code {
+      word-break: break-all;
       font-weight: 700;
       color: var(--home-button-primary) !important;
     }
@@ -1901,6 +1901,10 @@ td .color-box {
   }
 
   /* Label variants */
+  &.primary {
+    background: var(--ifm-color-primary);
+  }
+
   &.android {
     background: #a4c936;
 

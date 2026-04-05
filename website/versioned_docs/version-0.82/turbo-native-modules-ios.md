@@ -132,7 +132,7 @@ Modify the `package.json` as it follows:
      "test": "jest"
    },
    "codegenConfig": {
-     "name": "AppSpecs",
+     "name": "NativeLocalStorageSpec",
      "type": "modules",
      "jsSrcsDir": "specs",
      "android": {

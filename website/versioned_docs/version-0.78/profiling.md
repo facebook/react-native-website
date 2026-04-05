@@ -7,13 +7,17 @@ Profiling is the process of analyzing an app's performance, resource usage, and 
 
 For iOS, Instruments is an invaluable tool, and on Android you should learn to use the [Android Studio Profiler](profiling.md#profiling-android-ui-performance-with-system-tracing).
 
-But first, [**make sure that Development Mode is OFF!**](performance.md#running-in-development-mode-devtrue) You should see `__DEV__ === false, development-level warning are OFF, performance optimizations are ON` in your application logs.
+But first, [**make sure that Development Mode is OFF!**](performance.md#running-in-development-mode-devtrue).
 
 ## Profiling Android UI Performance with System Tracing
 
 Android supports 10k+ different phones and is generalized to support software rendering: the framework architecture and need to generalize across many hardware targets unfortunately means you get less for free relative to iOS. But sometimes, there are things you can improve -- and many times it's not native code's fault at all!
 
 The first step for debugging this jank is to answer the fundamental question of where your time is being spent during each 16ms frame. For that, we'll be using the [built-in System Tracing profiler in the Android Studio](https://developer.android.com/studio/profile).
+
+:::note
+The standalone `systrace` tool has been removed from Android platform-tools. Use the Android Studio Profiler instead, which provides the same functionality with a better user interface.
+:::
 
 ### 1. Collecting a trace
 
