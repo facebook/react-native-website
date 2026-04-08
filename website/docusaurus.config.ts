@@ -74,7 +74,7 @@ const config: Config = {
     // See https://github.com/facebook/docusaurus/issues/10556
     // See https://github.com/facebook/react-native-website/pull/4268
     // See https://docusaurus.io/blog/releases/3.6
-    experimental_faster: (process.env.DOCUSAURUS_FASTER ?? 'true') === 'true',
+    faster: (process.env.DOCUSAURUS_FASTER ?? 'true') === 'true',
   },
 
   title: 'React Native',
