@@ -143,7 +143,13 @@ Update your `jest.config.js` with a one-line change:
 
 ### Dropped Support for EOL Node.js Versions
 
-React Native 0.85 drops support for end-of-life (EOL) Node.js versions (v21, v23) and releases before 20.19.4. Please ensure you are running a supported version of Node.js before upgrading.
+React Native 0.85 drops support for end-of-life (EOL) Node.js versions and releases before v20.19.4. Please ensure you are running a supported version of Node.js before upgrading.
+
+- **Node.js v20** (>=20.19.4) — Supported (Active LTS)
+- **Node.js v21** — Not supported (EOL)
+- **Node.js v22** — Supported (Active LTS)
+- **Node.js v23** — Not supported (EOL)
+- **Node.js v24+** — Supported
 
 ### `StyleSheet.absoluteFillObject` Removed
 
