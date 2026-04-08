@@ -40,7 +40,11 @@ This release includes the New Animation Backend, adds selection data to TextInpu
 
 ### New Animation Backend
 
-React Native 0.85 introduces the new Shared Animation Backend, built in collaboration with [Software Mansion](https://swmansion.com/). This is a new internal engine that powers how animations are applied under the hood for both Animated and Reanimated. By moving the main animation update logic to React Native core, Reanimated is able to land performance improvements that weren't possible before, and can ensure that the update reconciliation process is properly tested and will remain stable with future RN updates. In Animated, you can now animate layout props with native driver (the [limitation once stated here](/docs/animations#caveats) no longer applies).
+React Native 0.85 introduces the new Shared Animation Backend, built in collaboration with [Software Mansion](https://swmansion.com/).
+
+This is a new internal engine that powers how animations are applied under the hood for both Animated and Reanimated. By moving the main animation update logic to React Native core, Reanimated is able to land performance improvements that weren't possible before, and can ensure that the update reconciliation process is properly tested and will remain stable with future RN updates.
+
+In Animated, you can now animate layout props with native driver (the [limitation once stated here](/docs/animations#caveats) no longer applies).
 
 |                                              iOS                                              |                                                Android                                                |
 | :-------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------: |
@@ -48,7 +52,13 @@ React Native 0.85 introduces the new Shared Animation Backend, built in collabor
 
 You can find more examples under [`react-native/packages/rn-tester/js/examples/AnimationBackend/`](https://github.com/facebook/react-native/tree/main/packages/rn-tester/js/examples/AnimationBackend).
 
-To opt in, enable `useSharedAnimatedBackend` and `cxxNativeAnimatedEnabled` in `ReactNativeFeatureFlags`.
+To opt in, you can enable the experimental channel of React Native [as described in this page](/docs/releases/release-levels).
+
+:::info
+
+This experimental feature will only be available starting from React Native **0.85.1**, which will be released in the immediate future.
+
+:::
 
 #### How to animate layout props
 
@@ -148,22 +158,22 @@ The deprecated `StyleSheet.absoluteFillObject` API has been removed. Use `StyleS
 
 #### General
 
-- Removed deprecated TypeScript type aliases — use the types directly.
 - `Pressable` no longer unmounts event listeners in hidden `Activity`.
+- Removed deprecated C++ type aliases for `ShadowNode::Shared`, `ShadowNode::Weak`, `ShadowNode::Unshared`, `ShadowNode::ListOfWeak`, `ShadowNode::ListOfShared`, `SharedImageManager` and `ContextContainer::Shared` — Those were not in use and consumer libraries should use the type directly.
 
 #### Android
 
-- Re-added `receiveTouches` to `RCTEventEmitter` with default no-op.
-- `ReactTextUpdate` is now internal.
-- Removed support for `ReactZIndexedViewGroup`.
-- Multiple classes deprecated or removed as legacy architecture cleanup.
-- Deprecated `UIManagerHelper` methods and classes.
-- Removed `CatalystInstanceImpl` and other legacy architecture classes.
-- Stubbed out `NativeViewHierarchyManager`.
+- We re-added `receiveTouches` to `RCTEventEmitter` with default no-op. This is a fix to reduce breaking changes for libraries that haven't migrated away from this method yet.
+- `ReactTextUpdate` is now internal and should not be accessed publicly directly.
+- Multiple classes deprecated or removed as legacy architecture cleanup:
+  - `ReactZIndexedViewGroup` is now deprecated.
+  - `UIManagerHelper` is now deprecated.
+  - `CatalystInstanceImpl` has been removed (it was deprecated).
+  - `NativeViewHierarchyManager` has been fully stubbed out.
 
 #### iOS
 
-- Deprecated `RCTHostRuntimeDelegate` and merged into `RCTHostDelegate`.
+- The `RCTHostRuntimeDelegate` is now deprecated and merged into `RCTHostDelegate`.
 - Fixed duplicate symbol error when using `React.XCFramework` (via `fmt` bump to 12.1.0).
 
 ## Other Changes
@@ -173,9 +183,7 @@ The deprecated `StyleSheet.absoluteFillObject` API has been removed. Use `StyleS
 - **Yoga**: `YogaNode` migrated to Kotlin on Android.
 - **Accessibility**: Deprecated `AccessibilityInfo.setAccessibilityFocus` in favor of `AccessibilityInfo.sendAccessibilityEvent`.
 - **TypeScript**: Multiple utility type transformations (`$Values`, `mixed`, `$ReadOnly`, `$ReadOnlyArray`).
-- **View Transitions**: New feature flag `viewTransitionEnabled` created.
-- **Android Build**: Allow specifying dev server IP via Gradle property.
-- **Android Build**: Re-added `prefabPublishing=true` for building from source.
+- **Android Build**: Allow specifying dev server IP via `reactNativeDevServerIp` Gradle property.
 - **iOS Build**: Added support for clang virtual file system in `React.XCFramework`.
 
 ## Acknowledgements
