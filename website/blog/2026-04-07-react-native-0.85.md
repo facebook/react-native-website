@@ -67,13 +67,10 @@ With the new animation backend, you'll be able to animate Flexbox and position p
 ```jsx
 import {
   Animated,
-  View,
   Button,
+  View,
   useAnimatedValue,
 } from 'react-native';
-import {allowStyleProp} from 'react-native/Libraries/Animated/NativeAnimatedAllowlist';
-
-allowStyleProp('width');
 
 function MyComponent() {
   const width = useAnimatedValue(100);
@@ -87,12 +84,12 @@ function MyComponent() {
   };
 
   return (
-    <>
+    <View style={{flex: 1}}>
       <Animated.View
         style={{width, height: 100, backgroundColor: 'blue'}}
       />
       <Button title="Expand" onPress={toggle} />
-    </>
+    </View>
   );
 }
 ```
