@@ -38,7 +38,11 @@ npx create-react-native-library@latest <Name of Your Library>
 
 Once the interactive prompt is done, the tool creates a folder whose structure looks like this in Visual Studio Code:
 
-<img className="half-size" alt="Folder structure after initializing a new library." src="/docs/assets/turbo-native-modules/c++visualstudiocode.webp" />
+<img
+  className="half-size"
+  alt="Folder structure after initializing a new library."
+  src="/docs/assets/turbo-native-modules/c++visualstudiocode.webp"
+/>
 
 Feel free to explore the code that has been created for you. However, the most important parts:
 
@@ -70,7 +74,7 @@ Finally, the library contains already all the infrastructure to let the library 
 
 The rest of the guide assumes that you have a local Turbo Native Module in your app, created following the guidelines shown in the other guides in the website: platform specific Turbo Native Modules, or [cross-platform Turbo Native Modules](./pure-cxx-modules). But it works also for Components and legacy architecture modules and components. You'll have to adapt the files you need to copy and update.
 
-<!-- TODO: add links for Turbo Native Modules -->
+{/* TODO: add links for Turbo Native Modules */}
 
 1. **[Not required for legacy architecture modules and components]** Move the code you have in the `specs` folder in your app into the `src` folder created by the `create-react-native-library` folder.
 2. Update the `index.ts` file to properly export the Turbo Native Module spec so that it is accessible from the library. For example:

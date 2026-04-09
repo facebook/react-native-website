@@ -20,7 +20,7 @@ In React Native, your Metro config should extend either [`@react-native/metro-co
 
 Below is the default `metro.config.js` file in a React Native template project:
 
-<!-- prettier-ignore -->
+{/* prettier-ignore */}
 ```js
 const {getDefaultConfig, mergeConfig} = require('@react-native/metro-config');
 
@@ -45,7 +45,7 @@ Exporting a config function is an opt-in to managing the final config yourself â
 **From `@react-native/metro-config` 0.72.1**, it is no longer necessary to use a config function to access the complete default config. See the **Tip** section below.
 :::
 
-<!-- prettier-ignore -->
+{/* prettier-ignore */}
 ```js
 const {getDefaultConfig, mergeConfig} = require('@react-native/metro-config');
 
@@ -70,7 +70,7 @@ Using a config function is for advanced use cases. A simpler method than the abo
 
 **Alternative**
 
-<!-- prettier-ignore -->
+{/* prettier-ignore */}
 ```js
 const defaultConfig = getDefaultConfig(__dirname);
 
@@ -87,7 +87,7 @@ module.exports = mergeConfig(defaultConfig, config);
 
 âœ… **Recommended**
 
-<!-- prettier-ignore -->
+{/* prettier-ignore */}
 ```js
 const config = {
   resolver: {

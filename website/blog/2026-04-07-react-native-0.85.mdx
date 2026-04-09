@@ -34,7 +34,7 @@ This release includes the New Animation Backend, moves the Jest preset to a dedi
 - [`StyleSheet.absoluteFillObject` Removed](/blog/2026/04/07/react-native-0.85#stylesheetabsolutefillobject-removed)
 - [Other Breaking Changes](/blog/2026/04/07/react-native-0.85#other-breaking-changes)
 
-<!--truncate-->
+{/* truncate */}
 
 ## Highlights
 
@@ -101,7 +101,10 @@ React Native DevTools received several improvements in this release:
 - **Multiple CDP connections**: React Native now supports multiple simultaneous Chrome DevTools Protocol connections, enabling clients such as React Native DevTools, VS Code, and AI agents to connect at the same time. This unlocks richer, composable tooling workflows without unexpectedly ending sessions.
 - **Native tabs on macOS**: We've updated the desktop app to compile for macOS 26, and have also enabled system-level tab handling for power users. Access via **Window > Merge All Windows**, when multiple DevTools windows are open.
 
-<img src="/blog/assets/0.85-devtools-macos-tabs.png" alt="DevTools native tabs on macOS" />
+<img
+  src="/blog/assets/0.85-devtools-macos-tabs.png"
+  alt="DevTools native tabs on macOS"
+/>
 
 - **Request payload previews**: After being disabled due to a regression, request body previews in the Network Panel are now restored on Android.
 
@@ -121,7 +124,7 @@ config.server.tls = {
 };
 ```
 
-<!-- alex ignore simple -->
+{/* alex ignore simple */}
 
 For local development, [mkcert](https://github.com/FiloSottile/mkcert) is a simple way to generate a locally-trusted certificate without browser warnings.
 
@@ -193,7 +196,7 @@ The deprecated `StyleSheet.absoluteFillObject` API has been removed. Use `StyleS
 
 React Native 0.85 contains over 604 commits from 58 contributors. Thanks for all your hard work!
 
-<!--alex ignore special white-->
+{/* alex ignore special white */}
 
 We want to send a special thank you to those community members that shipped significant contributions in this release.
 
@@ -204,7 +207,7 @@ We want to send a special thank you to those community members that shipped sign
 
 Moreover, we also want to thank the additional authors that worked on documenting features in this release post:
 
-<!-- TODO: Add blog post co-authors -->
+{/* TODO: Add blog post co-authors */}
 
 ## Upgrade to 0.85
 
