@@ -5,22 +5,23 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import glob from 'glob';
-import fs from 'node:fs/promises';
-import path from 'node:path';
+import * as fs from 'node:fs/promises';
+import * as path from 'node:path';
 
-const imageReferenceRegExp = new RegExp(/!\[.*?\]\((.*)\)/g);
+const imageReferenceRegExp = /!\[.*?]\((.*)\)/g;
+const docsRoot = path.join(import.meta.dirname, '../../docs');
 
 async function main() {
   const assets: {imagePath: string; markdownPath: string}[] = [];
   const missingAssets = [];
   const queue = [];
 
-  const files = await glob(
-    path.join(import.meta.dirname, '../../docs/**/*.{md,mdx}'),
-    {}
-  );
-  console.warn(files);
+  const files = (await fs.readdir(docsRoot, {recursive: true}))
+    .filter(
+      file =>
+        (file.endsWith('.md') || file.endsWith('.mdx')) && path.isAbsolute(file)
+    )
+    .map(file => path.join(docsRoot, file));
 
   for (const file of files) {
     const entry = (async () => {
