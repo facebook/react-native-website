@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import {glob} from 'glob';
+import glob from 'glob';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
@@ -16,7 +16,11 @@ async function main() {
   const missingAssets = [];
   const queue = [];
 
-  const files = await glob('../docs/**/*.md', {});
+  const files = await glob(
+    path.join(import.meta.dirname, '../../docs/**/*.{md,mdx}'),
+    {}
+  );
+  console.warn(files);
 
   for (const file of files) {
     const entry = (async () => {
@@ -37,7 +41,7 @@ async function main() {
   for (const {imagePath, markdownPath} of assets) {
     try {
       await fs.stat(
-        path.join(import.meta.dirname, '../website/static', imagePath)
+        path.join(import.meta.dirname, '../../website/static', imagePath)
       );
     } catch {
       missingAssets.push({imagePath, markdownPath});
