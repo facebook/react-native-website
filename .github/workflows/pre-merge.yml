@@ -19,7 +19,7 @@ jobs:
           cache: yarn
 
       - name: Check lock for duplications
-        run: yarn dedupe --check
+        run: yarn update-lock --fail
 
       - name: Install dependencies
         run: yarn install --immutable
