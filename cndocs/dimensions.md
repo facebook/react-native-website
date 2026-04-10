@@ -3,32 +3,33 @@ id: dimensions
 title: Dimensions
 ---
 
-import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+:::info
+对于 React 组件，[`useWindowDimensions`](usewindowdimensions) 是首选 API。与 `Dimensions` 不同，它会在窗口尺寸更新时同步更新。这种方式也更符合 React 的编程范式。
+:::
 
-本模块用于获取设备屏幕的宽高。
-
-> 对于 React 函数组件，我们更推荐使用[`useWindowDimensions`](usewindowdimensions)这个 Hook API。和 `Dimensions` 不同，它会在屏幕尺寸变化时自动更新。
-
-```jsx
-import { Dimensions } from 'react-native';
+```tsx
+import {Dimensions} from 'react-native';
 ```
 
-你可以用下面的方法来获取设备的宽高：
+你可以使用下面的代码获取应用窗口的宽度和高度：
 
-```jsx
+```tsx
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 ```
 
-> 注意：尽管尺寸信息立即就可用，但它可能会在将来被修改（譬如设备的方向改变），所以基于这些常量的渲染逻辑和样式应当每次 render 之后都调用此函数，而不是将对应的值保存下来。（举例来说，你可能需要使用内联的样式而不是在`StyleSheet`中保存相应的尺寸）。
+:::note
+尽管尺寸信息会立即可用，但它们可能发生变化（例如设备旋转、可折叠设备等），因此任何依赖这些常量的渲染逻辑或样式，都应尽量在每次渲染时调用此函数，而不是缓存其值（例如，使用内联样式，而不是把值写死在 `StyleSheet` 中）。
+:::
 
-如果你要考虑可折叠的设备，或者其他屏幕尺寸可变的设备，可以参考下面例子中所使用的事件监听函数或是[`useWindowDimensions`](usewindowdimensions)：
+如果你的目标设备是可折叠设备，或者设备的屏幕尺寸、应用窗口尺寸可能发生变化，可以像下面的示例一样使用 Dimensions 模块提供的事件监听器。
 
 ## 示例
 
-```SnackPlayer name=Dimensions
+```SnackPlayer name=Dimensions%20Example
 import React, {useState, useEffect} from 'react';
-import {View, StyleSheet, Text, Dimensions} from 'react-native';
+import {StyleSheet, Text, Dimensions} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const windowDimensions = Dimensions.get('window');
 const screenDimensions = Dimensions.get('screen');
@@ -50,20 +51,22 @@ const App = () => {
   });
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.header}>Window Dimensions</Text>
-      {Object.entries(dimensions.window).map(([key, value]) => (
-        <Text>
-          {key} - {value}
-        </Text>
-      ))}
-      <Text style={styles.header}>Screen Dimensions</Text>
-      {Object.entries(dimensions.screen).map(([key, value]) => (
-        <Text>
-          {key} - {value}
-        </Text>
-      ))}
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <Text style={styles.header}>Window Dimensions</Text>
+        {Object.entries(dimensions.window).map(([key, value]) => (
+          <Text>
+            {key} - {value}
+          </Text>
+        ))}
+        <Text style={styles.header}>Screen Dimensions</Text>
+        {Object.entries(dimensions.screen).map(([key, value]) => (
+          <Text>
+            {key} - {value}
+          </Text>
+        ))}
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
@@ -82,9 +85,7 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
----
-
-# 文档
+# 参考
 
 ## 方法
 

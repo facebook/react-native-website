@@ -225,6 +225,26 @@ static isScreenReaderEnabled(): Promise<boolean>;
 
 ---
 
+### `isHighTextContrastEnabled()` <div className="label android">Android</div>
+
+```tsx
+static isHighTextContrastEnabled(): Promise<boolean>
+```
+
+查询是否启用了高对比度文本。返回 Promise，启用为 `true`，否则为 `false`。
+
+---
+
+### `isDarkerSystemColorsEnabled()` <div className="label ios">iOS</div>
+
+```tsx
+static isDarkerSystemColorsEnabled(): Promise<boolean>
+```
+
+查询是否启用了更深的系统颜色。返回 Promise，启用为 `true`，否则为 `false`。
+
+---
+
 ### `prefersCrossFadeTransitions()` <div className="label ios">iOS</div>
 
 ```tsx
@@ -237,6 +257,10 @@ static prefersCrossFadeTransitions(): Promise<boolean>;
 
 ### 🗑️ `setAccessibilityFocus()`
 
+:::warning Deprecated
+建议改用 `sendAccessibilityEvent`，并将 `eventType` 设为 `focus`。
+:::
+
 ```tsx
 static setAccessibilityFocus(reactTag: number);
 ```
@@ -248,3 +272,22 @@ static setAccessibilityFocus(reactTag: number);
 :::note
 确保希望接收无障碍焦点的 `View` 设置了 `accessible={true}`。
 :::
+
+---
+
+### `sendAccessibilityEvent()`
+
+```tsx
+static sendAccessibilityEvent(host: HostInstance, eventType: AccessibilityEventTypes);
+```
+
+以命令式方式在 React 组件上触发无障碍事件，例如为读屏器切换当前聚焦元素。
+
+:::note
+确保希望接收无障碍焦点的 `View` 设置了 `accessible={true}`。
+:::
+
+| 名称                                                           | 类型                    | 说明                                                                 |
+| -------------------------------------------------------------- | ----------------------- | -------------------------------------------------------------------- |
+| host <div className="label basic required">Required</div>      | HostInstance            | 要向其发送事件的组件 ref。                                           |
+| eventType <div className="label basic required">Required</div> | AccessibilityEventTypes | `'click'`（仅 Android）、`'focus'`、`'viewHoverEnter'`（仅 Android）或 `'windowStateChange'`（仅 Android）之一 |

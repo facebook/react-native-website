@@ -16,6 +16,7 @@
     "build": "yarn --cwd cnwebsite build",
     "build:fast": "yarn --cwd cnwebsite build:fast",
     "serve": "yarn --cwd cnwebsite serve",
+    "sync-translations": "bash ./scripts/sync-translations.sh",
     "prepare": "husky",
     "lint": "eslint .",
     "lint:packages": "yarn workspaces foreach --from \"packages/*\" -p -R run lint",
