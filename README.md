@@ -18,18 +18,13 @@ This repo contains the website configuration and documentation powering the [Rea
 
 1. [Git](https://git-scm.com/downloads).
 1. [Node](https://nodejs.org/en/download/) _(version 22 or greater)_.
-1. [Yarn](https://yarnpkg.com/getting-started/install) _(version 4)_.
+1. [Yarn Classic](https://classic.yarnpkg.com/en/docs/install) _(version 1)_.
 1. A fork and clone of the `react-native-website` repo _(for any contributions)_.
 
 ### Installation
 
 1. `cd react-native-website` to go into the project root.
-1. Run `corepack enable` to enable Corepack.
-
-   > If the command above fails, run `npm install -g corepack@latest` to install the latest version of [Corepack](https://yarnpkg.com/corepack#installation).
-
 1. Run `yarn` to install the website's workspace dependencies.
-   > If you want to retain the globally installed `yarn` classic, you can use `corepack yarn` instead.
 
 ### Running locally
 
