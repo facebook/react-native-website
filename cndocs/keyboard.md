@@ -102,7 +102,9 @@ static addListener: (
 - `keyboardWillChangeFrame`
 - `keyboardDidChangeFrame`
 
-> 注意在 Android 上只有`keyboardDidShow`和`keyboardDidHide`事件有效。如果 Android 版本小于等于 10， 且`android:windowSoftInputMode`设置为`adjustNothing`，则没有任何事件有效。
+:::note
+在 Android 上，只有 `keyboardDidShow` 和 `keyboardDidHide` 事件可用。如果你的 activity 将 `android:windowSoftInputMode` 设置为 `adjustResize` 或 `adjustNothing`，那么在 Android 10 及以下版本中，这些事件不会触发。
+:::
 
 ---
 

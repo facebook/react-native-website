@@ -16,24 +16,26 @@ DynamicColorIOS({
 });
 ```
 
-`DynamicColorIOS` 接受一个参数，该参数是一个包含两个键的对象：`dark` 和 `light`。这些对应于您想在 iOS 上用于“浅色模式”和“深色模式”的颜色。
+`DynamicColorIOS` 接受一个对象参数，该对象包含两个必填键：`dark` 和 `light`，以及两个可选键：`highContrastLight` 和 `highContrastDark`。这些分别对应你希望在 iOS 的“浅色模式”和“深色模式”下使用的颜色；当启用高对比度辅助功能模式时，则会使用它们对应的高对比度版本。
 
-> 将来可能会有更多的键可用于不同用户偏好，比如高对比度。
-
-在运行时，系统将根据当前系统外观设置选择显示其中之一的颜色。动态颜色适用于品牌颜色或其他自定义应用程序特定颜色，仍然可以自动响应系统设置更改。
+在运行时，系统会根据当前的系统外观和辅助功能设置来选择显示哪一种颜色。动态颜色非常适合品牌色或其他应用专用颜色，同时仍能自动响应系统设置的变化。
 
 #### 开发者笔记
 
-<Tabs groupId="guide" defaultValue="web" values={constants.getDevNotesTabs(["ios", "web"])}>
+<Tabs groupId="guide" queryString defaultValue="web" values={constants.getDevNotesTabs(["ios", "web"])}>
 
 <TabItem value="web">
 
-> 如果你熟悉 CSS 中的 `@media (prefers-color-scheme: dark)`，这个功能类似！只是不同于在媒体查询中定义所有颜色，而是直接在使用它的地方定义在什么情况下使用哪种颜色。很棒！
+:::info
+如果你熟悉 CSS 中的 `@media (prefers-color-scheme: dark)`，这与它很类似！不同的是，你不是在媒体查询中定义所有颜色，而是直接在使用它的地方定义在什么情况下该使用哪种颜色。很方便！
+:::
 
 </TabItem>
 <TabItem value="ios">
 
-> `DynamicColorIOS`函数类似于iOS原生方法[`UIColor colorWithDynamicProvider:`](https://developer.apple.com/documentation/uikit/uicolor/3238040-colorwithdynamicprovider)。
+:::info
+`DynamicColorIOS` 函数类似于 iOS 原生方法 [`UIColor colorWithDynamicProvider:`](https://developer.apple.com/documentation/uikit/uicolor/3238040-colorwithdynamicprovider)。
+:::
 
 </TabItem>
 </Tabs>

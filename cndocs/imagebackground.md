@@ -11,18 +11,21 @@ title: ImageBackground
 
 ## 示例
 
-```SnackPlayer name=ImageBackground
+```SnackPlayer name=ImageBackground&dependencies=react-native-safe-area-context
 import React from 'react';
-import {ImageBackground, StyleSheet, Text, View} from 'react-native';
+import {ImageBackground, StyleSheet, Text} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const image = {uri: 'https://legacy.reactjs.org/logo-og.png'};
 
 const App = () => (
-  <View style={styles.container}>
-    <ImageBackground source={image} resizeMode="cover" style={styles.image}>
-      <Text style={styles.text}>Inside</Text>
-    </ImageBackground>
-  </View>
+  <SafeAreaProvider>
+    <SafeAreaView style={styles.container} edges={['left', 'right']}>
+      <ImageBackground source={image} resizeMode="cover" style={styles.image}>
+        <Text style={styles.text}>Inside</Text>
+      </ImageBackground>
+    </SafeAreaView>
+  </SafeAreaProvider>
 );
 
 const styles = StyleSheet.create({
@@ -68,11 +71,7 @@ export default App;
 
 ### `imageRef`
 
-设置对内部`Image`组件的引用。
-
-| 类型                                                  |
-| ----------------------------------------------------- |
-| [Ref](https://reactjs.org/docs/refs-and-the-dom.html) |
+一个 ref 设置函数，在内部 `Image` 组件挂载时会被赋值为其 [元素节点](element-nodes)。
 
 ---
 

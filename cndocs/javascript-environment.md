@@ -5,25 +5,23 @@ title: JavaScript 环境
 
 import TableRow from '@site/core/TableRowWithCodeBlock';
 
-## JavaScript 运行时环境
+## JavaScript 运行时
 
-在使用 React Native 时，你的 JavaScript 代码可能会运行在三个不同的环境上：
+在使用 React Native 时，你的 JavaScript 代码最多会运行在三种环境中：
 
-- 从 React Native 0.70 版本开始，React Native 会默认使用[Hermes](hermes)引擎，它是专门为 React Native 而优化的一个新式开源 JavaScript 引擎。
-- 如果 Hermes 被禁用或是较早的 React Native 版本，则会使用[JavaScriptCore](http://trac.webkit.org/wiki/JavaScriptCore)，也就是 Safari 所使用的 JavaScript 引擎。但是在 iOS 上 JavaScriptCore 并没有使用即时编译技术（JIT），因为在 iOS 中应用无权拥有可写可执行的内存页（因此无法动态生成代码）。
-- 在使用 Chrome 调试时，所有的 JavaScript 代码都运行在 Chrome 中，并且通过 WebSocket 与原生代码通信。此时的运行环境是[V8 引擎](https://v8.dev)。（社区也有提供可以在生产环境中使用的[react-native-v8](https://github.com/Kudo/react-native-v8))
+- 在大多数情况下，React Native 会使用 [Hermes](hermes)，这是一个为 React Native 优化的开源 JavaScript 引擎。
+- 如果禁用了 Hermes，React Native 会使用 [JavaScriptCore](https://trac.webkit.org/wiki/JavaScriptCore)，也就是 Safari 所使用的 JavaScript 引擎。请注意，在 iOS 上，JavaScriptCore 不会使用 JIT，因为 iOS 应用中没有可写且可执行的内存。
+- 在使用 Chrome 调试时，所有 JavaScript 代码都会运行在 Chrome 本身中，并通过 WebSocket 与原生代码通信。Chrome 使用 [V8](https://v8.dev/) 作为其 JavaScript 引擎。
 
-虽然这些环境非常类似，但开发者还是可能碰到一些不一致的地方。未来我们很可能会尝试一些其他的 JS 引擎，所以请尽量避免使用依赖于特定运行环境的代码。
-
-> 常见的不一致比如有：iOS 上有部分日期构造函数未实现；Android 上重复定义的 props 可能会导致报错。
+虽然这些环境非常相似，但你最终还是可能会遇到一些不一致的情况。最好避免依赖任何特定运行时的细节。
 
 ## JavaScript 语法转换器
 
 语法转换器可以使编写代码的过程更加享受，因为开发者可以借助转换器直接使用新的 JavaScript 语法标准，而无需等待 JS 解释器的支持。
 
-React Native 内置了[Babel 转换器](https://babeljs.io)。你可以查看[Babel 的文档](https://babeljs.io/docs/plugins/#transform-plugins)来了解有关它可以转换的语法的详情。
+React Native 内置了 [Babel JavaScript 编译器](https://babeljs.io)。你可以查看 [Babel 文档](https://babeljs.io/docs/plugins/#transform-plugins) 了解它所支持的转换的更多细节。
 
-在[metro-react-native-babel-preset](https://github.com/facebook/metro/tree/master/packages/metro-react-native-babel-preset)中可以看到目前 React Native 默认开启的语法转换特性。注：若想学习相关语法，译者推荐阮一峰老师的[《ECMAScript 6 入门》](http://es6.ruanyifeng.com/)。
+React Native 启用的完整转换列表可以在 [@react-native/babel-preset](https://github.com/facebook/react-native/tree/main/packages/react-native-babel-preset) 中找到。
 
 <table>
 <thead>
@@ -73,7 +71,7 @@ React Native 内置了[Babel 转换器](https://babeljs.io)。你可以查看[Ba
   <TableRow name="Babel Template" code="template(`const %%importName%% = require(%%source%%);`);" url="https://babeljs.io/docs/en/babel-template" />
   <TableRow name="Flow" code="function foo(x: ?number): string {};" url="https://flowtype.org/" />
   <TableRow name="ESM to CJS" code="export default 42;" url="https://babeljs.io/docs/en/babel-plugin-transform-modules-commonjs" />
-  <TableRow name="JSX" code="<View style={{color: 'red'}} />" url="https://reactjs.org/docs/jsx-in-depth" />
+  <TableRow name="JSX" code="<View style={{color: 'red'}} />" url="https://react.dev/learn/writing-markup-with-jsx" />
   <TableRow name="Object Assign" code="Object.assign(a, b);" url="https://babeljs.io/docs/en/babel-plugin-transform-object-assign" />
   <TableRow name="React Display Name" code="const bar = createReactClass({});" url="https://babeljs.io/docs/en/babel-plugin-transform-react-display-name" />
   <TableRow name="TypeScript" code="function foo(x: {hello: true, target: 'react native!'}): string {};" url="https://www.typescriptlang.org/" />
@@ -87,7 +85,7 @@ React Native 内置了[Babel 转换器](https://babeljs.io)。你可以查看[Ba
 #### 浏览器
 
 - [CommonJS `require`](https://nodejs.org/docs/latest/api/modules.html)
-- `md [console.{log, warn, error, info, trace, table, group, groupEnd}](https://developer.chrome.com/devtools/docs/console-api)`
+- `md [console.{log, warn, error, info, debug, trace, table, group, groupCollapsed, groupEnd}](https://developer.chrome.com/devtools/docs/console-api)`
 - [`XMLHttpRequest`, `fetch`](network.md#content)
 - [`{set, clear}{Timeout, Interval, Immediate}, {request, cancel}AnimationFrame`](timers.md#content)
 

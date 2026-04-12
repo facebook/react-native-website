@@ -46,7 +46,6 @@
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.57.1"
   },
-  "packageManager": "yarn@4.13.0",
   "resolutions": {
     "serialize-javascript": "^7.0.3",
     "serve-handler/minimatch": "3.1.4"
