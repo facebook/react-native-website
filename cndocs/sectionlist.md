@@ -22,14 +22,8 @@ title: SectionList
 
 ```SnackPlayer name=SectionList%20Example
 import React from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  SafeAreaView,
-  SectionList,
-  StatusBar,
-} from 'react-native';
+import {StyleSheet, Text, View, SectionList, StatusBar} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const DATA = [
   {
@@ -51,20 +45,22 @@ const DATA = [
 ];
 
 const App = () => (
-  <SafeAreaView style={styles.container}>
-    <SectionList
-      sections={DATA}
-      keyExtractor={(item, index) => item + index}
-      renderItem={({item}) => (
-        <View style={styles.item}>
-          <Text style={styles.title}>{item}</Text>
-        </View>
-      )}
-      renderSectionHeader={({section: {title}}) => (
-        <Text style={styles.header}>{title}</Text>
-      )}
-    />
-  </SafeAreaView>
+  <SafeAreaProvider>
+    <SafeAreaView style={styles.container} edges={['top']}>
+      <SectionList
+        sections={DATA}
+        keyExtractor={(item, index) => item + index}
+        renderItem={({item}) => (
+          <View style={styles.item}>
+            <Text style={styles.title}>{item}</Text>
+          </View>
+        )}
+        renderSectionHeader={({section: {title}}) => (
+          <Text style={styles.header}>{title}</Text>
+        )}
+      />
+    </SafeAreaView>
+  </SafeAreaProvider>
 );
 
 const styles = StyleSheet.create({
@@ -135,7 +131,7 @@ export default App;
 
 ---
 
-### <div class="label required basic">必需</div>**`renderItem`**
+### <div className="label required basic">必需</div>**`renderItem`**
 
 用来渲染每一个 section 中的每一个列表项的默认渲染器。可以在 section 级别上进行覆盖重写。必须返回一个 react 组件。
 

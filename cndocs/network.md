@@ -15,13 +15,13 @@ React Native 提供了和 web 标准一致的[Fetch API](https://developer.mozil
 
 要从任意地址获取内容的话，只需简单地将网址作为参数传递给 fetch 方法即可（fetch 这个词本身也就是`获取`的意思）：
 
-```jsx
+```tsx
 fetch('https://mywebsite.com/mydata.json');
 ```
 
 Fetch 还有可选的第二个参数，可以用来定制 HTTP 请求一些参数。你可以指定 header 参数，或是指定使用 POST 方法，又或是提交数据等等：
 
-```jsx
+```tsx
 fetch('https://mywebsite.com/endpoint/', {
   method: 'POST',
   headers: {
@@ -57,137 +57,163 @@ fetch('https://mywebsite.com/endpoint/', {
 
 网络请求天然是一种异步操作。Fetch 方法会返回一个[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)，这种模式可以简化异步风格的代码（译注：同样的，如果你不了解 promise，建议使用搜索引擎补课）：
 
-```jsx
-function getMoviesFromApiAsync() {
-  return fetch(
-    'https://facebook.github.io/react-native/movies.json',
-  )
+```tsx
+const getMoviesFromApi = () => {
+  return fetch('https://reactnative.dev/movies.json')
     .then(response => response.json())
-    .then(responseJson => {
-      return responseJson.movies;
+    .then(json => {
+      return json.movies;
     })
     .catch(error => {
       console.error(error);
     });
-}
+};
 ```
 
-你也可以在 React Native 应用中使用 ES2017 标准中的`async`/`await` 语法：
+你也可以在 React Native 应用中使用`async`/`await` 语法：
 
-```jsx
-// 注意这个方法前面有async关键字
-async function getMoviesFromApi() {
+```tsx
+const getMoviesFromApiAsync = async () => {
   try {
-    // 注意这里的await语句，其所在的函数必须有async关键字声明
-    let response = await fetch(
-      'https://facebook.github.io/react-native/movies.json',
+    const response = await fetch(
+      'https://reactnative.dev/movies.json',
     );
-    let responseJson = await response.json();
-    return responseJson.movies;
+    const json = await response.json();
+    return json.movies;
   } catch (error) {
     console.error(error);
   }
-}
+};
 ```
 
 别忘了 catch 住`fetch`可能抛出的异常，否则出错时你可能看不到任何提示。
 
-<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
-<TabItem value="functional">
+<Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
+<TabItem value="javascript">
 
-```SnackPlayer name=Fetch%20Example
-import React, { useEffect, useState } from 'react';
-import { ActivityIndicator, FlatList, Text, View } from 'react-native';
+```SnackPlayer name=Fetch%20Example&ext=js
+import React, {useEffect, useState} from 'react';
+import {ActivityIndicator, FlatList, Text, View} from 'react-native';
 
-export default App = () => {
+const App = () => {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
 
+  const getMovies = async () => {
+    try {
+      const response = await fetch('https://reactnative.dev/movies.json');
+      const json = await response.json();
+      setData(json.movies);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
-    fetch('https://reactnative.dev/movies.json')
-      .then((response) => response.json())
-      .then((json) => setData(json.movies))
-      .catch((error) => console.error(error))
-      .finally(() => setLoading(false));
+    getMovies();
   }, []);
 
   return (
-    <View style={{ flex: 1, padding: 24 }}>
-      {isLoading ? <ActivityIndicator/> : (
+    <View style={{flex: 1, padding: 24}}>
+      {isLoading ? (
+        <ActivityIndicator />
+      ) : (
         <FlatList
           data={data}
-          keyExtractor={({ id }, index) => id}
-          renderItem={({ item }) => (
-            <Text>{item.title}, {item.releaseYear}</Text>
+          keyExtractor={({id}) => id}
+          renderItem={({item}) => (
+            <Text>
+              {item.title}, {item.releaseYear}
+            </Text>
           )}
         />
       )}
     </View>
   );
 };
+
+export default App;
 ```
 
 </TabItem>
-<TabItem value="classical">
+<TabItem value="typescript">
 
-```SnackPlayer name=Fetch%20Example
-import React, { Component } from 'react';
-import { ActivityIndicator, FlatList, Text, View } from 'react-native';
+```SnackPlayer name=Fetch%20Example&ext=tsx
+import React, {useEffect, useState} from 'react';
+import {ActivityIndicator, FlatList, Text, View} from 'react-native';
 
-export default class App extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      data: [],
-      isLoading: true
-    };
-  }
-
-  componentDidMount() {
-    fetch('https://reactnative.dev/movies.json')
-      .then((response) => response.json())
-      .then((json) => {
-        this.setState({ data: json.movies });
-      })
-      .catch((error) => console.error(error))
-      .finally(() => {
-        this.setState({ isLoading: false });
-      });
-  }
-
-  render() {
-    const { data, isLoading } = this.state;
-
-    return (
-      <View style={{ flex: 1, padding: 24 }}>
-        {isLoading ? <ActivityIndicator/> : (
-          <FlatList
-            data={data}
-            keyExtractor={({ id }, index) => id}
-            renderItem={({ item }) => (
-              <Text>{item.title}, {item.releaseYear}</Text>
-            )}
-          />
-        )}
-      </View>
-    );
-  }
+type Movie = {
+  id: string;
+  title: string;
+  releaseYear: string;
 };
+
+type MoviesResponse = {
+  title: string;
+  description: string;
+  movies: Movie[];
+};
+
+const App = () => {
+  const [isLoading, setLoading] = useState(true);
+  const [data, setData] = useState<Movie[]>([]);
+
+  const getMovies = async () => {
+    try {
+      const response = await fetch('https://reactnative.dev/movies.json');
+      const json = (await response.json()) as MoviesResponse;
+      setData(json.movies);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    getMovies();
+  }, []);
+
+  return (
+    <View style={{flex: 1, padding: 24}}>
+      {isLoading ? (
+        <ActivityIndicator />
+      ) : (
+        <FlatList
+          data={data}
+          keyExtractor={({id}) => id}
+          renderItem={({item}) => (
+            <Text>
+              {item.title}, {item.releaseYear}
+            </Text>
+          )}
+        />
+      )}
+    </View>
+  );
+};
+
+export default App;
 ```
 
 </TabItem>
 </Tabs>
 
-> 默认情况下，iOS 会阻止所有 http 的请求，以督促开发者使用 https。如果你仍然需要使用 http 协议，那么首先需要添加一个 App Transport Security 的例外，详细可参考[这篇帖子](https://segmentfault.com/a/1190000002933776)。
+:::info
+默认情况下，iOS 9.0 或更高版本会强制执行 App Transport Security (ATS)。ATS 要求所有 HTTP 连接使用 HTTPS。如果你需要从明文 URL（以`http`开头的 URL）获取数据，你需要先[添加 ATS 例外](integration-with-existing-apps.md#test-your-integration)。如果你提前知道需要访问哪些域名，只为这些域名添加例外会更安全；如果域名在运行时才知道，你可以[完全禁用 ATS](publishing-to-app-store.md#1-enable-app-transport-security)。但请注意，从 2017 年 1 月起，[Apple App Store 审核将要求对禁用 ATS 提供合理理由](https://forums.developer.apple.com/thread/48979)。更多信息请参阅 [Apple 文档](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW33)。
+:::
 
-> 从 Android9 开始，也会默认阻止 http 请求，请参考[相关配置](https://blog.csdn.net/qq_40347548/article/details/86766932)
+:::tip
+在 Android 上，从 API Level 28 开始，默认也会阻止明文流量。可以通过在 app manifest 文件中设置[`android:usesCleartextTraffic`](https://developer.android.com/guide/topics/manifest/application-element#usesCleartextTraffic)来覆盖此行为。
+:::
 
 ## 使用其他的网络库
 
 React Native 中已经内置了[XMLHttpRequest API](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest)(也就是俗称的 ajax)。一些基于 XMLHttpRequest 封装的第三方库也可以使用，例如[frisbee](https://github.com/niftylettuce/frisbee)或是[axios](https://github.com/mzabriskie/axios)等。但注意不能使用 jQuery，因为 jQuery 中还使用了很多浏览器中才有而 RN 中没有的东西（所以也不是所有 web 中的 ajax 库都可以直接使用）。
 
-```jsx
+```tsx
 const request = new XMLHttpRequest();
 request.onreadystatechange = e => {
   if (request.readyState !== 4) {
@@ -205,13 +231,15 @@ request.open('GET', 'https://mywebsite.com/endpoint/');
 request.send();
 ```
 
-> 需要注意的是，安全机制与网页环境有所不同：在应用中你可以访问任何网站，没有[跨域](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing)的限制。
+:::warning 注意
+XMLHttpRequest 的安全模型与网页不同，因为在原生应用中没有[跨域](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)的概念。
+:::
 
 ## WebSocket 支持
 
 React Native 还支持[WebSocket](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket)，这种协议可以在单个 TCP 连接上提供全双工的通信信道。
 
-```jsx
+```tsx
 const ws = new WebSocket('ws://host.com/path');
 
 ws.onopen = () => {
@@ -234,10 +262,6 @@ ws.onclose = e => {
   console.log(e.code, e.reason);
 };
 ```
-
-## High Five!
-
-现在你的应用已经可以从各种渠道获取数据了，那么接下来面临的问题多半就是如何在不同的页面间组织和串联内容了。要管理页面的跳转，你需要学习[使用导航器跳转页面](navigation.md)。
 
 ## 使用 `fetch` 和基于 cookie 的身份验证存在已知问题
 

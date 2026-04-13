@@ -3,7 +3,9 @@ id: touchablehighlight
 title: TouchableHighlight
 ---
 
-> 我们建议使用[Pressable](pressable.md)组件，它更具扩展性且会是官方未来力推的主流。
+:::tip
+我们建议使用[Pressable](pressable.md)组件，它更具扩展性且会是官方未来力推的主流。
+:::
 
 本组件用于封装视图，使其可以正确响应触摸操作。当按下的时候，封装的视图的不透明度会降低，同时会有一个底层的颜色透过而被用户看到，使得视图变暗或变亮。
 
@@ -33,22 +35,25 @@ function MyComponent(props: MyComponentProps) {
 ```SnackPlayer name=TouchableHighlight%20Example
 import React, {useState} from 'react';
 import {StyleSheet, Text, TouchableHighlight, View} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const TouchableHighlightExample = () => {
   const [count, setCount] = useState(0);
   const onPress = () => setCount(count + 1);
 
   return (
-    <View style={styles.container}>
-      <TouchableHighlight onPress={onPress}>
-        <View style={styles.button}>
-          <Text>Touch Here</Text>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <TouchableHighlight onPress={onPress}>
+          <View style={styles.button}>
+            <Text>Touch Here</Text>
+          </View>
+        </TouchableHighlight>
+        <View style={styles.countContainer}>
+          <Text style={styles.countText}>{count || null}</Text>
         </View>
-      </TouchableHighlight>
-      <View style={styles.countContainer}>
-        <Text style={styles.countText}>{count || null}</Text>
-      </View>
-    </View>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
@@ -111,9 +116,15 @@ export default TouchableHighlightExample;
 
 当底层的颜色被显示的时候调用。
 
-| 类型     |
-| -------- |
-| function |
+|| 类型     |
+|| -------- |
+|| function |
+
+---
+
+### `ref`
+
+一个 ref 设置器，在组件挂载时会被分配一个[元素节点](element-nodes)。
 
 ---
 
@@ -135,7 +146,7 @@ export default TouchableHighlightExample;
 
 ---
 
-### `hasTVPreferredFocus` <div class="label ios">iOS</div>
+### `hasTVPreferredFocus` <div className="label ios">iOS</div>
 
 _(Apple TV 专用)_ 是否允许在 Apple TV 上获取焦点。(请参考 [View](view.md) 组件的文档).
 
@@ -145,7 +156,7 @@ _(Apple TV 专用)_ 是否允许在 Apple TV 上获取焦点。(请参考 [View]
 
 ---
 
-### `nextFocusDown` <div class="label android">Android</div>
+### `nextFocusDown` <div className="label android">Android</div>
 
 TV 平台上向下选择焦点 (请参考 [View](view.md) 组件的文档).
 
@@ -155,7 +166,7 @@ TV 平台上向下选择焦点 (请参考 [View](view.md) 组件的文档).
 
 ---
 
-### `nextFocusForward` <div class="label android">Android</div>
+### `nextFocusForward` <div className="label android">Android</div>
 
 TV 平台上向前选择焦点 (请参考 [View](view.md) 组件的文档).
 
@@ -165,7 +176,7 @@ TV 平台上向前选择焦点 (请参考 [View](view.md) 组件的文档).
 
 ---
 
-### `nextFocusLeft` <div class="label android">Android</div>
+### `nextFocusLeft` <div className="label android">Android</div>
 
 TV 平台上向左选择焦点 (请参考 [View](view.md) 组件的文档).
 
@@ -175,7 +186,7 @@ TV 平台上向左选择焦点 (请参考 [View](view.md) 组件的文档).
 
 ---
 
-### `nextFocusRight` <div class="label android">Android</div>
+### `nextFocusRight` <div className="label android">Android</div>
 
 TV 平台上向右选择焦点 (请参考 [View](view.md) 组件的文档).
 
@@ -185,7 +196,7 @@ TV 平台上向右选择焦点 (请参考 [View](view.md) 组件的文档).
 
 ---
 
-### `nextFocusUp` <div class="label android">Android</div>
+### `nextFocusUp` <div className="label android">Android</div>
 
 TV 平台上向上选择焦点 (请参考 [View](view.md) 组件的文档).
 

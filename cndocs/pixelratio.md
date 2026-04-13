@@ -32,60 +32,74 @@ const image = getImage({
 ## 示例
 
 ```SnackPlayer name=PixelRatio%20Example
-import React from "react";
-import { Image, PixelRatio, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
+import React from 'react';
+import {
+  Image,
+  PixelRatio,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
+
 const size = 50;
 const cat = {
-  uri: "https://reactnative.dev/docs/assets/p_cat1.png",
+  uri: 'https://reactnative.dev/docs/assets/p_cat1.png',
   width: size,
-  height: size
+  height: size,
 };
+
 const App = () => (
-  <ScrollView style={styles.scrollContainer}>
-    <View style={styles.container}>
-      <Text>Current Pixel Ratio is:</Text>
-      <Text style={styles.value}>{PixelRatio.get()}</Text>
-    </View>
-    <View style={styles.container}>
-      <Text>Current Font Scale is:</Text>
-      <Text style={styles.value}>{PixelRatio.getFontScale()}</Text>
-    </View>
-    <View style={styles.container}>
-      <Text>On this device images with a layout width of</Text>
-      <Text style={styles.value}>{size} px</Text>
-      <Image source={cat} />
-    </View>
-    <View style={styles.container}>
-      <Text>require images with a pixel width of</Text>
-      <Text style={styles.value}>
-        {PixelRatio.getPixelSizeForLayoutSize(size)} px
-      </Text>
-      <Image
-        source={cat}
-        style={{
-          width: PixelRatio.getPixelSizeForLayoutSize(size),
-          height: PixelRatio.getPixelSizeForLayoutSize(size)
-        }}
-      />
-    </View>
-  </ScrollView>
+  <SafeAreaProvider>
+    <SafeAreaView style={styles.container}>
+      <ScrollView style={styles.scrollContainer}>
+        <View style={styles.container}>
+          <Text>Current Pixel Ratio is:</Text>
+          <Text style={styles.value}>{PixelRatio.get()}</Text>
+        </View>
+        <View style={styles.container}>
+          <Text>Current Font Scale is:</Text>
+          <Text style={styles.value}>{PixelRatio.getFontScale()}</Text>
+        </View>
+        <View style={styles.container}>
+          <Text>On this device images with a layout width of</Text>
+          <Text style={styles.value}>{size} px</Text>
+          <Image source={cat} />
+        </View>
+        <View style={styles.container}>
+          <Text>require images with a pixel width of</Text>
+          <Text style={styles.value}>
+            {PixelRatio.getPixelSizeForLayoutSize(size)} px
+          </Text>
+          <Image
+            source={cat}
+            style={{
+              width: PixelRatio.getPixelSizeForLayoutSize(size),
+              height: PixelRatio.getPixelSizeForLayoutSize(size),
+            }}
+          />
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+  </SafeAreaProvider>
 );
+
 const styles = StyleSheet.create({
   scrollContainer: {
-    flext: 1,
-    marginTop: "2em",
-    justifyContent: "center",
+    flex: 1,
   },
   container: {
-    justifyContent: "center",
-    alignItems: "center"
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   value: {
     fontSize: 24,
     marginBottom: 12,
-    marginTop: 4
-  }
+    marginTop: 4,
+  },
 });
+
 export default App;
 ```
 
@@ -137,8 +151,6 @@ static getFontScale(): number
 - iOS 上对应的是用户选项里的**Settings > Display & Brightness > Text Size**, value can also be updated in **Settings > Accessibilty > Display & Test Size > Larger Text**
 
 如果没有设置字体缩放大小，它会直接返回设备的像素密度。
-
-目前这个函数仅仅在 Android 设备上实现了，在 iOS 设备上它会直接返回默认的像素密度。
 
 ---
 

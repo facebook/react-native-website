@@ -1,9 +1,11 @@
 ---
 id: progressbarandroid
-title: 🚧 ProgressBarAndroid
+title: '🗑️ ProgressBarAndroid'
 ---
 
-> **已过时。** Use [@react-native-community/progress-bar-android](https://github.com/react-native-community/progress-bar-android) instead.
+:::warning Deprecated
+Use one of the [community packages](https://reactnative.directory/?search=progressbar) instead.
+:::
 
 封装了 Android 平台上的`ProgressBar`的 React 组件。这个组件可以用来表示应用正在加载或者有些事情正在进行中。
 
@@ -38,7 +40,7 @@ const App = () => {
       </View>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -59,6 +61,8 @@ export default App;
 # 文档
 
 ## Props
+
+继承 [View Props](view.md#props).
 
 ### `animating`
 

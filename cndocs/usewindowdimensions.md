@@ -3,77 +3,91 @@ id: usewindowdimensions
 title: useWindowDimensions
 ---
 
-```jsx
-import { useWindowDimensions } from 'react-native';
+```tsx
+import {useWindowDimensions} from 'react-native';
 ```
 
-`useWindowDimensions`会在屏幕尺寸变化时自动更新获取到的设备`width`和`height`值。使用方法如下：
+`useWindowDimensions` 会在屏幕尺寸或字体缩放比例变化时自动更新所有值。你可以像这样获取应用窗口的宽度和高度：
 
-```jsx
-const windowWidth = useWindowDimensions().width;
-const windowHeight = useWindowDimensions().height;
+```tsx
+const {height, width} = useWindowDimensions();
 ```
 
 ## 示例
 
 ```SnackPlayer name=useWindowDimensions&supportedPlatforms=ios,android
-import React from "react";
-import { View, StyleSheet, Text, useWindowDimensions } from "react-native";
+import React from 'react';
+import {StyleSheet, Text, useWindowDimensions} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => {
-  const window = useWindowDimensions();
+  const {height, width, scale, fontScale} = useWindowDimensions();
   return (
-    <View style={styles.container}>
-      <Text>{`Window Dimensions: height - ${window.height}, width - ${window.width}`}</Text>
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <Text style={styles.header}>Window Dimension Data</Text>
+        <Text>Height: {height}</Text>
+        <Text>Width: {width}</Text>
+        <Text>Font scale: {fontScale}</Text>
+        <Text>Pixel ratio: {scale}</Text>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
-}
+};
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center"
-  }
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  header: {
+    fontSize: 20,
+    marginBottom: 12,
+  },
 });
 
 export default App;
 ```
 
-- The [useDimensions](https://github.com/react-native-community/react-native-hooks#usedimensions) hook from the community [React native hooks](https://github.com/react-native-community/react-native-hooks) library aims to make handling screen/window size changes easier to work with.
-- [React Native Responsive Dimensions](https://github.com/DaniAkash/react-native-responsive-dimensions) also comes with responsive hooks.
-
 ## 属性
 
 ### `fontScale`
 
-The scale of the font currently used. Some operating systems allow users to scale their font sizes larger or smaller for reading comfort. This property will let you know what is in effect.
-
-```jsx
+```tsx
 useWindowDimensions().fontScale;
 ```
 
+The scale of the font currently used. Some operating systems allow users to scale their font sizes larger or smaller for reading comfort. This property will let you know what is in effect.
+
+---
+
 ### `height`
 
-The height in pixels of the window or screen your app occupies.
-
-```jsx
+```tsx
 useWindowDimensions().height;
 ```
 
+The height in pixels of the window or screen your app occupies.
+
+---
+
 ### `scale`
 
-The pixel ratio of the device your app is running on.
-
-```jsx
+```tsx
 useWindowDimensions().scale;
 ```
 
-> A value of `1` indicates PPI/DPI of 96 (76 on some platforms). `2` indicates a Retina or high DPI display.
+The pixel ratio of the device your app is running on. The values can be:
+
+- `1` which indicates that one point equals one pixel (usually PPI/DPI of 96, 76 on some platforms).
+- `2` or `3` which indicates a Retina or high DPI display.
+
+---
 
 ### `width`
 
-The width in pixels of the window or screen your app occupies.
-
-```jsx
+```tsx
 useWindowDimensions().width;
 ```
+
+The width in pixels of the window or screen your app occupies.

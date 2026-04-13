@@ -46,3 +46,7 @@ export default LotsOfStyles;
 文本的样式定义请参阅[Text 组件的文档](text.md)。
 
 现在你已经了解如何调整文本样式了，下面我们要学习的是[如何控制组件的尺寸](height-and-width.md)。
+
+## 已知问题
+
+- [react-native#29308](https://github.com/facebook/react-native/issues/29308#issuecomment-792864162)：在某些情况下，React Native 与 web 上 CSS 的工作方式不一致，例如触摸区域永远不会超出父视图的边界，以及在 Android 上不支持负 margin。

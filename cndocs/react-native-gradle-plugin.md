@@ -147,6 +147,14 @@ extraPackagerArgs = []
 hermesFlags = ["-O", "-output-source-map"]
 ```
 
+### `enableBundleCompression`
+
+Bundle 资源在打包到 `.apk` 中时是否应该被压缩。
+
+禁用 `.bundle` 的压缩允许它直接内存映射到 RAM，从而改善启动时间——代价是在磁盘上产生更大的应用大小。请注意，`.apk` 的下载大小基本不受影响，因为 `.apk` 文件在下载前会被压缩。
+
+默认情况下这是禁用的，你不应该启用它，除非你真的关心应用的磁盘空间。
+
 ## 使用 Flavors 与 Build Variants
 
 在构建 Android 应用时，你可能希望使用 [自定义 Flavors](https://developer.android.com/studio/build/build-variants#product-flavors) 来从同一个项目中生成不同版本的 app。

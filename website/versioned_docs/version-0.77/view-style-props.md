@@ -392,7 +392,7 @@ The following filter functions work on Android only:
 ### `mixBlendMode`
 
 :::note
-`mixBlendMode` is only available on the [New Architecture](/architecture/landing-page)
+`mixBlendMode` is only available on the [New Architecture](/architecture/landing-page) and **Android 10+**
 :::
 
 Controls how the `View` blends its colors with the other elements in its **stacking context**. Check out the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/mix-blend-mode) for a full overview of each blending function.

@@ -39,6 +39,10 @@ const styles = StyleSheet.create({
         backgroundColor: 'red',
       },
       android: {
+        backgroundColor: 'green',
+      },
+      default: {
+        // other platforms, web for example
         backgroundColor: 'blue',
       },
     }),
@@ -46,7 +50,7 @@ const styles = StyleSheet.create({
 });
 ```
 
-上面的代码会根据平台的不同返回不同的 container 样式 —— iOS 上背景色为红色，而 android 为蓝色。
+上面的代码会根据平台的不同返回不同的 container 样式 —— iOS 上背景色为红色，android 为绿色，其他平台（如 web）为蓝色。
 
 这一方法可以接受任何合法类型的参数，因此你也可以直接用它针对不同平台返回不同的组件，像下面这样：
 
@@ -54,6 +58,15 @@ const styles = StyleSheet.create({
 const Component = Platform.select({
   ios: () => require('ComponentIOS'),
   android: () => require('ComponentAndroid'),
+})();
+
+<Component />;
+```
+
+```jsx
+const Component = Platform.select({
+  native: () => require('ComponentForNative'),
+  default: () => require('ComponentForWeb'),
 })();
 
 <Component />;

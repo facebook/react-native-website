@@ -9,33 +9,36 @@ title: Switch
 
 ## 示例
 
-```SnackPlayer name=Switch
-import React, { useState } from "react";
-import { View, Switch, StyleSheet } from "react-native";
+```SnackPlayer name=Switch&supportedPlatforms=android,ios
+import React, {useState} from 'react';
+import {Switch, StyleSheet} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => {
   const [isEnabled, setIsEnabled] = useState(false);
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
 
   return (
-    <View style={styles.container}>
-      <Switch
-        trackColor={{ false: "#767577", true: "#81b0ff" }}
-        thumbColor={isEnabled ? "#f5dd4b" : "#f4f3f4"}
-        ios_backgroundColor="#3e3e3e"
-        onValueChange={toggleSwitch}
-        value={isEnabled}
-      />
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <Switch
+          trackColor={{false: '#767577', true: '#81b0ff'}}
+          thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
+          ios_backgroundColor="#3e3e3e"
+          onValueChange={toggleSwitch}
+          value={isEnabled}
+        />
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
-  }
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 });
 
 export default App;
@@ -63,7 +66,7 @@ export default App;
 
 ---
 
-### `ios_backgroundColor` <div class="label ios">iOS</div>
+### `ios_backgroundColor` <div className="label ios">iOS</div>
 
 在 iOS 上，自定义背景颜色。这种背景颜色可以在开关值为`false`时或开关被禁用（且开关呈半透明状态）时看到。
 
@@ -90,6 +93,12 @@ export default App;
 | 类型     |
 | -------- |
 | function |
+
+---
+
+### `ref`
+
+一个 ref 设置器，在组件挂载时会被分配一个[元素节点](element-nodes)。
 
 ---
 

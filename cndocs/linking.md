@@ -39,12 +39,14 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import con
 
 如果你想在你的应用程序中启用 Deep Links，请遵循以下指南：
 
-<Tabs groupId="syntax" defaultValue={constants.defaultPlatform} values={constants.platforms}>
+<Tabs groupId="syntax" queryString defaultValue={constants.defaultPlatform} values={constants.platforms}>
 <TabItem value="android">
 
-> 要了解更多如何在 Android 上支持深度链接的说明，请参阅[Enabling Deep Links for App Content - Add Intent Filters for Your Deep Links](http://developer.android.com/training/app-indexing/deep-linking.html#adding-filters).
+:::info
+要了解更多如何在 Android 上支持深度链接的说明，请参阅[Enabling Deep Links for App Content - Add Intent Filters for Your Deep Links](https://developer.android.com/training/app-indexing/deep-linking.html#adding-filters)。
+:::
 
-如果要在现有的 MainActivity 中监听传入的 intent，那么需要在`AndroidManifest.xml`中将 MainActivity 的`launchMode`设置为`singleTask`。相关解释可参考[`<activity>`](http://developer.android.com/guide/topics/manifest/activity-element.html)文档。
+如果要在现有的 MainActivity 中监听传入的 intent，那么需要在`AndroidManifest.xml`中将 MainActivity 的`launchMode`设置为`singleTask`。相关解释可参考[`<activity>`](https://developer.android.com/guide/topics/manifest/activity-element.html)文档。
 
 ```xml
 <activity
@@ -55,9 +57,13 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import con
 </TabItem>
 <TabItem value="ios">
 
-> **注意：** 对于 iOS 来说，如果要在 App 启动后也监听传入的 App 链接，那么首先需要在项目中链接`RCTLinking`，具体步骤请参考[手动链接](linking-libraries-ios#手动链接)这篇文档，然后需要在`AppDelegate.m`中增加以下代码：
+:::note
+对于 iOS 来说，如果要在 App 启动后也监听传入的 App 链接，那么首先需要按照[步骤 3](linking-libraries-ios#step-3)中的说明将`LinkingIOS`文件夹添加到头文件搜索路径中。如果还想在 App 运行期间监听传入的 App 链接，那么需要在`*AppDelegate.m`中增加以下代码：
 
-```objectivec
+<Tabs groupId="ios-language" queryString defaultValue={constants.defaultAppleLanguage} values={constants.appleLanguages}>
+<TabItem value="objc">
+
+```objc title="AppDelegate.mm"
 // iOS 9.x 或更高版本
 #import <React/RCTLinkingManager.h>
 
@@ -69,21 +75,9 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import con
 }
 ```
 
-```objectivec
-// iOS 8.x 或更低版本
-#import <React/RCTLinkingManager.h>
+如果你的 app 用了 [Universal Links](https://developer.apple.com/ios/universal-links/)，需要正确的把下述代码添加进去：
 
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
-  sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
-{
-  return [RCTLinkingManager application:application openURL:url
-                      sourceApplication:sourceApplication annotation:annotation];
-}
-```
-
-如果你的 app 用了 [Universal Links](https://developer.apple.com/library/prerelease/ios/documentation/General/Conceptual/AppSearch/UniversalLinks.html)，需要正确的把下述代码添加进去：
-
-```objectivec
+```objc title="AppDelegate.mm"
 - (BOOL)application:(UIApplication *)application continueUserActivity:(nonnull NSUserActivity *)userActivity
  restorationHandler:(nonnull void (^)(NSArray<id<UIUserActivityRestoring>> * _Nullable))restorationHandler
 {
@@ -94,7 +88,33 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import con
 ```
 
 </TabItem>
+<TabItem value="swift">
+
+```swift title="AppDelegate.swift"
+override func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+  return RCTLinkingManager.application(app, open: url, options: options)
+}
+```
+
+如果你的 app 用了 [Universal Links](https://developer.apple.com/ios/universal-links/)，需要正确的把下述代码添加进去：
+
+```swift title="AppDelegate.swift"
+override func application(
+  _ application: UIApplication,
+  continue userActivity: NSUserActivity,
+  restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+    return RCTLinkingManager.application(
+      application,
+      continue: userActivity,
+      restorationHandler: restorationHandler
+    )
+  }
+```
+
+</TabItem>
 </Tabs>
+
+:::
 
 ### 处理 Deep Links
 
@@ -555,37 +575,42 @@ static canOpenURL(url: string): Promise<boolean>;
 
 本方法会返回一个`Promise`对象。当确定传入的 URL 可以被处理时，promise 就会返回，值的第一个参数是表示是否可以打开 URL。
 
-The `Promise` will reject on Android if it was impossible to check if the URL can be opened or when targetting Android 11 (SDK 30) if you didn't specify the relevant intent queries in `AndroidManifest.xml`. Similarly on iOS, the promise will reject if you didn't add the specific scheme in the `LSApplicationQueriesSchemes` key inside `Info.plist` (see bellow).
 如果无法检查 URL 是否可以打开，或者当目标为 Android 11 (SDK 30) 平台且您没有在 `AndroidManifest.xml` 中指定相关的 intent queries，则 `Promise` 将在 Android 上拒绝。类似地，在 iOS 上，如果你没有在 `Info.plist` 中的 `LSApplicationQueriesSchemes` 键中添加特定的 scheme，`Promise` 将被拒绝（见下文）。
 
-**Parameters:**
+**参数:**
 
-| Name                                                     | Type   | Description      |
+| 名称                                                     | 类型   | 说明      |
 | -------------------------------------------------------- | ------ | ---------------- |
-| url <div className="label basic required">Required</div> | string | The URL to open. |
+| url <div className="label basic required">Required</div> | string | 要打开的 URL。 |
 
-> 对于 web 链接来说，协议头("http://", "https://")不能省略！
+:::note
+对于 web 链接来说，协议头(`"http://"`, `"https://"`)不能省略！
+:::
 
-> This method has limitations on iOS 9+. From [the official Apple documentation](https://developer.apple.com/documentation/uikit/uiapplication/1622952-canopenurl):
->
-> - If your app is linked against an earlier version of iOS but is running in iOS 9.0 or later, you can call this method up to 50 times. After reaching that limit, subsequent calls always resolve to `false`. If the user reinstalls or upgrades the app, iOS resets the limit.
->
-> 对于 iOS 9 来说，你需要在`Info.plist`中添加`LSApplicationQueriesSchemes`字段，否则`canOpenURL`可能一直返回 false。
+:::warning
+此方法在 iOS 9+ 上有限制。根据[Apple 官方文档](https://developer.apple.com/documentation/uikit/uiapplication/1622952-canopenurl)：
 
-> When targeting Android 11 (SDK 30) you must specify the intents for the schemes you want to handle in `AndroidManifest.xml`. A list of common intents can be found [here](https://developer.android.com/guide/components/intents-common).
->
-> For example to handle `https` schemes the following needs to be added to your manifest:
->
-> ```
-> <manifest ...>
->     <queries>
->         <intent>
->             <action android:name="android.intent.action.VIEW" />
->             <data android:scheme="https"/>
->         </intent>
->     </queries>
-> </manifest>
-> ```
+- 如果你的 app 链接了早期版本的 iOS 但运行在 iOS 9.0 或更高版本上，你可以调用此方法最多 50 次。达到该限制后，后续调用将始终解析为`false`。如果用户重新安装或升级 app，iOS 会重置该限制。
+- 从 iOS 9 开始，你的 app 还需要在`Info.plist`中提供`LSApplicationQueriesSchemes`键，否则`canOpenURL()`将始终解析为`false`。
+:::
+
+:::info
+当目标为 Android 11 (SDK 30) 时，你必须在`AndroidManifest.xml`中指定要处理的 scheme 的 intent。可以在[这里](https://developer.android.com/guide/components/intents-common)找到常见 intent 的列表。
+
+例如，要处理`https` scheme，需要在 manifest 中添加以下内容：
+
+```
+<manifest ...>
+  <queries>
+    <intent>
+      <action android:name="android.intent.action.VIEW" />
+      <data android:scheme="https"/>
+    </intent>
+  </queries>
+</manifest>
+```
+
+:::
 
 ---
 
@@ -597,9 +622,13 @@ static getInitialURL(): Promise<string | null>;
 
 If the app launch was triggered by an app link, it will give the link url, otherwise it will give `null`.
 
-> To support deep linking on Android, refer https://developer.android.com/training/app-indexing/deep-linking.html#handling-intents
+:::info
+要支持 Android 上的深度链接，请参考 https://developer.android.com/training/app-indexing/deep-linking.html#handling-intents。
+:::
 
-> getInitialURL may return `null` while debugging is enabled. Disable the debugger to ensure it gets passed.
+:::tip
+`getInitialURL` 在远程 JS 调试时可能返回`null`。请关闭调试器以确保能正常获取。
+:::
 
 ---
 
@@ -625,21 +654,25 @@ You can use other URLs, like a location (e.g. "geo:37.484847,-122.148386" on And
 
 The method returns a `Promise` object. If the user confirms the open dialog or the url automatically opens, the promise is resolved. If the user cancels the open dialog or there are no registered applications for the url, the promise is rejected.
 
-**Parameters:**
+**参数:**
 
-| Name                                                     | Type   | Description      |
+| 名称                                                     | 类型   | 说明      |
 | -------------------------------------------------------- | ------ | ---------------- |
-| url <div className="label basic required">Required</div> | string | The URL to open. |
+| url <div className="label basic required">Required</div> | string | 要打开的 URL。 |
 
-> This method will fail if the system doesn't know how to open the specified URL. If you're passing in a non-http(s) URL, it's best to check `canOpenURL()` first.
+:::note
+如果系统不知道如何打开指定的 URL，此方法将失败。如果传入的是非 http(s) URL，最好先检查`canOpenURL()`。
 
-> For web URLs, the protocol (`"http://"`, `"https://"`) must be set accordingly!
+对于 web URL，协议（`"http://"`、`"https://"`）必须相应设置！
+:::
 
-> This method may behave differently in a simulator e.g. `"tel:"` links are not able to be handled in the iOS simulator as there's no access to the dialer app.
+:::warning
+此方法在模拟器中的行为可能不同，例如`"tel:"`链接在 iOS 模拟器中无法处理，因为没有拨号器 app。
+:::
 
 ---
 
-### `sendIntent()` <div class="label android">Android</div>
+### `sendIntent()` <div className="label android">Android</div>
 
 ```tsx
 static sendIntent(
@@ -650,9 +683,9 @@ static sendIntent(
 
 启动 Android intent 时携带 extras。
 
-**Parameters:**
+**参数:**
 
-| Name                                                        | Type                                                       |
+| 名称                                                        | 类型                                                       |
 | ----------------------------------------------------------- | ---------------------------------------------------------- |
 | action <div className="label basic required">Required</div> | string                                                     |
 | extras                                                      | `Array<{key: string, value: string ｜ number ｜ boolean}>` |

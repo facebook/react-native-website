@@ -25,7 +25,7 @@ title: 列表配置优化
 
 | 类型    | 默认值 |
 | ------- | ------- |
-| Boolean | False   |
+| Boolean | Android 上为 `true`，否则为 `false` |
 
 如果设为 `true`，那些超出视口范围的视图会从原生视图层级结构中分离。
 
@@ -122,7 +122,7 @@ export default MyListItem;
 ### 使用优化缓存的图片库
 
  
-你可以使用社区的扩展包（例如 @DylanVann 提供的 [react-native-fast-image](https://github.com/DylanVann/react-native-fast-image) ）来获得更高性能的图片加载体验。列表中的每张图片都是一个`new Image()`实例。它触发 loaded 钩子的速度越快，你的 Javascript 线程就能越快再次空闲下来。
+你可以使用社区的扩展包（例如来自 [Dream11](https://github.com/ds-horizon) 的 [@d11/react-native-fast-image](https://github.com/ds-horizon/react-native-fast-image) ）来获得更高性能的图片加载体验。列表中的每张图片都是一个`new Image()`实例。它触发 loaded 钩子的速度越快，你的 Javascript 线程就能越快再次空闲下来。
 
 ### 使用 getItemLayout
 

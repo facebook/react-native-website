@@ -22,7 +22,7 @@ import com.facebook.react.bridge.ReactApplicationContext;
 
 public class NativeLocalStorageModule extends NativeLocalStorageSpec {
 
-  private static final String NAME = "NativeLocalStorage";
+  public static final String NAME = "NativeLocalStorage";
 
   public NativeLocalStorageModule(ReactApplicationContext reactContext) {
     super(reactContext);
@@ -52,6 +52,12 @@ public class NativeLocalStorageModule extends NativeLocalStorageSpec {
   public void removeItem(String key) {
     SharedPreferences sharedPref = getReactApplicationContext().getSharedPreferences("my_prefs", Context.MODE_PRIVATE);
     sharedPref.edit().remove(key).apply();
+  }
+
+  @Override
+  public void clear() {
+    SharedPreferences sharedPref = getReactApplicationContext().getSharedPreferences("my_prefs", Context.MODE_PRIVATE);
+    sharedPref.edit().clear().apply();
   }
 }
 ```
@@ -107,7 +113,7 @@ class NativeLocalStorageModule(reactContext: ReactApplicationContext) : NativeLo
 </TabItem>
 </Tabs>
 
-接下来，我们需要创建 `NativeLocalStoragePackage`。它提供了一个对象，用于在 React Native 运行时中注册我们的模块，通过将其包装为 Turbo Native Package 来实现：
+接下来，我们需要创建 `NativeLocalStoragePackage`。它提供了一个对象，用于在 React Native 运行时中注册我们的模块，通过将其包装为 Base Native Package 来实现：
 
 <Tabs groupId="android-language" queryString defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
 <TabItem value="java">
@@ -115,7 +121,7 @@ class NativeLocalStorageModule(reactContext: ReactApplicationContext) : NativeLo
 ```java title="android/app/src/main/java/com/nativelocalstorage/NativeLocalStoragePackage.java"
 package com.nativelocalstorage;
 
-import com.facebook.react.TurboReactPackage;
+import com.facebook.react.BaseReactPackage;
 import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.module.model.ReactModuleInfo;
@@ -124,7 +130,7 @@ import com.facebook.react.module.model.ReactModuleInfoProvider;
 import java.util.HashMap;
 import java.util.Map;
 
-public class NativeLocalStoragePackage extends TurboReactPackage {
+public class NativeLocalStoragePackage extends BaseReactPackage {
 
   @Override
   public NativeModule getModule(String name, ReactApplicationContext reactContext) {
@@ -139,7 +145,7 @@ public class NativeLocalStoragePackage extends TurboReactPackage {
   public ReactModuleInfoProvider getReactModuleInfoProvider() {
     return new ReactModuleInfoProvider() {
       @Override
-      public Map<String, ReactModuleInfo> get() {
+      public Map<String, ReactModuleInfo> getReactModuleInfos() {
         Map<String, ReactModuleInfo> map = new HashMap<>();
         map.put(NativeLocalStorageModule.NAME, new ReactModuleInfo(
           NativeLocalStorageModule.NAME,       // name
@@ -162,13 +168,13 @@ public class NativeLocalStoragePackage extends TurboReactPackage {
 ```kotlin title="android/app/src/main/java/com/nativelocalstorage/NativeLocalStoragePackage.kt"
 package com.nativelocalstorage
 
-import com.facebook.react.TurboReactPackage
+import com.facebook.react.BaseReactPackage
 import com.facebook.react.bridge.NativeModule
 import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.module.model.ReactModuleInfo
 import com.facebook.react.module.model.ReactModuleInfoProvider
 
-class NativeLocalStoragePackage : TurboReactPackage() {
+class NativeLocalStoragePackage : BaseReactPackage() {
 
   override fun getModule(name: String, reactContext: ReactApplicationContext): NativeModule? =
     if (name == NativeLocalStorageModule.NAME) {
@@ -180,10 +186,10 @@ class NativeLocalStoragePackage : TurboReactPackage() {
   override fun getReactModuleInfoProvider() = ReactModuleInfoProvider {
     mapOf(
       NativeLocalStorageModule.NAME to ReactModuleInfo(
-        _name = NativeLocalStorageModule.NAME,
-        _className = NativeLocalStorageModule.NAME,
-        _canOverrideExistingModule = false,
-        _needsEagerInit = false,
+        name = NativeLocalStorageModule.NAME,
+        className = NativeLocalStorageModule.NAME,
+        canOverrideExistingModule = false,
+        needsEagerInit = false,
         isCxxModule = false,
         isTurboModule = true
       )

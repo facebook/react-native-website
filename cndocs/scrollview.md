@@ -17,19 +17,14 @@ ScrollView 内部的其他响应者尚无法阻止 ScrollView 本身成为响应
 
 ## 示例
 
-```SnackPlayer name=ScrollView
+```SnackPlayer name=ScrollView%20Example
 import React from 'react';
-import {
-  StyleSheet,
-  Text,
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-} from 'react-native';
+import {StyleSheet, Text, ScrollView, StatusBar} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
-const App = () => {
-  return (
-    <SafeAreaView style={styles.container}>
+const App = () => (
+  <SafeAreaProvider>
+    <SafeAreaView style={styles.container} edges={['top']}>
       <ScrollView style={styles.scrollView}>
         <Text style={styles.text}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -42,8 +37,8 @@ const App = () => {
         </Text>
       </ScrollView>
     </SafeAreaView>
-  );
-};
+  </SafeAreaProvider>
+);
 
 const styles = StyleSheet.create({
   container: {
@@ -52,10 +47,10 @@ const styles = StyleSheet.create({
   },
   scrollView: {
     backgroundColor: 'pink',
-    marginHorizontal: 20,
   },
   text: {
     fontSize: 42,
+    padding: 12,
   },
 });
 
@@ -70,11 +65,21 @@ export default App;
 
 ### [View Props](view.md#props)
 
-继承了所有的[View Props](view.md#props).
+继承了所有的[View Props](view#props).
 
 ---
 
-### `alwaysBounceHorizontal` <div class="label ios">iOS</div>
+### `StickyHeaderComponent`
+
+一个 React 组件，用于渲染粘性头部，应与`stickyHeaderIndices`一起使用。如果你的粘性头部使用了自定义变换（例如，当你希望列表具有可动画隐藏的头部时），你可能需要设置此组件。如果未提供组件，则将使用默认的 [`ScrollViewStickyHeader`](https://github.com/facebook/react-native/blob/main/packages/react-native/Libraries/Components/ScrollView/ScrollViewStickyHeader.js) 组件。
+
+| 类型               |
+| ------------------ |
+| component, element |
+
+---
+
+### `alwaysBounceHorizontal` <div className="label ios">iOS</div>
 
 当此属性为 true 时，水平方向即使内容比滚动视图本身还要小，也可以弹性地拉动一截。当`horizontal={true}`时默认值为 true，否则为 false。
 
@@ -84,7 +89,7 @@ export default App;
 
 ---
 
-### `alwaysBounceVertical` <div class="label ios">iOS</div>
+### `alwaysBounceVertical` <div className="label ios">iOS</div>
 
 当此属性为 true 时，垂直方向即使内容比滚动视图本身还要小，也可以弹性地拉动一截。当`horizontal={true}`时默认值为 false，否则为 true。
 
@@ -94,7 +99,7 @@ export default App;
 
 ---
 
-### `automaticallyAdjustContentInsets` <div class="label ios">iOS</div>
+### `automaticallyAdjustContentInsets` <div className="label ios">iOS</div>
 
 当滚动视图放在一个导航条或者工具条后面的时候，iOS 系统是否要自动调整内容的范围。默认值为 true。（译注：如果你的 ScrollView 或 FlatList 的头部出现莫名其妙的空白，尝试将此属性置为 false）
 
@@ -104,7 +109,7 @@ export default App;
 
 ---
 
-### `automaticallyAdjustKeyboardInsets` <div class="label ios">iOS</div>
+### `automaticallyAdjustKeyboardInsets` <div className="label ios">iOS</div>
 
 当键盘尺寸变化时，ScrollView 是否自动调整其 `contentInset` 和 `scrollViewInsets`。
 
@@ -114,7 +119,7 @@ export default App;
 
 ---
 
-### `automaticallyAdjustsScrollIndicatorInsets` <div class="label ios">iOS</div>
+### `automaticallyAdjustsScrollIndicatorInsets` <div className="label ios">iOS</div>
 
 控制 iOS 是否自动调整滚动指示器内边距。请参阅 Apple 的[文档](https://developer.apple.com/documentation/uikit/uiscrollview/3198043-automaticallyadjustsscrollindica)。
 
@@ -124,7 +129,7 @@ export default App;
 
 ---
 
-### `bounces` <div class="label ios">iOS</div>
+### `bounces` <div className="label ios">iOS</div>
 
 当值为 true 时，如果内容范围比滚动视图本身大，在到达内容末尾的时候，可以弹性地拉动一截。如果为 false，尾部的所有弹性都会被禁用，即使`alwaysBounce`属性为 true。默认值为 true。
 
@@ -134,7 +139,7 @@ export default App;
 
 ---
 
-### `bouncesZoom` <div class="label ios">iOS</div>
+### `bouncesZoom` <div className="label ios">iOS</div>
 
 当值为 true 时，使用手势缩放内容可以超过 min/max 的限制，然后在手指抬起之后弹回 min/max 的缩放比例。否则的话，缩放不能超过限制。
 
@@ -144,7 +149,7 @@ export default App;
 
 ---
 
-### `canCancelContentTouches` <div class="label ios">iOS</div>
+### `canCancelContentTouches` <div className="label ios">iOS</div>
 
 当值为 false 时，一旦有子节点响应触摸操作，即使手指开始移动也不会拖动滚动视图。默认值为 true（在以上情况下可以拖动滚动视图）。
 
@@ -154,7 +159,7 @@ export default App;
 
 ---
 
-### `centerContent` <div class="label ios">iOS</div>
+### `centerContent` <div className="label ios">iOS</div>
 
 当值为 true 时，如果滚动视图的内容比视图本身小，则会自动把内容居中放置。当内容比滚动视图大的时候，此属性没有作用。默认值为 false。
 
@@ -187,7 +192,7 @@ const styles = StyleSheet.create({
 
 ---
 
-### `contentInset` <div class="label ios">iOS</div>
+### `contentInset` <div className="label ios">iOS</div>
 
 内容范围相对滚动视图边缘的坐标。默认为`{top: 0, left: 0, bottom: 0, right: 0}`。
 
@@ -197,7 +202,7 @@ const styles = StyleSheet.create({
 
 ---
 
-### `contentInsetAdjustmentBehavior` <div class="label ios">iOS</div>
+### `contentInsetAdjustmentBehavior` <div className="label ios">iOS</div>
 
 本属性用于指定安全区域内边距如何修改滚动视图的内容区域。
 
@@ -230,7 +235,7 @@ const styles = StyleSheet.create({
 
 ---
 
-### `directionalLockEnabled` <div class="label ios">iOS</div>
+### `directionalLockEnabled` <div className="label ios">iOS</div>
 
 当值为真时，滚动视图在拖拽的时候会锁定只有垂直或水平方向可以滚动。默认值为 false
 
@@ -292,7 +297,7 @@ const styles = StyleSheet.create({
 
 ---
 
-### `indicatorStyle` <div class="label ios">iOS</div>
+### `indicatorStyle` <div className="label ios">iOS</div>
 
 设置滚动条的样式。
 
@@ -367,7 +372,7 @@ _仅 iOS 可用的值_
 
 ---
 
-### `maximumZoomScale` <div class="label ios">iOS</div>
+### `maximumZoomScale` <div className="label ios">iOS</div>
 
 允许的最大缩放比例。默认值为 1.0。
 
@@ -377,7 +382,7 @@ _仅 iOS 可用的值_
 
 ---
 
-### `minimumZoomScale` <div class="label ios">iOS</div>
+### `minimumZoomScale` <div className="label ios">iOS</div>
 
 允许的最小缩放比例。默认值为 1.0。
 
@@ -473,7 +478,7 @@ _仅 iOS 可用的值_
 
 ---
 
-### `onScrollToTop` <div class="label ios">iOS</div>
+### `onScrollToTop` <div className="label ios">iOS</div>
 
 当用户点击状态栏后，滚动视图滚动到顶部时调用此函数。
 
@@ -519,7 +524,7 @@ _仅 iOS 可用的值_
 
 ---
 
-### `pinchGestureEnabled` <div class="label ios">iOS</div>
+### `pinchGestureEnabled` <div className="label ios">iOS</div>
 
 设置为 true 时，ScrollView 会允许用户使用双指缩放操作。默认值为 true。
 
@@ -571,7 +576,7 @@ _仅 iOS 可用的值_
 
 ---
 
-### `scrollIndicatorInsets` <div class="label ios">iOS</div>
+### `scrollIndicatorInsets` <div className="label ios">iOS</div>
 
 滚动视图指示器距离视图边缘的距离。通常应设置为与 `contentInset` 相同的值。
 
@@ -591,7 +596,7 @@ _仅 iOS 可用的值_
 
 ---
 
-### `scrollToOverflowEnabled` <div class="label ios">iOS</div>
+### `scrollToOverflowEnabled` <div className="label ios">iOS</div>
 
 当值为 true 时，滚动视图可以被编程地滚动超过其内容大小。
 
@@ -601,7 +606,7 @@ _仅 iOS 可用的值_
 
 ---
 
-### `scrollsToTop` <div class="label ios">iOS</div>
+### `scrollsToTop` <div className="label ios">iOS</div>
 
 当值为 true 时，点击状态栏的时候视图会滚动到顶部。默认值为 true。
 
@@ -631,7 +636,7 @@ _仅 iOS 可用的值_
 
 ---
 
-### `snapToAlignment` <div class="label ios">iOS</div>
+### `snapToAlignment` <div className="label ios">iOS</div>
 
 当设置了 `snapToInterval` 时，`snapToAlignment` 会定义停驻点与滚动视图之间的关系。
 
@@ -717,7 +722,7 @@ _仅 iOS 可用的值_
 
 ---
 
-### `zoomScale` <div class="label ios">iOS</div>
+### `zoomScale` <div className="label ios">iOS</div>
 
 当前滚动视图内容的缩放比例。
 

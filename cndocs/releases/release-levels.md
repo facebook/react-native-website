@@ -3,6 +3,8 @@ id: release-levels
 title: 发布级别
 ---
 
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+
 React Native 为社区提供了在单个新功能的设计和实现几乎完成后就立即采用它们的能力，甚至在它们被包含在稳定版本之前。这种方法称为**发布级别**。
 
 您可以配置 React Native 的发布级别，使您的 React Native 实例在初始化时将功能标志设置为 `EXPERIMENTAL`、`CANARY` 或 `STABLE` 模式。
@@ -44,8 +46,21 @@ DefaultNewArchitectureEntryPoint.load()
 
 `RCTReactNativeFactory` 类现在有一个接受 `releaseLevel` 参数的初始化器。功能标志设置使用此参数来选择正确的功能标志覆盖。
 
-```objc title="示例用法"
+<Tabs groupId="ios-language" queryString defaultValue={constants.defaultAppleLanguage} values={constants.appleLanguages}>
+<TabItem value="objc">
+  
+```objc title="AppDelegate.mm"
 [[RCTReactNativeFactory alloc] initWithDelegate:delegate releaseLevel:Canary];
 ```
+
+</TabItem>
+<TabItem value="swift">
+  
+```swift title="AppDelegate.swift"
+let factory = RCTReactNativeFactory(delegate: delegate, releaseLevel: RCTReleaseLevel.Canary)
+```
+
+</TabItem>
+</Tabs>
 
 系统确保每个应用实例只有一个发布级别处于活动状态，如果创建具有不同发布级别的多个工厂，将会崩溃。

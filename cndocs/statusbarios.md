@@ -1,8 +1,10 @@
 ---
 id: statusbarios
-title: '🚧 StatusBarIOS'
+title: '❌ StatusBarIOS'
 ---
 
-> **Deleted.** Use [`StatusBar`](statusbar.md) for mutating the status bar.
+:::danger 已从 React Native 中移除
+请使用 [`StatusBar`](statusbar.md) 来操作状态栏。
+:::
 
 ---

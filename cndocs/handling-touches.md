@@ -9,76 +9,62 @@ title: 处理触摸事件
 
 [Button](button.md)是一个简单的跨平台的按钮组件。下面是一个最简示例：
 
-```jsx
+```tsx
 <Button
   onPress={() => {
-    Alert.alert('你点击了按钮！');
+    console.log('You tapped the button!');
   }}
-  title="点我！"
+  title="Press Me"
 />
 ```
 
 上面这段代码会在 iOS 上渲染一个蓝色的标签状按钮，在 Android 上则会渲染一个蓝色圆角矩形带白字的按钮。点击这个按钮会调用"onPress"函数，具体作用就是显示一个 alert 弹出框。你还可以指定"color"属性来修改按钮的颜色。
 
-![](assets/Button.png)
+![](/docs/assets/Button.png)
 
 再试试下面这个使用`Button`的例子吧。你可以点击"Tap to Play"来预览真实效果。
 
 ```SnackPlayer name=Button%20Basics
-import React, { Component } from 'react';
-import { Alert, Button, StyleSheet, View } from 'react-native';
+import React from 'react';
+import {Alert, Button, StyleSheet, View} from 'react-native';
 
-export default class ButtonBasics extends Component {
-  _onPressButton() {
-    Alert.alert('You tapped the button!')
-  }
+const ButtonBasics = () => {
+  const onPress = () => {
+    Alert.alert('You tapped the button!');
+  };
 
-  render() {
-    return (
-      <View style={styles.container}>
-        <View style={styles.buttonContainer}>
-          <Button
-            onPress={this._onPressButton}
-            title="Press Me"
-          />
-        </View>
-        <View style={styles.buttonContainer}>
-          <Button
-            onPress={this._onPressButton}
-            title="Press Me"
-            color="#841584"
-          />
-        </View>
-        <View style={styles.alternativeLayoutButtonContainer}>
-          <Button
-            onPress={this._onPressButton}
-            title="This looks great!"
-          />
-          <Button
-            onPress={this._onPressButton}
-            title="OK!"
-            color="#841584"
-          />
-        </View>
+  return (
+    <View style={styles.container}>
+      <View style={styles.buttonContainer}>
+        <Button onPress={onPress} title="Press Me" />
       </View>
-    );
-  }
-}
+      <View style={styles.buttonContainer}>
+        <Button onPress={onPress} title="Press Me" color="#841584" />
+      </View>
+      <View style={styles.alternativeLayoutButtonContainer}>
+        <Button onPress={onPress} title="This looks great!" />
+        <Button onPress={onPress} title="OK!" color="#841584" />
+      </View>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
-   flex: 1,
-   justifyContent: 'center',
+    flex: 1,
+    justifyContent: 'center',
   },
   buttonContainer: {
-    margin: 20
+    margin: 20,
   },
   alternativeLayoutButtonContainer: {
     margin: 20,
     flexDirection: 'row',
-    justifyContent: 'space-between'
-  }
-})
+    justifyContent: 'space-between',
+  },
+});
+
+export default ButtonBasics;
 
 ```
 
@@ -100,79 +86,96 @@ const styles = StyleSheet.create({
 
 我们来看一下示例：
 
-```SnackPlayer platform=android&name=Touchables
-import React, { Component } from 'react';
-import { Alert, Platform, StyleSheet, Text, TouchableHighlight, TouchableOpacity, TouchableNativeFeedback, TouchableWithoutFeedback, View } from 'react-native';
+```SnackPlayer name=Touchables
+import React from 'react';
+import {
+  Alert,
+  Platform,
+  StyleSheet,
+  Text,
+  TouchableHighlight,
+  TouchableOpacity,
+  TouchableNativeFeedback,
+  TouchableWithoutFeedback,
+  View,
+} from 'react-native';
 
-export default class Touchables extends Component {
-  _onPressButton() {
-    Alert.alert('You tapped the button!')
-  }
+const Touchables = () => {
+  const onPressButton = () => {
+    Alert.alert('You tapped the button!');
+  };
 
-  _onLongPressButton() {
-    Alert.alert('You long-pressed the button!')
-  }
+  const onLongPressButton = () => {
+    Alert.alert('You long-pressed the button!');
+  };
 
-
-  render() {
-    return (
-      <View style={styles.container}>
-        <TouchableHighlight onPress={this._onPressButton} underlayColor="white">
-          <View style={styles.button}>
-            <Text style={styles.buttonText}>TouchableHighlight</Text>
-          </View>
-        </TouchableHighlight>
-        <TouchableOpacity onPress={this._onPressButton}>
-          <View style={styles.button}>
-            <Text style={styles.buttonText}>TouchableOpacity</Text>
-          </View>
-        </TouchableOpacity>
-        <TouchableNativeFeedback
-            onPress={this._onPressButton}
-            background={Platform.OS === 'android' ? TouchableNativeFeedback.SelectableBackground() : ''}>
-          <View style={styles.button}>
-            <Text style={styles.buttonText}>TouchableNativeFeedback</Text>
-          </View>
-        </TouchableNativeFeedback>
-        <TouchableWithoutFeedback
-            onPress={this._onPressButton}
-            >
-          <View style={styles.button}>
-            <Text style={styles.buttonText}>TouchableWithoutFeedback</Text>
-          </View>
-        </TouchableWithoutFeedback>
-        <TouchableHighlight onPress={this._onPressButton} onLongPress={this._onLongPressButton} underlayColor="white">
-          <View style={styles.button}>
-            <Text style={styles.buttonText}>Touchable with Long Press</Text>
-          </View>
-        </TouchableHighlight>
-      </View>
-    );
-  }
-}
+  return (
+    <View style={styles.container}>
+      <TouchableHighlight onPress={onPressButton} underlayColor="white">
+        <View style={styles.button}>
+          <Text style={styles.buttonText}>TouchableHighlight</Text>
+        </View>
+      </TouchableHighlight>
+      <TouchableOpacity onPress={onPressButton}>
+        <View style={styles.button}>
+          <Text style={styles.buttonText}>TouchableOpacity</Text>
+        </View>
+      </TouchableOpacity>
+      <TouchableNativeFeedback
+        onPress={onPressButton}
+        background={
+          Platform.OS === 'android'
+            ? TouchableNativeFeedback.SelectableBackground()
+            : undefined
+        }>
+        <View style={styles.button}>
+          <Text style={styles.buttonText}>
+            TouchableNativeFeedback{' '}
+            {Platform.OS !== 'android' ? '(Android only)' : ''}
+          </Text>
+        </View>
+      </TouchableNativeFeedback>
+      <TouchableWithoutFeedback onPress={onPressButton}>
+        <View style={styles.button}>
+          <Text style={styles.buttonText}>TouchableWithoutFeedback</Text>
+        </View>
+      </TouchableWithoutFeedback>
+      <TouchableHighlight
+        onPress={onPressButton}
+        onLongPress={onLongPressButton}
+        underlayColor="white">
+        <View style={styles.button}>
+          <Text style={styles.buttonText}>Touchable with Long Press</Text>
+        </View>
+      </TouchableHighlight>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
     paddingTop: 60,
-    alignItems: 'center'
+    alignItems: 'center',
   },
   button: {
     marginBottom: 30,
     width: 260,
     alignItems: 'center',
-    backgroundColor: '#2196F3'
+    backgroundColor: '#2196F3',
   },
   buttonText: {
     textAlign: 'center',
     padding: 20,
-    color: 'white'
-  }
-})
+    color: 'white',
+  },
+});
+
+export default Touchables;
 ```
 
-## 在列表中上下滑动、在视图上左右滑动以及双指缩放
+## 滚动和滑动
 
-另一个在移动应用中常见的手势就是滑动。用户会在列表中上下滑动，或是在视图上左右滑动。要处理这样的手势，你可以看一下[如何使用滚动视图](using-a-scrollview.md)这篇文档。
+触摸屏设备上常用的手势包括滑动和平移。这些手势允许用户在列表中滚动或在页面之间滑动。对于这些操作，请查看 [ScrollView](scrollview.md) 核心组件。
 
 ## Known issues
 

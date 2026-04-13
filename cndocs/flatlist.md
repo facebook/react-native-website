@@ -22,19 +22,13 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import con
 
 ## 示例
 
-<Tabs groupId="language" queryString defaultValue={constants.dewfaultSnackLanguage} values={constants.snackLanguages}>
+<Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
-```SnackPlayer name=flatlist-simple&ext=js
+```SnackPlayer name=Simple%20FlatList%20Example&ext=js
 import React from 'react';
-import {
-  SafeAreaView,
-  View,
-  FlatList,
-  StyleSheet,
-  Text,
-  StatusBar,
-} from 'react-native';
+import {View, FlatList, StyleSheet, Text, StatusBar} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const DATA = [
   {
@@ -57,8 +51,8 @@ const Item = ({title}) => (
   </View>
 );
 
-const App = () => {
-  return (
+const App = () => (
+  <SafeAreaProvider>
     <SafeAreaView style={styles.container}>
       <FlatList
         data={DATA}
@@ -66,8 +60,8 @@ const App = () => {
         keyExtractor={item => item.id}
       />
     </SafeAreaView>
-  );
-};
+  </SafeAreaProvider>
+);
 
 const styles = StyleSheet.create({
   container: {
@@ -91,16 +85,10 @@ export default App;
 </TabItem>
 <TabItem value="typescript">
 
-```SnackPlayer name=flatlist-simple&ext=tsx
+```SnackPlayer name=Simple%20FlatList%20Example&ext=tsx
 import React from 'react';
-import {
-  SafeAreaView,
-  View,
-  FlatList,
-  StyleSheet,
-  Text,
-  StatusBar,
-} from 'react-native';
+import {View, FlatList, StyleSheet, Text, StatusBar} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const DATA = [
   {
@@ -125,8 +113,8 @@ const Item = ({title}: ItemProps) => (
   </View>
 );
 
-const App = () => {
-  return (
+const App = () => (
+  <SafeAreaProvider>
     <SafeAreaView style={styles.container}>
       <FlatList
         data={DATA}
@@ -134,8 +122,8 @@ const App = () => {
         keyExtractor={item => item.id}
       />
     </SafeAreaView>
-  );
-};
+  </SafeAreaProvider>
+);
 
 const styles = StyleSheet.create({
   container: {
@@ -161,25 +149,24 @@ export default App;
 
 要呈现多列，请使用 [`numColumns`](flatlist.md#numcolumns) 属性。使用这种方法而不是 `flexWrap` 布局可以防止与项目高度逻辑发生冲突。
 
-下面是一个较复杂的例子，其中演示了如何利用`PureComponent`来进一步优化性能和减少 bug 产生的可能（以下这段文字需要你深刻理解 `shouldComponentUpdate`, `memo` 的机制，以及 `Component` 和 `PureComponent` 的不同，如果不了解就先跳过吧）。
+下面是一个更复杂的、可选择的例子。
 
-- 对于`MyListItem`组件来说，其`onPressItem`属性使用箭头函数而非 bind 的方式进行绑定，使其不会在每次列表重新 render 时生成一个新的函数，从而保证了 props 的不变性（当然前提是 `id`、`selected`和`title`也没变），不会触发自身无谓的重新 render。换句话说，如果你是用 bind 来绑定`onPressItem`，每次都会生成一个新的函数，导致 props 在`===`比较时返回 false，从而触发自身的一次不必要的重新 render。
-- 给`FlatList`指定`extraData={this.state}`属性，是为了保证`state.selected`变化时，能够正确触发`FlatList`的更新。如果不指定此属性，则`FlatList`不会触发更新，因为它是一个`PureComponent`，其 props 在`===`比较中没有变化则不会触发更新。
-- `keyExtractor`属性指定使用 id 作为列表每一项的 key。
+- 通过给`FlatList`传递`extraData={selectedId}`，我们确保当状态变化时`FlatList`本身会重新渲染。如果不设置此属性，`FlatList`不会知道需要重新渲染任何项目，因为它是一个`PureComponent`，属性比较不会显示任何变化。
+- `keyExtractor`告诉列表使用`id`作为 React key，而不是默认的`key`属性。
 
-<Tabs groupId="language" queryString defaultValue={constants.dewfaultSnackLanguage} values={constants.snackLanguages}>
+<Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
 ```SnackPlayer name=flatlist-selectable&ext=js
 import React, {useState} from 'react';
 import {
   FlatList,
-  SafeAreaView,
   StatusBar,
   StyleSheet,
   Text,
   TouchableOpacity,
 } from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const DATA = [
   {
@@ -220,14 +207,16 @@ const App = () => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
-      <FlatList
-        data={DATA}
-        renderItem={renderItem}
-        keyExtractor={item => item.id}
-        extraData={selectedId}
-      />
-    </SafeAreaView>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <FlatList
+          data={DATA}
+          renderItem={renderItem}
+          keyExtractor={item => item.id}
+          extraData={selectedId}
+        />
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
@@ -256,12 +245,12 @@ export default App;
 import React, {useState} from 'react';
 import {
   FlatList,
-  SafeAreaView,
   StatusBar,
   StyleSheet,
   Text,
   TouchableOpacity,
 } from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 type ItemData = {
   id: string;
@@ -314,14 +303,16 @@ const App = () => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
-      <FlatList
-        data={DATA}
-        renderItem={renderItem}
-        keyExtractor={item => item.id}
-        extraData={selectedId}
-      />
-    </SafeAreaView>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <FlatList
+          data={DATA}
+          renderItem={renderItem}
+          keyExtractor={item => item.id}
+          extraData={selectedId}
+        />
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
@@ -346,10 +337,10 @@ export default App;
 </TabItem>
 </Tabs>
 
-本组件实质是基于[`<VirtualizedList>`](virtualizedlist.md)组件的封装，继承了其所有 props（也包括所有[`<ScrollView>`](scrollview.md))的 props），但在本文档中没有列出。此外还有下面这些需要注意的事项：
+本组件实质是基于[`<VirtualizedList>`](virtualizedlist.md)组件的封装，继承了其所有 props（也包括所有[`<ScrollView>`](scrollview.md)的 props），但在本文档中没有列出。此外还有下面这些需要注意的事项：
 
 - 当某行滑出渲染区域之外后，其内部状态将不会保留。请确保你在行组件以外的地方保留了数据。
-- 本组件继承自`PureComponent`而非通常的`Component`，这意味着如果其`props`在`浅比较`中是相等的，则不会重新渲染。所以请先检查你的`renderItem`函数所依赖的`props`数据（包括`data`属性以及可能用到的父组件的 state），如果是一个引用类型（Object 或者数组都是引用类型），则需要先修改其引用地址（比如先复制到一个新的 Object 或者数组中），然后再修改其值，否则界面很可能不会刷新。（译注：这一段不了解的朋友建议先学习下[js 中的基本类型和引用类型](https://segmentfault.com/a/1190000002789651)。）
+- 本组件继承自`PureComponent`而非通常的`Component`，这意味着如果其`props`在浅比较中是相等的，则不会重新渲染。所以请确保你的`renderItem`函数所依赖的所有数据都作为 prop 传递（例如`extraData`），且在更新后不是`===`相等的，否则你的 UI 可能不会更新。这包括`data`属性和父组件的状态。
 - 为了优化内存占用同时保持滑动的流畅，列表内容会在屏幕外异步绘制。这意味着如果用户滑动的速度超过渲染的速度，则会先看到空白的内容。这是为了优化不得不作出的妥协，你可以根据自己的需求调整相应的参数，而我们也在设法持续改进。
 - 默认情况下每行都需要提供一个不重复的 key 属性。你也可以提供一个`keyExtractor`函数来生成 key。
 
@@ -359,13 +350,13 @@ export default App;
 
 ## Props
 
-### [ScrollView Props](scrollview.md#props)
+### [VirtualizedList Props](virtualizedlist.md#props)
 
-继承所有[ScrollView 的 Props](scrollview.md#props)。但如果嵌套在其他同滚动方向的 FlatList 中则无效。
+继承 [VirtualizedList Props](virtualizedlist.md#props)。
 
 ---
 
-### <div class="label required basic">必需</div> **`renderItem`**
+### <div className="label required basic">Required</div> **`renderItem`**
 
 ```tsx
 renderItem({
@@ -425,7 +416,7 @@ renderItem({
 
 ---
 
-### <div class="label required basic">必需</div> **`data`**
+### <div className="label required basic">Required</div> **`data`**
 
 为了简化起见，data 属性目前只支持普通数组或类数组。如果需要使用其他特殊数据结构，例如 immutable 数组，请直接使用更底层的[`VirtualizedList`](virtualizedlist.md)组件。
 

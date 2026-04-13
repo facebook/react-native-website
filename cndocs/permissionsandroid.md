@@ -3,13 +3,9 @@ id: permissionsandroid
 title: PermissionsAndroid
 ---
 
-import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
-
 <div className="banner-native-code-required">
-  <h3>仅适用于非沙盒项目</h3>
-  <p>
-    The following section only applies to projects with native code exposed. If you are using the managed <code>expo-cli</code> workflow, see the guide on <a href="https://docs.expo.io/versions/latest/sdk/permissions/">Permissions</a> in the Expo documentation for the appropriate alternative.
-  </p>
+  <h3>仅适用于有 Native 代码的项目</h3>
+  <p>以下部分仅适用于包含原生代码的项目。如果你正在使用 Expo 管理工作流，请参阅 Expo 文档中的<a href="https://docs.expo.dev/guides/permissions/">权限指南</a>以获取合适的替代方案。</p>
 </div>
 
 `PermissionsAndroid` 可以访问 Android M(也就是 6.0)开始提供的权限模型。有一些权限写在`AndroidManifest.xml`就可以在安装时自动获得，但有一些“危险”的权限则需要弹出提示框供用户选择。本 API 即用于后一种情形。
@@ -20,32 +16,35 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import con
 
 ### 示例
 
-<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
-<TabItem value="functional">
-
 ```SnackPlayer name=PermissionsAndroid%20Example&supportedPlatforms=android
-import React from "react";
-import { StyleSheet, Text, View, SafeAreaView, PermissionsAndroid, Button } from "react-native";
-import Constants from "expo-constants";
+import React from 'react';
+import {
+  Button,
+  PermissionsAndroid,
+  StatusBar,
+  StyleSheet,
+  Text,
+} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const requestCameraPermission = async () => {
   try {
     const granted = await PermissionsAndroid.request(
       PermissionsAndroid.PERMISSIONS.CAMERA,
       {
-        title: "Cool Photo App Camera Permission",
+        title: 'Cool Photo App Camera Permission',
         message:
-          "Cool Photo App needs access to your camera " +
-          "so you can take awesome pictures.",
-        buttonNeutral: "Ask Me Later",
-        buttonNegative: "Cancel",
-        buttonPositive: "OK"
-      }
+          'Cool Photo App needs access to your camera ' +
+          'so you can take awesome pictures.',
+        buttonNeutral: 'Ask Me Later',
+        buttonNegative: 'Cancel',
+        buttonPositive: 'OK',
+      },
     );
     if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-      console.log("You can use the camera");
+      console.log('You can use the camera');
     } else {
-      console.log("Camera permission denied");
+      console.log('Camera permission denied');
     }
   } catch (err) {
     console.warn(err);
@@ -53,95 +52,32 @@ const requestCameraPermission = async () => {
 };
 
 const App = () => (
-  <View style={styles.container}>
-    <Text style={styles.item}>Try permissions</Text>
-    <Button title="request permissions" onPress={requestCameraPermission} />
-  </View>
+  <SafeAreaProvider>
+    <SafeAreaView style={styles.container}>
+      <Text style={styles.item}>Try permissions</Text>
+      <Button title="request permissions" onPress={requestCameraPermission} />
+    </SafeAreaView>
+  </SafeAreaProvider>
 );
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    paddingTop: Constants.statusBarHeight,
-    backgroundColor: "#ecf0f1",
-    padding: 8
+    justifyContent: 'center',
+    paddingTop: StatusBar.currentHeight,
+    backgroundColor: '#ecf0f1',
+    padding: 8,
   },
   item: {
     margin: 24,
     fontSize: 18,
-    fontWeight: "bold",
-    textAlign: "center"
-  }
-});
-
-export default App;
-```
-
-</TabItem>
-<TabItem value="classical">
-
-```SnackPlayer name=PermissionsAndroid%20Example&supportedPlatforms=android
-import React, { Component } from "react";
-import { StyleSheet, Text, View, SafeAreaView, PermissionsAndroid, Button } from "react-native";
-import Constants from "expo-constants";
-
-const requestCameraPermission = async () => {
-  try {
-    const granted = await PermissionsAndroid.request(
-      PermissionsAndroid.PERMISSIONS.CAMERA,
-      {
-        title: "Cool Photo App Camera Permission",
-        message:
-          "Cool Photo App needs access to your camera " +
-          "so you can take awesome pictures.",
-        buttonNeutral: "Ask Me Later",
-        buttonNegative: "Cancel",
-        buttonPositive: "OK"
-      }
-    );
-    if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-      console.log("You can use the camera");
-    } else {
-      console.log("Camera permission denied");
-    }
-  } catch (err) {
-    console.warn(err);
-  }
-};
-
-class App extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.item}>Try permissions</Text>
-        <Button title="request permissions" onPress={requestCameraPermission} />
-      </View>
-    );
-  }
-};
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    paddingTop: Constants.statusBarHeight,
-    backgroundColor: "#ecf0f1",
-    padding: 8
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
-  item: {
-    margin: 24,
-    fontSize: 18,
-    fontWeight: "bold",
-    textAlign: "center"
-  }
 });
 
 export default App;
 ```
-
-</TabItem>
-</Tabs>
 
 ### 需要提示用户的权限列表
 
@@ -153,9 +89,9 @@ export default App;
 - `READ_CONTACTS`: 'android.permission.READ_CONTACTS'
 - `WRITE_CONTACTS`: 'android.permission.WRITE_CONTACTS'
 - `GET_ACCOUNTS`: 'android.permission.GET_ACCOUNTS'
-- `ACCESS_BACKGROUND_LOCATION`: 'android.permission.ACCESS_BACKGROUND_LOCATION`
 - `ACCESS_FINE_LOCATION`: 'android.permission.ACCESS_FINE_LOCATION'
 - `ACCESS_COARSE_LOCATION`: 'android.permission.ACCESS_COARSE_LOCATION'
+- `ACCESS_BACKGROUND_LOCATION`: 'android.permission.ACCESS_BACKGROUND_LOCATION'
 - `RECORD_AUDIO`: 'android.permission.RECORD_AUDIO'
 - `READ_PHONE_STATE`: 'android.permission.READ_PHONE_STATE'
 - `CALL_PHONE`: 'android.permission.CALL_PHONE'
@@ -172,6 +108,23 @@ export default App;
 - `RECEIVE_MMS`: 'android.permission.RECEIVE_MMS'
 - `READ_EXTERNAL_STORAGE`: 'android.permission.READ_EXTERNAL_STORAGE'
 - `WRITE_EXTERNAL_STORAGE`: 'android.permission.WRITE_EXTERNAL_STORAGE'
+- `BLUETOOTH_CONNECT`: 'android.permission.BLUETOOTH_CONNECT'
+- `BLUETOOTH_SCAN`: 'android.permission.BLUETOOTH_SCAN'
+- `BLUETOOTH_ADVERTISE`: 'android.permission.BLUETOOTH_ADVERTISE'
+- `ACCESS_MEDIA_LOCATION`: 'android.permission.ACCESS_MEDIA_LOCATION'
+- `ACCEPT_HANDOVER`: 'android.permission.ACCEPT_HANDOVER'
+- `ACTIVITY_RECOGNITION`: 'android.permission.ACTIVITY_RECOGNITION'
+- `ANSWER_PHONE_CALLS`: 'android.permission.ANSWER_PHONE_CALLS'
+- `READ_PHONE_NUMBERS`: 'android.permission.READ_PHONE_NUMBERS'
+- `UWB_RANGING`: 'android.permission.UWB_RANGING'
+- `BODY_SENSORS_BACKGROUND`: 'android.permission.BODY_SENSORS_BACKGROUND'
+- `READ_MEDIA_IMAGES`: 'android.permission.READ_MEDIA_IMAGES'
+- `READ_MEDIA_VIDEO`: 'android.permission.READ_MEDIA_VIDEO'
+- `READ_MEDIA_AUDIO`: 'android.permission.READ_MEDIA_AUDIO'
+- `POST_NOTIFICATIONS`: 'android.permission.POST_NOTIFICATIONS'
+- `NEARBY_WIFI_DEVICES`: 'android.permission.NEARBY_WIFI_DEVICES'
+- `READ_VOICEMAIL`: 'com.android.voicemail.permission.READ_VOICEMAIL'
+- `WRITE_VOICEMAIL`: 'com.android.voicemail.permission.WRITE_VOICEMAIL'
 
 ### 请求权限的返回值
 
@@ -187,18 +140,10 @@ export default App;
 
 ## 方法
 
-### `constructor()`
-
-```jsx
-constructor();
-```
-
----
-
 ### `check()`
 
-```jsx
-check(permission);
+```tsx
+static check(permission: Permission): Promise<boolean>;
 ```
 
 检查某项权限是否经过用户授权。返回一个 promise，解析为布尔值。
@@ -207,14 +152,17 @@ check(permission);
 
 | 名称       | 类型   | 必需 | 说明         |
 | ---------- | ------ | ---- | ------------ |
-| permission | string | 是   | 要检查的权限 |
+| permission | string | 是   | 要检查的权限。 |
 
 ---
 
 ### `request()`
 
-```jsx
-request(permission, [rationale]);
+```tsx
+static request(
+  permission: Permission,
+  rationale?: Rationale,
+): Promise<PermissionStatus>;
 ```
 
 弹出提示框向用户请求某项权限。返回一个 promise，最终值为上文所说的`PermissionsAndroid.RESULTS`。
@@ -242,8 +190,10 @@ request(permission, [rationale]);
 
 ### `requestMultiple()`
 
-```jsx
-requestMultiple(permissions);
+```tsx
+static requestMultiple(
+  permissions: Permission[],
+): Promise<{[key in Permission]: PermissionStatus}>;
 ```
 
 在一个弹出框中向用户请求多个权限。返回值为一个 object，key 为各权限名称，值为`PermissionsAndroid.RESULTS`。

@@ -61,6 +61,31 @@ return (
 
 复合组件并不是单纯的由一个原生视图构成，所以你不能对其直接使用`setNativeProps`。比如下面这个例子：
 
+<Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
+<TabItem value="javascript">
+
+```SnackPlayer name=setNativeProps%20with%20Composite%20Components&ext=js
+import React from 'react';
+import {Text, TouchableOpacity, View} from 'react-native';
+
+const MyButton = props => (
+  <View style={{marginTop: 50}}>
+    <Text>{props.label}</Text>
+  </View>
+);
+
+const App = () => (
+  <TouchableOpacity>
+    <MyButton label="Press me!" />
+  </TouchableOpacity>
+);
+
+export default App;
+```
+
+</TabItem>
+<TabItem value="typescript">
+
 ```SnackPlayer name=setNativeProps%20with%20Composite%20Components&ext=tsx
 import React from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
@@ -80,11 +105,39 @@ const App = () => (
 export default App;
 ```
 
-跑这个例子会马上看到一行报错： `Touchable child must either be native or forward setNativeProps to a native component`。这是因为`MyButton`并非直接由原生视图构成，而我们只能给原生视图设置透明值。你可以尝试这样去理解：如果你通过`React.createClass`方法自定义了一个组件，直接给它设置样式 prop 是不会生效的，你得把样式 props 层层向下传递给子组件，直到子组件是一个能够直接定义样式的原生组件。同理，我们也需要把`setNativeProps`传递给由原生组件封装的子组件。
+</TabItem>
+</Tabs>
+
+跑这个例子会马上看到一行报错： `Touchable child must either be native or forward setNativeProps to a native component`。这是因为`MyButton`并非直接由原生视图构成，而我们只能给原生视图设置透明值。你可以尝试这样去理解：如果你通过`createReactClass`方法自定义了一个组件，直接给它设置样式 prop 是不会生效的，你得把样式 props 层层向下传递给子组件，直到子组件是一个能够直接定义样式的原生组件。同理，我们也需要把`setNativeProps`传递给由原生组件封装的子组件。
 
 #### 将 setNativeProps 传递给子组件
 
-具体要做的就是在我们的自定义组件中再封装一个`setNativeProps`方法，其内容为对合适的子组件调用真正的`setNativeProps`方法，并传递要设置的参数。
+由于`setNativeProps`方法存在于对`View`组件的任何 ref 上，所以只需将自定义组件上的 ref 转发到其渲染的某个`<View />`组件即可。这意味着在自定义组件上调用`setNativeProps`与直接在被包装的`View`组件上调用`setNativeProps`具有相同的效果。
+
+<Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
+<TabItem value="javascript">
+
+```SnackPlayer name=Forwarding%20setNativeProps&ext=js
+import React from 'react';
+import {Text, TouchableOpacity, View} from 'react-native';
+
+const MyButton = React.forwardRef((props, ref) => (
+  <View {...props} ref={ref} style={{marginTop: 50}}>
+    <Text>{props.label}</Text>
+  </View>
+));
+
+const App = () => (
+  <TouchableOpacity>
+    <MyButton label="Press me!" />
+  </TouchableOpacity>
+);
+
+export default App;
+```
+
+</TabItem>
+<TabItem value="typescript">
 
 ```SnackPlayer name=Forwarding%20setNativeProps&ext=tsx
 import React from 'react';
@@ -105,13 +158,67 @@ const App = () => (
 export default App;
 ```
 
-现在你可以用`MyButton`来代替`TouchableOpacity`了！有一点需要特别说明：这里我们使用了[ref 回调](https://doc.react-china.org/docs/refs-and-the-dom.html)语法，而不是传统的字符串型 ref 引用。
+</TabItem>
+</Tabs>
 
-你可能还会注意到我们在向下传递 props 时使用了`{...props}`语法（这一用法的说明请参考[对象的扩展运算符](http://es6.ruanyifeng.com/#docs/object)）。这是因为`TouchableOpacity`本身其实也是个复合组件， 它除了要求在子组件上执行`setNativeProps` 以外，还要求子组件对触摸事件进行处理。因此，它会传递多个 props，其中包含了[onmoveshouldsetresponder](view#onmoveshouldsetresponder) 函数，这个函数需要回调给`TouchableOpacity`组件，以完成触摸事件的处理。与之相对的是`TouchableHighlight`组件，它本身是由原生视图构成，因而只需要我们实现`setNativeProps`。
+现在你可以在`TouchableOpacity`中使用`MyButton`了！
+
+你可能还会注意到我们在向下传递 props 时使用了`{...props}`语法。这是因为`TouchableOpacity`本身其实也是个复合组件，它除了要求在子组件上执行`setNativeProps`以外，还要求子组件对触摸事件进行处理。因此，它会传递多个 props，其中包含了[onmoveshouldsetresponder](view.md#onmoveshouldsetresponder) 函数，这个函数需要回调给`TouchableOpacity`组件，以完成触摸事件的处理。与之相对的是`TouchableHighlight`组件，它本身是由原生视图构成，因而只需要我们实现`setNativeProps`。
 
 ## 使用 setNativeProps 来直接编辑输入框的值
 
-Another very common use case of `setNativeProps` is to edit the value of the TextInput. The `controlled` prop of TextInput can sometimes drop characters when the `bufferDelay` is low and the user types very quickly. Some developers prefer to skip this prop entirely and instead use `setNativeProps` to directly manipulate the TextInput value when necessary. For example, the following code demonstrates editing the input when you tap a button:
+`setNativeProps` 的另一个常见用途是编辑 TextInput 的值。TextInput 的 `controlled` prop 有时在 `bufferDelay` 较低且用户输入速度非常快时可能会丢失字符。有些开发者更喜欢完全跳过这个 prop，而是在必要时使用 `setNativeProps` 直接操作 TextInput 的值。例如，以下代码演示了在点击按钮时编辑输入框：
+
+<Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
+<TabItem value="javascript">
+
+```SnackPlayer name=Clear%20text&ext=js
+import React from 'react';
+import {useCallback, useRef} from 'react';
+import {
+  StyleSheet,
+  TextInput,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+
+const App = () => {
+  const inputRef = useRef(null);
+  const editText = useCallback(() => {
+    inputRef.current.setNativeProps({text: 'Edited Text'});
+  }, []);
+
+  return (
+    <View style={styles.container}>
+      <TextInput ref={inputRef} style={styles.input} />
+      <TouchableOpacity onPress={editText}>
+        <Text>Edit text</Text>
+      </TouchableOpacity>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  input: {
+    height: 50,
+    width: 200,
+    marginHorizontal: 20,
+    borderWidth: 1,
+    borderColor: '#ccc',
+  },
+});
+
+export default App;
+```
+
+</TabItem>
+<TabItem value="typescript">
 
 ```SnackPlayer name=Clear%20text&ext=tsx
 import React from 'react';
@@ -158,7 +265,10 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-You can use the [`clear`](textinput#clear) method to clear the `TextInput` which clears the current input text using the same approach.
+</TabItem>
+</Tabs>
+
+你可以使用 [`clear`](../textinput#clear) 方法来清除 `TextInput`，它使用相同的方法清除当前输入文本。
 
 ## 避免和 render 方法的冲突
 
@@ -200,9 +310,65 @@ Also the width and height returned by `measure()` are the width and height of th
 
 类似`measure()`方法，测量相对于祖视图（通过`relativeToNativeComponentRef`来指定）的位置关系。返回的是相对于祖视图原点的`x`、`y`。
 
-:::note 备注
-This method can also be called with a `relativeToNativeNode` handler (instead of reference), but this variant is deprecated.
+:::note
+此方法也可以使用 `relativeToNativeNode` 处理器（而不是引用）来调用，但这种变体在新架构中已被废弃。
 :::
+
+<Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
+<TabItem value="javascript">
+
+```SnackPlayer name=measureLayout%20example&supportedPlatforms=android,ios&ext=js
+import React, {useEffect, useRef, useState} from 'react';
+import {Text, View, StyleSheet} from 'react-native';
+
+const App = () => {
+  const textContainerRef = useRef(null);
+  const textRef = useRef(null);
+  const [measure, setMeasure] = useState(null);
+
+  useEffect(() => {
+    if (textRef.current && textContainerRef.current) {
+      textRef.current.measureLayout(
+        textContainerRef.current,
+        (left, top, width, height) => {
+          setMeasure({left, top, width, height});
+        },
+      );
+    }
+  }, [measure]);
+
+  return (
+    <View style={styles.container}>
+      <View ref={textContainerRef} style={styles.textContainer}>
+        <Text ref={textRef}>Where am I? (relative to the text container)</Text>
+      </View>
+      <Text style={styles.measure}>{JSON.stringify(measure)}</Text>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+  textContainer: {
+    backgroundColor: '#61dafb',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 12,
+  },
+  measure: {
+    textAlign: 'center',
+    padding: 12,
+  },
+});
+
+export default App;
+```
+
+</TabItem>
+<TabItem value="typescript">
 
 ```SnackPlayer name=measureLayout%20example&ext=tsx
 import React, {useEffect, useRef, useState} from 'react';
@@ -264,6 +430,8 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
+</TabItem>
+</Tabs>
 
 ### focus()
 
