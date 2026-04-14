@@ -41,12 +41,12 @@ mkdir -p Demo/{specs,android/app/src/main/java/com/webview}
 Demo
 ├── android/app/src/main/java/com/webview
 └── ios
-└── spec
+└── specs
 ```
 
 - `android/app/src/main/java/com/webview` 文件夹是存放 Android 代码的文件夹。
 - `ios` 文件夹是存放 iOS 代码的文件夹。
-- `spec` 文件夹是存放 Codegen 规范文件的文件夹。
+- `specs` 文件夹是存放 Codegen 规范文件的文件夹。
 
 ## 1. 定义 Codegen 规范
 
@@ -60,9 +60,12 @@ Demo
 <TabItem value="typescript">
 
 ```typescript title="Demo/specs/WebViewNativeComponent.ts"
-import type {HostComponent, ViewProps} from 'react-native';
-import type {BubblingEventHandler} from 'react-native/Libraries/Types/CodegenTypes';
-import codegenNativeComponent from 'react-native/Libraries/Utilities/codegenNativeComponent';
+import type {
+  CodegenTypes,
+  HostComponent,
+  ViewProps,
+} from 'react-native';
+import {codegenNativeComponent} from 'react-native';
 
 type WebViewScriptLoadedEvent = {
   result: 'success' | 'error';
@@ -70,7 +73,7 @@ type WebViewScriptLoadedEvent = {
 
 export interface NativeProps extends ViewProps {
   sourceURL?: string;
-  onScriptLoaded?: BubblingEventHandler<WebViewScriptLoadedEvent> | null;
+  onScriptLoaded?: CodegenTypes.BubblingEventHandler<WebViewScriptLoadedEvent> | null;
 }
 
 export default codegenNativeComponent<NativeProps>(
@@ -84,9 +87,8 @@ export default codegenNativeComponent<NativeProps>(
 ```ts title="Demo/RCTWebView/js/RCTWebViewNativeComponent.js":
 // @flow strict-local
 
-import type {HostComponent, ViewProps} from 'react-native';
-import type {BubblingEventHandler} from 'react-native/Libraries/Types/CodegenTypes';
-import codegenNativeComponent from 'react-native/Libraries/Utilities/codegenNativeComponent';
+import type {CodegenTypes, HostComponent, ViewProps} from 'react-native';
+import {codegenNativeComponent} from 'react-native';
 
 type WebViewScriptLoadedEvent = $ReadOnly<{|
   result: "success" | "error",
@@ -95,7 +97,7 @@ type WebViewScriptLoadedEvent = $ReadOnly<{|
 type NativeProps = $ReadOnly<{|
   ...ViewProps,
   sourceURL?: string;
-  onScriptLoaded?: BubblingEventHandler<WebViewScriptLoadedEvent>?;
+  onScriptLoaded?: CodegenTypes.BubblingEventHandler<WebViewScriptLoadedEvent>?;
 |}>;
 
 export default (codegenNativeComponent<NativeProps>(
@@ -120,23 +122,30 @@ export default (codegenNativeComponent<NativeProps>(
 该规范文件用于 React Native 的 Codegen 工具生成平台特定的接口和样板代码。为此，Codegen 需要知道在哪里找到我们的规范文件以及如何处理它。更新你的 `package.json` 文件：
 
 ```json package.json
-     "start": "react-native start",
-     "test": "jest"
-   },
-   // highlight-start
-   "codegenConfig": {
-     "name": "AppSpec",
-     "type": "components",
-     "jsSrcsDir": "specs",
-     "android": {
-       "javaPackageName": "com.webview"
-     }
-   },
-   // highlight-end
-   "dependencies": {
+    "start": "react-native start",
+    "test": "jest"
+  },
+  // highlight-start
+  "codegenConfig": {
+    "name": "AppSpec",
+    "type": "components",
+    "jsSrcsDir": "specs",
+    "android": {
+      "javaPackageName": "com.webview"
+    },
+    "ios": {
+      "componentProvider": {
+        "CustomWebView": "RCTWebView"
+      }
+    }
+  },
+  // highlight-end
+  "dependencies": {
 ```
 
 配置好 Codegen 后，我们需要准备原生代码以连接到生成的代码。
+
+请注意，对于 iOS，我们声明式地将规范导出的 JS 组件名称（`CustomWebView`）与将在原生实现组件的 iOS 类进行映射。
 
 ## 2. 构建原生代码
 
@@ -200,7 +209,7 @@ export default App;
 
 该应用还显示了一个当网页加载完成时弹出的警告。
 
-## 5. 运行应用使用 WebView 组件
+## 4. 运行应用使用 WebView 组件
 
 <Tabs groupId="platforms" queryString defaultValue={constants.defaultPlatform}>
 <TabItem value="android" label="Android">

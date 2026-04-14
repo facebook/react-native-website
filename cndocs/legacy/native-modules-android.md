@@ -77,9 +77,11 @@ class CalendarModule(reactContext: ReactApplicationContext) : ReactContextBaseJa
 
 正如您所看到的，您的`CalendarModule`类继承自`ReactContextBaseJavaModule`类。对于安卓系统，Java/Kotlin 原生模块是用扩展了`ReactContextBaseJavaModule`并实现了 JavaScript 所需功能的类来编写的。
 
+:::note
 值得注意的是，从技术上讲，Java/Kotlin 类只需要扩展`BaseJavaModule`类或实现`NativeModule`接口，才能被 React Native 视为原生模块。
 
 然而，我们建议您使用上面所示的`ReactContextBaseJavaModule`。`ReactContextBaseJavaModule`提供了`ReactApplicationContext`(RAC)的访问权限，这对于需要挂钩到活动生命周期方法的原生模块非常有用。使用`ReactContextBaseJavaModule`也将使您更容易在将来实现原生模块的类型安全性。为了实现原生模块类型安全性(将在未来版本中推出)，React Native 会查看每个原生模块的 JavaScript 规范，并生成一个抽象基类，该基类扩展自`ReactContextBaseJavaModule`。
+:::
 
 ### 模块名称
 
@@ -267,7 +269,9 @@ class MyAppPackage : ReactPackage {
 
 这个文件导入了你创建的原生模块`CalendarModule`。然后在`createNativeModules()`函数中实例化了`CalendarModule`并将其作为`NativeModules`列表返回以便注册。如果将来你添加更多原生模块，也可以在这里实例化它们并添加到返回的列表中。
 
-值得注意的是，这种注册原生模块的方式会在应用启动时主动地初始化所有原生模块，从而增加了应用的启动时间。你可以使用[TurboReactPackage](https://github.com/facebook/react-native/blob/main/packages/react-native/ReactAndroid/src/main/java/com/facebook/react/TurboReactPackage.java)作为替代方案。与返回已实例化的原生模块对象列表的`createNativeModules`不同，TurboReactPackage 实现了一个`getModule(String name， ReactApplicationContext rac)`方法，在需要时创建原生模块对象。目前实现 TurboReactPackage 有点复杂。除了实现`getModule()`方法外，你还必须实现一个`getReactModuleInfoProvider()`方法，该方法返回包可实例化的所有原生模块列表以及实例化它们的函数，示例[在此](https://github.com/facebook/react-native/blob/8ac467c51b94c82d81930b4802b2978c85539925/ReactAndroid/src/main/java/com/facebook/react/CoreModulesPackage.java#L86-L165)。再次说明，使用 TurboReactPackage 将使你的应用拥有更快的启动时间，但目前编写起来有些麻烦。所以如果你选择使用 TurboReactPackage，请小心谨慎。
+:::note
+值得注意的是，这种注册原生模块的方式会在应用启动时主动地初始化所有原生模块，从而增加了应用的启动时间。你可以使用[TurboReactPackage](https://github.com/facebook/react-native/blob/main/packages/react-native/ReactAndroid/src/main/java/com/facebook/react/TurboReactPackage.kt)作为替代方案。与返回已实例化的原生模块对象列表的`createNativeModules`不同，TurboReactPackage 实现了一个`getModule(String name， ReactApplicationContext rac)`方法，在需要时创建原生模块对象。目前实现 TurboReactPackage 有点复杂。除了实现`getModule()`方法外，你还必须实现一个`getReactModuleInfoProvider()`方法，该方法返回包可实例化的所有原生模块列表以及实例化它们的函数，示例[在此](https://github.com/facebook/react-native/blob/8ac467c51b94c82d81930b4802b2978c85539925/ReactAndroid/src/main/java/com/facebook/react/CoreModulesPackage.java#L86-L165)。再次说明，使用 TurboReactPackage 将使你的应用拥有更快的启动时间，但目前编写起来有些麻烦。所以如果你选择使用 TurboReactPackage，请小心谨慎。
+:::
 
 要注册`CalendarModule`包，你必须将`MyAppPackage`添加到 ReactNativeHost 的`getPackages()`方法返回的包列表中。打开`MainApplication.java`或`MainApplication.kt`文件，位于如下路径:`android/app/src/main/java/com/your-app-name/`。
 
@@ -429,7 +433,9 @@ import CalendarModule from './CalendarModule';
 CalendarModule.createCalendarEvent('foo'， 'bar');
 ```
 
-> 这假设你导入 `CalendarModule` 的位置与 `CalendarModule.js` 在同一层级目录。如有必要，请相应更新导入路径。
+:::note
+这假设你导入 `CalendarModule` 的位置与 `CalendarModule.js` 在同一层级目录。如有必要，请相应更新导入路径。
+:::
 
 ### 参数类型
 
@@ -447,12 +453,14 @@ CalendarModule.createCalendarEvent('foo'， 'bar');
 | ReadableMap   | ReadableMap   | Object     |
 | ReadableArray | ReadableArray | Array      |
 
-> 以下类型目前虽然受支持，但在 TurboModules 中将不再支持，请避免使用:
->
-> - Integer Java/Kotlin -> ?number
-> - Float Java/Kotlin -> ?number
-> - int Java -> number
-> - float Java -> number
+:::info
+以下类型目前虽然受支持，但在 TurboModules 中将不再支持，请避免使用:
+
+- Integer Java/Kotlin -> ?number
+- Float Java/Kotlin -> ?number
+- int Java -> number
+- float Java -> number
+  :::
 
 对于上面未列出的参数类型，你需要自行处理类型转换。例如，在 Android 中，Date 类型的转换并不是开箱即用的。你可以在原生方法中自己处理 Date 类型的转换，如下所示:
 
@@ -522,7 +530,9 @@ console.log(DEFAULT_EVENT_NAME);
 
 理论上可以直接从原生模块对象访问在`getConstants()`中导出的常量。但这种做法将来不再受支持，因此我们鼓励社区转而采用上述方式，以避免将来不得不迁移代码。
 
-> 目前，常量仅在初始化时导出，因此如果您在运行时更改了 getConstants 的值，它不会影响 JavaScript 环境。这种情况将随着 Turbomodules 而改变。使用 Turbomodules 后，`getConstants()`将成为一个常规的原生模块方法，每次调用都会触及原生端。
+:::note
+目前，常量仅在初始化时导出，因此如果您在运行时更改了 getConstants 的值，它不会影响 JavaScript 环境。这种情况将随着 Turbomodules 而改变。使用 Turbomodules 后，`getConstants()`将成为一个常规的原生模块方法，每次调用都会触及原生端。
+:::
 
 ### 回调函数
 
@@ -727,7 +737,9 @@ fun createCalendarEvent(name: String， location: String， promise: Promise) {
 </TabItem>
 </Tabs>
 
-> 类似于回调，原生模块方法可以拒绝或解决一个 Promise(但不能两者都做)，并且最多只能执行一次。这意味着您可以调用成功回调或失败回调， 但不能两者都调用，且每个回调最多只能被调用一次。不过，原生模块可以存储回调并稍后调用它。
+:::note
+类似于回调，原生模块方法可以拒绝或解决一个 Promise(但不能两者都做)，并且最多只能执行一次。这意味着您可以调用成功回调或失败回调，但不能两者都调用，且每个回调最多只能被调用一次。不过，原生模块可以存储回调并稍后调用它。
+:::
 
 该方法的 JavaScript 对应部分返回一个 Promise。这意味着您可以在异步函数中使用 `await` 关键字调用它并等待其结果:
 
@@ -764,7 +776,7 @@ code: String， message: String， userInfo: WritableMap， throwable: Throwable
 </TabItem>
 </Tabs>
 
-更多详细内容，您可以在[这里](https://github.com/facebook/react-native/blob/main/packages/react-native/ReactAndroid/src/main/java/com/facebook/react/bridge/Promise.java)查阅 `Promise.java` 接口。如果未提供 `userInfo`，React Native 会将其设置为 null。对于其余参数，React Native 将使用默认值。`message` 参数提供了显示在错误调用堆栈顶部的错误 `message`。以下是在 JavaScript 中显示的错误消息示例，该消息来自 Java/Kotlin 中的以下 reject 调用。
+更多详细内容，您可以在[这里](https://github.com/facebook/react-native/blob/main/packages/react-native/ReactAndroid/src/main/java/com/facebook/react/bridge/Promise.kt)查阅 `Promise.java` 接口。如果未提供 `userInfo`，React Native 会将其设置为 null。对于其余参数，React Native 将使用默认值。`message` 参数提供了显示在错误调用堆栈顶部的错误 `message`。以下是在 JavaScript 中显示的错误消息示例，该消息来自 Java/Kotlin 中的以下 reject 调用。
 
 Java/Kotlin 的 reject 调用:
 

@@ -9,14 +9,13 @@ title: KeyboardAvoidingView
 
 ```SnackPlayer name=KeyboardAvoidingView&supportedPlatforms=android,ios
 import React from 'react';
-import { View, KeyboardAvoidingView, TextInput, StyleSheet, Text, Platform, TouchableWithoutFeedback, Button, Keyboard  } from 'react-native';
+import { View, KeyboardAvoidingView, TextInput, StyleSheet, Text, Platform, TouchableWithoutFeedback, Button, Keyboard } from 'react-native';
 
 const KeyboardAvoidingComponent = () => {
   return (
     <KeyboardAvoidingView
-      behavior={Platform.OS == "ios" ? "padding" : "height"}
-      style={styles.container}
-    >
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      style={styles.container}>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.inner}>
           <Text style={styles.header}>Header</Text>
@@ -32,27 +31,27 @@ const KeyboardAvoidingComponent = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
   },
   inner: {
     padding: 24,
     flex: 1,
-    justifyContent: "space-around"
+    justifyContent: "space-around",
   },
   header: {
     fontSize: 36,
-    marginBottom: 48
+    marginBottom: 48,
   },
   textInput: {
     height: 40,
     borderColor: "#000000",
     borderBottomWidth: 1,
-    marginBottom: 36
+    marginBottom: 36,
   },
   btnContainer: {
     backgroundColor: "white",
-    marginTop: 12
-  }
+    marginTop: 12,
+  },
 });
 
 export default KeyboardAvoidingComponent;
@@ -60,7 +59,7 @@ export default KeyboardAvoidingComponent;
 
 ---
 
-# 文档
+# 参考
 
 ## Props
 
@@ -74,7 +73,9 @@ export default KeyboardAvoidingComponent;
 
 Specify how to react to the presence of the keyboard.
 
-> Android 和 iOS 在此属性上表现并不一致。但我们建议在两个平台上都明确设置此属性。
+:::note
+Android 和 iOS 在此属性上表现并不一致。但我们建议在两个平台上都明确设置此属性。
+:::
 
 | 类型                                        |
 | ------------------------------------------- |

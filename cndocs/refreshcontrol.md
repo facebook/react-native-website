@@ -9,48 +9,37 @@ title: RefreshControl
 
 ```SnackPlayer name=RefreshControl&supportedPlatforms=ios,android
 import React from 'react';
-import {
-  ScrollView,
-  RefreshControl,
-  StyleSheet,
-  Text,
-  SafeAreaView,
-} from 'react-native';
-import Constants from 'expo-constants';
-
-const wait = (timeout) => {
-  return new Promise(resolve => {
-    setTimeout(resolve, timeout);
-  });
-}
+import {RefreshControl, ScrollView, StyleSheet, Text} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => {
   const [refreshing, setRefreshing] = React.useState(false);
 
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);
-
-    wait(2000).then(() => setRefreshing(false));
+    setTimeout(() => {
+      setRefreshing(false);
+    }, 2000);
   }, []);
 
   return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView
-        contentContainerStyle={styles.scrollView}
-        refreshControl={
-          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-        }
-      >
-        <Text>Pull down to see RefreshControl indicator</Text>
-      </ScrollView>
-    </SafeAreaView>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <ScrollView
+          contentContainerStyle={styles.scrollView}
+          refreshControl={
+            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+          }>
+          <Text>Pull down to see RefreshControl indicator</Text>
+        </ScrollView>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: Constants.statusBarHeight,
   },
   scrollView: {
     flex: 1,
@@ -63,21 +52,29 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-**注意：** `refreshing`是一个受控属性， 所以必须在`onRefresh`函数中设置为 true，否则 loading 指示器会立即停止。
+:::note
+`refreshing`是一个受控属性，所以必须在`onRefresh`函数中设置为 true，否则 loading 指示器会立即停止。
+:::
 
 ---
 
-# 文档
+# 参考
 
 ## Props
 
-### `refreshing`
+### [View Props](view.md#props)
+
+继承了所有的 [View Props](view.md#props).
+
+---
+
+### <div className="label required basic">必需</div>**`refreshing`**
 
 视图是否应该在刷新时显示指示器。
 
-| 类型 | 必需 |
-| ---- | ---- |
-| bool | 是   |
+| 类型    |
+| ------- |
+| boolean |
 
 ---
 
@@ -85,39 +82,39 @@ export default App;
 
 在视图开始刷新时调用。
 
-| 类型     | 必需 |
-| -------- | ---- |
-| function | 否   |
+| 类型     |
+| -------- |
+| function |
 
 ---
 
-### `colors`
+### `colors` <div className="label android">Android</div>
 
 指定至少一种颜色用来绘制刷新指示器。
 
-| 类型                        | 必需 | 平台    |
-| --------------------------- | ---- | ------- |
-| array of [color](colors.md) | 否   | Android |
+| 类型                         |
+| ---------------------------- |
+| array of [colors](colors.md) |
 
 ---
 
-### `enabled`
+### `enabled` <div className="label android">Android</div>
 
 指定是否要启用刷新指示器。
 
-| 类型 | 必需 | 平台    |
-| ---- | ---- | ------- |
-| bool | 否   | Android |
+| 类型    | 默认值 |
+| ------- | ------ |
+| boolean | `true` |
 
 ---
 
-### `progressBackgroundColor`
+### `progressBackgroundColor` <div className="label android">Android</div>
 
 指定刷新指示器的背景色。
 
-| 类型               | 必需 | 平台    |
-| ------------------ | ---- | ------- |
-| [color](colors.md) | 否   | Android |
+| 类型               |
+| ------------------ |
+| [color](colors.md) |
 
 ---
 
@@ -125,46 +122,46 @@ export default App;
 
 指定刷新指示器的垂直起始位置(top offset)。
 
-| 类型   | 必需 | 平台    |
-| ------ | ---- | ------- |
-| number | 否   | Android |
+| 类型   | 默认值 |
+| ------ | ------ |
+| number | `0`    |
 
 ---
 
-### `size`
+### `size` <div className="label android">Android</div>
 
-指定刷新指示器的大小，具体数值可参阅 RefreshControl.SIZE.
+指定刷新指示器的大小。
 
-| 类型                                                                   | 必需 | 平台    |
-| ---------------------------------------------------------------------- | ---- | ------- |
-| enum(RefreshLayoutConsts.SIZE.DEFAULT, RefreshLayoutConsts.SIZE.LARGE) | 否   | Android |
+| 类型                         | 默认值      |
+| ---------------------------- | ----------- |
+| enum(`'default'`, `'large'`) | `'default'` |
 
 ---
 
-### `tintColor`
+### `tintColor` <div className="label ios">iOS</div>
 
 指定刷新指示器的颜色。
 
-| 类型               | 必需 | 平台 |
-| ------------------ | ---- | ---- |
-| [color](colors.md) | 否   | iOS  |
+| 类型               |
+| ------------------ |
+| [color](colors.md) |
 
 ---
 
-### `title`
+### `title` <div className="label ios">iOS</div>
 
 指定刷新指示器下显示的文字。
 
-| 类型   | 必需 | 平台 |
-| ------ | ---- | ---- |
-| string | 否   | iOS  |
+| 类型   |
+| ------ |
+| string |
 
 ---
 
-### `titleColor`
+### `titleColor` <div className="label ios">iOS</div>
 
 指定刷新指示器下显示的文字的颜色。
 
-| 类型               | 必需 | 平台 |
-| ------------------ | ---- | ---- |
-| [color](colors.md) | 否   | iOS  |
+| 类型               |
+| ------------------ |
+| [color](colors.md) |

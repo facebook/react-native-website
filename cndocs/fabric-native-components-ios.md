@@ -38,41 +38,41 @@ cd ios
 open Demo.xcworkspace
 ```
 
-<img class="half-size" alt="Open Xcode Workspace" src="/docs/assets/fabric-native-components/1.webp" />
+<img className="half-size" alt="Open Xcode Workspace" src="/docs/assets/fabric-native-components/1.webp" />
 
 2. 右键点击应用，选择 <code>New Group</code>，将新组命名为 `WebView`。
 
-<img class="half-size" alt="Right click on app and select New Group" src="/docs/assets/fabric-native-components/2.webp" />
+<img className="half-size" alt="Right click on app and select New Group" src="/docs/assets/fabric-native-components/2.webp" />
 
 3. 在 `WebView` 组中，创建 <code>New</code>→<code>File from Template</code>。
 
-<img class="half-size" alt="Create a new file using the Cocoa Touch Classs template" src="/docs/assets/fabric-native-components/3.webp" />
+<img className="half-size" alt="Create a new file using the Cocoa Touch Class template" src="/docs/assets/fabric-native-components/3.webp" />
 
 4. 使用 <code>Objective-C File</code> 模板，并命名为 <code>RCTWebView</code>。
 
-<img class="half-size" alt="Create an Objective-C RCTWebView class" src="/docs/assets/fabric-native-components/4.webp" />
+<img className="half-size" alt="Create an Objective-C RCTWebView class" src="/docs/assets/fabric-native-components/4.webp" />
 
-5. 将 <code>RCTWebView.m</code> 重命名为 <code>RCTWebView.mm</code>，使其成为 Objective-C++ 文件。
+5. 重复步骤 4，创建一个名为 `RCTWebView.h` 的头文件。
+
+6. 将 <code>RCTWebView.m</code> 重命名为 <code>RCTWebView.mm</code>，使其成为 Objective-C++ 文件。
 
 ```text title="Demo/ios"
 Podfile
 ...
 Demo
-├── AppDelegate.h
-├── AppDelegate.mm
+├── AppDelegate.swift
 ...
 // highlight-start
 ├── RCTWebView.h
-├── RCTWebView.mm
+└── RCTWebView.mm
 // highlight-end
-└── main.m
 ```
 
 创建头文件和实现文件后，可以开始实现它们。
 
 以下是 `RCTWebView.h` 文件的代码，声明了组件接口。
 
-```objc title="Demo/RCTWebView/RTNWebView.h"
+```objc title="Demo/RCTWebView/RCTWebView.h"
 #import <React/RCTViewComponentView.h>
 #import <UIKit/UIKit.h>
 
@@ -94,10 +94,10 @@ NS_ASSUME_NONNULL_END
 ```objc title="Demo/RCTWebView/RCTWebView.mm"
 #import "RCTWebView.h"
 
-#import <react/renderer/components/AppSpecs/ComponentDescriptors.h>
-#import <react/renderer/components/AppSpecs/EventEmitters.h>
-#import <react/renderer/components/AppSpecs/Props.h>
-#import <react/renderer/components/AppSpecs/RCTComponentViewHelpers.h>
+#import <react/renderer/components/AppSpec/ComponentDescriptors.h>
+#import <react/renderer/components/AppSpec/EventEmitters.h>
+#import <react/renderer/components/AppSpec/Props.h>
+#import <react/renderer/components/AppSpec/RCTComponentViewHelpers.h>
 // highlight-next-line
 #import <WebKit/WebKit.h>
 
@@ -181,11 +181,6 @@ using namespace facebook::react;
   return concreteComponentDescriptorProvider<CustomWebViewComponentDescriptor>();
 }
 
-Class<RCTComponentViewProtocol> WebViewCls(void)
-{
-  return RCTWebView.class;
-}
-
 @end
 ```
 
@@ -201,45 +196,27 @@ Class<RCTComponentViewProtocol> WebViewCls(void)
 - `urlIsValid:(std::string)propString` 方法检查接收到的 URL 属性是否有效；
 - `eventEmitter` 方法，用于检索强类型的 `eventEmitter` 实例；
 - `componentDescriptorProvider` 方法，返回由 Codegen 生成的 `ComponentDescriptor`；
-- `WebViewCls` 方法，用于在应用中注册 `RCTWebView`。
 
-#### AppDelegate.mm
+#### 添加 WebKit 框架
 
-最后，可以在应用中注册组件。更新 `AppDelegate.mm` 文件，使应用意识到自定义的 WebView 组件：
-
-```objc title="Demo/ios/Demo/AppDelegate.mm"
-#import "AppDelegate.h"
-
-#import <React/RCTBundleURLProvider.h>
-// highlight-start
-#import <React/RCTBridge+Private.h>
-#import "RCTWebView.h"
-// highlight-end
-@implementation AppDelegate
-// ...
-// highlight-start
-- (NSDictionary<NSString *,Class<RCTComponentViewProtocol>> *)thirdPartyFabricComponents
-{
-  NSMutableDictionary * dictionary = [super thirdPartyFabricComponents].mutableCopy;
-  dictionary[@"CustomWebView"] = [RCTWebView class];
-  return dictionary;
-}
-// highlight-end
-
-@end
-```
-
-这段代码通过获取来自其他来源（如第三方库）的第三方组件字典的可变副本，重写了 `thirdPartyFabricComponents` 方法。
-
-然后，向字典中添加一个条目，条目名称与 Codegen 规范文件中使用的名称相同。这样，当 React 需要加载名称 `CustomWebView` 的组件时，React Native 将实例化 `RCTWebView`。
-
-最后，返回新的字典。
-
-:::warning
-我们意识到 iOS 存在一些问题，当使用自定义 iOS 组件构建应用时会出现问题。
-
-1. 组件需要访问 `yoga/style/Style.h` 头文件，但当前应用无法访问。为此，将 `$(PODS_ROOT)/Headers/Private/Yoga` 路径添加到应用的头文件搜索路径构建设置中。
-2. Codegen 在 `RCTThirdPartyFabricComponentsProvider` 中生成了一行不需要生成的代码。删除 `RCTThirdPartyFabricComponentsProvider.h` 和 `RCTThirdPartyFabricComponentsProvider.mm` 文件中带有 `WebViewCls` 符号的行。
-
-我们已经修复了这些问题，它们将在 React Native 0.76.1 中发布。
+:::note
+此步骤仅在我们创建 Web 视图时才需要。iOS 上的 Web 组件需要链接到 Apple 提供的 WebKit 框架。如果你的组件不需要访问 web 特定的功能，可以跳过此步骤。
 :::
+
+Web 视图需要访问 Apple 通过 Xcode 和设备附带的框架之一提供的某些功能：WebKit。
+你可以在原生代码中看到 `#import <WebKit/WebKit.h>` 这一行，它被添加到了 `RCTWebView.mm` 中。
+
+要在你的应用中链接 WebKit 框架，请按照以下步骤操作：
+
+1. 在 Xcode 中，点击你的项目
+2. 选择应用 target
+3. 选择 General 选项卡
+4. 向下滚动直到找到 _"Frameworks, Libraries, and Embedded Contents"_ 部分，然后按下 `+` 按钮
+
+<img className="half-size" alt="Add webkit framework to your app 1" src="/docs/assets/AddWebKitFramework1.png" />
+
+5. 在搜索栏中，筛选 WebKit
+6. 选择 WebKit 框架
+7. 点击 Add。
+
+<img className="half-size" alt="Add webkit framework to your app 2" src="/docs/assets/AddWebKitFramework2.png" />
