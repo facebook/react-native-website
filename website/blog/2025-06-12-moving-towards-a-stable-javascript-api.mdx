@@ -10,7 +10,7 @@ In React Native 0.80, we're introducing two significant changes to React Native'
 **Quick takeaways:**
 
 - **Deep imports deprecation**: From 0.80, we're introducing deprecation warnings for deep imports from the `react-native` package.
-- **Opt-in Strict TypeScript API**: We are moving to from-source TypeScript types and a new public API baseline under TypeScript. These enable stronger and more futureproof type accuracy, and will be a one-time breaking change. [Opt in](/blog/2025/06/12/moving-towards-a-stable-javascript-api#strict-typescript-api) via `compilerOptions` in your project's `tsconfig.json`.
+- **Opt-in Strict TypeScript API**: We are moving to from-source TypeScript types and a new public API baseline under TypeScript. These enable stronger and more futureproof type accuracy, and will be a one-time breaking change. [Opt in](/blog/2025/06/12/moving-towards-a-stable-javascript-api#future--strict-typescript-api-by-default) via `compilerOptions` in your project's `tsconfig.json`.
 - We'll work with the community over time to ensure that these changes work for everyone, before enabling the Strict TypeScript API by default in a future React Native release.
 
 {/* truncate */}
@@ -310,20 +310,20 @@ Thanks also to [Pieter Vanderwerff](https://github.com/pieterv), [Rubén Norte](
 :::note[Learn more]
 
 <div style={{display: 'flex', alignItems: 'center', gap: 40}}>
-  <div style={{flex: 1}}>
-    <strong
-      style={{display: 'block', marginTop: 8, marginBottom: 8}}>
+  <div style={{flex: 1, gap: 8}}>
+    <strong style={{display: 'block', marginBottom: 8}}>
       Watch the talk!
     </strong>
-    <span style={{display: 'block', marginBottom: 8}}>
+    <span>
       We shared a deep dive into our motivations and the work
       behind the Strict TypeScript API at{' '}
       <strong>App.js 2025</strong>.
     </span>
-    <p style={{marginBottom: 8}}>
-      **[View on
-      YouTube](https://www.youtube.com/live/UTaJlqhTk2g?si=SDRmj80kss7hXuGG&t=6520)**
-    </p>
+    <a
+      href="https://www.youtube.com/live/UTaJlqhTk2g?si=SDRmj80kss7hXuGG&t=6520"
+      target="_blank">
+      <strong>View on YouTube</strong>
+    </a>
   </div>
   <img
     src="/blog/assets/0.80-js-stable-api-appjs.jpg"

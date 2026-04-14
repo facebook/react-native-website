@@ -359,6 +359,7 @@ const config: Config = {
             '/blog/tags/**',
             '/blog/archive',
             '/blog/authors',
+            '/releases',
             '/search',
           ],
         },
