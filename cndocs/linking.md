@@ -19,8 +19,8 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import con
 
 正如在介绍中提到的，每个平台上都存在一些核心功能的 URL schemes。以下是一个非详尽的列表，但涵盖了最常用的方案。
 
-| Scheme           | 说明                                       | iOS | Android |
-| ---------------- | ------------------------------------------ | --- | ------- |
+| Scheme           | 说明                                         | iOS | Android |
+| ---------------- | -------------------------------------------- | --- | ------- |
 | `mailto`         | 打开 mail app, 例如: mailto: support@expo.io | ✅  | ✅      |
 | `tel`            | 打开 phone app, 例如: tel:+123456789         | ✅  | ✅      |
 | `sms`            | 打开 SMS app, 例如: sms:+123456789           | ✅  | ✅      |
@@ -115,6 +115,9 @@ override func application(
 </Tabs>
 
 :::
+
+</TabItem>
+</Tabs>
 
 ### 处理 Deep Links
 
@@ -579,8 +582,8 @@ static canOpenURL(url: string): Promise<boolean>;
 
 **参数:**
 
-| 名称                                                     | 类型   | 说明      |
-| -------------------------------------------------------- | ------ | ---------------- |
+| 名称                                                     | 类型   | 说明           |
+| -------------------------------------------------------- | ------ | -------------- |
 | url <div className="label basic required">Required</div> | string | 要打开的 URL。 |
 
 :::note
@@ -592,7 +595,7 @@ static canOpenURL(url: string): Promise<boolean>;
 
 - 如果你的 app 链接了早期版本的 iOS 但运行在 iOS 9.0 或更高版本上，你可以调用此方法最多 50 次。达到该限制后，后续调用将始终解析为`false`。如果用户重新安装或升级 app，iOS 会重置该限制。
 - 从 iOS 9 开始，你的 app 还需要在`Info.plist`中提供`LSApplicationQueriesSchemes`键，否则`canOpenURL()`将始终解析为`false`。
-:::
+  :::
 
 :::info
 当目标为 Android 11 (SDK 30) 时，你必须在`AndroidManifest.xml`中指定要处理的 scheme 的 intent。可以在[这里](https://developer.android.com/guide/components/intents-common)找到常见 intent 的列表。
@@ -656,8 +659,8 @@ The method returns a `Promise` object. If the user confirms the open dialog or t
 
 **参数:**
 
-| 名称                                                     | 类型   | 说明      |
-| -------------------------------------------------------- | ------ | ---------------- |
+| 名称                                                     | 类型   | 说明           |
+| -------------------------------------------------------- | ------ | -------------- |
 | url <div className="label basic required">Required</div> | string | 要打开的 URL。 |
 
 :::note

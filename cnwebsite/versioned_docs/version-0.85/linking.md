@@ -116,6 +116,9 @@ override func application(
 
 :::
 
+</TabItem>
+</Tabs>
+
 ### 处理 Deep Links
 
 有两种方法来处理打开应用程序的 URL。
