@@ -7,24 +7,24 @@ import NativeDeprecated from '../the-new-architecture/\_markdown_native_deprecat
 
 <NativeDeprecated />
 
-有时候 App 需要访问平台 API，但 React Native 可能还没有相应的模块包装；或者你需要复用一些 Java 代码，而不是用 Javascript 重新实现一遍；又或者你需要实现某些高性能的、多线程的代码，譬如图片处理、数据库、或者各种高级扩展等等。
+有时 React Native 应用需要访问 JavaScript 默认未提供的原生平台 API，例如访问 Apple Pay 或 Google Pay 的原生 API。或者你可能希望复用现有的 Objective-C、Swift、Java 或 C++ 库，而不是用 JavaScript 重新实现它们；又或者你需要编写一些高性能、多线程的代码来处理图片等任务。
 
-我们把 React Native 设计为可以在其基础上编写真正的原生代码，并且可以访问平台所有的能力。这是一个相对高级的特性，我们并不认为它应当在日常开发的过程中经常出现，但具备这样的能力是很重要的。如果 React Native 还不支持某个你需要的原生特性，你应当可以自己实现该特性的封装。
+NativeModule 系统会将 Java/Objective-C/C++（原生）类的实例以 JavaScript（JS）对象的形式暴露给 JS，这样你就可以在 JS 中执行任意原生代码。虽然我们并不期望这会成为日常开发流程的一部分，但具备这种能力是非常重要的。如果 React Native 没有导出你的 JS 应用所需的某个原生 API，你应该能够自己把它导出来。
 
-## 创建原生模块
+## 原生模块的设置方式
 
-有多种方法可以为您的 React Native 应用程序编写原生模块：
+为 React Native 应用编写原生模块有几种不同方式：
 
-1. 创建一个可在您的 React Native 应用程序中导入的原生库。阅读[创建原生库]（local-library-setup）指南以了解更多信息。
-2. 直接在您的 React Native 应用程序的 iOS / Android 项目中
-3. 作为一个 NPM 包，可以被您/其他 React Native 应用程序作为依赖项安装。
+1. 创建一个可在 React Native 应用中导入的本地库。更多信息请参阅[创建本地库](local-library-setup)。
+2. 直接在 React Native 应用的 iOS/Android 工程中实现。
+3. 作为 NPM 包发布，供你的应用或其他 React Native 应用安装为依赖。
 
-本指南将首先介绍如何直接在 React Native 应用程序内实现原生模块。但是，在以下指南中构建的原生模块可以作为 NPM 包进行分发。如果您有兴趣这样做，请查看[设置为 NPM 包的原生模块]（native-modules-setup）指南。
+本指南会先带你了解如何直接在 React Native 应用内部实现一个原生模块。不过，接下来指南中构建出的原生模块也可以作为 NPM 包分发。如果你对此感兴趣，请参阅[将原生模块设置为 NPM 包](native-modules-setup)指南。
 
-## 教程
+## 开始上手
 
-在接下来的部分中，我们将带您了解如何在 React Native 应用程序内直接构建一个原生模块的指南。作为一个先决条件，您需要一个 React Native 应用程序来工作。如果您还没有，可以按照[这里](getting-started)的步骤设置一个 React Native 应用程序。
+在接下来的章节中，我们会带你一步步在 React Native 应用内部直接构建一个原生模块。前提是你需要先有一个 React Native 应用可供操作。如果你还没有，可以按照[这里](../getting-started)的步骤先创建一个 React Native 应用。
 
-想象一下，您想在 React Native 应用程序内的 JavaScript 中访问 iOS/Android 原生日历 API，以创建日历事件。React Native 没有公开与原生日历库通信的 JavaScript API。然而，通过原生模块，您可以编写与原生日历 API 通信的原生代码。然后您可以在 React Native 应用程序中的 JavaScript 里调用该原生代码。
+假设你想在 React Native 应用的 JavaScript 中访问 iOS/Android 的原生日历 API，以创建日历事件。React Native 并没有暴露一个可直接与原生日历库通信的 JavaScript API。不过，通过原生模块，你可以编写与原生日历 API 通信的原生代码，然后在 React Native 应用的 JavaScript 中调用它。
 
-在接下来的部分中，您将为[Android](native-modules-android)和[iOS](native-modules-ios)创建这样一个 Calendar 原生模块。
+在接下来的章节中，你将分别为 [Android](native-modules-android) 和 [iOS](native-modules-ios) 创建这样一个 Calendar 原生模块。

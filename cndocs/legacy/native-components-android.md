@@ -16,7 +16,7 @@ import NativeDeprecated from '../the-new-architecture/\_markdown_native_deprecat
 您还可以通过一个命令来配置生成包含原生组件的本地库模板。阅读[本地库设置](local-library-setup)指南以获取更多详细信息。
 :::
 
-## ImageView 示例
+## ImageView 示例 {#imageview-example}
 
 在这个例子里，我们来看看为了让 JavaScript 中可以使用 ImageView，需要做哪些准备工作。
 
@@ -32,7 +32,7 @@ import NativeDeprecated from '../the-new-architecture/\_markdown_native_deprecat
 4.  把这个视图管理类注册到应用程序包的`createViewManagers`里。
 5.  实现 JavaScript 模块。
 
-## 1. 创建`ViewManager`的子类
+### 1. 创建`ViewManager`的子类
 
 在这个例子里我们创建一个视图管理类`ReactImageManager`，它继承自`SimpleViewManager<ReactImageView>`。`ReactImageView`是这个视图管理类所管理的对象类型，也就是我们自定义的原生视图。`getName`方法返回的名字会用于在 JavaScript 端引用。
 
@@ -75,7 +75,7 @@ public class ReactImageManager extends SimpleViewManager<ReactImageView> {
 </TabItem>
 </Tabs>
 
-## 2. 实现方法`createViewInstance`
+### 2. 实现方法`createViewInstance`
 
 视图在`createViewInstance`中创建，且应当把自己初始化为默认的状态。所有属性的设置都通过后续的`updateView`来进行。
 
@@ -100,9 +100,7 @@ public class ReactImageManager extends SimpleViewManager<ReactImageView> {
 </TabItem>
 </Tabs>
 
-## 3. 通过`@ReactProp`（或`@ReactPropGroup`）注解来导出属性的设置方法。
-
-
+### 3. 通过`@ReactProp`（或`@ReactPropGroup`）注解来导出属性的设置方法。
 
 要导出给 JavaScript 使用的属性，需要申明带有`@ReactProp`（或`@ReactPropGroup`）注解的设置方法。方法的第一个参数是要修改属性的视图实例，第二个参数是要设置的属性值。方法的返回值类型必须为`void`，在 Kotlin 中是 `Unit`，而且访问控制必须被声明为`public`。JavaScript 所得知的属性类型会由该方法第二个参数的类型来自动决定。支持的类型有：`boolean`, `int`, `float`, `double`, `String`, `Boolean`, `Integer`, `ReadableArray`, `ReadableMap`。Kotlin 中对应的则是 `Boolean`, `Int`, `Float`, `Double`, `String`, `ReadableArray`, `ReadableMap`.
 
@@ -157,7 +155,7 @@ public class ReactImageManager extends SimpleViewManager<ReactImageView> {
 </TabItem>
 </Tabs>
 
-## 4. 注册`ViewManager`
+### 4. 注册`ViewManager`
 
 最后一步就是把视图控制器注册到应用中。这和[原生模块](native-modules-android.md)的注册方法类似，唯一的区别是我们把它放到`createViewManagers`方法的返回值里。
 
@@ -188,12 +186,12 @@ public class ReactImageManager extends SimpleViewManager<ReactImageView> {
 
 完成上面这些代码后，请一定记得要重新编译！（运行`yarn android`命令）
 
-## 5. 实现对应的 JavaScript 模块
+### 5. 实现对应的 JavaScript 模块
 
 整个过程的最后一步就是创建 JavaScript 模块并且定义 Java 和 JavaScript 之间的接口层。我们建议你使用 TypeScript 来规范定义接口的具体结构，或者至少用注释说明清楚（老版本的 RN 使用`propTypes`来规范接口定义，这一做法已不再支持）。
 
 ```tsx title="ImageView.tsx"
-import { requireNativeComponent } from 'react-native';
+import {requireNativeComponent} from 'react-native';
 
 /**
  * Composes `View`.
@@ -207,7 +205,7 @@ export default requireNativeComponent('RCTImageView');
 
 `requireNativeComponent`目前只接受一个参数，即原生视图的名字。如果你还需要做一些复杂的逻辑譬如事件处理，那么可以把原生组件用一个普通 React 组件封装。后文的`MyCustomView`例子里演示了这种用法。
 
-# 事件
+## 事件
 
 现在我们已经知道了怎么导出一个原生视图组件，并且我们可以在 JS 里很方便的控制它了。不过我们怎么才能处理来自用户的事件，譬如缩放操作或者拖动？当一个原生事件发生的时候，它应该也能触发 JavaScript 端视图上的事件，这两个视图会依据`getId()`而关联在一起。
 
@@ -293,29 +291,27 @@ public class ReactImageManager extends SimpleViewManager<MyCustomView> {
 这个回调会传递一个原生事件对象，一般来说我们会在封装组件里进行处理以便外部使用：
 
 ```tsx title="MyCustomView.tsx"
-import React, { useCallback } from 'react';
+import React, {useCallback} from 'react';
+import {requireNativeComponent} from 'react-native';
 
-const MyCustomView = ({ onChangeMessage, ...props }) => {
-  const onChange = useCallback((event) => {
-    if (!onChangeMessage) {
-      return;
-    }
-    onChangeMessage(event.nativeEvent.message);
-  }, [onChangeMessage]);
-
-  return (
-    <RCTMyCustomView
-      {...props}
-      onChange={onChange}
-    />
+const MyCustomView = ({onChangeMessage, ...props}) => {
+  const onChange = useCallback(
+    event => {
+      if (!onChangeMessage) {
+        return;
+      }
+      onChangeMessage(event.nativeEvent.message);
+    },
+    [onChangeMessage],
   );
-};
 
+  return <RCTMyCustomView {...props} onChange={onChange} />;
+};
 
 const RCTMyCustomView = requireNativeComponent(`RCTMyCustomView`);
 ```
 
-# 与 Android Fragment 的整合实例
+## 与 Android Fragment 的整合实例
 
 为了将现有的原生 UI 元素整合到 React Native 应用中，你可能需要使用 Android Fragments 来对本地组件进行更精细的控制，而不是从 `ViewManager` 返回一个 `View`。如果你想在[生命周期方法](https://developer.android.com/guide/fragments/lifecycle)的帮助下添加与视图绑定的自定义逻辑，如`onViewCreated`、`onPause`、`onResume`，你会用得到它。下面的步骤将告诉你如何做到这一点：
 
@@ -827,7 +823,7 @@ protected List<ReactPackage> getPackages() {
 I. `MyViewManager.tsx`
 
 ```tsx title="MyViewManager.tsx"
-import { requireNativeComponent } from 'react-native';
+import {requireNativeComponent} from 'react-native';
 export const MyViewManager =
   requireNativeComponent('MyViewManager');
 ```

@@ -354,6 +354,6 @@ yarn run android
 </Tabs>
 
 <video width="30%" height="30%" playsinline="true" autoplay="true" muted="true" loop="true">
-    <source src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/docs/assets/turbo-native-modules/turbo-native-modules-android.webm" type="video/webm" />
-    <source src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/docs/assets/turbo-native-modules/turbo-native-modules-android.mp4" type="video/mp4" />
+    <source src="/docs/assets/turbo-native-modules/turbo-native-modules-android.webm" type="video/webm" />
+    <source src="/docs/assets/turbo-native-modules/turbo-native-modules-android.mp4" type="video/mp4" />
 </video>
