@@ -50,7 +50,7 @@ React Native supports `hwb()` in functional notation:
 
 ### Color ints
 
-React Native supports also colors as an `int` values (in RGB color mode):
+React Native also supports colors as an `int` values (in RGB color mode):
 
 - `0xff00ff00` (0xrrggbbaa)
 

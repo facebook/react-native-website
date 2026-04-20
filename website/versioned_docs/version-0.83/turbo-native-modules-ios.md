@@ -136,7 +136,7 @@ Modify the `package.json` as it follows:
      "type": "modules",
      "jsSrcsDir": "specs",
      "android": {
-       "javaPackageName": "com.sampleapp.specs"
+       "javaPackageName": "com.nativelocalstorage"
      },
      // highlight-add-start
      "ios": {

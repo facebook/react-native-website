@@ -392,7 +392,7 @@ The following filter functions work on Android only:
 ### `mixBlendMode`
 
 :::note
-`mixBlendMode` is only available on the [New Architecture](/architecture/landing-page)
+`mixBlendMode` is only available on the [New Architecture](/architecture/landing-page) and **Android 10+**
 :::
 
 Controls how the `View` blends its colors with the other elements in its **stacking context**. Check out the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/mix-blend-mode) for a full overview of each blending function.
@@ -417,10 +417,11 @@ For more granular control over what should be blending together see [isolation](
 - `saturation`: Creates a color with the saturation of the source color and the hue and luminosity of the backdrop color.
 - `color`: Creates a color with the hue and saturation of the source color and the luminosity of the backdrop color. This preserves the gray levels of the backdrop and is useful for coloring monochrome images or tinting color images.
 - `luminosity`: Creates a color with the luminosity of the source color and the hue and saturation of the backdrop color. This produces an inverse effect to that of the Color mode.
+- `plus-lighter`: Adds the source and destination color channels, clamping each at maximum value.
 
-| Type                                                                                                                                                                                                                                 |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| enum(`'normal'`, `'multiply'`, `'screen'`, `'overlay'`, `'darken'`, `'lighten'`, `'color-dodge'`, `'color-burn'`, `'hard-light'`, `'soft-light'`, `'difference'`, `'exclusion'`, `'hue'`, `'saturation'`, `'color'`, `'luminosity'`) |
+| Type                                                                                                                                                                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| enum(`'normal'`, `'multiply'`, `'screen'`, `'overlay'`, `'darken'`, `'lighten'`, `'color-dodge'`, `'color-burn'`, `'hard-light'`, `'soft-light'`, `'difference'`, `'exclusion'`, `'hue'`, `'saturation'`, `'color'`, `'luminosity'`, `'plus-lighter'`) |
 
 ---
 
