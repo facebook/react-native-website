@@ -1,7 +1,7 @@
 {
-  "buildCommand": "cd website && yarn build:vercel",
-  "devCommand": "cd website && yarn start",
-  "outputDirectory": "website/build",
+  "buildCommand": "yarn build:vercel",
+  "devCommand": "yarn start",
+  "outputDirectory": "build",
   "installCommand": "yarn install",
   "framework": null,
   "git": {
