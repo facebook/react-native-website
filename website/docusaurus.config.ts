@@ -17,9 +17,9 @@ import prismTheme from './core/PrismTheme';
 import remarkSnackPlayer from '@react-native-website/remark-snackplayer';
 import remarkCodeblockLanguageTitle from '@react-native-website/remark-codeblock-language-as-title';
 
-// See https://docs.netlify.com/configure-builds/environment-variables/
 const isProductionDeployment =
-  !!process.env.NETLIFY && process.env.CONTEXT === 'production';
+  (!!process.env.NETLIFY && process.env.CONTEXT === 'production') ||
+  (!!process.env.VERCEL && process.env.VERCEL_ENV === 'production');
 
 const lastVersion = versions[0];
 const copyright = `Copyright © ${new Date().getFullYear()} Meta Platforms, Inc.`;
@@ -64,7 +64,9 @@ const commonDocsOptions: PluginContentDocs.Options = {
   remarkPlugins: [remarkSnackPlayer, remarkCodeblockLanguageTitle],
 };
 
-const isDeployPreview = process.env.PREVIEW_DEPLOY === 'true';
+const isDeployPreview =
+  process.env.PREVIEW_DEPLOY === 'true' ||
+  (!!process.env.VERCEL && process.env.VERCEL_ENV === 'preview');
 
 const config: Config = {
   future: {

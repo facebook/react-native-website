@@ -22,7 +22,10 @@
     "lint:plugins": "yarn workspace @react-native-website/remark-codeblock-language-as-title lint && yarn workspace @react-native-website/remark-lint-no-broken-external-links lint && yarn workspace @react-native-website/remark-snackplayer lint && yarn workspace @react-native-website/remark-lint-no-broken-external-links test && yarn workspace @react-native-website/remark-snackplayer test",
     "lint:website": "eslint ./website ./docs",
     "update-lock": "npx yarn-deduplicate",
-    "check-dependencies": "manypkg check"
+    "check-dependencies": "manypkg check",
+    "build:vercel": "yarn --cwd website build:vercel",
+    "build:vercel:fast": "yarn --cwd website build:vercel:fast",
+    "dev:vercel": "vercel dev"
   },
   "devDependencies": {
     "@eslint/css": "^1.0.0",
