@@ -29,7 +29,7 @@ function expandPartialWildcard(
 ): VercelRedirect[] {
   const segments = source.split('/');
   const wildcardSeg = segments.find(seg => seg.includes('*') && seg !== '*')!;
-  const prefix = wildcardSeg.replace('*', '');
+  const prefix = wildcardSeg.replaceAll('*', '');
 
   // Infer docs directory from destination path
   // e.g. /docs/next/legacy/native-modules-:splat → docs/legacy/
