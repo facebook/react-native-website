@@ -23,6 +23,7 @@
     "lint:website": "eslint ./website ./docs",
     "update-lock": "npx yarn-deduplicate",
     "check-dependencies": "manypkg check",
+    "sync-redirects:vercel": "node scripts/src/sync-vercel-redirects.ts",
     "build:vercel": "yarn --cwd website build:vercel",
     "build:vercel:fast": "yarn --cwd website build:vercel:fast",
     "dev:vercel": "vercel dev"
