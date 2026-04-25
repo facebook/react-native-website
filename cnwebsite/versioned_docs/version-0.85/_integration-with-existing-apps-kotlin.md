@@ -261,13 +261,13 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-## 5. Integrating with your Android code
+## 5. 集成到 Android 代码中
 
-We now need to add some native code in order to start the React Native runtime and tell it to render our React components.
+我们现在需要添加一些原生代码来启动 React Native 运行时，并让它渲染我们的 React 组件。
 
-### Updating your Application class
+### 更新你的 Application 类
 
-First, we need to update your `Application` class to properly initialize React Native as follows:
+首先，我们需要更新你的 `Application` 类来正确初始化 React Native，如下所示：
 
 <Tabs groupId="android-language" queryString defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
 
@@ -370,11 +370,11 @@ import android.app.Application
 </TabItem>
 </Tabs>
 
-As usual, here the [MainApplication.kt Community template file as reference](https://github.com/react-native-community/template/blob/0.77-stable/template/android/app/src/main/java/com/helloworld/MainApplication.kt)
+同样可以参考 [`MainApplication.kt` 社区模板文件](https://github.com/react-native-community/template/blob/0.77-stable/template/android/app/src/main/java/com/helloworld/MainApplication.kt)。
 
-#### Creating a `ReactActivity`
+#### 创建 `ReactActivity`
 
-Finally, we need to create a new `Activity` that will extend `ReactActivity` and host the React Native code. This activity will be responsible for starting the React Native runtime and rendering the React component.
+最后，我们需要创建一个新的 `Activity`，它将继承 `ReactActivity` 并承载 React Native 代码。这个 Activity 将负责启动 React Native 运行时并渲染 React 组件。
 
 <Tabs groupId="android-language" queryString defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>
 
@@ -426,9 +426,9 @@ class MyReactActivity : ReactActivity() {
 </TabItem>
 </Tabs>
 
-As usual, here the [MainActivity.kt Community template file as reference](https://github.com/react-native-community/template/blob/0.77-stable/template/android/app/src/main/java/com/helloworld/MainApplication.kt)
+同样可以参考 [`MainActivity.kt` 社区模板文件](https://github.com/react-native-community/template/blob/0.77-stable/template/android/app/src/main/java/com/helloworld/MainApplication.kt)。
 
-Whenever you create a new Activity, you need to add it to your `AndroidManifest.xml` file. You also need set the theme of `MyReactActivity` to `Theme.AppCompat.Light.NoActionBar` (or to any non-ActionBar theme) as otherwise your application will render an ActionBar on top of your React Native screen:
+每当创建新的 Activity 时，你需要将其添加到 `AndroidManifest.xml` 文件中。你还需要将 `MyReactActivity` 的主题设置为 `Theme.AppCompat.Light.NoActionBar`（或任何非 ActionBar 主题），否则你的应用会在 React Native 屏幕上方渲染一个 ActionBar：
 
 ```diff
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
@@ -447,22 +447,22 @@ Whenever you create a new Activity, you need to add it to your `AndroidManifest.
 </manifest>
 ```
 
-Now your activity is ready to run some JavaScript code.
+现在你的 Activity 已准备好运行 JavaScript 代码了。
 
-## 6. Test your integration
+## 6. 测试集成效果
 
-You have completed all the basic steps to integrate React Native with your application. Now we will start the [Metro bundler](https://metrobundler.dev/) to build your TypeScript application code into a bundle. Metro's HTTP server shares the bundle from `localhost` on your developer environment to a simulator or device. This allows for [hot reloading](https://reactnative.dev/blog/2016/03/24/introducing-hot-reloading).
+你已经完成了将 React Native 集成到应用中的所有基本步骤。现在我们将启动 [Metro 打包器](https://metrobundler.dev/) 来将你的 TypeScript 应用代码打包成 bundle。Metro 的 HTTP 服务器会从你开发环境的 `localhost` 上将 bundle 共享给模拟器或设备。这支持[热重载](https://reactnative.dev/blog/2016/03/24/introducing-hot-reloading)。
 
-First, you need to create a `metro.config.js` file in the root of your project as follows:
+首先，你需要在项目根目录创建一个 `metro.config.js` 文件，内容如下：
 
 ```js
 const {getDefaultConfig} = require('@react-native/metro-config');
 module.exports = getDefaultConfig(__dirname);
 ```
 
-You can checkout the [metro.config.js file](https://github.com/react-native-community/template/blob/0.77-stable/template/metro.config.js) from the Community template file as reference.
+你可以参考社区模板中的 [`metro.config.js` 文件](https://github.com/react-native-community/template/blob/0.77-stable/template/metro.config.js)。
 
-Once you have the config file in place, you can run the bundler. Run the following command in the root directory of your project:
+配置文件就位后，你就可以运行打包器了。在项目根目录运行以下命令：
 
 <Tabs groupId="package-manager" queryString defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
 <TabItem value="npm">
@@ -481,19 +481,19 @@ yarn start
 </TabItem>
 </Tabs>
 
-Now build and run your Android app as normal.
+像往常一样构建并运行你的 Android 应用。
 
-Once you reach your React-powered Activity inside the app, it should load the JavaScript code from the development server and display:
+当你在应用中打开 React 驱动的 Activity 时，它应该会从开发服务器加载 JavaScript 代码并显示：
 
 <center><img src="/docs/assets/EmbeddedAppAndroidVideo.gif" width="300" /></center>
 
-### Creating a release build in Android Studio
+### 在 Android Studio 中创建发布版本
 
-You can use Android Studio to create your release builds too! It’s as quick as creating release builds of your previously-existing native Android app.
+你也可以使用 Android Studio 来创建发布版本！就像创建之前已有的原生 Android 应用的发布版本一样快捷。
 
-The React Native Gradle Plugin will take care of bundling the JS code inside your APK/App Bundle.
+React Native Gradle Plugin 会负责将 JS 代码打包到你的 APK/App Bundle 中。
 
-If you're not using Android Studio, you can create a release build with:
+如果你不使用 Android Studio，可以通过以下命令创建发布版本：
 
 ```
 cd android
@@ -503,6 +503,6 @@ cd android
 ./gradlew :app:bundleRelease
 ```
 
-### Now what?
+### 接下来？
 
-At this point you can continue developing your app as usual. Refer to our [debugging](debugging) and [deployment](running-on-device) docs to learn more about working with React Native.
+现在你可以像往常一样继续开发你的应用。参考我们的[调试](debugging)和[部署](running-on-device)文档来了解更多关于使用 React Native 的信息。
