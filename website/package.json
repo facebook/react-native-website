@@ -55,6 +55,7 @@
     "@docusaurus/plugin-google-gtag": "3.10.0",
     "@docusaurus/plugin-pwa": "3.10.0",
     "@docusaurus/preset-classic": "3.10.0",
+    "@docusaurus/theme-mermaid": "3.10.0",
     "docusaurus-plugin-sass": "^0.2.6",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
