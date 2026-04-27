@@ -3,6 +3,9 @@ id: view-style-props
 title: View Style Props
 ---
 
+import ExperimentalAPIWarning from './\_experimental-api-warning.mdx';
+import {getCoreBranchNameForCurrentVersion} from '@site/src/getCoreBranchNameForCurrentVersion';
+
 ### Example
 
 ```SnackPlayer name=ViewStyleProps
@@ -68,6 +71,32 @@ export default App;
 | Type               |
 | ------------------ |
 | [color](colors.md) |
+
+---
+
+### `experimental_backgroundImage`
+
+<ExperimentalAPIWarning />
+
+`experimental_backgroundImage` provides the ability to draw a [`linear-gradient()`](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/gradient/linear-gradient) ([0.76.x+](https://github.com/facebook/react-native/blob/main/CHANGELOG-0.7x.md#v0760)) using a web-like syntax.
+
+```tsx
+// Simple usage:
+<View
+  style={{
+    experimental_backgroundImage:
+      'linear-gradient(45deg, blue, red)',
+  }}
+/>
+```
+
+More complex examples of usage can be found in the RNTester app (with `PlatformColor` supports):
+
+- <a href={`https://github.com/facebook/react-native/blob/${getCoreBranchNameForCurrentVersion()}/packages/rn-tester/js/examples/LinearGradient/LinearGradientExample.js`}>LinearGradientExample.js</a>
+
+| Type                                                                                            |
+| ----------------------------------------------------------------------------------------------- |
+| string, array of objects: `{type: 'linear-gradient', direction: string, colorStops: object[] }` |
 
 ---
 
