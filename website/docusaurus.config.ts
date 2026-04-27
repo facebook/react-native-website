@@ -30,6 +30,7 @@ export type EditUrlButton = {
 };
 
 const commonDocsOptions: PluginContentDocs.Options = {
+  admonitions: {keywords: ['important'], extendDefaults: true},
   breadcrumbs: false,
   showLastUpdateAuthor: false,
   showLastUpdateTime: true,

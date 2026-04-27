@@ -664,6 +664,13 @@ html[data-theme="dark"] article .badge {
   --ifm-alert-background-color-highlight: rgba(225, 227, 230, 0.7);
 }
 
+.alert--important {
+  --ifm-alert-background-color: #8250df2a;
+  --ifm-alert-background-color-highlight: #e0cfff;
+  --ifm-alert-foreground-color: #281846;
+  --ifm-alert-border-color: #e0cfff;
+}
+
 html[data-theme="dark"] {
   span[class^="admonitionIcon"] svg {
     fill: hsl(from var(--ifm-alert-border-color) h calc(s + 10) calc(l + 10));
@@ -678,6 +685,11 @@ html[data-theme="dark"] {
       --ifm-color-secondary-contrast-background
     );
     --ifm-alert-background-color-highlight: rgba(225, 227, 230, 0.15);
+  }
+  .alert--important {
+    --ifm-alert-background-color-highlight: #442f6b;
+    --ifm-alert-foreground-color: #c0b1dc;
+    --ifm-alert-border-color: #8250df;
   }
 }
 
