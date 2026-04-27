@@ -673,11 +673,11 @@ html[data-theme="dark"] article .badge {
 
 html[data-theme="dark"] {
   span[class^="admonitionIcon"] svg {
-    fill: hsl(from var(--ifm-alert-border-color) h calc(s + 10) calc(l + 10));
+    fill: hsl(from var(--ifm-alert-border-color) h calc(s - 10) calc(l + 10));
   }
 
   div[class^="admonitionHeading"] {
-    color: hsl(from var(--ifm-alert-border-color) h calc(s + 10) calc(l + 10));
+    color: hsl(from var(--ifm-alert-border-color) h calc(s - 10) calc(l + 10));
   }
 
   .alert--secondary {
