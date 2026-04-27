@@ -693,6 +693,20 @@ html[data-theme="dark"] {
   }
 }
 
+html[data-theme="light"] {
+  .alert--success {
+    span[class^="admonitionIcon"] svg {
+      fill: hsl(from var(--ifm-alert-border-color) h calc(s + 20) calc(l - 10));
+    }
+
+    div[class^="admonitionHeading"] {
+      color: hsl(
+        from var(--ifm-alert-border-color) h calc(s + 20) calc(l - 10)
+      );
+    }
+  }
+}
+
 /* Home page */
 
 .homepage {
