@@ -4,15 +4,15 @@ import DefaultAdmonitionTypes from '@theme-original/Admonition/Types';
 
 const {info: Info} = DefaultAdmonitionTypes;
 
-function MyCustomAdmonition(props) {
+function ImportantAdmonition({ className, ...rest }) {
   return (
-    <Info className={clsx(props.className, 'alert--important')} {...props} />
+    <Info className={clsx(className, 'alert--important')} {...rest} />
   );
 }
 
 const AdmonitionTypes = {
   ...DefaultAdmonitionTypes,
-  important: MyCustomAdmonition,
+  important: ImportantAdmonition,
 };
 
 export default AdmonitionTypes;
