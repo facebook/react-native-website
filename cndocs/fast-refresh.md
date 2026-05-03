@@ -19,7 +19,7 @@ title: 快速刷新
 
 如果出现了**组件内部发生的运行时错误**，在你修复错误之后，快速刷新会话*也*将继续进行。在这种情况下，React 将会使用更新后的代码重新挂载你的应用。
 
-如果你在代码中使用了[error boundaries](https://zh-hans.reactjs.org/docs/error-boundaries.html)（这对于在生产环境中优雅地处理失败是一个好主意），它们将在红框之后的下一次编辑时重新尝试渲染。从这个意义上说，拥有错误边界可以防止您总是被踢出到根应用程序屏幕。然而，请记住错误边界不应该过于细粒度。它们由React在生产环境中使用，并且始终应该经过有意设计。
+如果你在代码中使用了[error boundaries](https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary)（这对于在生产环境中优雅地处理失败是一个好主意），它们将在红框之后的下一次编辑时重新尝试渲染。从这个意义上说，拥有错误边界可以防止您总是被踢出到根应用程序屏幕。然而，请记住错误边界不应该过于细粒度。它们由React在生产环境中使用，并且始终应该经过有意设计。
 
 ## 限制
 
