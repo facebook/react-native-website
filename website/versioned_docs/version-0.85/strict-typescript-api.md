@@ -145,27 +145,6 @@ The following APIs were previously named as `*Static` plus a variable declaratio
 - `SettingsStatic`
 - `VibrationStatic`
 
-### Some core components are now function components instead of class components
-
-- `View`
-- `Image`
-- `TextInput`
-- `Modal`
-- `Text`
-- `TouchableWithoutFeedback`
-- `Switch`
-- `ActivityIndicator`
-- `ProgressBarAndroid`
-- `InputAccessoryView`
-- `Button`
-- `SafeAreaView`
-
-Due to this change, accessing ref types of these views requires using `React.ComponentRef<typeof View>` pattern which works as expected for both class and function components, e.g.:
-
-```ts title=""
-const ref = useRef<React.ComponentRef<typeof View>>(null);
-```
-
 ## Other breaking changes
 
 ### Changes to Animated types
