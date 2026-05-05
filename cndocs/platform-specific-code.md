@@ -16,7 +16,7 @@ React Native 提供了两种方法来区分平台：
 
 React Native 提供了一个检测当前运行平台的模块。如果组件只有一小部分代码需要依据平台定制，那么这个模块就可以派上用场。
 
-```jsx
+```tsx
 import {Platform, StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
 
 还有个实用的方法是 Platform.select()，它可以以 Platform.OS 为 key，从传入的对象中返回对应平台的值，见下面的示例：
 
-```jsx
+```tsx
 import {Platform, StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
 
 这一方法可以接受任何合法类型的参数，因此你也可以直接用它针对不同平台返回不同的组件，像下面这样：
 
-```jsx
+```tsx
 const Component = Platform.select({
   ios: () => require('ComponentIOS'),
   android: () => require('ComponentAndroid'),
@@ -63,7 +63,7 @@ const Component = Platform.select({
 <Component />;
 ```
 
-```jsx
+```tsx
 const Component = Platform.select({
   native: () => require('ComponentForNative'),
   default: () => require('ComponentForWeb'),
@@ -72,11 +72,11 @@ const Component = Platform.select({
 <Component />;
 ```
 
-### 检测 Android 版本
+### 检测 Android 版本 <div className="label android" title="此章节与 Android 平台相关">Android</div>
 
 在 Android 上，`Version`属性是一个数字，表示 Android 的 api level：
 
-```jsx
+```tsx
 import {Platform} from 'react-native';
 
 if (Platform.Version === 25) {
@@ -84,11 +84,13 @@ if (Platform.Version === 25) {
 }
 ```
 
-### 检测 iOS 版本
+**注意**：`Version` 设置的是 Android API 版本，而不是 Android 操作系统版本。具体的映射关系请参考 [Android 版本历史](https://en.wikipedia.org/wiki/Android_version_history#Overview)。
+
+### 检测 iOS 版本 <div className="label ios" title="此章节与 iOS 平台相关">iOS</div>
 
 在 iOS 上，`Version`属性是`-[UIDevice systemVersion]`的返回值，具体形式为一个表示当前系统版本的字符串。比如可能是"10.3"。
 
-```jsx
+```tsx
 import {Platform} from 'react-native';
 
 const majorVersionIOS = parseInt(Platform.Version, 10);
@@ -110,7 +112,7 @@ BigButton.android.js
 
 然后去掉平台后缀直接引用：
 
-```jsx
+```tsx
 import BigButton from './BigButton';
 ```
 
@@ -127,7 +129,7 @@ Container.native.js # 由 React Native 自带打包工具(Metro) 为ios和androi
 
 在引用时并不需要添加`.native.`后缀:
 
-```jsx
+```tsx
 import Container from './Container';
 ```
 
