@@ -83,16 +83,15 @@ flowchart TD
 ### `getColorScheme()`
 
 ```tsx
-static getColorScheme(): 'light' | 'dark' | 'unspecified' | null;
+static getColorScheme(): 'light' | 'dark' | null;
 ```
 
-Returns the active color scheme. The value may be updated later, either through direct user action (e.g. theme selection in device settings or application-level selected user interface style via `setColorScheme`) or on a schedule (e.g. light and dark themes that follow the day/night cycle).
+Returns the active color scheme. This value may change at runtime, either at the system level (e.g. scheduled color scheme change at sunrise or sunset) or when overridden at the app level via `setColorScheme()`.
 
 Return values:
 
 - `'light'`: The light color scheme is applied.
 - `'dark'`: The dark color scheme is applied.
-- `'unspecified'`: **_Never returned_** (incorrectly typed).
 - `null`: May be returned if the native Appearance module is not available.
 
 See also: [`useColorScheme`](usecolorscheme) (hook).
