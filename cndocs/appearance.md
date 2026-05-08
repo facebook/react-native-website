@@ -53,7 +53,26 @@ if (colorScheme === 'dark') {
 }
 ```
 
-虽然配色方案值可以立即获取，但它可能随时发生变化（例如在日出或日落时自动切换配色方案）。任何依赖于用户偏好配色方案的渲染逻辑或样式都应该在每次渲染时调用此函数，而不是缓存该值。例如，你可以使用 [`useColorScheme`](usecolorscheme) React Hook 来获取并订阅配色方案的更新，也可以使用内联样式而不是将值设置在 `StyleSheet` 中。
+虽然配色方案值可以立即获取，但在未通过 `setColorScheme()` 进行覆盖时，该值可能会发生变化（例如在日出或日落时自动切换配色方案）。任何依赖于用户偏好配色方案的渲染逻辑或样式都应该在每次渲染时调用此函数，而不是缓存该值。
+
+**推荐：** 使用 [`useColorScheme`](usecolorscheme) hook。
+
+### 应用级覆盖
+
+`setColorScheme()` 在应用级别覆盖配色方案——它不会影响系统设置或其他应用。传入 `'auto'` 将移除任何覆盖，恢复系统偏好。
+
+```mermaid
+flowchart TD
+    USC["useColorScheme()"] --> GCS["getColorScheme()"]
+    GCS --> DEC{App override?}
+    DEC -- "NO / reset via setColorScheme('auto')" --> SYS["System preference\n'light' or 'dark'"]
+    DEC -- "YES — setColorScheme('light' | 'dark')" --> OVR["'light' or 'dark' (static)"]
+
+    classDef fn fill:#dce8f8,stroke:#4a90d9,color:#1a1a1a
+    classDef out fill:#f0f4f8,stroke:#8faabb,color:#1a1a1a
+    class USC,GCS fn
+    class OVR,SYS out
+```
 
 ---
 
@@ -67,39 +86,34 @@ if (colorScheme === 'dark') {
 static getColorScheme(): 'light' | 'dark' | null;
 ```
 
-返回当前用户偏好的配色方案。该值可能会在之后发生变化——可能由用户直接操作触发（例如在设备设置中选择主题，或通过 `setColorScheme` 在应用层面设置界面风格），也可能按计划触发（例如随昼夜更替自动切换的浅色/深色主题）。
+返回当前激活的配色方案。该值可能会在运行时发生变化——可能在系统级别（例如在日出或日落时自动切换配色方案），也可能通过 `setColorScheme()` 在应用级别进行覆盖。
 
-支持的配色方案：
+返回值：
 
-- `'light'`：用户偏好浅色主题。
-- `'dark'`：用户偏好深色主题。
-- `null`：用户未指定偏好的配色主题。
+- `'light'`：浅色配色方案已激活。
+- `'dark'`：深色配色方案已激活。
+- `null`：当原生 Appearance 模块不可用时可能返回此值。
 
-另见：`useColorScheme` hook。
-
-:::note
-使用 Chrome 调试时，`getColorScheme()` 将始终返回 `light`。
-:::
+另见：[`useColorScheme`](usecolorscheme)（hook）。
 
 ---
 
 ### `setColorScheme()`
 
 ```tsx
-static setColorScheme('light' | 'dark' | null): void;
+static setColorScheme('light' | 'dark' | 'auto' | 'unspecified'): void;
 ```
 
-强制应用始终采用浅色或深色界面风格。默认值为 `null`，表示应用继承系统的界面风格。如果设置了其他值，新的风格将应用于整个应用及其内部所有原生元素（Alert、Picker 等）。
+强制应用始终采用浅色或深色界面风格。该更改应用于应用及其内部所有原生元素（Alert、Picker 等）。
 
-支持的配色方案：
+这是应用级别的覆盖——它不会影响系统所选的界面风格，也不会影响其他应用中设置的任何风格。
 
-- `light`：采用浅色界面风格。
-- `dark`：采用深色界面风格。
-- null：跟随系统的界面风格。
+支持的值：
 
-:::note
-此更改不会影响系统所选的界面风格，也不会影响其他应用中设置的任何风格。
-:::
+- `'light'`：采用浅色配色方案。
+- `'dark'`：采用深色配色方案。
+- `'auto'`：跟随系统配色方案（移除任何覆盖）。
+- `'unspecified'`（**已弃用**）：跟随系统配色方案（移除任何覆盖）。
 
 ---
 
@@ -111,4 +125,4 @@ static addChangeListener(
 ): NativeEventSubscription;
 ```
 
-添加一个事件监听器，在外观偏好发生变化时触发。
+添加一个事件监听器，在外观偏好发生变化时触发。在 iOS 和 Android 上，回调中的 `colorScheme` 值始终为 `'light'` 或 `'dark'`。

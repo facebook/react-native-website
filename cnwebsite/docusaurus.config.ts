@@ -13,6 +13,7 @@ export interface EditUrlButton {
 }
 
 const commonDocsOptions = {
+  admonitions: {keywords: ['important'], extendDefaults: true},
   breadcrumbs: true,
   showLastUpdateAuthor: false,
   // showLastUpdateTime: true,
@@ -24,9 +25,15 @@ const commonDocsOptions = {
   ],
 };
 
-const isDeployPreview = process.env.PREVIEW_DEPLOY === 'true';
+const isDeployPreview =
+  process.env.PREVIEW_DEPLOY === 'true' ||
+  (!!process.env.VERCEL && process.env.VERCEL_ENV === 'preview');
 
 const config: Config = {
+  markdown: {
+    mermaid: true,
+  },
+  themes: ['@docusaurus/theme-mermaid'],
   future: {
     // Turns Docusaurus v4 future flags on to make it easier to upgrade later
     v4: true,
@@ -34,7 +41,7 @@ const config: Config = {
     // See https://github.com/facebook/docusaurus/issues/10556
     // See https://github.com/facebook/react-native-website/pull/4268
     // See https://docusaurus.io/blog/releases/3.6
-    experimental_faster: (process.env.DOCUSAURUS_FASTER ?? 'true') === 'true',
+    faster: (process.env.DOCUSAURUS_FASTER ?? 'true') === 'true',
   },
   title: 'React Native 中文网',
   tagline: '使用React来编写原生应用的框架',
@@ -315,6 +322,16 @@ const config: Config = {
       apiKey: 'a4ac5b2b47a99cdef76344ab09708d6a',
       indexName: 'reactnative_cn',
       contextualSearch: false,
+    },
+    mermaid: {
+      theme: {
+        light: 'neutral',
+        dark: 'dark',
+      },
+      options: {
+        fontFamily:
+          '"Optimistic Display", system-ui, -apple-system, sans-serif',
+      },
     },
     metadata: [
       {

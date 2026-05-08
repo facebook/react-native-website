@@ -3,6 +3,9 @@ id: view-style-props
 title: View Style Props
 ---
 
+import ExperimentalAPIWarning from './\_experimental-api-warning.mdx';
+import {getCoreBranchNameForCurrentVersion} from '@site/src/getCoreBranchNameForCurrentVersion';
+
 ### 示例
 
 ```SnackPlayer name=ViewStyleProps
@@ -71,6 +74,33 @@ export default App;
 
 ---
 
+### `experimental_backgroundImage`
+
+<ExperimentalAPIWarning />
+
+`experimental_backgroundImage` 提供了使用类似 Web 的语法绘制 [`linear-gradient()`](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/gradient/linear-gradient)（[0.76.x+](https://github.com/facebook/react-native/blob/main/CHANGELOG-0.7x.md#v0760)）和 [`radial-gradient()`](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/gradient/radial-gradient)（[0.80.x+](https://github.com/facebook/react-native/blob/main/CHANGELOG.md#v0800)）的能力。
+
+```tsx
+// Simple usage:
+<View style={{
+  experimental_backgroundImage: 'linear-gradient(45deg, blue, red)'
+}} />
+<View style={{
+  experimental_backgroundImage: 'radial-gradient(ellipse farthest-corner at 30% 40%, red, blue)'
+}} />
+```
+
+更多复杂用法示例可在 RNTester 应用中找到（支持 `PlatformColor`）：
+
+- <a href={`https://github.com/facebook/react-native/blob/${getCoreBranchNameForCurrentVersion()}/packages/rn-tester/js/examples/LinearGradient/LinearGradientExample.js`}>LinearGradientExample.js</a>
+- <a href={`https://github.com/facebook/react-native/blob/${getCoreBranchNameForCurrentVersion()}/packages/rn-tester/js/examples/RadialGradient/RadialGradientExample.js`}>RadialGradientExample.js</a>
+
+| 类型                                                                                                                                                                                               |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| string, array of objects: `{type: 'linear-gradient', direction: string, colorStops: object[] }`, `{type: 'radial-gradient', shape: string, position: object, size: string, colorStops: object[] }` |
+
+---
+
 ### `borderBottomColor`
 
 | 类型               |
@@ -105,64 +135,64 @@ export default App;
 
 ### `borderBottomEndRadius`
 
-| 类型                              |
-| --------------------------------- |
+| 类型                      |
+| ------------------------- |
 | number, string (百分比值) |
 
 ---
 
 ### `borderBottomLeftRadius`
 
-| 类型                              |
-| --------------------------------- |
+| 类型                      |
+| ------------------------- |
 | number, string (百分比值) |
 
 ---
 
 ### `borderBottomRightRadius`
 
-| 类型                              |
-| --------------------------------- |
+| 类型                      |
+| ------------------------- |
 | number, string (百分比值) |
 
 ---
 
 ### `borderBottomStartRadius`
 
-| 类型                              |
-| --------------------------------- |
+| 类型                      |
+| ------------------------- |
 | number, string (百分比值) |
 
 ---
 
 ### `borderStartEndRadius`
 
-| 类型                              |
-| --------------------------------- |
+| 类型                      |
+| ------------------------- |
 | number, string (百分比值) |
 
 ---
 
 ### `borderStartStartRadius`
 
-| 类型                              |
-| --------------------------------- |
+| 类型                      |
+| ------------------------- |
 | number, string (百分比值) |
 
 ---
 
 ### `borderEndEndRadius`
 
-| 类型                              |
-| --------------------------------- |
+| 类型                      |
+| ------------------------- |
 | number, string (百分比值) |
 
 ---
 
 ### `borderEndStartRadius`
 
-| 类型                              |
-| --------------------------------- |
+| 类型                      |
+| ------------------------- |
 | number, string (百分比值) |
 
 ---
@@ -221,8 +251,8 @@ export default App;
 
 如果圆角边框不可见，可以尝试同时添加 `overflow: 'hidden'`。
 
-| 类型                              |
-| --------------------------------- |
+| 类型                      |
+| ------------------------- |
 | number, string (百分比值) |
 
 ---
@@ -269,40 +299,40 @@ export default App;
 
 ### `borderTopEndRadius`
 
-| 类型                              |
-| --------------------------------- |
+| 类型                      |
+| ------------------------- |
 | number, string (百分比值) |
 
 ---
 
 ### `borderTopLeftRadius`
 
-| 类型                              |
-| --------------------------------- |
+| 类型                      |
+| ------------------------- |
 | number, string (百分比值) |
 
 ---
 
 ### `borderTopRightRadius`
 
-| 类型                              |
-| --------------------------------- |
+| 类型                      |
+| ------------------------- |
 | number, string (百分比值) |
 
 ---
 
 ### `borderTopStartRadius`
 
-| 类型                              |
-| --------------------------------- |
+| 类型                      |
+| ------------------------- |
 | number, string (百分比值) |
 
 ---
 
 ### `borderTopWidth`
 
-| 类型                              |
-| --------------------------------- |
+| 类型                      |
+| ------------------------- |
 | number, string (百分比值) |
 
 ---
@@ -325,8 +355,8 @@ export default App;
 
 `boxShadow` 接受模仿 [web 语法](https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow#syntax)的字符串或 [BoxShadowValue](./boxshadowvalue) 对象数组。
 
-| 类型 |
-| --------------------------- |
+| 类型                                      |
+| ----------------------------------------- |
 | array of BoxShadowValue objects \| string |
 
 ### `cursor` <div className="label ios">iOS</div>
@@ -385,16 +415,16 @@ export default App;
 
 `filter` 接受由上述滤镜函数组成的对象数组，或模仿 [web 语法](https://developer.mozilla.org/en-US/docs/Web/CSS/filter#syntax)的字符串。
 
-| 类型 |
-| ------ |
-| array of objects: `{brightness: number\|string}`, `{opacity: number\|string}`, `{blur: number\|string}`, `{contrast: number\|string}`, `{dropShadow: DropShadowValue\|string}`, `{grayscale: number\|string}`, `{hueRotate: number\|string}`, `{invert: number\|string}`, `{sepia: number\|string}`, `{saturate: number\|string}` or string|
+| 类型                                                                                                                                                                                                                                                                                                                                        |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| array of objects: `{brightness: number\|string}`, `{opacity: number\|string}`, `{blur: number\|string}`, `{contrast: number\|string}`, `{dropShadow: DropShadowValue\|string}`, `{grayscale: number\|string}`, `{hueRotate: number\|string}`, `{invert: number\|string}`, `{sepia: number\|string}`, `{saturate: number\|string}` or string |
 
 ---
 
 ### `mixBlendMode`
 
 :::note
-`mixBlendMode` 仅在[新架构](/architecture/landing-page)下可用。
+`mixBlendMode` 仅在[新架构](/architecture/landing-page)下可用，且需要 **Android 10+**。
 :::
 
 控制 `View` 如何与其**层叠上下文**中的其他元素进行颜色混合。有关每种混合函数的完整概述，请查阅 [MDN 文档](https://developer.mozilla.org/en-US/docs/Web/CSS/mix-blend-mode)。
@@ -419,10 +449,11 @@ export default App;
 - `saturation`：使用源颜色的饱和度与背景颜色的色相和亮度创建颜色。
 - `color`：使用源颜色的色相和饱和度与背景颜色的亮度创建颜色。此模式保留了背景的灰度级别，适用于为单色图像着色或为彩色图像添加色调。
 - `luminosity`：使用源颜色的亮度与背景颜色的色相和饱和度创建颜色。产生与 color 模式相反的效果。
+- `plus-lighter`：将源和目标颜色通道相加，每个通道限制在最大值。
 
-| 类型                                                                                                                                                                                                                                 |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| enum(`'normal'`, `'multiply'`, `'screen'`, `'overlay'`, `'darken'`, `'lighten'`, `'color-dodge'`, `'color-burn'`, `'hard-light'`, `'soft-light'`, `'difference'`, `'exclusion'`, `'hue'`, `'saturation'`, `'color'`, `'luminosity'`) |
+| 类型                                                                                                                                                                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| enum(`'normal'`, `'multiply'`, `'screen'`, `'overlay'`, `'darken'`, `'lighten'`, `'color-dodge'`, `'color-burn'`, `'hard-light'`, `'soft-light'`, `'difference'`, `'exclusion'`, `'hue'`, `'saturation'`, `'color'`, `'luminosity'`, `'plus-lighter'`) |
 
 ---
 
