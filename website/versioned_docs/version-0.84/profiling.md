@@ -33,13 +33,13 @@ After opening the trace in Android Studio or Perfetto, you should see something 
 
 ![Example](/docs/assets/SystraceExample.png)
 
-:::note Hint
+:::note[Hint]
 Use the WASD keys to strafe and zoom.
 :::
 
 The exact UI might be different but the instructions below will apply regardless of the tool you're using.
 
-:::info Enable VSync highlighting
+:::info[Enable VSync highlighting]
 Check this checkbox at the top right of the screen to highlight the 16ms frame boundaries:
 
 ![Enable VSync Highlighting](/docs/assets/SystraceHighlightVSync.png)
@@ -133,7 +133,7 @@ There isn't a quick way to mitigate this unless you're able to postpone creating
 
 If the problem seems to be on the native side, you can use the [CPU hotspot profiler](https://developer.android.com/studio/profile/record-java-kotlin-methods) to get more details on what's happening. Open the Android Studio Profiler panel and select "Find CPU Hotspots (Java/Kotlin Method Recording)".
 
-:::info Choose the Java/Kotlin recording
+:::info[Choose the Java/Kotlin recording]
 
 Make sure you select "Find CPU Hotspots **(Java/Kotlin Recording)**" rather than "Find CPU Hotspots (Callstack Sample)". They have similar icons but do different things.
 :::

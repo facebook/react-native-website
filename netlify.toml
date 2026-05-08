@@ -1,32 +1,17 @@
 [build]
   base    = ""
-  publish = "cnwebsite/build"
-  command = "yarn && cd cnwebsite && yarn build"
-
+  publish = "website/build"
+  command = "git backfill & yarn & wait && cd website && yarn build"
+  
 [context.production.environment]
-  NODE_VERSION = "22"
+  NODE_VERSION = "24"
+  DOCUSAURUS_PERF_LOGGER = "true"
 
 [context.deploy-preview.environment]
-  NODE_VERSION = "22"
+  NODE_VERSION = "24"
   PREVIEW_DEPLOY = "true"
-
-[[plugins]]
-  package = "netlify-plugin-cache"
-  [plugins.inputs]
-    paths = [
-      "cnwebsite/node_modules/.cache",
-    ]
-
-[[headers]]
-  for = "/*"
-    [headers.values]
-    cache-control = '''
-    public, 
-    max-age=604800, 
-    s-maxage=43200'''
 
 [[headers]]
   for = "/movies.json"
     [headers.values]
     Access-Control-Allow-Origin = "*"
-

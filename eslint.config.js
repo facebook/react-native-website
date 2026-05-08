@@ -161,6 +161,8 @@ export default defineConfig([
           },
         },
       ],
+      // causes false-positive warnings in files with MDX extension
+      '@typescript-eslint/no-unused-vars': 'off',
     },
   },
 ]);

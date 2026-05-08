@@ -268,7 +268,7 @@ Matrix transforms are useful when you need to apply pre-calculated transformatio
 
 ### 🗑️ `decomposedMatrix`, `rotation`, `scaleX`, `scaleY`, `transformMatrix`, `translateX`, `translateY`
 
-:::warning Deprecated
+:::warning[Deprecated]
 Use the [`transform`](transforms#transform) prop instead.
 :::
 
