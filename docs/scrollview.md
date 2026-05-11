@@ -608,6 +608,16 @@ Tag used to log scroll performance on this scroll view. Will force momentum even
 
 ---
 
+### `scrollsChildToFocus` <div className="label android">Android</div>
+
+When `true`, the ScrollView automatically scrolls to bring a focused child into view. Set to `false` to disable this behavior and take manual control of scroll position when focus changes.
+
+| Type | Default |
+| ---- | ------- |
+| bool | `true`  |
+
+---
+
 ### `scrollToOverflowEnabled` <div className="label ios">iOS</div>
 
 When `true`, the scroll view can be programmatically scrolled beyond its content size.
