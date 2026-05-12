@@ -11,6 +11,88 @@ import GuideLinuxAndroid from './\_getting-started-linux-android.md'; import Gui
 欢迎使用 React Native！这篇文档会帮助你搭建基本的 React Native 开发环境。
 
 <Tabs groupId="guide" defaultValue={constants.defaultGuide} values={constants.guides}>
+<TabItem value="native">
+
+根据你所使用的操作系统、针对的目标平台不同，具体步骤有所不同。如果想同时开发 iOS 和 Android 也没问题，你只需要先选一个平台开始，另一个平台的环境搭建只是稍有不同。
+
+如果`阅读完本文档`后还碰到很多环境搭建的问题，我们建议你还可以再看看[求助讨论区](https://github.com/reactnativecn/react-native-website/issues)。注意！视频教程或者其他网络上的博客和文章可能和本文档有所出入，请以最新版本的本文档所述为准！
+
+#### 开发平台
+
+<Tabs groupId="os" defaultValue={constants.defaultOs} values={constants.oses} className="pill-tabs">
+<TabItem value="macos">
+
+#### 目标平台
+
+<Tabs groupId="platform" defaultValue={constants.defaultPlatform} values={constants.platforms} className="pill-tabs">
+<TabItem value="android">
+
+[//]: # 'macOS, Android'
+
+<GuideMacOSAndroid/>
+
+</TabItem>
+<TabItem value="ios">
+
+[//]: # 'macOS, iOS'
+
+<GuideMacOSIOS/>
+
+</TabItem>
+</Tabs>
+
+</TabItem>
+<TabItem value="windows">
+
+#### 目标平台
+
+<Tabs groupId="platform" defaultValue={constants.defaultPlatform} values={constants.platforms} className="pill-tabs">
+<TabItem value="android">
+
+[//]: # 'Windows, Android'
+
+<GuideWindowsAndroid/>
+
+</TabItem>
+<TabItem value="ios">
+
+[//]: # 'Windows, iOS'
+
+## 暂不支持
+
+> 苹果公司目前只允许在 Mac 电脑上开发 iOS 应用。如果你没有 Mac 电脑，那么只能考虑使用`沙盒环境`，或者先开发 Android 应用了。
+
+</TabItem>
+</Tabs>
+
+</TabItem>
+<TabItem value="linux">
+
+#### 目标平台
+
+<Tabs groupId="platform" defaultValue={constants.defaultPlatform} values={constants.platforms} className="pill-tabs">
+<TabItem value="android">
+
+[//]: # 'Linux, Android'
+
+<GuideLinuxAndroid/>
+
+</TabItem>
+<TabItem value="ios">
+
+[//]: # 'Linux, iOS'
+
+## 暂不支持
+
+> 苹果公司目前只允许在 Mac 电脑上开发 iOS 应用。如果你没有 Mac 电脑，那么只能考虑使用`沙盒环境`，或者先开发 Android 应用了。
+
+</TabItem>
+</Tabs>
+
+</TabItem>
+</Tabs>
+
+</TabItem>
 <TabItem value="quickstart">
 
 > 译注：沙盒环境大量依赖于国外网络环境，也不能直接安装第三方原生组件。不建议国内用户使用
@@ -103,88 +185,6 @@ If you know that you'll eventually need to include your own native code, Expo is
 Expo CLI configures your project to use the most recent React Native version that is supported by the Expo client app. The Expo client app usually gains support for a given React Native version about a week after the React Native version is released as stable. You can check [this document](https://docs.expo.io/versions/latest/sdk/overview/#sdk-version) to find out what versions are supported.
 
 If you're integrating React Native into an existing project, you'll want to skip Expo CLI and go directly to setting up the native build environment. Select "React Native CLI Quickstart" above for instructions on configuring a native build environment for React Native.
-
-</TabItem>
-<TabItem value="native">
-
-根据你所使用的操作系统、针对的目标平台不同，具体步骤有所不同。如果想同时开发 iOS 和 Android 也没问题，你只需要先选一个平台开始，另一个平台的环境搭建只是稍有不同。
-
-如果`阅读完本文档`后还碰到很多环境搭建的问题，我们建议你还可以再看看[求助讨论区](https://github.com/reactnativecn/react-native-website/issues)。注意！视频教程或者其他网络上的博客和文章可能和本文档有所出入，请以最新版本的本文档所述为准！
-
-#### 开发平台
-
-<Tabs groupId="os" defaultValue={constants.defaultOs} values={constants.oses} className="pill-tabs">
-<TabItem value="macos">
-
-#### 目标平台
-
-<Tabs groupId="platform" defaultValue={constants.defaultPlatform} values={constants.platforms} className="pill-tabs">
-<TabItem value="android">
-
-[//]: # 'macOS, Android'
-
-<GuideMacOSAndroid/>
-
-</TabItem>
-<TabItem value="ios">
-
-[//]: # 'macOS, iOS'
-
-<GuideMacOSIOS/>
-
-</TabItem>
-</Tabs>
-
-</TabItem>
-<TabItem value="windows">
-
-#### 目标平台
-
-<Tabs groupId="platform" defaultValue={constants.defaultPlatform} values={constants.platforms} className="pill-tabs">
-<TabItem value="android">
-
-[//]: # 'Windows, Android'
-
-<GuideWindowsAndroid/>
-
-</TabItem>
-<TabItem value="ios">
-
-[//]: # 'Windows, iOS'
-
-## 暂不支持
-
-> 苹果公司目前只允许在 Mac 电脑上开发 iOS 应用。如果你没有 Mac 电脑，那么只能考虑使用`沙盒环境`，或者先开发 Android 应用了。
-
-</TabItem>
-</Tabs>
-
-</TabItem>
-<TabItem value="linux">
-
-#### 目标平台
-
-<Tabs groupId="platform" defaultValue={constants.defaultPlatform} values={constants.platforms} className="pill-tabs">
-<TabItem value="android">
-
-[//]: # 'Linux, Android'
-
-<GuideLinuxAndroid/>
-
-</TabItem>
-<TabItem value="ios">
-
-[//]: # 'Linux, iOS'
-
-## 暂不支持
-
-> 苹果公司目前只允许在 Mac 电脑上开发 iOS 应用。如果你没有 Mac 电脑，那么只能考虑使用`沙盒环境`，或者先开发 Android 应用了。
-
-</TabItem>
-</Tabs>
-
-</TabItem>
-</Tabs>
 
 </TabItem>
 </Tabs>

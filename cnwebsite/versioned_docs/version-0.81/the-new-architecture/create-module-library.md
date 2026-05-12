@@ -70,8 +70,6 @@ npx create-react-native-library@latest <Name of Your Library>
 
 本指南的其余部分假设你有一个本地 Turbo Native 模块在你的应用中，遵循网站上其他指南中的指南：平台特定的 Turbo Native 模块，或 [跨平台的 Turbo Native 模块](./pure-cxx-modules)。但它也适用于组件和旧架构的模块和组件。你需要复制和更新你需要的文件。
 
-<!-- TODO: add links for Turbo Native Modules -->
-
 1. **[旧架构不需要这一步]** 将你在应用的 `specs` 文件夹中的代码移动到 `create-react-native-library` 创建的 `src` 文件夹中。
 2. 更新 `index.ts` 文件以正确导出 Turbo Native 模块规范，以便可以从库中访问它。例如：
 
@@ -82,7 +80,6 @@ export default NativeSampleModule;
 ```
 
 3. 复制原生模块：
-
    - 用你在应用中为原生模块编写的代码替换 `android/src/main/java/com/<name-of-the-module>` 中的代码，如果有的话。
    - 用你在应用中为原生模块编写的代码替换 `ios` 文件夹中的代码，如果有的话。
    - 用你在应用中为原生模块编写的代码替换 `cpp` 文件夹中的代码，如果有的话。

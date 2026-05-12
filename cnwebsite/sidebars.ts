@@ -24,7 +24,6 @@ export default {
     开发流程: [
       'running-on-device',
       'fast-refresh',
-      'metro',
       'libraries',
       'typescript',
       'strict-typescript-api',
@@ -84,11 +83,7 @@ export default {
       'profiling',
     ],
     'JavaScript 运行环境': ['javascript-environment', 'timers', 'hermes'],
-    Codegen: [
-      'the-new-architecture/what-is-codegen',
-      'the-new-architecture/using-codegen',
-      'the-new-architecture/codegen-cli',
-    ],
+    Codegen: ['the-new-architecture/codegen-cli'],
     原生开发: [
       {
         type: 'doc',
@@ -148,10 +143,6 @@ export default {
             type: 'doc',
             id: 'appendix',
             label: '附录',
-          },
-          {
-            type: 'doc',
-            id: 'the-new-architecture/create-module-library',
           },
         ],
       },

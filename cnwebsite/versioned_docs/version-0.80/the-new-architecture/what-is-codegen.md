@@ -4,8 +4,6 @@
 
 React Native 会在每次构建 iOS 或 Android 应用时自动调用 **Codegen**。偶尔，您可能需要手动运行 **Codegen** 脚本来了解实际生成的类型和文件：这在开发 Turbo Native Modules 和 Fabric Native Components 时很常见。
 
-<!-- TODO: Add links to TM and FC -->
-
 ## Codegen 是如何工作的
 
 **Codegen** 是一个与 React Native 应用紧密耦合的工具。**Codegen** 脚本位于 `react-native` NPM 包中，并在构建时调用这些脚本。

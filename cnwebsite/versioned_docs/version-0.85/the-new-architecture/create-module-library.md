@@ -70,8 +70,6 @@ npx create-react-native-library@latest <Name of Your Library>
 
 本指南的其余部分假设您的应用中有一个本地 Turbo Native Module，按照网站中其他指南所示的指南创建：平台特定的 Turbo Native Modules，或[跨平台 Turbo Native Modules](./pure-cxx-modules)。但它也适用于组件和旧架构模块和组件。您需要调整需要复制和更新的文件。
 
-<!-- TODO: add links for Turbo Native Modules -->
-
 1. **[旧架构模块和组件不需要]** 将应用中 `specs` 文件夹中的代码移动到 `create-react-native-library` 文件夹创建的 `src` 文件夹中。
 2. 更新 `index.ts` 文件以正确导出 Turbo Native Module 规范，使其可从库访问。例如：
 

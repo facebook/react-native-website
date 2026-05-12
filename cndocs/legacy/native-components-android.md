@@ -16,7 +16,7 @@ import NativeDeprecated from '../the-new-architecture/\_markdown_native_deprecat
 您还可以通过一个命令来配置生成包含原生组件的本地库模板。阅读[本地库设置](local-library-setup)指南以获取更多详细信息。
 :::
 
-## ImageView 示例 {#imageview-example}
+## ImageView 示例
 
 在这个例子里，我们来看看为了让 JavaScript 中可以使用 ImageView，需要做哪些准备工作。
 

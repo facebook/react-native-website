@@ -57,8 +57,6 @@ React Native 还支持将颜色表示为`int`值（以 RGB 颜色模式）：
 React Native 仅支持小写颜色名称。不支持大写颜色名称。
 :::
 
-<!-- alex ignore black white -->
-
 - <ins style={{background: '#f0f8ff'}} className="color-box" /> aliceblue (<code>#f0f8ff</code>)
 - <ins style={{background: '#faebd7'}} className="color-box" /> antiquewhite (<code>#faebd7</code>)
 - <ins style={{background: '#00ffff'}} className="color-box" /> aqua (<code>#00ffff</code>)

@@ -24,8 +24,6 @@ import {getCurrentVersion} from '@site/src/getCurrentVersion';
 
 **Codegen** 用于为您的自定义模块或组件生成粘合代码。有关如何创建它们的更多详细信息，请参阅 Turbo Native Modules 和 Fabric Native Components 的指南。
 
-<!-- TODO: add links -->
-
 ## 配置 **Codegen**
 
 可以通过修改 `package.json` 文件来配置应用中的 **Codegen**。**Codegen** 由一个名为 `codegenConfig` 的自定义字段控制。

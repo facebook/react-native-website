@@ -58,10 +58,10 @@ const jsDebuggers = [
 const defaultJsDebugger = 'flipper';
 
 const guides = [
-  {label: 'Expo Go Quickstart', value: 'quickstart'},
   {label: 'React Native CLI Quickstart', value: 'native'},
+  {label: 'Expo Go Quickstart', value: 'quickstart'},
 ];
-const defaultGuide = 'quickstart';
+const defaultGuide = 'native';
 
 const platforms = [
   {label: 'Android', value: 'android'},

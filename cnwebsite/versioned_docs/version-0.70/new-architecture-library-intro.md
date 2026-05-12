@@ -54,8 +54,8 @@ export default (TurboModuleRegistry.get<Spec>('<MODULE_NAME>'): ?Spec);
 <TabItem value="TypeScript">
 
 ```ts
-import type { TurboModule } from 'react-native';
-import { TurboModuleRegistry } from 'react-native';
+import type {TurboModule} from 'react-native';
+import {TurboModuleRegistry} from 'react-native';
 
 export interface Spec extends TurboModule {
   readonly getConstants: () => {};
@@ -102,8 +102,8 @@ export default (codegenNativeComponent<NativeProps>(
 <TabItem value="TypeScript">
 
 ```ts
-import type { ViewProps } from 'ViewPropTypes';
-import type { HostComponent } from 'react-native';
+import type {ViewProps} from 'ViewPropTypes';
+import type {HostComponent} from 'react-native';
 import codegenNativeComponent from 'react-native/Libraries/Utilities/codegenNativeComponent';
 
 export interface NativeProps extends ViewProps {
@@ -111,7 +111,7 @@ export interface NativeProps extends ViewProps {
 }
 
 export default codegenNativeComponent<NativeProps>(
-  '<FABRIC COMPONENT>'
+  '<FABRIC COMPONENT>',
 ) as HostComponent<NativeProps>;
 ```
 
@@ -121,8 +121,6 @@ export default codegenNativeComponent<NativeProps>(
 ### Supported Types
 
 When using Flow or TypeScript, you will be using [type annotations](https://flow.org/en/docs/types/) to define your spec. Keeping in mind that the goal of defining a JavaScript spec is to ensure the generated native interface code is type safe, the set of supported types will be those that can be mapped one-to-one to a corresponding type on the native platform.
-
-<!-- alex ignore primitive -->
 
 In general, this means you can use primitive types (strings, numbers, booleans), as well as function types, object types, and array types. Union types, on the other hand, are not supported. All types must be read-only. For Flow: either `+` or `$ReadOnly<>` or `{||}` objects. For TypeScript: `readonly` for properties, `Readonly<>` for objects, and `ReadonlyArray<>` for arrays.
 
@@ -149,8 +147,6 @@ Before adopting the New Architecture in your native module, you will need to ens
 If your existing native module has methods with the same name on multiple platforms, but with different numbers or types of arguments across platforms, you will need to find a way to make these consistent. If you have methods that can take two or more different types for the same argument, you will also need to find a way to resolve this type ambiguity as type unions are intentionally not supported.
 
 ## Make sure _autolinking_ is enabled
-
-<!-- alex ignore master -->
 
 [Autolinking](https://github.com/react-native-community/cli/blob/master/docs/autolinking.md) is a feature of the React Native CLI that simplifies the installation of third-party React Native libraries. Instructions to enable _autolinking_ are available at https://github.com/react-native-community/cli/blob/master/docs/autolinking.md.
 
@@ -501,10 +497,10 @@ return <RNTMyNativeViewNativeComponent />;
 ```
 
 ```js title="RNTMyNativeViewNativeComponent.js"
-import { requireNativeComponent } from 'react-native';
+import {requireNativeComponent} from 'react-native';
 
 const RNTMyNativeViewNativeComponent = requireNativeComponent(
-  'RNTMyNativeView'
+  'RNTMyNativeView',
 );
 
 export default RNTMyNativeViewNativeComponent;

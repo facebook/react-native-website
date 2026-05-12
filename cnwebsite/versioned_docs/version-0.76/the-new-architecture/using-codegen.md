@@ -21,8 +21,6 @@ npx @react-native-community/cli@latest init SampleApp --version 0.76.0
 
 **Codegen** 用于生成自定义模块或组件的粘合代码。有关如何创建它们的更多详细信息，请参阅 Turbo Native 模块和 Fabric Native 组件的指南。
 
-<!-- TODO: add links -->
-
 ## 配置 Codegen
 
 你可以通过修改 `package.json` 文件来配置 Codegen。Codegen 由一个名为 `codegenConfig` 的自定义字段控制。

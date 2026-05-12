@@ -80,8 +80,6 @@ $ npx react-native run-android
 
 你可以在**System Preferences** → **Network**中找到 IP 地址。
 
-<!-- alex ignore host -->
-
 1.  首先确保你的电脑和手机设备在**同一个 Wi-Fi 环境**下。
 2.  在设备上运行你的 React Native 应用。和打开其它 App 一样操作。
 3.  你应该会看到一个“红屏”错误提示。这是正常的，下面的步骤会解决这个报错。
@@ -157,8 +155,6 @@ $ npx react-native run-android
 
 你可以在**System Preferences** → **Network**中找到 IP 地址。
 
-<!-- alex ignore host -->
-
 1.  首先确保你的电脑和手机设备在**同一个 Wi-Fi 环境**下。
 2.  在设备上运行你的 React Native 应用。和打开其它 App 一样操作。
 3.  你应该会看到一个“红屏”错误提示。这是正常的，下面的步骤会解决这个报错。
@@ -233,8 +229,6 @@ $ npx react-native run-android
 你还可以通过 Wi-Fi 连接到开发服务器。你首先需要使用 USB 在你的设备上安装该应用程序，完成之后便可以按照这些说明进行无线调试。在继续之前，你需要知道开发机器的当前 IP 地址。
 
 你可以在**System Preferences** → **Network**中找到 IP 地址。
-
-<!-- alex ignore host -->
 
 1.  首先确保你的电脑和手机设备在**同一个 Wi-Fi 环境**下。
 2.  在设备上运行你的 React Native 应用。和打开其它 App 一样操作。
