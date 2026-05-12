@@ -13,7 +13,8 @@ AppState is frequently used to determine the intent and proper behavior when han
 - `background` - The app is running in the background. The user is either:
   - in another app
   - on the home screen
-  - [Android] on another `Activity` (even if it was launched by your app)
+  - [Android] on another `Activity`, including temporary system activities such
+    as autofill credential pickers (even if launched by your app or the system)
 - [iOS] `inactive` - This is a state that occurs when transitioning between foreground & background, and during periods of inactivity such as entering the multitasking view, opening the Notification Center or in the event of an incoming call.
 
 For more information, see [Apple's documentation](https://developer.apple.com/documentation/uikit/app_and_scenes/managing_your_app_s_life_cycle)
