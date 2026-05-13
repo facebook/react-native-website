@@ -25,7 +25,9 @@ function processMarkdown(md: string, opts: Options = {}) {
 }
 
 describe('remark-lint-no-dead-urls', () => {
-  beforeEach(() => mockFetch.mockReset());
+  beforeEach(() => {
+    mockFetch.mockReset();
+  });
 
   test('works with no URLs', async () => {
     const lint = processMarkdown(dedent`
