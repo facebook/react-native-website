@@ -221,6 +221,7 @@ const config: Config = {
   ],
   plugins: [
     'docusaurus-plugin-sass',
+    'docusaurus-plugin-copy-page-button',
     function disableExpensiveBundlerOptimizationPlugin() {
       return {
         name: 'disable-expensive-bundler-optimizations',

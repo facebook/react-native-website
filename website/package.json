@@ -56,6 +56,7 @@
     "@docusaurus/plugin-pwa": "3.10.1",
     "@docusaurus/preset-classic": "3.10.1",
     "@docusaurus/theme-mermaid": "3.10.1",
+    "docusaurus-plugin-copy-page-button": "^0.5.1",
     "docusaurus-plugin-sass": "^0.2.6",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
