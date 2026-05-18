@@ -1,49 +1,163 @@
----
-id: environment-setup
-title: Get Started with React Native
-hide_table_of_contents: true
----
+import React, { useEffect, useState } from "react";
+import { View, Text, FlatList, Image, TouchableOpacity, Alert } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-import PlatformSupport from '@site/src/theme/PlatformSupport';
-import BoxLink from '@site/src/theme/BoxLink';
+import { initializeApp } from "firebase/app";
+import { getFirestore, collection, addDoc, getDocs } from "firebase/firestore";
 
-**React Native allows developers who know React to create native apps.** At the same time, native developers can use React Native to gain parity between native platforms by writing common features once.
+/* ================= FIREBASE ================= */
+const firebaseConfig = {
+  apiKey: "SUA_KEY",
+  authDomain: "SEU_AUTH",
+  projectId: "SEU_ID",
+  storageBucket: "SEU_BUCKET",
+  messagingSenderId: "SEU_MSG",
+  appId: "SEU_APP",
+};
 
-We believe that the best way to experience React Native is through a **Framework**, a toolbox with all the necessary APIs to let you build production ready apps.
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
-You can also use React Native without a Framework, however we’ve found that most developers benefit from using a React Native Framework like [Expo](https://expo.dev). Expo provides features like file-based routing, high-quality universal libraries, and the ability to write plugins that modify native code without having to manage native files.
+const Tab = createBottomTabNavigator();
 
-<details>
-<summary>Can I use React Native without a Framework?</summary>
+/* ================= HOME ================= */
+function Home({ navigation }) {
+  const [products, setProducts] = useState([]);
 
-Yes. You can use React Native without a Framework. **However, if you’re building a new app with React Native, we recommend using a Framework.**
+  const loadProducts = async () => {
+    const snap = await getDocs(collection(db, "products"));
+    setProducts(snap.docs.map(d => ({ id: d.id, ...d.data() })));
+  };
 
-In short, you’ll be able to spend time writing your app instead of writing an entire Framework yourself in addition to your app.
+  useEffect(() => {
+    loadProducts();
+  }, []);
 
-The React Native community has spent years refining approaches to navigation, accessing native APIs, dealing with native dependencies, and more. Most apps need these core features. A React Native Framework provides them from the start of your app.
+  return (
+    <View style={{ flex: 1, padding: 10 }}>
+      <Text style={{ fontSize: 22, fontWeight: "bold" }}>🏠 Mercado Prime</Text>
 
-Without a Framework, you’ll either have to write your own solutions to implement core features, or you’ll have to piece together a collection of pre-existing libraries to create a skeleton of a Framework. This takes real work, both when starting your app, then later when maintaining it.
+      <FlatList
+        data={products}
+        keyExtractor={(i) => i.id}
+        renderItem={({ item }) => (
+          <View style={{
+            backgroundColor: "#fff",
+            padding: 10,
+            marginVertical: 10,
+            borderRadius: 10
+          }}>
+            <Image source={{ uri: item.image }} style={{ height: 150 }} />
+            <Text style={{ fontSize: 18 }}>{item.name}</Text>
+            <Text>R$ {item.price}</Text>
 
-If your app has unusual constraints that are not served well by a Framework, or you prefer to solve these problems yourself, you can make a React Native app without a Framework using Android Studio, Xcode. If you’re interested in this path, learn how to [set up your environment](set-up-your-environment) and how to [get started without a framework](getting-started-without-a-framework).
+            <TouchableOpacity
+              onPress={() => navigation.navigate("Cart", { item })}
+              style={{ backgroundColor: "orange", padding: 10, marginTop: 10 }}
+            >
+              <Text>Adicionar ao carrinho</Text>
+            </TouchableOpacity>
+          </View>
+        )}
+      />
+    </View>
+  );
+}
 
-</details>
+/* ================= CART ================= */
+function Cart({ route }) {
+  const item = route?.params?.item;
 
-## Start a new React Native project with Expo
+  const checkout = async () => {
+    const platformFee = item.price * 0.1;
+    const sellerEarnings = item.price - platformFee;
 
-<PlatformSupport platforms={['android', 'ios', 'tv', 'web']} />
+    await addDoc(collection(db, "orders"), {
+      productId: item.id,
+      name: item.name,
+      total: item.price,
+      platformFee,
+      sellerEarnings,
+      status: "Pedido recebido",
+      createdAt: Date.now(),
+    });
 
-Expo is a production-grade React Native Framework. Expo provides developer tooling that makes developing apps easier, such as file-based routing, a standard library of native modules, and much more.
+    Alert.alert("Sucesso", "Compra realizada com PIX simulado!");
+  };
 
-Expo's Framework is free and open source, with an active community on [GitHub](https://github.com/expo) and [Discord](https://chat.expo.dev). The Expo team works in close collaboration with the React Native team at Meta to bring the latest React Native features to the Expo SDK.
+  if (!item) {
+    return (
+      <View style={{ padding: 20 }}>
+        <Text>🛒 Carrinho vazio</Text>
+      </View>
+    );
+  }
 
-The team at Expo also provides Expo Application Services (EAS), an optional set of services that complements Expo, the Framework, in each step of the development process.
+  return (
+    <View style={{ padding: 20 }}>
+      <Text style={{ fontSize: 20 }}>{item.name}</Text>
+      <Text>R$ {item.price}</Text>
 
-To create a new Expo project, run the following in your terminal:
+      <TouchableOpacity
+        onPress={checkout}
+        style={{ backgroundColor: "green", padding: 15, marginTop: 20 }}
+      >
+        <Text style={{ color: "#fff" }}>Finalizar compra (PIX)</Text>
+      </TouchableOpacity>
+    </View>
+  );
+}
 
-```shell
-npx create-expo-app@latest
-```
+/* ================= ORDERS ================= */
+function Orders() {
+  return (
+    <View style={{ padding: 20 }}>
+      <Text>📦 Seus pedidos aparecerão aqui</Text>
+    </View>
+  );
+}
 
-Once you’ve created your app, check out the rest of Expo’s getting started guide to start developing your app.
+/* ================= SELLER ================= */
+function Seller() {
 
-<BoxLink href="https://docs.expo.dev/get-started/set-up-your-environment">Continue with Expo</BoxLink>
+  const createProduct = async () => {
+    await addDoc(collection(db, "products"), {
+      name: "Produto teste",
+      price: 100,
+      image: "https://picsum.photos/300",
+      description: "Produto demo",
+      category: "geral",
+      sellerId: "seller1",
+    });
+
+    Alert.alert("OK", "Produto criado!");
+  };
+
+  return (
+    <View style={{ padding: 20 }}>
+      <Text style={{ fontSize: 18 }}>🏪 Painel do Vendedor</Text>
+
+      <TouchableOpacity
+        onPress={createProduct}
+        style={{ backgroundColor: "black", padding: 15, marginTop: 20 }}
+      >
+        <Text style={{ color: "#fff" }}>Criar produto demo</Text>
+      </TouchableOpacity>
+    </View>
+  );
+}
+
+/* ================= APP ================= */
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name="Home" component={Home} />
+        <Tab.Screen name="Cart" component={Cart} />
+        <Tab.Screen name="Orders" component={Orders} />
+        <Tab.Screen name="Seller" component={Seller} />
+      </Tab.Navigator>
+    </NavigationContainer>
+  );
+}
