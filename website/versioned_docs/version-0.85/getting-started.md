@@ -1,4 +1,69 @@
----
+--
+export default function NubankStyleApp() { const cards = [ { title: 'Saldo disponível', value: 'R$ 2.450,90' }, { title: 'Cartão de crédito', value: 'Fatura: R$ 320,50' }, { title: 'Investimentos', value: 'R$ 1.200,00' }, ];
+
+const actions = [ 'Pix', 'Transferir', 'Pagar', 'Depositar', 'Recarga', 'Cartão virtual', ];
+
+const transactions = [ { name: 'Mercado', date: 'Hoje • 10:30', value: '- R$ 120,00', }, { name: 'Pix recebido', date: 'Ontem • 19:12', value: '+ R$ 300,00', }, { name: 'Netflix', date: 'Ontem • 14:20', value: '- R$ 39,90', }, ];
+
+return ( <div className="min-h-screen bg-[#820ad1] text-white flex justify-center p-4"> <div className="w-full max-w-md space-y-4"> <div className="flex items-center justify-between"> <div> <h1 className="text-3xl font-bold">Olá, Anry</h1> <p className="text-sm opacity-80">Bem-vindo ao seu banco digital</p> </div> <div className="bg-white/20 p-3 rounded-full"> 💳 </div> </div>
+
+<div className="bg-white text-black rounded-3xl p-5 shadow-xl space-y-4">
+      {cards.map((card, index) => (
+        <div
+          key={index}
+          className="bg-gray-100 rounded-2xl p-4 flex justify-between items-center"
+        >
+          <span className="font-medium">{card.title}</span>
+          <span className="font-bold">{card.value}</span>
+        </div>
+      ))}
+    </div>
+
+    <div className="bg-white rounded-3xl p-5 text-black shadow-xl">
+      <h2 className="text-xl font-bold mb-4">Ações rápidas</h2>
+      <div className="grid grid-cols-3 gap-3">
+        {actions.map((action, index) => (
+          <button
+            key={index}
+            className="bg-[#820ad1] text-white rounded-2xl p-4 text-sm font-semibold hover:scale-105 transition"
+          >
+            {action}
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <div className="bg-white rounded-3xl p-5 text-black shadow-xl">
+      <div className="flex items-center justify-between mb-4">
+        <h2 className="text-xl font-bold">Últimas movimentações</h2>
+        <button className="text-[#820ad1] font-semibold">Ver todas</button>
+      </div>
+
+      <div className="space-y-3">
+        {transactions.map((transaction, index) => (
+          <div
+            key={index}
+            className="flex items-center justify-between bg-gray-100 p-3 rounded-2xl"
+          >
+            <div>
+              <p className="font-semibold">{transaction.name}</p>
+              <p className="text-sm text-gray-500">{transaction.date}</p>
+            </div>
+            <span className={`font-bold ${transaction.value.includes('-') ? 'text-red-500' : 'text-green-600'}`}>
+              {transaction.value}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div className="bg-white/10 rounded-3xl p-4 text-center text-sm opacity-90">
+      Protótipo educativo inspirado em apps de banco digital.
+    </div>
+  </div>
+</div>
+
+); }
 id: environment-setup
 title: Get Started with React Native
 hide_table_of_contents: true
