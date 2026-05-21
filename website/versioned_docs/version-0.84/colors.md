@@ -68,7 +68,7 @@ React Native only supports lowercase color names. Uppercase color names are not 
 
 #### `transparent`
 
-This is a shortcut for `rgba(0,0,0,0)`, same like in [CSS3](https://www.w3.org/TR/css-color-3/#transparent).
+This is a shortcut for `rgba(0,0,0,0)`, same as in [CSS3](https://www.w3.org/TR/css-color-3/#transparent).
 
 #### Color keywords
 

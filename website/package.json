@@ -30,7 +30,12 @@
     "lint:markdown:links": "remark ../docs --quiet -r .remarkrc.withBrokenLinks.mjs",
     "ci:lint": "yarn lint && yarn lint:examples && yarn lint:markdown:images && prettier --check src/**/*.scss",
     "pwa:generate": "npx pwa-asset-generator ./static/img/header_logo.svg ./static/img/pwa --padding '40px' --background 'rgb(32, 35, 42)' --icon-only --opaque true",
-    "update-redirects": "node ../scripts/src/update-redirects.ts"
+    "update-redirects": "node ../scripts/src/update-redirects.ts",
+    "build:vercel": "docusaurus build",
+    "build:vercel:fast": "VERCEL=1 VERCEL_ENV=preview docusaurus build",
+    "deploy:vercel": "vercel",
+    "deploy:vercel:prod": "vercel --prod",
+    "dev:vercel": "vercel dev"
   },
   "browserslist": {
     "production": [
@@ -45,30 +50,31 @@
     ]
   },
   "dependencies": {
-    "@docusaurus/core": "3.10.0",
-    "@docusaurus/faster": "3.10.0",
-    "@docusaurus/plugin-google-gtag": "3.10.0",
-    "@docusaurus/plugin-pwa": "3.10.0",
-    "@docusaurus/preset-classic": "3.10.0",
+    "@docusaurus/core": "3.10.1",
+    "@docusaurus/faster": "3.10.1",
+    "@docusaurus/plugin-google-gtag": "3.10.1",
+    "@docusaurus/plugin-pwa": "3.10.1",
+    "@docusaurus/preset-classic": "3.10.1",
+    "@docusaurus/theme-mermaid": "3.10.1",
     "docusaurus-plugin-sass": "^0.2.6",
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
     "react-github-btn": "^1.4.0"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "3.10.0",
-    "@docusaurus/tsconfig": "3.10.0",
-    "@docusaurus/types": "3.10.0",
-    "@prettier/plugin-oxc": "^0.1.3",
+    "@docusaurus/module-type-aliases": "3.10.1",
+    "@docusaurus/tsconfig": "3.10.1",
+    "@docusaurus/types": "3.10.1",
+    "@prettier/plugin-oxc": "^0.1.4",
     "@react-native-website/lint-examples": "*",
     "@signalwire/docusaurus-plugin-llms-txt": "^1.2.2",
     "@types/google.analytics": "^0.0.46",
     "@types/react": "^19.2.14",
-    "eslint": "^9.39.3",
+    "eslint": "^9.39.4",
     "glob": "^13.0.6",
-    "prettier": "^3.8.1",
+    "prettier": "^3.8.3",
     "remark-cli": "^12.0.1",
-    "sass": "1.98.0",
-    "typescript": "^5.9.3"
+    "sass": "1.99.0",
+    "typescript": "^6.0.3"
   }
 }
