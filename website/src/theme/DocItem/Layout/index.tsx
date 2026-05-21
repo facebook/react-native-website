@@ -9,7 +9,7 @@ import React, {type ReactNode} from 'react';
 import clsx from 'clsx';
 import {useWindowSize} from '@docusaurus/theme-common';
 import {useDoc} from '@docusaurus/plugin-content-docs/client';
-import CopyPageButton from 'docusaurus-plugin-copy-page-button/src/CopyPageButton';
+import CopyPageButton from 'docusaurus-plugin-copy-page-button/react';
 import DocItemPaginator from '@theme/DocItem/Paginator';
 import DocVersionBanner from '@theme/DocVersionBanner';
 import DocVersionBadge from '@theme/DocVersionBadge';
