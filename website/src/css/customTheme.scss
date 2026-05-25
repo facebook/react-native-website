@@ -133,6 +133,7 @@
 
 body {
   font-family: var(--ifm-font-family-base);
+  scrollbar-gutter: stable;
 }
 
 html[data-theme="light"] {
@@ -140,6 +141,10 @@ html[data-theme="light"] {
 }
 
 html[data-theme="dark"] {
+  body {
+    scrollbar-color: var(--subtle) var(--ifm-background-color);
+  }
+
   --subtle: #858993;
 
   --navbar-background: #20232aee;

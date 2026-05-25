@@ -76,14 +76,16 @@ export default function DocItemLayout({children}: Props): ReactNode {
         <div className={styles.docItemContainer}>
           <article>
             <DocBreadcrumbs />
-            <DocVersionBadge />
+            <div className={styles.docHeaderContainer}>
+              <DocVersionBadge />
+              <DocItemCopyPageButton
+                className={clsx(
+                  styles.copyPageArticleAction,
+                  docTOC.canRender && styles.copyPageArticleActionWithToc
+                )}
+              />
+            </div>
             {docTOC.mobile}
-            <DocItemCopyPageButton
-              className={clsx(
-                styles.copyPageArticleAction,
-                docTOC.canRender && styles.copyPageArticleActionWithToc
-              )}
-            />
             <DocItemContent>{children}</DocItemContent>
             <DocItemFooter />
           </article>
