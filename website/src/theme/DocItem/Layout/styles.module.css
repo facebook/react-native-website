@@ -10,31 +10,68 @@
   margin-top: 0;
 }
 
-.copyPageAction {
+.docHeaderContainer {
   display: flex;
-}
-
-.copyPageArticleAction {
-  justify-content: flex-end;
-  min-height: 37px;
-  margin-bottom: 1rem;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .copyPageAsideAction {
-  display: none;
   margin-bottom: 1rem;
 }
 
-.copyPageButtonContainer {
-  display: inline-block;
+div[class^="copyPageArticleAction"] {
+  margin-bottom: 0;
 }
 
-.copyPageButton {
-  font-family: var(--ifm-font-family-base);
+button[class^="copyPageButton"] {
+  border-radius: var(--ifm-global-radius);
+  border-color: var(--ifm-color-gray-500);
+
+  &:hover {
+    background-color: var(--ifm-menu-color-background-hover) !important;
+    border-color: var(--ifm-color-gray-400) !important;
+  }
+
+  svg {
+    opacity: 0.75;
+  }
 }
 
-.copyPageDropdown {
-  font-family: var(--ifm-font-family-base);
+div[class^="copyPageDropdown"] {
+  border-color: var(--ifm-table-border-color) !important;
+
+  button[class^="dropdownItem"] {
+    border-bottom-color: var(--ifm-table-border-color) !important;
+
+    &:hover {
+      background-color: var(--ifm-menu-color-background-hover);
+    }
+  }
+
+  div[class^="itemDescription"] {
+    font-weight: 300;
+    font-size: 12px;
+  }
+}
+
+[data-theme="dark"] {
+  button[class^="copyPageButton"] {
+    &:hover {
+      background-color: var(--dark) !important;
+      border-color: var(--ifm-color-gray-800) !important;
+    }
+  }
+
+  button[class^="dropdownItem"] {
+    &:hover {
+      background-color: var(--dark);
+    }
+  }
+
+  div[class^="copyPageDropdown"] {
+    background-color: var(--ifm-navbar-background-color);
+  }
 }
 
 @media (min-width: 997px) {
@@ -44,11 +81,5 @@
 
   .copyPageArticleActionWithToc {
     display: none;
-  }
-
-  .copyPageAsideAction {
-    display: flex;
-    justify-content: flex-start;
-    min-height: 37px;
   }
 }
