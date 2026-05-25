@@ -1,6 +1,6 @@
 ---
 id: datepickerios
-title: '🚧 DatePickerIOS'
+title: '❌ DatePickerIOS'
 ---
 
 > **Removed.** Use one of the [community packages](https://reactnative.directory/?search=datepicker) instead.

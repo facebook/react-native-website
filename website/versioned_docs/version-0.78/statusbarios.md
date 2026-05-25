@@ -1,6 +1,6 @@
 ---
 id: statusbarios
-title: '🚧 StatusBarIOS'
+title: '❌ StatusBarIOS'
 ---
 
 > **Deleted.** Use [`StatusBar`](statusbar.md) for mutating the status bar.

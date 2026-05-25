@@ -6,10 +6,9 @@ export default {
       type: 'category',
       label: 'Contributing to React Native',
       collapsed: false,
-      collapsible: true,
+      collapsible: false,
       items: [
         'overview',
-        'versioning-policy',
         'how-to-report-a-bug',
         'how-to-contribute-code',
         'how-to-build-from-source',

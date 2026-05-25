@@ -1,0 +1,54 @@
+/**
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+.docItemContainer header + *,
+.docItemContainer article > *:first-child {
+  margin-top: 0;
+}
+
+.copyPageAction {
+  display: flex;
+}
+
+.copyPageArticleAction {
+  justify-content: flex-end;
+  min-height: 37px;
+  margin-bottom: 1rem;
+}
+
+.copyPageAsideAction {
+  display: none;
+  margin-bottom: 1rem;
+}
+
+.copyPageButtonContainer {
+  display: inline-block;
+}
+
+.copyPageButton {
+  font-family: var(--ifm-font-family-base);
+}
+
+.copyPageDropdown {
+  font-family: var(--ifm-font-family-base);
+}
+
+@media (min-width: 997px) {
+  .docItemCol {
+    max-width: 75% !important;
+  }
+
+  .copyPageArticleActionWithToc {
+    display: none;
+  }
+
+  .copyPageAsideAction {
+    display: flex;
+    justify-content: flex-start;
+    min-height: 37px;
+  }
+}

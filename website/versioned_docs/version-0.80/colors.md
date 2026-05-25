@@ -50,7 +50,7 @@ React Native supports `hwb()` in functional notation:
 
 ### Color ints
 
-React Native supports also colors as an `int` values (in RGB color mode):
+React Native also supports colors as an `int` values (in RGB color mode):
 
 - `0xff00ff00` (0xrrggbbaa)
 
@@ -68,13 +68,11 @@ React Native only supports lowercase color names. Uppercase color names are not 
 
 #### `transparent`
 
-This is a shortcut for `rgba(0,0,0,0)`, same like in [CSS3](https://www.w3.org/TR/css-color-3/#transparent).
+This is a shortcut for `rgba(0,0,0,0)`, same as in [CSS3](https://www.w3.org/TR/css-color-3/#transparent).
 
 #### Color keywords
 
 Named colors implementation follows the [CSS3/SVG specification](https://www.w3.org/TR/css-color-3/#svg-color):
-
-<!-- alex ignore black white -->
 
 - <ins style={{background: '#f0f8ff'}} className="color-box" /> aliceblue (<code>#f0f8ff</code>)
 - <ins style={{background: '#faebd7'}} className="color-box" /> antiquewhite (<code>#faebd7</code>)

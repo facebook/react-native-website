@@ -9,8 +9,6 @@ App extensions let you provide custom functionality and content outside of your 
 
 As these extensions are loaded outside of the regular app sandbox, it's highly likely that several of these app extensions will be loaded simultaneously. As you might expect, these extensions have small memory usage limits. Keep these in mind when developing your app extensions. It's always highly recommended to test your application on an actual device, and more so when developing app extensions: too frequently, developers find that their extension works fine in the iOS Simulator, only to get user reports that their extension is not loading on actual devices.
 
-We highly recommend that you watch Conrad Kramer's talk on [Memory Use in Extensions](https://www.youtube.com/watch?v=GqXMqn6MXrM) to learn more about this topic.
-
 ### Today widget
 
 The memory limit of a Today widget is 16 MB. As it happens, Today widget implementations using React Native may work unreliably because the memory usage tends to be too high. You can tell if your Today widget is exceeding the memory limit if it yields the message 'Unable to Load':

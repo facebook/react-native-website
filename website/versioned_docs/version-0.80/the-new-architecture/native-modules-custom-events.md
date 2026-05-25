@@ -23,9 +23,8 @@ The first step would be to update the specs of the `NativeLocalStorage` specs to
 Open the `NativeLocalStorage.ts` file and update it as it follows:
 
 ```diff title="NativeLocalStorage.ts"
-import type {TurboModule} from 'react-native';
++import type {TurboModule, CodegenTypes} from 'react-native';
 import {TurboModuleRegistry} from 'react-native';
-+import type {EventEmitter} from 'react-native/Libraries/Types/CodegenTypes';
 
 +export type KeyValuePair = {
 +  key: string,
@@ -38,7 +37,7 @@ export interface Spec extends TurboModule {
   removeItem(key: string): void;
   clear(): void;
 
-+ readonly onKeyAdded: EventEmitter<KeyValuePair>;
++ readonly onKeyAdded: CodegenTypes.EventEmitter<KeyValuePair>;
 }
 
 export default TurboModuleRegistry.getEnforcing<Spec>(
@@ -54,9 +53,8 @@ Open the `NativeLocalStorage.js` file and update it as it follows:
 ```diff title="NativeLocalStorage.js"
 
 // @flow
-import type {TurboModule} from 'react-native';
++import type {TurboModule, CodegenTypes} from 'react-native';
 import {TurboModule, TurboModuleRegistry} from 'react-native';
-+import type {EventEmitter} from 'react-native/Libraries/Types/CodegenTypes';
 
 +export type KeyValuePair = {
 +  key: string,
@@ -68,7 +66,7 @@ export interface Spec extends TurboModule {
   getItem(key: string): ?string;
   removeItem(key: string): void;
   clear(): void;
-+ onKeyAdded: EventEmitter<KeyValuePair>
++ onKeyAdded: CodegenTypes.EventEmitter<KeyValuePair>
 }
 export default (TurboModuleRegistry.get<Spec>(
   'NativeLocalStorage'
@@ -78,9 +76,9 @@ export default (TurboModuleRegistry.get<Spec>(
 </TabItem>
 </Tabs>
 
-With the `import type` statement, you are importing the `EventEmitter` type that is required to then add the `onKeyAdded` property.
+With the `import type` statement, you are importing the `CodegenTypes` from `react-native`, which includes the `EventEmitter` type. This allows you to define the `onKeyAdded` property using `CodegenTypes.EventEmitter<KeyValuePair>`, specifying that the event will emit a payload of type `KeyValuePair`.
 
-When the event is emitted, you expect for it to receive a parameter of type `string`.
+When the event is emitted, you expect for it to receive a parameter of type `KeyValuePair`.
 
 ## Step 2: Generate Codegen
 
@@ -267,7 +265,7 @@ With everything prepared, let's start writing native platform code.
 <Tabs groupId="platforms" queryString defaultValue={constants.defaultPlatform}>
 <TabItem value="android" label="Android">
 
-Assuming you followed the guide for iOS described in the [Native Modules guide](/docs/turbo-native-modules-introduction?platforms=android&language=typescript#3-write-application-code-using-the-turbo-native-module), what's left to do is to plug the code that emit the events in your app.
+Assuming you followed the guide for Android described in the [Native Modules guide](/docs/turbo-native-modules-introduction?platforms=android&language=typescript#3-write-application-code-using-the-turbo-native-module), what's left to do is to plug the code that emit the events in your app.
 
 To do so, you have to:
 

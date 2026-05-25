@@ -5,46 +5,90 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+
 jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Enable Corepack
-        run: corepack enable
+        uses: actions/checkout@v6
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: "20"
-          cache: "yarn"
+          node-version: "22"
+          cache: yarn
 
-      - name: Check dependencies
-        run: yarn dedupe --check
+      - name: Check lock for duplications
+        run: yarn update-lock --fail
 
       - name: Install dependencies
         run: yarn install --immutable
 
-      - name: Run Lint
-        run: yarn ci:lint
+      - name: Check dependencies alignment
+        run: yarn check-dependencies
+
+      - name: Run packages lint
+        run: yarn lint:packages
+
+      - name: Run plugins lint
+        run: yarn lint:plugins
+
+  check-vercel-redirects:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: "22"
+          cache: yarn
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Check Vercel redirects are in sync
+        run: |
+          yarn sync-redirects:vercel
+          if ! git diff --exit-code vercel.json; then
+            echo "::error::vercel.json redirects are out of sync with _redirects. Run 'yarn sync-redirects:vercel' and commit."
+            exit 1
+          fi
+
+  lint-website:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: "22"
+          cache: yarn
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Run Website Specific Lints
         working-directory: website
+        run: yarn ci:lint
 
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Enable Corepack
-        run: corepack enable
+        uses: actions/checkout@v6
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: "20"
-          cache: "yarn"
+          node-version: "22"
+          cache: yarn
 
       - name: Install dependencies
         run: yarn install --immutable
@@ -53,4 +97,4 @@ jobs:
         run: yarn build
         working-directory: website
         env:
-          NODE_OPTIONS: "--max_old_space_size=8192"
+          NODE_OPTIONS: --max_old_space_size=8192

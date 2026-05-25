@@ -3,6 +3,8 @@ id: strict-typescript-api
 title: Strict TypeScript API (opt in)
 ---
 
+import RNRepoLink from '@site/core/RNRepoLink';
+
 The Strict TypeScript API is a preview of our future, stable JavaScript API for React Native.
 
 Specifically, this is a new set of TypeScript types for the `react-native` npm package, available from 0.80 onwards. These provide stronger and more futureproof type accuracy, and will allow us to confidently evolve React Native's API into a stable shape. Opting in to the Strict TypeScript API brings some structural type differences, and is therefore a one-time breaking change.
@@ -30,7 +32,7 @@ Opting in is a **breaking change**, since some of our new types have updated nam
 }
 ```
 
-:::note Under the hood
+:::note[Under the hood]
 
 This will instruct TypeScript to resolve `react-native` types from our new [`types_generated/`](https://www.npmjs.com/package/react-native?activeTab=code) dir, instead of the previous [`types/`](https://www.npmjs.com/package/react-native?activeTab=code) dir (manually maintained). No restart of TypeScript or your editor is required.
 
@@ -38,7 +40,7 @@ This will instruct TypeScript to resolve `react-native` types from our new [`typ
 
 The Strict TypeScript API follows our [RFC](https://github.com/react-native-community/discussions-and-proposals/pull/894) to remove deep imports from React Native. Therefore, some APIs are no longer exported at root. This is intentional, in order to reduce the overall surface area of React Native's API.
 
-:::tip API feedback
+:::tip[API feedback]
 
 **Sending feedback**: We will be working with the community to finalize which APIs we export over (at least) the next two React Native releases. Please share your feedback in our [feedback thread](https://github.com/react-native-community/discussions-and-proposals/discussions/893).
 
@@ -178,7 +180,7 @@ In the new types, every optional prop will be typed as `type | undefined`.
 
 ### Removal of some deprecated types
 
-All types listed in [`DeprecatedPropertiesAlias.d.ts`](https://github.com/facebook/react-native/blob/0.80-stable/packages/react-native/types/public/DeprecatedPropertiesAlias.d.ts) are inaccessible under the Strict API.
+All types listed in <RNRepoLink href="/packages/react-native/types/public/DeprecatedPropertiesAlias.d.ts">`DeprecatedPropertiesAlias.d.ts`</RNRepoLink> are inaccessible under the Strict API.
 
 ### Removal of leftover component props
 

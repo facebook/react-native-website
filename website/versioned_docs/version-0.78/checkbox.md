@@ -1,6 +1,6 @@
 ---
 id: checkbox
-title: '🚧 CheckBox'
+title: '❌ CheckBox'
 ---
 
 > **Removed.** Use one of the [community packages](https://reactnative.directory/?search=checkbox) instead.

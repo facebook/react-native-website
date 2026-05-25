@@ -34,11 +34,11 @@ In the current architecture, we use `onLayout` to get the measurements of the vi
 function ViewWithTooltip() {
   // ...
 
-  // We get the layout information and pass to ToolTip to position itself
+  // We get the layout information and pass to Tooltip to position itself
   const onLayout = React.useCallback(event => {
     targetRef.current?.measureInWindow((x, y, width, height) => {
       // This state update is not guaranteed to run in the same commit
-      // This results in a visual "jump" as the ToolTip repositions itself
+      // This results in a visual "jump" as the Tooltip repositions itself
       setTargetRect({x, y, width, height});
     });
   }, []);
@@ -62,7 +62,7 @@ function ViewWithTooltip() {
 
   useLayoutEffect(() => {
     // The measurement and state update for `targetRect` happens in a single commit
-    // allowing ToolTip to position itself without intermediate paints
+    // allowing Tooltip to position itself without intermediate paints
     targetRef.current?.measureInWindow((x, y, width, height) => {
       setTargetRect({x, y, width, height});
     });
@@ -82,11 +82,11 @@ function ViewWithTooltip() {
 <div className="TwoColumns TwoFigures">
  <figure>
   <img src="/img/new-architecture/async-on-layout.gif" alt="A view that is moving to the corners of the viewport and center with a tooltip rendered either above or below it. The tooltip is rendered after a short delay after the view moves" />
-  <figcaption>Asynchronous measurement and render of the ToolTip. [See code](https://gist.github.com/lunaleaps/eabd653d9864082ac1d3772dac217ab9).</figcaption>
+  <figcaption>Asynchronous measurement and render of the Tooltip. [See code](https://gist.github.com/lunaleaps/eabd653d9864082ac1d3772dac217ab9).</figcaption>
 </figure>
 <figure>
   <img src="/img/new-architecture/sync-use-layout-effect.gif" alt="A view that is moving to the corners of the viewport and center with a tooltip rendered either above or below it. The view and tooltip move in unison." />
-  <figcaption>Synchronous measurement and render of the ToolTip. [See code](https://gist.github.com/lunaleaps/148756563999c83220887757f2e549a3).</figcaption>
+  <figcaption>Synchronous measurement and render of the Tooltip. [See code](https://gist.github.com/lunaleaps/148756563999c83220887757f2e549a3).</figcaption>
 </figure>
 </div>
 
@@ -185,7 +185,7 @@ You'll notice that with the frequent updates in a transition, React renders fewe
 
 The New Architecture removes the [asynchronous bridge](https://reactnative.dev/blog/2018/06/14/state-of-react-native-2018#architecture) between JavaScript and native and replaces it with JavaScript Interface (JSI). JSI is an interface that allows JavaScript to hold a reference to a C++ object and vice-versa. With a memory reference, you can directly invoke methods without serialization costs.
 
-JSI enables [VisionCamera](https://github.com/mrousavy/react-native-vision-camera), a popular camera library for React Native, to process frames in real time. Typical frame buffers are 10 MB, which amounts to roughly 1 GB of data per second, depending on the frame rate. In comparison with the serialization costs of the bridge, JSI handles that amount of interfacing data with ease. JSI can expose other complex instance-based types such as databases, images, audio samples, etc.
+JSI enables [VisionCamera](https://github.com/mrousavy/react-native-vision-camera), a popular camera library for React Native, to process frames in real time. Typical frame buffers are ~30 MB, which amounts to roughly 2 GB of data per second, depending on the frame rate. In comparison with the serialization costs of the bridge, JSI handles that amount of interfacing data with ease. JSI can expose other complex instance-based types such as databases, images, audio samples, etc.
 
 JSI adoption in the New Architecture removes this class of serialization work from all native-JavaScript interop. This includes initializing and re-rendering native core components like `View` and `Text`. You can read more about our [investigation in rendering performance](https://github.com/reactwg/react-native-new-architecture/discussions/123) in the New Architecture and the improved benchmarks we measured.
 

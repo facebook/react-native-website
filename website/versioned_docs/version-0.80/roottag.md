@@ -21,7 +21,7 @@ Another use case for `RootTag` is when your app needs to attribute a certain Jav
 
 ## How to access the RootTag... if you need it
 
-In versions 0.65 and below, RootTag is accessed via a [legacy context](https://github.com/facebook/react-native/blob/v0.64.1/Libraries/ReactNative/AppContainer.js#L56). To prepare React Native for Concurrent features coming in React 18 and beyond, we are migrating to the latest [Context API](https://reactjs.org/docs/context.html#api) via `RootTagContext` in 0.66. Version 0.65 supports both the legacy context and the recommended `RootTagContext` to allow developers time to migrate their call-sites. See the breaking changes summary.
+In versions 0.65 and below, RootTag is accessed via a [legacy context](https://github.com/facebook/react-native/blob/v0.64.1/Libraries/ReactNative/AppContainer.js#L56). To prepare React Native for Concurrent features coming in React 18 and beyond, we are migrating to the latest [Context API](https://react.dev/reference/react/createContext) via `RootTagContext` in 0.66. Version 0.65 supports both the legacy context and the recommended `RootTagContext` to allow developers time to migrate their call-sites. See the breaking changes summary.
 
 How to access `RootTag` via the `RootTagContext`.
 
@@ -59,7 +59,7 @@ class ScreenB extends React.Component {
 }
 ```
 
-Learn more about the Context API for [classes](https://reactjs.org/docs/context.html#classcontexttype) and [hooks](https://reactjs.org/docs/hooks-reference.html#usecontext) from the React docs.
+Learn more about the Context API for [classes](https://react.dev/reference/react/Component#static-contexttype) and [hooks](https://react.dev/reference/react/useContext) from the React docs.
 
 ### Breaking Change in 0.65
 

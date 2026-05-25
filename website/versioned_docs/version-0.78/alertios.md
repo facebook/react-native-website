@@ -1,6 +1,6 @@
 ---
 id: alertios
-title: '🚧 AlertIOS'
+title: '❌ AlertIOS'
 ---
 
 > **Removed.** Use [`Alert`](alert) instead.

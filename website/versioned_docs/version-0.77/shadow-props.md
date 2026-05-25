@@ -240,7 +240,7 @@ Both `boxShadow` and `dropShadow` are generally more capable than the `shadow` p
 
 See [View Style Props](./view-style-props#boxshadow) for documentation.
 
-### `dropShadow` <div class="label android">Android</div>
+### `dropShadow` <div className="label android">Android</div>
 
 See [View Style Props](./view-style-props#filter) for documentation.
 
@@ -256,7 +256,7 @@ This property will only work on Android API 28 and above. For similar functional
 
 ---
 
-### `shadowOffset` <div class="label ios">iOS</div>
+### `shadowOffset` <div className="label ios">iOS</div>
 
 Sets the drop shadow offset.
 
@@ -266,7 +266,7 @@ Sets the drop shadow offset.
 
 ---
 
-### `shadowOpacity` <div class="label ios">iOS</div>
+### `shadowOpacity` <div className="label ios">iOS</div>
 
 Sets the drop shadow opacity (multiplied by the color's alpha component).
 
@@ -276,7 +276,7 @@ Sets the drop shadow opacity (multiplied by the color's alpha component).
 
 ---
 
-### `shadowRadius` <div class="label ios">iOS</div>
+### `shadowRadius` <div className="label ios">iOS</div>
 
 Sets the drop shadow blur radius.
 

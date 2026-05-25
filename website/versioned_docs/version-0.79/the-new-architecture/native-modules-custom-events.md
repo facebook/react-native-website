@@ -80,7 +80,7 @@ export default (TurboModuleRegistry.get<Spec>(
 
 With the `import type` statement, you are importing the `EventEmitter` type that is required to then add the `onKeyAdded` property.
 
-When the event is emitted, you expect for it to receive a parameter of type `string`.
+When the event is emitted, you expect for it to receive a parameter of type `KeyValuePair`.
 
 ## Step 2: Generate Codegen
 
@@ -267,7 +267,7 @@ With everything prepared, let's start writing native platform code.
 <Tabs groupId="platforms" queryString defaultValue={constants.defaultPlatform}>
 <TabItem value="android" label="Android">
 
-Assuming you followed the guide for iOS described in the [Native Modules guide](/docs/turbo-native-modules-introduction?platforms=android&language=typescript#3-write-application-code-using-the-turbo-native-module), what's left to do is to plug the code that emit the events in your app.
+Assuming you followed the guide for Android described in the [Native Modules guide](/docs/turbo-native-modules-introduction?platforms=android&language=typescript#3-write-application-code-using-the-turbo-native-module), what's left to do is to plug the code that emit the events in your app.
 
 To do so, you have to:
 
