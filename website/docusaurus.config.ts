@@ -17,9 +17,9 @@ import prismTheme from './core/PrismTheme';
 import remarkSnackPlayer from '@react-native-website/remark-snackplayer';
 import remarkCodeblockLanguageTitle from '@react-native-website/remark-codeblock-language-as-title';
 
-// See https://docs.netlify.com/configure-builds/environment-variables/
 const isProductionDeployment =
-  !!process.env.NETLIFY && process.env.CONTEXT === 'production';
+  (!!process.env.NETLIFY && process.env.CONTEXT === 'production') ||
+  (!!process.env.VERCEL && process.env.VERCEL_ENV === 'production');
 
 const lastVersion = versions[0];
 const copyright = `Copyright © ${new Date().getFullYear()} Meta Platforms, Inc.`;
@@ -30,6 +30,7 @@ export type EditUrlButton = {
 };
 
 const commonDocsOptions: PluginContentDocs.Options = {
+  admonitions: {keywords: ['important'], extendDefaults: true},
   breadcrumbs: false,
   showLastUpdateAuthor: false,
   showLastUpdateTime: true,
@@ -64,9 +65,15 @@ const commonDocsOptions: PluginContentDocs.Options = {
   remarkPlugins: [remarkSnackPlayer, remarkCodeblockLanguageTitle],
 };
 
-const isDeployPreview = process.env.PREVIEW_DEPLOY === 'true';
+const isDeployPreview =
+  process.env.PREVIEW_DEPLOY === 'true' ||
+  (!!process.env.VERCEL && process.env.VERCEL_ENV === 'preview');
 
 const config: Config = {
+  markdown: {
+    mermaid: true,
+  },
+  themes: ['@docusaurus/theme-mermaid'],
   future: {
     // Turns Docusaurus v4 future flags on to make it easier to upgrade later
     v4: true,
@@ -74,7 +81,7 @@ const config: Config = {
     // See https://github.com/facebook/docusaurus/issues/10556
     // See https://github.com/facebook/react-native-website/pull/4268
     // See https://docusaurus.io/blog/releases/3.6
-    experimental_faster: (process.env.DOCUSAURUS_FASTER ?? 'true') === 'true',
+    faster: (process.env.DOCUSAURUS_FASTER ?? 'true') === 'true',
   },
 
   title: 'React Native',
@@ -359,6 +366,7 @@ const config: Config = {
             '/blog/tags/**',
             '/blog/archive',
             '/blog/authors',
+            '/releases',
             '/search',
           ],
         },
@@ -609,6 +617,16 @@ const config: Config = {
       {name: 'twitter:site', content: '@reactnative'},
       {name: 'mobile-web-app-capable', content: 'yes'},
     ],
+    mermaid: {
+      theme: {
+        light: 'neutral',
+        dark: 'dark',
+      },
+      options: {
+        fontFamily:
+          '"Optimistic Display", system-ui, -apple-system, sans-serif',
+      },
+    },
   } satisfies Preset.ThemeConfig,
 };
 
