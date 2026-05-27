@@ -1,3 +1,4 @@
+hii all 
 ---
 id: intro-react-native-components
 title: Core Components and Native Components
