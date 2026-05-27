@@ -9,7 +9,6 @@ import {getCoreBranchNameForCurrentVersion} from '@site/src/getCoreBranchNameFor
 ### Example
 
 ```SnackPlayer name=ViewStyleProps
-import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 

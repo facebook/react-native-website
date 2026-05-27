@@ -21,7 +21,6 @@ The `useColorScheme` React hook provides and subscribes to color scheme updates 
 ## Example
 
 ```SnackPlayer
-import React from 'react';
 import {Text, StyleSheet, useColorScheme} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 

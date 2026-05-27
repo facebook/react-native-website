@@ -10,7 +10,6 @@ title: Systrace
 `Systrace` allows you to mark JavaScript (JS) events with a tag and an integer value. Capture the non-Timed JS events in EasyProfiler.
 
 ```SnackPlayer name=Systrace%20Example
-import React from 'react';
 import {Button, Text, View, StyleSheet, Systrace} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 

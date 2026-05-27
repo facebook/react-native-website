@@ -21,7 +21,7 @@ For example, a container view that fades in when it is mounted may look like thi
 <TabItem value="javascript">
 
 ```SnackPlayer ext=js
-import React, {useEffect, useRef} from 'react';
+import {useEffect, useRef} from 'react';
 import {Animated, Text, View} from 'react-native';
 
 const FadeInView = props => {
@@ -74,7 +74,7 @@ export default () => {
 <TabItem value="typescript">
 
 ```SnackPlayer ext=tsx
-import React, {useEffect, useRef, type PropsWithChildren} from 'react';
+import {useEffect, useRef, type PropsWithChildren} from 'react';
 import {Animated, Text, View, type ViewStyle} from 'react-native';
 
 type FadeInViewProps = PropsWithChildren<{style: ViewStyle}>;
@@ -309,7 +309,6 @@ The following example implements a horizontal scrolling carousel where the scrol
 #### ScrollView with Animated Event Example
 
 ```SnackPlayer name=Animated&supportedPlatforms=ios,android
-import React from 'react';
 import {
   ScrollView,
   Text,
@@ -452,7 +451,7 @@ onPanResponderMove={Animated.event(
 #### PanResponder with Animated Event Example
 
 ```SnackPlayer name=Animated
-import React, {useRef} from 'react';
+import {useRef} from 'react';
 import {Animated, View, StyleSheet, PanResponder, Text} from 'react-native';
 
 const App = () => {
@@ -549,7 +548,7 @@ The native driver also works with `Animated.event`. This is especially useful fo
 </Animated.ScrollView>
 ```
 
-You can see the native driver in action by running the [RNTester app](https://github.com/facebook/react-native/blob/main/packages/rn-tester/), then loading the Native Animated Example. You can also take a look at the [source code](https://github.com/facebook/react-native/blob/master/packages/rn-tester/js/examples/NativeAnimation/NativeAnimationsExample.js) to learn how these examples were produced.
+You can see the native driver in action by running the [RNTester app](https://github.com/facebook/react-native/blob/main/packages/rn-tester/), then loading the Native Animated Example. You can also take a look at the [source code](https://github.com/facebook/react-native/blob/main/packages/rn-tester/js/examples/NativeAnimation/NativeAnimationsExample.js) to learn how these examples were produced.
 
 #### Caveats
 
@@ -592,8 +591,8 @@ Note that in order to get this to work on **Android** you need to set the follow
 UIManager.setLayoutAnimationEnabledExperimental(true);
 ```
 
-```SnackPlayer name=LayoutAnimations&supportedPlatforms=ios,android
-import React, {useState} from 'react';
+```SnackPlayer name=LayoutAnimations
+import {useState} from 'react';
 import {
   NativeModules,
   LayoutAnimation,
@@ -622,9 +621,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <View
-        style={[styles.box, {width: state.w, height: state.h}]}
-      />
+      <View style={[styles.box, {width: state.w, height: state.h}]} />
       <TouchableOpacity onPress={onPress}>
         <View style={styles.button}>
           <Text style={styles.buttonText}>Press me!</Text>

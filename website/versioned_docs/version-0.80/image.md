@@ -12,7 +12,6 @@ This example shows fetching and displaying an image from local storage as well a
 ## Examples
 
 ```SnackPlayer name=Image%20Example
-import React from 'react';
 import {Image, StyleSheet} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
@@ -59,7 +58,6 @@ export default DisplayAnImage;
 You can also add `style` to an image:
 
 ```SnackPlayer name=Styled%20Image%20Example
-import React from 'react';
 import {Image, StyleSheet} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 

@@ -16,7 +16,6 @@ Don't modify the animated value directly. You can use the [`useRef` Hook](https:
 The following example contains a `View` which will fade in and fade out based on the animated value `fadeAnim`
 
 ```SnackPlayer name=Animated%20Example
-import React from 'react';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 import {
   Animated,

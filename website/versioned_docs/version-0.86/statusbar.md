@@ -15,7 +15,7 @@ It is possible to have multiple `StatusBar` components mounted at the same time.
 <TabItem value="javascript">
 
 ```SnackPlayer name=StatusBar%20Component%20Example&supportedPlatforms=android,ios&ext=js
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {
   Button,
   Platform,
@@ -123,7 +123,7 @@ export default App;
 <TabItem value="typescript">
 
 ```SnackPlayer name=StatusBar%20Component%20Example&supportedPlatforms=android,ios&ext=tsx
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {
   Button,
   Platform,

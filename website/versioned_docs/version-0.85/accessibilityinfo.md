@@ -8,7 +8,7 @@ Sometimes it's useful to know whether or not the device has a screen reader that
 ## Example
 
 ```SnackPlayer name=AccessibilityInfo%20Example&supportedPlatforms=android,ios
-import React, {useState, useEffect} from 'react';
+import {useState, useEffect} from 'react';
 import {AccessibilityInfo, Text, StyleSheet} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 

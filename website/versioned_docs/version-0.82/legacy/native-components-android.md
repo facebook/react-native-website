@@ -831,7 +831,7 @@ export const MyViewManager =
 II. Then implement custom View calling the `create` method:
 
 ```tsx title="MyView.tsx"
-import React, {useEffect, useRef} from 'react';
+import {useEffect, useRef} from 'react';
 import {
   PixelRatio,
   UIManager,

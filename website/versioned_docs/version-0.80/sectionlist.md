@@ -21,7 +21,6 @@ If you don't need section support and want a simpler interface, use [`<FlatList>
 ## Example
 
 ```SnackPlayer name=SectionList%20Example
-import React from 'react';
 import {StyleSheet, Text, View, SectionList, StatusBar} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
