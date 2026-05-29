@@ -1,5 +1,95 @@
-:::important[Experimental 🧪]
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, TouchableOpacity, Animated } from 'react-native';
 
-**This API is experimental.** Experimental APIs may contain bugs and are likely to change in a future version of React Native. Don't use them in production.
+const MOODS = [
+  { id: 'rain', label: 'Heavy Rain', icon: '🌧️', color: '#1A1E29' },
+  { id: 'fog', label: 'Dense Fog', icon: '🌫️', color: '#2C3539' },
+  { id: 'thunder', label: 'Distant Thunder', icon: '🌩️', color: '#1C122C' },
+  { id: 'night', label: 'Clear Night', icon: '🌌', color: '#0B1021' },
+];
 
-:::
+export default function WeatherCheckIn() {
+  const [selectedMood, setSelectedMood] = useState<string | null>(null);
+  const fadeAnim = new Animated.Value(1);
+
+  const handleMoodSelect = (moodId: string) => {
+    setSelectedMood(moodId);
+    // Smoothly fade the UI to transition to the next state
+    Animated.timing(fadeAnim, {
+      toValue: 0,
+      duration: 800,
+      useNativeDriver: true,
+    }).start(() => {
+      // Navigate to the Venting Well screen here
+      console.log(`Mood selected: ${moodId}. Transitioning...`);
+    });
+  };
+
+  return (
+    <Animated.View style={[styles.container, { opacity: fadeAnim }]}>
+      <Text style={styles.title}>How is the weather inside today?</Text>
+      <Text style={styles.subtitle}>Select a landscape that matches your heart right now.</Text>
+
+      <View style={styles.grid}>
+        {MOODS.map((mood) => (
+          <TouchableOpacity
+            key={mood.id}
+            style={[styles.card, { backgroundColor: mood.color }]}
+            onPress={() => handleMoodSelect(mood.id)}
+          >
+            <Text style={styles.icon}>{mood.icon}</Text>
+            <Text style={styles.label}>{mood.label}</Text>
+          </TouchableOpacity>
+        ))}
+      </View>
+    </Animated.View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#0A0E17',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 24,
+  },
+  title: {
+    fontSize: 24,
+    color: '#E2E8F0',
+    fontWeight: '600',
+    textAlign: 'center',
+    marginBottom: 8,
+  },
+  subtitle: {
+    fontSize: 14,
+    color: '#94A3B8',
+    textAlign: 'center',
+    marginBottom: 40,
+  },
+  grid: {
+    width: '100%',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+  },
+  card: {
+    width: '47%',
+    height: 140,
+    borderRadius: 16,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 20,
+    borderWidth: 1,
+    borderColor: '#334155',
+  },
+  icon: {
+    fontSize: 40,
+    marginBottom: 12,
+  },
+  label: {
+    color: '#F1F5F9',
+    fontSize: 14,
+    fontWeight: '500',
+  },
+});
