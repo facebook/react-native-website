@@ -113,7 +113,7 @@
   --home-feature-background-1: #f4e3fc;
   --home-feature-background-2: #e1eefc;
   --home-feature-background-3: #d4f3e7;
-  --home-border: #e5e7eb;
+  --home-border: #dfe1e6;
   --home-background: #fff;
   --home-secondary-background: #f6f7f9;
   --home-text: #1c1e21;
@@ -133,6 +133,7 @@
 
 body {
   font-family: var(--ifm-font-family-base);
+  scrollbar-gutter: stable;
 }
 
 html[data-theme="light"] {
@@ -140,6 +141,10 @@ html[data-theme="light"] {
 }
 
 html[data-theme="dark"] {
+  body {
+    scrollbar-color: var(--subtle) var(--ifm-background-color);
+  }
+
   --subtle: #858993;
 
   --navbar-background: #20232aee;
@@ -511,6 +516,10 @@ hr {
     }
   }
 
+  .docusaurus-mermaid-container {
+    text-align: center;
+  }
+
   .docusaurus-highlight-code-line {
     background-color: var(--light);
   }
@@ -664,13 +673,20 @@ html[data-theme="dark"] article .badge {
   --ifm-alert-background-color-highlight: rgba(225, 227, 230, 0.7);
 }
 
+.alert--important {
+  --ifm-alert-background-color: #8250df2a;
+  --ifm-alert-background-color-highlight: #e0cfff;
+  --ifm-alert-foreground-color: #281846;
+  --ifm-alert-border-color: #e0cfff;
+}
+
 html[data-theme="dark"] {
   span[class^="admonitionIcon"] svg {
-    fill: hsl(from var(--ifm-alert-border-color) h calc(s + 10) calc(l + 10));
+    fill: hsl(from var(--ifm-alert-border-color) h calc(s - 10) calc(l + 10));
   }
 
   div[class^="admonitionHeading"] {
-    color: hsl(from var(--ifm-alert-border-color) h calc(s + 10) calc(l + 10));
+    color: hsl(from var(--ifm-alert-border-color) h calc(s - 10) calc(l + 10));
   }
 
   .alert--secondary {
@@ -678,6 +694,25 @@ html[data-theme="dark"] {
       --ifm-color-secondary-contrast-background
     );
     --ifm-alert-background-color-highlight: rgba(225, 227, 230, 0.15);
+  }
+  .alert--important {
+    --ifm-alert-background-color-highlight: #442f6b;
+    --ifm-alert-foreground-color: #c0b1dc;
+    --ifm-alert-border-color: #8250df;
+  }
+}
+
+html[data-theme="light"] {
+  .alert--success {
+    span[class^="admonitionIcon"] svg {
+      fill: hsl(from var(--ifm-alert-border-color) h calc(s + 20) calc(l - 10));
+    }
+
+    div[class^="admonitionHeading"] {
+      color: hsl(
+        from var(--ifm-alert-border-color) h calc(s + 20) calc(l - 10)
+      );
+    }
   }
 }
 
@@ -1267,6 +1302,13 @@ aside[class^="theme-doc-sidebar-container"] {
   }
 
   .menu__list-item-collapsible {
+    border-radius: var(--ifm-global-radius);
+
+    // Disable background color on hover for collapsible items with direct child anchor without href
+    &:has(> a:not([href])):hover {
+      background-color: transparent;
+    }
+
     .menu__caret {
       padding: 0 6px;
 
@@ -1274,14 +1316,6 @@ aside[class^="theme-doc-sidebar-container"] {
         display: block;
         background-size: 1.66rem 1.66rem;
         margin-top: -1px;
-      }
-    }
-
-    &:hover {
-      background: none !important;
-
-      .menu__link--sublist-caret:hover {
-        background: var(--ifm-menu-color-background-hover) !important;
       }
     }
   }
@@ -1505,6 +1539,7 @@ div[class^="tableOfContents"] {
     color: var(--home-button-primary) !important;
 
     code {
+      word-break: break-all;
       font-weight: 700;
       color: var(--home-button-primary) !important;
     }
@@ -1901,6 +1936,10 @@ td .color-box {
   }
 
   /* Label variants */
+  &.primary {
+    background: var(--ifm-color-primary);
+  }
+
   &.android {
     background: #a4c936;
 

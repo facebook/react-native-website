@@ -71,7 +71,7 @@ export default TurboModuleRegistry.getEnforcing<Spec>(
 
 ## 2. Configure Codegen
 
-The next step is to configure [Codegen](what-is-codegen.md) in your `package.json`. Update the file to include:
+The next step is to configure [Codegen](what-is-codegen.mdx) in your `package.json`. Update the file to include:
 
 ```json title="package.json"
      "start": "react-native start",
@@ -332,10 +332,10 @@ The ModuleProvider is an Objective-C++ that glues together the Pure C++ module w
 
 1. From Xcode, select the `SampleApp` project and press <kbd>⌘</kbd> + <kbd>N</kbd> to create a new file.
 2. Select the `Cocoa Touch Class` template
-3. Add the name `SampleNativeModuleProvider` (keep the other field as `Subclass of: NSObject` and `Language: Objective-C`)
+3. Add the name `NativeSampleModuleProvider` (keep the other field as `Subclass of: NSObject` and `Language: Objective-C`)
 4. Click Next to generate the files.
-5. Rename the `SampleNativeModuleProvider.m` to `SampleNativeModuleProvider.mm`. The `mm` extension denotes an Objective-C++ file.
-6. Implement the content of the `SampleNativeModuleProvider.h` with the following:
+5. Rename the `NativeSampleModuleProvider.m` to `NativeSampleModuleProvider.mm`. The `mm` extension denotes an Objective-C++ file.
+6. Implement the content of the `NativeSampleModuleProvider.h` with the following:
 
 ```objc title="NativeSampleModuleProvider.h"
 
@@ -353,7 +353,7 @@ NS_ASSUME_NONNULL_END
 
 This declares a `NativeSampleModuleProvider` object that conforms to the `RCTModuleProvider` protocol.
 
-7. Implement the content of the `SampleNativeModuleProvider.mm` with the following:
+7. Implement the content of the `NativeSampleModuleProvider.mm` with the following:
 
 ```objc title="NativeSampleModuleProvider.mm"
 

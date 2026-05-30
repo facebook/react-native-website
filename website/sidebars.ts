@@ -258,6 +258,7 @@ export default {
           'global-PerformanceMeasure',
           'global-PerformanceObserver',
           'global-PerformanceObserverEntryList',
+          'global-PerformanceResourceTiming',
           'global-process',
           'global-queueMicrotask',
           'global-Request',

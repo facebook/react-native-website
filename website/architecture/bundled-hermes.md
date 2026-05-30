@@ -119,9 +119,9 @@ To implement this on Android, we've added a new build inside the `/ReactAndroid/
 You can now trigger a build of Hermes engine by invoking:
 
 ```bash
-// Build a debug version of Hermes
+# Build a debug version of Hermes
 ./gradlew :ReactAndroid:hermes-engine:assembleDebug
-// Build a release version of Hermes
+# Build a release version of Hermes
 ./gradlew :ReactAndroid:hermes-engine:assembleRelease
 ```
 
@@ -133,7 +133,7 @@ On the Gradle consumer side, we also shipped a small improvement on the consumer
 
 However, this made this line necessary in the template:
 
-```
+```groovy
 exclude group:'com.facebook.fbjni'
 ```
 
