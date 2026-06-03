@@ -64,7 +64,6 @@ Now you are ready to build and run your app on the device/simulator.
 Now you can create an app with a home screen and a profile screen:
 
 ```tsx
-import * as React from 'react';
 import {createStaticNavigation} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
