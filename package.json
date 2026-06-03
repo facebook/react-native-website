@@ -51,6 +51,8 @@
   },
   "resolutions": {
     "serialize-javascript": "^7.0.5",
-    "serve-handler/minimatch": "3.1.4"
+    "serve-handler/minimatch": "3.1.4",
+    "qs": "^6.15.2",
+    "uuid": "^11.1.1"
   }
 }
