@@ -71,6 +71,10 @@ div[class^="copyPageDropdown"] {
 
   div[class^="copyPageDropdown"] {
     background-color: var(--ifm-navbar-background-color);
+
+    div[class^="itemDescription"] {
+      color: var(--ifm-color-gray-600) !important;
+    }
   }
 }
 
