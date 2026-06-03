@@ -12,7 +12,6 @@ This is an API that works both on Android and iOS and can show static alerts. Al
 ## Example
 
 ```SnackPlayer name=Alert%20Example&supportedPlatforms=ios,android
-import React from 'react';
 import {StyleSheet, Button, Alert} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
@@ -81,7 +80,6 @@ The cancel event can be handled by providing an `onDismiss` callback property in
 ### Example <div className="label android">Android</div>
 
 ```SnackPlayer name=Alert%20Android%20Dissmissable%20Example&supportedPlatforms=android
-import React from 'react';
 import {StyleSheet, Button, Alert} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 

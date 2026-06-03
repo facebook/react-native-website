@@ -78,7 +78,7 @@ Don't forget to catch any errors that may be thrown by `fetch`, otherwise they w
 <TabItem value="javascript">
 
 ```SnackPlayer name=Fetch%20Example&ext=js
-import React, {useEffect, useState} from 'react';
+import {useEffect, useState} from 'react';
 import {ActivityIndicator, FlatList, Text, View} from 'react-native';
 
 const App = () => {
@@ -127,7 +127,7 @@ export default App;
 <TabItem value="typescript">
 
 ```SnackPlayer name=Fetch%20Example&ext=tsx
-import React, {useEffect, useState} from 'react';
+import {useEffect, useState} from 'react';
 import {ActivityIndicator, FlatList, Text, View} from 'react-native';
 
 type Movie = {

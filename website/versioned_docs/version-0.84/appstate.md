@@ -24,7 +24,7 @@ For more information, see [Apple's documentation](https://developer.apple.com/do
 To see the current state, you can check `AppState.currentState`, which will be kept up-to-date. However, `currentState` will be null at launch while `AppState` retrieves it over the bridge.
 
 ```SnackPlayer name=AppState%20Example
-import React, {useRef, useState, useEffect} from 'react';
+import {useRef, useState, useEffect} from 'react';
 import {AppState, StyleSheet, Text} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 

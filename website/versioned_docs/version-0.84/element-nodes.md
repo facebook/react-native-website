@@ -8,14 +8,14 @@ Element nodes represent native components in the native view tree (similar to [E
 They are provided by all native components, and by many built-in components, via refs:
 
 ```SnackPlayer ext=js&name=Element%20instances%20example
-import * as React from 'react';
-import { View, SafeAreaView, StyleSheet, Text } from 'react-native';
+import {useEffect, useRef, useState} from 'react';
+import {View, SafeAreaView, StyleSheet, Text} from 'react-native';
 
 const ViewWithRefs = () => {
-  const ref = React.useRef(null);
-  const [viewInfo, setViewInfo] = React.useState('');
+  const ref = useRef(null);
+  const [viewInfo, setViewInfo] = useState('');
 
-  React.useEffect(() => {
+  useEffect(() => {
     // `element` is an object implementing the interface described here.
     const element = ref.current;
     const rect = JSON.stringify(element.getBoundingClientRect());

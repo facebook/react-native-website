@@ -12,7 +12,6 @@ The most fundamental component for building a UI, `View` is a container that sup
 This example creates a `View` that wraps two boxes with color and a text component in a row with padding.
 
 ```SnackPlayer name=View%20Example
-import React from 'react';
 import {View, Text} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 

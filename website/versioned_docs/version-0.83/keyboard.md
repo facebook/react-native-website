@@ -10,7 +10,7 @@ title: Keyboard
 The Keyboard module allows you to listen for native events and react to them, as well as make changes to the keyboard, like dismissing it.
 
 ```SnackPlayer name=Keyboard%20Example&supportedPlatforms=ios,android
-import React, {useState, useEffect} from 'react';
+import {useState, useEffect} from 'react';
 import {Keyboard, Text, TextInput, StyleSheet} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 

@@ -11,7 +11,7 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import con
 <TabItem value="javascript">
 
 ```SnackPlayer name=TextStyleProps&supportedPlatforms=ios,android&ext=js&dependencies=@react-native-community/slider
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {
   FlatList,
   Platform,
@@ -372,7 +372,7 @@ export default App;
 <TabItem value="typescript">
 
 ```SnackPlayer name=TextStyleProps&supportedPlatforms=ios,android&ext=tsx&dependencies=@react-native-community/slider
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {
   FlatList,
   Platform,

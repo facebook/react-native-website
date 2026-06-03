@@ -23,7 +23,7 @@ If you are targeting foldable devices or devices which can change the screen siz
 ## Example
 
 ```SnackPlayer name=Dimensions%20Example
-import React, {useState, useEffect} from 'react';
+import {useState, useEffect} from 'react';
 import {StyleSheet, Text, Dimensions} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 

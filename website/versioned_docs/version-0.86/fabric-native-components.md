@@ -172,7 +172,6 @@ This guide shows you how to create a Native Component that only works with the N
 Finally, you can use the new component in your app. Update your generated `App.tsx` to:
 
 ```javascript title="Demo/App.tsx"
-import React from 'react';
 import {Alert, StyleSheet, View} from 'react-native';
 import WebView from './specs/WebViewNativeComponent';
 

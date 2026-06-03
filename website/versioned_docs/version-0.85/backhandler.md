@@ -52,7 +52,7 @@ subscription.remove();
 The following example implements a scenario where you confirm if the user wants to exit the app:
 
 ```SnackPlayer name=BackHandler&supportedPlatforms=android
-import React, {useEffect} from 'react';
+import {useEffect} from 'react';
 import {Text, StyleSheet, BackHandler, Alert} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 

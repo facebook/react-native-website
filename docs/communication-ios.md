@@ -33,7 +33,6 @@ RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge
 ```
 
 ```tsx
-import React from 'react';
 import {View, Image} from 'react-native';
 
 export default class ImageBrowserApp extends React.Component {
