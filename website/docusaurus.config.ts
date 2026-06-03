@@ -12,7 +12,8 @@ import path from 'path';
 
 import users from './showcase.json';
 import versions from './versions.json';
-import prismTheme from './core/PrismTheme';
+import prismThemeDark from './core/PrismThemeDark';
+import prismThemeLight from './core/PrismThemeLight';
 
 import remarkSnackPlayer from '@react-native-website/remark-snackplayer';
 import remarkCodeblockLanguageTitle from '@react-native-website/remark-codeblock-language-as-title';
@@ -381,7 +382,8 @@ const config: Config = {
     },
     prism: {
       defaultLanguage: 'tsx',
-      theme: prismTheme,
+      theme: prismThemeLight,
+      darkTheme: prismThemeDark,
       additionalLanguages: [
         'diff',
         'bash',

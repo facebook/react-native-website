@@ -45,16 +45,12 @@
 
   --ifm-font-family-base:
     "Optimistic Display", system-ui, -apple-system, sans-serif;
-  --ifm-font-family-monospace:
-    "Source Code Pro", SFMono-Regular, Menlo, Monaco, Consolas,
-    "Liberation Mono", "Courier New", monospace;
-
   --ifm-background-color: white;
   --ifm-color-primary: #06bcee;
   --ifm-color-primary-75: #087ea4cc;
   --ifm-code-background: rgba(0, 0, 0, 0.06);
   --ifm-font-size-base: 17px;
-  --ifm-code-font-size: 90%;
+  --ifm-code-font-size: 85%;
   --ifm-code-padding-vertical: 0.05rem;
   --ifm-spacing-horizontal: 16px;
   --ifm-navbar-item-padding-horizontal: 18px;
@@ -69,7 +65,7 @@
   --ifm-table-head-color: var(--subtle);
   --ifm-link-hover-decoration: none;
   --ifm-navbar-background-color: var(--deepdark);
-  --ifm-pre-line-height: 1.4;
+  --ifm-pre-line-height: 1.6;
   --ifm-tabs-padding-vertical: 6px;
   --ifm-color-warning: #ffe564;
   --ifm-alert-color: var(--ifm-font-color-base);
@@ -243,20 +239,6 @@ html[data-theme="dark"] {
 @font-face {
   font-family: "Optimistic Display";
   src: url("/static/fonts/Optimistic-Display-Bold.woff2") format("woff2");
-  font-weight: 700;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Source Code Pro";
-  src: url("/static/fonts/Source-Code-Pro-Regular.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Source Code Pro";
-  src: url("/static/fonts/Source-Code-Pro-Bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
 }
@@ -527,6 +509,7 @@ hr {
   div[class*="codeBlockContainer"] {
     box-shadow: none;
     background: none;
+    border: 1px solid var(--ifm-color-emphasis-300);
     border-radius: var(--ifm-global-radius);
 
     pre {
@@ -534,8 +517,8 @@ hr {
     }
 
     button {
-      border-color: var(--light);
-      background: var(--deepdark);
+      border-color: var(--ifm-color-emphasis-300);
+      background: var(--ifm-background-color);
     }
   }
 
@@ -554,7 +537,8 @@ hr {
 
   div[class*="codeBlockTitle"] {
     color: var(--subtle);
-    background-color: var(--ifm-color-emphasis-300);
+    background-color: #f6f8fa;
+    border-bottom: 1px solid var(--ifm-color-emphasis-300);
   }
 
   .tabs {
@@ -604,9 +588,14 @@ html[data-theme="dark"] {
       }
     }
 
+    div[class*="codeBlockContainer"] {
+      border-color: rgba(225, 227, 230, 0.15);
+    }
+
     div[class*="codeBlockTitle"] {
       color: var(--docsearch-muted-color);
-      background-color: var(--deepdark);
+      background-color: #282c34;
+      border-bottom-color: rgba(225, 227, 230, 0.15);
     }
   }
 }
