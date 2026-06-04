@@ -61,7 +61,7 @@ Force the installation of the legacy `hermes-compiler` package in your `package.
 
 **iOS**
 
-When installing CocoaPods dependencies, pass the `RCT_HERMES_V1_ENABLED=0` and `RCT_USE_PREBUILT_RNCORE=0` environment variables.
+When installing CocoaPods dependencies, pass the `RCT_HERMES_V1_ENABLED=0`, `RCT_USE_PREBUILT_RNCORE=0`, and `RCT_USE_RN_DEP=0` environment variables.
 
 **Android**
 
@@ -76,7 +76,7 @@ React Native 0.84 now ships precompiled binaries on iOS by default. Previously i
 This means you no longer need to compile React Native core from source every time you do a clean build. The precompiled `.xcframework` binaries are automatically downloaded and used during `pod install`.
 
 :::info
-If you need to build React Native from source (for example, to opt out of Hermes V1), you can disable precompiled binaries by setting `RCT_USE_PREBUILT_RNCORE=0` when installing pods.
+If you need to build React Native from source (for example, to opt out of Hermes V1), you can disable precompiled binaries by setting `RCT_USE_PREBUILT_RNCORE=0` and `RCT_USE_RN_DEP=0` when installing pods.
 :::
 
 ## Legacy Architecture Components Removed
@@ -95,7 +95,7 @@ No breakages are expected for apps already on the New Architecture — the Inter
 If you need to re-enable Legacy Architecture code in your iOS builds, you'll need to build from source. Install CocoaPods dependencies with the following flags:
 
 ```bash
-RCT_USE_PREBUILT_RNCORE=0 RCT_REMOVE_LEGACY_ARCH=0 bundle exec pod install
+RCT_USE_PREBUILT_RNCORE=0 RCT_USE_RN_DEP=0 RCT_REMOVE_LEGACY_ARCH=0 bundle exec pod install
 ```
 
 </details>
