@@ -9,7 +9,7 @@ date: 2026-06-10
 
 Today we are excited to release React Native 0.86!
 
-This release includes comprehensive edge-to-edge support on Android 15+ and performance tracing improvements in React Native DevTools.
+This release includes comprehensive edge-to-edge support on Android 15+ and improvements in React Native DevTools.
 
 Following 0.83, this is the second React Native release with no user-facing breaking changes, reflecting our continued commitment to making upgrades more predictable and seamless.
 
@@ -22,7 +22,7 @@ As part of this release, the React, React Native, Metro, Yoga and React Native W
 ### Highlights
 
 - [Edge-to-Edge on Android](/blog/2026/06/10/react-native-0.86#edge-to-edge-on-android)
-- [React Native DevTools: Performance Tracing](/blog/2026/06/10/react-native-0.86#react-native-devtools-performance-tracing)
+- [React Native DevTools Improvements](/blog/2026/06/10/react-native-0.86#react-native-devtools-improvements)
 
 {/* truncate */}
 
@@ -30,7 +30,7 @@ As part of this release, the React, React Native, Metro, Yoga and React Native W
 
 ### Edge-to-Edge on Android
 
-React Native 0.86 ships comprehensive fixes for Android 15+ edge-to-edge mode, where the system enforces edge-to-edge display even when apps don't explicitly opt in.
+React Native 0.86 ships comprehensive fixes for Android 15+ edge-to-edge mode, including when it's enforced by the OS but not explicitly enabled via the `edgeToEdgeEnabled` Gradle property.
 
 Key fixes include:
 
@@ -40,9 +40,7 @@ Key fixes include:
 - **`StatusBar`** now supports updating status bar style and visibility while a Modal is open.
 - **Navigation bar** contrast respects the theme's `enforceNavigationBarContrast` attribute.
 
-React Native now also handles edge-to-edge correctly when it's enforced by the OS (Android 15+) but not explicitly enabled via the `edgeToEdgeEnabled` Gradle property.
-
-### React Native DevTools: Performance Tracing
+### React Native DevTools Improvements
 
 React Native DevTools now support **light/dark mode emulation** via `Emulation.setEmulatedMedia`, allowing you to test your app's appearance mode handling directly from the DevTools without changing your device settings.
 
@@ -56,7 +54,7 @@ To learn more about what we consider a breaking change, have a look at [this art
 
 ## Deprecations
 
-The following APIs have been removed and are due for removal in a future release of React Native:
+The following APIs have been deprecated and are due for removal in a future release of React Native:
 
 - **`ViewUtil.getUIManagerType`**: As part of the removal of the legacy architecture, this API is now deprecated. You can inline `UIManagerType.Fabric` directly or remove the checks on the UIManagerType altogether.
 - **`AppRegistry`**: The second argument of `AppRegistry.setComponentProviderInstrumentationHook` is now deprecated and will warn if used.
@@ -129,7 +127,7 @@ We want to send a special thank you to those community members that shipped sign
 
 :::info
 
-0.86 is now the latest stable version of React Native and 0.83.x moves to unsupported. For more information see [React Native's support policy](https://github.com/reactwg/react-native-releases/blob/main/docs/support.md).
+0.86 is now the latest stable version of React Native and 0.83.x moves to unsupported. For more information see [React Native's support policy](/releases).
 
 :::
 
