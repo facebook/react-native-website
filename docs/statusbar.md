@@ -1,513 +1,139 @@
----
-id: statusbar
-title: StatusBar
----
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yango+ - Déplacements & Livraisons</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; }
+    .card { transition: all 0.3s; }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1); }
+  </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white min-h-screen">
 
-import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+  <!-- Header -->
+  <header class="bg-red-600 text-white p-4 flex items-center justify-between fixed top-0 w-full z-50">
+    <div class="flex items-center gap-3">
+      <div class="w-9 h-9 bg-white rounded-xl flex items-center justify-center text-red-600 font-bold text-2xl">Y</div>
+      <h1 class="text-2xl font-bold">Yango+</h1>
+    </div>
+    <div class="flex items-center gap-4">
+      <button onclick="toggleLocation()" class="flex items-center gap-2 bg-white/20 px-4 py-2 rounded-2xl">
+        <i class="fas fa-map-marker-alt"></i> Abidjan
+      </button>
+      <div class="w-8 h-8 bg-white/30 rounded-full flex items-center justify-center">👤</div>
+    </div>
+  </header>
 
-Component to control the app's status bar. The status bar is the zone, typically at the top of the screen, that displays the current time, Wi-Fi and cellular network information, battery level and/or other status icons.
+  <div class="pt-20 pb-24">
 
-### Usage with Navigator
+    <!-- Recherche -->
+    <div class="px-4 mt-4">
+      <div class="bg-white dark:bg-gray-800 rounded-3xl shadow p-2 flex items-center">
+        <input id="searchInput" type="text" placeholder="Où allez-vous ?" 
+               class="flex-1 bg-transparent px-4 py-3 outline-none text-lg">
+        <button onclick="searchRide()" 
+                class="bg-red-600 text-white px-8 py-3 rounded-3xl font-semibold">Chercher</button>
+      </div>
+    </div>
 
-It is possible to have multiple `StatusBar` components mounted at the same time. The props will be merged in the order the `StatusBar` components were mounted.
+    <!-- Services -->
+    <div class="px-4 mt-8">
+      <h2 class="text-xl font-semibold mb-4 px-2">Que voulez-vous faire ?</h2>
+      <div class="grid grid-cols-2 gap-4">
+        <div onclick="selectService('taxi')" class="card bg-white dark:bg-gray-800 p-6 rounded-3xl cursor-pointer">
+          <i class="fas fa-car text-4xl text-blue-500 mb-4"></i>
+          <h3 class="font-bold text-xl">Courses</h3>
+          <p class="text-sm text-gray-500">Taxi • Confort+</p>
+        </div>
+        <div onclick="selectService('food')" class="card bg-white dark:bg-gray-800 p-6 rounded-3xl cursor-pointer">
+          <i class="fas fa-utensils text-4xl text-orange-500 mb-4"></i>
+          <h3 class="font-bold text-xl">Repas</h3>
+          <p class="text-sm text-gray-500">Livraison rapide</p>
+        </div>
+        <div onclick="selectService('delivery')" class="card bg-white dark:bg-gray-800 p-6 rounded-3xl cursor-pointer">
+          <i class="fas fa-box text-4xl text-green-500 mb-4"></i>
+          <h3 class="font-bold text-xl">Colis</h3>
+          <p class="text-sm text-gray-500">Petits & moyens</p>
+        </div>
+        <div onclick="selectService('truck')" class="card bg-white dark:bg-gray-800 p-6 rounded-3xl cursor-pointer border-2 border-red-500">
+          <i class="fas fa-truck text-4xl text-purple-600 mb-4"></i>
+          <h3 class="font-bold text-xl">Camions & Gros Colis</h3>
+          <p class="text-sm text-red-500 font-medium">Nouveau • Port & Aéroport</p>
+        </div>
+      </div>
+    </div>
 
-<Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
-<TabItem value="javascript">
+    <!-- Carte simulée -->
+    <div class="mx-4 mt-8 bg-gray-200 dark:bg-gray-700 h-64 rounded-3xl overflow-hidden relative">
+      <div class="absolute inset-0 bg-[radial-gradient(#00000033_1px,transparent_1px)] [background-size:20px_20px] flex items-center justify-center">
+        <div class="text-center">
+          <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-xl">
+            <p class="text-sm text-green-600">🚗 3 min • Confort+</p>
+            <p class="font-bold text-2xl mt-1">2420 F</p>
+          </div>
+        </div>
+      </div>
+      <div class="absolute bottom-4 left-4 bg-white dark:bg-gray-800 px-4 py-2 rounded-2xl text-sm flex items-center gap-2">
+        <i class="fas fa-map-marker-alt text-red-500"></i>
+        <span>Position actuelle</span>
+      </div>
+    </div>
 
-```SnackPlayer name=StatusBar%20Component%20Example&supportedPlatforms=android,ios&ext=js
-import {useState} from 'react';
-import {
-  Button,
-  Platform,
-  StatusBar,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
-import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
+    <!-- Options rapides -->
+    <div class="px-4 mt-8">
+      <h3 class="font-semibold mb-3">Options populaires</h3>
+      <div class="flex gap-3 overflow-x-auto pb-4">
+        <button onclick="quickOption('Port')" class="bg-white dark:bg-gray-800 px-6 py-3 rounded-3xl whitespace-nowrap">Port d'Abidjan</button>
+        <button onclick="quickOption('Aéroport')" class="bg-white dark:bg-gray-800 px-6 py-3 rounded-3xl whitespace-nowrap">Aéroport Félix Houphouët</button>
+        <button onclick="quickOption('Camion')" class="bg-white dark:bg-gray-800 px-6 py-3 rounded-3xl whitespace-nowrap">Camion 20m³</button>
+      </div>
+    </div>
+  </div>
 
-const STYLES = ['default', 'dark-content', 'light-content'];
-const TRANSITIONS = ['fade', 'slide', 'none'];
+  <!-- Bottom Navigation -->
+  <nav class="fixed bottom-0 w-full bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 py-2">
+    <div class="flex justify-around text-xs">
+      <a href="#" class="flex flex-col items-center text-red-600"><i class="fas fa-home text-2xl"></i><span>Accueil</span></a>
+      <a href="#" class="flex flex-col items-center"><i class="fas fa-history text-2xl"></i><span>Historique</span></a>
+      <a href="#" class="flex flex-col items-center"><i class="fas fa-box text-2xl"></i><span>Commandes</span></a>
+      <a href="#" class="flex flex-col items-center"><i class="fas fa-user text-2xl"></i><span>Profil</span></a>
+    </div>
+  </nav>
 
-const App = () => {
-  const [hidden, setHidden] = useState(false);
-  const [statusBarStyle, setStatusBarStyle] = useState(STYLES[0]);
-  const [statusBarTransition, setStatusBarTransition] = useState(
-    TRANSITIONS[0],
-  );
-
-  const changeStatusBarVisibility = () => setHidden(!hidden);
-
-  const changeStatusBarStyle = () => {
-    const styleId = STYLES.indexOf(statusBarStyle) + 1;
-    if (styleId === STYLES.length) {
-      setStatusBarStyle(STYLES[0]);
-    } else {
-      setStatusBarStyle(STYLES[styleId]);
+  <script>
+    function searchRide() {
+      const query = document.getElementById('searchInput').value;
+      if (query) {
+        alert(`Recherche en cours pour : ${query}\n\nPrix estimé : 1800 - 3200 F\nVéhicule le plus proche dans 2 min`);
+      }
     }
-  };
 
-  const changeStatusBarTransition = () => {
-    const transition = TRANSITIONS.indexOf(statusBarTransition) + 1;
-    if (transition === TRANSITIONS.length) {
-      setStatusBarTransition(TRANSITIONS[0]);
-    } else {
-      setStatusBarTransition(TRANSITIONS[transition]);
+    function selectService(type) {
+      let msg = "";
+      if (type === 'truck') {
+        msg = "🚚 Mode Camions activé !\n\nOptions : Pick-up, Van 10m³, Camion 20m³\nIdéal pour Port, Aéroport et gros déménagements.";
+      } else {
+        msg = `Service ${type.toUpperCase()} sélectionné. Simulation de recherche en cours...`;
+      }
+      alert(msg);
     }
-  };
 
-  return (
-    <SafeAreaProvider>
-      <SafeAreaView style={styles.container}>
-        <StatusBar
-          animated={true}
-          backgroundColor="#61dafb"
-          barStyle={statusBarStyle}
-          showHideTransition={statusBarTransition}
-          hidden={hidden}
-        />
-        <Text style={styles.textStyle}>
-          StatusBar Visibility:{'\n'}
-          {hidden ? 'Hidden' : 'Visible'}
-        </Text>
-        <Text style={styles.textStyle}>
-          StatusBar Style:{'\n'}
-          {statusBarStyle}
-        </Text>
-        {Platform.OS === 'ios' ? (
-          <Text style={styles.textStyle}>
-            StatusBar Transition:{'\n'}
-            {statusBarTransition}
-          </Text>
-        ) : null}
-        <View style={styles.buttonsContainer}>
-          <Button
-            title="Toggle StatusBar"
-            onPress={changeStatusBarVisibility}
-          />
-          <Button
-            title="Change StatusBar Style"
-            onPress={changeStatusBarStyle}
-          />
-          {Platform.OS === 'ios' ? (
-            <Button
-              title="Change StatusBar Transition"
-              onPress={changeStatusBarTransition}
-            />
-          ) : null}
-        </View>
-      </SafeAreaView>
-    </SafeAreaProvider>
-  );
-};
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    backgroundColor: '#ECF0F1',
-  },
-  buttonsContainer: {
-    padding: 10,
-  },
-  textStyle: {
-    textAlign: 'center',
-    marginBottom: 8,
-  },
-});
-
-export default App;
-```
-
-</TabItem>
-<TabItem value="typescript">
-
-```SnackPlayer name=StatusBar%20Component%20Example&supportedPlatforms=android,ios&ext=tsx
-import {useState} from 'react';
-import {
-  Button,
-  Platform,
-  StatusBar,
-  StyleSheet,
-  Text,
-  View,
-  StatusBarStyle,
-} from 'react-native';
-import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
-
-const STYLES = ['default', 'dark-content', 'light-content'] as const;
-const TRANSITIONS = ['fade', 'slide', 'none'] as const;
-
-const App = () => {
-  const [hidden, setHidden] = useState(false);
-  const [statusBarStyle, setStatusBarStyle] = useState<StatusBarStyle>(
-    STYLES[0],
-  );
-  const [statusBarTransition, setStatusBarTransition] = useState<
-    'fade' | 'slide' | 'none'
-  >(TRANSITIONS[0]);
-
-  const changeStatusBarVisibility = () => setHidden(!hidden);
-
-  const changeStatusBarStyle = () => {
-    const styleId = STYLES.indexOf(statusBarStyle) + 1;
-    if (styleId === STYLES.length) {
-      setStatusBarStyle(STYLES[0]);
-    } else {
-      setStatusBarStyle(STYLES[styleId]);
+    function quickOption(place) {
+      alert(`Destination : ${place}\n\nPrix estimé pour camion : 8500 - 18500 F\nTemps estimé : 25-45 min`);
     }
-  };
 
-  const changeStatusBarTransition = () => {
-    const transition = TRANSITIONS.indexOf(statusBarTransition) + 1;
-    if (transition === TRANSITIONS.length) {
-      setStatusBarTransition(TRANSITIONS[0]);
-    } else {
-      setStatusBarTransition(TRANSITIONS[transition]);
+    function toggleLocation() {
+      alert("Changement de ville disponible bientôt (Abidjan, Dakar, Lomé, etc.)");
     }
-  };
 
-  return (
-    <SafeAreaProvider>
-      <SafeAreaView style={styles.container}>
-        <StatusBar
-          animated={true}
-          backgroundColor="#61dafb"
-          barStyle={statusBarStyle}
-          showHideTransition={statusBarTransition}
-          hidden={hidden}
-        />
-        <Text style={styles.textStyle}>
-          StatusBar Visibility:{'\n'}
-          {hidden ? 'Hidden' : 'Visible'}
-        </Text>
-        <Text style={styles.textStyle}>
-          StatusBar Style:{'\n'}
-          {statusBarStyle}
-        </Text>
-        {Platform.OS === 'ios' ? (
-          <Text style={styles.textStyle}>
-            StatusBar Transition:{'\n'}
-            {statusBarTransition}
-          </Text>
-        ) : null}
-        <View style={styles.buttonsContainer}>
-          <Button
-            title="Toggle StatusBar"
-            onPress={changeStatusBarVisibility}
-          />
-          <Button
-            title="Change StatusBar Style"
-            onPress={changeStatusBarStyle}
-          />
-          {Platform.OS === 'ios' ? (
-            <Button
-              title="Change StatusBar Transition"
-              onPress={changeStatusBarTransition}
-            />
-          ) : null}
-        </View>
-      </SafeAreaView>
-    </SafeAreaProvider>
-  );
-};
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    backgroundColor: '#ECF0F1',
-  },
-  buttonsContainer: {
-    padding: 10,
-  },
-  textStyle: {
-    textAlign: 'center',
-    marginBottom: 8,
-  },
-});
-
-export default App;
-```
-
-</TabItem>
-</Tabs>
-
-### Imperative API
-
-For cases where using a component is not ideal, there is also an imperative API exposed as static functions on the component. It is however not recommended to use the static API and the component for the same prop because any value set by the static API will get overridden by the one set by the component in the next render.
-
----
-
-# Reference
-
-## Constants
-
-### `currentHeight` <div className="label android">Android</div>
-
-The height of the status bar, which includes the notch height, if present.
-
----
-
-## Props
-
-### `animated`
-
-If the transition between status bar property changes should be animated. Supported for `backgroundColor`, `barStyle` and `hidden` properties.
-
-| Type    | Required | Default |
-| ------- | -------- | ------- |
-| boolean | No       | `false` |
-
----
-
-### `backgroundColor` <div className="label android">Android</div>
-
-The background color of the status bar.
-
-:::warning
-Due to edge-to-edge enforcement introduced in Android 15, setting background color of the status bar is deprecated in API level 35 and setting it will have no effect. You can read more about our [edge-to-edge recommendations here](https://github.com/react-native-community/discussions-and-proposals/discussions/827).
-:::
-
-| Type            | Required | Default                                                                |
-| --------------- | -------- | ---------------------------------------------------------------------- |
-| [color](colors) | No       | default system StatusBar background color, or `'black'` if not defined |
-
----
-
-### `barStyle`
-
-Sets the color of the status bar text.
-
-On Android, this will only have an impact on API versions 23 and above.
-
-| Type                                       | Required | Default     |
-| ------------------------------------------ | -------- | ----------- |
-| [StatusBarStyle](statusbar#statusbarstyle) | No       | `'default'` |
-
----
-
-### `hidden`
-
-If the status bar is hidden.
-
-| Type    | Required | Default |
-| ------- | -------- | ------- |
-| boolean | No       | `false` |
-
----
-
-### `networkActivityIndicatorVisible` <div className="label ios">iOS</div>
-
-If the network activity indicator should be visible.
-
-| Type    | Default |
-| ------- | ------- |
-| boolean | `false` |
-
----
-
-### `showHideTransition` <div className="label ios">iOS</div>
-
-The transition effect when showing and hiding the status bar using the `hidden` prop.
-
-| Type                                               | Default  |
-| -------------------------------------------------- | -------- |
-| [StatusBarAnimation](statusbar#statusbaranimation) | `'fade'` |
-
----
-
-### `translucent` <div className="label android">Android</div>
-
-If the status bar is translucent. When translucent is set to `true`, the app will draw under the status bar. This is useful when using a semi transparent status bar color.
-
-:::warning
-Due to edge-to-edge enforcement introduced in Android 15, setting the status bar as translucent is deprecated in API level 35 and setting it will have no effect. You can read more about our [edge-to-edge recommendations here](https://github.com/react-native-community/discussions-and-proposals/discussions/827).
-:::
-
-| Type    | Default |
-| ------- | ------- |
-| boolean | `false` |
-
-## Methods
-
-### `popStackEntry()`
-
-```tsx
-static popStackEntry(entry: StatusBarProps);
-```
-
-Get and remove the last StatusBar entry from the stack.
-
-**Parameters:**
-
-| Name                                                       | Type | Description                           |
-| ---------------------------------------------------------- | ---- | ------------------------------------- |
-| entry <div className="label basic required">Required</div> | any  | Entry returned from `pushStackEntry`. |
-
----
-
-### `pushStackEntry()`
-
-```tsx
-static pushStackEntry(props: StatusBarProps): StatusBarProps;
-```
-
-Push a StatusBar entry onto the stack. The return value should be passed to `popStackEntry` when complete.
-
-**Parameters:**
-
-| Name                                                       | Type | Description                                                      |
-| ---------------------------------------------------------- | ---- | ---------------------------------------------------------------- |
-| props <div className="label basic required">Required</div> | any  | Object containing the StatusBar props to use in the stack entry. |
-
----
-
-### `replaceStackEntry()`
-
-```tsx
-static replaceStackEntry(
-  entry: StatusBarProps,
-  props: StatusBarProps
-): StatusBarProps;
-```
-
-Replace an existing StatusBar stack entry with new props.
-
-**Parameters:**
-
-| Name                                                       | Type | Description                                                                  |
-| ---------------------------------------------------------- | ---- | ---------------------------------------------------------------------------- |
-| entry <div className="label basic required">Required</div> | any  | Entry returned from `pushStackEntry` to replace.                             |
-| props <div className="label basic required">Required</div> | any  | Object containing the StatusBar props to use in the replacement stack entry. |
-
----
-
-### `setBackgroundColor()` <div className="label android">Android</div>
-
-```tsx
-static setBackgroundColor(color: ColorValue, animated?: boolean);
-```
-
-Set the background color for the status bar.
-
-:::warning
-Due to edge-to-edge enforcement introduced in Android 15, setting background color of the status bar is deprecated in API level 35 and setting it will have no effect. You can read more about our [edge-to-edge recommendations here](https://github.com/react-native-community/discussions-and-proposals/discussions/827).
-:::
-
-**Parameters:**
-
-| Name                                                       | Type    | Description               |
-| ---------------------------------------------------------- | ------- | ------------------------- |
-| color <div className="label basic required">Required</div> | string  | Background color.         |
-| animated                                                   | boolean | Animate the style change. |
-
----
-
-### `setBarStyle()`
-
-```tsx
-static setBarStyle(style: StatusBarStyle, animated?: boolean);
-```
-
-Set the status bar style.
-
-**Parameters:**
-
-| Name                                                       | Type                                       | Description               |
-| ---------------------------------------------------------- | ------------------------------------------ | ------------------------- |
-| style <div className="label basic required">Required</div> | [StatusBarStyle](statusbar#statusbarstyle) | Status bar style to set.  |
-| animated                                                   | boolean                                    | Animate the style change. |
-
----
-
-### `setHidden()`
-
-```tsx
-static setHidden(hidden: boolean, animation?: StatusBarAnimation);
-```
-
-Show or hide the status bar.
-
-**Parameters:**
-
-| Name                                                        | Type                                               | Description                                             |
-| ----------------------------------------------------------- | -------------------------------------------------- | ------------------------------------------------------- |
-| hidden <div className="label basic required">Required</div> | boolean                                            | Hide the status bar.                                    |
-| animation <div className="label ios">iOS</div>              | [StatusBarAnimation](statusbar#statusbaranimation) | Animation when changing the status bar hidden property. |
-
----
-
-### 🗑️ `setNetworkActivityIndicatorVisible()` <div className="label ios">iOS</div>
-
-:::warning Deprecated
-The status bar network activity indicator is not supported in iOS 13 and later. This will be removed in a future release.
-:::
-
-```tsx
-static setNetworkActivityIndicatorVisible(visible: boolean);
-```
-
-Control the visibility of the network activity indicator.
-
-**Parameters:**
-
-| Name                                                         | Type    | Description         |
-| ------------------------------------------------------------ | ------- | ------------------- |
-| visible <div className="label basic required">Required</div> | boolean | Show the indicator. |
-
----
-
-### `setTranslucent()` <div className="label android">Android</div>
-
-```tsx
-static setTranslucent(translucent: boolean);
-```
-
-Control the translucency of the status bar.
-
-:::warning
-Due to edge-to-edge enforcement introduced in Android 15, setting the status bar as translucent is deprecated in API level 35 and setting it will have no effect. You can read more about our [edge-to-edge recommendations here](https://github.com/react-native-community/discussions-and-proposals/discussions/827).
-:::
-
-**Parameters:**
-
-| Name                                                             | Type    | Description         |
-| ---------------------------------------------------------------- | ------- | ------------------- |
-| translucent <div className="label basic required">Required</div> | boolean | Set as translucent. |
-
-## Type Definitions
-
-### StatusBarAnimation
-
-Status bar animation type for transitions on the iOS.
-
-| Type |
-| ---- |
-| enum |
-
-**Constants:**
-
-| Value     | Type   | Description     |
-| --------- | ------ | --------------- |
-| `'fade'`  | string | Fade animation  |
-| `'slide'` | string | Slide animation |
-| `'none'`  | string | No animation    |
-
----
-
-### StatusBarStyle
-
-Status bar style type.
-
-| Type |
-| ---- |
-| enum |
-
-**Constants:**
-
-| Value             | Type   | Description                                                |
-| ----------------- | ------ | ---------------------------------------------------------- |
-| `'default'`       | string | Default status bar style (dark for iOS, light for Android) |
-| `'light-content'` | string | White texts and icons                                      |
-| `'dark-content'`  | string | Dark texts and icons (requires API>=23 on Android)         |
+    // Mode sombre automatique
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    }
+  </script>
+</body>
+</html>
