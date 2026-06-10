@@ -96,18 +96,15 @@ New JSI APIs added to make the C++ interface between native modules and the JS e
 - **`isInteger`**: Check if a `jsi::Value` is an integer without calling into the runtime.
 - **Error creation APIs**: Factory methods for all standard JS error types (`TypeError`, `RangeError`, `ReferenceError`, `SyntaxError`, `EvalError`, `URIError`).
 
-### Android Rendering & Images
-
-- **`Image.getSize` / `Image.getSizeWithHeaders`**: These now return the true source dimensions instead of Fresco's downsampled values.
-- **Pressable `android_ripple`**: The `android_ripple` prop now accepts `PlatformColor`.
-
-### Android Input & Navigation
+### Android Input, Navigation & Images
 
 - **BackHandler event object**: `hardwareBackPress` events now pass an event object with a `timeStamp` property from the native event, enabling timing analysis and event correlation. Existing callbacks that ignore the argument are unaffected.
 - **BackHandler resume fix on API 36+**: `BackHandler` callbacks stopped working after the app was resumed from the background on Android API 36+. The fix ensures the back button handler is properly re-registered during `onHostResume`.
 - **LogBox/RedBox back button dismiss**: LogBox notification toasts and the inspector overlay can now be dismissed via the Android hardware back button.
 - **TextInput `setAutoCapitalize` Samsung fix**: Fixed `setAutoCapitalize` stripping `TYPE_NUMBER_FLAG_SIGNED` and `TYPE_NUMBER_FLAG_DECIMAL` flags on Samsung keyboards, which prevented users from typing minus signs in numeric inputs.
 - **TextInput/KeyboardAvoidingView IME height**: `KeyboardAvoidingView` and TextInput auto-scroll now respond correctly to IME height changes, such as toggling between the keyboard and emoji panel or when the predictive text bar appears.
+- **Pressable `android_ripple`**: The `android_ripple` prop now accepts `PlatformColor`.
+- **`Image.getSize` / `Image.getSizeWithHeaders`**: These now return the true source dimensions instead of Fresco's downsampled values.
 
 ### Android Networking
 
