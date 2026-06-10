@@ -69,8 +69,6 @@ The following APIs have been deprecated and are due for removal in a future rele
 
 ### Rendering, Layout & Animation
 
-- **`Image.getSize` / `Image.getSizeWithHeaders`**: These now return the true source dimensions instead of Fresco's downsampled values.
-- **Pressable `android_ripple`**: The `android_ripple` prop now accepts `PlatformColor`.
 - **Modal Components `style` prop**: The `style` prop is now forwarded to Modal's inner container View, allowing custom styling (e.g., padding, background colors) without overriding `transparent` or `backdropColor` behavior.
 - **Animated mounting layer sync**: Enabled a mounting layer synchronization so Native Animated synchronous updates are not overridden by later React commits. This fixes a flicker where animated views could briefly jump back to their pre-animation values.
 - **Text measurement crash**: Fixed a crash when measuring text on a surface that had already been stopped.
@@ -97,6 +95,11 @@ New JSI APIs added to make the C++ interface between native modules and the JS e
 - **`String.length`**: Get string length in UTF-16 code units without converting to a full string.
 - **`isInteger`**: Check if a `jsi::Value` is an integer without calling into the runtime.
 - **Error creation APIs**: Factory methods for all standard JS error types (`TypeError`, `RangeError`, `ReferenceError`, `SyntaxError`, `EvalError`, `URIError`).
+
+### Android Rendering & Images
+
+- **`Image.getSize` / `Image.getSizeWithHeaders`**: These now return the true source dimensions instead of Fresco's downsampled values.
+- **Pressable `android_ripple`**: The `android_ripple` prop now accepts `PlatformColor`.
 
 ### Android Input & Navigation
 
