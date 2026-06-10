@@ -64,11 +64,13 @@ The following APIs have been deprecated and are due for removal in a future rele
 
 ### Runtime & Web Spec Alignment
 
-- **`ExceptionsManager.reportErrorsAsExceptions` strictness**: Setting `reportErrorsAsExceptions` to anything other than `false` no longer does anything. Previously, any falsy value (like `0`, `null`, or `""`) would disable error-to-exception conversion. Now only the explicit boolean `false` opts out, making the API less error-prone.
+- **`ExceptionsManager.reportErrorsAsExceptions` strictness**: Setting `reportErrorsAsExceptions` to anything other than `false` no longer does anything. Previously, any falsy value (like `0`, `null` or `""`) would disable error-to-exception conversion. Now only the explicit boolean `false` opts out, making the API less error-prone.
 - **`PerformanceObserver` default `durationThreshold`**: `observe({type: 'event'})` now correctly defaults `durationThreshold` to 104ms per the W3C Event Timing spec, instead of reporting all events. This aligns React Native's Performance API with web standards and reduces noise from very short events.
 
 ### Rendering, Layout & Animation
 
+- **`Image.getSize` / `Image.getSizeWithHeaders`**: These now return the true source dimensions instead of Fresco's downsampled values.
+- **Pressable `android_ripple`**: The `android_ripple` prop now accepts `PlatformColor`.
 - **Modal Components `style` prop**: The `style` prop is now forwarded to Modal's inner container View, allowing custom styling (e.g., padding, background colors) without overriding `transparent` or `backdropColor` behavior.
 - **Animated mounting layer sync**: Enabled a mounting layer synchronization so Native Animated synchronous updates are not overridden by later React commits. This fixes a flicker where animated views could briefly jump back to their pre-animation values.
 - **Text measurement crash**: Fixed a crash when measuring text on a surface that had already been stopped.
