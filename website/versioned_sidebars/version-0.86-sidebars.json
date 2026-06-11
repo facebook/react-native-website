@@ -51,14 +51,19 @@
         "label": "Connectivity",
         "collapsible": false,
         "collapsed": false,
-        "items": ["network", "security"]
+        "items": [
+          "network",
+          "security"
+        ]
       },
       {
         "type": "category",
         "label": "Inclusion",
         "collapsible": false,
         "collapsed": false,
-        "items": ["accessibility"]
+        "items": [
+          "accessibility"
+        ]
       }
     ],
     "Releases": [
@@ -73,7 +78,9 @@
       "debugging-release-builds",
       "other-debugging-methods"
     ],
-    "Testing": ["testing-overview"],
+    "Testing": [
+      "testing-overview"
+    ],
     "Performance": [
       "performance",
       "build-speed",
@@ -81,7 +88,11 @@
       "optimizing-javascript-loading",
       "profiling"
     ],
-    "JavaScript Runtime": ["javascript-environment", "timers", "hermes"],
+    "JavaScript Runtime": [
+      "javascript-environment",
+      "timers",
+      "hermes"
+    ],
     "Codegen": [
       "the-new-architecture/what-is-codegen",
       "the-new-architecture/using-codegen",
@@ -287,19 +298,30 @@
         "type": "category",
         "label": "Hooks",
         "collapsed": false,
-        "items": ["usecolorscheme", "usewindowdimensions"]
+        "items": [
+          "usecolorscheme",
+          "usewindowdimensions"
+        ]
       },
       {
         "type": "category",
         "label": "Android APIs",
         "collapsed": false,
-        "items": ["backhandler", "permissionsandroid", "toastandroid"]
+        "items": [
+          "backhandler",
+          "permissionsandroid",
+          "toastandroid"
+        ]
       },
       {
         "type": "category",
         "label": "iOS APIs",
         "collapsed": false,
-        "items": ["actionsheetios", "dynamiccolorios", "settings"]
+        "items": [
+          "actionsheetios",
+          "dynamiccolorios",
+          "settings"
+        ]
       }
     ]
   },
@@ -330,16 +352,27 @@
         "type": "category",
         "label": "Android Components",
         "collapsed": false,
-        "items": ["drawerlayoutandroid", "touchablenativefeedback"]
+        "items": [
+          "drawerlayoutandroid",
+          "touchablenativefeedback"
+        ]
       },
       {
         "type": "category",
         "label": "iOS Components",
         "collapsed": false,
-        "items": ["inputaccessoryview", "safeareaview"]
+        "items": [
+          "inputaccessoryview",
+          "safeareaview"
+        ]
       }
     ],
-    "Refs": ["nodes", "element-nodes", "text-nodes", "document-nodes"],
+    "Refs": [
+      "nodes",
+      "element-nodes",
+      "text-nodes",
+      "document-nodes"
+    ],
     "Props": [
       "image-style-props",
       "layout-props",

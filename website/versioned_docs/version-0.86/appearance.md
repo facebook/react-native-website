@@ -59,13 +59,13 @@ Although the color scheme is available immediately, this may change when not ove
 
 ### App-level overriding
 
-`setColorScheme()` overrides the color scheme at the application level — it does not affect the system setting or other applications. Passing `'unspecified'` removes any override, restoring the system preference.
+`setColorScheme()` overrides the color scheme at the application level — it does not affect the system setting or other applications. Passing `'auto'` removes any override, restoring the system preference.
 
 ```mermaid
 flowchart TD
     USC["useColorScheme()"] --> GCS["getColorScheme()"]
     GCS --> DEC{App override?}
-    DEC -- "NO / reset via setColorScheme('unspecified')" --> SYS["System preference\n'light' or 'dark'"]
+    DEC -- "NO / reset via setColorScheme('auto')" --> SYS["System preference\n'light' or 'dark'"]
     DEC -- "YES — setColorScheme('light' | 'dark')" --> OVR["'light' or 'dark' (static)"]
 
     classDef fn fill:#dce8f8,stroke:#4a90d9,color:#1a1a1a
@@ -83,7 +83,7 @@ flowchart TD
 ### `getColorScheme()`
 
 ```tsx
-static getColorScheme(): 'light' | 'dark' | 'unspecified' | null;
+static getColorScheme(): 'light' | 'dark' | null;
 ```
 
 Returns the active color scheme. This value may change at runtime, either at the system level (e.g. scheduled color scheme change at sunrise or sunset) or when overridden at the app level via `setColorScheme()`.
@@ -92,7 +92,6 @@ Return values:
 
 - `'light'`: The light color scheme is applied.
 - `'dark'`: The dark color scheme is applied.
-- `'unspecified'`: **_Never returned_** (incorrectly typed).
 - `null`: May be returned if the native Appearance module is not available.
 
 See also: [`useColorScheme`](usecolorscheme) (hook).
@@ -102,7 +101,7 @@ See also: [`useColorScheme`](usecolorscheme) (hook).
 ### `setColorScheme()`
 
 ```tsx
-static setColorScheme('light' | 'dark' | 'unspecified'): void;
+static setColorScheme('light' | 'dark' | 'auto' | 'unspecified'): void;
 ```
 
 Forces the application to always adopt a light or dark interface style. The change applies to the application and all native elements within it (Alerts, Pickers, etc.).
@@ -113,7 +112,8 @@ Supported values:
 
 - `'light'`: Apply light color scheme.
 - `'dark'`: Apply dark color scheme.
-- `'unspecified'`: Follow the system color scheme (removes any override).
+- `'auto'`: Follow the system color scheme (removes any override).
+- `'unspecified'` (**deprecated**): Follow the system color scheme (removes any override).
 
 ---
 
