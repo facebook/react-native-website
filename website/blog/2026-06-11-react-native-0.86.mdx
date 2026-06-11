@@ -43,7 +43,11 @@ Key fixes include:
 
 ### React Native DevTools Improvements
 
-React Native DevTools now support **light/dark mode emulation** via `Emulation.setEmulatedMedia`, allowing you to test your app's appearance mode handling directly from the DevTools without changing your device settings.
+React Native DevTools now supports **light/dark mode emulation** via `Emulation.setEmulatedMedia`, allowing you to test your app's appearance mode handling directly from DevTools without changing your device settings. Use `cmd`/`ctrl` + `shift` + `P` to access from the Command Palette.
+
+As with the web, this is a temporary switch that will reset when DevTools is disconnected.
+
+![React Native DevTools Command Palette showing the light/dark mode emulation options](/blog/assets/0.86-devtools-light-dark-emulation.png)
 
 ## Breaking Changes
 
@@ -121,7 +125,6 @@ React Native 0.86 contains over 596 commits from 97 contributors. Thanks for all
 We want to send a special thank you to those community members that shipped significant contributions in this release.
 
 - [Mathieu Acthernoene](https://github.com/zoontek) for edge-to-edge support on Android and StatusBar improvements
-- [Rubén Norte](https://github.com/rubennorte) for React Native DevTools performance tracing
 - [Jakub Piasecki](https://github.com/j-piasecki) for ShadowTree and Yoga fixes
 - [Nick Gerleman](https://github.com/NickGerleman) for Text rendering fixes
 - [Peter Abbondanzo](https://github.com/Abbondanzo) for LogBox, ScrollView and Image fixes
