@@ -13,6 +13,7 @@ The `useColorScheme` React hook provides and subscribes to color scheme updates 
 
 - `'light'`: The light color scheme is applied.
 - `'dark'`: The dark color scheme is applied.
+- `'unspecified'`: **_Never returned_** (incorrectly typed).
 - `null`: May be returned if the native Appearance module is not available.
 
 ---
