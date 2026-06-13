@@ -56,7 +56,7 @@
     "@docusaurus/plugin-pwa": "3.10.1",
     "@docusaurus/preset-classic": "3.10.1",
     "@docusaurus/theme-mermaid": "3.10.1",
-    "docusaurus-plugin-copy-page-button": "^0.8.1",
+    "docusaurus-plugin-copy-page-button": "^0.8.2",
     "docusaurus-plugin-sass": "^0.2.6",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
@@ -70,12 +70,12 @@
     "@react-native-website/lint-examples": "*",
     "@signalwire/docusaurus-plugin-llms-txt": "^1.2.2",
     "@types/google.analytics": "^0.0.46",
-    "@types/react": "^19.2.16",
+    "@types/react": "^19.2.17",
     "eslint": "^9.39.4",
     "glob": "^13.0.6",
-    "prettier": "^3.8.3",
+    "prettier": "^3.8.4",
     "remark-cli": "^12.0.1",
-    "sass": "1.100.0",
+    "sass": "1.101.0",
     "typescript": "^6.0.3"
   }
 }
