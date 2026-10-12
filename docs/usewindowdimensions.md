@@ -1,4 +1,4 @@
----
+<img width="1250" height="1004" alt="image" src="https://github.com/user-attachments/assets/fcf2343c-1327-469d-b186-6a222551b32a" />---
 id: usewindowdimensions
 title: useWindowDimensions
 ---
@@ -32,8 +32,8 @@ const App = () => {
           <Text>Pixel ratio: {scale}</Text>
         </View>
         <View style={{
-          width: 50 * fontScale,
-          padding: 10 * fontScale,
+          width: 100 * fontScale,
+          padding: 16 * fontScale,
           ...styles.box,
         }}>
           <Text style={{fontSize: 14 / fontScale}}>Dynamic Box</Text>
