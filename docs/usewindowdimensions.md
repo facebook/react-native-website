@@ -16,7 +16,7 @@ const {height, width} = useWindowDimensions();
 ## Example
 
 ```SnackPlayer name=useWindowDimensions&supportedPlatforms=ios,android
-import {StyleSheet, Text, useWindowDimensions} from 'react-native';
+import {StyleSheet, Text, View, useWindowDimensions} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => {
