@@ -1,7 +1,11 @@
 ---
 id: imagebackground
-title: ImageBackground
+title: '🗑️ ImageBackground'
 ---
+
+:::warning[Deprecated]
+Use a [`View`](view.md) with an absolutely positioned [`Image`](image.md) instead.
+:::
 
 A common feature request from developers familiar with the web is `background-image`. To handle this use case, you can use the `<ImageBackground>` component, which has the same props as `<Image>`, and add whatever children to it you would like to layer on top of it.
 
@@ -12,17 +16,19 @@ Note that you must specify some width and height style attributes.
 ## Example
 
 ```SnackPlayer name=ImageBackground
-import React from 'react';
-import {ImageBackground, StyleSheet, Text, View} from 'react-native';
+import {ImageBackground, StyleSheet, Text} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const image = {uri: 'https://legacy.reactjs.org/logo-og.png'};
 
 const App = () => (
-  <View style={styles.container}>
-    <ImageBackground source={image} resizeMode="cover" style={styles.image}>
-      <Text style={styles.text}>Inside</Text>
-    </ImageBackground>
-  </View>
+  <SafeAreaProvider>
+    <SafeAreaView style={styles.container} edges={['left', 'right']}>
+      <ImageBackground source={image} resizeMode="cover" style={styles.image}>
+        <Text style={styles.text}>Inside</Text>
+      </ImageBackground>
+    </SafeAreaView>
+  </SafeAreaProvider>
 );
 
 const styles = StyleSheet.create({
@@ -68,11 +74,7 @@ Inherits [Image Props](image.md#props).
 
 ### `imageRef`
 
-Allows to set a reference to the inner `Image` component
-
-| Type                                                  |
-| ----------------------------------------------------- |
-| [Ref](https://reactjs.org/docs/refs-and-the-dom.html) |
+A ref setter that will be assigned the [element node](element-nodes) of the inner `Image` component when mounted.
 
 ---
 

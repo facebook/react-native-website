@@ -22,19 +22,12 @@ If you need section support, use [`<SectionList>`](sectionlist.md).
 
 ## Example
 
-<Tabs groupId="language" queryString defaultValue={constants.dewfaultSnackLanguage} values={constants.snackLanguages}>
+<Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
-```SnackPlayer name=flatlist-simple&ext=js
-import React from 'react';
-import {
-  SafeAreaView,
-  View,
-  FlatList,
-  StyleSheet,
-  Text,
-  StatusBar,
-} from 'react-native';
+```SnackPlayer name=Simple%20FlatList%20Example&ext=js
+import {View, FlatList, StyleSheet, Text, StatusBar} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const DATA = [
   {
@@ -57,8 +50,8 @@ const Item = ({title}) => (
   </View>
 );
 
-const App = () => {
-  return (
+const App = () => (
+  <SafeAreaProvider>
     <SafeAreaView style={styles.container}>
       <FlatList
         data={DATA}
@@ -66,8 +59,8 @@ const App = () => {
         keyExtractor={item => item.id}
       />
     </SafeAreaView>
-  );
-};
+  </SafeAreaProvider>
+);
 
 const styles = StyleSheet.create({
   container: {
@@ -91,16 +84,9 @@ export default App;
 </TabItem>
 <TabItem value="typescript">
 
-```SnackPlayer name=flatlist-simple&ext=tsx
-import React from 'react';
-import {
-  SafeAreaView,
-  View,
-  FlatList,
-  StyleSheet,
-  Text,
-  StatusBar,
-} from 'react-native';
+```SnackPlayer name=Simple%20FlatList%20Example&ext=tsx
+import {View, FlatList, StyleSheet, Text, StatusBar} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const DATA = [
   {
@@ -125,8 +111,8 @@ const Item = ({title}: ItemProps) => (
   </View>
 );
 
-const App = () => {
-  return (
+const App = () => (
+  <SafeAreaProvider>
     <SafeAreaView style={styles.container}>
       <FlatList
         data={DATA}
@@ -134,8 +120,8 @@ const App = () => {
         keyExtractor={item => item.id}
       />
     </SafeAreaView>
-  );
-};
+  </SafeAreaProvider>
+);
 
 const styles = StyleSheet.create({
   container: {
@@ -166,19 +152,19 @@ More complex, selectable example below.
 - By passing `extraData={selectedId}` to `FlatList` we make sure `FlatList` itself will re-render when the state changes. Without setting this prop, `FlatList` would not know it needs to re-render any items because it is a `PureComponent` and the prop comparison will not show any changes.
 - `keyExtractor` tells the list to use the `id`s for the react keys instead of the default `key` property.
 
-<Tabs groupId="language" queryString defaultValue={constants.dewfaultSnackLanguage} values={constants.snackLanguages}>
+<Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
 ```SnackPlayer name=flatlist-selectable&ext=js
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {
   FlatList,
-  SafeAreaView,
   StatusBar,
   StyleSheet,
   Text,
   TouchableOpacity,
 } from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const DATA = [
   {
@@ -219,14 +205,16 @@ const App = () => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
-      <FlatList
-        data={DATA}
-        renderItem={renderItem}
-        keyExtractor={item => item.id}
-        extraData={selectedId}
-      />
-    </SafeAreaView>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <FlatList
+          data={DATA}
+          renderItem={renderItem}
+          keyExtractor={item => item.id}
+          extraData={selectedId}
+        />
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
@@ -252,15 +240,15 @@ export default App;
 <TabItem value="typescript">
 
 ```SnackPlayer name=flatlist-selectable&ext=tsx
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {
   FlatList,
-  SafeAreaView,
   StatusBar,
   StyleSheet,
   Text,
   TouchableOpacity,
 } from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 type ItemData = {
   id: string;
@@ -313,14 +301,16 @@ const App = () => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
-      <FlatList
-        data={DATA}
-        renderItem={renderItem}
-        keyExtractor={item => item.id}
-        extraData={selectedId}
-      />
-    </SafeAreaView>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <FlatList
+          data={DATA}
+          renderItem={renderItem}
+          keyExtractor={item => item.id}
+          extraData={selectedId}
+        />
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
@@ -364,7 +354,7 @@ Inherits [VirtualizedList Props](virtualizedlist.md#props).
 
 ---
 
-### <div class="label required basic">Required</div> **`renderItem`**
+### <div className="label required basic">Required</div> **`renderItem`**
 
 ```tsx
 renderItem({
@@ -424,9 +414,9 @@ Example usage:
 
 ---
 
-### <div class="label required basic">Required</div> **`data`**
+### <div className="label required basic">Required</div> **`data`**
 
-An array (or array-like list) of items to render. Other data types can be used by targetting [`VirtualizedList`](virtualizedlist.md) directly.
+An array (or array-like list) of items to render. Other data types can be used by targeting [`VirtualizedList`](virtualizedlist.md) directly.
 
 | Type      |
 | --------- |
@@ -491,6 +481,16 @@ Styling for internal View for `ListHeaderComponent`.
 | Type                           |
 | ------------------------------ |
 | [View Style](view-style-props) |
+
+---
+
+### `ListItemComponent`
+
+Each data item is rendered using this element, as an alternative to `renderItem`. It receives the same props, and takes precedence over `renderItem` when both are provided.
+
+| Type               |
+| ------------------ |
+| component, element |
 
 ---
 
@@ -646,9 +646,11 @@ Set this true while waiting for new data from a refresh.
 
 ### `removeClippedSubviews`
 
-This may improve scroll performance for large lists. On Android the default value is `true`.
+:::warning
+Using this property may lead to bugs (missing content) in some circumstances - use at your own risk.
+:::
 
-> Note: May have bugs (missing content) in some circumstances - use at your own risk.
+When `true`, offscreen child views are removed from their native backing superview when offscreen. This may improve scroll performance for large lists. On Android the default value is `true`.
 
 | Type    |
 | ------- |
@@ -795,7 +797,9 @@ scrollToIndex: (params: {
 
 Scrolls to the item at the specified index such that it is positioned in the viewable area such that `viewPosition` 0 places it at the top, 1 at the bottom, and 0.5 centered in the middle.
 
-> Note: Cannot scroll to locations outside the render window without specifying the `getItemLayout` prop.
+:::note
+Cannot scroll to locations outside the render window without specifying the `getItemLayout` prop.
+:::
 
 **Parameters:**
 
@@ -824,7 +828,9 @@ scrollToItem(params: {
 
 Requires linear scan through data - use `scrollToIndex` instead if possible.
 
-> Note: Cannot scroll to locations outside the render window without specifying the `getItemLayout` prop.
+:::note
+Cannot scroll to locations outside the render window without specifying the `getItemLayout` prop.
+:::
 
 **Parameters:**
 

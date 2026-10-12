@@ -76,7 +76,7 @@ import com.facebook.react.bridge.Arguments
 import com.facebook.react.jstasks.HeadlessJsTaskConfig
 
 class MyTaskService : HeadlessJsTaskService() {
-    override fun getTaskConfig(intent: Intent): HeadlessJsTaskConfig? {
+    override fun getTaskConfig(intent: Intent?): HeadlessJsTaskConfig? {
         return intent.extras?.let {
             HeadlessJsTaskConfig(
                 "SomeTaskName",
@@ -96,7 +96,7 @@ class MyTaskService : HeadlessJsTaskService() {
 
 Then add the service to your `AndroidManifest.xml` file inside the `application` tag:
 
-```
+```xml
 <service android:name="com.example.MyTaskService" />
 ```
 

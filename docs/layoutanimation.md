@@ -7,7 +7,8 @@ Automatically animates views to their new positions when the next layout happens
 
 A common way to use this API is to call it before updating the state hook in functional components and calling `setState` in class components.
 
-Note that in order to get this to work on **Android** you need to set the following flags via `UIManager`:
+:::note
+On **Android**, when using the **Legacy Architecture**, you need to enable layout animations via `UIManager`. This flag enables layout animations globally and only needs to be called once (for example, in your app's root entry file `index.js` or root component) before triggering any layout animation:
 
 ```js
 if (Platform.OS === 'android') {
@@ -17,10 +18,13 @@ if (Platform.OS === 'android') {
 }
 ```
 
+On the **New Architecture**, layout animations are enabled automatically, and calling `setLayoutAnimationEnabledExperimental` is unnecessary (it is a no-op).
+:::
+
 ## Example
 
-```SnackPlayer name=LayoutAnimation&supportedPlatforms=android,ios
-import React, {useState} from 'react';
+```SnackPlayer name=LayoutAnimation%20Example&supportedPlatforms=android,ios
+import {useState} from 'react';
 import {
   LayoutAnimation,
   Platform,
@@ -30,6 +34,7 @@ import {
   UIManager,
   View,
 } from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 if (
   Platform.OS === 'android' &&
@@ -41,34 +46,37 @@ const App = () => {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <View style={style.container}>
-      <TouchableOpacity
-        onPress={() => {
-          LayoutAnimation.configureNext(LayoutAnimation.Presets.spring);
-          setExpanded(!expanded);
-        }}>
-        <Text>Press me to {expanded ? 'collapse' : 'expand'}!</Text>
-      </TouchableOpacity>
-      {expanded && (
-        <View style={style.tile}>
-          <Text>I disappear sometimes!</Text>
-        </View>
-      )}
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={style.container}>
+        <TouchableOpacity
+          onPress={() => {
+            LayoutAnimation.configureNext(LayoutAnimation.Presets.spring);
+            setExpanded(!expanded);
+          }}>
+          <Text>Press me to {expanded ? 'collapse' : 'expand'}!</Text>
+        </TouchableOpacity>
+        {expanded && (
+          <View style={style.tile}>
+            <Text>I disappear sometimes!</Text>
+          </View>
+        )}
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
 const style = StyleSheet.create({
-  tile: {
-    backgroundColor: 'lightgrey',
-    borderWidth: 0.5,
-    borderColor: '#d6d7da',
-  },
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    overflow: 'hidden',
+    gap: 16,
+  },
+  tile: {
+    backgroundColor: 'lightgrey',
+    borderWidth: 0.5,
+    borderColor: '#d6d7da',
+    padding: 4,
   },
 });
 
@@ -130,7 +138,7 @@ Helper that creates an object (with `create`, `update`, and `delete` fields) to 
 **Example:**
 
 ```SnackPlayer name=LayoutAnimation&supportedPlatforms=android,ios
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {
   View,
   Platform,
@@ -259,7 +267,7 @@ Calls `configureNext()` with `Presets.spring`.
 **Example:**
 
 ```SnackPlayer name=LayoutAnimation&supportedPlatforms=android,ios
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {
   View,
   Platform,

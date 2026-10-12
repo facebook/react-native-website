@@ -44,6 +44,12 @@ Most apps will end up using one or more of these basic components.
     </a>
   </div>
   <div className="component">
+    <a href="./pressable">
+      <h3>Pressable</h3>
+      <p>A wrapper component that can detect various stages of press interactions on any of its children.</p>
+    </a>
+  </div>
+  <div className="component">
     <a href="./scrollview">
       <h3>ScrollView</h3>
       <p>Provides a scrolling container that can host multiple components and views.</p>
@@ -190,6 +196,12 @@ These components may be useful for certain applications. For an exhaustive list 
     <a href="./pixelratio">
       <h3>PixelRatio</h3>
       <p>Provides access to the device pixel density.</p>
+    </a>
+  </div>
+  <div className="component">
+    <a href="./reactnativeversion">
+      <h3>ReactNativeVersion</h3>
+      <p>Exposes the resolved React Native package version on the JS side.</p>
     </a>
   </div>
   <div className="component">

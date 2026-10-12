@@ -49,7 +49,7 @@ The following helpers are used to modify other easing functions.
 <TabItem value="javascript">
 
 ```SnackPlayer name=Easing%20Demo&ext=js
-import React from 'react';
+import {useRef} from 'react';
 import {
   Animated,
   Easing,
@@ -60,9 +60,10 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => {
-  let opacity = new Animated.Value(0);
+  const opacity = useRef(new Animated.Value(0)).current;
 
   const animate = easing => {
     opacity.setValue(0);
@@ -70,7 +71,7 @@ const App = () => {
       toValue: 1,
       duration: 1200,
       easing,
-      useNativeDriver: true,
+      useNativeDriver: false,
     }).start();
   };
 
@@ -89,28 +90,32 @@ const App = () => {
   ];
 
   return (
-    <View style={styles.container}>
-      <StatusBar hidden={true} />
-      <Text style={styles.title}>Press rows below to preview the Easing!</Text>
-      <View style={styles.boxContainer}>
-        <Animated.View style={animatedStyles} />
-      </View>
-      <SectionList
-        style={styles.list}
-        sections={SECTIONS}
-        keyExtractor={item => item.title}
-        renderItem={({item}) => (
-          <TouchableOpacity
-            onPress={() => animate(item.easing)}
-            style={styles.listRow}>
-            <Text>{item.title}</Text>
-          </TouchableOpacity>
-        )}
-        renderSectionHeader={({section: {title}}) => (
-          <Text style={styles.listHeader}>{title}</Text>
-        )}
-      />
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container} edges={['right', 'top', 'left']}>
+        <StatusBar hidden={true} />
+        <Text style={styles.title}>
+          Press rows below to preview the Easing!
+        </Text>
+        <View style={styles.boxContainer}>
+          <Animated.View style={animatedStyles} />
+        </View>
+        <SectionList
+          style={styles.list}
+          sections={SECTIONS}
+          keyExtractor={item => item.title}
+          renderItem={({item}) => (
+            <TouchableOpacity
+              onPress={() => animate(item.easing)}
+              style={styles.listRow}>
+              <Text>{item.title}</Text>
+            </TouchableOpacity>
+          )}
+          renderSectionHeader={({section: {title}}) => (
+            <Text style={styles.listHeader}>{title}</Text>
+          )}
+        />
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
@@ -204,7 +209,7 @@ export default App;
 <TabItem value="typescript">
 
 ```SnackPlayer name=Easing%20Demo&ext=tsx
-import React from 'react';
+import {useRef} from 'react';
 import {
   Animated,
   Easing,
@@ -214,11 +219,12 @@ import {
   Text,
   TouchableOpacity,
   View,
+  type EasingFunction,
 } from 'react-native';
-import type {EasingFunction} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => {
-  let opacity = new Animated.Value(0);
+  const opacity = useRef(new Animated.Value(0)).current;
 
   const animate = (easing: EasingFunction) => {
     opacity.setValue(0);
@@ -226,7 +232,7 @@ const App = () => {
       toValue: 1,
       duration: 1200,
       easing,
-      useNativeDriver: true,
+      useNativeDriver: false,
     }).start();
   };
 
@@ -245,28 +251,32 @@ const App = () => {
   ];
 
   return (
-    <View style={styles.container}>
-      <StatusBar hidden={true} />
-      <Text style={styles.title}>Press rows below to preview the Easing!</Text>
-      <View style={styles.boxContainer}>
-        <Animated.View style={animatedStyles} />
-      </View>
-      <SectionList
-        style={styles.list}
-        sections={SECTIONS}
-        keyExtractor={item => item.title}
-        renderItem={({item}) => (
-          <TouchableOpacity
-            onPress={() => animate(item.easing)}
-            style={styles.listRow}>
-            <Text>{item.title}</Text>
-          </TouchableOpacity>
-        )}
-        renderSectionHeader={({section: {title}}) => (
-          <Text style={styles.listHeader}>{title}</Text>
-        )}
-      />
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container} edges={['right', 'top', 'left']}>
+        <StatusBar hidden={true} />
+        <Text style={styles.title}>
+          Press rows below to preview the Easing!
+        </Text>
+        <View style={styles.boxContainer}>
+          <Animated.View style={animatedStyles} />
+        </View>
+        <SectionList
+          style={styles.list}
+          sections={SECTIONS}
+          keyExtractor={item => item.title}
+          renderItem={({item}) => (
+            <TouchableOpacity
+              onPress={() => animate(item.easing)}
+              style={styles.listRow}>
+              <Text>{item.title}</Text>
+            </TouchableOpacity>
+          )}
+          renderSectionHeader={({section: {title}}) => (
+            <Text style={styles.listHeader}>{title}</Text>
+          )}
+        />
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 

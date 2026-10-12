@@ -10,23 +10,26 @@ This is a controlled component that requires an `onValueChange` callback that up
 ## Example
 
 ```SnackPlayer name=Switch&supportedPlatforms=android,ios
-import React, {useState} from 'react';
-import {View, Switch, StyleSheet} from 'react-native';
+import {useState} from 'react';
+import {Switch, StyleSheet} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => {
   const [isEnabled, setIsEnabled] = useState(false);
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
 
   return (
-    <View style={styles.container}>
-      <Switch
-        trackColor={{false: '#767577', true: '#81b0ff'}}
-        thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
-        ios_backgroundColor="#3e3e3e"
-        onValueChange={toggleSwitch}
-        value={isEnabled}
-      />
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <Switch
+          trackColor={{false: '#767577', true: '#81b0ff'}}
+          thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
+          ios_backgroundColor="#3e3e3e"
+          onValueChange={toggleSwitch}
+          value={isEnabled}
+        />
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
@@ -63,7 +66,7 @@ If true the user won't be able to toggle the switch.
 
 ---
 
-### `ios_backgroundColor` <div class="label ios">iOS</div>
+### `ios_backgroundColor` <div className="label ios">iOS</div>
 
 On iOS, custom color for the background. This background color can be seen either when the switch value is `false` or when the switch is disabled (and the switch is translucent).
 
@@ -90,6 +93,12 @@ Invoked when the user tries to change the value of the switch. Receives the new 
 | Type     |
 | -------- |
 | function |
+
+---
+
+### `ref`
+
+A ref setter that will be assigned an [element node](element-nodes) when mounted.
 
 ---
 

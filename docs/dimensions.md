@@ -3,7 +3,9 @@ id: dimensions
 title: Dimensions
 ---
 
-> [`useWindowDimensions`](usewindowdimensions) is the preferred API for React components. Unlike `Dimensions`, it updates as the window's dimensions update. This works nicely with the React paradigm.
+:::info
+[`useWindowDimensions`](usewindowdimensions) is the preferred API for React components. Unlike `Dimensions`, it updates as the window's dimensions update. This works nicely with the React paradigm.
+:::
 
 ```tsx
 import {Dimensions} from 'react-native';
@@ -16,15 +18,23 @@ const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 ```
 
-> Although dimensions are available immediately, they may change (e.g due to device rotation, foldable devices etc) so any rendering logic or styles that depend on these constants should try to call this function on every render, rather than caching the value (for example, using inline styles rather than setting a value in a `StyleSheet`).
+:::note
+Although dimensions are available immediately, they may change (e.g due to device rotation, foldable devices etc) so any rendering logic or styles that depend on these constants should try to call this function on every render, rather than caching the value (for example, using inline styles rather than setting a value in a `StyleSheet`).
+:::
 
 If you are targeting foldable devices or devices which can change the screen size or app window size, you can use the event listener available in the Dimensions module as shown in the below example.
 
 ## Example
 
-```SnackPlayer name=Dimensions
-import React, {useState, useEffect} from 'react';
-import {View, StyleSheet, Text, Dimensions} from 'react-native';
+```SnackPlayer name=Dimensions%20Example&ext=tsx
+import {useState, useEffect} from 'react';
+import {
+  StyleSheet,
+  Text,
+  Dimensions,
+  type DimensionsPayload,
+} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const windowDimensions = Dimensions.get('window');
 const screenDimensions = Dimensions.get('screen');
@@ -38,28 +48,32 @@ const App = () => {
   useEffect(() => {
     const subscription = Dimensions.addEventListener(
       'change',
-      ({window, screen}) => {
-        setDimensions({window, screen});
+      ({window, screen}: DimensionsPayload) => {
+        if (window && screen) {
+          setDimensions({window, screen});
+        }
       },
     );
     return () => subscription?.remove();
   });
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.header}>Window Dimensions</Text>
-      {Object.entries(dimensions.window).map(([key, value]) => (
-        <Text>
-          {key} - {value}
-        </Text>
-      ))}
-      <Text style={styles.header}>Screen Dimensions</Text>
-      {Object.entries(dimensions.screen).map(([key, value]) => (
-        <Text>
-          {key} - {value}
-        </Text>
-      ))}
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <Text style={styles.header}>Window Dimensions</Text>
+        {Object.entries(dimensions.window).map(([key, value]) => (
+          <Text>
+            {key} - {value}
+          </Text>
+        ))}
+        <Text style={styles.header}>Screen Dimensions</Text>
+        {Object.entries(dimensions.screen).map(([key, value]) => (
+          <Text>
+            {key} - {value}
+          </Text>
+        ))}
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
@@ -90,20 +104,20 @@ static addEventListener(
   handler: ({
     window,
     screen,
-  }: DimensionsValue) => void,
-): EmitterSubscription;
+  }: DimensionsPayload) => void,
+): EventSubscription;
 ```
 
 Add an event handler. Supported events:
 
-- `change`: Fires when a property within the `Dimensions` object changes. The argument to the event handler is a [`DimensionsValue`](#dimensionsvalue) type object.
+- `change`: Fires when a property within the `Dimensions` object changes. The argument to the event handler is a [`DimensionsPayload`](#dimensionspayload) object.
 
 ---
 
 ### `get()`
 
 ```tsx
-static get(dim: 'window' | 'screen'): ScaledSize;
+static get(dim: string): DisplayMetrics | DisplayMetricsAndroid;
 ```
 
 Initial dimensions are set before `runApplication` is called so they should be available before any other require's are run, but may be updated later.
@@ -116,22 +130,24 @@ Example: `const {height, width} = Dimensions.get('window');`
 | ------------------------------------------------------------------ | ------ | --------------------------------------------------------------------------------- |
 | dim <div className="label basic required two-lines">Required</div> | string | Name of dimension as defined when calling `set`. Returns value for the dimension. |
 
-> For Android the `window` dimension will exclude the size used by the `status bar` (if not translucent) and `bottom navigation bar`
-
----
+:::note
+For Android the `window` dimension will be reduced by the size of status bar (if not translucent) and bottom navigation bar.
+:::
 
 ## Type Definitions
 
-### DimensionsValue
+### DimensionsPayload
 
 **Properties:**
 
-| Name   | Type                                | Description                             |
-| ------ | ----------------------------------- | --------------------------------------- |
-| window | [ScaledSize](dimensions#scaledsize) | Size of the visible Application window. |
-| screen | [ScaledSize](dimensions#scaledsize) | Size of the device's screen.            |
+| Name                 | Type                                                      | Description                             |
+| -------------------- | --------------------------------------------------------- | --------------------------------------- |
+| window               | [DisplayMetrics](dimensions#displaymetrics)               | Size of the visible application window. |
+| screen               | [DisplayMetrics](dimensions#displaymetrics)               | Size of the device's screen.            |
+| windowPhysicalPixels | [DisplayMetricsAndroid](dimensions#displaymetricsandroid) | Physical pixels for the Android window. |
+| screenPhysicalPixels | [DisplayMetricsAndroid](dimensions#displaymetricsandroid) | Physical pixels for the Android screen. |
 
-### ScaledSize
+### DisplayMetrics
 
 | Type   |
 | ------ |
@@ -145,3 +161,11 @@ Example: `const {height, width} = Dimensions.get('window');`
 | height    | number |
 | scale     | number |
 | fontScale | number |
+
+### DisplayMetricsAndroid
+
+`DisplayMetricsAndroid` includes all [`DisplayMetrics`](dimensions#displaymetrics) properties and the following property:
+
+| Name       | Type   |
+| ---------- | ------ |
+| densityDpi | number |

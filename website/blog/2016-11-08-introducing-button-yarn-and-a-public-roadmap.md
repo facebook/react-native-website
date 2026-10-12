@@ -1,10 +1,6 @@
 ---
 title: Introducing Button, Faster Installs with Yarn, and a Public Roadmap
-author: Héctor Ramos
-authorTitle: Developer Advocate at Facebook
-authorURL: 'https://twitter.com/hectorramos'
-authorImageURL: 'https://s.gravatar.com/avatar/f2223874e66e884c99087e452501f2da?s=128'
-authorTwitter: hectorramos
+authors: [hectorramos]
 tags: [announcement]
 ---
 

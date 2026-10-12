@@ -1,49 +1,59 @@
 {
   "name": "react-native-website-monorepo",
   "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
   "workspaces": [
     "website",
-    "plugins/*",
-    "scripts/*",
-    "sync-api-docs"
+    "packages/*",
+    "plugins/*"
   ],
   "scripts": {
-    "postinstall": "yarn update-lock",
-    "update-lock": "yarn-deduplicate",
-    "docusaurus": "yarn workspace react-native-website docusaurus",
-    "website:start": "yarn workspace react-native-website start",
-    "website:build": "yarn workspace react-native-website build",
-    "website:build:fast": "yarn workspace react-native-website build:fast",
-    "website:serve": "yarn workspace react-native-website serve"
+    "docusaurus": "yarn --cwd website docusaurus",
+    "start": "yarn --cwd website start",
+    "build": "yarn --cwd website build",
+    "build:fast": "yarn --cwd website build:fast",
+    "serve": "yarn --cwd website serve",
+    "prepare": "husky",
+    "lint": "eslint .",
+    "lint:packages": "yarn workspace @react-native-website/lint-examples lint",
+    "lint:plugins": "yarn workspace @react-native-website/remark-codeblock-language-as-title lint && yarn workspace @react-native-website/remark-lint-no-broken-external-links lint && yarn workspace @react-native-website/remark-snackplayer lint && yarn workspace @react-native-website/remark-lint-no-broken-external-links test && yarn workspace @react-native-website/remark-snackplayer test",
+    "lint:website": "eslint ./website ./docs",
+    "update-lock": "npx yarn-deduplicate",
+    "check-dependencies": "manypkg check",
+    "sync-redirects:vercel": "node scripts/src/sync-vercel-redirects.ts",
+    "build:vercel": "yarn --cwd website build:vercel",
+    "build:vercel:fast": "yarn --cwd website build:vercel:fast",
+    "dev:vercel": "vercel dev"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
-  },
-  "dependencies": {
-    "babel-eslint": "^10.1.0",
-    "case-police": "^0.5.14",
-    "eslint": "^8.20.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-mdx": "^1.16.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-yml": "^1.2.0",
-    "husky": "^4.3.8",
-    "netlify-plugin-cache": "^1.0.3",
-    "prettier": "^2.7.1",
-    "pretty-quick": "^3.1.3",
-    "yarn-deduplicate": "^5.0.0"
+  "devDependencies": {
+    "@eslint/css": "^1.4.0",
+    "@eslint/js": "^9.39.4",
+    "@manypkg/cli": "^0.25.1",
+    "@typescript-eslint/eslint-plugin": "^8.71.0",
+    "alex": "^11.0.1",
+    "case-police": "^2.2.1",
+    "eslint": "^9.39.4",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-alex": "^1.0.0",
+    "eslint-plugin-case-police": "2.2.1",
+    "eslint-plugin-mdx": "^3.8.1",
+    "eslint-plugin-prettier": "^5.5.6",
+    "eslint-plugin-yml": "^3.8.1",
+    "globals": "^17.13.0",
+    "husky": "^9.1.7",
+    "prettier": "^3.9.6",
+    "pretty-quick": "^4.2.2",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.71.0"
   },
   "resolutions": {
-    "axios": "^1.6.2",
-    "trim": "^1.0.1",
-    "update-notifier": "^6.0.2",
-    "@sideway/formula": ">=3.0.1"
-  },
-  "comments": {
-    "resolutions": {
-      "axios": "Removable after Docusaurus commit with https://github.com/facebook/docusaurus/pull/9547"
-    }
+    "image-size": "^2",
+    "qs": "^6.16.0",
+    "serialize-javascript": "^7.0.5",
+    "serve-handler/minimatch": "3.1.4",
+    "uuid": "^11.1.1"
   }
 }

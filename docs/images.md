@@ -30,7 +30,7 @@ You can use the `@2x` and `@3x` suffixes to provide images for different screen 
 <Image source={require('./img/check.png')} />
 ```
 
-...the bundler will bundle and serve the image corresponding to device's screen density. For example, `check@2x.png`, will be used on an iPhone 7, while`check@3x.png` will be used on an iPhone 7 Plus or a Nexus 5. If there is no image matching the screen density, the closest best option will be selected.
+...the bundler will bundle and serve the image corresponding to device's screen density. For example, `check@2x.png`, will be used on an iPhone 7, while `check@3x.png` will be used on an iPhone 7 Plus or a Nexus 5. If there is no image matching the screen density, the closest best option will be selected.
 
 On Windows, you might need to restart the bundler if you add new images to your project.
 
@@ -65,9 +65,24 @@ const icon = this.props.active
 
 Note that image sources required this way include size (width, height) info for the Image. If you need to scale the image dynamically (i.e. via flex), you may need to manually set `{width: undefined, height: undefined}` on the style attribute.
 
+### Bundling images in an asset catalog (iOS)
+
+By default the bundler copies each required image, along with every `@2x` and `@3x` variant, into your iOS app as a loose file next to the JavaScript bundle. On iOS you can instead have them compiled into an [asset catalog](https://developer.apple.com/documentation/xcode/managing-assets-with-asset-catalogs), so the system ships only the scale a device needs.
+
+To opt in, set the `RCTUseAssetCatalog` key to `true` in your app's `Info.plist`:
+
+```xml
+<key>RCTUseAssetCatalog</key>
+<true/>
+```
+
+With this enabled, the iOS build script compiles your bundled images into an `RNAssets.bundle` asset catalog at build time. Your `require('./my-icon.png')` calls stay exactly the same, and no changes to your Xcode project are needed.
+
+After changing this setting, make sure to do a clean build.
+
 ## Static Non-Image Resources
 
-The `require` syntax described above can be used to statically include audio, video or document files in your project as well. Most common file types are supported including `.mp3`, `.wav`, `.mp4`, `.mov`, `.html` and `.pdf`. See [bundler defaults](https://github.com/facebook/metro/blob/master/packages/metro-config/src/defaults/defaults.js#L14-L44) for the full list.
+The `require` syntax described above can be used to statically include audio, video or document files in your project as well. Most common file types are supported including `.mp3`, `.wav`, `.mp4`, `.mov`, `.html`, `.pdf` and more. See [bundler defaults](https://github.com/facebook/metro/blob/main/packages/metro-config/src/defaults/defaults.js#L16-L51) for the full list.
 
 You can add support for other types by adding an [`assetExts` resolver option](https://metrobundler.dev/docs/configuration#resolver-options) in your [Metro configuration](https://metrobundler.dev/docs/configuration).
 
@@ -150,7 +165,7 @@ This is recommended for very small and dynamic images only, like icons in a list
 />
 ```
 
-### Cache Control (iOS Only)
+### Cache Control
 
 In some cases you might only want to display an image if it is already in the local cache, i.e. a low resolution placeholder until a higher resolution is available. In other cases you do not care if the image is outdated and are willing to display an outdated image to save bandwidth. The `cache` source property gives you control over how the network layer interacts with the cache.
 
@@ -172,6 +187,38 @@ In some cases you might only want to display an image if it is already in the lo
 ## Local Filesystem Images
 
 See [CameraRoll](https://github.com/react-native-community/react-native-cameraroll) for an example of using local resources that are outside of `Images.xcassets`.
+
+### Drawable resources
+
+Android supports loading [drawable resources](https://developer.android.com/guide/topics/resources/drawable-resource) via the `xml` file type. This means you can use [vector drawables](https://developer.android.com/develop/ui/views/graphics/vector-drawable-resources) for rendering icons or [shape drawables](https://developer.android.com/guide/topics/resources/drawable-resource#Shape) for, well, drawing shapes! You can import and use these resource types the same as any other [static resource](#static-image-resources) or [hybrid resource](#images-from-hybrid-apps-resources). You have to specify image dimensions manually.
+
+For static drawables that live alongside your JS code, use the `require` or `import` syntax (both work the same):
+
+```tsx
+<Image
+  source={require('./img/my_icon.xml')}
+  style={{width: 40, height: 40}}
+/>
+```
+
+For drawables included in the Android drawable folder (i.e. `res/drawable`), use the resource name without the extension:
+
+```tsx
+<Image
+  source={{uri: 'my_icon'}}
+  style={{width: 40, height: 40}}
+/>
+```
+
+The one key difference between drawable resources and other image types is that the asset must be referenced at compile-time of the Android application as Android needs to run the [Android Asset Packaging Tool (AAPT)](https://developer.android.com/tools/aapt2) to package the asset. Binary XML, the file format AAPT creates, cannot be loaded over the network by Metro. If you change the directory or name of an asset, you will need to rebuild the Android application each time.
+
+#### Creating XML drawable resources
+
+Android provides comprehensive documentation on each of the supported drawable resource types in its [Drawable resources](https://developer.android.com/guide/topics/resources/drawable-resource) guide, along with examples of raw XML files. You can utilize tools from Android Studio like the [Vector Asset Studio](https://developer.android.com/studio/write/vector-asset-studio) to create vector drawables from Scalable Vector Graphic (SVG) and Adobe Photoshop Document (PSD) files.
+
+:::info
+You should try to avoid referencing other resources in the XML file you create if you want to treat your XML file as a static image resource (i.e. with an `import` or `require` statement). If you wish to utilize references to other drawables or attributes, like [color state lists](https://developer.android.com/guide/topics/resources/color-list-resource) or [dimension resources](https://developer.android.com/guide/topics/resources/more-resources#Dimension), you should include your drawable as a [hybrid resource](#images-from-hybrid-apps-resources) and import it by name.
+:::
 
 ### Best Camera Roll Image
 
@@ -203,19 +250,18 @@ On the user side, this lets you annotate the object with useful attributes such 
 
 ## Background Image via Nesting
 
-A common feature request from developers familiar with the web is `background-image`. To handle this use case, you can use the `<ImageBackground>` component, which has the same props as `<Image>`, and add whatever children to it you would like to layer on top of it.
-
-You might not want to use `<ImageBackground>` in some cases, since the implementation is basic. Refer to `<ImageBackground>`'s [documentation](imagebackground.md) for more insight, and create your own custom component when needed.
+To layer content over an image, render an absolutely positioned [`Image`](image.md) inside a [`View`](view.md), followed by the content that should appear on top.
 
 ```tsx
 return (
-  <ImageBackground source={...} style={{width: '100%', height: '100%'}}>
+  <View style={{width: '100%', height: '100%'}}>
+    <Image source={...} style={StyleSheet.absoluteFill} />
     <Text>Inside</Text>
-  </ImageBackground>
+  </View>
 );
 ```
 
-Note that you must specify some width and height style attributes.
+Note that you must specify some width and height style attributes on the containing `View`.
 
 ## iOS Border Radius Styles
 

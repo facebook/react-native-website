@@ -1,6 +1,6 @@
 ---
 id: optimizing-flatlist-configuration
-title: Optimizing Flatlist Configuration
+title: Optimizing FlatList Configuration
 ---
 
 ## Terms
@@ -21,19 +21,19 @@ title: Optimizing Flatlist Configuration
 
 Here are a list of props that can help to improve `FlatList` performance:
 
-### removeClippedSubviews
+### `removeClippedSubviews`
 
-| Type    | Default |
-| ------- | ------- |
-| Boolean | False   |
+| Type    | Default                              |
+| ------- | ------------------------------------ |
+| Boolean | `true` on Android, otherwise `false` |
 
-If `true`, views that are outside of the viewport are detached from the native view hierarchy.
+If `true`, views that are outside of the viewport are automatically detached from the native view hierarchy.
 
 **Pros:** This reduces time spent on the main thread, and thus reduces the risk of dropped frames, by excluding views outside of the viewport from the native rendering and drawing traversals.
 
 **Cons:** Be aware that this implementation can have bugs, such as missing content (mainly observed on iOS), especially if you are doing complex things with transforms and/or absolute positioning. Also note this does not save significant memory because the views are not deallocated, only detached.
 
-### maxToRenderPerBatch
+### `maxToRenderPerBatch`
 
 | Type   | Default |
 | ------ | ------- |
@@ -45,7 +45,7 @@ It is a `VirtualizedList` prop that can be passed through `FlatList`. This contr
 
 **Cons:** More items per batch means longer periods of JavaScript execution potentially blocking other event processing, like presses, hurting responsiveness.
 
-### updateCellsBatchingPeriod
+### `updateCellsBatchingPeriod`
 
 | Type   | Default |
 | ------ | ------- |
@@ -69,7 +69,7 @@ The initial amount of items to render.
 
 **Cons:** Setting a low `initialNumToRender` may cause blank areas, especially if it's too small to cover the viewport on initial render.
 
-### windowSize
+### `windowSize`
 
 | Type   | Default |
 | ------ | ------- |
@@ -98,7 +98,7 @@ The heavier your components are, the slower they render. Avoid heavy images (use
 `React.memo()` creates a memoized component that will be re-rendered only when the props passed to the component change. We can use this function to optimize the components in the FlatList.
 
 ```tsx
-import React, {memo} from 'react';
+import {memo} from 'react';
 import {View, Text} from 'react-native';
 
 const MyListItem = memo(
@@ -119,25 +119,25 @@ In this example, we have determined that MyListItem should be re-rendered only w
 
 ### Use cached optimized images
 
-You can use the community packages (such as [react-native-fast-image](https://github.com/DylanVann/react-native-fast-image) from [@DylanVann](https://github.com/DylanVann)) for more performant images. Every image in your list is a `new Image()` instance. The faster it reaches the `loaded` hook, the faster your JavaScript thread will be free again.
+You can use the community packages (such as [@d11/react-native-fast-image](https://github.com/ds-horizon/react-native-fast-image) from [Dream11](https://github.com/ds-horizon)) for more performant images. Every image in your list is a `new Image()` instance. The faster it reaches the `loaded` hook, the faster your JavaScript thread will be free again.
 
-### Use getItemLayout
+### Use `getItemLayout`
 
 If all your list item components have the same height (or width, for a horizontal list), providing the [getItemLayout](flatlist#getitemlayout) prop removes the need for your `FlatList` to manage async layout calculations. This is a very desirable optimization technique.
 
 If your components have dynamic size and you really need performance, consider asking your design team if they may think of a redesign in order to perform better.
 
-### Use keyExtractor or key
+### Use `keyExtractor` or `key`
 
 You can set the [`keyExtractor`](flatlist#keyextractor) to your `FlatList` component. This prop is used for caching and as the React `key` to track item re-ordering.
 
 You can also use a `key` prop in your item component.
 
-### Avoid anonymous function on renderItem
+### Avoid anonymous function on `renderItem`
 
 For functional components, move the `renderItem` function outside of the returned JSX. Also, ensure that it is wrapped in a `useCallback` hook to prevent it from being recreated each render.
 
-For class componenents, move the `renderItem` function outside of the render function, so it won't recreate itself each time the render function is called.
+For class components, move the `renderItem` function outside of the render function, so it won't recreate itself each time the render function is called.
 
 ```tsx
 const renderItem = useCallback(({item}) => (
@@ -148,7 +148,6 @@ const renderItem = useCallback(({item}) => (
 
 return (
   // ...
-
   <FlatList data={items} renderItem={renderItem} />;
   // ...
 );

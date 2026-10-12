@@ -8,18 +8,23 @@ title: Handling Text Input
 For example, let's say that as the user types, you're translating their words into a different language. In this new language, every single word is written the same way: 🍕. So the sentence "Hello there Bob" would be translated as "🍕 🍕 🍕".
 
 ```SnackPlayer name=Handling%20Text%20Input
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {Text, TextInput, View} from 'react-native';
 
 const PizzaTranslator = () => {
   const [text, setText] = useState('');
   return (
-    <View style={{padding: 10}}>
+    <View style={{flex: 1, justifyContent: 'center'}}>
       <TextInput
-        style={{height: 40}}
         placeholder="Type here to translate!"
         onChangeText={newText => setText(newText)}
         defaultValue={text}
+        style={{
+          height: 40,
+          padding: 5,
+          marginHorizontal: 8,
+          borderWidth: 1,
+        }}
       />
       <Text style={{padding: 10, fontSize: 42}}>
         {text
@@ -38,4 +43,6 @@ In this example, we store `text` in the state, because it changes over time.
 
 There are a lot more things you might want to do with a text input. For example, you could validate the text inside while the user types. For more detailed examples, see the [React docs on controlled components](https://react.dev/reference/react-dom/components/input#controlling-an-input-with-a-state-variable), or the [reference docs for TextInput](textinput.md).
 
-Text input is one of the ways the user interacts with the app. Next, let's look at another type of input and [learn how to handle touches](handling-touches.md).
+A `TextInput` is one of many ways for the user to interact with your app. For examples of other ways to handle input, see the documentation on [how to handle touches](handling-touches.md).
+
+Now, let's take a look at [ScrollView](using-a-scrollview), another Core Component.

@@ -7,29 +7,32 @@ A foundational component for inputting text into the app via a keyboard. Props p
 
 The most basic use case is to plop down a `TextInput` and subscribe to the `onChangeText` events to read the user input. There are also other events, such as `onSubmitEditing` and `onFocus` that can be subscribed to. A minimal example:
 
-```SnackPlayer name=TextInput
-import React from 'react';
-import {SafeAreaView, StyleSheet, TextInput} from 'react-native';
+```SnackPlayer name=TextInput%20Example
+import {useState} from 'react';
+import {StyleSheet, TextInput} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const TextInputExample = () => {
-  const [text, onChangeText] = React.useState('Useless Text');
-  const [number, onChangeNumber] = React.useState('');
+  const [text, onChangeText] = useState('Useless Text');
+  const [number, onChangeNumber] = useState('');
 
   return (
-    <SafeAreaView>
-      <TextInput
-        style={styles.input}
-        onChangeText={onChangeText}
-        value={text}
-      />
-      <TextInput
-        style={styles.input}
-        onChangeText={onChangeNumber}
-        value={number}
-        placeholder="useless placeholder"
-        keyboardType="numeric"
-      />
-    </SafeAreaView>
+    <SafeAreaProvider>
+      <SafeAreaView>
+        <TextInput
+          style={styles.input}
+          onChangeText={onChangeText}
+          value={text}
+        />
+        <TextInput
+          style={styles.input}
+          onChangeText={onChangeNumber}
+          value={number}
+          placeholder="useless placeholder"
+          keyboardType="numeric"
+        />
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
@@ -45,38 +48,49 @@ const styles = StyleSheet.create({
 export default TextInputExample;
 ```
 
-Two methods exposed via the native element are .focus() and .blur() that will focus or blur the TextInput programmatically.
+Two methods exposed via the native element are `.focus()` and `.blur()` that will focus or blur the TextInput programmatically.
 
-Note that some props are only available with `multiline={true/false}`. Additionally, border styles that apply to only one side of the element (e.g., `borderBottomColor`, `borderLeftWidth`, etc.) will not be applied if `multiline=true`. To achieve the same effect, you can wrap your `TextInput` in a `View`:
+Note that some props are only available with `multiline={true/false}`:
 
-```SnackPlayer name=TextInput
-import React from 'react';
-import {View, TextInput} from 'react-native';
+```SnackPlayer name=Multiline%20TextInput%20Example
+import {useState} from 'react';
+import {TextInput, StyleSheet} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const MultilineTextInputExample = () => {
-  const [value, onChangeText] = React.useState('Useless Multiline Placeholder');
+  const [value, onChangeText] = useState('Useless Multiline Placeholder');
 
-  // If you type something in the text box that is a color, the background will change to that
-  // color.
+  // If you type something in the text box that is a color,
+  // the background will change to that color.
   return (
-    <View
-      style={{
-        backgroundColor: value,
-        borderBottomColor: '#000000',
-        borderBottomWidth: 1,
-      }}>
-      <TextInput
-        editable
-        multiline
-        numberOfLines={4}
-        maxLength={40}
-        onChangeText={text => onChangeText(text)}
-        value={value}
-        style={{padding: 10}}
-      />
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView
+        style={{
+          flex: 1,
+          backgroundColor: value.toLowerCase(),
+        }}>
+        <TextInput
+          editable
+          multiline
+          numberOfLines={4}
+          maxLength={40}
+          onChangeText={text => onChangeText(text)}
+          value={value}
+          style={styles.textInput}
+        />
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
+
+const styles = StyleSheet.create({
+  textInput: {
+    padding: 10,
+    borderColor: '#000',
+    borderWidth: 1,
+    margin: 12,
+  },
+});
 
 export default MultilineTextInputExample;
 ```
@@ -157,7 +171,7 @@ The following values work across platforms:
 - `tel`
 - `username`
 
-<div class="label basic ios">iOS</div>
+<div className="label basic ios">iOS</div>
 
 The following values work on iOS only:
 
@@ -171,7 +185,7 @@ The following values work on iOS only:
 - `organization-title`
 - `url`
 
-<div class="label basic android">Android</div>
+<div className="label basic android">Android</div>
 
 The following values work on Android only:
 
@@ -214,7 +228,7 @@ If `false`, disables auto-correct. The default value is `true`.
 
 ### `autoFocus`
 
-If `true`, focuses the input on `componentDidMount` or `useEffect`. The default value is `false`.
+If `true`, focuses the input. The default value is `false`.
 
 | Type |
 | ---- |
@@ -222,7 +236,11 @@ If `true`, focuses the input on `componentDidMount` or `useEffect`. The default 
 
 ---
 
-### `blurOnSubmit`
+### 🗑️ `blurOnSubmit`
+
+:::warning[Deprecated]
+Note that `submitBehavior` now takes the place of `blurOnSubmit` and will override any behavior defined by `blurOnSubmit`. See [submitBehavior](textinput#submitbehavior).
+:::
 
 If `true`, the text field will blur when submitted. The default value is true for single-line fields and false for multiline fields. Note that for multiline fields, setting `blurOnSubmit` to `true` means that pressing return will blur the field and trigger the `onSubmitEditing` event instead of inserting a newline into the field.
 
@@ -242,7 +260,7 @@ If `true`, caret is hidden. The default value is `false`.
 
 ---
 
-### `clearButtonMode` <div class="label ios">iOS</div>
+### `clearButtonMode` <div className="label ios">iOS</div>
 
 When the clear button should appear on the right side of the text view. This property is supported only for single-line TextInput component. The default value is `never`.
 
@@ -252,7 +270,7 @@ When the clear button should appear on the right side of the text view. This pro
 
 ---
 
-### `clearTextOnFocus` <div class="label ios">iOS</div>
+### `clearTextOnFocus` <div className="label ios">iOS</div>
 
 If `true`, clears the text field automatically when editing begins.
 
@@ -272,7 +290,7 @@ If `true`, context menu is hidden. The default value is `false`.
 
 ---
 
-### `dataDetectorTypes` <div class="label ios">iOS</div>
+### `dataDetectorTypes` <div className="label ios">iOS</div>
 
 Determines the types of data converted to clickable URLs in the text input. Only valid if `multiline={true}` and `editable={false}`. By default no data types are detected.
 
@@ -303,7 +321,17 @@ Provides an initial value that will change when the user starts typing. Useful f
 
 ---
 
-### `cursorColor` <div class="label android">Android</div>
+### `disableKeyboardShortcuts` <div className="label ios">iOS</div>
+
+If `true`, the keyboard shortcuts (undo/redo and copy buttons) are disabled.
+
+| Type | Default |
+| ---- | ------- |
+| bool | `false` |
+
+---
+
+### `cursorColor` <div className="label android">Android</div>
 
 When provided it will set the color of the cursor (or "caret") in the component. Unlike the behavior of `selectionColor` the cursor color will be set independently from the color of the text selection box.
 
@@ -313,7 +341,7 @@ When provided it will set the color of the cursor (or "caret") in the component.
 
 ---
 
-### `disableFullscreenUI` <div class="label android">Android</div>
+### `disableFullscreenUI` <div className="label android">Android</div>
 
 When `false`, if there is a small amount of space available around a text input (e.g. landscape orientation on a phone), the OS may choose to have the user edit the text inside of a full screen text input mode. When `true`, this feature is disabled and users will always edit the text directly inside of the text input. Defaults to `false`.
 
@@ -333,7 +361,7 @@ If `false`, text is not editable. The default value is `true`.
 
 ---
 
-### `enablesReturnKeyAutomatically` <div class="label ios">iOS</div>
+### `enablesReturnKeyAutomatically` <div className="label ios">iOS</div>
 
 If `true`, the keyboard disables the return key when there is no text and automatically enables it when there is text. The default value is `false`.
 
@@ -349,11 +377,11 @@ Determines what text should be shown to the return key. Has precedence over the 
 
 The following values work across platforms:
 
-- `enter`
 - `done`
 - `next`
 - `search`
 - `send`
+- `go`
 
 _Android Only_
 
@@ -361,13 +389,19 @@ The following values work on Android only:
 
 - `previous`
 
-| Type                                                        |
-| ----------------------------------------------------------- |
-| enum('enter', 'done', 'next', 'previous', 'search', 'send') |
+_iOS Only_
+
+The following values work on iOS only:
+
+- `enter`
+
+| Type                                                              |
+| ----------------------------------------------------------------- |
+| enum('enter', 'done', 'next', 'previous', 'search', 'send', 'go') |
 
 ---
 
-### `importantForAutofill` <div class="label android">Android</div>
+### `importantForAutofill` <div className="label android">Android</div>
 
 Tells the operating system whether the individual fields in your app should be included in a view structure for autofill purposes on Android API Level 26+. Possible values are `auto`, `no`, `noExcludeDescendants`, `yes`, and `yesExcludeDescendants`. The default value is `auto`.
 
@@ -383,7 +417,7 @@ Tells the operating system whether the individual fields in your app should be i
 
 ---
 
-### `inlineImageLeft` <div class="label android">Android</div>
+### `inlineImageLeft` <div className="label android">Android</div>
 
 If defined, the provided image resource will be rendered on the left. The image resource must be inside `/android/app/src/main/res/drawable` and referenced like
 
@@ -399,7 +433,7 @@ If defined, the provided image resource will be rendered on the left. The image 
 
 ---
 
-### `inlineImagePadding` <div class="label android">Android</div>
+### `inlineImagePadding` <div className="label android">Android</div>
 
 Padding between the inline image, if any, and the text input itself.
 
@@ -409,9 +443,21 @@ Padding between the inline image, if any, and the text input itself.
 
 ---
 
-### `inputAccessoryViewID` <div class="label ios">iOS</div>
+### `inputAccessoryViewID` <div className="label ios">iOS</div>
 
 An optional identifier which links a custom [InputAccessoryView](inputaccessoryview.md) to this text input. The InputAccessoryView is rendered above the keyboard when this text input is focused.
+
+| Type   |
+| ------ |
+| string |
+
+---
+
+### `inputAccessoryViewButtonLabel` <div className="label ios">iOS</div>
+
+An optional label that overrides the default [InputAccessoryView](inputaccessoryview.md) button label.
+
+By default, the default button label is not localized. Use this property to provide a localized version.
 
 | Type   |
 | ------ |
@@ -440,7 +486,7 @@ Support the following values:
 
 ---
 
-### `keyboardAppearance` <div class="label ios">iOS</div>
+### `keyboardAppearance` <div className="label ios">iOS</div>
 
 Determines the color of the keyboard.
 
@@ -454,7 +500,7 @@ Determines the color of the keyboard.
 
 Determines which keyboard to open, e.g.`numeric`.
 
-See screenshots of all the types [here](https://lefkowitz.me/2018/04/30/visual-guide-to-react-native-textinput-keyboardtype-options/).
+See screenshots of all the types [here](https://davidl.fr/blog/keyboard-react-native-ios-android#all-react-native-keyboard-type-examples-i-os-on-the-left-android-on-the-right).
 
 The following values work across platforms:
 
@@ -485,6 +531,26 @@ The following values work on Android only:
 | Type                                                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | enum('default', 'email-address', 'numeric', 'phone-pad', 'ascii-capable', 'numbers-and-punctuation', 'url', 'number-pad', 'name-phone-pad', 'decimal-pad', 'twitter', 'web-search', 'visible-password') |
+
+---
+
+### `lineBreakStrategyIOS` <div className="label ios">iOS</div>
+
+Set line break strategy on iOS 14+. Possible values are `none`, `standard`, `hangul-word` and `push-out`.
+
+| Type                                                        | Default  |
+| ----------------------------------------------------------- | -------- |
+| enum(`'none'`, `'standard'`, `'hangul-word'`, `'push-out'`) | `'none'` |
+
+---
+
+### `lineBreakModeIOS` <div className="label ios">iOS</div>
+
+Set line break mode on iOS. Possible values are `wordWrapping`, `char`, `clip`, `head`, `middle` and `tail`.
+
+| Type                                                                       | Default          |
+| -------------------------------------------------------------------------- | ---------------- |
+| enum(`'wordWrapping'`, `'char'`, `'clip'`, `'head'`, `'middle'`, `'tail'`) | `'wordWrapping'` |
 
 ---
 
@@ -526,9 +592,13 @@ It is important to note that this aligns the text to the top on iOS, and centers
 
 ---
 
-### `numberOfLines` <div class="label android">Android</div>
+### `numberOfLines`
 
-Sets the number of lines for a `TextInput`. Use it with multiline set to `true` to be able to fill the lines.
+:::note
+`numberOfLines` on iOS is only available on the [New Architecture](/architecture/landing-page)
+:::
+
+Sets the maximum number of lines for a `TextInput`. Use it with multiline set to `true` to be able to fill the lines.
 
 | Type   |
 | ------ |
@@ -540,11 +610,13 @@ Sets the number of lines for a `TextInput`. Use it with multiline set to `true` 
 
 Callback that is called when the text input is blurred.
 
-> Note: If you are attempting to access the `text` value from `nativeEvent` keep in mind that the resulting value you get can be `undefined` which can cause unintended errors. If you are trying to find the last value of TextInput, you can use the [`onEndEditing`](textinput#onendediting) event, which is fired upon completion of editing.
+:::note
+If you are attempting to access the `text` value from `nativeEvent` keep in mind that the resulting value you get can be `undefined` which can cause unintended errors. If you are trying to find the last value of TextInput, you can use the [`onEndEditing`](textinput#onendediting) event, which is fired upon completion of editing.
+:::
 
-| Type     |
-| -------- |
-| function |
+| Type                                                     |
+| -------------------------------------------------------- |
+| `md ({nativeEvent: [TargetEvent](targetevent)}) => void` |
 
 ---
 
@@ -616,7 +688,7 @@ Callback that is called when the text input is focused.
 
 | Type                                                     |
 | -------------------------------------------------------- |
-| `md ({nativeEvent: [LayoutEvent](layoutevent)}) => void` |
+| `md ({nativeEvent: [TargetEvent](targetevent)}) => void` |
 
 ---
 
@@ -702,7 +774,7 @@ If `true`, text is not editable. The default value is `false`.
 
 ---
 
-### `returnKeyLabel` <div class="label android">Android</div>
+### `returnKeyLabel` <div className="label android">Android</div>
 
 Sets the return key to the label. Use it instead of `returnKeyType`.
 
@@ -748,7 +820,7 @@ The following values work on iOS only:
 | --------------------------------------------------------------------------------------------------------------------------------- |
 | enum('done', 'go', 'next', 'search', 'send', 'none', 'previous', 'default', 'emergency-call', 'google', 'join', 'route', 'yahoo') |
 
-### `rejectResponderTermination` <div class="label ios">iOS</div>
+### `rejectResponderTermination` <div className="label ios">iOS</div>
 
 If `true`, allows TextInput to pass touch events to the parent component. This allows components such as SwipeableListView to be swipeable from the TextInput on iOS, as is the case on Android by default. If `false`, TextInput always asks to handle the input (except when disabled). The default value is `true`.
 
@@ -758,7 +830,7 @@ If `true`, allows TextInput to pass touch events to the parent component. This a
 
 ---
 
-### `rows` <div class="label android">Android</div>
+### `rows` <div className="label android">Android</div>
 
 Sets the number of lines for a `TextInput`. Use it with multiline set to `true` to be able to fill the lines.
 
@@ -768,7 +840,7 @@ Sets the number of lines for a `TextInput`. Use it with multiline set to `true` 
 
 ---
 
-### `scrollEnabled` <div class="label ios">iOS</div>
+### `scrollEnabled` <div className="label ios">iOS</div>
 
 If `false`, scrolling of the text view will be disabled. The default value is `true`. Only works with `multiline={true}`.
 
@@ -800,7 +872,17 @@ The start and end of the text input's selection. Set start and end to the same v
 
 ### `selectionColor`
 
-The highlight and cursor color of the text input.
+The highlight, selection handle and cursor color of the text input.
+
+| Type               |
+| ------------------ |
+| [color](colors.md) |
+
+---
+
+### `selectionHandleColor` <div className="label android">Android</div>
+
+Sets the color of the selection handle. Unlike `selectionColor`, it allows the selection handle color to be customized independently of the selection's color.
 
 | Type               |
 | ------------------ |
@@ -828,13 +910,48 @@ When `false`, it will prevent the soft keyboard from showing when the field is f
 
 ---
 
-### `spellCheck` <div class="label ios">iOS</div>
+### `smartInsertDelete` <div className="label ios">iOS</div>
+
+If `false`, the iOS system will not insert an extra space after a paste operation neither delete one or two spaces after a cut or delete operation.
+
+| Type | Default |
+| ---- | ------- |
+| bool | `true`  |
+
+---
+
+### `spellCheck` <div className="label ios">iOS</div>
 
 If `false`, disables spell-check style (i.e. red underlines). The default value is inherited from `autoCorrect`.
 
 | Type |
 | ---- |
 | bool |
+
+---
+
+### `submitBehavior`
+
+When the return key is pressed,
+
+For single line inputs:
+
+- `'newline'` defaults to `'blurAndSubmit'`
+- `undefined` defaults to `'blurAndSubmit'`
+
+For multiline inputs:
+
+- `'newline'` adds a newline
+- `undefined` defaults to `'newline'`
+
+For both single line and multiline inputs:
+
+- `'submit'` will only send a submit event and not blur the input
+- `'blurAndSubmit`' will both blur the input and send a submit event
+
+| Type                                       |
+| ------------------------------------------ |
+| enum('submit', 'blurAndSubmit', 'newline') |
 
 ---
 
@@ -854,7 +971,7 @@ Possible values for `textAlign` are:
 
 ---
 
-### `textContentType` <div class="label ios">iOS</div>
+### `textContentType` <div className="label ios">iOS</div>
 
 Give the keyboard and the system information about the expected semantic meaning for the content that users enter.
 
@@ -920,14 +1037,16 @@ Possible values for `textContentType` are:
 
 ---
 
-### `passwordRules` <div class="label ios">iOS</div>
+### `passwordRules` <div className="label ios">iOS</div>
 
 When using `textContentType` as `newPassword` on iOS we can let the OS know the minimum requirements of the password so that it can generate one that will satisfy them. In order to create a valid string for `PasswordRules` take a look to the [Apple Docs](https://developer.apple.com/password-rules/).
 
-> If passwords generation dialog doesn't appear please make sure that:
->
-> - AutoFill is enabled: **Settings** → **Passwords & Accounts** → toggle "On" the **AutoFill Passwords**,
-> - iCloud Keychain is used: **Settings** → **Apple ID** → **iCloud** → **Keychain** → toggle "On" the **iCloud Keychain**.
+:::tip
+If passwords generation dialog doesn't appear please make sure that:
+
+- AutoFill is enabled: **Settings** → **Passwords & Accounts** → toggle "On" the **AutoFill Passwords**,
+- iCloud Keychain is used: **Settings** → **Apple ID** → **iCloud** → **Keychain** → toggle "On" the **iCloud Keychain**.
+  :::
 
 | Type   |
 | ------ |
@@ -956,7 +1075,7 @@ Note that not all Text styles are supported, an incomplete list of what is not s
 
 ---
 
-### `textBreakStrategy` <div class="label android">Android</div>
+### `textBreakStrategy` <div className="label android">Android</div>
 
 Set text break strategy on Android API Level 23+, possible values are `simple`, `highQuality`, `balanced` The default value is `highQuality`.
 
@@ -966,7 +1085,7 @@ Set text break strategy on Android API Level 23+, possible values are `simple`, 
 
 ---
 
-### `underlineColorAndroid` <div class="label android">Android</div>
+### `underlineColorAndroid` <div className="label android">Android</div>
 
 The color of the `TextInput` underline.
 
@@ -983,16 +1102,6 @@ The value to show for the text input. `TextInput` is a controlled component, whi
 | Type   |
 | ------ |
 | string |
-
----
-
-### `lineBreakStrategyIOS` <div class="label ios">iOS</div>
-
-Set line break strategy on iOS 14+. Possible values are `none`, `standard`, `hangul-word` and `push-out`.
-
-| Type                                                        | Default  |
-| ----------------------------------------------------------- | -------- |
-| enum(`'none'`, `'standard'`, `'hangul-word'`, `'push-out'`) | `'none'` |
 
 ## Methods
 

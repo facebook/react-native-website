@@ -1,10 +1,6 @@
 ---
 title: React Native Open Source Update June 2019
-author: Christoph Nakazawa
-authorTitle: Engineer at Facebook
-authorURL: 'https://twitter.com/cpojer'
-authorImageURL: 'https://avatars2.githubusercontent.com/u/13352?s=460&v=4'
-authorTwitter: cpojer
+authors: [cpojer]
 tags: [announcement]
 ---
 

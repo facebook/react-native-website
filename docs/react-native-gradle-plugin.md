@@ -100,7 +100,7 @@ nodeExecutableAndArgs = ["node"]
 
 ### `bundleCommand`
 
-This is the name of the `bundle` command to be invoked when creating the bundle for your app. That's useful if you're using [RAM Bundles](/docs/ram-bundles-inline-requires). By default is `bundle` but can be customized to add extra flags as follows:
+This is the name of the `bundle` command to be invoked when creating the bundle for your app. That's useful if you're using [RAM Bundles](https://reactnative.dev/docs/0.74/ram-bundles-inline-requires). By default is `bundle` but can be customized to add extra flags as follows:
 
 ```groovy
 bundleCommand = "ram-bundle"
@@ -149,6 +149,14 @@ The list of flags to pass to `hermesc`. By default is `["-O", "-output-source-ma
 ```groovy
 hermesFlags = ["-O", "-output-source-map"]
 ```
+
+### `enableBundleCompression`
+
+Whether the Bundle Asset should be compressed when packaged into a `.apk`, or not.
+
+Disabling compression for the `.bundle` allows it to be directly memory-mapped to RAM, hence improving startup time - at the cost of a larger resulting app size on disk. Please note that the `.apk` download size will be mostly unaffected as the `.apk` files are compressed before downloading
+
+By default this is disabled, and you should not turn it on, unless you're really concerned about disk space for your application.
 
 ## Using Flavors & Build Variants
 

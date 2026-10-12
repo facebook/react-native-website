@@ -1,41 +1,65 @@
 ---
 id: inputaccessoryview
-title: InputAccessoryView
+title: '🗑️ InputAccessoryView'
 ---
+
+:::warning[Deprecated]
+`InputAccessoryView` is deprecated and will be removed in a future release.
+:::
 
 A component which enables customization of the keyboard input accessory view on iOS. The input accessory view is displayed above the keyboard whenever a `TextInput` has focus. This component can be used to create custom toolbars.
 
 To use this component wrap your custom toolbar with the InputAccessoryView component, and set a `nativeID`. Then, pass that `nativeID` as the `inputAccessoryViewID` of whatever `TextInput` you desire. A basic example:
 
 ```SnackPlayer name=InputAccessoryView&supportedPlatforms=ios
-import React, {useState} from 'react';
-import {Button, InputAccessoryView, ScrollView, TextInput} from 'react-native';
+import {useState} from 'react';
+import {
+  Button,
+  InputAccessoryView,
+  ScrollView,
+  TextInput,
+  StyleSheet,
+} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
+
+const inputAccessoryViewID = 'uniqueID';
+const initialText = '';
 
 const App = () => {
-  const inputAccessoryViewID = 'uniqueID';
-  const initialText = '';
   const [text, setText] = useState(initialText);
 
   return (
-    <>
-      <ScrollView keyboardDismissMode="interactive">
-        <TextInput
-          style={{
-            padding: 16,
-            marginTop: 50,
-          }}
-          inputAccessoryViewID={inputAccessoryViewID}
-          onChangeText={setText}
-          value={text}
-          placeholder={'Please type here…'}
-        />
-      </ScrollView>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <ScrollView keyboardDismissMode="interactive">
+          <TextInput
+            style={styles.textInput}
+            inputAccessoryViewID={inputAccessoryViewID}
+            onChangeText={setText}
+            value={text}
+            placeholder={'Please type here…'}
+          />
+        </ScrollView>
+      </SafeAreaView>
       <InputAccessoryView nativeID={inputAccessoryViewID}>
         <Button onPress={() => setText(initialText)} title="Clear text" />
       </InputAccessoryView>
-    </>
+    </SafeAreaProvider>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    paddingHorizontal: 20,
+  },
+  textInput: {
+    padding: 16,
+    borderColor: 'black',
+    borderWidth: 1,
+  },
+});
 
 export default App;
 ```

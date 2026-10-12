@@ -6,29 +6,33 @@ title: Platform
 ## Example
 
 ```SnackPlayer name=Platform%20API%20Example&supportedPlatforms=ios,android
-import React from 'react';
 import {Platform, StyleSheet, Text, ScrollView} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => {
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <Text>OS</Text>
-      <Text style={styles.value}>{Platform.OS}</Text>
-      <Text>OS Version</Text>
-      <Text style={styles.value}>{Platform.Version}</Text>
-      <Text>isTV</Text>
-      <Text style={styles.value}>{Platform.isTV.toString()}</Text>
-      {Platform.OS === 'ios' && (
-        <>
-          <Text>isPad</Text>
-          <Text style={styles.value}>{Platform.isPad.toString()}</Text>
-        </>
-      )}
-      <Text>Constants</Text>
-      <Text style={styles.value}>
-        {JSON.stringify(Platform.constants, null, 2)}
-      </Text>
-    </ScrollView>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.safeArea}>
+        <ScrollView contentContainerStyle={styles.container}>
+          <Text>OS</Text>
+          <Text style={styles.value}>{Platform.OS}</Text>
+          <Text>OS Version</Text>
+          <Text style={styles.value}>{Platform.Version}</Text>
+          <Text>isTV</Text>
+          <Text style={styles.value}>{Platform.isTV.toString()}</Text>
+          {Platform.OS === 'ios' && (
+            <>
+              <Text>isPad</Text>
+              <Text style={styles.value}>{Platform.isPad.toString()}</Text>
+            </>
+          )}
+          <Text>Constants</Text>
+          <Text style={styles.value}>
+            {JSON.stringify(Platform.constants, null, 2)}
+          </Text>
+        </ScrollView>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
@@ -42,6 +46,9 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     padding: 4,
     marginBottom: 8,
+  },
+  safeArea: {
+    flex: 1,
   },
 });
 
@@ -66,6 +73,7 @@ Returns an object which contains all available common and specific constants rel
 
 | <div className="widerColumn">Name</div>                   | Type    | Optional | Description                                                                                                                                                                                       |
 | --------------------------------------------------------- | ------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| isDisableAnimations                                       | boolean | Yes      | Whether animations should be disabled. When not set, defaults to the value of `isTesting`.                                                                                                        |
 | isTesting                                                 | boolean | No       |                                                                                                                                                                                                   |
 | reactNativeVersion                                        | object  | No       | Information about React Native version. Keys are `major`, `minor`, `patch` with optional `prerelease` and values are `number`s.                                                                   |
 | Version <div className="label android">Android</div>      | number  | No       | OS version constant specific to Android.                                                                                                                                                          |
@@ -84,7 +92,21 @@ Returns an object which contains all available common and specific constants rel
 
 ---
 
-### `isPad` <div class="label ios">iOS</div>
+### `isDisableAnimations`
+
+```tsx
+static isDisableAnimations: boolean;
+```
+
+Returns `true` when animations are turned off, usually during automated tests. Falls back to [`isTesting`](#istesting) if not set. On Android, it can be set with the `IS_DISABLE_ANIMATIONS` system property.
+
+| Type    |
+| ------- |
+| boolean |
+
+---
+
+### `isPad` <div className="label ios">iOS</div>
 
 ```tsx
 static isPad: boolean;
@@ -118,7 +140,7 @@ Returns a boolean which defines if device is a TV.
 static isVision: boolean;
 ```
 
-Returns a boolean which defines if device is an Apple Vision. _If you are using [Apple Vision Pro (Designed for iPad)](https://developer.apple.com/documentation/visionos/checking-whether-your-app-is-compatible-with-visionos) `isVision` will be `false` but `isPad` will be `true`_
+Returns a boolean which defines if device is an Apple Vision. _If you are using [Apple Vision Pro (Designed for iPad)](https://developer.apple.com/documentation/visionos/determining-whether-to-bring-your-app-to-visionos) `isVision` will be `false` but `isPad` will be `true`_
 
 | Type    |
 | ------- |

@@ -3,7 +3,9 @@ id: touchablenativefeedback
 title: TouchableNativeFeedback
 ---
 
-> If you're looking for a more extensive and future-proof way to handle touch-based input, check out the [Pressable](pressable.md) API.
+:::tip
+If you're looking for a more extensive and future-proof way to handle touch-based input, check out the [Pressable](pressable.md) API.
+:::
 
 A wrapper for making views respond properly to touches (Android only). On Android this component uses native state drawable to display touch feedback.
 
@@ -14,34 +16,31 @@ Background drawable of native feedback touchable can be customized with `backgro
 ## Example
 
 ```SnackPlayer name=TouchableNativeFeedback%20Android%20Component%20Example&supportedPlatforms=android
-import React, {useState} from 'react';
-import {
-  Text,
-  View,
-  StyleSheet,
-  TouchableNativeFeedback,
-  StatusBar,
-} from 'react-native';
+import {useState} from 'react';
+import {Text, View, StyleSheet, TouchableNativeFeedback} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => {
   const [rippleColor, setRippleColor] = useState(randomHexColor());
   const [rippleOverflow, setRippleOverflow] = useState(false);
   return (
-    <View style={styles.container}>
-      <TouchableNativeFeedback
-        onPress={() => {
-          setRippleColor(randomHexColor());
-          setRippleOverflow(!rippleOverflow);
-        }}
-        background={TouchableNativeFeedback.Ripple(
-          rippleColor,
-          rippleOverflow,
-        )}>
-        <View style={styles.touchable}>
-          <Text style={styles.text}>TouchableNativeFeedback</Text>
-        </View>
-      </TouchableNativeFeedback>
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <TouchableNativeFeedback
+          onPress={() => {
+            setRippleColor(randomHexColor());
+            setRippleOverflow(!rippleOverflow);
+          }}
+          background={TouchableNativeFeedback.Ripple(
+            rippleColor,
+            rippleOverflow,
+          )}>
+          <View style={styles.touchable}>
+            <Text style={styles.text}>TouchableNativeFeedback</Text>
+          </View>
+        </TouchableNativeFeedback>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
@@ -55,12 +54,19 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    paddingTop: StatusBar.currentHeight,
-    backgroundColor: '#ecf0f1',
-    padding: 8,
+    backgroundColor: 'black',
+    paddingHorizontal: 20,
   },
-  touchable: {flex: 0.5, borderColor: 'black', borderWidth: 1},
-  text: {alignSelf: 'center'},
+  touchable: {
+    flex: 0.33,
+    justifyContent: 'center',
+    backgroundColor: '#eeeeee',
+    borderColor: 'black',
+    borderWidth: 1,
+  },
+  text: {
+    alignSelf: 'center',
+  },
 });
 
 export default App;
@@ -100,7 +106,7 @@ Check TouchableNativeFeedback.canUseNativeForeground() first, as this is only av
 
 ---
 
-### `hasTVPreferredFocus` <div class="label android">Android</div>
+### `hasTVPreferredFocus` <div className="label android">Android</div>
 
 TV preferred focus (see documentation for the View component).
 
@@ -110,7 +116,7 @@ TV preferred focus (see documentation for the View component).
 
 ---
 
-### `nextFocusDown` <div class="label android">Android</div>
+### `nextFocusDown` <div className="label android">Android</div>
 
 TV next focus down (see documentation for the View component).
 
@@ -120,7 +126,7 @@ TV next focus down (see documentation for the View component).
 
 ---
 
-### `nextFocusForward` <div class="label android">Android</div>
+### `nextFocusForward` <div className="label android">Android</div>
 
 TV next focus forward (see documentation for the View component).
 
@@ -130,7 +136,7 @@ TV next focus forward (see documentation for the View component).
 
 ---
 
-### `nextFocusLeft` <div class="label android">Android</div>
+### `nextFocusLeft` <div className="label android">Android</div>
 
 TV next focus left (see documentation for the View component).
 
@@ -140,7 +146,7 @@ TV next focus left (see documentation for the View component).
 
 ---
 
-### `nextFocusRight` <div class="label android">Android</div>
+### `nextFocusRight` <div className="label android">Android</div>
 
 TV next focus right (see documentation for the View component).
 
@@ -150,7 +156,7 @@ TV next focus right (see documentation for the View component).
 
 ---
 
-### `nextFocusUp` <div class="label android">Android</div>
+### `nextFocusUp` <div className="label android">Android</div>
 
 TV next focus up (see documentation for the View component).
 

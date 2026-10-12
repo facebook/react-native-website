@@ -3,13 +3,14 @@ id: actionsheetios
 title: ActionSheetIOS
 ---
 
-Displays native to iOS [Action Sheet](https://developer.apple.com/design/human-interface-guidelines/ios/views/action-sheets/) component.
+Displays native to iOS [Action Sheet](https://developer.apple.com/design/human-interface-guidelines/action-sheets) component.
 
 ## Example
 
-```SnackPlayer name=ActionSheetIOS&supportedPlatforms=ios
-import React, {useState} from 'react';
-import {ActionSheetIOS, Button, StyleSheet, Text, View} from 'react-native';
+```SnackPlayer name=ActionSheetIOS%20Example&supportedPlatforms=ios
+import {useState} from 'react';
+import {ActionSheetIOS, Button, StyleSheet, Text} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => {
   const [result, setResult] = useState('🔮');
@@ -34,10 +35,12 @@ const App = () => {
     );
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.result}>{result}</Text>
-      <Button onPress={onPress} title="Show Action Sheet" />
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <Text style={styles.result}>{result}</Text>
+        <Button onPress={onPress} title="Show Action Sheet" />
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
@@ -129,7 +132,9 @@ Display the iOS share sheet. The `options` object should contain one or both of 
 - `subject` (string) - a subject for the message
 - `excludedActivityTypes` (array) - the activities to exclude from the ActionSheet
 
-> **Note:** If `url` points to a local file, or is a base64-encoded uri, the file it points to will be loaded and shared directly. In this way, you can share images, videos, PDF files, etc. If `url` points to a remote file or address it must conform to URL format as described in [RFC 2396](https://www.ietf.org/rfc/rfc2396.txt). For example, a web URL without a proper protocol (HTTP/HTTPS) will not be shared.
+:::note
+If `url` points to a local file, or is a base64-encoded uri, the file it points to will be loaded and shared directly. In this way, you can share images, videos, PDF files, etc. If `url` points to a remote file or address it must conform to URL format as described in [RFC 2396](https://www.ietf.org/rfc/rfc2396.txt). For example, a web URL without a proper protocol (HTTP/HTTPS) will not be shared.
+:::
 
 The 'failureCallback' function takes one parameter, an error object. The only property defined on this object is an optional `stack` property of type `string`.
 

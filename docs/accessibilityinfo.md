@@ -8,8 +8,9 @@ Sometimes it's useful to know whether or not the device has a screen reader that
 ## Example
 
 ```SnackPlayer name=AccessibilityInfo%20Example&supportedPlatforms=android,ios
-import React, {useState, useEffect} from 'react';
-import {AccessibilityInfo, View, Text, StyleSheet} from 'react-native';
+import {useState, useEffect} from 'react';
+import {AccessibilityInfo, Text, StyleSheet} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => {
   const [reduceMotionEnabled, setReduceMotionEnabled] = useState(false);
@@ -43,14 +44,16 @@ const App = () => {
   }, []);
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.status}>
-        The reduce motion is {reduceMotionEnabled ? 'enabled' : 'disabled'}.
-      </Text>
-      <Text style={styles.status}>
-        The screen reader is {screenReaderEnabled ? 'enabled' : 'disabled'}.
-      </Text>
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <Text style={styles.status}>
+          The reduce motion is {reduceMotionEnabled ? 'enabled' : 'disabled'}.
+        </Text>
+        <Text style={styles.status}>
+          The screen reader is {screenReaderEnabled ? 'enabled' : 'disabled'}.
+        </Text>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
@@ -82,21 +85,21 @@ static addEventListener(
   handler: (
     event: AccessibilityChangeEvent | AccessibilityAnnouncementFinishedEvent,
   ) => void,
-): EmitterSubscription;
+): EventSubscription;
 ```
 
 Add an event handler. Supported events:
 
-| Event name                                                                           | Description                                                                                                                                                                                                                                                                                              |
-| ------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `accessibilityServiceChanged`<br/><div class="label two-lines android">Android</div> | Fires when some services such as TalkBack, other Android assistive technologies, and third-party accessibility services are enabled. The argument to the event handler is a boolean. The boolean is `true` when a some accessibility services is enabled and `false` otherwise.                          |
-| `announcementFinished`<br/><div class="label two-lines ios">iOS</div>                | Fires when the screen reader has finished making an announcement. The argument to the event handler is a dictionary with these keys:<ul><li>`announcement`: The string announced by the screen reader.</li><li>`success`: A boolean indicating whether the announcement was successfully made.</li></ul> |
-| `boldTextChanged`<br/><div class="label two-lines ios">iOS</div>                     | Fires when the state of the bold text toggle changes. The argument to the event handler is a boolean. The boolean is `true` when bold text is enabled and `false` otherwise.                                                                                                                             |
-| `grayscaleChanged`<br/><div class="label two-lines ios">iOS</div>                    | Fires when the state of the gray scale toggle changes. The argument to the event handler is a boolean. The boolean is `true` when a gray scale is enabled and `false` otherwise.                                                                                                                         |
-| `invertColorsChanged`<br/><div class="label two-lines ios">iOS</div>                 | Fires when the state of the invert colors toggle changes. The argument to the event handler is a boolean. The boolean is `true` when invert colors is enabled and `false` otherwise.                                                                                                                     |
-| `reduceMotionChanged`                                                                | Fires when the state of the reduce motion toggle changes. The argument to the event handler is a boolean. The boolean is `true` when a reduce motion is enabled (or when "Transition Animation Scale" in "Developer options" is "Animation off") and `false` otherwise.                                  |
-| `reduceTransparencyChanged`<br/><div class="label two-lines ios">iOS</div>           | Fires when the state of the reduce transparency toggle changes. The argument to the event handler is a boolean. The boolean is `true` when reduce transparency is enabled and `false` otherwise.                                                                                                         |
-| `screenReaderChanged`                                                                | Fires when the state of the screen reader changes. The argument to the event handler is a boolean. The boolean is `true` when a screen reader is enabled and `false` otherwise.                                                                                                                          |
+| Event name                                                                               | Description                                                                                                                                                                                                                                                                                              |
+| ---------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `accessibilityServiceChanged`<br/><div className="label two-lines android">Android</div> | Fires when some services such as TalkBack, other Android assistive technologies, and third-party accessibility services are enabled. The argument to the event handler is a boolean. The boolean is `true` when a some accessibility services is enabled and `false` otherwise.                          |
+| `announcementFinished`<br/><div className="label two-lines ios">iOS</div>                | Fires when the screen reader has finished making an announcement. The argument to the event handler is a dictionary with these keys:<ul><li>`announcement`: The string announced by the screen reader.</li><li>`success`: A boolean indicating whether the announcement was successfully made.</li></ul> |
+| `boldTextChanged`<br/><div className="label two-lines ios">iOS</div>                     | Fires when the state of the bold text toggle changes. The argument to the event handler is a boolean. The boolean is `true` when bold text is enabled and `false` otherwise.                                                                                                                             |
+| `grayscaleChanged`<br/><div className="label two-lines ios">iOS</div>                    | Fires when the state of the gray scale toggle changes. The argument to the event handler is a boolean. The boolean is `true` when a gray scale is enabled and `false` otherwise.                                                                                                                         |
+| `invertColorsChanged`<br/><div className="label two-lines ios">iOS</div>                 | Fires when the state of the invert colors toggle changes. The argument to the event handler is a boolean. The boolean is `true` when invert colors is enabled and `false` otherwise.                                                                                                                     |
+| `reduceMotionChanged`                                                                    | Fires when the state of the reduce motion toggle changes. The argument to the event handler is a boolean. The boolean is `true` when a reduce motion is enabled (or when "Transition Animation Scale" in "Developer options" is "Animation off") and `false` otherwise.                                  |
+| `reduceTransparencyChanged`<br/><div className="label two-lines ios">iOS</div>           | Fires when the state of the reduce transparency toggle changes. The argument to the event handler is a boolean. The boolean is `true` when reduce transparency is enabled and `false` otherwise.                                                                                                         |
+| `screenReaderChanged`                                                                    | Fires when the state of the screen reader changes. The argument to the event handler is a boolean. The boolean is `true` when a screen reader is enabled and `false` otherwise.                                                                                                                          |
 
 ---
 
@@ -115,22 +118,25 @@ Post a string to be announced by the screen reader.
 ```tsx
 static announceForAccessibilityWithOptions(
   announcement: string,
-  options: options: {queue?: boolean},
+  options: {
+    queue?: boolean;
+    priority?: 'low' | 'default' | 'high';
+  },
 );
 ```
 
-Post a string to be announced by the screen reader with modification options. By default announcements will interrupt any existing speech, but on iOS they can be queued behind existing speech by setting `queue` to `true` in the options object.
+Post a string to be announced by the screen reader with modification options. By default announcements will interrupt any existing speech, but on iOS they can be queued behind existing speech by setting `queue` to `true` in the options object. An optional `priority` can also be specified on iOS.
 
 **Parameters:**
 
-| Name                                                          | Type   | Description                                                                              |
-| ------------------------------------------------------------- | ------ | ---------------------------------------------------------------------------------------- |
-| announcement <div class="label basic required">Required</div> | string | The string to be announced                                                               |
-| options <div class="label basic required">Required</div>      | object | `queue` - queue the announcement behind existing speech <div class="label ios">iOS</div> |
+| Name                                                              | Type   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| ----------------------------------------------------------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| announcement <div className="label basic required">Required</div> | string | The string to be announced                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| options <div className="label basic required">Required</div>      | object | Options object with the following keys:<ul><li>`queue`: Queue the announcement behind existing speech. <div className="label ios">iOS</div></li><li>`priority`: The priority of the announcement (`'low'`, `'default'`, or `'high'`). High priority announcements will interrupt any ongoing speech and cannot be interrupted. Default priority announcements will interrupt any ongoing speech but can be interrupted. Low priority announcements will not interrupt ongoing speech and can be interrupted. <div className="label ios">iOS</div></li></ul> |
 
 ---
 
-### `getRecommendedTimeoutMillis()` <div class="label android">Android</div>
+### `getRecommendedTimeoutMillis()` <div className="label android">Android</div>
 
 ```tsx
 static getRecommendedTimeoutMillis(originalTimeout: number): Promise<number>;
@@ -141,13 +147,13 @@ This value is set in "Time to take action (Accessibility timeout)" of "Accessibi
 
 **Parameters:**
 
-| Name                                                             | Type   | Description                                                                           |
-| ---------------------------------------------------------------- | ------ | ------------------------------------------------------------------------------------- |
-| originalTimeout <div class="label basic required">Required</div> | number | The timeout to return if "Accessibility timeout" is not set. Specify in milliseconds. |
+| Name                                                                 | Type   | Description                                                                           |
+| -------------------------------------------------------------------- | ------ | ------------------------------------------------------------------------------------- |
+| originalTimeout <div className="label basic required">Required</div> | number | The timeout to return if "Accessibility timeout" is not set. Specify in milliseconds. |
 
 ---
 
-### `isAccessibilityServiceEnabled()` <div class="label android">Android</div>
+### `isAccessibilityServiceEnabled()` <div className="label android">Android</div>
 
 ```tsx
 static isAccessibilityServiceEnabled(): Promise<boolean>;
@@ -155,11 +161,13 @@ static isAccessibilityServiceEnabled(): Promise<boolean>;
 
 Check whether any accessibility service is enabled. This includes TalkBack but also any third-party accessibility app that may be installed. To only check whether TalkBack is enabled, use [isScreenReaderEnabled](#isscreenreaderenabled). Returns a promise which resolves to a boolean. The result is `true` when some accessibility services is enabled and `false` otherwise.
 
-> **Note**: Please use [isScreenReaderEnabled](#isscreenreaderenabled) if you only want to check the status of TalkBack.
+:::note
+Please use [`isScreenReaderEnabled`](#isscreenreaderenabled) if you only want to check the status of TalkBack.
+:::
 
 ---
 
-### `isBoldTextEnabled()` <div class="label ios">iOS</div>
+### `isBoldTextEnabled()` <div className="label ios">iOS</div>
 
 ```tsx
 static isBoldTextEnabled(): Promise<boolean>:
@@ -169,7 +177,7 @@ Query whether a bold text is currently enabled. Returns a promise which resolves
 
 ---
 
-### `isGrayscaleEnabled()` <div class="label ios">iOS</div>
+### `isGrayscaleEnabled()` <div className="label ios">iOS</div>
 
 ```tsx
 static isGrayscaleEnabled(): Promise<boolean>;
@@ -179,7 +187,7 @@ Query whether grayscale is currently enabled. Returns a promise which resolves t
 
 ---
 
-### `isInvertColorsEnabled()` <div class="label ios">iOS</div>
+### `isInvertColorsEnabled()` <div className="label ios">iOS</div>
 
 ```tsx
 static isInvertColorsEnabled(): Promise<boolean>;
@@ -199,7 +207,7 @@ Query whether reduce motion is currently enabled. Returns a promise which resolv
 
 ---
 
-### `isReduceTransparencyEnabled()` <div class="label ios">iOS</div>
+### `isReduceTransparencyEnabled()` <div className="label ios">iOS</div>
 
 ```tsx
 static isReduceTransparencyEnabled(): Promise<boolean>;
@@ -219,7 +227,27 @@ Query whether a screen reader is currently enabled. Returns a promise which reso
 
 ---
 
-### `prefersCrossFadeTransitions()` <div class="label ios">iOS</div>
+### `isHighTextContrastEnabled()` <div className="label android">Android</div>
+
+```tsx
+static isHighTextContrastEnabled(): Promise<boolean>
+```
+
+Query whether high text contrast is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when high text contrast is enabled and `false` otherwise.
+
+---
+
+### `isDarkerSystemColorsEnabled()` <div className="label ios">iOS</div>
+
+```tsx
+static isDarkerSystemColorsEnabled(): Promise<boolean>
+```
+
+Query whether dark system colors is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when dark system colors is enabled and `false` otherwise.
+
+---
+
+### `prefersCrossFadeTransitions()` <div className="label ios">iOS</div>
 
 ```tsx
 static prefersCrossFadeTransitions(): Promise<boolean>;
@@ -229,7 +257,11 @@ Query whether reduce motion and prefer cross-fade transitions settings are curre
 
 ---
 
-### `setAccessibilityFocus()`
+### 🗑️ `setAccessibilityFocus()`
+
+:::warning[Deprecated]
+Prefer using `sendAccessibilityEvent` with eventType `focus` instead.
+:::
 
 ```tsx
 static setAccessibilityFocus(reactTag: number);
@@ -239,4 +271,25 @@ Set accessibility focus to a React component.
 
 On Android, this calls `UIManager.sendAccessibilityEvent` method with passed `reactTag` and `UIManager.AccessibilityEventTypes.typeViewFocused` arguments.
 
-> **Note**: Make sure that any `View` you want to receive the accessibility focus has `accessible={true}`.
+:::note
+Make sure that any `View` you want to receive the accessibility focus has `accessible={true}`.
+:::
+
+---
+
+### `sendAccessibilityEvent()`
+
+```tsx
+static sendAccessibilityEvent(host: HostInstance, eventType: AccessibilityEventTypes);
+```
+
+Imperatively trigger an accessibility event on a React component, like changing the focused element for a screen reader.
+
+:::note
+Make sure that any `View` you want to receive the accessibility focus has `accessible={true}`.
+:::
+
+| Name                                                           | Type                    | Description                                                                                                            |
+| -------------------------------------------------------------- | ----------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| host <div className="label basic required">Required</div>      | HostInstance            | The component ref to send the event to.                                                                                |
+| eventType <div className="label basic required">Required</div> | AccessibilityEventTypes | One of `'click'` (Android only), `'focus'`, `'viewHoverEnter'` (Android only), or `'windowStateChange'` (Android only) |

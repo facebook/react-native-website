@@ -21,7 +21,6 @@ The defaults are different, with `flexDirection` defaulting to `column` instead 
 In the following example, the red, orange, and green views are all children in the container view that has `flex: 1` set. The red view uses `flex: 1` , the orange view uses `flex: 2`, and the green view uses `flex: 3` . **1+2+3 = 6**, which means that the red view will get `1/6` of the space, the orange `2/6` of the space, and the green `3/6` of the space.
 
 ```SnackPlayer name=Flex%20Example
-import React from 'react';
 import {StyleSheet, View} from 'react-native';
 
 const Flex = () => {
@@ -69,7 +68,7 @@ You can learn more [here](https://www.yogalayout.dev/docs/styling/flex-direction
 <TabItem value="javascript">
 
 ```SnackPlayer name=Flex%20Direction&ext=js
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
 const FlexDirectionBasics = () => {
@@ -78,7 +77,7 @@ const FlexDirectionBasics = () => {
   return (
     <PreviewLayout
       label="flexDirection"
-      values={['column', 'row', 'row-reverse', 'column-reverse']}
+      values={['column', 'row', 'column-reverse', 'row-reverse']}
       selectedValue={flexDirection}
       setSelectedValue={setflexDirection}>
       <View style={[styles.box, {backgroundColor: 'powderblue'}]} />
@@ -168,7 +167,7 @@ export default FlexDirectionBasics;
 <TabItem value="typescript">
 
 ```SnackPlayer name=Flex%20Direction&ext=tsx
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import type {PropsWithChildren} from 'react';
 
@@ -178,7 +177,7 @@ const FlexDirectionBasics = () => {
   return (
     <PreviewLayout
       label="flexDirection"
-      values={['column', 'row', 'row-reverse', 'column-reverse']}
+      values={['column', 'row', 'column-reverse', 'row-reverse']}
       selectedValue={flexDirection}
       setSelectedValue={setflexDirection}>
       <View style={[styles.box, {backgroundColor: 'powderblue'}]} />
@@ -286,7 +285,7 @@ Layout [`direction`](layout-props#direction) specifies the direction in which ch
 <TabItem value="javascript">
 
 ```SnackPlayer name=Flex%20Direction&ext=js
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 
 const DirectionLayout = () => {
@@ -385,7 +384,7 @@ export default DirectionLayout;
 <TabItem value="typescript">
 
 ```SnackPlayer name=Flex%20Direction&ext=tsx
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 import type {PropsWithChildren} from 'react';
 
@@ -513,7 +512,7 @@ You can learn more [here](https://www.yogalayout.dev/docs/styling/justify-conten
 <TabItem value="javascript">
 
 ```SnackPlayer name=Justify%20Content&ext=js
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 
 const JustifyContentBasics = () => {
@@ -619,7 +618,7 @@ export default JustifyContentBasics;
 <TabItem value="typescript">
 
 ```SnackPlayer name=Justify%20Content&ext=tsx
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 import type {PropsWithChildren} from 'react';
 
@@ -756,7 +755,7 @@ You can learn more [here](https://www.yogalayout.dev/docs/styling/align-items-se
 <TabItem value="javascript">
 
 ```SnackPlayer name=Align%20Items&ext=js
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 
 const AlignItemsLayout = () => {
@@ -865,7 +864,7 @@ export default AlignItemsLayout;
 <TabItem value="typescript">
 
 ```SnackPlayer name=Align%20Items&ext=tsx
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 import type {PropsWithChildren} from 'react';
 
@@ -989,7 +988,7 @@ export default AlignItemsLayout;
 <TabItem value="javascript">
 
 ```SnackPlayer name=Align%20Self&ext=js
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 
 const AlignSelfLayout = () => {
@@ -1099,13 +1098,18 @@ export default AlignSelfLayout;
 <TabItem value="typescript">
 
 ```SnackPlayer name=Align%20Self&ext=tsx
-import React, {useState} from 'react';
-import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
+import {useState} from 'react';
+import {
+  View,
+  TouchableOpacity,
+  Text,
+  StyleSheet,
+  type ViewStyle,
+} from 'react-native';
 import type {PropsWithChildren} from 'react';
-import type {FlexAlignType} from 'react-native';
 
 const AlignSelfLayout = () => {
-  const [alignSelf, setAlignSelf] = useState<FlexAlignType>('stretch');
+  const [alignSelf, setAlignSelf] = useState<ViewStyle['alignSelf']>('stretch');
 
   return (
     <PreviewLayout
@@ -1132,9 +1136,9 @@ const AlignSelfLayout = () => {
 
 type PreviewLayoutProps = PropsWithChildren<{
   label: string;
-  values: FlexAlignType[];
-  selectedValue: string;
-  setSelectedValue: (value: FlexAlignType) => void;
+  values: ViewStyle['alignSelf'][];
+  selectedValue: ViewStyle['alignSelf'];
+  setSelectedValue: (value: ViewStyle['alignSelf']) => void;
 }>;
 
 const PreviewLayout = ({
@@ -1241,7 +1245,7 @@ You can learn more [here](https://www.yogalayout.dev/docs/styling/align-content)
 <TabItem value="javascript">
 
 ```SnackPlayer name=Align%20Content&ext=js
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 
 const AlignContentLayout = () => {
@@ -1353,7 +1357,7 @@ export default AlignContentLayout;
 <TabItem value="typescript">
 
 ```SnackPlayer name=Align%20Content&ext=tsx
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 import type {PropsWithChildren} from 'react';
 
@@ -1482,7 +1486,7 @@ When wrapping lines, `alignContent` can be used to specify how the lines are pla
 <TabItem value="javascript">
 
 ```SnackPlayer name=Flex%20Wrap&ext=js
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 
 const FlexWrapLayout = () => {
@@ -1585,7 +1589,7 @@ export default FlexWrapLayout;
 <TabItem value="typescript">
 
 ```SnackPlayer name=Flex%20Wrap&ext=tsx
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 import type {PropsWithChildren} from 'react';
 
@@ -1713,7 +1717,7 @@ You can learn more [here](https://www.yogalayout.dev/docs/styling/flex-basis-gro
 <TabItem value="javascript">
 
 ```SnackPlayer name=Flex%20Basis%2C%20Grow%2C%20and%20Shrink&ext=js
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {View, Text, TextInput, StyleSheet} from 'react-native';
 
 const App = () => {
@@ -1887,7 +1891,7 @@ export default App;
 <TabItem value="typescript">
 
 ```SnackPlayer name=Flex%20Basis%2C%20Grow%2C%20and%20Shrink&ext=tsx
-import React, {useState} from 'react';
+import {useState, type Dispatch, type SetStateAction} from 'react';
 import {View, Text, TextInput, StyleSheet} from 'react-native';
 import type {ViewStyle} from 'react-native';
 
@@ -1962,7 +1966,7 @@ const App = () => {
 
 type BoxInfoProps = ViewStyle & {
   color: string;
-  setStyle: React.Dispatch<React.SetStateAction<ViewStyle>>;
+  setStyle: Dispatch<SetStateAction<ViewStyle>>;
 };
 
 const BoxInfo = ({
@@ -2080,13 +2084,13 @@ export default App;
 
 - [`gap`](layout-props#gap) sets the size of the gap (gutter) between rows and columns. It is a shorthand for `rowGap` and `columnGap`.
 
-You can use `flexWrap` and `alignContent` alongwith `gap` to add consistent spacing between items.
+You can use `flexWrap` and `alignContent` along with `gap` to add consistent spacing between items. Gap properties accept numeric values (in points) or percentage strings (e.g. `'10%'` on the [New Architecture](/architecture/landing-page)).
 
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
 ```SnackPlayer name=Row%20Gap%20and%20Column%20Gap&ext=js
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {View, Text, StyleSheet, TextInput} from 'react-native';
 
 const RowGapAndColumnGap = () => {
@@ -2188,7 +2192,7 @@ export default RowGapAndColumnGap;
 <TabItem value="typescript">
 
 ```SnackPlayer name=Row%20Gap%20and%20Column%20Gap&ext=tsx
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {View, Text, StyleSheet, TextInput} from 'react-native';
 import type {PropsWithChildren} from 'react';
 
@@ -2313,14 +2317,9 @@ Both `width` and `height` can take the following values:
 <TabItem value="javascript">
 
 ```SnackPlayer name=Width%20and%20Height&ext=js
-import React, {useState} from 'react';
-import {
-  View,
-  SafeAreaView,
-  TouchableOpacity,
-  Text,
-  StyleSheet,
-} from 'react-native';
+import {useState} from 'react';
+import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const WidthHeightBasics = () => {
   const [widthType, setWidthType] = useState('auto');
@@ -2359,43 +2358,45 @@ const PreviewLayout = ({
   setWidthType,
   setHeightType,
 }) => (
-  <SafeAreaView style={{flex: 1, padding: 10}}>
-    <View style={styles.row}>
-      <Text style={styles.label}>width </Text>
-      {widthValues.map(value => (
-        <TouchableOpacity
-          key={value}
-          onPress={() => setWidthType(value)}
-          style={[styles.button, widthType === value && styles.selected]}>
-          <Text
-            style={[
-              styles.buttonLabel,
-              widthType === value && styles.selectedLabel,
-            ]}>
-            {value}
-          </Text>
-        </TouchableOpacity>
-      ))}
-    </View>
-    <View style={styles.row}>
-      <Text style={styles.label}>height </Text>
-      {heightValues.map(value => (
-        <TouchableOpacity
-          key={value}
-          onPress={() => setHeightType(value)}
-          style={[styles.button, heightType === value && styles.selected]}>
-          <Text
-            style={[
-              styles.buttonLabel,
-              heightType === value && styles.selectedLabel,
-            ]}>
-            {value}
-          </Text>
-        </TouchableOpacity>
-      ))}
-    </View>
-    {children}
-  </SafeAreaView>
+  <SafeAreaProvider>
+    <SafeAreaView style={{flex: 1, padding: 10}}>
+      <View style={styles.row}>
+        <Text style={styles.label}>width </Text>
+        {widthValues.map(value => (
+          <TouchableOpacity
+            key={value}
+            onPress={() => setWidthType(value)}
+            style={[styles.button, widthType === value && styles.selected]}>
+            <Text
+              style={[
+                styles.buttonLabel,
+                widthType === value && styles.selectedLabel,
+              ]}>
+              {value}
+            </Text>
+          </TouchableOpacity>
+        ))}
+      </View>
+      <View style={styles.row}>
+        <Text style={styles.label}>height </Text>
+        {heightValues.map(value => (
+          <TouchableOpacity
+            key={value}
+            onPress={() => setHeightType(value)}
+            style={[styles.button, heightType === value && styles.selected]}>
+            <Text
+              style={[
+                styles.buttonLabel,
+                heightType === value && styles.selectedLabel,
+              ]}>
+              {value}
+            </Text>
+          </TouchableOpacity>
+        ))}
+      </View>
+      {children}
+    </SafeAreaView>
+  </SafeAreaProvider>
 );
 
 const styles = StyleSheet.create({
@@ -2442,15 +2443,9 @@ export default WidthHeightBasics;
 <TabItem value="typescript">
 
 ```SnackPlayer name=Width%20and%20Height&ext=tsx
-import React, {useState} from 'react';
-import {
-  View,
-  SafeAreaView,
-  TouchableOpacity,
-  Text,
-  StyleSheet,
-} from 'react-native';
-import type {PropsWithChildren} from 'react';
+import {useState, PropsWithChildren} from 'react';
+import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 type Dimension = 'auto' | `${number}%` | number;
 
@@ -2500,43 +2495,45 @@ const PreviewLayout = ({
   setWidthType,
   setHeightType,
 }: PreviewLayoutProps) => (
-  <SafeAreaView style={{flex: 1, padding: 10}}>
-    <View style={styles.row}>
-      <Text style={styles.label}>width </Text>
-      {widthValues.map(value => (
-        <TouchableOpacity
-          key={value}
-          onPress={() => setWidthType(value)}
-          style={[styles.button, widthType === value && styles.selected]}>
-          <Text
-            style={[
-              styles.buttonLabel,
-              widthType === value && styles.selectedLabel,
-            ]}>
-            {value}
-          </Text>
-        </TouchableOpacity>
-      ))}
-    </View>
-    <View style={styles.row}>
-      <Text style={styles.label}>height </Text>
-      {heightValues.map(value => (
-        <TouchableOpacity
-          key={value}
-          onPress={() => setHeightType(value)}
-          style={[styles.button, heightType === value && styles.selected]}>
-          <Text
-            style={[
-              styles.buttonLabel,
-              heightType === value && styles.selectedLabel,
-            ]}>
-            {value}
-          </Text>
-        </TouchableOpacity>
-      ))}
-    </View>
-    {children}
-  </SafeAreaView>
+  <SafeAreaProvider>
+    <SafeAreaView style={{flex: 1, padding: 10}}>
+      <View style={styles.row}>
+        <Text style={styles.label}>width </Text>
+        {widthValues.map(value => (
+          <TouchableOpacity
+            key={value}
+            onPress={() => setWidthType(value)}
+            style={[styles.button, widthType === value && styles.selected]}>
+            <Text
+              style={[
+                styles.buttonLabel,
+                widthType === value && styles.selectedLabel,
+              ]}>
+              {value}
+            </Text>
+          </TouchableOpacity>
+        ))}
+      </View>
+      <View style={styles.row}>
+        <Text style={styles.label}>height </Text>
+        {heightValues.map(value => (
+          <TouchableOpacity
+            key={value}
+            onPress={() => setHeightType(value)}
+            style={[styles.button, heightType === value && styles.selected]}>
+            <Text
+              style={[
+                styles.buttonLabel,
+                heightType === value && styles.selectedLabel,
+              ]}>
+              {value}
+            </Text>
+          </TouchableOpacity>
+        ))}
+      </View>
+      {children}
+    </SafeAreaView>
+  </SafeAreaProvider>
 );
 
 const styles = StyleSheet.create({
@@ -2582,19 +2579,21 @@ export default WidthHeightBasics;
 </TabItem>
 </Tabs>
 
-## Absolute & Relative Layout
+## Position
 
-The `position` type of an element defines how it is positioned within its parent.
+The `position` type of an element defines how it is positioned relative to either itself, its parent, or its [containing block](./flexbox.md#the-containing-block).
 
 - `relative` (**default value**) By default, an element is positioned relatively. This means an element is positioned according to the normal flow of the layout, and then offset relative to that position based on the values of `top`, `right`, `bottom`, and `left`. The offset does not affect the position of any sibling or parent elements.
 
-- `absolute` When positioned absolutely, an element doesn't take part in the normal layout flow. It is instead laid out independent of its siblings. The position is determined based on the `top`, `right`, `bottom`, and `left` values.
+- `absolute` When positioned absolutely, an element doesn't take part in the normal layout flow. It is instead laid out independent of its siblings. The position is determined based on the `top`, `right`, `bottom`, and `left` values. These values will position the element relative to its containing block.
+
+- `static` When positioned statically, an element is positioned according to the normal flow of layout, and will ignore the `top`, `right`, `bottom`, and `left` values. This `position` will also cause the element to not form a containing block for absolute descendants, unless some other superceding style prop is present (e.g. `transform`). This allows `absolute` elements to be positioned to something that is not their parent. Note that **`static` is only available on the New Architecture**.
 
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
-```SnackPlayer name=Absolute%20%26%20Relative%20Layout&ext=js
-import React, {useState} from 'react';
+```SnackPlayer name=Position&ext=js
+import {useState} from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 
 const PositionLayout = () => {
@@ -2604,7 +2603,7 @@ const PositionLayout = () => {
     <PreviewLayout
       label="position"
       selectedValue={position}
-      values={['relative', 'absolute']}
+      values={['relative', 'absolute', 'static']}
       setSelectedValue={setPosition}>
       <View
         style={[
@@ -2723,19 +2722,21 @@ export default PositionLayout;
 </TabItem>
 <TabItem value="typescript">
 
-```SnackPlayer name=Absolute%20%26%20Relative%20Layout&ext=tsx
-import React, {useState} from 'react';
+```SnackPlayer name=Position&ext=tsx
+import {useState} from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 import type {PropsWithChildren} from 'react';
 
 const PositionLayout = () => {
-  const [position, setPosition] = useState<'relative' | 'absolute'>('relative');
+  const [position, setPosition] = useState<'relative' | 'absolute' | 'static'>(
+    'relative',
+  );
 
   return (
     <PreviewLayout
       label="position"
       selectedValue={position}
-      values={['relative', 'absolute']}
+      values={['relative', 'absolute', 'static']}
       setSelectedValue={setPosition}>
       <View
         style={[
@@ -2776,9 +2777,9 @@ const PositionLayout = () => {
 
 type PreviewLayoutProps = PropsWithChildren<{
   label: string;
-  values: Array<'relative' | 'absolute'>;
+  values: Array<'relative' | 'absolute' | 'static'>;
   selectedValue: string;
-  setSelectedValue: (value: 'relative' | 'absolute') => void;
+  setSelectedValue: (value: 'relative' | 'absolute' | 'static') => void;
 }>;
 
 const PreviewLayout = ({
@@ -2860,6 +2861,23 @@ export default PositionLayout;
 
 </TabItem>
 </Tabs>
+
+## The Containing Block
+
+The containing block of an element is an ancestor element which controls its position and size.
+The way containing blocks work in React Native is very similar to [how they work on the web](https://developer.mozilla.org/en-US/docs/Web/CSS/Containing_block), with some simplifications due to the lack of some web features.
+
+The `top`, `right`, `bottom`, and `left` values of an absolutely positioned element will be
+relative to its containing block.
+
+Percentage lengths (e.g.: `width: '50%'` or `padding: '10%'`) applied to absolutely positioned elements will be calculated relatively to the size of its containing block. For example, if the containing block is 100 points wide, then `width: 50%` on an absolutely positioned element will cause it to be 50 points wide.
+
+The following list will help you determine the containing block of any given element:
+
+- If that element has a `position` type of `relative` or `static`, then its containing block is its parent.
+- If that element has a `position` type of `absolute`, then its containing block is the nearest ancestor in which one of the following is true:
+  - It has a `position` type other than `static`
+  - It has a `transform`
 
 ## Going Deeper
 

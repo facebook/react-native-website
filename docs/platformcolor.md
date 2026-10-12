@@ -36,7 +36,9 @@ For a full list of the types of system colors supported, see:
 
 <TabItem value="web">
 
-> If you’re familiar with design systems, another way of thinking about this is that `PlatformColor` lets you tap into the local design system's color tokens so your app can blend right in!
+:::info
+If you’re familiar with design systems, another way of thinking about this is that `PlatformColor` lets you tap into the local design system's color tokens so your app can blend right in!
+:::
 
 </TabItem>
 </Tabs>
@@ -44,18 +46,21 @@ For a full list of the types of system colors supported, see:
 ## Example
 
 ```SnackPlayer name=PlatformColor%20Example&supportedPlatforms=android,ios
-import React from 'react';
-import {Platform, PlatformColor, StyleSheet, Text, View} from 'react-native';
+import {Platform, PlatformColor, StyleSheet, Text} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => (
-  <View style={styles.container}>
-    <Text style={styles.label}>I am a special label color!</Text>
-  </View>
+  <SafeAreaProvider>
+    <SafeAreaView style={styles.container}>
+      <Text style={styles.label}>I am a special label color!</Text>
+    </SafeAreaView>
+  </SafeAreaProvider>
 );
 
 const styles = StyleSheet.create({
   label: {
     padding: 16,
+    fontWeight: '800',
     ...Platform.select({
       ios: {
         color: PlatformColor('label'),
@@ -80,4 +85,6 @@ export default App;
 
 The string value provided to the `PlatformColor` function must match the string as it exists on the native platform where the app is running. In order to avoid runtime errors, the function should be wrapped in a platform check, either through a `Platform.OS === 'platform'` or a `Platform.select()`, as shown on the example above.
 
-> **Note:** You can find a complete example that demonstrates proper, intended use of `PlatformColor` in [PlatformColorExample.js](https://github.com/facebook/react-native/blob/main/packages/rn-tester/js/examples/PlatformColor/PlatformColorExample.js).
+:::note
+You can find a complete example that demonstrates proper, intended use of `PlatformColor` in [PlatformColorExample.js](https://github.com/facebook/react-native/blob/main/packages/rn-tester/js/examples/PlatformColor/PlatformColorExample.js).
+:::

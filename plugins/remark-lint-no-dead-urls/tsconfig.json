@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "types": ["react", "node"],
+    "lib": ["ES2022", "DOM"],
+    "target": "es2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "allowSyntheticDefaultImports": true,
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "noEmit": true
+  },
+  "include": ["./src"]
+}

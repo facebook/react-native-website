@@ -15,15 +15,8 @@ Virtualization massively improves memory consumption and performance of large li
 <TabItem value="javascript">
 
 ```SnackPlayer name=VirtualizedListExample&ext=js
-import React from 'react';
-import {
-  SafeAreaView,
-  View,
-  VirtualizedList,
-  StyleSheet,
-  Text,
-  StatusBar,
-} from 'react-native';
+import {View, VirtualizedList, StyleSheet, Text, StatusBar} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const getItem = (_data, index) => ({
   id: Math.random().toString(12).substring(0),
@@ -38,9 +31,9 @@ const Item = ({title}) => (
   </View>
 );
 
-const App = () => {
-  return (
-    <SafeAreaView style={styles.container}>
+const App = () => (
+  <SafeAreaProvider>
+    <SafeAreaView style={styles.container} edges={['top']}>
       <VirtualizedList
         initialNumToRender={4}
         renderItem={({item}) => <Item title={item.title} />}
@@ -49,8 +42,8 @@ const App = () => {
         getItem={getItem}
       />
     </SafeAreaView>
-  );
-};
+  </SafeAreaProvider>
+);
 
 const styles = StyleSheet.create({
   container: {
@@ -77,15 +70,8 @@ export default App;
 <TabItem value="typescript">
 
 ```SnackPlayer name=VirtualizedListExample&ext=tsx
-import React from 'react';
-import {
-  SafeAreaView,
-  View,
-  VirtualizedList,
-  StyleSheet,
-  Text,
-  StatusBar,
-} from 'react-native';
+import {View, VirtualizedList, StyleSheet, Text, StatusBar} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 type ItemData = {
   id: string;
@@ -109,9 +95,9 @@ const Item = ({title}: ItemProps) => (
   </View>
 );
 
-const App = () => {
-  return (
-    <SafeAreaView style={styles.container}>
+const App = () => (
+  <SafeAreaProvider>
+    <SafeAreaView style={styles.container} edges={['top']}>
       <VirtualizedList
         initialNumToRender={4}
         renderItem={({item}) => <Item title={item.title} />}
@@ -120,8 +106,8 @@ const App = () => {
         getItem={getItem}
       />
     </SafeAreaView>
-  );
-};
+  </SafeAreaProvider>
+);
 
 const styles = StyleSheet.create({
   container: {
@@ -178,7 +164,7 @@ Opaque data type passed to `getItem` and `getItemCount` to retrieve items.
 
 ---
 
-### <div class="label required basic">Required</div> **`getItem`**
+### <div className="label required basic">Required</div> **`getItem`**
 
 ```tsx
 (data: any, index: number) => any;
@@ -192,7 +178,7 @@ A generic accessor for extracting an item from any sort of data blob.
 
 ---
 
-### <div class="label required basic">Required</div> **`getItemCount`**
+### <div className="label required basic">Required</div> **`getItemCount`**
 
 ```tsx
 (data: any) => number;
@@ -206,7 +192,7 @@ Determines how many items are in the data blob.
 
 ---
 
-### <div class="label required basic">Required</div> **`renderItem`**
+### <div className="label required basic">Required</div> **`renderItem`**
 
 ```tsx
 (info: any) => ?React.Element<any>
@@ -310,9 +296,11 @@ Styling for internal View for `ListHeaderComponent`.
 
 ---
 
-### `disableVirtualization`
+### 🗑️ `disableVirtualization`
 
-> **Deprecated.** Virtualization provides significant performance and memory optimizations, but fully unmounts react instances that are outside of the render window. You should only need to disable this for debugging purposes.
+:::warning[Deprecated]
+Virtualization provides significant performance and memory optimizations, but fully unmounts react instances that are outside of the render window. You should only need to disable this for debugging purposes.
+:::
 
 | Type    |
 | ------- |
@@ -531,9 +519,11 @@ Set this true while waiting for new data from a refresh.
 
 ### `removeClippedSubviews`
 
-This may improve scroll performance for large lists.
+:::warning
+Using this property may lead to bugs (missing content) in some circumstances - use at your own risk.
+:::
 
-> Note: May have bugs (missing content) in some circumstances - use at your own risk.
+When `true`, offscreen child views are removed from their native backing superview when offscreen. This may improve scroll performance for large lists. On Android the default value is `true`.
 
 | Type    |
 | ------- |

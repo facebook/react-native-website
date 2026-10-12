@@ -18,72 +18,75 @@ If this button doesn't look right for your app, you can build your own button us
 
 ## Example
 
-```SnackPlayer name=Button%20Example
-import React from 'react';
-import {
-  StyleSheet,
-  Button,
-  View,
-  SafeAreaView,
-  Text,
-  Alert,
-} from 'react-native';
+```SnackPlayer name=Button%20Example&ext=js
+import {StyleSheet, Button, View, Text, Alert, Platform} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const Separator = () => <View style={styles.separator} />;
 
+function showAlert(message) {
+  if (Platform.OS === 'web') {
+    window.alert(message);
+  } else {
+    Alert.alert(message);
+  }
+}
+
 const App = () => (
-  <SafeAreaView style={styles.container}>
-    <View>
-      <Text style={styles.title}>
-        The title and onPress handler are required. It is recommended to set
-        accessibilityLabel to help make your app usable by everyone.
-      </Text>
-      <Button
-        title="Press me"
-        onPress={() => Alert.alert('Simple Button pressed')}
-      />
-    </View>
-    <Separator />
-    <View>
-      <Text style={styles.title}>
-        Adjust the color in a way that looks standard on each platform. On iOS,
-        the color prop controls the color of the text. On Android, the color
-        adjusts the background color of the button.
-      </Text>
-      <Button
-        title="Press me"
-        color="#f194ff"
-        onPress={() => Alert.alert('Button with adjusted color pressed')}
-      />
-    </View>
-    <Separator />
-    <View>
-      <Text style={styles.title}>
-        All interaction for the component are disabled.
-      </Text>
-      <Button
-        title="Press me"
-        disabled
-        onPress={() => Alert.alert('Cannot press this one')}
-      />
-    </View>
-    <Separator />
-    <View>
-      <Text style={styles.title}>
-        This layout strategy lets the title define the width of the button.
-      </Text>
-      <View style={styles.fixToText}>
+  <SafeAreaProvider>
+    <SafeAreaView style={styles.container}>
+      <View>
+        <Text style={styles.title}>
+          The title and onPress handler are required. It is recommended to set
+          accessibilityLabel to help make your app usable by everyone.
+        </Text>
         <Button
-          title="Left button"
-          onPress={() => Alert.alert('Left button pressed')}
-        />
-        <Button
-          title="Right button"
-          onPress={() => Alert.alert('Right button pressed')}
+          title="Press me"
+          onPress={() => showAlert('Simple Button pressed')}
         />
       </View>
-    </View>
-  </SafeAreaView>
+      <Separator />
+      <View>
+        <Text style={styles.title}>
+          Adjust the color in a way that looks standard on each platform. On
+          iOS, the color prop controls the color of the text. On Android, the
+          color adjusts the background color of the button.
+        </Text>
+        <Button
+          title="Press me"
+          color="#f194ff"
+          onPress={() => showAlert('Button with adjusted color pressed')}
+        />
+      </View>
+      <Separator />
+      <View>
+        <Text style={styles.title}>
+          All interaction for the component are disabled.
+        </Text>
+        <Button
+          title="Press me"
+          disabled
+          onPress={() => showAlert('Cannot press this one')}
+        />
+      </View>
+      <Separator />
+      <View>
+        <Text style={styles.title}>
+          This layout strategy lets the title define the width of the button.
+        </Text>
+        <View style={styles.fixToText}>
+          <Button
+            title="Left button"
+            onPress={() => showAlert('Left button pressed')}
+          />
+          <Button
+            title="Right button"
+            onPress={() => showAlert('Right button pressed')}
+          />
+        </View>
+      </View>
+    </SafeAreaView>
+  </SafeAreaProvider>
 );
 
 const styles = StyleSheet.create({
@@ -116,7 +119,7 @@ export default App;
 
 ## Props
 
-### <div class="label required basic">Required</div>**`onPress`**
+### <div className="label required basic">Required</div>**`onPress`**
 
 Handler to be called when the user taps the button.
 
@@ -126,7 +129,7 @@ Handler to be called when the user taps the button.
 
 ---
 
-### <div class="label required basic">Required</div>**`title`**
+### <div className="label required basic">Required</div>**`title`**
 
 Text to display inside the button. On Android the given title will be converted to the uppercased form.
 
@@ -146,7 +149,7 @@ Text to display for blindness accessibility features.
 
 ---
 
-### `accessibilityLanguage` <div class="label ios">iOS</div>
+### `accessibilityLanguage` <div className="label ios">iOS</div>
 
 A value indicating which language should be used by the screen reader when the user interacts with the element. It should follow the [BCP 47 specification](https://www.rfc-editor.org/info/bcp47).
 
@@ -216,7 +219,7 @@ If `true`, disable all interactions for this component.
 
 ---
 
-### `hasTVPreferredFocus` <div class="label tv">TV</div>
+### `hasTVPreferredFocus` <div className="label tv">TV</div>
 
 TV preferred focus.
 
@@ -226,7 +229,7 @@ TV preferred focus.
 
 ---
 
-### `nextFocusDown` <div class="label android">Android</div><div class="label tv">TV</div>
+### `nextFocusDown` <div className="label android">Android</div><div className="label tv">TV</div>
 
 Designates the next view to receive focus when the user navigates down. See the [Android documentation](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusDown).
 
@@ -236,7 +239,7 @@ Designates the next view to receive focus when the user navigates down. See the 
 
 ---
 
-### `nextFocusForward` <div class="label android">Android</div><div class="label tv">TV</div>
+### `nextFocusForward` <div className="label android">Android</div><div className="label tv">TV</div>
 
 Designates the next view to receive focus when the user navigates forward. See the [Android documentation](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusForward).
 
@@ -246,7 +249,7 @@ Designates the next view to receive focus when the user navigates forward. See t
 
 ---
 
-### `nextFocusLeft` <div class="label android">Android</div><div class="label tv">TV</div>
+### `nextFocusLeft` <div className="label android">Android</div><div className="label tv">TV</div>
 
 Designates the next view to receive focus when the user navigates left. See the [Android documentation](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusLeft).
 
@@ -256,7 +259,7 @@ Designates the next view to receive focus when the user navigates left. See the 
 
 ---
 
-### `nextFocusRight` <div class="label android">Android</div><div class="label tv">TV</div>
+### `nextFocusRight` <div className="label android">Android</div><div className="label tv">TV</div>
 
 Designates the next view to receive focus when the user navigates right. See the [Android documentation](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusRight).
 
@@ -266,7 +269,7 @@ Designates the next view to receive focus when the user navigates right. See the
 
 ---
 
-### `nextFocusUp` <div class="label android">Android</div><div class="label tv">TV</div>
+### `nextFocusUp` <div className="label android">Android</div><div className="label tv">TV</div>
 
 Designates the next view to receive focus when the user navigates up. See the [Android documentation](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusUp).
 
@@ -286,7 +289,7 @@ Used to locate this view in end-to-end tests.
 
 ---
 
-### `touchSoundDisabled` <div class="label android">Android</div>
+### `touchSoundDisabled` <div className="label android">Android</div>
 
 If `true`, doesn't play system sound on touch.
 

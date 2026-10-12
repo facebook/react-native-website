@@ -14,7 +14,6 @@ Let's do this thing.
 In accordance with the ancient traditions of our people, we must first build an app that does nothing except say "Hello, world!". Here it is:
 
 ```SnackPlayer name=Hello%20World
-import React from 'react';
 import {Text, View} from 'react-native';
 
 const HelloWorldApp = () => {
@@ -39,7 +38,7 @@ If you are feeling curious, you can play around with sample code directly in the
 1. First of all, we need to import `React` to be able to use `JSX`, which will then be transformed to the native components of each platform.
 2. On line 2, we import the `Text` and `View` components from `react-native`
 
-Then we define the `HelloWorldApp` function, which is a [functional component](https://reactjs.org/docs/components-and-props.html#function-and-class-components) and behaves in the same way as in React for the web. This function returns a `View` component with some styles and a`Text` as its child.
+Then we define the `HelloWorldApp` function, which is a [function component](https://react.dev/reference/react/Component) and behaves in the same way as in React for the web. This function returns a `View` component with some styles and a`Text` as its child.
 
 The `Text` component allows us to render a text, while the `View` component renders a container. This container has several styles applied, let's analyze what each one is doing.
 
@@ -67,7 +66,6 @@ Your own components can also use `props`. This lets you make a single component 
 <TabItem value="javascript">
 
 ```SnackPlayer name=Hello%20Props&ext=js
-import React from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
@@ -101,7 +99,6 @@ export default LotsOfGreetings;
 <TabItem value="typescript">
 
 ```SnackPlayer name=Hello%20Props&ext=tsx
-import React from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
@@ -146,7 +143,7 @@ With `props` and the basic [`Text`](text.md), [`Image`](image.md), and [`View`](
 
 ## State
 
-Unlike props [that are read-only](https://reactjs.org/docs/components-and-props.html#props-are-read-only) and should not be modified, the `state` allows React components to change their output over time in response to user actions, network responses and anything else.
+Unlike props [that are read-only](https://react.dev/reference/react/Component#props) and should not be modified, the `state` allows React components to change their output over time in response to user actions, network responses and anything else.
 
 #### What's the difference between state and props in React?
 
@@ -157,9 +154,9 @@ In a React component, the props are the variables that we pass from a parent com
 <div className="two-columns">
 
 ```tsx
-// ReactJS Counter Example using Hooks!
+// React Counter Example using Hooks!
 
-import React, {useState} from 'react';
+import {useState} from 'react';
 
 
 
@@ -190,7 +187,7 @@ const App = () => {
 ```tsx
 // React Native Counter Example using Hooks!
 
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {View, Text, Button, StyleSheet} from 'react-native';
 
 const App = () => {
@@ -219,12 +216,12 @@ const styles = StyleSheet.create({
 
 </div>
 
-As shown above, there is no difference in handling the `state` between [React](https://reactjs.org/docs/state-and-lifecycle.html) and `React Native`. You can use the state of your components both in classes and in functional components using [hooks](https://reactjs.org/docs/hooks-intro.html)!
+As shown above, there is no difference in handling the `state` between [React](https://react.dev/learn/state-a-components-memory) and `React Native`. You can use the state of your components both in classes and in function components using [hooks](https://react.dev/reference/react/useState)!
 
 In the following example we will show the same above counter example using classes.
 
 ```SnackPlayer name=Hello%20Classes
-import React, {Component} from 'react';
+import {Component} from 'react';
 import {StyleSheet, TouchableOpacity, Text, View} from 'react-native';
 
 class App extends Component {

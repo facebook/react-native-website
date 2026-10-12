@@ -12,8 +12,8 @@ This is an API that works both on Android and iOS and can show static alerts. Al
 ## Example
 
 ```SnackPlayer name=Alert%20Example&supportedPlatforms=ios,android
-import React from 'react';
-import {View, StyleSheet, Button, Alert} from 'react-native';
+import {StyleSheet, Button, Alert} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => {
   const createTwoButtonAlert = () =>
@@ -41,10 +41,12 @@ const App = () => {
     ]);
 
   return (
-    <View style={styles.container}>
-      <Button title={'2-Button Alert'} onPress={createTwoButtonAlert} />
-      <Button title={'3-Button Alert'} onPress={createThreeButtonAlert} />
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <Button title={'2-Button Alert'} onPress={createTwoButtonAlert} />
+        <Button title={'3-Button Alert'} onPress={createThreeButtonAlert} />
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
@@ -75,11 +77,11 @@ Alerts on Android can be dismissed by tapping outside of the alert box. It is di
 
 The cancel event can be handled by providing an `onDismiss` callback property inside the `options` parameter.
 
-### Example <div class="label android">Android</div>
+### Example <div className="label android">Android</div>
 
 ```SnackPlayer name=Alert%20Android%20Dissmissable%20Example&supportedPlatforms=android
-import React from 'react';
-import {View, StyleSheet, Button, Alert} from 'react-native';
+import {StyleSheet, Button, Alert} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const showAlert = () =>
   Alert.alert(
@@ -102,9 +104,11 @@ const showAlert = () =>
   );
 
 const App = () => (
-  <View style={styles.container}>
-    <Button title="Show alert" onPress={showAlert} />
-  </View>
+  <SafeAreaProvider>
+    <SafeAreaView style={styles.container}>
+      <Button title="Show alert" onPress={showAlert} />
+    </SafeAreaView>
+  </SafeAreaProvider>
 );
 
 const styles = StyleSheet.create({
@@ -137,16 +141,16 @@ static alert (
 
 **Parameters:**
 
-| Name                                                   | Type                               | Description                                                             |
-| ------------------------------------------------------ | ---------------------------------- | ----------------------------------------------------------------------- |
-| title <div class="label basic required">Required</div> | string                             | The dialog's title. Passing `null` or empty string will hide the title. |
-| message                                                | string                             | An optional message that appears below the dialog's title.              |
-| buttons                                                | [AlertButton](alert#alertbutton)[] | An optional array containing buttons configuration.                     |
-| options                                                | [AlertOptions](alert#alertoptions) | An optional Alert configuration.                                        |
+| Name                                                       | Type                               | Description                                                             |
+| ---------------------------------------------------------- | ---------------------------------- | ----------------------------------------------------------------------- |
+| title <div className="label basic required">Required</div> | string                             | The dialog's title. Passing `null` or empty string will hide the title. |
+| message                                                    | string                             | An optional message that appears below the dialog's title.              |
+| buttons                                                    | [AlertButton](alert#alertbutton)[] | An optional array containing buttons configuration.                     |
+| options                                                    | [AlertOptions](alert#alertoptions) | An optional Alert configuration.                                        |
 
 ---
 
-### `prompt()` <div class="label ios">iOS</div>
+### `prompt()` <div className="label ios">iOS</div>
 
 ```tsx
 static prompt: (
@@ -163,21 +167,21 @@ Create and display a prompt to enter some text in form of Alert.
 
 **Parameters:**
 
-| Name                                                   | Type                                            | Description                                                                                                                                                                                           |
-| ------------------------------------------------------ | ----------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| title <div class="label basic required">Required</div> | string                                          | The dialog's title.                                                                                                                                                                                   |
-| message                                                | string                                          | An optional message that appears above the text input.                                                                                                                                                |
-| callbackOrButtons                                      | function<hr/>[AlertButton](alert#alertButton)[] | If passed a function, it will be called with the prompt's value<br/>`(text: string) => void`, when the user taps 'OK'.<hr/>If passed an array, buttons will be configured based on the array content. |
-| type                                                   | [AlertType](alert#alerttype-ios)                | This configures the text input.                                                                                                                                                                       |
-| defaultValue                                           | string                                          | The default text in text input.                                                                                                                                                                       |
-| keyboardType                                           | string                                          | The keyboard type of first text field (if exists). One of TextInput [keyboardTypes](textinput#keyboardtype).                                                                                          |
-| options                                                | [AlertOptions](alert#alertoptions)              | An optional Alert configuration.                                                                                                                                                                      |
+| Name                                                       | Type                                            | Description                                                                                                                                                                                           |
+| ---------------------------------------------------------- | ----------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| title <div className="label basic required">Required</div> | string                                          | The dialog's title.                                                                                                                                                                                   |
+| message                                                    | string                                          | An optional message that appears above the text input.                                                                                                                                                |
+| callbackOrButtons                                          | function<hr/>[AlertButton](alert#alertButton)[] | If passed a function, it will be called with the prompt's value<br/>`(text: string) => void`, when the user taps 'OK'.<hr/>If passed an array, buttons will be configured based on the array content. |
+| type                                                       | [AlertType](alert#alerttype-ios)                | This configures the text input.                                                                                                                                                                       |
+| defaultValue                                               | string                                          | The default text in text input.                                                                                                                                                                       |
+| keyboardType                                               | string                                          | The keyboard type of first text field (if exists). One of TextInput [keyboardTypes](textinput#keyboardtype).                                                                                          |
+| options                                                    | [AlertOptions](alert#alertoptions)              | An optional Alert configuration.                                                                                                                                                                      |
 
 ---
 
 ## Type Definitions
 
-### AlertButtonStyle <div class="label ios">iOS</div>
+### AlertButtonStyle <div className="label ios">iOS</div>
 
 An iOS Alert button style.
 
@@ -195,7 +199,7 @@ An iOS Alert button style.
 
 ---
 
-### AlertType <div class="label ios">iOS</div>
+### AlertType <div className="label ios">iOS</div>
 
 An iOS Alert type.
 
@@ -224,12 +228,12 @@ An object describing the configuration of a button in the alert.
 
 **Objects properties:**
 
-| Name                                         | Type                                           | Description                                                                    |
-| -------------------------------------------- | ---------------------------------------------- | ------------------------------------------------------------------------------ |
-| text                                         | string                                         | Button label.                                                                  |
-| onPress                                      | function                                       | Callback function when button is pressed.                                      |
-| style <div class="label ios">iOS</div>       | [AlertButtonStyle](alert#alertbuttonstyle-ios) | Button style, on Android this property will be ignored.                        |
-| isPreferred <div class="label ios">iOS</div> | boolean                                        | Whether button should be emphasized, on Android this property will be ignored. |
+| Name                                             | Type                                           | Description                                                                    |
+| ------------------------------------------------ | ---------------------------------------------- | ------------------------------------------------------------------------------ |
+| text                                             | string                                         | Button label.                                                                  |
+| onPress                                          | function                                       | Callback function when button is pressed.                                      |
+| style <div className="label ios">iOS</div>       | [AlertButtonStyle](alert#alertbuttonstyle-ios) | Button style, on Android this property will be ignored.                        |
+| isPreferred <div className="label ios">iOS</div> | boolean                                        | Whether button should be emphasized, on Android this property will be ignored. |
 
 ---
 
@@ -241,8 +245,8 @@ An object describing the configuration of a button in the alert.
 
 **Properties:**
 
-| Name                                                | Type     | Description                                                                                                               |
-| --------------------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------- |
-| cancelable <div class="label android">Android</div> | boolean  | Defines if alert can be dismissed by tapping outside of the alert box.                                                    |
-| userInterfaceStyle <div class="label ios">iOS</div> | string   | The interface style used for the alert, can be set to `light` or `dark`, otherwise the default system style will be used. |
-| onDismiss <div class="label android">Android</div>  | function | Callback function fired when alert has been dismissed.                                                                    |
+| Name                                                    | Type     | Description                                                                                                               |
+| ------------------------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------- |
+| cancelable <div className="label android">Android</div> | boolean  | Defines if alert can be dismissed by tapping outside of the alert box.                                                    |
+| userInterfaceStyle <div className="label ios">iOS</div> | string   | The interface style used for the alert, can be set to `light` or `dark`, otherwise the default system style will be used. |
+| onDismiss <div className="label android">Android</div>  | function | Callback function fired when alert has been dismissed.                                                                    |

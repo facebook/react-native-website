@@ -10,11 +10,15 @@ React Native's ToastAndroid API exposes the Android platform's ToastAndroid modu
 
 You can alternatively use `showWithGravity(message, duration, gravity)` to specify where the toast appears in the screen's layout. May be `ToastAndroid.TOP`, `ToastAndroid.BOTTOM` or `ToastAndroid.CENTER`.
 
-The 'showWithGravityAndOffset(message, duration, gravity, xOffset, yOffset)' method adds the ability to specify an offset with in pixels.
+The `showWithGravityAndOffset(message, duration, gravity, xOffset, yOffset)` method adds the ability to specify an offset with in pixels.
+
+:::note
+Starting with Android 11 (API level 30), setting the gravity has no effect on text toasts. Read about the changes [here](https://developer.android.com/about/versions/11/behavior-changes-11#text-toast-api-changes).
+:::
 
 ```SnackPlayer name=Toast%20Android%20API%20Example&supportedPlatforms=android
-import React from 'react';
-import {View, StyleSheet, ToastAndroid, Button, StatusBar} from 'react-native';
+import {StyleSheet, ToastAndroid, Button, StatusBar} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => {
   const showToast = () => {
@@ -40,17 +44,19 @@ const App = () => {
   };
 
   return (
-    <View style={styles.container}>
-      <Button title="Toggle Toast" onPress={() => showToast()} />
-      <Button
-        title="Toggle Toast With Gravity"
-        onPress={() => showToastWithGravity()}
-      />
-      <Button
-        title="Toggle Toast With Gravity & Offset"
-        onPress={() => showToastWithGravityAndOffset()}
-      />
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <Button title="Toggle Toast" onPress={() => showToast()} />
+        <Button
+          title="Toggle Toast With Gravity"
+          onPress={() => showToastWithGravity()}
+        />
+        <Button
+          title="Toggle Toast With Gravity & Offset"
+          onPress={() => showToastWithGravityAndOffset()}
+        />
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
@@ -83,6 +89,8 @@ static show(message: string, duration: number);
 
 ### `showWithGravity()`
 
+This property will only work on Android API 29 and below. For similar functionality on higher Android APIs, consider using snackbar or notification.
+
 ```tsx
 static showWithGravity(message: string, duration: number, gravity: number);
 ```
@@ -90,6 +98,8 @@ static showWithGravity(message: string, duration: number, gravity: number);
 ---
 
 ### `showWithGravityAndOffset()`
+
+This property will only work on Android API 29 and below. For similar functionality on higher Android APIs, consider using snackbar or notification.
 
 ```tsx
 static showWithGravityAndOffset(

@@ -15,18 +15,18 @@ It is possible to have multiple `StatusBar` components mounted at the same time.
 <TabItem value="javascript">
 
 ```SnackPlayer name=StatusBar%20Component%20Example&supportedPlatforms=android,ios&ext=js
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {
   Button,
   Platform,
-  SafeAreaView,
   StatusBar,
   StyleSheet,
   Text,
   View,
 } from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
-const STYLES = ['default', 'dark-content', 'light-content'];
+const STYLES = ['default', 'auto', 'dark-content', 'light-content'];
 const TRANSITIONS = ['fade', 'slide', 'none'];
 
 const App = () => {
@@ -57,39 +57,46 @@ const App = () => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
-      <StatusBar
-        animated={true}
-        backgroundColor="#61dafb"
-        barStyle={statusBarStyle}
-        showHideTransition={statusBarTransition}
-        hidden={hidden}
-      />
-      <Text style={styles.textStyle}>
-        StatusBar Visibility:{'\n'}
-        {hidden ? 'Hidden' : 'Visible'}
-      </Text>
-      <Text style={styles.textStyle}>
-        StatusBar Style:{'\n'}
-        {statusBarStyle}
-      </Text>
-      {Platform.OS === 'ios' ? (
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <StatusBar
+          animated={true}
+          barStyle={statusBarStyle}
+          showHideTransition={statusBarTransition}
+          hidden={hidden}
+        />
         <Text style={styles.textStyle}>
-          StatusBar Transition:{'\n'}
-          {statusBarTransition}
+          StatusBar Visibility:{'\n'}
+          {hidden ? 'Hidden' : 'Visible'}
         </Text>
-      ) : null}
-      <View style={styles.buttonsContainer}>
-        <Button title="Toggle StatusBar" onPress={changeStatusBarVisibility} />
-        <Button title="Change StatusBar Style" onPress={changeStatusBarStyle} />
+        <Text style={styles.textStyle}>
+          StatusBar Style:{'\n'}
+          {statusBarStyle}
+        </Text>
         {Platform.OS === 'ios' ? (
-          <Button
-            title="Change StatusBar Transition"
-            onPress={changeStatusBarTransition}
-          />
+          <Text style={styles.textStyle}>
+            StatusBar Transition:{'\n'}
+            {statusBarTransition}
+          </Text>
         ) : null}
-      </View>
-    </SafeAreaView>
+        <View style={styles.buttonsContainer}>
+          <Button
+            title="Toggle StatusBar"
+            onPress={changeStatusBarVisibility}
+          />
+          <Button
+            title="Change StatusBar Style"
+            onPress={changeStatusBarStyle}
+          />
+          {Platform.OS === 'ios' ? (
+            <Button
+              title="Change StatusBar Transition"
+              onPress={changeStatusBarTransition}
+            />
+          ) : null}
+        </View>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
@@ -115,19 +122,19 @@ export default App;
 <TabItem value="typescript">
 
 ```SnackPlayer name=StatusBar%20Component%20Example&supportedPlatforms=android,ios&ext=tsx
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {
   Button,
   Platform,
-  SafeAreaView,
   StatusBar,
   StyleSheet,
   Text,
   View,
+  StatusBarStyle,
 } from 'react-native';
-import type {StatusBarStyle} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
-const STYLES = ['default', 'dark-content', 'light-content'] as const;
+const STYLES = ['default', 'auto', 'dark-content', 'light-content'] as const;
 const TRANSITIONS = ['fade', 'slide', 'none'] as const;
 
 const App = () => {
@@ -160,39 +167,46 @@ const App = () => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
-      <StatusBar
-        animated={true}
-        backgroundColor="#61dafb"
-        barStyle={statusBarStyle}
-        showHideTransition={statusBarTransition}
-        hidden={hidden}
-      />
-      <Text style={styles.textStyle}>
-        StatusBar Visibility:{'\n'}
-        {hidden ? 'Hidden' : 'Visible'}
-      </Text>
-      <Text style={styles.textStyle}>
-        StatusBar Style:{'\n'}
-        {statusBarStyle}
-      </Text>
-      {Platform.OS === 'ios' ? (
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <StatusBar
+          animated={true}
+          barStyle={statusBarStyle}
+          showHideTransition={statusBarTransition}
+          hidden={hidden}
+        />
         <Text style={styles.textStyle}>
-          StatusBar Transition:{'\n'}
-          {statusBarTransition}
+          StatusBar Visibility:{'\n'}
+          {hidden ? 'Hidden' : 'Visible'}
         </Text>
-      ) : null}
-      <View style={styles.buttonsContainer}>
-        <Button title="Toggle StatusBar" onPress={changeStatusBarVisibility} />
-        <Button title="Change StatusBar Style" onPress={changeStatusBarStyle} />
+        <Text style={styles.textStyle}>
+          StatusBar Style:{'\n'}
+          {statusBarStyle}
+        </Text>
         {Platform.OS === 'ios' ? (
-          <Button
-            title="Change StatusBar Transition"
-            onPress={changeStatusBarTransition}
-          />
+          <Text style={styles.textStyle}>
+            StatusBar Transition:{'\n'}
+            {statusBarTransition}
+          </Text>
         ) : null}
-      </View>
-    </SafeAreaView>
+        <View style={styles.buttonsContainer}>
+          <Button
+            title="Toggle StatusBar"
+            onPress={changeStatusBarVisibility}
+          />
+          <Button
+            title="Change StatusBar Style"
+            onPress={changeStatusBarStyle}
+          />
+          {Platform.OS === 'ios' ? (
+            <Button
+              title="Change StatusBar Transition"
+              onPress={changeStatusBarTransition}
+            />
+          ) : null}
+        </View>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
@@ -227,7 +241,7 @@ For cases where using a component is not ideal, there is also an imperative API 
 
 ## Constants
 
-### `currentHeight` <div class="label android">Android</div>
+### `currentHeight` <div className="label android">Android</div>
 
 The height of the status bar, which includes the notch height, if present.
 
@@ -237,21 +251,11 @@ The height of the status bar, which includes the notch height, if present.
 
 ### `animated`
 
-If the transition between status bar property changes should be animated. Supported for `backgroundColor`, `barStyle` and `hidden` properties.
+If the transition between status bar property changes should be animated. Supported for `barStyle` and `hidden` properties.
 
 | Type    | Required | Default |
 | ------- | -------- | ------- |
 | boolean | No       | `false` |
-
----
-
-### `backgroundColor` <div class="label android">Android</div>
-
-The background color of the status bar.
-
-| Type            | Required | Default                                                                |
-| --------------- | -------- | ---------------------------------------------------------------------- |
-| [color](colors) | No       | default system StatusBar background color, or `'black'` if not defined |
 
 ---
 
@@ -277,33 +281,13 @@ If the status bar is hidden.
 
 ---
 
-### `networkActivityIndicatorVisible` <div class="label ios">iOS</div>
-
-If the network activity indicator should be visible.
-
-| Type    | Default |
-| ------- | ------- |
-| boolean | `false` |
-
----
-
-### `showHideTransition` <div class="label ios">iOS</div>
+### `showHideTransition` <div className="label ios">iOS</div>
 
 The transition effect when showing and hiding the status bar using the `hidden` prop.
 
 | Type                                               | Default  |
 | -------------------------------------------------- | -------- |
 | [StatusBarAnimation](statusbar#statusbaranimation) | `'fade'` |
-
----
-
-### `translucent` <div class="label android">Android</div>
-
-If the status bar is translucent. When translucent is set to `true`, the app will draw under the status bar. This is useful when using a semi transparent status bar color.
-
-| Type    | Default |
-| ------- | ------- |
-| boolean | `false` |
 
 ## Methods
 
@@ -317,9 +301,9 @@ Get and remove the last StatusBar entry from the stack.
 
 **Parameters:**
 
-| Name                                                   | Type | Description                           |
-| ------------------------------------------------------ | ---- | ------------------------------------- |
-| entry <div class="label basic required">Required</div> | any  | Entry returned from `pushStackEntry`. |
+| Name                                                       | Type | Description                           |
+| ---------------------------------------------------------- | ---- | ------------------------------------- |
+| entry <div className="label basic required">Required</div> | any  | Entry returned from `pushStackEntry`. |
 
 ---
 
@@ -333,9 +317,9 @@ Push a StatusBar entry onto the stack. The return value should be passed to `pop
 
 **Parameters:**
 
-| Name                                                   | Type | Description                                                      |
-| ------------------------------------------------------ | ---- | ---------------------------------------------------------------- |
-| props <div class="label basic required">Required</div> | any  | Object containing the StatusBar props to use in the stack entry. |
+| Name                                                       | Type | Description                                                      |
+| ---------------------------------------------------------- | ---- | ---------------------------------------------------------------- |
+| props <div className="label basic required">Required</div> | any  | Object containing the StatusBar props to use in the stack entry. |
 
 ---
 
@@ -352,27 +336,10 @@ Replace an existing StatusBar stack entry with new props.
 
 **Parameters:**
 
-| Name                                                   | Type | Description                                                                  |
-| ------------------------------------------------------ | ---- | ---------------------------------------------------------------------------- |
-| entry <div class="label basic required">Required</div> | any  | Entry returned from `pushStackEntry` to replace.                             |
-| props <div class="label basic required">Required</div> | any  | Object containing the StatusBar props to use in the replacement stack entry. |
-
----
-
-### `setBackgroundColor()` <div class="label android">Android</div>
-
-```tsx
-static setBackgroundColor(color: ColorValue, animated?: boolean);
-```
-
-Set the background color for the status bar.
-
-**Parameters:**
-
-| Name                                                   | Type    | Description               |
-| ------------------------------------------------------ | ------- | ------------------------- |
-| color <div class="label basic required">Required</div> | string  | Background color.         |
-| animated                                               | boolean | Animate the style change. |
+| Name                                                       | Type | Description                                                                  |
+| ---------------------------------------------------------- | ---- | ---------------------------------------------------------------------------- |
+| entry <div className="label basic required">Required</div> | any  | Entry returned from `pushStackEntry` to replace.                             |
+| props <div className="label basic required">Required</div> | any  | Object containing the StatusBar props to use in the replacement stack entry. |
 
 ---
 
@@ -386,10 +353,10 @@ Set the status bar style.
 
 **Parameters:**
 
-| Name                                                   | Type                                       | Description               |
-| ------------------------------------------------------ | ------------------------------------------ | ------------------------- |
-| style <div class="label basic required">Required</div> | [StatusBarStyle](statusbar#statusbarstyle) | Status bar style to set.  |
-| animated                                               | boolean                                    | Animate the style change. |
+| Name                                                       | Type                                       | Description               |
+| ---------------------------------------------------------- | ------------------------------------------ | ------------------------- |
+| style <div className="label basic required">Required</div> | [StatusBarStyle](statusbar#statusbarstyle) | Status bar style to set.  |
+| animated                                                   | boolean                                    | Animate the style change. |
 
 ---
 
@@ -403,42 +370,12 @@ Show or hide the status bar.
 
 **Parameters:**
 
-| Name                                                    | Type                                               | Description                                             |
-| ------------------------------------------------------- | -------------------------------------------------- | ------------------------------------------------------- |
-| hidden <div class="label basic required">Required</div> | boolean                                            | Hide the status bar.                                    |
-| animation <div class="label ios">iOS</div>              | [StatusBarAnimation](statusbar#statusbaranimation) | Animation when changing the status bar hidden property. |
+| Name                                                        | Type                                               | Description                                             |
+| ----------------------------------------------------------- | -------------------------------------------------- | ------------------------------------------------------- |
+| hidden <div className="label basic required">Required</div> | boolean                                            | Hide the status bar.                                    |
+| animation <div className="label ios">iOS</div>              | [StatusBarAnimation](statusbar#statusbaranimation) | Animation when changing the status bar hidden property. |
 
 ---
-
-### `setNetworkActivityIndicatorVisible()` <div class="label ios">iOS</div>
-
-```tsx
-static setNetworkActivityIndicatorVisible(visible: boolean);
-```
-
-Control the visibility of the network activity indicator.
-
-**Parameters:**
-
-| Name                                                     | Type    | Description         |
-| -------------------------------------------------------- | ------- | ------------------- |
-| visible <div class="label basic required">Required</div> | boolean | Show the indicator. |
-
----
-
-### `setTranslucent()` <div class="label android">Android</div>
-
-```tsx
-static setTranslucent(translucent: boolean);
-```
-
-Control the translucency of the status bar.
-
-**Parameters:**
-
-| Name                                                         | Type    | Description         |
-| ------------------------------------------------------------ | ------- | ------------------- |
-| translucent <div class="label basic required">Required</div> | boolean | Set as translucent. |
 
 ## Type Definitions
 
@@ -470,8 +407,9 @@ Status bar style type.
 
 **Constants:**
 
-| Value             | Type   | Description                                                |
-| ----------------- | ------ | ---------------------------------------------------------- |
-| `'default'`       | string | Default status bar style (dark for iOS, light for Android) |
-| `'light-content'` | string | White texts and icons                                      |
-| `'dark-content'`  | string | Dark texts and icons (requires API>=23 on Android)         |
+| Value             | Type   | Description                                                                                                                         |
+| ----------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `'default'`       | string | Default status bar style (light for Android, dark for iOS)                                                                          |
+| `'auto'`          | string | Automatically picks `light-content` or `dark-content` based on the current color scheme. Updates whenever the color scheme changes. |
+| `'light-content'` | string | White texts and icons                                                                                                               |
+| `'dark-content'`  | string | Dark texts and icons (requires API>=23 on Android)                                                                                  |

@@ -7,26 +7,28 @@ The `Animated` library is designed to make animations fluid, powerful, and painl
 
 The core workflow for creating an animation is to create an `Animated.Value`, hook it up to one or more style attributes of an animated component, and then drive updates via animations using `Animated.timing()`.
 
-> Don't modify the animated value directly. You can use the [`useRef` Hook](https://reactjs.org/docs/hooks-reference.html#useref) to return a mutable ref object. This ref object's `current` property is initialized as the given argument and persists throughout the component lifecycle.
+:::note
+Don't modify the animated value directly. You can use the [`useRef` Hook](https://react.dev/reference/react/useRef) to return a mutable ref object. This ref object's `current` property is initialized as the given argument and persists throughout the component lifecycle.
+:::
 
 ## Example
 
 The following example contains a `View` which will fade in and fade out based on the animated value `fadeAnim`
 
-```SnackPlayer name=Animated
-import React, {useRef} from 'react';
+```SnackPlayer name=Animated%20Example&supportedPlatforms=ios,android
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 import {
   Animated,
   Text,
   View,
   StyleSheet,
   Button,
-  SafeAreaView,
+  useAnimatedValue,
 } from 'react-native';
 
 const App = () => {
   // fadeAnim will be used as the value for opacity. Initial Value: 0
-  const fadeAnim = useRef(new Animated.Value(0)).current;
+  const fadeAnim = useAnimatedValue(0);
 
   const fadeIn = () => {
     // Will change fadeAnim value to 1 in 5 seconds
@@ -47,22 +49,24 @@ const App = () => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
-      <Animated.View
-        style={[
-          styles.fadingContainer,
-          {
-            // Bind opacity to animated value
-            opacity: fadeAnim,
-          },
-        ]}>
-        <Text style={styles.fadingText}>Fading View!</Text>
-      </Animated.View>
-      <View style={styles.buttonRow}>
-        <Button title="Fade In View" onPress={fadeIn} />
-        <Button title="Fade Out View" onPress={fadeOut} />
-      </View>
-    </SafeAreaView>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <Animated.View
+          style={[
+            styles.fadingContainer,
+            {
+              // Bind opacity to animated value
+              opacity: fadeAnim,
+            },
+          ]}>
+          <Text style={styles.fadingText}>Fading View!</Text>
+        </Animated.View>
+        <View style={styles.buttonRow}>
+          <Button title="Fade In View" onPress={fadeIn} />
+          <Button title="Fade Out View" onPress={fadeOut} />
+        </View>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
@@ -168,7 +172,7 @@ You can combine two animated values via addition, subtraction, multiplication, d
 
 The `interpolate()` function allows input ranges to map to different output ranges. By default, it will extrapolate the curve beyond the ranges given, but you can also have it clamp the output value. It uses linear interpolation by default but also supports easing functions.
 
-- [`interpolate()`](animated#interpolate)
+- [`interpolate()`](animatedvalue#interpolate)
 
 Read more about interpolation in the [Animation](animations#interpolation) guide.
 
@@ -188,7 +192,8 @@ For example, when working with horizontal scrolling gestures, you would do the f
           x: scrollX
         }
       }
-    }]
+    }],
+    {useNativeEvent: true}
  )}
 ```
 
@@ -212,7 +217,7 @@ Config is an object that may have the following options:
 
 - `velocity`: Initial velocity. Required.
 - `deceleration`: Rate of decay. Default 0.997.
-- `isInteraction`: Whether or not this animation creates an "interaction handle" on the `InteractionManager`. Default true.
+- `isInteraction`: Whether or not this animation creates an "interaction handle". Default true.
 - `useNativeDriver`: Uses the native driver when true. Required.
 
 ---
@@ -230,7 +235,7 @@ Config is an object that may have the following options:
 - `duration`: Length of animation (milliseconds). Default 500.
 - `easing`: Easing function to define curve. Default is `Easing.inOut(Easing.ease)`.
 - `delay`: Start the animation after delay (milliseconds). Default 0.
-- `isInteraction`: Whether or not this animation creates an "interaction handle" on the `InteractionManager`. Default true.
+- `isInteraction`: Whether or not this animation creates an "interaction handle". Default true.
 - `useNativeDriver`: Uses the native driver when true. Required.
 
 ---
@@ -267,7 +272,7 @@ Other configuration options are as follows:
 - `restDisplacementThreshold`: The threshold of displacement from rest below which the spring should be considered at rest. Default 0.001.
 - `restSpeedThreshold`: The speed at which the spring should be considered at rest in pixels per second. Default 0.001.
 - `delay`: Start the animation after delay (milliseconds). Default 0.
-- `isInteraction`: Whether or not this animation creates an "interaction handle" on the `InteractionManager`. Default true.
+- `isInteraction`: Whether or not this animation creates an "interaction handle". Default true.
 - `useNativeDriver`: Uses the native driver when true. Required.
 
 ---
@@ -499,7 +504,7 @@ Stops any running animation and resets the value to its original.
 
 ### `Value`
 
-Standard value class for driving animations. Typically initialized with `new Animated.Value(0);`
+Standard value class for driving animations. Typically initialized with `useAnimatedValue(0);` or `new Animated.Value(0);` in class components.
 
 You can read more about `Animated.Value` API on the separate [page](animatedvalue).
 

@@ -7,47 +7,30 @@ title: Systrace
 
 ## Example
 
-`Systrace` allows you to mark JavaScript (JS) events with a tag and an integer value. Capture the non-Timed JS events in EasyProfiler.
+`Systrace` allows you to mark JavaScript (JS) events with a tag and an integer value. Start profiling with an Android profiling tool such as Perfetto or EasyProfiler, then use these markers to identify the events in the captured trace.
 
 ```SnackPlayer name=Systrace%20Example
-import React from 'react';
-import {
-  Button,
-  Text,
-  View,
-  SafeAreaView,
-  StyleSheet,
-  Systrace,
-} from 'react-native';
+import {Button, Text, View, StyleSheet, Systrace} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => {
-  const enableProfiling = () => {
-    Systrace.setEnabled(true); // Call setEnabled to turn on the profiling.
+  const markEvent = () => {
     Systrace.beginEvent('event_label');
     Systrace.counterEvent('event_label', 10);
-  };
-
-  const stopProfiling = () => {
     Systrace.endEvent();
   };
 
   return (
-    <SafeAreaView style={styles.container}>
-      <Text style={[styles.header, styles.paragraph]}>
-        React Native Systrace API
-      </Text>
-      <View style={styles.buttonRow}>
-        <Button
-          title="Capture the non-Timed JS events in EasyProfiler"
-          onPress={() => enableProfiling()}
-        />
-        <Button
-          title="Stop capturing"
-          onPress={() => stopProfiling()}
-          color="#FF0000"
-        />
-      </View>
-    </SafeAreaView>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <Text style={[styles.header, styles.paragraph]}>
+          React Native Systrace API
+        </Text>
+        <View style={styles.buttonsColumn}>
+          <Button title="Mark event" onPress={markEvent} />
+        </View>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
@@ -57,8 +40,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingTop: 44,
     padding: 8,
+    gap: 16,
   },
   header: {
     fontSize: 18,
@@ -66,14 +49,11 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   paragraph: {
-    margin: 24,
     fontSize: 25,
     textAlign: 'center',
   },
-  buttonRow: {
-    flexBasis: 150,
-    marginVertical: 16,
-    justifyContent: 'space-evenly',
+  buttonsColumn: {
+    gap: 16,
   },
 });
 

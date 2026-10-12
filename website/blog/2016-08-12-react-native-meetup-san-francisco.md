@@ -1,10 +1,6 @@
 ---
 title: San Francisco Meetup Recap
-author: Héctor Ramos
-authorTitle: Developer Advocate at Facebook
-authorURL: 'https://twitter.com/hectorramos'
-authorImageURL: 'https://s.gravatar.com/avatar/f2223874e66e884c99087e452501f2da?s=128'
-authorTwitter: hectorramos
+authors: [hectorramos]
 hero: '/blog/img/rnmsf-august-2016-hero.jpg'
 tags: [events]
 ---

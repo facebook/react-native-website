@@ -28,6 +28,7 @@ You will now have a fork of React Native on GitHub at https://github.com/your_us
 
 ```bash
 git clone https://github.com/facebook/react-native.git
+cd react-native
 git remote add fork https://github.com/your_username/react-native.git
 ```
 
@@ -45,12 +46,28 @@ A new `react-native` directory will be created with the contents of the core Rea
 We recommend creating a new branch in your fork to keep track of your changes:
 
 ```bash
-git checkout --branch my_feature_branch --track origin/main
+git checkout -b my_feature_branch --track origin/main
 ```
 
 ## Chapter II: Implementing your Changes
 
-### 1. Make changes to the code
+### 1. Install dependencies
+
+React Native is a JavaScript monorepo managed by [Yarn Workspaces (Yarn Classic)](https://classic.yarnpkg.com/lang/en/docs/workspaces/).
+
+Run a project-level install:
+
+```sh
+yarn
+```
+
+You will also need to build the `react-native-codegen` package once:
+
+```sh
+yarn --cwd packages/react-native-codegen build
+```
+
+### 2. Make changes to the code
 
 You can now open the project using your code editor of choice. [Visual Studio Code](https://code.visualstudio.com/) is popular with JavaScript developers, and recommended if you are making general changes to React Native.
 
@@ -60,11 +77,15 @@ IDE project configurations:
 - **Android Studio**: Open the repo root folder (containing the `.idea` config directory).
 - **Xcode**: Open `packages/rn-tester/RNTesterPods.xcworkspace`.
 
-### 2. Test your changes
+### 3. Run your changes
+
+The package rn-tester can be used to run and validate your changes. You can learn more in [RNTester readme](https://github.com/facebook/react-native/blob/main/packages/rn-tester/README.md).
+
+### 4. Test your changes
 
 Make sure your changes are correct and do not introduce any test failures. You can learn more in [Running and Writing Tests](/contributing/how-to-run-and-write-tests).
 
-### 3. Lint your code
+### 5. Lint your code
 
 We understand it can take a while to ramp up and get a sense of the style followed for each of the languages in use in the core React Native repository. Developers should not need to worry about minor nits, so whenever possible, we use tools that automate the process of rewriting your code to follow conventions.
 
@@ -74,7 +95,7 @@ We also use a linter to catch styling issues that may exist in your code. You ca
 
 To learn more about coding conventions, refer to the [Coding Style guide](/contributing/how-to-contribute-code#coding-style).
 
-### 4. View your changes
+### 6. View your changes
 
 Many popular editors integrate with source control in some way. You can also use `git status` and `git diff` on the command line to keep track of what has changed.
 

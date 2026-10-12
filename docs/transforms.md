@@ -7,128 +7,144 @@ Transforms are style properties that will help you modify the appearance and pos
 
 ## Example
 
-```SnackPlayer name=Transforms
-import React from 'react';
-import {SafeAreaView, ScrollView, StyleSheet, Text, View} from 'react-native';
+```SnackPlayer name=Transforms%20Example
+import {ScrollView, StyleSheet, Text, View} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => (
-  <SafeAreaView style={styles.container}>
-    <ScrollView contentContainerStyle={styles.scrollContentContainer}>
-      <View style={styles.box}>
-        <Text style={styles.text}>Original Object</Text>
-      </View>
+  <SafeAreaProvider>
+    <SafeAreaView style={styles.container}>
+      <ScrollView contentContainerStyle={styles.scrollContentContainer}>
+        <View style={styles.box}>
+          <Text style={styles.text}>Original Object</Text>
+        </View>
 
-      <View
-        style={[
-          styles.box,
-          {
-            transform: [{scale: 2}],
-          },
-        ]}>
-        <Text style={styles.text}>Scale by 2</Text>
-      </View>
+        <View
+          style={[
+            styles.box,
+            {
+              transform: [{scale: 2}],
+            },
+          ]}>
+          <Text style={styles.text}>Scale by 2</Text>
+        </View>
 
-      <View
-        style={[
-          styles.box,
-          {
-            transform: [{scaleX: 2}],
-          },
-        ]}>
-        <Text style={styles.text}>ScaleX by 2</Text>
-      </View>
+        <View
+          style={[
+            styles.box,
+            {
+              transform: [{scaleX: 2}],
+            },
+          ]}>
+          <Text style={styles.text}>ScaleX by 2</Text>
+        </View>
 
-      <View
-        style={[
-          styles.box,
-          {
-            transform: [{scaleY: 2}],
-          },
-        ]}>
-        <Text style={styles.text}>ScaleY by 2</Text>
-      </View>
+        <View
+          style={[
+            styles.box,
+            {
+              transform: [{scaleY: 2}],
+            },
+          ]}>
+          <Text style={styles.text}>ScaleY by 2</Text>
+        </View>
 
-      <View
-        style={[
-          styles.box,
-          {
-            transform: [{rotate: '45deg'}],
-          },
-        ]}>
-        <Text style={styles.text}>Rotate by 45 deg</Text>
-      </View>
+        <View
+          style={[
+            styles.box,
+            {
+              transform: [{rotate: '45deg'}],
+            },
+          ]}>
+          <Text style={styles.text}>Rotate by 45 deg</Text>
+        </View>
 
-      <View
-        style={[
-          styles.box,
-          {
-            transform: [{rotateX: '45deg'}, {rotateZ: '45deg'}],
-          },
-        ]}>
-        <Text style={styles.text}>Rotate X&Z by 45 deg</Text>
-      </View>
+        <View
+          style={[
+            styles.box,
+            {
+              transform: [{rotateX: '45deg'}, {rotateZ: '45deg'}],
+            },
+          ]}>
+          <Text style={styles.text}>Rotate X&Z by 45 deg</Text>
+        </View>
 
-      <View
-        style={[
-          styles.box,
-          {
-            transform: [{rotateY: '45deg'}, {rotateZ: '45deg'}],
-          },
-        ]}>
-        <Text style={styles.text}>Rotate Y&Z by 45 deg</Text>
-      </View>
+        <View
+          style={[
+            styles.box,
+            {
+              transform: [{rotateY: '45deg'}, {rotateZ: '45deg'}],
+            },
+          ]}>
+          <Text style={styles.text}>Rotate Y&Z by 45 deg</Text>
+        </View>
 
-      <View
-        style={[
-          styles.box,
-          {
-            transform: [{skewX: '45deg'}],
-          },
-        ]}>
-        <Text style={styles.text}>SkewX by 45 deg</Text>
-      </View>
+        <View
+          style={[
+            styles.box,
+            {
+              transform: [{skewX: '45deg'}],
+            },
+          ]}>
+          <Text style={styles.text}>SkewX by 45 deg</Text>
+        </View>
 
-      <View
-        style={[
-          styles.box,
-          {
-            transform: [{skewY: '45deg'}],
-          },
-        ]}>
-        <Text style={styles.text}>SkewY by 45 deg</Text>
-      </View>
+        <View
+          style={[
+            styles.box,
+            {
+              transform: [{skewY: '45deg'}],
+            },
+          ]}>
+          <Text style={styles.text}>SkewY by 45 deg</Text>
+        </View>
 
-      <View
-        style={[
-          styles.box,
-          {
-            transform: [{skewX: '30deg'}, {skewY: '30deg'}],
-          },
-        ]}>
-        <Text style={styles.text}>Skew X&Y by 30 deg</Text>
-      </View>
+        <View
+          style={[
+            styles.box,
+            {
+              transform: [{skewX: '30deg'}, {skewY: '30deg'}],
+            },
+          ]}>
+          <Text style={styles.text}>Skew X&Y by 30 deg</Text>
+        </View>
 
-      <View
-        style={[
-          styles.box,
-          {
-            transform: [{translateX: -50}],
-          },
-        ]}>
-        <Text style={styles.text}>TranslateX by -50 </Text>
-      </View>
+        <View
+          style={[
+            styles.box,
+            {
+              transform: [{translateX: -50}],
+            },
+          ]}>
+          <Text style={styles.text}>TranslateX by -50 </Text>
+        </View>
 
-      <View
-        style={[
-          styles.box,
-          {
-            transform: [{translateY: 50}],
-          },
-        ]}>
-        <Text style={styles.text}>TranslateY by 50 </Text>
-      </View>
-    </ScrollView>
-  </SafeAreaView>
+        <View
+          style={[
+            styles.box,
+            {
+              transform: [{translateY: 50}],
+            },
+          ]}>
+          <Text style={styles.text}>TranslateY by 50 </Text>
+        </View>
+
+        <View
+          style={[
+            styles.box,
+            {
+              transform: [
+                {
+                  matrix: [1, 0.5, 0, 0, 0.5, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1],
+                },
+              ],
+            },
+          ]}>
+          <Text style={styles.text}>Matrix Transform</Text>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+  </SafeAreaProvider>
 );
 
 const styles = StyleSheet.create({
@@ -192,15 +208,76 @@ The skew transformations require a string so that the transform may be expressed
 }
 ```
 
-| Type                                                                                                                                                                                                                                                                                                          | Required |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| array of objects: `{matrix: number[]}`, `{perspective: number}`, `{rotate: string}`, `{rotateX: string}`, `{rotateY: string}`, `{rotateZ: string}`, `{scale: number}`, `{scaleX: number}`, `{scaleY: number}`, `{translateX: number}`, `{translateY: number}`, `{skewX: string}`, `{skewY: string}` or string | No       |
+The translate transformations (`translateX` and `translateY`) accept numbers (points) or percentage strings (e.g. `'50%'`, `'100%'`). When using percentages, the offset is relative to the element's width (for `translateX`) or height (for `translateY`). Percentage translation is supported on the [New Architecture](/architecture/landing-page). For example:
+
+```js
+{
+  transform: [{translateX: '50%'}, {translateY: 100}],
+}
+```
+
+### Matrix Transform
+
+The `matrix` transform accepts a 4x4 transformation matrix as an array of 16 numbers. This allows you to apply complex transformations that combine translation, rotation, scaling, and skewing in a single operation.
+
+The matrix is specified in column-major order:
+
+```js
+{
+  transform: [
+    {
+      matrix: [
+        scaleX,
+        skewY,
+        0,
+        0,
+        skewX,
+        scaleY,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        translateX,
+        translateY,
+        0,
+        1,
+      ],
+    },
+  ];
+}
+```
+
+For example, to apply a combination of scale and skew:
+
+```js
+{
+  transform: [
+    {
+      matrix: [
+        1, 0.5, 0, 0, 0.5, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1,
+      ],
+    },
+  ];
+}
+```
+
+:::note
+Matrix transforms are useful when you need to apply pre-calculated transformation matrices, such as those from animation libraries or when building UI editor applications. For basic transformations, it's recommended to use the individual transform properties (scale, rotate, translate, etc.) as they are more readable.
+:::
+
+| Type                                                                                                                                                                                                                                                                                                                              | Required |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| array of objects: `{matrix: number[]}`, `{perspective: number}`, `{rotate: string}`, `{rotateX: string}`, `{rotateY: string}`, `{rotateZ: string}`, `{scale: number}`, `{scaleX: number}`, `{scaleY: number}`, `{translateX: number \| string}`, `{translateY: number \| string}`, `{skewX: string}`, `{skewY: string}` or string | No       |
 
 ---
 
-### `decomposedMatrix`, `rotation`, `scaleX`, `scaleY`, `transformMatrix`, `translateX`, `translateY`
+### 🗑️ `decomposedMatrix`, `rotation`, `scaleX`, `scaleY`, `transformMatrix`, `translateX`, `translateY`
 
-> **Deprecated.** Use the [`transform`](transforms#transform) prop instead.
+:::warning[Deprecated]
+Use the [`transform`](transforms#transform) prop instead.
+:::
 
 ## Transform Origin
 
@@ -208,9 +285,10 @@ The `transformOrigin` property sets the origin for a view's transformations. The
 
 # Example
 
-```SnackPlayer name=TransformOrigin
-import React, {useRef, useEffect} from 'react';
-import {Animated, View, StyleSheet, SafeAreaView, Easing} from 'react-native';
+```SnackPlayer name=TransformOrigin%20Example
+import {useEffect, useRef} from 'react';
+import {Animated, View, StyleSheet, Easing} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => {
   const rotateAnim = useRef(new Animated.Value(0)).current;
@@ -232,18 +310,20 @@ const App = () => {
   });
 
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.transformOriginWrapper}>
-        <Animated.View
-          style={[
-            styles.transformOriginView,
-            {
-              transform: [{rotate: spin}],
-            },
-          ]}
-        />
-      </View>
-    </SafeAreaView>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <View style={styles.transformOriginWrapper}>
+          <Animated.View
+            style={[
+              styles.transformOriginView,
+              {
+                transform: [{rotate: spin}],
+              },
+            ]}
+          />
+        </View>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 

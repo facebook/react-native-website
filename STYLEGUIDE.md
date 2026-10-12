@@ -121,7 +121,7 @@ When it comes to describing property values, be definitive in what is and is not
 
 ## Other grammar policies
 
-* Capitalize “Hooks.”
+- Capitalize “Hooks.”
 
 ## Empathize with readers
 
@@ -137,4 +137,4 @@ When writing step-by-step instructions (e.g. how to install something), try to f
 
 ## Resources
 
-- [React JS’s contibuting guidelines](https://github.com/reactjs/reactjs.org/blob/main/CONTRIBUTING.md#guidelines-for-text), especially the [code examples guidelines](https://github.com/reactjs/reactjs.org/blob/master/CONTRIBUTING.md#guidelines-for-code-examples)
+- [React JS’s contributing guidelines](https://github.com/reactjs/reactjs.org/blob/main/CONTRIBUTING.md#guidelines-for-text), especially the [code examples guidelines](https://github.com/reactjs/reactjs.org/blob/master/CONTRIBUTING.md#guidelines-for-code-examples)

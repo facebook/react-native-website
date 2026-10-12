@@ -3,7 +3,9 @@ id: touchableopacity
 title: TouchableOpacity
 ---
 
-> If you're looking for a more extensive and future-proof way to handle touch-based input, check out the [Pressable](pressable.md) API.
+:::tip
+If you're looking for a more extensive and future-proof way to handle touch-based input, check out the [Pressable](pressable.md) API.
+:::
 
 A wrapper for making views respond properly to touches. On press down, the opacity of the wrapped view is decreased, dimming it.
 
@@ -12,22 +14,25 @@ Opacity is controlled by wrapping the children in an `Animated.View`, which is a
 ## Example
 
 ```SnackPlayer name=TouchableOpacity%20Example
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => {
   const [count, setCount] = useState(0);
   const onPress = () => setCount(prevCount => prevCount + 1);
 
   return (
-    <View style={styles.container}>
-      <View style={styles.countContainer}>
-        <Text>Count: {count}</Text>
-      </View>
-      <TouchableOpacity style={styles.button} onPress={onPress}>
-        <Text>Press Here</Text>
-      </TouchableOpacity>
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <View style={styles.countContainer}>
+          <Text>Count: {count}</Text>
+        </View>
+        <TouchableOpacity style={styles.button} onPress={onPress}>
+          <Text>Press Here</Text>
+        </TouchableOpacity>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
@@ -81,26 +86,7 @@ Determines what the opacity of the wrapped view should be when touch is active. 
 
 ---
 
-### `tvParallaxProperties` <div class="label ios">IOS</div>
-
-_(Apple TV only)_ Object with properties to control Apple TV parallax effects.
-
-- `enabled`: If `true`, parallax effects are enabled. Defaults to `true`.
-- `shiftDistanceX`: Defaults to `2.0`.
-- `shiftDistanceY`: Defaults to `2.0`.
-- `tiltAngle`: Defaults to `0.05`.
-- `magnification`: Defaults to `1.0`.
-- `pressMagnification`: Defaults to `1.0`.
-- `pressDuration`: Defaults to `0.3`.
-- `pressDelay`: Defaults to `0.0`.
-
-| Type   |
-| ------ |
-| object |
-
----
-
-### `hasTVPreferredFocus` <div class="label ios">iOS</div>
+### `hasTVPreferredFocus` <div className="label ios">iOS</div>
 
 _(Apple TV only)_ TV preferred focus (see documentation for the View component).
 
@@ -110,7 +96,7 @@ _(Apple TV only)_ TV preferred focus (see documentation for the View component).
 
 ---
 
-### `nextFocusDown` <div class="label android">Android</div>
+### `nextFocusDown` <div className="label android">Android</div>
 
 TV next focus down (see documentation for the View component).
 
@@ -120,7 +106,7 @@ TV next focus down (see documentation for the View component).
 
 ---
 
-### `nextFocusForward` <div class="label android">Android</div>
+### `nextFocusForward` <div className="label android">Android</div>
 
 TV next focus forward (see documentation for the View component).
 
@@ -130,7 +116,7 @@ TV next focus forward (see documentation for the View component).
 
 ---
 
-### `nextFocusLeft` <div class="label android">Android</div>
+### `nextFocusLeft` <div className="label android">Android</div>
 
 TV next focus left (see documentation for the View component).
 
@@ -140,7 +126,7 @@ TV next focus left (see documentation for the View component).
 
 ---
 
-### `nextFocusRight` <div class="label android">Android</div>
+### `nextFocusRight` <div className="label android">Android</div>
 
 TV next focus right (see documentation for the View component).
 
@@ -150,10 +136,16 @@ TV next focus right (see documentation for the View component).
 
 ---
 
-### `nextFocusUp` <div class="label android">Android</div>
+### `nextFocusUp` <div className="label android">Android</div>
 
 TV next focus up (see documentation for the View component).
 
 | Type   |
 | ------ |
 | number |
+
+---
+
+### `ref`
+
+A ref setter that will be assigned an [element node](element-nodes) when mounted.

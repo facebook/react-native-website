@@ -10,11 +10,12 @@ title: Keyboard
 The Keyboard module allows you to listen for native events and react to them, as well as make changes to the keyboard, like dismissing it.
 
 ```SnackPlayer name=Keyboard%20Example&supportedPlatforms=ios,android
-import React, {useState, useEffect} from 'react';
-import {Keyboard, Text, TextInput, StyleSheet, View} from 'react-native';
+import {useState, useEffect} from 'react';
+import {Keyboard, Text, TextInput, StyleSheet} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const Example = () => {
-  const [keyboardStatus, setKeyboardStatus] = useState('');
+  const [keyboardStatus, setKeyboardStatus] = useState('Keyboard Hidden');
 
   useEffect(() => {
     const showSubscription = Keyboard.addListener('keyboardDidShow', () => {
@@ -31,14 +32,16 @@ const Example = () => {
   }, []);
 
   return (
-    <View style={style.container}>
-      <TextInput
-        style={style.input}
-        placeholder="Click here…"
-        onSubmitEditing={Keyboard.dismiss}
-      />
-      <Text style={style.status}>{keyboardStatus}</Text>
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={style.container}>
+        <TextInput
+          style={style.input}
+          placeholder="Click here…"
+          onSubmitEditing={Keyboard.dismiss}
+        />
+        <Text style={style.status}>{keyboardStatus}</Text>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
@@ -53,7 +56,7 @@ const style = StyleSheet.create({
     borderRadius: 4,
   },
   status: {
-    padding: 10,
+    padding: 16,
     textAlign: 'center',
   },
 });
@@ -73,7 +76,7 @@ export default Example;
 static addListener: (
   eventType: KeyboardEventName,
   listener: KeyboardEventListener,
-) => EmitterSubscription;
+) => EventSubscription;
 ```
 
 The `addListener` function connects a JavaScript function to an identified native keyboard notification event.
@@ -98,7 +101,9 @@ This can be any of the following:
 - `keyboardWillChangeFrame`
 - `keyboardDidChangeFrame`
 
-> Note that only `keyboardDidShow` and `keyboardDidHide` events are available on Android. The events will not be fired when using Android 10 and under if your activity has `android:windowSoftInputMode` set to `adjustNothing`.
+:::note
+Only `keyboardDidShow` and `keyboardDidHide` events are available on Android. The events will not be fired when using Android 10 or below if your activity has `android:windowSoftInputMode` set to `adjustResize` or `adjustNothing`.
+:::
 
 ---
 

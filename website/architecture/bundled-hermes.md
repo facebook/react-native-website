@@ -119,9 +119,9 @@ To implement this on Android, we've added a new build inside the `/ReactAndroid/
 You can now trigger a build of Hermes engine by invoking:
 
 ```bash
-// Build a debug version of Hermes
+# Build a debug version of Hermes
 ./gradlew :ReactAndroid:hermes-engine:assembleDebug
-// Build a release version of Hermes
+# Build a release version of Hermes
 ./gradlew :ReactAndroid:hermes-engine:assembleRelease
 ```
 
@@ -133,7 +133,7 @@ On the Gradle consumer side, we also shipped a small improvement on the consumer
 
 However, this made this line necessary in the template:
 
-```
+```groovy
 exclude group:'com.facebook.fbjni'
 ```
 
@@ -162,7 +162,7 @@ The prebuilt artifacts for Hermes do not contain debug symbols (dSYMs) by defaul
 
 ### I'm afraid this change is impacting me
 
-We'd like to stress that this is essentially an organizational change on _where_ Hermes is built and _how_ the code is syncronized between the two repositories. The change should be fully transparent to our users.
+We'd like to stress that this is essentially an organizational change on _where_ Hermes is built and _how_ the code is synchronized between the two repositories. The change should be fully transparent to our users.
 
 Historically, we used to cut a release of Hermes for a specific version of React Native (e.g. [`v0.11.0 for RN0.68.x`](https://github.com/facebook/hermes/releases/tag/v0.11.0)).
 
