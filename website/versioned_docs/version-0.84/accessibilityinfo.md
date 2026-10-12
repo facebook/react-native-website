@@ -118,18 +118,21 @@ Post a string to be announced by the screen reader.
 ```tsx
 static announceForAccessibilityWithOptions(
   announcement: string,
-  options: {queue?: boolean},
+  options: {
+    queue?: boolean;
+    priority?: 'low' | 'default' | 'high';
+  },
 );
 ```
 
-Post a string to be announced by the screen reader with modification options. By default announcements will interrupt any existing speech, but on iOS they can be queued behind existing speech by setting `queue` to `true` in the options object.
+Post a string to be announced by the screen reader with modification options. By default announcements will interrupt any existing speech, but on iOS they can be queued behind existing speech by setting `queue` to `true` in the options object. An optional `priority` can also be specified on iOS.
 
 **Parameters:**
 
-| Name                                                              | Type   | Description                                                                                  |
-| ----------------------------------------------------------------- | ------ | -------------------------------------------------------------------------------------------- |
-| announcement <div className="label basic required">Required</div> | string | The string to be announced                                                                   |
-| options <div className="label basic required">Required</div>      | object | `queue` - queue the announcement behind existing speech <div className="label ios">iOS</div> |
+| Name                                                              | Type   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| ----------------------------------------------------------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| announcement <div className="label basic required">Required</div> | string | The string to be announced                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| options <div className="label basic required">Required</div>      | object | Options object with the following keys:<ul><li>`queue`: Queue the announcement behind existing speech. <div className="label ios">iOS</div></li><li>`priority`: The priority of the announcement (`'low'`, `'default'`, or `'high'`). High priority announcements will interrupt any ongoing speech and cannot be interrupted. Default priority announcements will interrupt any ongoing speech but can be interrupted. Low priority announcements will not interrupt ongoing speech and can be interrupted. <div className="label ios">iOS</div></li></ul> |
 
 ---
 
