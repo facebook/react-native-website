@@ -22,7 +22,7 @@ title: ViewToken Object Type
 
 Unique numeric identifier assigned to the data element.
 
-This property may be `null` when the viewable element is not an item from the data array—such as when a section header or section footer becomes viewable in [`SectionList`](sectionlist).
+This property may be `null` when the viewable element is not an item from the data array, for example when a section header or section footer becomes viewable in [`SectionList`](sectionlist).
 
 | Type   | Optional |
 | ------ | -------- |
