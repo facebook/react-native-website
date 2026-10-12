@@ -1,4 +1,4 @@
-<img width="1250" height="1004" alt="image" src="https://github.com/user-attachments/assets/fcf2343c-1327-469d-b186-6a222551b32a" />---
+---
 id: usewindowdimensions
 title: useWindowDimensions
 ---
@@ -31,11 +31,12 @@ const App = () => {
           <Text>Font scale: {fontScale}</Text>
           <Text>Pixel ratio: {scale}</Text>
         </View>
-        <View style={{
-          width: 100 * fontScale,
-          padding: 16 * fontScale,
-          ...styles.box,
-        }}>
+        <View
+          style={{
+            width: 100 * fontScale,
+            padding: 16 * fontScale,
+            ...styles.box,
+          }}>
           <Text style={{fontSize: 14 / fontScale}}>Dynamic Box</Text>
         </View>
       </SafeAreaView>
@@ -56,7 +57,7 @@ const styles = StyleSheet.create({
   box: {
     minWidth: 100,
     backgroundColor: '#06bcee',
-  }
+  },
 });
 
 export default App;
