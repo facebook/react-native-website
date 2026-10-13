@@ -209,7 +209,7 @@ You can follow along and contribute in our dedicated [discussions & proposals](h
 
 With 0.76, The New Architecture is enabled by default in all the React Native projects.
 
-If you find anything that is not working well, please open an issue using [this template](https://github.com/facebook/react-native/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2CType%3A+New+Architecture&projects=&template=new_architecture_bug_report.yml).
+If you find anything that is not working well, please open an issue using [this template](https://github.com/react/react-native/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2CType%3A+New+Architecture&projects=&template=new_architecture_bug_report.yml).
 
 If, for any reasons, you can't use the New Architecture, you can still opt-out from it:
 

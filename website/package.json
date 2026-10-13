@@ -5,9 +5,9 @@
   "private": true,
   "license": "CC-BY-4.0",
   "homepage": "https://reactnative.dev/",
-  "repository": "github:facebook/react-native-website",
+  "repository": "github:react/react-native-website",
   "bugs": {
-    "url": "https://github.com/facebook/react-native-website/issues"
+    "url": "https://github.com/react/react-native-website/issues"
   },
   "scripts": {
     "docusaurus": "docusaurus",
