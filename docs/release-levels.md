@@ -48,14 +48,14 @@ The `RCTReactNativeFactory` class now has an initializer that accepts a `release
 
 <Tabs groupId="ios-language" queryString defaultValue={constants.defaultAppleLanguage} values={constants.appleLanguages}>
 <TabItem value="objc">
-  
+
 ```objc title="SceneDelegate.m"
 self.reactNativeFactory = [[RCTReactNativeFactory alloc] initWithDelegate:self releaseLevel:Canary];
 ```
 
 </TabItem>
 <TabItem value="swift">
-  
+
 ```swift title="SceneDelegate.swift"
 reactNativeFactory = RCTReactNativeFactory(delegate: self, releaseLevel: RCTReleaseLevel.Canary)
 ```
