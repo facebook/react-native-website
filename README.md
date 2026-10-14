@@ -2,7 +2,7 @@
 
 This repo contains the website configuration and documentation powering the [React Native website](https://reactnative.dev/).
 
-> If you are looking for the source code of the [React Native Archive website](https://archive.reactnative.dev/) select the [`archive`](https://github.com/facebook/react-native-website/tree/archive) branch.
+> If you are looking for the source code of the [React Native Archive website](https://archive.reactnative.dev/) select the [`archive`](https://github.com/react/react-native-website/tree/archive) branch.
 
 ## Contents
 
@@ -175,7 +175,7 @@ If possible, test any visual changes in all latest versions of the following bro
 1. `git add -A && git commit -m "My message"` to stage and commit your changes.
    > replace `My message` with a commit message, such as `Fixed header logo on Android`
 1. `git push my-fork-name the-name-of-my-branch`
-1. Go to the [react-native-website repo](https://github.com/facebook/react-native-website) and you should see recently pushed branches.
+1. Go to the [react-native-website repo](https://github.com/react/react-native-website) and you should see recently pushed branches.
 1. Follow GitHub's instructions.
 1. Describe briefly your changes (in case of visual changes, please include screenshots).
 

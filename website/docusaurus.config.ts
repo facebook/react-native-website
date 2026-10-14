@@ -36,8 +36,7 @@ const commonDocsOptions: PluginContentDocs.Options = {
   showLastUpdateAuthor: false,
   showLastUpdateTime: true,
   editUrl: (options => {
-    const baseUrl =
-      'https://github.com/facebook/react-native-website/edit/main';
+    const baseUrl = 'https://github.com/react/react-native-website/edit/main';
     const nextReleasePath = `docs/${options.docPath}`;
     const isNextRelease = options.version === 'current';
     const buttons: EditUrlButton[] = [
@@ -80,7 +79,7 @@ const config: Config = {
     v4: true,
     // Make Docusaurus build faster - enabled by default
     // See https://github.com/facebook/docusaurus/issues/10556
-    // See https://github.com/facebook/react-native-website/pull/4268
+    // See https://github.com/react/react-native-website/pull/4268
     // See https://docusaurus.io/blog/releases/3.6
     faster: (process.env.DOCUSAURUS_FASTER ?? 'true') === 'true',
   },
@@ -479,7 +478,7 @@ const config: Config = {
           position: 'right',
         },
         {
-          href: 'https://github.com/facebook/react-native',
+          href: 'https://github.com/react/react-native',
           'aria-label': 'GitHub repository',
           position: 'right',
           className: 'navbar-github-link',
@@ -549,7 +548,7 @@ const config: Config = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/facebook/react-native',
+              href: 'https://github.com/react/react-native',
             },
           ],
         },
