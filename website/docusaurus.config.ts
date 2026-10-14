@@ -36,8 +36,7 @@ const commonDocsOptions: PluginContentDocs.Options = {
   showLastUpdateAuthor: false,
   showLastUpdateTime: true,
   editUrl: (options => {
-    const baseUrl =
-      'https://github.com/react/react-native-website/edit/main';
+    const baseUrl = 'https://github.com/react/react-native-website/edit/main';
     const nextReleasePath = `docs/${options.docPath}`;
     const isNextRelease = options.version === 'current';
     const buttons: EditUrlButton[] = [
