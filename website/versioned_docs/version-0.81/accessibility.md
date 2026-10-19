@@ -144,7 +144,7 @@ In the above example method `addOne` changes the state variable `count`. When th
 - **image** Used when the element should be treated as an image. Can be combined with a button or link.
 - **imagebutton** Used when the element should be treated as a button and is also an image.
 - **keyboardkey** Used when the element acts as a keyboard key.
-- **link** Used when the element should be treated as a link.
+- **link** Used when the element should be treated as a link, specifically for interactive elements that open an external URL or web page in a browser. For in-app screen navigation or actions, use `button` instead.
 - **menu** Used when the component is a menu of choices.
 - **menubar** Used when a component is a container of multiple menus.
 - **menuitem** Used to represent an item within a menu.
@@ -383,7 +383,7 @@ Assign this property to a custom function which will be called when someone perf
 - **grid** Used with ScrollView, VirtualizedList, FlatList, or SectionList to represent a grid. Adds the in/out of grid announcements to the android GridView.
 - **heading** Used when an element acts as a header for a content section (e.g. the title of a navigation bar).
 - **img** Used when the element should be treated as an image. Can be combined with a button or link, for example.
-- **link** Used when the element should be treated as a link.
+- **link** Used when the element should be treated as a link, specifically for interactive elements that open an external URL or web page in a browser. For in-app screen navigation or actions, use `button` instead.
 - **list** Used to identify a list of items.
 - **listitem** Used to itentify an item in a list.
 - **menu** Used when the component is a menu of choices.
