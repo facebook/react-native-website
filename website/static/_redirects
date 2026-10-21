@@ -78,6 +78,7 @@
 /docs/next/native-components-*      /docs/next/legacy/native-components-:splat
 
 # Changed blog post dates
+/blog/2026/10/19/react-native-0.88 /blog/2026/10/16/react-native-0.88
 /blog/2021/03/11/version-0.64   /blog/2021/03/12/version-0.64
 
 # Removed pages
