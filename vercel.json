@@ -370,6 +370,11 @@
       "permanent": true
     },
     {
+      "source": "/blog/2026/10/19/react-native-0.88",
+      "destination": "/blog/2026/10/16/react-native-0.88",
+      "permanent": true
+    },
+    {
       "source": "/docs/new-architecture-app-modules-android",
       "destination": "https://github.com/reactwg/react-native-new-architecture#guides",
       "permanent": true
